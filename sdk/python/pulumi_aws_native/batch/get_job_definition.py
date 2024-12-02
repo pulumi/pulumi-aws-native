@@ -24,7 +24,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetJobDefinitionResult:
-    def __init__(__self__, container_properties=None, ecs_properties=None, eks_properties=None, id=None, node_properties=None, parameters=None, platform_capabilities=None, propagate_tags=None, retry_strategy=None, scheduling_priority=None, timeout=None, type=None):
+    def __init__(__self__, container_properties=None, ecs_properties=None, eks_properties=None, id=None, node_properties=None, parameters=None, platform_capabilities=None, propagate_tags=None, retry_strategy=None, scheduling_priority=None, tags=None, timeout=None, type=None):
         if container_properties and not isinstance(container_properties, dict):
             raise TypeError("Expected argument 'container_properties' to be a dict")
         pulumi.set(__self__, "container_properties", container_properties)
@@ -55,6 +55,9 @@ class GetJobDefinitionResult:
         if scheduling_priority and not isinstance(scheduling_priority, int):
             raise TypeError("Expected argument 'scheduling_priority' to be a int")
         pulumi.set(__self__, "scheduling_priority", scheduling_priority)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
         if timeout and not isinstance(timeout, dict):
             raise TypeError("Expected argument 'timeout' to be a dict")
         pulumi.set(__self__, "timeout", timeout)
@@ -145,6 +148,16 @@ class GetJobDefinitionResult:
 
     @property
     @pulumi.getter
+    def tags(self) -> Optional[Any]:
+        """
+        The tags that are applied to the job definition.
+
+        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Batch::JobDefinition` for more information about the expected schema for this property.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
     def timeout(self) -> Optional['outputs.JobDefinitionTimeout']:
         """
         The timeout time for jobs that are submitted with this job definition. After the amount of time you specify passes, AWS Batch terminates your jobs if they aren't finished.
@@ -181,6 +194,7 @@ class AwaitableGetJobDefinitionResult(GetJobDefinitionResult):
             propagate_tags=self.propagate_tags,
             retry_strategy=self.retry_strategy,
             scheduling_priority=self.scheduling_priority,
+            tags=self.tags,
             timeout=self.timeout,
             type=self.type)
 
@@ -206,6 +220,7 @@ def get_job_definition(id: Optional[str] = None,
         propagate_tags=pulumi.get(__ret__, 'propagate_tags'),
         retry_strategy=pulumi.get(__ret__, 'retry_strategy'),
         scheduling_priority=pulumi.get(__ret__, 'scheduling_priority'),
+        tags=pulumi.get(__ret__, 'tags'),
         timeout=pulumi.get(__ret__, 'timeout'),
         type=pulumi.get(__ret__, 'type'))
 def get_job_definition_output(id: Optional[pulumi.Input[str]] = None,
@@ -228,5 +243,6 @@ def get_job_definition_output(id: Optional[pulumi.Input[str]] = None,
         propagate_tags=pulumi.get(__response__, 'propagate_tags'),
         retry_strategy=pulumi.get(__response__, 'retry_strategy'),
         scheduling_priority=pulumi.get(__response__, 'scheduling_priority'),
+        tags=pulumi.get(__response__, 'tags'),
         timeout=pulumi.get(__response__, 'timeout'),
         type=pulumi.get(__response__, 'type')))

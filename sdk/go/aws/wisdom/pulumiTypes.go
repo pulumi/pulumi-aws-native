@@ -2219,7 +2219,9 @@ func (o KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesP
 }
 
 type KnowledgeBaseFixedSizeChunkingConfiguration struct {
-	MaxTokens         float64 `pulumi:"maxTokens"`
+	// The maximum number of tokens to include in a chunk.
+	MaxTokens float64 `pulumi:"maxTokens"`
+	// The percentage of overlap between adjacent chunks of a data source.
 	OverlapPercentage float64 `pulumi:"overlapPercentage"`
 }
 
@@ -2235,7 +2237,9 @@ type KnowledgeBaseFixedSizeChunkingConfigurationInput interface {
 }
 
 type KnowledgeBaseFixedSizeChunkingConfigurationArgs struct {
-	MaxTokens         pulumi.Float64Input `pulumi:"maxTokens"`
+	// The maximum number of tokens to include in a chunk.
+	MaxTokens pulumi.Float64Input `pulumi:"maxTokens"`
+	// The percentage of overlap between adjacent chunks of a data source.
 	OverlapPercentage pulumi.Float64Input `pulumi:"overlapPercentage"`
 }
 
@@ -2316,10 +2320,12 @@ func (o KnowledgeBaseFixedSizeChunkingConfigurationOutput) ToKnowledgeBaseFixedS
 	}).(KnowledgeBaseFixedSizeChunkingConfigurationPtrOutput)
 }
 
+// The maximum number of tokens to include in a chunk.
 func (o KnowledgeBaseFixedSizeChunkingConfigurationOutput) MaxTokens() pulumi.Float64Output {
 	return o.ApplyT(func(v KnowledgeBaseFixedSizeChunkingConfiguration) float64 { return v.MaxTokens }).(pulumi.Float64Output)
 }
 
+// The percentage of overlap between adjacent chunks of a data source.
 func (o KnowledgeBaseFixedSizeChunkingConfigurationOutput) OverlapPercentage() pulumi.Float64Output {
 	return o.ApplyT(func(v KnowledgeBaseFixedSizeChunkingConfiguration) float64 { return v.OverlapPercentage }).(pulumi.Float64Output)
 }
@@ -2348,6 +2354,7 @@ func (o KnowledgeBaseFixedSizeChunkingConfigurationPtrOutput) Elem() KnowledgeBa
 	}).(KnowledgeBaseFixedSizeChunkingConfigurationOutput)
 }
 
+// The maximum number of tokens to include in a chunk.
 func (o KnowledgeBaseFixedSizeChunkingConfigurationPtrOutput) MaxTokens() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *KnowledgeBaseFixedSizeChunkingConfiguration) *float64 {
 		if v == nil {
@@ -2357,6 +2364,7 @@ func (o KnowledgeBaseFixedSizeChunkingConfigurationPtrOutput) MaxTokens() pulumi
 	}).(pulumi.Float64PtrOutput)
 }
 
+// The percentage of overlap between adjacent chunks of a data source.
 func (o KnowledgeBaseFixedSizeChunkingConfigurationPtrOutput) OverlapPercentage() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *KnowledgeBaseFixedSizeChunkingConfiguration) *float64 {
 		if v == nil {
@@ -2367,8 +2375,10 @@ func (o KnowledgeBaseFixedSizeChunkingConfigurationPtrOutput) OverlapPercentage(
 }
 
 type KnowledgeBaseHierarchicalChunkingConfiguration struct {
+	// Token settings for each layer.
 	LevelConfigurations []KnowledgeBaseHierarchicalChunkingLevelConfiguration `pulumi:"levelConfigurations"`
-	OverlapTokens       float64                                               `pulumi:"overlapTokens"`
+	// The number of tokens to repeat across chunks in the same layer.
+	OverlapTokens float64 `pulumi:"overlapTokens"`
 }
 
 // KnowledgeBaseHierarchicalChunkingConfigurationInput is an input type that accepts KnowledgeBaseHierarchicalChunkingConfigurationArgs and KnowledgeBaseHierarchicalChunkingConfigurationOutput values.
@@ -2383,8 +2393,10 @@ type KnowledgeBaseHierarchicalChunkingConfigurationInput interface {
 }
 
 type KnowledgeBaseHierarchicalChunkingConfigurationArgs struct {
+	// Token settings for each layer.
 	LevelConfigurations KnowledgeBaseHierarchicalChunkingLevelConfigurationArrayInput `pulumi:"levelConfigurations"`
-	OverlapTokens       pulumi.Float64Input                                           `pulumi:"overlapTokens"`
+	// The number of tokens to repeat across chunks in the same layer.
+	OverlapTokens pulumi.Float64Input `pulumi:"overlapTokens"`
 }
 
 func (KnowledgeBaseHierarchicalChunkingConfigurationArgs) ElementType() reflect.Type {
@@ -2464,12 +2476,14 @@ func (o KnowledgeBaseHierarchicalChunkingConfigurationOutput) ToKnowledgeBaseHie
 	}).(KnowledgeBaseHierarchicalChunkingConfigurationPtrOutput)
 }
 
+// Token settings for each layer.
 func (o KnowledgeBaseHierarchicalChunkingConfigurationOutput) LevelConfigurations() KnowledgeBaseHierarchicalChunkingLevelConfigurationArrayOutput {
 	return o.ApplyT(func(v KnowledgeBaseHierarchicalChunkingConfiguration) []KnowledgeBaseHierarchicalChunkingLevelConfiguration {
 		return v.LevelConfigurations
 	}).(KnowledgeBaseHierarchicalChunkingLevelConfigurationArrayOutput)
 }
 
+// The number of tokens to repeat across chunks in the same layer.
 func (o KnowledgeBaseHierarchicalChunkingConfigurationOutput) OverlapTokens() pulumi.Float64Output {
 	return o.ApplyT(func(v KnowledgeBaseHierarchicalChunkingConfiguration) float64 { return v.OverlapTokens }).(pulumi.Float64Output)
 }
@@ -2498,6 +2512,7 @@ func (o KnowledgeBaseHierarchicalChunkingConfigurationPtrOutput) Elem() Knowledg
 	}).(KnowledgeBaseHierarchicalChunkingConfigurationOutput)
 }
 
+// Token settings for each layer.
 func (o KnowledgeBaseHierarchicalChunkingConfigurationPtrOutput) LevelConfigurations() KnowledgeBaseHierarchicalChunkingLevelConfigurationArrayOutput {
 	return o.ApplyT(func(v *KnowledgeBaseHierarchicalChunkingConfiguration) []KnowledgeBaseHierarchicalChunkingLevelConfiguration {
 		if v == nil {
@@ -2507,6 +2522,7 @@ func (o KnowledgeBaseHierarchicalChunkingConfigurationPtrOutput) LevelConfigurat
 	}).(KnowledgeBaseHierarchicalChunkingLevelConfigurationArrayOutput)
 }
 
+// The number of tokens to repeat across chunks in the same layer.
 func (o KnowledgeBaseHierarchicalChunkingConfigurationPtrOutput) OverlapTokens() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *KnowledgeBaseHierarchicalChunkingConfiguration) *float64 {
 		if v == nil {
@@ -2517,6 +2533,7 @@ func (o KnowledgeBaseHierarchicalChunkingConfigurationPtrOutput) OverlapTokens()
 }
 
 type KnowledgeBaseHierarchicalChunkingLevelConfiguration struct {
+	// The maximum number of tokens that a chunk can contain in this layer.
 	MaxTokens float64 `pulumi:"maxTokens"`
 }
 
@@ -2532,6 +2549,7 @@ type KnowledgeBaseHierarchicalChunkingLevelConfigurationInput interface {
 }
 
 type KnowledgeBaseHierarchicalChunkingLevelConfigurationArgs struct {
+	// The maximum number of tokens that a chunk can contain in this layer.
 	MaxTokens pulumi.Float64Input `pulumi:"maxTokens"`
 }
 
@@ -2586,6 +2604,7 @@ func (o KnowledgeBaseHierarchicalChunkingLevelConfigurationOutput) ToKnowledgeBa
 	return o
 }
 
+// The maximum number of tokens that a chunk can contain in this layer.
 func (o KnowledgeBaseHierarchicalChunkingLevelConfigurationOutput) MaxTokens() pulumi.Float64Output {
 	return o.ApplyT(func(v KnowledgeBaseHierarchicalChunkingLevelConfiguration) float64 { return v.MaxTokens }).(pulumi.Float64Output)
 }
@@ -3005,9 +3024,12 @@ func (o KnowledgeBaseSeedUrlArrayOutput) Index(i pulumi.IntInput) KnowledgeBaseS
 }
 
 type KnowledgeBaseSemanticChunkingConfiguration struct {
+	// The dissimilarity threshold for splitting chunks.
 	BreakpointPercentileThreshold float64 `pulumi:"breakpointPercentileThreshold"`
-	BufferSize                    float64 `pulumi:"bufferSize"`
-	MaxTokens                     float64 `pulumi:"maxTokens"`
+	// The buffer size.
+	BufferSize float64 `pulumi:"bufferSize"`
+	// The maximum number of tokens that a chunk can contain.
+	MaxTokens float64 `pulumi:"maxTokens"`
 }
 
 // KnowledgeBaseSemanticChunkingConfigurationInput is an input type that accepts KnowledgeBaseSemanticChunkingConfigurationArgs and KnowledgeBaseSemanticChunkingConfigurationOutput values.
@@ -3022,9 +3044,12 @@ type KnowledgeBaseSemanticChunkingConfigurationInput interface {
 }
 
 type KnowledgeBaseSemanticChunkingConfigurationArgs struct {
+	// The dissimilarity threshold for splitting chunks.
 	BreakpointPercentileThreshold pulumi.Float64Input `pulumi:"breakpointPercentileThreshold"`
-	BufferSize                    pulumi.Float64Input `pulumi:"bufferSize"`
-	MaxTokens                     pulumi.Float64Input `pulumi:"maxTokens"`
+	// The buffer size.
+	BufferSize pulumi.Float64Input `pulumi:"bufferSize"`
+	// The maximum number of tokens that a chunk can contain.
+	MaxTokens pulumi.Float64Input `pulumi:"maxTokens"`
 }
 
 func (KnowledgeBaseSemanticChunkingConfigurationArgs) ElementType() reflect.Type {
@@ -3104,14 +3129,17 @@ func (o KnowledgeBaseSemanticChunkingConfigurationOutput) ToKnowledgeBaseSemanti
 	}).(KnowledgeBaseSemanticChunkingConfigurationPtrOutput)
 }
 
+// The dissimilarity threshold for splitting chunks.
 func (o KnowledgeBaseSemanticChunkingConfigurationOutput) BreakpointPercentileThreshold() pulumi.Float64Output {
 	return o.ApplyT(func(v KnowledgeBaseSemanticChunkingConfiguration) float64 { return v.BreakpointPercentileThreshold }).(pulumi.Float64Output)
 }
 
+// The buffer size.
 func (o KnowledgeBaseSemanticChunkingConfigurationOutput) BufferSize() pulumi.Float64Output {
 	return o.ApplyT(func(v KnowledgeBaseSemanticChunkingConfiguration) float64 { return v.BufferSize }).(pulumi.Float64Output)
 }
 
+// The maximum number of tokens that a chunk can contain.
 func (o KnowledgeBaseSemanticChunkingConfigurationOutput) MaxTokens() pulumi.Float64Output {
 	return o.ApplyT(func(v KnowledgeBaseSemanticChunkingConfiguration) float64 { return v.MaxTokens }).(pulumi.Float64Output)
 }
@@ -3140,6 +3168,7 @@ func (o KnowledgeBaseSemanticChunkingConfigurationPtrOutput) Elem() KnowledgeBas
 	}).(KnowledgeBaseSemanticChunkingConfigurationOutput)
 }
 
+// The dissimilarity threshold for splitting chunks.
 func (o KnowledgeBaseSemanticChunkingConfigurationPtrOutput) BreakpointPercentileThreshold() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *KnowledgeBaseSemanticChunkingConfiguration) *float64 {
 		if v == nil {
@@ -3149,6 +3178,7 @@ func (o KnowledgeBaseSemanticChunkingConfigurationPtrOutput) BreakpointPercentil
 	}).(pulumi.Float64PtrOutput)
 }
 
+// The buffer size.
 func (o KnowledgeBaseSemanticChunkingConfigurationPtrOutput) BufferSize() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *KnowledgeBaseSemanticChunkingConfiguration) *float64 {
 		if v == nil {
@@ -3158,6 +3188,7 @@ func (o KnowledgeBaseSemanticChunkingConfigurationPtrOutput) BufferSize() pulumi
 	}).(pulumi.Float64PtrOutput)
 }
 
+// The maximum number of tokens that a chunk can contain.
 func (o KnowledgeBaseSemanticChunkingConfigurationPtrOutput) MaxTokens() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *KnowledgeBaseSemanticChunkingConfiguration) *float64 {
 		if v == nil {
@@ -3598,8 +3629,10 @@ type KnowledgeBaseTag struct {
 }
 
 type KnowledgeBaseVectorIngestionConfiguration struct {
+	// Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried.
 	ChunkingConfiguration *KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationProperties `pulumi:"chunkingConfiguration"`
-	ParsingConfiguration  *KnowledgeBaseVectorIngestionConfigurationParsingConfigurationProperties  `pulumi:"parsingConfiguration"`
+	// A custom parser for data source documents.
+	ParsingConfiguration *KnowledgeBaseVectorIngestionConfigurationParsingConfigurationProperties `pulumi:"parsingConfiguration"`
 }
 
 // KnowledgeBaseVectorIngestionConfigurationInput is an input type that accepts KnowledgeBaseVectorIngestionConfigurationArgs and KnowledgeBaseVectorIngestionConfigurationOutput values.
@@ -3614,8 +3647,10 @@ type KnowledgeBaseVectorIngestionConfigurationInput interface {
 }
 
 type KnowledgeBaseVectorIngestionConfigurationArgs struct {
+	// Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried.
 	ChunkingConfiguration KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesPtrInput `pulumi:"chunkingConfiguration"`
-	ParsingConfiguration  KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesPtrInput  `pulumi:"parsingConfiguration"`
+	// A custom parser for data source documents.
+	ParsingConfiguration KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesPtrInput `pulumi:"parsingConfiguration"`
 }
 
 func (KnowledgeBaseVectorIngestionConfigurationArgs) ElementType() reflect.Type {
@@ -3695,12 +3730,14 @@ func (o KnowledgeBaseVectorIngestionConfigurationOutput) ToKnowledgeBaseVectorIn
 	}).(KnowledgeBaseVectorIngestionConfigurationPtrOutput)
 }
 
+// Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried.
 func (o KnowledgeBaseVectorIngestionConfigurationOutput) ChunkingConfiguration() KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesPtrOutput {
 	return o.ApplyT(func(v KnowledgeBaseVectorIngestionConfiguration) *KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationProperties {
 		return v.ChunkingConfiguration
 	}).(KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesPtrOutput)
 }
 
+// A custom parser for data source documents.
 func (o KnowledgeBaseVectorIngestionConfigurationOutput) ParsingConfiguration() KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesPtrOutput {
 	return o.ApplyT(func(v KnowledgeBaseVectorIngestionConfiguration) *KnowledgeBaseVectorIngestionConfigurationParsingConfigurationProperties {
 		return v.ParsingConfiguration
@@ -3731,6 +3768,7 @@ func (o KnowledgeBaseVectorIngestionConfigurationPtrOutput) Elem() KnowledgeBase
 	}).(KnowledgeBaseVectorIngestionConfigurationOutput)
 }
 
+// Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried.
 func (o KnowledgeBaseVectorIngestionConfigurationPtrOutput) ChunkingConfiguration() KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesPtrOutput {
 	return o.ApplyT(func(v *KnowledgeBaseVectorIngestionConfiguration) *KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationProperties {
 		if v == nil {
@@ -3740,6 +3778,7 @@ func (o KnowledgeBaseVectorIngestionConfigurationPtrOutput) ChunkingConfiguratio
 	}).(KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesPtrOutput)
 }
 
+// A custom parser for data source documents.
 func (o KnowledgeBaseVectorIngestionConfigurationPtrOutput) ParsingConfiguration() KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesPtrOutput {
 	return o.ApplyT(func(v *KnowledgeBaseVectorIngestionConfiguration) *KnowledgeBaseVectorIngestionConfigurationParsingConfigurationProperties {
 		if v == nil {
@@ -3749,6 +3788,7 @@ func (o KnowledgeBaseVectorIngestionConfigurationPtrOutput) ParsingConfiguration
 	}).(KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesPtrOutput)
 }
 
+// Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried.
 type KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationProperties struct {
 	ChunkingStrategy                  KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesChunkingStrategy `pulumi:"chunkingStrategy"`
 	FixedSizeChunkingConfiguration    *KnowledgeBaseFixedSizeChunkingConfiguration                                             `pulumi:"fixedSizeChunkingConfiguration"`
@@ -3767,6 +3807,7 @@ type KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesInp
 	ToKnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesOutputWithContext(context.Context) KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesOutput
 }
 
+// Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried.
 type KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesArgs struct {
 	ChunkingStrategy                  KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesChunkingStrategyInput `pulumi:"chunkingStrategy"`
 	FixedSizeChunkingConfiguration    KnowledgeBaseFixedSizeChunkingConfigurationPtrInput                                           `pulumi:"fixedSizeChunkingConfiguration"`
@@ -3827,6 +3868,7 @@ func (i *knowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertie
 	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesPtrOutput)
 }
 
+// Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried.
 type KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesOutput struct{ *pulumi.OutputState }
 
 func (KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesOutput) ElementType() reflect.Type {
@@ -3935,6 +3977,7 @@ func (o KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationProperties
 	}).(KnowledgeBaseSemanticChunkingConfigurationPtrOutput)
 }
 
+// A custom parser for data source documents.
 type KnowledgeBaseVectorIngestionConfigurationParsingConfigurationProperties struct {
 	BedrockFoundationModelConfiguration *KnowledgeBaseBedrockFoundationModelConfiguration                                      `pulumi:"bedrockFoundationModelConfiguration"`
 	ParsingStrategy                     KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesParsingStrategy `pulumi:"parsingStrategy"`
@@ -3951,6 +3994,7 @@ type KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesInpu
 	ToKnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesOutputWithContext(context.Context) KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesOutput
 }
 
+// A custom parser for data source documents.
 type KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesArgs struct {
 	BedrockFoundationModelConfiguration KnowledgeBaseBedrockFoundationModelConfigurationPtrInput                                    `pulumi:"bedrockFoundationModelConfiguration"`
 	ParsingStrategy                     KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesParsingStrategyInput `pulumi:"parsingStrategy"`
@@ -4009,6 +4053,7 @@ func (i *knowledgeBaseVectorIngestionConfigurationParsingConfigurationProperties
 	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesPtrOutput)
 }
 
+// A custom parser for data source documents.
 type KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesOutput struct{ *pulumi.OutputState }
 
 func (KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesOutput) ElementType() reflect.Type {
@@ -4715,10 +4760,14 @@ func (o MessageTemplateAgentAttributesPtrOutput) LastName() pulumi.StringPtrOutp
 
 // An object that specifies the default values to use for variables in the message template. This object contains different categories of key-value pairs. Each key defines a variable or placeholder in the message template. The corresponding value defines the default value for that variable.
 type MessageTemplateAttributes struct {
-	AgentAttributes           *MessageTemplateAgentAttributes           `pulumi:"agentAttributes"`
-	CustomAttributes          map[string]string                         `pulumi:"customAttributes"`
+	// The agent attributes that are used with the message template.
+	AgentAttributes *MessageTemplateAgentAttributes `pulumi:"agentAttributes"`
+	// The custom attributes that are used with the message template.
+	CustomAttributes map[string]string `pulumi:"customAttributes"`
+	// The customer profile attributes that are used with the message template.
 	CustomerProfileAttributes *MessageTemplateCustomerProfileAttributes `pulumi:"customerProfileAttributes"`
-	SystemAttributes          *MessageTemplateSystemAttributes          `pulumi:"systemAttributes"`
+	// The system attributes that are used with the message template.
+	SystemAttributes *MessageTemplateSystemAttributes `pulumi:"systemAttributes"`
 }
 
 // MessageTemplateAttributesInput is an input type that accepts MessageTemplateAttributesArgs and MessageTemplateAttributesOutput values.
@@ -4734,10 +4783,14 @@ type MessageTemplateAttributesInput interface {
 
 // An object that specifies the default values to use for variables in the message template. This object contains different categories of key-value pairs. Each key defines a variable or placeholder in the message template. The corresponding value defines the default value for that variable.
 type MessageTemplateAttributesArgs struct {
-	AgentAttributes           MessageTemplateAgentAttributesPtrInput           `pulumi:"agentAttributes"`
-	CustomAttributes          pulumi.StringMapInput                            `pulumi:"customAttributes"`
+	// The agent attributes that are used with the message template.
+	AgentAttributes MessageTemplateAgentAttributesPtrInput `pulumi:"agentAttributes"`
+	// The custom attributes that are used with the message template.
+	CustomAttributes pulumi.StringMapInput `pulumi:"customAttributes"`
+	// The customer profile attributes that are used with the message template.
 	CustomerProfileAttributes MessageTemplateCustomerProfileAttributesPtrInput `pulumi:"customerProfileAttributes"`
-	SystemAttributes          MessageTemplateSystemAttributesPtrInput          `pulumi:"systemAttributes"`
+	// The system attributes that are used with the message template.
+	SystemAttributes MessageTemplateSystemAttributesPtrInput `pulumi:"systemAttributes"`
 }
 
 func (MessageTemplateAttributesArgs) ElementType() reflect.Type {
@@ -4818,20 +4871,24 @@ func (o MessageTemplateAttributesOutput) ToMessageTemplateAttributesPtrOutputWit
 	}).(MessageTemplateAttributesPtrOutput)
 }
 
+// The agent attributes that are used with the message template.
 func (o MessageTemplateAttributesOutput) AgentAttributes() MessageTemplateAgentAttributesPtrOutput {
 	return o.ApplyT(func(v MessageTemplateAttributes) *MessageTemplateAgentAttributes { return v.AgentAttributes }).(MessageTemplateAgentAttributesPtrOutput)
 }
 
+// The custom attributes that are used with the message template.
 func (o MessageTemplateAttributesOutput) CustomAttributes() pulumi.StringMapOutput {
 	return o.ApplyT(func(v MessageTemplateAttributes) map[string]string { return v.CustomAttributes }).(pulumi.StringMapOutput)
 }
 
+// The customer profile attributes that are used with the message template.
 func (o MessageTemplateAttributesOutput) CustomerProfileAttributes() MessageTemplateCustomerProfileAttributesPtrOutput {
 	return o.ApplyT(func(v MessageTemplateAttributes) *MessageTemplateCustomerProfileAttributes {
 		return v.CustomerProfileAttributes
 	}).(MessageTemplateCustomerProfileAttributesPtrOutput)
 }
 
+// The system attributes that are used with the message template.
 func (o MessageTemplateAttributesOutput) SystemAttributes() MessageTemplateSystemAttributesPtrOutput {
 	return o.ApplyT(func(v MessageTemplateAttributes) *MessageTemplateSystemAttributes { return v.SystemAttributes }).(MessageTemplateSystemAttributesPtrOutput)
 }
@@ -4860,6 +4917,7 @@ func (o MessageTemplateAttributesPtrOutput) Elem() MessageTemplateAttributesOutp
 	}).(MessageTemplateAttributesOutput)
 }
 
+// The agent attributes that are used with the message template.
 func (o MessageTemplateAttributesPtrOutput) AgentAttributes() MessageTemplateAgentAttributesPtrOutput {
 	return o.ApplyT(func(v *MessageTemplateAttributes) *MessageTemplateAgentAttributes {
 		if v == nil {
@@ -4869,6 +4927,7 @@ func (o MessageTemplateAttributesPtrOutput) AgentAttributes() MessageTemplateAge
 	}).(MessageTemplateAgentAttributesPtrOutput)
 }
 
+// The custom attributes that are used with the message template.
 func (o MessageTemplateAttributesPtrOutput) CustomAttributes() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *MessageTemplateAttributes) map[string]string {
 		if v == nil {
@@ -4878,6 +4937,7 @@ func (o MessageTemplateAttributesPtrOutput) CustomAttributes() pulumi.StringMapO
 	}).(pulumi.StringMapOutput)
 }
 
+// The customer profile attributes that are used with the message template.
 func (o MessageTemplateAttributesPtrOutput) CustomerProfileAttributes() MessageTemplateCustomerProfileAttributesPtrOutput {
 	return o.ApplyT(func(v *MessageTemplateAttributes) *MessageTemplateCustomerProfileAttributes {
 		if v == nil {
@@ -4887,6 +4947,7 @@ func (o MessageTemplateAttributesPtrOutput) CustomerProfileAttributes() MessageT
 	}).(MessageTemplateCustomerProfileAttributesPtrOutput)
 }
 
+// The system attributes that are used with the message template.
 func (o MessageTemplateAttributesPtrOutput) SystemAttributes() MessageTemplateSystemAttributesPtrOutput {
 	return o.ApplyT(func(v *MessageTemplateAttributes) *MessageTemplateSystemAttributes {
 		if v == nil {
@@ -4898,6 +4959,7 @@ func (o MessageTemplateAttributesPtrOutput) SystemAttributes() MessageTemplateSy
 
 // The container of message template body.
 type MessageTemplateBodyContentProvider struct {
+	// The content of the message template.
 	Content *string `pulumi:"content"`
 }
 
@@ -4914,6 +4976,7 @@ type MessageTemplateBodyContentProviderInput interface {
 
 // The container of message template body.
 type MessageTemplateBodyContentProviderArgs struct {
+	// The content of the message template.
 	Content pulumi.StringPtrInput `pulumi:"content"`
 }
 
@@ -4995,6 +5058,7 @@ func (o MessageTemplateBodyContentProviderOutput) ToMessageTemplateBodyContentPr
 	}).(MessageTemplateBodyContentProviderPtrOutput)
 }
 
+// The content of the message template.
 func (o MessageTemplateBodyContentProviderOutput) Content() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MessageTemplateBodyContentProvider) *string { return v.Content }).(pulumi.StringPtrOutput)
 }
@@ -5023,6 +5087,7 @@ func (o MessageTemplateBodyContentProviderPtrOutput) Elem() MessageTemplateBodyC
 	}).(MessageTemplateBodyContentProviderOutput)
 }
 
+// The content of the message template.
 func (o MessageTemplateBodyContentProviderPtrOutput) Content() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MessageTemplateBodyContentProvider) *string {
 		if v == nil {
@@ -5034,8 +5099,10 @@ func (o MessageTemplateBodyContentProviderPtrOutput) Content() pulumi.StringPtrO
 
 // The content of the message template.
 type MessageTemplateContent struct {
+	// The content of the message template that applies to the email channel subtype.
 	EmailMessageTemplateContent *MessageTemplateEmailMessageTemplateContent `pulumi:"emailMessageTemplateContent"`
-	SmsMessageTemplateContent   *MessageTemplateSmsMessageTemplateContent   `pulumi:"smsMessageTemplateContent"`
+	// The content of message template that applies to SMS channel subtype.
+	SmsMessageTemplateContent *MessageTemplateSmsMessageTemplateContent `pulumi:"smsMessageTemplateContent"`
 }
 
 // MessageTemplateContentInput is an input type that accepts MessageTemplateContentArgs and MessageTemplateContentOutput values.
@@ -5051,8 +5118,10 @@ type MessageTemplateContentInput interface {
 
 // The content of the message template.
 type MessageTemplateContentArgs struct {
+	// The content of the message template that applies to the email channel subtype.
 	EmailMessageTemplateContent MessageTemplateEmailMessageTemplateContentPtrInput `pulumi:"emailMessageTemplateContent"`
-	SmsMessageTemplateContent   MessageTemplateSmsMessageTemplateContentPtrInput   `pulumi:"smsMessageTemplateContent"`
+	// The content of message template that applies to SMS channel subtype.
+	SmsMessageTemplateContent MessageTemplateSmsMessageTemplateContentPtrInput `pulumi:"smsMessageTemplateContent"`
 }
 
 func (MessageTemplateContentArgs) ElementType() reflect.Type {
@@ -5082,12 +5151,14 @@ func (o MessageTemplateContentOutput) ToMessageTemplateContentOutputWithContext(
 	return o
 }
 
+// The content of the message template that applies to the email channel subtype.
 func (o MessageTemplateContentOutput) EmailMessageTemplateContent() MessageTemplateEmailMessageTemplateContentPtrOutput {
 	return o.ApplyT(func(v MessageTemplateContent) *MessageTemplateEmailMessageTemplateContent {
 		return v.EmailMessageTemplateContent
 	}).(MessageTemplateEmailMessageTemplateContentPtrOutput)
 }
 
+// The content of message template that applies to SMS channel subtype.
 func (o MessageTemplateContentOutput) SmsMessageTemplateContent() MessageTemplateSmsMessageTemplateContentPtrOutput {
 	return o.ApplyT(func(v MessageTemplateContent) *MessageTemplateSmsMessageTemplateContent {
 		return v.SmsMessageTemplateContent
@@ -5118,6 +5189,7 @@ func (o MessageTemplateContentPtrOutput) Elem() MessageTemplateContentOutput {
 	}).(MessageTemplateContentOutput)
 }
 
+// The content of the message template that applies to the email channel subtype.
 func (o MessageTemplateContentPtrOutput) EmailMessageTemplateContent() MessageTemplateEmailMessageTemplateContentPtrOutput {
 	return o.ApplyT(func(v *MessageTemplateContent) *MessageTemplateEmailMessageTemplateContent {
 		if v == nil {
@@ -5127,6 +5199,7 @@ func (o MessageTemplateContentPtrOutput) EmailMessageTemplateContent() MessageTe
 	}).(MessageTemplateEmailMessageTemplateContentPtrOutput)
 }
 
+// The content of message template that applies to SMS channel subtype.
 func (o MessageTemplateContentPtrOutput) SmsMessageTemplateContent() MessageTemplateSmsMessageTemplateContentPtrOutput {
 	return o.ApplyT(func(v *MessageTemplateContent) *MessageTemplateSmsMessageTemplateContent {
 		if v == nil {
@@ -5183,7 +5256,8 @@ type MessageTemplateCustomerProfileAttributes struct {
 	// The country in which a customer lives.
 	Country *string `pulumi:"country"`
 	// The county in which a customer lives.
-	County *string           `pulumi:"county"`
+	County *string `pulumi:"county"`
+	// The custom attributes in customer profile attributes.
 	Custom map[string]string `pulumi:"custom"`
 	// The customer's email address, which has not been specified as a personal or business address.
 	EmailAddress *string `pulumi:"emailAddress"`
@@ -5314,6 +5388,7 @@ type MessageTemplateCustomerProfileAttributesArgs struct {
 	Country pulumi.StringPtrInput `pulumi:"country"`
 	// The county in which a customer lives.
 	County pulumi.StringPtrInput `pulumi:"county"`
+	// The custom attributes in customer profile attributes.
 	Custom pulumi.StringMapInput `pulumi:"custom"`
 	// The customer's email address, which has not been specified as a personal or business address.
 	EmailAddress pulumi.StringPtrInput `pulumi:"emailAddress"`
@@ -5578,6 +5653,7 @@ func (o MessageTemplateCustomerProfileAttributesOutput) County() pulumi.StringPt
 	return o.ApplyT(func(v MessageTemplateCustomerProfileAttributes) *string { return v.County }).(pulumi.StringPtrOutput)
 }
 
+// The custom attributes in customer profile attributes.
 func (o MessageTemplateCustomerProfileAttributesOutput) Custom() pulumi.StringMapOutput {
 	return o.ApplyT(func(v MessageTemplateCustomerProfileAttributes) map[string]string { return v.Custom }).(pulumi.StringMapOutput)
 }
@@ -6006,6 +6082,7 @@ func (o MessageTemplateCustomerProfileAttributesPtrOutput) County() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+// The custom attributes in customer profile attributes.
 func (o MessageTemplateCustomerProfileAttributesPtrOutput) Custom() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *MessageTemplateCustomerProfileAttributes) map[string]string {
 		if v == nil {
@@ -6357,6 +6434,7 @@ func (o MessageTemplateCustomerProfileAttributesPtrOutput) State() pulumi.String
 
 // The content of message template that applies to email channel subtype.
 type MessageTemplateEmailMessageTemplateContent struct {
+	// The body to use in email messages.
 	Body MessageTemplateEmailMessageTemplateContentBody `pulumi:"body"`
 	// The email headers to include in email messages.
 	Headers []MessageTemplateEmailMessageTemplateHeader `pulumi:"headers"`
@@ -6377,6 +6455,7 @@ type MessageTemplateEmailMessageTemplateContentInput interface {
 
 // The content of message template that applies to email channel subtype.
 type MessageTemplateEmailMessageTemplateContentArgs struct {
+	// The body to use in email messages.
 	Body MessageTemplateEmailMessageTemplateContentBodyInput `pulumi:"body"`
 	// The email headers to include in email messages.
 	Headers MessageTemplateEmailMessageTemplateHeaderArrayInput `pulumi:"headers"`
@@ -6462,6 +6541,7 @@ func (o MessageTemplateEmailMessageTemplateContentOutput) ToMessageTemplateEmail
 	}).(MessageTemplateEmailMessageTemplateContentPtrOutput)
 }
 
+// The body to use in email messages.
 func (o MessageTemplateEmailMessageTemplateContentOutput) Body() MessageTemplateEmailMessageTemplateContentBodyOutput {
 	return o.ApplyT(func(v MessageTemplateEmailMessageTemplateContent) MessageTemplateEmailMessageTemplateContentBody {
 		return v.Body
@@ -6504,6 +6584,7 @@ func (o MessageTemplateEmailMessageTemplateContentPtrOutput) Elem() MessageTempl
 	}).(MessageTemplateEmailMessageTemplateContentOutput)
 }
 
+// The body to use in email messages.
 func (o MessageTemplateEmailMessageTemplateContentPtrOutput) Body() MessageTemplateEmailMessageTemplateContentBodyPtrOutput {
 	return o.ApplyT(func(v *MessageTemplateEmailMessageTemplateContent) *MessageTemplateEmailMessageTemplateContentBody {
 		if v == nil {
@@ -6966,6 +7047,7 @@ func (o MessageTemplateGroupingConfigurationPtrOutput) Values() pulumi.StringArr
 
 // The content of message template that applies to SMS channel subtype.
 type MessageTemplateSmsMessageTemplateContent struct {
+	// The body to use in SMS messages.
 	Body MessageTemplateSmsMessageTemplateContentBody `pulumi:"body"`
 }
 
@@ -6982,6 +7064,7 @@ type MessageTemplateSmsMessageTemplateContentInput interface {
 
 // The content of message template that applies to SMS channel subtype.
 type MessageTemplateSmsMessageTemplateContentArgs struct {
+	// The body to use in SMS messages.
 	Body MessageTemplateSmsMessageTemplateContentBodyInput `pulumi:"body"`
 }
 
@@ -7063,6 +7146,7 @@ func (o MessageTemplateSmsMessageTemplateContentOutput) ToMessageTemplateSmsMess
 	}).(MessageTemplateSmsMessageTemplateContentPtrOutput)
 }
 
+// The body to use in SMS messages.
 func (o MessageTemplateSmsMessageTemplateContentOutput) Body() MessageTemplateSmsMessageTemplateContentBodyOutput {
 	return o.ApplyT(func(v MessageTemplateSmsMessageTemplateContent) MessageTemplateSmsMessageTemplateContentBody {
 		return v.Body
@@ -7093,6 +7177,7 @@ func (o MessageTemplateSmsMessageTemplateContentPtrOutput) Elem() MessageTemplat
 	}).(MessageTemplateSmsMessageTemplateContentOutput)
 }
 
+// The body to use in SMS messages.
 func (o MessageTemplateSmsMessageTemplateContentPtrOutput) Body() MessageTemplateSmsMessageTemplateContentBodyPtrOutput {
 	return o.ApplyT(func(v *MessageTemplateSmsMessageTemplateContent) *MessageTemplateSmsMessageTemplateContentBody {
 		if v == nil {
@@ -7104,6 +7189,7 @@ func (o MessageTemplateSmsMessageTemplateContentPtrOutput) Body() MessageTemplat
 
 // The body to use in SMS messages.
 type MessageTemplateSmsMessageTemplateContentBody struct {
+	// The message body to use in SMS messages.
 	PlainText *MessageTemplateBodyContentProvider `pulumi:"plainText"`
 }
 
@@ -7120,6 +7206,7 @@ type MessageTemplateSmsMessageTemplateContentBodyInput interface {
 
 // The body to use in SMS messages.
 type MessageTemplateSmsMessageTemplateContentBodyArgs struct {
+	// The message body to use in SMS messages.
 	PlainText MessageTemplateBodyContentProviderPtrInput `pulumi:"plainText"`
 }
 
@@ -7201,6 +7288,7 @@ func (o MessageTemplateSmsMessageTemplateContentBodyOutput) ToMessageTemplateSms
 	}).(MessageTemplateSmsMessageTemplateContentBodyPtrOutput)
 }
 
+// The message body to use in SMS messages.
 func (o MessageTemplateSmsMessageTemplateContentBodyOutput) PlainText() MessageTemplateBodyContentProviderPtrOutput {
 	return o.ApplyT(func(v MessageTemplateSmsMessageTemplateContentBody) *MessageTemplateBodyContentProvider {
 		return v.PlainText
@@ -7231,6 +7319,7 @@ func (o MessageTemplateSmsMessageTemplateContentBodyPtrOutput) Elem() MessageTem
 	}).(MessageTemplateSmsMessageTemplateContentBodyOutput)
 }
 
+// The message body to use in SMS messages.
 func (o MessageTemplateSmsMessageTemplateContentBodyPtrOutput) PlainText() MessageTemplateBodyContentProviderPtrOutput {
 	return o.ApplyT(func(v *MessageTemplateSmsMessageTemplateContentBody) *MessageTemplateBodyContentProvider {
 		if v == nil {

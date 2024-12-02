@@ -175,6 +175,172 @@ func (in *clusterDataTieringStatusPtr) ToClusterDataTieringStatusPtrOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, in).(ClusterDataTieringStatusPtrOutput)
 }
 
+// An enum string value that determines the update strategy for scaling. Possible values are 'COORDINATED' and 'UNCOORDINATED'. Default is 'COORDINATED'.
+type MultiRegionClusterUpdateStrategy string
+
+const (
+	MultiRegionClusterUpdateStrategyCoordinated   = MultiRegionClusterUpdateStrategy("COORDINATED")
+	MultiRegionClusterUpdateStrategyUncoordinated = MultiRegionClusterUpdateStrategy("UNCOORDINATED")
+)
+
+func (MultiRegionClusterUpdateStrategy) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultiRegionClusterUpdateStrategy)(nil)).Elem()
+}
+
+func (e MultiRegionClusterUpdateStrategy) ToMultiRegionClusterUpdateStrategyOutput() MultiRegionClusterUpdateStrategyOutput {
+	return pulumi.ToOutput(e).(MultiRegionClusterUpdateStrategyOutput)
+}
+
+func (e MultiRegionClusterUpdateStrategy) ToMultiRegionClusterUpdateStrategyOutputWithContext(ctx context.Context) MultiRegionClusterUpdateStrategyOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(MultiRegionClusterUpdateStrategyOutput)
+}
+
+func (e MultiRegionClusterUpdateStrategy) ToMultiRegionClusterUpdateStrategyPtrOutput() MultiRegionClusterUpdateStrategyPtrOutput {
+	return e.ToMultiRegionClusterUpdateStrategyPtrOutputWithContext(context.Background())
+}
+
+func (e MultiRegionClusterUpdateStrategy) ToMultiRegionClusterUpdateStrategyPtrOutputWithContext(ctx context.Context) MultiRegionClusterUpdateStrategyPtrOutput {
+	return MultiRegionClusterUpdateStrategy(e).ToMultiRegionClusterUpdateStrategyOutputWithContext(ctx).ToMultiRegionClusterUpdateStrategyPtrOutputWithContext(ctx)
+}
+
+func (e MultiRegionClusterUpdateStrategy) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MultiRegionClusterUpdateStrategy) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MultiRegionClusterUpdateStrategy) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e MultiRegionClusterUpdateStrategy) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type MultiRegionClusterUpdateStrategyOutput struct{ *pulumi.OutputState }
+
+func (MultiRegionClusterUpdateStrategyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultiRegionClusterUpdateStrategy)(nil)).Elem()
+}
+
+func (o MultiRegionClusterUpdateStrategyOutput) ToMultiRegionClusterUpdateStrategyOutput() MultiRegionClusterUpdateStrategyOutput {
+	return o
+}
+
+func (o MultiRegionClusterUpdateStrategyOutput) ToMultiRegionClusterUpdateStrategyOutputWithContext(ctx context.Context) MultiRegionClusterUpdateStrategyOutput {
+	return o
+}
+
+func (o MultiRegionClusterUpdateStrategyOutput) ToMultiRegionClusterUpdateStrategyPtrOutput() MultiRegionClusterUpdateStrategyPtrOutput {
+	return o.ToMultiRegionClusterUpdateStrategyPtrOutputWithContext(context.Background())
+}
+
+func (o MultiRegionClusterUpdateStrategyOutput) ToMultiRegionClusterUpdateStrategyPtrOutputWithContext(ctx context.Context) MultiRegionClusterUpdateStrategyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MultiRegionClusterUpdateStrategy) *MultiRegionClusterUpdateStrategy {
+		return &v
+	}).(MultiRegionClusterUpdateStrategyPtrOutput)
+}
+
+func (o MultiRegionClusterUpdateStrategyOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o MultiRegionClusterUpdateStrategyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MultiRegionClusterUpdateStrategy) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o MultiRegionClusterUpdateStrategyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MultiRegionClusterUpdateStrategyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MultiRegionClusterUpdateStrategy) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type MultiRegionClusterUpdateStrategyPtrOutput struct{ *pulumi.OutputState }
+
+func (MultiRegionClusterUpdateStrategyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MultiRegionClusterUpdateStrategy)(nil)).Elem()
+}
+
+func (o MultiRegionClusterUpdateStrategyPtrOutput) ToMultiRegionClusterUpdateStrategyPtrOutput() MultiRegionClusterUpdateStrategyPtrOutput {
+	return o
+}
+
+func (o MultiRegionClusterUpdateStrategyPtrOutput) ToMultiRegionClusterUpdateStrategyPtrOutputWithContext(ctx context.Context) MultiRegionClusterUpdateStrategyPtrOutput {
+	return o
+}
+
+func (o MultiRegionClusterUpdateStrategyPtrOutput) Elem() MultiRegionClusterUpdateStrategyOutput {
+	return o.ApplyT(func(v *MultiRegionClusterUpdateStrategy) MultiRegionClusterUpdateStrategy {
+		if v != nil {
+			return *v
+		}
+		var ret MultiRegionClusterUpdateStrategy
+		return ret
+	}).(MultiRegionClusterUpdateStrategyOutput)
+}
+
+func (o MultiRegionClusterUpdateStrategyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MultiRegionClusterUpdateStrategyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *MultiRegionClusterUpdateStrategy) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// MultiRegionClusterUpdateStrategyInput is an input type that accepts values of the MultiRegionClusterUpdateStrategy enum
+// A concrete instance of `MultiRegionClusterUpdateStrategyInput` can be one of the following:
+//
+//	MultiRegionClusterUpdateStrategyCoordinated
+//	MultiRegionClusterUpdateStrategyUncoordinated
+type MultiRegionClusterUpdateStrategyInput interface {
+	pulumi.Input
+
+	ToMultiRegionClusterUpdateStrategyOutput() MultiRegionClusterUpdateStrategyOutput
+	ToMultiRegionClusterUpdateStrategyOutputWithContext(context.Context) MultiRegionClusterUpdateStrategyOutput
+}
+
+var multiRegionClusterUpdateStrategyPtrType = reflect.TypeOf((**MultiRegionClusterUpdateStrategy)(nil)).Elem()
+
+type MultiRegionClusterUpdateStrategyPtrInput interface {
+	pulumi.Input
+
+	ToMultiRegionClusterUpdateStrategyPtrOutput() MultiRegionClusterUpdateStrategyPtrOutput
+	ToMultiRegionClusterUpdateStrategyPtrOutputWithContext(context.Context) MultiRegionClusterUpdateStrategyPtrOutput
+}
+
+type multiRegionClusterUpdateStrategyPtr string
+
+func MultiRegionClusterUpdateStrategyPtr(v string) MultiRegionClusterUpdateStrategyPtrInput {
+	return (*multiRegionClusterUpdateStrategyPtr)(&v)
+}
+
+func (*multiRegionClusterUpdateStrategyPtr) ElementType() reflect.Type {
+	return multiRegionClusterUpdateStrategyPtrType
+}
+
+func (in *multiRegionClusterUpdateStrategyPtr) ToMultiRegionClusterUpdateStrategyPtrOutput() MultiRegionClusterUpdateStrategyPtrOutput {
+	return pulumi.ToOutput(in).(MultiRegionClusterUpdateStrategyPtrOutput)
+}
+
+func (in *multiRegionClusterUpdateStrategyPtr) ToMultiRegionClusterUpdateStrategyPtrOutputWithContext(ctx context.Context) MultiRegionClusterUpdateStrategyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(MultiRegionClusterUpdateStrategyPtrOutput)
+}
+
 // Type of authentication strategy for this user.
 type UserAuthenticationModePropertiesType string
 
@@ -344,10 +510,14 @@ func (in *userAuthenticationModePropertiesTypePtr) ToUserAuthenticationModePrope
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterDataTieringStatusInput)(nil)).Elem(), ClusterDataTieringStatus("true"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterDataTieringStatusPtrInput)(nil)).Elem(), ClusterDataTieringStatus("true"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MultiRegionClusterUpdateStrategyInput)(nil)).Elem(), MultiRegionClusterUpdateStrategy("COORDINATED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MultiRegionClusterUpdateStrategyPtrInput)(nil)).Elem(), MultiRegionClusterUpdateStrategy("COORDINATED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserAuthenticationModePropertiesTypeInput)(nil)).Elem(), UserAuthenticationModePropertiesType("password"))
 	pulumi.RegisterInputType(reflect.TypeOf((*UserAuthenticationModePropertiesTypePtrInput)(nil)).Elem(), UserAuthenticationModePropertiesType("password"))
 	pulumi.RegisterOutputType(ClusterDataTieringStatusOutput{})
 	pulumi.RegisterOutputType(ClusterDataTieringStatusPtrOutput{})
+	pulumi.RegisterOutputType(MultiRegionClusterUpdateStrategyOutput{})
+	pulumi.RegisterOutputType(MultiRegionClusterUpdateStrategyPtrOutput{})
 	pulumi.RegisterOutputType(UserAuthenticationModePropertiesTypeOutput{})
 	pulumi.RegisterOutputType(UserAuthenticationModePropertiesTypePtrOutput{})
 }

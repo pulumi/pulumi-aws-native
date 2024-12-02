@@ -640,6 +640,21 @@ type OriginEndpointEncryptionContractConfiguration struct {
 	// - `UNENCRYPTED` - Don't encrypt any of the audio tracks in your stream.
 	PresetSpeke20Audio OriginEndpointPresetSpeke20Audio `pulumi:"presetSpeke20Audio"`
 	// The SPEKE Version 2.0 preset video associated with the encryption contract configuration of the origin endpoint.
+	//
+	// A collection of video encryption presets.
+	//
+	// Value description:
+	//
+	// - `PRESET-VIDEO-1` - Use one content key to encrypt all of the video tracks in your stream.
+	// - `PRESET-VIDEO-2` - Use one content key to encrypt all of the SD video tracks and one content key for all HD and higher resolutions video tracks.
+	// - `PRESET-VIDEO-3` - Use one content key to encrypt all of the SD video tracks, one content key for HD video tracks and one content key for all UHD video tracks.
+	// - `PRESET-VIDEO-4` - Use one content key to encrypt all of the SD video tracks, one content key for HD video tracks, one content key for all UHD1 video tracks and one content key for all UHD2 video tracks.
+	// - `PRESET-VIDEO-5` - Use one content key to encrypt all of the SD video tracks, one content key for HD1 video tracks, one content key for HD2 video tracks, one content key for all UHD1 video tracks and one content key for all UHD2 video tracks.
+	// - `PRESET-VIDEO-6` - Use one content key to encrypt all of the SD video tracks, one content key for HD1 video tracks, one content key for HD2 video tracks and one content key for all UHD video tracks.
+	// - `PRESET-VIDEO-7` - Use one content key to encrypt all of the SD+HD1 video tracks, one content key for HD2 video tracks and one content key for all UHD video tracks.
+	// - `PRESET-VIDEO-8` - Use one content key to encrypt all of the SD+HD1 video tracks, one content key for HD2 video tracks, one content key for all UHD1 video tracks and one content key for all UHD2 video tracks.
+	// - `SHARED` - Use the same content key for all of the video and audio tracks in your stream.
+	// - `UNENCRYPTED` - Don't encrypt any of the video tracks in your stream.
 	PresetSpeke20Video OriginEndpointPresetSpeke20Video `pulumi:"presetSpeke20Video"`
 }
 
@@ -667,6 +682,21 @@ type OriginEndpointEncryptionContractConfigurationArgs struct {
 	// - `UNENCRYPTED` - Don't encrypt any of the audio tracks in your stream.
 	PresetSpeke20Audio OriginEndpointPresetSpeke20AudioInput `pulumi:"presetSpeke20Audio"`
 	// The SPEKE Version 2.0 preset video associated with the encryption contract configuration of the origin endpoint.
+	//
+	// A collection of video encryption presets.
+	//
+	// Value description:
+	//
+	// - `PRESET-VIDEO-1` - Use one content key to encrypt all of the video tracks in your stream.
+	// - `PRESET-VIDEO-2` - Use one content key to encrypt all of the SD video tracks and one content key for all HD and higher resolutions video tracks.
+	// - `PRESET-VIDEO-3` - Use one content key to encrypt all of the SD video tracks, one content key for HD video tracks and one content key for all UHD video tracks.
+	// - `PRESET-VIDEO-4` - Use one content key to encrypt all of the SD video tracks, one content key for HD video tracks, one content key for all UHD1 video tracks and one content key for all UHD2 video tracks.
+	// - `PRESET-VIDEO-5` - Use one content key to encrypt all of the SD video tracks, one content key for HD1 video tracks, one content key for HD2 video tracks, one content key for all UHD1 video tracks and one content key for all UHD2 video tracks.
+	// - `PRESET-VIDEO-6` - Use one content key to encrypt all of the SD video tracks, one content key for HD1 video tracks, one content key for HD2 video tracks and one content key for all UHD video tracks.
+	// - `PRESET-VIDEO-7` - Use one content key to encrypt all of the SD+HD1 video tracks, one content key for HD2 video tracks and one content key for all UHD video tracks.
+	// - `PRESET-VIDEO-8` - Use one content key to encrypt all of the SD+HD1 video tracks, one content key for HD2 video tracks, one content key for all UHD1 video tracks and one content key for all UHD2 video tracks.
+	// - `SHARED` - Use the same content key for all of the video and audio tracks in your stream.
+	// - `UNENCRYPTED` - Don't encrypt any of the video tracks in your stream.
 	PresetSpeke20Video OriginEndpointPresetSpeke20VideoInput `pulumi:"presetSpeke20Video"`
 }
 
@@ -764,6 +794,21 @@ func (o OriginEndpointEncryptionContractConfigurationOutput) PresetSpeke20Audio(
 }
 
 // The SPEKE Version 2.0 preset video associated with the encryption contract configuration of the origin endpoint.
+//
+// A collection of video encryption presets.
+//
+// Value description:
+//
+// - `PRESET-VIDEO-1` - Use one content key to encrypt all of the video tracks in your stream.
+// - `PRESET-VIDEO-2` - Use one content key to encrypt all of the SD video tracks and one content key for all HD and higher resolutions video tracks.
+// - `PRESET-VIDEO-3` - Use one content key to encrypt all of the SD video tracks, one content key for HD video tracks and one content key for all UHD video tracks.
+// - `PRESET-VIDEO-4` - Use one content key to encrypt all of the SD video tracks, one content key for HD video tracks, one content key for all UHD1 video tracks and one content key for all UHD2 video tracks.
+// - `PRESET-VIDEO-5` - Use one content key to encrypt all of the SD video tracks, one content key for HD1 video tracks, one content key for HD2 video tracks, one content key for all UHD1 video tracks and one content key for all UHD2 video tracks.
+// - `PRESET-VIDEO-6` - Use one content key to encrypt all of the SD video tracks, one content key for HD1 video tracks, one content key for HD2 video tracks and one content key for all UHD video tracks.
+// - `PRESET-VIDEO-7` - Use one content key to encrypt all of the SD+HD1 video tracks, one content key for HD2 video tracks and one content key for all UHD video tracks.
+// - `PRESET-VIDEO-8` - Use one content key to encrypt all of the SD+HD1 video tracks, one content key for HD2 video tracks, one content key for all UHD1 video tracks and one content key for all UHD2 video tracks.
+// - `SHARED` - Use the same content key for all of the video and audio tracks in your stream.
+// - `UNENCRYPTED` - Don't encrypt any of the video tracks in your stream.
 func (o OriginEndpointEncryptionContractConfigurationOutput) PresetSpeke20Video() OriginEndpointPresetSpeke20VideoOutput {
 	return o.ApplyT(func(v OriginEndpointEncryptionContractConfiguration) OriginEndpointPresetSpeke20Video {
 		return v.PresetSpeke20Video
@@ -813,6 +858,21 @@ func (o OriginEndpointEncryptionContractConfigurationPtrOutput) PresetSpeke20Aud
 }
 
 // The SPEKE Version 2.0 preset video associated with the encryption contract configuration of the origin endpoint.
+//
+// A collection of video encryption presets.
+//
+// Value description:
+//
+// - `PRESET-VIDEO-1` - Use one content key to encrypt all of the video tracks in your stream.
+// - `PRESET-VIDEO-2` - Use one content key to encrypt all of the SD video tracks and one content key for all HD and higher resolutions video tracks.
+// - `PRESET-VIDEO-3` - Use one content key to encrypt all of the SD video tracks, one content key for HD video tracks and one content key for all UHD video tracks.
+// - `PRESET-VIDEO-4` - Use one content key to encrypt all of the SD video tracks, one content key for HD video tracks, one content key for all UHD1 video tracks and one content key for all UHD2 video tracks.
+// - `PRESET-VIDEO-5` - Use one content key to encrypt all of the SD video tracks, one content key for HD1 video tracks, one content key for HD2 video tracks, one content key for all UHD1 video tracks and one content key for all UHD2 video tracks.
+// - `PRESET-VIDEO-6` - Use one content key to encrypt all of the SD video tracks, one content key for HD1 video tracks, one content key for HD2 video tracks and one content key for all UHD video tracks.
+// - `PRESET-VIDEO-7` - Use one content key to encrypt all of the SD+HD1 video tracks, one content key for HD2 video tracks and one content key for all UHD video tracks.
+// - `PRESET-VIDEO-8` - Use one content key to encrypt all of the SD+HD1 video tracks, one content key for HD2 video tracks, one content key for all UHD1 video tracks and one content key for all UHD2 video tracks.
+// - `SHARED` - Use the same content key for all of the video and audio tracks in your stream.
+// - `UNENCRYPTED` - Don't encrypt any of the video tracks in your stream.
 func (o OriginEndpointEncryptionContractConfigurationPtrOutput) PresetSpeke20Video() OriginEndpointPresetSpeke20VideoPtrOutput {
 	return o.ApplyT(func(v *OriginEndpointEncryptionContractConfiguration) *OriginEndpointPresetSpeke20Video {
 		if v == nil {

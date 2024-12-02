@@ -28,11 +28,14 @@ class ClusterArgs:
                  role_arn: pulumi.Input[str],
                  access_config: Optional[pulumi.Input['ClusterAccessConfigArgs']] = None,
                  bootstrap_self_managed_addons: Optional[pulumi.Input[bool]] = None,
+                 compute_config: Optional[pulumi.Input['ClusterComputeConfigArgs']] = None,
                  encryption_config: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterEncryptionConfigArgs']]]] = None,
                  kubernetes_network_config: Optional[pulumi.Input['ClusterKubernetesNetworkConfigArgs']] = None,
                  logging: Optional[pulumi.Input['LoggingArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  outpost_config: Optional[pulumi.Input['ClusterOutpostConfigArgs']] = None,
+                 remote_network_config: Optional[pulumi.Input['ClusterRemoteNetworkConfigArgs']] = None,
+                 storage_config: Optional[pulumi.Input['ClusterStorageConfigArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  upgrade_policy: Optional[pulumi.Input['ClusterUpgradePolicyArgs']] = None,
                  version: Optional[pulumi.Input[str]] = None,
@@ -61,6 +64,8 @@ class ClusterArgs:
             pulumi.set(__self__, "access_config", access_config)
         if bootstrap_self_managed_addons is not None:
             pulumi.set(__self__, "bootstrap_self_managed_addons", bootstrap_self_managed_addons)
+        if compute_config is not None:
+            pulumi.set(__self__, "compute_config", compute_config)
         if encryption_config is not None:
             pulumi.set(__self__, "encryption_config", encryption_config)
         if kubernetes_network_config is not None:
@@ -71,6 +76,10 @@ class ClusterArgs:
             pulumi.set(__self__, "name", name)
         if outpost_config is not None:
             pulumi.set(__self__, "outpost_config", outpost_config)
+        if remote_network_config is not None:
+            pulumi.set(__self__, "remote_network_config", remote_network_config)
+        if storage_config is not None:
+            pulumi.set(__self__, "storage_config", storage_config)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if upgrade_policy is not None:
@@ -127,6 +136,15 @@ class ClusterArgs:
     @bootstrap_self_managed_addons.setter
     def bootstrap_self_managed_addons(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "bootstrap_self_managed_addons", value)
+
+    @property
+    @pulumi.getter(name="computeConfig")
+    def compute_config(self) -> Optional[pulumi.Input['ClusterComputeConfigArgs']]:
+        return pulumi.get(self, "compute_config")
+
+    @compute_config.setter
+    def compute_config(self, value: Optional[pulumi.Input['ClusterComputeConfigArgs']]):
+        pulumi.set(self, "compute_config", value)
 
     @property
     @pulumi.getter(name="encryptionConfig")
@@ -189,6 +207,24 @@ class ClusterArgs:
         pulumi.set(self, "outpost_config", value)
 
     @property
+    @pulumi.getter(name="remoteNetworkConfig")
+    def remote_network_config(self) -> Optional[pulumi.Input['ClusterRemoteNetworkConfigArgs']]:
+        return pulumi.get(self, "remote_network_config")
+
+    @remote_network_config.setter
+    def remote_network_config(self, value: Optional[pulumi.Input['ClusterRemoteNetworkConfigArgs']]):
+        pulumi.set(self, "remote_network_config", value)
+
+    @property
+    @pulumi.getter(name="storageConfig")
+    def storage_config(self) -> Optional[pulumi.Input['ClusterStorageConfigArgs']]:
+        return pulumi.get(self, "storage_config")
+
+    @storage_config.setter
+    def storage_config(self, value: Optional[pulumi.Input['ClusterStorageConfigArgs']]):
+        pulumi.set(self, "storage_config", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
@@ -246,13 +282,16 @@ class Cluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_config: Optional[pulumi.Input[Union['ClusterAccessConfigArgs', 'ClusterAccessConfigArgsDict']]] = None,
                  bootstrap_self_managed_addons: Optional[pulumi.Input[bool]] = None,
+                 compute_config: Optional[pulumi.Input[Union['ClusterComputeConfigArgs', 'ClusterComputeConfigArgsDict']]] = None,
                  encryption_config: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterEncryptionConfigArgs', 'ClusterEncryptionConfigArgsDict']]]]] = None,
                  kubernetes_network_config: Optional[pulumi.Input[Union['ClusterKubernetesNetworkConfigArgs', 'ClusterKubernetesNetworkConfigArgsDict']]] = None,
                  logging: Optional[pulumi.Input[Union['LoggingArgs', 'LoggingArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  outpost_config: Optional[pulumi.Input[Union['ClusterOutpostConfigArgs', 'ClusterOutpostConfigArgsDict']]] = None,
+                 remote_network_config: Optional[pulumi.Input[Union['ClusterRemoteNetworkConfigArgs', 'ClusterRemoteNetworkConfigArgsDict']]] = None,
                  resources_vpc_config: Optional[pulumi.Input[Union['ClusterResourcesVpcConfigArgs', 'ClusterResourcesVpcConfigArgsDict']]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
+                 storage_config: Optional[pulumi.Input[Union['ClusterStorageConfigArgs', 'ClusterStorageConfigArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  upgrade_policy: Optional[pulumi.Input[Union['ClusterUpgradePolicyArgs', 'ClusterUpgradePolicyArgsDict']]] = None,
                  version: Optional[pulumi.Input[str]] = None,
@@ -305,13 +344,16 @@ class Cluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_config: Optional[pulumi.Input[Union['ClusterAccessConfigArgs', 'ClusterAccessConfigArgsDict']]] = None,
                  bootstrap_self_managed_addons: Optional[pulumi.Input[bool]] = None,
+                 compute_config: Optional[pulumi.Input[Union['ClusterComputeConfigArgs', 'ClusterComputeConfigArgsDict']]] = None,
                  encryption_config: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ClusterEncryptionConfigArgs', 'ClusterEncryptionConfigArgsDict']]]]] = None,
                  kubernetes_network_config: Optional[pulumi.Input[Union['ClusterKubernetesNetworkConfigArgs', 'ClusterKubernetesNetworkConfigArgsDict']]] = None,
                  logging: Optional[pulumi.Input[Union['LoggingArgs', 'LoggingArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  outpost_config: Optional[pulumi.Input[Union['ClusterOutpostConfigArgs', 'ClusterOutpostConfigArgsDict']]] = None,
+                 remote_network_config: Optional[pulumi.Input[Union['ClusterRemoteNetworkConfigArgs', 'ClusterRemoteNetworkConfigArgsDict']]] = None,
                  resources_vpc_config: Optional[pulumi.Input[Union['ClusterResourcesVpcConfigArgs', 'ClusterResourcesVpcConfigArgsDict']]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
+                 storage_config: Optional[pulumi.Input[Union['ClusterStorageConfigArgs', 'ClusterStorageConfigArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  upgrade_policy: Optional[pulumi.Input[Union['ClusterUpgradePolicyArgs', 'ClusterUpgradePolicyArgsDict']]] = None,
                  version: Optional[pulumi.Input[str]] = None,
@@ -327,17 +369,20 @@ class Cluster(pulumi.CustomResource):
 
             __props__.__dict__["access_config"] = access_config
             __props__.__dict__["bootstrap_self_managed_addons"] = bootstrap_self_managed_addons
+            __props__.__dict__["compute_config"] = compute_config
             __props__.__dict__["encryption_config"] = encryption_config
             __props__.__dict__["kubernetes_network_config"] = kubernetes_network_config
             __props__.__dict__["logging"] = logging
             __props__.__dict__["name"] = name
             __props__.__dict__["outpost_config"] = outpost_config
+            __props__.__dict__["remote_network_config"] = remote_network_config
             if resources_vpc_config is None and not opts.urn:
                 raise TypeError("Missing required property 'resources_vpc_config'")
             __props__.__dict__["resources_vpc_config"] = resources_vpc_config
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
             __props__.__dict__["role_arn"] = role_arn
+            __props__.__dict__["storage_config"] = storage_config
             __props__.__dict__["tags"] = tags
             __props__.__dict__["upgrade_policy"] = upgrade_policy
             __props__.__dict__["version"] = version
@@ -349,7 +394,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["encryption_config_key_arn"] = None
             __props__.__dict__["endpoint"] = None
             __props__.__dict__["open_id_connect_issuer_url"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["accessConfig.bootstrapClusterCreatorAdminPermissions", "bootstrapSelfManagedAddons", "encryptionConfig[*]", "kubernetesNetworkConfig", "name", "outpostConfig", "roleArn"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["accessConfig.bootstrapClusterCreatorAdminPermissions", "bootstrapSelfManagedAddons", "encryptionConfig[*]", "kubernetesNetworkConfig", "name", "outpostConfig", "remoteNetworkConfig", "roleArn"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Cluster, __self__).__init__(
             'aws-native:eks:Cluster',
@@ -379,6 +424,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["bootstrap_self_managed_addons"] = None
         __props__.__dict__["certificate_authority_data"] = None
         __props__.__dict__["cluster_security_group_id"] = None
+        __props__.__dict__["compute_config"] = None
         __props__.__dict__["encryption_config"] = None
         __props__.__dict__["encryption_config_key_arn"] = None
         __props__.__dict__["endpoint"] = None
@@ -387,8 +433,10 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["open_id_connect_issuer_url"] = None
         __props__.__dict__["outpost_config"] = None
+        __props__.__dict__["remote_network_config"] = None
         __props__.__dict__["resources_vpc_config"] = None
         __props__.__dict__["role_arn"] = None
+        __props__.__dict__["storage_config"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["upgrade_policy"] = None
         __props__.__dict__["version"] = None
@@ -442,6 +490,11 @@ class Cluster(pulumi.CustomResource):
         The cluster security group that was created by Amazon EKS for the cluster. Managed node groups use this security group for control plane to data plane communication.
         """
         return pulumi.get(self, "cluster_security_group_id")
+
+    @property
+    @pulumi.getter(name="computeConfig")
+    def compute_config(self) -> pulumi.Output[Optional['outputs.ClusterComputeConfig']]:
+        return pulumi.get(self, "compute_config")
 
     @property
     @pulumi.getter(name="encryptionConfig")
@@ -508,6 +561,11 @@ class Cluster(pulumi.CustomResource):
         return pulumi.get(self, "outpost_config")
 
     @property
+    @pulumi.getter(name="remoteNetworkConfig")
+    def remote_network_config(self) -> pulumi.Output[Optional['outputs.ClusterRemoteNetworkConfig']]:
+        return pulumi.get(self, "remote_network_config")
+
+    @property
     @pulumi.getter(name="resourcesVpcConfig")
     def resources_vpc_config(self) -> pulumi.Output['outputs.ClusterResourcesVpcConfig']:
         """
@@ -522,6 +580,11 @@ class Cluster(pulumi.CustomResource):
         The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
         """
         return pulumi.get(self, "role_arn")
+
+    @property
+    @pulumi.getter(name="storageConfig")
+    def storage_config(self) -> pulumi.Output[Optional['outputs.ClusterStorageConfig']]:
+        return pulumi.get(self, "storage_config")
 
     @property
     @pulumi.getter

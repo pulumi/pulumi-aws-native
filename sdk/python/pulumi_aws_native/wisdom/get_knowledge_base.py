@@ -66,6 +66,9 @@ class GetKnowledgeBaseResult:
     @property
     @pulumi.getter(name="vectorIngestionConfiguration")
     def vector_ingestion_configuration(self) -> Optional['outputs.KnowledgeBaseVectorIngestionConfiguration']:
+        """
+        Contains details about how to ingest the documents in a data source.
+        """
         return pulumi.get(self, "vector_ingestion_configuration")
 
 

@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.Wisdom.Inputs
     /// </summary>
     public sealed class MessageTemplateContentArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The content of the message template that applies to the email channel subtype.
+        /// </summary>
         [Input("emailMessageTemplateContent")]
         public Input<Inputs.MessageTemplateEmailMessageTemplateContentArgs>? EmailMessageTemplateContent { get; set; }
 
+        /// <summary>
+        /// The content of message template that applies to SMS channel subtype.
+        /// </summary>
         [Input("smsMessageTemplateContent")]
         public Input<Inputs.MessageTemplateSmsMessageTemplateContentArgs>? SmsMessageTemplateContent { get; set; }
 

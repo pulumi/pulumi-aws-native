@@ -16,8 +16,17 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2.Outputs
     [OutputType]
     public sealed class CampaignSchedule
     {
+        /// <summary>
+        /// The end time of the schedule in UTC.
+        /// </summary>
         public readonly string EndTime;
+        /// <summary>
+        /// The refresh frequency of the campaign.
+        /// </summary>
         public readonly string? RefreshFrequency;
+        /// <summary>
+        /// The start time of the schedule in UTC.
+        /// </summary>
         public readonly string StartTime;
 
         [OutputConstructor]

@@ -15,12 +15,21 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2.Inputs
     /// </summary>
     public sealed class CampaignScheduleArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The end time of the schedule in UTC.
+        /// </summary>
         [Input("endTime", required: true)]
         public Input<string> EndTime { get; set; } = null!;
 
+        /// <summary>
+        /// The refresh frequency of the campaign.
+        /// </summary>
         [Input("refreshFrequency")]
         public Input<string>? RefreshFrequency { get; set; }
 
+        /// <summary>
+        /// The start time of the schedule in UTC.
+        /// </summary>
         [Input("startTime", required: true)]
         public Input<string> StartTime { get; set; } = null!;
 

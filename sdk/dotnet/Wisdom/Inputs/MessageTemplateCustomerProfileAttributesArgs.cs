@@ -155,6 +155,10 @@ namespace Pulumi.AwsNative.Wisdom.Inputs
 
         [Input("custom")]
         private InputMap<string>? _custom;
+
+        /// <summary>
+        /// The custom attributes in customer profile attributes.
+        /// </summary>
         public InputMap<string> Custom
         {
             get => _custom ?? (_custom = new InputMap<string>());

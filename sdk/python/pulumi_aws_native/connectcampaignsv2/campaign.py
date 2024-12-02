@@ -35,6 +35,14 @@ class CampaignArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Campaign resource.
+        :param pulumi.Input['CampaignChannelSubtypeConfigArgs'] channel_subtype_config: Contains channel subtype configuration for an outbound campaign.
+        :param pulumi.Input[str] connect_instance_id: The identifier of the Amazon Connect instance. You can find the `instanceId` in the ARN of the instance.
+        :param pulumi.Input['CampaignCommunicationLimitsConfigArgs'] communication_limits_override: Communication limits configuration for an outbound campaign.
+        :param pulumi.Input['CampaignCommunicationTimeConfigArgs'] communication_time_config: Contains communication time configuration for an outbound campaign.
+        :param pulumi.Input[str] connect_campaign_flow_arn: The Amazon Resource Name (ARN) of the Amazon Connect campaign flow associated with the outbound campaign.
+        :param pulumi.Input[str] name: The name of the outbound campaign.
+        :param pulumi.Input['CampaignScheduleArgs'] schedule: Contains the schedule configuration.
+        :param pulumi.Input['CampaignSourceArgs'] source: Contains source configuration.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: One or more tags.
         """
         pulumi.set(__self__, "channel_subtype_config", channel_subtype_config)
@@ -57,6 +65,9 @@ class CampaignArgs:
     @property
     @pulumi.getter(name="channelSubtypeConfig")
     def channel_subtype_config(self) -> pulumi.Input['CampaignChannelSubtypeConfigArgs']:
+        """
+        Contains channel subtype configuration for an outbound campaign.
+        """
         return pulumi.get(self, "channel_subtype_config")
 
     @channel_subtype_config.setter
@@ -66,6 +77,9 @@ class CampaignArgs:
     @property
     @pulumi.getter(name="connectInstanceId")
     def connect_instance_id(self) -> pulumi.Input[str]:
+        """
+        The identifier of the Amazon Connect instance. You can find the `instanceId` in the ARN of the instance.
+        """
         return pulumi.get(self, "connect_instance_id")
 
     @connect_instance_id.setter
@@ -75,6 +89,9 @@ class CampaignArgs:
     @property
     @pulumi.getter(name="communicationLimitsOverride")
     def communication_limits_override(self) -> Optional[pulumi.Input['CampaignCommunicationLimitsConfigArgs']]:
+        """
+        Communication limits configuration for an outbound campaign.
+        """
         return pulumi.get(self, "communication_limits_override")
 
     @communication_limits_override.setter
@@ -84,6 +101,9 @@ class CampaignArgs:
     @property
     @pulumi.getter(name="communicationTimeConfig")
     def communication_time_config(self) -> Optional[pulumi.Input['CampaignCommunicationTimeConfigArgs']]:
+        """
+        Contains communication time configuration for an outbound campaign.
+        """
         return pulumi.get(self, "communication_time_config")
 
     @communication_time_config.setter
@@ -93,6 +113,9 @@ class CampaignArgs:
     @property
     @pulumi.getter(name="connectCampaignFlowArn")
     def connect_campaign_flow_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the Amazon Connect campaign flow associated with the outbound campaign.
+        """
         return pulumi.get(self, "connect_campaign_flow_arn")
 
     @connect_campaign_flow_arn.setter
@@ -102,6 +125,9 @@ class CampaignArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the outbound campaign.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -111,6 +137,9 @@ class CampaignArgs:
     @property
     @pulumi.getter
     def schedule(self) -> Optional[pulumi.Input['CampaignScheduleArgs']]:
+        """
+        Contains the schedule configuration.
+        """
         return pulumi.get(self, "schedule")
 
     @schedule.setter
@@ -120,6 +149,9 @@ class CampaignArgs:
     @property
     @pulumi.getter
     def source(self) -> Optional[pulumi.Input['CampaignSourceArgs']]:
+        """
+        Contains source configuration.
+        """
         return pulumi.get(self, "source")
 
     @source.setter
@@ -159,6 +191,14 @@ class Campaign(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['CampaignChannelSubtypeConfigArgs', 'CampaignChannelSubtypeConfigArgsDict']] channel_subtype_config: Contains channel subtype configuration for an outbound campaign.
+        :param pulumi.Input[Union['CampaignCommunicationLimitsConfigArgs', 'CampaignCommunicationLimitsConfigArgsDict']] communication_limits_override: Communication limits configuration for an outbound campaign.
+        :param pulumi.Input[Union['CampaignCommunicationTimeConfigArgs', 'CampaignCommunicationTimeConfigArgsDict']] communication_time_config: Contains communication time configuration for an outbound campaign.
+        :param pulumi.Input[str] connect_campaign_flow_arn: The Amazon Resource Name (ARN) of the Amazon Connect campaign flow associated with the outbound campaign.
+        :param pulumi.Input[str] connect_instance_id: The identifier of the Amazon Connect instance. You can find the `instanceId` in the ARN of the instance.
+        :param pulumi.Input[str] name: The name of the outbound campaign.
+        :param pulumi.Input[Union['CampaignScheduleArgs', 'CampaignScheduleArgsDict']] schedule: Contains the schedule configuration.
+        :param pulumi.Input[Union['CampaignSourceArgs', 'CampaignSourceArgsDict']] source: Contains source configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: One or more tags.
         """
         ...
@@ -264,41 +304,65 @@ class Campaign(pulumi.CustomResource):
     @property
     @pulumi.getter(name="channelSubtypeConfig")
     def channel_subtype_config(self) -> pulumi.Output['outputs.CampaignChannelSubtypeConfig']:
+        """
+        Contains channel subtype configuration for an outbound campaign.
+        """
         return pulumi.get(self, "channel_subtype_config")
 
     @property
     @pulumi.getter(name="communicationLimitsOverride")
     def communication_limits_override(self) -> pulumi.Output[Optional['outputs.CampaignCommunicationLimitsConfig']]:
+        """
+        Communication limits configuration for an outbound campaign.
+        """
         return pulumi.get(self, "communication_limits_override")
 
     @property
     @pulumi.getter(name="communicationTimeConfig")
     def communication_time_config(self) -> pulumi.Output[Optional['outputs.CampaignCommunicationTimeConfig']]:
+        """
+        Contains communication time configuration for an outbound campaign.
+        """
         return pulumi.get(self, "communication_time_config")
 
     @property
     @pulumi.getter(name="connectCampaignFlowArn")
     def connect_campaign_flow_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Amazon Resource Name (ARN) of the Amazon Connect campaign flow associated with the outbound campaign.
+        """
         return pulumi.get(self, "connect_campaign_flow_arn")
 
     @property
     @pulumi.getter(name="connectInstanceId")
     def connect_instance_id(self) -> pulumi.Output[str]:
+        """
+        The identifier of the Amazon Connect instance. You can find the `instanceId` in the ARN of the instance.
+        """
         return pulumi.get(self, "connect_instance_id")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        The name of the outbound campaign.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def schedule(self) -> pulumi.Output[Optional['outputs.CampaignSchedule']]:
+        """
+        Contains the schedule configuration.
+        """
         return pulumi.get(self, "schedule")
 
     @property
     @pulumi.getter
     def source(self) -> pulumi.Output[Optional['outputs.CampaignSource']]:
+        """
+        Contains source configuration.
+        """
         return pulumi.get(self, "source")
 
     @property

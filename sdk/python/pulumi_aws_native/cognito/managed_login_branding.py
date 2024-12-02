@@ -30,7 +30,12 @@ class ManagedLoginBrandingArgs:
                  use_cognito_provided_values: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a ManagedLoginBranding resource.
-        :param Any settings: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::ManagedLoginBranding` for more information about the expected schema for this property.
+        :param pulumi.Input[str] user_pool_id: The user pool where the branding style is assigned.
+        :param pulumi.Input[Sequence[pulumi.Input['ManagedLoginBrandingAssetTypeArgs']]] assets: An array of image files that you want to apply to roles like backgrounds, logos, and icons. Each object must also indicate whether it is for dark mode, light mode, or browser-adaptive mode.
+        :param Any settings: A JSON file, encoded as a `Document` type, with the the settings that you want to apply to your style.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::ManagedLoginBranding` for more information about the expected schema for this property.
+        :param pulumi.Input[bool] use_cognito_provided_values: When true, applies the default branding style options. This option reverts to a "blank" style that you can modify later in the branding designer.
         """
         pulumi.set(__self__, "user_pool_id", user_pool_id)
         if assets is not None:
@@ -47,6 +52,9 @@ class ManagedLoginBrandingArgs:
     @property
     @pulumi.getter(name="userPoolId")
     def user_pool_id(self) -> pulumi.Input[str]:
+        """
+        The user pool where the branding style is assigned.
+        """
         return pulumi.get(self, "user_pool_id")
 
     @user_pool_id.setter
@@ -56,6 +64,9 @@ class ManagedLoginBrandingArgs:
     @property
     @pulumi.getter
     def assets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ManagedLoginBrandingAssetTypeArgs']]]]:
+        """
+        An array of image files that you want to apply to roles like backgrounds, logos, and icons. Each object must also indicate whether it is for dark mode, light mode, or browser-adaptive mode.
+        """
         return pulumi.get(self, "assets")
 
     @assets.setter
@@ -84,6 +95,8 @@ class ManagedLoginBrandingArgs:
     @pulumi.getter
     def settings(self) -> Optional[Any]:
         """
+        A JSON file, encoded as a `Document` type, with the the settings that you want to apply to your style.
+
         Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::ManagedLoginBranding` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "settings")
@@ -95,6 +108,9 @@ class ManagedLoginBrandingArgs:
     @property
     @pulumi.getter(name="useCognitoProvidedValues")
     def use_cognito_provided_values(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When true, applies the default branding style options. This option reverts to a "blank" style that you can modify later in the branding designer.
+        """
         return pulumi.get(self, "use_cognito_provided_values")
 
     @use_cognito_provided_values.setter
@@ -119,7 +135,12 @@ class ManagedLoginBranding(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param Any settings: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::ManagedLoginBranding` for more information about the expected schema for this property.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ManagedLoginBrandingAssetTypeArgs', 'ManagedLoginBrandingAssetTypeArgsDict']]]] assets: An array of image files that you want to apply to roles like backgrounds, logos, and icons. Each object must also indicate whether it is for dark mode, light mode, or browser-adaptive mode.
+        :param Any settings: A JSON file, encoded as a `Document` type, with the the settings that you want to apply to your style.
+               
+               Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::ManagedLoginBranding` for more information about the expected schema for this property.
+        :param pulumi.Input[bool] use_cognito_provided_values: When true, applies the default branding style options. This option reverts to a "blank" style that you can modify later in the branding designer.
+        :param pulumi.Input[str] user_pool_id: The user pool where the branding style is assigned.
         """
         ...
     @overload
@@ -205,6 +226,9 @@ class ManagedLoginBranding(pulumi.CustomResource):
     @property
     @pulumi.getter
     def assets(self) -> pulumi.Output[Optional[Sequence['outputs.ManagedLoginBrandingAssetType']]]:
+        """
+        An array of image files that you want to apply to roles like backgrounds, logos, and icons. Each object must also indicate whether it is for dark mode, light mode, or browser-adaptive mode.
+        """
         return pulumi.get(self, "assets")
 
     @property
@@ -215,6 +239,9 @@ class ManagedLoginBranding(pulumi.CustomResource):
     @property
     @pulumi.getter(name="managedLoginBrandingId")
     def managed_login_branding_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the managed login branding style.
+        """
         return pulumi.get(self, "managed_login_branding_id")
 
     @property
@@ -226,6 +253,8 @@ class ManagedLoginBranding(pulumi.CustomResource):
     @pulumi.getter
     def settings(self) -> pulumi.Output[Optional[Any]]:
         """
+        A JSON file, encoded as a `Document` type, with the the settings that you want to apply to your style.
+
         Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::ManagedLoginBranding` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "settings")
@@ -233,10 +262,16 @@ class ManagedLoginBranding(pulumi.CustomResource):
     @property
     @pulumi.getter(name="useCognitoProvidedValues")
     def use_cognito_provided_values(self) -> pulumi.Output[Optional[bool]]:
+        """
+        When true, applies the default branding style options. This option reverts to a "blank" style that you can modify later in the branding designer.
+        """
         return pulumi.get(self, "use_cognito_provided_values")
 
     @property
     @pulumi.getter(name="userPoolId")
     def user_pool_id(self) -> pulumi.Output[str]:
+        """
+        The user pool where the branding style is assigned.
+        """
         return pulumi.get(self, "user_pool_id")
 

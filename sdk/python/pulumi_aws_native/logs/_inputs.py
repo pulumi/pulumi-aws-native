@@ -18,10 +18,14 @@ from ._enums import *
 __all__ = [
     'DeliveryDestinationDestinationPolicyArgs',
     'DeliveryDestinationDestinationPolicyArgsDict',
+    'IntegrationOpenSearchResourceConfigArgs',
+    'IntegrationOpenSearchResourceConfigArgsDict',
     'MetricFilterDimensionArgs',
     'MetricFilterDimensionArgsDict',
     'MetricFilterMetricTransformationArgs',
     'MetricFilterMetricTransformationArgsDict',
+    'ResourceConfigPropertiesArgs',
+    'ResourceConfigPropertiesArgsDict',
 ]
 
 MYPY = False
@@ -74,6 +78,79 @@ class DeliveryDestinationDestinationPolicyArgs:
     @delivery_destination_policy.setter
     def delivery_destination_policy(self, value: pulumi.Input[str]):
         pulumi.set(self, "delivery_destination_policy", value)
+
+
+if not MYPY:
+    class IntegrationOpenSearchResourceConfigArgsDict(TypedDict):
+        dashboard_viewer_principals: pulumi.Input[Sequence[pulumi.Input[str]]]
+        data_source_role_arn: pulumi.Input[str]
+        application_arn: NotRequired[pulumi.Input[str]]
+        kms_key_arn: NotRequired[pulumi.Input[str]]
+        retention_days: NotRequired[pulumi.Input[int]]
+elif False:
+    IntegrationOpenSearchResourceConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class IntegrationOpenSearchResourceConfigArgs:
+    def __init__(__self__, *,
+                 dashboard_viewer_principals: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 data_source_role_arn: pulumi.Input[str],
+                 application_arn: Optional[pulumi.Input[str]] = None,
+                 kms_key_arn: Optional[pulumi.Input[str]] = None,
+                 retention_days: Optional[pulumi.Input[int]] = None):
+        pulumi.set(__self__, "dashboard_viewer_principals", dashboard_viewer_principals)
+        pulumi.set(__self__, "data_source_role_arn", data_source_role_arn)
+        if application_arn is not None:
+            pulumi.set(__self__, "application_arn", application_arn)
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+        if retention_days is not None:
+            pulumi.set(__self__, "retention_days", retention_days)
+
+    @property
+    @pulumi.getter(name="dashboardViewerPrincipals")
+    def dashboard_viewer_principals(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        return pulumi.get(self, "dashboard_viewer_principals")
+
+    @dashboard_viewer_principals.setter
+    def dashboard_viewer_principals(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "dashboard_viewer_principals", value)
+
+    @property
+    @pulumi.getter(name="dataSourceRoleArn")
+    def data_source_role_arn(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "data_source_role_arn")
+
+    @data_source_role_arn.setter
+    def data_source_role_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_source_role_arn", value)
+
+    @property
+    @pulumi.getter(name="applicationArn")
+    def application_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "application_arn")
+
+    @application_arn.setter
+    def application_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "application_arn", value)
+
+    @property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "kms_key_arn")
+
+    @kms_key_arn.setter
+    def kms_key_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_arn", value)
+
+    @property
+    @pulumi.getter(name="retentionDays")
+    def retention_days(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "retention_days")
+
+    @retention_days.setter
+    def retention_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "retention_days", value)
 
 
 if not MYPY:
@@ -283,5 +360,34 @@ class MetricFilterMetricTransformationArgs:
     @unit.setter
     def unit(self, value: Optional[pulumi.Input['MetricFilterMetricTransformationUnit']]):
         pulumi.set(self, "unit", value)
+
+
+if not MYPY:
+    class ResourceConfigPropertiesArgsDict(TypedDict):
+        """
+        OpenSearchResourceConfig for the given Integration
+        """
+        open_search_resource_config: NotRequired[pulumi.Input['IntegrationOpenSearchResourceConfigArgsDict']]
+elif False:
+    ResourceConfigPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ResourceConfigPropertiesArgs:
+    def __init__(__self__, *,
+                 open_search_resource_config: Optional[pulumi.Input['IntegrationOpenSearchResourceConfigArgs']] = None):
+        """
+        OpenSearchResourceConfig for the given Integration
+        """
+        if open_search_resource_config is not None:
+            pulumi.set(__self__, "open_search_resource_config", open_search_resource_config)
+
+    @property
+    @pulumi.getter(name="openSearchResourceConfig")
+    def open_search_resource_config(self) -> Optional[pulumi.Input['IntegrationOpenSearchResourceConfigArgs']]:
+        return pulumi.get(self, "open_search_resource_config")
+
+    @open_search_resource_config.setter
+    def open_search_resource_config(self, value: Optional[pulumi.Input['IntegrationOpenSearchResourceConfigArgs']]):
+        pulumi.set(self, "open_search_resource_config", value)
 
 

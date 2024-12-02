@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Wisdom.Inputs
 {
 
+    /// <summary>
+    /// A custom parser for data source documents.
+    /// </summary>
     public sealed class KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("bedrockFoundationModelConfiguration")]

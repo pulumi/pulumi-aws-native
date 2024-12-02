@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.ApiGateway
     [AwsNativeResourceType("aws-native:apigateway:DomainNameV2")]
     public partial class DomainNameV2 : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The reference to an AWS -managed certificate that will be used by the private endpoint for this domain name. AWS Certificate Manager is the only supported source.
+        /// </summary>
         [Output("certificateArn")]
         public Output<string?> CertificateArn { get; private set; } = null!;
 
+        /// <summary>
+        /// Represents a custom domain name as a user-friendly host name of an API (RestApi).
+        /// </summary>
         [Output("domainName")]
         public Output<string?> DomainName { get; private set; } = null!;
 
@@ -27,9 +33,15 @@ namespace Pulumi.AwsNative.ApiGateway
         [Output("domainNameArn")]
         public Output<string> DomainNameArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The domain name ID.
+        /// </summary>
         [Output("domainNameId")]
         public Output<string> DomainNameId { get; private set; } = null!;
 
+        /// <summary>
+        /// The endpoint configuration to indicate the types of endpoints an API (RestApi) or its custom domain name (DomainName) has.
+        /// </summary>
         [Output("endpointConfiguration")]
         public Output<Outputs.DomainNameV2EndpointConfiguration?> EndpointConfiguration { get; private set; } = null!;
 
@@ -40,14 +52,22 @@ namespace Pulumi.AwsNative.ApiGateway
         public Output<object?> ManagementPolicy { get; private set; } = null!;
 
         /// <summary>
+        /// A stringified JSON policy document that applies to the `execute-api` service for this DomainName regardless of the caller and Method configuration. You can use `Fn::ToJsonString` to enter your `policy` . For more information, see [Fn::ToJsonString](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ToJsonString.html) .
+        /// 
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::DomainNameV2` for more information about the expected schema for this property.
         /// </summary>
         [Output("policy")]
         public Output<object?> Policy { get; private set; } = null!;
 
+        /// <summary>
+        /// The Transport Layer Security (TLS) version + cipher suite for this DomainName. Only `TLS_1_2` is supported.
+        /// </summary>
         [Output("securityPolicy")]
         public Output<string?> SecurityPolicy { get; private set; } = null!;
 
+        /// <summary>
+        /// The collection of tags. Each tag element is associated with a given resource.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -102,12 +122,21 @@ namespace Pulumi.AwsNative.ApiGateway
 
     public sealed class DomainNameV2Args : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The reference to an AWS -managed certificate that will be used by the private endpoint for this domain name. AWS Certificate Manager is the only supported source.
+        /// </summary>
         [Input("certificateArn")]
         public Input<string>? CertificateArn { get; set; }
 
+        /// <summary>
+        /// Represents a custom domain name as a user-friendly host name of an API (RestApi).
+        /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }
 
+        /// <summary>
+        /// The endpoint configuration to indicate the types of endpoints an API (RestApi) or its custom domain name (DomainName) has.
+        /// </summary>
         [Input("endpointConfiguration")]
         public Input<Inputs.DomainNameV2EndpointConfigurationArgs>? EndpointConfiguration { get; set; }
 
@@ -118,16 +147,25 @@ namespace Pulumi.AwsNative.ApiGateway
         public Input<object>? ManagementPolicy { get; set; }
 
         /// <summary>
+        /// A stringified JSON policy document that applies to the `execute-api` service for this DomainName regardless of the caller and Method configuration. You can use `Fn::ToJsonString` to enter your `policy` . For more information, see [Fn::ToJsonString](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ToJsonString.html) .
+        /// 
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::DomainNameV2` for more information about the expected schema for this property.
         /// </summary>
         [Input("policy")]
         public Input<object>? Policy { get; set; }
 
+        /// <summary>
+        /// The Transport Layer Security (TLS) version + cipher suite for this DomainName. Only `TLS_1_2` is supported.
+        /// </summary>
         [Input("securityPolicy")]
         public Input<string>? SecurityPolicy { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// The collection of tags. Each tag element is associated with a given resource.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

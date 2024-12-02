@@ -25,20 +25,31 @@ export interface GetDomainNameV2Args {
 }
 
 export interface GetDomainNameV2Result {
+    /**
+     * The reference to an AWS -managed certificate that will be used by the private endpoint for this domain name. AWS Certificate Manager is the only supported source.
+     */
     readonly certificateArn?: string;
     /**
      * The amazon resource name (ARN) of the domain name resource.
      */
     readonly domainNameArn?: string;
+    /**
+     * The domain name ID.
+     */
     readonly domainNameId?: string;
     /**
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::DomainNameV2` for more information about the expected schema for this property.
      */
     readonly managementPolicy?: any;
     /**
+     * A stringified JSON policy document that applies to the `execute-api` service for this DomainName regardless of the caller and Method configuration. You can use `Fn::ToJsonString` to enter your `policy` . For more information, see [Fn::ToJsonString](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ToJsonString.html) .
+     *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::DomainNameV2` for more information about the expected schema for this property.
      */
     readonly policy?: any;
+    /**
+     * The collection of tags. Each tag element is associated with a given resource.
+     */
     readonly tags?: outputs.Tag[];
 }
 /**

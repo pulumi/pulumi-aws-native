@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.AutoScaling.Outputs
         /// Conditional: Within each `TargetTrackingMetricDataQuery` object, you must specify either `Expression` or `MetricStat` , but not both.
         /// </summary>
         public readonly Outputs.ScalingPolicyTargetTrackingMetricStat? MetricStat;
+        /// <summary>
+        /// The period of the metric in seconds. The default value is 60. Accepted values are 10, 30, and 60. For high resolution metric, set the value to less than 60. For more information, see [Create a target tracking policy using high-resolution metrics for faster response](https://docs.aws.amazon.com/autoscaling/ec2/userguide/policy-creating-high-resolution-metrics.html) .
+        /// </summary>
         public readonly int? Period;
         /// <summary>
         /// Indicates whether to return the timestamps and raw data values of this metric.

@@ -96,6 +96,9 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         /// The name of the load balancer. For example, `my-load-balancer` .
         /// </summary>
         public readonly string? LoadBalancerName;
+        /// <summary>
+        /// The minimum capacity for a load balancer.
+        /// </summary>
         public readonly Outputs.LoadBalancerMinimumLoadBalancerCapacity? MinimumLoadBalancerCapacity;
         /// <summary>
         /// [Application Load Balancers and Network Load Balancers] The IDs of the security groups for the load balancer.

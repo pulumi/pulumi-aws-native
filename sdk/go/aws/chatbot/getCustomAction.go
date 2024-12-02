@@ -24,15 +24,21 @@ func LookupCustomAction(ctx *pulumi.Context, args *LookupCustomActionArgs, opts 
 }
 
 type LookupCustomActionArgs struct {
+	// The fully defined ARN of the custom action.
 	CustomActionArn string `pulumi:"customActionArn"`
 }
 
 type LookupCustomActionResult struct {
-	AliasName       *string                  `pulumi:"aliasName"`
-	Attachments     []CustomActionAttachment `pulumi:"attachments"`
-	CustomActionArn *string                  `pulumi:"customActionArn"`
-	Definition      *CustomActionDefinition  `pulumi:"definition"`
-	Tags            []aws.Tag                `pulumi:"tags"`
+	// The name used to invoke this action in a chat channel. For example, `@aws run my-alias` .
+	AliasName *string `pulumi:"aliasName"`
+	// Defines when this custom action button should be attached to a notification.
+	Attachments []CustomActionAttachment `pulumi:"attachments"`
+	// The fully defined ARN of the custom action.
+	CustomActionArn *string `pulumi:"customActionArn"`
+	// The definition of the command to run when invoked as an alias or as an action button.
+	Definition *CustomActionDefinition `pulumi:"definition"`
+	// The tags to add to the configuration.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupCustomActionOutput(ctx *pulumi.Context, args LookupCustomActionOutputArgs, opts ...pulumi.InvokeOption) LookupCustomActionResultOutput {
@@ -55,6 +61,7 @@ func LookupCustomActionOutput(ctx *pulumi.Context, args LookupCustomActionOutput
 }
 
 type LookupCustomActionOutputArgs struct {
+	// The fully defined ARN of the custom action.
 	CustomActionArn pulumi.StringInput `pulumi:"customActionArn"`
 }
 
@@ -76,22 +83,27 @@ func (o LookupCustomActionResultOutput) ToLookupCustomActionResultOutputWithCont
 	return o
 }
 
+// The name used to invoke this action in a chat channel. For example, `@aws run my-alias` .
 func (o LookupCustomActionResultOutput) AliasName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCustomActionResult) *string { return v.AliasName }).(pulumi.StringPtrOutput)
 }
 
+// Defines when this custom action button should be attached to a notification.
 func (o LookupCustomActionResultOutput) Attachments() CustomActionAttachmentArrayOutput {
 	return o.ApplyT(func(v LookupCustomActionResult) []CustomActionAttachment { return v.Attachments }).(CustomActionAttachmentArrayOutput)
 }
 
+// The fully defined ARN of the custom action.
 func (o LookupCustomActionResultOutput) CustomActionArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCustomActionResult) *string { return v.CustomActionArn }).(pulumi.StringPtrOutput)
 }
 
+// The definition of the command to run when invoked as an alias or as an action button.
 func (o LookupCustomActionResultOutput) Definition() CustomActionDefinitionPtrOutput {
 	return o.ApplyT(func(v LookupCustomActionResult) *CustomActionDefinition { return v.Definition }).(CustomActionDefinitionPtrOutput)
 }
 
+// The tags to add to the configuration.
 func (o LookupCustomActionResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupCustomActionResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

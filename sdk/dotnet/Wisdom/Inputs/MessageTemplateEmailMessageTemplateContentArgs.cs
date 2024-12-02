@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Wisdom.Inputs
     /// </summary>
     public sealed class MessageTemplateEmailMessageTemplateContentArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The body to use in email messages.
+        /// </summary>
         [Input("body", required: true)]
         public Input<Inputs.MessageTemplateEmailMessageTemplateContentBodyArgs> Body { get; set; } = null!;
 

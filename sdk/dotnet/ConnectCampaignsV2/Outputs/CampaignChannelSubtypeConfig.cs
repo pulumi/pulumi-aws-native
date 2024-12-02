@@ -16,8 +16,17 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2.Outputs
     [OutputType]
     public sealed class CampaignChannelSubtypeConfig
     {
+        /// <summary>
+        /// The configuration of the email channel subtype.
+        /// </summary>
         public readonly Outputs.CampaignEmailChannelSubtypeConfig? Email;
+        /// <summary>
+        /// The configuration of the SMS channel subtype.
+        /// </summary>
         public readonly Outputs.CampaignSmsChannelSubtypeConfig? Sms;
+        /// <summary>
+        /// The configuration of the telephony channel subtype.
+        /// </summary>
         public readonly Outputs.CampaignTelephonyChannelSubtypeConfig? Telephony;
 
         [OutputConstructor]

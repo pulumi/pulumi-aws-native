@@ -15,12 +15,21 @@ namespace Pulumi.AwsNative.Wisdom
     [AwsNativeResourceType("aws-native:wisdom:MessageTemplate")]
     public partial class MessageTemplate : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The channel subtype this message template applies to.
+        /// </summary>
         [Output("channelSubtype")]
         public Output<Pulumi.AwsNative.Wisdom.MessageTemplateChannelSubtype> ChannelSubtype { get; private set; } = null!;
 
+        /// <summary>
+        /// The content of the message template.
+        /// </summary>
         [Output("content")]
         public Output<Outputs.MessageTemplateContent> Content { get; private set; } = null!;
 
+        /// <summary>
+        /// An object that specifies the default values to use for variables in the message template. This object contains different categories of key-value pairs. Each key defines a variable or placeholder in the message template. The corresponding value defines the default value for that variable.
+        /// </summary>
         [Output("defaultAttributes")]
         public Output<Outputs.MessageTemplateAttributes?> DefaultAttributes { get; private set; } = null!;
 
@@ -30,6 +39,9 @@ namespace Pulumi.AwsNative.Wisdom
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The configuration information of the external data source.
+        /// </summary>
         [Output("groupingConfiguration")]
         public Output<Outputs.MessageTemplateGroupingConfiguration?> GroupingConfiguration { get; private set; } = null!;
 
@@ -125,12 +137,21 @@ namespace Pulumi.AwsNative.Wisdom
 
     public sealed class MessageTemplateArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The channel subtype this message template applies to.
+        /// </summary>
         [Input("channelSubtype", required: true)]
         public Input<Pulumi.AwsNative.Wisdom.MessageTemplateChannelSubtype> ChannelSubtype { get; set; } = null!;
 
+        /// <summary>
+        /// The content of the message template.
+        /// </summary>
         [Input("content", required: true)]
         public Input<Inputs.MessageTemplateContentArgs> Content { get; set; } = null!;
 
+        /// <summary>
+        /// An object that specifies the default values to use for variables in the message template. This object contains different categories of key-value pairs. Each key defines a variable or placeholder in the message template. The corresponding value defines the default value for that variable.
+        /// </summary>
         [Input("defaultAttributes")]
         public Input<Inputs.MessageTemplateAttributesArgs>? DefaultAttributes { get; set; }
 
@@ -140,6 +161,9 @@ namespace Pulumi.AwsNative.Wisdom
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The configuration information of the external data source.
+        /// </summary>
         [Input("groupingConfiguration")]
         public Input<Inputs.MessageTemplateGroupingConfigurationArgs>? GroupingConfiguration { get; set; }
 

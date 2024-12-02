@@ -27,9 +27,15 @@ namespace Pulumi.AwsNative.Cognito
 
     public sealed class GetManagedLoginBrandingArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the managed login branding style.
+        /// </summary>
         [Input("managedLoginBrandingId", required: true)]
         public string ManagedLoginBrandingId { get; set; } = null!;
 
+        /// <summary>
+        /// The user pool where the branding style is assigned.
+        /// </summary>
         [Input("userPoolId", required: true)]
         public string UserPoolId { get; set; } = null!;
 
@@ -41,9 +47,15 @@ namespace Pulumi.AwsNative.Cognito
 
     public sealed class GetManagedLoginBrandingInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the managed login branding style.
+        /// </summary>
         [Input("managedLoginBrandingId", required: true)]
         public Input<string> ManagedLoginBrandingId { get; set; } = null!;
 
+        /// <summary>
+        /// The user pool where the branding style is assigned.
+        /// </summary>
         [Input("userPoolId", required: true)]
         public Input<string> UserPoolId { get; set; } = null!;
 
@@ -57,12 +69,23 @@ namespace Pulumi.AwsNative.Cognito
     [OutputType]
     public sealed class GetManagedLoginBrandingResult
     {
+        /// <summary>
+        /// An array of image files that you want to apply to roles like backgrounds, logos, and icons. Each object must also indicate whether it is for dark mode, light mode, or browser-adaptive mode.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ManagedLoginBrandingAssetType> Assets;
+        /// <summary>
+        /// The ID of the managed login branding style.
+        /// </summary>
         public readonly string? ManagedLoginBrandingId;
         /// <summary>
+        /// A JSON file, encoded as a `Document` type, with the the settings that you want to apply to your style.
+        /// 
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::ManagedLoginBranding` for more information about the expected schema for this property.
         /// </summary>
         public readonly object? Settings;
+        /// <summary>
+        /// When true, applies the default branding style options. This option reverts to a "blank" style that you can modify later in the branding designer.
+        /// </summary>
         public readonly bool? UseCognitoProvidedValues;
 
         [OutputConstructor]

@@ -29,7 +29,7 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.Bedrock.AgentActionGroupState? ActionGroupState;
         /// <summary>
-        /// Contains either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema. For more information, see [Action group OpenAPI schemas](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-api-schema.html) .
+        /// Contains either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema. For more information, see [Action group OpenAPI schemas](https://docs.aws.amazon.com//bedrock/latest/userguide/agents-api-schema.html) .
         /// </summary>
         public readonly Union<Outputs.AgentApiSchema0Properties, Outputs.AgentApiSchema1Properties>? ApiSchema;
         /// <summary>
@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// Defines functions that each define parameters that the agent needs to invoke from the user. Each function represents an action in an action group.
+        /// Contains details about the function schema for the action group or the JSON or YAML-formatted payload defining the schema.
         /// </summary>
         public readonly Outputs.AgentFunctionSchema? FunctionSchema;
         /// <summary>

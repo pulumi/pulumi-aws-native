@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2.Outputs
     [OutputType]
     public sealed class CampaignProgressiveConfig
     {
+        /// <summary>
+        /// Bandwidth allocation for the progressive outbound mode.
+        /// </summary>
         public readonly double BandwidthAllocation;
 
         [OutputConstructor]

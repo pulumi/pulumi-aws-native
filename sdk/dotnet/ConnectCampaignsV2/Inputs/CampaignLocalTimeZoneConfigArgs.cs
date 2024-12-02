@@ -15,11 +15,18 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2.Inputs
     /// </summary>
     public sealed class CampaignLocalTimeZoneConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The timezone to use for all recipients.
+        /// </summary>
         [Input("defaultTimeZone")]
         public Input<string>? DefaultTimeZone { get; set; }
 
         [Input("localTimeZoneDetection")]
         private InputList<Pulumi.AwsNative.ConnectCampaignsV2.CampaignLocalTimeZoneDetectionType>? _localTimeZoneDetection;
+
+        /// <summary>
+        /// Detects methods for the recipient's timezone.
+        /// </summary>
         public InputList<Pulumi.AwsNative.ConnectCampaignsV2.CampaignLocalTimeZoneDetectionType> LocalTimeZoneDetection
         {
             get => _localTimeZoneDetection ?? (_localTimeZoneDetection = new InputList<Pulumi.AwsNative.ConnectCampaignsV2.CampaignLocalTimeZoneDetectionType>());

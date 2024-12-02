@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2.Outputs
     [OutputType]
     public sealed class CampaignPredictiveConfig
     {
+        /// <summary>
+        /// Bandwidth allocation for the predictive outbound mode.
+        /// </summary>
         public readonly double BandwidthAllocation;
 
         [OutputConstructor]

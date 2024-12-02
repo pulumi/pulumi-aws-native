@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2.Outputs
     [OutputType]
     public sealed class CampaignCommunicationLimitsConfig
     {
+        /// <summary>
+        /// The CommunicationLimits that apply to all channel subtypes defined in an outbound campaign.
+        /// </summary>
         public readonly Outputs.CampaignCommunicationLimits? AllChannelsSubtypes;
 
         [OutputConstructor]

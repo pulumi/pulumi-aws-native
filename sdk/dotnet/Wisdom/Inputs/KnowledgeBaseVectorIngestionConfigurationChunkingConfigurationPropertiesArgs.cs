@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Wisdom.Inputs
 {
 
+    /// <summary>
+    /// Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried.
+    /// </summary>
     public sealed class KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("chunkingStrategy", required: true)]

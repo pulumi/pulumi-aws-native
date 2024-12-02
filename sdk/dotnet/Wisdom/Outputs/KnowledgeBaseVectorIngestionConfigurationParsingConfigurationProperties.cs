@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Wisdom.Outputs
 {
 
+    /// <summary>
+    /// A custom parser for data source documents.
+    /// </summary>
     [OutputType]
     public sealed class KnowledgeBaseVectorIngestionConfigurationParsingConfigurationProperties
     {

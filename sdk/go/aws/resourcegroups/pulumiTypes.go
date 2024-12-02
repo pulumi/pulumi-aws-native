@@ -593,7 +593,9 @@ func (o GroupResourceQueryPtrOutput) Type() GroupResourceQueryTypePtrOutput {
 }
 
 type GroupTag struct {
-	Key   *string `pulumi:"key"`
+	// The tag key.
+	Key *string `pulumi:"key"`
+	// The tag value.
 	Value *string `pulumi:"value"`
 }
 

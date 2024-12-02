@@ -76,6 +76,9 @@ export class LoadBalancer extends pulumi.CustomResource {
      * The name of the load balancer. For example, `my-load-balancer` .
      */
     public /*out*/ readonly loadBalancerName!: pulumi.Output<string>;
+    /**
+     * The minimum capacity for a load balancer.
+     */
     public readonly minimumLoadBalancerCapacity!: pulumi.Output<outputs.elasticloadbalancingv2.LoadBalancerMinimumLoadBalancerCapacity | undefined>;
     /**
      * The name of the load balancer. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, must not begin or end with a hyphen, and must not begin with "internal-".
@@ -196,6 +199,9 @@ export interface LoadBalancerArgs {
      * The load balancer attributes.
      */
     loadBalancerAttributes?: pulumi.Input<pulumi.Input<inputs.elasticloadbalancingv2.LoadBalancerAttributeArgs>[]>;
+    /**
+     * The minimum capacity for a load balancer.
+     */
     minimumLoadBalancerCapacity?: pulumi.Input<inputs.elasticloadbalancingv2.LoadBalancerMinimumLoadBalancerCapacityArgs>;
     /**
      * The name of the load balancer. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, must not begin or end with a hyphen, and must not begin with "internal-".

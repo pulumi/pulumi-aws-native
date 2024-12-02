@@ -37,9 +37,21 @@ MYPY = False
 if not MYPY:
     class DataProtectionSettingsCustomPatternArgsDict(TypedDict):
         pattern_name: pulumi.Input[str]
+        """
+        The pattern name for the custom pattern.
+        """
         pattern_regex: pulumi.Input[str]
+        """
+        The pattern regex for the customer pattern. The format must follow JavaScript regex format. The pattern must be enclosed between slashes, and can have flags behind the second slash. For example: "/ab+c/gi".
+        """
         keyword_regex: NotRequired[pulumi.Input[str]]
+        """
+        The keyword regex for the customer pattern. After there is a match to the pattern regex, the keyword regex is used to search within the proximity of the match. If there is a keyword match, then the match is confirmed. If no keyword regex is provided, the pattern regex match will automatically be confirmed. The format must follow JavaScript regex format. The pattern must be enclosed between slashes, and can have flags behind the second slash. For example, "/ab+c/gi"
+        """
         pattern_description: NotRequired[pulumi.Input[str]]
+        """
+        The pattern description for the customer pattern.
+        """
 elif False:
     DataProtectionSettingsCustomPatternArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -50,6 +62,12 @@ class DataProtectionSettingsCustomPatternArgs:
                  pattern_regex: pulumi.Input[str],
                  keyword_regex: Optional[pulumi.Input[str]] = None,
                  pattern_description: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] pattern_name: The pattern name for the custom pattern.
+        :param pulumi.Input[str] pattern_regex: The pattern regex for the customer pattern. The format must follow JavaScript regex format. The pattern must be enclosed between slashes, and can have flags behind the second slash. For example: "/ab+c/gi".
+        :param pulumi.Input[str] keyword_regex: The keyword regex for the customer pattern. After there is a match to the pattern regex, the keyword regex is used to search within the proximity of the match. If there is a keyword match, then the match is confirmed. If no keyword regex is provided, the pattern regex match will automatically be confirmed. The format must follow JavaScript regex format. The pattern must be enclosed between slashes, and can have flags behind the second slash. For example, "/ab+c/gi"
+        :param pulumi.Input[str] pattern_description: The pattern description for the customer pattern.
+        """
         pulumi.set(__self__, "pattern_name", pattern_name)
         pulumi.set(__self__, "pattern_regex", pattern_regex)
         if keyword_regex is not None:
@@ -60,6 +78,9 @@ class DataProtectionSettingsCustomPatternArgs:
     @property
     @pulumi.getter(name="patternName")
     def pattern_name(self) -> pulumi.Input[str]:
+        """
+        The pattern name for the custom pattern.
+        """
         return pulumi.get(self, "pattern_name")
 
     @pattern_name.setter
@@ -69,6 +90,9 @@ class DataProtectionSettingsCustomPatternArgs:
     @property
     @pulumi.getter(name="patternRegex")
     def pattern_regex(self) -> pulumi.Input[str]:
+        """
+        The pattern regex for the customer pattern. The format must follow JavaScript regex format. The pattern must be enclosed between slashes, and can have flags behind the second slash. For example: "/ab+c/gi".
+        """
         return pulumi.get(self, "pattern_regex")
 
     @pattern_regex.setter
@@ -78,6 +102,9 @@ class DataProtectionSettingsCustomPatternArgs:
     @property
     @pulumi.getter(name="keywordRegex")
     def keyword_regex(self) -> Optional[pulumi.Input[str]]:
+        """
+        The keyword regex for the customer pattern. After there is a match to the pattern regex, the keyword regex is used to search within the proximity of the match. If there is a keyword match, then the match is confirmed. If no keyword regex is provided, the pattern regex match will automatically be confirmed. The format must follow JavaScript regex format. The pattern must be enclosed between slashes, and can have flags behind the second slash. For example, "/ab+c/gi"
+        """
         return pulumi.get(self, "keyword_regex")
 
     @keyword_regex.setter
@@ -87,6 +114,9 @@ class DataProtectionSettingsCustomPatternArgs:
     @property
     @pulumi.getter(name="patternDescription")
     def pattern_description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The pattern description for the customer pattern.
+        """
         return pulumi.get(self, "pattern_description")
 
     @pattern_description.setter
@@ -97,9 +127,21 @@ class DataProtectionSettingsCustomPatternArgs:
 if not MYPY:
     class DataProtectionSettingsInlineRedactionConfigurationArgsDict(TypedDict):
         inline_redaction_patterns: pulumi.Input[Sequence[pulumi.Input['DataProtectionSettingsInlineRedactionPatternArgsDict']]]
+        """
+        The inline redaction patterns to be enabled for the inline redaction configuration.
+        """
         global_confidence_level: NotRequired[pulumi.Input[float]]
+        """
+        The global confidence level for the inline redaction configuration. This indicates the certainty of data type matches in the redaction process. Confidence level 3 means high confidence, and requires a formatted text pattern match in order for content to be redacted. Confidence level 2 means medium confidence, and redaction considers both formatted and unformatted text, and adds keyword associate to the logic. Confidence level 1 means low confidence, and redaction is enforced for both formatted pattern + unformatted pattern without keyword. This is applied to patterns that do not have a pattern-level confidence level. Defaults to confidence level 2.
+        """
         global_enforced_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The global enforced URL configuration for the inline redaction configuration. This is applied to patterns that do not have a pattern-level enforced URL list.
+        """
         global_exempt_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The global exempt URL configuration for the inline redaction configuration. This is applied to patterns that do not have a pattern-level exempt URL list.
+        """
 elif False:
     DataProtectionSettingsInlineRedactionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -110,6 +152,12 @@ class DataProtectionSettingsInlineRedactionConfigurationArgs:
                  global_confidence_level: Optional[pulumi.Input[float]] = None,
                  global_enforced_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  global_exempt_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['DataProtectionSettingsInlineRedactionPatternArgs']]] inline_redaction_patterns: The inline redaction patterns to be enabled for the inline redaction configuration.
+        :param pulumi.Input[float] global_confidence_level: The global confidence level for the inline redaction configuration. This indicates the certainty of data type matches in the redaction process. Confidence level 3 means high confidence, and requires a formatted text pattern match in order for content to be redacted. Confidence level 2 means medium confidence, and redaction considers both formatted and unformatted text, and adds keyword associate to the logic. Confidence level 1 means low confidence, and redaction is enforced for both formatted pattern + unformatted pattern without keyword. This is applied to patterns that do not have a pattern-level confidence level. Defaults to confidence level 2.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] global_enforced_urls: The global enforced URL configuration for the inline redaction configuration. This is applied to patterns that do not have a pattern-level enforced URL list.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] global_exempt_urls: The global exempt URL configuration for the inline redaction configuration. This is applied to patterns that do not have a pattern-level exempt URL list.
+        """
         pulumi.set(__self__, "inline_redaction_patterns", inline_redaction_patterns)
         if global_confidence_level is not None:
             pulumi.set(__self__, "global_confidence_level", global_confidence_level)
@@ -121,6 +169,9 @@ class DataProtectionSettingsInlineRedactionConfigurationArgs:
     @property
     @pulumi.getter(name="inlineRedactionPatterns")
     def inline_redaction_patterns(self) -> pulumi.Input[Sequence[pulumi.Input['DataProtectionSettingsInlineRedactionPatternArgs']]]:
+        """
+        The inline redaction patterns to be enabled for the inline redaction configuration.
+        """
         return pulumi.get(self, "inline_redaction_patterns")
 
     @inline_redaction_patterns.setter
@@ -130,6 +181,9 @@ class DataProtectionSettingsInlineRedactionConfigurationArgs:
     @property
     @pulumi.getter(name="globalConfidenceLevel")
     def global_confidence_level(self) -> Optional[pulumi.Input[float]]:
+        """
+        The global confidence level for the inline redaction configuration. This indicates the certainty of data type matches in the redaction process. Confidence level 3 means high confidence, and requires a formatted text pattern match in order for content to be redacted. Confidence level 2 means medium confidence, and redaction considers both formatted and unformatted text, and adds keyword associate to the logic. Confidence level 1 means low confidence, and redaction is enforced for both formatted pattern + unformatted pattern without keyword. This is applied to patterns that do not have a pattern-level confidence level. Defaults to confidence level 2.
+        """
         return pulumi.get(self, "global_confidence_level")
 
     @global_confidence_level.setter
@@ -139,6 +193,9 @@ class DataProtectionSettingsInlineRedactionConfigurationArgs:
     @property
     @pulumi.getter(name="globalEnforcedUrls")
     def global_enforced_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The global enforced URL configuration for the inline redaction configuration. This is applied to patterns that do not have a pattern-level enforced URL list.
+        """
         return pulumi.get(self, "global_enforced_urls")
 
     @global_enforced_urls.setter
@@ -148,6 +205,9 @@ class DataProtectionSettingsInlineRedactionConfigurationArgs:
     @property
     @pulumi.getter(name="globalExemptUrls")
     def global_exempt_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The global exempt URL configuration for the inline redaction configuration. This is applied to patterns that do not have a pattern-level exempt URL list.
+        """
         return pulumi.get(self, "global_exempt_urls")
 
     @global_exempt_urls.setter
@@ -158,11 +218,29 @@ class DataProtectionSettingsInlineRedactionConfigurationArgs:
 if not MYPY:
     class DataProtectionSettingsInlineRedactionPatternArgsDict(TypedDict):
         redaction_place_holder: pulumi.Input['DataProtectionSettingsRedactionPlaceHolderArgsDict']
+        """
+        The redaction placeholder that will replace the redacted text in session for the inline redaction pattern.
+        """
         built_in_pattern_id: NotRequired[pulumi.Input[str]]
+        """
+        The built-in pattern from the list of preconfigured patterns. Either a customPattern or builtInPatternId is required. To view the entire list of data types and their corresponding built-in pattern IDs, see [Base inline redaction](https://docs.aws.amazon.com/workspaces-web/latest/adminguide/base-inline-redaction.html) .
+        """
         confidence_level: NotRequired[pulumi.Input[float]]
+        """
+        The confidence level for inline redaction pattern. This indicates the certainty of data type matches in the redaction process. Confidence level 3 means high confidence, and requires a formatted text pattern match in order for content to be redacted. Confidence level 2 means medium confidence, and redaction considers both formatted and unformatted text, and adds keyword associate to the logic. Confidence level 1 means low confidence, and redaction is enforced for both formatted pattern + unformatted pattern without keyword. This overrides the global confidence level.
+        """
         custom_pattern: NotRequired[pulumi.Input['DataProtectionSettingsCustomPatternArgsDict']]
+        """
+        The configuration for a custom pattern. Either a customPattern or builtInPatternId is required.
+        """
         enforced_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The enforced URL configuration for the inline redaction pattern. This will override the global enforced URL configuration.
+        """
         exempt_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        The exempt URL configuration for the inline redaction pattern. This will override the global exempt URL configuration for the inline redaction pattern.
+        """
 elif False:
     DataProtectionSettingsInlineRedactionPatternArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -175,6 +253,14 @@ class DataProtectionSettingsInlineRedactionPatternArgs:
                  custom_pattern: Optional[pulumi.Input['DataProtectionSettingsCustomPatternArgs']] = None,
                  enforced_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  exempt_urls: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input['DataProtectionSettingsRedactionPlaceHolderArgs'] redaction_place_holder: The redaction placeholder that will replace the redacted text in session for the inline redaction pattern.
+        :param pulumi.Input[str] built_in_pattern_id: The built-in pattern from the list of preconfigured patterns. Either a customPattern or builtInPatternId is required. To view the entire list of data types and their corresponding built-in pattern IDs, see [Base inline redaction](https://docs.aws.amazon.com/workspaces-web/latest/adminguide/base-inline-redaction.html) .
+        :param pulumi.Input[float] confidence_level: The confidence level for inline redaction pattern. This indicates the certainty of data type matches in the redaction process. Confidence level 3 means high confidence, and requires a formatted text pattern match in order for content to be redacted. Confidence level 2 means medium confidence, and redaction considers both formatted and unformatted text, and adds keyword associate to the logic. Confidence level 1 means low confidence, and redaction is enforced for both formatted pattern + unformatted pattern without keyword. This overrides the global confidence level.
+        :param pulumi.Input['DataProtectionSettingsCustomPatternArgs'] custom_pattern: The configuration for a custom pattern. Either a customPattern or builtInPatternId is required.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] enforced_urls: The enforced URL configuration for the inline redaction pattern. This will override the global enforced URL configuration.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] exempt_urls: The exempt URL configuration for the inline redaction pattern. This will override the global exempt URL configuration for the inline redaction pattern.
+        """
         pulumi.set(__self__, "redaction_place_holder", redaction_place_holder)
         if built_in_pattern_id is not None:
             pulumi.set(__self__, "built_in_pattern_id", built_in_pattern_id)
@@ -190,6 +276,9 @@ class DataProtectionSettingsInlineRedactionPatternArgs:
     @property
     @pulumi.getter(name="redactionPlaceHolder")
     def redaction_place_holder(self) -> pulumi.Input['DataProtectionSettingsRedactionPlaceHolderArgs']:
+        """
+        The redaction placeholder that will replace the redacted text in session for the inline redaction pattern.
+        """
         return pulumi.get(self, "redaction_place_holder")
 
     @redaction_place_holder.setter
@@ -199,6 +288,9 @@ class DataProtectionSettingsInlineRedactionPatternArgs:
     @property
     @pulumi.getter(name="builtInPatternId")
     def built_in_pattern_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The built-in pattern from the list of preconfigured patterns. Either a customPattern or builtInPatternId is required. To view the entire list of data types and their corresponding built-in pattern IDs, see [Base inline redaction](https://docs.aws.amazon.com/workspaces-web/latest/adminguide/base-inline-redaction.html) .
+        """
         return pulumi.get(self, "built_in_pattern_id")
 
     @built_in_pattern_id.setter
@@ -208,6 +300,9 @@ class DataProtectionSettingsInlineRedactionPatternArgs:
     @property
     @pulumi.getter(name="confidenceLevel")
     def confidence_level(self) -> Optional[pulumi.Input[float]]:
+        """
+        The confidence level for inline redaction pattern. This indicates the certainty of data type matches in the redaction process. Confidence level 3 means high confidence, and requires a formatted text pattern match in order for content to be redacted. Confidence level 2 means medium confidence, and redaction considers both formatted and unformatted text, and adds keyword associate to the logic. Confidence level 1 means low confidence, and redaction is enforced for both formatted pattern + unformatted pattern without keyword. This overrides the global confidence level.
+        """
         return pulumi.get(self, "confidence_level")
 
     @confidence_level.setter
@@ -217,6 +312,9 @@ class DataProtectionSettingsInlineRedactionPatternArgs:
     @property
     @pulumi.getter(name="customPattern")
     def custom_pattern(self) -> Optional[pulumi.Input['DataProtectionSettingsCustomPatternArgs']]:
+        """
+        The configuration for a custom pattern. Either a customPattern or builtInPatternId is required.
+        """
         return pulumi.get(self, "custom_pattern")
 
     @custom_pattern.setter
@@ -226,6 +324,9 @@ class DataProtectionSettingsInlineRedactionPatternArgs:
     @property
     @pulumi.getter(name="enforcedUrls")
     def enforced_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The enforced URL configuration for the inline redaction pattern. This will override the global enforced URL configuration.
+        """
         return pulumi.get(self, "enforced_urls")
 
     @enforced_urls.setter
@@ -235,6 +336,9 @@ class DataProtectionSettingsInlineRedactionPatternArgs:
     @property
     @pulumi.getter(name="exemptUrls")
     def exempt_urls(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The exempt URL configuration for the inline redaction pattern. This will override the global exempt URL configuration for the inline redaction pattern.
+        """
         return pulumi.get(self, "exempt_urls")
 
     @exempt_urls.setter
@@ -245,7 +349,13 @@ class DataProtectionSettingsInlineRedactionPatternArgs:
 if not MYPY:
     class DataProtectionSettingsRedactionPlaceHolderArgsDict(TypedDict):
         redaction_place_holder_type: pulumi.Input['DataProtectionSettingsRedactionPlaceHolderType']
+        """
+        The redaction placeholder type that will replace the redacted text in session.
+        """
         redaction_place_holder_text: NotRequired[pulumi.Input[str]]
+        """
+        The redaction placeholder text that will replace the redacted text in session for the custom text redaction placeholder type.
+        """
 elif False:
     DataProtectionSettingsRedactionPlaceHolderArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -254,6 +364,10 @@ class DataProtectionSettingsRedactionPlaceHolderArgs:
     def __init__(__self__, *,
                  redaction_place_holder_type: pulumi.Input['DataProtectionSettingsRedactionPlaceHolderType'],
                  redaction_place_holder_text: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input['DataProtectionSettingsRedactionPlaceHolderType'] redaction_place_holder_type: The redaction placeholder type that will replace the redacted text in session.
+        :param pulumi.Input[str] redaction_place_holder_text: The redaction placeholder text that will replace the redacted text in session for the custom text redaction placeholder type.
+        """
         pulumi.set(__self__, "redaction_place_holder_type", redaction_place_holder_type)
         if redaction_place_holder_text is not None:
             pulumi.set(__self__, "redaction_place_holder_text", redaction_place_holder_text)
@@ -261,6 +375,9 @@ class DataProtectionSettingsRedactionPlaceHolderArgs:
     @property
     @pulumi.getter(name="redactionPlaceHolderType")
     def redaction_place_holder_type(self) -> pulumi.Input['DataProtectionSettingsRedactionPlaceHolderType']:
+        """
+        The redaction placeholder type that will replace the redacted text in session.
+        """
         return pulumi.get(self, "redaction_place_holder_type")
 
     @redaction_place_holder_type.setter
@@ -270,6 +387,9 @@ class DataProtectionSettingsRedactionPlaceHolderArgs:
     @property
     @pulumi.getter(name="redactionPlaceHolderText")
     def redaction_place_holder_text(self) -> Optional[pulumi.Input[str]]:
+        """
+        The redaction placeholder text that will replace the redacted text in session for the custom text redaction placeholder type.
+        """
         return pulumi.get(self, "redaction_place_holder_text")
 
     @redaction_place_holder_text.setter

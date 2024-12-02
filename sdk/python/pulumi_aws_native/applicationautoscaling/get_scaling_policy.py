@@ -63,6 +63,9 @@ class GetScalingPolicyResult:
     @property
     @pulumi.getter(name="predictiveScalingPolicyConfiguration")
     def predictive_scaling_policy_configuration(self) -> Optional['outputs.ScalingPolicyPredictiveScalingPolicyConfiguration']:
+        """
+        The predictive scaling policy configuration.
+        """
         return pulumi.get(self, "predictive_scaling_policy_configuration")
 
     @property

@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.Chatbot.Outputs
     [OutputType]
     public sealed class CustomActionAttachmentCriteria
     {
+        /// <summary>
+        /// The operation to perform on the named variable.
+        /// </summary>
         public readonly Pulumi.AwsNative.Chatbot.CustomActionAttachmentCriteriaOperator Operator;
+        /// <summary>
+        /// A value that is compared with the actual value of the variable based on the behavior of the operator.
+        /// </summary>
         public readonly string? Value;
+        /// <summary>
+        /// The name of the variable to operate on.
+        /// </summary>
         public readonly string VariableName;
 
         [OutputConstructor]

@@ -50,6 +50,10 @@ type LookupJobDefinitionResult struct {
 	RetryStrategy *JobDefinitionRetryStrategy `pulumi:"retryStrategy"`
 	// The scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority.
 	SchedulingPriority *int `pulumi:"schedulingPriority"`
+	// The tags that are applied to the job definition.
+	//
+	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Batch::JobDefinition` for more information about the expected schema for this property.
+	Tags interface{} `pulumi:"tags"`
 	// The timeout time for jobs that are submitted with this job definition. After the amount of time you specify passes, AWS Batch terminates your jobs if they aren't finished.
 	Timeout *JobDefinitionTimeout `pulumi:"timeout"`
 	// The type of job definition. For more information about multi-node parallel jobs, see [Creating a multi-node parallel job definition](https://docs.aws.amazon.com/batch/latest/userguide/multi-node-job-def.html) in the *AWS Batch User Guide* .
@@ -153,6 +157,13 @@ func (o LookupJobDefinitionResultOutput) RetryStrategy() JobDefinitionRetryStrat
 // The scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority.
 func (o LookupJobDefinitionResultOutput) SchedulingPriority() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupJobDefinitionResult) *int { return v.SchedulingPriority }).(pulumi.IntPtrOutput)
+}
+
+// The tags that are applied to the job definition.
+//
+// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Batch::JobDefinition` for more information about the expected schema for this property.
+func (o LookupJobDefinitionResultOutput) Tags() pulumi.AnyOutput {
+	return o.ApplyT(func(v LookupJobDefinitionResult) interface{} { return v.Tags }).(pulumi.AnyOutput)
 }
 
 // The timeout time for jobs that are submitted with this job definition. After the amount of time you specify passes, AWS Batch terminates your jobs if they aren't finished.

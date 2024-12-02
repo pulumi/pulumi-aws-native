@@ -63,6 +63,9 @@
         "type" : "string"
       }
     },
+    "ServerlessV2ScalingConfiguration" : {
+      "$ref" : "#/definitions/ServerlessV2ScalingConfiguration"
+    },
     "PreferredMaintenanceWindow" : {
       "type" : "string"
     },
@@ -105,6 +108,19 @@
     }
   },
   "definitions" : {
+    "ServerlessV2ScalingConfiguration" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "MinCapacity" : {
+          "type" : "number"
+        },
+        "MaxCapacity" : {
+          "type" : "number"
+        }
+      },
+      "required" : [ "MinCapacity", "MaxCapacity" ]
+    },
     "Tag" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -119,7 +135,7 @@
       "required" : [ "Value", "Key" ]
     }
   },
-  "createOnlyProperties" : [ "/properties/KmsKeyId", "/properties/SnapshotIdentifier", "/properties/MasterUsername", "/properties/SourceDBClusterIdentifier", "/properties/DBClusterIdentifier", "/properties/AvailabilityZones", "/properties/DBSubnetGroupName", "/properties/StorageEncrypted" ],
+  "createOnlyProperties" : [ "/properties/SnapshotIdentifier", "/properties/KmsKeyId", "/properties/MasterUsername", "/properties/SourceDBClusterIdentifier", "/properties/DBClusterIdentifier", "/properties/AvailabilityZones", "/properties/DBSubnetGroupName", "/properties/StorageEncrypted" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "readOnlyProperties" : [ "/properties/ReadEndpoint", "/properties/Id", "/properties/Endpoint", "/properties/ClusterResourceId" ]
 }

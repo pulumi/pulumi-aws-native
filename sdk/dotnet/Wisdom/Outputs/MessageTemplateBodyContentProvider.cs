@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Wisdom.Outputs
     [OutputType]
     public sealed class MessageTemplateBodyContentProvider
     {
+        /// <summary>
+        /// The content of the message template.
+        /// </summary>
         public readonly string? Content;
 
         [OutputConstructor]

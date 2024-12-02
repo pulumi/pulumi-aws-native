@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetClusterResult:
-    def __init__(__self__, access_config=None, arn=None, certificate_authority_data=None, cluster_security_group_id=None, encryption_config_key_arn=None, endpoint=None, id=None, logging=None, open_id_connect_issuer_url=None, resources_vpc_config=None, tags=None, upgrade_policy=None, version=None, zonal_shift_config=None):
+    def __init__(__self__, access_config=None, arn=None, certificate_authority_data=None, cluster_security_group_id=None, compute_config=None, encryption_config_key_arn=None, endpoint=None, id=None, logging=None, open_id_connect_issuer_url=None, resources_vpc_config=None, storage_config=None, tags=None, upgrade_policy=None, version=None, zonal_shift_config=None):
         if access_config and not isinstance(access_config, dict):
             raise TypeError("Expected argument 'access_config' to be a dict")
         pulumi.set(__self__, "access_config", access_config)
@@ -39,6 +39,9 @@ class GetClusterResult:
         if cluster_security_group_id and not isinstance(cluster_security_group_id, str):
             raise TypeError("Expected argument 'cluster_security_group_id' to be a str")
         pulumi.set(__self__, "cluster_security_group_id", cluster_security_group_id)
+        if compute_config and not isinstance(compute_config, dict):
+            raise TypeError("Expected argument 'compute_config' to be a dict")
+        pulumi.set(__self__, "compute_config", compute_config)
         if encryption_config_key_arn and not isinstance(encryption_config_key_arn, str):
             raise TypeError("Expected argument 'encryption_config_key_arn' to be a str")
         pulumi.set(__self__, "encryption_config_key_arn", encryption_config_key_arn)
@@ -57,6 +60,9 @@ class GetClusterResult:
         if resources_vpc_config and not isinstance(resources_vpc_config, dict):
             raise TypeError("Expected argument 'resources_vpc_config' to be a dict")
         pulumi.set(__self__, "resources_vpc_config", resources_vpc_config)
+        if storage_config and not isinstance(storage_config, dict):
+            raise TypeError("Expected argument 'storage_config' to be a dict")
+        pulumi.set(__self__, "storage_config", storage_config)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -101,6 +107,11 @@ class GetClusterResult:
         The cluster security group that was created by Amazon EKS for the cluster. Managed node groups use this security group for control plane to data plane communication.
         """
         return pulumi.get(self, "cluster_security_group_id")
+
+    @property
+    @pulumi.getter(name="computeConfig")
+    def compute_config(self) -> Optional['outputs.ClusterComputeConfig']:
+        return pulumi.get(self, "compute_config")
 
     @property
     @pulumi.getter(name="encryptionConfigKeyArn")
@@ -151,6 +162,11 @@ class GetClusterResult:
         return pulumi.get(self, "resources_vpc_config")
 
     @property
+    @pulumi.getter(name="storageConfig")
+    def storage_config(self) -> Optional['outputs.ClusterStorageConfig']:
+        return pulumi.get(self, "storage_config")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
@@ -195,12 +211,14 @@ class AwaitableGetClusterResult(GetClusterResult):
             arn=self.arn,
             certificate_authority_data=self.certificate_authority_data,
             cluster_security_group_id=self.cluster_security_group_id,
+            compute_config=self.compute_config,
             encryption_config_key_arn=self.encryption_config_key_arn,
             endpoint=self.endpoint,
             id=self.id,
             logging=self.logging,
             open_id_connect_issuer_url=self.open_id_connect_issuer_url,
             resources_vpc_config=self.resources_vpc_config,
+            storage_config=self.storage_config,
             tags=self.tags,
             upgrade_policy=self.upgrade_policy,
             version=self.version,
@@ -225,12 +243,14 @@ def get_cluster(name: Optional[str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         certificate_authority_data=pulumi.get(__ret__, 'certificate_authority_data'),
         cluster_security_group_id=pulumi.get(__ret__, 'cluster_security_group_id'),
+        compute_config=pulumi.get(__ret__, 'compute_config'),
         encryption_config_key_arn=pulumi.get(__ret__, 'encryption_config_key_arn'),
         endpoint=pulumi.get(__ret__, 'endpoint'),
         id=pulumi.get(__ret__, 'id'),
         logging=pulumi.get(__ret__, 'logging'),
         open_id_connect_issuer_url=pulumi.get(__ret__, 'open_id_connect_issuer_url'),
         resources_vpc_config=pulumi.get(__ret__, 'resources_vpc_config'),
+        storage_config=pulumi.get(__ret__, 'storage_config'),
         tags=pulumi.get(__ret__, 'tags'),
         upgrade_policy=pulumi.get(__ret__, 'upgrade_policy'),
         version=pulumi.get(__ret__, 'version'),
@@ -252,12 +272,14 @@ def get_cluster_output(name: Optional[pulumi.Input[str]] = None,
         arn=pulumi.get(__response__, 'arn'),
         certificate_authority_data=pulumi.get(__response__, 'certificate_authority_data'),
         cluster_security_group_id=pulumi.get(__response__, 'cluster_security_group_id'),
+        compute_config=pulumi.get(__response__, 'compute_config'),
         encryption_config_key_arn=pulumi.get(__response__, 'encryption_config_key_arn'),
         endpoint=pulumi.get(__response__, 'endpoint'),
         id=pulumi.get(__response__, 'id'),
         logging=pulumi.get(__response__, 'logging'),
         open_id_connect_issuer_url=pulumi.get(__response__, 'open_id_connect_issuer_url'),
         resources_vpc_config=pulumi.get(__response__, 'resources_vpc_config'),
+        storage_config=pulumi.get(__response__, 'storage_config'),
         tags=pulumi.get(__response__, 'tags'),
         upgrade_policy=pulumi.get(__response__, 'upgrade_policy'),
         version=pulumi.get(__response__, 'version'),

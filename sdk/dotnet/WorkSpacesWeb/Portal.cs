@@ -65,6 +65,9 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
         [Output("customerManagedKey")]
         public Output<string?> CustomerManagedKey { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN of the data protection settings.
+        /// </summary>
         [Output("dataProtectionSettingsArn")]
         public Output<string?> DataProtectionSettingsArn { get; private set; } = null!;
 
@@ -252,6 +255,9 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
         [Input("customerManagedKey")]
         public Input<string>? CustomerManagedKey { get; set; }
 
+        /// <summary>
+        /// The ARN of the data protection settings.
+        /// </summary>
         [Input("dataProtectionSettingsArn")]
         public Input<string>? DataProtectionSettingsArn { get; set; }
 

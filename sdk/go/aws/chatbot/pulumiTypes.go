@@ -14,10 +14,14 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type CustomActionAttachment struct {
-	ButtonText       *string                          `pulumi:"buttonText"`
-	Criteria         []CustomActionAttachmentCriteria `pulumi:"criteria"`
-	NotificationType *string                          `pulumi:"notificationType"`
-	Variables        map[string]string                `pulumi:"variables"`
+	// The text of the button that appears on the notification.
+	ButtonText *string `pulumi:"buttonText"`
+	// The criteria for when a button should be shown based on values in the notification.
+	Criteria []CustomActionAttachmentCriteria `pulumi:"criteria"`
+	// The type of notification that the custom action should be attached to.
+	NotificationType *string `pulumi:"notificationType"`
+	// The variables to extract from the notification.
+	Variables map[string]string `pulumi:"variables"`
 }
 
 // CustomActionAttachmentInput is an input type that accepts CustomActionAttachmentArgs and CustomActionAttachmentOutput values.
@@ -32,10 +36,14 @@ type CustomActionAttachmentInput interface {
 }
 
 type CustomActionAttachmentArgs struct {
-	ButtonText       pulumi.StringPtrInput                    `pulumi:"buttonText"`
-	Criteria         CustomActionAttachmentCriteriaArrayInput `pulumi:"criteria"`
-	NotificationType pulumi.StringPtrInput                    `pulumi:"notificationType"`
-	Variables        pulumi.StringMapInput                    `pulumi:"variables"`
+	// The text of the button that appears on the notification.
+	ButtonText pulumi.StringPtrInput `pulumi:"buttonText"`
+	// The criteria for when a button should be shown based on values in the notification.
+	Criteria CustomActionAttachmentCriteriaArrayInput `pulumi:"criteria"`
+	// The type of notification that the custom action should be attached to.
+	NotificationType pulumi.StringPtrInput `pulumi:"notificationType"`
+	// The variables to extract from the notification.
+	Variables pulumi.StringMapInput `pulumi:"variables"`
 }
 
 func (CustomActionAttachmentArgs) ElementType() reflect.Type {
@@ -89,18 +97,22 @@ func (o CustomActionAttachmentOutput) ToCustomActionAttachmentOutputWithContext(
 	return o
 }
 
+// The text of the button that appears on the notification.
 func (o CustomActionAttachmentOutput) ButtonText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomActionAttachment) *string { return v.ButtonText }).(pulumi.StringPtrOutput)
 }
 
+// The criteria for when a button should be shown based on values in the notification.
 func (o CustomActionAttachmentOutput) Criteria() CustomActionAttachmentCriteriaArrayOutput {
 	return o.ApplyT(func(v CustomActionAttachment) []CustomActionAttachmentCriteria { return v.Criteria }).(CustomActionAttachmentCriteriaArrayOutput)
 }
 
+// The type of notification that the custom action should be attached to.
 func (o CustomActionAttachmentOutput) NotificationType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomActionAttachment) *string { return v.NotificationType }).(pulumi.StringPtrOutput)
 }
 
+// The variables to extract from the notification.
 func (o CustomActionAttachmentOutput) Variables() pulumi.StringMapOutput {
 	return o.ApplyT(func(v CustomActionAttachment) map[string]string { return v.Variables }).(pulumi.StringMapOutput)
 }
@@ -126,9 +138,12 @@ func (o CustomActionAttachmentArrayOutput) Index(i pulumi.IntInput) CustomAction
 }
 
 type CustomActionAttachmentCriteria struct {
-	Operator     CustomActionAttachmentCriteriaOperator `pulumi:"operator"`
-	Value        *string                                `pulumi:"value"`
-	VariableName string                                 `pulumi:"variableName"`
+	// The operation to perform on the named variable.
+	Operator CustomActionAttachmentCriteriaOperator `pulumi:"operator"`
+	// A value that is compared with the actual value of the variable based on the behavior of the operator.
+	Value *string `pulumi:"value"`
+	// The name of the variable to operate on.
+	VariableName string `pulumi:"variableName"`
 }
 
 // CustomActionAttachmentCriteriaInput is an input type that accepts CustomActionAttachmentCriteriaArgs and CustomActionAttachmentCriteriaOutput values.
@@ -143,9 +158,12 @@ type CustomActionAttachmentCriteriaInput interface {
 }
 
 type CustomActionAttachmentCriteriaArgs struct {
-	Operator     CustomActionAttachmentCriteriaOperatorInput `pulumi:"operator"`
-	Value        pulumi.StringPtrInput                       `pulumi:"value"`
-	VariableName pulumi.StringInput                          `pulumi:"variableName"`
+	// The operation to perform on the named variable.
+	Operator CustomActionAttachmentCriteriaOperatorInput `pulumi:"operator"`
+	// A value that is compared with the actual value of the variable based on the behavior of the operator.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+	// The name of the variable to operate on.
+	VariableName pulumi.StringInput `pulumi:"variableName"`
 }
 
 func (CustomActionAttachmentCriteriaArgs) ElementType() reflect.Type {
@@ -199,14 +217,17 @@ func (o CustomActionAttachmentCriteriaOutput) ToCustomActionAttachmentCriteriaOu
 	return o
 }
 
+// The operation to perform on the named variable.
 func (o CustomActionAttachmentCriteriaOutput) Operator() CustomActionAttachmentCriteriaOperatorOutput {
 	return o.ApplyT(func(v CustomActionAttachmentCriteria) CustomActionAttachmentCriteriaOperator { return v.Operator }).(CustomActionAttachmentCriteriaOperatorOutput)
 }
 
+// A value that is compared with the actual value of the variable based on the behavior of the operator.
 func (o CustomActionAttachmentCriteriaOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CustomActionAttachmentCriteria) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
+// The name of the variable to operate on.
 func (o CustomActionAttachmentCriteriaOutput) VariableName() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomActionAttachmentCriteria) string { return v.VariableName }).(pulumi.StringOutput)
 }
@@ -232,6 +253,7 @@ func (o CustomActionAttachmentCriteriaArrayOutput) Index(i pulumi.IntInput) Cust
 }
 
 type CustomActionDefinition struct {
+	// The command string to run which may include variables by prefixing with a dollar sign ($).
 	CommandText string `pulumi:"commandText"`
 }
 
@@ -247,6 +269,7 @@ type CustomActionDefinitionInput interface {
 }
 
 type CustomActionDefinitionArgs struct {
+	// The command string to run which may include variables by prefixing with a dollar sign ($).
 	CommandText pulumi.StringInput `pulumi:"commandText"`
 }
 
@@ -276,6 +299,7 @@ func (o CustomActionDefinitionOutput) ToCustomActionDefinitionOutputWithContext(
 	return o
 }
 
+// The command string to run which may include variables by prefixing with a dollar sign ($).
 func (o CustomActionDefinitionOutput) CommandText() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomActionDefinition) string { return v.CommandText }).(pulumi.StringOutput)
 }
@@ -304,6 +328,7 @@ func (o CustomActionDefinitionPtrOutput) Elem() CustomActionDefinitionOutput {
 	}).(CustomActionDefinitionOutput)
 }
 
+// The command string to run which may include variables by prefixing with a dollar sign ($).
 func (o CustomActionDefinitionPtrOutput) CommandText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomActionDefinition) *string {
 		if v == nil {
@@ -314,7 +339,9 @@ func (o CustomActionDefinitionPtrOutput) CommandText() pulumi.StringPtrOutput {
 }
 
 type CustomActionTag struct {
-	Key   string `pulumi:"key"`
+	// A string used to identify this tag. You can specify a maximum of 128 characters for a tag key. Tags owned by Amazon Web Services (AWS) have the reserved prefix: `aws:` .
+	Key string `pulumi:"key"`
+	// A string containing the value for this tag. You can specify a maximum of 256 characters for a tag value.
 	Value string `pulumi:"value"`
 }
 

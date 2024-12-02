@@ -26,7 +26,8 @@ type Dashboard struct {
 	RefreshSchedule DashboardRefreshSchedulePtrOutput `pulumi:"refreshSchedule"`
 	// The status of the dashboard. Values are CREATING, CREATED, UPDATING, UPDATED and DELETING.
 	Status DashboardStatusOutput `pulumi:"status"`
-	Tags   aws.TagArrayOutput    `pulumi:"tags"`
+	// A list of tags.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// Indicates whether the dashboard is protected from termination.
 	TerminationProtectionEnabled pulumi.BoolPtrOutput `pulumi:"terminationProtectionEnabled"`
 	// The type of the dashboard. Values are CUSTOM and MANAGED.
@@ -81,7 +82,8 @@ type dashboardArgs struct {
 	Name *string `pulumi:"name"`
 	// Configures the automatic refresh schedule for the dashboard. Includes the frequency unit (DAYS or HOURS) and value, as well as the status (ENABLED or DISABLED) of the refresh schedule.
 	RefreshSchedule *DashboardRefreshSchedule `pulumi:"refreshSchedule"`
-	Tags            []aws.Tag                 `pulumi:"tags"`
+	// A list of tags.
+	Tags []aws.Tag `pulumi:"tags"`
 	// Indicates whether the dashboard is protected from termination.
 	TerminationProtectionEnabled *bool `pulumi:"terminationProtectionEnabled"`
 	// List of widgets on the dashboard
@@ -94,7 +96,8 @@ type DashboardArgs struct {
 	Name pulumi.StringPtrInput
 	// Configures the automatic refresh schedule for the dashboard. Includes the frequency unit (DAYS or HOURS) and value, as well as the status (ENABLED or DISABLED) of the refresh schedule.
 	RefreshSchedule DashboardRefreshSchedulePtrInput
-	Tags            aws.TagArrayInput
+	// A list of tags.
+	Tags aws.TagArrayInput
 	// Indicates whether the dashboard is protected from termination.
 	TerminationProtectionEnabled pulumi.BoolPtrInput
 	// List of widgets on the dashboard
@@ -163,6 +166,7 @@ func (o DashboardOutput) Status() DashboardStatusOutput {
 	return o.ApplyT(func(v *Dashboard) DashboardStatusOutput { return v.Status }).(DashboardStatusOutput)
 }
 
+// A list of tags.
 func (o DashboardOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Dashboard) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

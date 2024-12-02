@@ -31,6 +31,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DeliverySource{}
 	case "aws-native:logs:Destination":
 		r = &Destination{}
+	case "aws-native:logs:Integration":
+		r = &Integration{}
 	case "aws-native:logs:LogAnomalyDetector":
 		r = &LogAnomalyDetector{}
 	case "aws-native:logs:LogGroup":

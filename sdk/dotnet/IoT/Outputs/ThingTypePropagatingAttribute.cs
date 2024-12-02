@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.IoT.Outputs
     [OutputType]
     public sealed class ThingTypePropagatingAttribute
     {
+        /// <summary>
+        /// The attribute associated with the connection details.
+        /// </summary>
         public readonly Pulumi.AwsNative.IoT.ThingTypePropagatingAttributeConnectionAttribute? ConnectionAttribute;
+        /// <summary>
+        /// The thing attribute that is propagating for MQTT 5 message enrichment.
+        /// </summary>
         public readonly string? ThingAttribute;
+        /// <summary>
+        /// The key of the MQTT 5 user property, which is a key-value pair.
+        /// </summary>
         public readonly string UserPropertyKey;
 
         [OutputConstructor]

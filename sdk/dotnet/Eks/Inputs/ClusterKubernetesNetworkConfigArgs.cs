@@ -16,6 +16,12 @@ namespace Pulumi.AwsNative.Eks.Inputs
     public sealed class ClusterKubernetesNetworkConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Todo: add description
+        /// </summary>
+        [Input("elasticLoadBalancing")]
+        public Input<Inputs.ClusterElasticLoadBalancingArgs>? ElasticLoadBalancing { get; set; }
+
+        /// <summary>
         /// Ipv4 or Ipv6. You can only specify ipv6 for 1.21 and later clusters that use version 1.10.1 or later of the Amazon VPC CNI add-on
         /// </summary>
         [Input("ipFamily")]

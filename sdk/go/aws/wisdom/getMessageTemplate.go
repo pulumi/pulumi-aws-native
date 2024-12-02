@@ -29,10 +29,13 @@ type LookupMessageTemplateArgs struct {
 }
 
 type LookupMessageTemplateResult struct {
-	Content           *MessageTemplateContent    `pulumi:"content"`
+	// The content of the message template.
+	Content *MessageTemplateContent `pulumi:"content"`
+	// An object that specifies the default values to use for variables in the message template. This object contains different categories of key-value pairs. Each key defines a variable or placeholder in the message template. The corresponding value defines the default value for that variable.
 	DefaultAttributes *MessageTemplateAttributes `pulumi:"defaultAttributes"`
 	// The description of the message template.
-	Description           *string                               `pulumi:"description"`
+	Description *string `pulumi:"description"`
+	// The configuration information of the external data source.
 	GroupingConfiguration *MessageTemplateGroupingConfiguration `pulumi:"groupingConfiguration"`
 	// The language code value for the language in which the message template is written. The supported language codes include de_DE, en_US, es_ES, fr_FR, id_ID, it_IT, ja_JP, ko_KR, pt_BR, zh_CN, zh_TW
 	Language *string `pulumi:"language"`
@@ -90,10 +93,12 @@ func (o LookupMessageTemplateResultOutput) ToLookupMessageTemplateResultOutputWi
 	return o
 }
 
+// The content of the message template.
 func (o LookupMessageTemplateResultOutput) Content() MessageTemplateContentPtrOutput {
 	return o.ApplyT(func(v LookupMessageTemplateResult) *MessageTemplateContent { return v.Content }).(MessageTemplateContentPtrOutput)
 }
 
+// An object that specifies the default values to use for variables in the message template. This object contains different categories of key-value pairs. Each key defines a variable or placeholder in the message template. The corresponding value defines the default value for that variable.
 func (o LookupMessageTemplateResultOutput) DefaultAttributes() MessageTemplateAttributesPtrOutput {
 	return o.ApplyT(func(v LookupMessageTemplateResult) *MessageTemplateAttributes { return v.DefaultAttributes }).(MessageTemplateAttributesPtrOutput)
 }
@@ -103,6 +108,7 @@ func (o LookupMessageTemplateResultOutput) Description() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v LookupMessageTemplateResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The configuration information of the external data source.
 func (o LookupMessageTemplateResultOutput) GroupingConfiguration() MessageTemplateGroupingConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupMessageTemplateResult) *MessageTemplateGroupingConfiguration {
 		return v.GroupingConfiguration

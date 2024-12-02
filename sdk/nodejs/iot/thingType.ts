@@ -46,7 +46,7 @@ export class ThingType extends pulumi.CustomResource {
      */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
     /**
-     * Deprecates a thing type. You can not associate new things with deprecated thing type.
+     * Deprecates a thing type. You can not associate new things with deprecated thing type. You cannot update `ThingTypeProperties` if the thing type is deprecated.
      *
      * Requires permission to access the [DeprecateThingType](https://docs.aws.amazon.com//service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) action.
      */
@@ -60,7 +60,7 @@ export class ThingType extends pulumi.CustomResource {
      */
     public readonly thingTypeName!: pulumi.Output<string | undefined>;
     /**
-     * The thing type properties for the thing type to create. It contains information about the new thing type including a description, and a list of searchable thing attribute names. `ThingTypeProperties` can't be updated after the initial creation of the `ThingType` .
+     * The thing type properties for the thing type to create. It contains information about the new thing type including a description, a list of searchable thing attribute names, and a list of propagating attributes. After a thing type is created, you can only update `Mqtt5Configuration` .
      */
     public readonly thingTypeProperties!: pulumi.Output<outputs.iot.ThingTypePropertiesProperties | undefined>;
 
@@ -101,7 +101,7 @@ export class ThingType extends pulumi.CustomResource {
  */
 export interface ThingTypeArgs {
     /**
-     * Deprecates a thing type. You can not associate new things with deprecated thing type.
+     * Deprecates a thing type. You can not associate new things with deprecated thing type. You cannot update `ThingTypeProperties` if the thing type is deprecated.
      *
      * Requires permission to access the [DeprecateThingType](https://docs.aws.amazon.com//service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) action.
      */
@@ -115,7 +115,7 @@ export interface ThingTypeArgs {
      */
     thingTypeName?: pulumi.Input<string>;
     /**
-     * The thing type properties for the thing type to create. It contains information about the new thing type including a description, and a list of searchable thing attribute names. `ThingTypeProperties` can't be updated after the initial creation of the `ThingType` .
+     * The thing type properties for the thing type to create. It contains information about the new thing type including a description, a list of searchable thing attribute names, and a list of propagating attributes. After a thing type is created, you can only update `Mqtt5Configuration` .
      */
     thingTypeProperties?: pulumi.Input<inputs.iot.ThingTypePropertiesPropertiesArgs>;
 }

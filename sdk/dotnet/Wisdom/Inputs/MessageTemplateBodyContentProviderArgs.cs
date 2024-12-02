@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Wisdom.Inputs
     /// </summary>
     public sealed class MessageTemplateBodyContentProviderArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The content of the message template.
+        /// </summary>
         [Input("content")]
         public Input<string>? Content { get; set; }
 

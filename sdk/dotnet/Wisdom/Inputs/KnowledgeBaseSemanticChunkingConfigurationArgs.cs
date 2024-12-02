@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.Wisdom.Inputs
 
     public sealed class KnowledgeBaseSemanticChunkingConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The dissimilarity threshold for splitting chunks.
+        /// </summary>
         [Input("breakpointPercentileThreshold", required: true)]
         public Input<double> BreakpointPercentileThreshold { get; set; } = null!;
 
+        /// <summary>
+        /// The buffer size.
+        /// </summary>
         [Input("bufferSize", required: true)]
         public Input<double> BufferSize { get; set; } = null!;
 
+        /// <summary>
+        /// The maximum number of tokens that a chunk can contain.
+        /// </summary>
         [Input("maxTokens", required: true)]
         public Input<double> MaxTokens { get; set; } = null!;
 

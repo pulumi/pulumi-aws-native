@@ -30,14 +30,21 @@ type LookupCampaignArgs struct {
 
 type LookupCampaignResult struct {
 	// Amazon Connect Campaign Arn
-	Arn                         *string                            `pulumi:"arn"`
-	ChannelSubtypeConfig        *CampaignChannelSubtypeConfig      `pulumi:"channelSubtypeConfig"`
+	Arn *string `pulumi:"arn"`
+	// Contains channel subtype configuration for an outbound campaign.
+	ChannelSubtypeConfig *CampaignChannelSubtypeConfig `pulumi:"channelSubtypeConfig"`
+	// Communication limits configuration for an outbound campaign.
 	CommunicationLimitsOverride *CampaignCommunicationLimitsConfig `pulumi:"communicationLimitsOverride"`
-	CommunicationTimeConfig     *CampaignCommunicationTimeConfig   `pulumi:"communicationTimeConfig"`
-	ConnectCampaignFlowArn      *string                            `pulumi:"connectCampaignFlowArn"`
-	Name                        *string                            `pulumi:"name"`
-	Schedule                    *CampaignSchedule                  `pulumi:"schedule"`
-	Source                      *CampaignSource                    `pulumi:"source"`
+	// Contains communication time configuration for an outbound campaign.
+	CommunicationTimeConfig *CampaignCommunicationTimeConfig `pulumi:"communicationTimeConfig"`
+	// The Amazon Resource Name (ARN) of the Amazon Connect campaign flow associated with the outbound campaign.
+	ConnectCampaignFlowArn *string `pulumi:"connectCampaignFlowArn"`
+	// The name of the outbound campaign.
+	Name *string `pulumi:"name"`
+	// Contains the schedule configuration.
+	Schedule *CampaignSchedule `pulumi:"schedule"`
+	// Contains source configuration.
+	Source *CampaignSource `pulumi:"source"`
 	// One or more tags.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -89,30 +96,37 @@ func (o LookupCampaignResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCampaignResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// Contains channel subtype configuration for an outbound campaign.
 func (o LookupCampaignResultOutput) ChannelSubtypeConfig() CampaignChannelSubtypeConfigPtrOutput {
 	return o.ApplyT(func(v LookupCampaignResult) *CampaignChannelSubtypeConfig { return v.ChannelSubtypeConfig }).(CampaignChannelSubtypeConfigPtrOutput)
 }
 
+// Communication limits configuration for an outbound campaign.
 func (o LookupCampaignResultOutput) CommunicationLimitsOverride() CampaignCommunicationLimitsConfigPtrOutput {
 	return o.ApplyT(func(v LookupCampaignResult) *CampaignCommunicationLimitsConfig { return v.CommunicationLimitsOverride }).(CampaignCommunicationLimitsConfigPtrOutput)
 }
 
+// Contains communication time configuration for an outbound campaign.
 func (o LookupCampaignResultOutput) CommunicationTimeConfig() CampaignCommunicationTimeConfigPtrOutput {
 	return o.ApplyT(func(v LookupCampaignResult) *CampaignCommunicationTimeConfig { return v.CommunicationTimeConfig }).(CampaignCommunicationTimeConfigPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Amazon Connect campaign flow associated with the outbound campaign.
 func (o LookupCampaignResultOutput) ConnectCampaignFlowArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCampaignResult) *string { return v.ConnectCampaignFlowArn }).(pulumi.StringPtrOutput)
 }
 
+// The name of the outbound campaign.
 func (o LookupCampaignResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCampaignResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Contains the schedule configuration.
 func (o LookupCampaignResultOutput) Schedule() CampaignSchedulePtrOutput {
 	return o.ApplyT(func(v LookupCampaignResult) *CampaignSchedule { return v.Schedule }).(CampaignSchedulePtrOutput)
 }
 
+// Contains source configuration.
 func (o LookupCampaignResultOutput) Source() CampaignSourcePtrOutput {
 	return o.ApplyT(func(v LookupCampaignResult) *CampaignSource { return v.Source }).(CampaignSourcePtrOutput)
 }

@@ -45,6 +45,9 @@ export interface GetDashboardResult {
      * The status of the dashboard. Values are CREATING, CREATED, UPDATING, UPDATED and DELETING.
      */
     readonly status?: enums.cloudtrail.DashboardStatus;
+    /**
+     * A list of tags.
+     */
     readonly tags?: outputs.Tag[];
     /**
      * Indicates whether the dashboard is protected from termination.

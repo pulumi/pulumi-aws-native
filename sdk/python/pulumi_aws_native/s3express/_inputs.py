@@ -143,13 +143,25 @@ if not MYPY:
         If `Enabled` , the rule is currently being applied. If `Disabled` , the rule is not currently being applied.
         """
         abort_incomplete_multipart_upload: NotRequired[pulumi.Input['DirectoryBucketAbortIncompleteMultipartUploadArgsDict']]
+        """
+        Specifies the days since the initiation of an incomplete multipart upload that Amazon S3 will wait before permanently removing all parts of the upload.
+        """
         expiration_in_days: NotRequired[pulumi.Input[int]]
+        """
+        Indicates the number of days after creation when objects are deleted from Amazon S3 and Amazon S3 Glacier. If you specify an expiration and transition time, you must use the same time unit for both properties (either in days or by date). The expiration time must also be later than the transition time.
+        """
         id: NotRequired[pulumi.Input[str]]
         """
         Unique identifier for the rule. The value can't be longer than 255 characters.
         """
         object_size_greater_than: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the minimum object size in bytes for this rule to apply to. Objects must be larger than this value in bytes. For more information about size based rules, see [Lifecycle configuration using size-based rules](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-configuration-examples.html#lc-size-rules) in the *Amazon S3 User Guide* .
+        """
         object_size_less_than: NotRequired[pulumi.Input[str]]
+        """
+        Specifies the maximum object size in bytes for this rule to apply to. Objects must be smaller than this value in bytes. For more information about sized based rules, see [Lifecycle configuration using size-based rules](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-configuration-examples.html#lc-size-rules) in the *Amazon S3 User Guide* .
+        """
         prefix: NotRequired[pulumi.Input[str]]
         """
         Object key prefix that identifies one or more objects to which this rule applies.
@@ -172,7 +184,11 @@ class DirectoryBucketRuleArgs:
         """
         You must specify at least one of the following properties: AbortIncompleteMultipartUpload, or ExpirationInDays.
         :param pulumi.Input['DirectoryBucketRuleStatus'] status: If `Enabled` , the rule is currently being applied. If `Disabled` , the rule is not currently being applied.
+        :param pulumi.Input['DirectoryBucketAbortIncompleteMultipartUploadArgs'] abort_incomplete_multipart_upload: Specifies the days since the initiation of an incomplete multipart upload that Amazon S3 will wait before permanently removing all parts of the upload.
+        :param pulumi.Input[int] expiration_in_days: Indicates the number of days after creation when objects are deleted from Amazon S3 and Amazon S3 Glacier. If you specify an expiration and transition time, you must use the same time unit for both properties (either in days or by date). The expiration time must also be later than the transition time.
         :param pulumi.Input[str] id: Unique identifier for the rule. The value can't be longer than 255 characters.
+        :param pulumi.Input[str] object_size_greater_than: Specifies the minimum object size in bytes for this rule to apply to. Objects must be larger than this value in bytes. For more information about size based rules, see [Lifecycle configuration using size-based rules](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-configuration-examples.html#lc-size-rules) in the *Amazon S3 User Guide* .
+        :param pulumi.Input[str] object_size_less_than: Specifies the maximum object size in bytes for this rule to apply to. Objects must be smaller than this value in bytes. For more information about sized based rules, see [Lifecycle configuration using size-based rules](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-configuration-examples.html#lc-size-rules) in the *Amazon S3 User Guide* .
         :param pulumi.Input[str] prefix: Object key prefix that identifies one or more objects to which this rule applies.
                
                > Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see [XML related object key constraints](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints) .
@@ -206,6 +222,9 @@ class DirectoryBucketRuleArgs:
     @property
     @pulumi.getter(name="abortIncompleteMultipartUpload")
     def abort_incomplete_multipart_upload(self) -> Optional[pulumi.Input['DirectoryBucketAbortIncompleteMultipartUploadArgs']]:
+        """
+        Specifies the days since the initiation of an incomplete multipart upload that Amazon S3 will wait before permanently removing all parts of the upload.
+        """
         return pulumi.get(self, "abort_incomplete_multipart_upload")
 
     @abort_incomplete_multipart_upload.setter
@@ -215,6 +234,9 @@ class DirectoryBucketRuleArgs:
     @property
     @pulumi.getter(name="expirationInDays")
     def expiration_in_days(self) -> Optional[pulumi.Input[int]]:
+        """
+        Indicates the number of days after creation when objects are deleted from Amazon S3 and Amazon S3 Glacier. If you specify an expiration and transition time, you must use the same time unit for both properties (either in days or by date). The expiration time must also be later than the transition time.
+        """
         return pulumi.get(self, "expiration_in_days")
 
     @expiration_in_days.setter
@@ -236,6 +258,9 @@ class DirectoryBucketRuleArgs:
     @property
     @pulumi.getter(name="objectSizeGreaterThan")
     def object_size_greater_than(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the minimum object size in bytes for this rule to apply to. Objects must be larger than this value in bytes. For more information about size based rules, see [Lifecycle configuration using size-based rules](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-configuration-examples.html#lc-size-rules) in the *Amazon S3 User Guide* .
+        """
         return pulumi.get(self, "object_size_greater_than")
 
     @object_size_greater_than.setter
@@ -245,6 +270,9 @@ class DirectoryBucketRuleArgs:
     @property
     @pulumi.getter(name="objectSizeLessThan")
     def object_size_less_than(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the maximum object size in bytes for this rule to apply to. Objects must be smaller than this value in bytes. For more information about sized based rules, see [Lifecycle configuration using size-based rules](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-configuration-examples.html#lc-size-rules) in the *Amazon S3 User Guide* .
+        """
         return pulumi.get(self, "object_size_less_than")
 
     @object_size_less_than.setter

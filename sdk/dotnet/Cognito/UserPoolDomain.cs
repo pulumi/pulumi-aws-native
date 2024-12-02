@@ -29,6 +29,8 @@ namespace Pulumi.AwsNative.Cognito
 
         /// <summary>
         /// The configuration for a custom domain that hosts the sign-up and sign-in pages for your application. Use this object to specify an SSL certificate that is managed by ACM.
+        /// 
+        /// When you create a custom domain, the passkey RP ID defaults to the custom domain. If you had a prefix domain active, this will cause passkey integration for your prefix domain to stop working due to a mismatch in RP ID. To keep the prefix domain passkey integration working, you can explicitly set RP ID to the prefix domain. Update the RP ID in a [SetUserPoolMfaConfig](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SetUserPoolMfaConfig.html) request.
         /// </summary>
         [Output("customDomainConfig")]
         public Output<Outputs.UserPoolDomainCustomDomainConfigType?> CustomDomainConfig { get; private set; } = null!;
@@ -40,6 +42,9 @@ namespace Pulumi.AwsNative.Cognito
         /// </summary>
         [Output("domain")]
         public Output<string> Domain { get; private set; } = null!;
+
+        [Output("managedLoginVersion")]
+        public Output<int?> ManagedLoginVersion { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the user pool that is associated with the custom domain whose certificate you're updating.
@@ -99,6 +104,8 @@ namespace Pulumi.AwsNative.Cognito
     {
         /// <summary>
         /// The configuration for a custom domain that hosts the sign-up and sign-in pages for your application. Use this object to specify an SSL certificate that is managed by ACM.
+        /// 
+        /// When you create a custom domain, the passkey RP ID defaults to the custom domain. If you had a prefix domain active, this will cause passkey integration for your prefix domain to stop working due to a mismatch in RP ID. To keep the prefix domain passkey integration working, you can explicitly set RP ID to the prefix domain. Update the RP ID in a [SetUserPoolMfaConfig](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SetUserPoolMfaConfig.html) request.
         /// </summary>
         [Input("customDomainConfig")]
         public Input<Inputs.UserPoolDomainCustomDomainConfigTypeArgs>? CustomDomainConfig { get; set; }
@@ -110,6 +117,9 @@ namespace Pulumi.AwsNative.Cognito
         /// </summary>
         [Input("domain", required: true)]
         public Input<string> Domain { get; set; } = null!;
+
+        [Input("managedLoginVersion")]
+        public Input<int>? ManagedLoginVersion { get; set; }
 
         /// <summary>
         /// The ID of the user pool that is associated with the custom domain whose certificate you're updating.

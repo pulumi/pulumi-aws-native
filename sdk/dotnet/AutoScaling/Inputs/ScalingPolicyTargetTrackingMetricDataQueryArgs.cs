@@ -40,6 +40,9 @@ namespace Pulumi.AwsNative.AutoScaling.Inputs
         [Input("metricStat")]
         public Input<Inputs.ScalingPolicyTargetTrackingMetricStatArgs>? MetricStat { get; set; }
 
+        /// <summary>
+        /// The period of the metric in seconds. The default value is 60. Accepted values are 10, 30, and 60. For high resolution metric, set the value to less than 60. For more information, see [Create a target tracking policy using high-resolution metrics for faster response](https://docs.aws.amazon.com/autoscaling/ec2/userguide/policy-creating-high-resolution-metrics.html) .
+        /// </summary>
         [Input("period")]
         public Input<int>? Period { get; set; }
 

@@ -25,12 +25,21 @@ export interface GetMessageTemplateArgs {
 }
 
 export interface GetMessageTemplateResult {
+    /**
+     * The content of the message template.
+     */
     readonly content?: outputs.wisdom.MessageTemplateContent;
+    /**
+     * An object that specifies the default values to use for variables in the message template. This object contains different categories of key-value pairs. Each key defines a variable or placeholder in the message template. The corresponding value defines the default value for that variable.
+     */
     readonly defaultAttributes?: outputs.wisdom.MessageTemplateAttributes;
     /**
      * The description of the message template.
      */
     readonly description?: string;
+    /**
+     * The configuration information of the external data source.
+     */
     readonly groupingConfiguration?: outputs.wisdom.MessageTemplateGroupingConfiguration;
     /**
      * The language code value for the language in which the message template is written. The supported language codes include de_DE, en_US, es_ES, fr_FR, id_ID, it_IT, ja_JP, ko_KR, pt_BR, zh_CN, zh_TW

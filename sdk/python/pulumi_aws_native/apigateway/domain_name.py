@@ -33,7 +33,7 @@ class DomainNameArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DomainName resource.
-        :param pulumi.Input[str] certificate_arn: The reference to an AWS -managed certificate that will be used by edge-optimized endpoint for this domain name. AWS Certificate Manager is the only supported source.
+        :param pulumi.Input[str] certificate_arn: The reference to an AWS -managed certificate that will be used by edge-optimized endpoint or private endpoint for this domain name. AWS Certificate Manager is the only supported source.
         :param pulumi.Input[str] domain_name: The custom domain name as an API host name, for example, `my-api.example.com` .
         :param pulumi.Input['DomainNameEndpointConfigurationArgs'] endpoint_configuration: The endpoint configuration of this DomainName showing the endpoint types of the domain name.
         :param pulumi.Input['DomainNameMutualTlsAuthenticationArgs'] mutual_tls_authentication: The mutual TLS authentication configuration for a custom domain name. If specified, API Gateway performs two-way authentication between the client and the server. Clients must present a trusted certificate to access your API.
@@ -63,7 +63,7 @@ class DomainNameArgs:
     @pulumi.getter(name="certificateArn")
     def certificate_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The reference to an AWS -managed certificate that will be used by edge-optimized endpoint for this domain name. AWS Certificate Manager is the only supported source.
+        The reference to an AWS -managed certificate that will be used by edge-optimized endpoint or private endpoint for this domain name. AWS Certificate Manager is the only supported source.
         """
         return pulumi.get(self, "certificate_arn")
 
@@ -217,7 +217,7 @@ class DomainName(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] certificate_arn: The reference to an AWS -managed certificate that will be used by edge-optimized endpoint for this domain name. AWS Certificate Manager is the only supported source.
+        :param pulumi.Input[str] certificate_arn: The reference to an AWS -managed certificate that will be used by edge-optimized endpoint or private endpoint for this domain name. AWS Certificate Manager is the only supported source.
         :param pulumi.Input[str] domain_name: The custom domain name as an API host name, for example, `my-api.example.com` .
         :param pulumi.Input[Union['DomainNameEndpointConfigurationArgs', 'DomainNameEndpointConfigurationArgsDict']] endpoint_configuration: The endpoint configuration of this DomainName showing the endpoint types of the domain name.
         :param pulumi.Input[Union['DomainNameMutualTlsAuthenticationArgs', 'DomainNameMutualTlsAuthenticationArgsDict']] mutual_tls_authentication: The mutual TLS authentication configuration for a custom domain name. If specified, API Gateway performs two-way authentication between the client and the server. Clients must present a trusted certificate to access your API.
@@ -363,7 +363,7 @@ class DomainName(pulumi.CustomResource):
     @pulumi.getter(name="certificateArn")
     def certificate_arn(self) -> pulumi.Output[Optional[str]]:
         """
-        The reference to an AWS -managed certificate that will be used by edge-optimized endpoint for this domain name. AWS Certificate Manager is the only supported source.
+        The reference to an AWS -managed certificate that will be used by edge-optimized endpoint or private endpoint for this domain name. AWS Certificate Manager is the only supported source.
         """
         return pulumi.get(self, "certificate_arn")
 

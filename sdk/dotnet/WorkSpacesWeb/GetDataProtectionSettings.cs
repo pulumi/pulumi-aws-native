@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
 
     public sealed class GetDataProtectionSettingsArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ARN of the data protection settings resource.
+        /// </summary>
         [Input("dataProtectionSettingsArn", required: true)]
         public string DataProtectionSettingsArn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
 
     public sealed class GetDataProtectionSettingsInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ARN of the data protection settings resource.
+        /// </summary>
         [Input("dataProtectionSettingsArn", required: true)]
         public Input<string> DataProtectionSettingsArn { get; set; } = null!;
 
@@ -51,12 +57,33 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
     [OutputType]
     public sealed class GetDataProtectionSettingsResult
     {
+        /// <summary>
+        /// A list of web portal ARNs that this data protection settings resource is associated with.
+        /// </summary>
         public readonly ImmutableArray<string> AssociatedPortalArns;
+        /// <summary>
+        /// The creation date timestamp of the data protection settings.
+        /// </summary>
         public readonly string? CreationDate;
+        /// <summary>
+        /// The ARN of the data protection settings resource.
+        /// </summary>
         public readonly string? DataProtectionSettingsArn;
+        /// <summary>
+        /// The description of the data protection settings.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The display name of the data protection settings.
+        /// </summary>
         public readonly string? DisplayName;
+        /// <summary>
+        /// The inline redaction configuration for the data protection settings.
+        /// </summary>
         public readonly Outputs.DataProtectionSettingsInlineRedactionConfiguration? InlineRedactionConfiguration;
+        /// <summary>
+        /// The tags of the data protection settings.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

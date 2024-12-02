@@ -15,30 +15,57 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
     [AwsNativeResourceType("aws-native:workspacesweb:DataProtectionSettings")]
     public partial class DataProtectionSettings : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The additional encryption context of the data protection settings.
+        /// </summary>
         [Output("additionalEncryptionContext")]
         public Output<ImmutableDictionary<string, string>?> AdditionalEncryptionContext { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of web portal ARNs that this data protection settings resource is associated with.
+        /// </summary>
         [Output("associatedPortalArns")]
         public Output<ImmutableArray<string>> AssociatedPortalArns { get; private set; } = null!;
 
+        /// <summary>
+        /// The creation date timestamp of the data protection settings.
+        /// </summary>
         [Output("creationDate")]
         public Output<string> CreationDate { get; private set; } = null!;
 
+        /// <summary>
+        /// The customer managed key used to encrypt sensitive information in the data protection settings.
+        /// </summary>
         [Output("customerManagedKey")]
         public Output<string?> CustomerManagedKey { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN of the data protection settings resource.
+        /// </summary>
         [Output("dataProtectionSettingsArn")]
         public Output<string> DataProtectionSettingsArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The description of the data protection settings.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The display name of the data protection settings.
+        /// </summary>
         [Output("displayName")]
         public Output<string?> DisplayName { get; private set; } = null!;
 
+        /// <summary>
+        /// The inline redaction configuration for the data protection settings.
+        /// </summary>
         [Output("inlineRedactionConfiguration")]
         public Output<Outputs.DataProtectionSettingsInlineRedactionConfiguration?> InlineRedactionConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// The tags of the data protection settings.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -94,26 +121,46 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
     {
         [Input("additionalEncryptionContext")]
         private InputMap<string>? _additionalEncryptionContext;
+
+        /// <summary>
+        /// The additional encryption context of the data protection settings.
+        /// </summary>
         public InputMap<string> AdditionalEncryptionContext
         {
             get => _additionalEncryptionContext ?? (_additionalEncryptionContext = new InputMap<string>());
             set => _additionalEncryptionContext = value;
         }
 
+        /// <summary>
+        /// The customer managed key used to encrypt sensitive information in the data protection settings.
+        /// </summary>
         [Input("customerManagedKey")]
         public Input<string>? CustomerManagedKey { get; set; }
 
+        /// <summary>
+        /// The description of the data protection settings.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The display name of the data protection settings.
+        /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
 
+        /// <summary>
+        /// The inline redaction configuration for the data protection settings.
+        /// </summary>
         [Input("inlineRedactionConfiguration")]
         public Input<Inputs.DataProtectionSettingsInlineRedactionConfigurationArgs>? InlineRedactionConfiguration { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// The tags of the data protection settings.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

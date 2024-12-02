@@ -41,6 +41,7 @@ class KnowledgeBaseArgs:
         :param pulumi.Input['KnowledgeBaseServerSideEncryptionConfigurationArgs'] server_side_encryption_configuration: This customer managed key must have a policy that allows `kms:CreateGrant` and `kms:DescribeKey` permissions to the IAM identity using the key to invoke Wisdom. For more information about setting up a customer managed key for Wisdom, see [Enable Amazon Connect Wisdom for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html) . For information about valid ID values, see [Key identifiers (KeyId)](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) in the *AWS Key Management Service Developer Guide* .
         :param pulumi.Input[Union['KnowledgeBaseSourceConfiguration0PropertiesArgs', 'KnowledgeBaseSourceConfiguration1PropertiesArgs']] source_configuration: The source of the knowledge base content. Only set this argument for EXTERNAL or Managed knowledge bases.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: The tags used to organize, track, or control access for this resource.
+        :param pulumi.Input['KnowledgeBaseVectorIngestionConfigurationArgs'] vector_ingestion_configuration: Contains details about how to ingest the documents in a data source.
         """
         pulumi.set(__self__, "knowledge_base_type", knowledge_base_type)
         if description is not None:
@@ -145,6 +146,9 @@ class KnowledgeBaseArgs:
     @property
     @pulumi.getter(name="vectorIngestionConfiguration")
     def vector_ingestion_configuration(self) -> Optional[pulumi.Input['KnowledgeBaseVectorIngestionConfigurationArgs']]:
+        """
+        Contains details about how to ingest the documents in a data source.
+        """
         return pulumi.get(self, "vector_ingestion_configuration")
 
     @vector_ingestion_configuration.setter
@@ -178,6 +182,7 @@ class KnowledgeBase(pulumi.CustomResource):
         :param pulumi.Input[Union['KnowledgeBaseServerSideEncryptionConfigurationArgs', 'KnowledgeBaseServerSideEncryptionConfigurationArgsDict']] server_side_encryption_configuration: This customer managed key must have a policy that allows `kms:CreateGrant` and `kms:DescribeKey` permissions to the IAM identity using the key to invoke Wisdom. For more information about setting up a customer managed key for Wisdom, see [Enable Amazon Connect Wisdom for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html) . For information about valid ID values, see [Key identifiers (KeyId)](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) in the *AWS Key Management Service Developer Guide* .
         :param pulumi.Input[Union[Union['KnowledgeBaseSourceConfiguration0PropertiesArgs', 'KnowledgeBaseSourceConfiguration0PropertiesArgsDict'], Union['KnowledgeBaseSourceConfiguration1PropertiesArgs', 'KnowledgeBaseSourceConfiguration1PropertiesArgsDict']]] source_configuration: The source of the knowledge base content. Only set this argument for EXTERNAL or Managed knowledge bases.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]] tags: The tags used to organize, track, or control access for this resource.
+        :param pulumi.Input[Union['KnowledgeBaseVectorIngestionConfigurationArgs', 'KnowledgeBaseVectorIngestionConfigurationArgsDict']] vector_ingestion_configuration: Contains details about how to ingest the documents in a data source.
         """
         ...
     @overload
@@ -343,5 +348,8 @@ class KnowledgeBase(pulumi.CustomResource):
     @property
     @pulumi.getter(name="vectorIngestionConfiguration")
     def vector_ingestion_configuration(self) -> pulumi.Output[Optional['outputs.KnowledgeBaseVectorIngestionConfiguration']]:
+        """
+        Contains details about how to ingest the documents in a data source.
+        """
         return pulumi.get(self, "vector_ingestion_configuration")
 

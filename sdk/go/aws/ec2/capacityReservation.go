@@ -29,6 +29,8 @@ type CapacityReservation struct {
 	// You must provide an `EndDate` value if `EndDateType` is `limited` . Omit `EndDate` if `EndDateType` is `unlimited` .
 	//
 	// If the `EndDateType` is `limited` , the Capacity Reservation is cancelled within an hour from the specified time. For example, if you specify 5/31/2019, 13:30:55, the Capacity Reservation is guaranteed to end between 13:30:55 and 14:30:55 on 5/31/2019.
+	//
+	// If you are requesting a future-dated Capacity Reservation, you can't specify an end date and time that is within the commitment duration.
 	EndDate pulumi.StringPtrOutput `pulumi:"endDate"`
 	// Indicates the way in which the Capacity Reservation ends. A Capacity Reservation can have one of the following end types:
 	//
@@ -39,6 +41,8 @@ type CapacityReservation struct {
 	EphemeralStorage pulumi.BoolPtrOutput `pulumi:"ephemeralStorage"`
 	// The number of instances for which to reserve capacity.
 	//
+	// > You can request future-dated Capacity Reservations for an instance count with a minimum of 100 VPUs. For example, if you request a future-dated Capacity Reservation for `m5.xlarge` instances, you must request at least 25 instances ( *25 * m5.xlarge = 100 vCPUs* ).
+	//
 	// Valid range: 1 - 1000
 	InstanceCount pulumi.IntOutput `pulumi:"instanceCount"`
 	// Indicates the type of instance launches that the Capacity Reservation accepts. The options include:
@@ -46,14 +50,24 @@ type CapacityReservation struct {
 	// - `open` - The Capacity Reservation automatically matches all instances that have matching attributes (instance type, platform, and Availability Zone). Instances that have matching attributes run in the Capacity Reservation automatically without specifying any additional parameters.
 	// - `targeted` - The Capacity Reservation only accepts instances that have matching attributes (instance type, platform, and Availability Zone), and explicitly target the Capacity Reservation. This ensures that only permitted instances can use the reserved capacity.
 	//
+	// > If you are requesting a future-dated Capacity Reservation, you must specify `targeted` .
+	//
 	// Default: `open`
 	InstanceMatchCriteria pulumi.StringPtrOutput `pulumi:"instanceMatchCriteria"`
 	// The type of operating system for which to reserve capacity.
 	InstancePlatform pulumi.StringOutput `pulumi:"instancePlatform"`
-	// The instance type for which to reserve capacity. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide* .
+	// The instance type for which to reserve capacity.
+	//
+	// > You can request future-dated Capacity Reservations for instance types in the C, M, R, I, and T instance families only.
+	//
+	// For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide* .
 	InstanceType pulumi.StringOutput `pulumi:"instanceType"`
+	// > Not supported for future-dated Capacity Reservations.
+	//
 	// The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
 	OutPostArn pulumi.StringPtrOutput `pulumi:"outPostArn"`
+	// > Not supported for future-dated Capacity Reservations.
+	//
 	// The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation. For more information, see [Capacity Reservations for cluster placement groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cr-cpg.html) in the *Amazon EC2 User Guide* .
 	PlacementGroupArn pulumi.StringPtrOutput `pulumi:"placementGroupArn"`
 	// The tags to apply to the Capacity Reservation during launch.
@@ -144,6 +158,8 @@ type capacityReservationArgs struct {
 	// You must provide an `EndDate` value if `EndDateType` is `limited` . Omit `EndDate` if `EndDateType` is `unlimited` .
 	//
 	// If the `EndDateType` is `limited` , the Capacity Reservation is cancelled within an hour from the specified time. For example, if you specify 5/31/2019, 13:30:55, the Capacity Reservation is guaranteed to end between 13:30:55 and 14:30:55 on 5/31/2019.
+	//
+	// If you are requesting a future-dated Capacity Reservation, you can't specify an end date and time that is within the commitment duration.
 	EndDate *string `pulumi:"endDate"`
 	// Indicates the way in which the Capacity Reservation ends. A Capacity Reservation can have one of the following end types:
 	//
@@ -154,6 +170,8 @@ type capacityReservationArgs struct {
 	EphemeralStorage *bool `pulumi:"ephemeralStorage"`
 	// The number of instances for which to reserve capacity.
 	//
+	// > You can request future-dated Capacity Reservations for an instance count with a minimum of 100 VPUs. For example, if you request a future-dated Capacity Reservation for `m5.xlarge` instances, you must request at least 25 instances ( *25 * m5.xlarge = 100 vCPUs* ).
+	//
 	// Valid range: 1 - 1000
 	InstanceCount int `pulumi:"instanceCount"`
 	// Indicates the type of instance launches that the Capacity Reservation accepts. The options include:
@@ -161,14 +179,24 @@ type capacityReservationArgs struct {
 	// - `open` - The Capacity Reservation automatically matches all instances that have matching attributes (instance type, platform, and Availability Zone). Instances that have matching attributes run in the Capacity Reservation automatically without specifying any additional parameters.
 	// - `targeted` - The Capacity Reservation only accepts instances that have matching attributes (instance type, platform, and Availability Zone), and explicitly target the Capacity Reservation. This ensures that only permitted instances can use the reserved capacity.
 	//
+	// > If you are requesting a future-dated Capacity Reservation, you must specify `targeted` .
+	//
 	// Default: `open`
 	InstanceMatchCriteria *string `pulumi:"instanceMatchCriteria"`
 	// The type of operating system for which to reserve capacity.
 	InstancePlatform string `pulumi:"instancePlatform"`
-	// The instance type for which to reserve capacity. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide* .
+	// The instance type for which to reserve capacity.
+	//
+	// > You can request future-dated Capacity Reservations for instance types in the C, M, R, I, and T instance families only.
+	//
+	// For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide* .
 	InstanceType string `pulumi:"instanceType"`
+	// > Not supported for future-dated Capacity Reservations.
+	//
 	// The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
 	OutPostArn *string `pulumi:"outPostArn"`
+	// > Not supported for future-dated Capacity Reservations.
+	//
 	// The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation. For more information, see [Capacity Reservations for cluster placement groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cr-cpg.html) in the *Amazon EC2 User Guide* .
 	PlacementGroupArn *string `pulumi:"placementGroupArn"`
 	// The tags to apply to the Capacity Reservation during launch.
@@ -195,6 +223,8 @@ type CapacityReservationArgs struct {
 	// You must provide an `EndDate` value if `EndDateType` is `limited` . Omit `EndDate` if `EndDateType` is `unlimited` .
 	//
 	// If the `EndDateType` is `limited` , the Capacity Reservation is cancelled within an hour from the specified time. For example, if you specify 5/31/2019, 13:30:55, the Capacity Reservation is guaranteed to end between 13:30:55 and 14:30:55 on 5/31/2019.
+	//
+	// If you are requesting a future-dated Capacity Reservation, you can't specify an end date and time that is within the commitment duration.
 	EndDate pulumi.StringPtrInput
 	// Indicates the way in which the Capacity Reservation ends. A Capacity Reservation can have one of the following end types:
 	//
@@ -205,6 +235,8 @@ type CapacityReservationArgs struct {
 	EphemeralStorage pulumi.BoolPtrInput
 	// The number of instances for which to reserve capacity.
 	//
+	// > You can request future-dated Capacity Reservations for an instance count with a minimum of 100 VPUs. For example, if you request a future-dated Capacity Reservation for `m5.xlarge` instances, you must request at least 25 instances ( *25 * m5.xlarge = 100 vCPUs* ).
+	//
 	// Valid range: 1 - 1000
 	InstanceCount pulumi.IntInput
 	// Indicates the type of instance launches that the Capacity Reservation accepts. The options include:
@@ -212,14 +244,24 @@ type CapacityReservationArgs struct {
 	// - `open` - The Capacity Reservation automatically matches all instances that have matching attributes (instance type, platform, and Availability Zone). Instances that have matching attributes run in the Capacity Reservation automatically without specifying any additional parameters.
 	// - `targeted` - The Capacity Reservation only accepts instances that have matching attributes (instance type, platform, and Availability Zone), and explicitly target the Capacity Reservation. This ensures that only permitted instances can use the reserved capacity.
 	//
+	// > If you are requesting a future-dated Capacity Reservation, you must specify `targeted` .
+	//
 	// Default: `open`
 	InstanceMatchCriteria pulumi.StringPtrInput
 	// The type of operating system for which to reserve capacity.
 	InstancePlatform pulumi.StringInput
-	// The instance type for which to reserve capacity. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide* .
+	// The instance type for which to reserve capacity.
+	//
+	// > You can request future-dated Capacity Reservations for instance types in the C, M, R, I, and T instance families only.
+	//
+	// For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide* .
 	InstanceType pulumi.StringInput
+	// > Not supported for future-dated Capacity Reservations.
+	//
 	// The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
 	OutPostArn pulumi.StringPtrInput
+	// > Not supported for future-dated Capacity Reservations.
+	//
 	// The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation. For more information, see [Capacity Reservations for cluster placement groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cr-cpg.html) in the *Amazon EC2 User Guide* .
 	PlacementGroupArn pulumi.StringPtrInput
 	// The tags to apply to the Capacity Reservation during launch.
@@ -297,6 +339,8 @@ func (o CapacityReservationOutput) EbsOptimized() pulumi.BoolPtrOutput {
 // You must provide an `EndDate` value if `EndDateType` is `limited` . Omit `EndDate` if `EndDateType` is `unlimited` .
 //
 // If the `EndDateType` is `limited` , the Capacity Reservation is cancelled within an hour from the specified time. For example, if you specify 5/31/2019, 13:30:55, the Capacity Reservation is guaranteed to end between 13:30:55 and 14:30:55 on 5/31/2019.
+//
+// If you are requesting a future-dated Capacity Reservation, you can't specify an end date and time that is within the commitment duration.
 func (o CapacityReservationOutput) EndDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CapacityReservation) pulumi.StringPtrOutput { return v.EndDate }).(pulumi.StringPtrOutput)
 }
@@ -316,6 +360,8 @@ func (o CapacityReservationOutput) EphemeralStorage() pulumi.BoolPtrOutput {
 
 // The number of instances for which to reserve capacity.
 //
+// > You can request future-dated Capacity Reservations for an instance count with a minimum of 100 VPUs. For example, if you request a future-dated Capacity Reservation for `m5.xlarge` instances, you must request at least 25 instances ( *25 * m5.xlarge = 100 vCPUs* ).
+//
 // Valid range: 1 - 1000
 func (o CapacityReservationOutput) InstanceCount() pulumi.IntOutput {
 	return o.ApplyT(func(v *CapacityReservation) pulumi.IntOutput { return v.InstanceCount }).(pulumi.IntOutput)
@@ -325,6 +371,8 @@ func (o CapacityReservationOutput) InstanceCount() pulumi.IntOutput {
 //
 // - `open` - The Capacity Reservation automatically matches all instances that have matching attributes (instance type, platform, and Availability Zone). Instances that have matching attributes run in the Capacity Reservation automatically without specifying any additional parameters.
 // - `targeted` - The Capacity Reservation only accepts instances that have matching attributes (instance type, platform, and Availability Zone), and explicitly target the Capacity Reservation. This ensures that only permitted instances can use the reserved capacity.
+//
+// > If you are requesting a future-dated Capacity Reservation, you must specify `targeted` .
 //
 // Default: `open`
 func (o CapacityReservationOutput) InstanceMatchCriteria() pulumi.StringPtrOutput {
@@ -336,16 +384,24 @@ func (o CapacityReservationOutput) InstancePlatform() pulumi.StringOutput {
 	return o.ApplyT(func(v *CapacityReservation) pulumi.StringOutput { return v.InstancePlatform }).(pulumi.StringOutput)
 }
 
-// The instance type for which to reserve capacity. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide* .
+// The instance type for which to reserve capacity.
+//
+// > You can request future-dated Capacity Reservations for instance types in the C, M, R, I, and T instance families only.
+//
+// For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide* .
 func (o CapacityReservationOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v *CapacityReservation) pulumi.StringOutput { return v.InstanceType }).(pulumi.StringOutput)
 }
 
+// > Not supported for future-dated Capacity Reservations.
+//
 // The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
 func (o CapacityReservationOutput) OutPostArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CapacityReservation) pulumi.StringPtrOutput { return v.OutPostArn }).(pulumi.StringPtrOutput)
 }
 
+// > Not supported for future-dated Capacity Reservations.
+//
 // The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation. For more information, see [Capacity Reservations for cluster placement groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cr-cpg.html) in the *Amazon EC2 User Guide* .
 func (o CapacityReservationOutput) PlacementGroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CapacityReservation) pulumi.StringPtrOutput { return v.PlacementGroupArn }).(pulumi.StringPtrOutput)

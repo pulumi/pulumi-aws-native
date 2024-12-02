@@ -54,6 +54,9 @@ export class ScalingPolicy extends pulumi.CustomResource {
      *   ``StepScaling``—Not supported for DynamoDB, Amazon Comprehend, Lambda, Amazon Keyspaces, Amazon MSK, Amazon ElastiCache, or Neptune.
      */
     public readonly policyType!: pulumi.Output<string>;
+    /**
+     * The predictive scaling policy configuration.
+     */
     public readonly predictiveScalingPolicyConfiguration!: pulumi.Output<outputs.applicationautoscaling.ScalingPolicyPredictiveScalingPolicyConfiguration | undefined>;
     /**
      * The identifier of the resource associated with the scaling policy. This string consists of the resource type and unique identifier.
@@ -182,6 +185,9 @@ export interface ScalingPolicyArgs {
      *   ``StepScaling``—Not supported for DynamoDB, Amazon Comprehend, Lambda, Amazon Keyspaces, Amazon MSK, Amazon ElastiCache, or Neptune.
      */
     policyType: pulumi.Input<string>;
+    /**
+     * The predictive scaling policy configuration.
+     */
     predictiveScalingPolicyConfiguration?: pulumi.Input<inputs.applicationautoscaling.ScalingPolicyPredictiveScalingPolicyConfigurationArgs>;
     /**
      * The identifier of the resource associated with the scaling policy. This string consists of the resource type and unique identifier.

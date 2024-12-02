@@ -195,6 +195,9 @@ namespace Pulumi.AwsNative.Cognito
         [Output("userPoolTags")]
         public Output<ImmutableDictionary<string, string>?> UserPoolTags { get; private set; } = null!;
 
+        /// <summary>
+        /// The user pool [feature plan](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-sign-in-feature-plans.html) , or tier. This parameter determines the eligibility of the user pool for features like managed login, access-token customization, and threat protection. Defaults to `ESSENTIALS` .
+        /// </summary>
         [Output("userPoolTier")]
         public Output<Pulumi.AwsNative.Cognito.UserPoolTier?> UserPoolTier { get; private set; } = null!;
 
@@ -457,6 +460,9 @@ namespace Pulumi.AwsNative.Cognito
             set => _userPoolTags = value;
         }
 
+        /// <summary>
+        /// The user pool [feature plan](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-sign-in-feature-plans.html) , or tier. This parameter determines the eligibility of the user pool for features like managed login, access-token customization, and threat protection. Defaults to `ESSENTIALS` .
+        /// </summary>
         [Input("userPoolTier")]
         public Input<Pulumi.AwsNative.Cognito.UserPoolTier>? UserPoolTier { get; set; }
 

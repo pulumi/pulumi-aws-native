@@ -67,6 +67,8 @@ namespace Pulumi.AwsNative.Ec2
         /// You must provide an `EndDate` value if `EndDateType` is `limited` . Omit `EndDate` if `EndDateType` is `unlimited` .
         /// 
         /// If the `EndDateType` is `limited` , the Capacity Reservation is cancelled within an hour from the specified time. For example, if you specify 5/31/2019, 13:30:55, the Capacity Reservation is guaranteed to end between 13:30:55 and 14:30:55 on 5/31/2019.
+        /// 
+        /// If you are requesting a future-dated Capacity Reservation, you can't specify an end date and time that is within the commitment duration.
         /// </summary>
         public readonly string? EndDate;
         /// <summary>
@@ -83,6 +85,8 @@ namespace Pulumi.AwsNative.Ec2
         /// <summary>
         /// The number of instances for which to reserve capacity.
         /// 
+        /// &gt; You can request future-dated Capacity Reservations for an instance count with a minimum of 100 VPUs. For example, if you request a future-dated Capacity Reservation for `m5.xlarge` instances, you must request at least 25 instances ( *25 * m5.xlarge = 100 vCPUs* ). 
+        /// 
         /// Valid range: 1 - 1000
         /// </summary>
         public readonly int? InstanceCount;
@@ -91,6 +95,8 @@ namespace Pulumi.AwsNative.Ec2
         /// 
         /// - `open` - The Capacity Reservation automatically matches all instances that have matching attributes (instance type, platform, and Availability Zone). Instances that have matching attributes run in the Capacity Reservation automatically without specifying any additional parameters.
         /// - `targeted` - The Capacity Reservation only accepts instances that have matching attributes (instance type, platform, and Availability Zone), and explicitly target the Capacity Reservation. This ensures that only permitted instances can use the reserved capacity.
+        /// 
+        /// &gt; If you are requesting a future-dated Capacity Reservation, you must specify `targeted` . 
         /// 
         /// Default: `open`
         /// </summary>

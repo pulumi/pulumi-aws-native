@@ -258,9 +258,9 @@ class AgentActionGroup(dict):
         :param str action_group_name: Name of the action group
         :param Union['AgentActionGroupExecutor0Properties', 'AgentActionGroupExecutor1Properties'] action_group_executor: The Amazon Resource Name (ARN) of the Lambda function containing the business logic that is carried out upon invoking the action or the custom control method for handling the information elicited from the user.
         :param 'AgentActionGroupState' action_group_state: Specifies whether the action group is available for the agent to invoke or not when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request.
-        :param Union['AgentApiSchema0Properties', 'AgentApiSchema1Properties'] api_schema: Contains either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema. For more information, see [Action group OpenAPI schemas](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-api-schema.html) .
+        :param Union['AgentApiSchema0Properties', 'AgentApiSchema1Properties'] api_schema: Contains either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema. For more information, see [Action group OpenAPI schemas](https://docs.aws.amazon.com//bedrock/latest/userguide/agents-api-schema.html) .
         :param str description: Description of action group
-        :param 'AgentFunctionSchema' function_schema: Defines functions that each define parameters that the agent needs to invoke from the user. Each function represents an action in an action group.
+        :param 'AgentFunctionSchema' function_schema: Contains details about the function schema for the action group or the JSON or YAML-formatted payload defining the schema.
         :param 'AgentActionGroupSignature' parent_action_group_signature: If this field is set as `AMAZON.UserInput` , the agent can request the user for additional information when trying to complete a task. The `description` , `apiSchema` , and `actionGroupExecutor` fields must be blank for this action group.
                
                During orchestration, if the agent determines that it needs to invoke an API in an action group, but doesn't have enough information to complete the API request, it will invoke this action group instead and return an [Observation](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_Observation.html) reprompting the user for more information.
@@ -310,7 +310,7 @@ class AgentActionGroup(dict):
     @pulumi.getter(name="apiSchema")
     def api_schema(self) -> Optional[Any]:
         """
-        Contains either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema. For more information, see [Action group OpenAPI schemas](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-api-schema.html) .
+        Contains either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema. For more information, see [Action group OpenAPI schemas](https://docs.aws.amazon.com//bedrock/latest/userguide/agents-api-schema.html) .
         """
         return pulumi.get(self, "api_schema")
 
@@ -326,7 +326,7 @@ class AgentActionGroup(dict):
     @pulumi.getter(name="functionSchema")
     def function_schema(self) -> Optional['outputs.AgentFunctionSchema']:
         """
-        Defines functions that each define parameters that the agent needs to invoke from the user. Each function represents an action in an action group.
+        Contains details about the function schema for the action group or the JSON or YAML-formatted payload defining the schema.
         """
         return pulumi.get(self, "function_schema")
 
@@ -941,7 +941,7 @@ class AgentPromptConfiguration(dict):
         :param 'AgentInferenceConfiguration' inference_configuration: Contains inference parameters to use when the agent invokes a foundation model in the part of the agent sequence defined by the `promptType` . For more information, see [Inference parameters for foundation models](https://docs.aws.amazon.com/bedrock/latest/userguide/model-parameters.html) .
         :param 'AgentCreationMode' parser_mode: Specifies whether to override the default parser Lambda function when parsing the raw foundation model output in the part of the agent sequence defined by the `promptType` . If you set the field as `OVERRIDEN` , the `overrideLambda` field in the [PromptOverrideConfiguration](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent_PromptOverrideConfiguration.html) must be specified with the ARN of a Lambda function.
         :param 'AgentCreationMode' prompt_creation_mode: Specifies whether to override the default prompt template for this `promptType` . Set this value to `OVERRIDDEN` to use the prompt that you provide in the `basePromptTemplate` . If you leave it as `DEFAULT` , the agent uses a default prompt template.
-        :param 'AgentPromptState' prompt_state: Specifies whether to allow the agent to carry out the step specified in the `promptType` . If you set this value to `DISABLED` , the agent skips that step. The default state for each `promptType` is as follows.
+        :param 'AgentPromptState' prompt_state: Specifies whether to allow the inline agent to carry out the step specified in the `promptType` . If you set this value to `DISABLED` , the agent skips that step. The default state for each `promptType` is as follows.
                
                - `PRE_PROCESSING` – `ENABLED`
                - `ORCHESTRATION` – `ENABLED`
@@ -998,7 +998,7 @@ class AgentPromptConfiguration(dict):
     @pulumi.getter(name="promptState")
     def prompt_state(self) -> Optional['AgentPromptState']:
         """
-        Specifies whether to allow the agent to carry out the step specified in the `promptType` . If you set this value to `DISABLED` , the agent skips that step. The default state for each `promptType` is as follows.
+        Specifies whether to allow the inline agent to carry out the step specified in the `promptType` . If you set this value to `DISABLED` , the agent skips that step. The default state for each `promptType` is as follows.
 
         - `PRE_PROCESSING` – `ENABLED`
         - `ORCHESTRATION` – `ENABLED`

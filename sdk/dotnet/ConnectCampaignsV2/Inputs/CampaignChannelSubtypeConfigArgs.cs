@@ -15,12 +15,21 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2.Inputs
     /// </summary>
     public sealed class CampaignChannelSubtypeConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The configuration of the email channel subtype.
+        /// </summary>
         [Input("email")]
         public Input<Inputs.CampaignEmailChannelSubtypeConfigArgs>? Email { get; set; }
 
+        /// <summary>
+        /// The configuration of the SMS channel subtype.
+        /// </summary>
         [Input("sms")]
         public Input<Inputs.CampaignSmsChannelSubtypeConfigArgs>? Sms { get; set; }
 
+        /// <summary>
+        /// The configuration of the telephony channel subtype.
+        /// </summary>
         [Input("telephony")]
         public Input<Inputs.CampaignTelephonyChannelSubtypeConfigArgs>? Telephony { get; set; }
 

@@ -41,13 +41,37 @@ export class Campaign extends pulumi.CustomResource {
      * Amazon Connect Campaign Arn
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Contains channel subtype configuration for an outbound campaign.
+     */
     public readonly channelSubtypeConfig!: pulumi.Output<outputs.connectcampaignsv2.CampaignChannelSubtypeConfig>;
+    /**
+     * Communication limits configuration for an outbound campaign.
+     */
     public readonly communicationLimitsOverride!: pulumi.Output<outputs.connectcampaignsv2.CampaignCommunicationLimitsConfig | undefined>;
+    /**
+     * Contains communication time configuration for an outbound campaign.
+     */
     public readonly communicationTimeConfig!: pulumi.Output<outputs.connectcampaignsv2.CampaignCommunicationTimeConfig | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) of the Amazon Connect campaign flow associated with the outbound campaign.
+     */
     public readonly connectCampaignFlowArn!: pulumi.Output<string | undefined>;
+    /**
+     * The identifier of the Amazon Connect instance. You can find the `instanceId` in the ARN of the instance.
+     */
     public readonly connectInstanceId!: pulumi.Output<string>;
+    /**
+     * The name of the outbound campaign.
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Contains the schedule configuration.
+     */
     public readonly schedule!: pulumi.Output<outputs.connectcampaignsv2.CampaignSchedule | undefined>;
+    /**
+     * Contains source configuration.
+     */
     public readonly source!: pulumi.Output<outputs.connectcampaignsv2.CampaignSource | undefined>;
     /**
      * One or more tags.
@@ -104,13 +128,37 @@ export class Campaign extends pulumi.CustomResource {
  * The set of arguments for constructing a Campaign resource.
  */
 export interface CampaignArgs {
+    /**
+     * Contains channel subtype configuration for an outbound campaign.
+     */
     channelSubtypeConfig: pulumi.Input<inputs.connectcampaignsv2.CampaignChannelSubtypeConfigArgs>;
+    /**
+     * Communication limits configuration for an outbound campaign.
+     */
     communicationLimitsOverride?: pulumi.Input<inputs.connectcampaignsv2.CampaignCommunicationLimitsConfigArgs>;
+    /**
+     * Contains communication time configuration for an outbound campaign.
+     */
     communicationTimeConfig?: pulumi.Input<inputs.connectcampaignsv2.CampaignCommunicationTimeConfigArgs>;
+    /**
+     * The Amazon Resource Name (ARN) of the Amazon Connect campaign flow associated with the outbound campaign.
+     */
     connectCampaignFlowArn?: pulumi.Input<string>;
+    /**
+     * The identifier of the Amazon Connect instance. You can find the `instanceId` in the ARN of the instance.
+     */
     connectInstanceId: pulumi.Input<string>;
+    /**
+     * The name of the outbound campaign.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Contains the schedule configuration.
+     */
     schedule?: pulumi.Input<inputs.connectcampaignsv2.CampaignScheduleArgs>;
+    /**
+     * Contains source configuration.
+     */
     source?: pulumi.Input<inputs.connectcampaignsv2.CampaignSourceArgs>;
     /**
      * One or more tags.

@@ -394,6 +394,9 @@ export const ThingTypePropagatingAttributeConnectionAttribute = {
     IotThingThingName: "iot:Thing.ThingName",
 } as const;
 
+/**
+ * The attribute associated with the connection details.
+ */
 export type ThingTypePropagatingAttributeConnectionAttribute = (typeof ThingTypePropagatingAttributeConnectionAttribute)[keyof typeof ThingTypePropagatingAttributeConnectionAttribute];
 
 export const TopicRuleCannedAccessControlList = {

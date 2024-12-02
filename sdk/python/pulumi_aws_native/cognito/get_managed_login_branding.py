@@ -42,17 +42,25 @@ class GetManagedLoginBrandingResult:
     @property
     @pulumi.getter
     def assets(self) -> Optional[Sequence['outputs.ManagedLoginBrandingAssetType']]:
+        """
+        An array of image files that you want to apply to roles like backgrounds, logos, and icons. Each object must also indicate whether it is for dark mode, light mode, or browser-adaptive mode.
+        """
         return pulumi.get(self, "assets")
 
     @property
     @pulumi.getter(name="managedLoginBrandingId")
     def managed_login_branding_id(self) -> Optional[str]:
+        """
+        The ID of the managed login branding style.
+        """
         return pulumi.get(self, "managed_login_branding_id")
 
     @property
     @pulumi.getter
     def settings(self) -> Optional[Any]:
         """
+        A JSON file, encoded as a `Document` type, with the the settings that you want to apply to your style.
+
         Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::ManagedLoginBranding` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "settings")
@@ -60,6 +68,9 @@ class GetManagedLoginBrandingResult:
     @property
     @pulumi.getter(name="useCognitoProvidedValues")
     def use_cognito_provided_values(self) -> Optional[bool]:
+        """
+        When true, applies the default branding style options. This option reverts to a "blank" style that you can modify later in the branding designer.
+        """
         return pulumi.get(self, "use_cognito_provided_values")
 
 
@@ -80,6 +91,10 @@ def get_managed_login_branding(managed_login_branding_id: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedLoginBrandingResult:
     """
     Resource Type definition for AWS::Cognito::ManagedLoginBranding
+
+
+    :param str managed_login_branding_id: The ID of the managed login branding style.
+    :param str user_pool_id: The user pool where the branding style is assigned.
     """
     __args__ = dict()
     __args__['managedLoginBrandingId'] = managed_login_branding_id
@@ -97,6 +112,10 @@ def get_managed_login_branding_output(managed_login_branding_id: Optional[pulumi
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedLoginBrandingResult]:
     """
     Resource Type definition for AWS::Cognito::ManagedLoginBranding
+
+
+    :param str managed_login_branding_id: The ID of the managed login branding style.
+    :param str user_pool_id: The user pool where the branding style is assigned.
     """
     __args__ = dict()
     __args__['managedLoginBrandingId'] = managed_login_branding_id

@@ -85,6 +85,9 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
         /// The creation date of the web portal.
         /// </summary>
         public readonly string? CreationDate;
+        /// <summary>
+        /// The ARN of the data protection settings.
+        /// </summary>
         public readonly string? DataProtectionSettingsArn;
         /// <summary>
         /// The name of the web portal.

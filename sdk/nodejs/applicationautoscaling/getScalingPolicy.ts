@@ -65,6 +65,9 @@ export interface GetScalingPolicyResult {
      *   ``StepScaling``—Not supported for DynamoDB, Amazon Comprehend, Lambda, Amazon Keyspaces, Amazon MSK, Amazon ElastiCache, or Neptune.
      */
     readonly policyType?: string;
+    /**
+     * The predictive scaling policy configuration.
+     */
     readonly predictiveScalingPolicyConfiguration?: outputs.applicationautoscaling.ScalingPolicyPredictiveScalingPolicyConfiguration;
     /**
      * A step scaling policy.

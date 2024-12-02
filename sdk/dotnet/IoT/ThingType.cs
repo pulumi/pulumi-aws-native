@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.IoT
         public Output<string> AwsId { get; private set; } = null!;
 
         /// <summary>
-        /// Deprecates a thing type. You can not associate new things with deprecated thing type.
+        /// Deprecates a thing type. You can not associate new things with deprecated thing type. You cannot update `ThingTypeProperties` if the thing type is deprecated.
         /// 
         /// Requires permission to access the [DeprecateThingType](https://docs.aws.amazon.com//service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) action.
         /// </summary>
@@ -48,7 +48,7 @@ namespace Pulumi.AwsNative.IoT
         public Output<string?> ThingTypeName { get; private set; } = null!;
 
         /// <summary>
-        /// The thing type properties for the thing type to create. It contains information about the new thing type including a description, and a list of searchable thing attribute names. `ThingTypeProperties` can't be updated after the initial creation of the `ThingType` .
+        /// The thing type properties for the thing type to create. It contains information about the new thing type including a description, a list of searchable thing attribute names, and a list of propagating attributes. After a thing type is created, you can only update `Mqtt5Configuration` .
         /// </summary>
         [Output("thingTypeProperties")]
         public Output<Outputs.ThingTypePropertiesProperties?> ThingTypeProperties { get; private set; } = null!;
@@ -103,7 +103,7 @@ namespace Pulumi.AwsNative.IoT
     public sealed class ThingTypeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Deprecates a thing type. You can not associate new things with deprecated thing type.
+        /// Deprecates a thing type. You can not associate new things with deprecated thing type. You cannot update `ThingTypeProperties` if the thing type is deprecated.
         /// 
         /// Requires permission to access the [DeprecateThingType](https://docs.aws.amazon.com//service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) action.
         /// </summary>
@@ -129,7 +129,7 @@ namespace Pulumi.AwsNative.IoT
         public Input<string>? ThingTypeName { get; set; }
 
         /// <summary>
-        /// The thing type properties for the thing type to create. It contains information about the new thing type including a description, and a list of searchable thing attribute names. `ThingTypeProperties` can't be updated after the initial creation of the `ThingType` .
+        /// The thing type properties for the thing type to create. It contains information about the new thing type including a description, a list of searchable thing attribute names, and a list of propagating attributes. After a thing type is created, you can only update `Mqtt5Configuration` .
         /// </summary>
         [Input("thingTypeProperties")]
         public Input<Inputs.ThingTypePropertiesPropertiesArgs>? ThingTypeProperties { get; set; }

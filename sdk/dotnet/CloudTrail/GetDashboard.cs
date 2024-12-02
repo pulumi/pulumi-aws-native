@@ -77,6 +77,9 @@ namespace Pulumi.AwsNative.CloudTrail
         /// The status of the dashboard. Values are CREATING, CREATED, UPDATING, UPDATED and DELETING.
         /// </summary>
         public readonly Pulumi.AwsNative.CloudTrail.DashboardStatus? Status;
+        /// <summary>
+        /// A list of tags.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// Indicates whether the dashboard is protected from termination.

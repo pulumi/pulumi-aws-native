@@ -228,6 +228,8 @@ if typing.TYPE_CHECKING:
     inspectorv2 = __inspectorv2
     import pulumi_aws_native.internetmonitor as __internetmonitor
     internetmonitor = __internetmonitor
+    import pulumi_aws_native.invoicing as __invoicing
+    invoicing = __invoicing
     import pulumi_aws_native.iot as __iot
     iot = __iot
     import pulumi_aws_native.iotanalytics as __iotanalytics
@@ -564,6 +566,7 @@ else:
     inspector = _utilities.lazy_import('pulumi_aws_native.inspector')
     inspectorv2 = _utilities.lazy_import('pulumi_aws_native.inspectorv2')
     internetmonitor = _utilities.lazy_import('pulumi_aws_native.internetmonitor')
+    invoicing = _utilities.lazy_import('pulumi_aws_native.invoicing')
     iot = _utilities.lazy_import('pulumi_aws_native.iot')
     iotanalytics = _utilities.lazy_import('pulumi_aws_native.iotanalytics')
     iotcoredeviceadvisor = _utilities.lazy_import('pulumi_aws_native.iotcoredeviceadvisor')
@@ -1965,6 +1968,14 @@ _utilities.register(
  },
  {
   "pkg": "aws-native",
+  "mod": "invoicing",
+  "fqn": "pulumi_aws_native.invoicing",
+  "classes": {
+   "aws-native:invoicing:InvoiceUnit": "InvoiceUnit"
+  }
+ },
+ {
+  "pkg": "aws-native",
   "mod": "iot",
   "fqn": "pulumi_aws_native.iot",
   "classes": {
@@ -2270,6 +2281,7 @@ _utilities.register(
    "aws-native:logs:DeliveryDestination": "DeliveryDestination",
    "aws-native:logs:DeliverySource": "DeliverySource",
    "aws-native:logs:Destination": "Destination",
+   "aws-native:logs:Integration": "Integration",
    "aws-native:logs:LogAnomalyDetector": "LogAnomalyDetector",
    "aws-native:logs:LogGroup": "LogGroup",
    "aws-native:logs:LogStream": "LogStream",
@@ -2395,6 +2407,7 @@ _utilities.register(
   "classes": {
    "aws-native:memorydb:Acl": "Acl",
    "aws-native:memorydb:Cluster": "Cluster",
+   "aws-native:memorydb:MultiRegionCluster": "MultiRegionCluster",
    "aws-native:memorydb:ParameterGroup": "ParameterGroup",
    "aws-native:memorydb:SubnetGroup": "SubnetGroup",
    "aws-native:memorydb:User": "User"

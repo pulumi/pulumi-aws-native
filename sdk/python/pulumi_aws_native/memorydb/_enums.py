@@ -6,6 +6,7 @@ from enum import Enum
 
 __all__ = [
     'ClusterDataTieringStatus',
+    'MultiRegionClusterUpdateStrategy',
     'UserAuthenticationModePropertiesType',
 ]
 
@@ -13,6 +14,14 @@ __all__ = [
 class ClusterDataTieringStatus(str, Enum):
     TRUE = "true"
     FALSE = "false"
+
+
+class MultiRegionClusterUpdateStrategy(str, Enum):
+    """
+    An enum string value that determines the update strategy for scaling. Possible values are 'COORDINATED' and 'UNCOORDINATED'. Default is 'COORDINATED'.
+    """
+    COORDINATED = "COORDINATED"
+    UNCOORDINATED = "UNCOORDINATED"
 
 
 class UserAuthenticationModePropertiesType(str, Enum):

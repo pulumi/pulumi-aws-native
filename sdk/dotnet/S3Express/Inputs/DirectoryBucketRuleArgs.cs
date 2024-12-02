@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.S3Express.Inputs
     /// </summary>
     public sealed class DirectoryBucketRuleArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the days since the initiation of an incomplete multipart upload that Amazon S3 will wait before permanently removing all parts of the upload.
+        /// </summary>
         [Input("abortIncompleteMultipartUpload")]
         public Input<Inputs.DirectoryBucketAbortIncompleteMultipartUploadArgs>? AbortIncompleteMultipartUpload { get; set; }
 
+        /// <summary>
+        /// Indicates the number of days after creation when objects are deleted from Amazon S3 and Amazon S3 Glacier. If you specify an expiration and transition time, you must use the same time unit for both properties (either in days or by date). The expiration time must also be later than the transition time.
+        /// </summary>
         [Input("expirationInDays")]
         public Input<int>? ExpirationInDays { get; set; }
 
@@ -27,9 +33,15 @@ namespace Pulumi.AwsNative.S3Express.Inputs
         [Input("id")]
         public Input<string>? Id { get; set; }
 
+        /// <summary>
+        /// Specifies the minimum object size in bytes for this rule to apply to. Objects must be larger than this value in bytes. For more information about size based rules, see [Lifecycle configuration using size-based rules](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-configuration-examples.html#lc-size-rules) in the *Amazon S3 User Guide* .
+        /// </summary>
         [Input("objectSizeGreaterThan")]
         public Input<string>? ObjectSizeGreaterThan { get; set; }
 
+        /// <summary>
+        /// Specifies the maximum object size in bytes for this rule to apply to. Objects must be smaller than this value in bytes. For more information about sized based rules, see [Lifecycle configuration using size-based rules](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-configuration-examples.html#lc-size-rules) in the *Amazon S3 User Guide* .
+        /// </summary>
         [Input("objectSizeLessThan")]
         public Input<string>? ObjectSizeLessThan { get; set; }
 

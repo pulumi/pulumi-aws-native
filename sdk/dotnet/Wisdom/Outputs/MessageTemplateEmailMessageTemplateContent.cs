@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Wisdom.Outputs
     [OutputType]
     public sealed class MessageTemplateEmailMessageTemplateContent
     {
+        /// <summary>
+        /// The body to use in email messages.
+        /// </summary>
         public readonly Outputs.MessageTemplateEmailMessageTemplateContentBody Body;
         /// <summary>
         /// The email headers to include in email messages.

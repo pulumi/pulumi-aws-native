@@ -94,7 +94,7 @@ import (
 type DomainName struct {
 	pulumi.CustomResourceState
 
-	// The reference to an AWS -managed certificate that will be used by edge-optimized endpoint for this domain name. AWS Certificate Manager is the only supported source.
+	// The reference to an AWS -managed certificate that will be used by edge-optimized endpoint or private endpoint for this domain name. AWS Certificate Manager is the only supported source.
 	CertificateArn pulumi.StringPtrOutput `pulumi:"certificateArn"`
 	// The Amazon CloudFront distribution domain name that's mapped to the custom domain name. This is only applicable for endpoints whose type is `EDGE` .
 	//
@@ -166,7 +166,7 @@ func (DomainNameState) ElementType() reflect.Type {
 }
 
 type domainNameArgs struct {
-	// The reference to an AWS -managed certificate that will be used by edge-optimized endpoint for this domain name. AWS Certificate Manager is the only supported source.
+	// The reference to an AWS -managed certificate that will be used by edge-optimized endpoint or private endpoint for this domain name. AWS Certificate Manager is the only supported source.
 	CertificateArn *string `pulumi:"certificateArn"`
 	// The custom domain name as an API host name, for example, `my-api.example.com` .
 	DomainName *string `pulumi:"domainName"`
@@ -186,7 +186,7 @@ type domainNameArgs struct {
 
 // The set of arguments for constructing a DomainName resource.
 type DomainNameArgs struct {
-	// The reference to an AWS -managed certificate that will be used by edge-optimized endpoint for this domain name. AWS Certificate Manager is the only supported source.
+	// The reference to an AWS -managed certificate that will be used by edge-optimized endpoint or private endpoint for this domain name. AWS Certificate Manager is the only supported source.
 	CertificateArn pulumi.StringPtrInput
 	// The custom domain name as an API host name, for example, `my-api.example.com` .
 	DomainName pulumi.StringPtrInput
@@ -241,7 +241,7 @@ func (o DomainNameOutput) ToDomainNameOutputWithContext(ctx context.Context) Dom
 	return o
 }
 
-// The reference to an AWS -managed certificate that will be used by edge-optimized endpoint for this domain name. AWS Certificate Manager is the only supported source.
+// The reference to an AWS -managed certificate that will be used by edge-optimized endpoint or private endpoint for this domain name. AWS Certificate Manager is the only supported source.
 func (o DomainNameOutput) CertificateArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainName) pulumi.StringPtrOutput { return v.CertificateArn }).(pulumi.StringPtrOutput)
 }

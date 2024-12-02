@@ -35,8 +35,12 @@ class MessageTemplateArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a MessageTemplate resource.
+        :param pulumi.Input['MessageTemplateChannelSubtype'] channel_subtype: The channel subtype this message template applies to.
+        :param pulumi.Input['MessageTemplateContentArgs'] content: The content of the message template.
         :param pulumi.Input[str] knowledge_base_arn: The Amazon Resource Name (ARN) of the knowledge base to which the message template belongs.
+        :param pulumi.Input['MessageTemplateAttributesArgs'] default_attributes: An object that specifies the default values to use for variables in the message template. This object contains different categories of key-value pairs. Each key defines a variable or placeholder in the message template. The corresponding value defines the default value for that variable.
         :param pulumi.Input[str] description: The description of the message template.
+        :param pulumi.Input['MessageTemplateGroupingConfigurationArgs'] grouping_configuration: The configuration information of the external data source.
         :param pulumi.Input[str] language: The language code value for the language in which the message template is written. The supported language codes include de_DE, en_US, es_ES, fr_FR, id_ID, it_IT, ja_JP, ko_KR, pt_BR, zh_CN, zh_TW
         :param pulumi.Input[str] name: The name of the message template.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
@@ -60,6 +64,9 @@ class MessageTemplateArgs:
     @property
     @pulumi.getter(name="channelSubtype")
     def channel_subtype(self) -> pulumi.Input['MessageTemplateChannelSubtype']:
+        """
+        The channel subtype this message template applies to.
+        """
         return pulumi.get(self, "channel_subtype")
 
     @channel_subtype.setter
@@ -69,6 +76,9 @@ class MessageTemplateArgs:
     @property
     @pulumi.getter
     def content(self) -> pulumi.Input['MessageTemplateContentArgs']:
+        """
+        The content of the message template.
+        """
         return pulumi.get(self, "content")
 
     @content.setter
@@ -90,6 +100,9 @@ class MessageTemplateArgs:
     @property
     @pulumi.getter(name="defaultAttributes")
     def default_attributes(self) -> Optional[pulumi.Input['MessageTemplateAttributesArgs']]:
+        """
+        An object that specifies the default values to use for variables in the message template. This object contains different categories of key-value pairs. Each key defines a variable or placeholder in the message template. The corresponding value defines the default value for that variable.
+        """
         return pulumi.get(self, "default_attributes")
 
     @default_attributes.setter
@@ -111,6 +124,9 @@ class MessageTemplateArgs:
     @property
     @pulumi.getter(name="groupingConfiguration")
     def grouping_configuration(self) -> Optional[pulumi.Input['MessageTemplateGroupingConfigurationArgs']]:
+        """
+        The configuration information of the external data source.
+        """
         return pulumi.get(self, "grouping_configuration")
 
     @grouping_configuration.setter
@@ -174,7 +190,11 @@ class MessageTemplate(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input['MessageTemplateChannelSubtype'] channel_subtype: The channel subtype this message template applies to.
+        :param pulumi.Input[Union['MessageTemplateContentArgs', 'MessageTemplateContentArgsDict']] content: The content of the message template.
+        :param pulumi.Input[Union['MessageTemplateAttributesArgs', 'MessageTemplateAttributesArgsDict']] default_attributes: An object that specifies the default values to use for variables in the message template. This object contains different categories of key-value pairs. Each key defines a variable or placeholder in the message template. The corresponding value defines the default value for that variable.
         :param pulumi.Input[str] description: The description of the message template.
+        :param pulumi.Input[Union['MessageTemplateGroupingConfigurationArgs', 'MessageTemplateGroupingConfigurationArgsDict']] grouping_configuration: The configuration information of the external data source.
         :param pulumi.Input[str] knowledge_base_arn: The Amazon Resource Name (ARN) of the knowledge base to which the message template belongs.
         :param pulumi.Input[str] language: The language code value for the language in which the message template is written. The supported language codes include de_DE, en_US, es_ES, fr_FR, id_ID, it_IT, ja_JP, ko_KR, pt_BR, zh_CN, zh_TW
         :param pulumi.Input[str] name: The name of the message template.
@@ -281,16 +301,25 @@ class MessageTemplate(pulumi.CustomResource):
     @property
     @pulumi.getter(name="channelSubtype")
     def channel_subtype(self) -> pulumi.Output['MessageTemplateChannelSubtype']:
+        """
+        The channel subtype this message template applies to.
+        """
         return pulumi.get(self, "channel_subtype")
 
     @property
     @pulumi.getter
     def content(self) -> pulumi.Output['outputs.MessageTemplateContent']:
+        """
+        The content of the message template.
+        """
         return pulumi.get(self, "content")
 
     @property
     @pulumi.getter(name="defaultAttributes")
     def default_attributes(self) -> pulumi.Output[Optional['outputs.MessageTemplateAttributes']]:
+        """
+        An object that specifies the default values to use for variables in the message template. This object contains different categories of key-value pairs. Each key defines a variable or placeholder in the message template. The corresponding value defines the default value for that variable.
+        """
         return pulumi.get(self, "default_attributes")
 
     @property
@@ -304,6 +333,9 @@ class MessageTemplate(pulumi.CustomResource):
     @property
     @pulumi.getter(name="groupingConfiguration")
     def grouping_configuration(self) -> pulumi.Output[Optional['outputs.MessageTemplateGroupingConfiguration']]:
+        """
+        The configuration information of the external data source.
+        """
         return pulumi.get(self, "grouping_configuration")
 
     @property

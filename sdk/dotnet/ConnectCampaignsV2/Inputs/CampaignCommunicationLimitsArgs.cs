@@ -17,6 +17,10 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2.Inputs
     {
         [Input("communicationLimitList")]
         private InputList<Inputs.CampaignCommunicationLimitArgs>? _communicationLimitList;
+
+        /// <summary>
+        /// The list of CommunicationLimits.
+        /// </summary>
         public InputList<Inputs.CampaignCommunicationLimitArgs> CommunicationLimitList
         {
             get => _communicationLimitList ?? (_communicationLimitList = new InputList<Inputs.CampaignCommunicationLimitArgs>());

@@ -18,16 +18,40 @@ export function getDataProtectionSettings(args: GetDataProtectionSettingsArgs, o
 }
 
 export interface GetDataProtectionSettingsArgs {
+    /**
+     * The ARN of the data protection settings resource.
+     */
     dataProtectionSettingsArn: string;
 }
 
 export interface GetDataProtectionSettingsResult {
+    /**
+     * A list of web portal ARNs that this data protection settings resource is associated with.
+     */
     readonly associatedPortalArns?: string[];
+    /**
+     * The creation date timestamp of the data protection settings.
+     */
     readonly creationDate?: string;
+    /**
+     * The ARN of the data protection settings resource.
+     */
     readonly dataProtectionSettingsArn?: string;
+    /**
+     * The description of the data protection settings.
+     */
     readonly description?: string;
+    /**
+     * The display name of the data protection settings.
+     */
     readonly displayName?: string;
+    /**
+     * The inline redaction configuration for the data protection settings.
+     */
     readonly inlineRedactionConfiguration?: outputs.workspacesweb.DataProtectionSettingsInlineRedactionConfiguration;
+    /**
+     * The tags of the data protection settings.
+     */
     readonly tags?: outputs.Tag[];
 }
 /**
@@ -41,5 +65,8 @@ export function getDataProtectionSettingsOutput(args: GetDataProtectionSettingsO
 }
 
 export interface GetDataProtectionSettingsOutputArgs {
+    /**
+     * The ARN of the data protection settings resource.
+     */
     dataProtectionSettingsArn: pulumi.Input<string>;
 }

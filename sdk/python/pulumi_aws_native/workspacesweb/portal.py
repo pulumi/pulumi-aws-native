@@ -56,6 +56,7 @@ class PortalArgs:
         :param pulumi.Input[str] customer_managed_key: The customer managed key of the web portal.
                
                *Pattern* : `^arn:[\\w+=\\/,.@-]+:kms:[a-zA-Z0-9\\-]*:[a-zA-Z0-9]{1,12}:key\\/[a-zA-Z0-9-]+$`
+        :param pulumi.Input[str] data_protection_settings_arn: The ARN of the data protection settings.
         :param pulumi.Input[str] display_name: The name of the web portal.
         :param pulumi.Input['PortalInstanceType'] instance_type: The type and resources of the underlying instance.
         :param pulumi.Input[str] ip_access_settings_arn: The ARN of the IP access settings that is associated with the web portal.
@@ -160,6 +161,9 @@ class PortalArgs:
     @property
     @pulumi.getter(name="dataProtectionSettingsArn")
     def data_protection_settings_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the data protection settings.
+        """
         return pulumi.get(self, "data_protection_settings_arn")
 
     @data_protection_settings_arn.setter
@@ -318,6 +322,7 @@ class Portal(pulumi.CustomResource):
         :param pulumi.Input[str] customer_managed_key: The customer managed key of the web portal.
                
                *Pattern* : `^arn:[\\w+=\\/,.@-]+:kms:[a-zA-Z0-9\\-]*:[a-zA-Z0-9]{1,12}:key\\/[a-zA-Z0-9-]+$`
+        :param pulumi.Input[str] data_protection_settings_arn: The ARN of the data protection settings.
         :param pulumi.Input[str] display_name: The name of the web portal.
         :param pulumi.Input['PortalInstanceType'] instance_type: The type and resources of the underlying instance.
         :param pulumi.Input[str] ip_access_settings_arn: The ARN of the IP access settings that is associated with the web portal.
@@ -510,6 +515,9 @@ class Portal(pulumi.CustomResource):
     @property
     @pulumi.getter(name="dataProtectionSettingsArn")
     def data_protection_settings_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ARN of the data protection settings.
+        """
         return pulumi.get(self, "data_protection_settings_arn")
 
     @property

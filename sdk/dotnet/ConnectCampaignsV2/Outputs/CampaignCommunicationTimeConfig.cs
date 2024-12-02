@@ -16,9 +16,21 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2.Outputs
     [OutputType]
     public sealed class CampaignCommunicationTimeConfig
     {
+        /// <summary>
+        /// The communication time configuration for the email channel subtype.
+        /// </summary>
         public readonly Outputs.CampaignTimeWindow? Email;
+        /// <summary>
+        /// The local timezone configuration.
+        /// </summary>
         public readonly Outputs.CampaignLocalTimeZoneConfig LocalTimeZoneConfig;
+        /// <summary>
+        /// The communication time configuration for the SMS channel subtype.
+        /// </summary>
         public readonly Outputs.CampaignTimeWindow? Sms;
+        /// <summary>
+        /// The communication time configuration for the telephony channel subtype.
+        /// </summary>
         public readonly Outputs.CampaignTimeWindow? Telephony;
 
         [OutputConstructor]

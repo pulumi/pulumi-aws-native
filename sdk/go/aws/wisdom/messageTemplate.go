@@ -17,11 +17,15 @@ import (
 type MessageTemplate struct {
 	pulumi.CustomResourceState
 
-	ChannelSubtype    MessageTemplateChannelSubtypeOutput `pulumi:"channelSubtype"`
-	Content           MessageTemplateContentOutput        `pulumi:"content"`
-	DefaultAttributes MessageTemplateAttributesPtrOutput  `pulumi:"defaultAttributes"`
+	// The channel subtype this message template applies to.
+	ChannelSubtype MessageTemplateChannelSubtypeOutput `pulumi:"channelSubtype"`
+	// The content of the message template.
+	Content MessageTemplateContentOutput `pulumi:"content"`
+	// An object that specifies the default values to use for variables in the message template. This object contains different categories of key-value pairs. Each key defines a variable or placeholder in the message template. The corresponding value defines the default value for that variable.
+	DefaultAttributes MessageTemplateAttributesPtrOutput `pulumi:"defaultAttributes"`
 	// The description of the message template.
-	Description           pulumi.StringPtrOutput                        `pulumi:"description"`
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The configuration information of the external data source.
 	GroupingConfiguration MessageTemplateGroupingConfigurationPtrOutput `pulumi:"groupingConfiguration"`
 	// The Amazon Resource Name (ARN) of the knowledge base to which the message template belongs.
 	KnowledgeBaseArn pulumi.StringOutput `pulumi:"knowledgeBaseArn"`
@@ -93,11 +97,15 @@ func (MessageTemplateState) ElementType() reflect.Type {
 }
 
 type messageTemplateArgs struct {
-	ChannelSubtype    MessageTemplateChannelSubtype `pulumi:"channelSubtype"`
-	Content           MessageTemplateContent        `pulumi:"content"`
-	DefaultAttributes *MessageTemplateAttributes    `pulumi:"defaultAttributes"`
+	// The channel subtype this message template applies to.
+	ChannelSubtype MessageTemplateChannelSubtype `pulumi:"channelSubtype"`
+	// The content of the message template.
+	Content MessageTemplateContent `pulumi:"content"`
+	// An object that specifies the default values to use for variables in the message template. This object contains different categories of key-value pairs. Each key defines a variable or placeholder in the message template. The corresponding value defines the default value for that variable.
+	DefaultAttributes *MessageTemplateAttributes `pulumi:"defaultAttributes"`
 	// The description of the message template.
-	Description           *string                               `pulumi:"description"`
+	Description *string `pulumi:"description"`
+	// The configuration information of the external data source.
 	GroupingConfiguration *MessageTemplateGroupingConfiguration `pulumi:"groupingConfiguration"`
 	// The Amazon Resource Name (ARN) of the knowledge base to which the message template belongs.
 	KnowledgeBaseArn string `pulumi:"knowledgeBaseArn"`
@@ -111,11 +119,15 @@ type messageTemplateArgs struct {
 
 // The set of arguments for constructing a MessageTemplate resource.
 type MessageTemplateArgs struct {
-	ChannelSubtype    MessageTemplateChannelSubtypeInput
-	Content           MessageTemplateContentInput
+	// The channel subtype this message template applies to.
+	ChannelSubtype MessageTemplateChannelSubtypeInput
+	// The content of the message template.
+	Content MessageTemplateContentInput
+	// An object that specifies the default values to use for variables in the message template. This object contains different categories of key-value pairs. Each key defines a variable or placeholder in the message template. The corresponding value defines the default value for that variable.
 	DefaultAttributes MessageTemplateAttributesPtrInput
 	// The description of the message template.
-	Description           pulumi.StringPtrInput
+	Description pulumi.StringPtrInput
+	// The configuration information of the external data source.
 	GroupingConfiguration MessageTemplateGroupingConfigurationPtrInput
 	// The Amazon Resource Name (ARN) of the knowledge base to which the message template belongs.
 	KnowledgeBaseArn pulumi.StringInput
@@ -164,14 +176,17 @@ func (o MessageTemplateOutput) ToMessageTemplateOutputWithContext(ctx context.Co
 	return o
 }
 
+// The channel subtype this message template applies to.
 func (o MessageTemplateOutput) ChannelSubtype() MessageTemplateChannelSubtypeOutput {
 	return o.ApplyT(func(v *MessageTemplate) MessageTemplateChannelSubtypeOutput { return v.ChannelSubtype }).(MessageTemplateChannelSubtypeOutput)
 }
 
+// The content of the message template.
 func (o MessageTemplateOutput) Content() MessageTemplateContentOutput {
 	return o.ApplyT(func(v *MessageTemplate) MessageTemplateContentOutput { return v.Content }).(MessageTemplateContentOutput)
 }
 
+// An object that specifies the default values to use for variables in the message template. This object contains different categories of key-value pairs. Each key defines a variable or placeholder in the message template. The corresponding value defines the default value for that variable.
 func (o MessageTemplateOutput) DefaultAttributes() MessageTemplateAttributesPtrOutput {
 	return o.ApplyT(func(v *MessageTemplate) MessageTemplateAttributesPtrOutput { return v.DefaultAttributes }).(MessageTemplateAttributesPtrOutput)
 }
@@ -181,6 +196,7 @@ func (o MessageTemplateOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MessageTemplate) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The configuration information of the external data source.
 func (o MessageTemplateOutput) GroupingConfiguration() MessageTemplateGroupingConfigurationPtrOutput {
 	return o.ApplyT(func(v *MessageTemplate) MessageTemplateGroupingConfigurationPtrOutput { return v.GroupingConfiguration }).(MessageTemplateGroupingConfigurationPtrOutput)
 }

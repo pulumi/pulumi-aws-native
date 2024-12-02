@@ -19,17 +19,34 @@ export function getManagedLoginBranding(args: GetManagedLoginBrandingArgs, opts?
 }
 
 export interface GetManagedLoginBrandingArgs {
+    /**
+     * The ID of the managed login branding style.
+     */
     managedLoginBrandingId: string;
+    /**
+     * The user pool where the branding style is assigned.
+     */
     userPoolId: string;
 }
 
 export interface GetManagedLoginBrandingResult {
+    /**
+     * An array of image files that you want to apply to roles like backgrounds, logos, and icons. Each object must also indicate whether it is for dark mode, light mode, or browser-adaptive mode.
+     */
     readonly assets?: outputs.cognito.ManagedLoginBrandingAssetType[];
+    /**
+     * The ID of the managed login branding style.
+     */
     readonly managedLoginBrandingId?: string;
     /**
+     * A JSON file, encoded as a `Document` type, with the the settings that you want to apply to your style.
+     *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::ManagedLoginBranding` for more information about the expected schema for this property.
      */
     readonly settings?: any;
+    /**
+     * When true, applies the default branding style options. This option reverts to a "blank" style that you can modify later in the branding designer.
+     */
     readonly useCognitoProvidedValues?: boolean;
 }
 /**
@@ -44,6 +61,12 @@ export function getManagedLoginBrandingOutput(args: GetManagedLoginBrandingOutpu
 }
 
 export interface GetManagedLoginBrandingOutputArgs {
+    /**
+     * The ID of the managed login branding style.
+     */
     managedLoginBrandingId: pulumi.Input<string>;
+    /**
+     * The user pool where the branding style is assigned.
+     */
     userPoolId: pulumi.Input<string>;
 }

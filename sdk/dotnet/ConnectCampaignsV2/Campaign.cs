@@ -21,27 +21,51 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// Contains channel subtype configuration for an outbound campaign.
+        /// </summary>
         [Output("channelSubtypeConfig")]
         public Output<Outputs.CampaignChannelSubtypeConfig> ChannelSubtypeConfig { get; private set; } = null!;
 
+        /// <summary>
+        /// Communication limits configuration for an outbound campaign.
+        /// </summary>
         [Output("communicationLimitsOverride")]
         public Output<Outputs.CampaignCommunicationLimitsConfig?> CommunicationLimitsOverride { get; private set; } = null!;
 
+        /// <summary>
+        /// Contains communication time configuration for an outbound campaign.
+        /// </summary>
         [Output("communicationTimeConfig")]
         public Output<Outputs.CampaignCommunicationTimeConfig?> CommunicationTimeConfig { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Amazon Connect campaign flow associated with the outbound campaign.
+        /// </summary>
         [Output("connectCampaignFlowArn")]
         public Output<string?> ConnectCampaignFlowArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The identifier of the Amazon Connect instance. You can find the `instanceId` in the ARN of the instance.
+        /// </summary>
         [Output("connectInstanceId")]
         public Output<string> ConnectInstanceId { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the outbound campaign.
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Contains the schedule configuration.
+        /// </summary>
         [Output("schedule")]
         public Output<Outputs.CampaignSchedule?> Schedule { get; private set; } = null!;
 
+        /// <summary>
+        /// Contains source configuration.
+        /// </summary>
         [Output("source")]
         public Output<Outputs.CampaignSource?> Source { get; private set; } = null!;
 
@@ -100,27 +124,51 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2
 
     public sealed class CampaignArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Contains channel subtype configuration for an outbound campaign.
+        /// </summary>
         [Input("channelSubtypeConfig", required: true)]
         public Input<Inputs.CampaignChannelSubtypeConfigArgs> ChannelSubtypeConfig { get; set; } = null!;
 
+        /// <summary>
+        /// Communication limits configuration for an outbound campaign.
+        /// </summary>
         [Input("communicationLimitsOverride")]
         public Input<Inputs.CampaignCommunicationLimitsConfigArgs>? CommunicationLimitsOverride { get; set; }
 
+        /// <summary>
+        /// Contains communication time configuration for an outbound campaign.
+        /// </summary>
         [Input("communicationTimeConfig")]
         public Input<Inputs.CampaignCommunicationTimeConfigArgs>? CommunicationTimeConfig { get; set; }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Amazon Connect campaign flow associated with the outbound campaign.
+        /// </summary>
         [Input("connectCampaignFlowArn")]
         public Input<string>? ConnectCampaignFlowArn { get; set; }
 
+        /// <summary>
+        /// The identifier of the Amazon Connect instance. You can find the `instanceId` in the ARN of the instance.
+        /// </summary>
         [Input("connectInstanceId", required: true)]
         public Input<string> ConnectInstanceId { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the outbound campaign.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Contains the schedule configuration.
+        /// </summary>
         [Input("schedule")]
         public Input<Inputs.CampaignScheduleArgs>? Schedule { get; set; }
 
+        /// <summary>
+        /// Contains source configuration.
+        /// </summary>
         [Input("source")]
         public Input<Inputs.CampaignSourceArgs>? Source { get; set; }
 

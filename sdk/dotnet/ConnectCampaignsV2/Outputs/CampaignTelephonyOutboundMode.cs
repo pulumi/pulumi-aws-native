@@ -16,8 +16,17 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2.Outputs
     [OutputType]
     public sealed class CampaignTelephonyOutboundMode
     {
+        /// <summary>
+        /// The agentless outbound mode configuration for telephony.
+        /// </summary>
         public readonly Outputs.CampaignAgentlessConfig? AgentlessConfig;
+        /// <summary>
+        /// Contains predictive outbound mode configuration.
+        /// </summary>
         public readonly Outputs.CampaignPredictiveConfig? PredictiveConfig;
+        /// <summary>
+        /// Contains progressive telephony outbound mode configuration.
+        /// </summary>
         public readonly Outputs.CampaignProgressiveConfig? ProgressiveConfig;
 
         [OutputConstructor]

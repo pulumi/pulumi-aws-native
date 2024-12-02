@@ -434,12 +434,16 @@ func (o DirectoryBucketLifecycleConfigurationPtrOutput) Rules() DirectoryBucketR
 
 // You must specify at least one of the following properties: AbortIncompleteMultipartUpload, or ExpirationInDays.
 type DirectoryBucketRule struct {
+	// Specifies the days since the initiation of an incomplete multipart upload that Amazon S3 will wait before permanently removing all parts of the upload.
 	AbortIncompleteMultipartUpload *DirectoryBucketAbortIncompleteMultipartUpload `pulumi:"abortIncompleteMultipartUpload"`
-	ExpirationInDays               *int                                           `pulumi:"expirationInDays"`
+	// Indicates the number of days after creation when objects are deleted from Amazon S3 and Amazon S3 Glacier. If you specify an expiration and transition time, you must use the same time unit for both properties (either in days or by date). The expiration time must also be later than the transition time.
+	ExpirationInDays *int `pulumi:"expirationInDays"`
 	// Unique identifier for the rule. The value can't be longer than 255 characters.
-	Id                    *string `pulumi:"id"`
+	Id *string `pulumi:"id"`
+	// Specifies the minimum object size in bytes for this rule to apply to. Objects must be larger than this value in bytes. For more information about size based rules, see [Lifecycle configuration using size-based rules](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-configuration-examples.html#lc-size-rules) in the *Amazon S3 User Guide* .
 	ObjectSizeGreaterThan *string `pulumi:"objectSizeGreaterThan"`
-	ObjectSizeLessThan    *string `pulumi:"objectSizeLessThan"`
+	// Specifies the maximum object size in bytes for this rule to apply to. Objects must be smaller than this value in bytes. For more information about sized based rules, see [Lifecycle configuration using size-based rules](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-configuration-examples.html#lc-size-rules) in the *Amazon S3 User Guide* .
+	ObjectSizeLessThan *string `pulumi:"objectSizeLessThan"`
 	// Object key prefix that identifies one or more objects to which this rule applies.
 	//
 	// > Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see [XML related object key constraints](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints) .
@@ -461,12 +465,16 @@ type DirectoryBucketRuleInput interface {
 
 // You must specify at least one of the following properties: AbortIncompleteMultipartUpload, or ExpirationInDays.
 type DirectoryBucketRuleArgs struct {
+	// Specifies the days since the initiation of an incomplete multipart upload that Amazon S3 will wait before permanently removing all parts of the upload.
 	AbortIncompleteMultipartUpload DirectoryBucketAbortIncompleteMultipartUploadPtrInput `pulumi:"abortIncompleteMultipartUpload"`
-	ExpirationInDays               pulumi.IntPtrInput                                    `pulumi:"expirationInDays"`
+	// Indicates the number of days after creation when objects are deleted from Amazon S3 and Amazon S3 Glacier. If you specify an expiration and transition time, you must use the same time unit for both properties (either in days or by date). The expiration time must also be later than the transition time.
+	ExpirationInDays pulumi.IntPtrInput `pulumi:"expirationInDays"`
 	// Unique identifier for the rule. The value can't be longer than 255 characters.
-	Id                    pulumi.StringPtrInput `pulumi:"id"`
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// Specifies the minimum object size in bytes for this rule to apply to. Objects must be larger than this value in bytes. For more information about size based rules, see [Lifecycle configuration using size-based rules](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-configuration-examples.html#lc-size-rules) in the *Amazon S3 User Guide* .
 	ObjectSizeGreaterThan pulumi.StringPtrInput `pulumi:"objectSizeGreaterThan"`
-	ObjectSizeLessThan    pulumi.StringPtrInput `pulumi:"objectSizeLessThan"`
+	// Specifies the maximum object size in bytes for this rule to apply to. Objects must be smaller than this value in bytes. For more information about sized based rules, see [Lifecycle configuration using size-based rules](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-configuration-examples.html#lc-size-rules) in the *Amazon S3 User Guide* .
+	ObjectSizeLessThan pulumi.StringPtrInput `pulumi:"objectSizeLessThan"`
 	// Object key prefix that identifies one or more objects to which this rule applies.
 	//
 	// > Replacement must be made for object keys containing special characters (such as carriage returns) when using XML requests. For more information, see [XML related object key constraints](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-keys.html#object-key-xml-related-constraints) .
@@ -527,12 +535,14 @@ func (o DirectoryBucketRuleOutput) ToDirectoryBucketRuleOutputWithContext(ctx co
 	return o
 }
 
+// Specifies the days since the initiation of an incomplete multipart upload that Amazon S3 will wait before permanently removing all parts of the upload.
 func (o DirectoryBucketRuleOutput) AbortIncompleteMultipartUpload() DirectoryBucketAbortIncompleteMultipartUploadPtrOutput {
 	return o.ApplyT(func(v DirectoryBucketRule) *DirectoryBucketAbortIncompleteMultipartUpload {
 		return v.AbortIncompleteMultipartUpload
 	}).(DirectoryBucketAbortIncompleteMultipartUploadPtrOutput)
 }
 
+// Indicates the number of days after creation when objects are deleted from Amazon S3 and Amazon S3 Glacier. If you specify an expiration and transition time, you must use the same time unit for both properties (either in days or by date). The expiration time must also be later than the transition time.
 func (o DirectoryBucketRuleOutput) ExpirationInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DirectoryBucketRule) *int { return v.ExpirationInDays }).(pulumi.IntPtrOutput)
 }
@@ -542,10 +552,12 @@ func (o DirectoryBucketRuleOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DirectoryBucketRule) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the minimum object size in bytes for this rule to apply to. Objects must be larger than this value in bytes. For more information about size based rules, see [Lifecycle configuration using size-based rules](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-configuration-examples.html#lc-size-rules) in the *Amazon S3 User Guide* .
 func (o DirectoryBucketRuleOutput) ObjectSizeGreaterThan() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DirectoryBucketRule) *string { return v.ObjectSizeGreaterThan }).(pulumi.StringPtrOutput)
 }
 
+// Specifies the maximum object size in bytes for this rule to apply to. Objects must be smaller than this value in bytes. For more information about sized based rules, see [Lifecycle configuration using size-based rules](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-configuration-examples.html#lc-size-rules) in the *Amazon S3 User Guide* .
 func (o DirectoryBucketRuleOutput) ObjectSizeLessThan() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DirectoryBucketRule) *string { return v.ObjectSizeLessThan }).(pulumi.StringPtrOutput)
 }

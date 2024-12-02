@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Outputs
     [OutputType]
     public sealed class LoadBalancerMinimumLoadBalancerCapacity
     {
+        /// <summary>
+        /// The number of capacity units.
+        /// </summary>
         public readonly int CapacityUnits;
 
         [OutputConstructor]

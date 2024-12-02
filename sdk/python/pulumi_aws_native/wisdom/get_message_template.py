@@ -60,11 +60,17 @@ class GetMessageTemplateResult:
     @property
     @pulumi.getter
     def content(self) -> Optional['outputs.MessageTemplateContent']:
+        """
+        The content of the message template.
+        """
         return pulumi.get(self, "content")
 
     @property
     @pulumi.getter(name="defaultAttributes")
     def default_attributes(self) -> Optional['outputs.MessageTemplateAttributes']:
+        """
+        An object that specifies the default values to use for variables in the message template. This object contains different categories of key-value pairs. Each key defines a variable or placeholder in the message template. The corresponding value defines the default value for that variable.
+        """
         return pulumi.get(self, "default_attributes")
 
     @property
@@ -78,6 +84,9 @@ class GetMessageTemplateResult:
     @property
     @pulumi.getter(name="groupingConfiguration")
     def grouping_configuration(self) -> Optional['outputs.MessageTemplateGroupingConfiguration']:
+        """
+        The configuration information of the external data source.
+        """
         return pulumi.get(self, "grouping_configuration")
 
     @property

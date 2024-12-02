@@ -15,15 +15,27 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2.Inputs
     /// </summary>
     public sealed class CampaignTelephonyChannelSubtypeConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The allocation of telephony capacity between multiple running outbound campaigns.
+        /// </summary>
         [Input("capacity")]
         public Input<double>? Capacity { get; set; }
 
+        /// <summary>
+        /// The identifier of the Amazon Connect queue associated with telephony outbound requests of an outbound campaign.
+        /// </summary>
         [Input("connectQueueId")]
         public Input<string>? ConnectQueueId { get; set; }
 
+        /// <summary>
+        /// The default telephony outbound configuration of an outbound campaign.
+        /// </summary>
         [Input("defaultOutboundConfig", required: true)]
         public Input<Inputs.CampaignTelephonyOutboundConfigArgs> DefaultOutboundConfig { get; set; } = null!;
 
+        /// <summary>
+        /// The outbound mode of telephony for an outbound campaign.
+        /// </summary>
         [Input("outboundMode", required: true)]
         public Input<Inputs.CampaignTelephonyOutboundModeArgs> OutboundMode { get; set; } = null!;
 

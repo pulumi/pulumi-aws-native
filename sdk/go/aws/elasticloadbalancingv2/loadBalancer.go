@@ -36,7 +36,8 @@ type LoadBalancer struct {
 	// The full name of the load balancer. For example, `app/my-load-balancer/50dc6c495c0c9188` .
 	LoadBalancerFullName pulumi.StringOutput `pulumi:"loadBalancerFullName"`
 	// The name of the load balancer. For example, `my-load-balancer` .
-	LoadBalancerName            pulumi.StringOutput                              `pulumi:"loadBalancerName"`
+	LoadBalancerName pulumi.StringOutput `pulumi:"loadBalancerName"`
+	// The minimum capacity for a load balancer.
 	MinimumLoadBalancerCapacity LoadBalancerMinimumLoadBalancerCapacityPtrOutput `pulumi:"minimumLoadBalancerCapacity"`
 	// The name of the load balancer. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, must not begin or end with a hyphen, and must not begin with "internal-".
 	//  If you don't specify a name, AWS CloudFormation generates a unique physical ID for the load balancer. If you specify a name, you cannot perform updates that require replacement of this resource, but you can perform other updates. To replace the resource, specify a new name.
@@ -123,7 +124,8 @@ type loadBalancerArgs struct {
 	//  [Network Load Balancers and Gateway Load Balancers] The possible values are ``ipv4`` (IPv4 addresses) and ``dualstack`` (IPv4 and IPv6 addresses).
 	IpAddressType *string `pulumi:"ipAddressType"`
 	// The load balancer attributes.
-	LoadBalancerAttributes      []LoadBalancerAttribute                  `pulumi:"loadBalancerAttributes"`
+	LoadBalancerAttributes []LoadBalancerAttribute `pulumi:"loadBalancerAttributes"`
+	// The minimum capacity for a load balancer.
 	MinimumLoadBalancerCapacity *LoadBalancerMinimumLoadBalancerCapacity `pulumi:"minimumLoadBalancerCapacity"`
 	// The name of the load balancer. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, must not begin or end with a hyphen, and must not begin with "internal-".
 	//  If you don't specify a name, AWS CloudFormation generates a unique physical ID for the load balancer. If you specify a name, you cannot perform updates that require replacement of this resource, but you can perform other updates. To replace the resource, specify a new name.
@@ -166,7 +168,8 @@ type LoadBalancerArgs struct {
 	//  [Network Load Balancers and Gateway Load Balancers] The possible values are ``ipv4`` (IPv4 addresses) and ``dualstack`` (IPv4 and IPv6 addresses).
 	IpAddressType pulumi.StringPtrInput
 	// The load balancer attributes.
-	LoadBalancerAttributes      LoadBalancerAttributeArrayInput
+	LoadBalancerAttributes LoadBalancerAttributeArrayInput
+	// The minimum capacity for a load balancer.
 	MinimumLoadBalancerCapacity LoadBalancerMinimumLoadBalancerCapacityPtrInput
 	// The name of the load balancer. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, must not begin or end with a hyphen, and must not begin with "internal-".
 	//  If you don't specify a name, AWS CloudFormation generates a unique physical ID for the load balancer. If you specify a name, you cannot perform updates that require replacement of this resource, but you can perform other updates. To replace the resource, specify a new name.
@@ -285,6 +288,7 @@ func (o LoadBalancerOutput) LoadBalancerName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LoadBalancer) pulumi.StringOutput { return v.LoadBalancerName }).(pulumi.StringOutput)
 }
 
+// The minimum capacity for a load balancer.
 func (o LoadBalancerOutput) MinimumLoadBalancerCapacity() LoadBalancerMinimumLoadBalancerCapacityPtrOutput {
 	return o.ApplyT(func(v *LoadBalancer) LoadBalancerMinimumLoadBalancerCapacityPtrOutput {
 		return v.MinimumLoadBalancerCapacity

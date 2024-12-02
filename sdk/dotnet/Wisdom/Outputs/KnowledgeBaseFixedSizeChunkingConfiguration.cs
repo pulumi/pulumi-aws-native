@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Wisdom.Outputs
     [OutputType]
     public sealed class KnowledgeBaseFixedSizeChunkingConfiguration
     {
+        /// <summary>
+        /// The maximum number of tokens to include in a chunk.
+        /// </summary>
         public readonly double MaxTokens;
+        /// <summary>
+        /// The percentage of overlap between adjacent chunks of a data source.
+        /// </summary>
         public readonly double OverlapPercentage;
 
         [OutputConstructor]

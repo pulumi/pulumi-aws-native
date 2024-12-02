@@ -69,6 +69,9 @@ namespace Pulumi.AwsNative.Wisdom
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.CreateOnlyTag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// Contains details about how to ingest the documents in a data source.
+        /// </summary>
         [Output("vectorIngestionConfiguration")]
         public Output<Outputs.KnowledgeBaseVectorIngestionConfiguration?> VectorIngestionConfiguration { get; private set; } = null!;
 
@@ -174,6 +177,9 @@ namespace Pulumi.AwsNative.Wisdom
             set => _tags = value;
         }
 
+        /// <summary>
+        /// Contains details about how to ingest the documents in a data source.
+        /// </summary>
         [Input("vectorIngestionConfiguration")]
         public Input<Inputs.KnowledgeBaseVectorIngestionConfigurationArgs>? VectorIngestionConfiguration { get; set; }
 

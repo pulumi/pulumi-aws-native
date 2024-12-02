@@ -15,12 +15,21 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2.Inputs
     /// </summary>
     public sealed class CampaignEmailChannelSubtypeConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The allocation of email capacity between multiple running outbound campaigns.
+        /// </summary>
         [Input("capacity")]
         public Input<double>? Capacity { get; set; }
 
+        /// <summary>
+        /// The default email outbound configuration of an outbound campaign.
+        /// </summary>
         [Input("defaultOutboundConfig", required: true)]
         public Input<Inputs.CampaignEmailOutboundConfigArgs> DefaultOutboundConfig { get; set; } = null!;
 
+        /// <summary>
+        /// The outbound mode for email of an outbound campaign.
+        /// </summary>
         [Input("outboundMode", required: true)]
         public Input<Inputs.CampaignEmailOutboundModeArgs> OutboundMode { get; set; } = null!;
 

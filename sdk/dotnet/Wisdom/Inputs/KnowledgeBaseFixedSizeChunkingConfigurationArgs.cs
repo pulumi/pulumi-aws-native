@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.Wisdom.Inputs
 
     public sealed class KnowledgeBaseFixedSizeChunkingConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The maximum number of tokens to include in a chunk.
+        /// </summary>
         [Input("maxTokens", required: true)]
         public Input<double> MaxTokens { get; set; } = null!;
 
+        /// <summary>
+        /// The percentage of overlap between adjacent chunks of a data source.
+        /// </summary>
         [Input("overlapPercentage", required: true)]
         public Input<double> OverlapPercentage { get; set; } = null!;
 

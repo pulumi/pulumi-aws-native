@@ -11,11 +11,14 @@ namespace Pulumi.AwsNative.IoT.Outputs
 {
 
     /// <summary>
-    /// The thing type properties for the thing type to create. It contains information about the new thing type including a description, and a list of searchable thing attribute names. `ThingTypeProperties` can't be updated after the initial creation of the `ThingType` .
+    /// The thing type properties for the thing type to create. It contains information about the new thing type including a description, a list of searchable thing attribute names, and a list of propagating attributes. After a thing type is created, you can only update `Mqtt5Configuration` .
     /// </summary>
     [OutputType]
     public sealed class ThingTypePropertiesProperties
     {
+        /// <summary>
+        /// The configuration to add user-defined properties to enrich MQTT 5 messages.
+        /// </summary>
         public readonly Outputs.ThingTypePropertiesPropertiesMqtt5ConfigurationProperties? Mqtt5Configuration;
         /// <summary>
         /// A list of searchable thing attribute names.

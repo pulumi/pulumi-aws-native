@@ -912,7 +912,7 @@
     }
   },
   "required" : [ "Type" ],
-  "createOnlyProperties" : [ "/properties/Tags", "/properties/JobDefinitionName" ],
+  "createOnlyProperties" : [ "/properties/JobDefinitionName" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "readOnlyProperties" : [ "/properties/Id" ]
 }

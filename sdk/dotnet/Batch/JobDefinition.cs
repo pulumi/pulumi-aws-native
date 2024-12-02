@@ -133,7 +133,6 @@ namespace Pulumi.AwsNative.Batch
                 ReplaceOnChanges =
                 {
                     "jobDefinitionName",
-                    "tags",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

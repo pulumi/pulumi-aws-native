@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2.Outputs
     [OutputType]
     public sealed class CampaignRestrictedPeriods
     {
+        /// <summary>
+        /// The restricted period list.
+        /// </summary>
         public readonly ImmutableArray<Outputs.CampaignRestrictedPeriod> RestrictedPeriodList;
 
         [OutputConstructor]

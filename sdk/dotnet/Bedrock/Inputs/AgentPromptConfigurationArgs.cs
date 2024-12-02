@@ -40,7 +40,7 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
         public Input<Pulumi.AwsNative.Bedrock.AgentCreationMode>? PromptCreationMode { get; set; }
 
         /// <summary>
-        /// Specifies whether to allow the agent to carry out the step specified in the `promptType` . If you set this value to `DISABLED` , the agent skips that step. The default state for each `promptType` is as follows.
+        /// Specifies whether to allow the inline agent to carry out the step specified in the `promptType` . If you set this value to `DISABLED` , the agent skips that step. The default state for each `promptType` is as follows.
         /// 
         /// - `PRE_PROCESSING` – `ENABLED`
         /// - `ORCHESTRATION` – `ENABLED`

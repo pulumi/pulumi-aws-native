@@ -16,8 +16,17 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2.Outputs
     [OutputType]
     public sealed class CampaignEmailOutboundConfig
     {
+        /// <summary>
+        /// The Amazon Connect source email address.
+        /// </summary>
         public readonly string ConnectSourceEmailAddress;
+        /// <summary>
+        /// The display name for the Amazon Connect source email address.
+        /// </summary>
         public readonly string? SourceEmailAddressDisplayName;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Amazon Q in Connect template.
+        /// </summary>
         public readonly string WisdomTemplateArn;
 
         [OutputConstructor]

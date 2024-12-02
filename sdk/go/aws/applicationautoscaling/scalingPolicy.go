@@ -27,7 +27,8 @@ type ScalingPolicy struct {
 	//  The following policy types are supported:
 	//   ``TargetTrackingScaling``—Not supported for Amazon EMR
 	//   ``StepScaling``—Not supported for DynamoDB, Amazon Comprehend, Lambda, Amazon Keyspaces, Amazon MSK, Amazon ElastiCache, or Neptune.
-	PolicyType                           pulumi.StringOutput                                        `pulumi:"policyType"`
+	PolicyType pulumi.StringOutput `pulumi:"policyType"`
+	// The predictive scaling policy configuration.
 	PredictiveScalingPolicyConfiguration ScalingPolicyPredictiveScalingPolicyConfigurationPtrOutput `pulumi:"predictiveScalingPolicyConfiguration"`
 	// The identifier of the resource associated with the scaling policy. This string consists of the resource type and unique identifier.
 	//   +  ECS service - The resource type is ``service`` and the unique identifier is the cluster name and service name. Example: ``service/my-cluster/my-service``.
@@ -144,7 +145,8 @@ type scalingPolicyArgs struct {
 	//  The following policy types are supported:
 	//   ``TargetTrackingScaling``—Not supported for Amazon EMR
 	//   ``StepScaling``—Not supported for DynamoDB, Amazon Comprehend, Lambda, Amazon Keyspaces, Amazon MSK, Amazon ElastiCache, or Neptune.
-	PolicyType                           string                                             `pulumi:"policyType"`
+	PolicyType string `pulumi:"policyType"`
+	// The predictive scaling policy configuration.
 	PredictiveScalingPolicyConfiguration *ScalingPolicyPredictiveScalingPolicyConfiguration `pulumi:"predictiveScalingPolicyConfiguration"`
 	// The identifier of the resource associated with the scaling policy. This string consists of the resource type and unique identifier.
 	//   +  ECS service - The resource type is ``service`` and the unique identifier is the cluster name and service name. Example: ``service/my-cluster/my-service``.
@@ -212,7 +214,8 @@ type ScalingPolicyArgs struct {
 	//  The following policy types are supported:
 	//   ``TargetTrackingScaling``—Not supported for Amazon EMR
 	//   ``StepScaling``—Not supported for DynamoDB, Amazon Comprehend, Lambda, Amazon Keyspaces, Amazon MSK, Amazon ElastiCache, or Neptune.
-	PolicyType                           pulumi.StringInput
+	PolicyType pulumi.StringInput
+	// The predictive scaling policy configuration.
 	PredictiveScalingPolicyConfiguration ScalingPolicyPredictiveScalingPolicyConfigurationPtrInput
 	// The identifier of the resource associated with the scaling policy. This string consists of the resource type and unique identifier.
 	//   +  ECS service - The resource type is ``service`` and the unique identifier is the cluster name and service name. Example: ``service/my-cluster/my-service``.
@@ -329,6 +332,7 @@ func (o ScalingPolicyOutput) PolicyType() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScalingPolicy) pulumi.StringOutput { return v.PolicyType }).(pulumi.StringOutput)
 }
 
+// The predictive scaling policy configuration.
 func (o ScalingPolicyOutput) PredictiveScalingPolicyConfiguration() ScalingPolicyPredictiveScalingPolicyConfigurationPtrOutput {
 	return o.ApplyT(func(v *ScalingPolicy) ScalingPolicyPredictiveScalingPolicyConfigurationPtrOutput {
 		return v.PredictiveScalingPolicyConfiguration

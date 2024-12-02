@@ -21,14 +21,21 @@ __all__ = [
     'AccessEntryAccessScope',
     'AddonPodIdentityAssociation',
     'ClusterAccessConfig',
+    'ClusterBlockStorage',
+    'ClusterComputeConfig',
     'ClusterControlPlanePlacement',
+    'ClusterElasticLoadBalancing',
     'ClusterEncryptionConfig',
     'ClusterKubernetesNetworkConfig',
     'ClusterLoggingEnabledTypes',
     'ClusterLoggingTypeConfig',
     'ClusterOutpostConfig',
     'ClusterProvider',
+    'ClusterRemoteNetworkConfig',
+    'ClusterRemoteNodeNetwork',
+    'ClusterRemotePodNetwork',
     'ClusterResourcesVpcConfig',
+    'ClusterStorageConfig',
     'ClusterUpgradePolicy',
     'ClusterZonalShiftConfig',
     'FargateProfileLabel',
@@ -237,6 +244,95 @@ class ClusterAccessConfig(dict):
 
 
 @pulumi.output_type
+class ClusterBlockStorage(dict):
+    """
+    Todo: add description
+    """
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None):
+        """
+        Todo: add description
+        :param bool enabled: Todo: add description
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Todo: add description
+        """
+        return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
+class ClusterComputeConfig(dict):
+    """
+    Todo: add description
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nodePools":
+            suggest = "node_pools"
+        elif key == "nodeRoleArn":
+            suggest = "node_role_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterComputeConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterComputeConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterComputeConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None,
+                 node_pools: Optional[Sequence[str]] = None,
+                 node_role_arn: Optional[str] = None):
+        """
+        Todo: add description
+        :param bool enabled: Todo: add description
+        :param Sequence[str] node_pools: Todo: add description
+        :param str node_role_arn: Todo: add description
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if node_pools is not None:
+            pulumi.set(__self__, "node_pools", node_pools)
+        if node_role_arn is not None:
+            pulumi.set(__self__, "node_role_arn", node_role_arn)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Todo: add description
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="nodePools")
+    def node_pools(self) -> Optional[Sequence[str]]:
+        """
+        Todo: add description
+        """
+        return pulumi.get(self, "node_pools")
+
+    @property
+    @pulumi.getter(name="nodeRoleArn")
+    def node_role_arn(self) -> Optional[str]:
+        """
+        Todo: add description
+        """
+        return pulumi.get(self, "node_role_arn")
+
+
+@pulumi.output_type
 class ClusterControlPlanePlacement(dict):
     """
     Specify the placement group of the control plane machines for your cluster.
@@ -274,6 +370,29 @@ class ClusterControlPlanePlacement(dict):
         Specify the placement group name of the control place machines for your cluster.
         """
         return pulumi.get(self, "group_name")
+
+
+@pulumi.output_type
+class ClusterElasticLoadBalancing(dict):
+    """
+    Todo: add description
+    """
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None):
+        """
+        Todo: add description
+        :param bool enabled: Todo: add description
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Todo: add description
+        """
+        return pulumi.get(self, "enabled")
 
 
 @pulumi.output_type
@@ -319,7 +438,9 @@ class ClusterKubernetesNetworkConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "ipFamily":
+        if key == "elasticLoadBalancing":
+            suggest = "elastic_load_balancing"
+        elif key == "ipFamily":
             suggest = "ip_family"
         elif key == "serviceIpv4Cidr":
             suggest = "service_ipv4_cidr"
@@ -338,21 +459,33 @@ class ClusterKubernetesNetworkConfig(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 elastic_load_balancing: Optional['outputs.ClusterElasticLoadBalancing'] = None,
                  ip_family: Optional['ClusterKubernetesNetworkConfigIpFamily'] = None,
                  service_ipv4_cidr: Optional[str] = None,
                  service_ipv6_cidr: Optional[str] = None):
         """
         The Kubernetes network configuration for the cluster.
+        :param 'ClusterElasticLoadBalancing' elastic_load_balancing: Todo: add description
         :param 'ClusterKubernetesNetworkConfigIpFamily' ip_family: Ipv4 or Ipv6. You can only specify ipv6 for 1.21 and later clusters that use version 1.10.1 or later of the Amazon VPC CNI add-on
         :param str service_ipv4_cidr: The CIDR block to assign Kubernetes service IP addresses from. If you don't specify a block, Kubernetes assigns addresses from either the 10.100.0.0/16 or 172.20.0.0/16 CIDR blocks. We recommend that you specify a block that does not overlap with resources in other networks that are peered or connected to your VPC. 
         :param str service_ipv6_cidr: The CIDR block to assign Kubernetes service IP addresses from.
         """
+        if elastic_load_balancing is not None:
+            pulumi.set(__self__, "elastic_load_balancing", elastic_load_balancing)
         if ip_family is not None:
             pulumi.set(__self__, "ip_family", ip_family)
         if service_ipv4_cidr is not None:
             pulumi.set(__self__, "service_ipv4_cidr", service_ipv4_cidr)
         if service_ipv6_cidr is not None:
             pulumi.set(__self__, "service_ipv6_cidr", service_ipv6_cidr)
+
+    @property
+    @pulumi.getter(name="elasticLoadBalancing")
+    def elastic_load_balancing(self) -> Optional['outputs.ClusterElasticLoadBalancing']:
+        """
+        Todo: add description
+        """
+        return pulumi.get(self, "elastic_load_balancing")
 
     @property
     @pulumi.getter(name="ipFamily")
@@ -549,6 +682,103 @@ class ClusterProvider(dict):
 
 
 @pulumi.output_type
+class ClusterRemoteNetworkConfig(dict):
+    """
+    Configuration fields for specifying on-premises node and pod CIDRs that are external to the VPC passed during cluster creation.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "remoteNodeNetworks":
+            suggest = "remote_node_networks"
+        elif key == "remotePodNetworks":
+            suggest = "remote_pod_networks"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterRemoteNetworkConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterRemoteNetworkConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterRemoteNetworkConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 remote_node_networks: Sequence['outputs.ClusterRemoteNodeNetwork'],
+                 remote_pod_networks: Optional[Sequence['outputs.ClusterRemotePodNetwork']] = None):
+        """
+        Configuration fields for specifying on-premises node and pod CIDRs that are external to the VPC passed during cluster creation.
+        :param Sequence['ClusterRemoteNodeNetwork'] remote_node_networks: Network configuration of nodes run on-premises with EKS Hybrid Nodes.
+        :param Sequence['ClusterRemotePodNetwork'] remote_pod_networks: Network configuration of pods run on-premises with EKS Hybrid Nodes.
+        """
+        pulumi.set(__self__, "remote_node_networks", remote_node_networks)
+        if remote_pod_networks is not None:
+            pulumi.set(__self__, "remote_pod_networks", remote_pod_networks)
+
+    @property
+    @pulumi.getter(name="remoteNodeNetworks")
+    def remote_node_networks(self) -> Sequence['outputs.ClusterRemoteNodeNetwork']:
+        """
+        Network configuration of nodes run on-premises with EKS Hybrid Nodes.
+        """
+        return pulumi.get(self, "remote_node_networks")
+
+    @property
+    @pulumi.getter(name="remotePodNetworks")
+    def remote_pod_networks(self) -> Optional[Sequence['outputs.ClusterRemotePodNetwork']]:
+        """
+        Network configuration of pods run on-premises with EKS Hybrid Nodes.
+        """
+        return pulumi.get(self, "remote_pod_networks")
+
+
+@pulumi.output_type
+class ClusterRemoteNodeNetwork(dict):
+    """
+    Network configuration of nodes run on-premises with EKS Hybrid Nodes.
+    """
+    def __init__(__self__, *,
+                 cidrs: Sequence[str]):
+        """
+        Network configuration of nodes run on-premises with EKS Hybrid Nodes.
+        :param Sequence[str] cidrs: Specifies the list of remote node CIDRs.
+        """
+        pulumi.set(__self__, "cidrs", cidrs)
+
+    @property
+    @pulumi.getter
+    def cidrs(self) -> Sequence[str]:
+        """
+        Specifies the list of remote node CIDRs.
+        """
+        return pulumi.get(self, "cidrs")
+
+
+@pulumi.output_type
+class ClusterRemotePodNetwork(dict):
+    """
+    Network configuration of pods run on-premises with EKS Hybrid Nodes.
+    """
+    def __init__(__self__, *,
+                 cidrs: Sequence[str]):
+        """
+        Network configuration of pods run on-premises with EKS Hybrid Nodes.
+        :param Sequence[str] cidrs: Specifies the list of remote pod CIDRs.
+        """
+        pulumi.set(__self__, "cidrs", cidrs)
+
+    @property
+    @pulumi.getter
+    def cidrs(self) -> Sequence[str]:
+        """
+        Specifies the list of remote pod CIDRs.
+        """
+        return pulumi.get(self, "cidrs")
+
+
+@pulumi.output_type
 class ClusterResourcesVpcConfig(dict):
     """
     An object representing the VPC configuration to use for an Amazon EKS cluster.
@@ -641,6 +871,46 @@ class ClusterResourcesVpcConfig(dict):
         Specify one or more security groups for the cross-account elastic network interfaces that Amazon EKS creates to use to allow communication between your worker nodes and the Kubernetes control plane. If you don't specify a security group, the default security group for your VPC is used.
         """
         return pulumi.get(self, "security_group_ids")
+
+
+@pulumi.output_type
+class ClusterStorageConfig(dict):
+    """
+    Todo: add description
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "blockStorage":
+            suggest = "block_storage"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterStorageConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterStorageConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterStorageConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 block_storage: Optional['outputs.ClusterBlockStorage'] = None):
+        """
+        Todo: add description
+        :param 'ClusterBlockStorage' block_storage: Todo: add description
+        """
+        if block_storage is not None:
+            pulumi.set(__self__, "block_storage", block_storage)
+
+    @property
+    @pulumi.getter(name="blockStorage")
+    def block_storage(self) -> Optional['outputs.ClusterBlockStorage']:
+        """
+        Todo: add description
+        """
+        return pulumi.get(self, "block_storage")
 
 
 @pulumi.output_type

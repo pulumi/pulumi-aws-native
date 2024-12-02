@@ -6599,9 +6599,12 @@ type ThingGroupTag struct {
 }
 
 type ThingTypePropagatingAttribute struct {
+	// The attribute associated with the connection details.
 	ConnectionAttribute *ThingTypePropagatingAttributeConnectionAttribute `pulumi:"connectionAttribute"`
-	ThingAttribute      *string                                           `pulumi:"thingAttribute"`
-	UserPropertyKey     string                                            `pulumi:"userPropertyKey"`
+	// The thing attribute that is propagating for MQTT 5 message enrichment.
+	ThingAttribute *string `pulumi:"thingAttribute"`
+	// The key of the MQTT 5 user property, which is a key-value pair.
+	UserPropertyKey string `pulumi:"userPropertyKey"`
 }
 
 // ThingTypePropagatingAttributeInput is an input type that accepts ThingTypePropagatingAttributeArgs and ThingTypePropagatingAttributeOutput values.
@@ -6616,9 +6619,12 @@ type ThingTypePropagatingAttributeInput interface {
 }
 
 type ThingTypePropagatingAttributeArgs struct {
+	// The attribute associated with the connection details.
 	ConnectionAttribute ThingTypePropagatingAttributeConnectionAttributePtrInput `pulumi:"connectionAttribute"`
-	ThingAttribute      pulumi.StringPtrInput                                    `pulumi:"thingAttribute"`
-	UserPropertyKey     pulumi.StringInput                                       `pulumi:"userPropertyKey"`
+	// The thing attribute that is propagating for MQTT 5 message enrichment.
+	ThingAttribute pulumi.StringPtrInput `pulumi:"thingAttribute"`
+	// The key of the MQTT 5 user property, which is a key-value pair.
+	UserPropertyKey pulumi.StringInput `pulumi:"userPropertyKey"`
 }
 
 func (ThingTypePropagatingAttributeArgs) ElementType() reflect.Type {
@@ -6672,16 +6678,19 @@ func (o ThingTypePropagatingAttributeOutput) ToThingTypePropagatingAttributeOutp
 	return o
 }
 
+// The attribute associated with the connection details.
 func (o ThingTypePropagatingAttributeOutput) ConnectionAttribute() ThingTypePropagatingAttributeConnectionAttributePtrOutput {
 	return o.ApplyT(func(v ThingTypePropagatingAttribute) *ThingTypePropagatingAttributeConnectionAttribute {
 		return v.ConnectionAttribute
 	}).(ThingTypePropagatingAttributeConnectionAttributePtrOutput)
 }
 
+// The thing attribute that is propagating for MQTT 5 message enrichment.
 func (o ThingTypePropagatingAttributeOutput) ThingAttribute() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ThingTypePropagatingAttribute) *string { return v.ThingAttribute }).(pulumi.StringPtrOutput)
 }
 
+// The key of the MQTT 5 user property, which is a key-value pair.
 func (o ThingTypePropagatingAttributeOutput) UserPropertyKey() pulumi.StringOutput {
 	return o.ApplyT(func(v ThingTypePropagatingAttribute) string { return v.UserPropertyKey }).(pulumi.StringOutput)
 }
@@ -6706,8 +6715,9 @@ func (o ThingTypePropagatingAttributeArrayOutput) Index(i pulumi.IntInput) Thing
 	}).(ThingTypePropagatingAttributeOutput)
 }
 
-// The thing type properties for the thing type to create. It contains information about the new thing type including a description, and a list of searchable thing attribute names. `ThingTypeProperties` can't be updated after the initial creation of the `ThingType` .
+// The thing type properties for the thing type to create. It contains information about the new thing type including a description, a list of searchable thing attribute names, and a list of propagating attributes. After a thing type is created, you can only update `Mqtt5Configuration` .
 type ThingTypePropertiesProperties struct {
+	// The configuration to add user-defined properties to enrich MQTT 5 messages.
 	Mqtt5Configuration *ThingTypePropertiesPropertiesMqtt5ConfigurationProperties `pulumi:"mqtt5Configuration"`
 	// A list of searchable thing attribute names.
 	SearchableAttributes []string `pulumi:"searchableAttributes"`
@@ -6726,8 +6736,9 @@ type ThingTypePropertiesPropertiesInput interface {
 	ToThingTypePropertiesPropertiesOutputWithContext(context.Context) ThingTypePropertiesPropertiesOutput
 }
 
-// The thing type properties for the thing type to create. It contains information about the new thing type including a description, and a list of searchable thing attribute names. `ThingTypeProperties` can't be updated after the initial creation of the `ThingType` .
+// The thing type properties for the thing type to create. It contains information about the new thing type including a description, a list of searchable thing attribute names, and a list of propagating attributes. After a thing type is created, you can only update `Mqtt5Configuration` .
 type ThingTypePropertiesPropertiesArgs struct {
+	// The configuration to add user-defined properties to enrich MQTT 5 messages.
 	Mqtt5Configuration ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesPtrInput `pulumi:"mqtt5Configuration"`
 	// A list of searchable thing attribute names.
 	SearchableAttributes pulumi.StringArrayInput `pulumi:"searchableAttributes"`
@@ -6788,7 +6799,7 @@ func (i *thingTypePropertiesPropertiesPtrType) ToThingTypePropertiesPropertiesPt
 	return pulumi.ToOutputWithContext(ctx, i).(ThingTypePropertiesPropertiesPtrOutput)
 }
 
-// The thing type properties for the thing type to create. It contains information about the new thing type including a description, and a list of searchable thing attribute names. `ThingTypeProperties` can't be updated after the initial creation of the `ThingType` .
+// The thing type properties for the thing type to create. It contains information about the new thing type including a description, a list of searchable thing attribute names, and a list of propagating attributes. After a thing type is created, you can only update `Mqtt5Configuration` .
 type ThingTypePropertiesPropertiesOutput struct{ *pulumi.OutputState }
 
 func (ThingTypePropertiesPropertiesOutput) ElementType() reflect.Type {
@@ -6813,6 +6824,7 @@ func (o ThingTypePropertiesPropertiesOutput) ToThingTypePropertiesPropertiesPtrO
 	}).(ThingTypePropertiesPropertiesPtrOutput)
 }
 
+// The configuration to add user-defined properties to enrich MQTT 5 messages.
 func (o ThingTypePropertiesPropertiesOutput) Mqtt5Configuration() ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesPtrOutput {
 	return o.ApplyT(func(v ThingTypePropertiesProperties) *ThingTypePropertiesPropertiesMqtt5ConfigurationProperties {
 		return v.Mqtt5Configuration
@@ -6853,6 +6865,7 @@ func (o ThingTypePropertiesPropertiesPtrOutput) Elem() ThingTypePropertiesProper
 	}).(ThingTypePropertiesPropertiesOutput)
 }
 
+// The configuration to add user-defined properties to enrich MQTT 5 messages.
 func (o ThingTypePropertiesPropertiesPtrOutput) Mqtt5Configuration() ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesPtrOutput {
 	return o.ApplyT(func(v *ThingTypePropertiesProperties) *ThingTypePropertiesPropertiesMqtt5ConfigurationProperties {
 		if v == nil {
@@ -6882,6 +6895,7 @@ func (o ThingTypePropertiesPropertiesPtrOutput) ThingTypeDescription() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
+// The configuration to add user-defined properties to enrich MQTT 5 messages.
 type ThingTypePropertiesPropertiesMqtt5ConfigurationProperties struct {
 	PropagatingAttributes []ThingTypePropagatingAttribute `pulumi:"propagatingAttributes"`
 }
@@ -6897,6 +6911,7 @@ type ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesInput interface {
 	ToThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesOutputWithContext(context.Context) ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesOutput
 }
 
+// The configuration to add user-defined properties to enrich MQTT 5 messages.
 type ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesArgs struct {
 	PropagatingAttributes ThingTypePropagatingAttributeArrayInput `pulumi:"propagatingAttributes"`
 }
@@ -6954,6 +6969,7 @@ func (i *thingTypePropertiesPropertiesMqtt5ConfigurationPropertiesPtrType) ToThi
 	return pulumi.ToOutputWithContext(ctx, i).(ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesPtrOutput)
 }
 
+// The configuration to add user-defined properties to enrich MQTT 5 messages.
 type ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesOutput struct{ *pulumi.OutputState }
 
 func (ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesOutput) ElementType() reflect.Type {

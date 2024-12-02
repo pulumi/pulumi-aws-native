@@ -132,6 +132,7 @@ type ChannelTag struct {
 
 // Configures the automatic refresh schedule for the dashboard. Includes the frequency unit (DAYS or HOURS) and value, as well as the status (ENABLED or DISABLED) of the refresh schedule.
 type DashboardRefreshSchedule struct {
+	// The frequency at which you want the dashboard refreshed.
 	Frequency *DashboardRefreshScheduleFrequencyProperties `pulumi:"frequency"`
 	// The status of the schedule. Supported values are ENABLED and DISABLED.
 	Status *DashboardRefreshScheduleStatus `pulumi:"status"`
@@ -152,6 +153,7 @@ type DashboardRefreshScheduleInput interface {
 
 // Configures the automatic refresh schedule for the dashboard. Includes the frequency unit (DAYS or HOURS) and value, as well as the status (ENABLED or DISABLED) of the refresh schedule.
 type DashboardRefreshScheduleArgs struct {
+	// The frequency at which you want the dashboard refreshed.
 	Frequency DashboardRefreshScheduleFrequencyPropertiesPtrInput `pulumi:"frequency"`
 	// The status of the schedule. Supported values are ENABLED and DISABLED.
 	Status DashboardRefreshScheduleStatusPtrInput `pulumi:"status"`
@@ -237,6 +239,7 @@ func (o DashboardRefreshScheduleOutput) ToDashboardRefreshSchedulePtrOutputWithC
 	}).(DashboardRefreshSchedulePtrOutput)
 }
 
+// The frequency at which you want the dashboard refreshed.
 func (o DashboardRefreshScheduleOutput) Frequency() DashboardRefreshScheduleFrequencyPropertiesPtrOutput {
 	return o.ApplyT(func(v DashboardRefreshSchedule) *DashboardRefreshScheduleFrequencyProperties { return v.Frequency }).(DashboardRefreshScheduleFrequencyPropertiesPtrOutput)
 }
@@ -275,6 +278,7 @@ func (o DashboardRefreshSchedulePtrOutput) Elem() DashboardRefreshScheduleOutput
 	}).(DashboardRefreshScheduleOutput)
 }
 
+// The frequency at which you want the dashboard refreshed.
 func (o DashboardRefreshSchedulePtrOutput) Frequency() DashboardRefreshScheduleFrequencyPropertiesPtrOutput {
 	return o.ApplyT(func(v *DashboardRefreshSchedule) *DashboardRefreshScheduleFrequencyProperties {
 		if v == nil {
@@ -304,6 +308,7 @@ func (o DashboardRefreshSchedulePtrOutput) TimeOfDay() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The frequency at which you want the dashboard refreshed.
 type DashboardRefreshScheduleFrequencyProperties struct {
 	// The frequency unit. Supported values are HOURS and DAYS.
 	Unit DashboardRefreshScheduleFrequencyPropertiesUnit `pulumi:"unit"`
@@ -322,6 +327,7 @@ type DashboardRefreshScheduleFrequencyPropertiesInput interface {
 	ToDashboardRefreshScheduleFrequencyPropertiesOutputWithContext(context.Context) DashboardRefreshScheduleFrequencyPropertiesOutput
 }
 
+// The frequency at which you want the dashboard refreshed.
 type DashboardRefreshScheduleFrequencyPropertiesArgs struct {
 	// The frequency unit. Supported values are HOURS and DAYS.
 	Unit DashboardRefreshScheduleFrequencyPropertiesUnitInput `pulumi:"unit"`
@@ -382,6 +388,7 @@ func (i *dashboardRefreshScheduleFrequencyPropertiesPtrType) ToDashboardRefreshS
 	return pulumi.ToOutputWithContext(ctx, i).(DashboardRefreshScheduleFrequencyPropertiesPtrOutput)
 }
 
+// The frequency at which you want the dashboard refreshed.
 type DashboardRefreshScheduleFrequencyPropertiesOutput struct{ *pulumi.OutputState }
 
 func (DashboardRefreshScheduleFrequencyPropertiesOutput) ElementType() reflect.Type {

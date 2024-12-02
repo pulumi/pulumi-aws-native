@@ -13,12 +13,33 @@ namespace Pulumi.AwsNative.ApplicationAutoScaling.Outputs
     [OutputType]
     public sealed class ScalingPolicyPredictiveScalingMetricSpecification
     {
+        /// <summary>
+        /// The customized capacity metric specification.
+        /// </summary>
         public readonly Outputs.ScalingPolicyPredictiveScalingCustomizedCapacityMetric? CustomizedCapacityMetricSpecification;
+        /// <summary>
+        /// The customized load metric specification.
+        /// </summary>
         public readonly Outputs.ScalingPolicyPredictiveScalingCustomizedLoadMetric? CustomizedLoadMetricSpecification;
+        /// <summary>
+        /// The customized scaling metric specification.
+        /// </summary>
         public readonly Outputs.ScalingPolicyPredictiveScalingCustomizedScalingMetric? CustomizedScalingMetricSpecification;
+        /// <summary>
+        /// The predefined load metric specification.
+        /// </summary>
         public readonly Outputs.ScalingPolicyPredictiveScalingPredefinedLoadMetric? PredefinedLoadMetricSpecification;
+        /// <summary>
+        /// The predefined metric pair specification that determines the appropriate scaling metric and load metric to use.
+        /// </summary>
         public readonly Outputs.ScalingPolicyPredictiveScalingPredefinedMetricPair? PredefinedMetricPairSpecification;
+        /// <summary>
+        /// The predefined scaling metric specification.
+        /// </summary>
         public readonly Outputs.ScalingPolicyPredictiveScalingPredefinedScalingMetric? PredefinedScalingMetricSpecification;
+        /// <summary>
+        /// Specifies the target utilization.
+        /// </summary>
         public readonly double TargetValue;
 
         [OutputConstructor]

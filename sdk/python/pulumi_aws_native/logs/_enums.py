@@ -7,6 +7,8 @@ from enum import Enum
 __all__ = [
     'AccountPolicyPolicyType',
     'AccountPolicyScope',
+    'IntegrationStatus',
+    'IntegrationType',
     'LogAnomalyDetectorEvaluationFrequency',
     'LogGroupClass',
     'MetricFilterMetricTransformationUnit',
@@ -27,6 +29,22 @@ class AccountPolicyScope(str, Enum):
     Scope for policy application
     """
     ALL = "ALL"
+
+
+class IntegrationStatus(str, Enum):
+    """
+    Status of creation for the Integration and its resources
+    """
+    PROVISIONING = "PROVISIONING"
+    ACTIVE = "ACTIVE"
+    FAILED = "FAILED"
+
+
+class IntegrationType(str, Enum):
+    """
+    The type of the Integration.
+    """
+    OPENSEARCH = "OPENSEARCH"
 
 
 class LogAnomalyDetectorEvaluationFrequency(str, Enum):

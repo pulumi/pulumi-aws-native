@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2.Inputs
     /// </summary>
     public sealed class CampaignEmailOutboundModeArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The agentless outbound mode configuration for email.
+        /// </summary>
         [Input("agentlessConfig")]
         public Input<Inputs.CampaignAgentlessConfigArgs>? AgentlessConfig { get; set; }
 

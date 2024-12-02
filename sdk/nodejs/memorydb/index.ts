@@ -25,6 +25,11 @@ export const getCluster: typeof import("./getCluster").getCluster = null as any;
 export const getClusterOutput: typeof import("./getCluster").getClusterOutput = null as any;
 utilities.lazyLoad(exports, ["getCluster","getClusterOutput"], () => require("./getCluster"));
 
+export { GetMultiRegionClusterArgs, GetMultiRegionClusterResult, GetMultiRegionClusterOutputArgs } from "./getMultiRegionCluster";
+export const getMultiRegionCluster: typeof import("./getMultiRegionCluster").getMultiRegionCluster = null as any;
+export const getMultiRegionClusterOutput: typeof import("./getMultiRegionCluster").getMultiRegionClusterOutput = null as any;
+utilities.lazyLoad(exports, ["getMultiRegionCluster","getMultiRegionClusterOutput"], () => require("./getMultiRegionCluster"));
+
 export { GetParameterGroupArgs, GetParameterGroupResult, GetParameterGroupOutputArgs } from "./getParameterGroup";
 export const getParameterGroup: typeof import("./getParameterGroup").getParameterGroup = null as any;
 export const getParameterGroupOutput: typeof import("./getParameterGroup").getParameterGroupOutput = null as any;
@@ -39,6 +44,11 @@ export { GetUserArgs, GetUserResult, GetUserOutputArgs } from "./getUser";
 export const getUser: typeof import("./getUser").getUser = null as any;
 export const getUserOutput: typeof import("./getUser").getUserOutput = null as any;
 utilities.lazyLoad(exports, ["getUser","getUserOutput"], () => require("./getUser"));
+
+export { MultiRegionClusterArgs } from "./multiRegionCluster";
+export type MultiRegionCluster = import("./multiRegionCluster").MultiRegionCluster;
+export const MultiRegionCluster: typeof import("./multiRegionCluster").MultiRegionCluster = null as any;
+utilities.lazyLoad(exports, ["MultiRegionCluster"], () => require("./multiRegionCluster"));
 
 export { ParameterGroupArgs } from "./parameterGroup";
 export type ParameterGroup = import("./parameterGroup").ParameterGroup;
@@ -67,6 +77,8 @@ const _module = {
                 return new Acl(name, <any>undefined, { urn })
             case "aws-native:memorydb:Cluster":
                 return new Cluster(name, <any>undefined, { urn })
+            case "aws-native:memorydb:MultiRegionCluster":
+                return new MultiRegionCluster(name, <any>undefined, { urn })
             case "aws-native:memorydb:ParameterGroup":
                 return new ParameterGroup(name, <any>undefined, { urn })
             case "aws-native:memorydb:SubnetGroup":

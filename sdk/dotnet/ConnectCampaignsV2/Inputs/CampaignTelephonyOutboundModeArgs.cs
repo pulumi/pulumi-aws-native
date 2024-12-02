@@ -15,12 +15,21 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2.Inputs
     /// </summary>
     public sealed class CampaignTelephonyOutboundModeArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The agentless outbound mode configuration for telephony.
+        /// </summary>
         [Input("agentlessConfig")]
         public Input<Inputs.CampaignAgentlessConfigArgs>? AgentlessConfig { get; set; }
 
+        /// <summary>
+        /// Contains predictive outbound mode configuration.
+        /// </summary>
         [Input("predictiveConfig")]
         public Input<Inputs.CampaignPredictiveConfigArgs>? PredictiveConfig { get; set; }
 
+        /// <summary>
+        /// Contains progressive telephony outbound mode configuration.
+        /// </summary>
         [Input("progressiveConfig")]
         public Input<Inputs.CampaignProgressiveConfigArgs>? ProgressiveConfig { get; set; }
 

@@ -102,7 +102,7 @@ class UserPoolClientArgs:
                Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes only.
                
                App callback URLs such as myapp://example are also supported.
-        :param pulumi.Input[bool] enable_propagate_additional_user_context_data: Activates the propagation of additional user context data. For more information about propagation of user context data, see [Adding advanced security to a user pool](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-advanced-security.html) . If you don’t include this parameter, you can't send device fingerprint information, including source IP address, to Amazon Cognito advanced security. You can only activate `EnablePropagateAdditionalUserContextData` in an app client that has a client secret.
+        :param pulumi.Input[bool] enable_propagate_additional_user_context_data: Activates the propagation of additional user context data. For more information about propagation of user context data, see [Adding advanced security to a user pool](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-threat-protection.html) . If you don’t include this parameter, you can't send device fingerprint information, including source IP address, to Amazon Cognito advanced security. You can only activate `EnablePropagateAdditionalUserContextData` in an app client that has a client secret.
         :param pulumi.Input[bool] enable_token_revocation: Activates or deactivates token revocation. For more information about revoking tokens, see [RevokeToken](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_RevokeToken.html) .
                
                If you don't include this parameter, token revocation is automatically activated for the new user pool client.
@@ -112,6 +112,7 @@ class UserPoolClientArgs:
                
                Valid values include:
                
+               - `ALLOW_USER_AUTH` : Enable selection-based sign-in with `USER_AUTH` . This setting covers username-password, secure remote password (SRP), passwordless, and passkey authentication. This authentiation flow can do username-password and SRP authentication without other `ExplicitAuthFlows` permitting them. For example users can complete an SRP challenge through `USER_AUTH` without the flow `USER_SRP_AUTH` being active for the app client. This flow doesn't include `CUSTOM_AUTH` .
                - `ALLOW_ADMIN_USER_PASSWORD_AUTH` : Enable admin based user password authentication flow `ADMIN_USER_PASSWORD_AUTH` . This setting replaces the `ADMIN_NO_SRP_AUTH` setting. With this authentication flow, your app passes a user name and password to Amazon Cognito in the request, instead of using the Secure Remote Password (SRP) protocol to securely transmit the password.
                - `ALLOW_CUSTOM_AUTH` : Enable Lambda trigger based authentication.
                - `ALLOW_USER_PASSWORD_AUTH` : Enable user password-based authentication. In this flow, Amazon Cognito receives the password in the request instead of using the SRP protocol to verify passwords.
@@ -151,6 +152,8 @@ class UserPoolClientArgs:
                If you don't specify otherwise in the configuration of your app client, your refresh
                tokens are valid for 30 days.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] supported_identity_providers: A list of provider names for the identity providers (IdPs) that are supported on this client. The following are supported: `COGNITO` , `Facebook` , `Google` , `SignInWithApple` , and `LoginWithAmazon` . You can also specify the names that you configured for the SAML and OIDC IdPs in your user pool, for example `MySAMLIdP` or `MyOIDCIdP` .
+               
+               This setting applies to providers that you can access with the [hosted UI and OAuth 2.0 authorization server](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-app-integration.html) . The removal of `COGNITO` from this list doesn't prevent authentication operations for local users with the user pools API in an AWS SDK. The only way to prevent API-based authentication is to block access with a [AWS WAF rule](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-waf.html) .
         :param pulumi.Input['UserPoolClientTokenValidityUnitsArgs'] token_validity_units: The units in which the validity times are represented. The default unit for RefreshToken is days, and default for ID and access tokens are hours.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] write_attributes: The list of user attributes that you want your app client to have write access to. After your user authenticates in your app, their access token authorizes them to set or modify their own attribute value for any attribute in this list. An example of this kind of activity is when you present your user with a form to update their profile information and they change their last name. Your app then makes an [UpdateUserAttributes](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserAttributes.html) API request and sets `family_name` to the new value.
                
@@ -373,7 +376,7 @@ class UserPoolClientArgs:
     @pulumi.getter(name="enablePropagateAdditionalUserContextData")
     def enable_propagate_additional_user_context_data(self) -> Optional[pulumi.Input[bool]]:
         """
-        Activates the propagation of additional user context data. For more information about propagation of user context data, see [Adding advanced security to a user pool](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-advanced-security.html) . If you don’t include this parameter, you can't send device fingerprint information, including source IP address, to Amazon Cognito advanced security. You can only activate `EnablePropagateAdditionalUserContextData` in an app client that has a client secret.
+        Activates the propagation of additional user context data. For more information about propagation of user context data, see [Adding advanced security to a user pool](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-threat-protection.html) . If you don’t include this parameter, you can't send device fingerprint information, including source IP address, to Amazon Cognito advanced security. You can only activate `EnablePropagateAdditionalUserContextData` in an app client that has a client secret.
         """
         return pulumi.get(self, "enable_propagate_additional_user_context_data")
 
@@ -405,6 +408,7 @@ class UserPoolClientArgs:
 
         Valid values include:
 
+        - `ALLOW_USER_AUTH` : Enable selection-based sign-in with `USER_AUTH` . This setting covers username-password, secure remote password (SRP), passwordless, and passkey authentication. This authentiation flow can do username-password and SRP authentication without other `ExplicitAuthFlows` permitting them. For example users can complete an SRP challenge through `USER_AUTH` without the flow `USER_SRP_AUTH` being active for the app client. This flow doesn't include `CUSTOM_AUTH` .
         - `ALLOW_ADMIN_USER_PASSWORD_AUTH` : Enable admin based user password authentication flow `ADMIN_USER_PASSWORD_AUTH` . This setting replaces the `ADMIN_NO_SRP_AUTH` setting. With this authentication flow, your app passes a user name and password to Amazon Cognito in the request, instead of using the Secure Remote Password (SRP) protocol to securely transmit the password.
         - `ALLOW_CUSTOM_AUTH` : Enable Lambda trigger based authentication.
         - `ALLOW_USER_PASSWORD_AUTH` : Enable user password-based authentication. In this flow, Amazon Cognito receives the password in the request instead of using the SRP protocol to verify passwords.
@@ -521,6 +525,8 @@ class UserPoolClientArgs:
     def supported_identity_providers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         A list of provider names for the identity providers (IdPs) that are supported on this client. The following are supported: `COGNITO` , `Facebook` , `Google` , `SignInWithApple` , and `LoginWithAmazon` . You can also specify the names that you configured for the SAML and OIDC IdPs in your user pool, for example `MySAMLIdP` or `MyOIDCIdP` .
+
+        This setting applies to providers that you can access with the [hosted UI and OAuth 2.0 authorization server](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-app-integration.html) . The removal of `COGNITO` from this list doesn't prevent authentication operations for local users with the user pools API in an AWS SDK. The only way to prevent API-based authentication is to block access with a [AWS WAF rule](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-waf.html) .
         """
         return pulumi.get(self, "supported_identity_providers")
 
@@ -646,7 +652,7 @@ class UserPoolClient(pulumi.CustomResource):
                Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes only.
                
                App callback URLs such as myapp://example are also supported.
-        :param pulumi.Input[bool] enable_propagate_additional_user_context_data: Activates the propagation of additional user context data. For more information about propagation of user context data, see [Adding advanced security to a user pool](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-advanced-security.html) . If you don’t include this parameter, you can't send device fingerprint information, including source IP address, to Amazon Cognito advanced security. You can only activate `EnablePropagateAdditionalUserContextData` in an app client that has a client secret.
+        :param pulumi.Input[bool] enable_propagate_additional_user_context_data: Activates the propagation of additional user context data. For more information about propagation of user context data, see [Adding advanced security to a user pool](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-threat-protection.html) . If you don’t include this parameter, you can't send device fingerprint information, including source IP address, to Amazon Cognito advanced security. You can only activate `EnablePropagateAdditionalUserContextData` in an app client that has a client secret.
         :param pulumi.Input[bool] enable_token_revocation: Activates or deactivates token revocation. For more information about revoking tokens, see [RevokeToken](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_RevokeToken.html) .
                
                If you don't include this parameter, token revocation is automatically activated for the new user pool client.
@@ -656,6 +662,7 @@ class UserPoolClient(pulumi.CustomResource):
                
                Valid values include:
                
+               - `ALLOW_USER_AUTH` : Enable selection-based sign-in with `USER_AUTH` . This setting covers username-password, secure remote password (SRP), passwordless, and passkey authentication. This authentiation flow can do username-password and SRP authentication without other `ExplicitAuthFlows` permitting them. For example users can complete an SRP challenge through `USER_AUTH` without the flow `USER_SRP_AUTH` being active for the app client. This flow doesn't include `CUSTOM_AUTH` .
                - `ALLOW_ADMIN_USER_PASSWORD_AUTH` : Enable admin based user password authentication flow `ADMIN_USER_PASSWORD_AUTH` . This setting replaces the `ADMIN_NO_SRP_AUTH` setting. With this authentication flow, your app passes a user name and password to Amazon Cognito in the request, instead of using the Secure Remote Password (SRP) protocol to securely transmit the password.
                - `ALLOW_CUSTOM_AUTH` : Enable Lambda trigger based authentication.
                - `ALLOW_USER_PASSWORD_AUTH` : Enable user password-based authentication. In this flow, Amazon Cognito receives the password in the request instead of using the SRP protocol to verify passwords.
@@ -695,6 +702,8 @@ class UserPoolClient(pulumi.CustomResource):
                If you don't specify otherwise in the configuration of your app client, your refresh
                tokens are valid for 30 days.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] supported_identity_providers: A list of provider names for the identity providers (IdPs) that are supported on this client. The following are supported: `COGNITO` , `Facebook` , `Google` , `SignInWithApple` , and `LoginWithAmazon` . You can also specify the names that you configured for the SAML and OIDC IdPs in your user pool, for example `MySAMLIdP` or `MyOIDCIdP` .
+               
+               This setting applies to providers that you can access with the [hosted UI and OAuth 2.0 authorization server](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-app-integration.html) . The removal of `COGNITO` from this list doesn't prevent authentication operations for local users with the user pools API in an AWS SDK. The only way to prevent API-based authentication is to block access with a [AWS WAF rule](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-waf.html) .
         :param pulumi.Input[Union['UserPoolClientTokenValidityUnitsArgs', 'UserPoolClientTokenValidityUnitsArgsDict']] token_validity_units: The units in which the validity times are represented. The default unit for RefreshToken is days, and default for ID and access tokens are hours.
         :param pulumi.Input[str] user_pool_id: The user pool ID for the user pool where you want to create a user pool client.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] write_attributes: The list of user attributes that you want your app client to have write access to. After your user authenticates in your app, their access token authorizes them to set or modify their own attribute value for any attribute in this list. An example of this kind of activity is when you present your user with a form to update their profile information and they change their last name. Your app then makes an [UpdateUserAttributes](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserAttributes.html) API request and sets `family_name` to the new value.
@@ -972,7 +981,7 @@ class UserPoolClient(pulumi.CustomResource):
     @pulumi.getter(name="enablePropagateAdditionalUserContextData")
     def enable_propagate_additional_user_context_data(self) -> pulumi.Output[Optional[bool]]:
         """
-        Activates the propagation of additional user context data. For more information about propagation of user context data, see [Adding advanced security to a user pool](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-advanced-security.html) . If you don’t include this parameter, you can't send device fingerprint information, including source IP address, to Amazon Cognito advanced security. You can only activate `EnablePropagateAdditionalUserContextData` in an app client that has a client secret.
+        Activates the propagation of additional user context data. For more information about propagation of user context data, see [Adding advanced security to a user pool](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-threat-protection.html) . If you don’t include this parameter, you can't send device fingerprint information, including source IP address, to Amazon Cognito advanced security. You can only activate `EnablePropagateAdditionalUserContextData` in an app client that has a client secret.
         """
         return pulumi.get(self, "enable_propagate_additional_user_context_data")
 
@@ -996,6 +1005,7 @@ class UserPoolClient(pulumi.CustomResource):
 
         Valid values include:
 
+        - `ALLOW_USER_AUTH` : Enable selection-based sign-in with `USER_AUTH` . This setting covers username-password, secure remote password (SRP), passwordless, and passkey authentication. This authentiation flow can do username-password and SRP authentication without other `ExplicitAuthFlows` permitting them. For example users can complete an SRP challenge through `USER_AUTH` without the flow `USER_SRP_AUTH` being active for the app client. This flow doesn't include `CUSTOM_AUTH` .
         - `ALLOW_ADMIN_USER_PASSWORD_AUTH` : Enable admin based user password authentication flow `ADMIN_USER_PASSWORD_AUTH` . This setting replaces the `ADMIN_NO_SRP_AUTH` setting. With this authentication flow, your app passes a user name and password to Amazon Cognito in the request, instead of using the Secure Remote Password (SRP) protocol to securely transmit the password.
         - `ALLOW_CUSTOM_AUTH` : Enable Lambda trigger based authentication.
         - `ALLOW_USER_PASSWORD_AUTH` : Enable user password-based authentication. In this flow, Amazon Cognito receives the password in the request instead of using the SRP protocol to verify passwords.
@@ -1089,6 +1099,8 @@ class UserPoolClient(pulumi.CustomResource):
     def supported_identity_providers(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         A list of provider names for the identity providers (IdPs) that are supported on this client. The following are supported: `COGNITO` , `Facebook` , `Google` , `SignInWithApple` , and `LoginWithAmazon` . You can also specify the names that you configured for the SAML and OIDC IdPs in your user pool, for example `MySAMLIdP` or `MyOIDCIdP` .
+
+        This setting applies to providers that you can access with the [hosted UI and OAuth 2.0 authorization server](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-app-integration.html) . The removal of `COGNITO` from this list doesn't prevent authentication operations for local users with the user pools API in an AWS SDK. The only way to prevent API-based authentication is to block access with a [AWS WAF rule](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-waf.html) .
         """
         return pulumi.get(self, "supported_identity_providers")
 

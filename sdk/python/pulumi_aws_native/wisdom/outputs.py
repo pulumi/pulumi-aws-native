@@ -727,17 +727,27 @@ class KnowledgeBaseFixedSizeChunkingConfiguration(dict):
     def __init__(__self__, *,
                  max_tokens: float,
                  overlap_percentage: float):
+        """
+        :param float max_tokens: The maximum number of tokens to include in a chunk.
+        :param float overlap_percentage: The percentage of overlap between adjacent chunks of a data source.
+        """
         pulumi.set(__self__, "max_tokens", max_tokens)
         pulumi.set(__self__, "overlap_percentage", overlap_percentage)
 
     @property
     @pulumi.getter(name="maxTokens")
     def max_tokens(self) -> float:
+        """
+        The maximum number of tokens to include in a chunk.
+        """
         return pulumi.get(self, "max_tokens")
 
     @property
     @pulumi.getter(name="overlapPercentage")
     def overlap_percentage(self) -> float:
+        """
+        The percentage of overlap between adjacent chunks of a data source.
+        """
         return pulumi.get(self, "overlap_percentage")
 
 
@@ -765,17 +775,27 @@ class KnowledgeBaseHierarchicalChunkingConfiguration(dict):
     def __init__(__self__, *,
                  level_configurations: Sequence['outputs.KnowledgeBaseHierarchicalChunkingLevelConfiguration'],
                  overlap_tokens: float):
+        """
+        :param Sequence['KnowledgeBaseHierarchicalChunkingLevelConfiguration'] level_configurations: Token settings for each layer.
+        :param float overlap_tokens: The number of tokens to repeat across chunks in the same layer.
+        """
         pulumi.set(__self__, "level_configurations", level_configurations)
         pulumi.set(__self__, "overlap_tokens", overlap_tokens)
 
     @property
     @pulumi.getter(name="levelConfigurations")
     def level_configurations(self) -> Sequence['outputs.KnowledgeBaseHierarchicalChunkingLevelConfiguration']:
+        """
+        Token settings for each layer.
+        """
         return pulumi.get(self, "level_configurations")
 
     @property
     @pulumi.getter(name="overlapTokens")
     def overlap_tokens(self) -> float:
+        """
+        The number of tokens to repeat across chunks in the same layer.
+        """
         return pulumi.get(self, "overlap_tokens")
 
 
@@ -800,11 +820,17 @@ class KnowledgeBaseHierarchicalChunkingLevelConfiguration(dict):
 
     def __init__(__self__, *,
                  max_tokens: float):
+        """
+        :param float max_tokens: The maximum number of tokens that a chunk can contain in this layer.
+        """
         pulumi.set(__self__, "max_tokens", max_tokens)
 
     @property
     @pulumi.getter(name="maxTokens")
     def max_tokens(self) -> float:
+        """
+        The maximum number of tokens that a chunk can contain in this layer.
+        """
         return pulumi.get(self, "max_tokens")
 
 
@@ -925,6 +951,11 @@ class KnowledgeBaseSemanticChunkingConfiguration(dict):
                  breakpoint_percentile_threshold: float,
                  buffer_size: float,
                  max_tokens: float):
+        """
+        :param float breakpoint_percentile_threshold: The dissimilarity threshold for splitting chunks.
+        :param float buffer_size: The buffer size.
+        :param float max_tokens: The maximum number of tokens that a chunk can contain.
+        """
         pulumi.set(__self__, "breakpoint_percentile_threshold", breakpoint_percentile_threshold)
         pulumi.set(__self__, "buffer_size", buffer_size)
         pulumi.set(__self__, "max_tokens", max_tokens)
@@ -932,16 +963,25 @@ class KnowledgeBaseSemanticChunkingConfiguration(dict):
     @property
     @pulumi.getter(name="breakpointPercentileThreshold")
     def breakpoint_percentile_threshold(self) -> float:
+        """
+        The dissimilarity threshold for splitting chunks.
+        """
         return pulumi.get(self, "breakpoint_percentile_threshold")
 
     @property
     @pulumi.getter(name="bufferSize")
     def buffer_size(self) -> float:
+        """
+        The buffer size.
+        """
         return pulumi.get(self, "buffer_size")
 
     @property
     @pulumi.getter(name="maxTokens")
     def max_tokens(self) -> float:
+        """
+        The maximum number of tokens that a chunk can contain.
+        """
         return pulumi.get(self, "max_tokens")
 
 
@@ -1071,6 +1111,10 @@ class KnowledgeBaseVectorIngestionConfiguration(dict):
     def __init__(__self__, *,
                  chunking_configuration: Optional['outputs.KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationProperties'] = None,
                  parsing_configuration: Optional['outputs.KnowledgeBaseVectorIngestionConfigurationParsingConfigurationProperties'] = None):
+        """
+        :param 'KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationProperties' chunking_configuration: Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried.
+        :param 'KnowledgeBaseVectorIngestionConfigurationParsingConfigurationProperties' parsing_configuration: A custom parser for data source documents.
+        """
         if chunking_configuration is not None:
             pulumi.set(__self__, "chunking_configuration", chunking_configuration)
         if parsing_configuration is not None:
@@ -1079,16 +1123,25 @@ class KnowledgeBaseVectorIngestionConfiguration(dict):
     @property
     @pulumi.getter(name="chunkingConfiguration")
     def chunking_configuration(self) -> Optional['outputs.KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationProperties']:
+        """
+        Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried.
+        """
         return pulumi.get(self, "chunking_configuration")
 
     @property
     @pulumi.getter(name="parsingConfiguration")
     def parsing_configuration(self) -> Optional['outputs.KnowledgeBaseVectorIngestionConfigurationParsingConfigurationProperties']:
+        """
+        A custom parser for data source documents.
+        """
         return pulumi.get(self, "parsing_configuration")
 
 
 @pulumi.output_type
 class KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationProperties(dict):
+    """
+    Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1117,6 +1170,9 @@ class KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationProperties(d
                  fixed_size_chunking_configuration: Optional['outputs.KnowledgeBaseFixedSizeChunkingConfiguration'] = None,
                  hierarchical_chunking_configuration: Optional['outputs.KnowledgeBaseHierarchicalChunkingConfiguration'] = None,
                  semantic_chunking_configuration: Optional['outputs.KnowledgeBaseSemanticChunkingConfiguration'] = None):
+        """
+        Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried.
+        """
         pulumi.set(__self__, "chunking_strategy", chunking_strategy)
         if fixed_size_chunking_configuration is not None:
             pulumi.set(__self__, "fixed_size_chunking_configuration", fixed_size_chunking_configuration)
@@ -1148,6 +1204,9 @@ class KnowledgeBaseVectorIngestionConfigurationChunkingConfigurationProperties(d
 
 @pulumi.output_type
 class KnowledgeBaseVectorIngestionConfigurationParsingConfigurationProperties(dict):
+    """
+    A custom parser for data source documents.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1170,6 +1229,9 @@ class KnowledgeBaseVectorIngestionConfigurationParsingConfigurationProperties(di
     def __init__(__self__, *,
                  parsing_strategy: 'KnowledgeBaseVectorIngestionConfigurationParsingConfigurationPropertiesParsingStrategy',
                  bedrock_foundation_model_configuration: Optional['outputs.KnowledgeBaseBedrockFoundationModelConfiguration'] = None):
+        """
+        A custom parser for data source documents.
+        """
         pulumi.set(__self__, "parsing_strategy", parsing_strategy)
         if bedrock_foundation_model_configuration is not None:
             pulumi.set(__self__, "bedrock_foundation_model_configuration", bedrock_foundation_model_configuration)
@@ -1401,6 +1463,10 @@ class MessageTemplateAttributes(dict):
                  system_attributes: Optional['outputs.MessageTemplateSystemAttributes'] = None):
         """
         An object that specifies the default values to use for variables in the message template. This object contains different categories of key-value pairs. Each key defines a variable or placeholder in the message template. The corresponding value defines the default value for that variable.
+        :param 'MessageTemplateAgentAttributes' agent_attributes: The agent attributes that are used with the message template.
+        :param Mapping[str, str] custom_attributes: The custom attributes that are used with the message template.
+        :param 'MessageTemplateCustomerProfileAttributes' customer_profile_attributes: The customer profile attributes that are used with the message template.
+        :param 'MessageTemplateSystemAttributes' system_attributes: The system attributes that are used with the message template.
         """
         if agent_attributes is not None:
             pulumi.set(__self__, "agent_attributes", agent_attributes)
@@ -1414,21 +1480,33 @@ class MessageTemplateAttributes(dict):
     @property
     @pulumi.getter(name="agentAttributes")
     def agent_attributes(self) -> Optional['outputs.MessageTemplateAgentAttributes']:
+        """
+        The agent attributes that are used with the message template.
+        """
         return pulumi.get(self, "agent_attributes")
 
     @property
     @pulumi.getter(name="customAttributes")
     def custom_attributes(self) -> Optional[Mapping[str, str]]:
+        """
+        The custom attributes that are used with the message template.
+        """
         return pulumi.get(self, "custom_attributes")
 
     @property
     @pulumi.getter(name="customerProfileAttributes")
     def customer_profile_attributes(self) -> Optional['outputs.MessageTemplateCustomerProfileAttributes']:
+        """
+        The customer profile attributes that are used with the message template.
+        """
         return pulumi.get(self, "customer_profile_attributes")
 
     @property
     @pulumi.getter(name="systemAttributes")
     def system_attributes(self) -> Optional['outputs.MessageTemplateSystemAttributes']:
+        """
+        The system attributes that are used with the message template.
+        """
         return pulumi.get(self, "system_attributes")
 
 
@@ -1441,6 +1519,7 @@ class MessageTemplateBodyContentProvider(dict):
                  content: Optional[str] = None):
         """
         The container of message template body.
+        :param str content: The content of the message template.
         """
         if content is not None:
             pulumi.set(__self__, "content", content)
@@ -1448,6 +1527,9 @@ class MessageTemplateBodyContentProvider(dict):
     @property
     @pulumi.getter
     def content(self) -> Optional[str]:
+        """
+        The content of the message template.
+        """
         return pulumi.get(self, "content")
 
 
@@ -1480,6 +1562,8 @@ class MessageTemplateContent(dict):
                  sms_message_template_content: Optional['outputs.MessageTemplateSmsMessageTemplateContent'] = None):
         """
         The content of the message template.
+        :param 'MessageTemplateEmailMessageTemplateContent' email_message_template_content: The content of the message template that applies to the email channel subtype.
+        :param 'MessageTemplateSmsMessageTemplateContent' sms_message_template_content: The content of message template that applies to SMS channel subtype.
         """
         if email_message_template_content is not None:
             pulumi.set(__self__, "email_message_template_content", email_message_template_content)
@@ -1489,11 +1573,17 @@ class MessageTemplateContent(dict):
     @property
     @pulumi.getter(name="emailMessageTemplateContent")
     def email_message_template_content(self) -> Optional['outputs.MessageTemplateEmailMessageTemplateContent']:
+        """
+        The content of the message template that applies to the email channel subtype.
+        """
         return pulumi.get(self, "email_message_template_content")
 
     @property
     @pulumi.getter(name="smsMessageTemplateContent")
     def sms_message_template_content(self) -> Optional['outputs.MessageTemplateSmsMessageTemplateContent']:
+        """
+        The content of message template that applies to SMS channel subtype.
+        """
         return pulumi.get(self, "sms_message_template_content")
 
 
@@ -1695,6 +1785,7 @@ class MessageTemplateCustomerProfileAttributes(dict):
         :param str city: The city in which a customer lives.
         :param str country: The country in which a customer lives.
         :param str county: The county in which a customer lives.
+        :param Mapping[str, str] custom: The custom attributes in customer profile attributes.
         :param str email_address: The customer's email address, which has not been specified as a personal or business address.
         :param str first_name: The customer's first name.
         :param str gender: The customer's gender.
@@ -2034,6 +2125,9 @@ class MessageTemplateCustomerProfileAttributes(dict):
     @property
     @pulumi.getter
     def custom(self) -> Optional[Mapping[str, str]]:
+        """
+        The custom attributes in customer profile attributes.
+        """
         return pulumi.get(self, "custom")
 
     @property
@@ -2320,6 +2414,7 @@ class MessageTemplateEmailMessageTemplateContent(dict):
                  subject: str):
         """
         The content of message template that applies to email channel subtype.
+        :param 'MessageTemplateEmailMessageTemplateContentBody' body: The body to use in email messages.
         :param Sequence['MessageTemplateEmailMessageTemplateHeader'] headers: The email headers to include in email messages.
         :param str subject: The subject line, or title, to use in email messages.
         """
@@ -2330,6 +2425,9 @@ class MessageTemplateEmailMessageTemplateContent(dict):
     @property
     @pulumi.getter
     def body(self) -> 'outputs.MessageTemplateEmailMessageTemplateContentBody':
+        """
+        The body to use in email messages.
+        """
         return pulumi.get(self, "body")
 
     @property
@@ -2478,12 +2576,16 @@ class MessageTemplateSmsMessageTemplateContent(dict):
                  body: 'outputs.MessageTemplateSmsMessageTemplateContentBody'):
         """
         The content of message template that applies to SMS channel subtype.
+        :param 'MessageTemplateSmsMessageTemplateContentBody' body: The body to use in SMS messages.
         """
         pulumi.set(__self__, "body", body)
 
     @property
     @pulumi.getter
     def body(self) -> 'outputs.MessageTemplateSmsMessageTemplateContentBody':
+        """
+        The body to use in SMS messages.
+        """
         return pulumi.get(self, "body")
 
 
@@ -2513,6 +2615,7 @@ class MessageTemplateSmsMessageTemplateContentBody(dict):
                  plain_text: Optional['outputs.MessageTemplateBodyContentProvider'] = None):
         """
         The body to use in SMS messages.
+        :param 'MessageTemplateBodyContentProvider' plain_text: The message body to use in SMS messages.
         """
         if plain_text is not None:
             pulumi.set(__self__, "plain_text", plain_text)
@@ -2520,6 +2623,9 @@ class MessageTemplateSmsMessageTemplateContentBody(dict):
     @property
     @pulumi.getter(name="plainText")
     def plain_text(self) -> Optional['outputs.MessageTemplateBodyContentProvider']:
+        """
+        The message body to use in SMS messages.
+        """
         return pulumi.get(self, "plain_text")
 
 

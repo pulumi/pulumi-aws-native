@@ -16,9 +16,21 @@ namespace Pulumi.AwsNative.Wisdom.Outputs
     [OutputType]
     public sealed class MessageTemplateAttributes
     {
+        /// <summary>
+        /// The agent attributes that are used with the message template.
+        /// </summary>
         public readonly Outputs.MessageTemplateAgentAttributes? AgentAttributes;
+        /// <summary>
+        /// The custom attributes that are used with the message template.
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? CustomAttributes;
+        /// <summary>
+        /// The customer profile attributes that are used with the message template.
+        /// </summary>
         public readonly Outputs.MessageTemplateCustomerProfileAttributes? CustomerProfileAttributes;
+        /// <summary>
+        /// The system attributes that are used with the message template.
+        /// </summary>
         public readonly Outputs.MessageTemplateSystemAttributes? SystemAttributes;
 
         [OutputConstructor]

@@ -38,6 +38,7 @@ class ScalingPolicyArgs:
                  ``StepScaling``—Not supported for DynamoDB, Amazon Comprehend, Lambda, Amazon Keyspaces, Amazon MSK, Amazon ElastiCache, or Neptune.
         :param pulumi.Input[str] policy_name: The name of the scaling policy.
                 Updates to the name of a target tracking scaling policy are not supported, unless you also update the metric used for scaling. To change only a target tracking scaling policy's name, first delete the policy by removing the existing ``AWS::ApplicationAutoScaling::ScalingPolicy`` resource from the template and updating the stack. Then, recreate the resource with the same settings and a different name.
+        :param pulumi.Input['ScalingPolicyPredictiveScalingPolicyConfigurationArgs'] predictive_scaling_policy_configuration: The predictive scaling policy configuration.
         :param pulumi.Input[str] resource_id: The identifier of the resource associated with the scaling policy. This string consists of the resource type and unique identifier.
                  +  ECS service - The resource type is ``service`` and the unique identifier is the cluster name and service name. Example: ``service/my-cluster/my-service``.
                  +  Spot Fleet - The resource type is ``spot-fleet-request`` and the unique identifier is the Spot Fleet request ID. Example: ``spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE``.
@@ -137,6 +138,9 @@ class ScalingPolicyArgs:
     @property
     @pulumi.getter(name="predictiveScalingPolicyConfiguration")
     def predictive_scaling_policy_configuration(self) -> Optional[pulumi.Input['ScalingPolicyPredictiveScalingPolicyConfigurationArgs']]:
+        """
+        The predictive scaling policy configuration.
+        """
         return pulumi.get(self, "predictive_scaling_policy_configuration")
 
     @predictive_scaling_policy_configuration.setter
@@ -286,6 +290,7 @@ class ScalingPolicy(pulumi.CustomResource):
                 The following policy types are supported: 
                  ``TargetTrackingScaling``—Not supported for Amazon EMR
                  ``StepScaling``—Not supported for DynamoDB, Amazon Comprehend, Lambda, Amazon Keyspaces, Amazon MSK, Amazon ElastiCache, or Neptune.
+        :param pulumi.Input[Union['ScalingPolicyPredictiveScalingPolicyConfigurationArgs', 'ScalingPolicyPredictiveScalingPolicyConfigurationArgsDict']] predictive_scaling_policy_configuration: The predictive scaling policy configuration.
         :param pulumi.Input[str] resource_id: The identifier of the resource associated with the scaling policy. This string consists of the resource type and unique identifier.
                  +  ECS service - The resource type is ``service`` and the unique identifier is the cluster name and service name. Example: ``service/my-cluster/my-service``.
                  +  Spot Fleet - The resource type is ``spot-fleet-request`` and the unique identifier is the Spot Fleet request ID. Example: ``spot-fleet-request/sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE``.
@@ -458,6 +463,9 @@ class ScalingPolicy(pulumi.CustomResource):
     @property
     @pulumi.getter(name="predictiveScalingPolicyConfiguration")
     def predictive_scaling_policy_configuration(self) -> pulumi.Output[Optional['outputs.ScalingPolicyPredictiveScalingPolicyConfiguration']]:
+        """
+        The predictive scaling policy configuration.
+        """
         return pulumi.get(self, "predictive_scaling_policy_configuration")
 
     @property

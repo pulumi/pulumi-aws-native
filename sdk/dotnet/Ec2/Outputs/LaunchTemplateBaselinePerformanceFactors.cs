@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.Ec2.Outputs
     [OutputType]
     public sealed class LaunchTemplateBaselinePerformanceFactors
     {
+        /// <summary>
+        /// The CPU performance to consider, using an instance family as the baseline reference.
+        /// </summary>
         public readonly Outputs.LaunchTemplateCpu? Cpu;
 
         [OutputConstructor]

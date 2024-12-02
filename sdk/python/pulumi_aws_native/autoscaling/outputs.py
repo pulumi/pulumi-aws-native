@@ -2402,6 +2402,7 @@ class ScalingPolicyCustomizedMetricSpecification(dict):
         :param str metric_name: The name of the metric. To get the exact metric name, namespace, and dimensions, inspect the [Metric](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_Metric.html) object that is returned by a call to [ListMetrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetrics.html) .
         :param Sequence['ScalingPolicyTargetTrackingMetricDataQuery'] metrics: The metrics to include in the target tracking scaling policy, as a metric data query. This can include both raw metric and metric math expressions.
         :param str namespace: The namespace of the metric.
+        :param int period: The period of the metric in seconds. The default value is 60. Accepted values are 10, 30, and 60. For high resolution metric, set the value to less than 60. For more information, see [Create a target tracking policy using high-resolution metrics for faster response](https://docs.aws.amazon.com/autoscaling/ec2/userguide/policy-creating-high-resolution-metrics.html) .
         :param str statistic: The statistic of the metric.
         :param str unit: The unit of the metric. For a complete list of the units that CloudWatch supports, see the [MetricDatum](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html) data type in the *Amazon CloudWatch API Reference* .
         """
@@ -2457,6 +2458,9 @@ class ScalingPolicyCustomizedMetricSpecification(dict):
     @property
     @pulumi.getter
     def period(self) -> Optional[int]:
+        """
+        The period of the metric in seconds. The default value is 60. Accepted values are 10, 30, and 60. For high resolution metric, set the value to less than 60. For more information, see [Create a target tracking policy using high-resolution metrics for faster response](https://docs.aws.amazon.com/autoscaling/ec2/userguide/policy-creating-high-resolution-metrics.html) .
+        """
         return pulumi.get(self, "period")
 
     @property
@@ -3539,6 +3543,7 @@ class ScalingPolicyTargetTrackingMetricDataQuery(dict):
         :param 'ScalingPolicyTargetTrackingMetricStat' metric_stat: Information about the metric data to return.
                
                Conditional: Within each `TargetTrackingMetricDataQuery` object, you must specify either `Expression` or `MetricStat` , but not both.
+        :param int period: The period of the metric in seconds. The default value is 60. Accepted values are 10, 30, and 60. For high resolution metric, set the value to less than 60. For more information, see [Create a target tracking policy using high-resolution metrics for faster response](https://docs.aws.amazon.com/autoscaling/ec2/userguide/policy-creating-high-resolution-metrics.html) .
         :param bool return_data: Indicates whether to return the timestamps and raw data values of this metric.
                
                If you use any math expressions, specify `true` for this value for only the final math expression that the metric specification is based on. You must specify `false` for `ReturnData` for all the other metrics and expressions used in the metric specification.
@@ -3596,6 +3601,9 @@ class ScalingPolicyTargetTrackingMetricDataQuery(dict):
     @property
     @pulumi.getter
     def period(self) -> Optional[int]:
+        """
+        The period of the metric in seconds. The default value is 60. Accepted values are 10, 30, and 60. For high resolution metric, set the value to less than 60. For more information, see [Create a target tracking policy using high-resolution metrics for faster response](https://docs.aws.amazon.com/autoscaling/ec2/userguide/policy-creating-high-resolution-metrics.html) .
+        """
         return pulumi.get(self, "period")
 
     @property
@@ -3623,6 +3631,7 @@ class ScalingPolicyTargetTrackingMetricStat(dict):
         :param str stat: The statistic to return. It can include any CloudWatch statistic or extended statistic. For a list of valid values, see the table in [Statistics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Statistic) in the *Amazon CloudWatch User Guide* .
                
                The most commonly used metric for scaling is `Average` .
+        :param int period: The period of the metric in seconds. The default value is 60. Accepted values are 10, 30, and 60. For high resolution metric, set the value to less than 60. For more information, see [Create a target tracking policy using high-resolution metrics for faster response](https://docs.aws.amazon.com/autoscaling/ec2/userguide/policy-creating-high-resolution-metrics.html) .
         :param str unit: The unit to use for the returned data points. For a complete list of the units that CloudWatch supports, see the [MetricDatum](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html) data type in the *Amazon CloudWatch API Reference* .
         """
         pulumi.set(__self__, "metric", metric)
@@ -3653,6 +3662,9 @@ class ScalingPolicyTargetTrackingMetricStat(dict):
     @property
     @pulumi.getter
     def period(self) -> Optional[int]:
+        """
+        The period of the metric in seconds. The default value is 60. Accepted values are 10, 30, and 60. For high resolution metric, set the value to less than 60. For more information, see [Create a target tracking policy using high-resolution metrics for faster response](https://docs.aws.amazon.com/autoscaling/ec2/userguide/policy-creating-high-resolution-metrics.html) .
+        """
         return pulumi.get(self, "period")
 
     @property

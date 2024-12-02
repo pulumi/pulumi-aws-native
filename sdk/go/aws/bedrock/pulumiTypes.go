@@ -21,11 +21,11 @@ type AgentActionGroup struct {
 	ActionGroupName string `pulumi:"actionGroupName"`
 	// Specifies whether the action group is available for the agent to invoke or not when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request.
 	ActionGroupState *AgentActionGroupState `pulumi:"actionGroupState"`
-	// Contains either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema. For more information, see [Action group OpenAPI schemas](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-api-schema.html) .
+	// Contains either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema. For more information, see [Action group OpenAPI schemas](https://docs.aws.amazon.com//bedrock/latest/userguide/agents-api-schema.html) .
 	ApiSchema interface{} `pulumi:"apiSchema"`
 	// Description of action group
 	Description *string `pulumi:"description"`
-	// Defines functions that each define parameters that the agent needs to invoke from the user. Each function represents an action in an action group.
+	// Contains details about the function schema for the action group or the JSON or YAML-formatted payload defining the schema.
 	FunctionSchema *AgentFunctionSchema `pulumi:"functionSchema"`
 	// If this field is set as `AMAZON.UserInput` , the agent can request the user for additional information when trying to complete a task. The `description` , `apiSchema` , and `actionGroupExecutor` fields must be blank for this action group.
 	//
@@ -54,11 +54,11 @@ type AgentActionGroupArgs struct {
 	ActionGroupName pulumi.StringInput `pulumi:"actionGroupName"`
 	// Specifies whether the action group is available for the agent to invoke or not when sending an [InvokeAgent](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_InvokeAgent.html) request.
 	ActionGroupState AgentActionGroupStatePtrInput `pulumi:"actionGroupState"`
-	// Contains either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema. For more information, see [Action group OpenAPI schemas](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-api-schema.html) .
+	// Contains either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema. For more information, see [Action group OpenAPI schemas](https://docs.aws.amazon.com//bedrock/latest/userguide/agents-api-schema.html) .
 	ApiSchema pulumi.Input `pulumi:"apiSchema"`
 	// Description of action group
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Defines functions that each define parameters that the agent needs to invoke from the user. Each function represents an action in an action group.
+	// Contains details about the function schema for the action group or the JSON or YAML-formatted payload defining the schema.
 	FunctionSchema AgentFunctionSchemaPtrInput `pulumi:"functionSchema"`
 	// If this field is set as `AMAZON.UserInput` , the agent can request the user for additional information when trying to complete a task. The `description` , `apiSchema` , and `actionGroupExecutor` fields must be blank for this action group.
 	//
@@ -135,7 +135,7 @@ func (o AgentActionGroupOutput) ActionGroupState() AgentActionGroupStatePtrOutpu
 	return o.ApplyT(func(v AgentActionGroup) *AgentActionGroupState { return v.ActionGroupState }).(AgentActionGroupStatePtrOutput)
 }
 
-// Contains either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema. For more information, see [Action group OpenAPI schemas](https://docs.aws.amazon.com/bedrock/latest/userguide/agents-api-schema.html) .
+// Contains either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema. For more information, see [Action group OpenAPI schemas](https://docs.aws.amazon.com//bedrock/latest/userguide/agents-api-schema.html) .
 func (o AgentActionGroupOutput) ApiSchema() pulumi.AnyOutput {
 	return o.ApplyT(func(v AgentActionGroup) interface{} { return v.ApiSchema }).(pulumi.AnyOutput)
 }
@@ -145,7 +145,7 @@ func (o AgentActionGroupOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentActionGroup) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Defines functions that each define parameters that the agent needs to invoke from the user. Each function represents an action in an action group.
+// Contains details about the function schema for the action group or the JSON or YAML-formatted payload defining the schema.
 func (o AgentActionGroupOutput) FunctionSchema() AgentFunctionSchemaPtrOutput {
 	return o.ApplyT(func(v AgentActionGroup) *AgentFunctionSchema { return v.FunctionSchema }).(AgentFunctionSchemaPtrOutput)
 }
@@ -1773,7 +1773,7 @@ type AgentPromptConfiguration struct {
 	ParserMode *AgentCreationMode `pulumi:"parserMode"`
 	// Specifies whether to override the default prompt template for this `promptType` . Set this value to `OVERRIDDEN` to use the prompt that you provide in the `basePromptTemplate` . If you leave it as `DEFAULT` , the agent uses a default prompt template.
 	PromptCreationMode *AgentCreationMode `pulumi:"promptCreationMode"`
-	// Specifies whether to allow the agent to carry out the step specified in the `promptType` . If you set this value to `DISABLED` , the agent skips that step. The default state for each `promptType` is as follows.
+	// Specifies whether to allow the inline agent to carry out the step specified in the `promptType` . If you set this value to `DISABLED` , the agent skips that step. The default state for each `promptType` is as follows.
 	//
 	// - `PRE_PROCESSING` – `ENABLED`
 	// - `ORCHESTRATION` – `ENABLED`
@@ -1805,7 +1805,7 @@ type AgentPromptConfigurationArgs struct {
 	ParserMode AgentCreationModePtrInput `pulumi:"parserMode"`
 	// Specifies whether to override the default prompt template for this `promptType` . Set this value to `OVERRIDDEN` to use the prompt that you provide in the `basePromptTemplate` . If you leave it as `DEFAULT` , the agent uses a default prompt template.
 	PromptCreationMode AgentCreationModePtrInput `pulumi:"promptCreationMode"`
-	// Specifies whether to allow the agent to carry out the step specified in the `promptType` . If you set this value to `DISABLED` , the agent skips that step. The default state for each `promptType` is as follows.
+	// Specifies whether to allow the inline agent to carry out the step specified in the `promptType` . If you set this value to `DISABLED` , the agent skips that step. The default state for each `promptType` is as follows.
 	//
 	// - `PRE_PROCESSING` – `ENABLED`
 	// - `ORCHESTRATION` – `ENABLED`
@@ -1888,7 +1888,7 @@ func (o AgentPromptConfigurationOutput) PromptCreationMode() AgentCreationModePt
 	return o.ApplyT(func(v AgentPromptConfiguration) *AgentCreationMode { return v.PromptCreationMode }).(AgentCreationModePtrOutput)
 }
 
-// Specifies whether to allow the agent to carry out the step specified in the `promptType` . If you set this value to `DISABLED` , the agent skips that step. The default state for each `promptType` is as follows.
+// Specifies whether to allow the inline agent to carry out the step specified in the `promptType` . If you set this value to `DISABLED` , the agent skips that step. The default state for each `promptType` is as follows.
 //
 // - `PRE_PROCESSING` – `ENABLED`
 // - `ORCHESTRATION` – `ENABLED`

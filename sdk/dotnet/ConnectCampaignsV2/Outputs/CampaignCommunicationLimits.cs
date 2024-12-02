@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2.Outputs
     [OutputType]
     public sealed class CampaignCommunicationLimits
     {
+        /// <summary>
+        /// The list of CommunicationLimits.
+        /// </summary>
         public readonly ImmutableArray<Outputs.CampaignCommunicationLimit> CommunicationLimitList;
 
         [OutputConstructor]

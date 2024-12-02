@@ -15,20 +15,33 @@ namespace Pulumi.AwsNative.Wisdom.Inputs
     /// </summary>
     public sealed class MessageTemplateAttributesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The agent attributes that are used with the message template.
+        /// </summary>
         [Input("agentAttributes")]
         public Input<Inputs.MessageTemplateAgentAttributesArgs>? AgentAttributes { get; set; }
 
         [Input("customAttributes")]
         private InputMap<string>? _customAttributes;
+
+        /// <summary>
+        /// The custom attributes that are used with the message template.
+        /// </summary>
         public InputMap<string> CustomAttributes
         {
             get => _customAttributes ?? (_customAttributes = new InputMap<string>());
             set => _customAttributes = value;
         }
 
+        /// <summary>
+        /// The customer profile attributes that are used with the message template.
+        /// </summary>
         [Input("customerProfileAttributes")]
         public Input<Inputs.MessageTemplateCustomerProfileAttributesArgs>? CustomerProfileAttributes { get; set; }
 
+        /// <summary>
+        /// The system attributes that are used with the message template.
+        /// </summary>
         [Input("systemAttributes")]
         public Input<Inputs.MessageTemplateSystemAttributesArgs>? SystemAttributes { get; set; }
 

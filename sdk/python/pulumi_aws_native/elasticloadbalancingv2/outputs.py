@@ -2334,11 +2334,17 @@ class LoadBalancerMinimumLoadBalancerCapacity(dict):
 
     def __init__(__self__, *,
                  capacity_units: int):
+        """
+        :param int capacity_units: The number of capacity units.
+        """
         pulumi.set(__self__, "capacity_units", capacity_units)
 
     @property
     @pulumi.getter(name="capacityUnits")
     def capacity_units(self) -> int:
+        """
+        The number of capacity units.
+        """
         return pulumi.get(self, "capacity_units")
 
 

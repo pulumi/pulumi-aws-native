@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.CloudTrail.Outputs
     [OutputType]
     public sealed class DashboardRefreshSchedule
     {
+        /// <summary>
+        /// The frequency at which you want the dashboard refreshed.
+        /// </summary>
         public readonly Outputs.DashboardRefreshScheduleFrequencyProperties? Frequency;
         /// <summary>
         /// The status of the schedule. Supported values are ENABLED and DISABLED.

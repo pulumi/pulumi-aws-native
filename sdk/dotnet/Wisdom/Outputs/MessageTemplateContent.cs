@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.Wisdom.Outputs
     [OutputType]
     public sealed class MessageTemplateContent
     {
+        /// <summary>
+        /// The content of the message template that applies to the email channel subtype.
+        /// </summary>
         public readonly Outputs.MessageTemplateEmailMessageTemplateContent? EmailMessageTemplateContent;
+        /// <summary>
+        /// The content of message template that applies to SMS channel subtype.
+        /// </summary>
         public readonly Outputs.MessageTemplateSmsMessageTemplateContent? SmsMessageTemplateContent;
 
         [OutputConstructor]

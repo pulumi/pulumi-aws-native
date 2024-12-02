@@ -64,6 +64,9 @@ export interface GetLoadBalancerResult {
      * The name of the load balancer. For example, `my-load-balancer` .
      */
     readonly loadBalancerName?: string;
+    /**
+     * The minimum capacity for a load balancer.
+     */
     readonly minimumLoadBalancerCapacity?: outputs.elasticloadbalancingv2.LoadBalancerMinimumLoadBalancerCapacity;
     /**
      * [Application Load Balancers and Network Load Balancers] The IDs of the security groups for the load balancer.

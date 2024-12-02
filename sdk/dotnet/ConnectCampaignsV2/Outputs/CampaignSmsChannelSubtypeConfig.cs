@@ -16,8 +16,17 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2.Outputs
     [OutputType]
     public sealed class CampaignSmsChannelSubtypeConfig
     {
+        /// <summary>
+        /// The allocation of SMS capacity between multiple running outbound campaigns.
+        /// </summary>
         public readonly double? Capacity;
+        /// <summary>
+        /// The default SMS outbound configuration of an outbound campaign.
+        /// </summary>
         public readonly Outputs.CampaignSmsOutboundConfig DefaultOutboundConfig;
+        /// <summary>
+        /// The outbound mode of SMS for an outbound campaign.
+        /// </summary>
         public readonly Outputs.CampaignSmsOutboundMode OutboundMode;
 
         [OutputConstructor]

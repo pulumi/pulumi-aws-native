@@ -329,6 +329,21 @@ if not MYPY:
         preset_speke20_video: pulumi.Input['OriginEndpointPresetSpeke20Video']
         """
         The SPEKE Version 2.0 preset video associated with the encryption contract configuration of the origin endpoint.
+
+        A collection of video encryption presets.
+
+        Value description:
+
+        - `PRESET-VIDEO-1` - Use one content key to encrypt all of the video tracks in your stream.
+        - `PRESET-VIDEO-2` - Use one content key to encrypt all of the SD video tracks and one content key for all HD and higher resolutions video tracks.
+        - `PRESET-VIDEO-3` - Use one content key to encrypt all of the SD video tracks, one content key for HD video tracks and one content key for all UHD video tracks.
+        - `PRESET-VIDEO-4` - Use one content key to encrypt all of the SD video tracks, one content key for HD video tracks, one content key for all UHD1 video tracks and one content key for all UHD2 video tracks.
+        - `PRESET-VIDEO-5` - Use one content key to encrypt all of the SD video tracks, one content key for HD1 video tracks, one content key for HD2 video tracks, one content key for all UHD1 video tracks and one content key for all UHD2 video tracks.
+        - `PRESET-VIDEO-6` - Use one content key to encrypt all of the SD video tracks, one content key for HD1 video tracks, one content key for HD2 video tracks and one content key for all UHD video tracks.
+        - `PRESET-VIDEO-7` - Use one content key to encrypt all of the SD+HD1 video tracks, one content key for HD2 video tracks and one content key for all UHD video tracks.
+        - `PRESET-VIDEO-8` - Use one content key to encrypt all of the SD+HD1 video tracks, one content key for HD2 video tracks, one content key for all UHD1 video tracks and one content key for all UHD2 video tracks.
+        - `SHARED` - Use the same content key for all of the video and audio tracks in your stream.
+        - `UNENCRYPTED` - Don't encrypt any of the video tracks in your stream.
         """
 elif False:
     OriginEndpointEncryptionContractConfigurationArgsDict: TypeAlias = Mapping[str, Any]
@@ -350,6 +365,21 @@ class OriginEndpointEncryptionContractConfigurationArgs:
                - `SHARED` - Use the same content key for all of the audio and video tracks in your stream.
                - `UNENCRYPTED` - Don't encrypt any of the audio tracks in your stream.
         :param pulumi.Input['OriginEndpointPresetSpeke20Video'] preset_speke20_video: The SPEKE Version 2.0 preset video associated with the encryption contract configuration of the origin endpoint.
+               
+               A collection of video encryption presets.
+               
+               Value description:
+               
+               - `PRESET-VIDEO-1` - Use one content key to encrypt all of the video tracks in your stream.
+               - `PRESET-VIDEO-2` - Use one content key to encrypt all of the SD video tracks and one content key for all HD and higher resolutions video tracks.
+               - `PRESET-VIDEO-3` - Use one content key to encrypt all of the SD video tracks, one content key for HD video tracks and one content key for all UHD video tracks.
+               - `PRESET-VIDEO-4` - Use one content key to encrypt all of the SD video tracks, one content key for HD video tracks, one content key for all UHD1 video tracks and one content key for all UHD2 video tracks.
+               - `PRESET-VIDEO-5` - Use one content key to encrypt all of the SD video tracks, one content key for HD1 video tracks, one content key for HD2 video tracks, one content key for all UHD1 video tracks and one content key for all UHD2 video tracks.
+               - `PRESET-VIDEO-6` - Use one content key to encrypt all of the SD video tracks, one content key for HD1 video tracks, one content key for HD2 video tracks and one content key for all UHD video tracks.
+               - `PRESET-VIDEO-7` - Use one content key to encrypt all of the SD+HD1 video tracks, one content key for HD2 video tracks and one content key for all UHD video tracks.
+               - `PRESET-VIDEO-8` - Use one content key to encrypt all of the SD+HD1 video tracks, one content key for HD2 video tracks, one content key for all UHD1 video tracks and one content key for all UHD2 video tracks.
+               - `SHARED` - Use the same content key for all of the video and audio tracks in your stream.
+               - `UNENCRYPTED` - Don't encrypt any of the video tracks in your stream.
         """
         pulumi.set(__self__, "preset_speke20_audio", preset_speke20_audio)
         pulumi.set(__self__, "preset_speke20_video", preset_speke20_video)
@@ -379,6 +409,21 @@ class OriginEndpointEncryptionContractConfigurationArgs:
     def preset_speke20_video(self) -> pulumi.Input['OriginEndpointPresetSpeke20Video']:
         """
         The SPEKE Version 2.0 preset video associated with the encryption contract configuration of the origin endpoint.
+
+        A collection of video encryption presets.
+
+        Value description:
+
+        - `PRESET-VIDEO-1` - Use one content key to encrypt all of the video tracks in your stream.
+        - `PRESET-VIDEO-2` - Use one content key to encrypt all of the SD video tracks and one content key for all HD and higher resolutions video tracks.
+        - `PRESET-VIDEO-3` - Use one content key to encrypt all of the SD video tracks, one content key for HD video tracks and one content key for all UHD video tracks.
+        - `PRESET-VIDEO-4` - Use one content key to encrypt all of the SD video tracks, one content key for HD video tracks, one content key for all UHD1 video tracks and one content key for all UHD2 video tracks.
+        - `PRESET-VIDEO-5` - Use one content key to encrypt all of the SD video tracks, one content key for HD1 video tracks, one content key for HD2 video tracks, one content key for all UHD1 video tracks and one content key for all UHD2 video tracks.
+        - `PRESET-VIDEO-6` - Use one content key to encrypt all of the SD video tracks, one content key for HD1 video tracks, one content key for HD2 video tracks and one content key for all UHD video tracks.
+        - `PRESET-VIDEO-7` - Use one content key to encrypt all of the SD+HD1 video tracks, one content key for HD2 video tracks and one content key for all UHD video tracks.
+        - `PRESET-VIDEO-8` - Use one content key to encrypt all of the SD+HD1 video tracks, one content key for HD2 video tracks, one content key for all UHD1 video tracks and one content key for all UHD2 video tracks.
+        - `SHARED` - Use the same content key for all of the video and audio tracks in your stream.
+        - `UNENCRYPTED` - Don't encrypt any of the video tracks in your stream.
         """
         return pulumi.get(self, "preset_speke20_video")
 

@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2.Inputs
     /// </summary>
     public sealed class CampaignTimeWindowArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The open hours configuration.
+        /// </summary>
         [Input("openHours", required: true)]
         public Input<Inputs.CampaignOpenHoursArgs> OpenHours { get; set; } = null!;
 
+        /// <summary>
+        /// The restricted periods configuration.
+        /// </summary>
         [Input("restrictedPeriods")]
         public Input<Inputs.CampaignRestrictedPeriodsArgs>? RestrictedPeriods { get; set; }
 

@@ -3011,6 +3011,9 @@ class LoadBalancerAttributeArgs:
 if not MYPY:
     class LoadBalancerMinimumLoadBalancerCapacityArgsDict(TypedDict):
         capacity_units: pulumi.Input[int]
+        """
+        The number of capacity units.
+        """
 elif False:
     LoadBalancerMinimumLoadBalancerCapacityArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -3018,11 +3021,17 @@ elif False:
 class LoadBalancerMinimumLoadBalancerCapacityArgs:
     def __init__(__self__, *,
                  capacity_units: pulumi.Input[int]):
+        """
+        :param pulumi.Input[int] capacity_units: The number of capacity units.
+        """
         pulumi.set(__self__, "capacity_units", capacity_units)
 
     @property
     @pulumi.getter(name="capacityUnits")
     def capacity_units(self) -> pulumi.Input[int]:
+        """
+        The number of capacity units.
+        """
         return pulumi.get(self, "capacity_units")
 
     @capacity_units.setter

@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.Wisdom.Outputs
     [OutputType]
     public sealed class KnowledgeBaseSemanticChunkingConfiguration
     {
+        /// <summary>
+        /// The dissimilarity threshold for splitting chunks.
+        /// </summary>
         public readonly double BreakpointPercentileThreshold;
+        /// <summary>
+        /// The buffer size.
+        /// </summary>
         public readonly double BufferSize;
+        /// <summary>
+        /// The maximum number of tokens that a chunk can contain.
+        /// </summary>
         public readonly double MaxTokens;
 
         [OutputConstructor]

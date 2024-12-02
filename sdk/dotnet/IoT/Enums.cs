@@ -1087,6 +1087,9 @@ namespace Pulumi.AwsNative.IoT
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The attribute associated with the connection details.
+    /// </summary>
     [EnumType]
     public readonly struct ThingTypePropagatingAttributeConnectionAttribute : IEquatable<ThingTypePropagatingAttributeConnectionAttribute>
     {

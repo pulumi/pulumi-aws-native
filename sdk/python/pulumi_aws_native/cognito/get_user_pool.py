@@ -346,6 +346,9 @@ class GetUserPoolResult:
     @property
     @pulumi.getter(name="userPoolTier")
     def user_pool_tier(self) -> Optional['UserPoolTier']:
+        """
+        The user pool [feature plan](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-sign-in-feature-plans.html) , or tier. This parameter determines the eligibility of the user pool for features like managed login, access-token customization, and threat protection. Defaults to `ESSENTIALS` .
+        """
         return pulumi.get(self, "user_pool_tier")
 
     @property

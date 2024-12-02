@@ -21,11 +21,14 @@ type UserPoolDomain struct {
 	// The Amazon CloudFront endpoint that you use as the target of the alias that you set up with your Domain Name Service (DNS) provider.
 	CloudFrontDistribution pulumi.StringOutput `pulumi:"cloudFrontDistribution"`
 	// The configuration for a custom domain that hosts the sign-up and sign-in pages for your application. Use this object to specify an SSL certificate that is managed by ACM.
+	//
+	// When you create a custom domain, the passkey RP ID defaults to the custom domain. If you had a prefix domain active, this will cause passkey integration for your prefix domain to stop working due to a mismatch in RP ID. To keep the prefix domain passkey integration working, you can explicitly set RP ID to the prefix domain. Update the RP ID in a [SetUserPoolMfaConfig](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SetUserPoolMfaConfig.html) request.
 	CustomDomainConfig UserPoolDomainCustomDomainConfigTypePtrOutput `pulumi:"customDomainConfig"`
 	// The domain name for the custom domain that hosts the sign-up and sign-in pages for your application. One example might be `auth.example.com` .
 	//
 	// This string can include only lowercase letters, numbers, and hyphens. Don't use a hyphen for the first or last character. Use periods to separate subdomain names.
-	Domain pulumi.StringOutput `pulumi:"domain"`
+	Domain              pulumi.StringOutput `pulumi:"domain"`
+	ManagedLoginVersion pulumi.IntPtrOutput `pulumi:"managedLoginVersion"`
 	// The ID of the user pool that is associated with the custom domain whose certificate you're updating.
 	UserPoolId pulumi.StringOutput `pulumi:"userPoolId"`
 }
@@ -82,11 +85,14 @@ func (UserPoolDomainState) ElementType() reflect.Type {
 
 type userPoolDomainArgs struct {
 	// The configuration for a custom domain that hosts the sign-up and sign-in pages for your application. Use this object to specify an SSL certificate that is managed by ACM.
+	//
+	// When you create a custom domain, the passkey RP ID defaults to the custom domain. If you had a prefix domain active, this will cause passkey integration for your prefix domain to stop working due to a mismatch in RP ID. To keep the prefix domain passkey integration working, you can explicitly set RP ID to the prefix domain. Update the RP ID in a [SetUserPoolMfaConfig](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SetUserPoolMfaConfig.html) request.
 	CustomDomainConfig *UserPoolDomainCustomDomainConfigType `pulumi:"customDomainConfig"`
 	// The domain name for the custom domain that hosts the sign-up and sign-in pages for your application. One example might be `auth.example.com` .
 	//
 	// This string can include only lowercase letters, numbers, and hyphens. Don't use a hyphen for the first or last character. Use periods to separate subdomain names.
-	Domain string `pulumi:"domain"`
+	Domain              string `pulumi:"domain"`
+	ManagedLoginVersion *int   `pulumi:"managedLoginVersion"`
 	// The ID of the user pool that is associated with the custom domain whose certificate you're updating.
 	UserPoolId string `pulumi:"userPoolId"`
 }
@@ -94,11 +100,14 @@ type userPoolDomainArgs struct {
 // The set of arguments for constructing a UserPoolDomain resource.
 type UserPoolDomainArgs struct {
 	// The configuration for a custom domain that hosts the sign-up and sign-in pages for your application. Use this object to specify an SSL certificate that is managed by ACM.
+	//
+	// When you create a custom domain, the passkey RP ID defaults to the custom domain. If you had a prefix domain active, this will cause passkey integration for your prefix domain to stop working due to a mismatch in RP ID. To keep the prefix domain passkey integration working, you can explicitly set RP ID to the prefix domain. Update the RP ID in a [SetUserPoolMfaConfig](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SetUserPoolMfaConfig.html) request.
 	CustomDomainConfig UserPoolDomainCustomDomainConfigTypePtrInput
 	// The domain name for the custom domain that hosts the sign-up and sign-in pages for your application. One example might be `auth.example.com` .
 	//
 	// This string can include only lowercase letters, numbers, and hyphens. Don't use a hyphen for the first or last character. Use periods to separate subdomain names.
-	Domain pulumi.StringInput
+	Domain              pulumi.StringInput
+	ManagedLoginVersion pulumi.IntPtrInput
 	// The ID of the user pool that is associated with the custom domain whose certificate you're updating.
 	UserPoolId pulumi.StringInput
 }
@@ -151,6 +160,8 @@ func (o UserPoolDomainOutput) CloudFrontDistribution() pulumi.StringOutput {
 }
 
 // The configuration for a custom domain that hosts the sign-up and sign-in pages for your application. Use this object to specify an SSL certificate that is managed by ACM.
+//
+// When you create a custom domain, the passkey RP ID defaults to the custom domain. If you had a prefix domain active, this will cause passkey integration for your prefix domain to stop working due to a mismatch in RP ID. To keep the prefix domain passkey integration working, you can explicitly set RP ID to the prefix domain. Update the RP ID in a [SetUserPoolMfaConfig](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SetUserPoolMfaConfig.html) request.
 func (o UserPoolDomainOutput) CustomDomainConfig() UserPoolDomainCustomDomainConfigTypePtrOutput {
 	return o.ApplyT(func(v *UserPoolDomain) UserPoolDomainCustomDomainConfigTypePtrOutput { return v.CustomDomainConfig }).(UserPoolDomainCustomDomainConfigTypePtrOutput)
 }
@@ -160,6 +171,10 @@ func (o UserPoolDomainOutput) CustomDomainConfig() UserPoolDomainCustomDomainCon
 // This string can include only lowercase letters, numbers, and hyphens. Don't use a hyphen for the first or last character. Use periods to separate subdomain names.
 func (o UserPoolDomainOutput) Domain() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserPoolDomain) pulumi.StringOutput { return v.Domain }).(pulumi.StringOutput)
+}
+
+func (o UserPoolDomainOutput) ManagedLoginVersion() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *UserPoolDomain) pulumi.IntPtrOutput { return v.ManagedLoginVersion }).(pulumi.IntPtrOutput)
 }
 
 // The ID of the user pool that is associated with the custom domain whose certificate you're updating.

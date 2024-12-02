@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2.Inputs
     /// </summary>
     public sealed class CampaignCommunicationLimitsConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The CommunicationLimits that apply to all channel subtypes defined in an outbound campaign.
+        /// </summary>
         [Input("allChannelsSubtypes")]
         public Input<Inputs.CampaignCommunicationLimitsArgs>? AllChannelsSubtypes { get; set; }
 

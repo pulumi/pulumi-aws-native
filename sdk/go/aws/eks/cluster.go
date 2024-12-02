@@ -28,7 +28,8 @@ type Cluster struct {
 	// The certificate-authority-data for your cluster.
 	CertificateAuthorityData pulumi.StringOutput `pulumi:"certificateAuthorityData"`
 	// The cluster security group that was created by Amazon EKS for the cluster. Managed node groups use this security group for control plane to data plane communication.
-	ClusterSecurityGroupId pulumi.StringOutput `pulumi:"clusterSecurityGroupId"`
+	ClusterSecurityGroupId pulumi.StringOutput           `pulumi:"clusterSecurityGroupId"`
+	ComputeConfig          ClusterComputeConfigPtrOutput `pulumi:"computeConfig"`
 	// The encryption configuration for the cluster.
 	EncryptionConfig ClusterEncryptionConfigArrayOutput `pulumi:"encryptionConfig"`
 	// Amazon Resource Name (ARN) or alias of the customer master key (CMK).
@@ -44,11 +45,13 @@ type Cluster struct {
 	// The issuer URL for the cluster's OIDC identity provider, such as https://oidc.eks.us-west-2.amazonaws.com/id/EXAMPLED539D4633E53DE1B716D3041E. If you need to remove https:// from this output value, you can include the following code in your template.
 	OpenIdConnectIssuerUrl pulumi.StringOutput `pulumi:"openIdConnectIssuerUrl"`
 	// An object representing the configuration of your local Amazon EKS cluster on an AWS Outpost. This object isn't available for clusters on the AWS cloud.
-	OutpostConfig ClusterOutpostConfigPtrOutput `pulumi:"outpostConfig"`
+	OutpostConfig       ClusterOutpostConfigPtrOutput       `pulumi:"outpostConfig"`
+	RemoteNetworkConfig ClusterRemoteNetworkConfigPtrOutput `pulumi:"remoteNetworkConfig"`
 	// The VPC configuration that's used by the cluster control plane. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the *Amazon EKS User Guide* . You must specify at least two subnets. You can specify up to five security groups, but we recommend that you use a dedicated security group for your cluster control plane.
 	ResourcesVpcConfig ClusterResourcesVpcConfigOutput `pulumi:"resourcesVpcConfig"`
 	// The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
-	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
+	RoleArn       pulumi.StringOutput           `pulumi:"roleArn"`
+	StorageConfig ClusterStorageConfigPtrOutput `pulumi:"storageConfig"`
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// This value indicates if extended support is enabled or disabled for the cluster.
@@ -81,6 +84,7 @@ func NewCluster(ctx *pulumi.Context,
 		"kubernetesNetworkConfig",
 		"name",
 		"outpostConfig",
+		"remoteNetworkConfig",
 		"roleArn",
 	})
 	opts = append(opts, replaceOnChanges)
@@ -120,7 +124,8 @@ type clusterArgs struct {
 	// The access configuration for the cluster.
 	AccessConfig *ClusterAccessConfig `pulumi:"accessConfig"`
 	// Set this value to false to avoid creating the default networking add-ons when the cluster is created.
-	BootstrapSelfManagedAddons *bool `pulumi:"bootstrapSelfManagedAddons"`
+	BootstrapSelfManagedAddons *bool                 `pulumi:"bootstrapSelfManagedAddons"`
+	ComputeConfig              *ClusterComputeConfig `pulumi:"computeConfig"`
 	// The encryption configuration for the cluster.
 	EncryptionConfig []ClusterEncryptionConfig `pulumi:"encryptionConfig"`
 	// The Kubernetes network configuration for the cluster.
@@ -130,11 +135,13 @@ type clusterArgs struct {
 	// The unique name to give to your cluster.
 	Name *string `pulumi:"name"`
 	// An object representing the configuration of your local Amazon EKS cluster on an AWS Outpost. This object isn't available for clusters on the AWS cloud.
-	OutpostConfig *ClusterOutpostConfig `pulumi:"outpostConfig"`
+	OutpostConfig       *ClusterOutpostConfig       `pulumi:"outpostConfig"`
+	RemoteNetworkConfig *ClusterRemoteNetworkConfig `pulumi:"remoteNetworkConfig"`
 	// The VPC configuration that's used by the cluster control plane. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the *Amazon EKS User Guide* . You must specify at least two subnets. You can specify up to five security groups, but we recommend that you use a dedicated security group for your cluster control plane.
 	ResourcesVpcConfig ClusterResourcesVpcConfig `pulumi:"resourcesVpcConfig"`
 	// The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
-	RoleArn string `pulumi:"roleArn"`
+	RoleArn       string                `pulumi:"roleArn"`
+	StorageConfig *ClusterStorageConfig `pulumi:"storageConfig"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
 	// This value indicates if extended support is enabled or disabled for the cluster.
@@ -153,6 +160,7 @@ type ClusterArgs struct {
 	AccessConfig ClusterAccessConfigPtrInput
 	// Set this value to false to avoid creating the default networking add-ons when the cluster is created.
 	BootstrapSelfManagedAddons pulumi.BoolPtrInput
+	ComputeConfig              ClusterComputeConfigPtrInput
 	// The encryption configuration for the cluster.
 	EncryptionConfig ClusterEncryptionConfigArrayInput
 	// The Kubernetes network configuration for the cluster.
@@ -162,11 +170,13 @@ type ClusterArgs struct {
 	// The unique name to give to your cluster.
 	Name pulumi.StringPtrInput
 	// An object representing the configuration of your local Amazon EKS cluster on an AWS Outpost. This object isn't available for clusters on the AWS cloud.
-	OutpostConfig ClusterOutpostConfigPtrInput
+	OutpostConfig       ClusterOutpostConfigPtrInput
+	RemoteNetworkConfig ClusterRemoteNetworkConfigPtrInput
 	// The VPC configuration that's used by the cluster control plane. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the *Amazon EKS User Guide* . You must specify at least two subnets. You can specify up to five security groups, but we recommend that you use a dedicated security group for your cluster control plane.
 	ResourcesVpcConfig ClusterResourcesVpcConfigInput
 	// The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
-	RoleArn pulumi.StringInput
+	RoleArn       pulumi.StringInput
+	StorageConfig ClusterStorageConfigPtrInput
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayInput
 	// This value indicates if extended support is enabled or disabled for the cluster.
@@ -246,6 +256,10 @@ func (o ClusterOutput) ClusterSecurityGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ClusterSecurityGroupId }).(pulumi.StringOutput)
 }
 
+func (o ClusterOutput) ComputeConfig() ClusterComputeConfigPtrOutput {
+	return o.ApplyT(func(v *Cluster) ClusterComputeConfigPtrOutput { return v.ComputeConfig }).(ClusterComputeConfigPtrOutput)
+}
+
 // The encryption configuration for the cluster.
 func (o ClusterOutput) EncryptionConfig() ClusterEncryptionConfigArrayOutput {
 	return o.ApplyT(func(v *Cluster) ClusterEncryptionConfigArrayOutput { return v.EncryptionConfig }).(ClusterEncryptionConfigArrayOutput)
@@ -286,6 +300,10 @@ func (o ClusterOutput) OutpostConfig() ClusterOutpostConfigPtrOutput {
 	return o.ApplyT(func(v *Cluster) ClusterOutpostConfigPtrOutput { return v.OutpostConfig }).(ClusterOutpostConfigPtrOutput)
 }
 
+func (o ClusterOutput) RemoteNetworkConfig() ClusterRemoteNetworkConfigPtrOutput {
+	return o.ApplyT(func(v *Cluster) ClusterRemoteNetworkConfigPtrOutput { return v.RemoteNetworkConfig }).(ClusterRemoteNetworkConfigPtrOutput)
+}
+
 // The VPC configuration that's used by the cluster control plane. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the *Amazon EKS User Guide* . You must specify at least two subnets. You can specify up to five security groups, but we recommend that you use a dedicated security group for your cluster control plane.
 func (o ClusterOutput) ResourcesVpcConfig() ClusterResourcesVpcConfigOutput {
 	return o.ApplyT(func(v *Cluster) ClusterResourcesVpcConfigOutput { return v.ResourcesVpcConfig }).(ClusterResourcesVpcConfigOutput)
@@ -294,6 +312,10 @@ func (o ClusterOutput) ResourcesVpcConfig() ClusterResourcesVpcConfigOutput {
 // The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
 func (o ClusterOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+func (o ClusterOutput) StorageConfig() ClusterStorageConfigPtrOutput {
+	return o.ApplyT(func(v *Cluster) ClusterStorageConfigPtrOutput { return v.StorageConfig }).(ClusterStorageConfigPtrOutput)
 }
 
 // An array of key-value pairs to apply to this resource.

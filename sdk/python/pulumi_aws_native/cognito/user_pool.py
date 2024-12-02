@@ -98,6 +98,7 @@ class UserPoolArgs:
                For more information, see [Adding advanced security to a user pool](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-advanced-security.html) .
         :param pulumi.Input[str] user_pool_name: A string used to name the user pool.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] user_pool_tags: The tag keys and values to assign to the user pool. A tag is a label that you can use to categorize and manage user pools in different ways, such as by purpose, owner, environment, or other criteria.
+        :param pulumi.Input['UserPoolTier'] user_pool_tier: The user pool [feature plan](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-sign-in-feature-plans.html) , or tier. This parameter determines the eligibility of the user pool for features like managed login, access-token customization, and threat protection. Defaults to `ESSENTIALS` .
         :param pulumi.Input[Sequence[pulumi.Input[str]]] username_attributes: Specifies whether a user can use an email address or phone number as a username when they sign up.
         :param pulumi.Input['UserPoolUsernameConfigurationArgs'] username_configuration: Case sensitivity on the username input for the selected sign-in option. When case sensitivity is set to `False` (case insensitive), users can sign in with any combination of capital and lowercase letters. For example, `username` , `USERNAME` , or `UserName` , or for email, `email@example.com` or `EMaiL@eXamplE.Com` . For most use cases, set case sensitivity to `False` (case insensitive) as a best practice. When usernames and email addresses are case insensitive, Amazon Cognito treats any variation in case as the same user, and prevents a case variation from being assigned to the same attribute for a different user.
                
@@ -462,6 +463,9 @@ class UserPoolArgs:
     @property
     @pulumi.getter(name="userPoolTier")
     def user_pool_tier(self) -> Optional[pulumi.Input['UserPoolTier']]:
+        """
+        The user pool [feature plan](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-sign-in-feature-plans.html) , or tier. This parameter determines the eligibility of the user pool for features like managed login, access-token customization, and threat protection. Defaults to `ESSENTIALS` .
+        """
         return pulumi.get(self, "user_pool_tier")
 
     @user_pool_tier.setter
@@ -612,6 +616,7 @@ class UserPool(pulumi.CustomResource):
                For more information, see [Adding advanced security to a user pool](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-advanced-security.html) .
         :param pulumi.Input[str] user_pool_name: A string used to name the user pool.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] user_pool_tags: The tag keys and values to assign to the user pool. A tag is a label that you can use to categorize and manage user pools in different ways, such as by purpose, owner, environment, or other criteria.
+        :param pulumi.Input['UserPoolTier'] user_pool_tier: The user pool [feature plan](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-sign-in-feature-plans.html) , or tier. This parameter determines the eligibility of the user pool for features like managed login, access-token customization, and threat protection. Defaults to `ESSENTIALS` .
         :param pulumi.Input[Sequence[pulumi.Input[str]]] username_attributes: Specifies whether a user can use an email address or phone number as a username when they sign up.
         :param pulumi.Input[Union['UserPoolUsernameConfigurationArgs', 'UserPoolUsernameConfigurationArgsDict']] username_configuration: Case sensitivity on the username input for the selected sign-in option. When case sensitivity is set to `False` (case insensitive), users can sign in with any combination of capital and lowercase letters. For example, `username` , `USERNAME` , or `UserName` , or for email, `email@example.com` or `EMaiL@eXamplE.Com` . For most use cases, set case sensitivity to `False` (case insensitive) as a best practice. When usernames and email addresses are case insensitive, Amazon Cognito treats any variation in case as the same user, and prevents a case variation from being assigned to the same attribute for a different user.
                
@@ -1009,6 +1014,9 @@ class UserPool(pulumi.CustomResource):
     @property
     @pulumi.getter(name="userPoolTier")
     def user_pool_tier(self) -> pulumi.Output[Optional['UserPoolTier']]:
+        """
+        The user pool [feature plan](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-sign-in-feature-plans.html) , or tier. This parameter determines the eligibility of the user pool for features like managed login, access-token customization, and threat protection. Defaults to `ESSENTIALS` .
+        """
         return pulumi.get(self, "user_pool_tier")
 
     @property

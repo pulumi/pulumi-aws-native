@@ -48,6 +48,12 @@ class CustomActionAttachment(dict):
                  criteria: Optional[Sequence['outputs.CustomActionAttachmentCriteria']] = None,
                  notification_type: Optional[str] = None,
                  variables: Optional[Mapping[str, str]] = None):
+        """
+        :param str button_text: The text of the button that appears on the notification.
+        :param Sequence['CustomActionAttachmentCriteria'] criteria: The criteria for when a button should be shown based on values in the notification.
+        :param str notification_type: The type of notification that the custom action should be attached to.
+        :param Mapping[str, str] variables: The variables to extract from the notification.
+        """
         if button_text is not None:
             pulumi.set(__self__, "button_text", button_text)
         if criteria is not None:
@@ -60,21 +66,33 @@ class CustomActionAttachment(dict):
     @property
     @pulumi.getter(name="buttonText")
     def button_text(self) -> Optional[str]:
+        """
+        The text of the button that appears on the notification.
+        """
         return pulumi.get(self, "button_text")
 
     @property
     @pulumi.getter
     def criteria(self) -> Optional[Sequence['outputs.CustomActionAttachmentCriteria']]:
+        """
+        The criteria for when a button should be shown based on values in the notification.
+        """
         return pulumi.get(self, "criteria")
 
     @property
     @pulumi.getter(name="notificationType")
     def notification_type(self) -> Optional[str]:
+        """
+        The type of notification that the custom action should be attached to.
+        """
         return pulumi.get(self, "notification_type")
 
     @property
     @pulumi.getter
     def variables(self) -> Optional[Mapping[str, str]]:
+        """
+        The variables to extract from the notification.
+        """
         return pulumi.get(self, "variables")
 
 
@@ -101,6 +119,11 @@ class CustomActionAttachmentCriteria(dict):
                  operator: 'CustomActionAttachmentCriteriaOperator',
                  variable_name: str,
                  value: Optional[str] = None):
+        """
+        :param 'CustomActionAttachmentCriteriaOperator' operator: The operation to perform on the named variable.
+        :param str variable_name: The name of the variable to operate on.
+        :param str value: A value that is compared with the actual value of the variable based on the behavior of the operator.
+        """
         pulumi.set(__self__, "operator", operator)
         pulumi.set(__self__, "variable_name", variable_name)
         if value is not None:
@@ -109,16 +132,25 @@ class CustomActionAttachmentCriteria(dict):
     @property
     @pulumi.getter
     def operator(self) -> 'CustomActionAttachmentCriteriaOperator':
+        """
+        The operation to perform on the named variable.
+        """
         return pulumi.get(self, "operator")
 
     @property
     @pulumi.getter(name="variableName")
     def variable_name(self) -> str:
+        """
+        The name of the variable to operate on.
+        """
         return pulumi.get(self, "variable_name")
 
     @property
     @pulumi.getter
     def value(self) -> Optional[str]:
+        """
+        A value that is compared with the actual value of the variable based on the behavior of the operator.
+        """
         return pulumi.get(self, "value")
 
 
@@ -143,11 +175,17 @@ class CustomActionDefinition(dict):
 
     def __init__(__self__, *,
                  command_text: str):
+        """
+        :param str command_text: The command string to run which may include variables by prefixing with a dollar sign ($).
+        """
         pulumi.set(__self__, "command_text", command_text)
 
     @property
     @pulumi.getter(name="commandText")
     def command_text(self) -> str:
+        """
+        The command string to run which may include variables by prefixing with a dollar sign ($).
+        """
         return pulumi.get(self, "command_text")
 
 

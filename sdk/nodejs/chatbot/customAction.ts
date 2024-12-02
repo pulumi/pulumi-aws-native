@@ -37,11 +37,29 @@ export class CustomAction extends pulumi.CustomResource {
         return obj['__pulumiType'] === CustomAction.__pulumiType;
     }
 
+    /**
+     * The name of the custom action. This name is included in the Amazon Resource Name (ARN).
+     */
     public readonly actionName!: pulumi.Output<string>;
+    /**
+     * The name used to invoke this action in a chat channel. For example, `@aws run my-alias` .
+     */
     public readonly aliasName!: pulumi.Output<string | undefined>;
+    /**
+     * Defines when this custom action button should be attached to a notification.
+     */
     public readonly attachments!: pulumi.Output<outputs.chatbot.CustomActionAttachment[] | undefined>;
+    /**
+     * The fully defined ARN of the custom action.
+     */
     public /*out*/ readonly customActionArn!: pulumi.Output<string>;
+    /**
+     * The definition of the command to run when invoked as an alias or as an action button.
+     */
     public readonly definition!: pulumi.Output<outputs.chatbot.CustomActionDefinition>;
+    /**
+     * The tags to add to the configuration.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
@@ -83,9 +101,24 @@ export class CustomAction extends pulumi.CustomResource {
  * The set of arguments for constructing a CustomAction resource.
  */
 export interface CustomActionArgs {
+    /**
+     * The name of the custom action. This name is included in the Amazon Resource Name (ARN).
+     */
     actionName?: pulumi.Input<string>;
+    /**
+     * The name used to invoke this action in a chat channel. For example, `@aws run my-alias` .
+     */
     aliasName?: pulumi.Input<string>;
+    /**
+     * Defines when this custom action button should be attached to a notification.
+     */
     attachments?: pulumi.Input<pulumi.Input<inputs.chatbot.CustomActionAttachmentArgs>[]>;
+    /**
+     * The definition of the command to run when invoked as an alias or as an action button.
+     */
     definition: pulumi.Input<inputs.chatbot.CustomActionDefinitionArgs>;
+    /**
+     * The tags to add to the configuration.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

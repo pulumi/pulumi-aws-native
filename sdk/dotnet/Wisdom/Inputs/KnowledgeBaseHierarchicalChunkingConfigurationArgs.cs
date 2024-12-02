@@ -14,12 +14,19 @@ namespace Pulumi.AwsNative.Wisdom.Inputs
     {
         [Input("levelConfigurations", required: true)]
         private InputList<Inputs.KnowledgeBaseHierarchicalChunkingLevelConfigurationArgs>? _levelConfigurations;
+
+        /// <summary>
+        /// Token settings for each layer.
+        /// </summary>
         public InputList<Inputs.KnowledgeBaseHierarchicalChunkingLevelConfigurationArgs> LevelConfigurations
         {
             get => _levelConfigurations ?? (_levelConfigurations = new InputList<Inputs.KnowledgeBaseHierarchicalChunkingLevelConfigurationArgs>());
             set => _levelConfigurations = value;
         }
 
+        /// <summary>
+        /// The number of tokens to repeat across chunks in the same layer.
+        /// </summary>
         [Input("overlapTokens", required: true)]
         public Input<double> OverlapTokens { get; set; } = null!;
 

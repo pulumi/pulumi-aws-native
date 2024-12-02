@@ -5268,6 +5268,7 @@ func (o LoadBalancerAttributeArrayOutput) Index(i pulumi.IntInput) LoadBalancerA
 }
 
 type LoadBalancerMinimumLoadBalancerCapacity struct {
+	// The number of capacity units.
 	CapacityUnits int `pulumi:"capacityUnits"`
 }
 
@@ -5283,6 +5284,7 @@ type LoadBalancerMinimumLoadBalancerCapacityInput interface {
 }
 
 type LoadBalancerMinimumLoadBalancerCapacityArgs struct {
+	// The number of capacity units.
 	CapacityUnits pulumi.IntInput `pulumi:"capacityUnits"`
 }
 
@@ -5363,6 +5365,7 @@ func (o LoadBalancerMinimumLoadBalancerCapacityOutput) ToLoadBalancerMinimumLoad
 	}).(LoadBalancerMinimumLoadBalancerCapacityPtrOutput)
 }
 
+// The number of capacity units.
 func (o LoadBalancerMinimumLoadBalancerCapacityOutput) CapacityUnits() pulumi.IntOutput {
 	return o.ApplyT(func(v LoadBalancerMinimumLoadBalancerCapacity) int { return v.CapacityUnits }).(pulumi.IntOutput)
 }
@@ -5391,6 +5394,7 @@ func (o LoadBalancerMinimumLoadBalancerCapacityPtrOutput) Elem() LoadBalancerMin
 	}).(LoadBalancerMinimumLoadBalancerCapacityOutput)
 }
 
+// The number of capacity units.
 func (o LoadBalancerMinimumLoadBalancerCapacityPtrOutput) CapacityUnits() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LoadBalancerMinimumLoadBalancerCapacity) *int {
 		if v == nil {

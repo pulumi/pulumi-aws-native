@@ -98,7 +98,7 @@ type LookupUserPoolClientResult struct {
 	//
 	// App callback URLs such as myapp://example are also supported.
 	DefaultRedirectUri *string `pulumi:"defaultRedirectUri"`
-	// Activates the propagation of additional user context data. For more information about propagation of user context data, see [Adding advanced security to a user pool](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-advanced-security.html) . If you don’t include this parameter, you can't send device fingerprint information, including source IP address, to Amazon Cognito advanced security. You can only activate `EnablePropagateAdditionalUserContextData` in an app client that has a client secret.
+	// Activates the propagation of additional user context data. For more information about propagation of user context data, see [Adding advanced security to a user pool](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-threat-protection.html) . If you don’t include this parameter, you can't send device fingerprint information, including source IP address, to Amazon Cognito advanced security. You can only activate `EnablePropagateAdditionalUserContextData` in an app client that has a client secret.
 	EnablePropagateAdditionalUserContextData *bool `pulumi:"enablePropagateAdditionalUserContextData"`
 	// Activates or deactivates token revocation. For more information about revoking tokens, see [RevokeToken](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_RevokeToken.html) .
 	//
@@ -110,6 +110,7 @@ type LookupUserPoolClientResult struct {
 	//
 	// Valid values include:
 	//
+	// - `ALLOW_USER_AUTH` : Enable selection-based sign-in with `USER_AUTH` . This setting covers username-password, secure remote password (SRP), passwordless, and passkey authentication. This authentiation flow can do username-password and SRP authentication without other `ExplicitAuthFlows` permitting them. For example users can complete an SRP challenge through `USER_AUTH` without the flow `USER_SRP_AUTH` being active for the app client. This flow doesn't include `CUSTOM_AUTH` .
 	// - `ALLOW_ADMIN_USER_PASSWORD_AUTH` : Enable admin based user password authentication flow `ADMIN_USER_PASSWORD_AUTH` . This setting replaces the `ADMIN_NO_SRP_AUTH` setting. With this authentication flow, your app passes a user name and password to Amazon Cognito in the request, instead of using the Secure Remote Password (SRP) protocol to securely transmit the password.
 	// - `ALLOW_CUSTOM_AUTH` : Enable Lambda trigger based authentication.
 	// - `ALLOW_USER_PASSWORD_AUTH` : Enable user password-based authentication. In this flow, Amazon Cognito receives the password in the request instead of using the SRP protocol to verify passwords.
@@ -155,6 +156,8 @@ type LookupUserPoolClientResult struct {
 	// tokens are valid for 30 days.
 	RefreshTokenValidity *int `pulumi:"refreshTokenValidity"`
 	// A list of provider names for the identity providers (IdPs) that are supported on this client. The following are supported: `COGNITO` , `Facebook` , `Google` , `SignInWithApple` , and `LoginWithAmazon` . You can also specify the names that you configured for the SAML and OIDC IdPs in your user pool, for example `MySAMLIdP` or `MyOIDCIdP` .
+	//
+	// This setting applies to providers that you can access with the [hosted UI and OAuth 2.0 authorization server](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-app-integration.html) . The removal of `COGNITO` from this list doesn't prevent authentication operations for local users with the user pools API in an AWS SDK. The only way to prevent API-based authentication is to block access with a [AWS WAF rule](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-waf.html) .
 	SupportedIdentityProviders []string `pulumi:"supportedIdentityProviders"`
 	// The units in which the validity times are represented. The default unit for RefreshToken is days, and default for ID and access tokens are hours.
 	TokenValidityUnits *UserPoolClientTokenValidityUnits `pulumi:"tokenValidityUnits"`
@@ -313,7 +316,7 @@ func (o LookupUserPoolClientResultOutput) DefaultRedirectUri() pulumi.StringPtrO
 	return o.ApplyT(func(v LookupUserPoolClientResult) *string { return v.DefaultRedirectUri }).(pulumi.StringPtrOutput)
 }
 
-// Activates the propagation of additional user context data. For more information about propagation of user context data, see [Adding advanced security to a user pool](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-advanced-security.html) . If you don’t include this parameter, you can't send device fingerprint information, including source IP address, to Amazon Cognito advanced security. You can only activate `EnablePropagateAdditionalUserContextData` in an app client that has a client secret.
+// Activates the propagation of additional user context data. For more information about propagation of user context data, see [Adding advanced security to a user pool](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-threat-protection.html) . If you don’t include this parameter, you can't send device fingerprint information, including source IP address, to Amazon Cognito advanced security. You can only activate `EnablePropagateAdditionalUserContextData` in an app client that has a client secret.
 func (o LookupUserPoolClientResultOutput) EnablePropagateAdditionalUserContextData() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupUserPoolClientResult) *bool { return v.EnablePropagateAdditionalUserContextData }).(pulumi.BoolPtrOutput)
 }
@@ -331,6 +334,7 @@ func (o LookupUserPoolClientResultOutput) EnableTokenRevocation() pulumi.BoolPtr
 //
 // Valid values include:
 //
+// - `ALLOW_USER_AUTH` : Enable selection-based sign-in with `USER_AUTH` . This setting covers username-password, secure remote password (SRP), passwordless, and passkey authentication. This authentiation flow can do username-password and SRP authentication without other `ExplicitAuthFlows` permitting them. For example users can complete an SRP challenge through `USER_AUTH` without the flow `USER_SRP_AUTH` being active for the app client. This flow doesn't include `CUSTOM_AUTH` .
 // - `ALLOW_ADMIN_USER_PASSWORD_AUTH` : Enable admin based user password authentication flow `ADMIN_USER_PASSWORD_AUTH` . This setting replaces the `ADMIN_NO_SRP_AUTH` setting. With this authentication flow, your app passes a user name and password to Amazon Cognito in the request, instead of using the Secure Remote Password (SRP) protocol to securely transmit the password.
 // - `ALLOW_CUSTOM_AUTH` : Enable Lambda trigger based authentication.
 // - `ALLOW_USER_PASSWORD_AUTH` : Enable user password-based authentication. In this flow, Amazon Cognito receives the password in the request instead of using the SRP protocol to verify passwords.
@@ -397,6 +401,8 @@ func (o LookupUserPoolClientResultOutput) RefreshTokenValidity() pulumi.IntPtrOu
 }
 
 // A list of provider names for the identity providers (IdPs) that are supported on this client. The following are supported: `COGNITO` , `Facebook` , `Google` , `SignInWithApple` , and `LoginWithAmazon` . You can also specify the names that you configured for the SAML and OIDC IdPs in your user pool, for example `MySAMLIdP` or `MyOIDCIdP` .
+//
+// This setting applies to providers that you can access with the [hosted UI and OAuth 2.0 authorization server](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-app-integration.html) . The removal of `COGNITO` from this list doesn't prevent authentication operations for local users with the user pools API in an AWS SDK. The only way to prevent API-based authentication is to block access with a [AWS WAF rule](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-waf.html) .
 func (o LookupUserPoolClientResultOutput) SupportedIdentityProviders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupUserPoolClientResult) []string { return v.SupportedIdentityProviders }).(pulumi.StringArrayOutput)
 }

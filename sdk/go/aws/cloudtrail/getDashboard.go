@@ -39,7 +39,8 @@ type LookupDashboardResult struct {
 	RefreshSchedule *DashboardRefreshSchedule `pulumi:"refreshSchedule"`
 	// The status of the dashboard. Values are CREATING, CREATED, UPDATING, UPDATED and DELETING.
 	Status *DashboardStatus `pulumi:"status"`
-	Tags   []aws.Tag        `pulumi:"tags"`
+	// A list of tags.
+	Tags []aws.Tag `pulumi:"tags"`
 	// Indicates whether the dashboard is protected from termination.
 	TerminationProtectionEnabled *bool `pulumi:"terminationProtectionEnabled"`
 	// The type of the dashboard. Values are CUSTOM and MANAGED.
@@ -117,6 +118,7 @@ func (o LookupDashboardResultOutput) Status() DashboardStatusPtrOutput {
 	return o.ApplyT(func(v LookupDashboardResult) *DashboardStatus { return v.Status }).(DashboardStatusPtrOutput)
 }
 
+// A list of tags.
 func (o LookupDashboardResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupDashboardResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

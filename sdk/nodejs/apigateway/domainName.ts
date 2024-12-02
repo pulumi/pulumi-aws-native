@@ -82,7 +82,7 @@ export class DomainName extends pulumi.CustomResource {
     }
 
     /**
-     * The reference to an AWS -managed certificate that will be used by edge-optimized endpoint for this domain name. AWS Certificate Manager is the only supported source.
+     * The reference to an AWS -managed certificate that will be used by edge-optimized endpoint or private endpoint for this domain name. AWS Certificate Manager is the only supported source.
      */
     public readonly certificateArn!: pulumi.Output<string | undefined>;
     /**
@@ -181,7 +181,7 @@ export class DomainName extends pulumi.CustomResource {
  */
 export interface DomainNameArgs {
     /**
-     * The reference to an AWS -managed certificate that will be used by edge-optimized endpoint for this domain name. AWS Certificate Manager is the only supported source.
+     * The reference to an AWS -managed certificate that will be used by edge-optimized endpoint or private endpoint for this domain name. AWS Certificate Manager is the only supported source.
      */
     certificateArn?: pulumi.Input<string>;
     /**

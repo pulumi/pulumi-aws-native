@@ -29,8 +29,17 @@ MYPY = False
 if not MYPY:
     class CustomActionAttachmentCriteriaArgsDict(TypedDict):
         operator: pulumi.Input['CustomActionAttachmentCriteriaOperator']
+        """
+        The operation to perform on the named variable.
+        """
         variable_name: pulumi.Input[str]
+        """
+        The name of the variable to operate on.
+        """
         value: NotRequired[pulumi.Input[str]]
+        """
+        A value that is compared with the actual value of the variable based on the behavior of the operator.
+        """
 elif False:
     CustomActionAttachmentCriteriaArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -40,6 +49,11 @@ class CustomActionAttachmentCriteriaArgs:
                  operator: pulumi.Input['CustomActionAttachmentCriteriaOperator'],
                  variable_name: pulumi.Input[str],
                  value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input['CustomActionAttachmentCriteriaOperator'] operator: The operation to perform on the named variable.
+        :param pulumi.Input[str] variable_name: The name of the variable to operate on.
+        :param pulumi.Input[str] value: A value that is compared with the actual value of the variable based on the behavior of the operator.
+        """
         pulumi.set(__self__, "operator", operator)
         pulumi.set(__self__, "variable_name", variable_name)
         if value is not None:
@@ -48,6 +62,9 @@ class CustomActionAttachmentCriteriaArgs:
     @property
     @pulumi.getter
     def operator(self) -> pulumi.Input['CustomActionAttachmentCriteriaOperator']:
+        """
+        The operation to perform on the named variable.
+        """
         return pulumi.get(self, "operator")
 
     @operator.setter
@@ -57,6 +74,9 @@ class CustomActionAttachmentCriteriaArgs:
     @property
     @pulumi.getter(name="variableName")
     def variable_name(self) -> pulumi.Input[str]:
+        """
+        The name of the variable to operate on.
+        """
         return pulumi.get(self, "variable_name")
 
     @variable_name.setter
@@ -66,6 +86,9 @@ class CustomActionAttachmentCriteriaArgs:
     @property
     @pulumi.getter
     def value(self) -> Optional[pulumi.Input[str]]:
+        """
+        A value that is compared with the actual value of the variable based on the behavior of the operator.
+        """
         return pulumi.get(self, "value")
 
     @value.setter
@@ -76,9 +99,21 @@ class CustomActionAttachmentCriteriaArgs:
 if not MYPY:
     class CustomActionAttachmentArgsDict(TypedDict):
         button_text: NotRequired[pulumi.Input[str]]
+        """
+        The text of the button that appears on the notification.
+        """
         criteria: NotRequired[pulumi.Input[Sequence[pulumi.Input['CustomActionAttachmentCriteriaArgsDict']]]]
+        """
+        The criteria for when a button should be shown based on values in the notification.
+        """
         notification_type: NotRequired[pulumi.Input[str]]
+        """
+        The type of notification that the custom action should be attached to.
+        """
         variables: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        The variables to extract from the notification.
+        """
 elif False:
     CustomActionAttachmentArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -89,6 +124,12 @@ class CustomActionAttachmentArgs:
                  criteria: Optional[pulumi.Input[Sequence[pulumi.Input['CustomActionAttachmentCriteriaArgs']]]] = None,
                  notification_type: Optional[pulumi.Input[str]] = None,
                  variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] button_text: The text of the button that appears on the notification.
+        :param pulumi.Input[Sequence[pulumi.Input['CustomActionAttachmentCriteriaArgs']]] criteria: The criteria for when a button should be shown based on values in the notification.
+        :param pulumi.Input[str] notification_type: The type of notification that the custom action should be attached to.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] variables: The variables to extract from the notification.
+        """
         if button_text is not None:
             pulumi.set(__self__, "button_text", button_text)
         if criteria is not None:
@@ -101,6 +142,9 @@ class CustomActionAttachmentArgs:
     @property
     @pulumi.getter(name="buttonText")
     def button_text(self) -> Optional[pulumi.Input[str]]:
+        """
+        The text of the button that appears on the notification.
+        """
         return pulumi.get(self, "button_text")
 
     @button_text.setter
@@ -110,6 +154,9 @@ class CustomActionAttachmentArgs:
     @property
     @pulumi.getter
     def criteria(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomActionAttachmentCriteriaArgs']]]]:
+        """
+        The criteria for when a button should be shown based on values in the notification.
+        """
         return pulumi.get(self, "criteria")
 
     @criteria.setter
@@ -119,6 +166,9 @@ class CustomActionAttachmentArgs:
     @property
     @pulumi.getter(name="notificationType")
     def notification_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of notification that the custom action should be attached to.
+        """
         return pulumi.get(self, "notification_type")
 
     @notification_type.setter
@@ -128,6 +178,9 @@ class CustomActionAttachmentArgs:
     @property
     @pulumi.getter
     def variables(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The variables to extract from the notification.
+        """
         return pulumi.get(self, "variables")
 
     @variables.setter
@@ -138,6 +191,9 @@ class CustomActionAttachmentArgs:
 if not MYPY:
     class CustomActionDefinitionArgsDict(TypedDict):
         command_text: pulumi.Input[str]
+        """
+        The command string to run which may include variables by prefixing with a dollar sign ($).
+        """
 elif False:
     CustomActionDefinitionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -145,11 +201,17 @@ elif False:
 class CustomActionDefinitionArgs:
     def __init__(__self__, *,
                  command_text: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] command_text: The command string to run which may include variables by prefixing with a dollar sign ($).
+        """
         pulumi.set(__self__, "command_text", command_text)
 
     @property
     @pulumi.getter(name="commandText")
     def command_text(self) -> pulumi.Input[str]:
+        """
+        The command string to run which may include variables by prefixing with a dollar sign ($).
+        """
         return pulumi.get(self, "command_text")
 
     @command_text.setter

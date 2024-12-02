@@ -17,6 +17,10 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2.Inputs
     {
         [Input("restrictedPeriodList")]
         private InputList<Inputs.CampaignRestrictedPeriodArgs>? _restrictedPeriodList;
+
+        /// <summary>
+        /// The restricted period list.
+        /// </summary>
         public InputList<Inputs.CampaignRestrictedPeriodArgs> RestrictedPeriodList
         {
             get => _restrictedPeriodList ?? (_restrictedPeriodList = new InputList<Inputs.CampaignRestrictedPeriodArgs>());

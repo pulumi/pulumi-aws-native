@@ -134,6 +134,9 @@ class GetPortalResult:
     @property
     @pulumi.getter(name="dataProtectionSettingsArn")
     def data_protection_settings_arn(self) -> Optional[str]:
+        """
+        The ARN of the data protection settings.
+        """
         return pulumi.get(self, "data_protection_settings_arn")
 
     @property

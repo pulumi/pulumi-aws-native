@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Chatbot.Inputs
 
     public sealed class CustomActionDefinitionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The command string to run which may include variables by prefixing with a dollar sign ($).
+        /// </summary>
         [Input("commandText", required: true)]
         public Input<string> CommandText { get; set; } = null!;
 

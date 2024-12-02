@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2.Outputs
     [OutputType]
     public sealed class CampaignOpenHours
     {
+        /// <summary>
+        /// The daily hours configuration.
+        /// </summary>
         public readonly ImmutableArray<Outputs.CampaignDailyHour> DailyHours;
 
         [OutputConstructor]

@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.IoT.Inputs
 
     public sealed class ThingTypePropagatingAttributeArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The attribute associated with the connection details.
+        /// </summary>
         [Input("connectionAttribute")]
         public Input<Pulumi.AwsNative.IoT.ThingTypePropagatingAttributeConnectionAttribute>? ConnectionAttribute { get; set; }
 
+        /// <summary>
+        /// The thing attribute that is propagating for MQTT 5 message enrichment.
+        /// </summary>
         [Input("thingAttribute")]
         public Input<string>? ThingAttribute { get; set; }
 
+        /// <summary>
+        /// The key of the MQTT 5 user property, which is a key-value pair.
+        /// </summary>
         [Input("userPropertyKey", required: true)]
         public Input<string> UserPropertyKey { get; set; } = null!;
 

@@ -29,15 +29,20 @@ type LookupDomainNameV2Args struct {
 }
 
 type LookupDomainNameV2Result struct {
+	// The reference to an AWS -managed certificate that will be used by the private endpoint for this domain name. AWS Certificate Manager is the only supported source.
 	CertificateArn *string `pulumi:"certificateArn"`
 	// The amazon resource name (ARN) of the domain name resource.
 	DomainNameArn *string `pulumi:"domainNameArn"`
-	DomainNameId  *string `pulumi:"domainNameId"`
+	// The domain name ID.
+	DomainNameId *string `pulumi:"domainNameId"`
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::DomainNameV2` for more information about the expected schema for this property.
 	ManagementPolicy interface{} `pulumi:"managementPolicy"`
+	// A stringified JSON policy document that applies to the `execute-api` service for this DomainName regardless of the caller and Method configuration. You can use `Fn::ToJsonString` to enter your `policy` . For more information, see [Fn::ToJsonString](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ToJsonString.html) .
+	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::DomainNameV2` for more information about the expected schema for this property.
 	Policy interface{} `pulumi:"policy"`
-	Tags   []aws.Tag   `pulumi:"tags"`
+	// The collection of tags. Each tag element is associated with a given resource.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupDomainNameV2Output(ctx *pulumi.Context, args LookupDomainNameV2OutputArgs, opts ...pulumi.InvokeOption) LookupDomainNameV2ResultOutput {
@@ -82,6 +87,7 @@ func (o LookupDomainNameV2ResultOutput) ToLookupDomainNameV2ResultOutputWithCont
 	return o
 }
 
+// The reference to an AWS -managed certificate that will be used by the private endpoint for this domain name. AWS Certificate Manager is the only supported source.
 func (o LookupDomainNameV2ResultOutput) CertificateArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDomainNameV2Result) *string { return v.CertificateArn }).(pulumi.StringPtrOutput)
 }
@@ -91,6 +97,7 @@ func (o LookupDomainNameV2ResultOutput) DomainNameArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDomainNameV2Result) *string { return v.DomainNameArn }).(pulumi.StringPtrOutput)
 }
 
+// The domain name ID.
 func (o LookupDomainNameV2ResultOutput) DomainNameId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDomainNameV2Result) *string { return v.DomainNameId }).(pulumi.StringPtrOutput)
 }
@@ -100,11 +107,14 @@ func (o LookupDomainNameV2ResultOutput) ManagementPolicy() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupDomainNameV2Result) interface{} { return v.ManagementPolicy }).(pulumi.AnyOutput)
 }
 
+// A stringified JSON policy document that applies to the `execute-api` service for this DomainName regardless of the caller and Method configuration. You can use `Fn::ToJsonString` to enter your `policy` . For more information, see [Fn::ToJsonString](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ToJsonString.html) .
+//
 // Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::DomainNameV2` for more information about the expected schema for this property.
 func (o LookupDomainNameV2ResultOutput) Policy() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupDomainNameV2Result) interface{} { return v.Policy }).(pulumi.AnyOutput)
 }
 
+// The collection of tags. Each tag element is associated with a given resource.
 func (o LookupDomainNameV2ResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupDomainNameV2Result) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

@@ -15,12 +15,18 @@ namespace Pulumi.AwsNative.Cognito
     [AwsNativeResourceType("aws-native:cognito:ManagedLoginBranding")]
     public partial class ManagedLoginBranding : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// An array of image files that you want to apply to roles like backgrounds, logos, and icons. Each object must also indicate whether it is for dark mode, light mode, or browser-adaptive mode.
+        /// </summary>
         [Output("assets")]
         public Output<ImmutableArray<Outputs.ManagedLoginBrandingAssetType>> Assets { get; private set; } = null!;
 
         [Output("clientId")]
         public Output<string?> ClientId { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the managed login branding style.
+        /// </summary>
         [Output("managedLoginBrandingId")]
         public Output<string> ManagedLoginBrandingId { get; private set; } = null!;
 
@@ -28,14 +34,22 @@ namespace Pulumi.AwsNative.Cognito
         public Output<bool?> ReturnMergedResources { get; private set; } = null!;
 
         /// <summary>
+        /// A JSON file, encoded as a `Document` type, with the the settings that you want to apply to your style.
+        /// 
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::ManagedLoginBranding` for more information about the expected schema for this property.
         /// </summary>
         [Output("settings")]
         public Output<object?> Settings { get; private set; } = null!;
 
+        /// <summary>
+        /// When true, applies the default branding style options. This option reverts to a "blank" style that you can modify later in the branding designer.
+        /// </summary>
         [Output("useCognitoProvidedValues")]
         public Output<bool?> UseCognitoProvidedValues { get; private set; } = null!;
 
+        /// <summary>
+        /// The user pool where the branding style is assigned.
+        /// </summary>
         [Output("userPoolId")]
         public Output<string> UserPoolId { get; private set; } = null!;
 
@@ -91,6 +105,10 @@ namespace Pulumi.AwsNative.Cognito
     {
         [Input("assets")]
         private InputList<Inputs.ManagedLoginBrandingAssetTypeArgs>? _assets;
+
+        /// <summary>
+        /// An array of image files that you want to apply to roles like backgrounds, logos, and icons. Each object must also indicate whether it is for dark mode, light mode, or browser-adaptive mode.
+        /// </summary>
         public InputList<Inputs.ManagedLoginBrandingAssetTypeArgs> Assets
         {
             get => _assets ?? (_assets = new InputList<Inputs.ManagedLoginBrandingAssetTypeArgs>());
@@ -104,14 +122,22 @@ namespace Pulumi.AwsNative.Cognito
         public Input<bool>? ReturnMergedResources { get; set; }
 
         /// <summary>
+        /// A JSON file, encoded as a `Document` type, with the the settings that you want to apply to your style.
+        /// 
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::ManagedLoginBranding` for more information about the expected schema for this property.
         /// </summary>
         [Input("settings")]
         public Input<object>? Settings { get; set; }
 
+        /// <summary>
+        /// When true, applies the default branding style options. This option reverts to a "blank" style that you can modify later in the branding designer.
+        /// </summary>
         [Input("useCognitoProvidedValues")]
         public Input<bool>? UseCognitoProvidedValues { get; set; }
 
+        /// <summary>
+        /// The user pool where the branding style is assigned.
+        /// </summary>
         [Input("userPoolId", required: true)]
         public Input<string> UserPoolId { get; set; } = null!;
 

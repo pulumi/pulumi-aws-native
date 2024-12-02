@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.ApplicationAutoScaling.Inputs
 
     public sealed class ScalingPolicyPredictiveScalingPredefinedScalingMetricArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The metric type.
+        /// </summary>
         [Input("predefinedMetricType", required: true)]
         public Input<string> PredefinedMetricType { get; set; } = null!;
 
+        /// <summary>
+        /// A label that uniquely identifies a specific target group from which to determine the average request count.
+        /// </summary>
         [Input("resourceLabel")]
         public Input<string>? ResourceLabel { get; set; }
 

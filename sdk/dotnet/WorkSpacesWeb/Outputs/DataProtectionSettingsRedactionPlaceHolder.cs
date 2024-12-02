@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.WorkSpacesWeb.Outputs
     [OutputType]
     public sealed class DataProtectionSettingsRedactionPlaceHolder
     {
+        /// <summary>
+        /// The redaction placeholder text that will replace the redacted text in session for the custom text redaction placeholder type.
+        /// </summary>
         public readonly string? RedactionPlaceHolderText;
+        /// <summary>
+        /// The redaction placeholder type that will replace the redacted text in session.
+        /// </summary>
         public readonly Pulumi.AwsNative.WorkSpacesWeb.DataProtectionSettingsRedactionPlaceHolderType RedactionPlaceHolderType;
 
         [OutputConstructor]

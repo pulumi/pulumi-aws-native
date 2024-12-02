@@ -69,6 +69,9 @@ namespace Pulumi.AwsNative.Wisdom
         /// Information about how to render the content.
         /// </summary>
         public readonly Outputs.KnowledgeBaseRenderingConfiguration? RenderingConfiguration;
+        /// <summary>
+        /// Contains details about how to ingest the documents in a data source.
+        /// </summary>
         public readonly Outputs.KnowledgeBaseVectorIngestionConfiguration? VectorIngestionConfiguration;
 
         [OutputConstructor]

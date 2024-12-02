@@ -173,6 +173,9 @@ namespace Pulumi.AwsNative.Cognito
         /// The tag keys and values to assign to the user pool. A tag is a label that you can use to categorize and manage user pools in different ways, such as by purpose, owner, environment, or other criteria.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? UserPoolTags;
+        /// <summary>
+        /// The user pool [feature plan](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-sign-in-feature-plans.html) , or tier. This parameter determines the eligibility of the user pool for features like managed login, access-token customization, and threat protection. Defaults to `ESSENTIALS` .
+        /// </summary>
         public readonly Pulumi.AwsNative.Cognito.UserPoolTier? UserPoolTier;
         /// <summary>
         /// Specifies whether a user can use an email address or phone number as a username when they sign up.

@@ -44,6 +44,7 @@ class LoadBalancerArgs:
                 Application Load Balancer authentication supports IPv4 addresses only when connecting to an Identity Provider (IdP) or Amazon Cognito endpoint. Without a public IPv4 address the load balancer can't complete the authentication process, resulting in HTTP 500 errors.
                 [Network Load Balancers and Gateway Load Balancers] The possible values are ``ipv4`` (IPv4 addresses) and ``dualstack`` (IPv4 and IPv6 addresses).
         :param pulumi.Input[Sequence[pulumi.Input['LoadBalancerAttributeArgs']]] load_balancer_attributes: The load balancer attributes.
+        :param pulumi.Input['LoadBalancerMinimumLoadBalancerCapacityArgs'] minimum_load_balancer_capacity: The minimum capacity for a load balancer.
         :param pulumi.Input[str] name: The name of the load balancer. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, must not begin or end with a hyphen, and must not begin with "internal-".
                 If you don't specify a name, AWS CloudFormation generates a unique physical ID for the load balancer. If you specify a name, you cannot perform updates that require replacement of this resource, but you can perform other updates. To replace the resource, specify a new name.
         :param pulumi.Input[str] scheme: The nodes of an Internet-facing load balancer have public IP addresses. The DNS name of an Internet-facing load balancer is publicly resolvable to the public IP addresses of the nodes. Therefore, Internet-facing load balancers can route requests from clients over the internet.
@@ -144,6 +145,9 @@ class LoadBalancerArgs:
     @property
     @pulumi.getter(name="minimumLoadBalancerCapacity")
     def minimum_load_balancer_capacity(self) -> Optional[pulumi.Input['LoadBalancerMinimumLoadBalancerCapacityArgs']]:
+        """
+        The minimum capacity for a load balancer.
+        """
         return pulumi.get(self, "minimum_load_balancer_capacity")
 
     @minimum_load_balancer_capacity.setter
@@ -278,6 +282,7 @@ class LoadBalancer(pulumi.CustomResource):
                 Application Load Balancer authentication supports IPv4 addresses only when connecting to an Identity Provider (IdP) or Amazon Cognito endpoint. Without a public IPv4 address the load balancer can't complete the authentication process, resulting in HTTP 500 errors.
                 [Network Load Balancers and Gateway Load Balancers] The possible values are ``ipv4`` (IPv4 addresses) and ``dualstack`` (IPv4 and IPv6 addresses).
         :param pulumi.Input[Sequence[pulumi.Input[Union['LoadBalancerAttributeArgs', 'LoadBalancerAttributeArgsDict']]]] load_balancer_attributes: The load balancer attributes.
+        :param pulumi.Input[Union['LoadBalancerMinimumLoadBalancerCapacityArgs', 'LoadBalancerMinimumLoadBalancerCapacityArgsDict']] minimum_load_balancer_capacity: The minimum capacity for a load balancer.
         :param pulumi.Input[str] name: The name of the load balancer. This name must be unique per region per account, can have a maximum of 32 characters, must contain only alphanumeric characters or hyphens, must not begin or end with a hyphen, and must not begin with "internal-".
                 If you don't specify a name, AWS CloudFormation generates a unique physical ID for the load balancer. If you specify a name, you cannot perform updates that require replacement of this resource, but you can perform other updates. To replace the resource, specify a new name.
         :param pulumi.Input[str] scheme: The nodes of an Internet-facing load balancer have public IP addresses. The DNS name of an Internet-facing load balancer is publicly resolvable to the public IP addresses of the nodes. Therefore, Internet-facing load balancers can route requests from clients over the internet.
@@ -482,6 +487,9 @@ class LoadBalancer(pulumi.CustomResource):
     @property
     @pulumi.getter(name="minimumLoadBalancerCapacity")
     def minimum_load_balancer_capacity(self) -> pulumi.Output[Optional['outputs.LoadBalancerMinimumLoadBalancerCapacity']]:
+        """
+        The minimum capacity for a load balancer.
+        """
         return pulumi.get(self, "minimum_load_balancer_capacity")
 
     @property

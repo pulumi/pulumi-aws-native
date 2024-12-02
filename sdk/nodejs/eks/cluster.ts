@@ -61,6 +61,7 @@ export class Cluster extends pulumi.CustomResource {
      * The cluster security group that was created by Amazon EKS for the cluster. Managed node groups use this security group for control plane to data plane communication.
      */
     public /*out*/ readonly clusterSecurityGroupId!: pulumi.Output<string>;
+    public readonly computeConfig!: pulumi.Output<outputs.eks.ClusterComputeConfig | undefined>;
     /**
      * The encryption configuration for the cluster.
      */
@@ -93,6 +94,7 @@ export class Cluster extends pulumi.CustomResource {
      * An object representing the configuration of your local Amazon EKS cluster on an AWS Outpost. This object isn't available for clusters on the AWS cloud.
      */
     public readonly outpostConfig!: pulumi.Output<outputs.eks.ClusterOutpostConfig | undefined>;
+    public readonly remoteNetworkConfig!: pulumi.Output<outputs.eks.ClusterRemoteNetworkConfig | undefined>;
     /**
      * The VPC configuration that's used by the cluster control plane. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the *Amazon EKS User Guide* . You must specify at least two subnets. You can specify up to five security groups, but we recommend that you use a dedicated security group for your cluster control plane.
      */
@@ -101,6 +103,7 @@ export class Cluster extends pulumi.CustomResource {
      * The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
      */
     public readonly roleArn!: pulumi.Output<string>;
+    public readonly storageConfig!: pulumi.Output<outputs.eks.ClusterStorageConfig | undefined>;
     /**
      * An array of key-value pairs to apply to this resource.
      */
@@ -139,13 +142,16 @@ export class Cluster extends pulumi.CustomResource {
             }
             resourceInputs["accessConfig"] = args ? args.accessConfig : undefined;
             resourceInputs["bootstrapSelfManagedAddons"] = args ? args.bootstrapSelfManagedAddons : undefined;
+            resourceInputs["computeConfig"] = args ? args.computeConfig : undefined;
             resourceInputs["encryptionConfig"] = args ? args.encryptionConfig : undefined;
             resourceInputs["kubernetesNetworkConfig"] = args ? args.kubernetesNetworkConfig : undefined;
             resourceInputs["logging"] = args ? args.logging : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["outpostConfig"] = args ? args.outpostConfig : undefined;
+            resourceInputs["remoteNetworkConfig"] = args ? args.remoteNetworkConfig : undefined;
             resourceInputs["resourcesVpcConfig"] = args ? args.resourcesVpcConfig : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["storageConfig"] = args ? args.storageConfig : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["upgradePolicy"] = args ? args.upgradePolicy : undefined;
             resourceInputs["version"] = args ? args.version : undefined;
@@ -164,6 +170,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["bootstrapSelfManagedAddons"] = undefined /*out*/;
             resourceInputs["certificateAuthorityData"] = undefined /*out*/;
             resourceInputs["clusterSecurityGroupId"] = undefined /*out*/;
+            resourceInputs["computeConfig"] = undefined /*out*/;
             resourceInputs["encryptionConfig"] = undefined /*out*/;
             resourceInputs["encryptionConfigKeyArn"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
@@ -172,15 +179,17 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["openIdConnectIssuerUrl"] = undefined /*out*/;
             resourceInputs["outpostConfig"] = undefined /*out*/;
+            resourceInputs["remoteNetworkConfig"] = undefined /*out*/;
             resourceInputs["resourcesVpcConfig"] = undefined /*out*/;
             resourceInputs["roleArn"] = undefined /*out*/;
+            resourceInputs["storageConfig"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["upgradePolicy"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
             resourceInputs["zonalShiftConfig"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["accessConfig.bootstrapClusterCreatorAdminPermissions", "bootstrapSelfManagedAddons", "encryptionConfig[*]", "kubernetesNetworkConfig", "name", "outpostConfig", "roleArn"] };
+        const replaceOnChanges = { replaceOnChanges: ["accessConfig.bootstrapClusterCreatorAdminPermissions", "bootstrapSelfManagedAddons", "encryptionConfig[*]", "kubernetesNetworkConfig", "name", "outpostConfig", "remoteNetworkConfig", "roleArn"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Cluster.__pulumiType, name, resourceInputs, opts);
     }
@@ -198,6 +207,7 @@ export interface ClusterArgs {
      * Set this value to false to avoid creating the default networking add-ons when the cluster is created.
      */
     bootstrapSelfManagedAddons?: pulumi.Input<boolean>;
+    computeConfig?: pulumi.Input<inputs.eks.ClusterComputeConfigArgs>;
     /**
      * The encryption configuration for the cluster.
      */
@@ -218,6 +228,7 @@ export interface ClusterArgs {
      * An object representing the configuration of your local Amazon EKS cluster on an AWS Outpost. This object isn't available for clusters on the AWS cloud.
      */
     outpostConfig?: pulumi.Input<inputs.eks.ClusterOutpostConfigArgs>;
+    remoteNetworkConfig?: pulumi.Input<inputs.eks.ClusterRemoteNetworkConfigArgs>;
     /**
      * The VPC configuration that's used by the cluster control plane. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the *Amazon EKS User Guide* . You must specify at least two subnets. You can specify up to five security groups, but we recommend that you use a dedicated security group for your cluster control plane.
      */
@@ -226,6 +237,7 @@ export interface ClusterArgs {
      * The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
      */
     roleArn: pulumi.Input<string>;
+    storageConfig?: pulumi.Input<inputs.eks.ClusterStorageConfigArgs>;
     /**
      * An array of key-value pairs to apply to this resource.
      */

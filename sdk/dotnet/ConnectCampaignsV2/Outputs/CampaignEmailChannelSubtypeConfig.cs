@@ -16,8 +16,17 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2.Outputs
     [OutputType]
     public sealed class CampaignEmailChannelSubtypeConfig
     {
+        /// <summary>
+        /// The allocation of email capacity between multiple running outbound campaigns.
+        /// </summary>
         public readonly double? Capacity;
+        /// <summary>
+        /// The default email outbound configuration of an outbound campaign.
+        /// </summary>
         public readonly Outputs.CampaignEmailOutboundConfig DefaultOutboundConfig;
+        /// <summary>
+        /// The outbound mode for email of an outbound campaign.
+        /// </summary>
         public readonly Outputs.CampaignEmailOutboundMode OutboundMode;
 
         [OutputConstructor]

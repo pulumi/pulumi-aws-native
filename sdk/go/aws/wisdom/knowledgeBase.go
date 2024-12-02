@@ -34,7 +34,8 @@ type KnowledgeBase struct {
 	// The source of the knowledge base content. Only set this argument for EXTERNAL or Managed knowledge bases.
 	SourceConfiguration pulumi.AnyOutput `pulumi:"sourceConfiguration"`
 	// The tags used to organize, track, or control access for this resource.
-	Tags                         aws.CreateOnlyTagArrayOutput                       `pulumi:"tags"`
+	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
+	// Contains details about how to ingest the documents in a data source.
 	VectorIngestionConfiguration KnowledgeBaseVectorIngestionConfigurationPtrOutput `pulumi:"vectorIngestionConfiguration"`
 }
 
@@ -103,7 +104,8 @@ type knowledgeBaseArgs struct {
 	// The source of the knowledge base content. Only set this argument for EXTERNAL or Managed knowledge bases.
 	SourceConfiguration interface{} `pulumi:"sourceConfiguration"`
 	// The tags used to organize, track, or control access for this resource.
-	Tags                         []aws.CreateOnlyTag                        `pulumi:"tags"`
+	Tags []aws.CreateOnlyTag `pulumi:"tags"`
+	// Contains details about how to ingest the documents in a data source.
 	VectorIngestionConfiguration *KnowledgeBaseVectorIngestionConfiguration `pulumi:"vectorIngestionConfiguration"`
 }
 
@@ -122,7 +124,8 @@ type KnowledgeBaseArgs struct {
 	// The source of the knowledge base content. Only set this argument for EXTERNAL or Managed knowledge bases.
 	SourceConfiguration pulumi.Input
 	// The tags used to organize, track, or control access for this resource.
-	Tags                         aws.CreateOnlyTagArrayInput
+	Tags aws.CreateOnlyTagArrayInput
+	// Contains details about how to ingest the documents in a data source.
 	VectorIngestionConfiguration KnowledgeBaseVectorIngestionConfigurationPtrInput
 }
 
@@ -210,6 +213,7 @@ func (o KnowledgeBaseOutput) Tags() aws.CreateOnlyTagArrayOutput {
 	return o.ApplyT(func(v *KnowledgeBase) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
 }
 
+// Contains details about how to ingest the documents in a data source.
 func (o KnowledgeBaseOutput) VectorIngestionConfiguration() KnowledgeBaseVectorIngestionConfigurationPtrOutput {
 	return o.ApplyT(func(v *KnowledgeBase) KnowledgeBaseVectorIngestionConfigurationPtrOutput {
 		return v.VectorIngestionConfiguration

@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.Chatbot.Outputs
     [OutputType]
     public sealed class CustomActionDefinition
     {
+        /// <summary>
+        /// The command string to run which may include variables by prefixing with a dollar sign ($).
+        /// </summary>
         public readonly string CommandText;
 
         [OutputConstructor]

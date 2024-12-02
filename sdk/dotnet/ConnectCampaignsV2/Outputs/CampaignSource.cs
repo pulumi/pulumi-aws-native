@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2.Outputs
     [OutputType]
     public sealed class CampaignSource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Customer Profiles segment.
+        /// </summary>
         public readonly string? CustomerProfilesSegmentArn;
 
         [OutputConstructor]

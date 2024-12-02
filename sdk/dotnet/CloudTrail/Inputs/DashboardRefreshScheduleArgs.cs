@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.CloudTrail.Inputs
     /// </summary>
     public sealed class DashboardRefreshScheduleArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The frequency at which you want the dashboard refreshed.
+        /// </summary>
         [Input("frequency")]
         public Input<Inputs.DashboardRefreshScheduleFrequencyPropertiesArgs>? Frequency { get; set; }
 

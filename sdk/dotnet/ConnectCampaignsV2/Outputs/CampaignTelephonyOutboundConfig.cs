@@ -16,8 +16,17 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2.Outputs
     [OutputType]
     public sealed class CampaignTelephonyOutboundConfig
     {
+        /// <summary>
+        /// The answering machine detection configuration.
+        /// </summary>
         public readonly Outputs.CampaignAnswerMachineDetectionConfig? AnswerMachineDetectionConfig;
+        /// <summary>
+        /// The identifier of the published Amazon Connect contact flow.
+        /// </summary>
         public readonly string ConnectContactFlowId;
+        /// <summary>
+        /// The Amazon Connect source phone number.
+        /// </summary>
         public readonly string? ConnectSourcePhoneNumber;
 
         [OutputConstructor]

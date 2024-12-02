@@ -16,18 +16,26 @@ import (
 type DomainNameV2 struct {
 	pulumi.CustomResourceState
 
+	// The reference to an AWS -managed certificate that will be used by the private endpoint for this domain name. AWS Certificate Manager is the only supported source.
 	CertificateArn pulumi.StringPtrOutput `pulumi:"certificateArn"`
-	DomainName     pulumi.StringPtrOutput `pulumi:"domainName"`
+	// Represents a custom domain name as a user-friendly host name of an API (RestApi).
+	DomainName pulumi.StringPtrOutput `pulumi:"domainName"`
 	// The amazon resource name (ARN) of the domain name resource.
-	DomainNameArn         pulumi.StringOutput                        `pulumi:"domainNameArn"`
-	DomainNameId          pulumi.StringOutput                        `pulumi:"domainNameId"`
+	DomainNameArn pulumi.StringOutput `pulumi:"domainNameArn"`
+	// The domain name ID.
+	DomainNameId pulumi.StringOutput `pulumi:"domainNameId"`
+	// The endpoint configuration to indicate the types of endpoints an API (RestApi) or its custom domain name (DomainName) has.
 	EndpointConfiguration DomainNameV2EndpointConfigurationPtrOutput `pulumi:"endpointConfiguration"`
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::DomainNameV2` for more information about the expected schema for this property.
 	ManagementPolicy pulumi.AnyOutput `pulumi:"managementPolicy"`
+	// A stringified JSON policy document that applies to the `execute-api` service for this DomainName regardless of the caller and Method configuration. You can use `Fn::ToJsonString` to enter your `policy` . For more information, see [Fn::ToJsonString](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ToJsonString.html) .
+	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::DomainNameV2` for more information about the expected schema for this property.
-	Policy         pulumi.AnyOutput       `pulumi:"policy"`
+	Policy pulumi.AnyOutput `pulumi:"policy"`
+	// The Transport Layer Security (TLS) version + cipher suite for this DomainName. Only `TLS_1_2` is supported.
 	SecurityPolicy pulumi.StringPtrOutput `pulumi:"securityPolicy"`
-	Tags           aws.TagArrayOutput     `pulumi:"tags"`
+	// The collection of tags. Each tag element is associated with a given resource.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewDomainNameV2 registers a new resource with the given unique name, arguments, and options.
@@ -76,28 +84,42 @@ func (DomainNameV2State) ElementType() reflect.Type {
 }
 
 type domainNameV2Args struct {
-	CertificateArn        *string                            `pulumi:"certificateArn"`
-	DomainName            *string                            `pulumi:"domainName"`
+	// The reference to an AWS -managed certificate that will be used by the private endpoint for this domain name. AWS Certificate Manager is the only supported source.
+	CertificateArn *string `pulumi:"certificateArn"`
+	// Represents a custom domain name as a user-friendly host name of an API (RestApi).
+	DomainName *string `pulumi:"domainName"`
+	// The endpoint configuration to indicate the types of endpoints an API (RestApi) or its custom domain name (DomainName) has.
 	EndpointConfiguration *DomainNameV2EndpointConfiguration `pulumi:"endpointConfiguration"`
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::DomainNameV2` for more information about the expected schema for this property.
 	ManagementPolicy interface{} `pulumi:"managementPolicy"`
+	// A stringified JSON policy document that applies to the `execute-api` service for this DomainName regardless of the caller and Method configuration. You can use `Fn::ToJsonString` to enter your `policy` . For more information, see [Fn::ToJsonString](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ToJsonString.html) .
+	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::DomainNameV2` for more information about the expected schema for this property.
-	Policy         interface{} `pulumi:"policy"`
-	SecurityPolicy *string     `pulumi:"securityPolicy"`
-	Tags           []aws.Tag   `pulumi:"tags"`
+	Policy interface{} `pulumi:"policy"`
+	// The Transport Layer Security (TLS) version + cipher suite for this DomainName. Only `TLS_1_2` is supported.
+	SecurityPolicy *string `pulumi:"securityPolicy"`
+	// The collection of tags. Each tag element is associated with a given resource.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DomainNameV2 resource.
 type DomainNameV2Args struct {
-	CertificateArn        pulumi.StringPtrInput
-	DomainName            pulumi.StringPtrInput
+	// The reference to an AWS -managed certificate that will be used by the private endpoint for this domain name. AWS Certificate Manager is the only supported source.
+	CertificateArn pulumi.StringPtrInput
+	// Represents a custom domain name as a user-friendly host name of an API (RestApi).
+	DomainName pulumi.StringPtrInput
+	// The endpoint configuration to indicate the types of endpoints an API (RestApi) or its custom domain name (DomainName) has.
 	EndpointConfiguration DomainNameV2EndpointConfigurationPtrInput
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::DomainNameV2` for more information about the expected schema for this property.
 	ManagementPolicy pulumi.Input
+	// A stringified JSON policy document that applies to the `execute-api` service for this DomainName regardless of the caller and Method configuration. You can use `Fn::ToJsonString` to enter your `policy` . For more information, see [Fn::ToJsonString](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ToJsonString.html) .
+	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::DomainNameV2` for more information about the expected schema for this property.
-	Policy         pulumi.Input
+	Policy pulumi.Input
+	// The Transport Layer Security (TLS) version + cipher suite for this DomainName. Only `TLS_1_2` is supported.
 	SecurityPolicy pulumi.StringPtrInput
-	Tags           aws.TagArrayInput
+	// The collection of tags. Each tag element is associated with a given resource.
+	Tags aws.TagArrayInput
 }
 
 func (DomainNameV2Args) ElementType() reflect.Type {
@@ -137,10 +159,12 @@ func (o DomainNameV2Output) ToDomainNameV2OutputWithContext(ctx context.Context)
 	return o
 }
 
+// The reference to an AWS -managed certificate that will be used by the private endpoint for this domain name. AWS Certificate Manager is the only supported source.
 func (o DomainNameV2Output) CertificateArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainNameV2) pulumi.StringPtrOutput { return v.CertificateArn }).(pulumi.StringPtrOutput)
 }
 
+// Represents a custom domain name as a user-friendly host name of an API (RestApi).
 func (o DomainNameV2Output) DomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainNameV2) pulumi.StringPtrOutput { return v.DomainName }).(pulumi.StringPtrOutput)
 }
@@ -150,10 +174,12 @@ func (o DomainNameV2Output) DomainNameArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainNameV2) pulumi.StringOutput { return v.DomainNameArn }).(pulumi.StringOutput)
 }
 
+// The domain name ID.
 func (o DomainNameV2Output) DomainNameId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainNameV2) pulumi.StringOutput { return v.DomainNameId }).(pulumi.StringOutput)
 }
 
+// The endpoint configuration to indicate the types of endpoints an API (RestApi) or its custom domain name (DomainName) has.
 func (o DomainNameV2Output) EndpointConfiguration() DomainNameV2EndpointConfigurationPtrOutput {
 	return o.ApplyT(func(v *DomainNameV2) DomainNameV2EndpointConfigurationPtrOutput { return v.EndpointConfiguration }).(DomainNameV2EndpointConfigurationPtrOutput)
 }
@@ -163,15 +189,19 @@ func (o DomainNameV2Output) ManagementPolicy() pulumi.AnyOutput {
 	return o.ApplyT(func(v *DomainNameV2) pulumi.AnyOutput { return v.ManagementPolicy }).(pulumi.AnyOutput)
 }
 
+// A stringified JSON policy document that applies to the `execute-api` service for this DomainName regardless of the caller and Method configuration. You can use `Fn::ToJsonString` to enter your `policy` . For more information, see [Fn::ToJsonString](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ToJsonString.html) .
+//
 // Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::DomainNameV2` for more information about the expected schema for this property.
 func (o DomainNameV2Output) Policy() pulumi.AnyOutput {
 	return o.ApplyT(func(v *DomainNameV2) pulumi.AnyOutput { return v.Policy }).(pulumi.AnyOutput)
 }
 
+// The Transport Layer Security (TLS) version + cipher suite for this DomainName. Only `TLS_1_2` is supported.
 func (o DomainNameV2Output) SecurityPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainNameV2) pulumi.StringPtrOutput { return v.SecurityPolicy }).(pulumi.StringPtrOutput)
 }
 
+// The collection of tags. Each tag element is associated with a given resource.
 func (o DomainNameV2Output) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *DomainNameV2) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

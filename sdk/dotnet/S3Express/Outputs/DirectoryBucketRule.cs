@@ -16,13 +16,25 @@ namespace Pulumi.AwsNative.S3Express.Outputs
     [OutputType]
     public sealed class DirectoryBucketRule
     {
+        /// <summary>
+        /// Specifies the days since the initiation of an incomplete multipart upload that Amazon S3 will wait before permanently removing all parts of the upload.
+        /// </summary>
         public readonly Outputs.DirectoryBucketAbortIncompleteMultipartUpload? AbortIncompleteMultipartUpload;
+        /// <summary>
+        /// Indicates the number of days after creation when objects are deleted from Amazon S3 and Amazon S3 Glacier. If you specify an expiration and transition time, you must use the same time unit for both properties (either in days or by date). The expiration time must also be later than the transition time.
+        /// </summary>
         public readonly int? ExpirationInDays;
         /// <summary>
         /// Unique identifier for the rule. The value can't be longer than 255 characters.
         /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// Specifies the minimum object size in bytes for this rule to apply to. Objects must be larger than this value in bytes. For more information about size based rules, see [Lifecycle configuration using size-based rules](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-configuration-examples.html#lc-size-rules) in the *Amazon S3 User Guide* .
+        /// </summary>
         public readonly string? ObjectSizeGreaterThan;
+        /// <summary>
+        /// Specifies the maximum object size in bytes for this rule to apply to. Objects must be smaller than this value in bytes. For more information about sized based rules, see [Lifecycle configuration using size-based rules](https://docs.aws.amazon.com/AmazonS3/latest/userguide/lifecycle-configuration-examples.html#lc-size-rules) in the *Amazon S3 User Guide* .
+        /// </summary>
         public readonly string? ObjectSizeLessThan;
         /// <summary>
         /// Object key prefix that identifies one or more objects to which this rule applies.

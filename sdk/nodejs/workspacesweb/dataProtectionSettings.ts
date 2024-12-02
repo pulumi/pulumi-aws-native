@@ -37,14 +37,41 @@ export class DataProtectionSettings extends pulumi.CustomResource {
         return obj['__pulumiType'] === DataProtectionSettings.__pulumiType;
     }
 
+    /**
+     * The additional encryption context of the data protection settings.
+     */
     public readonly additionalEncryptionContext!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A list of web portal ARNs that this data protection settings resource is associated with.
+     */
     public /*out*/ readonly associatedPortalArns!: pulumi.Output<string[]>;
+    /**
+     * The creation date timestamp of the data protection settings.
+     */
     public /*out*/ readonly creationDate!: pulumi.Output<string>;
+    /**
+     * The customer managed key used to encrypt sensitive information in the data protection settings.
+     */
     public readonly customerManagedKey!: pulumi.Output<string | undefined>;
+    /**
+     * The ARN of the data protection settings resource.
+     */
     public /*out*/ readonly dataProtectionSettingsArn!: pulumi.Output<string>;
+    /**
+     * The description of the data protection settings.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The display name of the data protection settings.
+     */
     public readonly displayName!: pulumi.Output<string | undefined>;
+    /**
+     * The inline redaction configuration for the data protection settings.
+     */
     public readonly inlineRedactionConfiguration!: pulumi.Output<outputs.workspacesweb.DataProtectionSettingsInlineRedactionConfiguration | undefined>;
+    /**
+     * The tags of the data protection settings.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
@@ -89,10 +116,28 @@ export class DataProtectionSettings extends pulumi.CustomResource {
  * The set of arguments for constructing a DataProtectionSettings resource.
  */
 export interface DataProtectionSettingsArgs {
+    /**
+     * The additional encryption context of the data protection settings.
+     */
     additionalEncryptionContext?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The customer managed key used to encrypt sensitive information in the data protection settings.
+     */
     customerManagedKey?: pulumi.Input<string>;
+    /**
+     * The description of the data protection settings.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The display name of the data protection settings.
+     */
     displayName?: pulumi.Input<string>;
+    /**
+     * The inline redaction configuration for the data protection settings.
+     */
     inlineRedactionConfiguration?: pulumi.Input<inputs.workspacesweb.DataProtectionSettingsInlineRedactionConfigurationArgs>;
+    /**
+     * The tags of the data protection settings.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

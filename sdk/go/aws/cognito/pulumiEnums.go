@@ -539,6 +539,7 @@ func (in *managedLoginBrandingExtensionTypePtr) ToManagedLoginBrandingExtensionT
 	return pulumi.ToOutputWithContext(ctx, in).(ManagedLoginBrandingExtensionTypePtrOutput)
 }
 
+// The user pool [feature plan](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-sign-in-feature-plans.html) , or tier. This parameter determines the eligibility of the user pool for features like managed login, access-token customization, and threat protection. Defaults to `ESSENTIALS` .
 type UserPoolTier string
 
 const (

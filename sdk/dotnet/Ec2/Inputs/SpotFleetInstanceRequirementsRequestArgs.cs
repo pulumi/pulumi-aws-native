@@ -155,6 +155,7 @@ namespace Pulumi.AwsNative.Ec2.Inputs
         /// - For instance types with Intel CPUs, specify `intel` .
         /// - For instance types with AMD CPUs, specify `amd` .
         /// - For instance types with AWS CPUs, specify `amazon-web-services` .
+        /// - For instance types with Apple CPUs, specify `apple` .
         /// 
         /// &gt; Don't confuse the CPU manufacturer with the CPU architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template. 
         /// 

@@ -29,7 +29,9 @@ type EncoderConfigurationTag struct {
 }
 
 type IngestConfigurationTag struct {
-	Key   string `pulumi:"key"`
+	// One part of a key-value pair that makes up a tag. A `key` is a general label that acts like a category for more specific tag values.
+	Key string `pulumi:"key"`
+	// The optional part of a key-value pair that makes up a tag. A `value` acts as a descriptor within a tag category (key).
 	Value string `pulumi:"value"`
 }
 

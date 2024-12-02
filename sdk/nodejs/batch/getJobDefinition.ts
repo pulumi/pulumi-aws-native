@@ -64,6 +64,12 @@ export interface GetJobDefinitionResult {
      */
     readonly schedulingPriority?: number;
     /**
+     * The tags that are applied to the job definition.
+     *
+     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Batch::JobDefinition` for more information about the expected schema for this property.
+     */
+    readonly tags?: any;
+    /**
      * The timeout time for jobs that are submitted with this job definition. After the amount of time you specify passes, AWS Batch terminates your jobs if they aren't finished.
      */
     readonly timeout?: outputs.batch.JobDefinitionTimeout;

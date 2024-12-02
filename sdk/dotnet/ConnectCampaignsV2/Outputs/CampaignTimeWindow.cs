@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2.Outputs
     [OutputType]
     public sealed class CampaignTimeWindow
     {
+        /// <summary>
+        /// The open hours configuration.
+        /// </summary>
         public readonly Outputs.CampaignOpenHours OpenHours;
+        /// <summary>
+        /// The restricted periods configuration.
+        /// </summary>
         public readonly Outputs.CampaignRestrictedPeriods? RestrictedPeriods;
 
         [OutputConstructor]

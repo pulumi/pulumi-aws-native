@@ -35,6 +35,8 @@ type LookupCapacityReservationResult struct {
 	// You must provide an `EndDate` value if `EndDateType` is `limited` . Omit `EndDate` if `EndDateType` is `unlimited` .
 	//
 	// If the `EndDateType` is `limited` , the Capacity Reservation is cancelled within an hour from the specified time. For example, if you specify 5/31/2019, 13:30:55, the Capacity Reservation is guaranteed to end between 13:30:55 and 14:30:55 on 5/31/2019.
+	//
+	// If you are requesting a future-dated Capacity Reservation, you can't specify an end date and time that is within the commitment duration.
 	EndDate *string `pulumi:"endDate"`
 	// Indicates the way in which the Capacity Reservation ends. A Capacity Reservation can have one of the following end types:
 	//
@@ -45,12 +47,16 @@ type LookupCapacityReservationResult struct {
 	Id *string `pulumi:"id"`
 	// The number of instances for which to reserve capacity.
 	//
+	// > You can request future-dated Capacity Reservations for an instance count with a minimum of 100 VPUs. For example, if you request a future-dated Capacity Reservation for `m5.xlarge` instances, you must request at least 25 instances ( *25 * m5.xlarge = 100 vCPUs* ).
+	//
 	// Valid range: 1 - 1000
 	InstanceCount *int `pulumi:"instanceCount"`
 	// Indicates the type of instance launches that the Capacity Reservation accepts. The options include:
 	//
 	// - `open` - The Capacity Reservation automatically matches all instances that have matching attributes (instance type, platform, and Availability Zone). Instances that have matching attributes run in the Capacity Reservation automatically without specifying any additional parameters.
 	// - `targeted` - The Capacity Reservation only accepts instances that have matching attributes (instance type, platform, and Availability Zone), and explicitly target the Capacity Reservation. This ensures that only permitted instances can use the reserved capacity.
+	//
+	// > If you are requesting a future-dated Capacity Reservation, you must specify `targeted` .
 	//
 	// Default: `open`
 	InstanceMatchCriteria *string `pulumi:"instanceMatchCriteria"`
@@ -110,6 +116,8 @@ func (o LookupCapacityReservationResultOutput) AvailableInstanceCount() pulumi.I
 // You must provide an `EndDate` value if `EndDateType` is `limited` . Omit `EndDate` if `EndDateType` is `unlimited` .
 //
 // If the `EndDateType` is `limited` , the Capacity Reservation is cancelled within an hour from the specified time. For example, if you specify 5/31/2019, 13:30:55, the Capacity Reservation is guaranteed to end between 13:30:55 and 14:30:55 on 5/31/2019.
+//
+// If you are requesting a future-dated Capacity Reservation, you can't specify an end date and time that is within the commitment duration.
 func (o LookupCapacityReservationResultOutput) EndDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCapacityReservationResult) *string { return v.EndDate }).(pulumi.StringPtrOutput)
 }
@@ -129,6 +137,8 @@ func (o LookupCapacityReservationResultOutput) Id() pulumi.StringPtrOutput {
 
 // The number of instances for which to reserve capacity.
 //
+// > You can request future-dated Capacity Reservations for an instance count with a minimum of 100 VPUs. For example, if you request a future-dated Capacity Reservation for `m5.xlarge` instances, you must request at least 25 instances ( *25 * m5.xlarge = 100 vCPUs* ).
+//
 // Valid range: 1 - 1000
 func (o LookupCapacityReservationResultOutput) InstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupCapacityReservationResult) *int { return v.InstanceCount }).(pulumi.IntPtrOutput)
@@ -138,6 +148,8 @@ func (o LookupCapacityReservationResultOutput) InstanceCount() pulumi.IntPtrOutp
 //
 // - `open` - The Capacity Reservation automatically matches all instances that have matching attributes (instance type, platform, and Availability Zone). Instances that have matching attributes run in the Capacity Reservation automatically without specifying any additional parameters.
 // - `targeted` - The Capacity Reservation only accepts instances that have matching attributes (instance type, platform, and Availability Zone), and explicitly target the Capacity Reservation. This ensures that only permitted instances can use the reserved capacity.
+//
+// > If you are requesting a future-dated Capacity Reservation, you must specify `targeted` .
 //
 // Default: `open`
 func (o LookupCapacityReservationResultOutput) InstanceMatchCriteria() pulumi.StringPtrOutput {

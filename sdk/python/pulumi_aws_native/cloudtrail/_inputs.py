@@ -100,6 +100,9 @@ class ChannelDestinationArgs:
 
 if not MYPY:
     class DashboardRefreshScheduleFrequencyPropertiesArgsDict(TypedDict):
+        """
+        The frequency at which you want the dashboard refreshed.
+        """
         unit: pulumi.Input['DashboardRefreshScheduleFrequencyPropertiesUnit']
         """
         The frequency unit. Supported values are HOURS and DAYS.
@@ -117,6 +120,7 @@ class DashboardRefreshScheduleFrequencyPropertiesArgs:
                  unit: pulumi.Input['DashboardRefreshScheduleFrequencyPropertiesUnit'],
                  value: pulumi.Input[int]):
         """
+        The frequency at which you want the dashboard refreshed.
         :param pulumi.Input['DashboardRefreshScheduleFrequencyPropertiesUnit'] unit: The frequency unit. Supported values are HOURS and DAYS.
         :param pulumi.Input[int] value: The frequency value.
         """
@@ -154,6 +158,9 @@ if not MYPY:
         Configures the automatic refresh schedule for the dashboard. Includes the frequency unit (DAYS or HOURS) and value, as well as the status (ENABLED or DISABLED) of the refresh schedule.
         """
         frequency: NotRequired[pulumi.Input['DashboardRefreshScheduleFrequencyPropertiesArgsDict']]
+        """
+        The frequency at which you want the dashboard refreshed.
+        """
         status: NotRequired[pulumi.Input['DashboardRefreshScheduleStatus']]
         """
         The status of the schedule. Supported values are ENABLED and DISABLED.
@@ -173,6 +180,7 @@ class DashboardRefreshScheduleArgs:
                  time_of_day: Optional[pulumi.Input[str]] = None):
         """
         Configures the automatic refresh schedule for the dashboard. Includes the frequency unit (DAYS or HOURS) and value, as well as the status (ENABLED or DISABLED) of the refresh schedule.
+        :param pulumi.Input['DashboardRefreshScheduleFrequencyPropertiesArgs'] frequency: The frequency at which you want the dashboard refreshed.
         :param pulumi.Input['DashboardRefreshScheduleStatus'] status: The status of the schedule. Supported values are ENABLED and DISABLED.
         :param pulumi.Input[str] time_of_day: StartTime of the automatic schedule refresh.
         """
@@ -186,6 +194,9 @@ class DashboardRefreshScheduleArgs:
     @property
     @pulumi.getter
     def frequency(self) -> Optional[pulumi.Input['DashboardRefreshScheduleFrequencyPropertiesArgs']]:
+        """
+        The frequency at which you want the dashboard refreshed.
+        """
         return pulumi.get(self, "frequency")
 
     @frequency.setter

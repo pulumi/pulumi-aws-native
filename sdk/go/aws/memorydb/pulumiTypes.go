@@ -357,6 +357,14 @@ type ClusterTag struct {
 }
 
 // A key-value pair to associate with a resource.
+type MultiRegionClusterTag struct {
+	// The key for the tag. May not be null.
+	Key string `pulumi:"key"`
+	// The tag's value. May be null.
+	Value string `pulumi:"value"`
+}
+
+// A key-value pair to associate with a resource.
 type ParameterGroupTag struct {
 	// The key for the tag. May not be null.
 	Key string `pulumi:"key"`

@@ -57,20 +57,31 @@ namespace Pulumi.AwsNative.ApiGateway
     [OutputType]
     public sealed class GetDomainNameV2Result
     {
+        /// <summary>
+        /// The reference to an AWS -managed certificate that will be used by the private endpoint for this domain name. AWS Certificate Manager is the only supported source.
+        /// </summary>
         public readonly string? CertificateArn;
         /// <summary>
         /// The amazon resource name (ARN) of the domain name resource.
         /// </summary>
         public readonly string? DomainNameArn;
+        /// <summary>
+        /// The domain name ID.
+        /// </summary>
         public readonly string? DomainNameId;
         /// <summary>
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::DomainNameV2` for more information about the expected schema for this property.
         /// </summary>
         public readonly object? ManagementPolicy;
         /// <summary>
+        /// A stringified JSON policy document that applies to the `execute-api` service for this DomainName regardless of the caller and Method configuration. You can use `Fn::ToJsonString` to enter your `policy` . For more information, see [Fn::ToJsonString](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ToJsonString.html) .
+        /// 
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::DomainNameV2` for more information about the expected schema for this property.
         /// </summary>
         public readonly object? Policy;
+        /// <summary>
+        /// The collection of tags. Each tag element is associated with a given resource.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

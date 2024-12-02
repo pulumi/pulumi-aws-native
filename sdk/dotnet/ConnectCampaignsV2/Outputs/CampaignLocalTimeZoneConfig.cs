@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2.Outputs
     [OutputType]
     public sealed class CampaignLocalTimeZoneConfig
     {
+        /// <summary>
+        /// The timezone to use for all recipients.
+        /// </summary>
         public readonly string? DefaultTimeZone;
+        /// <summary>
+        /// Detects methods for the recipient's timezone.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.ConnectCampaignsV2.CampaignLocalTimeZoneDetectionType> LocalTimeZoneDetection;
 
         [OutputConstructor]

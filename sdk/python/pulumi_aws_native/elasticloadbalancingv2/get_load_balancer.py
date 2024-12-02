@@ -147,6 +147,9 @@ class GetLoadBalancerResult:
     @property
     @pulumi.getter(name="minimumLoadBalancerCapacity")
     def minimum_load_balancer_capacity(self) -> Optional['outputs.LoadBalancerMinimumLoadBalancerCapacity']:
+        """
+        The minimum capacity for a load balancer.
+        """
         return pulumi.get(self, "minimum_load_balancer_capacity")
 
     @property

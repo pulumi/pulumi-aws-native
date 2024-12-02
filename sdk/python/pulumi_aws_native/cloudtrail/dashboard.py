@@ -33,6 +33,7 @@ class DashboardArgs:
         The set of arguments for constructing a Dashboard resource.
         :param pulumi.Input[str] name: The name of the dashboard.
         :param pulumi.Input['DashboardRefreshScheduleArgs'] refresh_schedule: Configures the automatic refresh schedule for the dashboard. Includes the frequency unit (DAYS or HOURS) and value, as well as the status (ENABLED or DISABLED) of the refresh schedule.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A list of tags.
         :param pulumi.Input[bool] termination_protection_enabled: Indicates whether the dashboard is protected from termination.
         :param pulumi.Input[Sequence[pulumi.Input['DashboardWidgetArgs']]] widgets: List of widgets on the dashboard
         """
@@ -74,6 +75,9 @@ class DashboardArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        A list of tags.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -123,6 +127,7 @@ class Dashboard(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the dashboard.
         :param pulumi.Input[Union['DashboardRefreshScheduleArgs', 'DashboardRefreshScheduleArgsDict']] refresh_schedule: Configures the automatic refresh schedule for the dashboard. Includes the frequency unit (DAYS or HOURS) and value, as well as the status (ENABLED or DISABLED) of the refresh schedule.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of tags.
         :param pulumi.Input[bool] termination_protection_enabled: Indicates whether the dashboard is protected from termination.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DashboardWidgetArgs', 'DashboardWidgetArgsDict']]]] widgets: List of widgets on the dashboard
         """
@@ -251,6 +256,9 @@ class Dashboard(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        A list of tags.
+        """
         return pulumi.get(self, "tags")
 
     @property

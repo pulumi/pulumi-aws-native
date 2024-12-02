@@ -143,6 +143,199 @@ type DeliveryTag struct {
 	Value string `pulumi:"value"`
 }
 
+type IntegrationOpenSearchResourceConfig struct {
+	ApplicationArn            *string  `pulumi:"applicationArn"`
+	DashboardViewerPrincipals []string `pulumi:"dashboardViewerPrincipals"`
+	DataSourceRoleArn         string   `pulumi:"dataSourceRoleArn"`
+	KmsKeyArn                 *string  `pulumi:"kmsKeyArn"`
+	RetentionDays             *int     `pulumi:"retentionDays"`
+}
+
+// IntegrationOpenSearchResourceConfigInput is an input type that accepts IntegrationOpenSearchResourceConfigArgs and IntegrationOpenSearchResourceConfigOutput values.
+// You can construct a concrete instance of `IntegrationOpenSearchResourceConfigInput` via:
+//
+//	IntegrationOpenSearchResourceConfigArgs{...}
+type IntegrationOpenSearchResourceConfigInput interface {
+	pulumi.Input
+
+	ToIntegrationOpenSearchResourceConfigOutput() IntegrationOpenSearchResourceConfigOutput
+	ToIntegrationOpenSearchResourceConfigOutputWithContext(context.Context) IntegrationOpenSearchResourceConfigOutput
+}
+
+type IntegrationOpenSearchResourceConfigArgs struct {
+	ApplicationArn            pulumi.StringPtrInput   `pulumi:"applicationArn"`
+	DashboardViewerPrincipals pulumi.StringArrayInput `pulumi:"dashboardViewerPrincipals"`
+	DataSourceRoleArn         pulumi.StringInput      `pulumi:"dataSourceRoleArn"`
+	KmsKeyArn                 pulumi.StringPtrInput   `pulumi:"kmsKeyArn"`
+	RetentionDays             pulumi.IntPtrInput      `pulumi:"retentionDays"`
+}
+
+func (IntegrationOpenSearchResourceConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationOpenSearchResourceConfig)(nil)).Elem()
+}
+
+func (i IntegrationOpenSearchResourceConfigArgs) ToIntegrationOpenSearchResourceConfigOutput() IntegrationOpenSearchResourceConfigOutput {
+	return i.ToIntegrationOpenSearchResourceConfigOutputWithContext(context.Background())
+}
+
+func (i IntegrationOpenSearchResourceConfigArgs) ToIntegrationOpenSearchResourceConfigOutputWithContext(ctx context.Context) IntegrationOpenSearchResourceConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationOpenSearchResourceConfigOutput)
+}
+
+func (i IntegrationOpenSearchResourceConfigArgs) ToIntegrationOpenSearchResourceConfigPtrOutput() IntegrationOpenSearchResourceConfigPtrOutput {
+	return i.ToIntegrationOpenSearchResourceConfigPtrOutputWithContext(context.Background())
+}
+
+func (i IntegrationOpenSearchResourceConfigArgs) ToIntegrationOpenSearchResourceConfigPtrOutputWithContext(ctx context.Context) IntegrationOpenSearchResourceConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationOpenSearchResourceConfigOutput).ToIntegrationOpenSearchResourceConfigPtrOutputWithContext(ctx)
+}
+
+// IntegrationOpenSearchResourceConfigPtrInput is an input type that accepts IntegrationOpenSearchResourceConfigArgs, IntegrationOpenSearchResourceConfigPtr and IntegrationOpenSearchResourceConfigPtrOutput values.
+// You can construct a concrete instance of `IntegrationOpenSearchResourceConfigPtrInput` via:
+//
+//	        IntegrationOpenSearchResourceConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type IntegrationOpenSearchResourceConfigPtrInput interface {
+	pulumi.Input
+
+	ToIntegrationOpenSearchResourceConfigPtrOutput() IntegrationOpenSearchResourceConfigPtrOutput
+	ToIntegrationOpenSearchResourceConfigPtrOutputWithContext(context.Context) IntegrationOpenSearchResourceConfigPtrOutput
+}
+
+type integrationOpenSearchResourceConfigPtrType IntegrationOpenSearchResourceConfigArgs
+
+func IntegrationOpenSearchResourceConfigPtr(v *IntegrationOpenSearchResourceConfigArgs) IntegrationOpenSearchResourceConfigPtrInput {
+	return (*integrationOpenSearchResourceConfigPtrType)(v)
+}
+
+func (*integrationOpenSearchResourceConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationOpenSearchResourceConfig)(nil)).Elem()
+}
+
+func (i *integrationOpenSearchResourceConfigPtrType) ToIntegrationOpenSearchResourceConfigPtrOutput() IntegrationOpenSearchResourceConfigPtrOutput {
+	return i.ToIntegrationOpenSearchResourceConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *integrationOpenSearchResourceConfigPtrType) ToIntegrationOpenSearchResourceConfigPtrOutputWithContext(ctx context.Context) IntegrationOpenSearchResourceConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationOpenSearchResourceConfigPtrOutput)
+}
+
+type IntegrationOpenSearchResourceConfigOutput struct{ *pulumi.OutputState }
+
+func (IntegrationOpenSearchResourceConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationOpenSearchResourceConfig)(nil)).Elem()
+}
+
+func (o IntegrationOpenSearchResourceConfigOutput) ToIntegrationOpenSearchResourceConfigOutput() IntegrationOpenSearchResourceConfigOutput {
+	return o
+}
+
+func (o IntegrationOpenSearchResourceConfigOutput) ToIntegrationOpenSearchResourceConfigOutputWithContext(ctx context.Context) IntegrationOpenSearchResourceConfigOutput {
+	return o
+}
+
+func (o IntegrationOpenSearchResourceConfigOutput) ToIntegrationOpenSearchResourceConfigPtrOutput() IntegrationOpenSearchResourceConfigPtrOutput {
+	return o.ToIntegrationOpenSearchResourceConfigPtrOutputWithContext(context.Background())
+}
+
+func (o IntegrationOpenSearchResourceConfigOutput) ToIntegrationOpenSearchResourceConfigPtrOutputWithContext(ctx context.Context) IntegrationOpenSearchResourceConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntegrationOpenSearchResourceConfig) *IntegrationOpenSearchResourceConfig {
+		return &v
+	}).(IntegrationOpenSearchResourceConfigPtrOutput)
+}
+
+func (o IntegrationOpenSearchResourceConfigOutput) ApplicationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntegrationOpenSearchResourceConfig) *string { return v.ApplicationArn }).(pulumi.StringPtrOutput)
+}
+
+func (o IntegrationOpenSearchResourceConfigOutput) DashboardViewerPrincipals() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v IntegrationOpenSearchResourceConfig) []string { return v.DashboardViewerPrincipals }).(pulumi.StringArrayOutput)
+}
+
+func (o IntegrationOpenSearchResourceConfigOutput) DataSourceRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v IntegrationOpenSearchResourceConfig) string { return v.DataSourceRoleArn }).(pulumi.StringOutput)
+}
+
+func (o IntegrationOpenSearchResourceConfigOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntegrationOpenSearchResourceConfig) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
+}
+
+func (o IntegrationOpenSearchResourceConfigOutput) RetentionDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v IntegrationOpenSearchResourceConfig) *int { return v.RetentionDays }).(pulumi.IntPtrOutput)
+}
+
+type IntegrationOpenSearchResourceConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (IntegrationOpenSearchResourceConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntegrationOpenSearchResourceConfig)(nil)).Elem()
+}
+
+func (o IntegrationOpenSearchResourceConfigPtrOutput) ToIntegrationOpenSearchResourceConfigPtrOutput() IntegrationOpenSearchResourceConfigPtrOutput {
+	return o
+}
+
+func (o IntegrationOpenSearchResourceConfigPtrOutput) ToIntegrationOpenSearchResourceConfigPtrOutputWithContext(ctx context.Context) IntegrationOpenSearchResourceConfigPtrOutput {
+	return o
+}
+
+func (o IntegrationOpenSearchResourceConfigPtrOutput) Elem() IntegrationOpenSearchResourceConfigOutput {
+	return o.ApplyT(func(v *IntegrationOpenSearchResourceConfig) IntegrationOpenSearchResourceConfig {
+		if v != nil {
+			return *v
+		}
+		var ret IntegrationOpenSearchResourceConfig
+		return ret
+	}).(IntegrationOpenSearchResourceConfigOutput)
+}
+
+func (o IntegrationOpenSearchResourceConfigPtrOutput) ApplicationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationOpenSearchResourceConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ApplicationArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o IntegrationOpenSearchResourceConfigPtrOutput) DashboardViewerPrincipals() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *IntegrationOpenSearchResourceConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.DashboardViewerPrincipals
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o IntegrationOpenSearchResourceConfigPtrOutput) DataSourceRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationOpenSearchResourceConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DataSourceRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o IntegrationOpenSearchResourceConfigPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IntegrationOpenSearchResourceConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o IntegrationOpenSearchResourceConfigPtrOutput) RetentionDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *IntegrationOpenSearchResourceConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RetentionDays
+	}).(pulumi.IntPtrOutput)
+}
+
 type LogGroupTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
@@ -434,17 +627,77 @@ func (o MetricFilterMetricTransformationArrayOutput) Index(i pulumi.IntInput) Me
 	}).(MetricFilterMetricTransformationOutput)
 }
 
+// OpenSearchResourceConfig for the given Integration
+type ResourceConfigProperties struct {
+	OpenSearchResourceConfig *IntegrationOpenSearchResourceConfig `pulumi:"openSearchResourceConfig"`
+}
+
+// ResourceConfigPropertiesInput is an input type that accepts ResourceConfigPropertiesArgs and ResourceConfigPropertiesOutput values.
+// You can construct a concrete instance of `ResourceConfigPropertiesInput` via:
+//
+//	ResourceConfigPropertiesArgs{...}
+type ResourceConfigPropertiesInput interface {
+	pulumi.Input
+
+	ToResourceConfigPropertiesOutput() ResourceConfigPropertiesOutput
+	ToResourceConfigPropertiesOutputWithContext(context.Context) ResourceConfigPropertiesOutput
+}
+
+// OpenSearchResourceConfig for the given Integration
+type ResourceConfigPropertiesArgs struct {
+	OpenSearchResourceConfig IntegrationOpenSearchResourceConfigPtrInput `pulumi:"openSearchResourceConfig"`
+}
+
+func (ResourceConfigPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceConfigProperties)(nil)).Elem()
+}
+
+func (i ResourceConfigPropertiesArgs) ToResourceConfigPropertiesOutput() ResourceConfigPropertiesOutput {
+	return i.ToResourceConfigPropertiesOutputWithContext(context.Background())
+}
+
+func (i ResourceConfigPropertiesArgs) ToResourceConfigPropertiesOutputWithContext(ctx context.Context) ResourceConfigPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceConfigPropertiesOutput)
+}
+
+// OpenSearchResourceConfig for the given Integration
+type ResourceConfigPropertiesOutput struct{ *pulumi.OutputState }
+
+func (ResourceConfigPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceConfigProperties)(nil)).Elem()
+}
+
+func (o ResourceConfigPropertiesOutput) ToResourceConfigPropertiesOutput() ResourceConfigPropertiesOutput {
+	return o
+}
+
+func (o ResourceConfigPropertiesOutput) ToResourceConfigPropertiesOutputWithContext(ctx context.Context) ResourceConfigPropertiesOutput {
+	return o
+}
+
+func (o ResourceConfigPropertiesOutput) OpenSearchResourceConfig() IntegrationOpenSearchResourceConfigPtrOutput {
+	return o.ApplyT(func(v ResourceConfigProperties) *IntegrationOpenSearchResourceConfig {
+		return v.OpenSearchResourceConfig
+	}).(IntegrationOpenSearchResourceConfigPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryDestinationDestinationPolicyInput)(nil)).Elem(), DeliveryDestinationDestinationPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryDestinationDestinationPolicyArrayInput)(nil)).Elem(), DeliveryDestinationDestinationPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationOpenSearchResourceConfigInput)(nil)).Elem(), IntegrationOpenSearchResourceConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationOpenSearchResourceConfigPtrInput)(nil)).Elem(), IntegrationOpenSearchResourceConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricFilterDimensionInput)(nil)).Elem(), MetricFilterDimensionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricFilterDimensionArrayInput)(nil)).Elem(), MetricFilterDimensionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricFilterMetricTransformationInput)(nil)).Elem(), MetricFilterMetricTransformationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricFilterMetricTransformationArrayInput)(nil)).Elem(), MetricFilterMetricTransformationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceConfigPropertiesInput)(nil)).Elem(), ResourceConfigPropertiesArgs{})
 	pulumi.RegisterOutputType(DeliveryDestinationDestinationPolicyOutput{})
 	pulumi.RegisterOutputType(DeliveryDestinationDestinationPolicyArrayOutput{})
+	pulumi.RegisterOutputType(IntegrationOpenSearchResourceConfigOutput{})
+	pulumi.RegisterOutputType(IntegrationOpenSearchResourceConfigPtrOutput{})
 	pulumi.RegisterOutputType(MetricFilterDimensionOutput{})
 	pulumi.RegisterOutputType(MetricFilterDimensionArrayOutput{})
 	pulumi.RegisterOutputType(MetricFilterMetricTransformationOutput{})
 	pulumi.RegisterOutputType(MetricFilterMetricTransformationArrayOutput{})
+	pulumi.RegisterOutputType(ResourceConfigPropertiesOutput{})
 }

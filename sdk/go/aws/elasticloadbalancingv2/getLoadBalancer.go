@@ -49,7 +49,8 @@ type LookupLoadBalancerResult struct {
 	// The full name of the load balancer. For example, `app/my-load-balancer/50dc6c495c0c9188` .
 	LoadBalancerFullName *string `pulumi:"loadBalancerFullName"`
 	// The name of the load balancer. For example, `my-load-balancer` .
-	LoadBalancerName            *string                                  `pulumi:"loadBalancerName"`
+	LoadBalancerName *string `pulumi:"loadBalancerName"`
+	// The minimum capacity for a load balancer.
 	MinimumLoadBalancerCapacity *LoadBalancerMinimumLoadBalancerCapacity `pulumi:"minimumLoadBalancerCapacity"`
 	// [Application Load Balancers and Network Load Balancers] The IDs of the security groups for the load balancer.
 	SecurityGroups []string `pulumi:"securityGroups"`
@@ -163,6 +164,7 @@ func (o LookupLoadBalancerResultOutput) LoadBalancerName() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v LookupLoadBalancerResult) *string { return v.LoadBalancerName }).(pulumi.StringPtrOutput)
 }
 
+// The minimum capacity for a load balancer.
 func (o LookupLoadBalancerResultOutput) MinimumLoadBalancerCapacity() LoadBalancerMinimumLoadBalancerCapacityPtrOutput {
 	return o.ApplyT(func(v LookupLoadBalancerResult) *LoadBalancerMinimumLoadBalancerCapacity {
 		return v.MinimumLoadBalancerCapacity

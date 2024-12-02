@@ -37,23 +37,43 @@ export class DomainNameV2 extends pulumi.CustomResource {
         return obj['__pulumiType'] === DomainNameV2.__pulumiType;
     }
 
+    /**
+     * The reference to an AWS -managed certificate that will be used by the private endpoint for this domain name. AWS Certificate Manager is the only supported source.
+     */
     public readonly certificateArn!: pulumi.Output<string | undefined>;
+    /**
+     * Represents a custom domain name as a user-friendly host name of an API (RestApi).
+     */
     public readonly domainName!: pulumi.Output<string | undefined>;
     /**
      * The amazon resource name (ARN) of the domain name resource.
      */
     public /*out*/ readonly domainNameArn!: pulumi.Output<string>;
+    /**
+     * The domain name ID.
+     */
     public /*out*/ readonly domainNameId!: pulumi.Output<string>;
+    /**
+     * The endpoint configuration to indicate the types of endpoints an API (RestApi) or its custom domain name (DomainName) has.
+     */
     public readonly endpointConfiguration!: pulumi.Output<outputs.apigateway.DomainNameV2EndpointConfiguration | undefined>;
     /**
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::DomainNameV2` for more information about the expected schema for this property.
      */
     public readonly managementPolicy!: pulumi.Output<any | undefined>;
     /**
+     * A stringified JSON policy document that applies to the `execute-api` service for this DomainName regardless of the caller and Method configuration. You can use `Fn::ToJsonString` to enter your `policy` . For more information, see [Fn::ToJsonString](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ToJsonString.html) .
+     *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::DomainNameV2` for more information about the expected schema for this property.
      */
     public readonly policy!: pulumi.Output<any | undefined>;
+    /**
+     * The Transport Layer Security (TLS) version + cipher suite for this DomainName. Only `TLS_1_2` is supported.
+     */
     public readonly securityPolicy!: pulumi.Output<string | undefined>;
+    /**
+     * The collection of tags. Each tag element is associated with a given resource.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
@@ -98,17 +118,34 @@ export class DomainNameV2 extends pulumi.CustomResource {
  * The set of arguments for constructing a DomainNameV2 resource.
  */
 export interface DomainNameV2Args {
+    /**
+     * The reference to an AWS -managed certificate that will be used by the private endpoint for this domain name. AWS Certificate Manager is the only supported source.
+     */
     certificateArn?: pulumi.Input<string>;
+    /**
+     * Represents a custom domain name as a user-friendly host name of an API (RestApi).
+     */
     domainName?: pulumi.Input<string>;
+    /**
+     * The endpoint configuration to indicate the types of endpoints an API (RestApi) or its custom domain name (DomainName) has.
+     */
     endpointConfiguration?: pulumi.Input<inputs.apigateway.DomainNameV2EndpointConfigurationArgs>;
     /**
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::DomainNameV2` for more information about the expected schema for this property.
      */
     managementPolicy?: any;
     /**
+     * A stringified JSON policy document that applies to the `execute-api` service for this DomainName regardless of the caller and Method configuration. You can use `Fn::ToJsonString` to enter your `policy` . For more information, see [Fn::ToJsonString](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ToJsonString.html) .
+     *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::DomainNameV2` for more information about the expected schema for this property.
      */
     policy?: any;
+    /**
+     * The Transport Layer Security (TLS) version + cipher suite for this DomainName. Only `TLS_1_2` is supported.
+     */
     securityPolicy?: pulumi.Input<string>;
+    /**
+     * The collection of tags. Each tag element is associated with a given resource.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

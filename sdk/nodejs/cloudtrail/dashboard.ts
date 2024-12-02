@@ -57,6 +57,9 @@ export class Dashboard extends pulumi.CustomResource {
      * The status of the dashboard. Values are CREATING, CREATED, UPDATING, UPDATED and DELETING.
      */
     public /*out*/ readonly status!: pulumi.Output<enums.cloudtrail.DashboardStatus>;
+    /**
+     * A list of tags.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * Indicates whether the dashboard is protected from termination.
@@ -125,6 +128,9 @@ export interface DashboardArgs {
      * Configures the automatic refresh schedule for the dashboard. Includes the frequency unit (DAYS or HOURS) and value, as well as the status (ENABLED or DISABLED) of the refresh schedule.
      */
     refreshSchedule?: pulumi.Input<inputs.cloudtrail.DashboardRefreshScheduleArgs>;
+    /**
+     * A list of tags.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * Indicates whether the dashboard is protected from termination.

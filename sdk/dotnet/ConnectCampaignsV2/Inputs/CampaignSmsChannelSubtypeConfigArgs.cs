@@ -15,12 +15,21 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2.Inputs
     /// </summary>
     public sealed class CampaignSmsChannelSubtypeConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The allocation of SMS capacity between multiple running outbound campaigns.
+        /// </summary>
         [Input("capacity")]
         public Input<double>? Capacity { get; set; }
 
+        /// <summary>
+        /// The default SMS outbound configuration of an outbound campaign.
+        /// </summary>
         [Input("defaultOutboundConfig", required: true)]
         public Input<Inputs.CampaignSmsOutboundConfigArgs> DefaultOutboundConfig { get; set; } = null!;
 
+        /// <summary>
+        /// The outbound mode of SMS for an outbound campaign.
+        /// </summary>
         [Input("outboundMode", required: true)]
         public Input<Inputs.CampaignSmsOutboundModeArgs> OutboundMode { get; set; } = null!;
 

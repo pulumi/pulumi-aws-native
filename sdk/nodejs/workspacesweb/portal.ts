@@ -75,6 +75,9 @@ export class Portal extends pulumi.CustomResource {
      * *Pattern* : `^arn:[\w+=\/,.@-]+:kms:[a-zA-Z0-9\-]*:[a-zA-Z0-9]{1,12}:key\/[a-zA-Z0-9-]+$`
      */
     public readonly customerManagedKey!: pulumi.Output<string | undefined>;
+    /**
+     * The ARN of the data protection settings.
+     */
     public readonly dataProtectionSettingsArn!: pulumi.Output<string | undefined>;
     /**
      * The name of the web portal.
@@ -235,6 +238,9 @@ export interface PortalArgs {
      * *Pattern* : `^arn:[\w+=\/,.@-]+:kms:[a-zA-Z0-9\-]*:[a-zA-Z0-9]{1,12}:key\/[a-zA-Z0-9-]+$`
      */
     customerManagedKey?: pulumi.Input<string>;
+    /**
+     * The ARN of the data protection settings.
+     */
     dataProtectionSettingsArn?: pulumi.Input<string>;
     /**
      * The name of the web portal.

@@ -5425,6 +5425,7 @@ func (o SoftwarePackageVersionPackageVersionStatusPtrOutput) ToStringPtrOutputWi
 	}).(pulumi.StringPtrOutput)
 }
 
+// The attribute associated with the connection details.
 type ThingTypePropagatingAttributeConnectionAttribute string
 
 const (

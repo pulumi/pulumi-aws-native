@@ -9,6 +9,16 @@ export const ClusterDataTieringStatus = {
 
 export type ClusterDataTieringStatus = (typeof ClusterDataTieringStatus)[keyof typeof ClusterDataTieringStatus];
 
+export const MultiRegionClusterUpdateStrategy = {
+    Coordinated: "COORDINATED",
+    Uncoordinated: "UNCOORDINATED",
+} as const;
+
+/**
+ * An enum string value that determines the update strategy for scaling. Possible values are 'COORDINATED' and 'UNCOORDINATED'. Default is 'COORDINATED'.
+ */
+export type MultiRegionClusterUpdateStrategy = (typeof MultiRegionClusterUpdateStrategy)[keyof typeof MultiRegionClusterUpdateStrategy];
+
 export const UserAuthenticationModePropertiesType = {
     Password: "password",
     Iam: "iam",

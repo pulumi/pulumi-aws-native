@@ -51,6 +51,9 @@ namespace Pulumi.AwsNative.Eks
         [Output("clusterSecurityGroupId")]
         public Output<string> ClusterSecurityGroupId { get; private set; } = null!;
 
+        [Output("computeConfig")]
+        public Output<Outputs.ClusterComputeConfig?> ComputeConfig { get; private set; } = null!;
+
         /// <summary>
         /// The encryption configuration for the cluster.
         /// </summary>
@@ -99,6 +102,9 @@ namespace Pulumi.AwsNative.Eks
         [Output("outpostConfig")]
         public Output<Outputs.ClusterOutpostConfig?> OutpostConfig { get; private set; } = null!;
 
+        [Output("remoteNetworkConfig")]
+        public Output<Outputs.ClusterRemoteNetworkConfig?> RemoteNetworkConfig { get; private set; } = null!;
+
         /// <summary>
         /// The VPC configuration that's used by the cluster control plane. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the *Amazon EKS User Guide* . You must specify at least two subnets. You can specify up to five security groups, but we recommend that you use a dedicated security group for your cluster control plane.
         /// </summary>
@@ -110,6 +116,9 @@ namespace Pulumi.AwsNative.Eks
         /// </summary>
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
+
+        [Output("storageConfig")]
+        public Output<Outputs.ClusterStorageConfig?> StorageConfig { get; private set; } = null!;
 
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
@@ -168,6 +177,7 @@ namespace Pulumi.AwsNative.Eks
                     "kubernetesNetworkConfig",
                     "name",
                     "outpostConfig",
+                    "remoteNetworkConfig",
                     "roleArn",
                 },
             };
@@ -203,6 +213,9 @@ namespace Pulumi.AwsNative.Eks
         /// </summary>
         [Input("bootstrapSelfManagedAddons")]
         public Input<bool>? BootstrapSelfManagedAddons { get; set; }
+
+        [Input("computeConfig")]
+        public Input<Inputs.ClusterComputeConfigArgs>? ComputeConfig { get; set; }
 
         [Input("encryptionConfig")]
         private InputList<Inputs.ClusterEncryptionConfigArgs>? _encryptionConfig;
@@ -240,6 +253,9 @@ namespace Pulumi.AwsNative.Eks
         [Input("outpostConfig")]
         public Input<Inputs.ClusterOutpostConfigArgs>? OutpostConfig { get; set; }
 
+        [Input("remoteNetworkConfig")]
+        public Input<Inputs.ClusterRemoteNetworkConfigArgs>? RemoteNetworkConfig { get; set; }
+
         /// <summary>
         /// The VPC configuration that's used by the cluster control plane. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the *Amazon EKS User Guide* . You must specify at least two subnets. You can specify up to five security groups, but we recommend that you use a dedicated security group for your cluster control plane.
         /// </summary>
@@ -251,6 +267,9 @@ namespace Pulumi.AwsNative.Eks
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
+
+        [Input("storageConfig")]
+        public Input<Inputs.ClusterStorageConfigArgs>? StorageConfig { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

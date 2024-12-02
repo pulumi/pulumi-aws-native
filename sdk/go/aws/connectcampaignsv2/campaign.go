@@ -18,15 +18,23 @@ type Campaign struct {
 	pulumi.CustomResourceState
 
 	// Amazon Connect Campaign Arn
-	Arn                         pulumi.StringOutput                        `pulumi:"arn"`
-	ChannelSubtypeConfig        CampaignChannelSubtypeConfigOutput         `pulumi:"channelSubtypeConfig"`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Contains channel subtype configuration for an outbound campaign.
+	ChannelSubtypeConfig CampaignChannelSubtypeConfigOutput `pulumi:"channelSubtypeConfig"`
+	// Communication limits configuration for an outbound campaign.
 	CommunicationLimitsOverride CampaignCommunicationLimitsConfigPtrOutput `pulumi:"communicationLimitsOverride"`
-	CommunicationTimeConfig     CampaignCommunicationTimeConfigPtrOutput   `pulumi:"communicationTimeConfig"`
-	ConnectCampaignFlowArn      pulumi.StringPtrOutput                     `pulumi:"connectCampaignFlowArn"`
-	ConnectInstanceId           pulumi.StringOutput                        `pulumi:"connectInstanceId"`
-	Name                        pulumi.StringOutput                        `pulumi:"name"`
-	Schedule                    CampaignSchedulePtrOutput                  `pulumi:"schedule"`
-	Source                      CampaignSourcePtrOutput                    `pulumi:"source"`
+	// Contains communication time configuration for an outbound campaign.
+	CommunicationTimeConfig CampaignCommunicationTimeConfigPtrOutput `pulumi:"communicationTimeConfig"`
+	// The Amazon Resource Name (ARN) of the Amazon Connect campaign flow associated with the outbound campaign.
+	ConnectCampaignFlowArn pulumi.StringPtrOutput `pulumi:"connectCampaignFlowArn"`
+	// The identifier of the Amazon Connect instance. You can find the `instanceId` in the ARN of the instance.
+	ConnectInstanceId pulumi.StringOutput `pulumi:"connectInstanceId"`
+	// The name of the outbound campaign.
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Contains the schedule configuration.
+	Schedule CampaignSchedulePtrOutput `pulumi:"schedule"`
+	// Contains source configuration.
+	Source CampaignSourcePtrOutput `pulumi:"source"`
 	// One or more tags.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
@@ -81,28 +89,44 @@ func (CampaignState) ElementType() reflect.Type {
 }
 
 type campaignArgs struct {
-	ChannelSubtypeConfig        CampaignChannelSubtypeConfig       `pulumi:"channelSubtypeConfig"`
+	// Contains channel subtype configuration for an outbound campaign.
+	ChannelSubtypeConfig CampaignChannelSubtypeConfig `pulumi:"channelSubtypeConfig"`
+	// Communication limits configuration for an outbound campaign.
 	CommunicationLimitsOverride *CampaignCommunicationLimitsConfig `pulumi:"communicationLimitsOverride"`
-	CommunicationTimeConfig     *CampaignCommunicationTimeConfig   `pulumi:"communicationTimeConfig"`
-	ConnectCampaignFlowArn      *string                            `pulumi:"connectCampaignFlowArn"`
-	ConnectInstanceId           string                             `pulumi:"connectInstanceId"`
-	Name                        *string                            `pulumi:"name"`
-	Schedule                    *CampaignSchedule                  `pulumi:"schedule"`
-	Source                      *CampaignSource                    `pulumi:"source"`
+	// Contains communication time configuration for an outbound campaign.
+	CommunicationTimeConfig *CampaignCommunicationTimeConfig `pulumi:"communicationTimeConfig"`
+	// The Amazon Resource Name (ARN) of the Amazon Connect campaign flow associated with the outbound campaign.
+	ConnectCampaignFlowArn *string `pulumi:"connectCampaignFlowArn"`
+	// The identifier of the Amazon Connect instance. You can find the `instanceId` in the ARN of the instance.
+	ConnectInstanceId string `pulumi:"connectInstanceId"`
+	// The name of the outbound campaign.
+	Name *string `pulumi:"name"`
+	// Contains the schedule configuration.
+	Schedule *CampaignSchedule `pulumi:"schedule"`
+	// Contains source configuration.
+	Source *CampaignSource `pulumi:"source"`
 	// One or more tags.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Campaign resource.
 type CampaignArgs struct {
-	ChannelSubtypeConfig        CampaignChannelSubtypeConfigInput
+	// Contains channel subtype configuration for an outbound campaign.
+	ChannelSubtypeConfig CampaignChannelSubtypeConfigInput
+	// Communication limits configuration for an outbound campaign.
 	CommunicationLimitsOverride CampaignCommunicationLimitsConfigPtrInput
-	CommunicationTimeConfig     CampaignCommunicationTimeConfigPtrInput
-	ConnectCampaignFlowArn      pulumi.StringPtrInput
-	ConnectInstanceId           pulumi.StringInput
-	Name                        pulumi.StringPtrInput
-	Schedule                    CampaignSchedulePtrInput
-	Source                      CampaignSourcePtrInput
+	// Contains communication time configuration for an outbound campaign.
+	CommunicationTimeConfig CampaignCommunicationTimeConfigPtrInput
+	// The Amazon Resource Name (ARN) of the Amazon Connect campaign flow associated with the outbound campaign.
+	ConnectCampaignFlowArn pulumi.StringPtrInput
+	// The identifier of the Amazon Connect instance. You can find the `instanceId` in the ARN of the instance.
+	ConnectInstanceId pulumi.StringInput
+	// The name of the outbound campaign.
+	Name pulumi.StringPtrInput
+	// Contains the schedule configuration.
+	Schedule CampaignSchedulePtrInput
+	// Contains source configuration.
+	Source CampaignSourcePtrInput
 	// One or more tags.
 	Tags aws.TagArrayInput
 }
@@ -149,34 +173,42 @@ func (o CampaignOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Campaign) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Contains channel subtype configuration for an outbound campaign.
 func (o CampaignOutput) ChannelSubtypeConfig() CampaignChannelSubtypeConfigOutput {
 	return o.ApplyT(func(v *Campaign) CampaignChannelSubtypeConfigOutput { return v.ChannelSubtypeConfig }).(CampaignChannelSubtypeConfigOutput)
 }
 
+// Communication limits configuration for an outbound campaign.
 func (o CampaignOutput) CommunicationLimitsOverride() CampaignCommunicationLimitsConfigPtrOutput {
 	return o.ApplyT(func(v *Campaign) CampaignCommunicationLimitsConfigPtrOutput { return v.CommunicationLimitsOverride }).(CampaignCommunicationLimitsConfigPtrOutput)
 }
 
+// Contains communication time configuration for an outbound campaign.
 func (o CampaignOutput) CommunicationTimeConfig() CampaignCommunicationTimeConfigPtrOutput {
 	return o.ApplyT(func(v *Campaign) CampaignCommunicationTimeConfigPtrOutput { return v.CommunicationTimeConfig }).(CampaignCommunicationTimeConfigPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Amazon Connect campaign flow associated with the outbound campaign.
 func (o CampaignOutput) ConnectCampaignFlowArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Campaign) pulumi.StringPtrOutput { return v.ConnectCampaignFlowArn }).(pulumi.StringPtrOutput)
 }
 
+// The identifier of the Amazon Connect instance. You can find the `instanceId` in the ARN of the instance.
 func (o CampaignOutput) ConnectInstanceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Campaign) pulumi.StringOutput { return v.ConnectInstanceId }).(pulumi.StringOutput)
 }
 
+// The name of the outbound campaign.
 func (o CampaignOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Campaign) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Contains the schedule configuration.
 func (o CampaignOutput) Schedule() CampaignSchedulePtrOutput {
 	return o.ApplyT(func(v *Campaign) CampaignSchedulePtrOutput { return v.Schedule }).(CampaignSchedulePtrOutput)
 }
 
+// Contains source configuration.
 func (o CampaignOutput) Source() CampaignSourcePtrOutput {
 	return o.ApplyT(func(v *Campaign) CampaignSourcePtrOutput { return v.Source }).(CampaignSourcePtrOutput)
 }

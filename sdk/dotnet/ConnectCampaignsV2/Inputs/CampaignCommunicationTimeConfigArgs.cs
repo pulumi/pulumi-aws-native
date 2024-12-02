@@ -15,15 +15,27 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2.Inputs
     /// </summary>
     public sealed class CampaignCommunicationTimeConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The communication time configuration for the email channel subtype.
+        /// </summary>
         [Input("email")]
         public Input<Inputs.CampaignTimeWindowArgs>? Email { get; set; }
 
+        /// <summary>
+        /// The local timezone configuration.
+        /// </summary>
         [Input("localTimeZoneConfig", required: true)]
         public Input<Inputs.CampaignLocalTimeZoneConfigArgs> LocalTimeZoneConfig { get; set; } = null!;
 
+        /// <summary>
+        /// The communication time configuration for the SMS channel subtype.
+        /// </summary>
         [Input("sms")]
         public Input<Inputs.CampaignTimeWindowArgs>? Sms { get; set; }
 
+        /// <summary>
+        /// The communication time configuration for the telephony channel subtype.
+        /// </summary>
         [Input("telephony")]
         public Input<Inputs.CampaignTimeWindowArgs>? Telephony { get; set; }
 

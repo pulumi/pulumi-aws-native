@@ -120,7 +120,7 @@ export class TypeActivation extends pulumi.CustomResource {
             resourceInputs["versionBump"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["executionRoleArn", "loggingConfig", "publicTypeArn", "publisherId", "type", "typeName", "typeNameAlias"] };
+        const replaceOnChanges = { replaceOnChanges: ["loggingConfig"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(TypeActivation.__pulumiType, name, resourceInputs, opts);
     }

@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.Wisdom.Outputs
     [OutputType]
     public sealed class KnowledgeBaseHierarchicalChunkingLevelConfiguration
     {
+        /// <summary>
+        /// The maximum number of tokens that a chunk can contain in this layer.
+        /// </summary>
         public readonly double MaxTokens;
 
         [OutputConstructor]

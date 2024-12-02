@@ -72,6 +72,9 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         [Output("loadBalancerName")]
         public Output<string> LoadBalancerName { get; private set; } = null!;
 
+        /// <summary>
+        /// The minimum capacity for a load balancer.
+        /// </summary>
         [Output("minimumLoadBalancerCapacity")]
         public Output<Outputs.LoadBalancerMinimumLoadBalancerCapacity?> MinimumLoadBalancerCapacity { get; private set; } = null!;
 
@@ -214,6 +217,9 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
             set => _loadBalancerAttributes = value;
         }
 
+        /// <summary>
+        /// The minimum capacity for a load balancer.
+        /// </summary>
         [Input("minimumLoadBalancerCapacity")]
         public Input<Inputs.LoadBalancerMinimumLoadBalancerCapacityArgs>? MinimumLoadBalancerCapacity { get; set; }
 

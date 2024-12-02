@@ -46,26 +46,41 @@ class GetCustomActionResult:
     @property
     @pulumi.getter(name="aliasName")
     def alias_name(self) -> Optional[str]:
+        """
+        The name used to invoke this action in a chat channel. For example, `@aws run my-alias` .
+        """
         return pulumi.get(self, "alias_name")
 
     @property
     @pulumi.getter
     def attachments(self) -> Optional[Sequence['outputs.CustomActionAttachment']]:
+        """
+        Defines when this custom action button should be attached to a notification.
+        """
         return pulumi.get(self, "attachments")
 
     @property
     @pulumi.getter(name="customActionArn")
     def custom_action_arn(self) -> Optional[str]:
+        """
+        The fully defined ARN of the custom action.
+        """
         return pulumi.get(self, "custom_action_arn")
 
     @property
     @pulumi.getter
     def definition(self) -> Optional['outputs.CustomActionDefinition']:
+        """
+        The definition of the command to run when invoked as an alias or as an action button.
+        """
         return pulumi.get(self, "definition")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        The tags to add to the configuration.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -86,6 +101,9 @@ def get_custom_action(custom_action_arn: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCustomActionResult:
     """
     Definition of AWS::Chatbot::CustomAction Resource Type
+
+
+    :param str custom_action_arn: The fully defined ARN of the custom action.
     """
     __args__ = dict()
     __args__['customActionArn'] = custom_action_arn
@@ -102,6 +120,9 @@ def get_custom_action_output(custom_action_arn: Optional[pulumi.Input[str]] = No
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCustomActionResult]:
     """
     Definition of AWS::Chatbot::CustomAction Resource Type
+
+
+    :param str custom_action_arn: The fully defined ARN of the custom action.
     """
     __args__ = dict()
     __args__['customActionArn'] = custom_action_arn

@@ -37,6 +37,9 @@ export interface GetKnowledgeBaseResult {
      * Information about how to render the content.
      */
     readonly renderingConfiguration?: outputs.wisdom.KnowledgeBaseRenderingConfiguration;
+    /**
+     * Contains details about how to ingest the documents in a data source.
+     */
     readonly vectorIngestionConfiguration?: outputs.wisdom.KnowledgeBaseVectorIngestionConfiguration;
 }
 /**

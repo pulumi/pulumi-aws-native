@@ -366,6 +366,9 @@ class SoftwarePackageVersionPackageVersionStatus(str, Enum):
 
 
 class ThingTypePropagatingAttributeConnectionAttribute(str, Enum):
+    """
+    The attribute associated with the connection details.
+    """
     IOT_CLIENT_ID = "iot:ClientId"
     IOT_THING_THING_NAME = "iot:Thing.ThingName"
 

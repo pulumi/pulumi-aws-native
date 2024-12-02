@@ -61,12 +61,33 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2
         /// Amazon Connect Campaign Arn
         /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// Contains channel subtype configuration for an outbound campaign.
+        /// </summary>
         public readonly Outputs.CampaignChannelSubtypeConfig? ChannelSubtypeConfig;
+        /// <summary>
+        /// Communication limits configuration for an outbound campaign.
+        /// </summary>
         public readonly Outputs.CampaignCommunicationLimitsConfig? CommunicationLimitsOverride;
+        /// <summary>
+        /// Contains communication time configuration for an outbound campaign.
+        /// </summary>
         public readonly Outputs.CampaignCommunicationTimeConfig? CommunicationTimeConfig;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Amazon Connect campaign flow associated with the outbound campaign.
+        /// </summary>
         public readonly string? ConnectCampaignFlowArn;
+        /// <summary>
+        /// The name of the outbound campaign.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// Contains the schedule configuration.
+        /// </summary>
         public readonly Outputs.CampaignSchedule? Schedule;
+        /// <summary>
+        /// Contains source configuration.
+        /// </summary>
         public readonly Outputs.CampaignSource? Source;
         /// <summary>
         /// One or more tags.

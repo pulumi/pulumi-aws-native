@@ -122,6 +122,9 @@ class CampaignChannelSubtypeConfig(dict):
                  telephony: Optional['outputs.CampaignTelephonyChannelSubtypeConfig'] = None):
         """
         The possible types of channel subtype config parameters
+        :param 'CampaignEmailChannelSubtypeConfig' email: The configuration of the email channel subtype.
+        :param 'CampaignSmsChannelSubtypeConfig' sms: The configuration of the SMS channel subtype.
+        :param 'CampaignTelephonyChannelSubtypeConfig' telephony: The configuration of the telephony channel subtype.
         """
         if email is not None:
             pulumi.set(__self__, "email", email)
@@ -133,16 +136,25 @@ class CampaignChannelSubtypeConfig(dict):
     @property
     @pulumi.getter
     def email(self) -> Optional['outputs.CampaignEmailChannelSubtypeConfig']:
+        """
+        The configuration of the email channel subtype.
+        """
         return pulumi.get(self, "email")
 
     @property
     @pulumi.getter
     def sms(self) -> Optional['outputs.CampaignSmsChannelSubtypeConfig']:
+        """
+        The configuration of the SMS channel subtype.
+        """
         return pulumi.get(self, "sms")
 
     @property
     @pulumi.getter
     def telephony(self) -> Optional['outputs.CampaignTelephonyChannelSubtypeConfig']:
+        """
+        The configuration of the telephony channel subtype.
+        """
         return pulumi.get(self, "telephony")
 
 
@@ -221,6 +233,7 @@ class CampaignCommunicationLimits(dict):
                  communication_limit_list: Optional[Sequence['outputs.CampaignCommunicationLimit']] = None):
         """
         Communication limits
+        :param Sequence['CampaignCommunicationLimit'] communication_limit_list: The list of CommunicationLimits.
         """
         if communication_limit_list is not None:
             pulumi.set(__self__, "communication_limit_list", communication_limit_list)
@@ -228,6 +241,9 @@ class CampaignCommunicationLimits(dict):
     @property
     @pulumi.getter(name="communicationLimitList")
     def communication_limit_list(self) -> Optional[Sequence['outputs.CampaignCommunicationLimit']]:
+        """
+        The list of CommunicationLimits.
+        """
         return pulumi.get(self, "communication_limit_list")
 
 
@@ -257,6 +273,7 @@ class CampaignCommunicationLimitsConfig(dict):
                  all_channels_subtypes: Optional['outputs.CampaignCommunicationLimits'] = None):
         """
         Communication limits config
+        :param 'CampaignCommunicationLimits' all_channels_subtypes: The CommunicationLimits that apply to all channel subtypes defined in an outbound campaign.
         """
         if all_channels_subtypes is not None:
             pulumi.set(__self__, "all_channels_subtypes", all_channels_subtypes)
@@ -264,6 +281,9 @@ class CampaignCommunicationLimitsConfig(dict):
     @property
     @pulumi.getter(name="allChannelsSubtypes")
     def all_channels_subtypes(self) -> Optional['outputs.CampaignCommunicationLimits']:
+        """
+        The CommunicationLimits that apply to all channel subtypes defined in an outbound campaign.
+        """
         return pulumi.get(self, "all_channels_subtypes")
 
 
@@ -296,6 +316,10 @@ class CampaignCommunicationTimeConfig(dict):
                  telephony: Optional['outputs.CampaignTimeWindow'] = None):
         """
         Campaign communication time config
+        :param 'CampaignLocalTimeZoneConfig' local_time_zone_config: The local timezone configuration.
+        :param 'CampaignTimeWindow' email: The communication time configuration for the email channel subtype.
+        :param 'CampaignTimeWindow' sms: The communication time configuration for the SMS channel subtype.
+        :param 'CampaignTimeWindow' telephony: The communication time configuration for the telephony channel subtype.
         """
         pulumi.set(__self__, "local_time_zone_config", local_time_zone_config)
         if email is not None:
@@ -308,21 +332,33 @@ class CampaignCommunicationTimeConfig(dict):
     @property
     @pulumi.getter(name="localTimeZoneConfig")
     def local_time_zone_config(self) -> 'outputs.CampaignLocalTimeZoneConfig':
+        """
+        The local timezone configuration.
+        """
         return pulumi.get(self, "local_time_zone_config")
 
     @property
     @pulumi.getter
     def email(self) -> Optional['outputs.CampaignTimeWindow']:
+        """
+        The communication time configuration for the email channel subtype.
+        """
         return pulumi.get(self, "email")
 
     @property
     @pulumi.getter
     def sms(self) -> Optional['outputs.CampaignTimeWindow']:
+        """
+        The communication time configuration for the SMS channel subtype.
+        """
         return pulumi.get(self, "sms")
 
     @property
     @pulumi.getter
     def telephony(self) -> Optional['outputs.CampaignTimeWindow']:
+        """
+        The communication time configuration for the telephony channel subtype.
+        """
         return pulumi.get(self, "telephony")
 
 
@@ -383,6 +419,9 @@ class CampaignEmailChannelSubtypeConfig(dict):
                  capacity: Optional[float] = None):
         """
         Email Channel Subtype config
+        :param 'CampaignEmailOutboundConfig' default_outbound_config: The default email outbound configuration of an outbound campaign.
+        :param 'CampaignEmailOutboundMode' outbound_mode: The outbound mode for email of an outbound campaign.
+        :param float capacity: The allocation of email capacity between multiple running outbound campaigns.
         """
         pulumi.set(__self__, "default_outbound_config", default_outbound_config)
         pulumi.set(__self__, "outbound_mode", outbound_mode)
@@ -392,16 +431,25 @@ class CampaignEmailChannelSubtypeConfig(dict):
     @property
     @pulumi.getter(name="defaultOutboundConfig")
     def default_outbound_config(self) -> 'outputs.CampaignEmailOutboundConfig':
+        """
+        The default email outbound configuration of an outbound campaign.
+        """
         return pulumi.get(self, "default_outbound_config")
 
     @property
     @pulumi.getter(name="outboundMode")
     def outbound_mode(self) -> 'outputs.CampaignEmailOutboundMode':
+        """
+        The outbound mode for email of an outbound campaign.
+        """
         return pulumi.get(self, "outbound_mode")
 
     @property
     @pulumi.getter
     def capacity(self) -> Optional[float]:
+        """
+        The allocation of email capacity between multiple running outbound campaigns.
+        """
         return pulumi.get(self, "capacity")
 
 
@@ -437,6 +485,9 @@ class CampaignEmailOutboundConfig(dict):
                  source_email_address_display_name: Optional[str] = None):
         """
         Default SMS outbound config
+        :param str connect_source_email_address: The Amazon Connect source email address.
+        :param str wisdom_template_arn: The Amazon Resource Name (ARN) of the Amazon Q in Connect template.
+        :param str source_email_address_display_name: The display name for the Amazon Connect source email address.
         """
         pulumi.set(__self__, "connect_source_email_address", connect_source_email_address)
         pulumi.set(__self__, "wisdom_template_arn", wisdom_template_arn)
@@ -446,16 +497,25 @@ class CampaignEmailOutboundConfig(dict):
     @property
     @pulumi.getter(name="connectSourceEmailAddress")
     def connect_source_email_address(self) -> str:
+        """
+        The Amazon Connect source email address.
+        """
         return pulumi.get(self, "connect_source_email_address")
 
     @property
     @pulumi.getter(name="wisdomTemplateArn")
     def wisdom_template_arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of the Amazon Q in Connect template.
+        """
         return pulumi.get(self, "wisdom_template_arn")
 
     @property
     @pulumi.getter(name="sourceEmailAddressDisplayName")
     def source_email_address_display_name(self) -> Optional[str]:
+        """
+        The display name for the Amazon Connect source email address.
+        """
         return pulumi.get(self, "source_email_address_display_name")
 
 
@@ -485,6 +545,7 @@ class CampaignEmailOutboundMode(dict):
                  agentless_config: Optional['outputs.CampaignAgentlessConfig'] = None):
         """
         Email Outbound Mode
+        :param 'CampaignAgentlessConfig' agentless_config: The agentless outbound mode configuration for email.
         """
         if agentless_config is not None:
             pulumi.set(__self__, "agentless_config", agentless_config)
@@ -492,6 +553,9 @@ class CampaignEmailOutboundMode(dict):
     @property
     @pulumi.getter(name="agentlessConfig")
     def agentless_config(self) -> Optional['outputs.CampaignAgentlessConfig']:
+        """
+        The agentless outbound mode configuration for email.
+        """
         return pulumi.get(self, "agentless_config")
 
 
@@ -524,6 +588,8 @@ class CampaignLocalTimeZoneConfig(dict):
                  local_time_zone_detection: Optional[Sequence['CampaignLocalTimeZoneDetectionType']] = None):
         """
         Local time zone config
+        :param str default_time_zone: The timezone to use for all recipients.
+        :param Sequence['CampaignLocalTimeZoneDetectionType'] local_time_zone_detection: Detects methods for the recipient's timezone.
         """
         if default_time_zone is not None:
             pulumi.set(__self__, "default_time_zone", default_time_zone)
@@ -533,11 +599,17 @@ class CampaignLocalTimeZoneConfig(dict):
     @property
     @pulumi.getter(name="defaultTimeZone")
     def default_time_zone(self) -> Optional[str]:
+        """
+        The timezone to use for all recipients.
+        """
         return pulumi.get(self, "default_time_zone")
 
     @property
     @pulumi.getter(name="localTimeZoneDetection")
     def local_time_zone_detection(self) -> Optional[Sequence['CampaignLocalTimeZoneDetectionType']]:
+        """
+        Detects methods for the recipient's timezone.
+        """
         return pulumi.get(self, "local_time_zone_detection")
 
 
@@ -567,12 +639,16 @@ class CampaignOpenHours(dict):
                  daily_hours: Sequence['outputs.CampaignDailyHour']):
         """
         Open Hours config
+        :param Sequence['CampaignDailyHour'] daily_hours: The daily hours configuration.
         """
         pulumi.set(__self__, "daily_hours", daily_hours)
 
     @property
     @pulumi.getter(name="dailyHours")
     def daily_hours(self) -> Sequence['outputs.CampaignDailyHour']:
+        """
+        The daily hours configuration.
+        """
         return pulumi.get(self, "daily_hours")
 
 
@@ -602,12 +678,16 @@ class CampaignPredictiveConfig(dict):
                  bandwidth_allocation: float):
         """
         Predictive config
+        :param float bandwidth_allocation: Bandwidth allocation for the predictive outbound mode.
         """
         pulumi.set(__self__, "bandwidth_allocation", bandwidth_allocation)
 
     @property
     @pulumi.getter(name="bandwidthAllocation")
     def bandwidth_allocation(self) -> float:
+        """
+        Bandwidth allocation for the predictive outbound mode.
+        """
         return pulumi.get(self, "bandwidth_allocation")
 
 
@@ -637,12 +717,16 @@ class CampaignProgressiveConfig(dict):
                  bandwidth_allocation: float):
         """
         Progressive config
+        :param float bandwidth_allocation: Bandwidth allocation for the progressive outbound mode.
         """
         pulumi.set(__self__, "bandwidth_allocation", bandwidth_allocation)
 
     @property
     @pulumi.getter(name="bandwidthAllocation")
     def bandwidth_allocation(self) -> float:
+        """
+        Bandwidth allocation for the progressive outbound mode.
+        """
         return pulumi.get(self, "bandwidth_allocation")
 
 
@@ -728,6 +812,7 @@ class CampaignRestrictedPeriods(dict):
                  restricted_period_list: Optional[Sequence['outputs.CampaignRestrictedPeriod']] = None):
         """
         Restricted period config
+        :param Sequence['CampaignRestrictedPeriod'] restricted_period_list: The restricted period list.
         """
         if restricted_period_list is not None:
             pulumi.set(__self__, "restricted_period_list", restricted_period_list)
@@ -735,6 +820,9 @@ class CampaignRestrictedPeriods(dict):
     @property
     @pulumi.getter(name="restrictedPeriodList")
     def restricted_period_list(self) -> Optional[Sequence['outputs.CampaignRestrictedPeriod']]:
+        """
+        The restricted period list.
+        """
         return pulumi.get(self, "restricted_period_list")
 
 
@@ -770,6 +858,9 @@ class CampaignSchedule(dict):
                  refresh_frequency: Optional[str] = None):
         """
         Campaign schedule
+        :param str end_time: The end time of the schedule in UTC.
+        :param str start_time: The start time of the schedule in UTC.
+        :param str refresh_frequency: The refresh frequency of the campaign.
         """
         pulumi.set(__self__, "end_time", end_time)
         pulumi.set(__self__, "start_time", start_time)
@@ -779,16 +870,25 @@ class CampaignSchedule(dict):
     @property
     @pulumi.getter(name="endTime")
     def end_time(self) -> str:
+        """
+        The end time of the schedule in UTC.
+        """
         return pulumi.get(self, "end_time")
 
     @property
     @pulumi.getter(name="startTime")
     def start_time(self) -> str:
+        """
+        The start time of the schedule in UTC.
+        """
         return pulumi.get(self, "start_time")
 
     @property
     @pulumi.getter(name="refreshFrequency")
     def refresh_frequency(self) -> Optional[str]:
+        """
+        The refresh frequency of the campaign.
+        """
         return pulumi.get(self, "refresh_frequency")
 
 
@@ -822,6 +922,9 @@ class CampaignSmsChannelSubtypeConfig(dict):
                  capacity: Optional[float] = None):
         """
         SMS Channel Subtype config
+        :param 'CampaignSmsOutboundConfig' default_outbound_config: The default SMS outbound configuration of an outbound campaign.
+        :param 'CampaignSmsOutboundMode' outbound_mode: The outbound mode of SMS for an outbound campaign.
+        :param float capacity: The allocation of SMS capacity between multiple running outbound campaigns.
         """
         pulumi.set(__self__, "default_outbound_config", default_outbound_config)
         pulumi.set(__self__, "outbound_mode", outbound_mode)
@@ -831,16 +934,25 @@ class CampaignSmsChannelSubtypeConfig(dict):
     @property
     @pulumi.getter(name="defaultOutboundConfig")
     def default_outbound_config(self) -> 'outputs.CampaignSmsOutboundConfig':
+        """
+        The default SMS outbound configuration of an outbound campaign.
+        """
         return pulumi.get(self, "default_outbound_config")
 
     @property
     @pulumi.getter(name="outboundMode")
     def outbound_mode(self) -> 'outputs.CampaignSmsOutboundMode':
+        """
+        The outbound mode of SMS for an outbound campaign.
+        """
         return pulumi.get(self, "outbound_mode")
 
     @property
     @pulumi.getter
     def capacity(self) -> Optional[float]:
+        """
+        The allocation of SMS capacity between multiple running outbound campaigns.
+        """
         return pulumi.get(self, "capacity")
 
 
@@ -873,6 +985,8 @@ class CampaignSmsOutboundConfig(dict):
                  wisdom_template_arn: str):
         """
         Default SMS outbound config
+        :param str connect_source_phone_number_arn: The Amazon Resource Name (ARN) of the Amazon Connect source SMS phone number.
+        :param str wisdom_template_arn: The Amazon Resource Name (ARN) of the Amazon Q in Connect template.
         """
         pulumi.set(__self__, "connect_source_phone_number_arn", connect_source_phone_number_arn)
         pulumi.set(__self__, "wisdom_template_arn", wisdom_template_arn)
@@ -880,11 +994,17 @@ class CampaignSmsOutboundConfig(dict):
     @property
     @pulumi.getter(name="connectSourcePhoneNumberArn")
     def connect_source_phone_number_arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of the Amazon Connect source SMS phone number.
+        """
         return pulumi.get(self, "connect_source_phone_number_arn")
 
     @property
     @pulumi.getter(name="wisdomTemplateArn")
     def wisdom_template_arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of the Amazon Q in Connect template.
+        """
         return pulumi.get(self, "wisdom_template_arn")
 
 
@@ -914,6 +1034,7 @@ class CampaignSmsOutboundMode(dict):
                  agentless_config: Optional['outputs.CampaignAgentlessConfig'] = None):
         """
         SMS Outbound Mode
+        :param 'CampaignAgentlessConfig' agentless_config: Contains agentless outbound mode configuration.
         """
         if agentless_config is not None:
             pulumi.set(__self__, "agentless_config", agentless_config)
@@ -921,6 +1042,9 @@ class CampaignSmsOutboundMode(dict):
     @property
     @pulumi.getter(name="agentlessConfig")
     def agentless_config(self) -> Optional['outputs.CampaignAgentlessConfig']:
+        """
+        Contains agentless outbound mode configuration.
+        """
         return pulumi.get(self, "agentless_config")
 
 
@@ -950,6 +1074,7 @@ class CampaignSource(dict):
                  customer_profiles_segment_arn: Optional[str] = None):
         """
         The possible types of channel config parameters
+        :param str customer_profiles_segment_arn: The Amazon Resource Name (ARN) of the Customer Profiles segment.
         """
         if customer_profiles_segment_arn is not None:
             pulumi.set(__self__, "customer_profiles_segment_arn", customer_profiles_segment_arn)
@@ -957,6 +1082,9 @@ class CampaignSource(dict):
     @property
     @pulumi.getter(name="customerProfilesSegmentArn")
     def customer_profiles_segment_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the Customer Profiles segment.
+        """
         return pulumi.get(self, "customer_profiles_segment_arn")
 
 
@@ -993,6 +1121,10 @@ class CampaignTelephonyChannelSubtypeConfig(dict):
                  connect_queue_id: Optional[str] = None):
         """
         Telephony Channel Subtype config
+        :param 'CampaignTelephonyOutboundConfig' default_outbound_config: The default telephony outbound configuration of an outbound campaign.
+        :param 'CampaignTelephonyOutboundMode' outbound_mode: The outbound mode of telephony for an outbound campaign.
+        :param float capacity: The allocation of telephony capacity between multiple running outbound campaigns.
+        :param str connect_queue_id: The identifier of the Amazon Connect queue associated with telephony outbound requests of an outbound campaign.
         """
         pulumi.set(__self__, "default_outbound_config", default_outbound_config)
         pulumi.set(__self__, "outbound_mode", outbound_mode)
@@ -1004,21 +1136,33 @@ class CampaignTelephonyChannelSubtypeConfig(dict):
     @property
     @pulumi.getter(name="defaultOutboundConfig")
     def default_outbound_config(self) -> 'outputs.CampaignTelephonyOutboundConfig':
+        """
+        The default telephony outbound configuration of an outbound campaign.
+        """
         return pulumi.get(self, "default_outbound_config")
 
     @property
     @pulumi.getter(name="outboundMode")
     def outbound_mode(self) -> 'outputs.CampaignTelephonyOutboundMode':
+        """
+        The outbound mode of telephony for an outbound campaign.
+        """
         return pulumi.get(self, "outbound_mode")
 
     @property
     @pulumi.getter
     def capacity(self) -> Optional[float]:
+        """
+        The allocation of telephony capacity between multiple running outbound campaigns.
+        """
         return pulumi.get(self, "capacity")
 
     @property
     @pulumi.getter(name="connectQueueId")
     def connect_queue_id(self) -> Optional[str]:
+        """
+        The identifier of the Amazon Connect queue associated with telephony outbound requests of an outbound campaign.
+        """
         return pulumi.get(self, "connect_queue_id")
 
 
@@ -1054,6 +1198,9 @@ class CampaignTelephonyOutboundConfig(dict):
                  connect_source_phone_number: Optional[str] = None):
         """
         Default Telephone Outbound config
+        :param str connect_contact_flow_id: The identifier of the published Amazon Connect contact flow.
+        :param 'CampaignAnswerMachineDetectionConfig' answer_machine_detection_config: The answering machine detection configuration.
+        :param str connect_source_phone_number: The Amazon Connect source phone number.
         """
         pulumi.set(__self__, "connect_contact_flow_id", connect_contact_flow_id)
         if answer_machine_detection_config is not None:
@@ -1064,16 +1211,25 @@ class CampaignTelephonyOutboundConfig(dict):
     @property
     @pulumi.getter(name="connectContactFlowId")
     def connect_contact_flow_id(self) -> str:
+        """
+        The identifier of the published Amazon Connect contact flow.
+        """
         return pulumi.get(self, "connect_contact_flow_id")
 
     @property
     @pulumi.getter(name="answerMachineDetectionConfig")
     def answer_machine_detection_config(self) -> Optional['outputs.CampaignAnswerMachineDetectionConfig']:
+        """
+        The answering machine detection configuration.
+        """
         return pulumi.get(self, "answer_machine_detection_config")
 
     @property
     @pulumi.getter(name="connectSourcePhoneNumber")
     def connect_source_phone_number(self) -> Optional[str]:
+        """
+        The Amazon Connect source phone number.
+        """
         return pulumi.get(self, "connect_source_phone_number")
 
 
@@ -1109,6 +1265,9 @@ class CampaignTelephonyOutboundMode(dict):
                  progressive_config: Optional['outputs.CampaignProgressiveConfig'] = None):
         """
         Telephony Outbound Mode
+        :param 'CampaignAgentlessConfig' agentless_config: The agentless outbound mode configuration for telephony.
+        :param 'CampaignPredictiveConfig' predictive_config: Contains predictive outbound mode configuration.
+        :param 'CampaignProgressiveConfig' progressive_config: Contains progressive telephony outbound mode configuration.
         """
         if agentless_config is not None:
             pulumi.set(__self__, "agentless_config", agentless_config)
@@ -1120,16 +1279,25 @@ class CampaignTelephonyOutboundMode(dict):
     @property
     @pulumi.getter(name="agentlessConfig")
     def agentless_config(self) -> Optional['outputs.CampaignAgentlessConfig']:
+        """
+        The agentless outbound mode configuration for telephony.
+        """
         return pulumi.get(self, "agentless_config")
 
     @property
     @pulumi.getter(name="predictiveConfig")
     def predictive_config(self) -> Optional['outputs.CampaignPredictiveConfig']:
+        """
+        Contains predictive outbound mode configuration.
+        """
         return pulumi.get(self, "predictive_config")
 
     @property
     @pulumi.getter(name="progressiveConfig")
     def progressive_config(self) -> Optional['outputs.CampaignProgressiveConfig']:
+        """
+        Contains progressive telephony outbound mode configuration.
+        """
         return pulumi.get(self, "progressive_config")
 
 
@@ -1206,6 +1374,8 @@ class CampaignTimeWindow(dict):
                  restricted_periods: Optional['outputs.CampaignRestrictedPeriods'] = None):
         """
         Time window config
+        :param 'CampaignOpenHours' open_hours: The open hours configuration.
+        :param 'CampaignRestrictedPeriods' restricted_periods: The restricted periods configuration.
         """
         pulumi.set(__self__, "open_hours", open_hours)
         if restricted_periods is not None:
@@ -1214,11 +1384,17 @@ class CampaignTimeWindow(dict):
     @property
     @pulumi.getter(name="openHours")
     def open_hours(self) -> 'outputs.CampaignOpenHours':
+        """
+        The open hours configuration.
+        """
         return pulumi.get(self, "open_hours")
 
     @property
     @pulumi.getter(name="restrictedPeriods")
     def restricted_periods(self) -> Optional['outputs.CampaignRestrictedPeriods']:
+        """
+        The restricted periods configuration.
+        """
         return pulumi.get(self, "restricted_periods")
 
 

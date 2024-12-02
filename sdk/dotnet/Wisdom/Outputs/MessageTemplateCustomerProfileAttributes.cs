@@ -108,6 +108,9 @@ namespace Pulumi.AwsNative.Wisdom.Outputs
         /// The county in which a customer lives.
         /// </summary>
         public readonly string? County;
+        /// <summary>
+        /// The custom attributes in customer profile attributes.
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? Custom;
         /// <summary>
         /// The customer's email address, which has not been specified as a personal or business address.

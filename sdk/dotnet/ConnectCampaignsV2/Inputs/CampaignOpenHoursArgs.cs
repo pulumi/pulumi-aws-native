@@ -17,6 +17,10 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2.Inputs
     {
         [Input("dailyHours", required: true)]
         private InputList<Inputs.CampaignDailyHourArgs>? _dailyHours;
+
+        /// <summary>
+        /// The daily hours configuration.
+        /// </summary>
         public InputList<Inputs.CampaignDailyHourArgs> DailyHours
         {
             get => _dailyHours ?? (_dailyHours = new InputList<Inputs.CampaignDailyHourArgs>());

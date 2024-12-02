@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.Chatbot.Outputs
     [OutputType]
     public sealed class CustomActionAttachment
     {
+        /// <summary>
+        /// The text of the button that appears on the notification.
+        /// </summary>
         public readonly string? ButtonText;
+        /// <summary>
+        /// The criteria for when a button should be shown based on values in the notification.
+        /// </summary>
         public readonly ImmutableArray<Outputs.CustomActionAttachmentCriteria> Criteria;
+        /// <summary>
+        /// The type of notification that the custom action should be attached to.
+        /// </summary>
         public readonly string? NotificationType;
+        /// <summary>
+        /// The variables to extract from the notification.
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? Variables;
 
         [OutputConstructor]

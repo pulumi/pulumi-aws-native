@@ -37,13 +37,25 @@ export class MessageTemplate extends pulumi.CustomResource {
         return obj['__pulumiType'] === MessageTemplate.__pulumiType;
     }
 
+    /**
+     * The channel subtype this message template applies to.
+     */
     public readonly channelSubtype!: pulumi.Output<enums.wisdom.MessageTemplateChannelSubtype>;
+    /**
+     * The content of the message template.
+     */
     public readonly content!: pulumi.Output<outputs.wisdom.MessageTemplateContent>;
+    /**
+     * An object that specifies the default values to use for variables in the message template. This object contains different categories of key-value pairs. Each key defines a variable or placeholder in the message template. The corresponding value defines the default value for that variable.
+     */
     public readonly defaultAttributes!: pulumi.Output<outputs.wisdom.MessageTemplateAttributes | undefined>;
     /**
      * The description of the message template.
      */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The configuration information of the external data source.
+     */
     public readonly groupingConfiguration!: pulumi.Output<outputs.wisdom.MessageTemplateGroupingConfiguration | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the knowledge base to which the message template belongs.
@@ -131,13 +143,25 @@ export class MessageTemplate extends pulumi.CustomResource {
  * The set of arguments for constructing a MessageTemplate resource.
  */
 export interface MessageTemplateArgs {
+    /**
+     * The channel subtype this message template applies to.
+     */
     channelSubtype: pulumi.Input<enums.wisdom.MessageTemplateChannelSubtype>;
+    /**
+     * The content of the message template.
+     */
     content: pulumi.Input<inputs.wisdom.MessageTemplateContentArgs>;
+    /**
+     * An object that specifies the default values to use for variables in the message template. This object contains different categories of key-value pairs. Each key defines a variable or placeholder in the message template. The corresponding value defines the default value for that variable.
+     */
     defaultAttributes?: pulumi.Input<inputs.wisdom.MessageTemplateAttributesArgs>;
     /**
      * The description of the message template.
      */
     description?: pulumi.Input<string>;
+    /**
+     * The configuration information of the external data source.
+     */
     groupingConfiguration?: pulumi.Input<inputs.wisdom.MessageTemplateGroupingConfigurationArgs>;
     /**
      * The Amazon Resource Name (ARN) of the knowledge base to which the message template belongs.

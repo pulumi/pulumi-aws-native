@@ -145,6 +145,9 @@ namespace Pulumi.AwsNative.Lambda
         [Output("maximumRetryAttempts")]
         public Output<int?> MaximumRetryAttempts { get; private set; } = null!;
 
+        /// <summary>
+        /// The metrics configuration for your event source. For more information, see [Event source mapping metrics](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics) .
+        /// </summary>
         [Output("metricsConfig")]
         public Output<Outputs.EventSourceMappingMetricsConfig?> MetricsConfig { get; private set; } = null!;
 
@@ -154,6 +157,9 @@ namespace Pulumi.AwsNative.Lambda
         [Output("parallelizationFactor")]
         public Output<int?> ParallelizationFactor { get; private set; } = null!;
 
+        /// <summary>
+        /// (Amazon MSK and self-managed Apache Kafka only) The provisioned mode configuration for the event source. For more information, see [provisioned mode](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode) .
+        /// </summary>
         [Output("provisionedPollerConfig")]
         public Output<Outputs.EventSourceMappingProvisionedPollerConfig?> ProvisionedPollerConfig { get; private set; } = null!;
 
@@ -391,6 +397,9 @@ namespace Pulumi.AwsNative.Lambda
         [Input("maximumRetryAttempts")]
         public Input<int>? MaximumRetryAttempts { get; set; }
 
+        /// <summary>
+        /// The metrics configuration for your event source. For more information, see [Event source mapping metrics](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics) .
+        /// </summary>
         [Input("metricsConfig")]
         public Input<Inputs.EventSourceMappingMetricsConfigArgs>? MetricsConfig { get; set; }
 
@@ -400,6 +409,9 @@ namespace Pulumi.AwsNative.Lambda
         [Input("parallelizationFactor")]
         public Input<int>? ParallelizationFactor { get; set; }
 
+        /// <summary>
+        /// (Amazon MSK and self-managed Apache Kafka only) The provisioned mode configuration for the event source. For more information, see [provisioned mode](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode) .
+        /// </summary>
         [Input("provisionedPollerConfig")]
         public Input<Inputs.EventSourceMappingProvisionedPollerConfigArgs>? ProvisionedPollerConfig { get; set; }
 

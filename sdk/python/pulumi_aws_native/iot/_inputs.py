@@ -2836,8 +2836,17 @@ class ThingGroupPropertiesPropertiesArgs:
 if not MYPY:
     class ThingTypePropagatingAttributeArgsDict(TypedDict):
         user_property_key: pulumi.Input[str]
+        """
+        The key of the MQTT 5 user property, which is a key-value pair.
+        """
         connection_attribute: NotRequired[pulumi.Input['ThingTypePropagatingAttributeConnectionAttribute']]
+        """
+        The attribute associated with the connection details.
+        """
         thing_attribute: NotRequired[pulumi.Input[str]]
+        """
+        The thing attribute that is propagating for MQTT 5 message enrichment.
+        """
 elif False:
     ThingTypePropagatingAttributeArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2847,6 +2856,11 @@ class ThingTypePropagatingAttributeArgs:
                  user_property_key: pulumi.Input[str],
                  connection_attribute: Optional[pulumi.Input['ThingTypePropagatingAttributeConnectionAttribute']] = None,
                  thing_attribute: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] user_property_key: The key of the MQTT 5 user property, which is a key-value pair.
+        :param pulumi.Input['ThingTypePropagatingAttributeConnectionAttribute'] connection_attribute: The attribute associated with the connection details.
+        :param pulumi.Input[str] thing_attribute: The thing attribute that is propagating for MQTT 5 message enrichment.
+        """
         pulumi.set(__self__, "user_property_key", user_property_key)
         if connection_attribute is not None:
             pulumi.set(__self__, "connection_attribute", connection_attribute)
@@ -2856,6 +2870,9 @@ class ThingTypePropagatingAttributeArgs:
     @property
     @pulumi.getter(name="userPropertyKey")
     def user_property_key(self) -> pulumi.Input[str]:
+        """
+        The key of the MQTT 5 user property, which is a key-value pair.
+        """
         return pulumi.get(self, "user_property_key")
 
     @user_property_key.setter
@@ -2865,6 +2882,9 @@ class ThingTypePropagatingAttributeArgs:
     @property
     @pulumi.getter(name="connectionAttribute")
     def connection_attribute(self) -> Optional[pulumi.Input['ThingTypePropagatingAttributeConnectionAttribute']]:
+        """
+        The attribute associated with the connection details.
+        """
         return pulumi.get(self, "connection_attribute")
 
     @connection_attribute.setter
@@ -2874,6 +2894,9 @@ class ThingTypePropagatingAttributeArgs:
     @property
     @pulumi.getter(name="thingAttribute")
     def thing_attribute(self) -> Optional[pulumi.Input[str]]:
+        """
+        The thing attribute that is propagating for MQTT 5 message enrichment.
+        """
         return pulumi.get(self, "thing_attribute")
 
     @thing_attribute.setter
@@ -2883,6 +2906,9 @@ class ThingTypePropagatingAttributeArgs:
 
 if not MYPY:
     class ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesArgsDict(TypedDict):
+        """
+        The configuration to add user-defined properties to enrich MQTT 5 messages.
+        """
         propagating_attributes: NotRequired[pulumi.Input[Sequence[pulumi.Input['ThingTypePropagatingAttributeArgsDict']]]]
 elif False:
     ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
@@ -2891,6 +2917,9 @@ elif False:
 class ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesArgs:
     def __init__(__self__, *,
                  propagating_attributes: Optional[pulumi.Input[Sequence[pulumi.Input['ThingTypePropagatingAttributeArgs']]]] = None):
+        """
+        The configuration to add user-defined properties to enrich MQTT 5 messages.
+        """
         if propagating_attributes is not None:
             pulumi.set(__self__, "propagating_attributes", propagating_attributes)
 
@@ -2907,9 +2936,12 @@ class ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesArgs:
 if not MYPY:
     class ThingTypePropertiesPropertiesArgsDict(TypedDict):
         """
-        The thing type properties for the thing type to create. It contains information about the new thing type including a description, and a list of searchable thing attribute names. `ThingTypeProperties` can't be updated after the initial creation of the `ThingType` .
+        The thing type properties for the thing type to create. It contains information about the new thing type including a description, a list of searchable thing attribute names, and a list of propagating attributes. After a thing type is created, you can only update `Mqtt5Configuration` .
         """
         mqtt5_configuration: NotRequired[pulumi.Input['ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesArgsDict']]
+        """
+        The configuration to add user-defined properties to enrich MQTT 5 messages.
+        """
         searchable_attributes: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
         A list of searchable thing attribute names.
@@ -2928,7 +2960,8 @@ class ThingTypePropertiesPropertiesArgs:
                  searchable_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  thing_type_description: Optional[pulumi.Input[str]] = None):
         """
-        The thing type properties for the thing type to create. It contains information about the new thing type including a description, and a list of searchable thing attribute names. `ThingTypeProperties` can't be updated after the initial creation of the `ThingType` .
+        The thing type properties for the thing type to create. It contains information about the new thing type including a description, a list of searchable thing attribute names, and a list of propagating attributes. After a thing type is created, you can only update `Mqtt5Configuration` .
+        :param pulumi.Input['ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesArgs'] mqtt5_configuration: The configuration to add user-defined properties to enrich MQTT 5 messages.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] searchable_attributes: A list of searchable thing attribute names.
         :param pulumi.Input[str] thing_type_description: The description of the thing type.
         """
@@ -2942,6 +2975,9 @@ class ThingTypePropertiesPropertiesArgs:
     @property
     @pulumi.getter(name="mqtt5Configuration")
     def mqtt5_configuration(self) -> Optional[pulumi.Input['ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesArgs']]:
+        """
+        The configuration to add user-defined properties to enrich MQTT 5 messages.
+        """
         return pulumi.get(self, "mqtt5_configuration")
 
     @mqtt5_configuration.setter

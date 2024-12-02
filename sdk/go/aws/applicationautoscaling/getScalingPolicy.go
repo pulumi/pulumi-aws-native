@@ -61,7 +61,8 @@ type LookupScalingPolicyResult struct {
 	//  The following policy types are supported:
 	//   ``TargetTrackingScaling``—Not supported for Amazon EMR
 	//   ``StepScaling``—Not supported for DynamoDB, Amazon Comprehend, Lambda, Amazon Keyspaces, Amazon MSK, Amazon ElastiCache, or Neptune.
-	PolicyType                           *string                                            `pulumi:"policyType"`
+	PolicyType *string `pulumi:"policyType"`
+	// The predictive scaling policy configuration.
 	PredictiveScalingPolicyConfiguration *ScalingPolicyPredictiveScalingPolicyConfiguration `pulumi:"predictiveScalingPolicyConfiguration"`
 	// A step scaling policy.
 	StepScalingPolicyConfiguration *ScalingPolicyStepScalingPolicyConfiguration `pulumi:"stepScalingPolicyConfiguration"`
@@ -150,6 +151,7 @@ func (o LookupScalingPolicyResultOutput) PolicyType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupScalingPolicyResult) *string { return v.PolicyType }).(pulumi.StringPtrOutput)
 }
 
+// The predictive scaling policy configuration.
 func (o LookupScalingPolicyResultOutput) PredictiveScalingPolicyConfiguration() ScalingPolicyPredictiveScalingPolicyConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupScalingPolicyResult) *ScalingPolicyPredictiveScalingPolicyConfiguration {
 		return v.PredictiveScalingPolicyConfiguration

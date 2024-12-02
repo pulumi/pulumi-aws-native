@@ -38,6 +38,9 @@ namespace Pulumi.AwsNative.ApplicationAutoScaling
         [Output("policyType")]
         public Output<string> PolicyType { get; private set; } = null!;
 
+        /// <summary>
+        /// The predictive scaling policy configuration.
+        /// </summary>
         [Output("predictiveScalingPolicyConfiguration")]
         public Output<Outputs.ScalingPolicyPredictiveScalingPolicyConfiguration?> PredictiveScalingPolicyConfiguration { get; private set; } = null!;
 
@@ -189,6 +192,9 @@ namespace Pulumi.AwsNative.ApplicationAutoScaling
         [Input("policyType", required: true)]
         public Input<string> PolicyType { get; set; } = null!;
 
+        /// <summary>
+        /// The predictive scaling policy configuration.
+        /// </summary>
         [Input("predictiveScalingPolicyConfiguration")]
         public Input<Inputs.ScalingPolicyPredictiveScalingPolicyConfigurationArgs>? PredictiveScalingPolicyConfiguration { get; set; }
 

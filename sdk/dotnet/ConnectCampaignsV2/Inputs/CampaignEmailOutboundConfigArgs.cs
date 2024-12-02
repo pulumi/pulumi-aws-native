@@ -15,12 +15,21 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2.Inputs
     /// </summary>
     public sealed class CampaignEmailOutboundConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Connect source email address.
+        /// </summary>
         [Input("connectSourceEmailAddress", required: true)]
         public Input<string> ConnectSourceEmailAddress { get; set; } = null!;
 
+        /// <summary>
+        /// The display name for the Amazon Connect source email address.
+        /// </summary>
         [Input("sourceEmailAddressDisplayName")]
         public Input<string>? SourceEmailAddressDisplayName { get; set; }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Amazon Q in Connect template.
+        /// </summary>
         [Input("wisdomTemplateArn", required: true)]
         public Input<string> WisdomTemplateArn { get; set; } = null!;
 

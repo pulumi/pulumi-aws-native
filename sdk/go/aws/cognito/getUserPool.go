@@ -96,7 +96,8 @@ type LookupUserPoolResult struct {
 	UserPoolName *string `pulumi:"userPoolName"`
 	// The tag keys and values to assign to the user pool. A tag is a label that you can use to categorize and manage user pools in different ways, such as by purpose, owner, environment, or other criteria.
 	UserPoolTags map[string]string `pulumi:"userPoolTags"`
-	UserPoolTier *UserPoolTier     `pulumi:"userPoolTier"`
+	// The user pool [feature plan](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-sign-in-feature-plans.html) , or tier. This parameter determines the eligibility of the user pool for features like managed login, access-token customization, and threat protection. Defaults to `ESSENTIALS` .
+	UserPoolTier *UserPoolTier `pulumi:"userPoolTier"`
 	// Specifies whether a user can use an email address or phone number as a username when they sign up.
 	UsernameAttributes []string `pulumi:"usernameAttributes"`
 	// Case sensitivity on the username input for the selected sign-in option. When case sensitivity is set to `False` (case insensitive), users can sign in with any combination of capital and lowercase letters. For example, `username` , `USERNAME` , or `UserName` , or for email, `email@example.com` or `EMaiL@eXamplE.Com` . For most use cases, set case sensitivity to `False` (case insensitive) as a best practice. When usernames and email addresses are case insensitive, Amazon Cognito treats any variation in case as the same user, and prevents a case variation from being assigned to the same attribute for a different user.
@@ -301,6 +302,7 @@ func (o LookupUserPoolResultOutput) UserPoolTags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupUserPoolResult) map[string]string { return v.UserPoolTags }).(pulumi.StringMapOutput)
 }
 
+// The user pool [feature plan](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-sign-in-feature-plans.html) , or tier. This parameter determines the eligibility of the user pool for features like managed login, access-token customization, and threat protection. Defaults to `ESSENTIALS` .
 func (o LookupUserPoolResultOutput) UserPoolTier() UserPoolTierPtrOutput {
 	return o.ApplyT(func(v LookupUserPoolResult) *UserPoolTier { return v.UserPoolTier }).(UserPoolTierPtrOutput)
 }

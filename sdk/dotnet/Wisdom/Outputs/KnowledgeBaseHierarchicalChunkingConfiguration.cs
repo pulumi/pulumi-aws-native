@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Wisdom.Outputs
     [OutputType]
     public sealed class KnowledgeBaseHierarchicalChunkingConfiguration
     {
+        /// <summary>
+        /// Token settings for each layer.
+        /// </summary>
         public readonly ImmutableArray<Outputs.KnowledgeBaseHierarchicalChunkingLevelConfiguration> LevelConfigurations;
+        /// <summary>
+        /// The number of tokens to repeat across chunks in the same layer.
+        /// </summary>
         public readonly double OverlapTokens;
 
         [OutputConstructor]

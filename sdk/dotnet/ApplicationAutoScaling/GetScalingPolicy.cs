@@ -128,6 +128,9 @@ namespace Pulumi.AwsNative.ApplicationAutoScaling
         ///   ``StepScaling``—Not supported for DynamoDB, Amazon Comprehend, Lambda, Amazon Keyspaces, Amazon MSK, Amazon ElastiCache, or Neptune.
         /// </summary>
         public readonly string? PolicyType;
+        /// <summary>
+        /// The predictive scaling policy configuration.
+        /// </summary>
         public readonly Outputs.ScalingPolicyPredictiveScalingPolicyConfiguration? PredictiveScalingPolicyConfiguration;
         /// <summary>
         /// A step scaling policy.

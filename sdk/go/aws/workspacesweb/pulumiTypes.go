@@ -21,10 +21,14 @@ type BrowserSettingsTag struct {
 }
 
 type DataProtectionSettingsCustomPattern struct {
-	KeywordRegex       *string `pulumi:"keywordRegex"`
+	// The keyword regex for the customer pattern. After there is a match to the pattern regex, the keyword regex is used to search within the proximity of the match. If there is a keyword match, then the match is confirmed. If no keyword regex is provided, the pattern regex match will automatically be confirmed. The format must follow JavaScript regex format. The pattern must be enclosed between slashes, and can have flags behind the second slash. For example, "/ab+c/gi"
+	KeywordRegex *string `pulumi:"keywordRegex"`
+	// The pattern description for the customer pattern.
 	PatternDescription *string `pulumi:"patternDescription"`
-	PatternName        string  `pulumi:"patternName"`
-	PatternRegex       string  `pulumi:"patternRegex"`
+	// The pattern name for the custom pattern.
+	PatternName string `pulumi:"patternName"`
+	// The pattern regex for the customer pattern. The format must follow JavaScript regex format. The pattern must be enclosed between slashes, and can have flags behind the second slash. For example: "/ab+c/gi".
+	PatternRegex string `pulumi:"patternRegex"`
 }
 
 // DataProtectionSettingsCustomPatternInput is an input type that accepts DataProtectionSettingsCustomPatternArgs and DataProtectionSettingsCustomPatternOutput values.
@@ -39,10 +43,14 @@ type DataProtectionSettingsCustomPatternInput interface {
 }
 
 type DataProtectionSettingsCustomPatternArgs struct {
-	KeywordRegex       pulumi.StringPtrInput `pulumi:"keywordRegex"`
+	// The keyword regex for the customer pattern. After there is a match to the pattern regex, the keyword regex is used to search within the proximity of the match. If there is a keyword match, then the match is confirmed. If no keyword regex is provided, the pattern regex match will automatically be confirmed. The format must follow JavaScript regex format. The pattern must be enclosed between slashes, and can have flags behind the second slash. For example, "/ab+c/gi"
+	KeywordRegex pulumi.StringPtrInput `pulumi:"keywordRegex"`
+	// The pattern description for the customer pattern.
 	PatternDescription pulumi.StringPtrInput `pulumi:"patternDescription"`
-	PatternName        pulumi.StringInput    `pulumi:"patternName"`
-	PatternRegex       pulumi.StringInput    `pulumi:"patternRegex"`
+	// The pattern name for the custom pattern.
+	PatternName pulumi.StringInput `pulumi:"patternName"`
+	// The pattern regex for the customer pattern. The format must follow JavaScript regex format. The pattern must be enclosed between slashes, and can have flags behind the second slash. For example: "/ab+c/gi".
+	PatternRegex pulumi.StringInput `pulumi:"patternRegex"`
 }
 
 func (DataProtectionSettingsCustomPatternArgs) ElementType() reflect.Type {
@@ -122,18 +130,22 @@ func (o DataProtectionSettingsCustomPatternOutput) ToDataProtectionSettingsCusto
 	}).(DataProtectionSettingsCustomPatternPtrOutput)
 }
 
+// The keyword regex for the customer pattern. After there is a match to the pattern regex, the keyword regex is used to search within the proximity of the match. If there is a keyword match, then the match is confirmed. If no keyword regex is provided, the pattern regex match will automatically be confirmed. The format must follow JavaScript regex format. The pattern must be enclosed between slashes, and can have flags behind the second slash. For example, "/ab+c/gi"
 func (o DataProtectionSettingsCustomPatternOutput) KeywordRegex() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataProtectionSettingsCustomPattern) *string { return v.KeywordRegex }).(pulumi.StringPtrOutput)
 }
 
+// The pattern description for the customer pattern.
 func (o DataProtectionSettingsCustomPatternOutput) PatternDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataProtectionSettingsCustomPattern) *string { return v.PatternDescription }).(pulumi.StringPtrOutput)
 }
 
+// The pattern name for the custom pattern.
 func (o DataProtectionSettingsCustomPatternOutput) PatternName() pulumi.StringOutput {
 	return o.ApplyT(func(v DataProtectionSettingsCustomPattern) string { return v.PatternName }).(pulumi.StringOutput)
 }
 
+// The pattern regex for the customer pattern. The format must follow JavaScript regex format. The pattern must be enclosed between slashes, and can have flags behind the second slash. For example: "/ab+c/gi".
 func (o DataProtectionSettingsCustomPatternOutput) PatternRegex() pulumi.StringOutput {
 	return o.ApplyT(func(v DataProtectionSettingsCustomPattern) string { return v.PatternRegex }).(pulumi.StringOutput)
 }
@@ -162,6 +174,7 @@ func (o DataProtectionSettingsCustomPatternPtrOutput) Elem() DataProtectionSetti
 	}).(DataProtectionSettingsCustomPatternOutput)
 }
 
+// The keyword regex for the customer pattern. After there is a match to the pattern regex, the keyword regex is used to search within the proximity of the match. If there is a keyword match, then the match is confirmed. If no keyword regex is provided, the pattern regex match will automatically be confirmed. The format must follow JavaScript regex format. The pattern must be enclosed between slashes, and can have flags behind the second slash. For example, "/ab+c/gi"
 func (o DataProtectionSettingsCustomPatternPtrOutput) KeywordRegex() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataProtectionSettingsCustomPattern) *string {
 		if v == nil {
@@ -171,6 +184,7 @@ func (o DataProtectionSettingsCustomPatternPtrOutput) KeywordRegex() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
+// The pattern description for the customer pattern.
 func (o DataProtectionSettingsCustomPatternPtrOutput) PatternDescription() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataProtectionSettingsCustomPattern) *string {
 		if v == nil {
@@ -180,6 +194,7 @@ func (o DataProtectionSettingsCustomPatternPtrOutput) PatternDescription() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
+// The pattern name for the custom pattern.
 func (o DataProtectionSettingsCustomPatternPtrOutput) PatternName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataProtectionSettingsCustomPattern) *string {
 		if v == nil {
@@ -189,6 +204,7 @@ func (o DataProtectionSettingsCustomPatternPtrOutput) PatternName() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+// The pattern regex for the customer pattern. The format must follow JavaScript regex format. The pattern must be enclosed between slashes, and can have flags behind the second slash. For example: "/ab+c/gi".
 func (o DataProtectionSettingsCustomPatternPtrOutput) PatternRegex() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataProtectionSettingsCustomPattern) *string {
 		if v == nil {
@@ -199,9 +215,13 @@ func (o DataProtectionSettingsCustomPatternPtrOutput) PatternRegex() pulumi.Stri
 }
 
 type DataProtectionSettingsInlineRedactionConfiguration struct {
-	GlobalConfidenceLevel   *float64                                       `pulumi:"globalConfidenceLevel"`
-	GlobalEnforcedUrls      []string                                       `pulumi:"globalEnforcedUrls"`
-	GlobalExemptUrls        []string                                       `pulumi:"globalExemptUrls"`
+	// The global confidence level for the inline redaction configuration. This indicates the certainty of data type matches in the redaction process. Confidence level 3 means high confidence, and requires a formatted text pattern match in order for content to be redacted. Confidence level 2 means medium confidence, and redaction considers both formatted and unformatted text, and adds keyword associate to the logic. Confidence level 1 means low confidence, and redaction is enforced for both formatted pattern + unformatted pattern without keyword. This is applied to patterns that do not have a pattern-level confidence level. Defaults to confidence level 2.
+	GlobalConfidenceLevel *float64 `pulumi:"globalConfidenceLevel"`
+	// The global enforced URL configuration for the inline redaction configuration. This is applied to patterns that do not have a pattern-level enforced URL list.
+	GlobalEnforcedUrls []string `pulumi:"globalEnforcedUrls"`
+	// The global exempt URL configuration for the inline redaction configuration. This is applied to patterns that do not have a pattern-level exempt URL list.
+	GlobalExemptUrls []string `pulumi:"globalExemptUrls"`
+	// The inline redaction patterns to be enabled for the inline redaction configuration.
 	InlineRedactionPatterns []DataProtectionSettingsInlineRedactionPattern `pulumi:"inlineRedactionPatterns"`
 }
 
@@ -217,9 +237,13 @@ type DataProtectionSettingsInlineRedactionConfigurationInput interface {
 }
 
 type DataProtectionSettingsInlineRedactionConfigurationArgs struct {
-	GlobalConfidenceLevel   pulumi.Float64PtrInput                                 `pulumi:"globalConfidenceLevel"`
-	GlobalEnforcedUrls      pulumi.StringArrayInput                                `pulumi:"globalEnforcedUrls"`
-	GlobalExemptUrls        pulumi.StringArrayInput                                `pulumi:"globalExemptUrls"`
+	// The global confidence level for the inline redaction configuration. This indicates the certainty of data type matches in the redaction process. Confidence level 3 means high confidence, and requires a formatted text pattern match in order for content to be redacted. Confidence level 2 means medium confidence, and redaction considers both formatted and unformatted text, and adds keyword associate to the logic. Confidence level 1 means low confidence, and redaction is enforced for both formatted pattern + unformatted pattern without keyword. This is applied to patterns that do not have a pattern-level confidence level. Defaults to confidence level 2.
+	GlobalConfidenceLevel pulumi.Float64PtrInput `pulumi:"globalConfidenceLevel"`
+	// The global enforced URL configuration for the inline redaction configuration. This is applied to patterns that do not have a pattern-level enforced URL list.
+	GlobalEnforcedUrls pulumi.StringArrayInput `pulumi:"globalEnforcedUrls"`
+	// The global exempt URL configuration for the inline redaction configuration. This is applied to patterns that do not have a pattern-level exempt URL list.
+	GlobalExemptUrls pulumi.StringArrayInput `pulumi:"globalExemptUrls"`
+	// The inline redaction patterns to be enabled for the inline redaction configuration.
 	InlineRedactionPatterns DataProtectionSettingsInlineRedactionPatternArrayInput `pulumi:"inlineRedactionPatterns"`
 }
 
@@ -300,18 +324,22 @@ func (o DataProtectionSettingsInlineRedactionConfigurationOutput) ToDataProtecti
 	}).(DataProtectionSettingsInlineRedactionConfigurationPtrOutput)
 }
 
+// The global confidence level for the inline redaction configuration. This indicates the certainty of data type matches in the redaction process. Confidence level 3 means high confidence, and requires a formatted text pattern match in order for content to be redacted. Confidence level 2 means medium confidence, and redaction considers both formatted and unformatted text, and adds keyword associate to the logic. Confidence level 1 means low confidence, and redaction is enforced for both formatted pattern + unformatted pattern without keyword. This is applied to patterns that do not have a pattern-level confidence level. Defaults to confidence level 2.
 func (o DataProtectionSettingsInlineRedactionConfigurationOutput) GlobalConfidenceLevel() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v DataProtectionSettingsInlineRedactionConfiguration) *float64 { return v.GlobalConfidenceLevel }).(pulumi.Float64PtrOutput)
 }
 
+// The global enforced URL configuration for the inline redaction configuration. This is applied to patterns that do not have a pattern-level enforced URL list.
 func (o DataProtectionSettingsInlineRedactionConfigurationOutput) GlobalEnforcedUrls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataProtectionSettingsInlineRedactionConfiguration) []string { return v.GlobalEnforcedUrls }).(pulumi.StringArrayOutput)
 }
 
+// The global exempt URL configuration for the inline redaction configuration. This is applied to patterns that do not have a pattern-level exempt URL list.
 func (o DataProtectionSettingsInlineRedactionConfigurationOutput) GlobalExemptUrls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataProtectionSettingsInlineRedactionConfiguration) []string { return v.GlobalExemptUrls }).(pulumi.StringArrayOutput)
 }
 
+// The inline redaction patterns to be enabled for the inline redaction configuration.
 func (o DataProtectionSettingsInlineRedactionConfigurationOutput) InlineRedactionPatterns() DataProtectionSettingsInlineRedactionPatternArrayOutput {
 	return o.ApplyT(func(v DataProtectionSettingsInlineRedactionConfiguration) []DataProtectionSettingsInlineRedactionPattern {
 		return v.InlineRedactionPatterns
@@ -342,6 +370,7 @@ func (o DataProtectionSettingsInlineRedactionConfigurationPtrOutput) Elem() Data
 	}).(DataProtectionSettingsInlineRedactionConfigurationOutput)
 }
 
+// The global confidence level for the inline redaction configuration. This indicates the certainty of data type matches in the redaction process. Confidence level 3 means high confidence, and requires a formatted text pattern match in order for content to be redacted. Confidence level 2 means medium confidence, and redaction considers both formatted and unformatted text, and adds keyword associate to the logic. Confidence level 1 means low confidence, and redaction is enforced for both formatted pattern + unformatted pattern without keyword. This is applied to patterns that do not have a pattern-level confidence level. Defaults to confidence level 2.
 func (o DataProtectionSettingsInlineRedactionConfigurationPtrOutput) GlobalConfidenceLevel() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *DataProtectionSettingsInlineRedactionConfiguration) *float64 {
 		if v == nil {
@@ -351,6 +380,7 @@ func (o DataProtectionSettingsInlineRedactionConfigurationPtrOutput) GlobalConfi
 	}).(pulumi.Float64PtrOutput)
 }
 
+// The global enforced URL configuration for the inline redaction configuration. This is applied to patterns that do not have a pattern-level enforced URL list.
 func (o DataProtectionSettingsInlineRedactionConfigurationPtrOutput) GlobalEnforcedUrls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataProtectionSettingsInlineRedactionConfiguration) []string {
 		if v == nil {
@@ -360,6 +390,7 @@ func (o DataProtectionSettingsInlineRedactionConfigurationPtrOutput) GlobalEnfor
 	}).(pulumi.StringArrayOutput)
 }
 
+// The global exempt URL configuration for the inline redaction configuration. This is applied to patterns that do not have a pattern-level exempt URL list.
 func (o DataProtectionSettingsInlineRedactionConfigurationPtrOutput) GlobalExemptUrls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataProtectionSettingsInlineRedactionConfiguration) []string {
 		if v == nil {
@@ -369,6 +400,7 @@ func (o DataProtectionSettingsInlineRedactionConfigurationPtrOutput) GlobalExemp
 	}).(pulumi.StringArrayOutput)
 }
 
+// The inline redaction patterns to be enabled for the inline redaction configuration.
 func (o DataProtectionSettingsInlineRedactionConfigurationPtrOutput) InlineRedactionPatterns() DataProtectionSettingsInlineRedactionPatternArrayOutput {
 	return o.ApplyT(func(v *DataProtectionSettingsInlineRedactionConfiguration) []DataProtectionSettingsInlineRedactionPattern {
 		if v == nil {
@@ -379,11 +411,17 @@ func (o DataProtectionSettingsInlineRedactionConfigurationPtrOutput) InlineRedac
 }
 
 type DataProtectionSettingsInlineRedactionPattern struct {
-	BuiltInPatternId     *string                                    `pulumi:"builtInPatternId"`
-	ConfidenceLevel      *float64                                   `pulumi:"confidenceLevel"`
-	CustomPattern        *DataProtectionSettingsCustomPattern       `pulumi:"customPattern"`
-	EnforcedUrls         []string                                   `pulumi:"enforcedUrls"`
-	ExemptUrls           []string                                   `pulumi:"exemptUrls"`
+	// The built-in pattern from the list of preconfigured patterns. Either a customPattern or builtInPatternId is required. To view the entire list of data types and their corresponding built-in pattern IDs, see [Base inline redaction](https://docs.aws.amazon.com/workspaces-web/latest/adminguide/base-inline-redaction.html) .
+	BuiltInPatternId *string `pulumi:"builtInPatternId"`
+	// The confidence level for inline redaction pattern. This indicates the certainty of data type matches in the redaction process. Confidence level 3 means high confidence, and requires a formatted text pattern match in order for content to be redacted. Confidence level 2 means medium confidence, and redaction considers both formatted and unformatted text, and adds keyword associate to the logic. Confidence level 1 means low confidence, and redaction is enforced for both formatted pattern + unformatted pattern without keyword. This overrides the global confidence level.
+	ConfidenceLevel *float64 `pulumi:"confidenceLevel"`
+	// The configuration for a custom pattern. Either a customPattern or builtInPatternId is required.
+	CustomPattern *DataProtectionSettingsCustomPattern `pulumi:"customPattern"`
+	// The enforced URL configuration for the inline redaction pattern. This will override the global enforced URL configuration.
+	EnforcedUrls []string `pulumi:"enforcedUrls"`
+	// The exempt URL configuration for the inline redaction pattern. This will override the global exempt URL configuration for the inline redaction pattern.
+	ExemptUrls []string `pulumi:"exemptUrls"`
+	// The redaction placeholder that will replace the redacted text in session for the inline redaction pattern.
 	RedactionPlaceHolder DataProtectionSettingsRedactionPlaceHolder `pulumi:"redactionPlaceHolder"`
 }
 
@@ -399,11 +437,17 @@ type DataProtectionSettingsInlineRedactionPatternInput interface {
 }
 
 type DataProtectionSettingsInlineRedactionPatternArgs struct {
-	BuiltInPatternId     pulumi.StringPtrInput                           `pulumi:"builtInPatternId"`
-	ConfidenceLevel      pulumi.Float64PtrInput                          `pulumi:"confidenceLevel"`
-	CustomPattern        DataProtectionSettingsCustomPatternPtrInput     `pulumi:"customPattern"`
-	EnforcedUrls         pulumi.StringArrayInput                         `pulumi:"enforcedUrls"`
-	ExemptUrls           pulumi.StringArrayInput                         `pulumi:"exemptUrls"`
+	// The built-in pattern from the list of preconfigured patterns. Either a customPattern or builtInPatternId is required. To view the entire list of data types and their corresponding built-in pattern IDs, see [Base inline redaction](https://docs.aws.amazon.com/workspaces-web/latest/adminguide/base-inline-redaction.html) .
+	BuiltInPatternId pulumi.StringPtrInput `pulumi:"builtInPatternId"`
+	// The confidence level for inline redaction pattern. This indicates the certainty of data type matches in the redaction process. Confidence level 3 means high confidence, and requires a formatted text pattern match in order for content to be redacted. Confidence level 2 means medium confidence, and redaction considers both formatted and unformatted text, and adds keyword associate to the logic. Confidence level 1 means low confidence, and redaction is enforced for both formatted pattern + unformatted pattern without keyword. This overrides the global confidence level.
+	ConfidenceLevel pulumi.Float64PtrInput `pulumi:"confidenceLevel"`
+	// The configuration for a custom pattern. Either a customPattern or builtInPatternId is required.
+	CustomPattern DataProtectionSettingsCustomPatternPtrInput `pulumi:"customPattern"`
+	// The enforced URL configuration for the inline redaction pattern. This will override the global enforced URL configuration.
+	EnforcedUrls pulumi.StringArrayInput `pulumi:"enforcedUrls"`
+	// The exempt URL configuration for the inline redaction pattern. This will override the global exempt URL configuration for the inline redaction pattern.
+	ExemptUrls pulumi.StringArrayInput `pulumi:"exemptUrls"`
+	// The redaction placeholder that will replace the redacted text in session for the inline redaction pattern.
 	RedactionPlaceHolder DataProtectionSettingsRedactionPlaceHolderInput `pulumi:"redactionPlaceHolder"`
 }
 
@@ -458,28 +502,34 @@ func (o DataProtectionSettingsInlineRedactionPatternOutput) ToDataProtectionSett
 	return o
 }
 
+// The built-in pattern from the list of preconfigured patterns. Either a customPattern or builtInPatternId is required. To view the entire list of data types and their corresponding built-in pattern IDs, see [Base inline redaction](https://docs.aws.amazon.com/workspaces-web/latest/adminguide/base-inline-redaction.html) .
 func (o DataProtectionSettingsInlineRedactionPatternOutput) BuiltInPatternId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataProtectionSettingsInlineRedactionPattern) *string { return v.BuiltInPatternId }).(pulumi.StringPtrOutput)
 }
 
+// The confidence level for inline redaction pattern. This indicates the certainty of data type matches in the redaction process. Confidence level 3 means high confidence, and requires a formatted text pattern match in order for content to be redacted. Confidence level 2 means medium confidence, and redaction considers both formatted and unformatted text, and adds keyword associate to the logic. Confidence level 1 means low confidence, and redaction is enforced for both formatted pattern + unformatted pattern without keyword. This overrides the global confidence level.
 func (o DataProtectionSettingsInlineRedactionPatternOutput) ConfidenceLevel() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v DataProtectionSettingsInlineRedactionPattern) *float64 { return v.ConfidenceLevel }).(pulumi.Float64PtrOutput)
 }
 
+// The configuration for a custom pattern. Either a customPattern or builtInPatternId is required.
 func (o DataProtectionSettingsInlineRedactionPatternOutput) CustomPattern() DataProtectionSettingsCustomPatternPtrOutput {
 	return o.ApplyT(func(v DataProtectionSettingsInlineRedactionPattern) *DataProtectionSettingsCustomPattern {
 		return v.CustomPattern
 	}).(DataProtectionSettingsCustomPatternPtrOutput)
 }
 
+// The enforced URL configuration for the inline redaction pattern. This will override the global enforced URL configuration.
 func (o DataProtectionSettingsInlineRedactionPatternOutput) EnforcedUrls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataProtectionSettingsInlineRedactionPattern) []string { return v.EnforcedUrls }).(pulumi.StringArrayOutput)
 }
 
+// The exempt URL configuration for the inline redaction pattern. This will override the global exempt URL configuration for the inline redaction pattern.
 func (o DataProtectionSettingsInlineRedactionPatternOutput) ExemptUrls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DataProtectionSettingsInlineRedactionPattern) []string { return v.ExemptUrls }).(pulumi.StringArrayOutput)
 }
 
+// The redaction placeholder that will replace the redacted text in session for the inline redaction pattern.
 func (o DataProtectionSettingsInlineRedactionPatternOutput) RedactionPlaceHolder() DataProtectionSettingsRedactionPlaceHolderOutput {
 	return o.ApplyT(func(v DataProtectionSettingsInlineRedactionPattern) DataProtectionSettingsRedactionPlaceHolder {
 		return v.RedactionPlaceHolder
@@ -507,7 +557,9 @@ func (o DataProtectionSettingsInlineRedactionPatternArrayOutput) Index(i pulumi.
 }
 
 type DataProtectionSettingsRedactionPlaceHolder struct {
-	RedactionPlaceHolderText *string                                        `pulumi:"redactionPlaceHolderText"`
+	// The redaction placeholder text that will replace the redacted text in session for the custom text redaction placeholder type.
+	RedactionPlaceHolderText *string `pulumi:"redactionPlaceHolderText"`
+	// The redaction placeholder type that will replace the redacted text in session.
 	RedactionPlaceHolderType DataProtectionSettingsRedactionPlaceHolderType `pulumi:"redactionPlaceHolderType"`
 }
 
@@ -523,7 +575,9 @@ type DataProtectionSettingsRedactionPlaceHolderInput interface {
 }
 
 type DataProtectionSettingsRedactionPlaceHolderArgs struct {
-	RedactionPlaceHolderText pulumi.StringPtrInput                               `pulumi:"redactionPlaceHolderText"`
+	// The redaction placeholder text that will replace the redacted text in session for the custom text redaction placeholder type.
+	RedactionPlaceHolderText pulumi.StringPtrInput `pulumi:"redactionPlaceHolderText"`
+	// The redaction placeholder type that will replace the redacted text in session.
 	RedactionPlaceHolderType DataProtectionSettingsRedactionPlaceHolderTypeInput `pulumi:"redactionPlaceHolderType"`
 }
 
@@ -553,10 +607,12 @@ func (o DataProtectionSettingsRedactionPlaceHolderOutput) ToDataProtectionSettin
 	return o
 }
 
+// The redaction placeholder text that will replace the redacted text in session for the custom text redaction placeholder type.
 func (o DataProtectionSettingsRedactionPlaceHolderOutput) RedactionPlaceHolderText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataProtectionSettingsRedactionPlaceHolder) *string { return v.RedactionPlaceHolderText }).(pulumi.StringPtrOutput)
 }
 
+// The redaction placeholder type that will replace the redacted text in session.
 func (o DataProtectionSettingsRedactionPlaceHolderOutput) RedactionPlaceHolderType() DataProtectionSettingsRedactionPlaceHolderTypeOutput {
 	return o.ApplyT(func(v DataProtectionSettingsRedactionPlaceHolder) DataProtectionSettingsRedactionPlaceHolderType {
 		return v.RedactionPlaceHolderType
@@ -564,7 +620,9 @@ func (o DataProtectionSettingsRedactionPlaceHolderOutput) RedactionPlaceHolderTy
 }
 
 type DataProtectionSettingsTag struct {
-	Key   string `pulumi:"key"`
+	// The key of the tag.
+	Key string `pulumi:"key"`
+	// The value of the tag.
 	Value string `pulumi:"value"`
 }
 

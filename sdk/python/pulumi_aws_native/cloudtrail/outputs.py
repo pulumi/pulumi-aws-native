@@ -92,6 +92,7 @@ class DashboardRefreshSchedule(dict):
                  time_of_day: Optional[str] = None):
         """
         Configures the automatic refresh schedule for the dashboard. Includes the frequency unit (DAYS or HOURS) and value, as well as the status (ENABLED or DISABLED) of the refresh schedule.
+        :param 'DashboardRefreshScheduleFrequencyProperties' frequency: The frequency at which you want the dashboard refreshed.
         :param 'DashboardRefreshScheduleStatus' status: The status of the schedule. Supported values are ENABLED and DISABLED.
         :param str time_of_day: StartTime of the automatic schedule refresh.
         """
@@ -105,6 +106,9 @@ class DashboardRefreshSchedule(dict):
     @property
     @pulumi.getter
     def frequency(self) -> Optional['outputs.DashboardRefreshScheduleFrequencyProperties']:
+        """
+        The frequency at which you want the dashboard refreshed.
+        """
         return pulumi.get(self, "frequency")
 
     @property
@@ -126,10 +130,14 @@ class DashboardRefreshSchedule(dict):
 
 @pulumi.output_type
 class DashboardRefreshScheduleFrequencyProperties(dict):
+    """
+    The frequency at which you want the dashboard refreshed.
+    """
     def __init__(__self__, *,
                  unit: 'DashboardRefreshScheduleFrequencyPropertiesUnit',
                  value: int):
         """
+        The frequency at which you want the dashboard refreshed.
         :param 'DashboardRefreshScheduleFrequencyPropertiesUnit' unit: The frequency unit. Supported values are HOURS and DAYS.
         :param int value: The frequency value.
         """

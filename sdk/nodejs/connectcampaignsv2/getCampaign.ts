@@ -29,12 +29,33 @@ export interface GetCampaignResult {
      * Amazon Connect Campaign Arn
      */
     readonly arn?: string;
+    /**
+     * Contains channel subtype configuration for an outbound campaign.
+     */
     readonly channelSubtypeConfig?: outputs.connectcampaignsv2.CampaignChannelSubtypeConfig;
+    /**
+     * Communication limits configuration for an outbound campaign.
+     */
     readonly communicationLimitsOverride?: outputs.connectcampaignsv2.CampaignCommunicationLimitsConfig;
+    /**
+     * Contains communication time configuration for an outbound campaign.
+     */
     readonly communicationTimeConfig?: outputs.connectcampaignsv2.CampaignCommunicationTimeConfig;
+    /**
+     * The Amazon Resource Name (ARN) of the Amazon Connect campaign flow associated with the outbound campaign.
+     */
     readonly connectCampaignFlowArn?: string;
+    /**
+     * The name of the outbound campaign.
+     */
     readonly name?: string;
+    /**
+     * Contains the schedule configuration.
+     */
     readonly schedule?: outputs.connectcampaignsv2.CampaignSchedule;
+    /**
+     * Contains source configuration.
+     */
     readonly source?: outputs.connectcampaignsv2.CampaignSource;
     /**
      * One or more tags.

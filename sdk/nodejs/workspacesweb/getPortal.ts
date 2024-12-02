@@ -53,6 +53,9 @@ export interface GetPortalResult {
      * The creation date of the web portal.
      */
     readonly creationDate?: string;
+    /**
+     * The ARN of the data protection settings.
+     */
     readonly dataProtectionSettingsArn?: string;
     /**
      * The name of the web portal.

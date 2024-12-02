@@ -36,6 +36,37 @@ namespace Pulumi.AwsNative.MemoryDb
     }
 
     /// <summary>
+    /// An enum string value that determines the update strategy for scaling. Possible values are 'COORDINATED' and 'UNCOORDINATED'. Default is 'COORDINATED'.
+    /// </summary>
+    [EnumType]
+    public readonly struct MultiRegionClusterUpdateStrategy : IEquatable<MultiRegionClusterUpdateStrategy>
+    {
+        private readonly string _value;
+
+        private MultiRegionClusterUpdateStrategy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MultiRegionClusterUpdateStrategy Coordinated { get; } = new MultiRegionClusterUpdateStrategy("COORDINATED");
+        public static MultiRegionClusterUpdateStrategy Uncoordinated { get; } = new MultiRegionClusterUpdateStrategy("UNCOORDINATED");
+
+        public static bool operator ==(MultiRegionClusterUpdateStrategy left, MultiRegionClusterUpdateStrategy right) => left.Equals(right);
+        public static bool operator !=(MultiRegionClusterUpdateStrategy left, MultiRegionClusterUpdateStrategy right) => !left.Equals(right);
+
+        public static explicit operator string(MultiRegionClusterUpdateStrategy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MultiRegionClusterUpdateStrategy other && Equals(other);
+        public bool Equals(MultiRegionClusterUpdateStrategy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Type of authentication strategy for this user.
     /// </summary>
     [EnumType]

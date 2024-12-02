@@ -653,6 +653,9 @@ class ScalingPolicyPredefinedMetricSpecificationArgs:
 if not MYPY:
     class ScalingPolicyPredictiveScalingCustomizedCapacityMetricArgsDict(TypedDict):
         metric_data_queries: pulumi.Input[Sequence[pulumi.Input['ScalingPolicyPredictiveScalingMetricDataQueryArgsDict']]]
+        """
+        One or more metric data queries to provide data points for a metric specification.
+        """
 elif False:
     ScalingPolicyPredictiveScalingCustomizedCapacityMetricArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -660,11 +663,17 @@ elif False:
 class ScalingPolicyPredictiveScalingCustomizedCapacityMetricArgs:
     def __init__(__self__, *,
                  metric_data_queries: pulumi.Input[Sequence[pulumi.Input['ScalingPolicyPredictiveScalingMetricDataQueryArgs']]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['ScalingPolicyPredictiveScalingMetricDataQueryArgs']]] metric_data_queries: One or more metric data queries to provide data points for a metric specification.
+        """
         pulumi.set(__self__, "metric_data_queries", metric_data_queries)
 
     @property
     @pulumi.getter(name="metricDataQueries")
     def metric_data_queries(self) -> pulumi.Input[Sequence[pulumi.Input['ScalingPolicyPredictiveScalingMetricDataQueryArgs']]]:
+        """
+        One or more metric data queries to provide data points for a metric specification.
+        """
         return pulumi.get(self, "metric_data_queries")
 
     @metric_data_queries.setter
@@ -697,6 +706,9 @@ class ScalingPolicyPredictiveScalingCustomizedLoadMetricArgs:
 if not MYPY:
     class ScalingPolicyPredictiveScalingCustomizedScalingMetricArgsDict(TypedDict):
         metric_data_queries: pulumi.Input[Sequence[pulumi.Input['ScalingPolicyPredictiveScalingMetricDataQueryArgsDict']]]
+        """
+        One or more metric data queries to provide data points for a metric specification.
+        """
 elif False:
     ScalingPolicyPredictiveScalingCustomizedScalingMetricArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -704,11 +716,17 @@ elif False:
 class ScalingPolicyPredictiveScalingCustomizedScalingMetricArgs:
     def __init__(__self__, *,
                  metric_data_queries: pulumi.Input[Sequence[pulumi.Input['ScalingPolicyPredictiveScalingMetricDataQueryArgs']]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['ScalingPolicyPredictiveScalingMetricDataQueryArgs']]] metric_data_queries: One or more metric data queries to provide data points for a metric specification.
+        """
         pulumi.set(__self__, "metric_data_queries", metric_data_queries)
 
     @property
     @pulumi.getter(name="metricDataQueries")
     def metric_data_queries(self) -> pulumi.Input[Sequence[pulumi.Input['ScalingPolicyPredictiveScalingMetricDataQueryArgs']]]:
+        """
+        One or more metric data queries to provide data points for a metric specification.
+        """
         return pulumi.get(self, "metric_data_queries")
 
     @metric_data_queries.setter
@@ -883,12 +901,33 @@ class ScalingPolicyPredictiveScalingMetricDimensionArgs:
 if not MYPY:
     class ScalingPolicyPredictiveScalingMetricSpecificationArgsDict(TypedDict):
         target_value: pulumi.Input[float]
+        """
+        Specifies the target utilization.
+        """
         customized_capacity_metric_specification: NotRequired[pulumi.Input['ScalingPolicyPredictiveScalingCustomizedCapacityMetricArgsDict']]
+        """
+        The customized capacity metric specification.
+        """
         customized_load_metric_specification: NotRequired[pulumi.Input['ScalingPolicyPredictiveScalingCustomizedLoadMetricArgsDict']]
+        """
+        The customized load metric specification.
+        """
         customized_scaling_metric_specification: NotRequired[pulumi.Input['ScalingPolicyPredictiveScalingCustomizedScalingMetricArgsDict']]
+        """
+        The customized scaling metric specification.
+        """
         predefined_load_metric_specification: NotRequired[pulumi.Input['ScalingPolicyPredictiveScalingPredefinedLoadMetricArgsDict']]
+        """
+        The predefined load metric specification.
+        """
         predefined_metric_pair_specification: NotRequired[pulumi.Input['ScalingPolicyPredictiveScalingPredefinedMetricPairArgsDict']]
+        """
+        The predefined metric pair specification that determines the appropriate scaling metric and load metric to use.
+        """
         predefined_scaling_metric_specification: NotRequired[pulumi.Input['ScalingPolicyPredictiveScalingPredefinedScalingMetricArgsDict']]
+        """
+        The predefined scaling metric specification.
+        """
 elif False:
     ScalingPolicyPredictiveScalingMetricSpecificationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -902,6 +941,15 @@ class ScalingPolicyPredictiveScalingMetricSpecificationArgs:
                  predefined_load_metric_specification: Optional[pulumi.Input['ScalingPolicyPredictiveScalingPredefinedLoadMetricArgs']] = None,
                  predefined_metric_pair_specification: Optional[pulumi.Input['ScalingPolicyPredictiveScalingPredefinedMetricPairArgs']] = None,
                  predefined_scaling_metric_specification: Optional[pulumi.Input['ScalingPolicyPredictiveScalingPredefinedScalingMetricArgs']] = None):
+        """
+        :param pulumi.Input[float] target_value: Specifies the target utilization.
+        :param pulumi.Input['ScalingPolicyPredictiveScalingCustomizedCapacityMetricArgs'] customized_capacity_metric_specification: The customized capacity metric specification.
+        :param pulumi.Input['ScalingPolicyPredictiveScalingCustomizedLoadMetricArgs'] customized_load_metric_specification: The customized load metric specification.
+        :param pulumi.Input['ScalingPolicyPredictiveScalingCustomizedScalingMetricArgs'] customized_scaling_metric_specification: The customized scaling metric specification.
+        :param pulumi.Input['ScalingPolicyPredictiveScalingPredefinedLoadMetricArgs'] predefined_load_metric_specification: The predefined load metric specification.
+        :param pulumi.Input['ScalingPolicyPredictiveScalingPredefinedMetricPairArgs'] predefined_metric_pair_specification: The predefined metric pair specification that determines the appropriate scaling metric and load metric to use.
+        :param pulumi.Input['ScalingPolicyPredictiveScalingPredefinedScalingMetricArgs'] predefined_scaling_metric_specification: The predefined scaling metric specification.
+        """
         pulumi.set(__self__, "target_value", target_value)
         if customized_capacity_metric_specification is not None:
             pulumi.set(__self__, "customized_capacity_metric_specification", customized_capacity_metric_specification)
@@ -919,6 +967,9 @@ class ScalingPolicyPredictiveScalingMetricSpecificationArgs:
     @property
     @pulumi.getter(name="targetValue")
     def target_value(self) -> pulumi.Input[float]:
+        """
+        Specifies the target utilization.
+        """
         return pulumi.get(self, "target_value")
 
     @target_value.setter
@@ -928,6 +979,9 @@ class ScalingPolicyPredictiveScalingMetricSpecificationArgs:
     @property
     @pulumi.getter(name="customizedCapacityMetricSpecification")
     def customized_capacity_metric_specification(self) -> Optional[pulumi.Input['ScalingPolicyPredictiveScalingCustomizedCapacityMetricArgs']]:
+        """
+        The customized capacity metric specification.
+        """
         return pulumi.get(self, "customized_capacity_metric_specification")
 
     @customized_capacity_metric_specification.setter
@@ -937,6 +991,9 @@ class ScalingPolicyPredictiveScalingMetricSpecificationArgs:
     @property
     @pulumi.getter(name="customizedLoadMetricSpecification")
     def customized_load_metric_specification(self) -> Optional[pulumi.Input['ScalingPolicyPredictiveScalingCustomizedLoadMetricArgs']]:
+        """
+        The customized load metric specification.
+        """
         return pulumi.get(self, "customized_load_metric_specification")
 
     @customized_load_metric_specification.setter
@@ -946,6 +1003,9 @@ class ScalingPolicyPredictiveScalingMetricSpecificationArgs:
     @property
     @pulumi.getter(name="customizedScalingMetricSpecification")
     def customized_scaling_metric_specification(self) -> Optional[pulumi.Input['ScalingPolicyPredictiveScalingCustomizedScalingMetricArgs']]:
+        """
+        The customized scaling metric specification.
+        """
         return pulumi.get(self, "customized_scaling_metric_specification")
 
     @customized_scaling_metric_specification.setter
@@ -955,6 +1015,9 @@ class ScalingPolicyPredictiveScalingMetricSpecificationArgs:
     @property
     @pulumi.getter(name="predefinedLoadMetricSpecification")
     def predefined_load_metric_specification(self) -> Optional[pulumi.Input['ScalingPolicyPredictiveScalingPredefinedLoadMetricArgs']]:
+        """
+        The predefined load metric specification.
+        """
         return pulumi.get(self, "predefined_load_metric_specification")
 
     @predefined_load_metric_specification.setter
@@ -964,6 +1027,9 @@ class ScalingPolicyPredictiveScalingMetricSpecificationArgs:
     @property
     @pulumi.getter(name="predefinedMetricPairSpecification")
     def predefined_metric_pair_specification(self) -> Optional[pulumi.Input['ScalingPolicyPredictiveScalingPredefinedMetricPairArgs']]:
+        """
+        The predefined metric pair specification that determines the appropriate scaling metric and load metric to use.
+        """
         return pulumi.get(self, "predefined_metric_pair_specification")
 
     @predefined_metric_pair_specification.setter
@@ -973,6 +1039,9 @@ class ScalingPolicyPredictiveScalingMetricSpecificationArgs:
     @property
     @pulumi.getter(name="predefinedScalingMetricSpecification")
     def predefined_scaling_metric_specification(self) -> Optional[pulumi.Input['ScalingPolicyPredictiveScalingPredefinedScalingMetricArgs']]:
+        """
+        The predefined scaling metric specification.
+        """
         return pulumi.get(self, "predefined_scaling_metric_specification")
 
     @predefined_scaling_metric_specification.setter
@@ -1127,10 +1196,31 @@ class ScalingPolicyPredictiveScalingMetricArgs:
 if not MYPY:
     class ScalingPolicyPredictiveScalingPolicyConfigurationArgsDict(TypedDict):
         metric_specifications: pulumi.Input[Sequence[pulumi.Input['ScalingPolicyPredictiveScalingMetricSpecificationArgsDict']]]
+        """
+        This structure includes the metrics and target utilization to use for predictive scaling.
+
+        This is an array, but we currently only support a single metric specification. That is, you can specify a target value and a single metric pair, or a target value and one scaling metric and one load metric.
+        """
         max_capacity_breach_behavior: NotRequired[pulumi.Input[str]]
+        """
+        Defines the behavior that should be applied if the forecast capacity approaches or exceeds the maximum capacity. Defaults to `HonorMaxCapacity` if not specified.
+        """
         max_capacity_buffer: NotRequired[pulumi.Input[int]]
+        """
+        The size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity. The value is specified as a percentage relative to the forecast capacity. For example, if the buffer is 10, this means a 10 percent buffer, such that if the forecast capacity is 50, and the maximum capacity is 40, then the effective maximum capacity is 55.
+
+        Required if the `MaxCapacityBreachBehavior` property is set to `IncreaseMaxCapacity` , and cannot be used otherwise.
+        """
         mode: NotRequired[pulumi.Input[str]]
+        """
+        The predictive scaling mode. Defaults to `ForecastOnly` if not specified.
+        """
         scheduling_buffer_time: NotRequired[pulumi.Input[int]]
+        """
+        The amount of time, in seconds, that the start time can be advanced.
+
+        The value must be less than the forecast interval duration of 3600 seconds (60 minutes). Defaults to 300 seconds if not specified.
+        """
 elif False:
     ScalingPolicyPredictiveScalingPolicyConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1142,6 +1232,19 @@ class ScalingPolicyPredictiveScalingPolicyConfigurationArgs:
                  max_capacity_buffer: Optional[pulumi.Input[int]] = None,
                  mode: Optional[pulumi.Input[str]] = None,
                  scheduling_buffer_time: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['ScalingPolicyPredictiveScalingMetricSpecificationArgs']]] metric_specifications: This structure includes the metrics and target utilization to use for predictive scaling.
+               
+               This is an array, but we currently only support a single metric specification. That is, you can specify a target value and a single metric pair, or a target value and one scaling metric and one load metric.
+        :param pulumi.Input[str] max_capacity_breach_behavior: Defines the behavior that should be applied if the forecast capacity approaches or exceeds the maximum capacity. Defaults to `HonorMaxCapacity` if not specified.
+        :param pulumi.Input[int] max_capacity_buffer: The size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity. The value is specified as a percentage relative to the forecast capacity. For example, if the buffer is 10, this means a 10 percent buffer, such that if the forecast capacity is 50, and the maximum capacity is 40, then the effective maximum capacity is 55.
+               
+               Required if the `MaxCapacityBreachBehavior` property is set to `IncreaseMaxCapacity` , and cannot be used otherwise.
+        :param pulumi.Input[str] mode: The predictive scaling mode. Defaults to `ForecastOnly` if not specified.
+        :param pulumi.Input[int] scheduling_buffer_time: The amount of time, in seconds, that the start time can be advanced.
+               
+               The value must be less than the forecast interval duration of 3600 seconds (60 minutes). Defaults to 300 seconds if not specified.
+        """
         pulumi.set(__self__, "metric_specifications", metric_specifications)
         if max_capacity_breach_behavior is not None:
             pulumi.set(__self__, "max_capacity_breach_behavior", max_capacity_breach_behavior)
@@ -1155,6 +1258,11 @@ class ScalingPolicyPredictiveScalingPolicyConfigurationArgs:
     @property
     @pulumi.getter(name="metricSpecifications")
     def metric_specifications(self) -> pulumi.Input[Sequence[pulumi.Input['ScalingPolicyPredictiveScalingMetricSpecificationArgs']]]:
+        """
+        This structure includes the metrics and target utilization to use for predictive scaling.
+
+        This is an array, but we currently only support a single metric specification. That is, you can specify a target value and a single metric pair, or a target value and one scaling metric and one load metric.
+        """
         return pulumi.get(self, "metric_specifications")
 
     @metric_specifications.setter
@@ -1164,6 +1272,9 @@ class ScalingPolicyPredictiveScalingPolicyConfigurationArgs:
     @property
     @pulumi.getter(name="maxCapacityBreachBehavior")
     def max_capacity_breach_behavior(self) -> Optional[pulumi.Input[str]]:
+        """
+        Defines the behavior that should be applied if the forecast capacity approaches or exceeds the maximum capacity. Defaults to `HonorMaxCapacity` if not specified.
+        """
         return pulumi.get(self, "max_capacity_breach_behavior")
 
     @max_capacity_breach_behavior.setter
@@ -1173,6 +1284,11 @@ class ScalingPolicyPredictiveScalingPolicyConfigurationArgs:
     @property
     @pulumi.getter(name="maxCapacityBuffer")
     def max_capacity_buffer(self) -> Optional[pulumi.Input[int]]:
+        """
+        The size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity. The value is specified as a percentage relative to the forecast capacity. For example, if the buffer is 10, this means a 10 percent buffer, such that if the forecast capacity is 50, and the maximum capacity is 40, then the effective maximum capacity is 55.
+
+        Required if the `MaxCapacityBreachBehavior` property is set to `IncreaseMaxCapacity` , and cannot be used otherwise.
+        """
         return pulumi.get(self, "max_capacity_buffer")
 
     @max_capacity_buffer.setter
@@ -1182,6 +1298,9 @@ class ScalingPolicyPredictiveScalingPolicyConfigurationArgs:
     @property
     @pulumi.getter
     def mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        The predictive scaling mode. Defaults to `ForecastOnly` if not specified.
+        """
         return pulumi.get(self, "mode")
 
     @mode.setter
@@ -1191,6 +1310,11 @@ class ScalingPolicyPredictiveScalingPolicyConfigurationArgs:
     @property
     @pulumi.getter(name="schedulingBufferTime")
     def scheduling_buffer_time(self) -> Optional[pulumi.Input[int]]:
+        """
+        The amount of time, in seconds, that the start time can be advanced.
+
+        The value must be less than the forecast interval duration of 3600 seconds (60 minutes). Defaults to 300 seconds if not specified.
+        """
         return pulumi.get(self, "scheduling_buffer_time")
 
     @scheduling_buffer_time.setter
@@ -1201,7 +1325,13 @@ class ScalingPolicyPredictiveScalingPolicyConfigurationArgs:
 if not MYPY:
     class ScalingPolicyPredictiveScalingPredefinedLoadMetricArgsDict(TypedDict):
         predefined_metric_type: pulumi.Input[str]
+        """
+        The metric type.
+        """
         resource_label: NotRequired[pulumi.Input[str]]
+        """
+        A label that uniquely identifies a target group.
+        """
 elif False:
     ScalingPolicyPredictiveScalingPredefinedLoadMetricArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1210,6 +1340,10 @@ class ScalingPolicyPredictiveScalingPredefinedLoadMetricArgs:
     def __init__(__self__, *,
                  predefined_metric_type: pulumi.Input[str],
                  resource_label: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] predefined_metric_type: The metric type.
+        :param pulumi.Input[str] resource_label: A label that uniquely identifies a target group.
+        """
         pulumi.set(__self__, "predefined_metric_type", predefined_metric_type)
         if resource_label is not None:
             pulumi.set(__self__, "resource_label", resource_label)
@@ -1217,6 +1351,9 @@ class ScalingPolicyPredictiveScalingPredefinedLoadMetricArgs:
     @property
     @pulumi.getter(name="predefinedMetricType")
     def predefined_metric_type(self) -> pulumi.Input[str]:
+        """
+        The metric type.
+        """
         return pulumi.get(self, "predefined_metric_type")
 
     @predefined_metric_type.setter
@@ -1226,6 +1363,9 @@ class ScalingPolicyPredictiveScalingPredefinedLoadMetricArgs:
     @property
     @pulumi.getter(name="resourceLabel")
     def resource_label(self) -> Optional[pulumi.Input[str]]:
+        """
+        A label that uniquely identifies a target group.
+        """
         return pulumi.get(self, "resource_label")
 
     @resource_label.setter
@@ -1236,7 +1376,13 @@ class ScalingPolicyPredictiveScalingPredefinedLoadMetricArgs:
 if not MYPY:
     class ScalingPolicyPredictiveScalingPredefinedMetricPairArgsDict(TypedDict):
         predefined_metric_type: pulumi.Input[str]
+        """
+        Indicates which metrics to use. There are two different types of metrics for each metric type: one is a load metric and one is a scaling metric.
+        """
         resource_label: NotRequired[pulumi.Input[str]]
+        """
+        A label that uniquely identifies a specific target group from which to determine the total and average request count.
+        """
 elif False:
     ScalingPolicyPredictiveScalingPredefinedMetricPairArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1245,6 +1391,10 @@ class ScalingPolicyPredictiveScalingPredefinedMetricPairArgs:
     def __init__(__self__, *,
                  predefined_metric_type: pulumi.Input[str],
                  resource_label: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] predefined_metric_type: Indicates which metrics to use. There are two different types of metrics for each metric type: one is a load metric and one is a scaling metric.
+        :param pulumi.Input[str] resource_label: A label that uniquely identifies a specific target group from which to determine the total and average request count.
+        """
         pulumi.set(__self__, "predefined_metric_type", predefined_metric_type)
         if resource_label is not None:
             pulumi.set(__self__, "resource_label", resource_label)
@@ -1252,6 +1402,9 @@ class ScalingPolicyPredictiveScalingPredefinedMetricPairArgs:
     @property
     @pulumi.getter(name="predefinedMetricType")
     def predefined_metric_type(self) -> pulumi.Input[str]:
+        """
+        Indicates which metrics to use. There are two different types of metrics for each metric type: one is a load metric and one is a scaling metric.
+        """
         return pulumi.get(self, "predefined_metric_type")
 
     @predefined_metric_type.setter
@@ -1261,6 +1414,9 @@ class ScalingPolicyPredictiveScalingPredefinedMetricPairArgs:
     @property
     @pulumi.getter(name="resourceLabel")
     def resource_label(self) -> Optional[pulumi.Input[str]]:
+        """
+        A label that uniquely identifies a specific target group from which to determine the total and average request count.
+        """
         return pulumi.get(self, "resource_label")
 
     @resource_label.setter
@@ -1271,7 +1427,13 @@ class ScalingPolicyPredictiveScalingPredefinedMetricPairArgs:
 if not MYPY:
     class ScalingPolicyPredictiveScalingPredefinedScalingMetricArgsDict(TypedDict):
         predefined_metric_type: pulumi.Input[str]
+        """
+        The metric type.
+        """
         resource_label: NotRequired[pulumi.Input[str]]
+        """
+        A label that uniquely identifies a specific target group from which to determine the average request count.
+        """
 elif False:
     ScalingPolicyPredictiveScalingPredefinedScalingMetricArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1280,6 +1442,10 @@ class ScalingPolicyPredictiveScalingPredefinedScalingMetricArgs:
     def __init__(__self__, *,
                  predefined_metric_type: pulumi.Input[str],
                  resource_label: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] predefined_metric_type: The metric type.
+        :param pulumi.Input[str] resource_label: A label that uniquely identifies a specific target group from which to determine the average request count.
+        """
         pulumi.set(__self__, "predefined_metric_type", predefined_metric_type)
         if resource_label is not None:
             pulumi.set(__self__, "resource_label", resource_label)
@@ -1287,6 +1453,9 @@ class ScalingPolicyPredictiveScalingPredefinedScalingMetricArgs:
     @property
     @pulumi.getter(name="predefinedMetricType")
     def predefined_metric_type(self) -> pulumi.Input[str]:
+        """
+        The metric type.
+        """
         return pulumi.get(self, "predefined_metric_type")
 
     @predefined_metric_type.setter
@@ -1296,6 +1465,9 @@ class ScalingPolicyPredictiveScalingPredefinedScalingMetricArgs:
     @property
     @pulumi.getter(name="resourceLabel")
     def resource_label(self) -> Optional[pulumi.Input[str]]:
+        """
+        A label that uniquely identifies a specific target group from which to determine the average request count.
+        """
         return pulumi.get(self, "resource_label")
 
     @resource_label.setter

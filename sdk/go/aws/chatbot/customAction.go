@@ -17,12 +17,18 @@ import (
 type CustomAction struct {
 	pulumi.CustomResourceState
 
-	ActionName      pulumi.StringOutput               `pulumi:"actionName"`
-	AliasName       pulumi.StringPtrOutput            `pulumi:"aliasName"`
-	Attachments     CustomActionAttachmentArrayOutput `pulumi:"attachments"`
-	CustomActionArn pulumi.StringOutput               `pulumi:"customActionArn"`
-	Definition      CustomActionDefinitionOutput      `pulumi:"definition"`
-	Tags            aws.TagArrayOutput                `pulumi:"tags"`
+	// The name of the custom action. This name is included in the Amazon Resource Name (ARN).
+	ActionName pulumi.StringOutput `pulumi:"actionName"`
+	// The name used to invoke this action in a chat channel. For example, `@aws run my-alias` .
+	AliasName pulumi.StringPtrOutput `pulumi:"aliasName"`
+	// Defines when this custom action button should be attached to a notification.
+	Attachments CustomActionAttachmentArrayOutput `pulumi:"attachments"`
+	// The fully defined ARN of the custom action.
+	CustomActionArn pulumi.StringOutput `pulumi:"customActionArn"`
+	// The definition of the command to run when invoked as an alias or as an action button.
+	Definition CustomActionDefinitionOutput `pulumi:"definition"`
+	// The tags to add to the configuration.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewCustomAction registers a new resource with the given unique name, arguments, and options.
@@ -72,20 +78,30 @@ func (CustomActionState) ElementType() reflect.Type {
 }
 
 type customActionArgs struct {
-	ActionName  *string                  `pulumi:"actionName"`
-	AliasName   *string                  `pulumi:"aliasName"`
+	// The name of the custom action. This name is included in the Amazon Resource Name (ARN).
+	ActionName *string `pulumi:"actionName"`
+	// The name used to invoke this action in a chat channel. For example, `@aws run my-alias` .
+	AliasName *string `pulumi:"aliasName"`
+	// Defines when this custom action button should be attached to a notification.
 	Attachments []CustomActionAttachment `pulumi:"attachments"`
-	Definition  CustomActionDefinition   `pulumi:"definition"`
-	Tags        []aws.Tag                `pulumi:"tags"`
+	// The definition of the command to run when invoked as an alias or as an action button.
+	Definition CustomActionDefinition `pulumi:"definition"`
+	// The tags to add to the configuration.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a CustomAction resource.
 type CustomActionArgs struct {
-	ActionName  pulumi.StringPtrInput
-	AliasName   pulumi.StringPtrInput
+	// The name of the custom action. This name is included in the Amazon Resource Name (ARN).
+	ActionName pulumi.StringPtrInput
+	// The name used to invoke this action in a chat channel. For example, `@aws run my-alias` .
+	AliasName pulumi.StringPtrInput
+	// Defines when this custom action button should be attached to a notification.
 	Attachments CustomActionAttachmentArrayInput
-	Definition  CustomActionDefinitionInput
-	Tags        aws.TagArrayInput
+	// The definition of the command to run when invoked as an alias or as an action button.
+	Definition CustomActionDefinitionInput
+	// The tags to add to the configuration.
+	Tags aws.TagArrayInput
 }
 
 func (CustomActionArgs) ElementType() reflect.Type {
@@ -125,26 +141,32 @@ func (o CustomActionOutput) ToCustomActionOutputWithContext(ctx context.Context)
 	return o
 }
 
+// The name of the custom action. This name is included in the Amazon Resource Name (ARN).
 func (o CustomActionOutput) ActionName() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomAction) pulumi.StringOutput { return v.ActionName }).(pulumi.StringOutput)
 }
 
+// The name used to invoke this action in a chat channel. For example, `@aws run my-alias` .
 func (o CustomActionOutput) AliasName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomAction) pulumi.StringPtrOutput { return v.AliasName }).(pulumi.StringPtrOutput)
 }
 
+// Defines when this custom action button should be attached to a notification.
 func (o CustomActionOutput) Attachments() CustomActionAttachmentArrayOutput {
 	return o.ApplyT(func(v *CustomAction) CustomActionAttachmentArrayOutput { return v.Attachments }).(CustomActionAttachmentArrayOutput)
 }
 
+// The fully defined ARN of the custom action.
 func (o CustomActionOutput) CustomActionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomAction) pulumi.StringOutput { return v.CustomActionArn }).(pulumi.StringOutput)
 }
 
+// The definition of the command to run when invoked as an alias or as an action button.
 func (o CustomActionOutput) Definition() CustomActionDefinitionOutput {
 	return o.ApplyT(func(v *CustomAction) CustomActionDefinitionOutput { return v.Definition }).(CustomActionDefinitionOutput)
 }
 
+// The tags to add to the configuration.
 func (o CustomActionOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *CustomAction) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

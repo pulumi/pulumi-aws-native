@@ -15,21 +15,39 @@ namespace Pulumi.AwsNative.Chatbot
     [AwsNativeResourceType("aws-native:chatbot:CustomAction")]
     public partial class CustomAction : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The name of the custom action. This name is included in the Amazon Resource Name (ARN).
+        /// </summary>
         [Output("actionName")]
         public Output<string> ActionName { get; private set; } = null!;
 
+        /// <summary>
+        /// The name used to invoke this action in a chat channel. For example, `@aws run my-alias` .
+        /// </summary>
         [Output("aliasName")]
         public Output<string?> AliasName { get; private set; } = null!;
 
+        /// <summary>
+        /// Defines when this custom action button should be attached to a notification.
+        /// </summary>
         [Output("attachments")]
         public Output<ImmutableArray<Outputs.CustomActionAttachment>> Attachments { get; private set; } = null!;
 
+        /// <summary>
+        /// The fully defined ARN of the custom action.
+        /// </summary>
         [Output("customActionArn")]
         public Output<string> CustomActionArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The definition of the command to run when invoked as an alias or as an action button.
+        /// </summary>
         [Output("definition")]
         public Output<Outputs.CustomActionDefinition> Definition { get; private set; } = null!;
 
+        /// <summary>
+        /// The tags to add to the configuration.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -82,25 +100,42 @@ namespace Pulumi.AwsNative.Chatbot
 
     public sealed class CustomActionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the custom action. This name is included in the Amazon Resource Name (ARN).
+        /// </summary>
         [Input("actionName")]
         public Input<string>? ActionName { get; set; }
 
+        /// <summary>
+        /// The name used to invoke this action in a chat channel. For example, `@aws run my-alias` .
+        /// </summary>
         [Input("aliasName")]
         public Input<string>? AliasName { get; set; }
 
         [Input("attachments")]
         private InputList<Inputs.CustomActionAttachmentArgs>? _attachments;
+
+        /// <summary>
+        /// Defines when this custom action button should be attached to a notification.
+        /// </summary>
         public InputList<Inputs.CustomActionAttachmentArgs> Attachments
         {
             get => _attachments ?? (_attachments = new InputList<Inputs.CustomActionAttachmentArgs>());
             set => _attachments = value;
         }
 
+        /// <summary>
+        /// The definition of the command to run when invoked as an alias or as an action button.
+        /// </summary>
         [Input("definition", required: true)]
         public Input<Inputs.CustomActionDefinitionArgs> Definition { get; set; } = null!;
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// The tags to add to the configuration.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

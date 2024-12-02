@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.ApplicationAutoScaling.Outputs
     [OutputType]
     public sealed class ScalingPolicyPredictiveScalingPredefinedLoadMetric
     {
+        /// <summary>
+        /// The metric type.
+        /// </summary>
         public readonly string PredefinedMetricType;
+        /// <summary>
+        /// A label that uniquely identifies a target group.
+        /// </summary>
         public readonly string? ResourceLabel;
 
         [OutputConstructor]

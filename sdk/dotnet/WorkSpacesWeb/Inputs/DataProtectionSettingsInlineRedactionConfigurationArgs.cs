@@ -12,11 +12,18 @@ namespace Pulumi.AwsNative.WorkSpacesWeb.Inputs
 
     public sealed class DataProtectionSettingsInlineRedactionConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The global confidence level for the inline redaction configuration. This indicates the certainty of data type matches in the redaction process. Confidence level 3 means high confidence, and requires a formatted text pattern match in order for content to be redacted. Confidence level 2 means medium confidence, and redaction considers both formatted and unformatted text, and adds keyword associate to the logic. Confidence level 1 means low confidence, and redaction is enforced for both formatted pattern + unformatted pattern without keyword. This is applied to patterns that do not have a pattern-level confidence level. Defaults to confidence level 2.
+        /// </summary>
         [Input("globalConfidenceLevel")]
         public Input<double>? GlobalConfidenceLevel { get; set; }
 
         [Input("globalEnforcedUrls")]
         private InputList<string>? _globalEnforcedUrls;
+
+        /// <summary>
+        /// The global enforced URL configuration for the inline redaction configuration. This is applied to patterns that do not have a pattern-level enforced URL list.
+        /// </summary>
         public InputList<string> GlobalEnforcedUrls
         {
             get => _globalEnforcedUrls ?? (_globalEnforcedUrls = new InputList<string>());
@@ -25,6 +32,10 @@ namespace Pulumi.AwsNative.WorkSpacesWeb.Inputs
 
         [Input("globalExemptUrls")]
         private InputList<string>? _globalExemptUrls;
+
+        /// <summary>
+        /// The global exempt URL configuration for the inline redaction configuration. This is applied to patterns that do not have a pattern-level exempt URL list.
+        /// </summary>
         public InputList<string> GlobalExemptUrls
         {
             get => _globalExemptUrls ?? (_globalExemptUrls = new InputList<string>());
@@ -33,6 +44,10 @@ namespace Pulumi.AwsNative.WorkSpacesWeb.Inputs
 
         [Input("inlineRedactionPatterns", required: true)]
         private InputList<Inputs.DataProtectionSettingsInlineRedactionPatternArgs>? _inlineRedactionPatterns;
+
+        /// <summary>
+        /// The inline redaction patterns to be enabled for the inline redaction configuration.
+        /// </summary>
         public InputList<Inputs.DataProtectionSettingsInlineRedactionPatternArgs> InlineRedactionPatterns
         {
             get => _inlineRedactionPatterns ?? (_inlineRedactionPatterns = new InputList<Inputs.DataProtectionSettingsInlineRedactionPatternArgs>());

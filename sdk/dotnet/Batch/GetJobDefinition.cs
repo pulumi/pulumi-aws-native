@@ -93,6 +93,12 @@ namespace Pulumi.AwsNative.Batch
         /// </summary>
         public readonly int? SchedulingPriority;
         /// <summary>
+        /// The tags that are applied to the job definition.
+        /// 
+        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Batch::JobDefinition` for more information about the expected schema for this property.
+        /// </summary>
+        public readonly object? Tags;
+        /// <summary>
         /// The timeout time for jobs that are submitted with this job definition. After the amount of time you specify passes, AWS Batch terminates your jobs if they aren't finished.
         /// </summary>
         public readonly Outputs.JobDefinitionTimeout? Timeout;
@@ -128,6 +134,8 @@ namespace Pulumi.AwsNative.Batch
 
             int? schedulingPriority,
 
+            object? tags,
+
             Outputs.JobDefinitionTimeout? timeout,
 
             string? type)
@@ -142,6 +150,7 @@ namespace Pulumi.AwsNative.Batch
             PropagateTags = propagateTags;
             RetryStrategy = retryStrategy;
             SchedulingPriority = schedulingPriority;
+            Tags = tags;
             Timeout = timeout;
             Type = type;
         }

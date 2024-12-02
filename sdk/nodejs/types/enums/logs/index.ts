@@ -21,6 +21,26 @@ export const AccountPolicyScope = {
  */
 export type AccountPolicyScope = (typeof AccountPolicyScope)[keyof typeof AccountPolicyScope];
 
+export const IntegrationStatus = {
+    Provisioning: "PROVISIONING",
+    Active: "ACTIVE",
+    Failed: "FAILED",
+} as const;
+
+/**
+ * Status of creation for the Integration and its resources
+ */
+export type IntegrationStatus = (typeof IntegrationStatus)[keyof typeof IntegrationStatus];
+
+export const IntegrationType = {
+    Opensearch: "OPENSEARCH",
+} as const;
+
+/**
+ * The type of the Integration.
+ */
+export type IntegrationType = (typeof IntegrationType)[keyof typeof IntegrationType];
+
 export const LogAnomalyDetectorEvaluationFrequency = {
     FiveMin: "FIVE_MIN",
     TenMin: "TEN_MIN",

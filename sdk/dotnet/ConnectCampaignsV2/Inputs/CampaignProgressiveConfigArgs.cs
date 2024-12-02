@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2.Inputs
     /// </summary>
     public sealed class CampaignProgressiveConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Bandwidth allocation for the progressive outbound mode.
+        /// </summary>
         [Input("bandwidthAllocation", required: true)]
         public Input<double> BandwidthAllocation { get; set; } = null!;
 

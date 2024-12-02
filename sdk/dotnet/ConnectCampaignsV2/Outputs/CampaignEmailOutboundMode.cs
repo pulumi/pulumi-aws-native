@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2.Outputs
     [OutputType]
     public sealed class CampaignEmailOutboundMode
     {
+        /// <summary>
+        /// The agentless outbound mode configuration for email.
+        /// </summary>
         public readonly Outputs.CampaignAgentlessConfig? AgentlessConfig;
 
         [OutputConstructor]

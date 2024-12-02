@@ -18,14 +18,32 @@ export function getCustomAction(args: GetCustomActionArgs, opts?: pulumi.InvokeO
 }
 
 export interface GetCustomActionArgs {
+    /**
+     * The fully defined ARN of the custom action.
+     */
     customActionArn: string;
 }
 
 export interface GetCustomActionResult {
+    /**
+     * The name used to invoke this action in a chat channel. For example, `@aws run my-alias` .
+     */
     readonly aliasName?: string;
+    /**
+     * Defines when this custom action button should be attached to a notification.
+     */
     readonly attachments?: outputs.chatbot.CustomActionAttachment[];
+    /**
+     * The fully defined ARN of the custom action.
+     */
     readonly customActionArn?: string;
+    /**
+     * The definition of the command to run when invoked as an alias or as an action button.
+     */
     readonly definition?: outputs.chatbot.CustomActionDefinition;
+    /**
+     * The tags to add to the configuration.
+     */
     readonly tags?: outputs.Tag[];
 }
 /**
@@ -39,5 +57,8 @@ export function getCustomActionOutput(args: GetCustomActionOutputArgs, opts?: pu
 }
 
 export interface GetCustomActionOutputArgs {
+    /**
+     * The fully defined ARN of the custom action.
+     */
     customActionArn: pulumi.Input<string>;
 }

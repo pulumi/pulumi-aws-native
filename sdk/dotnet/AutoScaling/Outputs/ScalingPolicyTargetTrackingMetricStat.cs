@@ -17,6 +17,9 @@ namespace Pulumi.AwsNative.AutoScaling.Outputs
         /// The metric to use.
         /// </summary>
         public readonly Outputs.ScalingPolicyMetric Metric;
+        /// <summary>
+        /// The period of the metric in seconds. The default value is 60. Accepted values are 10, 30, and 60. For high resolution metric, set the value to less than 60. For more information, see [Create a target tracking policy using high-resolution metrics for faster response](https://docs.aws.amazon.com/autoscaling/ec2/userguide/policy-creating-high-resolution-metrics.html) .
+        /// </summary>
         public readonly int? Period;
         /// <summary>
         /// The statistic to return. It can include any CloudWatch statistic or extended statistic. For a list of valid values, see the table in [Statistics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Statistic) in the *Amazon CloudWatch User Guide* .

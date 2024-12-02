@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.ApplicationAutoScaling.Outputs
     [OutputType]
     public sealed class ScalingPolicyPredictiveScalingPredefinedMetricPair
     {
+        /// <summary>
+        /// Indicates which metrics to use. There are two different types of metrics for each metric type: one is a load metric and one is a scaling metric.
+        /// </summary>
         public readonly string PredefinedMetricType;
+        /// <summary>
+        /// A label that uniquely identifies a specific target group from which to determine the total and average request count.
+        /// </summary>
         public readonly string? ResourceLabel;
 
         [OutputConstructor]

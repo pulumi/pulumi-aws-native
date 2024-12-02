@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Chatbot
 
     public sealed class GetCustomActionArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The fully defined ARN of the custom action.
+        /// </summary>
         [Input("customActionArn", required: true)]
         public string CustomActionArn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Chatbot
 
     public sealed class GetCustomActionInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The fully defined ARN of the custom action.
+        /// </summary>
         [Input("customActionArn", required: true)]
         public Input<string> CustomActionArn { get; set; } = null!;
 
@@ -51,10 +57,25 @@ namespace Pulumi.AwsNative.Chatbot
     [OutputType]
     public sealed class GetCustomActionResult
     {
+        /// <summary>
+        /// The name used to invoke this action in a chat channel. For example, `@aws run my-alias` .
+        /// </summary>
         public readonly string? AliasName;
+        /// <summary>
+        /// Defines when this custom action button should be attached to a notification.
+        /// </summary>
         public readonly ImmutableArray<Outputs.CustomActionAttachment> Attachments;
+        /// <summary>
+        /// The fully defined ARN of the custom action.
+        /// </summary>
         public readonly string? CustomActionArn;
+        /// <summary>
+        /// The definition of the command to run when invoked as an alias or as an action button.
+        /// </summary>
         public readonly Outputs.CustomActionDefinition? Definition;
+        /// <summary>
+        /// The tags to add to the configuration.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

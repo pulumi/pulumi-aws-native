@@ -16,12 +16,14 @@ from .get_delivery import *
 from .get_delivery_destination import *
 from .get_delivery_source import *
 from .get_destination import *
+from .get_integration import *
 from .get_log_anomaly_detector import *
 from .get_log_group import *
 from .get_metric_filter import *
 from .get_query_definition import *
 from .get_resource_policy import *
 from .get_subscription_filter import *
+from .integration import *
 from .log_anomaly_detector import *
 from .log_group import *
 from .log_stream import *

@@ -66,36 +66,57 @@ class GetCampaignResult:
     @property
     @pulumi.getter(name="channelSubtypeConfig")
     def channel_subtype_config(self) -> Optional['outputs.CampaignChannelSubtypeConfig']:
+        """
+        Contains channel subtype configuration for an outbound campaign.
+        """
         return pulumi.get(self, "channel_subtype_config")
 
     @property
     @pulumi.getter(name="communicationLimitsOverride")
     def communication_limits_override(self) -> Optional['outputs.CampaignCommunicationLimitsConfig']:
+        """
+        Communication limits configuration for an outbound campaign.
+        """
         return pulumi.get(self, "communication_limits_override")
 
     @property
     @pulumi.getter(name="communicationTimeConfig")
     def communication_time_config(self) -> Optional['outputs.CampaignCommunicationTimeConfig']:
+        """
+        Contains communication time configuration for an outbound campaign.
+        """
         return pulumi.get(self, "communication_time_config")
 
     @property
     @pulumi.getter(name="connectCampaignFlowArn")
     def connect_campaign_flow_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the Amazon Connect campaign flow associated with the outbound campaign.
+        """
         return pulumi.get(self, "connect_campaign_flow_arn")
 
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        The name of the outbound campaign.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def schedule(self) -> Optional['outputs.CampaignSchedule']:
+        """
+        Contains the schedule configuration.
+        """
         return pulumi.get(self, "schedule")
 
     @property
     @pulumi.getter
     def source(self) -> Optional['outputs.CampaignSource']:
+        """
+        Contains source configuration.
+        """
         return pulumi.get(self, "source")
 
     @property

@@ -1775,7 +1775,7 @@ func (o UserPoolAddOnsPtrOutput) AdvancedSecurityMode() pulumi.StringPtrOutput {
 type UserPoolAdminCreateUserConfig struct {
 	// The setting for allowing self-service sign-up. When `true` , only administrators can create new user profiles. When `false` , users can register themselves and create a new user profile with the [SignUp](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SignUp.html) operation.
 	AllowAdminCreateUserOnly *bool `pulumi:"allowAdminCreateUserOnly"`
-	// The template for the welcome message to new users.
+	// The template for the welcome message to new users. This template must include the `{####}` temporary password placeholder if you are creating users with passwords. If your users don't have passwords, you can omit the placeholder.
 	//
 	// See also [Customizing User Invitation Messages](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-message-customizations.html#cognito-user-pool-settings-user-invitation-message-customization) .
 	InviteMessageTemplate *UserPoolInviteMessageTemplate `pulumi:"inviteMessageTemplate"`
@@ -1801,7 +1801,7 @@ type UserPoolAdminCreateUserConfigInput interface {
 type UserPoolAdminCreateUserConfigArgs struct {
 	// The setting for allowing self-service sign-up. When `true` , only administrators can create new user profiles. When `false` , users can register themselves and create a new user profile with the [SignUp](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SignUp.html) operation.
 	AllowAdminCreateUserOnly pulumi.BoolPtrInput `pulumi:"allowAdminCreateUserOnly"`
-	// The template for the welcome message to new users.
+	// The template for the welcome message to new users. This template must include the `{####}` temporary password placeholder if you are creating users with passwords. If your users don't have passwords, you can omit the placeholder.
 	//
 	// See also [Customizing User Invitation Messages](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-message-customizations.html#cognito-user-pool-settings-user-invitation-message-customization) .
 	InviteMessageTemplate UserPoolInviteMessageTemplatePtrInput `pulumi:"inviteMessageTemplate"`
@@ -1895,7 +1895,7 @@ func (o UserPoolAdminCreateUserConfigOutput) AllowAdminCreateUserOnly() pulumi.B
 	return o.ApplyT(func(v UserPoolAdminCreateUserConfig) *bool { return v.AllowAdminCreateUserOnly }).(pulumi.BoolPtrOutput)
 }
 
-// The template for the welcome message to new users.
+// The template for the welcome message to new users. This template must include the `{####}` temporary password placeholder if you are creating users with passwords. If your users don't have passwords, you can omit the placeholder.
 //
 // See also [Customizing User Invitation Messages](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-message-customizations.html#cognito-user-pool-settings-user-invitation-message-customization) .
 func (o UserPoolAdminCreateUserConfigOutput) InviteMessageTemplate() UserPoolInviteMessageTemplatePtrOutput {
@@ -1945,7 +1945,7 @@ func (o UserPoolAdminCreateUserConfigPtrOutput) AllowAdminCreateUserOnly() pulum
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The template for the welcome message to new users.
+// The template for the welcome message to new users. This template must include the `{####}` temporary password placeholder if you are creating users with passwords. If your users don't have passwords, you can omit the placeholder.
 //
 // See also [Customizing User Invitation Messages](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-message-customizations.html#cognito-user-pool-settings-user-invitation-message-customization) .
 func (o UserPoolAdminCreateUserConfigPtrOutput) InviteMessageTemplate() UserPoolInviteMessageTemplatePtrOutput {

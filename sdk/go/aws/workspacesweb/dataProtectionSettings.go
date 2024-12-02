@@ -16,15 +16,24 @@ import (
 type DataProtectionSettings struct {
 	pulumi.CustomResourceState
 
-	AdditionalEncryptionContext  pulumi.StringMapOutput                                      `pulumi:"additionalEncryptionContext"`
-	AssociatedPortalArns         pulumi.StringArrayOutput                                    `pulumi:"associatedPortalArns"`
-	CreationDate                 pulumi.StringOutput                                         `pulumi:"creationDate"`
-	CustomerManagedKey           pulumi.StringPtrOutput                                      `pulumi:"customerManagedKey"`
-	DataProtectionSettingsArn    pulumi.StringOutput                                         `pulumi:"dataProtectionSettingsArn"`
-	Description                  pulumi.StringPtrOutput                                      `pulumi:"description"`
-	DisplayName                  pulumi.StringPtrOutput                                      `pulumi:"displayName"`
+	// The additional encryption context of the data protection settings.
+	AdditionalEncryptionContext pulumi.StringMapOutput `pulumi:"additionalEncryptionContext"`
+	// A list of web portal ARNs that this data protection settings resource is associated with.
+	AssociatedPortalArns pulumi.StringArrayOutput `pulumi:"associatedPortalArns"`
+	// The creation date timestamp of the data protection settings.
+	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
+	// The customer managed key used to encrypt sensitive information in the data protection settings.
+	CustomerManagedKey pulumi.StringPtrOutput `pulumi:"customerManagedKey"`
+	// The ARN of the data protection settings resource.
+	DataProtectionSettingsArn pulumi.StringOutput `pulumi:"dataProtectionSettingsArn"`
+	// The description of the data protection settings.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The display name of the data protection settings.
+	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
+	// The inline redaction configuration for the data protection settings.
 	InlineRedactionConfiguration DataProtectionSettingsInlineRedactionConfigurationPtrOutput `pulumi:"inlineRedactionConfiguration"`
-	Tags                         aws.TagArrayOutput                                          `pulumi:"tags"`
+	// The tags of the data protection settings.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewDataProtectionSettings registers a new resource with the given unique name, arguments, and options.
@@ -72,22 +81,34 @@ func (DataProtectionSettingsState) ElementType() reflect.Type {
 }
 
 type dataProtectionSettingsArgs struct {
-	AdditionalEncryptionContext  map[string]string                                   `pulumi:"additionalEncryptionContext"`
-	CustomerManagedKey           *string                                             `pulumi:"customerManagedKey"`
-	Description                  *string                                             `pulumi:"description"`
-	DisplayName                  *string                                             `pulumi:"displayName"`
+	// The additional encryption context of the data protection settings.
+	AdditionalEncryptionContext map[string]string `pulumi:"additionalEncryptionContext"`
+	// The customer managed key used to encrypt sensitive information in the data protection settings.
+	CustomerManagedKey *string `pulumi:"customerManagedKey"`
+	// The description of the data protection settings.
+	Description *string `pulumi:"description"`
+	// The display name of the data protection settings.
+	DisplayName *string `pulumi:"displayName"`
+	// The inline redaction configuration for the data protection settings.
 	InlineRedactionConfiguration *DataProtectionSettingsInlineRedactionConfiguration `pulumi:"inlineRedactionConfiguration"`
-	Tags                         []aws.Tag                                           `pulumi:"tags"`
+	// The tags of the data protection settings.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DataProtectionSettings resource.
 type DataProtectionSettingsArgs struct {
-	AdditionalEncryptionContext  pulumi.StringMapInput
-	CustomerManagedKey           pulumi.StringPtrInput
-	Description                  pulumi.StringPtrInput
-	DisplayName                  pulumi.StringPtrInput
+	// The additional encryption context of the data protection settings.
+	AdditionalEncryptionContext pulumi.StringMapInput
+	// The customer managed key used to encrypt sensitive information in the data protection settings.
+	CustomerManagedKey pulumi.StringPtrInput
+	// The description of the data protection settings.
+	Description pulumi.StringPtrInput
+	// The display name of the data protection settings.
+	DisplayName pulumi.StringPtrInput
+	// The inline redaction configuration for the data protection settings.
 	InlineRedactionConfiguration DataProtectionSettingsInlineRedactionConfigurationPtrInput
-	Tags                         aws.TagArrayInput
+	// The tags of the data protection settings.
+	Tags aws.TagArrayInput
 }
 
 func (DataProtectionSettingsArgs) ElementType() reflect.Type {
@@ -127,40 +148,49 @@ func (o DataProtectionSettingsOutput) ToDataProtectionSettingsOutputWithContext(
 	return o
 }
 
+// The additional encryption context of the data protection settings.
 func (o DataProtectionSettingsOutput) AdditionalEncryptionContext() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *DataProtectionSettings) pulumi.StringMapOutput { return v.AdditionalEncryptionContext }).(pulumi.StringMapOutput)
 }
 
+// A list of web portal ARNs that this data protection settings resource is associated with.
 func (o DataProtectionSettingsOutput) AssociatedPortalArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DataProtectionSettings) pulumi.StringArrayOutput { return v.AssociatedPortalArns }).(pulumi.StringArrayOutput)
 }
 
+// The creation date timestamp of the data protection settings.
 func (o DataProtectionSettingsOutput) CreationDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataProtectionSettings) pulumi.StringOutput { return v.CreationDate }).(pulumi.StringOutput)
 }
 
+// The customer managed key used to encrypt sensitive information in the data protection settings.
 func (o DataProtectionSettingsOutput) CustomerManagedKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataProtectionSettings) pulumi.StringPtrOutput { return v.CustomerManagedKey }).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the data protection settings resource.
 func (o DataProtectionSettingsOutput) DataProtectionSettingsArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataProtectionSettings) pulumi.StringOutput { return v.DataProtectionSettingsArn }).(pulumi.StringOutput)
 }
 
+// The description of the data protection settings.
 func (o DataProtectionSettingsOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataProtectionSettings) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The display name of the data protection settings.
 func (o DataProtectionSettingsOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataProtectionSettings) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
+// The inline redaction configuration for the data protection settings.
 func (o DataProtectionSettingsOutput) InlineRedactionConfiguration() DataProtectionSettingsInlineRedactionConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataProtectionSettings) DataProtectionSettingsInlineRedactionConfigurationPtrOutput {
 		return v.InlineRedactionConfiguration
 	}).(DataProtectionSettingsInlineRedactionConfigurationPtrOutput)
 }
 
+// The tags of the data protection settings.
 func (o DataProtectionSettingsOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *DataProtectionSettings) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

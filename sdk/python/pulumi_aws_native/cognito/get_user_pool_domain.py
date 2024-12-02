@@ -24,7 +24,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetUserPoolDomainResult:
-    def __init__(__self__, cloud_front_distribution=None, custom_domain_config=None, id=None):
+    def __init__(__self__, cloud_front_distribution=None, custom_domain_config=None, id=None, managed_login_version=None):
         if cloud_front_distribution and not isinstance(cloud_front_distribution, str):
             raise TypeError("Expected argument 'cloud_front_distribution' to be a str")
         pulumi.set(__self__, "cloud_front_distribution", cloud_front_distribution)
@@ -34,6 +34,9 @@ class GetUserPoolDomainResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if managed_login_version and not isinstance(managed_login_version, int):
+            raise TypeError("Expected argument 'managed_login_version' to be a int")
+        pulumi.set(__self__, "managed_login_version", managed_login_version)
 
     @property
     @pulumi.getter(name="cloudFrontDistribution")
@@ -48,6 +51,8 @@ class GetUserPoolDomainResult:
     def custom_domain_config(self) -> Optional['outputs.UserPoolDomainCustomDomainConfigType']:
         """
         The configuration for a custom domain that hosts the sign-up and sign-in pages for your application. Use this object to specify an SSL certificate that is managed by ACM.
+
+        When you create a custom domain, the passkey RP ID defaults to the custom domain. If you had a prefix domain active, this will cause passkey integration for your prefix domain to stop working due to a mismatch in RP ID. To keep the prefix domain passkey integration working, you can explicitly set RP ID to the prefix domain. Update the RP ID in a [SetUserPoolMfaConfig](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SetUserPoolMfaConfig.html) request.
         """
         return pulumi.get(self, "custom_domain_config")
 
@@ -59,6 +64,11 @@ class GetUserPoolDomainResult:
         """
         return pulumi.get(self, "id")
 
+    @property
+    @pulumi.getter(name="managedLoginVersion")
+    def managed_login_version(self) -> Optional[int]:
+        return pulumi.get(self, "managed_login_version")
+
 
 class AwaitableGetUserPoolDomainResult(GetUserPoolDomainResult):
     # pylint: disable=using-constant-test
@@ -68,7 +78,8 @@ class AwaitableGetUserPoolDomainResult(GetUserPoolDomainResult):
         return GetUserPoolDomainResult(
             cloud_front_distribution=self.cloud_front_distribution,
             custom_domain_config=self.custom_domain_config,
-            id=self.id)
+            id=self.id,
+            managed_login_version=self.managed_login_version)
 
 
 def get_user_pool_domain(id: Optional[str] = None,
@@ -87,7 +98,8 @@ def get_user_pool_domain(id: Optional[str] = None,
     return AwaitableGetUserPoolDomainResult(
         cloud_front_distribution=pulumi.get(__ret__, 'cloud_front_distribution'),
         custom_domain_config=pulumi.get(__ret__, 'custom_domain_config'),
-        id=pulumi.get(__ret__, 'id'))
+        id=pulumi.get(__ret__, 'id'),
+        managed_login_version=pulumi.get(__ret__, 'managed_login_version'))
 def get_user_pool_domain_output(id: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserPoolDomainResult]:
     """
@@ -103,4 +115,5 @@ def get_user_pool_domain_output(id: Optional[pulumi.Input[str]] = None,
     return __ret__.apply(lambda __response__: GetUserPoolDomainResult(
         cloud_front_distribution=pulumi.get(__response__, 'cloud_front_distribution'),
         custom_domain_config=pulumi.get(__response__, 'custom_domain_config'),
-        id=pulumi.get(__response__, 'id')))
+        id=pulumi.get(__response__, 'id'),
+        managed_login_version=pulumi.get(__response__, 'managed_login_version')))

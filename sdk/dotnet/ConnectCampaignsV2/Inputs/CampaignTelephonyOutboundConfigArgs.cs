@@ -15,12 +15,21 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2.Inputs
     /// </summary>
     public sealed class CampaignTelephonyOutboundConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The answering machine detection configuration.
+        /// </summary>
         [Input("answerMachineDetectionConfig")]
         public Input<Inputs.CampaignAnswerMachineDetectionConfigArgs>? AnswerMachineDetectionConfig { get; set; }
 
+        /// <summary>
+        /// The identifier of the published Amazon Connect contact flow.
+        /// </summary>
         [Input("connectContactFlowId", required: true)]
         public Input<string> ConnectContactFlowId { get; set; } = null!;
 
+        /// <summary>
+        /// The Amazon Connect source phone number.
+        /// </summary>
         [Input("connectSourcePhoneNumber")]
         public Input<string>? ConnectSourcePhoneNumber { get; set; }
 

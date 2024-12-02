@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.IoT.Inputs
 {
 
+    /// <summary>
+    /// The configuration to add user-defined properties to enrich MQTT 5 messages.
+    /// </summary>
     public sealed class ThingTypePropertiesPropertiesMqtt5ConfigurationPropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("propagatingAttributes")]

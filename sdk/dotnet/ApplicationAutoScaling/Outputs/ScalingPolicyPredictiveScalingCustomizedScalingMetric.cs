@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.ApplicationAutoScaling.Outputs
     [OutputType]
     public sealed class ScalingPolicyPredictiveScalingCustomizedScalingMetric
     {
+        /// <summary>
+        /// One or more metric data queries to provide data points for a metric specification.
+        /// </summary>
         public readonly ImmutableArray<Outputs.ScalingPolicyPredictiveScalingMetricDataQuery> MetricDataQueries;
 
         [OutputConstructor]

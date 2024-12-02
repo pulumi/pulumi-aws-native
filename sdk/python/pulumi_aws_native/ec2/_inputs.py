@@ -1665,6 +1665,7 @@ if not MYPY:
         - For instance types with Intel CPUs, specify `intel` .
         - For instance types with AMD CPUs, specify `amd` .
         - For instance types with AWS CPUs, specify `amazon-web-services` .
+        - For instance types with Apple CPUs, specify `apple` .
 
         > Don't confuse the CPU manufacturer with the CPU architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template. 
 
@@ -1890,6 +1891,7 @@ class Ec2FleetInstanceRequirementsRequestArgs:
                - For instance types with Intel CPUs, specify `intel` .
                - For instance types with AMD CPUs, specify `amd` .
                - For instance types with AWS CPUs, specify `amazon-web-services` .
+               - For instance types with Apple CPUs, specify `apple` .
                
                > Don't confuse the CPU manufacturer with the CPU architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template. 
                
@@ -2194,6 +2196,7 @@ class Ec2FleetInstanceRequirementsRequestArgs:
         - For instance types with Intel CPUs, specify `intel` .
         - For instance types with AMD CPUs, specify `amd` .
         - For instance types with AWS CPUs, specify `amazon-web-services` .
+        - For instance types with Apple CPUs, specify `apple` .
 
         > Don't confuse the CPU manufacturer with the CPU architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template. 
 
@@ -5165,6 +5168,9 @@ class LaunchTemplateBaselineEbsBandwidthMbpsArgs:
 if not MYPY:
     class LaunchTemplateBaselinePerformanceFactorsArgsDict(TypedDict):
         cpu: NotRequired[pulumi.Input['LaunchTemplateCpuArgsDict']]
+        """
+        The CPU performance to consider, using an instance family as the baseline reference.
+        """
 elif False:
     LaunchTemplateBaselinePerformanceFactorsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -5172,12 +5178,18 @@ elif False:
 class LaunchTemplateBaselinePerformanceFactorsArgs:
     def __init__(__self__, *,
                  cpu: Optional[pulumi.Input['LaunchTemplateCpuArgs']] = None):
+        """
+        :param pulumi.Input['LaunchTemplateCpuArgs'] cpu: The CPU performance to consider, using an instance family as the baseline reference.
+        """
         if cpu is not None:
             pulumi.set(__self__, "cpu", cpu)
 
     @property
     @pulumi.getter
     def cpu(self) -> Optional[pulumi.Input['LaunchTemplateCpuArgs']]:
+        """
+        The CPU performance to consider, using an instance family as the baseline reference.
+        """
         return pulumi.get(self, "cpu")
 
     @cpu.setter
@@ -7044,6 +7056,9 @@ if not MYPY:
          Default: No minimum or maximum limits
         """
         baseline_performance_factors: NotRequired[pulumi.Input['LaunchTemplateBaselinePerformanceFactorsArgsDict']]
+        """
+        The baseline performance to consider, using an instance family as a baseline reference. The instance family establishes the lowest acceptable level of performance. Amazon EC2 uses this baseline to guide instance type selection, but there is no guarantee that the selected instance types will always exceed the baseline for every application. Currently, this parameter only supports CPU performance as a baseline performance factor. For more information, see [Performance protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html#ec2fleet-abis-performance-protection) in the *Amazon EC2 User Guide* .
+        """
         burstable_performance: NotRequired[pulumi.Input[str]]
         """
         Indicates whether burstable performance T instance types are included, excluded, or required. For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html).
@@ -7243,6 +7258,7 @@ class LaunchTemplateInstanceRequirementsArgs:
                 Default: ``excluded``
         :param pulumi.Input['LaunchTemplateBaselineEbsBandwidthMbpsArgs'] baseline_ebs_bandwidth_mbps: The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps. For more information, see [Amazon EBS–optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html) in the *Amazon EC2 User Guide*.
                 Default: No minimum or maximum limits
+        :param pulumi.Input['LaunchTemplateBaselinePerformanceFactorsArgs'] baseline_performance_factors: The baseline performance to consider, using an instance family as a baseline reference. The instance family establishes the lowest acceptable level of performance. Amazon EC2 uses this baseline to guide instance type selection, but there is no guarantee that the selected instance types will always exceed the baseline for every application. Currently, this parameter only supports CPU performance as a baseline performance factor. For more information, see [Performance protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html#ec2fleet-abis-performance-protection) in the *Amazon EC2 User Guide* .
         :param pulumi.Input[str] burstable_performance: Indicates whether burstable performance T instance types are included, excluded, or required. For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html).
                  +  To include burstable performance instance types, specify ``included``.
                  +  To require only burstable performance instance types, specify ``required``.
@@ -7495,6 +7511,9 @@ class LaunchTemplateInstanceRequirementsArgs:
     @property
     @pulumi.getter(name="baselinePerformanceFactors")
     def baseline_performance_factors(self) -> Optional[pulumi.Input['LaunchTemplateBaselinePerformanceFactorsArgs']]:
+        """
+        The baseline performance to consider, using an instance family as a baseline reference. The instance family establishes the lowest acceptable level of performance. Amazon EC2 uses this baseline to guide instance type selection, but there is no guarantee that the selected instance types will always exceed the baseline for every application. Currently, this parameter only supports CPU performance as a baseline performance factor. For more information, see [Performance protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html#ec2fleet-abis-performance-protection) in the *Amazon EC2 User Guide* .
+        """
         return pulumi.get(self, "baseline_performance_factors")
 
     @baseline_performance_factors.setter
@@ -12111,6 +12130,7 @@ if not MYPY:
         - For instance types with Intel CPUs, specify `intel` .
         - For instance types with AMD CPUs, specify `amd` .
         - For instance types with AWS CPUs, specify `amazon-web-services` .
+        - For instance types with Apple CPUs, specify `apple` .
 
         > Don't confuse the CPU manufacturer with the CPU architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template. 
 
@@ -12336,6 +12356,7 @@ class SpotFleetInstanceRequirementsRequestArgs:
                - For instance types with Intel CPUs, specify `intel` .
                - For instance types with AMD CPUs, specify `amd` .
                - For instance types with AWS CPUs, specify `amazon-web-services` .
+               - For instance types with Apple CPUs, specify `apple` .
                
                > Don't confuse the CPU manufacturer with the CPU architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template. 
                
@@ -12640,6 +12661,7 @@ class SpotFleetInstanceRequirementsRequestArgs:
         - For instance types with Intel CPUs, specify `intel` .
         - For instance types with AMD CPUs, specify `amd` .
         - For instance types with AWS CPUs, specify `amazon-web-services` .
+        - For instance types with Apple CPUs, specify `apple` .
 
         > Don't confuse the CPU manufacturer with the CPU architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template. 
 

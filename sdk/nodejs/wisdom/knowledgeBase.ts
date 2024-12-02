@@ -73,6 +73,9 @@ export class KnowledgeBase extends pulumi.CustomResource {
      * The tags used to organize, track, or control access for this resource.
      */
     public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
+    /**
+     * Contains details about how to ingest the documents in a data source.
+     */
     public readonly vectorIngestionConfiguration!: pulumi.Output<outputs.wisdom.KnowledgeBaseVectorIngestionConfiguration | undefined>;
 
     /**
@@ -150,5 +153,8 @@ export interface KnowledgeBaseArgs {
      * The tags used to organize, track, or control access for this resource.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[]>;
+    /**
+     * Contains details about how to ingest the documents in a data source.
+     */
     vectorIngestionConfiguration?: pulumi.Input<inputs.wisdom.KnowledgeBaseVectorIngestionConfigurationArgs>;
 }

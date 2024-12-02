@@ -52,36 +52,57 @@ class GetDataProtectionSettingsResult:
     @property
     @pulumi.getter(name="associatedPortalArns")
     def associated_portal_arns(self) -> Optional[Sequence[str]]:
+        """
+        A list of web portal ARNs that this data protection settings resource is associated with.
+        """
         return pulumi.get(self, "associated_portal_arns")
 
     @property
     @pulumi.getter(name="creationDate")
     def creation_date(self) -> Optional[str]:
+        """
+        The creation date timestamp of the data protection settings.
+        """
         return pulumi.get(self, "creation_date")
 
     @property
     @pulumi.getter(name="dataProtectionSettingsArn")
     def data_protection_settings_arn(self) -> Optional[str]:
+        """
+        The ARN of the data protection settings resource.
+        """
         return pulumi.get(self, "data_protection_settings_arn")
 
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        The description of the data protection settings.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[str]:
+        """
+        The display name of the data protection settings.
+        """
         return pulumi.get(self, "display_name")
 
     @property
     @pulumi.getter(name="inlineRedactionConfiguration")
     def inline_redaction_configuration(self) -> Optional['outputs.DataProtectionSettingsInlineRedactionConfiguration']:
+        """
+        The inline redaction configuration for the data protection settings.
+        """
         return pulumi.get(self, "inline_redaction_configuration")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        The tags of the data protection settings.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -104,6 +125,9 @@ def get_data_protection_settings(data_protection_settings_arn: Optional[str] = N
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataProtectionSettingsResult:
     """
     Definition of AWS::WorkSpacesWeb::DataProtectionSettings Resource Type
+
+
+    :param str data_protection_settings_arn: The ARN of the data protection settings resource.
     """
     __args__ = dict()
     __args__['dataProtectionSettingsArn'] = data_protection_settings_arn
@@ -122,6 +146,9 @@ def get_data_protection_settings_output(data_protection_settings_arn: Optional[p
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataProtectionSettingsResult]:
     """
     Definition of AWS::WorkSpacesWeb::DataProtectionSettings Resource Type
+
+
+    :param str data_protection_settings_arn: The ARN of the data protection settings resource.
     """
     __args__ = dict()
     __args__['dataProtectionSettingsArn'] = data_protection_settings_arn

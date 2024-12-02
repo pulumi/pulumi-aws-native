@@ -17,6 +17,10 @@ namespace Pulumi.AwsNative.Eks.Outputs
     public sealed class ClusterKubernetesNetworkConfig
     {
         /// <summary>
+        /// Todo: add description
+        /// </summary>
+        public readonly Outputs.ClusterElasticLoadBalancing? ElasticLoadBalancing;
+        /// <summary>
         /// Ipv4 or Ipv6. You can only specify ipv6 for 1.21 and later clusters that use version 1.10.1 or later of the Amazon VPC CNI add-on
         /// </summary>
         public readonly Pulumi.AwsNative.Eks.ClusterKubernetesNetworkConfigIpFamily? IpFamily;
@@ -31,12 +35,15 @@ namespace Pulumi.AwsNative.Eks.Outputs
 
         [OutputConstructor]
         private ClusterKubernetesNetworkConfig(
+            Outputs.ClusterElasticLoadBalancing? elasticLoadBalancing,
+
             Pulumi.AwsNative.Eks.ClusterKubernetesNetworkConfigIpFamily? ipFamily,
 
             string? serviceIpv4Cidr,
 
             string? serviceIpv6Cidr)
         {
+            ElasticLoadBalancing = elasticLoadBalancing;
             IpFamily = ipFamily;
             ServiceIpv4Cidr = serviceIpv4Cidr;
             ServiceIpv6Cidr = serviceIpv6Cidr;

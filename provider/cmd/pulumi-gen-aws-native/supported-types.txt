@@ -568,6 +568,7 @@ AWS::Inspector::ResourceGroup
 AWS::InspectorV2::CisScanConfiguration
 AWS::InspectorV2::Filter
 AWS::InternetMonitor::Monitor
+AWS::Invoicing::InvoiceUnit
 AWS::IoT::AccountAuditConfiguration
 AWS::IoT::Authorizer
 AWS::IoT::BillingGroup
@@ -683,6 +684,7 @@ AWS::Logs::Delivery
 AWS::Logs::DeliveryDestination
 AWS::Logs::DeliverySource
 AWS::Logs::Destination
+AWS::Logs::Integration
 AWS::Logs::LogAnomalyDetector
 AWS::Logs::LogGroup
 AWS::Logs::LogStream
@@ -746,6 +748,7 @@ AWS::MediaTailor::SourceLocation
 AWS::MediaTailor::VodSource
 AWS::MemoryDB::ACL
 AWS::MemoryDB::Cluster
+AWS::MemoryDB::MultiRegionCluster
 AWS::MemoryDB::ParameterGroup
 AWS::MemoryDB::SubnetGroup
 AWS::MemoryDB::User

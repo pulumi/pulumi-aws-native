@@ -1542,7 +1542,9 @@ func (o DocumentationPartLocationOutput) Type() DocumentationPartLocationTypePtr
 }
 
 type DomainNameAccessAssociationTag struct {
-	Key   string `pulumi:"key"`
+	// A string you can use to assign a value. The combination of tag keys and values can help you organize and categorize your resources.
+	Key string `pulumi:"key"`
+	// The value for the specified tag key.
 	Value string `pulumi:"value"`
 }
 
@@ -1847,6 +1849,7 @@ type DomainNameTag struct {
 }
 
 type DomainNameV2EndpointConfiguration struct {
+	// A list of endpoint types of an API (RestApi) or its custom domain name (DomainName). For an edge-optimized API and its custom domain name, the endpoint type is `"EDGE"` . For a regional API and its custom domain name, the endpoint type is `REGIONAL` . For a private API, the endpoint type is `PRIVATE` .
 	Types []string `pulumi:"types"`
 }
 
@@ -1862,6 +1865,7 @@ type DomainNameV2EndpointConfigurationInput interface {
 }
 
 type DomainNameV2EndpointConfigurationArgs struct {
+	// A list of endpoint types of an API (RestApi) or its custom domain name (DomainName). For an edge-optimized API and its custom domain name, the endpoint type is `"EDGE"` . For a regional API and its custom domain name, the endpoint type is `REGIONAL` . For a private API, the endpoint type is `PRIVATE` .
 	Types pulumi.StringArrayInput `pulumi:"types"`
 }
 
@@ -1942,6 +1946,7 @@ func (o DomainNameV2EndpointConfigurationOutput) ToDomainNameV2EndpointConfigura
 	}).(DomainNameV2EndpointConfigurationPtrOutput)
 }
 
+// A list of endpoint types of an API (RestApi) or its custom domain name (DomainName). For an edge-optimized API and its custom domain name, the endpoint type is `"EDGE"` . For a regional API and its custom domain name, the endpoint type is `REGIONAL` . For a private API, the endpoint type is `PRIVATE` .
 func (o DomainNameV2EndpointConfigurationOutput) Types() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v DomainNameV2EndpointConfiguration) []string { return v.Types }).(pulumi.StringArrayOutput)
 }
@@ -1970,6 +1975,7 @@ func (o DomainNameV2EndpointConfigurationPtrOutput) Elem() DomainNameV2EndpointC
 	}).(DomainNameV2EndpointConfigurationOutput)
 }
 
+// A list of endpoint types of an API (RestApi) or its custom domain name (DomainName). For an edge-optimized API and its custom domain name, the endpoint type is `"EDGE"` . For a regional API and its custom domain name, the endpoint type is `REGIONAL` . For a private API, the endpoint type is `PRIVATE` .
 func (o DomainNameV2EndpointConfigurationPtrOutput) Types() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *DomainNameV2EndpointConfiguration) []string {
 		if v == nil {
@@ -1980,7 +1986,9 @@ func (o DomainNameV2EndpointConfigurationPtrOutput) Types() pulumi.StringArrayOu
 }
 
 type DomainNameV2Tag struct {
-	Key   *string `pulumi:"key"`
+	// A string you can use to assign a value. The combination of tag keys and values can help you organize and categorize your resources.
+	Key *string `pulumi:"key"`
+	// The value for the specified tag key.
 	Value *string `pulumi:"value"`
 }
 

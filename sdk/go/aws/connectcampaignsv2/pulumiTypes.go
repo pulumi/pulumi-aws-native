@@ -295,8 +295,11 @@ func (o CampaignAnswerMachineDetectionConfigPtrOutput) EnableAnswerMachineDetect
 
 // The possible types of channel subtype config parameters
 type CampaignChannelSubtypeConfig struct {
-	Email     *CampaignEmailChannelSubtypeConfig     `pulumi:"email"`
-	Sms       *CampaignSmsChannelSubtypeConfig       `pulumi:"sms"`
+	// The configuration of the email channel subtype.
+	Email *CampaignEmailChannelSubtypeConfig `pulumi:"email"`
+	// The configuration of the SMS channel subtype.
+	Sms *CampaignSmsChannelSubtypeConfig `pulumi:"sms"`
+	// The configuration of the telephony channel subtype.
 	Telephony *CampaignTelephonyChannelSubtypeConfig `pulumi:"telephony"`
 }
 
@@ -313,8 +316,11 @@ type CampaignChannelSubtypeConfigInput interface {
 
 // The possible types of channel subtype config parameters
 type CampaignChannelSubtypeConfigArgs struct {
-	Email     CampaignEmailChannelSubtypeConfigPtrInput     `pulumi:"email"`
-	Sms       CampaignSmsChannelSubtypeConfigPtrInput       `pulumi:"sms"`
+	// The configuration of the email channel subtype.
+	Email CampaignEmailChannelSubtypeConfigPtrInput `pulumi:"email"`
+	// The configuration of the SMS channel subtype.
+	Sms CampaignSmsChannelSubtypeConfigPtrInput `pulumi:"sms"`
+	// The configuration of the telephony channel subtype.
 	Telephony CampaignTelephonyChannelSubtypeConfigPtrInput `pulumi:"telephony"`
 }
 
@@ -345,14 +351,17 @@ func (o CampaignChannelSubtypeConfigOutput) ToCampaignChannelSubtypeConfigOutput
 	return o
 }
 
+// The configuration of the email channel subtype.
 func (o CampaignChannelSubtypeConfigOutput) Email() CampaignEmailChannelSubtypeConfigPtrOutput {
 	return o.ApplyT(func(v CampaignChannelSubtypeConfig) *CampaignEmailChannelSubtypeConfig { return v.Email }).(CampaignEmailChannelSubtypeConfigPtrOutput)
 }
 
+// The configuration of the SMS channel subtype.
 func (o CampaignChannelSubtypeConfigOutput) Sms() CampaignSmsChannelSubtypeConfigPtrOutput {
 	return o.ApplyT(func(v CampaignChannelSubtypeConfig) *CampaignSmsChannelSubtypeConfig { return v.Sms }).(CampaignSmsChannelSubtypeConfigPtrOutput)
 }
 
+// The configuration of the telephony channel subtype.
 func (o CampaignChannelSubtypeConfigOutput) Telephony() CampaignTelephonyChannelSubtypeConfigPtrOutput {
 	return o.ApplyT(func(v CampaignChannelSubtypeConfig) *CampaignTelephonyChannelSubtypeConfig { return v.Telephony }).(CampaignTelephonyChannelSubtypeConfigPtrOutput)
 }
@@ -381,6 +390,7 @@ func (o CampaignChannelSubtypeConfigPtrOutput) Elem() CampaignChannelSubtypeConf
 	}).(CampaignChannelSubtypeConfigOutput)
 }
 
+// The configuration of the email channel subtype.
 func (o CampaignChannelSubtypeConfigPtrOutput) Email() CampaignEmailChannelSubtypeConfigPtrOutput {
 	return o.ApplyT(func(v *CampaignChannelSubtypeConfig) *CampaignEmailChannelSubtypeConfig {
 		if v == nil {
@@ -390,6 +400,7 @@ func (o CampaignChannelSubtypeConfigPtrOutput) Email() CampaignEmailChannelSubty
 	}).(CampaignEmailChannelSubtypeConfigPtrOutput)
 }
 
+// The configuration of the SMS channel subtype.
 func (o CampaignChannelSubtypeConfigPtrOutput) Sms() CampaignSmsChannelSubtypeConfigPtrOutput {
 	return o.ApplyT(func(v *CampaignChannelSubtypeConfig) *CampaignSmsChannelSubtypeConfig {
 		if v == nil {
@@ -399,6 +410,7 @@ func (o CampaignChannelSubtypeConfigPtrOutput) Sms() CampaignSmsChannelSubtypeCo
 	}).(CampaignSmsChannelSubtypeConfigPtrOutput)
 }
 
+// The configuration of the telephony channel subtype.
 func (o CampaignChannelSubtypeConfigPtrOutput) Telephony() CampaignTelephonyChannelSubtypeConfigPtrOutput {
 	return o.ApplyT(func(v *CampaignChannelSubtypeConfig) *CampaignTelephonyChannelSubtypeConfig {
 		if v == nil {
@@ -519,6 +531,7 @@ func (o CampaignCommunicationLimitArrayOutput) Index(i pulumi.IntInput) Campaign
 
 // Communication limits
 type CampaignCommunicationLimits struct {
+	// The list of CommunicationLimits.
 	CommunicationLimitList []CampaignCommunicationLimit `pulumi:"communicationLimitList"`
 }
 
@@ -535,6 +548,7 @@ type CampaignCommunicationLimitsInput interface {
 
 // Communication limits
 type CampaignCommunicationLimitsArgs struct {
+	// The list of CommunicationLimits.
 	CommunicationLimitList CampaignCommunicationLimitArrayInput `pulumi:"communicationLimitList"`
 }
 
@@ -616,6 +630,7 @@ func (o CampaignCommunicationLimitsOutput) ToCampaignCommunicationLimitsPtrOutpu
 	}).(CampaignCommunicationLimitsPtrOutput)
 }
 
+// The list of CommunicationLimits.
 func (o CampaignCommunicationLimitsOutput) CommunicationLimitList() CampaignCommunicationLimitArrayOutput {
 	return o.ApplyT(func(v CampaignCommunicationLimits) []CampaignCommunicationLimit { return v.CommunicationLimitList }).(CampaignCommunicationLimitArrayOutput)
 }
@@ -644,6 +659,7 @@ func (o CampaignCommunicationLimitsPtrOutput) Elem() CampaignCommunicationLimits
 	}).(CampaignCommunicationLimitsOutput)
 }
 
+// The list of CommunicationLimits.
 func (o CampaignCommunicationLimitsPtrOutput) CommunicationLimitList() CampaignCommunicationLimitArrayOutput {
 	return o.ApplyT(func(v *CampaignCommunicationLimits) []CampaignCommunicationLimit {
 		if v == nil {
@@ -655,6 +671,7 @@ func (o CampaignCommunicationLimitsPtrOutput) CommunicationLimitList() CampaignC
 
 // Communication limits config
 type CampaignCommunicationLimitsConfig struct {
+	// The CommunicationLimits that apply to all channel subtypes defined in an outbound campaign.
 	AllChannelsSubtypes *CampaignCommunicationLimits `pulumi:"allChannelsSubtypes"`
 }
 
@@ -671,6 +688,7 @@ type CampaignCommunicationLimitsConfigInput interface {
 
 // Communication limits config
 type CampaignCommunicationLimitsConfigArgs struct {
+	// The CommunicationLimits that apply to all channel subtypes defined in an outbound campaign.
 	AllChannelsSubtypes CampaignCommunicationLimitsPtrInput `pulumi:"allChannelsSubtypes"`
 }
 
@@ -752,6 +770,7 @@ func (o CampaignCommunicationLimitsConfigOutput) ToCampaignCommunicationLimitsCo
 	}).(CampaignCommunicationLimitsConfigPtrOutput)
 }
 
+// The CommunicationLimits that apply to all channel subtypes defined in an outbound campaign.
 func (o CampaignCommunicationLimitsConfigOutput) AllChannelsSubtypes() CampaignCommunicationLimitsPtrOutput {
 	return o.ApplyT(func(v CampaignCommunicationLimitsConfig) *CampaignCommunicationLimits { return v.AllChannelsSubtypes }).(CampaignCommunicationLimitsPtrOutput)
 }
@@ -780,6 +799,7 @@ func (o CampaignCommunicationLimitsConfigPtrOutput) Elem() CampaignCommunication
 	}).(CampaignCommunicationLimitsConfigOutput)
 }
 
+// The CommunicationLimits that apply to all channel subtypes defined in an outbound campaign.
 func (o CampaignCommunicationLimitsConfigPtrOutput) AllChannelsSubtypes() CampaignCommunicationLimitsPtrOutput {
 	return o.ApplyT(func(v *CampaignCommunicationLimitsConfig) *CampaignCommunicationLimits {
 		if v == nil {
@@ -791,10 +811,14 @@ func (o CampaignCommunicationLimitsConfigPtrOutput) AllChannelsSubtypes() Campai
 
 // Campaign communication time config
 type CampaignCommunicationTimeConfig struct {
-	Email               *CampaignTimeWindow         `pulumi:"email"`
+	// The communication time configuration for the email channel subtype.
+	Email *CampaignTimeWindow `pulumi:"email"`
+	// The local timezone configuration.
 	LocalTimeZoneConfig CampaignLocalTimeZoneConfig `pulumi:"localTimeZoneConfig"`
-	Sms                 *CampaignTimeWindow         `pulumi:"sms"`
-	Telephony           *CampaignTimeWindow         `pulumi:"telephony"`
+	// The communication time configuration for the SMS channel subtype.
+	Sms *CampaignTimeWindow `pulumi:"sms"`
+	// The communication time configuration for the telephony channel subtype.
+	Telephony *CampaignTimeWindow `pulumi:"telephony"`
 }
 
 // CampaignCommunicationTimeConfigInput is an input type that accepts CampaignCommunicationTimeConfigArgs and CampaignCommunicationTimeConfigOutput values.
@@ -810,10 +834,14 @@ type CampaignCommunicationTimeConfigInput interface {
 
 // Campaign communication time config
 type CampaignCommunicationTimeConfigArgs struct {
-	Email               CampaignTimeWindowPtrInput       `pulumi:"email"`
+	// The communication time configuration for the email channel subtype.
+	Email CampaignTimeWindowPtrInput `pulumi:"email"`
+	// The local timezone configuration.
 	LocalTimeZoneConfig CampaignLocalTimeZoneConfigInput `pulumi:"localTimeZoneConfig"`
-	Sms                 CampaignTimeWindowPtrInput       `pulumi:"sms"`
-	Telephony           CampaignTimeWindowPtrInput       `pulumi:"telephony"`
+	// The communication time configuration for the SMS channel subtype.
+	Sms CampaignTimeWindowPtrInput `pulumi:"sms"`
+	// The communication time configuration for the telephony channel subtype.
+	Telephony CampaignTimeWindowPtrInput `pulumi:"telephony"`
 }
 
 func (CampaignCommunicationTimeConfigArgs) ElementType() reflect.Type {
@@ -894,18 +922,22 @@ func (o CampaignCommunicationTimeConfigOutput) ToCampaignCommunicationTimeConfig
 	}).(CampaignCommunicationTimeConfigPtrOutput)
 }
 
+// The communication time configuration for the email channel subtype.
 func (o CampaignCommunicationTimeConfigOutput) Email() CampaignTimeWindowPtrOutput {
 	return o.ApplyT(func(v CampaignCommunicationTimeConfig) *CampaignTimeWindow { return v.Email }).(CampaignTimeWindowPtrOutput)
 }
 
+// The local timezone configuration.
 func (o CampaignCommunicationTimeConfigOutput) LocalTimeZoneConfig() CampaignLocalTimeZoneConfigOutput {
 	return o.ApplyT(func(v CampaignCommunicationTimeConfig) CampaignLocalTimeZoneConfig { return v.LocalTimeZoneConfig }).(CampaignLocalTimeZoneConfigOutput)
 }
 
+// The communication time configuration for the SMS channel subtype.
 func (o CampaignCommunicationTimeConfigOutput) Sms() CampaignTimeWindowPtrOutput {
 	return o.ApplyT(func(v CampaignCommunicationTimeConfig) *CampaignTimeWindow { return v.Sms }).(CampaignTimeWindowPtrOutput)
 }
 
+// The communication time configuration for the telephony channel subtype.
 func (o CampaignCommunicationTimeConfigOutput) Telephony() CampaignTimeWindowPtrOutput {
 	return o.ApplyT(func(v CampaignCommunicationTimeConfig) *CampaignTimeWindow { return v.Telephony }).(CampaignTimeWindowPtrOutput)
 }
@@ -934,6 +966,7 @@ func (o CampaignCommunicationTimeConfigPtrOutput) Elem() CampaignCommunicationTi
 	}).(CampaignCommunicationTimeConfigOutput)
 }
 
+// The communication time configuration for the email channel subtype.
 func (o CampaignCommunicationTimeConfigPtrOutput) Email() CampaignTimeWindowPtrOutput {
 	return o.ApplyT(func(v *CampaignCommunicationTimeConfig) *CampaignTimeWindow {
 		if v == nil {
@@ -943,6 +976,7 @@ func (o CampaignCommunicationTimeConfigPtrOutput) Email() CampaignTimeWindowPtrO
 	}).(CampaignTimeWindowPtrOutput)
 }
 
+// The local timezone configuration.
 func (o CampaignCommunicationTimeConfigPtrOutput) LocalTimeZoneConfig() CampaignLocalTimeZoneConfigPtrOutput {
 	return o.ApplyT(func(v *CampaignCommunicationTimeConfig) *CampaignLocalTimeZoneConfig {
 		if v == nil {
@@ -952,6 +986,7 @@ func (o CampaignCommunicationTimeConfigPtrOutput) LocalTimeZoneConfig() Campaign
 	}).(CampaignLocalTimeZoneConfigPtrOutput)
 }
 
+// The communication time configuration for the SMS channel subtype.
 func (o CampaignCommunicationTimeConfigPtrOutput) Sms() CampaignTimeWindowPtrOutput {
 	return o.ApplyT(func(v *CampaignCommunicationTimeConfig) *CampaignTimeWindow {
 		if v == nil {
@@ -961,6 +996,7 @@ func (o CampaignCommunicationTimeConfigPtrOutput) Sms() CampaignTimeWindowPtrOut
 	}).(CampaignTimeWindowPtrOutput)
 }
 
+// The communication time configuration for the telephony channel subtype.
 func (o CampaignCommunicationTimeConfigPtrOutput) Telephony() CampaignTimeWindowPtrOutput {
 	return o.ApplyT(func(v *CampaignCommunicationTimeConfig) *CampaignTimeWindow {
 		if v == nil {
@@ -1075,9 +1111,12 @@ func (o CampaignDailyHourArrayOutput) Index(i pulumi.IntInput) CampaignDailyHour
 
 // Email Channel Subtype config
 type CampaignEmailChannelSubtypeConfig struct {
-	Capacity              *float64                    `pulumi:"capacity"`
+	// The allocation of email capacity between multiple running outbound campaigns.
+	Capacity *float64 `pulumi:"capacity"`
+	// The default email outbound configuration of an outbound campaign.
 	DefaultOutboundConfig CampaignEmailOutboundConfig `pulumi:"defaultOutboundConfig"`
-	OutboundMode          CampaignEmailOutboundMode   `pulumi:"outboundMode"`
+	// The outbound mode for email of an outbound campaign.
+	OutboundMode CampaignEmailOutboundMode `pulumi:"outboundMode"`
 }
 
 // CampaignEmailChannelSubtypeConfigInput is an input type that accepts CampaignEmailChannelSubtypeConfigArgs and CampaignEmailChannelSubtypeConfigOutput values.
@@ -1093,9 +1132,12 @@ type CampaignEmailChannelSubtypeConfigInput interface {
 
 // Email Channel Subtype config
 type CampaignEmailChannelSubtypeConfigArgs struct {
-	Capacity              pulumi.Float64PtrInput           `pulumi:"capacity"`
+	// The allocation of email capacity between multiple running outbound campaigns.
+	Capacity pulumi.Float64PtrInput `pulumi:"capacity"`
+	// The default email outbound configuration of an outbound campaign.
 	DefaultOutboundConfig CampaignEmailOutboundConfigInput `pulumi:"defaultOutboundConfig"`
-	OutboundMode          CampaignEmailOutboundModeInput   `pulumi:"outboundMode"`
+	// The outbound mode for email of an outbound campaign.
+	OutboundMode CampaignEmailOutboundModeInput `pulumi:"outboundMode"`
 }
 
 func (CampaignEmailChannelSubtypeConfigArgs) ElementType() reflect.Type {
@@ -1176,14 +1218,17 @@ func (o CampaignEmailChannelSubtypeConfigOutput) ToCampaignEmailChannelSubtypeCo
 	}).(CampaignEmailChannelSubtypeConfigPtrOutput)
 }
 
+// The allocation of email capacity between multiple running outbound campaigns.
 func (o CampaignEmailChannelSubtypeConfigOutput) Capacity() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v CampaignEmailChannelSubtypeConfig) *float64 { return v.Capacity }).(pulumi.Float64PtrOutput)
 }
 
+// The default email outbound configuration of an outbound campaign.
 func (o CampaignEmailChannelSubtypeConfigOutput) DefaultOutboundConfig() CampaignEmailOutboundConfigOutput {
 	return o.ApplyT(func(v CampaignEmailChannelSubtypeConfig) CampaignEmailOutboundConfig { return v.DefaultOutboundConfig }).(CampaignEmailOutboundConfigOutput)
 }
 
+// The outbound mode for email of an outbound campaign.
 func (o CampaignEmailChannelSubtypeConfigOutput) OutboundMode() CampaignEmailOutboundModeOutput {
 	return o.ApplyT(func(v CampaignEmailChannelSubtypeConfig) CampaignEmailOutboundMode { return v.OutboundMode }).(CampaignEmailOutboundModeOutput)
 }
@@ -1212,6 +1257,7 @@ func (o CampaignEmailChannelSubtypeConfigPtrOutput) Elem() CampaignEmailChannelS
 	}).(CampaignEmailChannelSubtypeConfigOutput)
 }
 
+// The allocation of email capacity between multiple running outbound campaigns.
 func (o CampaignEmailChannelSubtypeConfigPtrOutput) Capacity() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *CampaignEmailChannelSubtypeConfig) *float64 {
 		if v == nil {
@@ -1221,6 +1267,7 @@ func (o CampaignEmailChannelSubtypeConfigPtrOutput) Capacity() pulumi.Float64Ptr
 	}).(pulumi.Float64PtrOutput)
 }
 
+// The default email outbound configuration of an outbound campaign.
 func (o CampaignEmailChannelSubtypeConfigPtrOutput) DefaultOutboundConfig() CampaignEmailOutboundConfigPtrOutput {
 	return o.ApplyT(func(v *CampaignEmailChannelSubtypeConfig) *CampaignEmailOutboundConfig {
 		if v == nil {
@@ -1230,6 +1277,7 @@ func (o CampaignEmailChannelSubtypeConfigPtrOutput) DefaultOutboundConfig() Camp
 	}).(CampaignEmailOutboundConfigPtrOutput)
 }
 
+// The outbound mode for email of an outbound campaign.
 func (o CampaignEmailChannelSubtypeConfigPtrOutput) OutboundMode() CampaignEmailOutboundModePtrOutput {
 	return o.ApplyT(func(v *CampaignEmailChannelSubtypeConfig) *CampaignEmailOutboundMode {
 		if v == nil {
@@ -1241,9 +1289,12 @@ func (o CampaignEmailChannelSubtypeConfigPtrOutput) OutboundMode() CampaignEmail
 
 // Default SMS outbound config
 type CampaignEmailOutboundConfig struct {
-	ConnectSourceEmailAddress     string  `pulumi:"connectSourceEmailAddress"`
+	// The Amazon Connect source email address.
+	ConnectSourceEmailAddress string `pulumi:"connectSourceEmailAddress"`
+	// The display name for the Amazon Connect source email address.
 	SourceEmailAddressDisplayName *string `pulumi:"sourceEmailAddressDisplayName"`
-	WisdomTemplateArn             string  `pulumi:"wisdomTemplateArn"`
+	// The Amazon Resource Name (ARN) of the Amazon Q in Connect template.
+	WisdomTemplateArn string `pulumi:"wisdomTemplateArn"`
 }
 
 // CampaignEmailOutboundConfigInput is an input type that accepts CampaignEmailOutboundConfigArgs and CampaignEmailOutboundConfigOutput values.
@@ -1259,9 +1310,12 @@ type CampaignEmailOutboundConfigInput interface {
 
 // Default SMS outbound config
 type CampaignEmailOutboundConfigArgs struct {
-	ConnectSourceEmailAddress     pulumi.StringInput    `pulumi:"connectSourceEmailAddress"`
+	// The Amazon Connect source email address.
+	ConnectSourceEmailAddress pulumi.StringInput `pulumi:"connectSourceEmailAddress"`
+	// The display name for the Amazon Connect source email address.
 	SourceEmailAddressDisplayName pulumi.StringPtrInput `pulumi:"sourceEmailAddressDisplayName"`
-	WisdomTemplateArn             pulumi.StringInput    `pulumi:"wisdomTemplateArn"`
+	// The Amazon Resource Name (ARN) of the Amazon Q in Connect template.
+	WisdomTemplateArn pulumi.StringInput `pulumi:"wisdomTemplateArn"`
 }
 
 func (CampaignEmailOutboundConfigArgs) ElementType() reflect.Type {
@@ -1342,14 +1396,17 @@ func (o CampaignEmailOutboundConfigOutput) ToCampaignEmailOutboundConfigPtrOutpu
 	}).(CampaignEmailOutboundConfigPtrOutput)
 }
 
+// The Amazon Connect source email address.
 func (o CampaignEmailOutboundConfigOutput) ConnectSourceEmailAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v CampaignEmailOutboundConfig) string { return v.ConnectSourceEmailAddress }).(pulumi.StringOutput)
 }
 
+// The display name for the Amazon Connect source email address.
 func (o CampaignEmailOutboundConfigOutput) SourceEmailAddressDisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CampaignEmailOutboundConfig) *string { return v.SourceEmailAddressDisplayName }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Amazon Q in Connect template.
 func (o CampaignEmailOutboundConfigOutput) WisdomTemplateArn() pulumi.StringOutput {
 	return o.ApplyT(func(v CampaignEmailOutboundConfig) string { return v.WisdomTemplateArn }).(pulumi.StringOutput)
 }
@@ -1378,6 +1435,7 @@ func (o CampaignEmailOutboundConfigPtrOutput) Elem() CampaignEmailOutboundConfig
 	}).(CampaignEmailOutboundConfigOutput)
 }
 
+// The Amazon Connect source email address.
 func (o CampaignEmailOutboundConfigPtrOutput) ConnectSourceEmailAddress() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CampaignEmailOutboundConfig) *string {
 		if v == nil {
@@ -1387,6 +1445,7 @@ func (o CampaignEmailOutboundConfigPtrOutput) ConnectSourceEmailAddress() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
+// The display name for the Amazon Connect source email address.
 func (o CampaignEmailOutboundConfigPtrOutput) SourceEmailAddressDisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CampaignEmailOutboundConfig) *string {
 		if v == nil {
@@ -1396,6 +1455,7 @@ func (o CampaignEmailOutboundConfigPtrOutput) SourceEmailAddressDisplayName() pu
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Amazon Q in Connect template.
 func (o CampaignEmailOutboundConfigPtrOutput) WisdomTemplateArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CampaignEmailOutboundConfig) *string {
 		if v == nil {
@@ -1407,6 +1467,7 @@ func (o CampaignEmailOutboundConfigPtrOutput) WisdomTemplateArn() pulumi.StringP
 
 // Email Outbound Mode
 type CampaignEmailOutboundMode struct {
+	// The agentless outbound mode configuration for email.
 	AgentlessConfig *CampaignAgentlessConfig `pulumi:"agentlessConfig"`
 }
 
@@ -1423,6 +1484,7 @@ type CampaignEmailOutboundModeInput interface {
 
 // Email Outbound Mode
 type CampaignEmailOutboundModeArgs struct {
+	// The agentless outbound mode configuration for email.
 	AgentlessConfig CampaignAgentlessConfigPtrInput `pulumi:"agentlessConfig"`
 }
 
@@ -1504,6 +1566,7 @@ func (o CampaignEmailOutboundModeOutput) ToCampaignEmailOutboundModePtrOutputWit
 	}).(CampaignEmailOutboundModePtrOutput)
 }
 
+// The agentless outbound mode configuration for email.
 func (o CampaignEmailOutboundModeOutput) AgentlessConfig() CampaignAgentlessConfigPtrOutput {
 	return o.ApplyT(func(v CampaignEmailOutboundMode) *CampaignAgentlessConfig { return v.AgentlessConfig }).(CampaignAgentlessConfigPtrOutput)
 }
@@ -1532,6 +1595,7 @@ func (o CampaignEmailOutboundModePtrOutput) Elem() CampaignEmailOutboundModeOutp
 	}).(CampaignEmailOutboundModeOutput)
 }
 
+// The agentless outbound mode configuration for email.
 func (o CampaignEmailOutboundModePtrOutput) AgentlessConfig() CampaignAgentlessConfigPtrOutput {
 	return o.ApplyT(func(v *CampaignEmailOutboundMode) *CampaignAgentlessConfig {
 		if v == nil {
@@ -1543,7 +1607,9 @@ func (o CampaignEmailOutboundModePtrOutput) AgentlessConfig() CampaignAgentlessC
 
 // Local time zone config
 type CampaignLocalTimeZoneConfig struct {
-	DefaultTimeZone        *string                              `pulumi:"defaultTimeZone"`
+	// The timezone to use for all recipients.
+	DefaultTimeZone *string `pulumi:"defaultTimeZone"`
+	// Detects methods for the recipient's timezone.
 	LocalTimeZoneDetection []CampaignLocalTimeZoneDetectionType `pulumi:"localTimeZoneDetection"`
 }
 
@@ -1560,7 +1626,9 @@ type CampaignLocalTimeZoneConfigInput interface {
 
 // Local time zone config
 type CampaignLocalTimeZoneConfigArgs struct {
-	DefaultTimeZone        pulumi.StringPtrInput                        `pulumi:"defaultTimeZone"`
+	// The timezone to use for all recipients.
+	DefaultTimeZone pulumi.StringPtrInput `pulumi:"defaultTimeZone"`
+	// Detects methods for the recipient's timezone.
 	LocalTimeZoneDetection CampaignLocalTimeZoneDetectionTypeArrayInput `pulumi:"localTimeZoneDetection"`
 }
 
@@ -1642,10 +1710,12 @@ func (o CampaignLocalTimeZoneConfigOutput) ToCampaignLocalTimeZoneConfigPtrOutpu
 	}).(CampaignLocalTimeZoneConfigPtrOutput)
 }
 
+// The timezone to use for all recipients.
 func (o CampaignLocalTimeZoneConfigOutput) DefaultTimeZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CampaignLocalTimeZoneConfig) *string { return v.DefaultTimeZone }).(pulumi.StringPtrOutput)
 }
 
+// Detects methods for the recipient's timezone.
 func (o CampaignLocalTimeZoneConfigOutput) LocalTimeZoneDetection() CampaignLocalTimeZoneDetectionTypeArrayOutput {
 	return o.ApplyT(func(v CampaignLocalTimeZoneConfig) []CampaignLocalTimeZoneDetectionType {
 		return v.LocalTimeZoneDetection
@@ -1676,6 +1746,7 @@ func (o CampaignLocalTimeZoneConfigPtrOutput) Elem() CampaignLocalTimeZoneConfig
 	}).(CampaignLocalTimeZoneConfigOutput)
 }
 
+// The timezone to use for all recipients.
 func (o CampaignLocalTimeZoneConfigPtrOutput) DefaultTimeZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CampaignLocalTimeZoneConfig) *string {
 		if v == nil {
@@ -1685,6 +1756,7 @@ func (o CampaignLocalTimeZoneConfigPtrOutput) DefaultTimeZone() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// Detects methods for the recipient's timezone.
 func (o CampaignLocalTimeZoneConfigPtrOutput) LocalTimeZoneDetection() CampaignLocalTimeZoneDetectionTypeArrayOutput {
 	return o.ApplyT(func(v *CampaignLocalTimeZoneConfig) []CampaignLocalTimeZoneDetectionType {
 		if v == nil {
@@ -1696,6 +1768,7 @@ func (o CampaignLocalTimeZoneConfigPtrOutput) LocalTimeZoneDetection() CampaignL
 
 // Open Hours config
 type CampaignOpenHours struct {
+	// The daily hours configuration.
 	DailyHours []CampaignDailyHour `pulumi:"dailyHours"`
 }
 
@@ -1712,6 +1785,7 @@ type CampaignOpenHoursInput interface {
 
 // Open Hours config
 type CampaignOpenHoursArgs struct {
+	// The daily hours configuration.
 	DailyHours CampaignDailyHourArrayInput `pulumi:"dailyHours"`
 }
 
@@ -1793,6 +1867,7 @@ func (o CampaignOpenHoursOutput) ToCampaignOpenHoursPtrOutputWithContext(ctx con
 	}).(CampaignOpenHoursPtrOutput)
 }
 
+// The daily hours configuration.
 func (o CampaignOpenHoursOutput) DailyHours() CampaignDailyHourArrayOutput {
 	return o.ApplyT(func(v CampaignOpenHours) []CampaignDailyHour { return v.DailyHours }).(CampaignDailyHourArrayOutput)
 }
@@ -1821,6 +1896,7 @@ func (o CampaignOpenHoursPtrOutput) Elem() CampaignOpenHoursOutput {
 	}).(CampaignOpenHoursOutput)
 }
 
+// The daily hours configuration.
 func (o CampaignOpenHoursPtrOutput) DailyHours() CampaignDailyHourArrayOutput {
 	return o.ApplyT(func(v *CampaignOpenHours) []CampaignDailyHour {
 		if v == nil {
@@ -1832,6 +1908,7 @@ func (o CampaignOpenHoursPtrOutput) DailyHours() CampaignDailyHourArrayOutput {
 
 // Predictive config
 type CampaignPredictiveConfig struct {
+	// Bandwidth allocation for the predictive outbound mode.
 	BandwidthAllocation float64 `pulumi:"bandwidthAllocation"`
 }
 
@@ -1848,6 +1925,7 @@ type CampaignPredictiveConfigInput interface {
 
 // Predictive config
 type CampaignPredictiveConfigArgs struct {
+	// Bandwidth allocation for the predictive outbound mode.
 	BandwidthAllocation pulumi.Float64Input `pulumi:"bandwidthAllocation"`
 }
 
@@ -1929,6 +2007,7 @@ func (o CampaignPredictiveConfigOutput) ToCampaignPredictiveConfigPtrOutputWithC
 	}).(CampaignPredictiveConfigPtrOutput)
 }
 
+// Bandwidth allocation for the predictive outbound mode.
 func (o CampaignPredictiveConfigOutput) BandwidthAllocation() pulumi.Float64Output {
 	return o.ApplyT(func(v CampaignPredictiveConfig) float64 { return v.BandwidthAllocation }).(pulumi.Float64Output)
 }
@@ -1957,6 +2036,7 @@ func (o CampaignPredictiveConfigPtrOutput) Elem() CampaignPredictiveConfigOutput
 	}).(CampaignPredictiveConfigOutput)
 }
 
+// Bandwidth allocation for the predictive outbound mode.
 func (o CampaignPredictiveConfigPtrOutput) BandwidthAllocation() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *CampaignPredictiveConfig) *float64 {
 		if v == nil {
@@ -1968,6 +2048,7 @@ func (o CampaignPredictiveConfigPtrOutput) BandwidthAllocation() pulumi.Float64P
 
 // Progressive config
 type CampaignProgressiveConfig struct {
+	// Bandwidth allocation for the progressive outbound mode.
 	BandwidthAllocation float64 `pulumi:"bandwidthAllocation"`
 }
 
@@ -1984,6 +2065,7 @@ type CampaignProgressiveConfigInput interface {
 
 // Progressive config
 type CampaignProgressiveConfigArgs struct {
+	// Bandwidth allocation for the progressive outbound mode.
 	BandwidthAllocation pulumi.Float64Input `pulumi:"bandwidthAllocation"`
 }
 
@@ -2065,6 +2147,7 @@ func (o CampaignProgressiveConfigOutput) ToCampaignProgressiveConfigPtrOutputWit
 	}).(CampaignProgressiveConfigPtrOutput)
 }
 
+// Bandwidth allocation for the progressive outbound mode.
 func (o CampaignProgressiveConfigOutput) BandwidthAllocation() pulumi.Float64Output {
 	return o.ApplyT(func(v CampaignProgressiveConfig) float64 { return v.BandwidthAllocation }).(pulumi.Float64Output)
 }
@@ -2093,6 +2176,7 @@ func (o CampaignProgressiveConfigPtrOutput) Elem() CampaignProgressiveConfigOutp
 	}).(CampaignProgressiveConfigOutput)
 }
 
+// Bandwidth allocation for the progressive outbound mode.
 func (o CampaignProgressiveConfigPtrOutput) BandwidthAllocation() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *CampaignProgressiveConfig) *float64 {
 		if v == nil {
@@ -2216,6 +2300,7 @@ func (o CampaignRestrictedPeriodArrayOutput) Index(i pulumi.IntInput) CampaignRe
 
 // Restricted period config
 type CampaignRestrictedPeriods struct {
+	// The restricted period list.
 	RestrictedPeriodList []CampaignRestrictedPeriod `pulumi:"restrictedPeriodList"`
 }
 
@@ -2232,6 +2317,7 @@ type CampaignRestrictedPeriodsInput interface {
 
 // Restricted period config
 type CampaignRestrictedPeriodsArgs struct {
+	// The restricted period list.
 	RestrictedPeriodList CampaignRestrictedPeriodArrayInput `pulumi:"restrictedPeriodList"`
 }
 
@@ -2313,6 +2399,7 @@ func (o CampaignRestrictedPeriodsOutput) ToCampaignRestrictedPeriodsPtrOutputWit
 	}).(CampaignRestrictedPeriodsPtrOutput)
 }
 
+// The restricted period list.
 func (o CampaignRestrictedPeriodsOutput) RestrictedPeriodList() CampaignRestrictedPeriodArrayOutput {
 	return o.ApplyT(func(v CampaignRestrictedPeriods) []CampaignRestrictedPeriod { return v.RestrictedPeriodList }).(CampaignRestrictedPeriodArrayOutput)
 }
@@ -2341,6 +2428,7 @@ func (o CampaignRestrictedPeriodsPtrOutput) Elem() CampaignRestrictedPeriodsOutp
 	}).(CampaignRestrictedPeriodsOutput)
 }
 
+// The restricted period list.
 func (o CampaignRestrictedPeriodsPtrOutput) RestrictedPeriodList() CampaignRestrictedPeriodArrayOutput {
 	return o.ApplyT(func(v *CampaignRestrictedPeriods) []CampaignRestrictedPeriod {
 		if v == nil {
@@ -2352,9 +2440,12 @@ func (o CampaignRestrictedPeriodsPtrOutput) RestrictedPeriodList() CampaignRestr
 
 // Campaign schedule
 type CampaignSchedule struct {
-	EndTime          string  `pulumi:"endTime"`
+	// The end time of the schedule in UTC.
+	EndTime string `pulumi:"endTime"`
+	// The refresh frequency of the campaign.
 	RefreshFrequency *string `pulumi:"refreshFrequency"`
-	StartTime        string  `pulumi:"startTime"`
+	// The start time of the schedule in UTC.
+	StartTime string `pulumi:"startTime"`
 }
 
 // CampaignScheduleInput is an input type that accepts CampaignScheduleArgs and CampaignScheduleOutput values.
@@ -2370,9 +2461,12 @@ type CampaignScheduleInput interface {
 
 // Campaign schedule
 type CampaignScheduleArgs struct {
-	EndTime          pulumi.StringInput    `pulumi:"endTime"`
+	// The end time of the schedule in UTC.
+	EndTime pulumi.StringInput `pulumi:"endTime"`
+	// The refresh frequency of the campaign.
 	RefreshFrequency pulumi.StringPtrInput `pulumi:"refreshFrequency"`
-	StartTime        pulumi.StringInput    `pulumi:"startTime"`
+	// The start time of the schedule in UTC.
+	StartTime pulumi.StringInput `pulumi:"startTime"`
 }
 
 func (CampaignScheduleArgs) ElementType() reflect.Type {
@@ -2453,14 +2547,17 @@ func (o CampaignScheduleOutput) ToCampaignSchedulePtrOutputWithContext(ctx conte
 	}).(CampaignSchedulePtrOutput)
 }
 
+// The end time of the schedule in UTC.
 func (o CampaignScheduleOutput) EndTime() pulumi.StringOutput {
 	return o.ApplyT(func(v CampaignSchedule) string { return v.EndTime }).(pulumi.StringOutput)
 }
 
+// The refresh frequency of the campaign.
 func (o CampaignScheduleOutput) RefreshFrequency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CampaignSchedule) *string { return v.RefreshFrequency }).(pulumi.StringPtrOutput)
 }
 
+// The start time of the schedule in UTC.
 func (o CampaignScheduleOutput) StartTime() pulumi.StringOutput {
 	return o.ApplyT(func(v CampaignSchedule) string { return v.StartTime }).(pulumi.StringOutput)
 }
@@ -2489,6 +2586,7 @@ func (o CampaignSchedulePtrOutput) Elem() CampaignScheduleOutput {
 	}).(CampaignScheduleOutput)
 }
 
+// The end time of the schedule in UTC.
 func (o CampaignSchedulePtrOutput) EndTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CampaignSchedule) *string {
 		if v == nil {
@@ -2498,6 +2596,7 @@ func (o CampaignSchedulePtrOutput) EndTime() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The refresh frequency of the campaign.
 func (o CampaignSchedulePtrOutput) RefreshFrequency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CampaignSchedule) *string {
 		if v == nil {
@@ -2507,6 +2606,7 @@ func (o CampaignSchedulePtrOutput) RefreshFrequency() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The start time of the schedule in UTC.
 func (o CampaignSchedulePtrOutput) StartTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CampaignSchedule) *string {
 		if v == nil {
@@ -2518,9 +2618,12 @@ func (o CampaignSchedulePtrOutput) StartTime() pulumi.StringPtrOutput {
 
 // SMS Channel Subtype config
 type CampaignSmsChannelSubtypeConfig struct {
-	Capacity              *float64                  `pulumi:"capacity"`
+	// The allocation of SMS capacity between multiple running outbound campaigns.
+	Capacity *float64 `pulumi:"capacity"`
+	// The default SMS outbound configuration of an outbound campaign.
 	DefaultOutboundConfig CampaignSmsOutboundConfig `pulumi:"defaultOutboundConfig"`
-	OutboundMode          CampaignSmsOutboundMode   `pulumi:"outboundMode"`
+	// The outbound mode of SMS for an outbound campaign.
+	OutboundMode CampaignSmsOutboundMode `pulumi:"outboundMode"`
 }
 
 // CampaignSmsChannelSubtypeConfigInput is an input type that accepts CampaignSmsChannelSubtypeConfigArgs and CampaignSmsChannelSubtypeConfigOutput values.
@@ -2536,9 +2639,12 @@ type CampaignSmsChannelSubtypeConfigInput interface {
 
 // SMS Channel Subtype config
 type CampaignSmsChannelSubtypeConfigArgs struct {
-	Capacity              pulumi.Float64PtrInput         `pulumi:"capacity"`
+	// The allocation of SMS capacity between multiple running outbound campaigns.
+	Capacity pulumi.Float64PtrInput `pulumi:"capacity"`
+	// The default SMS outbound configuration of an outbound campaign.
 	DefaultOutboundConfig CampaignSmsOutboundConfigInput `pulumi:"defaultOutboundConfig"`
-	OutboundMode          CampaignSmsOutboundModeInput   `pulumi:"outboundMode"`
+	// The outbound mode of SMS for an outbound campaign.
+	OutboundMode CampaignSmsOutboundModeInput `pulumi:"outboundMode"`
 }
 
 func (CampaignSmsChannelSubtypeConfigArgs) ElementType() reflect.Type {
@@ -2619,14 +2725,17 @@ func (o CampaignSmsChannelSubtypeConfigOutput) ToCampaignSmsChannelSubtypeConfig
 	}).(CampaignSmsChannelSubtypeConfigPtrOutput)
 }
 
+// The allocation of SMS capacity between multiple running outbound campaigns.
 func (o CampaignSmsChannelSubtypeConfigOutput) Capacity() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v CampaignSmsChannelSubtypeConfig) *float64 { return v.Capacity }).(pulumi.Float64PtrOutput)
 }
 
+// The default SMS outbound configuration of an outbound campaign.
 func (o CampaignSmsChannelSubtypeConfigOutput) DefaultOutboundConfig() CampaignSmsOutboundConfigOutput {
 	return o.ApplyT(func(v CampaignSmsChannelSubtypeConfig) CampaignSmsOutboundConfig { return v.DefaultOutboundConfig }).(CampaignSmsOutboundConfigOutput)
 }
 
+// The outbound mode of SMS for an outbound campaign.
 func (o CampaignSmsChannelSubtypeConfigOutput) OutboundMode() CampaignSmsOutboundModeOutput {
 	return o.ApplyT(func(v CampaignSmsChannelSubtypeConfig) CampaignSmsOutboundMode { return v.OutboundMode }).(CampaignSmsOutboundModeOutput)
 }
@@ -2655,6 +2764,7 @@ func (o CampaignSmsChannelSubtypeConfigPtrOutput) Elem() CampaignSmsChannelSubty
 	}).(CampaignSmsChannelSubtypeConfigOutput)
 }
 
+// The allocation of SMS capacity between multiple running outbound campaigns.
 func (o CampaignSmsChannelSubtypeConfigPtrOutput) Capacity() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *CampaignSmsChannelSubtypeConfig) *float64 {
 		if v == nil {
@@ -2664,6 +2774,7 @@ func (o CampaignSmsChannelSubtypeConfigPtrOutput) Capacity() pulumi.Float64PtrOu
 	}).(pulumi.Float64PtrOutput)
 }
 
+// The default SMS outbound configuration of an outbound campaign.
 func (o CampaignSmsChannelSubtypeConfigPtrOutput) DefaultOutboundConfig() CampaignSmsOutboundConfigPtrOutput {
 	return o.ApplyT(func(v *CampaignSmsChannelSubtypeConfig) *CampaignSmsOutboundConfig {
 		if v == nil {
@@ -2673,6 +2784,7 @@ func (o CampaignSmsChannelSubtypeConfigPtrOutput) DefaultOutboundConfig() Campai
 	}).(CampaignSmsOutboundConfigPtrOutput)
 }
 
+// The outbound mode of SMS for an outbound campaign.
 func (o CampaignSmsChannelSubtypeConfigPtrOutput) OutboundMode() CampaignSmsOutboundModePtrOutput {
 	return o.ApplyT(func(v *CampaignSmsChannelSubtypeConfig) *CampaignSmsOutboundMode {
 		if v == nil {
@@ -2684,8 +2796,10 @@ func (o CampaignSmsChannelSubtypeConfigPtrOutput) OutboundMode() CampaignSmsOutb
 
 // Default SMS outbound config
 type CampaignSmsOutboundConfig struct {
+	// The Amazon Resource Name (ARN) of the Amazon Connect source SMS phone number.
 	ConnectSourcePhoneNumberArn string `pulumi:"connectSourcePhoneNumberArn"`
-	WisdomTemplateArn           string `pulumi:"wisdomTemplateArn"`
+	// The Amazon Resource Name (ARN) of the Amazon Q in Connect template.
+	WisdomTemplateArn string `pulumi:"wisdomTemplateArn"`
 }
 
 // CampaignSmsOutboundConfigInput is an input type that accepts CampaignSmsOutboundConfigArgs and CampaignSmsOutboundConfigOutput values.
@@ -2701,8 +2815,10 @@ type CampaignSmsOutboundConfigInput interface {
 
 // Default SMS outbound config
 type CampaignSmsOutboundConfigArgs struct {
+	// The Amazon Resource Name (ARN) of the Amazon Connect source SMS phone number.
 	ConnectSourcePhoneNumberArn pulumi.StringInput `pulumi:"connectSourcePhoneNumberArn"`
-	WisdomTemplateArn           pulumi.StringInput `pulumi:"wisdomTemplateArn"`
+	// The Amazon Resource Name (ARN) of the Amazon Q in Connect template.
+	WisdomTemplateArn pulumi.StringInput `pulumi:"wisdomTemplateArn"`
 }
 
 func (CampaignSmsOutboundConfigArgs) ElementType() reflect.Type {
@@ -2783,10 +2899,12 @@ func (o CampaignSmsOutboundConfigOutput) ToCampaignSmsOutboundConfigPtrOutputWit
 	}).(CampaignSmsOutboundConfigPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Amazon Connect source SMS phone number.
 func (o CampaignSmsOutboundConfigOutput) ConnectSourcePhoneNumberArn() pulumi.StringOutput {
 	return o.ApplyT(func(v CampaignSmsOutboundConfig) string { return v.ConnectSourcePhoneNumberArn }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Amazon Q in Connect template.
 func (o CampaignSmsOutboundConfigOutput) WisdomTemplateArn() pulumi.StringOutput {
 	return o.ApplyT(func(v CampaignSmsOutboundConfig) string { return v.WisdomTemplateArn }).(pulumi.StringOutput)
 }
@@ -2815,6 +2933,7 @@ func (o CampaignSmsOutboundConfigPtrOutput) Elem() CampaignSmsOutboundConfigOutp
 	}).(CampaignSmsOutboundConfigOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Amazon Connect source SMS phone number.
 func (o CampaignSmsOutboundConfigPtrOutput) ConnectSourcePhoneNumberArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CampaignSmsOutboundConfig) *string {
 		if v == nil {
@@ -2824,6 +2943,7 @@ func (o CampaignSmsOutboundConfigPtrOutput) ConnectSourcePhoneNumberArn() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Amazon Q in Connect template.
 func (o CampaignSmsOutboundConfigPtrOutput) WisdomTemplateArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CampaignSmsOutboundConfig) *string {
 		if v == nil {
@@ -2835,6 +2955,7 @@ func (o CampaignSmsOutboundConfigPtrOutput) WisdomTemplateArn() pulumi.StringPtr
 
 // SMS Outbound Mode
 type CampaignSmsOutboundMode struct {
+	// Contains agentless outbound mode configuration.
 	AgentlessConfig *CampaignAgentlessConfig `pulumi:"agentlessConfig"`
 }
 
@@ -2851,6 +2972,7 @@ type CampaignSmsOutboundModeInput interface {
 
 // SMS Outbound Mode
 type CampaignSmsOutboundModeArgs struct {
+	// Contains agentless outbound mode configuration.
 	AgentlessConfig CampaignAgentlessConfigPtrInput `pulumi:"agentlessConfig"`
 }
 
@@ -2932,6 +3054,7 @@ func (o CampaignSmsOutboundModeOutput) ToCampaignSmsOutboundModePtrOutputWithCon
 	}).(CampaignSmsOutboundModePtrOutput)
 }
 
+// Contains agentless outbound mode configuration.
 func (o CampaignSmsOutboundModeOutput) AgentlessConfig() CampaignAgentlessConfigPtrOutput {
 	return o.ApplyT(func(v CampaignSmsOutboundMode) *CampaignAgentlessConfig { return v.AgentlessConfig }).(CampaignAgentlessConfigPtrOutput)
 }
@@ -2960,6 +3083,7 @@ func (o CampaignSmsOutboundModePtrOutput) Elem() CampaignSmsOutboundModeOutput {
 	}).(CampaignSmsOutboundModeOutput)
 }
 
+// Contains agentless outbound mode configuration.
 func (o CampaignSmsOutboundModePtrOutput) AgentlessConfig() CampaignAgentlessConfigPtrOutput {
 	return o.ApplyT(func(v *CampaignSmsOutboundMode) *CampaignAgentlessConfig {
 		if v == nil {
@@ -2971,6 +3095,7 @@ func (o CampaignSmsOutboundModePtrOutput) AgentlessConfig() CampaignAgentlessCon
 
 // The possible types of channel config parameters
 type CampaignSource struct {
+	// The Amazon Resource Name (ARN) of the Customer Profiles segment.
 	CustomerProfilesSegmentArn *string `pulumi:"customerProfilesSegmentArn"`
 }
 
@@ -2987,6 +3112,7 @@ type CampaignSourceInput interface {
 
 // The possible types of channel config parameters
 type CampaignSourceArgs struct {
+	// The Amazon Resource Name (ARN) of the Customer Profiles segment.
 	CustomerProfilesSegmentArn pulumi.StringPtrInput `pulumi:"customerProfilesSegmentArn"`
 }
 
@@ -3068,6 +3194,7 @@ func (o CampaignSourceOutput) ToCampaignSourcePtrOutputWithContext(ctx context.C
 	}).(CampaignSourcePtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Customer Profiles segment.
 func (o CampaignSourceOutput) CustomerProfilesSegmentArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CampaignSource) *string { return v.CustomerProfilesSegmentArn }).(pulumi.StringPtrOutput)
 }
@@ -3096,6 +3223,7 @@ func (o CampaignSourcePtrOutput) Elem() CampaignSourceOutput {
 	}).(CampaignSourceOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Customer Profiles segment.
 func (o CampaignSourcePtrOutput) CustomerProfilesSegmentArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CampaignSource) *string {
 		if v == nil {
@@ -3114,10 +3242,14 @@ type CampaignTag struct {
 
 // Telephony Channel Subtype config
 type CampaignTelephonyChannelSubtypeConfig struct {
-	Capacity              *float64                        `pulumi:"capacity"`
-	ConnectQueueId        *string                         `pulumi:"connectQueueId"`
+	// The allocation of telephony capacity between multiple running outbound campaigns.
+	Capacity *float64 `pulumi:"capacity"`
+	// The identifier of the Amazon Connect queue associated with telephony outbound requests of an outbound campaign.
+	ConnectQueueId *string `pulumi:"connectQueueId"`
+	// The default telephony outbound configuration of an outbound campaign.
 	DefaultOutboundConfig CampaignTelephonyOutboundConfig `pulumi:"defaultOutboundConfig"`
-	OutboundMode          CampaignTelephonyOutboundMode   `pulumi:"outboundMode"`
+	// The outbound mode of telephony for an outbound campaign.
+	OutboundMode CampaignTelephonyOutboundMode `pulumi:"outboundMode"`
 }
 
 // CampaignTelephonyChannelSubtypeConfigInput is an input type that accepts CampaignTelephonyChannelSubtypeConfigArgs and CampaignTelephonyChannelSubtypeConfigOutput values.
@@ -3133,10 +3265,14 @@ type CampaignTelephonyChannelSubtypeConfigInput interface {
 
 // Telephony Channel Subtype config
 type CampaignTelephonyChannelSubtypeConfigArgs struct {
-	Capacity              pulumi.Float64PtrInput               `pulumi:"capacity"`
-	ConnectQueueId        pulumi.StringPtrInput                `pulumi:"connectQueueId"`
+	// The allocation of telephony capacity between multiple running outbound campaigns.
+	Capacity pulumi.Float64PtrInput `pulumi:"capacity"`
+	// The identifier of the Amazon Connect queue associated with telephony outbound requests of an outbound campaign.
+	ConnectQueueId pulumi.StringPtrInput `pulumi:"connectQueueId"`
+	// The default telephony outbound configuration of an outbound campaign.
 	DefaultOutboundConfig CampaignTelephonyOutboundConfigInput `pulumi:"defaultOutboundConfig"`
-	OutboundMode          CampaignTelephonyOutboundModeInput   `pulumi:"outboundMode"`
+	// The outbound mode of telephony for an outbound campaign.
+	OutboundMode CampaignTelephonyOutboundModeInput `pulumi:"outboundMode"`
 }
 
 func (CampaignTelephonyChannelSubtypeConfigArgs) ElementType() reflect.Type {
@@ -3217,20 +3353,24 @@ func (o CampaignTelephonyChannelSubtypeConfigOutput) ToCampaignTelephonyChannelS
 	}).(CampaignTelephonyChannelSubtypeConfigPtrOutput)
 }
 
+// The allocation of telephony capacity between multiple running outbound campaigns.
 func (o CampaignTelephonyChannelSubtypeConfigOutput) Capacity() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v CampaignTelephonyChannelSubtypeConfig) *float64 { return v.Capacity }).(pulumi.Float64PtrOutput)
 }
 
+// The identifier of the Amazon Connect queue associated with telephony outbound requests of an outbound campaign.
 func (o CampaignTelephonyChannelSubtypeConfigOutput) ConnectQueueId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CampaignTelephonyChannelSubtypeConfig) *string { return v.ConnectQueueId }).(pulumi.StringPtrOutput)
 }
 
+// The default telephony outbound configuration of an outbound campaign.
 func (o CampaignTelephonyChannelSubtypeConfigOutput) DefaultOutboundConfig() CampaignTelephonyOutboundConfigOutput {
 	return o.ApplyT(func(v CampaignTelephonyChannelSubtypeConfig) CampaignTelephonyOutboundConfig {
 		return v.DefaultOutboundConfig
 	}).(CampaignTelephonyOutboundConfigOutput)
 }
 
+// The outbound mode of telephony for an outbound campaign.
 func (o CampaignTelephonyChannelSubtypeConfigOutput) OutboundMode() CampaignTelephonyOutboundModeOutput {
 	return o.ApplyT(func(v CampaignTelephonyChannelSubtypeConfig) CampaignTelephonyOutboundMode { return v.OutboundMode }).(CampaignTelephonyOutboundModeOutput)
 }
@@ -3259,6 +3399,7 @@ func (o CampaignTelephonyChannelSubtypeConfigPtrOutput) Elem() CampaignTelephony
 	}).(CampaignTelephonyChannelSubtypeConfigOutput)
 }
 
+// The allocation of telephony capacity between multiple running outbound campaigns.
 func (o CampaignTelephonyChannelSubtypeConfigPtrOutput) Capacity() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *CampaignTelephonyChannelSubtypeConfig) *float64 {
 		if v == nil {
@@ -3268,6 +3409,7 @@ func (o CampaignTelephonyChannelSubtypeConfigPtrOutput) Capacity() pulumi.Float6
 	}).(pulumi.Float64PtrOutput)
 }
 
+// The identifier of the Amazon Connect queue associated with telephony outbound requests of an outbound campaign.
 func (o CampaignTelephonyChannelSubtypeConfigPtrOutput) ConnectQueueId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CampaignTelephonyChannelSubtypeConfig) *string {
 		if v == nil {
@@ -3277,6 +3419,7 @@ func (o CampaignTelephonyChannelSubtypeConfigPtrOutput) ConnectQueueId() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
+// The default telephony outbound configuration of an outbound campaign.
 func (o CampaignTelephonyChannelSubtypeConfigPtrOutput) DefaultOutboundConfig() CampaignTelephonyOutboundConfigPtrOutput {
 	return o.ApplyT(func(v *CampaignTelephonyChannelSubtypeConfig) *CampaignTelephonyOutboundConfig {
 		if v == nil {
@@ -3286,6 +3429,7 @@ func (o CampaignTelephonyChannelSubtypeConfigPtrOutput) DefaultOutboundConfig() 
 	}).(CampaignTelephonyOutboundConfigPtrOutput)
 }
 
+// The outbound mode of telephony for an outbound campaign.
 func (o CampaignTelephonyChannelSubtypeConfigPtrOutput) OutboundMode() CampaignTelephonyOutboundModePtrOutput {
 	return o.ApplyT(func(v *CampaignTelephonyChannelSubtypeConfig) *CampaignTelephonyOutboundMode {
 		if v == nil {
@@ -3297,9 +3441,12 @@ func (o CampaignTelephonyChannelSubtypeConfigPtrOutput) OutboundMode() CampaignT
 
 // Default Telephone Outbound config
 type CampaignTelephonyOutboundConfig struct {
+	// The answering machine detection configuration.
 	AnswerMachineDetectionConfig *CampaignAnswerMachineDetectionConfig `pulumi:"answerMachineDetectionConfig"`
-	ConnectContactFlowId         string                                `pulumi:"connectContactFlowId"`
-	ConnectSourcePhoneNumber     *string                               `pulumi:"connectSourcePhoneNumber"`
+	// The identifier of the published Amazon Connect contact flow.
+	ConnectContactFlowId string `pulumi:"connectContactFlowId"`
+	// The Amazon Connect source phone number.
+	ConnectSourcePhoneNumber *string `pulumi:"connectSourcePhoneNumber"`
 }
 
 // CampaignTelephonyOutboundConfigInput is an input type that accepts CampaignTelephonyOutboundConfigArgs and CampaignTelephonyOutboundConfigOutput values.
@@ -3315,9 +3462,12 @@ type CampaignTelephonyOutboundConfigInput interface {
 
 // Default Telephone Outbound config
 type CampaignTelephonyOutboundConfigArgs struct {
+	// The answering machine detection configuration.
 	AnswerMachineDetectionConfig CampaignAnswerMachineDetectionConfigPtrInput `pulumi:"answerMachineDetectionConfig"`
-	ConnectContactFlowId         pulumi.StringInput                           `pulumi:"connectContactFlowId"`
-	ConnectSourcePhoneNumber     pulumi.StringPtrInput                        `pulumi:"connectSourcePhoneNumber"`
+	// The identifier of the published Amazon Connect contact flow.
+	ConnectContactFlowId pulumi.StringInput `pulumi:"connectContactFlowId"`
+	// The Amazon Connect source phone number.
+	ConnectSourcePhoneNumber pulumi.StringPtrInput `pulumi:"connectSourcePhoneNumber"`
 }
 
 func (CampaignTelephonyOutboundConfigArgs) ElementType() reflect.Type {
@@ -3398,16 +3548,19 @@ func (o CampaignTelephonyOutboundConfigOutput) ToCampaignTelephonyOutboundConfig
 	}).(CampaignTelephonyOutboundConfigPtrOutput)
 }
 
+// The answering machine detection configuration.
 func (o CampaignTelephonyOutboundConfigOutput) AnswerMachineDetectionConfig() CampaignAnswerMachineDetectionConfigPtrOutput {
 	return o.ApplyT(func(v CampaignTelephonyOutboundConfig) *CampaignAnswerMachineDetectionConfig {
 		return v.AnswerMachineDetectionConfig
 	}).(CampaignAnswerMachineDetectionConfigPtrOutput)
 }
 
+// The identifier of the published Amazon Connect contact flow.
 func (o CampaignTelephonyOutboundConfigOutput) ConnectContactFlowId() pulumi.StringOutput {
 	return o.ApplyT(func(v CampaignTelephonyOutboundConfig) string { return v.ConnectContactFlowId }).(pulumi.StringOutput)
 }
 
+// The Amazon Connect source phone number.
 func (o CampaignTelephonyOutboundConfigOutput) ConnectSourcePhoneNumber() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CampaignTelephonyOutboundConfig) *string { return v.ConnectSourcePhoneNumber }).(pulumi.StringPtrOutput)
 }
@@ -3436,6 +3589,7 @@ func (o CampaignTelephonyOutboundConfigPtrOutput) Elem() CampaignTelephonyOutbou
 	}).(CampaignTelephonyOutboundConfigOutput)
 }
 
+// The answering machine detection configuration.
 func (o CampaignTelephonyOutboundConfigPtrOutput) AnswerMachineDetectionConfig() CampaignAnswerMachineDetectionConfigPtrOutput {
 	return o.ApplyT(func(v *CampaignTelephonyOutboundConfig) *CampaignAnswerMachineDetectionConfig {
 		if v == nil {
@@ -3445,6 +3599,7 @@ func (o CampaignTelephonyOutboundConfigPtrOutput) AnswerMachineDetectionConfig()
 	}).(CampaignAnswerMachineDetectionConfigPtrOutput)
 }
 
+// The identifier of the published Amazon Connect contact flow.
 func (o CampaignTelephonyOutboundConfigPtrOutput) ConnectContactFlowId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CampaignTelephonyOutboundConfig) *string {
 		if v == nil {
@@ -3454,6 +3609,7 @@ func (o CampaignTelephonyOutboundConfigPtrOutput) ConnectContactFlowId() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Connect source phone number.
 func (o CampaignTelephonyOutboundConfigPtrOutput) ConnectSourcePhoneNumber() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CampaignTelephonyOutboundConfig) *string {
 		if v == nil {
@@ -3465,8 +3621,11 @@ func (o CampaignTelephonyOutboundConfigPtrOutput) ConnectSourcePhoneNumber() pul
 
 // Telephony Outbound Mode
 type CampaignTelephonyOutboundMode struct {
-	AgentlessConfig   *CampaignAgentlessConfig   `pulumi:"agentlessConfig"`
-	PredictiveConfig  *CampaignPredictiveConfig  `pulumi:"predictiveConfig"`
+	// The agentless outbound mode configuration for telephony.
+	AgentlessConfig *CampaignAgentlessConfig `pulumi:"agentlessConfig"`
+	// Contains predictive outbound mode configuration.
+	PredictiveConfig *CampaignPredictiveConfig `pulumi:"predictiveConfig"`
+	// Contains progressive telephony outbound mode configuration.
 	ProgressiveConfig *CampaignProgressiveConfig `pulumi:"progressiveConfig"`
 }
 
@@ -3483,8 +3642,11 @@ type CampaignTelephonyOutboundModeInput interface {
 
 // Telephony Outbound Mode
 type CampaignTelephonyOutboundModeArgs struct {
-	AgentlessConfig   CampaignAgentlessConfigPtrInput   `pulumi:"agentlessConfig"`
-	PredictiveConfig  CampaignPredictiveConfigPtrInput  `pulumi:"predictiveConfig"`
+	// The agentless outbound mode configuration for telephony.
+	AgentlessConfig CampaignAgentlessConfigPtrInput `pulumi:"agentlessConfig"`
+	// Contains predictive outbound mode configuration.
+	PredictiveConfig CampaignPredictiveConfigPtrInput `pulumi:"predictiveConfig"`
+	// Contains progressive telephony outbound mode configuration.
 	ProgressiveConfig CampaignProgressiveConfigPtrInput `pulumi:"progressiveConfig"`
 }
 
@@ -3566,14 +3728,17 @@ func (o CampaignTelephonyOutboundModeOutput) ToCampaignTelephonyOutboundModePtrO
 	}).(CampaignTelephonyOutboundModePtrOutput)
 }
 
+// The agentless outbound mode configuration for telephony.
 func (o CampaignTelephonyOutboundModeOutput) AgentlessConfig() CampaignAgentlessConfigPtrOutput {
 	return o.ApplyT(func(v CampaignTelephonyOutboundMode) *CampaignAgentlessConfig { return v.AgentlessConfig }).(CampaignAgentlessConfigPtrOutput)
 }
 
+// Contains predictive outbound mode configuration.
 func (o CampaignTelephonyOutboundModeOutput) PredictiveConfig() CampaignPredictiveConfigPtrOutput {
 	return o.ApplyT(func(v CampaignTelephonyOutboundMode) *CampaignPredictiveConfig { return v.PredictiveConfig }).(CampaignPredictiveConfigPtrOutput)
 }
 
+// Contains progressive telephony outbound mode configuration.
 func (o CampaignTelephonyOutboundModeOutput) ProgressiveConfig() CampaignProgressiveConfigPtrOutput {
 	return o.ApplyT(func(v CampaignTelephonyOutboundMode) *CampaignProgressiveConfig { return v.ProgressiveConfig }).(CampaignProgressiveConfigPtrOutput)
 }
@@ -3602,6 +3767,7 @@ func (o CampaignTelephonyOutboundModePtrOutput) Elem() CampaignTelephonyOutbound
 	}).(CampaignTelephonyOutboundModeOutput)
 }
 
+// The agentless outbound mode configuration for telephony.
 func (o CampaignTelephonyOutboundModePtrOutput) AgentlessConfig() CampaignAgentlessConfigPtrOutput {
 	return o.ApplyT(func(v *CampaignTelephonyOutboundMode) *CampaignAgentlessConfig {
 		if v == nil {
@@ -3611,6 +3777,7 @@ func (o CampaignTelephonyOutboundModePtrOutput) AgentlessConfig() CampaignAgentl
 	}).(CampaignAgentlessConfigPtrOutput)
 }
 
+// Contains predictive outbound mode configuration.
 func (o CampaignTelephonyOutboundModePtrOutput) PredictiveConfig() CampaignPredictiveConfigPtrOutput {
 	return o.ApplyT(func(v *CampaignTelephonyOutboundMode) *CampaignPredictiveConfig {
 		if v == nil {
@@ -3620,6 +3787,7 @@ func (o CampaignTelephonyOutboundModePtrOutput) PredictiveConfig() CampaignPredi
 	}).(CampaignPredictiveConfigPtrOutput)
 }
 
+// Contains progressive telephony outbound mode configuration.
 func (o CampaignTelephonyOutboundModePtrOutput) ProgressiveConfig() CampaignProgressiveConfigPtrOutput {
 	return o.ApplyT(func(v *CampaignTelephonyOutboundMode) *CampaignProgressiveConfig {
 		if v == nil {
@@ -3734,7 +3902,9 @@ func (o CampaignTimeRangeArrayOutput) Index(i pulumi.IntInput) CampaignTimeRange
 
 // Time window config
 type CampaignTimeWindow struct {
-	OpenHours         CampaignOpenHours          `pulumi:"openHours"`
+	// The open hours configuration.
+	OpenHours CampaignOpenHours `pulumi:"openHours"`
+	// The restricted periods configuration.
 	RestrictedPeriods *CampaignRestrictedPeriods `pulumi:"restrictedPeriods"`
 }
 
@@ -3751,7 +3921,9 @@ type CampaignTimeWindowInput interface {
 
 // Time window config
 type CampaignTimeWindowArgs struct {
-	OpenHours         CampaignOpenHoursInput            `pulumi:"openHours"`
+	// The open hours configuration.
+	OpenHours CampaignOpenHoursInput `pulumi:"openHours"`
+	// The restricted periods configuration.
 	RestrictedPeriods CampaignRestrictedPeriodsPtrInput `pulumi:"restrictedPeriods"`
 }
 
@@ -3833,10 +4005,12 @@ func (o CampaignTimeWindowOutput) ToCampaignTimeWindowPtrOutputWithContext(ctx c
 	}).(CampaignTimeWindowPtrOutput)
 }
 
+// The open hours configuration.
 func (o CampaignTimeWindowOutput) OpenHours() CampaignOpenHoursOutput {
 	return o.ApplyT(func(v CampaignTimeWindow) CampaignOpenHours { return v.OpenHours }).(CampaignOpenHoursOutput)
 }
 
+// The restricted periods configuration.
 func (o CampaignTimeWindowOutput) RestrictedPeriods() CampaignRestrictedPeriodsPtrOutput {
 	return o.ApplyT(func(v CampaignTimeWindow) *CampaignRestrictedPeriods { return v.RestrictedPeriods }).(CampaignRestrictedPeriodsPtrOutput)
 }
@@ -3865,6 +4039,7 @@ func (o CampaignTimeWindowPtrOutput) Elem() CampaignTimeWindowOutput {
 	}).(CampaignTimeWindowOutput)
 }
 
+// The open hours configuration.
 func (o CampaignTimeWindowPtrOutput) OpenHours() CampaignOpenHoursPtrOutput {
 	return o.ApplyT(func(v *CampaignTimeWindow) *CampaignOpenHours {
 		if v == nil {
@@ -3874,6 +4049,7 @@ func (o CampaignTimeWindowPtrOutput) OpenHours() CampaignOpenHoursPtrOutput {
 	}).(CampaignOpenHoursPtrOutput)
 }
 
+// The restricted periods configuration.
 func (o CampaignTimeWindowPtrOutput) RestrictedPeriods() CampaignRestrictedPeriodsPtrOutput {
 	return o.ApplyT(func(v *CampaignTimeWindow) *CampaignRestrictedPeriods {
 		if v == nil {

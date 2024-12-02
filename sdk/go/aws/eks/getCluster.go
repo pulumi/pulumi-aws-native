@@ -36,7 +36,8 @@ type LookupClusterResult struct {
 	// The certificate-authority-data for your cluster.
 	CertificateAuthorityData *string `pulumi:"certificateAuthorityData"`
 	// The cluster security group that was created by Amazon EKS for the cluster. Managed node groups use this security group for control plane to data plane communication.
-	ClusterSecurityGroupId *string `pulumi:"clusterSecurityGroupId"`
+	ClusterSecurityGroupId *string               `pulumi:"clusterSecurityGroupId"`
+	ComputeConfig          *ClusterComputeConfig `pulumi:"computeConfig"`
 	// Amazon Resource Name (ARN) or alias of the customer master key (CMK).
 	EncryptionConfigKeyArn *string `pulumi:"encryptionConfigKeyArn"`
 	// The endpoint for your Kubernetes API server, such as https://5E1D0CEXAMPLEA591B746AFC5AB30262.yl4.us-west-2.eks.amazonaws.com.
@@ -49,6 +50,7 @@ type LookupClusterResult struct {
 	OpenIdConnectIssuerUrl *string `pulumi:"openIdConnectIssuerUrl"`
 	// The VPC configuration that's used by the cluster control plane. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the *Amazon EKS User Guide* . You must specify at least two subnets. You can specify up to five security groups, but we recommend that you use a dedicated security group for your cluster control plane.
 	ResourcesVpcConfig *ClusterResourcesVpcConfig `pulumi:"resourcesVpcConfig"`
+	StorageConfig      *ClusterStorageConfig      `pulumi:"storageConfig"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
 	// This value indicates if extended support is enabled or disabled for the cluster.
@@ -123,6 +125,10 @@ func (o LookupClusterResultOutput) ClusterSecurityGroupId() pulumi.StringPtrOutp
 	return o.ApplyT(func(v LookupClusterResult) *string { return v.ClusterSecurityGroupId }).(pulumi.StringPtrOutput)
 }
 
+func (o LookupClusterResultOutput) ComputeConfig() ClusterComputeConfigPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *ClusterComputeConfig { return v.ComputeConfig }).(ClusterComputeConfigPtrOutput)
+}
+
 // Amazon Resource Name (ARN) or alias of the customer master key (CMK).
 func (o LookupClusterResultOutput) EncryptionConfigKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupClusterResult) *string { return v.EncryptionConfigKeyArn }).(pulumi.StringPtrOutput)
@@ -151,6 +157,10 @@ func (o LookupClusterResultOutput) OpenIdConnectIssuerUrl() pulumi.StringPtrOutp
 // The VPC configuration that's used by the cluster control plane. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the *Amazon EKS User Guide* . You must specify at least two subnets. You can specify up to five security groups, but we recommend that you use a dedicated security group for your cluster control plane.
 func (o LookupClusterResultOutput) ResourcesVpcConfig() ClusterResourcesVpcConfigPtrOutput {
 	return o.ApplyT(func(v LookupClusterResult) *ClusterResourcesVpcConfig { return v.ResourcesVpcConfig }).(ClusterResourcesVpcConfigPtrOutput)
+}
+
+func (o LookupClusterResultOutput) StorageConfig() ClusterStorageConfigPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *ClusterStorageConfig { return v.StorageConfig }).(ClusterStorageConfigPtrOutput)
 }
 
 // An array of key-value pairs to apply to this resource.

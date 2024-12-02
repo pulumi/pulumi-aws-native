@@ -149,11 +149,17 @@ namespace Pulumi.AwsNative.Lambda
         /// (Kinesis and DynamoDB Streams only) Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, Lambda retries failed records until the record expires in the event source.
         /// </summary>
         public readonly int? MaximumRetryAttempts;
+        /// <summary>
+        /// The metrics configuration for your event source. For more information, see [Event source mapping metrics](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics) .
+        /// </summary>
         public readonly Outputs.EventSourceMappingMetricsConfig? MetricsConfig;
         /// <summary>
         /// (Kinesis and DynamoDB Streams only) The number of batches to process concurrently from each shard. The default value is 1.
         /// </summary>
         public readonly int? ParallelizationFactor;
+        /// <summary>
+        /// (Amazon MSK and self-managed Apache Kafka only) The provisioned mode configuration for the event source. For more information, see [provisioned mode](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode) .
+        /// </summary>
         public readonly Outputs.EventSourceMappingProvisionedPollerConfig? ProvisionedPollerConfig;
         /// <summary>
         /// (Amazon MQ) The name of the Amazon MQ broker destination queue to consume.

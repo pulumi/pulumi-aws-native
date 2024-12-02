@@ -23,16 +23,23 @@ func LookupManagedLoginBranding(ctx *pulumi.Context, args *LookupManagedLoginBra
 }
 
 type LookupManagedLoginBrandingArgs struct {
+	// The ID of the managed login branding style.
 	ManagedLoginBrandingId string `pulumi:"managedLoginBrandingId"`
-	UserPoolId             string `pulumi:"userPoolId"`
+	// The user pool where the branding style is assigned.
+	UserPoolId string `pulumi:"userPoolId"`
 }
 
 type LookupManagedLoginBrandingResult struct {
-	Assets                 []ManagedLoginBrandingAssetType `pulumi:"assets"`
-	ManagedLoginBrandingId *string                         `pulumi:"managedLoginBrandingId"`
+	// An array of image files that you want to apply to roles like backgrounds, logos, and icons. Each object must also indicate whether it is for dark mode, light mode, or browser-adaptive mode.
+	Assets []ManagedLoginBrandingAssetType `pulumi:"assets"`
+	// The ID of the managed login branding style.
+	ManagedLoginBrandingId *string `pulumi:"managedLoginBrandingId"`
+	// A JSON file, encoded as a `Document` type, with the the settings that you want to apply to your style.
+	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::ManagedLoginBranding` for more information about the expected schema for this property.
-	Settings                 interface{} `pulumi:"settings"`
-	UseCognitoProvidedValues *bool       `pulumi:"useCognitoProvidedValues"`
+	Settings interface{} `pulumi:"settings"`
+	// When true, applies the default branding style options. This option reverts to a "blank" style that you can modify later in the branding designer.
+	UseCognitoProvidedValues *bool `pulumi:"useCognitoProvidedValues"`
 }
 
 func LookupManagedLoginBrandingOutput(ctx *pulumi.Context, args LookupManagedLoginBrandingOutputArgs, opts ...pulumi.InvokeOption) LookupManagedLoginBrandingResultOutput {
@@ -55,8 +62,10 @@ func LookupManagedLoginBrandingOutput(ctx *pulumi.Context, args LookupManagedLog
 }
 
 type LookupManagedLoginBrandingOutputArgs struct {
+	// The ID of the managed login branding style.
 	ManagedLoginBrandingId pulumi.StringInput `pulumi:"managedLoginBrandingId"`
-	UserPoolId             pulumi.StringInput `pulumi:"userPoolId"`
+	// The user pool where the branding style is assigned.
+	UserPoolId pulumi.StringInput `pulumi:"userPoolId"`
 }
 
 func (LookupManagedLoginBrandingOutputArgs) ElementType() reflect.Type {
@@ -77,19 +86,24 @@ func (o LookupManagedLoginBrandingResultOutput) ToLookupManagedLoginBrandingResu
 	return o
 }
 
+// An array of image files that you want to apply to roles like backgrounds, logos, and icons. Each object must also indicate whether it is for dark mode, light mode, or browser-adaptive mode.
 func (o LookupManagedLoginBrandingResultOutput) Assets() ManagedLoginBrandingAssetTypeArrayOutput {
 	return o.ApplyT(func(v LookupManagedLoginBrandingResult) []ManagedLoginBrandingAssetType { return v.Assets }).(ManagedLoginBrandingAssetTypeArrayOutput)
 }
 
+// The ID of the managed login branding style.
 func (o LookupManagedLoginBrandingResultOutput) ManagedLoginBrandingId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupManagedLoginBrandingResult) *string { return v.ManagedLoginBrandingId }).(pulumi.StringPtrOutput)
 }
 
+// A JSON file, encoded as a `Document` type, with the the settings that you want to apply to your style.
+//
 // Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::ManagedLoginBranding` for more information about the expected schema for this property.
 func (o LookupManagedLoginBrandingResultOutput) Settings() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupManagedLoginBrandingResult) interface{} { return v.Settings }).(pulumi.AnyOutput)
 }
 
+// When true, applies the default branding style options. This option reverts to a "blank" style that you can modify later in the branding designer.
 func (o LookupManagedLoginBrandingResultOutput) UseCognitoProvidedValues() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupManagedLoginBrandingResult) *bool { return v.UseCognitoProvidedValues }).(pulumi.BoolPtrOutput)
 }

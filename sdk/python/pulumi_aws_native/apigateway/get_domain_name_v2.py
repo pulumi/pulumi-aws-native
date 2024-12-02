@@ -47,6 +47,9 @@ class GetDomainNameV2Result:
     @property
     @pulumi.getter(name="certificateArn")
     def certificate_arn(self) -> Optional[str]:
+        """
+        The reference to an AWS -managed certificate that will be used by the private endpoint for this domain name. AWS Certificate Manager is the only supported source.
+        """
         return pulumi.get(self, "certificate_arn")
 
     @property
@@ -60,6 +63,9 @@ class GetDomainNameV2Result:
     @property
     @pulumi.getter(name="domainNameId")
     def domain_name_id(self) -> Optional[str]:
+        """
+        The domain name ID.
+        """
         return pulumi.get(self, "domain_name_id")
 
     @property
@@ -74,6 +80,8 @@ class GetDomainNameV2Result:
     @pulumi.getter
     def policy(self) -> Optional[Any]:
         """
+        A stringified JSON policy document that applies to the `execute-api` service for this DomainName regardless of the caller and Method configuration. You can use `Fn::ToJsonString` to enter your `policy` . For more information, see [Fn::ToJsonString](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ToJsonString.html) .
+
         Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::DomainNameV2` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "policy")
@@ -81,6 +89,9 @@ class GetDomainNameV2Result:
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        The collection of tags. Each tag element is associated with a given resource.
+        """
         return pulumi.get(self, "tags")
 
 

@@ -168,6 +168,7 @@ import * as imagebuilder from "./imagebuilder";
 import * as inspector from "./inspector";
 import * as inspectorv2 from "./inspectorv2";
 import * as internetmonitor from "./internetmonitor";
+import * as invoicing from "./invoicing";
 import * as iot from "./iot";
 import * as iotanalytics from "./iotanalytics";
 import * as iotcoredeviceadvisor from "./iotcoredeviceadvisor";
@@ -390,6 +391,7 @@ export {
     inspector,
     inspectorv2,
     internetmonitor,
+    invoicing,
     iot,
     iotanalytics,
     iotcoredeviceadvisor,

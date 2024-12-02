@@ -73,6 +73,7 @@ namespace Pulumi.AwsNative.Eks
         /// The cluster security group that was created by Amazon EKS for the cluster. Managed node groups use this security group for control plane to data plane communication.
         /// </summary>
         public readonly string? ClusterSecurityGroupId;
+        public readonly Outputs.ClusterComputeConfig? ComputeConfig;
         /// <summary>
         /// Amazon Resource Name (ARN) or alias of the customer master key (CMK).
         /// </summary>
@@ -97,6 +98,7 @@ namespace Pulumi.AwsNative.Eks
         /// The VPC configuration that's used by the cluster control plane. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the *Amazon EKS User Guide* . You must specify at least two subnets. You can specify up to five security groups, but we recommend that you use a dedicated security group for your cluster control plane.
         /// </summary>
         public readonly Outputs.ClusterResourcesVpcConfig? ResourcesVpcConfig;
+        public readonly Outputs.ClusterStorageConfig? StorageConfig;
         /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
@@ -126,6 +128,8 @@ namespace Pulumi.AwsNative.Eks
 
             string? clusterSecurityGroupId,
 
+            Outputs.ClusterComputeConfig? computeConfig,
+
             string? encryptionConfigKeyArn,
 
             string? endpoint,
@@ -137,6 +141,8 @@ namespace Pulumi.AwsNative.Eks
             string? openIdConnectIssuerUrl,
 
             Outputs.ClusterResourcesVpcConfig? resourcesVpcConfig,
+
+            Outputs.ClusterStorageConfig? storageConfig,
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
@@ -150,12 +156,14 @@ namespace Pulumi.AwsNative.Eks
             Arn = arn;
             CertificateAuthorityData = certificateAuthorityData;
             ClusterSecurityGroupId = clusterSecurityGroupId;
+            ComputeConfig = computeConfig;
             EncryptionConfigKeyArn = encryptionConfigKeyArn;
             Endpoint = endpoint;
             Id = id;
             Logging = logging;
             OpenIdConnectIssuerUrl = openIdConnectIssuerUrl;
             ResourcesVpcConfig = resourcesVpcConfig;
+            StorageConfig = storageConfig;
             Tags = tags;
             UpgradePolicy = upgradePolicy;
             Version = version;

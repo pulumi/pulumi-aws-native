@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2.Inputs
     /// </summary>
     public sealed class CampaignSourceArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Customer Profiles segment.
+        /// </summary>
         [Input("customerProfilesSegmentArn")]
         public Input<string>? CustomerProfilesSegmentArn { get; set; }
 

@@ -20,7 +20,7 @@ type ThingType struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The thing type id.
 	AwsId pulumi.StringOutput `pulumi:"awsId"`
-	// Deprecates a thing type. You can not associate new things with deprecated thing type.
+	// Deprecates a thing type. You can not associate new things with deprecated thing type. You cannot update `ThingTypeProperties` if the thing type is deprecated.
 	//
 	// Requires permission to access the [DeprecateThingType](https://docs.aws.amazon.com//service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) action.
 	DeprecateThingType pulumi.BoolPtrOutput `pulumi:"deprecateThingType"`
@@ -28,7 +28,7 @@ type ThingType struct {
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The name of the thing type.
 	ThingTypeName pulumi.StringPtrOutput `pulumi:"thingTypeName"`
-	// The thing type properties for the thing type to create. It contains information about the new thing type including a description, and a list of searchable thing attribute names. `ThingTypeProperties` can't be updated after the initial creation of the `ThingType` .
+	// The thing type properties for the thing type to create. It contains information about the new thing type including a description, a list of searchable thing attribute names, and a list of propagating attributes. After a thing type is created, you can only update `Mqtt5Configuration` .
 	ThingTypeProperties ThingTypePropertiesPropertiesPtrOutput `pulumi:"thingTypeProperties"`
 }
 
@@ -76,7 +76,7 @@ func (ThingTypeState) ElementType() reflect.Type {
 }
 
 type thingTypeArgs struct {
-	// Deprecates a thing type. You can not associate new things with deprecated thing type.
+	// Deprecates a thing type. You can not associate new things with deprecated thing type. You cannot update `ThingTypeProperties` if the thing type is deprecated.
 	//
 	// Requires permission to access the [DeprecateThingType](https://docs.aws.amazon.com//service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) action.
 	DeprecateThingType *bool `pulumi:"deprecateThingType"`
@@ -84,13 +84,13 @@ type thingTypeArgs struct {
 	Tags []aws.Tag `pulumi:"tags"`
 	// The name of the thing type.
 	ThingTypeName *string `pulumi:"thingTypeName"`
-	// The thing type properties for the thing type to create. It contains information about the new thing type including a description, and a list of searchable thing attribute names. `ThingTypeProperties` can't be updated after the initial creation of the `ThingType` .
+	// The thing type properties for the thing type to create. It contains information about the new thing type including a description, a list of searchable thing attribute names, and a list of propagating attributes. After a thing type is created, you can only update `Mqtt5Configuration` .
 	ThingTypeProperties *ThingTypePropertiesProperties `pulumi:"thingTypeProperties"`
 }
 
 // The set of arguments for constructing a ThingType resource.
 type ThingTypeArgs struct {
-	// Deprecates a thing type. You can not associate new things with deprecated thing type.
+	// Deprecates a thing type. You can not associate new things with deprecated thing type. You cannot update `ThingTypeProperties` if the thing type is deprecated.
 	//
 	// Requires permission to access the [DeprecateThingType](https://docs.aws.amazon.com//service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) action.
 	DeprecateThingType pulumi.BoolPtrInput
@@ -98,7 +98,7 @@ type ThingTypeArgs struct {
 	Tags aws.TagArrayInput
 	// The name of the thing type.
 	ThingTypeName pulumi.StringPtrInput
-	// The thing type properties for the thing type to create. It contains information about the new thing type including a description, and a list of searchable thing attribute names. `ThingTypeProperties` can't be updated after the initial creation of the `ThingType` .
+	// The thing type properties for the thing type to create. It contains information about the new thing type including a description, a list of searchable thing attribute names, and a list of propagating attributes. After a thing type is created, you can only update `Mqtt5Configuration` .
 	ThingTypeProperties ThingTypePropertiesPropertiesPtrInput
 }
 
@@ -149,7 +149,7 @@ func (o ThingTypeOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ThingType) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
-// Deprecates a thing type. You can not associate new things with deprecated thing type.
+// Deprecates a thing type. You can not associate new things with deprecated thing type. You cannot update `ThingTypeProperties` if the thing type is deprecated.
 //
 // Requires permission to access the [DeprecateThingType](https://docs.aws.amazon.com//service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions) action.
 func (o ThingTypeOutput) DeprecateThingType() pulumi.BoolPtrOutput {
@@ -166,7 +166,7 @@ func (o ThingTypeOutput) ThingTypeName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ThingType) pulumi.StringPtrOutput { return v.ThingTypeName }).(pulumi.StringPtrOutput)
 }
 
-// The thing type properties for the thing type to create. It contains information about the new thing type including a description, and a list of searchable thing attribute names. `ThingTypeProperties` can't be updated after the initial creation of the `ThingType` .
+// The thing type properties for the thing type to create. It contains information about the new thing type including a description, a list of searchable thing attribute names, and a list of propagating attributes. After a thing type is created, you can only update `Mqtt5Configuration` .
 func (o ThingTypeOutput) ThingTypeProperties() ThingTypePropertiesPropertiesPtrOutput {
 	return o.ApplyT(func(v *ThingType) ThingTypePropertiesPropertiesPtrOutput { return v.ThingTypeProperties }).(ThingTypePropertiesPropertiesPtrOutput)
 }

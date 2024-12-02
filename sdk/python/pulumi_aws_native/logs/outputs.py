@@ -18,8 +18,10 @@ from ._enums import *
 
 __all__ = [
     'DeliveryDestinationDestinationPolicy',
+    'IntegrationOpenSearchResourceConfig',
     'MetricFilterDimension',
     'MetricFilterMetricTransformation',
+    'ResourceConfigProperties',
 ]
 
 @pulumi.output_type
@@ -68,6 +70,74 @@ class DeliveryDestinationDestinationPolicy(dict):
         The contents of the policy attached to the delivery destination
         """
         return pulumi.get(self, "delivery_destination_policy")
+
+
+@pulumi.output_type
+class IntegrationOpenSearchResourceConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dashboardViewerPrincipals":
+            suggest = "dashboard_viewer_principals"
+        elif key == "dataSourceRoleArn":
+            suggest = "data_source_role_arn"
+        elif key == "applicationArn":
+            suggest = "application_arn"
+        elif key == "kmsKeyArn":
+            suggest = "kms_key_arn"
+        elif key == "retentionDays":
+            suggest = "retention_days"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IntegrationOpenSearchResourceConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IntegrationOpenSearchResourceConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IntegrationOpenSearchResourceConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dashboard_viewer_principals: Sequence[str],
+                 data_source_role_arn: str,
+                 application_arn: Optional[str] = None,
+                 kms_key_arn: Optional[str] = None,
+                 retention_days: Optional[int] = None):
+        pulumi.set(__self__, "dashboard_viewer_principals", dashboard_viewer_principals)
+        pulumi.set(__self__, "data_source_role_arn", data_source_role_arn)
+        if application_arn is not None:
+            pulumi.set(__self__, "application_arn", application_arn)
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+        if retention_days is not None:
+            pulumi.set(__self__, "retention_days", retention_days)
+
+    @property
+    @pulumi.getter(name="dashboardViewerPrincipals")
+    def dashboard_viewer_principals(self) -> Sequence[str]:
+        return pulumi.get(self, "dashboard_viewer_principals")
+
+    @property
+    @pulumi.getter(name="dataSourceRoleArn")
+    def data_source_role_arn(self) -> str:
+        return pulumi.get(self, "data_source_role_arn")
+
+    @property
+    @pulumi.getter(name="applicationArn")
+    def application_arn(self) -> Optional[str]:
+        return pulumi.get(self, "application_arn")
+
+    @property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> Optional[str]:
+        return pulumi.get(self, "kms_key_arn")
+
+    @property
+    @pulumi.getter(name="retentionDays")
+    def retention_days(self) -> Optional[int]:
+        return pulumi.get(self, "retention_days")
 
 
 @pulumi.output_type
@@ -222,5 +292,41 @@ class MetricFilterMetricTransformation(dict):
         The unit to assign to the metric. If you omit this, the unit is set as ``None``.
         """
         return pulumi.get(self, "unit")
+
+
+@pulumi.output_type
+class ResourceConfigProperties(dict):
+    """
+    OpenSearchResourceConfig for the given Integration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "openSearchResourceConfig":
+            suggest = "open_search_resource_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceConfigProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceConfigProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceConfigProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 open_search_resource_config: Optional['outputs.IntegrationOpenSearchResourceConfig'] = None):
+        """
+        OpenSearchResourceConfig for the given Integration
+        """
+        if open_search_resource_config is not None:
+            pulumi.set(__self__, "open_search_resource_config", open_search_resource_config)
+
+    @property
+    @pulumi.getter(name="openSearchResourceConfig")
+    def open_search_resource_config(self) -> Optional['outputs.IntegrationOpenSearchResourceConfig']:
+        return pulumi.get(self, "open_search_resource_config")
 
 

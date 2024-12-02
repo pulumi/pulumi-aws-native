@@ -135,7 +135,14 @@
     }
   },
   "additionalProperties" : false,
-  "taggable" : true,
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : true,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "iotsitewise:TagResource", "iotsitewise:UntagResource", "iotsitewise:ListTagsForResource" ]
+  },
   "required" : [ "GatewayName", "GatewayPlatform" ],
   "readOnlyProperties" : [ "/properties/GatewayId" ],
   "createOnlyProperties" : [ "/properties/GatewayPlatform" ],
@@ -154,7 +161,7 @@
       "permissions" : [ "iotsitewise:DescribeGateway", "iotsitewise:DescribeGatewayCapabilityConfiguration", "iotsitewise:DeleteGateway" ]
     },
     "list" : {
-      "permissions" : [ "iotsitewise:ListGateways" ]
+      "permissions" : [ "iotsitewise:ListGateways", "iotsitewise:ListTagsForResource" ]
     }
   }
 }

@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Wisdom.Outputs
     [OutputType]
     public sealed class MessageTemplateSmsMessageTemplateContent
     {
+        /// <summary>
+        /// The body to use in SMS messages.
+        /// </summary>
         public readonly Outputs.MessageTemplateSmsMessageTemplateContentBody Body;
 
         [OutputConstructor]

@@ -13,7 +13,6 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
-from ._enums import *
 
 __all__ = [
     'GetTypeActivationResult',
@@ -24,19 +23,22 @@ __all__ = [
 
 @pulumi.output_type
 class GetTypeActivationResult:
-    def __init__(__self__, arn=None, auto_update=None, major_version=None, version_bump=None):
+    def __init__(__self__, arn=None, public_type_arn=None, publisher_id=None, type_name=None, type_name_alias=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
-        if auto_update and not isinstance(auto_update, bool):
-            raise TypeError("Expected argument 'auto_update' to be a bool")
-        pulumi.set(__self__, "auto_update", auto_update)
-        if major_version and not isinstance(major_version, str):
-            raise TypeError("Expected argument 'major_version' to be a str")
-        pulumi.set(__self__, "major_version", major_version)
-        if version_bump and not isinstance(version_bump, str):
-            raise TypeError("Expected argument 'version_bump' to be a str")
-        pulumi.set(__self__, "version_bump", version_bump)
+        if public_type_arn and not isinstance(public_type_arn, str):
+            raise TypeError("Expected argument 'public_type_arn' to be a str")
+        pulumi.set(__self__, "public_type_arn", public_type_arn)
+        if publisher_id and not isinstance(publisher_id, str):
+            raise TypeError("Expected argument 'publisher_id' to be a str")
+        pulumi.set(__self__, "publisher_id", publisher_id)
+        if type_name and not isinstance(type_name, str):
+            raise TypeError("Expected argument 'type_name' to be a str")
+        pulumi.set(__self__, "type_name", type_name)
+        if type_name_alias and not isinstance(type_name_alias, str):
+            raise TypeError("Expected argument 'type_name_alias' to be a str")
+        pulumi.set(__self__, "type_name_alias", type_name_alias)
 
     @property
     @pulumi.getter
@@ -47,28 +49,38 @@ class GetTypeActivationResult:
         return pulumi.get(self, "arn")
 
     @property
-    @pulumi.getter(name="autoUpdate")
-    def auto_update(self) -> Optional[bool]:
+    @pulumi.getter(name="publicTypeArn")
+    def public_type_arn(self) -> Optional[str]:
         """
-        Whether to automatically update the extension in this account and region when a new minor version is published by the extension publisher. Major versions released by the publisher must be manually updated.
+        The Amazon Resource Number (ARN) assigned to the public extension upon publication
         """
-        return pulumi.get(self, "auto_update")
+        return pulumi.get(self, "public_type_arn")
 
     @property
-    @pulumi.getter(name="majorVersion")
-    def major_version(self) -> Optional[str]:
+    @pulumi.getter(name="publisherId")
+    def publisher_id(self) -> Optional[str]:
         """
-        The Major Version of the type you want to enable
+        The publisher id assigned by CloudFormation for publishing in this region.
         """
-        return pulumi.get(self, "major_version")
+        return pulumi.get(self, "publisher_id")
 
     @property
-    @pulumi.getter(name="versionBump")
-    def version_bump(self) -> Optional['TypeActivationVersionBump']:
+    @pulumi.getter(name="typeName")
+    def type_name(self) -> Optional[str]:
         """
-        Manually updates a previously-enabled type to a new major or minor version, if available. You can also use this parameter to update the value of AutoUpdateEnabled
+        The name of the type being registered.
+
+        We recommend that type names adhere to the following pattern: company_or_organization::service::type.
         """
-        return pulumi.get(self, "version_bump")
+        return pulumi.get(self, "type_name")
+
+    @property
+    @pulumi.getter(name="typeNameAlias")
+    def type_name_alias(self) -> Optional[str]:
+        """
+        An alias to assign to the public extension in this account and region. If you specify an alias for the extension, you must then use the alias to refer to the extension in your templates.
+        """
+        return pulumi.get(self, "type_name_alias")
 
 
 class AwaitableGetTypeActivationResult(GetTypeActivationResult):
@@ -78,9 +90,10 @@ class AwaitableGetTypeActivationResult(GetTypeActivationResult):
             yield self
         return GetTypeActivationResult(
             arn=self.arn,
-            auto_update=self.auto_update,
-            major_version=self.major_version,
-            version_bump=self.version_bump)
+            public_type_arn=self.public_type_arn,
+            publisher_id=self.publisher_id,
+            type_name=self.type_name,
+            type_name_alias=self.type_name_alias)
 
 
 def get_type_activation(arn: Optional[str] = None,
@@ -98,9 +111,10 @@ def get_type_activation(arn: Optional[str] = None,
 
     return AwaitableGetTypeActivationResult(
         arn=pulumi.get(__ret__, 'arn'),
-        auto_update=pulumi.get(__ret__, 'auto_update'),
-        major_version=pulumi.get(__ret__, 'major_version'),
-        version_bump=pulumi.get(__ret__, 'version_bump'))
+        public_type_arn=pulumi.get(__ret__, 'public_type_arn'),
+        publisher_id=pulumi.get(__ret__, 'publisher_id'),
+        type_name=pulumi.get(__ret__, 'type_name'),
+        type_name_alias=pulumi.get(__ret__, 'type_name_alias'))
 def get_type_activation_output(arn: Optional[pulumi.Input[str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTypeActivationResult]:
     """
@@ -115,6 +129,7 @@ def get_type_activation_output(arn: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('aws-native:cloudformation:getTypeActivation', __args__, opts=opts, typ=GetTypeActivationResult)
     return __ret__.apply(lambda __response__: GetTypeActivationResult(
         arn=pulumi.get(__response__, 'arn'),
-        auto_update=pulumi.get(__response__, 'auto_update'),
-        major_version=pulumi.get(__response__, 'major_version'),
-        version_bump=pulumi.get(__response__, 'version_bump')))
+        public_type_arn=pulumi.get(__response__, 'public_type_arn'),
+        publisher_id=pulumi.get(__response__, 'publisher_id'),
+        type_name=pulumi.get(__response__, 'type_name'),
+        type_name_alias=pulumi.get(__response__, 'type_name_alias')))

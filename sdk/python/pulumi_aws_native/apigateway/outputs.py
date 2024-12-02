@@ -935,12 +935,18 @@ class DomainNameMutualTlsAuthentication(dict):
 class DomainNameV2EndpointConfiguration(dict):
     def __init__(__self__, *,
                  types: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] types: A list of endpoint types of an API (RestApi) or its custom domain name (DomainName). For an edge-optimized API and its custom domain name, the endpoint type is `"EDGE"` . For a regional API and its custom domain name, the endpoint type is `REGIONAL` . For a private API, the endpoint type is `PRIVATE` .
+        """
         if types is not None:
             pulumi.set(__self__, "types", types)
 
     @property
     @pulumi.getter
     def types(self) -> Optional[Sequence[str]]:
+        """
+        A list of endpoint types of an API (RestApi) or its custom domain name (DomainName). For an edge-optimized API and its custom domain name, the endpoint type is `"EDGE"` . For a regional API and its custom domain name, the endpoint type is `REGIONAL` . For a private API, the endpoint type is `PRIVATE` .
+        """
         return pulumi.get(self, "types")
 
 

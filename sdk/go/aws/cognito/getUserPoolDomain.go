@@ -31,9 +31,12 @@ type LookupUserPoolDomainResult struct {
 	// The Amazon CloudFront endpoint that you use as the target of the alias that you set up with your Domain Name Service (DNS) provider.
 	CloudFrontDistribution *string `pulumi:"cloudFrontDistribution"`
 	// The configuration for a custom domain that hosts the sign-up and sign-in pages for your application. Use this object to specify an SSL certificate that is managed by ACM.
+	//
+	// When you create a custom domain, the passkey RP ID defaults to the custom domain. If you had a prefix domain active, this will cause passkey integration for your prefix domain to stop working due to a mismatch in RP ID. To keep the prefix domain passkey integration working, you can explicitly set RP ID to the prefix domain. Update the RP ID in a [SetUserPoolMfaConfig](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SetUserPoolMfaConfig.html) request.
 	CustomDomainConfig *UserPoolDomainCustomDomainConfigType `pulumi:"customDomainConfig"`
 	// The resource ID.
-	Id *string `pulumi:"id"`
+	Id                  *string `pulumi:"id"`
+	ManagedLoginVersion *int    `pulumi:"managedLoginVersion"`
 }
 
 func LookupUserPoolDomainOutput(ctx *pulumi.Context, args LookupUserPoolDomainOutputArgs, opts ...pulumi.InvokeOption) LookupUserPoolDomainResultOutput {
@@ -84,6 +87,8 @@ func (o LookupUserPoolDomainResultOutput) CloudFrontDistribution() pulumi.String
 }
 
 // The configuration for a custom domain that hosts the sign-up and sign-in pages for your application. Use this object to specify an SSL certificate that is managed by ACM.
+//
+// When you create a custom domain, the passkey RP ID defaults to the custom domain. If you had a prefix domain active, this will cause passkey integration for your prefix domain to stop working due to a mismatch in RP ID. To keep the prefix domain passkey integration working, you can explicitly set RP ID to the prefix domain. Update the RP ID in a [SetUserPoolMfaConfig](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SetUserPoolMfaConfig.html) request.
 func (o LookupUserPoolDomainResultOutput) CustomDomainConfig() UserPoolDomainCustomDomainConfigTypePtrOutput {
 	return o.ApplyT(func(v LookupUserPoolDomainResult) *UserPoolDomainCustomDomainConfigType { return v.CustomDomainConfig }).(UserPoolDomainCustomDomainConfigTypePtrOutput)
 }
@@ -91,6 +96,10 @@ func (o LookupUserPoolDomainResultOutput) CustomDomainConfig() UserPoolDomainCus
 // The resource ID.
 func (o LookupUserPoolDomainResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupUserPoolDomainResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupUserPoolDomainResultOutput) ManagedLoginVersion() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupUserPoolDomainResult) *int { return v.ManagedLoginVersion }).(pulumi.IntPtrOutput)
 }
 
 func init() {

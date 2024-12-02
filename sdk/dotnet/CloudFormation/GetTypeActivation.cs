@@ -62,32 +62,41 @@ namespace Pulumi.AwsNative.CloudFormation
         /// </summary>
         public readonly string? Arn;
         /// <summary>
-        /// Whether to automatically update the extension in this account and region when a new minor version is published by the extension publisher. Major versions released by the publisher must be manually updated.
+        /// The Amazon Resource Number (ARN) assigned to the public extension upon publication
         /// </summary>
-        public readonly bool? AutoUpdate;
+        public readonly string? PublicTypeArn;
         /// <summary>
-        /// The Major Version of the type you want to enable
+        /// The publisher id assigned by CloudFormation for publishing in this region.
         /// </summary>
-        public readonly string? MajorVersion;
+        public readonly string? PublisherId;
         /// <summary>
-        /// Manually updates a previously-enabled type to a new major or minor version, if available. You can also use this parameter to update the value of AutoUpdateEnabled
+        /// The name of the type being registered.
+        /// 
+        /// We recommend that type names adhere to the following pattern: company_or_organization::service::type.
         /// </summary>
-        public readonly Pulumi.AwsNative.CloudFormation.TypeActivationVersionBump? VersionBump;
+        public readonly string? TypeName;
+        /// <summary>
+        /// An alias to assign to the public extension in this account and region. If you specify an alias for the extension, you must then use the alias to refer to the extension in your templates.
+        /// </summary>
+        public readonly string? TypeNameAlias;
 
         [OutputConstructor]
         private GetTypeActivationResult(
             string? arn,
 
-            bool? autoUpdate,
+            string? publicTypeArn,
 
-            string? majorVersion,
+            string? publisherId,
 
-            Pulumi.AwsNative.CloudFormation.TypeActivationVersionBump? versionBump)
+            string? typeName,
+
+            string? typeNameAlias)
         {
             Arn = arn;
-            AutoUpdate = autoUpdate;
-            MajorVersion = majorVersion;
-            VersionBump = versionBump;
+            PublicTypeArn = publicTypeArn;
+            PublisherId = publisherId;
+            TypeName = typeName;
+            TypeNameAlias = typeNameAlias;
         }
     }
 }

@@ -55,6 +55,11 @@ export const getDestination: typeof import("./getDestination").getDestination = 
 export const getDestinationOutput: typeof import("./getDestination").getDestinationOutput = null as any;
 utilities.lazyLoad(exports, ["getDestination","getDestinationOutput"], () => require("./getDestination"));
 
+export { GetIntegrationArgs, GetIntegrationResult, GetIntegrationOutputArgs } from "./getIntegration";
+export const getIntegration: typeof import("./getIntegration").getIntegration = null as any;
+export const getIntegrationOutput: typeof import("./getIntegration").getIntegrationOutput = null as any;
+utilities.lazyLoad(exports, ["getIntegration","getIntegrationOutput"], () => require("./getIntegration"));
+
 export { GetLogAnomalyDetectorArgs, GetLogAnomalyDetectorResult, GetLogAnomalyDetectorOutputArgs } from "./getLogAnomalyDetector";
 export const getLogAnomalyDetector: typeof import("./getLogAnomalyDetector").getLogAnomalyDetector = null as any;
 export const getLogAnomalyDetectorOutput: typeof import("./getLogAnomalyDetector").getLogAnomalyDetectorOutput = null as any;
@@ -84,6 +89,11 @@ export { GetSubscriptionFilterArgs, GetSubscriptionFilterResult, GetSubscription
 export const getSubscriptionFilter: typeof import("./getSubscriptionFilter").getSubscriptionFilter = null as any;
 export const getSubscriptionFilterOutput: typeof import("./getSubscriptionFilter").getSubscriptionFilterOutput = null as any;
 utilities.lazyLoad(exports, ["getSubscriptionFilter","getSubscriptionFilterOutput"], () => require("./getSubscriptionFilter"));
+
+export { IntegrationArgs } from "./integration";
+export type Integration = import("./integration").Integration;
+export const Integration: typeof import("./integration").Integration = null as any;
+utilities.lazyLoad(exports, ["Integration"], () => require("./integration"));
 
 export { LogAnomalyDetectorArgs } from "./logAnomalyDetector";
 export type LogAnomalyDetector = import("./logAnomalyDetector").LogAnomalyDetector;
@@ -138,6 +148,8 @@ const _module = {
                 return new DeliverySource(name, <any>undefined, { urn })
             case "aws-native:logs:Destination":
                 return new Destination(name, <any>undefined, { urn })
+            case "aws-native:logs:Integration":
+                return new Integration(name, <any>undefined, { urn })
             case "aws-native:logs:LogAnomalyDetector":
                 return new LogAnomalyDetector(name, <any>undefined, { urn })
             case "aws-native:logs:LogGroup":

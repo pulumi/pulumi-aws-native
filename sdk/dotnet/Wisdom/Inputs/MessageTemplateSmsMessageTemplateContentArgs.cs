@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Wisdom.Inputs
     /// </summary>
     public sealed class MessageTemplateSmsMessageTemplateContentArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The body to use in SMS messages.
+        /// </summary>
         [Input("body", required: true)]
         public Input<Inputs.MessageTemplateSmsMessageTemplateContentBodyArgs> Body { get; set; } = null!;
 

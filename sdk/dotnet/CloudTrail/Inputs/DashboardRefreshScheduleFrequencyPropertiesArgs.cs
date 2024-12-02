@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.CloudTrail.Inputs
 {
 
+    /// <summary>
+    /// The frequency at which you want the dashboard refreshed.
+    /// </summary>
     public sealed class DashboardRefreshScheduleFrequencyPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>

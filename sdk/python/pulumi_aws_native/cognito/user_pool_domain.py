@@ -23,7 +23,8 @@ class UserPoolDomainArgs:
     def __init__(__self__, *,
                  domain: pulumi.Input[str],
                  user_pool_id: pulumi.Input[str],
-                 custom_domain_config: Optional[pulumi.Input['UserPoolDomainCustomDomainConfigTypeArgs']] = None):
+                 custom_domain_config: Optional[pulumi.Input['UserPoolDomainCustomDomainConfigTypeArgs']] = None,
+                 managed_login_version: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a UserPoolDomain resource.
         :param pulumi.Input[str] domain: The domain name for the custom domain that hosts the sign-up and sign-in pages for your application. One example might be `auth.example.com` .
@@ -31,11 +32,15 @@ class UserPoolDomainArgs:
                This string can include only lowercase letters, numbers, and hyphens. Don't use a hyphen for the first or last character. Use periods to separate subdomain names.
         :param pulumi.Input[str] user_pool_id: The ID of the user pool that is associated with the custom domain whose certificate you're updating.
         :param pulumi.Input['UserPoolDomainCustomDomainConfigTypeArgs'] custom_domain_config: The configuration for a custom domain that hosts the sign-up and sign-in pages for your application. Use this object to specify an SSL certificate that is managed by ACM.
+               
+               When you create a custom domain, the passkey RP ID defaults to the custom domain. If you had a prefix domain active, this will cause passkey integration for your prefix domain to stop working due to a mismatch in RP ID. To keep the prefix domain passkey integration working, you can explicitly set RP ID to the prefix domain. Update the RP ID in a [SetUserPoolMfaConfig](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SetUserPoolMfaConfig.html) request.
         """
         pulumi.set(__self__, "domain", domain)
         pulumi.set(__self__, "user_pool_id", user_pool_id)
         if custom_domain_config is not None:
             pulumi.set(__self__, "custom_domain_config", custom_domain_config)
+        if managed_login_version is not None:
+            pulumi.set(__self__, "managed_login_version", managed_login_version)
 
     @property
     @pulumi.getter
@@ -68,12 +73,23 @@ class UserPoolDomainArgs:
     def custom_domain_config(self) -> Optional[pulumi.Input['UserPoolDomainCustomDomainConfigTypeArgs']]:
         """
         The configuration for a custom domain that hosts the sign-up and sign-in pages for your application. Use this object to specify an SSL certificate that is managed by ACM.
+
+        When you create a custom domain, the passkey RP ID defaults to the custom domain. If you had a prefix domain active, this will cause passkey integration for your prefix domain to stop working due to a mismatch in RP ID. To keep the prefix domain passkey integration working, you can explicitly set RP ID to the prefix domain. Update the RP ID in a [SetUserPoolMfaConfig](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SetUserPoolMfaConfig.html) request.
         """
         return pulumi.get(self, "custom_domain_config")
 
     @custom_domain_config.setter
     def custom_domain_config(self, value: Optional[pulumi.Input['UserPoolDomainCustomDomainConfigTypeArgs']]):
         pulumi.set(self, "custom_domain_config", value)
+
+    @property
+    @pulumi.getter(name="managedLoginVersion")
+    def managed_login_version(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "managed_login_version")
+
+    @managed_login_version.setter
+    def managed_login_version(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "managed_login_version", value)
 
 
 class UserPoolDomain(pulumi.CustomResource):
@@ -83,6 +99,7 @@ class UserPoolDomain(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  custom_domain_config: Optional[pulumi.Input[Union['UserPoolDomainCustomDomainConfigTypeArgs', 'UserPoolDomainCustomDomainConfigTypeArgsDict']]] = None,
                  domain: Optional[pulumi.Input[str]] = None,
+                 managed_login_version: Optional[pulumi.Input[int]] = None,
                  user_pool_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -91,6 +108,8 @@ class UserPoolDomain(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['UserPoolDomainCustomDomainConfigTypeArgs', 'UserPoolDomainCustomDomainConfigTypeArgsDict']] custom_domain_config: The configuration for a custom domain that hosts the sign-up and sign-in pages for your application. Use this object to specify an SSL certificate that is managed by ACM.
+               
+               When you create a custom domain, the passkey RP ID defaults to the custom domain. If you had a prefix domain active, this will cause passkey integration for your prefix domain to stop working due to a mismatch in RP ID. To keep the prefix domain passkey integration working, you can explicitly set RP ID to the prefix domain. Update the RP ID in a [SetUserPoolMfaConfig](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SetUserPoolMfaConfig.html) request.
         :param pulumi.Input[str] domain: The domain name for the custom domain that hosts the sign-up and sign-in pages for your application. One example might be `auth.example.com` .
                
                This string can include only lowercase letters, numbers, and hyphens. Don't use a hyphen for the first or last character. Use periods to separate subdomain names.
@@ -122,6 +141,7 @@ class UserPoolDomain(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  custom_domain_config: Optional[pulumi.Input[Union['UserPoolDomainCustomDomainConfigTypeArgs', 'UserPoolDomainCustomDomainConfigTypeArgsDict']]] = None,
                  domain: Optional[pulumi.Input[str]] = None,
+                 managed_login_version: Optional[pulumi.Input[int]] = None,
                  user_pool_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -136,6 +156,7 @@ class UserPoolDomain(pulumi.CustomResource):
             if domain is None and not opts.urn:
                 raise TypeError("Missing required property 'domain'")
             __props__.__dict__["domain"] = domain
+            __props__.__dict__["managed_login_version"] = managed_login_version
             if user_pool_id is None and not opts.urn:
                 raise TypeError("Missing required property 'user_pool_id'")
             __props__.__dict__["user_pool_id"] = user_pool_id
@@ -169,6 +190,7 @@ class UserPoolDomain(pulumi.CustomResource):
         __props__.__dict__["cloud_front_distribution"] = None
         __props__.__dict__["custom_domain_config"] = None
         __props__.__dict__["domain"] = None
+        __props__.__dict__["managed_login_version"] = None
         __props__.__dict__["user_pool_id"] = None
         return UserPoolDomain(resource_name, opts=opts, __props__=__props__)
 
@@ -193,6 +215,8 @@ class UserPoolDomain(pulumi.CustomResource):
     def custom_domain_config(self) -> pulumi.Output[Optional['outputs.UserPoolDomainCustomDomainConfigType']]:
         """
         The configuration for a custom domain that hosts the sign-up and sign-in pages for your application. Use this object to specify an SSL certificate that is managed by ACM.
+
+        When you create a custom domain, the passkey RP ID defaults to the custom domain. If you had a prefix domain active, this will cause passkey integration for your prefix domain to stop working due to a mismatch in RP ID. To keep the prefix domain passkey integration working, you can explicitly set RP ID to the prefix domain. Update the RP ID in a [SetUserPoolMfaConfig](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SetUserPoolMfaConfig.html) request.
         """
         return pulumi.get(self, "custom_domain_config")
 
@@ -205,6 +229,11 @@ class UserPoolDomain(pulumi.CustomResource):
         This string can include only lowercase letters, numbers, and hyphens. Don't use a hyphen for the first or last character. Use periods to separate subdomain names.
         """
         return pulumi.get(self, "domain")
+
+    @property
+    @pulumi.getter(name="managedLoginVersion")
+    def managed_login_version(self) -> pulumi.Output[Optional[int]]:
+        return pulumi.get(self, "managed_login_version")
 
     @property
     @pulumi.getter(name="userPoolId")
