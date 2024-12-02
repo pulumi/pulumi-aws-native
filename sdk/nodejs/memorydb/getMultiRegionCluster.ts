@@ -61,7 +61,7 @@ export interface GetMultiRegionClusterResult {
 /**
  * The AWS::MemoryDB::Multi Region Cluster resource creates an Amazon MemoryDB Multi Region Cluster.
  */
-export function getMultiRegionClusterOutput(args: GetMultiRegionClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMultiRegionClusterResult> {
+export function getMultiRegionClusterOutput(args: GetMultiRegionClusterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMultiRegionClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:memorydb:getMultiRegionCluster", {
         "multiRegionClusterName": args.multiRegionClusterName,

@@ -33,7 +33,7 @@ export interface GetIntegrationResult {
 /**
  * Resource Schema for Logs Integration Resource
  */
-export function getIntegrationOutput(args: GetIntegrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationResult> {
+export function getIntegrationOutput(args: GetIntegrationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIntegrationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:logs:getIntegration", {
         "integrationName": args.integrationName,

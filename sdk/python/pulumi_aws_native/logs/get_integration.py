@@ -63,7 +63,7 @@ def get_integration(integration_name: Optional[str] = None,
     return AwaitableGetIntegrationResult(
         integration_status=pulumi.get(__ret__, 'integration_status'))
 def get_integration_output(integration_name: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIntegrationResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIntegrationResult]:
     """
     Resource Schema for Logs Integration Resource
 
@@ -72,7 +72,7 @@ def get_integration_output(integration_name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['integrationName'] = integration_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:logs:getIntegration', __args__, opts=opts, typ=GetIntegrationResult)
     return __ret__.apply(lambda __response__: GetIntegrationResult(
         integration_status=pulumi.get(__response__, 'integration_status')))

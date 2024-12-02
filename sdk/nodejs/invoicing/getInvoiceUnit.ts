@@ -32,7 +32,7 @@ export interface GetInvoiceUnitResult {
 /**
  * An invoice unit is a set of mutually exclusive accounts that correspond to your business entity. Invoice units allow you to separate AWS account costs and configures your invoice for each business entity.
  */
-export function getInvoiceUnitOutput(args: GetInvoiceUnitOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInvoiceUnitResult> {
+export function getInvoiceUnitOutput(args: GetInvoiceUnitOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetInvoiceUnitResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:invoicing:getInvoiceUnit", {
         "invoiceUnitArn": args.invoiceUnitArn,
