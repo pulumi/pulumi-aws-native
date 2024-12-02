@@ -154,7 +154,7 @@ def get_multi_region_cluster(multi_region_cluster_name: Optional[str] = None,
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_multi_region_cluster_output(multi_region_cluster_name: Optional[pulumi.Input[str]] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMultiRegionClusterResult]:
+                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMultiRegionClusterResult]:
     """
     The AWS::MemoryDB::Multi Region Cluster resource creates an Amazon MemoryDB Multi Region Cluster.
 
@@ -163,7 +163,7 @@ def get_multi_region_cluster_output(multi_region_cluster_name: Optional[pulumi.I
     """
     __args__ = dict()
     __args__['multiRegionClusterName'] = multi_region_cluster_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:memorydb:getMultiRegionCluster', __args__, opts=opts, typ=GetMultiRegionClusterResult)
     return __ret__.apply(lambda __response__: GetMultiRegionClusterResult(
         arn=pulumi.get(__response__, 'arn'),
