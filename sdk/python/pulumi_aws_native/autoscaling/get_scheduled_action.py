@@ -157,7 +157,7 @@ def get_scheduled_action(auto_scaling_group_name: Optional[str] = None,
         time_zone=pulumi.get(__ret__, 'time_zone'))
 def get_scheduled_action_output(auto_scaling_group_name: Optional[pulumi.Input[str]] = None,
                                 scheduled_action_name: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScheduledActionResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetScheduledActionResult]:
     """
     The AWS::AutoScaling::ScheduledAction resource specifies an Amazon EC2 Auto Scaling scheduled action so that the Auto Scaling group can change the number of instances available for your application in response to predictable load changes.
 
@@ -168,7 +168,7 @@ def get_scheduled_action_output(auto_scaling_group_name: Optional[pulumi.Input[s
     __args__ = dict()
     __args__['autoScalingGroupName'] = auto_scaling_group_name
     __args__['scheduledActionName'] = scheduled_action_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:autoscaling:getScheduledAction', __args__, opts=opts, typ=GetScheduledActionResult)
     return __ret__.apply(lambda __response__: GetScheduledActionResult(
         desired_capacity=pulumi.get(__response__, 'desired_capacity'),

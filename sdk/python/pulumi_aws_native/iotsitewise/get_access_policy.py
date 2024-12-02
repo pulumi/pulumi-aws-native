@@ -115,7 +115,7 @@ def get_access_policy(access_policy_id: Optional[str] = None,
         access_policy_permission=pulumi.get(__ret__, 'access_policy_permission'),
         access_policy_resource=pulumi.get(__ret__, 'access_policy_resource'))
 def get_access_policy_output(access_policy_id: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccessPolicyResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccessPolicyResult]:
     """
     Resource schema for AWS::IoTSiteWise::AccessPolicy
 
@@ -124,7 +124,7 @@ def get_access_policy_output(access_policy_id: Optional[pulumi.Input[str]] = Non
     """
     __args__ = dict()
     __args__['accessPolicyId'] = access_policy_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:iotsitewise:getAccessPolicy', __args__, opts=opts, typ=GetAccessPolicyResult)
     return __ret__.apply(lambda __response__: GetAccessPolicyResult(
         access_policy_arn=pulumi.get(__response__, 'access_policy_arn'),

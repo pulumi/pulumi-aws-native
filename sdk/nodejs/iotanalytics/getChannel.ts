@@ -44,7 +44,7 @@ export interface GetChannelResult {
 /**
  * Resource Type definition for AWS::IoTAnalytics::Channel
  */
-export function getChannelOutput(args: GetChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetChannelResult> {
+export function getChannelOutput(args: GetChannelOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetChannelResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:iotanalytics:getChannel", {
         "channelName": args.channelName,

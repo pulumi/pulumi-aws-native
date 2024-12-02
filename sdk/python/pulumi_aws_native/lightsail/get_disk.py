@@ -208,7 +208,7 @@ def get_disk(disk_name: Optional[str] = None,
         support_code=pulumi.get(__ret__, 'support_code'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_disk_output(disk_name: Optional[pulumi.Input[str]] = None,
-                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDiskResult]:
+                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDiskResult]:
     """
     Resource Type definition for AWS::Lightsail::Disk
 
@@ -217,7 +217,7 @@ def get_disk_output(disk_name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['diskName'] = disk_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:lightsail:getDisk', __args__, opts=opts, typ=GetDiskResult)
     return __ret__.apply(lambda __response__: GetDiskResult(
         add_ons=pulumi.get(__response__, 'add_ons'),

@@ -143,7 +143,7 @@ def get_cluster(cluster_arn: Optional[str] = None,
         node_recovery=pulumi.get(__ret__, 'node_recovery'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_cluster_output(cluster_arn: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterResult]:
     """
     Resource Type definition for AWS::SageMaker::Cluster
 
@@ -152,7 +152,7 @@ def get_cluster_output(cluster_arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['clusterArn'] = cluster_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:sagemaker:getCluster', __args__, opts=opts, typ=GetClusterResult)
     return __ret__.apply(lambda __response__: GetClusterResult(
         cluster_arn=pulumi.get(__response__, 'cluster_arn'),

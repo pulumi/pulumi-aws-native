@@ -69,7 +69,7 @@ export interface GetDeploymentStrategyResult {
 /**
  * Resource Type definition for AWS::AppConfig::DeploymentStrategy
  */
-export function getDeploymentStrategyOutput(args: GetDeploymentStrategyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentStrategyResult> {
+export function getDeploymentStrategyOutput(args: GetDeploymentStrategyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDeploymentStrategyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:appconfig:getDeploymentStrategy", {
         "id": args.id,

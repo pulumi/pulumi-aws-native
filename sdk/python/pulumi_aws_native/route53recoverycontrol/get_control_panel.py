@@ -115,7 +115,7 @@ def get_control_panel(control_panel_arn: Optional[str] = None,
         routing_control_count=pulumi.get(__ret__, 'routing_control_count'),
         status=pulumi.get(__ret__, 'status'))
 def get_control_panel_output(control_panel_arn: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetControlPanelResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetControlPanelResult]:
     """
     AWS Route53 Recovery Control Control Panel resource schema .
 
@@ -124,7 +124,7 @@ def get_control_panel_output(control_panel_arn: Optional[pulumi.Input[str]] = No
     """
     __args__ = dict()
     __args__['controlPanelArn'] = control_panel_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:route53recoverycontrol:getControlPanel', __args__, opts=opts, typ=GetControlPanelResult)
     return __ret__.apply(lambda __response__: GetControlPanelResult(
         control_panel_arn=pulumi.get(__response__, 'control_panel_arn'),

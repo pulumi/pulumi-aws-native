@@ -41,7 +41,7 @@ export interface GetLocationEfsResult {
 /**
  * Resource schema for AWS::DataSync::LocationEFS.
  */
-export function getLocationEfsOutput(args: GetLocationEfsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocationEfsResult> {
+export function getLocationEfsOutput(args: GetLocationEfsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLocationEfsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:datasync:getLocationEfs", {
         "locationArn": args.locationArn,

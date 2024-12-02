@@ -70,13 +70,13 @@ def get_template(id: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         template=pulumi.get(__ret__, 'template'))
 def get_template_output(id: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTemplateResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTemplateResult]:
     """
     Resource Type definition for AWS::SES::Template
     """
     __args__ = dict()
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ses:getTemplate', __args__, opts=opts, typ=GetTemplateResult)
     return __ret__.apply(lambda __response__: GetTemplateResult(
         id=pulumi.get(__response__, 'id'),

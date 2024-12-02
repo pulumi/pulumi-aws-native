@@ -53,7 +53,7 @@ export interface GetIngestConfigurationResult {
 /**
  * Resource Type definition for AWS::IVS::IngestConfiguration
  */
-export function getIngestConfigurationOutput(args: GetIngestConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIngestConfigurationResult> {
+export function getIngestConfigurationOutput(args: GetIngestConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIngestConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:ivs:getIngestConfiguration", {
         "arn": args.arn,

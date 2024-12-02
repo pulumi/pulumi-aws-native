@@ -91,7 +91,7 @@ export interface GetMonitorResult {
 /**
  * Represents a monitor, which defines the monitoring boundaries for measurements that Internet Monitor publishes information about for an application
  */
-export function getMonitorOutput(args: GetMonitorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMonitorResult> {
+export function getMonitorOutput(args: GetMonitorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMonitorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:internetmonitor:getMonitor", {
         "monitorName": args.monitorName,

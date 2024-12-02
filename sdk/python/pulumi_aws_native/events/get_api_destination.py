@@ -128,7 +128,7 @@ def get_api_destination(name: Optional[str] = None,
         invocation_endpoint=pulumi.get(__ret__, 'invocation_endpoint'),
         invocation_rate_limit_per_second=pulumi.get(__ret__, 'invocation_rate_limit_per_second'))
 def get_api_destination_output(name: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiDestinationResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApiDestinationResult]:
     """
     Resource Type definition for AWS::Events::ApiDestination.
 
@@ -137,7 +137,7 @@ def get_api_destination_output(name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:events:getApiDestination', __args__, opts=opts, typ=GetApiDestinationResult)
     return __ret__.apply(lambda __response__: GetApiDestinationResult(
         arn=pulumi.get(__response__, 'arn'),

@@ -73,7 +73,7 @@ export interface GetFirewallResult {
 /**
  * Resource type definition for AWS::NetworkFirewall::Firewall
  */
-export function getFirewallOutput(args: GetFirewallOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallResult> {
+export function getFirewallOutput(args: GetFirewallOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFirewallResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:networkfirewall:getFirewall", {
         "firewallArn": args.firewallArn,

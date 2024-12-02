@@ -190,7 +190,7 @@ def get_index(id: Optional[str] = None,
         user_context_policy=pulumi.get(__ret__, 'user_context_policy'),
         user_token_configurations=pulumi.get(__ret__, 'user_token_configurations'))
 def get_index_output(id: Optional[pulumi.Input[str]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIndexResult]:
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIndexResult]:
     """
     A Kendra index
 
@@ -199,7 +199,7 @@ def get_index_output(id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:kendra:getIndex', __args__, opts=opts, typ=GetIndexResult)
     return __ret__.apply(lambda __response__: GetIndexResult(
         arn=pulumi.get(__response__, 'arn'),

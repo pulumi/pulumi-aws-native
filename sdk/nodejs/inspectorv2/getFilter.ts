@@ -49,7 +49,7 @@ export interface GetFilterResult {
 /**
  * Inspector Filter resource schema
  */
-export function getFilterOutput(args: GetFilterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFilterResult> {
+export function getFilterOutput(args: GetFilterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFilterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:inspectorv2:getFilter", {
         "arn": args.arn,

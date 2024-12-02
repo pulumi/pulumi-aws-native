@@ -199,7 +199,7 @@ def get_object_type(domain_name: Optional[str] = None,
         template_id=pulumi.get(__ret__, 'template_id'))
 def get_object_type_output(domain_name: Optional[pulumi.Input[str]] = None,
                            object_type_name: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetObjectTypeResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetObjectTypeResult]:
     """
     An ObjectType resource of Amazon Connect Customer Profiles
 
@@ -210,7 +210,7 @@ def get_object_type_output(domain_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['domainName'] = domain_name
     __args__['objectTypeName'] = object_type_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:customerprofiles:getObjectType', __args__, opts=opts, typ=GetObjectTypeResult)
     return __ret__.apply(lambda __response__: GetObjectTypeResult(
         allow_profile_creation=pulumi.get(__response__, 'allow_profile_creation'),

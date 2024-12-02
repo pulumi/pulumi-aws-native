@@ -53,7 +53,7 @@ export interface GetCostCategoryResult {
 /**
  * Cost Category enables you to map your cost and usage into meaningful categories. You can use Cost Category to organize your costs using a rule-based engine.
  */
-export function getCostCategoryOutput(args: GetCostCategoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCostCategoryResult> {
+export function getCostCategoryOutput(args: GetCostCategoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCostCategoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:ce:getCostCategory", {
         "arn": args.arn,

@@ -61,7 +61,7 @@ export interface GetServerResult {
 /**
  * Resource Type definition for AWS::OpsWorksCM::Server
  */
-export function getServerOutput(args: GetServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerResult> {
+export function getServerOutput(args: GetServerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:opsworkscm:getServer", {
         "serverName": args.serverName,

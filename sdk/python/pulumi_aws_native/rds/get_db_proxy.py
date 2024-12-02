@@ -182,7 +182,7 @@ def get_db_proxy(db_proxy_name: Optional[str] = None,
         vpc_id=pulumi.get(__ret__, 'vpc_id'),
         vpc_security_group_ids=pulumi.get(__ret__, 'vpc_security_group_ids'))
 def get_db_proxy_output(db_proxy_name: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDbProxyResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDbProxyResult]:
     """
     Resource schema for AWS::RDS::DBProxy
 
@@ -191,7 +191,7 @@ def get_db_proxy_output(db_proxy_name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['dbProxyName'] = db_proxy_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:rds:getDbProxy', __args__, opts=opts, typ=GetDbProxyResult)
     return __ret__.apply(lambda __response__: GetDbProxyResult(
         auth=pulumi.get(__response__, 'auth'),

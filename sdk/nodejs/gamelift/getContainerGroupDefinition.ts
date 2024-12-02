@@ -81,7 +81,7 @@ export interface GetContainerGroupDefinitionResult {
 /**
  * The AWS::GameLift::ContainerGroupDefinition resource creates an Amazon GameLift container group definition.
  */
-export function getContainerGroupDefinitionOutput(args: GetContainerGroupDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContainerGroupDefinitionResult> {
+export function getContainerGroupDefinitionOutput(args: GetContainerGroupDefinitionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetContainerGroupDefinitionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:gamelift:getContainerGroupDefinition", {
         "name": args.name,

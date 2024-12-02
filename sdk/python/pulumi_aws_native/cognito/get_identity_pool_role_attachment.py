@@ -93,7 +93,7 @@ def get_identity_pool_role_attachment(id: Optional[str] = None,
         role_mappings=pulumi.get(__ret__, 'role_mappings'),
         roles=pulumi.get(__ret__, 'roles'))
 def get_identity_pool_role_attachment_output(id: Optional[pulumi.Input[str]] = None,
-                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIdentityPoolRoleAttachmentResult]:
+                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIdentityPoolRoleAttachmentResult]:
     """
     Resource Type definition for AWS::Cognito::IdentityPoolRoleAttachment
 
@@ -102,7 +102,7 @@ def get_identity_pool_role_attachment_output(id: Optional[pulumi.Input[str]] = N
     """
     __args__ = dict()
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:cognito:getIdentityPoolRoleAttachment', __args__, opts=opts, typ=GetIdentityPoolRoleAttachmentResult)
     return __ret__.apply(lambda __response__: GetIdentityPoolRoleAttachmentResult(
         id=pulumi.get(__response__, 'id'),

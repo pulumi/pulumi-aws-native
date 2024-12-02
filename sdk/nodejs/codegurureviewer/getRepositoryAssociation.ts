@@ -30,7 +30,7 @@ export interface GetRepositoryAssociationResult {
 /**
  * This resource schema represents the RepositoryAssociation resource in the Amazon CodeGuru Reviewer service.
  */
-export function getRepositoryAssociationOutput(args: GetRepositoryAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRepositoryAssociationResult> {
+export function getRepositoryAssociationOutput(args: GetRepositoryAssociationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRepositoryAssociationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:codegurureviewer:getRepositoryAssociation", {
         "associationArn": args.associationArn,

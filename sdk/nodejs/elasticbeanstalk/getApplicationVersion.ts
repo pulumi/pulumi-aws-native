@@ -33,7 +33,7 @@ export interface GetApplicationVersionResult {
 /**
  * Resource Type definition for AWS::ElasticBeanstalk::ApplicationVersion
  */
-export function getApplicationVersionOutput(args: GetApplicationVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationVersionResult> {
+export function getApplicationVersionOutput(args: GetApplicationVersionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApplicationVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:elasticbeanstalk:getApplicationVersion", {
         "applicationName": args.applicationName,

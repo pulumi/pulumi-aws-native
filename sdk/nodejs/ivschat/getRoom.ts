@@ -61,7 +61,7 @@ export interface GetRoomResult {
 /**
  * Resource type definition for AWS::IVSChat::Room.
  */
-export function getRoomOutput(args: GetRoomOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoomResult> {
+export function getRoomOutput(args: GetRoomOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRoomResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:ivschat:getRoom", {
         "arn": args.arn,

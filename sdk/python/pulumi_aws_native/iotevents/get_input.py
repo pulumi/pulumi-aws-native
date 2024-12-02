@@ -91,7 +91,7 @@ def get_input(input_name: Optional[str] = None,
         input_description=pulumi.get(__ret__, 'input_description'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_input_output(input_name: Optional[pulumi.Input[str]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInputResult]:
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInputResult]:
     """
     The AWS::IoTEvents::Input resource creates an input. To monitor your devices and processes, they must have a way to get telemetry data into ITE. This is done by sending messages as *inputs* to ITE. For more information, see [How to Use](https://docs.aws.amazon.com/iotevents/latest/developerguide/how-to-use-iotevents.html) in the *Developer Guide*.
 
@@ -100,7 +100,7 @@ def get_input_output(input_name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['inputName'] = input_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:iotevents:getInput', __args__, opts=opts, typ=GetInputResult)
     return __ret__.apply(lambda __response__: GetInputResult(
         input_definition=pulumi.get(__response__, 'input_definition'),

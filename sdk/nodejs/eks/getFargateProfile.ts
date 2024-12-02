@@ -42,7 +42,7 @@ export interface GetFargateProfileResult {
 /**
  * Resource Schema for AWS::EKS::FargateProfile
  */
-export function getFargateProfileOutput(args: GetFargateProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFargateProfileResult> {
+export function getFargateProfileOutput(args: GetFargateProfileOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFargateProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:eks:getFargateProfile", {
         "clusterName": args.clusterName,

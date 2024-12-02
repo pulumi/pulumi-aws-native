@@ -143,7 +143,7 @@ def get_location_smb(location_arn: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         user=pulumi.get(__ret__, 'user'))
 def get_location_smb_output(location_arn: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocationSmbResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocationSmbResult]:
     """
     Resource schema for AWS::DataSync::LocationSMB.
 
@@ -152,7 +152,7 @@ def get_location_smb_output(location_arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['locationArn'] = location_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:datasync:getLocationSmb', __args__, opts=opts, typ=GetLocationSmbResult)
     return __ret__.apply(lambda __response__: GetLocationSmbResult(
         agent_arns=pulumi.get(__response__, 'agent_arns'),

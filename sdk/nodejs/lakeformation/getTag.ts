@@ -30,7 +30,7 @@ export interface GetTagResult {
 /**
  * A resource schema representing a Lake Formation Tag.
  */
-export function getTagOutput(args: GetTagOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTagResult> {
+export function getTagOutput(args: GetTagOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTagResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:lakeformation:getTag", {
         "tagKey": args.tagKey,

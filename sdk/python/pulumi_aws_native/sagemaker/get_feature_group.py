@@ -118,7 +118,7 @@ def get_feature_group(feature_group_name: Optional[str] = None,
         online_store_config=pulumi.get(__ret__, 'online_store_config'),
         throughput_config=pulumi.get(__ret__, 'throughput_config'))
 def get_feature_group_output(feature_group_name: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFeatureGroupResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFeatureGroupResult]:
     """
     Resource Type definition for AWS::SageMaker::FeatureGroup
 
@@ -127,7 +127,7 @@ def get_feature_group_output(feature_group_name: Optional[pulumi.Input[str]] = N
     """
     __args__ = dict()
     __args__['featureGroupName'] = feature_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:sagemaker:getFeatureGroup', __args__, opts=opts, typ=GetFeatureGroupResult)
     return __ret__.apply(lambda __response__: GetFeatureGroupResult(
         creation_time=pulumi.get(__response__, 'creation_time'),

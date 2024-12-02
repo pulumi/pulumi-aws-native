@@ -42,7 +42,7 @@ export interface GetKnowledgeBaseResult {
 /**
  * Definition of AWS::Wisdom::KnowledgeBase Resource Type
  */
-export function getKnowledgeBaseOutput(args: GetKnowledgeBaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKnowledgeBaseResult> {
+export function getKnowledgeBaseOutput(args: GetKnowledgeBaseOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetKnowledgeBaseResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:wisdom:getKnowledgeBase", {
         "knowledgeBaseId": args.knowledgeBaseId,

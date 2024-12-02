@@ -62,7 +62,7 @@ def get_notification_channel(id: Optional[str] = None,
     return AwaitableGetNotificationChannelResult(
         id=pulumi.get(__ret__, 'id'))
 def get_notification_channel_output(id: Optional[pulumi.Input[str]] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNotificationChannelResult]:
+                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNotificationChannelResult]:
     """
     This resource schema represents the NotificationChannel resource in the Amazon DevOps Guru.
 
@@ -71,7 +71,7 @@ def get_notification_channel_output(id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:devopsguru:getNotificationChannel', __args__, opts=opts, typ=GetNotificationChannelResult)
     return __ret__.apply(lambda __response__: GetNotificationChannelResult(
         id=pulumi.get(__response__, 'id')))

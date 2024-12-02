@@ -133,7 +133,7 @@ def get_mail_manager_archive(archive_id: Optional[str] = None,
         retention=pulumi.get(__ret__, 'retention'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_mail_manager_archive_output(archive_id: Optional[pulumi.Input[str]] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMailManagerArchiveResult]:
+                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMailManagerArchiveResult]:
     """
     Definition of AWS::SES::MailManagerArchive Resource Type
 
@@ -142,7 +142,7 @@ def get_mail_manager_archive_output(archive_id: Optional[pulumi.Input[str]] = No
     """
     __args__ = dict()
     __args__['archiveId'] = archive_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ses:getMailManagerArchive', __args__, opts=opts, typ=GetMailManagerArchiveResult)
     return __ret__.apply(lambda __response__: GetMailManagerArchiveResult(
         archive_arn=pulumi.get(__response__, 'archive_arn'),

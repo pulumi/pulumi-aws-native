@@ -49,7 +49,7 @@ export interface GetPhoneNumberResult {
 /**
  * Resource Type definition for AWS::Connect::PhoneNumber
  */
-export function getPhoneNumberOutput(args: GetPhoneNumberOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPhoneNumberResult> {
+export function getPhoneNumberOutput(args: GetPhoneNumberOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPhoneNumberResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:connect:getPhoneNumber", {
         "phoneNumberArn": args.phoneNumberArn,

@@ -69,7 +69,7 @@ export interface GetListenerResult {
 /**
  * Specifies a listener for an Application Load Balancer, Network Load Balancer, or Gateway Load Balancer.
  */
-export function getListenerOutput(args: GetListenerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetListenerResult> {
+export function getListenerOutput(args: GetListenerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetListenerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:elasticloadbalancingv2:getListener", {
         "listenerArn": args.listenerArn,

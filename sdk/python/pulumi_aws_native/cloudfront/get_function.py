@@ -141,7 +141,7 @@ def get_function(function_arn: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         stage=pulumi.get(__ret__, 'stage'))
 def get_function_output(function_arn: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFunctionResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFunctionResult]:
     """
     Creates a CF function.
      To create a function, you provide the function code and some configuration information about the function. The response contains an Amazon Resource Name (ARN) that uniquely identifies the function, and the function’s stage.
@@ -160,7 +160,7 @@ def get_function_output(function_arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['functionArn'] = function_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:cloudfront:getFunction', __args__, opts=opts, typ=GetFunctionResult)
     return __ret__.apply(lambda __response__: GetFunctionResult(
         function_arn=pulumi.get(__response__, 'function_arn'),

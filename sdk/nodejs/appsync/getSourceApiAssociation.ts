@@ -73,7 +73,7 @@ export interface GetSourceApiAssociationResult {
 /**
  * Resource Type definition for AWS::AppSync::SourceApiAssociation
  */
-export function getSourceApiAssociationOutput(args: GetSourceApiAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSourceApiAssociationResult> {
+export function getSourceApiAssociationOutput(args: GetSourceApiAssociationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSourceApiAssociationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:appsync:getSourceApiAssociation", {
         "associationArn": args.associationArn,

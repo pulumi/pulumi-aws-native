@@ -39,7 +39,7 @@ export interface GetPreparedStatementResult {
 /**
  * Resource schema for AWS::Athena::PreparedStatement
  */
-export function getPreparedStatementOutput(args: GetPreparedStatementOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPreparedStatementResult> {
+export function getPreparedStatementOutput(args: GetPreparedStatementOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPreparedStatementResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:athena:getPreparedStatement", {
         "statementName": args.statementName,

@@ -78,7 +78,7 @@ def get_auth_policy(resource_identifier: Optional[str] = None,
         policy=pulumi.get(__ret__, 'policy'),
         state=pulumi.get(__ret__, 'state'))
 def get_auth_policy_output(resource_identifier: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAuthPolicyResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAuthPolicyResult]:
     """
     Creates or updates the auth policy.
 
@@ -87,7 +87,7 @@ def get_auth_policy_output(resource_identifier: Optional[pulumi.Input[str]] = No
     """
     __args__ = dict()
     __args__['resourceIdentifier'] = resource_identifier
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:vpclattice:getAuthPolicy', __args__, opts=opts, typ=GetAuthPolicyResult)
     return __ret__.apply(lambda __response__: GetAuthPolicyResult(
         policy=pulumi.get(__response__, 'policy'),

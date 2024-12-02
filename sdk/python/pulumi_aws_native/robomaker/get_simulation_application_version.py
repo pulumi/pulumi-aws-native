@@ -75,7 +75,7 @@ def get_simulation_application_version(arn: Optional[str] = None,
         application_version=pulumi.get(__ret__, 'application_version'),
         arn=pulumi.get(__ret__, 'arn'))
 def get_simulation_application_version_output(arn: Optional[pulumi.Input[str]] = None,
-                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSimulationApplicationVersionResult]:
+                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSimulationApplicationVersionResult]:
     """
     AWS::RoboMaker::SimulationApplicationVersion resource creates an AWS RoboMaker SimulationApplicationVersion. This helps you control which code your simulation uses.
 
@@ -84,7 +84,7 @@ def get_simulation_application_version_output(arn: Optional[pulumi.Input[str]] =
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:robomaker:getSimulationApplicationVersion', __args__, opts=opts, typ=GetSimulationApplicationVersionResult)
     return __ret__.apply(lambda __response__: GetSimulationApplicationVersionResult(
         application_version=pulumi.get(__response__, 'application_version'),

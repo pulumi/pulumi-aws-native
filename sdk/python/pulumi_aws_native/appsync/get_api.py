@@ -142,7 +142,7 @@ def get_api(api_arn: Optional[str] = None,
         owner_contact=pulumi.get(__ret__, 'owner_contact'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_api_output(api_arn: Optional[pulumi.Input[str]] = None,
-                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApiResult]:
+                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApiResult]:
     """
     Resource schema for AppSync Api
 
@@ -151,7 +151,7 @@ def get_api_output(api_arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['apiArn'] = api_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:appsync:getApi', __args__, opts=opts, typ=GetApiResult)
     return __ret__.apply(lambda __response__: GetApiResult(
         api_arn=pulumi.get(__response__, 'api_arn'),

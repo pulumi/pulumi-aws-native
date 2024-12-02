@@ -105,7 +105,7 @@ export interface GetDbClusterResult {
 /**
  * The AWS::Neptune::DBCluster resource creates an Amazon Neptune DB cluster.
  */
-export function getDbClusterOutput(args: GetDbClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDbClusterResult> {
+export function getDbClusterOutput(args: GetDbClusterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDbClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:neptune:getDbCluster", {
         "dbClusterIdentifier": args.dbClusterIdentifier,

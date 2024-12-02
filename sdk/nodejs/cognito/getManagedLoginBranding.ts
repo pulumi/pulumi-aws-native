@@ -35,7 +35,7 @@ export interface GetManagedLoginBrandingResult {
 /**
  * Resource Type definition for AWS::Cognito::ManagedLoginBranding
  */
-export function getManagedLoginBrandingOutput(args: GetManagedLoginBrandingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedLoginBrandingResult> {
+export function getManagedLoginBrandingOutput(args: GetManagedLoginBrandingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetManagedLoginBrandingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:cognito:getManagedLoginBranding", {
         "managedLoginBrandingId": args.managedLoginBrandingId,

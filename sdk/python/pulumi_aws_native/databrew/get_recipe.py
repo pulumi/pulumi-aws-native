@@ -76,7 +76,7 @@ def get_recipe(name: Optional[str] = None,
         description=pulumi.get(__ret__, 'description'),
         steps=pulumi.get(__ret__, 'steps'))
 def get_recipe_output(name: Optional[pulumi.Input[str]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRecipeResult]:
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRecipeResult]:
     """
     Resource schema for AWS::DataBrew::Recipe.
 
@@ -85,7 +85,7 @@ def get_recipe_output(name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:databrew:getRecipe', __args__, opts=opts, typ=GetRecipeResult)
     return __ret__.apply(lambda __response__: GetRecipeResult(
         description=pulumi.get(__response__, 'description'),

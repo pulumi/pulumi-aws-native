@@ -132,7 +132,7 @@ def get_vpce_configuration(arn: Optional[str] = None,
         vpce_configuration_name=pulumi.get(__ret__, 'vpce_configuration_name'),
         vpce_service_name=pulumi.get(__ret__, 'vpce_service_name'))
 def get_vpce_configuration_output(arn: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpceConfigurationResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpceConfigurationResult]:
     """
     AWS::DeviceFarm::VPCEConfiguration creates a new Device Farm VPCE Configuration
 
@@ -141,7 +141,7 @@ def get_vpce_configuration_output(arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:devicefarm:getVpceConfiguration', __args__, opts=opts, typ=GetVpceConfigurationResult)
     return __ret__.apply(lambda __response__: GetVpceConfigurationResult(
         arn=pulumi.get(__response__, 'arn'),

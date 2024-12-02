@@ -57,7 +57,7 @@ export interface GetScraperResult {
 /**
  * Resource Type definition for AWS::APS::Scraper
  */
-export function getScraperOutput(args: GetScraperOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScraperResult> {
+export function getScraperOutput(args: GetScraperOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetScraperResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:aps:getScraper", {
         "arn": args.arn,

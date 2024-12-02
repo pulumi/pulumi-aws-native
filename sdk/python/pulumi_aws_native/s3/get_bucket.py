@@ -374,7 +374,7 @@ def get_bucket(bucket_name: Optional[str] = None,
         website_configuration=pulumi.get(__ret__, 'website_configuration'),
         website_url=pulumi.get(__ret__, 'website_url'))
 def get_bucket_output(bucket_name: Optional[pulumi.Input[str]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBucketResult]:
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBucketResult]:
     """
     The ``AWS::S3::Bucket`` resource creates an Amazon S3 bucket in the same AWS Region where you create the AWS CloudFormation stack.
      To control how AWS CloudFormation handles the bucket when the stack is deleted, you can set a deletion policy for your bucket. You can choose to *retain* the bucket or to *delete* the bucket. For more information, see [DeletionPolicy Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html).
@@ -386,7 +386,7 @@ def get_bucket_output(bucket_name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['bucketName'] = bucket_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:s3:getBucket', __args__, opts=opts, typ=GetBucketResult)
     return __ret__.apply(lambda __response__: GetBucketResult(
         accelerate_configuration=pulumi.get(__response__, 'accelerate_configuration'),

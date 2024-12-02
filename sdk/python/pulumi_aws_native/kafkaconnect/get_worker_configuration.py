@@ -89,7 +89,7 @@ def get_worker_configuration(worker_configuration_arn: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         worker_configuration_arn=pulumi.get(__ret__, 'worker_configuration_arn'))
 def get_worker_configuration_output(worker_configuration_arn: Optional[pulumi.Input[str]] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkerConfigurationResult]:
+                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkerConfigurationResult]:
     """
     The configuration of the workers, which are the processes that run the connector logic.
 
@@ -98,7 +98,7 @@ def get_worker_configuration_output(worker_configuration_arn: Optional[pulumi.In
     """
     __args__ = dict()
     __args__['workerConfigurationArn'] = worker_configuration_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:kafkaconnect:getWorkerConfiguration', __args__, opts=opts, typ=GetWorkerConfigurationResult)
     return __ret__.apply(lambda __response__: GetWorkerConfigurationResult(
         revision=pulumi.get(__response__, 'revision'),

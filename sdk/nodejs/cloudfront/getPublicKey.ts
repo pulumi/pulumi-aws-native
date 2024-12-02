@@ -41,7 +41,7 @@ export interface GetPublicKeyResult {
 /**
  * A public key that you can use with [signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html), or with [field-level encryption](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html).
  */
-export function getPublicKeyOutput(args: GetPublicKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPublicKeyResult> {
+export function getPublicKeyOutput(args: GetPublicKeyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPublicKeyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:cloudfront:getPublicKey", {
         "id": args.id,

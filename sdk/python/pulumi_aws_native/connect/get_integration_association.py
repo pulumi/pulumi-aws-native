@@ -81,7 +81,7 @@ def get_integration_association(instance_id: Optional[str] = None,
 def get_integration_association_output(instance_id: Optional[pulumi.Input[str]] = None,
                                        integration_arn: Optional[pulumi.Input[str]] = None,
                                        integration_type: Optional[pulumi.Input['IntegrationAssociationIntegrationType']] = None,
-                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIntegrationAssociationResult]:
+                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIntegrationAssociationResult]:
     """
     Resource Type definition for AWS::Connect::IntegrationAssociation
 
@@ -104,7 +104,7 @@ def get_integration_association_output(instance_id: Optional[pulumi.Input[str]] 
     __args__['instanceId'] = instance_id
     __args__['integrationArn'] = integration_arn
     __args__['integrationType'] = integration_type
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:connect:getIntegrationAssociation', __args__, opts=opts, typ=GetIntegrationAssociationResult)
     return __ret__.apply(lambda __response__: GetIntegrationAssociationResult(
         integration_association_id=pulumi.get(__response__, 'integration_association_id')))

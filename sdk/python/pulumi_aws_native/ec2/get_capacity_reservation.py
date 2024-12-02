@@ -154,7 +154,7 @@ def get_capacity_reservation(id: Optional[str] = None,
         instance_match_criteria=pulumi.get(__ret__, 'instance_match_criteria'),
         total_instance_count=pulumi.get(__ret__, 'total_instance_count'))
 def get_capacity_reservation_output(id: Optional[pulumi.Input[str]] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCapacityReservationResult]:
+                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCapacityReservationResult]:
     """
     Resource Type definition for AWS::EC2::CapacityReservation
 
@@ -163,7 +163,7 @@ def get_capacity_reservation_output(id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getCapacityReservation', __args__, opts=opts, typ=GetCapacityReservationResult)
     return __ret__.apply(lambda __response__: GetCapacityReservationResult(
         available_instance_count=pulumi.get(__response__, 'available_instance_count'),

@@ -79,7 +79,7 @@ def get_target_account_configuration(account_id: Optional[str] = None,
         role_arn=pulumi.get(__ret__, 'role_arn'))
 def get_target_account_configuration_output(account_id: Optional[pulumi.Input[str]] = None,
                                             experiment_template_id: Optional[pulumi.Input[str]] = None,
-                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTargetAccountConfigurationResult]:
+                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTargetAccountConfigurationResult]:
     """
     Resource schema for AWS::FIS::TargetAccountConfiguration
 
@@ -90,7 +90,7 @@ def get_target_account_configuration_output(account_id: Optional[pulumi.Input[st
     __args__ = dict()
     __args__['accountId'] = account_id
     __args__['experimentTemplateId'] = experiment_template_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:fis:getTargetAccountConfiguration', __args__, opts=opts, typ=GetTargetAccountConfigurationResult)
     return __ret__.apply(lambda __response__: GetTargetAccountConfigurationResult(
         description=pulumi.get(__response__, 'description'),

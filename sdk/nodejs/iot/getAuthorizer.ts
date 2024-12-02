@@ -65,7 +65,7 @@ export interface GetAuthorizerResult {
 /**
  * Creates an authorizer.
  */
-export function getAuthorizerOutput(args: GetAuthorizerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAuthorizerResult> {
+export function getAuthorizerOutput(args: GetAuthorizerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAuthorizerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:iot:getAuthorizer", {
         "authorizerName": args.authorizerName,

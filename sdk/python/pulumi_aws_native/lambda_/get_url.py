@@ -116,7 +116,7 @@ def get_url(function_arn: Optional[str] = None,
         function_url=pulumi.get(__ret__, 'function_url'),
         invoke_mode=pulumi.get(__ret__, 'invoke_mode'))
 def get_url_output(function_arn: Optional[pulumi.Input[str]] = None,
-                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUrlResult]:
+                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUrlResult]:
     """
     Resource Type definition for AWS::Lambda::Url
 
@@ -125,7 +125,7 @@ def get_url_output(function_arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['functionArn'] = function_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:lambda:getUrl', __args__, opts=opts, typ=GetUrlResult)
     return __ret__.apply(lambda __response__: GetUrlResult(
         auth_type=pulumi.get(__response__, 'auth_type'),

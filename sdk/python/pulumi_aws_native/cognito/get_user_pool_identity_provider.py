@@ -120,7 +120,7 @@ def get_user_pool_identity_provider(provider_name: Optional[str] = None,
         provider_details=pulumi.get(__ret__, 'provider_details'))
 def get_user_pool_identity_provider_output(provider_name: Optional[pulumi.Input[str]] = None,
                                            user_pool_id: Optional[pulumi.Input[str]] = None,
-                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserPoolIdentityProviderResult]:
+                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserPoolIdentityProviderResult]:
     """
     Resource Type definition for AWS::Cognito::UserPoolIdentityProvider
 
@@ -131,7 +131,7 @@ def get_user_pool_identity_provider_output(provider_name: Optional[pulumi.Input[
     __args__ = dict()
     __args__['providerName'] = provider_name
     __args__['userPoolId'] = user_pool_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:cognito:getUserPoolIdentityProvider', __args__, opts=opts, typ=GetUserPoolIdentityProviderResult)
     return __ret__.apply(lambda __response__: GetUserPoolIdentityProviderResult(
         attribute_mapping=pulumi.get(__response__, 'attribute_mapping'),

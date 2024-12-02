@@ -107,7 +107,7 @@ def get_multiplexprogram(multiplex_id: Optional[str] = None,
         pipeline_details=pulumi.get(__ret__, 'pipeline_details'))
 def get_multiplexprogram_output(multiplex_id: Optional[pulumi.Input[str]] = None,
                                 program_name: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMultiplexprogramResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMultiplexprogramResult]:
     """
     Resource schema for AWS::MediaLive::Multiplexprogram
 
@@ -118,7 +118,7 @@ def get_multiplexprogram_output(multiplex_id: Optional[pulumi.Input[str]] = None
     __args__ = dict()
     __args__['multiplexId'] = multiplex_id
     __args__['programName'] = program_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:medialive:getMultiplexprogram', __args__, opts=opts, typ=GetMultiplexprogramResult)
     return __ret__.apply(lambda __response__: GetMultiplexprogramResult(
         channel_id=pulumi.get(__response__, 'channel_id'),

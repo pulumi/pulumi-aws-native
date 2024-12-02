@@ -56,13 +56,13 @@ def get_batch_scram_secret(cluster_arn: Optional[str] = None,
     return AwaitableGetBatchScramSecretResult(
         secret_arn_list=pulumi.get(__ret__, 'secret_arn_list'))
 def get_batch_scram_secret_output(cluster_arn: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBatchScramSecretResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBatchScramSecretResult]:
     """
     Resource Type definition for AWS::MSK::BatchScramSecret
     """
     __args__ = dict()
     __args__['clusterArn'] = cluster_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:msk:getBatchScramSecret', __args__, opts=opts, typ=GetBatchScramSecretResult)
     return __ret__.apply(lambda __response__: GetBatchScramSecretResult(
         secret_arn_list=pulumi.get(__response__, 'secret_arn_list')))

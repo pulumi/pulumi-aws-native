@@ -73,7 +73,7 @@ export interface GetPlaceIndexResult {
 /**
  * Definition of AWS::Location::PlaceIndex Resource Type
  */
-export function getPlaceIndexOutput(args: GetPlaceIndexOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPlaceIndexResult> {
+export function getPlaceIndexOutput(args: GetPlaceIndexOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPlaceIndexResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:location:getPlaceIndex", {
         "indexName": args.indexName,

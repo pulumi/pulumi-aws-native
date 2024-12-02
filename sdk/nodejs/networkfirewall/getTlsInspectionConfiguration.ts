@@ -49,7 +49,7 @@ export interface GetTlsInspectionConfigurationResult {
 /**
  * Resource type definition for AWS::NetworkFirewall::TLSInspectionConfiguration
  */
-export function getTlsInspectionConfigurationOutput(args: GetTlsInspectionConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTlsInspectionConfigurationResult> {
+export function getTlsInspectionConfigurationOutput(args: GetTlsInspectionConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTlsInspectionConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:networkfirewall:getTlsInspectionConfiguration", {
         "tlsInspectionConfigurationArn": args.tlsInspectionConfigurationArn,

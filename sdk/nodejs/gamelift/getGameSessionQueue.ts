@@ -65,7 +65,7 @@ export interface GetGameSessionQueueResult {
 /**
  * The AWS::GameLift::GameSessionQueue resource creates an Amazon GameLift (GameLift) game session queue.
  */
-export function getGameSessionQueueOutput(args: GetGameSessionQueueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGameSessionQueueResult> {
+export function getGameSessionQueueOutput(args: GetGameSessionQueueOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGameSessionQueueResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:gamelift:getGameSessionQueue", {
         "name": args.name,

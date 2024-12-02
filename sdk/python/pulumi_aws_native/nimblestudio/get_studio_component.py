@@ -154,7 +154,7 @@ def get_studio_component(studio_component_id: Optional[str] = None,
         studio_component_id=pulumi.get(__ret__, 'studio_component_id'),
         type=pulumi.get(__ret__, 'type'))
 def get_studio_component_output(studio_component_id: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStudioComponentResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStudioComponentResult]:
     """
     Resource Type definition for AWS::NimbleStudio::StudioComponent
 
@@ -163,7 +163,7 @@ def get_studio_component_output(studio_component_id: Optional[pulumi.Input[str]]
     """
     __args__ = dict()
     __args__['studioComponentId'] = studio_component_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:nimblestudio:getStudioComponent', __args__, opts=opts, typ=GetStudioComponentResult)
     return __ret__.apply(lambda __response__: GetStudioComponentResult(
         configuration=pulumi.get(__response__, 'configuration'),

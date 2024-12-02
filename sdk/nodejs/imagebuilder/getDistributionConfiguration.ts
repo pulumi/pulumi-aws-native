@@ -45,7 +45,7 @@ export interface GetDistributionConfigurationResult {
 /**
  * Resource schema for AWS::ImageBuilder::DistributionConfiguration
  */
-export function getDistributionConfigurationOutput(args: GetDistributionConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDistributionConfigurationResult> {
+export function getDistributionConfigurationOutput(args: GetDistributionConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDistributionConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:imagebuilder:getDistributionConfiguration", {
         "arn": args.arn,

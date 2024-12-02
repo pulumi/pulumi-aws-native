@@ -155,7 +155,7 @@ def get_anomaly_subscription(subscription_arn: Optional[str] = None,
         threshold=pulumi.get(__ret__, 'threshold'),
         threshold_expression=pulumi.get(__ret__, 'threshold_expression'))
 def get_anomaly_subscription_output(subscription_arn: Optional[pulumi.Input[str]] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAnomalySubscriptionResult]:
+                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAnomalySubscriptionResult]:
     """
     AWS Cost Anomaly Detection leverages advanced Machine Learning technologies to identify anomalous spend and root causes, so you can quickly take action. Create subscription to be notified
 
@@ -164,7 +164,7 @@ def get_anomaly_subscription_output(subscription_arn: Optional[pulumi.Input[str]
     """
     __args__ = dict()
     __args__['subscriptionArn'] = subscription_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ce:getAnomalySubscription', __args__, opts=opts, typ=GetAnomalySubscriptionResult)
     return __ret__.apply(lambda __response__: GetAnomalySubscriptionResult(
         account_id=pulumi.get(__response__, 'account_id'),

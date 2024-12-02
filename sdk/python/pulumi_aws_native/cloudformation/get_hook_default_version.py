@@ -103,7 +103,7 @@ def get_hook_default_version(arn: Optional[str] = None,
         type_version_arn=pulumi.get(__ret__, 'type_version_arn'),
         version_id=pulumi.get(__ret__, 'version_id'))
 def get_hook_default_version_output(arn: Optional[pulumi.Input[str]] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetHookDefaultVersionResult]:
+                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetHookDefaultVersionResult]:
     """
     Set a version as default version for a hook in CloudFormation Registry.
 
@@ -112,7 +112,7 @@ def get_hook_default_version_output(arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:cloudformation:getHookDefaultVersion', __args__, opts=opts, typ=GetHookDefaultVersionResult)
     return __ret__.apply(lambda __response__: GetHookDefaultVersionResult(
         arn=pulumi.get(__response__, 'arn'),

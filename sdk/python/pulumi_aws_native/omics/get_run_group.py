@@ -166,7 +166,7 @@ def get_run_group(id: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_run_group_output(id: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRunGroupResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRunGroupResult]:
     """
     Definition of AWS::Omics::RunGroup Resource Type
 
@@ -175,7 +175,7 @@ def get_run_group_output(id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:omics:getRunGroup', __args__, opts=opts, typ=GetRunGroupResult)
     return __ret__.apply(lambda __response__: GetRunGroupResult(
         arn=pulumi.get(__response__, 'arn'),

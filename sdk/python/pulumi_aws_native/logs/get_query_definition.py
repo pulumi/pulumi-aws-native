@@ -101,7 +101,7 @@ def get_query_definition(query_definition_id: Optional[str] = None,
         query_definition_id=pulumi.get(__ret__, 'query_definition_id'),
         query_string=pulumi.get(__ret__, 'query_string'))
 def get_query_definition_output(query_definition_id: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetQueryDefinitionResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetQueryDefinitionResult]:
     """
     The resource schema for AWSLogs QueryDefinition
 
@@ -110,7 +110,7 @@ def get_query_definition_output(query_definition_id: Optional[pulumi.Input[str]]
     """
     __args__ = dict()
     __args__['queryDefinitionId'] = query_definition_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:logs:getQueryDefinition', __args__, opts=opts, typ=GetQueryDefinitionResult)
     return __ret__.apply(lambda __response__: GetQueryDefinitionResult(
         log_group_names=pulumi.get(__response__, 'log_group_names'),

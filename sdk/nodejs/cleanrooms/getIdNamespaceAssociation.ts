@@ -62,7 +62,7 @@ export interface GetIdNamespaceAssociationResult {
 /**
  * Represents an association between an ID namespace and a collaboration
  */
-export function getIdNamespaceAssociationOutput(args: GetIdNamespaceAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIdNamespaceAssociationResult> {
+export function getIdNamespaceAssociationOutput(args: GetIdNamespaceAssociationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIdNamespaceAssociationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:cleanrooms:getIdNamespaceAssociation", {
         "idNamespaceAssociationIdentifier": args.idNamespaceAssociationIdentifier,

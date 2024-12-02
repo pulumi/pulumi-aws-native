@@ -41,7 +41,7 @@ export interface GetPlaybackKeyPairResult {
 /**
  * Resource Type definition for AWS::IVS::PlaybackKeyPair
  */
-export function getPlaybackKeyPairOutput(args: GetPlaybackKeyPairOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPlaybackKeyPairResult> {
+export function getPlaybackKeyPairOutput(args: GetPlaybackKeyPairOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPlaybackKeyPairResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:ivs:getPlaybackKeyPair", {
         "arn": args.arn,

@@ -41,7 +41,7 @@ export interface GetResourceSetResult {
 /**
  * Schema for the AWS Route53 Recovery Readiness ResourceSet Resource and API.
  */
-export function getResourceSetOutput(args: GetResourceSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceSetResult> {
+export function getResourceSetOutput(args: GetResourceSetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetResourceSetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:route53recoveryreadiness:getResourceSet", {
         "resourceSetName": args.resourceSetName,

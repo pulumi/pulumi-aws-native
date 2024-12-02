@@ -38,7 +38,7 @@ export interface GetClusterSubnetGroupResult {
 /**
  * Specifies an Amazon Redshift subnet group.
  */
-export function getClusterSubnetGroupOutput(args: GetClusterSubnetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterSubnetGroupResult> {
+export function getClusterSubnetGroupOutput(args: GetClusterSubnetGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetClusterSubnetGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:redshift:getClusterSubnetGroup", {
         "clusterSubnetGroupName": args.clusterSubnetGroupName,

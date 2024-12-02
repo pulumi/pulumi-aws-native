@@ -33,7 +33,7 @@ export interface GetResourceDataSyncResult {
 /**
  * Resource Type definition for AWS::SSM::ResourceDataSync
  */
-export function getResourceDataSyncOutput(args: GetResourceDataSyncOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceDataSyncResult> {
+export function getResourceDataSyncOutput(args: GetResourceDataSyncOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetResourceDataSyncResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:ssm:getResourceDataSync", {
         "syncName": args.syncName,

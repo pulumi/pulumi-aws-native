@@ -60,7 +60,7 @@ export interface GetFolderResult {
 /**
  * Definition of the AWS::QuickSight::Folder Resource Type.
  */
-export function getFolderOutput(args: GetFolderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFolderResult> {
+export function getFolderOutput(args: GetFolderOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFolderResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:quicksight:getFolder", {
         "awsAccountId": args.awsAccountId,

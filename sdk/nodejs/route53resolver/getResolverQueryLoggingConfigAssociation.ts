@@ -49,7 +49,7 @@ export interface GetResolverQueryLoggingConfigAssociationResult {
 /**
  * Resource schema for AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation.
  */
-export function getResolverQueryLoggingConfigAssociationOutput(args: GetResolverQueryLoggingConfigAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResolverQueryLoggingConfigAssociationResult> {
+export function getResolverQueryLoggingConfigAssociationOutput(args: GetResolverQueryLoggingConfigAssociationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetResolverQueryLoggingConfigAssociationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:route53resolver:getResolverQueryLoggingConfigAssociation", {
         "id": args.id,

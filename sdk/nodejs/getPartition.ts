@@ -20,7 +20,7 @@ export interface GetPartitionResult {
      */
     readonly partition: string;
 }
-export function getPartitionOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetPartitionResult> {
+export function getPartitionOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPartitionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:index:getPartition", {
     }, opts);

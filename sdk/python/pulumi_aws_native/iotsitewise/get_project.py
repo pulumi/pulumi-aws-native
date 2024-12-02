@@ -128,7 +128,7 @@ def get_project(project_id: Optional[str] = None,
         project_name=pulumi.get(__ret__, 'project_name'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_project_output(project_id: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProjectResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProjectResult]:
     """
     Resource schema for AWS::IoTSiteWise::Project
 
@@ -137,7 +137,7 @@ def get_project_output(project_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['projectId'] = project_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:iotsitewise:getProject', __args__, opts=opts, typ=GetProjectResult)
     return __ret__.apply(lambda __response__: GetProjectResult(
         asset_ids=pulumi.get(__response__, 'asset_ids'),

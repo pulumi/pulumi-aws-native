@@ -37,7 +37,7 @@ export interface GetDatabaseResult {
 /**
  * Resource Type definition for AWS::Glue::Database
  */
-export function getDatabaseOutput(args: GetDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseResult> {
+export function getDatabaseOutput(args: GetDatabaseOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDatabaseResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:glue:getDatabase", {
         "databaseName": args.databaseName,

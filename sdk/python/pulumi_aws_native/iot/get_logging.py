@@ -76,7 +76,7 @@ def get_logging(account_id: Optional[str] = None,
         default_log_level=pulumi.get(__ret__, 'default_log_level'),
         role_arn=pulumi.get(__ret__, 'role_arn'))
 def get_logging_output(account_id: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLoggingResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLoggingResult]:
     """
     Logging Options enable you to configure your IoT V2 logging role and default logging level so that you can monitor progress events logs as it passes from your devices through Iot core service.
 
@@ -85,7 +85,7 @@ def get_logging_output(account_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['accountId'] = account_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:iot:getLogging', __args__, opts=opts, typ=GetLoggingResult)
     return __ret__.apply(lambda __response__: GetLoggingResult(
         default_log_level=pulumi.get(__response__, 'default_log_level'),

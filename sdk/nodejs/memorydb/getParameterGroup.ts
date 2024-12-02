@@ -37,7 +37,7 @@ export interface GetParameterGroupResult {
 /**
  * The AWS::MemoryDB::ParameterGroup resource creates an Amazon MemoryDB ParameterGroup.
  */
-export function getParameterGroupOutput(args: GetParameterGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetParameterGroupResult> {
+export function getParameterGroupOutput(args: GetParameterGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetParameterGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:memorydb:getParameterGroup", {
         "parameterGroupName": args.parameterGroupName,

@@ -166,7 +166,7 @@ def get_scalable_target(resource_id: Optional[str] = None,
 def get_scalable_target_output(resource_id: Optional[pulumi.Input[str]] = None,
                                scalable_dimension: Optional[pulumi.Input[str]] = None,
                                service_namespace: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScalableTargetResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetScalableTargetResult]:
     """
     The ``AWS::ApplicationAutoScaling::ScalableTarget`` resource specifies a resource that Application Auto Scaling can scale, such as an AWS::DynamoDB::Table or AWS::ECS::Service resource.
      For more information, see [Getting started](https://docs.aws.amazon.com/autoscaling/application/userguide/getting-started.html) in the *Application Auto Scaling User Guide*.
@@ -221,7 +221,7 @@ def get_scalable_target_output(resource_id: Optional[pulumi.Input[str]] = None,
     __args__['resourceId'] = resource_id
     __args__['scalableDimension'] = scalable_dimension
     __args__['serviceNamespace'] = service_namespace
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:applicationautoscaling:getScalableTarget', __args__, opts=opts, typ=GetScalableTargetResult)
     return __ret__.apply(lambda __response__: GetScalableTargetResult(
         id=pulumi.get(__response__, 'id'),

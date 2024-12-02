@@ -62,7 +62,7 @@ def get_subnet_network_acl_association(association_id: Optional[str] = None,
     return AwaitableGetSubnetNetworkAclAssociationResult(
         association_id=pulumi.get(__ret__, 'association_id'))
 def get_subnet_network_acl_association_output(association_id: Optional[pulumi.Input[str]] = None,
-                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubnetNetworkAclAssociationResult]:
+                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSubnetNetworkAclAssociationResult]:
     """
     Resource Type definition for AWS::EC2::SubnetNetworkAclAssociation
 
@@ -71,7 +71,7 @@ def get_subnet_network_acl_association_output(association_id: Optional[pulumi.In
     """
     __args__ = dict()
     __args__['associationId'] = association_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getSubnetNetworkAclAssociation', __args__, opts=opts, typ=GetSubnetNetworkAclAssociationResult)
     return __ret__.apply(lambda __response__: GetSubnetNetworkAclAssociationResult(
         association_id=pulumi.get(__response__, 'association_id')))

@@ -76,7 +76,7 @@ def get_transit_gateway_route_table(transit_gateway_route_table_id: Optional[str
         tags=pulumi.get(__ret__, 'tags'),
         transit_gateway_route_table_id=pulumi.get(__ret__, 'transit_gateway_route_table_id'))
 def get_transit_gateway_route_table_output(transit_gateway_route_table_id: Optional[pulumi.Input[str]] = None,
-                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTransitGatewayRouteTableResult]:
+                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTransitGatewayRouteTableResult]:
     """
     Resource Type definition for AWS::EC2::TransitGatewayRouteTable
 
@@ -85,7 +85,7 @@ def get_transit_gateway_route_table_output(transit_gateway_route_table_id: Optio
     """
     __args__ = dict()
     __args__['transitGatewayRouteTableId'] = transit_gateway_route_table_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getTransitGatewayRouteTable', __args__, opts=opts, typ=GetTransitGatewayRouteTableResult)
     return __ret__.apply(lambda __response__: GetTransitGatewayRouteTableResult(
         tags=pulumi.get(__response__, 'tags'),

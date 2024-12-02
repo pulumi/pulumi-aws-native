@@ -45,7 +45,7 @@ export interface GetClusterResult {
 /**
  * Resource Type definition for AWS::MSK::Cluster
  */
-export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterResult> {
+export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetClusterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:msk:getCluster", {
         "arn": args.arn,

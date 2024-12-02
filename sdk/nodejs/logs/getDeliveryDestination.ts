@@ -53,7 +53,7 @@ export interface GetDeliveryDestinationResult {
  *
  * A delivery destination is an AWS resource that represents an AWS service that logs can be sent to CloudWatch Logs, Amazon S3, are supported as Kinesis Data Firehose delivery destinations.
  */
-export function getDeliveryDestinationOutput(args: GetDeliveryDestinationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeliveryDestinationResult> {
+export function getDeliveryDestinationOutput(args: GetDeliveryDestinationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDeliveryDestinationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:logs:getDeliveryDestination", {
         "name": args.name,

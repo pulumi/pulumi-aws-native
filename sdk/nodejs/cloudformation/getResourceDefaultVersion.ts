@@ -44,7 +44,7 @@ export interface GetResourceDefaultVersionResult {
 /**
  * The default version of a resource that has been registered in the CloudFormation Registry.
  */
-export function getResourceDefaultVersionOutput(args: GetResourceDefaultVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceDefaultVersionResult> {
+export function getResourceDefaultVersionOutput(args: GetResourceDefaultVersionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetResourceDefaultVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:cloudformation:getResourceDefaultVersion", {
         "arn": args.arn,

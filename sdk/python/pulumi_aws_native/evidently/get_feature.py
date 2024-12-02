@@ -149,7 +149,7 @@ def get_feature(arn: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         variations=pulumi.get(__ret__, 'variations'))
 def get_feature_output(arn: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFeatureResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFeatureResult]:
     """
     Resource Type definition for AWS::Evidently::Feature.
 
@@ -158,7 +158,7 @@ def get_feature_output(arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:evidently:getFeature', __args__, opts=opts, typ=GetFeatureResult)
     return __ret__.apply(lambda __response__: GetFeatureResult(
         arn=pulumi.get(__response__, 'arn'),

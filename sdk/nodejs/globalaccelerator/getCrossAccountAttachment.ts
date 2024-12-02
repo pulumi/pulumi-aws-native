@@ -51,7 +51,7 @@ export interface GetCrossAccountAttachmentResult {
 /**
  * Resource Type definition for AWS::GlobalAccelerator::CrossAccountAttachment
  */
-export function getCrossAccountAttachmentOutput(args: GetCrossAccountAttachmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCrossAccountAttachmentResult> {
+export function getCrossAccountAttachmentOutput(args: GetCrossAccountAttachmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCrossAccountAttachmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:globalaccelerator:getCrossAccountAttachment", {
         "attachmentArn": args.attachmentArn,

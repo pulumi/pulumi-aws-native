@@ -41,7 +41,7 @@ export interface GetLocationFSxWindowsResult {
 /**
  * Resource schema for AWS::DataSync::LocationFSxWindows.
  */
-export function getLocationFSxWindowsOutput(args: GetLocationFSxWindowsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocationFSxWindowsResult> {
+export function getLocationFSxWindowsOutput(args: GetLocationFSxWindowsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLocationFSxWindowsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:datasync:getLocationFSxWindows", {
         "locationArn": args.locationArn,

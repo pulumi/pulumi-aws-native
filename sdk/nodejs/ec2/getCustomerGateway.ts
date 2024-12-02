@@ -37,7 +37,7 @@ export interface GetCustomerGatewayResult {
 /**
  * Specifies a customer gateway.
  */
-export function getCustomerGatewayOutput(args: GetCustomerGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomerGatewayResult> {
+export function getCustomerGatewayOutput(args: GetCustomerGatewayOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCustomerGatewayResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:ec2:getCustomerGateway", {
         "customerGatewayId": args.customerGatewayId,

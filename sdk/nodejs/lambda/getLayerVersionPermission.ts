@@ -30,7 +30,7 @@ export interface GetLayerVersionPermissionResult {
 /**
  * Schema for Lambda LayerVersionPermission
  */
-export function getLayerVersionPermissionOutput(args: GetLayerVersionPermissionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLayerVersionPermissionResult> {
+export function getLayerVersionPermissionOutput(args: GetLayerVersionPermissionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLayerVersionPermissionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:lambda:getLayerVersionPermission", {
         "id": args.id,

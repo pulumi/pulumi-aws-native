@@ -43,7 +43,7 @@ export interface GetVpcGatewayAttachmentResult {
 /**
  * Resource Type definition for AWS::EC2::VPCGatewayAttachment
  */
-export function getVpcGatewayAttachmentOutput(args: GetVpcGatewayAttachmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcGatewayAttachmentResult> {
+export function getVpcGatewayAttachmentOutput(args: GetVpcGatewayAttachmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVpcGatewayAttachmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:ec2:getVpcGatewayAttachment", {
         "attachmentType": args.attachmentType,

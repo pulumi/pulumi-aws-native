@@ -62,7 +62,7 @@ def get_schema_version(version_id: Optional[str] = None,
     return AwaitableGetSchemaVersionResult(
         version_id=pulumi.get(__ret__, 'version_id'))
 def get_schema_version_output(version_id: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSchemaVersionResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSchemaVersionResult]:
     """
     This resource represents an individual schema version of a schema defined in Glue Schema Registry.
 
@@ -71,7 +71,7 @@ def get_schema_version_output(version_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['versionId'] = version_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:glue:getSchemaVersion', __args__, opts=opts, typ=GetSchemaVersionResult)
     return __ret__.apply(lambda __response__: GetSchemaVersionResult(
         version_id=pulumi.get(__response__, 'version_id')))

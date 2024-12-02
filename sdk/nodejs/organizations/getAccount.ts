@@ -65,7 +65,7 @@ export interface GetAccountResult {
 /**
  * You can use AWS::Organizations::Account to manage accounts in organization.
  */
-export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountResult> {
+export function getAccountOutput(args: GetAccountOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:organizations:getAccount", {
         "accountId": args.accountId,

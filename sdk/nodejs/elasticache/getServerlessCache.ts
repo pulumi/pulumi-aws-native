@@ -89,7 +89,7 @@ export interface GetServerlessCacheResult {
 /**
  * The AWS::ElastiCache::ServerlessCache resource creates an Amazon ElastiCache Serverless Cache.
  */
-export function getServerlessCacheOutput(args: GetServerlessCacheOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerlessCacheResult> {
+export function getServerlessCacheOutput(args: GetServerlessCacheOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServerlessCacheResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:elasticache:getServerlessCache", {
         "serverlessCacheName": args.serverlessCacheName,

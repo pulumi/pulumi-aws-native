@@ -97,7 +97,7 @@ export interface GetAppResult {
 /**
  * The AWS::Amplify::App resource creates Apps in the Amplify Console. An App is a collection of branches.
  */
-export function getAppOutput(args: GetAppOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAppResult> {
+export function getAppOutput(args: GetAppOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAppResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:amplify:getApp", {
         "arn": args.arn,

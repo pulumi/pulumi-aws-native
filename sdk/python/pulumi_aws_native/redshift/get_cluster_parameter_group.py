@@ -63,7 +63,7 @@ def get_cluster_parameter_group(parameter_group_name: Optional[str] = None,
     return AwaitableGetClusterParameterGroupResult(
         parameters=pulumi.get(__ret__, 'parameters'))
 def get_cluster_parameter_group_output(parameter_group_name: Optional[pulumi.Input[str]] = None,
-                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterParameterGroupResult]:
+                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterParameterGroupResult]:
     """
     Resource Type definition for AWS::Redshift::ClusterParameterGroup
 
@@ -72,7 +72,7 @@ def get_cluster_parameter_group_output(parameter_group_name: Optional[pulumi.Inp
     """
     __args__ = dict()
     __args__['parameterGroupName'] = parameter_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:redshift:getClusterParameterGroup', __args__, opts=opts, typ=GetClusterParameterGroupResult)
     return __ret__.apply(lambda __response__: GetClusterParameterGroupResult(
         parameters=pulumi.get(__response__, 'parameters')))

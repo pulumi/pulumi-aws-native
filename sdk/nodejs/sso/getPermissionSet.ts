@@ -74,7 +74,7 @@ export interface GetPermissionSetResult {
 /**
  * Resource Type definition for SSO PermissionSet
  */
-export function getPermissionSetOutput(args: GetPermissionSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPermissionSetResult> {
+export function getPermissionSetOutput(args: GetPermissionSetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPermissionSetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:sso:getPermissionSet", {
         "instanceArn": args.instanceArn,

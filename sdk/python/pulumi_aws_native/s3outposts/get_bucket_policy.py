@@ -64,7 +64,7 @@ def get_bucket_policy(bucket: Optional[str] = None,
     return AwaitableGetBucketPolicyResult(
         policy_document=pulumi.get(__ret__, 'policy_document'))
 def get_bucket_policy_output(bucket: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBucketPolicyResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBucketPolicyResult]:
     """
     Resource Type Definition for AWS::S3Outposts::BucketPolicy
 
@@ -73,7 +73,7 @@ def get_bucket_policy_output(bucket: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['bucket'] = bucket
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:s3outposts:getBucketPolicy', __args__, opts=opts, typ=GetBucketPolicyResult)
     return __ret__.apply(lambda __response__: GetBucketPolicyResult(
         policy_document=pulumi.get(__response__, 'policy_document')))

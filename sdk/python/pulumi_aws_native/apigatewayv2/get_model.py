@@ -120,7 +120,7 @@ def get_model(api_id: Optional[str] = None,
         schema=pulumi.get(__ret__, 'schema'))
 def get_model_output(api_id: Optional[pulumi.Input[str]] = None,
                      model_id: Optional[pulumi.Input[str]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetModelResult]:
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetModelResult]:
     """
     The ``AWS::ApiGatewayV2::Model`` resource updates data model for a WebSocket API. For more information, see [Model Selection Expressions](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) in the *API Gateway Developer Guide*.
 
@@ -131,7 +131,7 @@ def get_model_output(api_id: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['apiId'] = api_id
     __args__['modelId'] = model_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:apigatewayv2:getModel', __args__, opts=opts, typ=GetModelResult)
     return __ret__.apply(lambda __response__: GetModelResult(
         content_type=pulumi.get(__response__, 'content_type'),

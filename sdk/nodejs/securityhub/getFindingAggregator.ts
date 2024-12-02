@@ -57,7 +57,7 @@ export interface GetFindingAggregatorResult {
  *  This resource must be created in the Region that you want to designate as your aggregation Region.
  *  Cross-Region aggregation is also a prerequisite for using [central configuration](https://docs.aws.amazon.com/securityhub/latest/userguide/central-configuration-intro.html) in ASH.
  */
-export function getFindingAggregatorOutput(args: GetFindingAggregatorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFindingAggregatorResult> {
+export function getFindingAggregatorOutput(args: GetFindingAggregatorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFindingAggregatorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:securityhub:getFindingAggregator", {
         "findingAggregatorArn": args.findingAggregatorArn,

@@ -182,7 +182,7 @@ def get_model_card(model_card_name: Optional[str] = None,
         model_card_version=pulumi.get(__ret__, 'model_card_version'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_model_card_output(model_card_name: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetModelCardResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetModelCardResult]:
     """
     Resource Type definition for AWS::SageMaker::ModelCard.
 
@@ -191,7 +191,7 @@ def get_model_card_output(model_card_name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['modelCardName'] = model_card_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:sagemaker:getModelCard', __args__, opts=opts, typ=GetModelCardResult)
     return __ret__.apply(lambda __response__: GetModelCardResult(
         content=pulumi.get(__response__, 'content'),

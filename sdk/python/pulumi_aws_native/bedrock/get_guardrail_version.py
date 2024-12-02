@@ -92,7 +92,7 @@ def get_guardrail_version(guardrail_id: Optional[str] = None,
         version=pulumi.get(__ret__, 'version'))
 def get_guardrail_version_output(guardrail_id: Optional[pulumi.Input[str]] = None,
                                  version: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGuardrailVersionResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGuardrailVersionResult]:
     """
     Definition of AWS::Bedrock::GuardrailVersion Resource Type
 
@@ -103,7 +103,7 @@ def get_guardrail_version_output(guardrail_id: Optional[pulumi.Input[str]] = Non
     __args__ = dict()
     __args__['guardrailId'] = guardrail_id
     __args__['version'] = version
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:bedrock:getGuardrailVersion', __args__, opts=opts, typ=GetGuardrailVersionResult)
     return __ret__.apply(lambda __response__: GetGuardrailVersionResult(
         guardrail_arn=pulumi.get(__response__, 'guardrail_arn'),

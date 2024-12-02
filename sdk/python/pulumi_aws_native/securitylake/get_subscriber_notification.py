@@ -77,7 +77,7 @@ def get_subscriber_notification(subscriber_arn: Optional[str] = None,
         notification_configuration=pulumi.get(__ret__, 'notification_configuration'),
         subscriber_endpoint=pulumi.get(__ret__, 'subscriber_endpoint'))
 def get_subscriber_notification_output(subscriber_arn: Optional[pulumi.Input[str]] = None,
-                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubscriberNotificationResult]:
+                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSubscriberNotificationResult]:
     """
     Resource Type definition for AWS::SecurityLake::SubscriberNotification
 
@@ -86,7 +86,7 @@ def get_subscriber_notification_output(subscriber_arn: Optional[pulumi.Input[str
     """
     __args__ = dict()
     __args__['subscriberArn'] = subscriber_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:securitylake:getSubscriberNotification', __args__, opts=opts, typ=GetSubscriberNotificationResult)
     return __ret__.apply(lambda __response__: GetSubscriberNotificationResult(
         notification_configuration=pulumi.get(__response__, 'notification_configuration'),

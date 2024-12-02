@@ -101,7 +101,7 @@ export interface GetEnvironmentResult {
 /**
  * Resource type definition for AWS::WorkSpacesThinClient::Environment.
  */
-export function getEnvironmentOutput(args: GetEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnvironmentResult> {
+export function getEnvironmentOutput(args: GetEnvironmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEnvironmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:workspacesthinclient:getEnvironment", {
         "id": args.id,

@@ -71,7 +71,7 @@ export interface GetEndpointResult {
 /**
  * Resource Type definition for AWS::Events::Endpoint.
  */
-export function getEndpointOutput(args: GetEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEndpointResult> {
+export function getEndpointOutput(args: GetEndpointOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEndpointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:events:getEndpoint", {
         "name": args.name,

@@ -184,7 +184,7 @@ def get_image_version(image_version_arn: Optional[str] = None,
         vendor_guidance=pulumi.get(__ret__, 'vendor_guidance'),
         version=pulumi.get(__ret__, 'version'))
 def get_image_version_output(image_version_arn: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImageVersionResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetImageVersionResult]:
     """
     Resource Type definition for AWS::SageMaker::ImageVersion
 
@@ -199,7 +199,7 @@ def get_image_version_output(image_version_arn: Optional[pulumi.Input[str]] = No
     """
     __args__ = dict()
     __args__['imageVersionArn'] = image_version_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:sagemaker:getImageVersion', __args__, opts=opts, typ=GetImageVersionResult)
     return __ret__.apply(lambda __response__: GetImageVersionResult(
         container_image=pulumi.get(__response__, 'container_image'),

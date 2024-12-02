@@ -61,7 +61,7 @@ export interface GetAccountPolicyResult {
 /**
  * The AWS::Logs::AccountPolicy resource specifies a CloudWatch Logs AccountPolicy.
  */
-export function getAccountPolicyOutput(args: GetAccountPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountPolicyResult> {
+export function getAccountPolicyOutput(args: GetAccountPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccountPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:logs:getAccountPolicy", {
         "accountId": args.accountId,

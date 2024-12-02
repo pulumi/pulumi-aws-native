@@ -83,7 +83,7 @@ export interface GetTaskResult {
 /**
  * Resource schema for AWS::DataSync::Task.
  */
-export function getTaskOutput(args: GetTaskOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTaskResult> {
+export function getTaskOutput(args: GetTaskOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTaskResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:datasync:getTask", {
         "taskArn": args.taskArn,

@@ -103,7 +103,7 @@ def get_analyzer(arn: Optional[str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_analyzer_output(arn: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAnalyzerResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAnalyzerResult]:
     """
     The AWS::AccessAnalyzer::Analyzer type specifies an analyzer of the user's account
 
@@ -112,7 +112,7 @@ def get_analyzer_output(arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:accessanalyzer:getAnalyzer', __args__, opts=opts, typ=GetAnalyzerResult)
     return __ret__.apply(lambda __response__: GetAnalyzerResult(
         analyzer_configuration=pulumi.get(__response__, 'analyzer_configuration'),

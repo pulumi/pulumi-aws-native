@@ -119,13 +119,13 @@ def get_data_protection_settings(data_protection_settings_arn: Optional[str] = N
         inline_redaction_configuration=pulumi.get(__ret__, 'inline_redaction_configuration'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_data_protection_settings_output(data_protection_settings_arn: Optional[pulumi.Input[str]] = None,
-                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataProtectionSettingsResult]:
+                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataProtectionSettingsResult]:
     """
     Definition of AWS::WorkSpacesWeb::DataProtectionSettings Resource Type
     """
     __args__ = dict()
     __args__['dataProtectionSettingsArn'] = data_protection_settings_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:workspacesweb:getDataProtectionSettings', __args__, opts=opts, typ=GetDataProtectionSettingsResult)
     return __ret__.apply(lambda __response__: GetDataProtectionSettingsResult(
         associated_portal_arns=pulumi.get(__response__, 'associated_portal_arns'),

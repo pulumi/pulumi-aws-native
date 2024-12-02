@@ -62,7 +62,7 @@ def get_subnet_route_table_association(id: Optional[str] = None,
     return AwaitableGetSubnetRouteTableAssociationResult(
         id=pulumi.get(__ret__, 'id'))
 def get_subnet_route_table_association_output(id: Optional[pulumi.Input[str]] = None,
-                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubnetRouteTableAssociationResult]:
+                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSubnetRouteTableAssociationResult]:
     """
     Associates a subnet with a route table. The subnet and route table must be in the same VPC. This association causes traffic originating from the subnet to be routed according to the routes in the route table. A route table can be associated with multiple subnets. To create a route table, see [AWS::EC2::RouteTable](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-routetable.html).
 
@@ -71,7 +71,7 @@ def get_subnet_route_table_association_output(id: Optional[pulumi.Input[str]] = 
     """
     __args__ = dict()
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getSubnetRouteTableAssociation', __args__, opts=opts, typ=GetSubnetRouteTableAssociationResult)
     return __ret__.apply(lambda __response__: GetSubnetRouteTableAssociationResult(
         id=pulumi.get(__response__, 'id')))

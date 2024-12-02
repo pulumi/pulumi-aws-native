@@ -116,7 +116,7 @@ def get_anomaly_detector(arn: Optional[str] = None,
         kms_key_arn=pulumi.get(__ret__, 'kms_key_arn'),
         metric_set_list=pulumi.get(__ret__, 'metric_set_list'))
 def get_anomaly_detector_output(arn: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAnomalyDetectorResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAnomalyDetectorResult]:
     """
     An Amazon Lookout for Metrics Detector
 
@@ -125,7 +125,7 @@ def get_anomaly_detector_output(arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:lookoutmetrics:getAnomalyDetector', __args__, opts=opts, typ=GetAnomalyDetectorResult)
     return __ret__.apply(lambda __response__: GetAnomalyDetectorResult(
         anomaly_detector_config=pulumi.get(__response__, 'anomaly_detector_config'),

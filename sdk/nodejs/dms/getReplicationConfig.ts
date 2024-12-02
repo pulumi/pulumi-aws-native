@@ -75,7 +75,7 @@ export interface GetReplicationConfigResult {
 /**
  * A replication configuration that you later provide to configure and start a AWS DMS Serverless replication
  */
-export function getReplicationConfigOutput(args: GetReplicationConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationConfigResult> {
+export function getReplicationConfigOutput(args: GetReplicationConfigOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetReplicationConfigResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:dms:getReplicationConfig", {
         "replicationConfigArn": args.replicationConfigArn,

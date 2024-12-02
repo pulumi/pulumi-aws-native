@@ -285,7 +285,7 @@ def get_event_data_store(event_data_store_arn: Optional[str] = None,
         termination_protection_enabled=pulumi.get(__ret__, 'termination_protection_enabled'),
         updated_timestamp=pulumi.get(__ret__, 'updated_timestamp'))
 def get_event_data_store_output(event_data_store_arn: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEventDataStoreResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEventDataStoreResult]:
     """
     A storage lake of event data against which you can run complex SQL-based queries. An event data store can include events that you have logged on your account from the last 7 to 2557 or 3653 days (about seven or ten years) depending on the selected BillingMode.
 
@@ -294,7 +294,7 @@ def get_event_data_store_output(event_data_store_arn: Optional[pulumi.Input[str]
     """
     __args__ = dict()
     __args__['eventDataStoreArn'] = event_data_store_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:cloudtrail:getEventDataStore', __args__, opts=opts, typ=GetEventDataStoreResult)
     return __ret__.apply(lambda __response__: GetEventDataStoreResult(
         advanced_event_selectors=pulumi.get(__response__, 'advanced_event_selectors'),

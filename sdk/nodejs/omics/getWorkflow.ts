@@ -61,7 +61,7 @@ export interface GetWorkflowResult {
 /**
  * Definition of AWS::Omics::Workflow Resource Type
  */
-export function getWorkflowOutput(args: GetWorkflowOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkflowResult> {
+export function getWorkflowOutput(args: GetWorkflowOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkflowResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:omics:getWorkflow", {
         "id": args.id,

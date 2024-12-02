@@ -62,7 +62,7 @@ def get_layer_version_permission(id: Optional[str] = None,
     return AwaitableGetLayerVersionPermissionResult(
         id=pulumi.get(__ret__, 'id'))
 def get_layer_version_permission_output(id: Optional[pulumi.Input[str]] = None,
-                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLayerVersionPermissionResult]:
+                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLayerVersionPermissionResult]:
     """
     Schema for Lambda LayerVersionPermission
 
@@ -71,7 +71,7 @@ def get_layer_version_permission_output(id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:lambda:getLayerVersionPermission', __args__, opts=opts, typ=GetLayerVersionPermissionResult)
     return __ret__.apply(lambda __response__: GetLayerVersionPermissionResult(
         id=pulumi.get(__response__, 'id')))

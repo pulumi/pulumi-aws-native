@@ -42,7 +42,7 @@ export interface GetEnabledControlResult {
 /**
  * Enables a control on a specified target.
  */
-export function getEnabledControlOutput(args: GetEnabledControlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnabledControlResult> {
+export function getEnabledControlOutput(args: GetEnabledControlOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEnabledControlResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:controltower:getEnabledControl", {
         "controlIdentifier": args.controlIdentifier,

@@ -115,7 +115,7 @@ def get_stored_query(query_name: Optional[str] = None,
         query_id=pulumi.get(__ret__, 'query_id'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_stored_query_output(query_name: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStoredQueryResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStoredQueryResult]:
     """
     Resource Type definition for AWS::Config::StoredQuery
 
@@ -124,7 +124,7 @@ def get_stored_query_output(query_name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['queryName'] = query_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:configuration:getStoredQuery', __args__, opts=opts, typ=GetStoredQueryResult)
     return __ret__.apply(lambda __response__: GetStoredQueryResult(
         query_arn=pulumi.get(__response__, 'query_arn'),

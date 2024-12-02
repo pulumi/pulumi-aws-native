@@ -142,7 +142,7 @@ def get_endpoint(arn: Optional[str] = None,
         network_interfaces=pulumi.get(__ret__, 'network_interfaces'),
         status=pulumi.get(__ret__, 'status'))
 def get_endpoint_output(arn: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEndpointResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEndpointResult]:
     """
     Resource Type Definition for AWS::S3Outposts::Endpoint
 
@@ -151,7 +151,7 @@ def get_endpoint_output(arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:s3outposts:getEndpoint', __args__, opts=opts, typ=GetEndpointResult)
     return __ret__.apply(lambda __response__: GetEndpointResult(
         arn=pulumi.get(__response__, 'arn'),

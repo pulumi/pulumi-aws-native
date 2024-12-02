@@ -157,7 +157,7 @@ def get_project(domain_id: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'))
 def get_project_output(domain_id: Optional[pulumi.Input[str]] = None,
                        id: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProjectResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProjectResult]:
     """
     Amazon DataZone projects are business use case–based groupings of people, assets (data), and tools used to simplify access to the AWS analytics.
 
@@ -168,7 +168,7 @@ def get_project_output(domain_id: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['domainId'] = domain_id
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:datazone:getProject', __args__, opts=opts, typ=GetProjectResult)
     return __ret__.apply(lambda __response__: GetProjectResult(
         created_at=pulumi.get(__response__, 'created_at'),

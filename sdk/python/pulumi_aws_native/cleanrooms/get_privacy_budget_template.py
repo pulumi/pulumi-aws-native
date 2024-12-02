@@ -146,7 +146,7 @@ def get_privacy_budget_template(membership_identifier: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'))
 def get_privacy_budget_template_output(membership_identifier: Optional[pulumi.Input[str]] = None,
                                        privacy_budget_template_identifier: Optional[pulumi.Input[str]] = None,
-                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivacyBudgetTemplateResult]:
+                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrivacyBudgetTemplateResult]:
     """
     Represents a privacy budget within a collaboration
 
@@ -157,7 +157,7 @@ def get_privacy_budget_template_output(membership_identifier: Optional[pulumi.In
     __args__ = dict()
     __args__['membershipIdentifier'] = membership_identifier
     __args__['privacyBudgetTemplateIdentifier'] = privacy_budget_template_identifier
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:cleanrooms:getPrivacyBudgetTemplate', __args__, opts=opts, typ=GetPrivacyBudgetTemplateResult)
     return __ret__.apply(lambda __response__: GetPrivacyBudgetTemplateResult(
         arn=pulumi.get(__response__, 'arn'),

@@ -90,7 +90,7 @@ def get_channel(channel_arn: Optional[str] = None,
         destinations=pulumi.get(__ret__, 'destinations'),
         name=pulumi.get(__ret__, 'name'))
 def get_channel_output(channel_arn: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetChannelResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetChannelResult]:
     """
     A channel receives events from a specific source (such as an on-premises storage solution or application, or a partner event data source), and delivers the events to one or more event data stores. You use channels to ingest events into CloudTrail from sources outside AWS.
 
@@ -99,7 +99,7 @@ def get_channel_output(channel_arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['channelArn'] = channel_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:cloudtrail:getChannel', __args__, opts=opts, typ=GetChannelResult)
     return __ret__.apply(lambda __response__: GetChannelResult(
         channel_arn=pulumi.get(__response__, 'channel_arn'),

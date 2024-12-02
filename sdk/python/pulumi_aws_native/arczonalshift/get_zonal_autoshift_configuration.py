@@ -83,7 +83,7 @@ def get_zonal_autoshift_configuration(resource_identifier: Optional[str] = None,
         practice_run_configuration=pulumi.get(__ret__, 'practice_run_configuration'),
         zonal_autoshift_status=pulumi.get(__ret__, 'zonal_autoshift_status'))
 def get_zonal_autoshift_configuration_output(resource_identifier: Optional[pulumi.Input[str]] = None,
-                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetZonalAutoshiftConfigurationResult]:
+                                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetZonalAutoshiftConfigurationResult]:
     """
     Definition of AWS::ARCZonalShift::ZonalAutoshiftConfiguration Resource Type
 
@@ -94,7 +94,7 @@ def get_zonal_autoshift_configuration_output(resource_identifier: Optional[pulum
     """
     __args__ = dict()
     __args__['resourceIdentifier'] = resource_identifier
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:arczonalshift:getZonalAutoshiftConfiguration', __args__, opts=opts, typ=GetZonalAutoshiftConfigurationResult)
     return __ret__.apply(lambda __response__: GetZonalAutoshiftConfigurationResult(
         practice_run_configuration=pulumi.get(__response__, 'practice_run_configuration'),

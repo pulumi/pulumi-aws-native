@@ -35,7 +35,7 @@ export interface GetMemberInvitationResult {
 /**
  * Resource schema for AWS::Detective::MemberInvitation
  */
-export function getMemberInvitationOutput(args: GetMemberInvitationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMemberInvitationResult> {
+export function getMemberInvitationOutput(args: GetMemberInvitationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMemberInvitationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:detective:getMemberInvitation", {
         "graphArn": args.graphArn,

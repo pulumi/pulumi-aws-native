@@ -64,7 +64,7 @@ export interface GetConfiguredTableAssociationResult {
 /**
  * Represents a table that can be queried within a collaboration
  */
-export function getConfiguredTableAssociationOutput(args: GetConfiguredTableAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfiguredTableAssociationResult> {
+export function getConfiguredTableAssociationOutput(args: GetConfiguredTableAssociationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConfiguredTableAssociationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:cleanrooms:getConfiguredTableAssociation", {
         "configuredTableAssociationIdentifier": args.configuredTableAssociationIdentifier,

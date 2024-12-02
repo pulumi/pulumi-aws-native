@@ -79,7 +79,7 @@ export interface GetNetworkProfileResult {
 /**
  * AWS::DeviceFarm::NetworkProfile creates a new DF Network Profile
  */
-export function getNetworkProfileOutput(args: GetNetworkProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkProfileResult> {
+export function getNetworkProfileOutput(args: GetNetworkProfileOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:devicefarm:getNetworkProfile", {
         "arn": args.arn,

@@ -49,7 +49,7 @@ export interface GetEntityTypeResult {
 /**
  * An entity type for fraud detector.
  */
-export function getEntityTypeOutput(args: GetEntityTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEntityTypeResult> {
+export function getEntityTypeOutput(args: GetEntityTypeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEntityTypeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:frauddetector:getEntityType", {
         "arn": args.arn,

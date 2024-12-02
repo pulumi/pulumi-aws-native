@@ -117,7 +117,7 @@ def get_channel_namespace(channel_namespace_arn: Optional[str] = None,
         subscribe_auth_modes=pulumi.get(__ret__, 'subscribe_auth_modes'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_channel_namespace_output(channel_namespace_arn: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetChannelNamespaceResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetChannelNamespaceResult]:
     """
     Resource schema for AppSync ChannelNamespace
 
@@ -126,7 +126,7 @@ def get_channel_namespace_output(channel_namespace_arn: Optional[pulumi.Input[st
     """
     __args__ = dict()
     __args__['channelNamespaceArn'] = channel_namespace_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:appsync:getChannelNamespace', __args__, opts=opts, typ=GetChannelNamespaceResult)
     return __ret__.apply(lambda __response__: GetChannelNamespaceResult(
         channel_namespace_arn=pulumi.get(__response__, 'channel_namespace_arn'),

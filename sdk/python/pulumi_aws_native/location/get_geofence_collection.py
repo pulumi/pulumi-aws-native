@@ -162,7 +162,7 @@ def get_geofence_collection(collection_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         update_time=pulumi.get(__ret__, 'update_time'))
 def get_geofence_collection_output(collection_name: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGeofenceCollectionResult]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGeofenceCollectionResult]:
     """
     Definition of AWS::Location::GeofenceCollection Resource Type
 
@@ -177,7 +177,7 @@ def get_geofence_collection_output(collection_name: Optional[pulumi.Input[str]] 
     """
     __args__ = dict()
     __args__['collectionName'] = collection_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:location:getGeofenceCollection', __args__, opts=opts, typ=GetGeofenceCollectionResult)
     return __ret__.apply(lambda __response__: GetGeofenceCollectionResult(
         arn=pulumi.get(__response__, 'arn'),

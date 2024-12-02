@@ -33,7 +33,7 @@ export interface GetMonitoringSubscriptionResult {
 /**
  * A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
  */
-export function getMonitoringSubscriptionOutput(args: GetMonitoringSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMonitoringSubscriptionResult> {
+export function getMonitoringSubscriptionOutput(args: GetMonitoringSubscriptionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMonitoringSubscriptionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:cloudfront:getMonitoringSubscription", {
         "distributionId": args.distributionId,

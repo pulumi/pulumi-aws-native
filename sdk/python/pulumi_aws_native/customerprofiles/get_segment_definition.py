@@ -106,7 +106,7 @@ def get_segment_definition(domain_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'))
 def get_segment_definition_output(domain_name: Optional[pulumi.Input[str]] = None,
                                   segment_definition_name: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSegmentDefinitionResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSegmentDefinitionResult]:
     """
     A segment definition resource of Amazon Connect Customer Profiles
 
@@ -117,7 +117,7 @@ def get_segment_definition_output(domain_name: Optional[pulumi.Input[str]] = Non
     __args__ = dict()
     __args__['domainName'] = domain_name
     __args__['segmentDefinitionName'] = segment_definition_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:customerprofiles:getSegmentDefinition', __args__, opts=opts, typ=GetSegmentDefinitionResult)
     return __ret__.apply(lambda __response__: GetSegmentDefinitionResult(
         created_at=pulumi.get(__response__, 'created_at'),

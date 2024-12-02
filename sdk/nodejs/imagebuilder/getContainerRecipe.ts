@@ -30,7 +30,7 @@ export interface GetContainerRecipeResult {
 /**
  * Resource schema for AWS::ImageBuilder::ContainerRecipe
  */
-export function getContainerRecipeOutput(args: GetContainerRecipeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContainerRecipeResult> {
+export function getContainerRecipeOutput(args: GetContainerRecipeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetContainerRecipeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:imagebuilder:getContainerRecipe", {
         "arn": args.arn,

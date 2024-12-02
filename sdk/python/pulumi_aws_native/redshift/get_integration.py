@@ -102,7 +102,7 @@ def get_integration(integration_arn: Optional[str] = None,
         integration_name=pulumi.get(__ret__, 'integration_name'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_integration_output(integration_arn: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIntegrationResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIntegrationResult]:
     """
     Integration from a source AWS service to a Redshift cluster
 
@@ -111,7 +111,7 @@ def get_integration_output(integration_arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['integrationArn'] = integration_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:redshift:getIntegration', __args__, opts=opts, typ=GetIntegrationResult)
     return __ret__.apply(lambda __response__: GetIntegrationResult(
         create_time=pulumi.get(__response__, 'create_time'),

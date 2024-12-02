@@ -88,7 +88,7 @@ def get_base_path_mapping_v2(base_path_mapping_arn: Optional[str] = None,
         rest_api_id=pulumi.get(__ret__, 'rest_api_id'),
         stage=pulumi.get(__ret__, 'stage'))
 def get_base_path_mapping_v2_output(base_path_mapping_arn: Optional[pulumi.Input[str]] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBasePathMappingV2Result]:
+                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBasePathMappingV2Result]:
     """
     Resource Type definition for AWS::ApiGateway::BasePathMappingV2
 
@@ -97,7 +97,7 @@ def get_base_path_mapping_v2_output(base_path_mapping_arn: Optional[pulumi.Input
     """
     __args__ = dict()
     __args__['basePathMappingArn'] = base_path_mapping_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:apigateway:getBasePathMappingV2', __args__, opts=opts, typ=GetBasePathMappingV2Result)
     return __ret__.apply(lambda __response__: GetBasePathMappingV2Result(
         base_path_mapping_arn=pulumi.get(__response__, 'base_path_mapping_arn'),

@@ -68,7 +68,7 @@ export interface GetCapacityReservationResult {
 /**
  * Resource Type definition for AWS::EC2::CapacityReservation
  */
-export function getCapacityReservationOutput(args: GetCapacityReservationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCapacityReservationResult> {
+export function getCapacityReservationOutput(args: GetCapacityReservationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCapacityReservationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:ec2:getCapacityReservation", {
         "id": args.id,

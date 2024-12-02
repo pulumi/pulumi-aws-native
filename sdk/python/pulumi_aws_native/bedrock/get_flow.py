@@ -235,7 +235,7 @@ def get_flow(arn: Optional[str] = None,
         validations=pulumi.get(__ret__, 'validations'),
         version=pulumi.get(__ret__, 'version'))
 def get_flow_output(arn: Optional[pulumi.Input[str]] = None,
-                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFlowResult]:
+                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFlowResult]:
     """
     Definition of AWS::Bedrock::Flow Resource Type
 
@@ -244,7 +244,7 @@ def get_flow_output(arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:bedrock:getFlow', __args__, opts=opts, typ=GetFlowResult)
     return __ret__.apply(lambda __response__: GetFlowResult(
         arn=pulumi.get(__response__, 'arn'),

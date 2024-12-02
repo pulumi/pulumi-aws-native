@@ -208,7 +208,7 @@ def get_profile(profile_id: Optional[str] = None,
         session_policy=pulumi.get(__ret__, 'session_policy'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_profile_output(profile_id: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProfileResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProfileResult]:
     """
     Definition of AWS::RolesAnywhere::Profile Resource Type
 
@@ -217,7 +217,7 @@ def get_profile_output(profile_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['profileId'] = profile_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:rolesanywhere:getProfile', __args__, opts=opts, typ=GetProfileResult)
     return __ret__.apply(lambda __response__: GetProfileResult(
         accept_role_session_name=pulumi.get(__response__, 'accept_role_session_name'),

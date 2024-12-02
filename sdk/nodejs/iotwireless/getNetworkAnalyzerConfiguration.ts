@@ -53,7 +53,7 @@ export interface GetNetworkAnalyzerConfigurationResult {
 /**
  * Create and manage NetworkAnalyzerConfiguration resource.
  */
-export function getNetworkAnalyzerConfigurationOutput(args: GetNetworkAnalyzerConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkAnalyzerConfigurationResult> {
+export function getNetworkAnalyzerConfigurationOutput(args: GetNetworkAnalyzerConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkAnalyzerConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:iotwireless:getNetworkAnalyzerConfiguration", {
         "name": args.name,

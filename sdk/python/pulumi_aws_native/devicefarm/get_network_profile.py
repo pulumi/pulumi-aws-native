@@ -208,7 +208,7 @@ def get_network_profile(arn: Optional[str] = None,
         uplink_jitter_ms=pulumi.get(__ret__, 'uplink_jitter_ms'),
         uplink_loss_percent=pulumi.get(__ret__, 'uplink_loss_percent'))
 def get_network_profile_output(arn: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkProfileResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkProfileResult]:
     """
     AWS::DeviceFarm::NetworkProfile creates a new DF Network Profile
 
@@ -217,7 +217,7 @@ def get_network_profile_output(arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:devicefarm:getNetworkProfile', __args__, opts=opts, typ=GetNetworkProfileResult)
     return __ret__.apply(lambda __response__: GetNetworkProfileResult(
         arn=pulumi.get(__response__, 'arn'),

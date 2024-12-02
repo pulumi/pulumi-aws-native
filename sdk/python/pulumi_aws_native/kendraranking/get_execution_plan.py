@@ -129,7 +129,7 @@ def get_execution_plan(id: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_execution_plan_output(id: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExecutionPlanResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExecutionPlanResult]:
     """
     A KendraRanking Rescore execution plan
 
@@ -138,7 +138,7 @@ def get_execution_plan_output(id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:kendraranking:getExecutionPlan', __args__, opts=opts, typ=GetExecutionPlanResult)
     return __ret__.apply(lambda __response__: GetExecutionPlanResult(
         arn=pulumi.get(__response__, 'arn'),

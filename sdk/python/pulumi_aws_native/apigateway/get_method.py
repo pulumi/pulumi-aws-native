@@ -190,7 +190,7 @@ def get_method(http_method: Optional[str] = None,
 def get_method_output(http_method: Optional[pulumi.Input[str]] = None,
                       resource_id: Optional[pulumi.Input[str]] = None,
                       rest_api_id: Optional[pulumi.Input[str]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMethodResult]:
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMethodResult]:
     """
     The ``AWS::ApiGateway::Method`` resource creates API Gateway methods that define the parameters and body that clients must send in their requests.
 
@@ -203,7 +203,7 @@ def get_method_output(http_method: Optional[pulumi.Input[str]] = None,
     __args__['httpMethod'] = http_method
     __args__['resourceId'] = resource_id
     __args__['restApiId'] = rest_api_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:apigateway:getMethod', __args__, opts=opts, typ=GetMethodResult)
     return __ret__.apply(lambda __response__: GetMethodResult(
         api_key_required=pulumi.get(__response__, 'api_key_required'),

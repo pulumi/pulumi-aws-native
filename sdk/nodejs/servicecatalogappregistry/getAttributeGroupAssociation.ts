@@ -39,7 +39,7 @@ export interface GetAttributeGroupAssociationResult {
 /**
  * Resource Schema for AWS::ServiceCatalogAppRegistry::AttributeGroupAssociation.
  */
-export function getAttributeGroupAssociationOutput(args: GetAttributeGroupAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAttributeGroupAssociationResult> {
+export function getAttributeGroupAssociationOutput(args: GetAttributeGroupAssociationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAttributeGroupAssociationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:servicecatalogappregistry:getAttributeGroupAssociation", {
         "applicationArn": args.applicationArn,

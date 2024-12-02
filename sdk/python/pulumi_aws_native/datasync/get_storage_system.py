@@ -169,7 +169,7 @@ def get_storage_system(storage_system_arn: Optional[str] = None,
         system_type=pulumi.get(__ret__, 'system_type'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_storage_system_output(storage_system_arn: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStorageSystemResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStorageSystemResult]:
     """
     Resource schema for AWS::DataSync::StorageSystem.
 
@@ -178,7 +178,7 @@ def get_storage_system_output(storage_system_arn: Optional[pulumi.Input[str]] = 
     """
     __args__ = dict()
     __args__['storageSystemArn'] = storage_system_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:datasync:getStorageSystem', __args__, opts=opts, typ=GetStorageSystemResult)
     return __ret__.apply(lambda __response__: GetStorageSystemResult(
         agent_arns=pulumi.get(__response__, 'agent_arns'),

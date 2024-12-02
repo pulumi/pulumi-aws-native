@@ -41,7 +41,7 @@ export interface GetPublicKeyResult {
 /**
  * Resource Type definition for AWS::IVS::PublicKey
  */
-export function getPublicKeyOutput(args: GetPublicKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPublicKeyResult> {
+export function getPublicKeyOutput(args: GetPublicKeyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPublicKeyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:ivs:getPublicKey", {
         "arn": args.arn,

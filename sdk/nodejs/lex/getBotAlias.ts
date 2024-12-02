@@ -70,7 +70,7 @@ export interface GetBotAliasResult {
 /**
  * A Bot Alias enables you to change the version of a bot without updating applications that use the bot
  */
-export function getBotAliasOutput(args: GetBotAliasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBotAliasResult> {
+export function getBotAliasOutput(args: GetBotAliasOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBotAliasResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:lex:getBotAlias", {
         "botAliasId": args.botAliasId,

@@ -236,7 +236,7 @@ def get_cluster(name: Optional[str] = None,
         version=pulumi.get(__ret__, 'version'),
         zonal_shift_config=pulumi.get(__ret__, 'zonal_shift_config'))
 def get_cluster_output(name: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterResult]:
     """
     An object representing an Amazon EKS cluster.
 
@@ -245,7 +245,7 @@ def get_cluster_output(name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:eks:getCluster', __args__, opts=opts, typ=GetClusterResult)
     return __ret__.apply(lambda __response__: GetClusterResult(
         access_config=pulumi.get(__response__, 'access_config'),

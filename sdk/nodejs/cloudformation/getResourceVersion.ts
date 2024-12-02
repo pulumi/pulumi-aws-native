@@ -59,7 +59,7 @@ export interface GetResourceVersionResult {
 /**
  * A resource that has been registered in the CloudFormation Registry.
  */
-export function getResourceVersionOutput(args: GetResourceVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceVersionResult> {
+export function getResourceVersionOutput(args: GetResourceVersionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetResourceVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:cloudformation:getResourceVersion", {
         "arn": args.arn,

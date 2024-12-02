@@ -119,7 +119,7 @@ def get_thing_type(thing_type_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         thing_type_properties=pulumi.get(__ret__, 'thing_type_properties'))
 def get_thing_type_output(thing_type_name: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetThingTypeResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetThingTypeResult]:
     """
     Resource Type definition for AWS::IoT::ThingType
 
@@ -128,7 +128,7 @@ def get_thing_type_output(thing_type_name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['thingTypeName'] = thing_type_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:iot:getThingType', __args__, opts=opts, typ=GetThingTypeResult)
     return __ret__.apply(lambda __response__: GetThingTypeResult(
         arn=pulumi.get(__response__, 'arn'),

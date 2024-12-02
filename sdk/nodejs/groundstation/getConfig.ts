@@ -53,7 +53,7 @@ export interface GetConfigResult {
 /**
  * AWS Ground Station config resource type for CloudFormation.
  */
-export function getConfigOutput(args: GetConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigResult> {
+export function getConfigOutput(args: GetConfigOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConfigResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:groundstation:getConfig", {
         "arn": args.arn,

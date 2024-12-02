@@ -42,7 +42,7 @@ export interface GetKeyValueStoreResult {
 /**
  * The key value store. Use this to separate data from function code, allowing you to update data without having to publish a new version of a function. The key value store holds keys and their corresponding values.
  */
-export function getKeyValueStoreOutput(args: GetKeyValueStoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKeyValueStoreResult> {
+export function getKeyValueStoreOutput(args: GetKeyValueStoreOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetKeyValueStoreResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:cloudfront:getKeyValueStore", {
         "name": args.name,

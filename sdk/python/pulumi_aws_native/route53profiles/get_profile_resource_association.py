@@ -88,7 +88,7 @@ def get_profile_resource_association(id: Optional[str] = None,
         resource_properties=pulumi.get(__ret__, 'resource_properties'),
         resource_type=pulumi.get(__ret__, 'resource_type'))
 def get_profile_resource_association_output(id: Optional[pulumi.Input[str]] = None,
-                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProfileResourceAssociationResult]:
+                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProfileResourceAssociationResult]:
     """
     Resource Type definition for AWS::Route53Profiles::ProfileResourceAssociation
 
@@ -97,7 +97,7 @@ def get_profile_resource_association_output(id: Optional[pulumi.Input[str]] = No
     """
     __args__ = dict()
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:route53profiles:getProfileResourceAssociation', __args__, opts=opts, typ=GetProfileResourceAssociationResult)
     return __ret__.apply(lambda __response__: GetProfileResourceAssociationResult(
         id=pulumi.get(__response__, 'id'),

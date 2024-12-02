@@ -260,7 +260,7 @@ def get_ipam_pool(ipam_pool_id: Optional[str] = None,
         state_message=pulumi.get(__ret__, 'state_message'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_ipam_pool_output(ipam_pool_id: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIpamPoolResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIpamPoolResult]:
     """
     Resource Schema of AWS::EC2::IPAMPool Type
 
@@ -269,7 +269,7 @@ def get_ipam_pool_output(ipam_pool_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['ipamPoolId'] = ipam_pool_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getIpamPool', __args__, opts=opts, typ=GetIpamPoolResult)
     return __ret__.apply(lambda __response__: GetIpamPoolResult(
         allocation_default_netmask_length=pulumi.get(__response__, 'allocation_default_netmask_length'),

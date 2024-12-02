@@ -116,7 +116,7 @@ def get_user_group(user_group_id: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         user_ids=pulumi.get(__ret__, 'user_ids'))
 def get_user_group_output(user_group_id: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserGroupResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserGroupResult]:
     """
     Resource Type definition for AWS::ElastiCache::UserGroup
 
@@ -125,7 +125,7 @@ def get_user_group_output(user_group_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['userGroupId'] = user_group_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:elasticache:getUserGroup', __args__, opts=opts, typ=GetUserGroupResult)
     return __ret__.apply(lambda __response__: GetUserGroupResult(
         arn=pulumi.get(__response__, 'arn'),

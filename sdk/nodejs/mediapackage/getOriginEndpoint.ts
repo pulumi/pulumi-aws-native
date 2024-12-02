@@ -89,7 +89,7 @@ export interface GetOriginEndpointResult {
 /**
  * Resource schema for AWS::MediaPackage::OriginEndpoint
  */
-export function getOriginEndpointOutput(args: GetOriginEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOriginEndpointResult> {
+export function getOriginEndpointOutput(args: GetOriginEndpointOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOriginEndpointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:mediapackage:getOriginEndpoint", {
         "id": args.id,

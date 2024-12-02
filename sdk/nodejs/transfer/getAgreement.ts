@@ -70,7 +70,7 @@ export interface GetAgreementResult {
 /**
  * Resource Type definition for AWS::Transfer::Agreement
  */
-export function getAgreementOutput(args: GetAgreementOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAgreementResult> {
+export function getAgreementOutput(args: GetAgreementOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAgreementResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:transfer:getAgreement", {
         "agreementId": args.agreementId,

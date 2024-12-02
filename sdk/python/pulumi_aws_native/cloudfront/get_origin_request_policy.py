@@ -95,7 +95,7 @@ def get_origin_request_policy(id: Optional[str] = None,
         last_modified_time=pulumi.get(__ret__, 'last_modified_time'),
         origin_request_policy_config=pulumi.get(__ret__, 'origin_request_policy_config'))
 def get_origin_request_policy_output(id: Optional[pulumi.Input[str]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOriginRequestPolicyResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOriginRequestPolicyResult]:
     """
     An origin request policy.
      When it's attached to a cache behavior, the origin request policy determines the values that CloudFront includes in requests that it sends to the origin. Each request that CloudFront sends to the origin includes the following:
@@ -110,7 +110,7 @@ def get_origin_request_policy_output(id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:cloudfront:getOriginRequestPolicy', __args__, opts=opts, typ=GetOriginRequestPolicyResult)
     return __ret__.apply(lambda __response__: GetOriginRequestPolicyResult(
         id=pulumi.get(__response__, 'id'),

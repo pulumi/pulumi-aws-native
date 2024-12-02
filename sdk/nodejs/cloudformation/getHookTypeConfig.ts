@@ -44,7 +44,7 @@ export interface GetHookTypeConfigResult {
 /**
  * Specifies the configuration data for a registered hook in CloudFormation Registry.
  */
-export function getHookTypeConfigOutput(args: GetHookTypeConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHookTypeConfigResult> {
+export function getHookTypeConfigOutput(args: GetHookTypeConfigOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetHookTypeConfigResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:cloudformation:getHookTypeConfig", {
         "configurationArn": args.configurationArn,

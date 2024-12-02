@@ -41,7 +41,7 @@ export interface GetCustomMetricResult {
 /**
  * A custom metric published by your devices to Device Defender.
  */
-export function getCustomMetricOutput(args: GetCustomMetricOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomMetricResult> {
+export function getCustomMetricOutput(args: GetCustomMetricOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCustomMetricResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:iot:getCustomMetric", {
         "metricName": args.metricName,

@@ -53,7 +53,7 @@ export interface GetChannelGroupResult {
 /**
  * <p>Represents a channel group that facilitates the grouping of multiple channels.</p>
  */
-export function getChannelGroupOutput(args: GetChannelGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetChannelGroupResult> {
+export function getChannelGroupOutput(args: GetChannelGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetChannelGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:mediapackagev2:getChannelGroup", {
         "arn": args.arn,

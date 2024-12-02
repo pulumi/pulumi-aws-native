@@ -53,7 +53,7 @@ export interface GetViewResult {
 /**
  * Definition of AWS::ResourceExplorer2::View Resource Type
  */
-export function getViewOutput(args: GetViewOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetViewResult> {
+export function getViewOutput(args: GetViewOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetViewResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:resourceexplorer2:getView", {
         "viewArn": args.viewArn,

@@ -61,7 +61,7 @@ export interface GetFindingsFilterResult {
 /**
  * Macie FindingsFilter resource schema.
  */
-export function getFindingsFilterOutput(args: GetFindingsFilterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFindingsFilterResult> {
+export function getFindingsFilterOutput(args: GetFindingsFilterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFindingsFilterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:macie:getFindingsFilter", {
         "id": args.id,

@@ -156,7 +156,7 @@ def get_room(arn: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_room_output(arn: Optional[pulumi.Input[str]] = None,
-                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRoomResult]:
+                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRoomResult]:
     """
     Resource type definition for AWS::IVSChat::Room.
 
@@ -165,7 +165,7 @@ def get_room_output(arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ivschat:getRoom', __args__, opts=opts, typ=GetRoomResult)
     return __ret__.apply(lambda __response__: GetRoomResult(
         arn=pulumi.get(__response__, 'arn'),

@@ -85,7 +85,7 @@ export interface GetUserSettingsResult {
 /**
  * Definition of AWS::WorkSpacesWeb::UserSettings Resource Type
  */
-export function getUserSettingsOutput(args: GetUserSettingsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserSettingsResult> {
+export function getUserSettingsOutput(args: GetUserSettingsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetUserSettingsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:workspacesweb:getUserSettings", {
         "userSettingsArn": args.userSettingsArn,

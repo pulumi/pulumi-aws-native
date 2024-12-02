@@ -247,7 +247,7 @@ def get_origin_endpoint(id: Optional[str] = None,
         url=pulumi.get(__ret__, 'url'),
         whitelist=pulumi.get(__ret__, 'whitelist'))
 def get_origin_endpoint_output(id: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOriginEndpointResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOriginEndpointResult]:
     """
     Resource schema for AWS::MediaPackage::OriginEndpoint
 
@@ -256,7 +256,7 @@ def get_origin_endpoint_output(id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:mediapackage:getOriginEndpoint', __args__, opts=opts, typ=GetOriginEndpointResult)
     return __ret__.apply(lambda __response__: GetOriginEndpointResult(
         arn=pulumi.get(__response__, 'arn'),

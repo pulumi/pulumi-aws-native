@@ -59,7 +59,7 @@ export interface GetQueueEnvironmentResult {
 /**
  * Definition of AWS::Deadline::QueueEnvironment Resource Type
  */
-export function getQueueEnvironmentOutput(args: GetQueueEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQueueEnvironmentResult> {
+export function getQueueEnvironmentOutput(args: GetQueueEnvironmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetQueueEnvironmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:deadline:getQueueEnvironment", {
         "farmId": args.farmId,

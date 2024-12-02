@@ -53,7 +53,7 @@ export interface GetProjectResult {
 /**
  * Resource schema for AWS::IoTSiteWise::Project
  */
-export function getProjectOutput(args: GetProjectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProjectResult> {
+export function getProjectOutput(args: GetProjectOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProjectResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:iotsitewise:getProject", {
         "projectId": args.projectId,

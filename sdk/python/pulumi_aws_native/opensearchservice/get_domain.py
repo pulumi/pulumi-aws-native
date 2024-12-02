@@ -395,7 +395,7 @@ def get_domain(domain_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         vpc_options=pulumi.get(__ret__, 'vpc_options'))
 def get_domain_output(domain_name: Optional[pulumi.Input[str]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainResult]:
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDomainResult]:
     """
     An example resource schema demonstrating some basic constructs and validation rules.
 
@@ -408,7 +408,7 @@ def get_domain_output(domain_name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['domainName'] = domain_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:opensearchservice:getDomain', __args__, opts=opts, typ=GetDomainResult)
     return __ret__.apply(lambda __response__: GetDomainResult(
         access_policies=pulumi.get(__response__, 'access_policies'),

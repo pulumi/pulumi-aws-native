@@ -57,7 +57,7 @@ export interface GetDataProviderResult {
 /**
  * Resource schema for AWS::DMS::DataProvider
  */
-export function getDataProviderOutput(args: GetDataProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataProviderResult> {
+export function getDataProviderOutput(args: GetDataProviderOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDataProviderResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:dms:getDataProvider", {
         "dataProviderArn": args.dataProviderArn,

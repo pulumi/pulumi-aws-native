@@ -91,7 +91,7 @@ def get_bucket(arn: Optional[str] = None,
         lifecycle_configuration=pulumi.get(__ret__, 'lifecycle_configuration'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_bucket_output(arn: Optional[pulumi.Input[str]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBucketResult]:
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBucketResult]:
     """
     Resource Type Definition for AWS::S3Outposts::Bucket
 
@@ -100,7 +100,7 @@ def get_bucket_output(arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:s3outposts:getBucket', __args__, opts=opts, typ=GetBucketResult)
     return __ret__.apply(lambda __response__: GetBucketResult(
         arn=pulumi.get(__response__, 'arn'),

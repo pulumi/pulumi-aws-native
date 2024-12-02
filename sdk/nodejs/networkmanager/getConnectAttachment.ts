@@ -85,7 +85,7 @@ export interface GetConnectAttachmentResult {
 /**
  * AWS::NetworkManager::ConnectAttachment Resource Type Definition
  */
-export function getConnectAttachmentOutput(args: GetConnectAttachmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectAttachmentResult> {
+export function getConnectAttachmentOutput(args: GetConnectAttachmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConnectAttachmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:networkmanager:getConnectAttachment", {
         "attachmentId": args.attachmentId,

@@ -75,7 +75,7 @@ export interface GetAnalysisTemplateResult {
 /**
  * Represents a stored analysis within a collaboration
  */
-export function getAnalysisTemplateOutput(args: GetAnalysisTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAnalysisTemplateResult> {
+export function getAnalysisTemplateOutput(args: GetAnalysisTemplateOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAnalysisTemplateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:cleanrooms:getAnalysisTemplate", {
         "analysisTemplateIdentifier": args.analysisTemplateIdentifier,

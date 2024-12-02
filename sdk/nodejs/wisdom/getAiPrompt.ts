@@ -54,7 +54,7 @@ export interface GetAiPromptResult {
 /**
  * Definition of AWS::Wisdom::AIPrompt Resource Type
  */
-export function getAiPromptOutput(args: GetAiPromptOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAiPromptResult> {
+export function getAiPromptOutput(args: GetAiPromptOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAiPromptResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:wisdom:getAiPrompt", {
         "aiPromptId": args.aiPromptId,

@@ -65,7 +65,7 @@ export interface GetMicrosoftTeamsChannelConfigurationResult {
 /**
  * Resource schema for AWS::Chatbot::MicrosoftTeamsChannelConfiguration.
  */
-export function getMicrosoftTeamsChannelConfigurationOutput(args: GetMicrosoftTeamsChannelConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMicrosoftTeamsChannelConfigurationResult> {
+export function getMicrosoftTeamsChannelConfigurationOutput(args: GetMicrosoftTeamsChannelConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMicrosoftTeamsChannelConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:chatbot:getMicrosoftTeamsChannelConfiguration", {
         "arn": args.arn,

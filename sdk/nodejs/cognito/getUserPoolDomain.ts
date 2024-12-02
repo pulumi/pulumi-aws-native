@@ -41,7 +41,7 @@ export interface GetUserPoolDomainResult {
 /**
  * Resource Type definition for AWS::Cognito::UserPoolDomain
  */
-export function getUserPoolDomainOutput(args: GetUserPoolDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserPoolDomainResult> {
+export function getUserPoolDomainOutput(args: GetUserPoolDomainOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetUserPoolDomainResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:cognito:getUserPoolDomain", {
         "id": args.id,

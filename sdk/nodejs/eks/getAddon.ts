@@ -54,7 +54,7 @@ export interface GetAddonResult {
 /**
  * Resource Schema for AWS::EKS::Addon
  */
-export function getAddonOutput(args: GetAddonOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAddonResult> {
+export function getAddonOutput(args: GetAddonOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAddonResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:eks:getAddon", {
         "addonName": args.addonName,

@@ -120,7 +120,7 @@ def get_environment(application_id: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'))
 def get_environment_output(application_id: Optional[pulumi.Input[str]] = None,
                            environment_id: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnvironmentResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEnvironmentResult]:
     """
     Resource Type definition for AWS::AppConfig::Environment
 
@@ -131,7 +131,7 @@ def get_environment_output(application_id: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['applicationId'] = application_id
     __args__['environmentId'] = environment_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:appconfig:getEnvironment', __args__, opts=opts, typ=GetEnvironmentResult)
     return __ret__.apply(lambda __response__: GetEnvironmentResult(
         description=pulumi.get(__response__, 'description'),

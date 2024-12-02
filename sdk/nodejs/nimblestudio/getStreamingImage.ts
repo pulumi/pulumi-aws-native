@@ -56,7 +56,7 @@ export interface GetStreamingImageResult {
 /**
  * Resource Type definition for AWS::NimbleStudio::StreamingImage
  */
-export function getStreamingImageOutput(args: GetStreamingImageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStreamingImageResult> {
+export function getStreamingImageOutput(args: GetStreamingImageOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStreamingImageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:nimblestudio:getStreamingImage", {
         "streamingImageId": args.streamingImageId,

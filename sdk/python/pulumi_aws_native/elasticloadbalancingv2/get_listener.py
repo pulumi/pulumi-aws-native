@@ -171,7 +171,7 @@ def get_listener(listener_arn: Optional[str] = None,
         protocol=pulumi.get(__ret__, 'protocol'),
         ssl_policy=pulumi.get(__ret__, 'ssl_policy'))
 def get_listener_output(listener_arn: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetListenerResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetListenerResult]:
     """
     Specifies a listener for an Application Load Balancer, Network Load Balancer, or Gateway Load Balancer.
 
@@ -180,7 +180,7 @@ def get_listener_output(listener_arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['listenerArn'] = listener_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:elasticloadbalancingv2:getListener', __args__, opts=opts, typ=GetListenerResult)
     return __ret__.apply(lambda __response__: GetListenerResult(
         alpn_policy=pulumi.get(__response__, 'alpn_policy'),

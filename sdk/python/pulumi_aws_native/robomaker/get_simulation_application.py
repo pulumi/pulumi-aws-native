@@ -129,7 +129,7 @@ def get_simulation_application(arn: Optional[str] = None,
         simulation_software_suite=pulumi.get(__ret__, 'simulation_software_suite'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_simulation_application_output(arn: Optional[pulumi.Input[str]] = None,
-                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSimulationApplicationResult]:
+                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSimulationApplicationResult]:
     """
     This schema is for testing purpose only.
 
@@ -138,7 +138,7 @@ def get_simulation_application_output(arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:robomaker:getSimulationApplication', __args__, opts=opts, typ=GetSimulationApplicationResult)
     return __ret__.apply(lambda __response__: GetSimulationApplicationResult(
         arn=pulumi.get(__response__, 'arn'),

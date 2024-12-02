@@ -37,7 +37,7 @@ export interface GetSnapshotBlockPublicAccessResult {
 /**
  * Resource Type definition for AWS::EC2::SnapshotBlockPublicAccess
  */
-export function getSnapshotBlockPublicAccessOutput(args: GetSnapshotBlockPublicAccessOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSnapshotBlockPublicAccessResult> {
+export function getSnapshotBlockPublicAccessOutput(args: GetSnapshotBlockPublicAccessOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSnapshotBlockPublicAccessResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:ec2:getSnapshotBlockPublicAccess", {
         "accountId": args.accountId,

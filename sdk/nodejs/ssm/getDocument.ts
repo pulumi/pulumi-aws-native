@@ -55,7 +55,7 @@ export interface GetDocumentResult {
 /**
  * The AWS::SSM::Document resource is an SSM document in AWS Systems Manager that defines the actions that Systems Manager performs, which can be used to set up and run commands on your instances.
  */
-export function getDocumentOutput(args: GetDocumentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDocumentResult> {
+export function getDocumentOutput(args: GetDocumentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDocumentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:ssm:getDocument", {
         "name": args.name,

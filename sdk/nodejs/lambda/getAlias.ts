@@ -49,7 +49,7 @@ export interface GetAliasResult {
 /**
  * Resource Type definition for AWS::Lambda::Alias
  */
-export function getAliasOutput(args: GetAliasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAliasResult> {
+export function getAliasOutput(args: GetAliasOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAliasResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:lambda:getAlias", {
         "aliasArn": args.aliasArn,

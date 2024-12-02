@@ -79,7 +79,7 @@ def get_deployment(api_id: Optional[str] = None,
         description=pulumi.get(__ret__, 'description'))
 def get_deployment_output(api_id: Optional[pulumi.Input[str]] = None,
                           deployment_id: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDeploymentResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDeploymentResult]:
     """
     The ``AWS::ApiGatewayV2::Deployment`` resource creates a deployment for an API.
 
@@ -90,7 +90,7 @@ def get_deployment_output(api_id: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['apiId'] = api_id
     __args__['deploymentId'] = deployment_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:apigatewayv2:getDeployment', __args__, opts=opts, typ=GetDeploymentResult)
     return __ret__.apply(lambda __response__: GetDeploymentResult(
         deployment_id=pulumi.get(__response__, 'deployment_id'),

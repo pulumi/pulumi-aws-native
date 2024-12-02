@@ -34,7 +34,7 @@ export interface GetStateMachineVersionResult {
 /**
  * Resource schema for StateMachineVersion
  */
-export function getStateMachineVersionOutput(args: GetStateMachineVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStateMachineVersionResult> {
+export function getStateMachineVersionOutput(args: GetStateMachineVersionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStateMachineVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:stepfunctions:getStateMachineVersion", {
         "arn": args.arn,

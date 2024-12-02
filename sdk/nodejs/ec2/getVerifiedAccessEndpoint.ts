@@ -89,7 +89,7 @@ export interface GetVerifiedAccessEndpointResult {
 /**
  * The AWS::EC2::VerifiedAccessEndpoint resource creates an AWS EC2 Verified Access Endpoint.
  */
-export function getVerifiedAccessEndpointOutput(args: GetVerifiedAccessEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVerifiedAccessEndpointResult> {
+export function getVerifiedAccessEndpointOutput(args: GetVerifiedAccessEndpointOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVerifiedAccessEndpointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:ec2:getVerifiedAccessEndpoint", {
         "verifiedAccessEndpointId": args.verifiedAccessEndpointId,

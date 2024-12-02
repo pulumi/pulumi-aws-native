@@ -89,7 +89,7 @@ def get_vdm_attributes(vdm_attributes_resource_id: Optional[str] = None,
         guardian_attributes=pulumi.get(__ret__, 'guardian_attributes'),
         vdm_attributes_resource_id=pulumi.get(__ret__, 'vdm_attributes_resource_id'))
 def get_vdm_attributes_output(vdm_attributes_resource_id: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVdmAttributesResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVdmAttributesResult]:
     """
     Resource Type definition for AWS::SES::VdmAttributes
 
@@ -98,7 +98,7 @@ def get_vdm_attributes_output(vdm_attributes_resource_id: Optional[pulumi.Input[
     """
     __args__ = dict()
     __args__['vdmAttributesResourceId'] = vdm_attributes_resource_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ses:getVdmAttributes', __args__, opts=opts, typ=GetVdmAttributesResult)
     return __ret__.apply(lambda __response__: GetVdmAttributesResult(
         dashboard_attributes=pulumi.get(__response__, 'dashboard_attributes'),

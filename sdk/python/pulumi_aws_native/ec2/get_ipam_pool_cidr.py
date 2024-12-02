@@ -79,7 +79,7 @@ def get_ipam_pool_cidr(ipam_pool_cidr_id: Optional[str] = None,
         state=pulumi.get(__ret__, 'state'))
 def get_ipam_pool_cidr_output(ipam_pool_cidr_id: Optional[pulumi.Input[str]] = None,
                               ipam_pool_id: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIpamPoolCidrResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIpamPoolCidrResult]:
     """
     Resource Schema of AWS::EC2::IPAMPoolCidr Type
 
@@ -90,7 +90,7 @@ def get_ipam_pool_cidr_output(ipam_pool_cidr_id: Optional[pulumi.Input[str]] = N
     __args__ = dict()
     __args__['ipamPoolCidrId'] = ipam_pool_cidr_id
     __args__['ipamPoolId'] = ipam_pool_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getIpamPoolCidr', __args__, opts=opts, typ=GetIpamPoolCidrResult)
     return __ret__.apply(lambda __response__: GetIpamPoolCidrResult(
         ipam_pool_cidr_id=pulumi.get(__response__, 'ipam_pool_cidr_id'),

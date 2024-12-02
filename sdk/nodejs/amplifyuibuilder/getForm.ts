@@ -83,7 +83,7 @@ export interface GetFormResult {
 /**
  * Definition of AWS::AmplifyUIBuilder::Form Resource Type
  */
-export function getFormOutput(args: GetFormOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFormResult> {
+export function getFormOutput(args: GetFormOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFormResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:amplifyuibuilder:getForm", {
         "appId": args.appId,

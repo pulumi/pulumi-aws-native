@@ -76,7 +76,7 @@ def get_vpc_peering_connection(id: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_vpc_peering_connection_output(id: Optional[pulumi.Input[str]] = None,
-                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcPeeringConnectionResult]:
+                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcPeeringConnectionResult]:
     """
     Resource Type definition for AWS::EC2::VPCPeeringConnection
 
@@ -85,7 +85,7 @@ def get_vpc_peering_connection_output(id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getVpcPeeringConnection', __args__, opts=opts, typ=GetVpcPeeringConnectionResult)
     return __ret__.apply(lambda __response__: GetVpcPeeringConnectionResult(
         id=pulumi.get(__response__, 'id'),

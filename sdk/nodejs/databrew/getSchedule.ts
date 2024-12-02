@@ -34,7 +34,7 @@ export interface GetScheduleResult {
 /**
  * Resource schema for AWS::DataBrew::Schedule.
  */
-export function getScheduleOutput(args: GetScheduleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduleResult> {
+export function getScheduleOutput(args: GetScheduleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetScheduleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:databrew:getSchedule", {
         "name": args.name,

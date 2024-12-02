@@ -156,7 +156,7 @@ def get_target_group(arn: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         targets=pulumi.get(__ret__, 'targets'))
 def get_target_group_output(arn: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTargetGroupResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTargetGroupResult]:
     """
     A target group is a collection of targets, or compute resources, that run your application or service. A target group can only be used by a single service.
 
@@ -165,7 +165,7 @@ def get_target_group_output(arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:vpclattice:getTargetGroup', __args__, opts=opts, typ=GetTargetGroupResult)
     return __ret__.apply(lambda __response__: GetTargetGroupResult(
         arn=pulumi.get(__response__, 'arn'),

@@ -89,7 +89,7 @@ def get_rule_groups_namespace(arn: Optional[str] = None,
         data=pulumi.get(__ret__, 'data'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_rule_groups_namespace_output(arn: Optional[pulumi.Input[str]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRuleGroupsNamespaceResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRuleGroupsNamespaceResult]:
     """
     RuleGroupsNamespace schema for cloudformation.
 
@@ -98,7 +98,7 @@ def get_rule_groups_namespace_output(arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:aps:getRuleGroupsNamespace', __args__, opts=opts, typ=GetRuleGroupsNamespaceResult)
     return __ret__.apply(lambda __response__: GetRuleGroupsNamespaceResult(
         arn=pulumi.get(__response__, 'arn'),

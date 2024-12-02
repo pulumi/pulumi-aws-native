@@ -81,7 +81,7 @@ def get_user_profile(domain_id: Optional[str] = None,
         user_settings=pulumi.get(__ret__, 'user_settings'))
 def get_user_profile_output(domain_id: Optional[pulumi.Input[str]] = None,
                             user_profile_name: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserProfileResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserProfileResult]:
     """
     Resource Type definition for AWS::SageMaker::UserProfile
 
@@ -92,7 +92,7 @@ def get_user_profile_output(domain_id: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['domainId'] = domain_id
     __args__['userProfileName'] = user_profile_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:sagemaker:getUserProfile', __args__, opts=opts, typ=GetUserProfileResult)
     return __ret__.apply(lambda __response__: GetUserProfileResult(
         user_profile_arn=pulumi.get(__response__, 'user_profile_arn'),

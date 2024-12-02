@@ -88,7 +88,7 @@ def get_sequence_store(sequence_store_id: Optional[str] = None,
         creation_time=pulumi.get(__ret__, 'creation_time'),
         sequence_store_id=pulumi.get(__ret__, 'sequence_store_id'))
 def get_sequence_store_output(sequence_store_id: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSequenceStoreResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSequenceStoreResult]:
     """
     Definition of AWS::Omics::SequenceStore Resource Type
 
@@ -97,7 +97,7 @@ def get_sequence_store_output(sequence_store_id: Optional[pulumi.Input[str]] = N
     """
     __args__ = dict()
     __args__['sequenceStoreId'] = sequence_store_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:omics:getSequenceStore', __args__, opts=opts, typ=GetSequenceStoreResult)
     return __ret__.apply(lambda __response__: GetSequenceStoreResult(
         arn=pulumi.get(__response__, 'arn'),

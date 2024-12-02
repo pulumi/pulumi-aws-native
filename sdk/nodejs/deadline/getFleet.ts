@@ -76,7 +76,7 @@ export interface GetFleetResult {
 /**
  * Definition of AWS::Deadline::Fleet Resource Type
  */
-export function getFleetOutput(args: GetFleetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFleetResult> {
+export function getFleetOutput(args: GetFleetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFleetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:deadline:getFleet", {
         "arn": args.arn,

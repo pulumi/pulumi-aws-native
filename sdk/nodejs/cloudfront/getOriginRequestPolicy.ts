@@ -53,7 +53,7 @@ export interface GetOriginRequestPolicyResult {
  *
  *  CloudFront sends a request when it can't find an object in its cache that matches the request. If you want to send values to the origin and also include them in the cache key, use ``CachePolicy``.
  */
-export function getOriginRequestPolicyOutput(args: GetOriginRequestPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOriginRequestPolicyResult> {
+export function getOriginRequestPolicyOutput(args: GetOriginRequestPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOriginRequestPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:cloudfront:getOriginRequestPolicy", {
         "id": args.id,

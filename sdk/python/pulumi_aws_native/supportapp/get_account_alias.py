@@ -75,7 +75,7 @@ def get_account_alias(account_alias_resource_id: Optional[str] = None,
         account_alias=pulumi.get(__ret__, 'account_alias'),
         account_alias_resource_id=pulumi.get(__ret__, 'account_alias_resource_id'))
 def get_account_alias_output(account_alias_resource_id: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountAliasResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccountAliasResult]:
     """
     An AWS Support App resource that creates, updates, reads, and deletes a customer's account alias.
 
@@ -84,7 +84,7 @@ def get_account_alias_output(account_alias_resource_id: Optional[pulumi.Input[st
     """
     __args__ = dict()
     __args__['accountAliasResourceId'] = account_alias_resource_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:supportapp:getAccountAlias', __args__, opts=opts, typ=GetAccountAliasResult)
     return __ret__.apply(lambda __response__: GetAccountAliasResult(
         account_alias=pulumi.get(__response__, 'account_alias'),

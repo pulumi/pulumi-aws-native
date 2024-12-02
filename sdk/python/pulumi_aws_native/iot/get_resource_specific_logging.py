@@ -76,7 +76,7 @@ def get_resource_specific_logging(target_id: Optional[str] = None,
         log_level=pulumi.get(__ret__, 'log_level'),
         target_id=pulumi.get(__ret__, 'target_id'))
 def get_resource_specific_logging_output(target_id: Optional[pulumi.Input[str]] = None,
-                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourceSpecificLoggingResult]:
+                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourceSpecificLoggingResult]:
     """
     Resource-specific logging allows you to specify a logging level for a specific thing group.
 
@@ -85,7 +85,7 @@ def get_resource_specific_logging_output(target_id: Optional[pulumi.Input[str]] 
     """
     __args__ = dict()
     __args__['targetId'] = target_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:iot:getResourceSpecificLogging', __args__, opts=opts, typ=GetResourceSpecificLoggingResult)
     return __ret__.apply(lambda __response__: GetResourceSpecificLoggingResult(
         log_level=pulumi.get(__response__, 'log_level'),

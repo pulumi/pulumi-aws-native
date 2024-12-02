@@ -51,7 +51,7 @@ export interface GetIpSetResult {
 /**
  * Resource Type definition for AWS::GuardDuty::IPSet
  */
-export function getIpSetOutput(args: GetIpSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIpSetResult> {
+export function getIpSetOutput(args: GetIpSetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIpSetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:guardduty:getIpSet", {
         "detectorId": args.detectorId,

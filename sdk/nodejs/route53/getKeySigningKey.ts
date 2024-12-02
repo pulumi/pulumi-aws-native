@@ -38,7 +38,7 @@ export interface GetKeySigningKeyResult {
 /**
  * Represents a key signing key (KSK) associated with a hosted zone. You can only have two KSKs per hosted zone.
  */
-export function getKeySigningKeyOutput(args: GetKeySigningKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKeySigningKeyResult> {
+export function getKeySigningKeyOutput(args: GetKeySigningKeyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetKeySigningKeyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:route53:getKeySigningKey", {
         "hostedZoneId": args.hostedZoneId,

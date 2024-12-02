@@ -108,7 +108,7 @@ def get_warm_pool(auto_scaling_group_name: Optional[str] = None,
         min_size=pulumi.get(__ret__, 'min_size'),
         pool_state=pulumi.get(__ret__, 'pool_state'))
 def get_warm_pool_output(auto_scaling_group_name: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWarmPoolResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWarmPoolResult]:
     """
     Resource schema for AWS::AutoScaling::WarmPool.
 
@@ -117,7 +117,7 @@ def get_warm_pool_output(auto_scaling_group_name: Optional[pulumi.Input[str]] = 
     """
     __args__ = dict()
     __args__['autoScalingGroupName'] = auto_scaling_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:autoscaling:getWarmPool', __args__, opts=opts, typ=GetWarmPoolResult)
     return __ret__.apply(lambda __response__: GetWarmPoolResult(
         instance_reuse_policy=pulumi.get(__response__, 'instance_reuse_policy'),

@@ -79,7 +79,7 @@ def get_multi_region_access_point_policy(mrap_name: Optional[str] = None,
         policy=pulumi.get(__ret__, 'policy'),
         policy_status=pulumi.get(__ret__, 'policy_status'))
 def get_multi_region_access_point_policy_output(mrap_name: Optional[pulumi.Input[str]] = None,
-                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMultiRegionAccessPointPolicyResult]:
+                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMultiRegionAccessPointPolicyResult]:
     """
     The policy to be attached to a Multi Region Access Point
 
@@ -88,7 +88,7 @@ def get_multi_region_access_point_policy_output(mrap_name: Optional[pulumi.Input
     """
     __args__ = dict()
     __args__['mrapName'] = mrap_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:s3:getMultiRegionAccessPointPolicy', __args__, opts=opts, typ=GetMultiRegionAccessPointPolicyResult)
     return __ret__.apply(lambda __response__: GetMultiRegionAccessPointPolicyResult(
         policy=pulumi.get(__response__, 'policy'),

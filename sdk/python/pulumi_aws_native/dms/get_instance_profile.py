@@ -194,7 +194,7 @@ def get_instance_profile(instance_profile_arn: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         vpc_security_groups=pulumi.get(__ret__, 'vpc_security_groups'))
 def get_instance_profile_output(instance_profile_arn: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInstanceProfileResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInstanceProfileResult]:
     """
     Resource schema for AWS::DMS::InstanceProfile.
 
@@ -203,7 +203,7 @@ def get_instance_profile_output(instance_profile_arn: Optional[pulumi.Input[str]
     """
     __args__ = dict()
     __args__['instanceProfileArn'] = instance_profile_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:dms:getInstanceProfile', __args__, opts=opts, typ=GetInstanceProfileResult)
     return __ret__.apply(lambda __response__: GetInstanceProfileResult(
         availability_zone=pulumi.get(__response__, 'availability_zone'),

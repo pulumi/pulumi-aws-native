@@ -57,7 +57,7 @@ export interface GetVpceConfigurationResult {
 /**
  * AWS::DeviceFarm::VPCEConfiguration creates a new Device Farm VPCE Configuration
  */
-export function getVpceConfigurationOutput(args: GetVpceConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpceConfigurationResult> {
+export function getVpceConfigurationOutput(args: GetVpceConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVpceConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:devicefarm:getVpceConfiguration", {
         "arn": args.arn,

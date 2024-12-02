@@ -90,7 +90,7 @@ def get_key_pair(key_name: Optional[str] = None,
         key_fingerprint=pulumi.get(__ret__, 'key_fingerprint'),
         key_pair_id=pulumi.get(__ret__, 'key_pair_id'))
 def get_key_pair_output(key_name: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKeyPairResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKeyPairResult]:
     """
     Specifies a key pair for use with an EC2long instance as follows:
       +  To import an existing key pair, include the ``PublicKeyMaterial`` property.
@@ -106,7 +106,7 @@ def get_key_pair_output(key_name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['keyName'] = key_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getKeyPair', __args__, opts=opts, typ=GetKeyPairResult)
     return __ret__.apply(lambda __response__: GetKeyPairResult(
         key_fingerprint=pulumi.get(__response__, 'key_fingerprint'),

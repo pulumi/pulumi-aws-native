@@ -76,7 +76,7 @@ def get_vpc_block_public_access_options(account_id: Optional[str] = None,
         account_id=pulumi.get(__ret__, 'account_id'),
         internet_gateway_block_mode=pulumi.get(__ret__, 'internet_gateway_block_mode'))
 def get_vpc_block_public_access_options_output(account_id: Optional[pulumi.Input[str]] = None,
-                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcBlockPublicAccessOptionsResult]:
+                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcBlockPublicAccessOptionsResult]:
     """
     Resource Type definition for AWS::EC2::VPCBlockPublicAccessOptions
 
@@ -85,7 +85,7 @@ def get_vpc_block_public_access_options_output(account_id: Optional[pulumi.Input
     """
     __args__ = dict()
     __args__['accountId'] = account_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getVpcBlockPublicAccessOptions', __args__, opts=opts, typ=GetVpcBlockPublicAccessOptionsResult)
     return __ret__.apply(lambda __response__: GetVpcBlockPublicAccessOptionsResult(
         account_id=pulumi.get(__response__, 'account_id'),

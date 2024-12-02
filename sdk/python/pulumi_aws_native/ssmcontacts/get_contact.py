@@ -75,7 +75,7 @@ def get_contact(arn: Optional[str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         display_name=pulumi.get(__ret__, 'display_name'))
 def get_contact_output(arn: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContactResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetContactResult]:
     """
     Resource Type definition for AWS::SSMContacts::Contact
 
@@ -84,7 +84,7 @@ def get_contact_output(arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ssmcontacts:getContact', __args__, opts=opts, typ=GetContactResult)
     return __ret__.apply(lambda __response__: GetContactResult(
         arn=pulumi.get(__response__, 'arn'),

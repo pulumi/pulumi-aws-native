@@ -41,7 +41,7 @@ export interface GetStorageLensGroupResult {
 /**
  * The AWS::S3::StorageLensGroup resource is an Amazon S3 resource type that you can use to create Storage Lens Group.
  */
-export function getStorageLensGroupOutput(args: GetStorageLensGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStorageLensGroupResult> {
+export function getStorageLensGroupOutput(args: GetStorageLensGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStorageLensGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:s3:getStorageLensGroup", {
         "name": args.name,

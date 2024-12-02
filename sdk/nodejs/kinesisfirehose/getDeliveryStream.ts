@@ -103,7 +103,7 @@ export interface GetDeliveryStreamResult {
 /**
  * Resource Type definition for AWS::KinesisFirehose::DeliveryStream
  */
-export function getDeliveryStreamOutput(args: GetDeliveryStreamOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeliveryStreamResult> {
+export function getDeliveryStreamOutput(args: GetDeliveryStreamOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDeliveryStreamResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:kinesisfirehose:getDeliveryStream", {
         "deliveryStreamName": args.deliveryStreamName,

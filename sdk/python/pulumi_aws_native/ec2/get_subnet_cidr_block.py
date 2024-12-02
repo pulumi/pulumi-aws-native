@@ -88,7 +88,7 @@ def get_subnet_cidr_block(id: Optional[str] = None,
         ip_source=pulumi.get(__ret__, 'ip_source'),
         ipv6_address_attribute=pulumi.get(__ret__, 'ipv6_address_attribute'))
 def get_subnet_cidr_block_output(id: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubnetCidrBlockResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSubnetCidrBlockResult]:
     """
     The AWS::EC2::SubnetCidrBlock resource creates association between subnet and IPv6 CIDR
 
@@ -97,7 +97,7 @@ def get_subnet_cidr_block_output(id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getSubnetCidrBlock', __args__, opts=opts, typ=GetSubnetCidrBlockResult)
     return __ret__.apply(lambda __response__: GetSubnetCidrBlockResult(
         id=pulumi.get(__response__, 'id'),

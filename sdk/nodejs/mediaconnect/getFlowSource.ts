@@ -109,7 +109,7 @@ export interface GetFlowSourceResult {
 /**
  * Resource schema for AWS::MediaConnect::FlowSource
  */
-export function getFlowSourceOutput(args: GetFlowSourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFlowSourceResult> {
+export function getFlowSourceOutput(args: GetFlowSourceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFlowSourceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:mediaconnect:getFlowSource", {
         "sourceArn": args.sourceArn,

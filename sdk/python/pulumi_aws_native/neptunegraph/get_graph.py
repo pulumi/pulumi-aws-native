@@ -149,7 +149,7 @@ def get_graph(graph_id: Optional[str] = None,
         public_connectivity=pulumi.get(__ret__, 'public_connectivity'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_graph_output(graph_id: Optional[pulumi.Input[str]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGraphResult]:
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGraphResult]:
     """
     The AWS::NeptuneGraph::Graph resource creates an Amazon NeptuneGraph Graph.
 
@@ -158,7 +158,7 @@ def get_graph_output(graph_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['graphId'] = graph_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:neptunegraph:getGraph', __args__, opts=opts, typ=GetGraphResult)
     return __ret__.apply(lambda __response__: GetGraphResult(
         deletion_protection=pulumi.get(__response__, 'deletion_protection'),

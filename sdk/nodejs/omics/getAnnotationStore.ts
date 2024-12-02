@@ -61,7 +61,7 @@ export interface GetAnnotationStoreResult {
 /**
  * Definition of AWS::Omics::AnnotationStore Resource Type
  */
-export function getAnnotationStoreOutput(args: GetAnnotationStoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAnnotationStoreResult> {
+export function getAnnotationStoreOutput(args: GetAnnotationStoreOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAnnotationStoreResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:omics:getAnnotationStore", {
         "name": args.name,

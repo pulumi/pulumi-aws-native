@@ -129,7 +129,7 @@ def get_pipeline(pipeline_name: Optional[str] = None,
         role_arn=pulumi.get(__ret__, 'role_arn'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_pipeline_output(pipeline_name: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPipelineResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPipelineResult]:
     """
     Resource Type definition for AWS::SageMaker::Pipeline
 
@@ -138,7 +138,7 @@ def get_pipeline_output(pipeline_name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['pipelineName'] = pipeline_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:sagemaker:getPipeline', __args__, opts=opts, typ=GetPipelineResult)
     return __ret__.apply(lambda __response__: GetPipelineResult(
         parallelism_configuration=pulumi.get(__response__, 'parallelism_configuration'),

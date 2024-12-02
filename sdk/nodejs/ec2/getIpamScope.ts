@@ -61,7 +61,7 @@ export interface GetIpamScopeResult {
 /**
  * Resource Schema of AWS::EC2::IPAMScope Type
  */
-export function getIpamScopeOutput(args: GetIpamScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIpamScopeResult> {
+export function getIpamScopeOutput(args: GetIpamScopeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIpamScopeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:ec2:getIpamScope", {
         "ipamScopeId": args.ipamScopeId,

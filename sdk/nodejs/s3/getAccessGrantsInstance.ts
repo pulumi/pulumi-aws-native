@@ -38,7 +38,7 @@ export interface GetAccessGrantsInstanceResult {
 /**
  * The AWS::S3::AccessGrantsInstance resource is an Amazon S3 resource type that hosts Access Grants and their associated locations
  */
-export function getAccessGrantsInstanceOutput(args: GetAccessGrantsInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessGrantsInstanceResult> {
+export function getAccessGrantsInstanceOutput(args: GetAccessGrantsInstanceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccessGrantsInstanceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:s3:getAccessGrantsInstance", {
         "accessGrantsInstanceArn": args.accessGrantsInstanceArn,

@@ -154,7 +154,7 @@ def get_bot(id: Optional[str] = None,
         role_arn=pulumi.get(__ret__, 'role_arn'),
         test_bot_alias_settings=pulumi.get(__ret__, 'test_bot_alias_settings'))
 def get_bot_output(id: Optional[pulumi.Input[str]] = None,
-                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBotResult]:
+                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBotResult]:
     """
     Amazon Lex conversational bot performing automated tasks such as ordering a pizza, booking a hotel, and so on.
 
@@ -163,7 +163,7 @@ def get_bot_output(id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:lex:getBot', __args__, opts=opts, typ=GetBotResult)
     return __ret__.apply(lambda __response__: GetBotResult(
         arn=pulumi.get(__response__, 'arn'),

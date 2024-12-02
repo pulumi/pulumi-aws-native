@@ -102,7 +102,7 @@ def get_user_hierarchy_group(user_hierarchy_group_arn: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         user_hierarchy_group_arn=pulumi.get(__ret__, 'user_hierarchy_group_arn'))
 def get_user_hierarchy_group_output(user_hierarchy_group_arn: Optional[pulumi.Input[str]] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserHierarchyGroupResult]:
+                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserHierarchyGroupResult]:
     """
     Resource Type definition for AWS::Connect::UserHierarchyGroup
 
@@ -111,7 +111,7 @@ def get_user_hierarchy_group_output(user_hierarchy_group_arn: Optional[pulumi.In
     """
     __args__ = dict()
     __args__['userHierarchyGroupArn'] = user_hierarchy_group_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:connect:getUserHierarchyGroup', __args__, opts=opts, typ=GetUserHierarchyGroupResult)
     return __ret__.apply(lambda __response__: GetUserHierarchyGroupResult(
         instance_arn=pulumi.get(__response__, 'instance_arn'),

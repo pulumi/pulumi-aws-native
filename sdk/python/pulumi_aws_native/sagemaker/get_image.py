@@ -135,7 +135,7 @@ def get_image(image_arn: Optional[str] = None,
         image_role_arn=pulumi.get(__ret__, 'image_role_arn'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_image_output(image_arn: Optional[pulumi.Input[str]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImageResult]:
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetImageResult]:
     """
     Resource Type definition for AWS::SageMaker::Image
 
@@ -150,7 +150,7 @@ def get_image_output(image_arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['imageArn'] = image_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:sagemaker:getImage', __args__, opts=opts, typ=GetImageResult)
     return __ret__.apply(lambda __response__: GetImageResult(
         image_arn=pulumi.get(__response__, 'image_arn'),

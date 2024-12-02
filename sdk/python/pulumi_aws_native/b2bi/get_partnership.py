@@ -168,7 +168,7 @@ def get_partnership(partnership_id: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         trading_partner_id=pulumi.get(__ret__, 'trading_partner_id'))
 def get_partnership_output(partnership_id: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPartnershipResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPartnershipResult]:
     """
     Definition of AWS::B2BI::Partnership Resource Type
 
@@ -177,7 +177,7 @@ def get_partnership_output(partnership_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['partnershipId'] = partnership_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:b2bi:getPartnership', __args__, opts=opts, typ=GetPartnershipResult)
     return __ret__.apply(lambda __response__: GetPartnershipResult(
         capabilities=pulumi.get(__response__, 'capabilities'),

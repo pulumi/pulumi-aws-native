@@ -30,7 +30,7 @@ export interface GetWorkflowResult {
 /**
  * Resource schema for AWS::ImageBuilder::Workflow
  */
-export function getWorkflowOutput(args: GetWorkflowOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkflowResult> {
+export function getWorkflowOutput(args: GetWorkflowOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkflowResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:imagebuilder:getWorkflow", {
         "arn": args.arn,

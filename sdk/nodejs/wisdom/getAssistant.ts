@@ -34,7 +34,7 @@ export interface GetAssistantResult {
 /**
  * Definition of AWS::Wisdom::Assistant Resource Type
  */
-export function getAssistantOutput(args: GetAssistantOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssistantResult> {
+export function getAssistantOutput(args: GetAssistantOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAssistantResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:wisdom:getAssistant", {
         "assistantId": args.assistantId,

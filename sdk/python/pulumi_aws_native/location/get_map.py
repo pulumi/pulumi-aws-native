@@ -154,7 +154,7 @@ def get_map(map_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         update_time=pulumi.get(__ret__, 'update_time'))
 def get_map_output(map_name: Optional[pulumi.Input[str]] = None,
-                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMapResult]:
+                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMapResult]:
     """
     Definition of AWS::Location::Map Resource Type
 
@@ -169,7 +169,7 @@ def get_map_output(map_name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['mapName'] = map_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:location:getMap', __args__, opts=opts, typ=GetMapResult)
     return __ret__.apply(lambda __response__: GetMapResult(
         arn=pulumi.get(__response__, 'arn'),

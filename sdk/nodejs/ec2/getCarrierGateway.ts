@@ -45,7 +45,7 @@ export interface GetCarrierGatewayResult {
 /**
  * An example resource schema demonstrating some basic constructs and validation rules.
  */
-export function getCarrierGatewayOutput(args: GetCarrierGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCarrierGatewayResult> {
+export function getCarrierGatewayOutput(args: GetCarrierGatewayOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCarrierGatewayResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:ec2:getCarrierGateway", {
         "carrierGatewayId": args.carrierGatewayId,

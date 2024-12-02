@@ -196,7 +196,7 @@ def get_inference_component(inference_component_arn: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         variant_name=pulumi.get(__ret__, 'variant_name'))
 def get_inference_component_output(inference_component_arn: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInferenceComponentResult]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInferenceComponentResult]:
     """
     Resource Type definition for AWS::SageMaker::InferenceComponent
 
@@ -205,7 +205,7 @@ def get_inference_component_output(inference_component_arn: Optional[pulumi.Inpu
     """
     __args__ = dict()
     __args__['inferenceComponentArn'] = inference_component_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:sagemaker:getInferenceComponent', __args__, opts=opts, typ=GetInferenceComponentResult)
     return __ret__.apply(lambda __response__: GetInferenceComponentResult(
         creation_time=pulumi.get(__response__, 'creation_time'),

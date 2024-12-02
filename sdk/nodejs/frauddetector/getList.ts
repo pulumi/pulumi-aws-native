@@ -57,7 +57,7 @@ export interface GetListResult {
 /**
  * A resource schema for a List in Amazon Fraud Detector.
  */
-export function getListOutput(args: GetListOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetListResult> {
+export function getListOutput(args: GetListOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetListResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:frauddetector:getList", {
         "arn": args.arn,

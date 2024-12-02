@@ -81,7 +81,7 @@ def get_enabled_control(control_identifier: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'))
 def get_enabled_control_output(control_identifier: Optional[pulumi.Input[str]] = None,
                                target_identifier: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnabledControlResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEnabledControlResult]:
     """
     Enables a control on a specified target.
 
@@ -92,7 +92,7 @@ def get_enabled_control_output(control_identifier: Optional[pulumi.Input[str]] =
     __args__ = dict()
     __args__['controlIdentifier'] = control_identifier
     __args__['targetIdentifier'] = target_identifier
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:controltower:getEnabledControl', __args__, opts=opts, typ=GetEnabledControlResult)
     return __ret__.apply(lambda __response__: GetEnabledControlResult(
         parameters=pulumi.get(__response__, 'parameters'),

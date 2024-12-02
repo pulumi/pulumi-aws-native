@@ -176,7 +176,7 @@ def get_id_namespace_association(id_namespace_association_identifier: Optional[s
         tags=pulumi.get(__ret__, 'tags'))
 def get_id_namespace_association_output(id_namespace_association_identifier: Optional[pulumi.Input[str]] = None,
                                         membership_identifier: Optional[pulumi.Input[str]] = None,
-                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIdNamespaceAssociationResult]:
+                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIdNamespaceAssociationResult]:
     """
     Represents an association between an ID namespace and a collaboration
 
@@ -186,7 +186,7 @@ def get_id_namespace_association_output(id_namespace_association_identifier: Opt
     __args__ = dict()
     __args__['idNamespaceAssociationIdentifier'] = id_namespace_association_identifier
     __args__['membershipIdentifier'] = membership_identifier
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:cleanrooms:getIdNamespaceAssociation', __args__, opts=opts, typ=GetIdNamespaceAssociationResult)
     return __ret__.apply(lambda __response__: GetIdNamespaceAssociationResult(
         arn=pulumi.get(__response__, 'arn'),

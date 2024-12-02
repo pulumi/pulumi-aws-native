@@ -47,7 +47,7 @@ export interface GetServiceTemplateResult {
 /**
  * Definition of AWS::Proton::ServiceTemplate Resource Type
  */
-export function getServiceTemplateOutput(args: GetServiceTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceTemplateResult> {
+export function getServiceTemplateOutput(args: GetServiceTemplateOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServiceTemplateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:proton:getServiceTemplate", {
         "arn": args.arn,

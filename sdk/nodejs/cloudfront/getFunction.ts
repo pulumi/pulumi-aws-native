@@ -70,7 +70,7 @@ export interface GetFunctionResult {
  *  When you’re ready to use your function with a CF distribution, publish the function to the ``LIVE`` stage. You can do this in the CF console, with ``PublishFunction`` in the CF API, or by updating the ``AWS::CloudFront::Function`` resource with the ``AutoPublish`` property set to ``true``. When the function is published to the ``LIVE`` stage, you can attach it to a distribution’s cache behavior, using the function’s ARN.
  *  To automatically publish the function to the ``LIVE`` stage when it’s created, set the ``AutoPublish`` property to ``true``.
  */
-export function getFunctionOutput(args: GetFunctionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFunctionResult> {
+export function getFunctionOutput(args: GetFunctionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFunctionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:cloudfront:getFunction", {
         "functionArn": args.functionArn,

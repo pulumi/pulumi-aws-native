@@ -112,7 +112,7 @@ def get_group(group_name: Optional[str] = None,
         path=pulumi.get(__ret__, 'path'),
         policies=pulumi.get(__ret__, 'policies'))
 def get_group_output(group_name: Optional[pulumi.Input[str]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGroupResult]:
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGroupResult]:
     """
     Creates a new group.
       For information about the number of groups you can create, see [Limitations on Entities](https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html) in the *User Guide*.
@@ -126,7 +126,7 @@ def get_group_output(group_name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['groupName'] = group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:iam:getGroup', __args__, opts=opts, typ=GetGroupResult)
     return __ret__.apply(lambda __response__: GetGroupResult(
         arn=pulumi.get(__response__, 'arn'),

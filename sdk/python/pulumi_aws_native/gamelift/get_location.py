@@ -76,7 +76,7 @@ def get_location(location_name: Optional[str] = None,
         location_arn=pulumi.get(__ret__, 'location_arn'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_location_output(location_name: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocationResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocationResult]:
     """
     The AWS::GameLift::Location resource creates an Amazon GameLift (GameLift) custom location.
 
@@ -85,7 +85,7 @@ def get_location_output(location_name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['locationName'] = location_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:gamelift:getLocation', __args__, opts=opts, typ=GetLocationResult)
     return __ret__.apply(lambda __response__: GetLocationResult(
         location_arn=pulumi.get(__response__, 'location_arn'),

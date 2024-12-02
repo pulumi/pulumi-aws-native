@@ -42,7 +42,7 @@ export interface GetUserProfileResult {
 /**
  * Resource Type definition for AWS::SageMaker::UserProfile
  */
-export function getUserProfileOutput(args: GetUserProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserProfileResult> {
+export function getUserProfileOutput(args: GetUserProfileOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetUserProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:sagemaker:getUserProfile", {
         "domainId": args.domainId,

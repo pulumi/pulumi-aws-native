@@ -89,7 +89,7 @@ def get_custom_metric(metric_name: Optional[str] = None,
         metric_arn=pulumi.get(__ret__, 'metric_arn'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_custom_metric_output(metric_name: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCustomMetricResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCustomMetricResult]:
     """
     A custom metric published by your devices to Device Defender.
 
@@ -98,7 +98,7 @@ def get_custom_metric_output(metric_name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['metricName'] = metric_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:iot:getCustomMetric', __args__, opts=opts, typ=GetCustomMetricResult)
     return __ret__.apply(lambda __response__: GetCustomMetricResult(
         display_name=pulumi.get(__response__, 'display_name'),

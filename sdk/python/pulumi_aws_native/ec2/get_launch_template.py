@@ -96,7 +96,7 @@ def get_launch_template(launch_template_id: Optional[str] = None,
         latest_version_number=pulumi.get(__ret__, 'latest_version_number'),
         launch_template_id=pulumi.get(__ret__, 'launch_template_id'))
 def get_launch_template_output(launch_template_id: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLaunchTemplateResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLaunchTemplateResult]:
     """
     Specifies the properties for creating a launch template.
      The minimum required properties for specifying a launch template are as follows:
@@ -111,7 +111,7 @@ def get_launch_template_output(launch_template_id: Optional[pulumi.Input[str]] =
     """
     __args__ = dict()
     __args__['launchTemplateId'] = launch_template_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getLaunchTemplate', __args__, opts=opts, typ=GetLaunchTemplateResult)
     return __ret__.apply(lambda __response__: GetLaunchTemplateResult(
         default_version_number=pulumi.get(__response__, 'default_version_number'),

@@ -107,7 +107,7 @@ def get_custom_db_engine_version(engine: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'))
 def get_custom_db_engine_version_output(engine: Optional[pulumi.Input[str]] = None,
                                         engine_version: Optional[pulumi.Input[str]] = None,
-                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCustomDbEngineVersionResult]:
+                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCustomDbEngineVersionResult]:
     """
     The AWS::RDS::CustomDBEngineVersion resource creates an Amazon RDS custom DB engine version.
 
@@ -118,7 +118,7 @@ def get_custom_db_engine_version_output(engine: Optional[pulumi.Input[str]] = No
     __args__ = dict()
     __args__['engine'] = engine
     __args__['engineVersion'] = engine_version
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:rds:getCustomDbEngineVersion', __args__, opts=opts, typ=GetCustomDbEngineVersionResult)
     return __ret__.apply(lambda __response__: GetCustomDbEngineVersionResult(
         db_engine_version_arn=pulumi.get(__response__, 'db_engine_version_arn'),

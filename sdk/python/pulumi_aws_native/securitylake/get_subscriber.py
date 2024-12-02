@@ -197,7 +197,7 @@ def get_subscriber(subscriber_arn: Optional[str] = None,
         subscriber_role_arn=pulumi.get(__ret__, 'subscriber_role_arn'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_subscriber_output(subscriber_arn: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubscriberResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSubscriberResult]:
     """
     Resource Type definition for AWS::SecurityLake::Subscriber
 
@@ -206,7 +206,7 @@ def get_subscriber_output(subscriber_arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['subscriberArn'] = subscriber_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:securitylake:getSubscriber', __args__, opts=opts, typ=GetSubscriberResult)
     return __ret__.apply(lambda __response__: GetSubscriberResult(
         access_types=pulumi.get(__response__, 'access_types'),

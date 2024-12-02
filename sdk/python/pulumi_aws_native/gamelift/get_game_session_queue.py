@@ -169,7 +169,7 @@ def get_game_session_queue(name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         timeout_in_seconds=pulumi.get(__ret__, 'timeout_in_seconds'))
 def get_game_session_queue_output(name: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGameSessionQueueResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGameSessionQueueResult]:
     """
     The AWS::GameLift::GameSessionQueue resource creates an Amazon GameLift (GameLift) game session queue.
 
@@ -178,7 +178,7 @@ def get_game_session_queue_output(name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:gamelift:getGameSessionQueue', __args__, opts=opts, typ=GetGameSessionQueueResult)
     return __ret__.apply(lambda __response__: GetGameSessionQueueResult(
         arn=pulumi.get(__response__, 'arn'),

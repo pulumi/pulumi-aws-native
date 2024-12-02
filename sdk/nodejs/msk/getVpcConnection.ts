@@ -31,7 +31,7 @@ export interface GetVpcConnectionResult {
 /**
  * Resource Type definition for AWS::MSK::VpcConnection
  */
-export function getVpcConnectionOutput(args: GetVpcConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcConnectionResult> {
+export function getVpcConnectionOutput(args: GetVpcConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVpcConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:msk:getVpcConnection", {
         "arn": args.arn,

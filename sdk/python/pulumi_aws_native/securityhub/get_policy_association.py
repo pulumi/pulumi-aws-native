@@ -128,7 +128,7 @@ def get_policy_association(association_identifier: Optional[str] = None,
         configuration_policy_id=pulumi.get(__ret__, 'configuration_policy_id'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
 def get_policy_association_output(association_identifier: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicyAssociationResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPolicyAssociationResult]:
     """
     The AWS::SecurityHub::PolicyAssociation resource represents the AWS Security Hub Central Configuration Policy associations in your Target. Only the AWS Security Hub delegated administrator can create the resouce from the home region.
 
@@ -137,7 +137,7 @@ def get_policy_association_output(association_identifier: Optional[pulumi.Input[
     """
     __args__ = dict()
     __args__['associationIdentifier'] = association_identifier
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:securityhub:getPolicyAssociation', __args__, opts=opts, typ=GetPolicyAssociationResult)
     return __ret__.apply(lambda __response__: GetPolicyAssociationResult(
         association_identifier=pulumi.get(__response__, 'association_identifier'),

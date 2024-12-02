@@ -41,7 +41,7 @@ export interface GetRoutingControlResult {
 /**
  * AWS Route53 Recovery Control Routing Control resource schema .
  */
-export function getRoutingControlOutput(args: GetRoutingControlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoutingControlResult> {
+export function getRoutingControlOutput(args: GetRoutingControlOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRoutingControlResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:route53recoverycontrol:getRoutingControl", {
         "routingControlArn": args.routingControlArn,

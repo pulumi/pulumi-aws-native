@@ -62,7 +62,7 @@ def get_alert(arn: Optional[str] = None,
     return AwaitableGetAlertResult(
         arn=pulumi.get(__ret__, 'arn'))
 def get_alert_output(arn: Optional[pulumi.Input[str]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAlertResult]:
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAlertResult]:
     """
     Resource Type definition for AWS::LookoutMetrics::Alert
 
@@ -71,7 +71,7 @@ def get_alert_output(arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:lookoutmetrics:getAlert', __args__, opts=opts, typ=GetAlertResult)
     return __ret__.apply(lambda __response__: GetAlertResult(
         arn=pulumi.get(__response__, 'arn')))

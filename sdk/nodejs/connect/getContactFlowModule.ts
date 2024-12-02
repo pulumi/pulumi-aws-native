@@ -61,7 +61,7 @@ export interface GetContactFlowModuleResult {
 /**
  * Resource Type definition for AWS::Connect::ContactFlowModule.
  */
-export function getContactFlowModuleOutput(args: GetContactFlowModuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContactFlowModuleResult> {
+export function getContactFlowModuleOutput(args: GetContactFlowModuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetContactFlowModuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:connect:getContactFlowModule", {
         "contactFlowModuleArn": args.contactFlowModuleArn,

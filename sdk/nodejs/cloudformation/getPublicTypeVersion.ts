@@ -38,7 +38,7 @@ export interface GetPublicTypeVersionResult {
 /**
  * Test and Publish a resource that has been registered in the CloudFormation Registry.
  */
-export function getPublicTypeVersionOutput(args: GetPublicTypeVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPublicTypeVersionResult> {
+export function getPublicTypeVersionOutput(args: GetPublicTypeVersionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPublicTypeVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:cloudformation:getPublicTypeVersion", {
         "publicTypeArn": args.publicTypeArn,

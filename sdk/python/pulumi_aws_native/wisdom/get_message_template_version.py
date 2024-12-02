@@ -88,7 +88,7 @@ def get_message_template_version(message_template_version_arn: Optional[str] = N
         message_template_version_arn=pulumi.get(__ret__, 'message_template_version_arn'),
         message_template_version_number=pulumi.get(__ret__, 'message_template_version_number'))
 def get_message_template_version_output(message_template_version_arn: Optional[pulumi.Input[str]] = None,
-                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMessageTemplateVersionResult]:
+                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMessageTemplateVersionResult]:
     """
     A version for the specified customer-managed message template within the specified knowledge base.
 
@@ -97,7 +97,7 @@ def get_message_template_version_output(message_template_version_arn: Optional[p
     """
     __args__ = dict()
     __args__['messageTemplateVersionArn'] = message_template_version_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:wisdom:getMessageTemplateVersion', __args__, opts=opts, typ=GetMessageTemplateVersionResult)
     return __ret__.apply(lambda __response__: GetMessageTemplateVersionResult(
         message_template_content_sha256=pulumi.get(__response__, 'message_template_content_sha256'),

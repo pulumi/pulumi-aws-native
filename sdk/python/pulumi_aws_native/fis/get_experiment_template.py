@@ -168,7 +168,7 @@ def get_experiment_template(id: Optional[str] = None,
         stop_conditions=pulumi.get(__ret__, 'stop_conditions'),
         targets=pulumi.get(__ret__, 'targets'))
 def get_experiment_template_output(id: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExperimentTemplateResult]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExperimentTemplateResult]:
     """
     Resource schema for AWS::FIS::ExperimentTemplate
 
@@ -177,7 +177,7 @@ def get_experiment_template_output(id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:fis:getExperimentTemplate', __args__, opts=opts, typ=GetExperimentTemplateResult)
     return __ret__.apply(lambda __response__: GetExperimentTemplateResult(
         actions=pulumi.get(__response__, 'actions'),

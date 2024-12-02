@@ -182,7 +182,7 @@ def get_connector(connector_id: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         url=pulumi.get(__ret__, 'url'))
 def get_connector_output(connector_id: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectorResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectorResult]:
     """
     Resource Type definition for AWS::Transfer::Connector
 
@@ -191,7 +191,7 @@ def get_connector_output(connector_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['connectorId'] = connector_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:transfer:getConnector', __args__, opts=opts, typ=GetConnectorResult)
     return __ret__.apply(lambda __response__: GetConnectorResult(
         access_role=pulumi.get(__response__, 'access_role'),

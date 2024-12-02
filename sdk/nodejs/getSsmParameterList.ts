@@ -18,7 +18,7 @@ export interface GetSsmParameterListArgs {
 export interface GetSsmParameterListResult {
     readonly value: string[];
 }
-export function getSsmParameterListOutput(args: GetSsmParameterListOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSsmParameterListResult> {
+export function getSsmParameterListOutput(args: GetSsmParameterListOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSsmParameterListResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:index:getSsmParameterList", {
         "name": args.name,

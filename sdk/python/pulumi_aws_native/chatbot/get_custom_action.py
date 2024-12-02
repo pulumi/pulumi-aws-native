@@ -99,13 +99,13 @@ def get_custom_action(custom_action_arn: Optional[str] = None,
         definition=pulumi.get(__ret__, 'definition'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_custom_action_output(custom_action_arn: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCustomActionResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCustomActionResult]:
     """
     Definition of AWS::Chatbot::CustomAction Resource Type
     """
     __args__ = dict()
     __args__['customActionArn'] = custom_action_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:chatbot:getCustomAction', __args__, opts=opts, typ=GetCustomActionResult)
     return __ret__.apply(lambda __response__: GetCustomActionResult(
         alias_name=pulumi.get(__response__, 'alias_name'),

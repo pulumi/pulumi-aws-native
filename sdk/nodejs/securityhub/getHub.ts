@@ -48,7 +48,7 @@ export interface GetHubResult {
 /**
  * The AWS::SecurityHub::Hub resource represents the implementation of the AWS Security Hub service in your account. One hub resource is created for each Region in which you enable Security Hub.
  */
-export function getHubOutput(args: GetHubOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHubResult> {
+export function getHubOutput(args: GetHubOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetHubResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:securityhub:getHub", {
         "arn": args.arn,

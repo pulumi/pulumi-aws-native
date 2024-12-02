@@ -55,7 +55,7 @@ export interface GetHookVersionResult {
 /**
  * Publishes new or first hook version to AWS CloudFormation Registry.
  */
-export function getHookVersionOutput(args: GetHookVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHookVersionResult> {
+export function getHookVersionOutput(args: GetHookVersionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetHookVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:cloudformation:getHookVersion", {
         "arn": args.arn,

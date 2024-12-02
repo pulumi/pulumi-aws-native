@@ -79,7 +79,7 @@ def get_prepared_statement(statement_name: Optional[str] = None,
         query_statement=pulumi.get(__ret__, 'query_statement'))
 def get_prepared_statement_output(statement_name: Optional[pulumi.Input[str]] = None,
                                   work_group: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPreparedStatementResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPreparedStatementResult]:
     """
     Resource schema for AWS::Athena::PreparedStatement
 
@@ -90,7 +90,7 @@ def get_prepared_statement_output(statement_name: Optional[pulumi.Input[str]] = 
     __args__ = dict()
     __args__['statementName'] = statement_name
     __args__['workGroup'] = work_group
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:athena:getPreparedStatement', __args__, opts=opts, typ=GetPreparedStatementResult)
     return __ret__.apply(lambda __response__: GetPreparedStatementResult(
         description=pulumi.get(__response__, 'description'),

@@ -168,7 +168,7 @@ def get_mail_manager_ingress_point(ingress_point_id: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         traffic_policy_id=pulumi.get(__ret__, 'traffic_policy_id'))
 def get_mail_manager_ingress_point_output(ingress_point_id: Optional[pulumi.Input[str]] = None,
-                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMailManagerIngressPointResult]:
+                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMailManagerIngressPointResult]:
     """
     Definition of AWS::SES::MailManagerIngressPoint Resource Type
 
@@ -177,7 +177,7 @@ def get_mail_manager_ingress_point_output(ingress_point_id: Optional[pulumi.Inpu
     """
     __args__ = dict()
     __args__['ingressPointId'] = ingress_point_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ses:getMailManagerIngressPoint', __args__, opts=opts, typ=GetMailManagerIngressPointResult)
     return __ret__.apply(lambda __response__: GetMailManagerIngressPointResult(
         a_record=pulumi.get(__response__, 'a_record'),

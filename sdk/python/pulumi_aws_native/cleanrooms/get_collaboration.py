@@ -121,7 +121,7 @@ def get_collaboration(collaboration_identifier: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_collaboration_output(collaboration_identifier: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCollaborationResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCollaborationResult]:
     """
     Represents a collaboration between AWS accounts that allows for secure data collaboration
 
@@ -132,7 +132,7 @@ def get_collaboration_output(collaboration_identifier: Optional[pulumi.Input[str
     """
     __args__ = dict()
     __args__['collaborationIdentifier'] = collaboration_identifier
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:cleanrooms:getCollaboration', __args__, opts=opts, typ=GetCollaborationResult)
     return __ret__.apply(lambda __response__: GetCollaborationResult(
         arn=pulumi.get(__response__, 'arn'),

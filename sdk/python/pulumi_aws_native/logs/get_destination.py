@@ -101,7 +101,7 @@ def get_destination(destination_name: Optional[str] = None,
         role_arn=pulumi.get(__ret__, 'role_arn'),
         target_arn=pulumi.get(__ret__, 'target_arn'))
 def get_destination_output(destination_name: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDestinationResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDestinationResult]:
     """
     The AWS::Logs::Destination resource specifies a CloudWatch Logs destination. A destination encapsulates a physical resource (such as an Amazon Kinesis data stream) and enables you to subscribe that resource to a stream of log events.
 
@@ -110,7 +110,7 @@ def get_destination_output(destination_name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['destinationName'] = destination_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:logs:getDestination', __args__, opts=opts, typ=GetDestinationResult)
     return __ret__.apply(lambda __response__: GetDestinationResult(
         arn=pulumi.get(__response__, 'arn'),

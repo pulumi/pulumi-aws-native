@@ -70,7 +70,7 @@ def get_security_key(association_id: Optional[str] = None,
         association_id=pulumi.get(__ret__, 'association_id'))
 def get_security_key_output(association_id: Optional[pulumi.Input[str]] = None,
                             instance_id: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecurityKeyResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecurityKeyResult]:
     """
     Resource Type definition for AWS::Connect::SecurityKey
 
@@ -85,7 +85,7 @@ def get_security_key_output(association_id: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['associationId'] = association_id
     __args__['instanceId'] = instance_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:connect:getSecurityKey', __args__, opts=opts, typ=GetSecurityKeyResult)
     return __ret__.apply(lambda __response__: GetSecurityKeyResult(
         association_id=pulumi.get(__response__, 'association_id')))

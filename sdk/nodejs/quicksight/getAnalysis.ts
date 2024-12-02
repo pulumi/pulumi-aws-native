@@ -76,7 +76,7 @@ export interface GetAnalysisResult {
 /**
  * Definition of the AWS::QuickSight::Analysis Resource Type.
  */
-export function getAnalysisOutput(args: GetAnalysisOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAnalysisResult> {
+export function getAnalysisOutput(args: GetAnalysisOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAnalysisResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:quicksight:getAnalysis", {
         "analysisId": args.analysisId,

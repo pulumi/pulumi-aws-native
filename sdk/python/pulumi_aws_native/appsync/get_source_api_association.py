@@ -194,7 +194,7 @@ def get_source_api_association(association_arn: Optional[str] = None,
         source_api_association_status_detail=pulumi.get(__ret__, 'source_api_association_status_detail'),
         source_api_id=pulumi.get(__ret__, 'source_api_id'))
 def get_source_api_association_output(association_arn: Optional[pulumi.Input[str]] = None,
-                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSourceApiAssociationResult]:
+                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSourceApiAssociationResult]:
     """
     Resource Type definition for AWS::AppSync::SourceApiAssociation
 
@@ -203,7 +203,7 @@ def get_source_api_association_output(association_arn: Optional[pulumi.Input[str
     """
     __args__ = dict()
     __args__['associationArn'] = association_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:appsync:getSourceApiAssociation', __args__, opts=opts, typ=GetSourceApiAssociationResult)
     return __ret__.apply(lambda __response__: GetSourceApiAssociationResult(
         association_arn=pulumi.get(__response__, 'association_arn'),

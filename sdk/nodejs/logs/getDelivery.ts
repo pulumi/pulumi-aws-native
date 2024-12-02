@@ -69,7 +69,7 @@ export interface GetDeliveryResult {
  *
  * For more information, see [CreateDelivery](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.html).
  */
-export function getDeliveryOutput(args: GetDeliveryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeliveryResult> {
+export function getDeliveryOutput(args: GetDeliveryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDeliveryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:logs:getDelivery", {
         "deliveryId": args.deliveryId,

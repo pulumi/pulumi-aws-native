@@ -238,7 +238,7 @@ def get_origin_endpoint(arn: Optional[str] = None,
         startover_window_seconds=pulumi.get(__ret__, 'startover_window_seconds'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_origin_endpoint_output(arn: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOriginEndpointResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOriginEndpointResult]:
     """
     <p>Represents an origin endpoint that is associated with a channel, offering a dynamically repackaged version of its content through various streaming media protocols. The content can be efficiently disseminated to end-users via a Content Delivery Network (CDN), like Amazon CloudFront.</p>
 
@@ -247,7 +247,7 @@ def get_origin_endpoint_output(arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:mediapackagev2:getOriginEndpoint', __args__, opts=opts, typ=GetOriginEndpointResult)
     return __ret__.apply(lambda __response__: GetOriginEndpointResult(
         arn=pulumi.get(__response__, 'arn'),

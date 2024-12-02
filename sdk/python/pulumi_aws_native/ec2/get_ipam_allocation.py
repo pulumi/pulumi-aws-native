@@ -75,7 +75,7 @@ def get_ipam_allocation(cidr: Optional[str] = None,
 def get_ipam_allocation_output(cidr: Optional[pulumi.Input[str]] = None,
                                ipam_pool_allocation_id: Optional[pulumi.Input[str]] = None,
                                ipam_pool_id: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIpamAllocationResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIpamAllocationResult]:
     """
     Resource Schema of AWS::EC2::IPAMAllocation Type
 
@@ -93,7 +93,7 @@ def get_ipam_allocation_output(cidr: Optional[pulumi.Input[str]] = None,
     __args__['cidr'] = cidr
     __args__['ipamPoolAllocationId'] = ipam_pool_allocation_id
     __args__['ipamPoolId'] = ipam_pool_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getIpamAllocation', __args__, opts=opts, typ=GetIpamAllocationResult)
     return __ret__.apply(lambda __response__: GetIpamAllocationResult(
         ipam_pool_allocation_id=pulumi.get(__response__, 'ipam_pool_allocation_id')))

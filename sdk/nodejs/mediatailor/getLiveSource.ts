@@ -46,7 +46,7 @@ export interface GetLiveSourceResult {
 /**
  * Definition of AWS::MediaTailor::LiveSource Resource Type
  */
-export function getLiveSourceOutput(args: GetLiveSourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLiveSourceResult> {
+export function getLiveSourceOutput(args: GetLiveSourceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLiveSourceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:mediatailor:getLiveSource", {
         "liveSourceName": args.liveSourceName,

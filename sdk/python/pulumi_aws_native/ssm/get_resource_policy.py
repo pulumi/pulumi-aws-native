@@ -94,7 +94,7 @@ def get_resource_policy(policy_id: Optional[str] = None,
         policy_id=pulumi.get(__ret__, 'policy_id'))
 def get_resource_policy_output(policy_id: Optional[pulumi.Input[str]] = None,
                                resource_arn: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourcePolicyResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourcePolicyResult]:
     """
     Resource Type definition for AWS::SSM::ResourcePolicy
 
@@ -105,7 +105,7 @@ def get_resource_policy_output(policy_id: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['policyId'] = policy_id
     __args__['resourceArn'] = resource_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ssm:getResourcePolicy', __args__, opts=opts, typ=GetResourcePolicyResult)
     return __ret__.apply(lambda __response__: GetResourcePolicyResult(
         policy=pulumi.get(__response__, 'policy'),

@@ -144,7 +144,7 @@ def get_compute_environment(compute_environment_arn: Optional[str] = None,
         state=pulumi.get(__ret__, 'state'),
         unmanagedv_cpus=pulumi.get(__ret__, 'unmanagedv_cpus'))
 def get_compute_environment_output(compute_environment_arn: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetComputeEnvironmentResult]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetComputeEnvironmentResult]:
     """
     Resource Type definition for AWS::Batch::ComputeEnvironment
 
@@ -153,7 +153,7 @@ def get_compute_environment_output(compute_environment_arn: Optional[pulumi.Inpu
     """
     __args__ = dict()
     __args__['computeEnvironmentArn'] = compute_environment_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:batch:getComputeEnvironment', __args__, opts=opts, typ=GetComputeEnvironmentResult)
     return __ret__.apply(lambda __response__: GetComputeEnvironmentResult(
         compute_environment_arn=pulumi.get(__response__, 'compute_environment_arn'),

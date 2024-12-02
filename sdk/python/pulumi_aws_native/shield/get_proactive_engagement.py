@@ -92,7 +92,7 @@ def get_proactive_engagement(account_id: Optional[str] = None,
         emergency_contact_list=pulumi.get(__ret__, 'emergency_contact_list'),
         proactive_engagement_status=pulumi.get(__ret__, 'proactive_engagement_status'))
 def get_proactive_engagement_output(account_id: Optional[pulumi.Input[str]] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProactiveEngagementResult]:
+                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProactiveEngagementResult]:
     """
     Authorizes the Shield Response Team (SRT) to use email and phone to notify contacts about escalations to the SRT and to initiate proactive customer support.
 
@@ -101,7 +101,7 @@ def get_proactive_engagement_output(account_id: Optional[pulumi.Input[str]] = No
     """
     __args__ = dict()
     __args__['accountId'] = account_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:shield:getProactiveEngagement', __args__, opts=opts, typ=GetProactiveEngagementResult)
     return __ret__.apply(lambda __response__: GetProactiveEngagementResult(
         account_id=pulumi.get(__response__, 'account_id'),

@@ -128,7 +128,7 @@ def get_extension(id: Optional[str] = None,
         parameters=pulumi.get(__ret__, 'parameters'),
         version_number=pulumi.get(__ret__, 'version_number'))
 def get_extension_output(id: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExtensionResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExtensionResult]:
     """
     Resource Type definition for AWS::AppConfig::Extension
 
@@ -137,7 +137,7 @@ def get_extension_output(id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:appconfig:getExtension', __args__, opts=opts, typ=GetExtensionResult)
     return __ret__.apply(lambda __response__: GetExtensionResult(
         actions=pulumi.get(__response__, 'actions'),

@@ -30,7 +30,7 @@ export interface GetNamedQueryResult {
 /**
  * Resource schema for AWS::Athena::NamedQuery
  */
-export function getNamedQueryOutput(args: GetNamedQueryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNamedQueryResult> {
+export function getNamedQueryOutput(args: GetNamedQueryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNamedQueryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:athena:getNamedQuery", {
         "namedQueryId": args.namedQueryId,

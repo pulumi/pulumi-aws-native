@@ -353,7 +353,7 @@ def get_alarm(alarm_name: Optional[str] = None,
         treat_missing_data=pulumi.get(__ret__, 'treat_missing_data'),
         unit=pulumi.get(__ret__, 'unit'))
 def get_alarm_output(alarm_name: Optional[pulumi.Input[str]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAlarmResult]:
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAlarmResult]:
     """
     The ``AWS::CloudWatch::Alarm`` type specifies an alarm and associates it with the specified metric or metric math expression.
      When this operation creates an alarm, the alarm state is immediately set to ``INSUFFICIENT_DATA``. The alarm is then evaluated and its state is set appropriately. Any actions associated with the new state are then executed.
@@ -365,7 +365,7 @@ def get_alarm_output(alarm_name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['alarmName'] = alarm_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:cloudwatch:getAlarm', __args__, opts=opts, typ=GetAlarmResult)
     return __ret__.apply(lambda __response__: GetAlarmResult(
         actions_enabled=pulumi.get(__response__, 'actions_enabled'),

@@ -37,7 +37,7 @@ export interface GetLogDeliveryConfigurationResult {
 /**
  * Resource Type definition for AWS::Cognito::LogDeliveryConfiguration
  */
-export function getLogDeliveryConfigurationOutput(args: GetLogDeliveryConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLogDeliveryConfigurationResult> {
+export function getLogDeliveryConfigurationOutput(args: GetLogDeliveryConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLogDeliveryConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:cognito:getLogDeliveryConfiguration", {
         "id": args.id,

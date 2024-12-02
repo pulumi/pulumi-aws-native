@@ -41,7 +41,7 @@ export interface GetStreamKeyResult {
 /**
  * Resource Type definition for AWS::IVS::StreamKey
  */
-export function getStreamKeyOutput(args: GetStreamKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStreamKeyResult> {
+export function getStreamKeyOutput(args: GetStreamKeyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStreamKeyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:ivs:getStreamKey", {
         "arn": args.arn,

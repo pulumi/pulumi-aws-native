@@ -30,7 +30,7 @@ export interface GetSolutionResult {
 /**
  * Resource schema for AWS::Personalize::Solution.
  */
-export function getSolutionOutput(args: GetSolutionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSolutionResult> {
+export function getSolutionOutput(args: GetSolutionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSolutionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:personalize:getSolution", {
         "solutionArn": args.solutionArn,

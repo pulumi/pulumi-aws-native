@@ -57,7 +57,7 @@ export interface GetEndpointAccessResult {
 /**
  * Resource schema for a Redshift-managed VPC endpoint.
  */
-export function getEndpointAccessOutput(args: GetEndpointAccessOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEndpointAccessResult> {
+export function getEndpointAccessOutput(args: GetEndpointAccessOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEndpointAccessResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:redshift:getEndpointAccess", {
         "endpointName": args.endpointName,

@@ -37,7 +37,7 @@ export interface GetDatasetResult {
 /**
  * Resource schema for AWS::Personalize::Dataset.
  */
-export function getDatasetOutput(args: GetDatasetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatasetResult> {
+export function getDatasetOutput(args: GetDatasetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDatasetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:personalize:getDataset", {
         "datasetArn": args.datasetArn,

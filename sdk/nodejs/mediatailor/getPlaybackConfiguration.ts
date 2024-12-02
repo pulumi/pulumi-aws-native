@@ -97,7 +97,7 @@ export interface GetPlaybackConfigurationResult {
 /**
  * Resource schema for AWS::MediaTailor::PlaybackConfiguration
  */
-export function getPlaybackConfigurationOutput(args: GetPlaybackConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPlaybackConfigurationResult> {
+export function getPlaybackConfigurationOutput(args: GetPlaybackConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPlaybackConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:mediatailor:getPlaybackConfiguration", {
         "name": args.name,

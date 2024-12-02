@@ -53,7 +53,7 @@ export interface GetApiKeyResult {
 /**
  * The ``AWS::ApiGateway::ApiKey`` resource creates a unique key that you can distribute to clients who are executing API Gateway ``Method`` resources that require an API key. To specify which API key clients must use, map the API key with the ``RestApi`` and ``Stage`` resources that include the methods that require a key.
  */
-export function getApiKeyOutput(args: GetApiKeyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiKeyResult> {
+export function getApiKeyOutput(args: GetApiKeyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApiKeyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:apigateway:getApiKey", {
         "apiKeyId": args.apiKeyId,

@@ -34,7 +34,7 @@ export interface GetAssessmentTargetResult {
 /**
  * Resource Type definition for AWS::Inspector::AssessmentTarget
  */
-export function getAssessmentTargetOutput(args: GetAssessmentTargetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssessmentTargetResult> {
+export function getAssessmentTargetOutput(args: GetAssessmentTargetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAssessmentTargetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:inspector:getAssessmentTarget", {
         "arn": args.arn,

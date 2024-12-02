@@ -88,7 +88,7 @@ def get_capacity_provider(name: Optional[str] = None,
         auto_scaling_group_provider=pulumi.get(__ret__, 'auto_scaling_group_provider'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_capacity_provider_output(name: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCapacityProviderResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCapacityProviderResult]:
     """
     Resource Type definition for AWS::ECS::CapacityProvider.
 
@@ -97,7 +97,7 @@ def get_capacity_provider_output(name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ecs:getCapacityProvider', __args__, opts=opts, typ=GetCapacityProviderResult)
     return __ret__.apply(lambda __response__: GetCapacityProviderResult(
         auto_scaling_group_provider=pulumi.get(__response__, 'auto_scaling_group_provider'),

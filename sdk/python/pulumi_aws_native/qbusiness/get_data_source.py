@@ -258,7 +258,7 @@ def get_data_source(application_id: Optional[str] = None,
 def get_data_source_output(application_id: Optional[pulumi.Input[str]] = None,
                            data_source_id: Optional[pulumi.Input[str]] = None,
                            index_id: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataSourceResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataSourceResult]:
     """
     Definition of AWS::QBusiness::DataSource Resource Type
 
@@ -271,7 +271,7 @@ def get_data_source_output(application_id: Optional[pulumi.Input[str]] = None,
     __args__['applicationId'] = application_id
     __args__['dataSourceId'] = data_source_id
     __args__['indexId'] = index_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:qbusiness:getDataSource', __args__, opts=opts, typ=GetDataSourceResult)
     return __ret__.apply(lambda __response__: GetDataSourceResult(
         configuration=pulumi.get(__response__, 'configuration'),

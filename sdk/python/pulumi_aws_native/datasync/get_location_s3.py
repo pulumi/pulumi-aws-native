@@ -89,7 +89,7 @@ def get_location_s3(location_arn: Optional[str] = None,
         location_uri=pulumi.get(__ret__, 'location_uri'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_location_s3_output(location_arn: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocationS3Result]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocationS3Result]:
     """
     Resource schema for AWS::DataSync::LocationS3
 
@@ -98,7 +98,7 @@ def get_location_s3_output(location_arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['locationArn'] = location_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:datasync:getLocationS3', __args__, opts=opts, typ=GetLocationS3Result)
     return __ret__.apply(lambda __response__: GetLocationS3Result(
         location_arn=pulumi.get(__response__, 'location_arn'),

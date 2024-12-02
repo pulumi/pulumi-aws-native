@@ -141,7 +141,7 @@ def get_list(arn: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         variable_type=pulumi.get(__ret__, 'variable_type'))
 def get_list_output(arn: Optional[pulumi.Input[str]] = None,
-                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetListResult]:
+                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetListResult]:
     """
     A resource schema for a List in Amazon Fraud Detector.
 
@@ -150,7 +150,7 @@ def get_list_output(arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:frauddetector:getList', __args__, opts=opts, typ=GetListResult)
     return __ret__.apply(lambda __response__: GetListResult(
         arn=pulumi.get(__response__, 'arn'),

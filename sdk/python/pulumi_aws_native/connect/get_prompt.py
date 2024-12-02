@@ -115,7 +115,7 @@ def get_prompt(prompt_arn: Optional[str] = None,
         prompt_arn=pulumi.get(__ret__, 'prompt_arn'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_prompt_output(prompt_arn: Optional[pulumi.Input[str]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPromptResult]:
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPromptResult]:
     """
     Resource Type definition for AWS::Connect::Prompt
 
@@ -124,7 +124,7 @@ def get_prompt_output(prompt_arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['promptArn'] = prompt_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:connect:getPrompt', __args__, opts=opts, typ=GetPromptResult)
     return __ret__.apply(lambda __response__: GetPromptResult(
         description=pulumi.get(__response__, 'description'),

@@ -88,7 +88,7 @@ def get_task_definition(task_definition_arn: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         task_definition_arn=pulumi.get(__ret__, 'task_definition_arn'))
 def get_task_definition_output(task_definition_arn: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTaskDefinitionResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTaskDefinitionResult]:
     """
     Registers a new task definition from the supplied ``family`` and ``containerDefinitions``. Optionally, you can add data volumes to your containers with the ``volumes`` parameter. For more information about task definition parameters and defaults, see [Amazon ECS Task Definitions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html) in the *Amazon Elastic Container Service Developer Guide*.
      You can specify a role for your task with the ``taskRoleArn`` parameter. When you specify a role for a task, its containers can then use the latest versions of the CLI or SDKs to make API requests to the AWS services that are specified in the policy that's associated with the role. For more information, see [IAM Roles for Tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html) in the *Amazon Elastic Container Service Developer Guide*.
@@ -101,7 +101,7 @@ def get_task_definition_output(task_definition_arn: Optional[pulumi.Input[str]] 
     """
     __args__ = dict()
     __args__['taskDefinitionArn'] = task_definition_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ecs:getTaskDefinition', __args__, opts=opts, typ=GetTaskDefinitionResult)
     return __ret__.apply(lambda __response__: GetTaskDefinitionResult(
         tags=pulumi.get(__response__, 'tags'),

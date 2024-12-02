@@ -51,7 +51,7 @@ export interface GetFeatureGroupResult {
 /**
  * Resource Type definition for AWS::SageMaker::FeatureGroup
  */
-export function getFeatureGroupOutput(args: GetFeatureGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFeatureGroupResult> {
+export function getFeatureGroupOutput(args: GetFeatureGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFeatureGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:sagemaker:getFeatureGroup", {
         "featureGroupName": args.featureGroupName,

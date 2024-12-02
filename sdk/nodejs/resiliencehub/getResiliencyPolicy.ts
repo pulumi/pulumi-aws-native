@@ -57,7 +57,7 @@ export interface GetResiliencyPolicyResult {
 /**
  * Resource Type Definition for Resiliency Policy.
  */
-export function getResiliencyPolicyOutput(args: GetResiliencyPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResiliencyPolicyResult> {
+export function getResiliencyPolicyOutput(args: GetResiliencyPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetResiliencyPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:resiliencehub:getResiliencyPolicy", {
         "policyArn": args.policyArn,

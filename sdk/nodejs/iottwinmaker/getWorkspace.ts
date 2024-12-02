@@ -54,7 +54,7 @@ export interface GetWorkspaceResult {
 /**
  * Resource schema for AWS::IoTTwinMaker::Workspace
  */
-export function getWorkspaceOutput(args: GetWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceResult> {
+export function getWorkspaceOutput(args: GetWorkspaceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkspaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:iottwinmaker:getWorkspace", {
         "workspaceId": args.workspaceId,

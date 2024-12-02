@@ -76,7 +76,7 @@ def get_scheduling_policy(arn: Optional[str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         fairshare_policy=pulumi.get(__ret__, 'fairshare_policy'))
 def get_scheduling_policy_output(arn: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSchedulingPolicyResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSchedulingPolicyResult]:
     """
     Resource Type schema for AWS::Batch::SchedulingPolicy
 
@@ -85,7 +85,7 @@ def get_scheduling_policy_output(arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:batch:getSchedulingPolicy', __args__, opts=opts, typ=GetSchedulingPolicyResult)
     return __ret__.apply(lambda __response__: GetSchedulingPolicyResult(
         arn=pulumi.get(__response__, 'arn'),

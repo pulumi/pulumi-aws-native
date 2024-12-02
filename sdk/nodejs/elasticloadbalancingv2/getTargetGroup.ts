@@ -93,7 +93,7 @@ export interface GetTargetGroupResult {
 /**
  * Resource Type definition for AWS::ElasticLoadBalancingV2::TargetGroup
  */
-export function getTargetGroupOutput(args: GetTargetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTargetGroupResult> {
+export function getTargetGroupOutput(args: GetTargetGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTargetGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:elasticloadbalancingv2:getTargetGroup", {
         "targetGroupArn": args.targetGroupArn,

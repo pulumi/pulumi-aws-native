@@ -205,7 +205,7 @@ def get_domain_configuration(domain_configuration_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         tls_config=pulumi.get(__ret__, 'tls_config'))
 def get_domain_configuration_output(domain_configuration_name: Optional[pulumi.Input[str]] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainConfigurationResult]:
+                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDomainConfigurationResult]:
     """
     Create and manage a Domain Configuration
 
@@ -214,7 +214,7 @@ def get_domain_configuration_output(domain_configuration_name: Optional[pulumi.I
     """
     __args__ = dict()
     __args__['domainConfigurationName'] = domain_configuration_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:iot:getDomainConfiguration', __args__, opts=opts, typ=GetDomainConfigurationResult)
     return __ret__.apply(lambda __response__: GetDomainConfigurationResult(
         application_protocol=pulumi.get(__response__, 'application_protocol'),

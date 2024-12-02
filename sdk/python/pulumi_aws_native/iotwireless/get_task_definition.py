@@ -156,7 +156,7 @@ def get_task_definition(id: Optional[str] = None,
         task_definition_type=pulumi.get(__ret__, 'task_definition_type'),
         update=pulumi.get(__ret__, 'update'))
 def get_task_definition_output(id: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTaskDefinitionResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTaskDefinitionResult]:
     """
     Creates a gateway task definition.
 
@@ -165,7 +165,7 @@ def get_task_definition_output(id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:iotwireless:getTaskDefinition', __args__, opts=opts, typ=GetTaskDefinitionResult)
     return __ret__.apply(lambda __response__: GetTaskDefinitionResult(
         arn=pulumi.get(__response__, 'arn'),

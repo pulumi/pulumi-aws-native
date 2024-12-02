@@ -44,7 +44,7 @@ export interface GetArchiveResult {
 /**
  * Resource Type definition for AWS::Events::Archive
  */
-export function getArchiveOutput(args: GetArchiveOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetArchiveResult> {
+export function getArchiveOutput(args: GetArchiveOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetArchiveResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:events:getArchive", {
         "archiveName": args.archiveName,

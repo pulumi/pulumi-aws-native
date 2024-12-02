@@ -38,7 +38,7 @@ export interface GetDeploymentResult {
 /**
  * Represents a deployment resource of an AWS Mainframe Modernization (M2) application to a specified environment
  */
-export function getDeploymentOutput(args: GetDeploymentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentResult> {
+export function getDeploymentOutput(args: GetDeploymentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDeploymentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:m2:getDeployment", {
         "applicationId": args.applicationId,

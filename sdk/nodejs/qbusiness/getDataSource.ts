@@ -111,7 +111,7 @@ export interface GetDataSourceResult {
 /**
  * Definition of AWS::QBusiness::DataSource Resource Type
  */
-export function getDataSourceOutput(args: GetDataSourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataSourceResult> {
+export function getDataSourceOutput(args: GetDataSourceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDataSourceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:qbusiness:getDataSource", {
         "applicationId": args.applicationId,

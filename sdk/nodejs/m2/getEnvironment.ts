@@ -57,7 +57,7 @@ export interface GetEnvironmentResult {
 /**
  * Represents a runtime environment that can run migrated mainframe applications.
  */
-export function getEnvironmentOutput(args: GetEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnvironmentResult> {
+export function getEnvironmentOutput(args: GetEnvironmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEnvironmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:m2:getEnvironment", {
         "environmentArn": args.environmentArn,

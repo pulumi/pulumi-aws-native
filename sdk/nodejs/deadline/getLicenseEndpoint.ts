@@ -53,7 +53,7 @@ export interface GetLicenseEndpointResult {
 /**
  * Definition of AWS::Deadline::LicenseEndpoint Resource Type
  */
-export function getLicenseEndpointOutput(args: GetLicenseEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLicenseEndpointResult> {
+export function getLicenseEndpointOutput(args: GetLicenseEndpointOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLicenseEndpointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:deadline:getLicenseEndpoint", {
         "arn": args.arn,

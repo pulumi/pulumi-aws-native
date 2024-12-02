@@ -188,7 +188,7 @@ def get_analysis(analysis_id: Optional[str] = None,
         theme_arn=pulumi.get(__ret__, 'theme_arn'))
 def get_analysis_output(analysis_id: Optional[pulumi.Input[str]] = None,
                         aws_account_id: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAnalysisResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAnalysisResult]:
     """
     Definition of the AWS::QuickSight::Analysis Resource Type.
 
@@ -199,7 +199,7 @@ def get_analysis_output(analysis_id: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['analysisId'] = analysis_id
     __args__['awsAccountId'] = aws_account_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:quicksight:getAnalysis', __args__, opts=opts, typ=GetAnalysisResult)
     return __ret__.apply(lambda __response__: GetAnalysisResult(
         arn=pulumi.get(__response__, 'arn'),

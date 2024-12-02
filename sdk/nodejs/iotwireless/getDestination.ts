@@ -53,7 +53,7 @@ export interface GetDestinationResult {
 /**
  * Destination's resource schema demonstrating some basic constructs and validation rules.
  */
-export function getDestinationOutput(args: GetDestinationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDestinationResult> {
+export function getDestinationOutput(args: GetDestinationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDestinationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:iotwireless:getDestination", {
         "name": args.name,

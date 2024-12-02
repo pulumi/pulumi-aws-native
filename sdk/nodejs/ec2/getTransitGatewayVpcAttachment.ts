@@ -41,7 +41,7 @@ export interface GetTransitGatewayVpcAttachmentResult {
 /**
  * Resource Type definition for AWS::EC2::TransitGatewayVpcAttachment
  */
-export function getTransitGatewayVpcAttachmentOutput(args: GetTransitGatewayVpcAttachmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTransitGatewayVpcAttachmentResult> {
+export function getTransitGatewayVpcAttachmentOutput(args: GetTransitGatewayVpcAttachmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTransitGatewayVpcAttachmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:ec2:getTransitGatewayVpcAttachment", {
         "id": args.id,

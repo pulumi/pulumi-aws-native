@@ -116,7 +116,7 @@ def get_project(project_arn: Optional[str] = None,
         project_status=pulumi.get(__ret__, 'project_status'),
         service_catalog_provisioned_product_details=pulumi.get(__ret__, 'service_catalog_provisioned_product_details'))
 def get_project_output(project_arn: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProjectResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProjectResult]:
     """
     Resource Type definition for AWS::SageMaker::Project
 
@@ -125,7 +125,7 @@ def get_project_output(project_arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['projectArn'] = project_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:sagemaker:getProject', __args__, opts=opts, typ=GetProjectResult)
     return __ret__.apply(lambda __response__: GetProjectResult(
         creation_time=pulumi.get(__response__, 'creation_time'),

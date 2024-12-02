@@ -66,7 +66,7 @@ export interface GetBudgetsActionResult {
 /**
  * An example resource schema demonstrating some basic constructs and validation rules.
  */
-export function getBudgetsActionOutput(args: GetBudgetsActionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBudgetsActionResult> {
+export function getBudgetsActionOutput(args: GetBudgetsActionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBudgetsActionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:budgets:getBudgetsAction", {
         "actionId": args.actionId,

@@ -79,7 +79,7 @@ export interface GetIdentityPoolResult {
 /**
  * Resource Type definition for AWS::Cognito::IdentityPool
  */
-export function getIdentityPoolOutput(args: GetIdentityPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIdentityPoolResult> {
+export function getIdentityPoolOutput(args: GetIdentityPoolOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIdentityPoolResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:cognito:getIdentityPool", {
         "id": args.id,

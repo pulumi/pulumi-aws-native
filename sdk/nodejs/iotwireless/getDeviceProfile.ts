@@ -41,7 +41,7 @@ export interface GetDeviceProfileResult {
 /**
  * Device Profile's resource schema demonstrating some basic constructs and validation rules.
  */
-export function getDeviceProfileOutput(args: GetDeviceProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeviceProfileResult> {
+export function getDeviceProfileOutput(args: GetDeviceProfileOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDeviceProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:iotwireless:getDeviceProfile", {
         "id": args.id,

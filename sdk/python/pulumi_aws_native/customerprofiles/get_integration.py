@@ -133,7 +133,7 @@ def get_integration(domain_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'))
 def get_integration_output(domain_name: Optional[pulumi.Input[str]] = None,
                            uri: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIntegrationResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIntegrationResult]:
     """
     The resource schema for creating an Amazon Connect Customer Profiles Integration.
 
@@ -144,7 +144,7 @@ def get_integration_output(domain_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['domainName'] = domain_name
     __args__['uri'] = uri
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:customerprofiles:getIntegration', __args__, opts=opts, typ=GetIntegrationResult)
     return __ret__.apply(lambda __response__: GetIntegrationResult(
         created_at=pulumi.get(__response__, 'created_at'),

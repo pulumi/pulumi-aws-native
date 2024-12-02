@@ -77,7 +77,7 @@ def get_resource_collection(resource_collection_type: Optional['ResourceCollecti
         resource_collection_filter=pulumi.get(__ret__, 'resource_collection_filter'),
         resource_collection_type=pulumi.get(__ret__, 'resource_collection_type'))
 def get_resource_collection_output(resource_collection_type: Optional[pulumi.Input['ResourceCollectionType']] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourceCollectionResult]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourceCollectionResult]:
     """
     This resource schema represents the ResourceCollection resource in the Amazon DevOps Guru.
 
@@ -86,7 +86,7 @@ def get_resource_collection_output(resource_collection_type: Optional[pulumi.Inp
     """
     __args__ = dict()
     __args__['resourceCollectionType'] = resource_collection_type
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:devopsguru:getResourceCollection', __args__, opts=opts, typ=GetResourceCollectionResult)
     return __ret__.apply(lambda __response__: GetResourceCollectionResult(
         resource_collection_filter=pulumi.get(__response__, 'resource_collection_filter'),

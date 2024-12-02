@@ -32,7 +32,7 @@ export interface GetChannelPolicyResult {
 /**
  * Definition of AWS::MediaTailor::ChannelPolicy Resource Type
  */
-export function getChannelPolicyOutput(args: GetChannelPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetChannelPolicyResult> {
+export function getChannelPolicyOutput(args: GetChannelPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetChannelPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:mediatailor:getChannelPolicy", {
         "channelName": args.channelName,

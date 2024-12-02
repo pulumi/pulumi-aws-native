@@ -119,7 +119,7 @@ def get_entitlement(name: Optional[str] = None,
         last_modified_time=pulumi.get(__ret__, 'last_modified_time'))
 def get_entitlement_output(name: Optional[pulumi.Input[str]] = None,
                            stack_name: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEntitlementResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEntitlementResult]:
     """
     Resource Type definition for AWS::AppStream::Entitlement
 
@@ -130,7 +130,7 @@ def get_entitlement_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['stackName'] = stack_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:appstream:getEntitlement', __args__, opts=opts, typ=GetEntitlementResult)
     return __ret__.apply(lambda __response__: GetEntitlementResult(
         app_visibility=pulumi.get(__response__, 'app_visibility'),

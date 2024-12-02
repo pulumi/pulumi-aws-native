@@ -626,7 +626,7 @@ def get_cluster(cluster_identifier: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         vpc_security_group_ids=pulumi.get(__ret__, 'vpc_security_group_ids'))
 def get_cluster_output(cluster_identifier: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClusterResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetClusterResult]:
     """
     An example resource schema demonstrating some basic constructs and validation rules.
 
@@ -635,7 +635,7 @@ def get_cluster_output(cluster_identifier: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['clusterIdentifier'] = cluster_identifier
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:redshift:getCluster', __args__, opts=opts, typ=GetClusterResult)
     return __ret__.apply(lambda __response__: GetClusterResult(
         allow_version_upgrade=pulumi.get(__response__, 'allow_version_upgrade'),

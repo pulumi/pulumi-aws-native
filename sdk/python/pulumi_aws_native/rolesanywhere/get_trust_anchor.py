@@ -143,7 +143,7 @@ def get_trust_anchor(trust_anchor_id: Optional[str] = None,
         trust_anchor_arn=pulumi.get(__ret__, 'trust_anchor_arn'),
         trust_anchor_id=pulumi.get(__ret__, 'trust_anchor_id'))
 def get_trust_anchor_output(trust_anchor_id: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTrustAnchorResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTrustAnchorResult]:
     """
     Definition of AWS::RolesAnywhere::TrustAnchor Resource Type.
 
@@ -152,7 +152,7 @@ def get_trust_anchor_output(trust_anchor_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['trustAnchorId'] = trust_anchor_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:rolesanywhere:getTrustAnchor', __args__, opts=opts, typ=GetTrustAnchorResult)
     return __ret__.apply(lambda __response__: GetTrustAnchorResult(
         enabled=pulumi.get(__response__, 'enabled'),

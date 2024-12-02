@@ -53,7 +53,7 @@ export interface GetRepositoryLinkResult {
 /**
  * Schema for AWS::CodeStarConnections::RepositoryLink resource which is used to aggregate repository metadata relevant to synchronizing source provider content to AWS Resources.
  */
-export function getRepositoryLinkOutput(args: GetRepositoryLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRepositoryLinkResult> {
+export function getRepositoryLinkOutput(args: GetRepositoryLinkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRepositoryLinkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:codestarconnections:getRepositoryLink", {
         "repositoryLinkArn": args.repositoryLinkArn,

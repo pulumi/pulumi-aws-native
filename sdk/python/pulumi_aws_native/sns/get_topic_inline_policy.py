@@ -64,7 +64,7 @@ def get_topic_inline_policy(topic_arn: Optional[str] = None,
     return AwaitableGetTopicInlinePolicyResult(
         policy_document=pulumi.get(__ret__, 'policy_document'))
 def get_topic_inline_policy_output(topic_arn: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTopicInlinePolicyResult]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTopicInlinePolicyResult]:
     """
     Schema for AWS::SNS::TopicInlinePolicy
 
@@ -73,7 +73,7 @@ def get_topic_inline_policy_output(topic_arn: Optional[pulumi.Input[str]] = None
     """
     __args__ = dict()
     __args__['topicArn'] = topic_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:sns:getTopicInlinePolicy', __args__, opts=opts, typ=GetTopicInlinePolicyResult)
     return __ret__.apply(lambda __response__: GetTopicInlinePolicyResult(
         policy_document=pulumi.get(__response__, 'policy_document')))

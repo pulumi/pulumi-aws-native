@@ -60,7 +60,7 @@ export interface GetMatchingWorkflowResult {
 /**
  * MatchingWorkflow defined in AWS Entity Resolution service
  */
-export function getMatchingWorkflowOutput(args: GetMatchingWorkflowOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMatchingWorkflowResult> {
+export function getMatchingWorkflowOutput(args: GetMatchingWorkflowOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMatchingWorkflowResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:entityresolution:getMatchingWorkflow", {
         "workflowName": args.workflowName,

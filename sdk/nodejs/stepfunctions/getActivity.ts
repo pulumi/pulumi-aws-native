@@ -39,7 +39,7 @@ export interface GetActivityResult {
 /**
  * Resource schema for Activity
  */
-export function getActivityOutput(args: GetActivityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActivityResult> {
+export function getActivityOutput(args: GetActivityOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetActivityResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:stepfunctions:getActivity", {
         "arn": args.arn,

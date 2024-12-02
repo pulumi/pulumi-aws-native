@@ -88,7 +88,7 @@ def get_auto_scaling_configuration(auto_scaling_configuration_arn: Optional[str]
         auto_scaling_configuration_revision=pulumi.get(__ret__, 'auto_scaling_configuration_revision'),
         latest=pulumi.get(__ret__, 'latest'))
 def get_auto_scaling_configuration_output(auto_scaling_configuration_arn: Optional[pulumi.Input[str]] = None,
-                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAutoScalingConfigurationResult]:
+                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAutoScalingConfigurationResult]:
     """
     Describes an AWS App Runner automatic configuration resource that enables automatic scaling of instances used to process web requests. You can share an auto scaling configuration across multiple services.
 
@@ -97,7 +97,7 @@ def get_auto_scaling_configuration_output(auto_scaling_configuration_arn: Option
     """
     __args__ = dict()
     __args__['autoScalingConfigurationArn'] = auto_scaling_configuration_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:apprunner:getAutoScalingConfiguration', __args__, opts=opts, typ=GetAutoScalingConfigurationResult)
     return __ret__.apply(lambda __response__: GetAutoScalingConfigurationResult(
         auto_scaling_configuration_arn=pulumi.get(__response__, 'auto_scaling_configuration_arn'),

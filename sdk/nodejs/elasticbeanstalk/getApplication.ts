@@ -37,7 +37,7 @@ export interface GetApplicationResult {
 /**
  * The AWS::ElasticBeanstalk::Application resource specifies an Elastic Beanstalk application.
  */
-export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationResult> {
+export function getApplicationOutput(args: GetApplicationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApplicationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:elasticbeanstalk:getApplication", {
         "applicationName": args.applicationName,

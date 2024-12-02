@@ -43,7 +43,7 @@ export interface GetDelegatedAdminResult {
  *  To designate multiple delegated administrators in different organizations and AWS-Regions, we recommend using [mappings](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/mappings-section-structure.html).
  *  Tags aren't supported for this resource.
  */
-export function getDelegatedAdminOutput(args: GetDelegatedAdminOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDelegatedAdminResult> {
+export function getDelegatedAdminOutput(args: GetDelegatedAdminOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDelegatedAdminResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:securityhub:getDelegatedAdmin", {
         "delegatedAdminIdentifier": args.delegatedAdminIdentifier,

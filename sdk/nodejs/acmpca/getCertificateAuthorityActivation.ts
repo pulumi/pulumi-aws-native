@@ -34,7 +34,7 @@ export interface GetCertificateAuthorityActivationResult {
 /**
  * Used to install the certificate authority certificate and update the certificate authority status.
  */
-export function getCertificateAuthorityActivationOutput(args: GetCertificateAuthorityActivationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateAuthorityActivationResult> {
+export function getCertificateAuthorityActivationOutput(args: GetCertificateAuthorityActivationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCertificateAuthorityActivationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:acmpca:getCertificateAuthorityActivation", {
         "certificateAuthorityArn": args.certificateAuthorityArn,

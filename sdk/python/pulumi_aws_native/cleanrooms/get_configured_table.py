@@ -136,7 +136,7 @@ def get_configured_table(configured_table_identifier: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_configured_table_output(configured_table_identifier: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfiguredTableResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfiguredTableResult]:
     """
     Represents a table that can be associated with collaborations
 
@@ -147,7 +147,7 @@ def get_configured_table_output(configured_table_identifier: Optional[pulumi.Inp
     """
     __args__ = dict()
     __args__['configuredTableIdentifier'] = configured_table_identifier
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:cleanrooms:getConfiguredTable', __args__, opts=opts, typ=GetConfiguredTableResult)
     return __ret__.apply(lambda __response__: GetConfiguredTableResult(
         analysis_rules=pulumi.get(__response__, 'analysis_rules'),

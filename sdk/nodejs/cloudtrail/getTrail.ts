@@ -103,7 +103,7 @@ export interface GetTrailResult {
 /**
  * Creates a trail that specifies the settings for delivery of log data to an Amazon S3 bucket. A maximum of five trails can exist in a region, irrespective of the region in which they were created.
  */
-export function getTrailOutput(args: GetTrailOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrailResult> {
+export function getTrailOutput(args: GetTrailOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTrailResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:cloudtrail:getTrail", {
         "trailName": args.trailName,

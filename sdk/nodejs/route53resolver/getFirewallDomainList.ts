@@ -69,7 +69,7 @@ export interface GetFirewallDomainListResult {
 /**
  * Resource schema for AWS::Route53Resolver::FirewallDomainList.
  */
-export function getFirewallDomainListOutput(args: GetFirewallDomainListOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallDomainListResult> {
+export function getFirewallDomainListOutput(args: GetFirewallDomainListOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFirewallDomainListResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:route53resolver:getFirewallDomainList", {
         "id": args.id,

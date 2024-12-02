@@ -94,7 +94,7 @@ def get_cache_policy(id: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         last_modified_time=pulumi.get(__ret__, 'last_modified_time'))
 def get_cache_policy_output(id: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCachePolicyResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCachePolicyResult]:
     """
     A cache policy.
      When it's attached to a cache behavior, the cache policy determines the following:
@@ -108,7 +108,7 @@ def get_cache_policy_output(id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:cloudfront:getCachePolicy', __args__, opts=opts, typ=GetCachePolicyResult)
     return __ret__.apply(lambda __response__: GetCachePolicyResult(
         cache_policy_config=pulumi.get(__response__, 'cache_policy_config'),

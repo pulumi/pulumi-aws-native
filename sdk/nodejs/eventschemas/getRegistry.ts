@@ -41,7 +41,7 @@ export interface GetRegistryResult {
 /**
  * Resource Type definition for AWS::EventSchemas::Registry
  */
-export function getRegistryOutput(args: GetRegistryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistryResult> {
+export function getRegistryOutput(args: GetRegistryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRegistryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:eventschemas:getRegistry", {
         "registryArn": args.registryArn,

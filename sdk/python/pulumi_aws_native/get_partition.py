@@ -69,12 +69,12 @@ def get_partition(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPa
     return AwaitableGetPartitionResult(
         dns_suffix=pulumi.get(__ret__, 'dns_suffix'),
         partition=pulumi.get(__ret__, 'partition'))
-def get_partition_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPartitionResult]:
+def get_partition_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPartitionResult]:
     """
     Use this data source to access information about an existing resource.
     """
     __args__ = dict()
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:index:getPartition', __args__, opts=opts, typ=GetPartitionResult)
     return __ret__.apply(lambda __response__: GetPartitionResult(
         dns_suffix=pulumi.get(__response__, 'dns_suffix'),

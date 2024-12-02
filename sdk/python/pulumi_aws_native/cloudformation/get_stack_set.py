@@ -182,7 +182,7 @@ def get_stack_set(stack_set_id: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         template_body=pulumi.get(__ret__, 'template_body'))
 def get_stack_set_output(stack_set_id: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStackSetResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStackSetResult]:
     """
     StackSet as a resource provides one-click experience for provisioning a StackSet and StackInstances
 
@@ -191,7 +191,7 @@ def get_stack_set_output(stack_set_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['stackSetId'] = stack_set_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:cloudformation:getStackSet', __args__, opts=opts, typ=GetStackSetResult)
     return __ret__.apply(lambda __response__: GetStackSetResult(
         administration_role_arn=pulumi.get(__response__, 'administration_role_arn'),

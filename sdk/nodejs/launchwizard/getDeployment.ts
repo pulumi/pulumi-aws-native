@@ -57,7 +57,7 @@ export interface GetDeploymentResult {
 /**
  * Definition of AWS::LaunchWizard::Deployment Resource Type
  */
-export function getDeploymentOutput(args: GetDeploymentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDeploymentResult> {
+export function getDeploymentOutput(args: GetDeploymentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDeploymentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:launchwizard:getDeployment", {
         "arn": args.arn,

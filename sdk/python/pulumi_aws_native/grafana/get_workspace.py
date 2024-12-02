@@ -366,7 +366,7 @@ def get_workspace(id: Optional[str] = None,
         status=pulumi.get(__ret__, 'status'),
         vpc_configuration=pulumi.get(__ret__, 'vpc_configuration'))
 def get_workspace_output(id: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspaceResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkspaceResult]:
     """
     Definition of AWS::Grafana::Workspace Resource Type
 
@@ -375,7 +375,7 @@ def get_workspace_output(id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:grafana:getWorkspace', __args__, opts=opts, typ=GetWorkspaceResult)
     return __ret__.apply(lambda __response__: GetWorkspaceResult(
         account_access_type=pulumi.get(__response__, 'account_access_type'),

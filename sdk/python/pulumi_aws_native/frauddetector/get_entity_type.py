@@ -115,7 +115,7 @@ def get_entity_type(arn: Optional[str] = None,
         last_updated_time=pulumi.get(__ret__, 'last_updated_time'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_entity_type_output(arn: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEntityTypeResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEntityTypeResult]:
     """
     An entity type for fraud detector.
 
@@ -124,7 +124,7 @@ def get_entity_type_output(arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:frauddetector:getEntityType', __args__, opts=opts, typ=GetEntityTypeResult)
     return __ret__.apply(lambda __response__: GetEntityTypeResult(
         arn=pulumi.get(__response__, 'arn'),

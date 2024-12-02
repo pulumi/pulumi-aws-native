@@ -39,7 +39,7 @@ export interface GetRouteTableResult {
  * Specifies a route table for the specified VPC. After you create a route table, you can add routes and associate the table with a subnet.
  *  For more information, see [Route tables](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html) in the *Amazon VPC User Guide*.
  */
-export function getRouteTableOutput(args: GetRouteTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteTableResult> {
+export function getRouteTableOutput(args: GetRouteTableOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRouteTableResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:ec2:getRouteTable", {
         "routeTableId": args.routeTableId,

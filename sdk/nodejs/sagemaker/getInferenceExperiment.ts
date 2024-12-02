@@ -80,7 +80,7 @@ export interface GetInferenceExperimentResult {
 /**
  * Resource Type definition for AWS::SageMaker::InferenceExperiment
  */
-export function getInferenceExperimentOutput(args: GetInferenceExperimentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInferenceExperimentResult> {
+export function getInferenceExperimentOutput(args: GetInferenceExperimentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetInferenceExperimentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:sagemaker:getInferenceExperiment", {
         "name": args.name,

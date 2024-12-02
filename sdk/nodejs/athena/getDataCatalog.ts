@@ -45,7 +45,7 @@ export interface GetDataCatalogResult {
 /**
  * Resource schema for AWS::Athena::DataCatalog
  */
-export function getDataCatalogOutput(args: GetDataCatalogOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataCatalogResult> {
+export function getDataCatalogOutput(args: GetDataCatalogOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDataCatalogResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:athena:getDataCatalog", {
         "name": args.name,

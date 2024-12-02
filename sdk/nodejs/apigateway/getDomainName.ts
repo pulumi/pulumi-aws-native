@@ -75,7 +75,7 @@ export interface GetDomainNameResult {
 /**
  * Resource Type definition for AWS::ApiGateway::DomainName.
  */
-export function getDomainNameOutput(args: GetDomainNameOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainNameResult> {
+export function getDomainNameOutput(args: GetDomainNameOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDomainNameResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:apigateway:getDomainName", {
         "domainName": args.domainName,

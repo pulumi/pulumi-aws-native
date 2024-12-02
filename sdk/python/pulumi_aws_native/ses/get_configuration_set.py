@@ -128,7 +128,7 @@ def get_configuration_set(name: Optional[str] = None,
         tracking_options=pulumi.get(__ret__, 'tracking_options'),
         vdm_options=pulumi.get(__ret__, 'vdm_options'))
 def get_configuration_set_output(name: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfigurationSetResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfigurationSetResult]:
     """
     Resource schema for AWS::SES::ConfigurationSet.
 
@@ -137,7 +137,7 @@ def get_configuration_set_output(name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ses:getConfigurationSet', __args__, opts=opts, typ=GetConfigurationSetResult)
     return __ret__.apply(lambda __response__: GetConfigurationSetResult(
         delivery_options=pulumi.get(__response__, 'delivery_options'),

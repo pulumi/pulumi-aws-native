@@ -174,7 +174,7 @@ def get_vpc(vpc_id: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'))
 def get_vpc_output(vpc_id: Optional[pulumi.Input[str]] = None,
-                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcResult]:
+                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcResult]:
     """
     Specifies a virtual private cloud (VPC).
      To add an IPv6 CIDR block to the VPC, see [AWS::EC2::VPCCidrBlock](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpccidrblock.html).
@@ -185,7 +185,7 @@ def get_vpc_output(vpc_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['vpcId'] = vpc_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getVpc', __args__, opts=opts, typ=GetVpcResult)
     return __ret__.apply(lambda __response__: GetVpcResult(
         cidr_block_associations=pulumi.get(__response__, 'cidr_block_associations'),

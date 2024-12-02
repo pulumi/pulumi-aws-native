@@ -90,7 +90,7 @@ export interface GetComponentTypeResult {
 /**
  * Resource schema for AWS::IoTTwinMaker::ComponentType
  */
-export function getComponentTypeOutput(args: GetComponentTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetComponentTypeResult> {
+export function getComponentTypeOutput(args: GetComponentTypeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetComponentTypeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:iottwinmaker:getComponentType", {
         "componentTypeId": args.componentTypeId,

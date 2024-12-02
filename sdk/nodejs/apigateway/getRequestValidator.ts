@@ -43,7 +43,7 @@ export interface GetRequestValidatorResult {
 /**
  * The ``AWS::ApiGateway::RequestValidator`` resource sets up basic validation rules for incoming requests to your API. For more information, see [Enable Basic Request Validation for an API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-method-request-validation.html) in the *API Gateway Developer Guide*.
  */
-export function getRequestValidatorOutput(args: GetRequestValidatorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRequestValidatorResult> {
+export function getRequestValidatorOutput(args: GetRequestValidatorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRequestValidatorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:apigateway:getRequestValidator", {
         "requestValidatorId": args.requestValidatorId,

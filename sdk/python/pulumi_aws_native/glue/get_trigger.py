@@ -130,7 +130,7 @@ def get_trigger(name: Optional[str] = None,
         schedule=pulumi.get(__ret__, 'schedule'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_trigger_output(name: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTriggerResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTriggerResult]:
     """
     Resource Type definition for AWS::Glue::Trigger
 
@@ -139,7 +139,7 @@ def get_trigger_output(name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:glue:getTrigger', __args__, opts=opts, typ=GetTriggerResult)
     return __ret__.apply(lambda __response__: GetTriggerResult(
         actions=pulumi.get(__response__, 'actions'),

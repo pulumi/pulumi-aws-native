@@ -49,7 +49,7 @@ export interface GetMailManagerRuleSetResult {
 /**
  * Definition of AWS::SES::MailManagerRuleSet Resource Type
  */
-export function getMailManagerRuleSetOutput(args: GetMailManagerRuleSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMailManagerRuleSetResult> {
+export function getMailManagerRuleSetOutput(args: GetMailManagerRuleSetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMailManagerRuleSetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:ses:getMailManagerRuleSet", {
         "ruleSetId": args.ruleSetId,

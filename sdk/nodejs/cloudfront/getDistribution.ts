@@ -45,7 +45,7 @@ export interface GetDistributionResult {
 /**
  * A distribution tells CloudFront where you want content to be delivered from, and the details about how to track and manage content delivery.
  */
-export function getDistributionOutput(args: GetDistributionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDistributionResult> {
+export function getDistributionOutput(args: GetDistributionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDistributionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:cloudfront:getDistribution", {
         "id": args.id,

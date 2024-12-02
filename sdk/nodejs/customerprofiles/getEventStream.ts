@@ -54,7 +54,7 @@ export interface GetEventStreamResult {
 /**
  * An Event Stream resource of Amazon Connect Customer Profiles
  */
-export function getEventStreamOutput(args: GetEventStreamOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventStreamResult> {
+export function getEventStreamOutput(args: GetEventStreamOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEventStreamResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:customerprofiles:getEventStream", {
         "domainName": args.domainName,

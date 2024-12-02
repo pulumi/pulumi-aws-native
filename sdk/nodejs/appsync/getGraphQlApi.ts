@@ -129,7 +129,7 @@ export interface GetGraphQlApiResult {
 /**
  * Resource Type definition for AWS::AppSync::GraphQLApi
  */
-export function getGraphQlApiOutput(args: GetGraphQlApiOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGraphQlApiResult> {
+export function getGraphQlApiOutput(args: GetGraphQlApiOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGraphQlApiResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:appsync:getGraphQlApi", {
         "apiId": args.apiId,

@@ -182,7 +182,7 @@ def get_app_block_builder(name: Optional[str] = None,
         platform=pulumi.get(__ret__, 'platform'),
         vpc_config=pulumi.get(__ret__, 'vpc_config'))
 def get_app_block_builder_output(name: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAppBlockBuilderResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAppBlockBuilderResult]:
     """
     Resource Type definition for AWS::AppStream::AppBlockBuilder.
 
@@ -191,7 +191,7 @@ def get_app_block_builder_output(name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:appstream:getAppBlockBuilder', __args__, opts=opts, typ=GetAppBlockBuilderResult)
     return __ret__.apply(lambda __response__: GetAppBlockBuilderResult(
         access_endpoints=pulumi.get(__response__, 'access_endpoints'),

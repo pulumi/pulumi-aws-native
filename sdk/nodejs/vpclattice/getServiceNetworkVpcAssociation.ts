@@ -69,7 +69,7 @@ export interface GetServiceNetworkVpcAssociationResult {
 /**
  * Associates a VPC with a service network.
  */
-export function getServiceNetworkVpcAssociationOutput(args: GetServiceNetworkVpcAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceNetworkVpcAssociationResult> {
+export function getServiceNetworkVpcAssociationOutput(args: GetServiceNetworkVpcAssociationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServiceNetworkVpcAssociationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:vpclattice:getServiceNetworkVpcAssociation", {
         "arn": args.arn,

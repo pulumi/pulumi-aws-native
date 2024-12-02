@@ -195,7 +195,7 @@ def get_user(user_arn: Optional[str] = None,
         user_proficiencies=pulumi.get(__ret__, 'user_proficiencies'),
         username=pulumi.get(__ret__, 'username'))
 def get_user_output(user_arn: Optional[pulumi.Input[str]] = None,
-                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserResult]:
+                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserResult]:
     """
     Resource Type definition for AWS::Connect::User
 
@@ -204,7 +204,7 @@ def get_user_output(user_arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['userArn'] = user_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:connect:getUser', __args__, opts=opts, typ=GetUserResult)
     return __ret__.apply(lambda __response__: GetUserResult(
         directory_user_id=pulumi.get(__response__, 'directory_user_id'),

@@ -18,7 +18,7 @@ export interface ImportValueArgs {
 export interface ImportValueResult {
     readonly value?: any;
 }
-export function importValueOutput(args: ImportValueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<ImportValueResult> {
+export function importValueOutput(args: ImportValueOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ImportValueResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:index:importValue", {
         "name": args.name,

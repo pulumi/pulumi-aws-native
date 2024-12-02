@@ -85,7 +85,7 @@ def get_option_group(option_group_name: Optional[str] = None,
         option_configurations=pulumi.get(__ret__, 'option_configurations'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_option_group_output(option_group_name: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOptionGroupResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOptionGroupResult]:
     """
     The ``AWS::RDS::OptionGroup`` resource creates or updates an option group, to enable and configure features that are specific to a particular DB engine.
 
@@ -102,7 +102,7 @@ def get_option_group_output(option_group_name: Optional[pulumi.Input[str]] = Non
     """
     __args__ = dict()
     __args__['optionGroupName'] = option_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:rds:getOptionGroup', __args__, opts=opts, typ=GetOptionGroupResult)
     return __ret__.apply(lambda __response__: GetOptionGroupResult(
         option_configurations=pulumi.get(__response__, 'option_configurations'),

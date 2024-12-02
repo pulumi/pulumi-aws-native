@@ -270,7 +270,7 @@ def get_model_package(model_package_arn: Optional[str] = None,
         source_uri=pulumi.get(__ret__, 'source_uri'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_model_package_output(model_package_arn: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetModelPackageResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetModelPackageResult]:
     """
     Resource Type definition for AWS::SageMaker::ModelPackage
 
@@ -279,7 +279,7 @@ def get_model_package_output(model_package_arn: Optional[pulumi.Input[str]] = No
     """
     __args__ = dict()
     __args__['modelPackageArn'] = model_package_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:sagemaker:getModelPackage', __args__, opts=opts, typ=GetModelPackageResult)
     return __ret__.apply(lambda __response__: GetModelPackageResult(
         additional_inference_specifications=pulumi.get(__response__, 'additional_inference_specifications'),

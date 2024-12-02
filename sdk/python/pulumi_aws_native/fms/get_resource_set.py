@@ -122,7 +122,7 @@ def get_resource_set(id: Optional[str] = None,
         resources=pulumi.get(__ret__, 'resources'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_resource_set_output(id: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourceSetResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourceSetResult]:
     """
     Creates an AWS Firewall Manager resource set.
 
@@ -131,7 +131,7 @@ def get_resource_set_output(id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:fms:getResourceSet', __args__, opts=opts, typ=GetResourceSetResult)
     return __ret__.apply(lambda __response__: GetResourceSetResult(
         description=pulumi.get(__response__, 'description'),

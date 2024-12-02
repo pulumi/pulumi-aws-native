@@ -69,7 +69,7 @@ export interface GetDbProxyResult {
 /**
  * Resource schema for AWS::RDS::DBProxy
  */
-export function getDbProxyOutput(args: GetDbProxyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDbProxyResult> {
+export function getDbProxyOutput(args: GetDbProxyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDbProxyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:rds:getDbProxy", {
         "dbProxyName": args.dbProxyName,

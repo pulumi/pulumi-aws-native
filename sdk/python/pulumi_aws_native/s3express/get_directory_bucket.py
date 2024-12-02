@@ -103,7 +103,7 @@ def get_directory_bucket(bucket_name: Optional[str] = None,
         bucket_encryption=pulumi.get(__ret__, 'bucket_encryption'),
         lifecycle_configuration=pulumi.get(__ret__, 'lifecycle_configuration'))
 def get_directory_bucket_output(bucket_name: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDirectoryBucketResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDirectoryBucketResult]:
     """
     Resource Type definition for AWS::S3Express::DirectoryBucket.
 
@@ -112,7 +112,7 @@ def get_directory_bucket_output(bucket_name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['bucketName'] = bucket_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:s3express:getDirectoryBucket', __args__, opts=opts, typ=GetDirectoryBucketResult)
     return __ret__.apply(lambda __response__: GetDirectoryBucketResult(
         arn=pulumi.get(__response__, 'arn'),

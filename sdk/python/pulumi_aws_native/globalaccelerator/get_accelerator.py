@@ -183,7 +183,7 @@ def get_accelerator(accelerator_arn: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_accelerator_output(accelerator_arn: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAcceleratorResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAcceleratorResult]:
     """
     Resource Type definition for AWS::GlobalAccelerator::Accelerator
 
@@ -192,7 +192,7 @@ def get_accelerator_output(accelerator_arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['acceleratorArn'] = accelerator_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:globalaccelerator:getAccelerator', __args__, opts=opts, typ=GetAcceleratorResult)
     return __ret__.apply(lambda __response__: GetAcceleratorResult(
         accelerator_arn=pulumi.get(__response__, 'accelerator_arn'),

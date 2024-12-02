@@ -116,7 +116,7 @@ def get_global_cluster(global_cluster_identifier: Optional[str] = None,
         global_endpoint=pulumi.get(__ret__, 'global_endpoint'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_global_cluster_output(global_cluster_identifier: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGlobalClusterResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGlobalClusterResult]:
     """
     Resource Type definition for AWS::RDS::GlobalCluster
 
@@ -125,7 +125,7 @@ def get_global_cluster_output(global_cluster_identifier: Optional[pulumi.Input[s
     """
     __args__ = dict()
     __args__['globalClusterIdentifier'] = global_cluster_identifier
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:rds:getGlobalCluster', __args__, opts=opts, typ=GetGlobalClusterResult)
     return __ret__.apply(lambda __response__: GetGlobalClusterResult(
         deletion_protection=pulumi.get(__response__, 'deletion_protection'),

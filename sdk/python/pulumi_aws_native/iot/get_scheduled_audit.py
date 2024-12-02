@@ -129,7 +129,7 @@ def get_scheduled_audit(scheduled_audit_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         target_check_names=pulumi.get(__ret__, 'target_check_names'))
 def get_scheduled_audit_output(scheduled_audit_name: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScheduledAuditResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetScheduledAuditResult]:
     """
     Scheduled audits can be used to specify the checks you want to perform during an audit and how often the audit should be run.
 
@@ -138,7 +138,7 @@ def get_scheduled_audit_output(scheduled_audit_name: Optional[pulumi.Input[str]]
     """
     __args__ = dict()
     __args__['scheduledAuditName'] = scheduled_audit_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:iot:getScheduledAudit', __args__, opts=opts, typ=GetScheduledAuditResult)
     return __ret__.apply(lambda __response__: GetScheduledAuditResult(
         day_of_month=pulumi.get(__response__, 'day_of_month'),

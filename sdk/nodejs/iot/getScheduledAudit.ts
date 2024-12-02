@@ -53,7 +53,7 @@ export interface GetScheduledAuditResult {
 /**
  * Scheduled audits can be used to specify the checks you want to perform during an audit and how often the audit should be run.
  */
-export function getScheduledAuditOutput(args: GetScheduledAuditOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScheduledAuditResult> {
+export function getScheduledAuditOutput(args: GetScheduledAuditOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetScheduledAuditResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:iot:getScheduledAudit", {
         "scheduledAuditName": args.scheduledAuditName,

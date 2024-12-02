@@ -53,7 +53,7 @@ export interface GetPolicyAssociationResult {
 /**
  * The AWS::SecurityHub::PolicyAssociation resource represents the AWS Security Hub Central Configuration Policy associations in your Target. Only the AWS Security Hub delegated administrator can create the resouce from the home region.
  */
-export function getPolicyAssociationOutput(args: GetPolicyAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyAssociationResult> {
+export function getPolicyAssociationOutput(args: GetPolicyAssociationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPolicyAssociationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:securityhub:getPolicyAssociation", {
         "associationIdentifier": args.associationIdentifier,

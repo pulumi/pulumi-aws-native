@@ -145,7 +145,7 @@ def get_instance_profile(arn: Optional[str] = None,
         reboot_after_use=pulumi.get(__ret__, 'reboot_after_use'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_instance_profile_output(arn: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInstanceProfileResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInstanceProfileResult]:
     """
     AWS::DeviceFarm::InstanceProfile creates a new Device Farm Instance Profile
 
@@ -154,7 +154,7 @@ def get_instance_profile_output(arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:devicefarm:getInstanceProfile', __args__, opts=opts, typ=GetInstanceProfileResult)
     return __ret__.apply(lambda __response__: GetInstanceProfileResult(
         arn=pulumi.get(__response__, 'arn'),

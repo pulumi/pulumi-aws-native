@@ -193,7 +193,7 @@ def get_metric_stream(name: Optional[str] = None,
         state=pulumi.get(__ret__, 'state'),
         statistics_configurations=pulumi.get(__ret__, 'statistics_configurations'))
 def get_metric_stream_output(name: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMetricStreamResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMetricStreamResult]:
     """
     Resource Type definition for Metric Stream
 
@@ -202,7 +202,7 @@ def get_metric_stream_output(name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:cloudwatch:getMetricStream', __args__, opts=opts, typ=GetMetricStreamResult)
     return __ret__.apply(lambda __response__: GetMetricStreamResult(
         arn=pulumi.get(__response__, 'arn'),

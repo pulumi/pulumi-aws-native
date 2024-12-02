@@ -62,7 +62,7 @@ def get_repository_association(association_arn: Optional[str] = None,
     return AwaitableGetRepositoryAssociationResult(
         association_arn=pulumi.get(__ret__, 'association_arn'))
 def get_repository_association_output(association_arn: Optional[pulumi.Input[str]] = None,
-                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRepositoryAssociationResult]:
+                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRepositoryAssociationResult]:
     """
     This resource schema represents the RepositoryAssociation resource in the Amazon CodeGuru Reviewer service.
 
@@ -71,7 +71,7 @@ def get_repository_association_output(association_arn: Optional[pulumi.Input[str
     """
     __args__ = dict()
     __args__['associationArn'] = association_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:codegurureviewer:getRepositoryAssociation', __args__, opts=opts, typ=GetRepositoryAssociationResult)
     return __ret__.apply(lambda __response__: GetRepositoryAssociationResult(
         association_arn=pulumi.get(__response__, 'association_arn')))

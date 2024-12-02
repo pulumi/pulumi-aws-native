@@ -57,7 +57,7 @@ export interface GetDatabaseResult {
 /**
  * Resource Type definition for AWS::Lightsail::Database
  */
-export function getDatabaseOutput(args: GetDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseResult> {
+export function getDatabaseOutput(args: GetDatabaseOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDatabaseResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:lightsail:getDatabase", {
         "relationalDatabaseName": args.relationalDatabaseName,

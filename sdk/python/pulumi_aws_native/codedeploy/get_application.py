@@ -63,7 +63,7 @@ def get_application(application_name: Optional[str] = None,
     return AwaitableGetApplicationResult(
         tags=pulumi.get(__ret__, 'tags'))
 def get_application_output(application_name: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApplicationResult]:
     """
     The AWS::CodeDeploy::Application resource creates an AWS CodeDeploy application
 
@@ -72,7 +72,7 @@ def get_application_output(application_name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['applicationName'] = application_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:codedeploy:getApplication', __args__, opts=opts, typ=GetApplicationResult)
     return __ret__.apply(lambda __response__: GetApplicationResult(
         tags=pulumi.get(__response__, 'tags')))

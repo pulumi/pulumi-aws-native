@@ -41,7 +41,7 @@ export interface GetServiceProfileResult {
 /**
  * An example resource schema demonstrating some basic constructs and validation rules.
  */
-export function getServiceProfileOutput(args: GetServiceProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceProfileResult> {
+export function getServiceProfileOutput(args: GetServiceProfileOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServiceProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:iotwireless:getServiceProfile", {
         "id": args.id,

@@ -58,7 +58,7 @@ export interface GetDetectorModelResult {
  *  If you attempt to update a detector model using CFN and the update does not succeed, the system may, in some cases, restore the original detector model. When this occurs, the detector model's version is incremented twice (for example, from version 1 to version 3) and the detector instances are reset.
  *  Also, be aware that if you attempt to update several detector models at once using CFN, some updates may succeed and others fail. In this case, the effects on each detector model's detector instances and version number depend on whether the update succeeded or failed, with the results as stated.
  */
-export function getDetectorModelOutput(args: GetDetectorModelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDetectorModelResult> {
+export function getDetectorModelOutput(args: GetDetectorModelOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDetectorModelResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:iotevents:getDetectorModel", {
         "detectorModelName": args.detectorModelName,

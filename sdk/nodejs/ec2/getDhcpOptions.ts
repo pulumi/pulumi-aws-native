@@ -37,7 +37,7 @@ export interface GetDhcpOptionsResult {
 /**
  * Resource Type definition for AWS::EC2::DHCPOptions
  */
-export function getDhcpOptionsOutput(args: GetDhcpOptionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDhcpOptionsResult> {
+export function getDhcpOptionsOutput(args: GetDhcpOptionsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDhcpOptionsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:ec2:getDhcpOptions", {
         "dhcpOptionsId": args.dhcpOptionsId,

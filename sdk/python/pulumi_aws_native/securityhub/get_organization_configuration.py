@@ -141,7 +141,7 @@ def get_organization_configuration(organization_configuration_identifier: Option
         status=pulumi.get(__ret__, 'status'),
         status_message=pulumi.get(__ret__, 'status_message'))
 def get_organization_configuration_output(organization_configuration_identifier: Optional[pulumi.Input[str]] = None,
-                                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOrganizationConfigurationResult]:
+                                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOrganizationConfigurationResult]:
     """
     The AWS::SecurityHub::OrganizationConfiguration resource represents the configuration of your organization in Security Hub. Only the Security Hub administrator account can create Organization Configuration resource in each region and can opt-in to Central Configuration only in the aggregation region of FindingAggregator.
 
@@ -150,7 +150,7 @@ def get_organization_configuration_output(organization_configuration_identifier:
     """
     __args__ = dict()
     __args__['organizationConfigurationIdentifier'] = organization_configuration_identifier
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:securityhub:getOrganizationConfiguration', __args__, opts=opts, typ=GetOrganizationConfigurationResult)
     return __ret__.apply(lambda __response__: GetOrganizationConfigurationResult(
         auto_enable=pulumi.get(__response__, 'auto_enable'),

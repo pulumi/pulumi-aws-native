@@ -71,7 +71,7 @@ def get_studio_session_mapping(identity_name: Optional[str] = None,
 def get_studio_session_mapping_output(identity_name: Optional[pulumi.Input[str]] = None,
                                       identity_type: Optional[pulumi.Input['StudioSessionMappingIdentityType']] = None,
                                       studio_id: Optional[pulumi.Input[str]] = None,
-                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStudioSessionMappingResult]:
+                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStudioSessionMappingResult]:
     """
     An example resource schema demonstrating some basic constructs and validation rules.
 
@@ -84,7 +84,7 @@ def get_studio_session_mapping_output(identity_name: Optional[pulumi.Input[str]]
     __args__['identityName'] = identity_name
     __args__['identityType'] = identity_type
     __args__['studioId'] = studio_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:emr:getStudioSessionMapping', __args__, opts=opts, typ=GetStudioSessionMappingResult)
     return __ret__.apply(lambda __response__: GetStudioSessionMappingResult(
         session_policy_arn=pulumi.get(__response__, 'session_policy_arn')))

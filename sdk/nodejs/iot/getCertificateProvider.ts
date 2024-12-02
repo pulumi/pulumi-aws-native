@@ -51,7 +51,7 @@ export interface GetCertificateProviderResult {
 /**
  * Use the AWS::IoT::CertificateProvider resource to declare an AWS IoT Certificate Provider.
  */
-export function getCertificateProviderOutput(args: GetCertificateProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateProviderResult> {
+export function getCertificateProviderOutput(args: GetCertificateProviderOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCertificateProviderResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:iot:getCertificateProvider", {
         "certificateProviderName": args.certificateProviderName,

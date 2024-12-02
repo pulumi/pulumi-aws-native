@@ -61,7 +61,7 @@ export interface GetLifecyclePolicyResult {
 /**
  * Resource schema for AWS::ImageBuilder::LifecyclePolicy
  */
-export function getLifecyclePolicyOutput(args: GetLifecyclePolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLifecyclePolicyResult> {
+export function getLifecyclePolicyOutput(args: GetLifecyclePolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLifecyclePolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:imagebuilder:getLifecyclePolicy", {
         "arn": args.arn,

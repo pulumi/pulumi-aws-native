@@ -34,7 +34,7 @@ export interface GetRobotResult {
 /**
  * AWS::RoboMaker::Robot resource creates an AWS RoboMaker Robot.
  */
-export function getRobotOutput(args: GetRobotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRobotResult> {
+export function getRobotOutput(args: GetRobotOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRobotResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:robomaker:getRobot", {
         "arn": args.arn,

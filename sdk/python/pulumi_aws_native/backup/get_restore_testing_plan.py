@@ -145,7 +145,7 @@ def get_restore_testing_plan(restore_testing_plan_name: Optional[str] = None,
         start_window_hours=pulumi.get(__ret__, 'start_window_hours'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_restore_testing_plan_output(restore_testing_plan_name: Optional[pulumi.Input[str]] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRestoreTestingPlanResult]:
+                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRestoreTestingPlanResult]:
     """
     Definition of AWS::Backup::RestoreTestingPlan Resource Type
 
@@ -154,7 +154,7 @@ def get_restore_testing_plan_output(restore_testing_plan_name: Optional[pulumi.I
     """
     __args__ = dict()
     __args__['restoreTestingPlanName'] = restore_testing_plan_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:backup:getRestoreTestingPlan', __args__, opts=opts, typ=GetRestoreTestingPlanResult)
     return __ret__.apply(lambda __response__: GetRestoreTestingPlanResult(
         recovery_point_selection=pulumi.get(__response__, 'recovery_point_selection'),

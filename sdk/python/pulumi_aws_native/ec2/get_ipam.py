@@ -221,7 +221,7 @@ def get_ipam(ipam_id: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         tier=pulumi.get(__ret__, 'tier'))
 def get_ipam_output(ipam_id: Optional[pulumi.Input[str]] = None,
-                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIpamResult]:
+                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIpamResult]:
     """
     Resource Schema of AWS::EC2::IPAM Type
 
@@ -230,7 +230,7 @@ def get_ipam_output(ipam_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['ipamId'] = ipam_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getIpam', __args__, opts=opts, typ=GetIpamResult)
     return __ret__.apply(lambda __response__: GetIpamResult(
         arn=pulumi.get(__response__, 'arn'),

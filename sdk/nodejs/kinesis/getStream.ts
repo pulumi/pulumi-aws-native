@@ -53,7 +53,7 @@ export interface GetStreamResult {
 /**
  * Resource Type definition for AWS::Kinesis::Stream
  */
-export function getStreamOutput(args: GetStreamOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStreamResult> {
+export function getStreamOutput(args: GetStreamOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStreamResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:kinesis:getStream", {
         "name": args.name,

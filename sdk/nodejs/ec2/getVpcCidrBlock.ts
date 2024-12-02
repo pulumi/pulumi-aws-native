@@ -43,7 +43,7 @@ export interface GetVpcCidrBlockResult {
 /**
  * Resource Type definition for AWS::EC2::VPCCidrBlock
  */
-export function getVpcCidrBlockOutput(args: GetVpcCidrBlockOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcCidrBlockResult> {
+export function getVpcCidrBlockOutput(args: GetVpcCidrBlockOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVpcCidrBlockResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:ec2:getVpcCidrBlock", {
         "id": args.id,

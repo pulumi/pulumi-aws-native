@@ -168,7 +168,7 @@ def get_scheduled_action(scheduled_action_name: Optional[str] = None,
         state=pulumi.get(__ret__, 'state'),
         target_action=pulumi.get(__ret__, 'target_action'))
 def get_scheduled_action_output(scheduled_action_name: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScheduledActionResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetScheduledActionResult]:
     """
     The `AWS::Redshift::ScheduledAction` resource creates an Amazon Redshift Scheduled Action.
 
@@ -177,7 +177,7 @@ def get_scheduled_action_output(scheduled_action_name: Optional[pulumi.Input[str
     """
     __args__ = dict()
     __args__['scheduledActionName'] = scheduled_action_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:redshift:getScheduledAction', __args__, opts=opts, typ=GetScheduledActionResult)
     return __ret__.apply(lambda __response__: GetScheduledActionResult(
         enable=pulumi.get(__response__, 'enable'),

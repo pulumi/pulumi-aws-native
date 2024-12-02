@@ -104,7 +104,7 @@ def get_role_alias(role_alias: Optional[str] = None,
         role_arn=pulumi.get(__ret__, 'role_arn'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_role_alias_output(role_alias: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRoleAliasResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRoleAliasResult]:
     """
     Use the AWS::IoT::RoleAlias resource to declare an AWS IoT RoleAlias.
 
@@ -113,7 +113,7 @@ def get_role_alias_output(role_alias: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['roleAlias'] = role_alias
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:iot:getRoleAlias', __args__, opts=opts, typ=GetRoleAliasResult)
     return __ret__.apply(lambda __response__: GetRoleAliasResult(
         credential_duration_seconds=pulumi.get(__response__, 'credential_duration_seconds'),

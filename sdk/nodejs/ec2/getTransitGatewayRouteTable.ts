@@ -37,7 +37,7 @@ export interface GetTransitGatewayRouteTableResult {
 /**
  * Resource Type definition for AWS::EC2::TransitGatewayRouteTable
  */
-export function getTransitGatewayRouteTableOutput(args: GetTransitGatewayRouteTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTransitGatewayRouteTableResult> {
+export function getTransitGatewayRouteTableOutput(args: GetTransitGatewayRouteTableOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTransitGatewayRouteTableResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:ec2:getTransitGatewayRouteTable", {
         "transitGatewayRouteTableId": args.transitGatewayRouteTableId,

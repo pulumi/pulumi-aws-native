@@ -46,7 +46,7 @@ export interface GetStageResult {
 /**
  * Resource Definition for type AWS::IVS::Stage.
  */
-export function getStageOutput(args: GetStageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStageResult> {
+export function getStageOutput(args: GetStageOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStageResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:ivs:getStage", {
         "arn": args.arn,

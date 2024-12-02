@@ -41,7 +41,7 @@ export interface GetGraphResult {
 /**
  * Resource schema for AWS::Detective::Graph
  */
-export function getGraphOutput(args: GetGraphOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGraphResult> {
+export function getGraphOutput(args: GetGraphOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGraphResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:detective:getGraph", {
         "arn": args.arn,

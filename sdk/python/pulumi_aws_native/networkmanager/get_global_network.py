@@ -128,7 +128,7 @@ def get_global_network(id: Optional[str] = None,
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_global_network_output(id: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGlobalNetworkResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGlobalNetworkResult]:
     """
     The AWS::NetworkManager::GlobalNetwork type specifies a global network of the user's account
 
@@ -137,7 +137,7 @@ def get_global_network_output(id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:networkmanager:getGlobalNetwork', __args__, opts=opts, typ=GetGlobalNetworkResult)
     return __ret__.apply(lambda __response__: GetGlobalNetworkResult(
         arn=pulumi.get(__response__, 'arn'),

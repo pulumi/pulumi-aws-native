@@ -53,7 +53,7 @@ export interface GetNetworkInsightsPathResult {
 /**
  * Resource schema for AWS::EC2::NetworkInsightsPath
  */
-export function getNetworkInsightsPathOutput(args: GetNetworkInsightsPathOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkInsightsPathResult> {
+export function getNetworkInsightsPathOutput(args: GetNetworkInsightsPathOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkInsightsPathResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:ec2:getNetworkInsightsPath", {
         "networkInsightsPathId": args.networkInsightsPathId,

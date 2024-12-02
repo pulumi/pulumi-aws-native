@@ -41,7 +41,7 @@ export interface GetConnectionAliasResult {
 /**
  * Resource Type definition for AWS::WorkSpaces::ConnectionAlias
  */
-export function getConnectionAliasOutput(args: GetConnectionAliasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectionAliasResult> {
+export function getConnectionAliasOutput(args: GetConnectionAliasOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConnectionAliasResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:workspaces:getConnectionAlias", {
         "aliasId": args.aliasId,

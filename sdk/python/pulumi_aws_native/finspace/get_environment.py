@@ -180,7 +180,7 @@ def get_environment(environment_id: Optional[str] = None,
         sage_maker_studio_domain_url=pulumi.get(__ret__, 'sage_maker_studio_domain_url'),
         status=pulumi.get(__ret__, 'status'))
 def get_environment_output(environment_id: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnvironmentResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEnvironmentResult]:
     """
     An example resource schema demonstrating some basic constructs and validation rules.
 
@@ -189,7 +189,7 @@ def get_environment_output(environment_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['environmentId'] = environment_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:finspace:getEnvironment', __args__, opts=opts, typ=GetEnvironmentResult)
     return __ret__.apply(lambda __response__: GetEnvironmentResult(
         aws_account_id=pulumi.get(__response__, 'aws_account_id'),

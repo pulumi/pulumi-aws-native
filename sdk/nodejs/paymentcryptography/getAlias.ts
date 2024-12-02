@@ -32,7 +32,7 @@ export interface GetAliasResult {
 /**
  * Definition of AWS::PaymentCryptography::Alias Resource Type
  */
-export function getAliasOutput(args: GetAliasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAliasResult> {
+export function getAliasOutput(args: GetAliasOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAliasResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:paymentcryptography:getAlias", {
         "aliasName": args.aliasName,

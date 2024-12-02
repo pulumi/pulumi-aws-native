@@ -42,7 +42,7 @@ export interface GetDestinationResult {
 /**
  * The AWS::Logs::Destination resource specifies a CloudWatch Logs destination. A destination encapsulates a physical resource (such as an Amazon Kinesis data stream) and enables you to subscribe that resource to a stream of log events.
  */
-export function getDestinationOutput(args: GetDestinationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDestinationResult> {
+export function getDestinationOutput(args: GetDestinationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDestinationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:logs:getDestination", {
         "destinationName": args.destinationName,

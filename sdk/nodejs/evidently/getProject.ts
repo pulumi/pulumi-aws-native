@@ -55,7 +55,7 @@ export interface GetProjectResult {
 /**
  * Resource Type definition for AWS::Evidently::Project
  */
-export function getProjectOutput(args: GetProjectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProjectResult> {
+export function getProjectOutput(args: GetProjectOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProjectResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:evidently:getProject", {
         "arn": args.arn,

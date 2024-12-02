@@ -65,7 +65,7 @@ export interface GetApplicationInstanceResult {
 /**
  * Creates an application instance and deploys it to a device.
  */
-export function getApplicationInstanceOutput(args: GetApplicationInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApplicationInstanceResult> {
+export function getApplicationInstanceOutput(args: GetApplicationInstanceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApplicationInstanceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:panorama:getApplicationInstance", {
         "applicationInstanceId": args.applicationInstanceId,

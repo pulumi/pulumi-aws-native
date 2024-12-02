@@ -71,7 +71,7 @@ def get_permission(function_name: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'))
 def get_permission_output(function_name: Optional[pulumi.Input[str]] = None,
                           id: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPermissionResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPermissionResult]:
     """
     The ``AWS::Lambda::Permission`` resource grants an AWS service or another account permission to use a function. You can apply the policy at the function level, or specify a qualifier to restrict access to a single version or alias. If you use a qualifier, the invoker must use the full Amazon Resource Name (ARN) of that version or alias to invoke the function.
      To grant permission to another account, specify the account ID as the ``Principal``. To grant permission to an organization defined in AOlong, specify the organization ID as the ``PrincipalOrgID``. For AWS services, the principal is a domain-style identifier defined by the service, like ``s3.amazonaws.com`` or ``sns.amazonaws.com``. For AWS services, you can also specify the ARN of the associated resource as the ``SourceArn``. If you grant permission to a service principal without specifying the source, other accounts could potentially configure resources in their account to invoke your Lambda function.
@@ -90,7 +90,7 @@ def get_permission_output(function_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['functionName'] = function_name
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:lambda:getPermission', __args__, opts=opts, typ=GetPermissionResult)
     return __ret__.apply(lambda __response__: GetPermissionResult(
         id=pulumi.get(__response__, 'id')))

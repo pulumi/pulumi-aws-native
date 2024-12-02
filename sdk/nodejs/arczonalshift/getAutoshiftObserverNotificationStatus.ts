@@ -27,7 +27,7 @@ export interface GetAutoshiftObserverNotificationStatusResult {
 /**
  * Definition of AWS::ARCZonalShift::AutoshiftObserverNotificationStatus Resource Type
  */
-export function getAutoshiftObserverNotificationStatusOutput(args: GetAutoshiftObserverNotificationStatusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAutoshiftObserverNotificationStatusResult> {
+export function getAutoshiftObserverNotificationStatusOutput(args: GetAutoshiftObserverNotificationStatusOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAutoshiftObserverNotificationStatusResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:arczonalshift:getAutoshiftObserverNotificationStatus", {
         "accountId": args.accountId,

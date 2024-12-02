@@ -63,7 +63,7 @@ export interface GetFeatureResult {
 /**
  * Resource Type definition for AWS::Evidently::Feature.
  */
-export function getFeatureOutput(args: GetFeatureOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFeatureResult> {
+export function getFeatureOutput(args: GetFeatureOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFeatureResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:evidently:getFeature", {
         "arn": args.arn,

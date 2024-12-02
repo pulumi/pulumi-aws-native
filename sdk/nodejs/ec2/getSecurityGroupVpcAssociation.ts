@@ -46,7 +46,7 @@ export interface GetSecurityGroupVpcAssociationResult {
 /**
  * Resource type definition for the AWS::EC2::SecurityGroupVpcAssociation resource
  */
-export function getSecurityGroupVpcAssociationOutput(args: GetSecurityGroupVpcAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityGroupVpcAssociationResult> {
+export function getSecurityGroupVpcAssociationOutput(args: GetSecurityGroupVpcAssociationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSecurityGroupVpcAssociationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:ec2:getSecurityGroupVpcAssociation", {
         "groupId": args.groupId,

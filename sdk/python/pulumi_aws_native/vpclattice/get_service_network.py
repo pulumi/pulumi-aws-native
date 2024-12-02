@@ -143,7 +143,7 @@ def get_service_network(arn: Optional[str] = None,
         sharing_config=pulumi.get(__ret__, 'sharing_config'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_service_network_output(arn: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceNetworkResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceNetworkResult]:
     """
     A service network is a logical boundary for a collection of services. You can associate services and VPCs with a service network.
 
@@ -152,7 +152,7 @@ def get_service_network_output(arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:vpclattice:getServiceNetwork', __args__, opts=opts, typ=GetServiceNetworkResult)
     return __ret__.apply(lambda __response__: GetServiceNetworkResult(
         arn=pulumi.get(__response__, 'arn'),

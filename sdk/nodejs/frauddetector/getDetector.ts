@@ -81,7 +81,7 @@ export interface GetDetectorResult {
 /**
  * A resource schema for a Detector in Amazon Fraud Detector.
  */
-export function getDetectorOutput(args: GetDetectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDetectorResult> {
+export function getDetectorOutput(args: GetDetectorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDetectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:frauddetector:getDetector", {
         "arn": args.arn,

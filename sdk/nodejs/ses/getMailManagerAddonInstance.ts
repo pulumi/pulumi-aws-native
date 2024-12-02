@@ -45,7 +45,7 @@ export interface GetMailManagerAddonInstanceResult {
 /**
  * Definition of AWS::SES::MailManagerAddonInstance Resource Type
  */
-export function getMailManagerAddonInstanceOutput(args: GetMailManagerAddonInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMailManagerAddonInstanceResult> {
+export function getMailManagerAddonInstanceOutput(args: GetMailManagerAddonInstanceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMailManagerAddonInstanceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:ses:getMailManagerAddonInstance", {
         "addonInstanceId": args.addonInstanceId,

@@ -32,7 +32,7 @@ export interface GetQueueInlinePolicyResult {
 /**
  * Schema for SQS QueueInlinePolicy
  */
-export function getQueueInlinePolicyOutput(args: GetQueueInlinePolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQueueInlinePolicyResult> {
+export function getQueueInlinePolicyOutput(args: GetQueueInlinePolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetQueueInlinePolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:sqs:getQueueInlinePolicy", {
         "queue": args.queue,

@@ -89,7 +89,7 @@ def get_topic_rule_destination(arn: Optional[str] = None,
         status=pulumi.get(__ret__, 'status'),
         status_reason=pulumi.get(__ret__, 'status_reason'))
 def get_topic_rule_destination_output(arn: Optional[pulumi.Input[str]] = None,
-                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTopicRuleDestinationResult]:
+                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTopicRuleDestinationResult]:
     """
     Resource Type definition for AWS::IoT::TopicRuleDestination
 
@@ -98,7 +98,7 @@ def get_topic_rule_destination_output(arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:iot:getTopicRuleDestination', __args__, opts=opts, typ=GetTopicRuleDestinationResult)
     return __ret__.apply(lambda __response__: GetTopicRuleDestinationResult(
         arn=pulumi.get(__response__, 'arn'),

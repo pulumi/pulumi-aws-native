@@ -119,7 +119,7 @@ def get_addon(addon_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'))
 def get_addon_output(addon_name: Optional[pulumi.Input[str]] = None,
                      cluster_name: Optional[pulumi.Input[str]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAddonResult]:
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAddonResult]:
     """
     Resource Schema for AWS::EKS::Addon
 
@@ -130,7 +130,7 @@ def get_addon_output(addon_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['addonName'] = addon_name
     __args__['clusterName'] = cluster_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:eks:getAddon', __args__, opts=opts, typ=GetAddonResult)
     return __ret__.apply(lambda __response__: GetAddonResult(
         addon_version=pulumi.get(__response__, 'addon_version'),

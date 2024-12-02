@@ -89,7 +89,7 @@ def get_subnet_group(cache_subnet_group_name: Optional[str] = None,
         subnet_ids=pulumi.get(__ret__, 'subnet_ids'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_subnet_group_output(cache_subnet_group_name: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubnetGroupResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSubnetGroupResult]:
     """
     Resource Type definition for AWS::ElastiCache::SubnetGroup
 
@@ -98,7 +98,7 @@ def get_subnet_group_output(cache_subnet_group_name: Optional[pulumi.Input[str]]
     """
     __args__ = dict()
     __args__['cacheSubnetGroupName'] = cache_subnet_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:elasticache:getSubnetGroup', __args__, opts=opts, typ=GetSubnetGroupResult)
     return __ret__.apply(lambda __response__: GetSubnetGroupResult(
         description=pulumi.get(__response__, 'description'),

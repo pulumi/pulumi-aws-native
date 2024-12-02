@@ -93,7 +93,7 @@ export interface GetTransitGatewayRouteTableAttachmentResult {
 /**
  * AWS::NetworkManager::TransitGatewayRouteTableAttachment Resource Type definition.
  */
-export function getTransitGatewayRouteTableAttachmentOutput(args: GetTransitGatewayRouteTableAttachmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTransitGatewayRouteTableAttachmentResult> {
+export function getTransitGatewayRouteTableAttachmentOutput(args: GetTransitGatewayRouteTableAttachmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTransitGatewayRouteTableAttachmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:networkmanager:getTransitGatewayRouteTableAttachment", {
         "attachmentId": args.attachmentId,

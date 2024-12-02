@@ -57,7 +57,7 @@ export interface GetIpAccessSettingsResult {
 /**
  * Definition of AWS::WorkSpacesWeb::IpAccessSettings Resource Type
  */
-export function getIpAccessSettingsOutput(args: GetIpAccessSettingsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIpAccessSettingsResult> {
+export function getIpAccessSettingsOutput(args: GetIpAccessSettingsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIpAccessSettingsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:workspacesweb:getIpAccessSettings", {
         "ipAccessSettingsArn": args.ipAccessSettingsArn,

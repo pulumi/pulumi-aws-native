@@ -62,7 +62,7 @@ def get_product_subscription(product_subscription_arn: Optional[str] = None,
     return AwaitableGetProductSubscriptionResult(
         product_subscription_arn=pulumi.get(__ret__, 'product_subscription_arn'))
 def get_product_subscription_output(product_subscription_arn: Optional[pulumi.Input[str]] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProductSubscriptionResult]:
+                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProductSubscriptionResult]:
     """
     The AWS::SecurityHub::ProductSubscription resource represents a subscription to a service that is allowed to generate findings for your Security Hub account. One product subscription resource is created for each product enabled.
 
@@ -71,7 +71,7 @@ def get_product_subscription_output(product_subscription_arn: Optional[pulumi.In
     """
     __args__ = dict()
     __args__['productSubscriptionArn'] = product_subscription_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:securityhub:getProductSubscription', __args__, opts=opts, typ=GetProductSubscriptionResult)
     return __ret__.apply(lambda __response__: GetProductSubscriptionResult(
         product_subscription_arn=pulumi.get(__response__, 'product_subscription_arn')))

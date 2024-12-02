@@ -30,7 +30,7 @@ export interface GetSchemaVersionResult {
 /**
  * This resource represents an individual schema version of a schema defined in Glue Schema Registry.
  */
-export function getSchemaVersionOutput(args: GetSchemaVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSchemaVersionResult> {
+export function getSchemaVersionOutput(args: GetSchemaVersionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSchemaVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:glue:getSchemaVersion", {
         "versionId": args.versionId,

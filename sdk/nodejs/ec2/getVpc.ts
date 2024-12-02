@@ -74,7 +74,7 @@ export interface GetVpcResult {
  *  To add an IPv6 CIDR block to the VPC, see [AWS::EC2::VPCCidrBlock](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpccidrblock.html).
  *  For more information, see [Virtual private clouds (VPC)](https://docs.aws.amazon.com/vpc/latest/userguide/configure-your-vpc.html) in the *Amazon VPC User Guide*.
  */
-export function getVpcOutput(args: GetVpcOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcResult> {
+export function getVpcOutput(args: GetVpcOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVpcResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:ec2:getVpc", {
         "vpcId": args.vpcId,

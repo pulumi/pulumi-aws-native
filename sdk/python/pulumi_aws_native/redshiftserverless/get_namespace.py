@@ -183,7 +183,7 @@ def get_namespace(namespace_name: Optional[str] = None,
         namespace_resource_policy=pulumi.get(__ret__, 'namespace_resource_policy'),
         snapshot_copy_configurations=pulumi.get(__ret__, 'snapshot_copy_configurations'))
 def get_namespace_output(namespace_name: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNamespaceResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNamespaceResult]:
     """
     Definition of AWS::RedshiftServerless::Namespace Resource Type
 
@@ -192,7 +192,7 @@ def get_namespace_output(namespace_name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['namespaceName'] = namespace_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:redshiftserverless:getNamespace', __args__, opts=opts, typ=GetNamespaceResult)
     return __ret__.apply(lambda __response__: GetNamespaceResult(
         admin_password_secret_kms_key_id=pulumi.get(__response__, 'admin_password_secret_kms_key_id'),

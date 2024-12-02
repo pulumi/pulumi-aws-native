@@ -53,7 +53,7 @@ export interface GetCodeSigningConfigResult {
 /**
  * Resource Type definition for AWS::Lambda::CodeSigningConfig.
  */
-export function getCodeSigningConfigOutput(args: GetCodeSigningConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCodeSigningConfigResult> {
+export function getCodeSigningConfigOutput(args: GetCodeSigningConfigOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCodeSigningConfigResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:lambda:getCodeSigningConfig", {
         "codeSigningConfigArn": args.codeSigningConfigArn,

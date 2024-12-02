@@ -150,7 +150,7 @@ def get_authorizer(authorizer_name: Optional[str] = None,
         token_key_name=pulumi.get(__ret__, 'token_key_name'),
         token_signing_public_keys=pulumi.get(__ret__, 'token_signing_public_keys'))
 def get_authorizer_output(authorizer_name: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAuthorizerResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAuthorizerResult]:
     """
     Creates an authorizer.
 
@@ -159,7 +159,7 @@ def get_authorizer_output(authorizer_name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['authorizerName'] = authorizer_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:iot:getAuthorizer', __args__, opts=opts, typ=GetAuthorizerResult)
     return __ret__.apply(lambda __response__: GetAuthorizerResult(
         arn=pulumi.get(__response__, 'arn'),

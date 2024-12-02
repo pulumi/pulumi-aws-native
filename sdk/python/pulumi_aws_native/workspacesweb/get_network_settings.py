@@ -134,7 +134,7 @@ def get_network_settings(network_settings_arn: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'))
 def get_network_settings_output(network_settings_arn: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkSettingsResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkSettingsResult]:
     """
     Definition of AWS::WorkSpacesWeb::NetworkSettings Resource Type
 
@@ -143,7 +143,7 @@ def get_network_settings_output(network_settings_arn: Optional[pulumi.Input[str]
     """
     __args__ = dict()
     __args__['networkSettingsArn'] = network_settings_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:workspacesweb:getNetworkSettings', __args__, opts=opts, typ=GetNetworkSettingsResult)
     return __ret__.apply(lambda __response__: GetNetworkSettingsResult(
         associated_portal_arns=pulumi.get(__response__, 'associated_portal_arns'),

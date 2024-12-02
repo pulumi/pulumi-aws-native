@@ -197,7 +197,7 @@ def get_prompt(arn: Optional[str] = None,
         variants=pulumi.get(__ret__, 'variants'),
         version=pulumi.get(__ret__, 'version'))
 def get_prompt_output(arn: Optional[pulumi.Input[str]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPromptResult]:
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPromptResult]:
     """
     Definition of AWS::Bedrock::Prompt Resource Type
 
@@ -206,7 +206,7 @@ def get_prompt_output(arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:bedrock:getPrompt', __args__, opts=opts, typ=GetPromptResult)
     return __ret__.apply(lambda __response__: GetPromptResult(
         arn=pulumi.get(__response__, 'arn'),

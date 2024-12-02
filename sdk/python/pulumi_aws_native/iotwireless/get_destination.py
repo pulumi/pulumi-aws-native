@@ -129,7 +129,7 @@ def get_destination(name: Optional[str] = None,
         role_arn=pulumi.get(__ret__, 'role_arn'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_destination_output(name: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDestinationResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDestinationResult]:
     """
     Destination's resource schema demonstrating some basic constructs and validation rules.
 
@@ -138,7 +138,7 @@ def get_destination_output(name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:iotwireless:getDestination', __args__, opts=opts, typ=GetDestinationResult)
     return __ret__.apply(lambda __response__: GetDestinationResult(
         arn=pulumi.get(__response__, 'arn'),

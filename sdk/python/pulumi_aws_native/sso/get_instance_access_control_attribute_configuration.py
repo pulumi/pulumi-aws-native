@@ -76,7 +76,7 @@ def get_instance_access_control_attribute_configuration(instance_arn: Optional[s
         access_control_attributes=pulumi.get(__ret__, 'access_control_attributes'),
         instance_access_control_attribute_configuration=pulumi.get(__ret__, 'instance_access_control_attribute_configuration'))
 def get_instance_access_control_attribute_configuration_output(instance_arn: Optional[pulumi.Input[str]] = None,
-                                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInstanceAccessControlAttributeConfigurationResult]:
+                                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInstanceAccessControlAttributeConfigurationResult]:
     """
     Resource Type definition for SSO InstanceAccessControlAttributeConfiguration
 
@@ -85,7 +85,7 @@ def get_instance_access_control_attribute_configuration_output(instance_arn: Opt
     """
     __args__ = dict()
     __args__['instanceArn'] = instance_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:sso:getInstanceAccessControlAttributeConfiguration', __args__, opts=opts, typ=GetInstanceAccessControlAttributeConfigurationResult)
     return __ret__.apply(lambda __response__: GetInstanceAccessControlAttributeConfigurationResult(
         access_control_attributes=pulumi.get(__response__, 'access_control_attributes'),

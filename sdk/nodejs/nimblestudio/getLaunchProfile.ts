@@ -53,7 +53,7 @@ export interface GetLaunchProfileResult {
 /**
  * Resource Type definition for AWS::NimbleStudio::LaunchProfile
  */
-export function getLaunchProfileOutput(args: GetLaunchProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLaunchProfileResult> {
+export function getLaunchProfileOutput(args: GetLaunchProfileOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLaunchProfileResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:nimblestudio:getLaunchProfile", {
         "launchProfileId": args.launchProfileId,

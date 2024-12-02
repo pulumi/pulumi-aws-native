@@ -79,7 +79,7 @@ def get_vpn_connection(vpn_connection_id: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         vpn_connection_id=pulumi.get(__ret__, 'vpn_connection_id'))
 def get_vpn_connection_output(vpn_connection_id: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpnConnectionResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpnConnectionResult]:
     """
     Specifies a VPN connection between a virtual private gateway and a VPN customer gateway or a transit gateway and a VPN customer gateway.
      To specify a VPN connection between a transit gateway and customer gateway, use the ``TransitGatewayId`` and ``CustomerGatewayId`` properties.
@@ -91,7 +91,7 @@ def get_vpn_connection_output(vpn_connection_id: Optional[pulumi.Input[str]] = N
     """
     __args__ = dict()
     __args__['vpnConnectionId'] = vpn_connection_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getVpnConnection', __args__, opts=opts, typ=GetVpnConnectionResult)
     return __ret__.apply(lambda __response__: GetVpnConnectionResult(
         tags=pulumi.get(__response__, 'tags'),

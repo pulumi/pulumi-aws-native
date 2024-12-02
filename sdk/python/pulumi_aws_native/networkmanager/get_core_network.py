@@ -196,7 +196,7 @@ def get_core_network(core_network_id: Optional[str] = None,
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_core_network_output(core_network_id: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCoreNetworkResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCoreNetworkResult]:
     """
     AWS::NetworkManager::CoreNetwork Resource Type Definition.
 
@@ -205,7 +205,7 @@ def get_core_network_output(core_network_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['coreNetworkId'] = core_network_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:networkmanager:getCoreNetwork', __args__, opts=opts, typ=GetCoreNetworkResult)
     return __ret__.apply(lambda __response__: GetCoreNetworkResult(
         core_network_arn=pulumi.get(__response__, 'core_network_arn'),

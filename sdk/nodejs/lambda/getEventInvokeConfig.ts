@@ -54,7 +54,7 @@ export interface GetEventInvokeConfigResult {
 /**
  * The AWS::Lambda::EventInvokeConfig resource configures options for asynchronous invocation on a version or an alias.
  */
-export function getEventInvokeConfigOutput(args: GetEventInvokeConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventInvokeConfigResult> {
+export function getEventInvokeConfigOutput(args: GetEventInvokeConfigOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEventInvokeConfigResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:lambda:getEventInvokeConfig", {
         "functionName": args.functionName,

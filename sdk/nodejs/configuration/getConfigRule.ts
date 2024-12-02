@@ -88,7 +88,7 @@ export interface GetConfigRuleResult {
  *  If you are updating a rule that you added previously, you can specify the rule by ``ConfigRuleName``, ``ConfigRuleId``, or ``ConfigRuleArn`` in the ``ConfigRule`` data type that you use in this request.
  *  For more information about developing and using CC rules, see [Evaluating Resources with Rules](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config.html) in the *Developer Guide*.
  */
-export function getConfigRuleOutput(args: GetConfigRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigRuleResult> {
+export function getConfigRuleOutput(args: GetConfigRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConfigRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:configuration:getConfigRule", {
         "configRuleName": args.configRuleName,

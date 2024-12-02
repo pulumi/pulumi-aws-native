@@ -80,7 +80,7 @@ export interface GetTransitGatewayResult {
 /**
  * Resource Type definition for AWS::EC2::TransitGateway
  */
-export function getTransitGatewayOutput(args: GetTransitGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTransitGatewayResult> {
+export function getTransitGatewayOutput(args: GetTransitGatewayOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTransitGatewayResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:ec2:getTransitGateway", {
         "id": args.id,

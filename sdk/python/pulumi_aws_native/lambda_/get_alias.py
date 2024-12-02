@@ -115,7 +115,7 @@ def get_alias(alias_arn: Optional[str] = None,
         provisioned_concurrency_config=pulumi.get(__ret__, 'provisioned_concurrency_config'),
         routing_config=pulumi.get(__ret__, 'routing_config'))
 def get_alias_output(alias_arn: Optional[pulumi.Input[str]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAliasResult]:
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAliasResult]:
     """
     Resource Type definition for AWS::Lambda::Alias
 
@@ -124,7 +124,7 @@ def get_alias_output(alias_arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['aliasArn'] = alias_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:lambda:getAlias', __args__, opts=opts, typ=GetAliasResult)
     return __ret__.apply(lambda __response__: GetAliasResult(
         alias_arn=pulumi.get(__response__, 'alias_arn'),

@@ -369,7 +369,7 @@ def get_stack(stack_id: Optional[str] = None,
         template_body=pulumi.get(__ret__, 'template_body'),
         timeout_in_minutes=pulumi.get(__ret__, 'timeout_in_minutes'))
 def get_stack_output(stack_id: Optional[pulumi.Input[str]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStackResult]:
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStackResult]:
     """
     The AWS::CloudFormation::Stack resource nests a stack as a resource in a top-level template.
 
@@ -378,7 +378,7 @@ def get_stack_output(stack_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['stackId'] = stack_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:cloudformation:getStack', __args__, opts=opts, typ=GetStackResult)
     return __ret__.apply(lambda __response__: GetStackResult(
         capabilities=pulumi.get(__response__, 'capabilities'),

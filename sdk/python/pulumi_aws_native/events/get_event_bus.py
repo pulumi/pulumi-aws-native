@@ -131,7 +131,7 @@ def get_event_bus(name: Optional[str] = None,
         policy=pulumi.get(__ret__, 'policy'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_event_bus_output(name: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEventBusResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEventBusResult]:
     """
     Resource type definition for AWS::Events::EventBus
 
@@ -140,7 +140,7 @@ def get_event_bus_output(name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:events:getEventBus', __args__, opts=opts, typ=GetEventBusResult)
     return __ret__.apply(lambda __response__: GetEventBusResult(
         arn=pulumi.get(__response__, 'arn'),

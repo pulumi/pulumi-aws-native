@@ -93,7 +93,7 @@ def get_stream(id: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'))
 def get_stream_output(id: Optional[pulumi.Input[str]] = None,
                       ledger_name: Optional[pulumi.Input[str]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStreamResult]:
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStreamResult]:
     """
     Resource schema for AWS::QLDB::Stream.
 
@@ -104,7 +104,7 @@ def get_stream_output(id: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['id'] = id
     __args__['ledgerName'] = ledger_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:qldb:getStream', __args__, opts=opts, typ=GetStreamResult)
     return __ret__.apply(lambda __response__: GetStreamResult(
         arn=pulumi.get(__response__, 'arn'),

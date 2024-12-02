@@ -40,7 +40,7 @@ export interface GetHostedConfigurationVersionResult {
 /**
  * Resource Type definition for AWS::AppConfig::HostedConfigurationVersion
  */
-export function getHostedConfigurationVersionOutput(args: GetHostedConfigurationVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHostedConfigurationVersionResult> {
+export function getHostedConfigurationVersionOutput(args: GetHostedConfigurationVersionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetHostedConfigurationVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:appconfig:getHostedConfigurationVersion", {
         "applicationId": args.applicationId,

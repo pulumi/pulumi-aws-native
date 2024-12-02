@@ -259,7 +259,7 @@ def get_transit_gateway_route_table_attachment(attachment_id: Optional[str] = No
         tags=pulumi.get(__ret__, 'tags'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
 def get_transit_gateway_route_table_attachment_output(attachment_id: Optional[pulumi.Input[str]] = None,
-                                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTransitGatewayRouteTableAttachmentResult]:
+                                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTransitGatewayRouteTableAttachmentResult]:
     """
     AWS::NetworkManager::TransitGatewayRouteTableAttachment Resource Type definition.
 
@@ -268,7 +268,7 @@ def get_transit_gateway_route_table_attachment_output(attachment_id: Optional[pu
     """
     __args__ = dict()
     __args__['attachmentId'] = attachment_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:networkmanager:getTransitGatewayRouteTableAttachment', __args__, opts=opts, typ=GetTransitGatewayRouteTableAttachmentResult)
     return __ret__.apply(lambda __response__: GetTransitGatewayRouteTableAttachmentResult(
         attachment_id=pulumi.get(__response__, 'attachment_id'),

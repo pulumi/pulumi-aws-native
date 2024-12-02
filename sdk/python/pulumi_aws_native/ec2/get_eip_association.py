@@ -63,7 +63,7 @@ def get_eip_association(id: Optional[str] = None,
     return AwaitableGetEipAssociationResult(
         id=pulumi.get(__ret__, 'id'))
 def get_eip_association_output(id: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEipAssociationResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEipAssociationResult]:
     """
     Associates an Elastic IP address with an instance or a network interface. Before you can use an Elastic IP address, you must allocate it to your account. For more information about working with Elastic IP addresses, see [Elastic IP address concepts and rules](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#vpc-eip-overview).
      You must specify ``AllocationId`` and either ``InstanceId``, ``NetworkInterfaceId``, or ``PrivateIpAddress``.
@@ -73,7 +73,7 @@ def get_eip_association_output(id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getEipAssociation', __args__, opts=opts, typ=GetEipAssociationResult)
     return __ret__.apply(lambda __response__: GetEipAssociationResult(
         id=pulumi.get(__response__, 'id')))

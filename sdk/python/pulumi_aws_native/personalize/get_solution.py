@@ -62,7 +62,7 @@ def get_solution(solution_arn: Optional[str] = None,
     return AwaitableGetSolutionResult(
         solution_arn=pulumi.get(__ret__, 'solution_arn'))
 def get_solution_output(solution_arn: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSolutionResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSolutionResult]:
     """
     Resource schema for AWS::Personalize::Solution.
 
@@ -71,7 +71,7 @@ def get_solution_output(solution_arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['solutionArn'] = solution_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:personalize:getSolution', __args__, opts=opts, typ=GetSolutionResult)
     return __ret__.apply(lambda __response__: GetSolutionResult(
         solution_arn=pulumi.get(__response__, 'solution_arn')))

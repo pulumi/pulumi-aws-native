@@ -91,7 +91,7 @@ def get_thing(thing_name: Optional[str] = None,
         attribute_payload=pulumi.get(__ret__, 'attribute_payload'),
         id=pulumi.get(__ret__, 'id'))
 def get_thing_output(thing_name: Optional[pulumi.Input[str]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetThingResult]:
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetThingResult]:
     """
     Resource Type definition for AWS::IoT::Thing
 
@@ -102,7 +102,7 @@ def get_thing_output(thing_name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['thingName'] = thing_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:iot:getThing', __args__, opts=opts, typ=GetThingResult)
     return __ret__.apply(lambda __response__: GetThingResult(
         arn=pulumi.get(__response__, 'arn'),

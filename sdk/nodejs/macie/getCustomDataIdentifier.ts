@@ -41,7 +41,7 @@ export interface GetCustomDataIdentifierResult {
 /**
  * Macie CustomDataIdentifier resource schema
  */
-export function getCustomDataIdentifierOutput(args: GetCustomDataIdentifierOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomDataIdentifierResult> {
+export function getCustomDataIdentifierOutput(args: GetCustomDataIdentifierOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCustomDataIdentifierResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:macie:getCustomDataIdentifier", {
         "id": args.id,

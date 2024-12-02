@@ -79,7 +79,7 @@ def get_base_path_mapping(base_path: Optional[str] = None,
         stage=pulumi.get(__ret__, 'stage'))
 def get_base_path_mapping_output(base_path: Optional[pulumi.Input[str]] = None,
                                  domain_name: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBasePathMappingResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBasePathMappingResult]:
     """
     The ``AWS::ApiGateway::BasePathMapping`` resource creates a base path that clients who call your API must use in the invocation URL.
 
@@ -90,7 +90,7 @@ def get_base_path_mapping_output(base_path: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['basePath'] = base_path
     __args__['domainName'] = domain_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:apigateway:getBasePathMapping', __args__, opts=opts, typ=GetBasePathMappingResult)
     return __ret__.apply(lambda __response__: GetBasePathMappingResult(
         rest_api_id=pulumi.get(__response__, 'rest_api_id'),

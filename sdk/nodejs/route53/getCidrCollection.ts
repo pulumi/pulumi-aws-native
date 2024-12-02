@@ -41,7 +41,7 @@ export interface GetCidrCollectionResult {
 /**
  * Resource schema for AWS::Route53::CidrCollection.
  */
-export function getCidrCollectionOutput(args: GetCidrCollectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCidrCollectionResult> {
+export function getCidrCollectionOutput(args: GetCidrCollectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCidrCollectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:route53:getCidrCollection", {
         "id": args.id,

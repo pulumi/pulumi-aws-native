@@ -116,7 +116,7 @@ def get_account_policy(account_id: Optional[str] = None,
 def get_account_policy_output(account_id: Optional[pulumi.Input[str]] = None,
                               policy_name: Optional[pulumi.Input[str]] = None,
                               policy_type: Optional[pulumi.Input['AccountPolicyPolicyType']] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountPolicyResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccountPolicyResult]:
     """
     The AWS::Logs::AccountPolicy resource specifies a CloudWatch Logs AccountPolicy.
 
@@ -129,7 +129,7 @@ def get_account_policy_output(account_id: Optional[pulumi.Input[str]] = None,
     __args__['accountId'] = account_id
     __args__['policyName'] = policy_name
     __args__['policyType'] = policy_type
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:logs:getAccountPolicy', __args__, opts=opts, typ=GetAccountPolicyResult)
     return __ret__.apply(lambda __response__: GetAccountPolicyResult(
         account_id=pulumi.get(__response__, 'account_id'),

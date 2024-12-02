@@ -62,7 +62,7 @@ def get_simulation(name: Optional[str] = None,
     return AwaitableGetSimulationResult(
         describe_payload=pulumi.get(__ret__, 'describe_payload'))
 def get_simulation_output(name: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSimulationResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSimulationResult]:
     """
     AWS::SimSpaceWeaver::Simulation resource creates an AWS Simulation.
 
@@ -71,7 +71,7 @@ def get_simulation_output(name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:simspaceweaver:getSimulation', __args__, opts=opts, typ=GetSimulationResult)
     return __ret__.apply(lambda __response__: GetSimulationResult(
         describe_payload=pulumi.get(__response__, 'describe_payload')))

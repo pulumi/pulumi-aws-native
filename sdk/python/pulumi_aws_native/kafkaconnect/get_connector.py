@@ -90,7 +90,7 @@ def get_connector(connector_arn: Optional[str] = None,
         connector_arn=pulumi.get(__ret__, 'connector_arn'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_connector_output(connector_arn: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectorResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectorResult]:
     """
     Resource Type definition for AWS::KafkaConnect::Connector
 
@@ -99,7 +99,7 @@ def get_connector_output(connector_arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['connectorArn'] = connector_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:kafkaconnect:getConnector', __args__, opts=opts, typ=GetConnectorResult)
     return __ret__.apply(lambda __response__: GetConnectorResult(
         capacity=pulumi.get(__response__, 'capacity'),

@@ -200,13 +200,13 @@ def get_identity_pool(id: Optional[str] = None,
         saml_provider_arns=pulumi.get(__ret__, 'saml_provider_arns'),
         supported_login_providers=pulumi.get(__ret__, 'supported_login_providers'))
 def get_identity_pool_output(id: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIdentityPoolResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIdentityPoolResult]:
     """
     Resource Type definition for AWS::Cognito::IdentityPool
     """
     __args__ = dict()
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:cognito:getIdentityPool', __args__, opts=opts, typ=GetIdentityPoolResult)
     return __ret__.apply(lambda __response__: GetIdentityPoolResult(
         allow_classic_flow=pulumi.get(__response__, 'allow_classic_flow'),

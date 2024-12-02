@@ -48,7 +48,7 @@ export interface GetUserPolicyResult {
  *  An IAM user can also have a managed policy attached to it. To attach a managed policy to a user, use [AWS::IAM::User](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html). To create a new managed policy, use [AWS::IAM::ManagedPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-managedpolicy.html). For information about policies, see [Managed policies and inline policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-vs-inline.html) in the *IAM User Guide*.
  *  For information about the maximum number of inline policies that you can embed in a user, see [IAM and quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html) in the *IAM User Guide*.
  */
-export function getUserPolicyOutput(args: GetUserPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserPolicyResult> {
+export function getUserPolicyOutput(args: GetUserPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetUserPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:iam:getUserPolicy", {
         "policyName": args.policyName,

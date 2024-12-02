@@ -76,7 +76,7 @@ def get_plan(arn: Optional[str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         stages=pulumi.get(__ret__, 'stages'))
 def get_plan_output(arn: Optional[pulumi.Input[str]] = None,
-                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPlanResult]:
+                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPlanResult]:
     """
     Engagement Plan for a SSM Incident Manager Contact.
 
@@ -85,7 +85,7 @@ def get_plan_output(arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ssmcontacts:getPlan', __args__, opts=opts, typ=GetPlanResult)
     return __ret__.apply(lambda __response__: GetPlanResult(
         arn=pulumi.get(__response__, 'arn'),

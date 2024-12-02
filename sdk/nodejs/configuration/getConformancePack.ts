@@ -41,7 +41,7 @@ export interface GetConformancePackResult {
 /**
  * A conformance pack is a collection of AWS Config rules and remediation actions that can be easily deployed as a single entity in an account and a region or across an entire AWS Organization.
  */
-export function getConformancePackOutput(args: GetConformancePackOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConformancePackResult> {
+export function getConformancePackOutput(args: GetConformancePackOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConformancePackResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:configuration:getConformancePack", {
         "conformancePackName": args.conformancePackName,

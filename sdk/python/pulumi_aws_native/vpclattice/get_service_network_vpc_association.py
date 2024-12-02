@@ -181,7 +181,7 @@ def get_service_network_vpc_association(arn: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'))
 def get_service_network_vpc_association_output(arn: Optional[pulumi.Input[str]] = None,
-                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceNetworkVpcAssociationResult]:
+                                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceNetworkVpcAssociationResult]:
     """
     Associates a VPC with a service network.
 
@@ -190,7 +190,7 @@ def get_service_network_vpc_association_output(arn: Optional[pulumi.Input[str]] 
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:vpclattice:getServiceNetworkVpcAssociation', __args__, opts=opts, typ=GetServiceNetworkVpcAssociationResult)
     return __ret__.apply(lambda __response__: GetServiceNetworkVpcAssociationResult(
         arn=pulumi.get(__response__, 'arn'),

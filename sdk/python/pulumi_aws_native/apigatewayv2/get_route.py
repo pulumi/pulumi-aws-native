@@ -185,7 +185,7 @@ def get_route(api_id: Optional[str] = None,
         target=pulumi.get(__ret__, 'target'))
 def get_route_output(api_id: Optional[pulumi.Input[str]] = None,
                      route_id: Optional[pulumi.Input[str]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRouteResult]:
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRouteResult]:
     """
     The ``AWS::ApiGatewayV2::Route`` resource creates a route for an API.
 
@@ -196,7 +196,7 @@ def get_route_output(api_id: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['apiId'] = api_id
     __args__['routeId'] = route_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:apigatewayv2:getRoute', __args__, opts=opts, typ=GetRouteResult)
     return __ret__.apply(lambda __response__: GetRouteResult(
         api_key_required=pulumi.get(__response__, 'api_key_required'),

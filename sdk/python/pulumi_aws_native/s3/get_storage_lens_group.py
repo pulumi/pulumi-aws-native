@@ -90,7 +90,7 @@ def get_storage_lens_group(name: Optional[str] = None,
         storage_lens_group_arn=pulumi.get(__ret__, 'storage_lens_group_arn'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_storage_lens_group_output(name: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStorageLensGroupResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStorageLensGroupResult]:
     """
     The AWS::S3::StorageLensGroup resource is an Amazon S3 resource type that you can use to create Storage Lens Group.
 
@@ -99,7 +99,7 @@ def get_storage_lens_group_output(name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:s3:getStorageLensGroup', __args__, opts=opts, typ=GetStorageLensGroupResult)
     return __ret__.apply(lambda __response__: GetStorageLensGroupResult(
         filter=pulumi.get(__response__, 'filter'),

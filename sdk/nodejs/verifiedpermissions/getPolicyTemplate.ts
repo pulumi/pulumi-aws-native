@@ -43,7 +43,7 @@ export interface GetPolicyTemplateResult {
 /**
  * Definition of AWS::VerifiedPermissions::PolicyTemplate Resource Type
  */
-export function getPolicyTemplateOutput(args: GetPolicyTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyTemplateResult> {
+export function getPolicyTemplateOutput(args: GetPolicyTemplateOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPolicyTemplateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:verifiedpermissions:getPolicyTemplate", {
         "policyStoreId": args.policyStoreId,

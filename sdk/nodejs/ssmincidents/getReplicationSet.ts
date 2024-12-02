@@ -45,7 +45,7 @@ export interface GetReplicationSetResult {
 /**
  * Resource type definition for AWS::SSMIncidents::ReplicationSet
  */
-export function getReplicationSetOutput(args: GetReplicationSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationSetResult> {
+export function getReplicationSetOutput(args: GetReplicationSetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetReplicationSetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:ssmincidents:getReplicationSet", {
         "arn": args.arn,

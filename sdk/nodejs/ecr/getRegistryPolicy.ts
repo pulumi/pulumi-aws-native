@@ -38,7 +38,7 @@ export interface GetRegistryPolicyResult {
  * The ``AWS::ECR::RegistryPolicy`` resource creates or updates the permissions policy for a private registry.
  *  A private registry policy is used to specify permissions for another AWS-account and is used when configuring cross-account replication. For more information, see [Registry permissions](https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry-permissions.html) in the *Amazon Elastic Container Registry User Guide*.
  */
-export function getRegistryPolicyOutput(args: GetRegistryPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistryPolicyResult> {
+export function getRegistryPolicyOutput(args: GetRegistryPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRegistryPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:ecr:getRegistryPolicy", {
         "registryId": args.registryId,

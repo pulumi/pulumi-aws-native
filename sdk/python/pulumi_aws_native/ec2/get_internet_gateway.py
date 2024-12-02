@@ -76,7 +76,7 @@ def get_internet_gateway(internet_gateway_id: Optional[str] = None,
         internet_gateway_id=pulumi.get(__ret__, 'internet_gateway_id'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_internet_gateway_output(internet_gateway_id: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInternetGatewayResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInternetGatewayResult]:
     """
     Allocates an internet gateway for use with a VPC. After creating the Internet gateway, you then attach it to a VPC.
 
@@ -85,7 +85,7 @@ def get_internet_gateway_output(internet_gateway_id: Optional[pulumi.Input[str]]
     """
     __args__ = dict()
     __args__['internetGatewayId'] = internet_gateway_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getInternetGateway', __args__, opts=opts, typ=GetInternetGatewayResult)
     return __ret__.apply(lambda __response__: GetInternetGatewayResult(
         internet_gateway_id=pulumi.get(__response__, 'internet_gateway_id'),

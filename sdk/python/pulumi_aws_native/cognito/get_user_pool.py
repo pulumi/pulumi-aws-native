@@ -474,7 +474,7 @@ def get_user_pool(user_pool_id: Optional[str] = None,
         web_authn_relying_party_id=pulumi.get(__ret__, 'web_authn_relying_party_id'),
         web_authn_user_verification=pulumi.get(__ret__, 'web_authn_user_verification'))
 def get_user_pool_output(user_pool_id: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserPoolResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserPoolResult]:
     """
     Definition of AWS::Cognito::UserPool Resource Type
 
@@ -483,7 +483,7 @@ def get_user_pool_output(user_pool_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['userPoolId'] = user_pool_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:cognito:getUserPool', __args__, opts=opts, typ=GetUserPoolResult)
     return __ret__.apply(lambda __response__: GetUserPoolResult(
         account_recovery_setting=pulumi.get(__response__, 'account_recovery_setting'),

@@ -159,7 +159,7 @@ def get_configuration_profile(application_id: Optional[str] = None,
         validators=pulumi.get(__ret__, 'validators'))
 def get_configuration_profile_output(application_id: Optional[pulumi.Input[str]] = None,
                                      configuration_profile_id: Optional[pulumi.Input[str]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfigurationProfileResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfigurationProfileResult]:
     """
     An example resource schema demonstrating some basic constructs and validation rules.
 
@@ -170,7 +170,7 @@ def get_configuration_profile_output(application_id: Optional[pulumi.Input[str]]
     __args__ = dict()
     __args__['applicationId'] = application_id
     __args__['configurationProfileId'] = configuration_profile_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:appconfig:getConfigurationProfile', __args__, opts=opts, typ=GetConfigurationProfileResult)
     return __ret__.apply(lambda __response__: GetConfigurationProfileResult(
         configuration_profile_id=pulumi.get(__response__, 'configuration_profile_id'),

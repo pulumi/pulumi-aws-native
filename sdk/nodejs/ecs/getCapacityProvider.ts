@@ -47,7 +47,7 @@ export interface GetCapacityProviderResult {
 /**
  * Resource Type definition for AWS::ECS::CapacityProvider.
  */
-export function getCapacityProviderOutput(args: GetCapacityProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCapacityProviderResult> {
+export function getCapacityProviderOutput(args: GetCapacityProviderOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCapacityProviderResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:ecs:getCapacityProvider", {
         "name": args.name,

@@ -311,7 +311,7 @@ def get_flow_source(source_arn: Optional[str] = None,
         vpc_interface_name=pulumi.get(__ret__, 'vpc_interface_name'),
         whitelist_cidr=pulumi.get(__ret__, 'whitelist_cidr'))
 def get_flow_source_output(source_arn: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFlowSourceResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFlowSourceResult]:
     """
     Resource schema for AWS::MediaConnect::FlowSource
 
@@ -320,7 +320,7 @@ def get_flow_source_output(source_arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['sourceArn'] = source_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:mediaconnect:getFlowSource', __args__, opts=opts, typ=GetFlowSourceResult)
     return __ret__.apply(lambda __response__: GetFlowSourceResult(
         decryption=pulumi.get(__response__, 'decryption'),

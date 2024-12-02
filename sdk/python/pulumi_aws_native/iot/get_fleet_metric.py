@@ -220,7 +220,7 @@ def get_fleet_metric(metric_name: Optional[str] = None,
         unit=pulumi.get(__ret__, 'unit'),
         version=pulumi.get(__ret__, 'version'))
 def get_fleet_metric_output(metric_name: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFleetMetricResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFleetMetricResult]:
     """
     An aggregated metric of certain devices in your fleet
 
@@ -229,7 +229,7 @@ def get_fleet_metric_output(metric_name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['metricName'] = metric_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:iot:getFleetMetric', __args__, opts=opts, typ=GetFleetMetricResult)
     return __ret__.apply(lambda __response__: GetFleetMetricResult(
         aggregation_field=pulumi.get(__response__, 'aggregation_field'),

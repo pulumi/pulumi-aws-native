@@ -89,7 +89,7 @@ def get_resolver_dnssec_config(id: Optional[str] = None,
         owner_id=pulumi.get(__ret__, 'owner_id'),
         validation_status=pulumi.get(__ret__, 'validation_status'))
 def get_resolver_dnssec_config_output(id: Optional[pulumi.Input[str]] = None,
-                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResolverDnssecConfigResult]:
+                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResolverDnssecConfigResult]:
     """
     Resource schema for AWS::Route53Resolver::ResolverDNSSECConfig.
 
@@ -98,7 +98,7 @@ def get_resolver_dnssec_config_output(id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:route53resolver:getResolverDnssecConfig', __args__, opts=opts, typ=GetResolverDnssecConfigResult)
     return __ret__.apply(lambda __response__: GetResolverDnssecConfigResult(
         id=pulumi.get(__response__, 'id'),

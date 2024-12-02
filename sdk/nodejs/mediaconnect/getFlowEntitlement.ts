@@ -53,7 +53,7 @@ export interface GetFlowEntitlementResult {
 /**
  * Resource schema for AWS::MediaConnect::FlowEntitlement
  */
-export function getFlowEntitlementOutput(args: GetFlowEntitlementOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFlowEntitlementResult> {
+export function getFlowEntitlementOutput(args: GetFlowEntitlementOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFlowEntitlementResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:mediaconnect:getFlowEntitlement", {
         "entitlementArn": args.entitlementArn,

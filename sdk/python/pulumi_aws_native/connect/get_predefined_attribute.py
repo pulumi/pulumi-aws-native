@@ -93,7 +93,7 @@ def get_predefined_attribute(instance_arn: Optional[str] = None,
         values=pulumi.get(__ret__, 'values'))
 def get_predefined_attribute_output(instance_arn: Optional[pulumi.Input[str]] = None,
                                     name: Optional[pulumi.Input[str]] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPredefinedAttributeResult]:
+                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPredefinedAttributeResult]:
     """
     Resource Type definition for AWS::Connect::PredefinedAttribute
 
@@ -104,7 +104,7 @@ def get_predefined_attribute_output(instance_arn: Optional[pulumi.Input[str]] = 
     __args__ = dict()
     __args__['instanceArn'] = instance_arn
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:connect:getPredefinedAttribute', __args__, opts=opts, typ=GetPredefinedAttributeResult)
     return __ret__.apply(lambda __response__: GetPredefinedAttributeResult(
         last_modified_region=pulumi.get(__response__, 'last_modified_region'),

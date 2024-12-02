@@ -13,7 +13,7 @@ export function getAccountId(opts?: pulumi.InvokeOptions): Promise<GetAccountIdR
 export interface GetAccountIdResult {
     readonly accountId: string;
 }
-export function getAccountIdOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountIdResult> {
+export function getAccountIdOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccountIdResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:index:getAccountId", {
     }, opts);

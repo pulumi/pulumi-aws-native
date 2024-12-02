@@ -49,7 +49,7 @@ export interface GetCampaignResult {
 /**
  * Definition of AWS::ConnectCampaigns::Campaign Resource Type
  */
-export function getCampaignOutput(args: GetCampaignOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCampaignResult> {
+export function getCampaignOutput(args: GetCampaignOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCampaignResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:connectcampaigns:getCampaign", {
         "arn": args.arn,

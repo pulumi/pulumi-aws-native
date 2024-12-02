@@ -55,7 +55,7 @@ export interface GetCollaborationResult {
 /**
  * Represents a collaboration between AWS accounts that allows for secure data collaboration
  */
-export function getCollaborationOutput(args: GetCollaborationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCollaborationResult> {
+export function getCollaborationOutput(args: GetCollaborationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCollaborationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:cleanrooms:getCollaboration", {
         "collaborationIdentifier": args.collaborationIdentifier,

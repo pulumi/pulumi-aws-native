@@ -208,7 +208,7 @@ def get_firewall_rule_group(id: Optional[str] = None,
         status_message=pulumi.get(__ret__, 'status_message'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_firewall_rule_group_output(id: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFirewallRuleGroupResult]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFirewallRuleGroupResult]:
     """
     Resource schema for AWS::Route53Resolver::FirewallRuleGroup.
 
@@ -217,7 +217,7 @@ def get_firewall_rule_group_output(id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:route53resolver:getFirewallRuleGroup', __args__, opts=opts, typ=GetFirewallRuleGroupResult)
     return __ret__.apply(lambda __response__: GetFirewallRuleGroupResult(
         arn=pulumi.get(__response__, 'arn'),

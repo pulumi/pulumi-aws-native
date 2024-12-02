@@ -102,7 +102,7 @@ def get_publisher(publisher_id: Optional[str] = None,
         publisher_profile=pulumi.get(__ret__, 'publisher_profile'),
         publisher_status=pulumi.get(__ret__, 'publisher_status'))
 def get_publisher_output(publisher_id: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPublisherResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPublisherResult]:
     """
     Register as a publisher in the CloudFormation Registry.
 
@@ -111,7 +111,7 @@ def get_publisher_output(publisher_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['publisherId'] = publisher_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:cloudformation:getPublisher', __args__, opts=opts, typ=GetPublisherResult)
     return __ret__.apply(lambda __response__: GetPublisherResult(
         identity_provider=pulumi.get(__response__, 'identity_provider'),

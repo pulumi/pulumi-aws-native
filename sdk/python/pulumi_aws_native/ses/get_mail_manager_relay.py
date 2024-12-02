@@ -142,7 +142,7 @@ def get_mail_manager_relay(relay_id: Optional[str] = None,
         server_port=pulumi.get(__ret__, 'server_port'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_mail_manager_relay_output(relay_id: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMailManagerRelayResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMailManagerRelayResult]:
     """
     Definition of AWS::SES::MailManagerRelay Resource Type
 
@@ -151,7 +151,7 @@ def get_mail_manager_relay_output(relay_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['relayId'] = relay_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ses:getMailManagerRelay', __args__, opts=opts, typ=GetMailManagerRelayResult)
     return __ret__.apply(lambda __response__: GetMailManagerRelayResult(
         authentication=pulumi.get(__response__, 'authentication'),

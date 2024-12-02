@@ -118,7 +118,7 @@ def get_cross_account_attachment(attachment_arn: Optional[str] = None,
         resources=pulumi.get(__ret__, 'resources'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_cross_account_attachment_output(attachment_arn: Optional[pulumi.Input[str]] = None,
-                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCrossAccountAttachmentResult]:
+                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCrossAccountAttachmentResult]:
     """
     Resource Type definition for AWS::GlobalAccelerator::CrossAccountAttachment
 
@@ -127,7 +127,7 @@ def get_cross_account_attachment_output(attachment_arn: Optional[pulumi.Input[st
     """
     __args__ = dict()
     __args__['attachmentArn'] = attachment_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:globalaccelerator:getCrossAccountAttachment', __args__, opts=opts, typ=GetCrossAccountAttachmentResult)
     return __ret__.apply(lambda __response__: GetCrossAccountAttachmentResult(
         attachment_arn=pulumi.get(__response__, 'attachment_arn'),

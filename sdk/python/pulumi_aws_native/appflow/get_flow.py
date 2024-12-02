@@ -169,7 +169,7 @@ def get_flow(flow_name: Optional[str] = None,
         tasks=pulumi.get(__ret__, 'tasks'),
         trigger_config=pulumi.get(__ret__, 'trigger_config'))
 def get_flow_output(flow_name: Optional[pulumi.Input[str]] = None,
-                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFlowResult]:
+                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFlowResult]:
     """
     Resource schema for AWS::AppFlow::Flow.
 
@@ -178,7 +178,7 @@ def get_flow_output(flow_name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['flowName'] = flow_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:appflow:getFlow', __args__, opts=opts, typ=GetFlowResult)
     return __ret__.apply(lambda __response__: GetFlowResult(
         description=pulumi.get(__response__, 'description'),

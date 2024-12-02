@@ -44,7 +44,7 @@ export interface GetUserPoolResourceServerResult {
 /**
  * Resource Type definition for AWS::Cognito::UserPoolResourceServer
  */
-export function getUserPoolResourceServerOutput(args: GetUserPoolResourceServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserPoolResourceServerResult> {
+export function getUserPoolResourceServerOutput(args: GetUserPoolResourceServerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetUserPoolResourceServerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:cognito:getUserPoolResourceServer", {
         "identifier": args.identifier,

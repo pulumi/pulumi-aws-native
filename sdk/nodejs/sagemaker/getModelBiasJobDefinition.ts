@@ -34,7 +34,7 @@ export interface GetModelBiasJobDefinitionResult {
 /**
  * Resource Type definition for AWS::SageMaker::ModelBiasJobDefinition
  */
-export function getModelBiasJobDefinitionOutput(args: GetModelBiasJobDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetModelBiasJobDefinitionResult> {
+export function getModelBiasJobDefinitionOutput(args: GetModelBiasJobDefinitionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetModelBiasJobDefinitionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:sagemaker:getModelBiasJobDefinition", {
         "jobDefinitionArn": args.jobDefinitionArn,

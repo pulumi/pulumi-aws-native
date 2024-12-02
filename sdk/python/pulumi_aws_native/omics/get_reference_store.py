@@ -88,7 +88,7 @@ def get_reference_store(reference_store_id: Optional[str] = None,
         creation_time=pulumi.get(__ret__, 'creation_time'),
         reference_store_id=pulumi.get(__ret__, 'reference_store_id'))
 def get_reference_store_output(reference_store_id: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReferenceStoreResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReferenceStoreResult]:
     """
     Definition of AWS::Omics::ReferenceStore Resource Type
 
@@ -97,7 +97,7 @@ def get_reference_store_output(reference_store_id: Optional[pulumi.Input[str]] =
     """
     __args__ = dict()
     __args__['referenceStoreId'] = reference_store_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:omics:getReferenceStore', __args__, opts=opts, typ=GetReferenceStoreResult)
     return __ret__.apply(lambda __response__: GetReferenceStoreResult(
         arn=pulumi.get(__response__, 'arn'),

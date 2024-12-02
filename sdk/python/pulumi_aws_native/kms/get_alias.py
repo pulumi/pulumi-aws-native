@@ -82,7 +82,7 @@ def get_alias(alias_name: Optional[str] = None,
     return AwaitableGetAliasResult(
         target_key_id=pulumi.get(__ret__, 'target_key_id'))
 def get_alias_output(alias_name: Optional[pulumi.Input[str]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAliasResult]:
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAliasResult]:
     """
     The ``AWS::KMS::Alias`` resource specifies a display name for a [KMS key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#kms_keys). You can use an alias to identify a KMS key in the KMS console, in the [DescribeKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html) operation, and in [cryptographic operations](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations), such as [Decrypt](https://docs.aws.amazon.com/kms/latest/APIReference/API_Decrypt.html) and [GenerateDataKey](https://docs.aws.amazon.com/kms/latest/APIReference/API_GenerateDataKey.html).
       Adding, deleting, or updating an alias can allow or deny permission to the KMS key. For details, see [ABAC for](https://docs.aws.amazon.com/kms/latest/developerguide/abac.html) in the *Developer Guide*.
@@ -103,7 +103,7 @@ def get_alias_output(alias_name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['aliasName'] = alias_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:kms:getAlias', __args__, opts=opts, typ=GetAliasResult)
     return __ret__.apply(lambda __response__: GetAliasResult(
         target_key_id=pulumi.get(__response__, 'target_key_id')))

@@ -63,7 +63,7 @@ def get_resource_data_sync(sync_name: Optional[str] = None,
     return AwaitableGetResourceDataSyncResult(
         sync_source=pulumi.get(__ret__, 'sync_source'))
 def get_resource_data_sync_output(sync_name: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourceDataSyncResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourceDataSyncResult]:
     """
     Resource Type definition for AWS::SSM::ResourceDataSync
 
@@ -72,7 +72,7 @@ def get_resource_data_sync_output(sync_name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['syncName'] = sync_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ssm:getResourceDataSync', __args__, opts=opts, typ=GetResourceDataSyncResult)
     return __ret__.apply(lambda __response__: GetResourceDataSyncResult(
         sync_source=pulumi.get(__response__, 'sync_source')))

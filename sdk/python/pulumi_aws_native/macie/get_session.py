@@ -102,7 +102,7 @@ def get_session(aws_account_id: Optional[str] = None,
         service_role=pulumi.get(__ret__, 'service_role'),
         status=pulumi.get(__ret__, 'status'))
 def get_session_output(aws_account_id: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSessionResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSessionResult]:
     """
     The AWS::Macie::Session resource specifies a new Amazon Macie session. A session is an object that represents the Amazon Macie service. A session is required for Amazon Macie to become operational.
 
@@ -111,7 +111,7 @@ def get_session_output(aws_account_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['awsAccountId'] = aws_account_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:macie:getSession', __args__, opts=opts, typ=GetSessionResult)
     return __ret__.apply(lambda __response__: GetSessionResult(
         aws_account_id=pulumi.get(__response__, 'aws_account_id'),

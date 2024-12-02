@@ -53,7 +53,7 @@ export interface GetSimulationApplicationResult {
 /**
  * This schema is for testing purpose only.
  */
-export function getSimulationApplicationOutput(args: GetSimulationApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSimulationApplicationResult> {
+export function getSimulationApplicationOutput(args: GetSimulationApplicationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSimulationApplicationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:robomaker:getSimulationApplication", {
         "arn": args.arn,

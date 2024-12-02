@@ -142,7 +142,7 @@ def get_location_azure_blob(location_arn: Optional[str] = None,
         location_uri=pulumi.get(__ret__, 'location_uri'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_location_azure_blob_output(location_arn: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocationAzureBlobResult]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocationAzureBlobResult]:
     """
     Resource schema for AWS::DataSync::LocationAzureBlob.
 
@@ -151,7 +151,7 @@ def get_location_azure_blob_output(location_arn: Optional[pulumi.Input[str]] = N
     """
     __args__ = dict()
     __args__['locationArn'] = location_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:datasync:getLocationAzureBlob', __args__, opts=opts, typ=GetLocationAzureBlobResult)
     return __ret__.apply(lambda __response__: GetLocationAzureBlobResult(
         agent_arns=pulumi.get(__response__, 'agent_arns'),

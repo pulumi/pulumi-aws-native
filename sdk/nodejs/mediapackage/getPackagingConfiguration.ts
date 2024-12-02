@@ -57,7 +57,7 @@ export interface GetPackagingConfigurationResult {
 /**
  * Resource schema for AWS::MediaPackage::PackagingConfiguration
  */
-export function getPackagingConfigurationOutput(args: GetPackagingConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPackagingConfigurationResult> {
+export function getPackagingConfigurationOutput(args: GetPackagingConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPackagingConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:mediapackage:getPackagingConfiguration", {
         "id": args.id,

@@ -38,7 +38,7 @@ export interface GetAutoScalingConfigurationResult {
 /**
  * Describes an AWS App Runner automatic configuration resource that enables automatic scaling of instances used to process web requests. You can share an auto scaling configuration across multiple services.
  */
-export function getAutoScalingConfigurationOutput(args: GetAutoScalingConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAutoScalingConfigurationResult> {
+export function getAutoScalingConfigurationOutput(args: GetAutoScalingConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAutoScalingConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:apprunner:getAutoScalingConfiguration", {
         "autoScalingConfigurationArn": args.autoScalingConfigurationArn,

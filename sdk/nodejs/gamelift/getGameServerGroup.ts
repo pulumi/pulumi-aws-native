@@ -57,7 +57,7 @@ export interface GetGameServerGroupResult {
 /**
  * The AWS::GameLift::GameServerGroup resource creates an Amazon GameLift (GameLift) GameServerGroup.
  */
-export function getGameServerGroupOutput(args: GetGameServerGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGameServerGroupResult> {
+export function getGameServerGroupOutput(args: GetGameServerGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGameServerGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:gamelift:getGameServerGroup", {
         "gameServerGroupArn": args.gameServerGroupArn,

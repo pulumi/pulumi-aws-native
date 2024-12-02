@@ -130,7 +130,7 @@ def get_rule(rule_arn: Optional[str] = None,
         rule_arn=pulumi.get(__ret__, 'rule_arn'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_rule_output(rule_arn: Optional[pulumi.Input[str]] = None,
-                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRuleResult]:
+                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRuleResult]:
     """
     Resource Type definition for AWS:Connect::Rule
 
@@ -139,7 +139,7 @@ def get_rule_output(rule_arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['ruleArn'] = rule_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:connect:getRule', __args__, opts=opts, typ=GetRuleResult)
     return __ret__.apply(lambda __response__: GetRuleResult(
         actions=pulumi.get(__response__, 'actions'),

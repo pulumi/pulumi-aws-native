@@ -66,7 +66,7 @@ def get_primary_task_set(cluster: Optional[str] = None,
         task_set_id=pulumi.get(__ret__, 'task_set_id'))
 def get_primary_task_set_output(cluster: Optional[pulumi.Input[str]] = None,
                                 service: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrimaryTaskSetResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPrimaryTaskSetResult]:
     """
     A pseudo-resource that manages which of your ECS task sets is primary.
 
@@ -77,7 +77,7 @@ def get_primary_task_set_output(cluster: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['cluster'] = cluster
     __args__['service'] = service
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ecs:getPrimaryTaskSet', __args__, opts=opts, typ=GetPrimaryTaskSetResult)
     return __ret__.apply(lambda __response__: GetPrimaryTaskSetResult(
         task_set_id=pulumi.get(__response__, 'task_set_id')))

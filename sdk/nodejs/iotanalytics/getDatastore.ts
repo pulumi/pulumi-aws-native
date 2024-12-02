@@ -56,7 +56,7 @@ export interface GetDatastoreResult {
 /**
  * Resource Type definition for AWS::IoTAnalytics::Datastore
  */
-export function getDatastoreOutput(args: GetDatastoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatastoreResult> {
+export function getDatastoreOutput(args: GetDatastoreOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDatastoreResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:iotanalytics:getDatastore", {
         "datastoreName": args.datastoreName,

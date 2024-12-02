@@ -89,7 +89,7 @@ def get_public_key(arn: Optional[str] = None,
         fingerprint=pulumi.get(__ret__, 'fingerprint'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_public_key_output(arn: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPublicKeyResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPublicKeyResult]:
     """
     Resource Type definition for AWS::IVS::PublicKey
 
@@ -98,7 +98,7 @@ def get_public_key_output(arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ivs:getPublicKey', __args__, opts=opts, typ=GetPublicKeyResult)
     return __ret__.apply(lambda __response__: GetPublicKeyResult(
         arn=pulumi.get(__response__, 'arn'),

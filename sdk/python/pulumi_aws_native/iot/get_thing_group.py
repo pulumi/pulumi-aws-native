@@ -118,7 +118,7 @@ def get_thing_group(thing_group_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         thing_group_properties=pulumi.get(__ret__, 'thing_group_properties'))
 def get_thing_group_output(thing_group_name: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetThingGroupResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetThingGroupResult]:
     """
     Resource Type definition for AWS::IoT::ThingGroup
 
@@ -127,7 +127,7 @@ def get_thing_group_output(thing_group_name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['thingGroupName'] = thing_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:iot:getThingGroup', __args__, opts=opts, typ=GetThingGroupResult)
     return __ret__.apply(lambda __response__: GetThingGroupResult(
         arn=pulumi.get(__response__, 'arn'),

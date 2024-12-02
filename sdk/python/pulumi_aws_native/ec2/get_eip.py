@@ -124,7 +124,7 @@ def get_eip(allocation_id: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'))
 def get_eip_output(allocation_id: Optional[pulumi.Input[str]] = None,
                    public_ip: Optional[pulumi.Input[str]] = None,
-                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEipResult]:
+                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEipResult]:
     """
     Specifies an Elastic IP (EIP) address and can, optionally, associate it with an Amazon EC2 instance.
      You can allocate an Elastic IP address from an address pool owned by AWS or from an address pool created from a public IPv4 address range that you have brought to AWS for use with your AWS resources using bring your own IP addresses (BYOIP). For more information, see [Bring Your Own IP Addresses (BYOIP)](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html) in the *Amazon EC2 User Guide*.
@@ -137,7 +137,7 @@ def get_eip_output(allocation_id: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['allocationId'] = allocation_id
     __args__['publicIp'] = public_ip
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getEip', __args__, opts=opts, typ=GetEipResult)
     return __ret__.apply(lambda __response__: GetEipResult(
         allocation_id=pulumi.get(__response__, 'allocation_id'),

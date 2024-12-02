@@ -49,7 +49,7 @@ export interface GetFlywheelResult {
 /**
  * The AWS::Comprehend::Flywheel resource creates an Amazon Comprehend Flywheel that enables customer to train their model.
  */
-export function getFlywheelOutput(args: GetFlywheelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFlywheelResult> {
+export function getFlywheelOutput(args: GetFlywheelOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFlywheelResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:comprehend:getFlywheel", {
         "arn": args.arn,

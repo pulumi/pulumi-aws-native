@@ -222,7 +222,7 @@ def get_branch(arn: Optional[str] = None,
         stage=pulumi.get(__ret__, 'stage'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_branch_output(arn: Optional[pulumi.Input[str]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBranchResult]:
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBranchResult]:
     """
     The AWS::Amplify::Branch resource creates a new branch within an app.
 
@@ -231,7 +231,7 @@ def get_branch_output(arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:amplify:getBranch', __args__, opts=opts, typ=GetBranchResult)
     return __ret__.apply(lambda __response__: GetBranchResult(
         arn=pulumi.get(__response__, 'arn'),

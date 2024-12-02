@@ -143,7 +143,7 @@ def get_packaging_configuration(id: Optional[str] = None,
         packaging_group_id=pulumi.get(__ret__, 'packaging_group_id'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_packaging_configuration_output(id: Optional[pulumi.Input[str]] = None,
-                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPackagingConfigurationResult]:
+                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPackagingConfigurationResult]:
     """
     Resource schema for AWS::MediaPackage::PackagingConfiguration
 
@@ -152,7 +152,7 @@ def get_packaging_configuration_output(id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:mediapackage:getPackagingConfiguration', __args__, opts=opts, typ=GetPackagingConfigurationResult)
     return __ret__.apply(lambda __response__: GetPackagingConfigurationResult(
         arn=pulumi.get(__response__, 'arn'),

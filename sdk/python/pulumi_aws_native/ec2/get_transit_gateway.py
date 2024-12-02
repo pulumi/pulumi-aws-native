@@ -218,7 +218,7 @@ def get_transit_gateway(id: Optional[str] = None,
         transit_gateway_cidr_blocks=pulumi.get(__ret__, 'transit_gateway_cidr_blocks'),
         vpn_ecmp_support=pulumi.get(__ret__, 'vpn_ecmp_support'))
 def get_transit_gateway_output(id: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTransitGatewayResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTransitGatewayResult]:
     """
     Resource Type definition for AWS::EC2::TransitGateway
 
@@ -227,7 +227,7 @@ def get_transit_gateway_output(id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getTransitGateway', __args__, opts=opts, typ=GetTransitGatewayResult)
     return __ret__.apply(lambda __response__: GetTransitGatewayResult(
         association_default_route_table_id=pulumi.get(__response__, 'association_default_route_table_id'),

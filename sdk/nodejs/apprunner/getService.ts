@@ -65,7 +65,7 @@ export interface GetServiceResult {
 /**
  * The AWS::AppRunner::Service resource specifies an AppRunner Service.
  */
-export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceResult> {
+export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:apprunner:getService", {
         "serviceArn": args.serviceArn,

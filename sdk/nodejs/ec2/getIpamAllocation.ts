@@ -45,7 +45,7 @@ export interface GetIpamAllocationResult {
 /**
  * Resource Schema of AWS::EC2::IPAMAllocation Type
  */
-export function getIpamAllocationOutput(args: GetIpamAllocationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIpamAllocationResult> {
+export function getIpamAllocationOutput(args: GetIpamAllocationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIpamAllocationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:ec2:getIpamAllocation", {
         "cidr": args.cidr,

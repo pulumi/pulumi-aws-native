@@ -85,7 +85,7 @@ export interface GetPatchBaselineResult {
 /**
  * Resource Type definition for AWS::SSM::PatchBaseline
  */
-export function getPatchBaselineOutput(args: GetPatchBaselineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPatchBaselineResult> {
+export function getPatchBaselineOutput(args: GetPatchBaselineOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPatchBaselineResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:ssm:getPatchBaseline", {
         "id": args.id,

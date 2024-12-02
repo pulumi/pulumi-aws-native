@@ -53,7 +53,7 @@ export interface GetConfigurationSetResult {
 /**
  * Resource schema for AWS::SES::ConfigurationSet.
  */
-export function getConfigurationSetOutput(args: GetConfigurationSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationSetResult> {
+export function getConfigurationSetOutput(args: GetConfigurationSetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConfigurationSetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:ses:getConfigurationSet", {
         "name": args.name,

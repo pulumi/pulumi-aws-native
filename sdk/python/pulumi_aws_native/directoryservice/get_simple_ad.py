@@ -101,7 +101,7 @@ def get_simple_ad(directory_id: Optional[str] = None,
         dns_ip_addresses=pulumi.get(__ret__, 'dns_ip_addresses'),
         enable_sso=pulumi.get(__ret__, 'enable_sso'))
 def get_simple_ad_output(directory_id: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSimpleAdResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSimpleAdResult]:
     """
     Resource Type definition for AWS::DirectoryService::SimpleAD
 
@@ -110,7 +110,7 @@ def get_simple_ad_output(directory_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['directoryId'] = directory_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:directoryservice:getSimpleAd', __args__, opts=opts, typ=GetSimpleAdResult)
     return __ret__.apply(lambda __response__: GetSimpleAdResult(
         alias=pulumi.get(__response__, 'alias'),

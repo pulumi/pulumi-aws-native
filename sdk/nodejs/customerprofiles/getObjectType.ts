@@ -78,7 +78,7 @@ export interface GetObjectTypeResult {
 /**
  * An ObjectType resource of Amazon Connect Customer Profiles
  */
-export function getObjectTypeOutput(args: GetObjectTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetObjectTypeResult> {
+export function getObjectTypeOutput(args: GetObjectTypeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetObjectTypeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:customerprofiles:getObjectType", {
         "domainName": args.domainName,

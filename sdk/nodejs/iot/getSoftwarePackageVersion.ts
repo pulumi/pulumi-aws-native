@@ -60,7 +60,7 @@ export interface GetSoftwarePackageVersionResult {
 /**
  * resource definition
  */
-export function getSoftwarePackageVersionOutput(args: GetSoftwarePackageVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSoftwarePackageVersionResult> {
+export function getSoftwarePackageVersionOutput(args: GetSoftwarePackageVersionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSoftwarePackageVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:iot:getSoftwarePackageVersion", {
         "packageName": args.packageName,

@@ -102,7 +102,7 @@ def get_tag_sync_task(task_arn: Optional[str] = None,
         status=pulumi.get(__ret__, 'status'),
         task_arn=pulumi.get(__ret__, 'task_arn'))
 def get_tag_sync_task_output(task_arn: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTagSyncTaskResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTagSyncTaskResult]:
     """
     Schema for ResourceGroups::TagSyncTask
 
@@ -111,7 +111,7 @@ def get_tag_sync_task_output(task_arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['taskArn'] = task_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:resourcegroups:getTagSyncTask', __args__, opts=opts, typ=GetTagSyncTaskResult)
     return __ret__.apply(lambda __response__: GetTagSyncTaskResult(
         group_arn=pulumi.get(__response__, 'group_arn'),

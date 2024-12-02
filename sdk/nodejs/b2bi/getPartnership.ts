@@ -65,7 +65,7 @@ export interface GetPartnershipResult {
 /**
  * Definition of AWS::B2BI::Partnership Resource Type
  */
-export function getPartnershipOutput(args: GetPartnershipOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPartnershipResult> {
+export function getPartnershipOutput(args: GetPartnershipOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPartnershipResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:b2bi:getPartnership", {
         "partnershipId": args.partnershipId,

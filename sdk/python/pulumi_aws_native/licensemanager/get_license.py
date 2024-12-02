@@ -206,7 +206,7 @@ def get_license(license_arn: Optional[str] = None,
         validity=pulumi.get(__ret__, 'validity'),
         version=pulumi.get(__ret__, 'version'))
 def get_license_output(license_arn: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLicenseResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLicenseResult]:
     """
     Resource Type definition for AWS::LicenseManager::License
 
@@ -215,7 +215,7 @@ def get_license_output(license_arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['licenseArn'] = license_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:licensemanager:getLicense', __args__, opts=opts, typ=GetLicenseResult)
     return __ret__.apply(lambda __response__: GetLicenseResult(
         beneficiary=pulumi.get(__response__, 'beneficiary'),

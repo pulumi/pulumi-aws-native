@@ -70,13 +70,13 @@ def get_configuration_set_event_destination(id: Optional[str] = None,
         event_destination=pulumi.get(__ret__, 'event_destination'),
         id=pulumi.get(__ret__, 'id'))
 def get_configuration_set_event_destination_output(id: Optional[pulumi.Input[str]] = None,
-                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConfigurationSetEventDestinationResult]:
+                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConfigurationSetEventDestinationResult]:
     """
     Resource Type definition for AWS::SES::ConfigurationSetEventDestination
     """
     __args__ = dict()
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ses:getConfigurationSetEventDestination', __args__, opts=opts, typ=GetConfigurationSetEventDestinationResult)
     return __ret__.apply(lambda __response__: GetConfigurationSetEventDestinationResult(
         event_destination=pulumi.get(__response__, 'event_destination'),

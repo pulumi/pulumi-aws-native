@@ -42,7 +42,7 @@ export interface GetStaticIpResult {
 /**
  * Resource Type definition for AWS::Lightsail::StaticIp
  */
-export function getStaticIpOutput(args: GetStaticIpOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStaticIpResult> {
+export function getStaticIpOutput(args: GetStaticIpOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStaticIpResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:lightsail:getStaticIp", {
         "staticIpName": args.staticIpName,

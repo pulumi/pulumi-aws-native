@@ -41,7 +41,7 @@ export interface GetEventIntegrationResult {
 /**
  * Resource Type definition for AWS::AppIntegrations::EventIntegration
  */
-export function getEventIntegrationOutput(args: GetEventIntegrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventIntegrationResult> {
+export function getEventIntegrationOutput(args: GetEventIntegrationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEventIntegrationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:appintegrations:getEventIntegration", {
         "name": args.name,

@@ -69,7 +69,7 @@ export interface GetComputeEnvironmentResult {
 /**
  * Resource Type definition for AWS::Batch::ComputeEnvironment
  */
-export function getComputeEnvironmentOutput(args: GetComputeEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetComputeEnvironmentResult> {
+export function getComputeEnvironmentOutput(args: GetComputeEnvironmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetComputeEnvironmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:batch:getComputeEnvironment", {
         "computeEnvironmentArn": args.computeEnvironmentArn,

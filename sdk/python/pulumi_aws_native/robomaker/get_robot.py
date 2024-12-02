@@ -75,7 +75,7 @@ def get_robot(arn: Optional[str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_robot_output(arn: Optional[pulumi.Input[str]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRobotResult]:
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRobotResult]:
     """
     AWS::RoboMaker::Robot resource creates an AWS RoboMaker Robot.
 
@@ -84,7 +84,7 @@ def get_robot_output(arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:robomaker:getRobot', __args__, opts=opts, typ=GetRobotResult)
     return __ret__.apply(lambda __response__: GetRobotResult(
         arn=pulumi.get(__response__, 'arn'),

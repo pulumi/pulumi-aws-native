@@ -80,7 +80,7 @@ def get_security_policy(name: Optional[str] = None,
         policy=pulumi.get(__ret__, 'policy'))
 def get_security_policy_output(name: Optional[pulumi.Input[str]] = None,
                                type: Optional[pulumi.Input['SecurityPolicyType']] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecurityPolicyResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecurityPolicyResult]:
     """
     Amazon OpenSearchServerless security policy resource
 
@@ -91,7 +91,7 @@ def get_security_policy_output(name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['name'] = name
     __args__['type'] = type
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:opensearchserverless:getSecurityPolicy', __args__, opts=opts, typ=GetSecurityPolicyResult)
     return __ret__.apply(lambda __response__: GetSecurityPolicyResult(
         description=pulumi.get(__response__, 'description'),

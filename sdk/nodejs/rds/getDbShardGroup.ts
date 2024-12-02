@@ -49,7 +49,7 @@ export interface GetDbShardGroupResult {
 /**
  * The AWS::RDS::DBShardGroup resource creates an Amazon Aurora Limitless DB Shard Group.
  */
-export function getDbShardGroupOutput(args: GetDbShardGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDbShardGroupResult> {
+export function getDbShardGroupOutput(args: GetDbShardGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDbShardGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:rds:getDbShardGroup", {
         "dbShardGroupIdentifier": args.dbShardGroupIdentifier,

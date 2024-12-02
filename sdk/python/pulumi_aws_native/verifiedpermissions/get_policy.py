@@ -97,7 +97,7 @@ def get_policy(policy_id: Optional[str] = None,
         policy_type=pulumi.get(__ret__, 'policy_type'))
 def get_policy_output(policy_id: Optional[pulumi.Input[str]] = None,
                       policy_store_id: Optional[pulumi.Input[str]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicyResult]:
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPolicyResult]:
     """
     Definition of AWS::VerifiedPermissions::Policy Resource Type
 
@@ -108,7 +108,7 @@ def get_policy_output(policy_id: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['policyId'] = policy_id
     __args__['policyStoreId'] = policy_store_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:verifiedpermissions:getPolicy', __args__, opts=opts, typ=GetPolicyResult)
     return __ret__.apply(lambda __response__: GetPolicyResult(
         definition=pulumi.get(__response__, 'definition'),

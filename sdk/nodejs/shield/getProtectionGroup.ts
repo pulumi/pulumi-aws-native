@@ -56,7 +56,7 @@ export interface GetProtectionGroupResult {
 /**
  * A grouping of protected resources so they can be handled as a collective. This resource grouping improves the accuracy of detection and reduces false positives.
  */
-export function getProtectionGroupOutput(args: GetProtectionGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProtectionGroupResult> {
+export function getProtectionGroupOutput(args: GetProtectionGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProtectionGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:shield:getProtectionGroup", {
         "protectionGroupArn": args.protectionGroupArn,

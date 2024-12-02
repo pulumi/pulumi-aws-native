@@ -50,7 +50,7 @@ export interface GetAnomalyMonitorResult {
 /**
  * AWS Cost Anomaly Detection leverages advanced Machine Learning technologies to identify anomalous spend and root causes, so you can quickly take action. You can use Cost Anomaly Detection by creating monitor.
  */
-export function getAnomalyMonitorOutput(args: GetAnomalyMonitorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAnomalyMonitorResult> {
+export function getAnomalyMonitorOutput(args: GetAnomalyMonitorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAnomalyMonitorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:ce:getAnomalyMonitor", {
         "monitorArn": args.monitorArn,

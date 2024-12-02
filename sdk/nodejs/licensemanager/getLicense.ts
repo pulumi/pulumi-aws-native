@@ -77,7 +77,7 @@ export interface GetLicenseResult {
 /**
  * Resource Type definition for AWS::LicenseManager::License
  */
-export function getLicenseOutput(args: GetLicenseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLicenseResult> {
+export function getLicenseOutput(args: GetLicenseOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLicenseResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:licensemanager:getLicense", {
         "licenseArn": args.licenseArn,

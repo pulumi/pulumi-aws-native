@@ -75,7 +75,7 @@ def get_robot_application_version(arn: Optional[str] = None,
         application_version=pulumi.get(__ret__, 'application_version'),
         arn=pulumi.get(__ret__, 'arn'))
 def get_robot_application_version_output(arn: Optional[pulumi.Input[str]] = None,
-                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRobotApplicationVersionResult]:
+                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRobotApplicationVersionResult]:
     """
     AWS::RoboMaker::RobotApplicationVersion resource creates an AWS RoboMaker RobotApplicationVersion. This helps you control which code your robot uses.
 
@@ -84,7 +84,7 @@ def get_robot_application_version_output(arn: Optional[pulumi.Input[str]] = None
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:robomaker:getRobotApplicationVersion', __args__, opts=opts, typ=GetRobotApplicationVersionResult)
     return __ret__.apply(lambda __response__: GetRobotApplicationVersionResult(
         application_version=pulumi.get(__response__, 'application_version'),

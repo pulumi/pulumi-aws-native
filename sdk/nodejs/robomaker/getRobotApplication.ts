@@ -49,7 +49,7 @@ export interface GetRobotApplicationResult {
 /**
  * This schema is for testing purpose only.
  */
-export function getRobotApplicationOutput(args: GetRobotApplicationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRobotApplicationResult> {
+export function getRobotApplicationOutput(args: GetRobotApplicationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRobotApplicationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:robomaker:getRobotApplication", {
         "arn": args.arn,

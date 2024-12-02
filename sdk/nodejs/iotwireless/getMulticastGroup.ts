@@ -65,7 +65,7 @@ export interface GetMulticastGroupResult {
 /**
  * Create and manage Multicast groups.
  */
-export function getMulticastGroupOutput(args: GetMulticastGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMulticastGroupResult> {
+export function getMulticastGroupOutput(args: GetMulticastGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMulticastGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:iotwireless:getMulticastGroup", {
         "id": args.id,

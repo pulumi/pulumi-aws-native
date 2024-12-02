@@ -41,7 +41,7 @@ export interface GetBucketResult {
 /**
  * Resource Type Definition for AWS::S3Outposts::Bucket
  */
-export function getBucketOutput(args: GetBucketOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBucketResult> {
+export function getBucketOutput(args: GetBucketOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBucketResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:s3outposts:getBucket", {
         "arn": args.arn,

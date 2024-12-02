@@ -77,7 +77,7 @@ export interface GetFirewallRuleGroupAssociationResult {
 /**
  * Resource schema for AWS::Route53Resolver::FirewallRuleGroupAssociation.
  */
-export function getFirewallRuleGroupAssociationOutput(args: GetFirewallRuleGroupAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirewallRuleGroupAssociationResult> {
+export function getFirewallRuleGroupAssociationOutput(args: GetFirewallRuleGroupAssociationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFirewallRuleGroupAssociationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:route53resolver:getFirewallRuleGroupAssociation", {
         "id": args.id,

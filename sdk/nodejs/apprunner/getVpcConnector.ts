@@ -34,7 +34,7 @@ export interface GetVpcConnectorResult {
 /**
  * The AWS::AppRunner::VpcConnector resource specifies an App Runner VpcConnector.
  */
-export function getVpcConnectorOutput(args: GetVpcConnectorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcConnectorResult> {
+export function getVpcConnectorOutput(args: GetVpcConnectorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVpcConnectorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:apprunner:getVpcConnector", {
         "vpcConnectorArn": args.vpcConnectorArn,

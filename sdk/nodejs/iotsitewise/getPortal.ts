@@ -74,7 +74,7 @@ export interface GetPortalResult {
 /**
  * Resource schema for AWS::IoTSiteWise::Portal
  */
-export function getPortalOutput(args: GetPortalOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPortalResult> {
+export function getPortalOutput(args: GetPortalOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPortalResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:iotsitewise:getPortal", {
         "portalId": args.portalId,

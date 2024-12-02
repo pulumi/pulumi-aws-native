@@ -77,7 +77,7 @@ def get_vpn_gateway(vpn_gateway_id: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         vpn_gateway_id=pulumi.get(__ret__, 'vpn_gateway_id'))
 def get_vpn_gateway_output(vpn_gateway_id: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpnGatewayResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpnGatewayResult]:
     """
     Specifies a virtual private gateway. A virtual private gateway is the endpoint on the VPC side of your VPN connection. You can create a virtual private gateway before creating the VPC itself.
      For more information, see [](https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html) in the *User Guide*.
@@ -87,7 +87,7 @@ def get_vpn_gateway_output(vpn_gateway_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['vpnGatewayId'] = vpn_gateway_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getVpnGateway', __args__, opts=opts, typ=GetVpnGatewayResult)
     return __ret__.apply(lambda __response__: GetVpnGatewayResult(
         tags=pulumi.get(__response__, 'tags'),

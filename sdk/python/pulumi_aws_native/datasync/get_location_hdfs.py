@@ -208,7 +208,7 @@ def get_location_hdfs(location_arn: Optional[str] = None,
         simple_user=pulumi.get(__ret__, 'simple_user'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_location_hdfs_output(location_arn: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocationHdfsResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocationHdfsResult]:
     """
     Resource schema for AWS::DataSync::LocationHDFS.
 
@@ -217,7 +217,7 @@ def get_location_hdfs_output(location_arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['locationArn'] = location_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:datasync:getLocationHdfs', __args__, opts=opts, typ=GetLocationHdfsResult)
     return __ret__.apply(lambda __response__: GetLocationHdfsResult(
         agent_arns=pulumi.get(__response__, 'agent_arns'),

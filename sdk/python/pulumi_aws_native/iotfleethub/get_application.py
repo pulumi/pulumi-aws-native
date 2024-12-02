@@ -206,7 +206,7 @@ def get_application(application_id: Optional[str] = None,
         sso_client_id=pulumi.get(__ret__, 'sso_client_id'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_application_output(application_id: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApplicationResult]:
     """
     Resource schema for AWS::IoTFleetHub::Application
 
@@ -215,7 +215,7 @@ def get_application_output(application_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['applicationId'] = application_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:iotfleethub:getApplication', __args__, opts=opts, typ=GetApplicationResult)
     return __ret__.apply(lambda __response__: GetApplicationResult(
         application_arn=pulumi.get(__response__, 'application_arn'),

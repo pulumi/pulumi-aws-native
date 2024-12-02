@@ -37,7 +37,7 @@ export interface GetResourceSpecificLoggingResult {
 /**
  * Resource-specific logging allows you to specify a logging level for a specific thing group.
  */
-export function getResourceSpecificLoggingOutput(args: GetResourceSpecificLoggingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceSpecificLoggingResult> {
+export function getResourceSpecificLoggingOutput(args: GetResourceSpecificLoggingOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetResourceSpecificLoggingResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:iot:getResourceSpecificLogging", {
         "targetId": args.targetId,

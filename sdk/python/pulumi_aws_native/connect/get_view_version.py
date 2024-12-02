@@ -88,7 +88,7 @@ def get_view_version(view_version_arn: Optional[str] = None,
         version_description=pulumi.get(__ret__, 'version_description'),
         view_version_arn=pulumi.get(__ret__, 'view_version_arn'))
 def get_view_version_output(view_version_arn: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetViewVersionResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetViewVersionResult]:
     """
     Resource Type definition for AWS::Connect::ViewVersion
 
@@ -97,7 +97,7 @@ def get_view_version_output(view_version_arn: Optional[pulumi.Input[str]] = None
     """
     __args__ = dict()
     __args__['viewVersionArn'] = view_version_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:connect:getViewVersion', __args__, opts=opts, typ=GetViewVersionResult)
     return __ret__.apply(lambda __response__: GetViewVersionResult(
         version=pulumi.get(__response__, 'version'),

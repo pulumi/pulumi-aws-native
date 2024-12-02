@@ -82,7 +82,7 @@ export interface GetTrackerResult {
 /**
  * Definition of AWS::Location::Tracker Resource Type
  */
-export function getTrackerOutput(args: GetTrackerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrackerResult> {
+export function getTrackerOutput(args: GetTrackerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTrackerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:location:getTracker", {
         "trackerName": args.trackerName,

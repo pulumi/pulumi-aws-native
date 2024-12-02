@@ -100,7 +100,7 @@ def get_knowledge_base(knowledge_base_id: Optional[str] = None,
         rendering_configuration=pulumi.get(__ret__, 'rendering_configuration'),
         vector_ingestion_configuration=pulumi.get(__ret__, 'vector_ingestion_configuration'))
 def get_knowledge_base_output(knowledge_base_id: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKnowledgeBaseResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKnowledgeBaseResult]:
     """
     Definition of AWS::Wisdom::KnowledgeBase Resource Type
 
@@ -109,7 +109,7 @@ def get_knowledge_base_output(knowledge_base_id: Optional[pulumi.Input[str]] = N
     """
     __args__ = dict()
     __args__['knowledgeBaseId'] = knowledge_base_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:wisdom:getKnowledgeBase', __args__, opts=opts, typ=GetKnowledgeBaseResult)
     return __ret__.apply(lambda __response__: GetKnowledgeBaseResult(
         knowledge_base_arn=pulumi.get(__response__, 'knowledge_base_arn'),

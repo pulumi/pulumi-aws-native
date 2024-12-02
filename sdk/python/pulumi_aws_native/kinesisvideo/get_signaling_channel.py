@@ -103,7 +103,7 @@ def get_signaling_channel(name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
 def get_signaling_channel_output(name: Optional[pulumi.Input[str]] = None,
-                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSignalingChannelResult]:
+                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSignalingChannelResult]:
     """
     Resource Type Definition for AWS::KinesisVideo::SignalingChannel
 
@@ -112,7 +112,7 @@ def get_signaling_channel_output(name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:kinesisvideo:getSignalingChannel', __args__, opts=opts, typ=GetSignalingChannelResult)
     return __ret__.apply(lambda __response__: GetSignalingChannelResult(
         arn=pulumi.get(__response__, 'arn'),

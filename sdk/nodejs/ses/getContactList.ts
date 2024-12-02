@@ -41,7 +41,7 @@ export interface GetContactListResult {
 /**
  * Resource schema for AWS::SES::ContactList.
  */
-export function getContactListOutput(args: GetContactListOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContactListResult> {
+export function getContactListOutput(args: GetContactListOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetContactListResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:ses:getContactList", {
         "contactListName": args.contactListName,

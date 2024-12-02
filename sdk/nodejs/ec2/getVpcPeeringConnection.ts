@@ -37,7 +37,7 @@ export interface GetVpcPeeringConnectionResult {
 /**
  * Resource Type definition for AWS::EC2::VPCPeeringConnection
  */
-export function getVpcPeeringConnectionOutput(args: GetVpcPeeringConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcPeeringConnectionResult> {
+export function getVpcPeeringConnectionOutput(args: GetVpcPeeringConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVpcPeeringConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:ec2:getVpcPeeringConnection", {
         "id": args.id,

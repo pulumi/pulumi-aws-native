@@ -194,7 +194,7 @@ def get_managed_policy(policy_arn: Optional[str] = None,
         update_date=pulumi.get(__ret__, 'update_date'),
         users=pulumi.get(__ret__, 'users'))
 def get_managed_policy_output(policy_arn: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedPolicyResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetManagedPolicyResult]:
     """
     Creates a new managed policy for your AWS-account.
      This operation creates a policy version with a version identifier of ``v1`` and sets v1 as the policy's default version. For more information about policy versions, see [Versioning for managed policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html) in the *IAM User Guide*.
@@ -203,7 +203,7 @@ def get_managed_policy_output(policy_arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['policyArn'] = policy_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:iam:getManagedPolicy', __args__, opts=opts, typ=GetManagedPolicyResult)
     return __ret__.apply(lambda __response__: GetManagedPolicyResult(
         attachment_count=pulumi.get(__response__, 'attachment_count'),

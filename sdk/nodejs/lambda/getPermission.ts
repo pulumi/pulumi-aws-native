@@ -41,7 +41,7 @@ export interface GetPermissionResult {
  *  If your function has a function URL, you can specify the ``FunctionUrlAuthType`` parameter. This adds a condition to your permission that only applies when your function URL's ``AuthType`` matches the specified ``FunctionUrlAuthType``. For more information about the ``AuthType`` parameter, see [Security and auth model for function URLs](https://docs.aws.amazon.com/lambda/latest/dg/urls-auth.html).
  *  This resource adds a statement to a resource-based permission policy for the function. For more information about function policies, see [Lambda Function Policies](https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html).
  */
-export function getPermissionOutput(args: GetPermissionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPermissionResult> {
+export function getPermissionOutput(args: GetPermissionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPermissionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:lambda:getPermission", {
         "functionName": args.functionName,

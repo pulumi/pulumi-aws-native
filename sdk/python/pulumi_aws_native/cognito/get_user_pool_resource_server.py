@@ -82,7 +82,7 @@ def get_user_pool_resource_server(identifier: Optional[str] = None,
         scopes=pulumi.get(__ret__, 'scopes'))
 def get_user_pool_resource_server_output(identifier: Optional[pulumi.Input[str]] = None,
                                          user_pool_id: Optional[pulumi.Input[str]] = None,
-                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserPoolResourceServerResult]:
+                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserPoolResourceServerResult]:
     """
     Resource Type definition for AWS::Cognito::UserPoolResourceServer
 
@@ -95,7 +95,7 @@ def get_user_pool_resource_server_output(identifier: Optional[pulumi.Input[str]]
     __args__ = dict()
     __args__['identifier'] = identifier
     __args__['userPoolId'] = user_pool_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:cognito:getUserPoolResourceServer', __args__, opts=opts, typ=GetUserPoolResourceServerResult)
     return __ret__.apply(lambda __response__: GetUserPoolResourceServerResult(
         name=pulumi.get(__response__, 'name'),

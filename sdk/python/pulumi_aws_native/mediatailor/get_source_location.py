@@ -130,7 +130,7 @@ def get_source_location(source_location_name: Optional[str] = None,
         segment_delivery_configurations=pulumi.get(__ret__, 'segment_delivery_configurations'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_source_location_output(source_location_name: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSourceLocationResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSourceLocationResult]:
     """
     Definition of AWS::MediaTailor::SourceLocation Resource Type
 
@@ -139,7 +139,7 @@ def get_source_location_output(source_location_name: Optional[pulumi.Input[str]]
     """
     __args__ = dict()
     __args__['sourceLocationName'] = source_location_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:mediatailor:getSourceLocation', __args__, opts=opts, typ=GetSourceLocationResult)
     return __ret__.apply(lambda __response__: GetSourceLocationResult(
         access_configuration=pulumi.get(__response__, 'access_configuration'),

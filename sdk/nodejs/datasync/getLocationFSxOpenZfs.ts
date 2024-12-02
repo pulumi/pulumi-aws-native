@@ -41,7 +41,7 @@ export interface GetLocationFSxOpenZfsResult {
 /**
  * Resource schema for AWS::DataSync::LocationFSxOpenZFS.
  */
-export function getLocationFSxOpenZfsOutput(args: GetLocationFSxOpenZfsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocationFSxOpenZfsResult> {
+export function getLocationFSxOpenZfsOutput(args: GetLocationFSxOpenZfsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLocationFSxOpenZfsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:datasync:getLocationFSxOpenZfs", {
         "locationArn": args.locationArn,

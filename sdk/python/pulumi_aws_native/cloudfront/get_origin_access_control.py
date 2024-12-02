@@ -78,7 +78,7 @@ def get_origin_access_control(id: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         origin_access_control_config=pulumi.get(__ret__, 'origin_access_control_config'))
 def get_origin_access_control_output(id: Optional[pulumi.Input[str]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOriginAccessControlResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOriginAccessControlResult]:
     """
     Creates a new origin access control in CloudFront. After you create an origin access control, you can add it to an origin in a CloudFront distribution so that CloudFront sends authenticated (signed) requests to the origin.
      This makes it possible to block public access to the origin, allowing viewers (users) to access the origin's content only through CloudFront.
@@ -89,7 +89,7 @@ def get_origin_access_control_output(id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:cloudfront:getOriginAccessControl', __args__, opts=opts, typ=GetOriginAccessControlResult)
     return __ret__.apply(lambda __response__: GetOriginAccessControlResult(
         id=pulumi.get(__response__, 'id'),

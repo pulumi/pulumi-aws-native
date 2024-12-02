@@ -129,7 +129,7 @@ def get_listener(arn: Optional[str] = None,
         service_id=pulumi.get(__ret__, 'service_id'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_listener_output(arn: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetListenerResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetListenerResult]:
     """
     Creates a listener for a service. Before you start using your Amazon VPC Lattice service, you must add one or more listeners. A listener is a process that checks for connection requests to your services.
 
@@ -138,7 +138,7 @@ def get_listener_output(arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:vpclattice:getListener', __args__, opts=opts, typ=GetListenerResult)
     return __ret__.apply(lambda __response__: GetListenerResult(
         arn=pulumi.get(__response__, 'arn'),

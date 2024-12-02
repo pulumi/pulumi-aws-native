@@ -42,7 +42,7 @@ export interface GetAccessPolicyResult {
 /**
  * Amazon OpenSearchServerless access policy resource
  */
-export function getAccessPolicyOutput(args: GetAccessPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessPolicyResult> {
+export function getAccessPolicyOutput(args: GetAccessPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccessPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:opensearchserverless:getAccessPolicy", {
         "name": args.name,

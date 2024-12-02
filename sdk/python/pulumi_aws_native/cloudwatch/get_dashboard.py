@@ -62,7 +62,7 @@ def get_dashboard(dashboard_name: Optional[str] = None,
     return AwaitableGetDashboardResult(
         dashboard_body=pulumi.get(__ret__, 'dashboard_body'))
 def get_dashboard_output(dashboard_name: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDashboardResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDashboardResult]:
     """
     Resource Type definition for AWS::CloudWatch::Dashboard
 
@@ -71,7 +71,7 @@ def get_dashboard_output(dashboard_name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['dashboardName'] = dashboard_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:cloudwatch:getDashboard', __args__, opts=opts, typ=GetDashboardResult)
     return __ret__.apply(lambda __response__: GetDashboardResult(
         dashboard_body=pulumi.get(__response__, 'dashboard_body')))

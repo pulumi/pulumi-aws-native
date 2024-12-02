@@ -52,7 +52,7 @@ export interface GetSdiSourceResult {
 /**
  * Definition of AWS::MediaLive::SdiSource Resource Type
  */
-export function getSdiSourceOutput(args: GetSdiSourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSdiSourceResult> {
+export function getSdiSourceOutput(args: GetSdiSourceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSdiSourceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:medialive:getSdiSource", {
         "id": args.id,

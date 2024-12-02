@@ -171,7 +171,7 @@ def get_application(application_identifier: Optional[str] = None,
         vpc_link_id=pulumi.get(__ret__, 'vpc_link_id'))
 def get_application_output(application_identifier: Optional[pulumi.Input[str]] = None,
                            environment_identifier: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApplicationResult]:
     """
     Definition of AWS::RefactorSpaces::Application Resource Type
 
@@ -182,7 +182,7 @@ def get_application_output(application_identifier: Optional[pulumi.Input[str]] =
     __args__ = dict()
     __args__['applicationIdentifier'] = application_identifier
     __args__['environmentIdentifier'] = environment_identifier
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:refactorspaces:getApplication', __args__, opts=opts, typ=GetApplicationResult)
     return __ret__.apply(lambda __response__: GetApplicationResult(
         api_gateway_id=pulumi.get(__response__, 'api_gateway_id'),

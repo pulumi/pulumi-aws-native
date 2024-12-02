@@ -119,7 +119,7 @@ def get_domain_name_v2(domain_name_arn: Optional[str] = None,
         policy=pulumi.get(__ret__, 'policy'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_domain_name_v2_output(domain_name_arn: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDomainNameV2Result]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDomainNameV2Result]:
     """
     Resource Type definition for AWS::ApiGateway::DomainNameV2.
 
@@ -128,7 +128,7 @@ def get_domain_name_v2_output(domain_name_arn: Optional[pulumi.Input[str]] = Non
     """
     __args__ = dict()
     __args__['domainNameArn'] = domain_name_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:apigateway:getDomainNameV2', __args__, opts=opts, typ=GetDomainNameV2Result)
     return __ret__.apply(lambda __response__: GetDomainNameV2Result(
         certificate_arn=pulumi.get(__response__, 'certificate_arn'),

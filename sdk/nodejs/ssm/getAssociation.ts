@@ -105,7 +105,7 @@ export interface GetAssociationResult {
 /**
  * The AWS::SSM::Association resource associates an SSM document in AWS Systems Manager with EC2 instances that contain a configuration agent to process the document.
  */
-export function getAssociationOutput(args: GetAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssociationResult> {
+export function getAssociationOutput(args: GetAssociationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAssociationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:ssm:getAssociation", {
         "associationId": args.associationId,

@@ -55,7 +55,7 @@ export interface GetEventBusResult {
 /**
  * Resource type definition for AWS::Events::EventBus
  */
-export function getEventBusOutput(args: GetEventBusOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventBusResult> {
+export function getEventBusOutput(args: GetEventBusOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEventBusResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:events:getEventBus", {
         "name": args.name,

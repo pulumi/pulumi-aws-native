@@ -81,7 +81,7 @@ def get_identity_pool_principal_tag(identity_pool_id: Optional[str] = None,
         use_defaults=pulumi.get(__ret__, 'use_defaults'))
 def get_identity_pool_principal_tag_output(identity_pool_id: Optional[pulumi.Input[str]] = None,
                                            identity_provider_name: Optional[pulumi.Input[str]] = None,
-                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIdentityPoolPrincipalTagResult]:
+                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIdentityPoolPrincipalTagResult]:
     """
     Resource Type definition for AWS::Cognito::IdentityPoolPrincipalTag
 
@@ -92,7 +92,7 @@ def get_identity_pool_principal_tag_output(identity_pool_id: Optional[pulumi.Inp
     __args__ = dict()
     __args__['identityPoolId'] = identity_pool_id
     __args__['identityProviderName'] = identity_provider_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:cognito:getIdentityPoolPrincipalTag', __args__, opts=opts, typ=GetIdentityPoolPrincipalTagResult)
     return __ret__.apply(lambda __response__: GetIdentityPoolPrincipalTagResult(
         principal_tags=pulumi.get(__response__, 'principal_tags'),

@@ -89,7 +89,7 @@ def get_public_key(id: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         public_key_config=pulumi.get(__ret__, 'public_key_config'))
 def get_public_key_output(id: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPublicKeyResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPublicKeyResult]:
     """
     A public key that you can use with [signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html), or with [field-level encryption](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html).
 
@@ -98,7 +98,7 @@ def get_public_key_output(id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:cloudfront:getPublicKey', __args__, opts=opts, typ=GetPublicKeyResult)
     return __ret__.apply(lambda __response__: GetPublicKeyResult(
         created_time=pulumi.get(__response__, 'created_time'),

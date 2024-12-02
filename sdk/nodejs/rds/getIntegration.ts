@@ -53,7 +53,7 @@ export interface GetIntegrationResult {
 /**
  * A zero-ETL integration with Amazon Redshift.
  */
-export function getIntegrationOutput(args: GetIntegrationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIntegrationResult> {
+export function getIntegrationOutput(args: GetIntegrationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIntegrationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:rds:getIntegration", {
         "integrationArn": args.integrationArn,

@@ -49,7 +49,7 @@ export interface GetDocumentClassifierResult {
 /**
  * Document Classifier enables training document classifier models.
  */
-export function getDocumentClassifierOutput(args: GetDocumentClassifierOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDocumentClassifierResult> {
+export function getDocumentClassifierOutput(args: GetDocumentClassifierOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDocumentClassifierResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:comprehend:getDocumentClassifier", {
         "arn": args.arn,

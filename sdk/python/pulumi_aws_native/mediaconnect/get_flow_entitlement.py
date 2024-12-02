@@ -129,7 +129,7 @@ def get_flow_entitlement(entitlement_arn: Optional[str] = None,
         flow_arn=pulumi.get(__ret__, 'flow_arn'),
         subscribers=pulumi.get(__ret__, 'subscribers'))
 def get_flow_entitlement_output(entitlement_arn: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFlowEntitlementResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFlowEntitlementResult]:
     """
     Resource schema for AWS::MediaConnect::FlowEntitlement
 
@@ -138,7 +138,7 @@ def get_flow_entitlement_output(entitlement_arn: Optional[pulumi.Input[str]] = N
     """
     __args__ = dict()
     __args__['entitlementArn'] = entitlement_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:mediaconnect:getFlowEntitlement', __args__, opts=opts, typ=GetFlowEntitlementResult)
     return __ret__.apply(lambda __response__: GetFlowEntitlementResult(
         description=pulumi.get(__response__, 'description'),

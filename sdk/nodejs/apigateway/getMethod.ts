@@ -80,7 +80,7 @@ export interface GetMethodResult {
 /**
  * The ``AWS::ApiGateway::Method`` resource creates API Gateway methods that define the parameters and body that clients must send in their requests.
  */
-export function getMethodOutput(args: GetMethodOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMethodResult> {
+export function getMethodOutput(args: GetMethodOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMethodResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:apigateway:getMethod", {
         "httpMethod": args.httpMethod,

@@ -45,7 +45,7 @@ export interface GetDbProxyTargetGroupResult {
 /**
  * Resource schema for AWS::RDS::DBProxyTargetGroup
  */
-export function getDbProxyTargetGroupOutput(args: GetDbProxyTargetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDbProxyTargetGroupResult> {
+export function getDbProxyTargetGroupOutput(args: GetDbProxyTargetGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDbProxyTargetGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:rds:getDbProxyTargetGroup", {
         "targetGroupArn": args.targetGroupArn,

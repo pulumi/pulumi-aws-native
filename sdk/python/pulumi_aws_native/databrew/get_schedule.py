@@ -75,7 +75,7 @@ def get_schedule(name: Optional[str] = None,
         cron_expression=pulumi.get(__ret__, 'cron_expression'),
         job_names=pulumi.get(__ret__, 'job_names'))
 def get_schedule_output(name: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetScheduleResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetScheduleResult]:
     """
     Resource schema for AWS::DataBrew::Schedule.
 
@@ -84,7 +84,7 @@ def get_schedule_output(name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:databrew:getSchedule', __args__, opts=opts, typ=GetScheduleResult)
     return __ret__.apply(lambda __response__: GetScheduleResult(
         cron_expression=pulumi.get(__response__, 'cron_expression'),

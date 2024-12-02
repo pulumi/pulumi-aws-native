@@ -51,7 +51,7 @@ export interface GetThingGroupResult {
 /**
  * Resource Type definition for AWS::IoT::ThingGroup
  */
-export function getThingGroupOutput(args: GetThingGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetThingGroupResult> {
+export function getThingGroupOutput(args: GetThingGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetThingGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:iot:getThingGroup", {
         "thingGroupName": args.thingGroupName,

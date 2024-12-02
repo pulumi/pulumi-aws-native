@@ -70,7 +70,7 @@ export interface GetTableResult {
 /**
  * Resource schema for AWS::Cassandra::Table
  */
-export function getTableOutput(args: GetTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTableResult> {
+export function getTableOutput(args: GetTableOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTableResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:cassandra:getTable", {
         "keyspaceName": args.keyspaceName,

@@ -154,7 +154,7 @@ def get_contact_flow_module(contact_flow_module_arn: Optional[str] = None,
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_contact_flow_module_output(contact_flow_module_arn: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContactFlowModuleResult]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetContactFlowModuleResult]:
     """
     Resource Type definition for AWS::Connect::ContactFlowModule.
 
@@ -163,7 +163,7 @@ def get_contact_flow_module_output(contact_flow_module_arn: Optional[pulumi.Inpu
     """
     __args__ = dict()
     __args__['contactFlowModuleArn'] = contact_flow_module_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:connect:getContactFlowModule', __args__, opts=opts, typ=GetContactFlowModuleResult)
     return __ret__.apply(lambda __response__: GetContactFlowModuleResult(
         contact_flow_module_arn=pulumi.get(__response__, 'contact_flow_module_arn'),

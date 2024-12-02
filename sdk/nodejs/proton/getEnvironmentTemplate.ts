@@ -47,7 +47,7 @@ export interface GetEnvironmentTemplateResult {
 /**
  * Definition of AWS::Proton::EnvironmentTemplate Resource Type
  */
-export function getEnvironmentTemplateOutput(args: GetEnvironmentTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEnvironmentTemplateResult> {
+export function getEnvironmentTemplateOutput(args: GetEnvironmentTemplateOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEnvironmentTemplateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:proton:getEnvironmentTemplate", {
         "arn": args.arn,

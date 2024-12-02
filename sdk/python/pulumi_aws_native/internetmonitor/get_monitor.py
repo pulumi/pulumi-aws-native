@@ -222,7 +222,7 @@ def get_monitor(monitor_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         traffic_percentage_to_monitor=pulumi.get(__ret__, 'traffic_percentage_to_monitor'))
 def get_monitor_output(monitor_name: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMonitorResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMonitorResult]:
     """
     Represents a monitor, which defines the monitoring boundaries for measurements that Internet Monitor publishes information about for an application
 
@@ -231,7 +231,7 @@ def get_monitor_output(monitor_name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['monitorName'] = monitor_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:internetmonitor:getMonitor', __args__, opts=opts, typ=GetMonitorResult)
     return __ret__.apply(lambda __response__: GetMonitorResult(
         created_at=pulumi.get(__response__, 'created_at'),

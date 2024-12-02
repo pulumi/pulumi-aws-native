@@ -114,7 +114,7 @@ def get_extension_association(id: Optional[str] = None,
         parameters=pulumi.get(__ret__, 'parameters'),
         resource_arn=pulumi.get(__ret__, 'resource_arn'))
 def get_extension_association_output(id: Optional[pulumi.Input[str]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExtensionAssociationResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExtensionAssociationResult]:
     """
     An example resource schema demonstrating some basic constructs and validation rules.
 
@@ -123,7 +123,7 @@ def get_extension_association_output(id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:appconfig:getExtensionAssociation', __args__, opts=opts, typ=GetExtensionAssociationResult)
     return __ret__.apply(lambda __response__: GetExtensionAssociationResult(
         arn=pulumi.get(__response__, 'arn'),

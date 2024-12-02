@@ -41,7 +41,7 @@ export interface GetWorkflowResult {
 /**
  * Resource Type definition for AWS::Transfer::Workflow
  */
-export function getWorkflowOutput(args: GetWorkflowOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkflowResult> {
+export function getWorkflowOutput(args: GetWorkflowOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkflowResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:transfer:getWorkflow", {
         "workflowId": args.workflowId,

@@ -267,13 +267,13 @@ def get_signal_map(identifier: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         status=pulumi.get(__ret__, 'status'))
 def get_signal_map_output(identifier: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSignalMapResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSignalMapResult]:
     """
     Definition of AWS::MediaLive::SignalMap Resource Type
     """
     __args__ = dict()
     __args__['identifier'] = identifier
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:medialive:getSignalMap', __args__, opts=opts, typ=GetSignalMapResult)
     return __ret__.apply(lambda __response__: GetSignalMapResult(
         arn=pulumi.get(__response__, 'arn'),

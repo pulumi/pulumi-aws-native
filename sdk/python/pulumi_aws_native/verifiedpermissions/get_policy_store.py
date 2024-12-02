@@ -120,7 +120,7 @@ def get_policy_store(policy_store_id: Optional[str] = None,
         schema=pulumi.get(__ret__, 'schema'),
         validation_settings=pulumi.get(__ret__, 'validation_settings'))
 def get_policy_store_output(policy_store_id: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPolicyStoreResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPolicyStoreResult]:
     """
     Represents a policy store that you can place schema, policies, and policy templates in to validate authorization requests
 
@@ -129,7 +129,7 @@ def get_policy_store_output(policy_store_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['policyStoreId'] = policy_store_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:verifiedpermissions:getPolicyStore', __args__, opts=opts, typ=GetPolicyStoreResult)
     return __ret__.apply(lambda __response__: GetPolicyStoreResult(
         arn=pulumi.get(__response__, 'arn'),

@@ -46,7 +46,7 @@ export interface GetVodSourceResult {
 /**
  * Definition of AWS::MediaTailor::VodSource Resource Type
  */
-export function getVodSourceOutput(args: GetVodSourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVodSourceResult> {
+export function getVodSourceOutput(args: GetVodSourceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVodSourceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:mediatailor:getVodSource", {
         "sourceLocationName": args.sourceLocationName,

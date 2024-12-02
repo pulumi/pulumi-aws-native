@@ -134,7 +134,7 @@ def get_device_pool(arn: Optional[str] = None,
         rules=pulumi.get(__ret__, 'rules'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_device_pool_output(arn: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDevicePoolResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDevicePoolResult]:
     """
     AWS::DeviceFarm::DevicePool creates a new Device Pool for a given DF Project
 
@@ -143,7 +143,7 @@ def get_device_pool_output(arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:devicefarm:getDevicePool', __args__, opts=opts, typ=GetDevicePoolResult)
     return __ret__.apply(lambda __response__: GetDevicePoolResult(
         arn=pulumi.get(__response__, 'arn'),

@@ -168,7 +168,7 @@ def get_application_instance(application_instance_id: Optional[str] = None,
         status_description=pulumi.get(__ret__, 'status_description'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_application_instance_output(application_instance_id: Optional[pulumi.Input[str]] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationInstanceResult]:
+                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApplicationInstanceResult]:
     """
     Creates an application instance and deploys it to a device.
 
@@ -177,7 +177,7 @@ def get_application_instance_output(application_instance_id: Optional[pulumi.Inp
     """
     __args__ = dict()
     __args__['applicationInstanceId'] = application_instance_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:panorama:getApplicationInstance', __args__, opts=opts, typ=GetApplicationInstanceResult)
     return __ret__.apply(lambda __response__: GetApplicationInstanceResult(
         application_instance_id=pulumi.get(__response__, 'application_instance_id'),

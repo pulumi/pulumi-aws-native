@@ -221,7 +221,7 @@ def get_network_insights_analysis(network_insights_analysis_id: Optional[str] = 
         suggested_accounts=pulumi.get(__ret__, 'suggested_accounts'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_network_insights_analysis_output(network_insights_analysis_id: Optional[pulumi.Input[str]] = None,
-                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkInsightsAnalysisResult]:
+                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkInsightsAnalysisResult]:
     """
     Resource schema for AWS::EC2::NetworkInsightsAnalysis
 
@@ -230,7 +230,7 @@ def get_network_insights_analysis_output(network_insights_analysis_id: Optional[
     """
     __args__ = dict()
     __args__['networkInsightsAnalysisId'] = network_insights_analysis_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getNetworkInsightsAnalysis', __args__, opts=opts, typ=GetNetworkInsightsAnalysisResult)
     return __ret__.apply(lambda __response__: GetNetworkInsightsAnalysisResult(
         additional_accounts=pulumi.get(__response__, 'additional_accounts'),

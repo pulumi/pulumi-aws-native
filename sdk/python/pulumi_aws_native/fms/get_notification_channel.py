@@ -75,7 +75,7 @@ def get_notification_channel(sns_topic_arn: Optional[str] = None,
         sns_role_name=pulumi.get(__ret__, 'sns_role_name'),
         sns_topic_arn=pulumi.get(__ret__, 'sns_topic_arn'))
 def get_notification_channel_output(sns_topic_arn: Optional[pulumi.Input[str]] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNotificationChannelResult]:
+                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNotificationChannelResult]:
     """
     Designates the IAM role and Amazon Simple Notification Service (SNS) topic that AWS Firewall Manager uses to record SNS logs.
 
@@ -84,7 +84,7 @@ def get_notification_channel_output(sns_topic_arn: Optional[pulumi.Input[str]] =
     """
     __args__ = dict()
     __args__['snsTopicArn'] = sns_topic_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:fms:getNotificationChannel', __args__, opts=opts, typ=GetNotificationChannelResult)
     return __ret__.apply(lambda __response__: GetNotificationChannelResult(
         sns_role_name=pulumi.get(__response__, 'sns_role_name'),

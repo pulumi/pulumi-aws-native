@@ -41,7 +41,7 @@ export interface GetVdmAttributesResult {
 /**
  * Resource Type definition for AWS::SES::VdmAttributes
  */
-export function getVdmAttributesOutput(args: GetVdmAttributesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVdmAttributesResult> {
+export function getVdmAttributesOutput(args: GetVdmAttributesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVdmAttributesResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:ses:getVdmAttributes", {
         "vdmAttributesResourceId": args.vdmAttributesResourceId,

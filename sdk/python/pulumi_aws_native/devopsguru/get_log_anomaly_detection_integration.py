@@ -62,7 +62,7 @@ def get_log_anomaly_detection_integration(account_id: Optional[str] = None,
     return AwaitableGetLogAnomalyDetectionIntegrationResult(
         account_id=pulumi.get(__ret__, 'account_id'))
 def get_log_anomaly_detection_integration_output(account_id: Optional[pulumi.Input[str]] = None,
-                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLogAnomalyDetectionIntegrationResult]:
+                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLogAnomalyDetectionIntegrationResult]:
     """
     This resource schema represents the LogAnomalyDetectionIntegration resource in the Amazon DevOps Guru.
 
@@ -71,7 +71,7 @@ def get_log_anomaly_detection_integration_output(account_id: Optional[pulumi.Inp
     """
     __args__ = dict()
     __args__['accountId'] = account_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:devopsguru:getLogAnomalyDetectionIntegration', __args__, opts=opts, typ=GetLogAnomalyDetectionIntegrationResult)
     return __ret__.apply(lambda __response__: GetLogAnomalyDetectionIntegrationResult(
         account_id=pulumi.get(__response__, 'account_id')))

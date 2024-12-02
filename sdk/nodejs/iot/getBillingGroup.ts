@@ -45,7 +45,7 @@ export interface GetBillingGroupResult {
 /**
  * Resource Type definition for AWS::IoT::BillingGroup
  */
-export function getBillingGroupOutput(args: GetBillingGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBillingGroupResult> {
+export function getBillingGroupOutput(args: GetBillingGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBillingGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:iot:getBillingGroup", {
         "billingGroupName": args.billingGroupName,

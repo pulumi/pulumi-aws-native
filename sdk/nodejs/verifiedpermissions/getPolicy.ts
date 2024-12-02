@@ -49,7 +49,7 @@ export interface GetPolicyResult {
 /**
  * Definition of AWS::VerifiedPermissions::Policy Resource Type
  */
-export function getPolicyOutput(args: GetPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyResult> {
+export function getPolicyOutput(args: GetPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:verifiedpermissions:getPolicy", {
         "policyId": args.policyId,

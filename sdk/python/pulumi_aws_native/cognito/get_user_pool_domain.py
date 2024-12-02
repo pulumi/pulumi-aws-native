@@ -89,7 +89,7 @@ def get_user_pool_domain(id: Optional[str] = None,
         custom_domain_config=pulumi.get(__ret__, 'custom_domain_config'),
         id=pulumi.get(__ret__, 'id'))
 def get_user_pool_domain_output(id: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserPoolDomainResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserPoolDomainResult]:
     """
     Resource Type definition for AWS::Cognito::UserPoolDomain
 
@@ -98,7 +98,7 @@ def get_user_pool_domain_output(id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:cognito:getUserPoolDomain', __args__, opts=opts, typ=GetUserPoolDomainResult)
     return __ret__.apply(lambda __response__: GetUserPoolDomainResult(
         cloud_front_distribution=pulumi.get(__response__, 'cloud_front_distribution'),

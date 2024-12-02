@@ -145,7 +145,7 @@ def get_dataset(arn: Optional[str] = None,
         schema=pulumi.get(__ret__, 'schema'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_dataset_output(arn: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatasetResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatasetResult]:
     """
     Resource Type Definition for AWS::Forecast::Dataset
 
@@ -154,7 +154,7 @@ def get_dataset_output(arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:forecast:getDataset', __args__, opts=opts, typ=GetDatasetResult)
     return __ret__.apply(lambda __response__: GetDatasetResult(
         arn=pulumi.get(__response__, 'arn'),

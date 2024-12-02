@@ -56,7 +56,7 @@ export interface GetIdMappingWorkflowResult {
 /**
  * IdMappingWorkflow defined in AWS Entity Resolution service
  */
-export function getIdMappingWorkflowOutput(args: GetIdMappingWorkflowOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIdMappingWorkflowResult> {
+export function getIdMappingWorkflowOutput(args: GetIdMappingWorkflowOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIdMappingWorkflowResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:entityresolution:getIdMappingWorkflow", {
         "workflowName": args.workflowName,

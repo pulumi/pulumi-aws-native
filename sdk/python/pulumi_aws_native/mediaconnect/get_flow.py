@@ -168,7 +168,7 @@ def get_flow(flow_arn: Optional[str] = None,
         source_monitoring_config=pulumi.get(__ret__, 'source_monitoring_config'),
         vpc_interfaces=pulumi.get(__ret__, 'vpc_interfaces'))
 def get_flow_output(flow_arn: Optional[pulumi.Input[str]] = None,
-                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFlowResult]:
+                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFlowResult]:
     """
     Resource schema for AWS::MediaConnect::Flow
 
@@ -177,7 +177,7 @@ def get_flow_output(flow_arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['flowArn'] = flow_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:mediaconnect:getFlow', __args__, opts=opts, typ=GetFlowResult)
     return __ret__.apply(lambda __response__: GetFlowResult(
         egress_ip=pulumi.get(__response__, 'egress_ip'),

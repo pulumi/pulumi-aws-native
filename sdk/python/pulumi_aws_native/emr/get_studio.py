@@ -180,7 +180,7 @@ def get_studio(studio_id: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         url=pulumi.get(__ret__, 'url'))
 def get_studio_output(studio_id: Optional[pulumi.Input[str]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStudioResult]:
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStudioResult]:
     """
     Resource schema for AWS::EMR::Studio
 
@@ -189,7 +189,7 @@ def get_studio_output(studio_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['studioId'] = studio_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:emr:getStudio', __args__, opts=opts, typ=GetStudioResult)
     return __ret__.apply(lambda __response__: GetStudioResult(
         arn=pulumi.get(__response__, 'arn'),

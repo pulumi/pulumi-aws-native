@@ -65,7 +65,7 @@ export interface GetPrefixListResult {
 /**
  * Resource schema of AWS::EC2::PrefixList Type
  */
-export function getPrefixListOutput(args: GetPrefixListOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrefixListResult> {
+export function getPrefixListOutput(args: GetPrefixListOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPrefixListResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:ec2:getPrefixList", {
         "prefixListId": args.prefixListId,

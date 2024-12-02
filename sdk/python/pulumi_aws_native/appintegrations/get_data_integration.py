@@ -142,7 +142,7 @@ def get_data_integration(id: Optional[str] = None,
         object_configuration=pulumi.get(__ret__, 'object_configuration'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_data_integration_output(id: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataIntegrationResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataIntegrationResult]:
     """
     Resource Type definition for AWS::AppIntegrations::DataIntegration
 
@@ -151,7 +151,7 @@ def get_data_integration_output(id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:appintegrations:getDataIntegration', __args__, opts=opts, typ=GetDataIntegrationResult)
     return __ret__.apply(lambda __response__: GetDataIntegrationResult(
         data_integration_arn=pulumi.get(__response__, 'data_integration_arn'),

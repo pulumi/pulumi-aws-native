@@ -109,7 +109,7 @@ def get_certificate_provider(certificate_provider_name: Optional[str] = None,
         lambda_function_arn=pulumi.get(__ret__, 'lambda_function_arn'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_certificate_provider_output(certificate_provider_name: Optional[pulumi.Input[str]] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCertificateProviderResult]:
+                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCertificateProviderResult]:
     """
     Use the AWS::IoT::CertificateProvider resource to declare an AWS IoT Certificate Provider.
 
@@ -118,7 +118,7 @@ def get_certificate_provider_output(certificate_provider_name: Optional[pulumi.I
     """
     __args__ = dict()
     __args__['certificateProviderName'] = certificate_provider_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:iot:getCertificateProvider', __args__, opts=opts, typ=GetCertificateProviderResult)
     return __ret__.apply(lambda __response__: GetCertificateProviderResult(
         account_default_for_operations=pulumi.get(__response__, 'account_default_for_operations'),

@@ -142,7 +142,7 @@ def get_verified_access_trust_provider(verified_access_trust_provider_id: Option
         tags=pulumi.get(__ret__, 'tags'),
         verified_access_trust_provider_id=pulumi.get(__ret__, 'verified_access_trust_provider_id'))
 def get_verified_access_trust_provider_output(verified_access_trust_provider_id: Optional[pulumi.Input[str]] = None,
-                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVerifiedAccessTrustProviderResult]:
+                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVerifiedAccessTrustProviderResult]:
     """
     The AWS::EC2::VerifiedAccessTrustProvider type describes a verified access trust provider
 
@@ -151,7 +151,7 @@ def get_verified_access_trust_provider_output(verified_access_trust_provider_id:
     """
     __args__ = dict()
     __args__['verifiedAccessTrustProviderId'] = verified_access_trust_provider_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getVerifiedAccessTrustProvider', __args__, opts=opts, typ=GetVerifiedAccessTrustProviderResult)
     return __ret__.apply(lambda __response__: GetVerifiedAccessTrustProviderResult(
         creation_time=pulumi.get(__response__, 'creation_time'),

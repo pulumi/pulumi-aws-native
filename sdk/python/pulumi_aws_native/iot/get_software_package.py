@@ -83,13 +83,13 @@ def get_software_package(package_name: Optional[str] = None,
         package_arn=pulumi.get(__ret__, 'package_arn'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_software_package_output(package_name: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSoftwarePackageResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSoftwarePackageResult]:
     """
     resource definition
     """
     __args__ = dict()
     __args__['packageName'] = package_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:iot:getSoftwarePackage', __args__, opts=opts, typ=GetSoftwarePackageResult)
     return __ret__.apply(lambda __response__: GetSoftwarePackageResult(
         description=pulumi.get(__response__, 'description'),

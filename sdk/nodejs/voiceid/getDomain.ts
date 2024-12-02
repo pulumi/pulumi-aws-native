@@ -37,7 +37,7 @@ export interface GetDomainResult {
 /**
  * The AWS::VoiceID::Domain resource specifies an Amazon VoiceID Domain.
  */
-export function getDomainOutput(args: GetDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainResult> {
+export function getDomainOutput(args: GetDomainOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDomainResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:voiceid:getDomain", {
         "domainId": args.domainId,

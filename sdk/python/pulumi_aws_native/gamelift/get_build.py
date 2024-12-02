@@ -88,7 +88,7 @@ def get_build(build_id: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         version=pulumi.get(__ret__, 'version'))
 def get_build_output(build_id: Optional[pulumi.Input[str]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBuildResult]:
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBuildResult]:
     """
     Resource Type definition for AWS::GameLift::Build
 
@@ -97,7 +97,7 @@ def get_build_output(build_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['buildId'] = build_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:gamelift:getBuild', __args__, opts=opts, typ=GetBuildResult)
     return __ret__.apply(lambda __response__: GetBuildResult(
         build_id=pulumi.get(__response__, 'build_id'),

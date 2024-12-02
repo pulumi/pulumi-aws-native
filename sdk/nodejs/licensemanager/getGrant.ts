@@ -46,7 +46,7 @@ export interface GetGrantResult {
 /**
  * An example resource schema demonstrating some basic constructs and validation rules.
  */
-export function getGrantOutput(args: GetGrantOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGrantResult> {
+export function getGrantOutput(args: GetGrantOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGrantResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:licensemanager:getGrant", {
         "grantArn": args.grantArn,

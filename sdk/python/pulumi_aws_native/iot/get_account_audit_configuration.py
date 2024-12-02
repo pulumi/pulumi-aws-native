@@ -97,7 +97,7 @@ def get_account_audit_configuration(account_id: Optional[str] = None,
         audit_notification_target_configurations=pulumi.get(__ret__, 'audit_notification_target_configurations'),
         role_arn=pulumi.get(__ret__, 'role_arn'))
 def get_account_audit_configuration_output(account_id: Optional[pulumi.Input[str]] = None,
-                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccountAuditConfigurationResult]:
+                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccountAuditConfigurationResult]:
     """
     Configures the Device Defender audit settings for this account. Settings include how audit notifications are sent and which audit checks are enabled or disabled.
 
@@ -106,7 +106,7 @@ def get_account_audit_configuration_output(account_id: Optional[pulumi.Input[str
     """
     __args__ = dict()
     __args__['accountId'] = account_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:iot:getAccountAuditConfiguration', __args__, opts=opts, typ=GetAccountAuditConfigurationResult)
     return __ret__.apply(lambda __response__: GetAccountAuditConfigurationResult(
         audit_check_configurations=pulumi.get(__response__, 'audit_check_configurations'),

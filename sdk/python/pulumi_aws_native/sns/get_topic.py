@@ -217,7 +217,7 @@ def get_topic(topic_arn: Optional[str] = None,
         topic_arn=pulumi.get(__ret__, 'topic_arn'),
         tracing_config=pulumi.get(__ret__, 'tracing_config'))
 def get_topic_output(topic_arn: Optional[pulumi.Input[str]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTopicResult]:
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTopicResult]:
     """
     The ``AWS::SNS::Topic`` resource creates a topic to which notifications can be published.
       One account can create a maximum of 100,000 standard topics and 1,000 FIFO topics. For more information, see [endpoints and quotas](https://docs.aws.amazon.com/general/latest/gr/sns.html) in the *General Reference*.
@@ -228,7 +228,7 @@ def get_topic_output(topic_arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['topicArn'] = topic_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:sns:getTopic', __args__, opts=opts, typ=GetTopicResult)
     return __ret__.apply(lambda __response__: GetTopicResult(
         archive_policy=pulumi.get(__response__, 'archive_policy'),

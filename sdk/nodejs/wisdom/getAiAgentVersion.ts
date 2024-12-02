@@ -40,7 +40,7 @@ export interface GetAiAgentVersionResult {
 /**
  * Definition of AWS::Wisdom::AIAgentVersion Resource Type
  */
-export function getAiAgentVersionOutput(args: GetAiAgentVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAiAgentVersionResult> {
+export function getAiAgentVersionOutput(args: GetAiAgentVersionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAiAgentVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:wisdom:getAiAgentVersion", {
         "aiAgentId": args.aiAgentId,

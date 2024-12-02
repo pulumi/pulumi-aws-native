@@ -158,7 +158,7 @@ def get_delivery(delivery_id: Optional[str] = None,
         s3_suffix_path=pulumi.get(__ret__, 's3_suffix_path'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_delivery_output(delivery_id: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDeliveryResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDeliveryResult]:
     """
     This structure contains information about one delivery in your account.
 
@@ -171,7 +171,7 @@ def get_delivery_output(delivery_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['deliveryId'] = delivery_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:logs:getDelivery', __args__, opts=opts, typ=GetDeliveryResult)
     return __ret__.apply(lambda __response__: GetDeliveryResult(
         arn=pulumi.get(__response__, 'arn'),

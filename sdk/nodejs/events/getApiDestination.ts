@@ -53,7 +53,7 @@ export interface GetApiDestinationResult {
 /**
  * Resource Type definition for AWS::Events::ApiDestination.
  */
-export function getApiDestinationOutput(args: GetApiDestinationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiDestinationResult> {
+export function getApiDestinationOutput(args: GetApiDestinationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApiDestinationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:events:getApiDestination", {
         "name": args.name,

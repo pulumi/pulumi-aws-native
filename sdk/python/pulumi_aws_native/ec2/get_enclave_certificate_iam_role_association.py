@@ -92,7 +92,7 @@ def get_enclave_certificate_iam_role_association(certificate_arn: Optional[str] 
         encryption_kms_key_id=pulumi.get(__ret__, 'encryption_kms_key_id'))
 def get_enclave_certificate_iam_role_association_output(certificate_arn: Optional[pulumi.Input[str]] = None,
                                                         role_arn: Optional[pulumi.Input[str]] = None,
-                                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnclaveCertificateIamRoleAssociationResult]:
+                                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEnclaveCertificateIamRoleAssociationResult]:
     """
     Associates an AWS Identity and Access Management (IAM) role with an AWS Certificate Manager (ACM) certificate. This association is based on Amazon Resource Names and it enables the certificate to be used by the ACM for Nitro Enclaves application inside an enclave.
 
@@ -103,7 +103,7 @@ def get_enclave_certificate_iam_role_association_output(certificate_arn: Optiona
     __args__ = dict()
     __args__['certificateArn'] = certificate_arn
     __args__['roleArn'] = role_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getEnclaveCertificateIamRoleAssociation', __args__, opts=opts, typ=GetEnclaveCertificateIamRoleAssociationResult)
     return __ret__.apply(lambda __response__: GetEnclaveCertificateIamRoleAssociationResult(
         certificate_s3_bucket_name=pulumi.get(__response__, 'certificate_s3_bucket_name'),

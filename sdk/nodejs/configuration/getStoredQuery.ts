@@ -49,7 +49,7 @@ export interface GetStoredQueryResult {
 /**
  * Resource Type definition for AWS::Config::StoredQuery
  */
-export function getStoredQueryOutput(args: GetStoredQueryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStoredQueryResult> {
+export function getStoredQueryOutput(args: GetStoredQueryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStoredQueryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:configuration:getStoredQuery", {
         "queryName": args.queryName,

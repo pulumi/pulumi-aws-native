@@ -120,7 +120,7 @@ def get_topic(aws_account_id: Optional[str] = None,
         user_experience_version=pulumi.get(__ret__, 'user_experience_version'))
 def get_topic_output(aws_account_id: Optional[pulumi.Input[str]] = None,
                      topic_id: Optional[pulumi.Input[str]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTopicResult]:
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTopicResult]:
     """
     Definition of the AWS::QuickSight::Topic Resource Type.
 
@@ -131,7 +131,7 @@ def get_topic_output(aws_account_id: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['awsAccountId'] = aws_account_id
     __args__['topicId'] = topic_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:quicksight:getTopic', __args__, opts=opts, typ=GetTopicResult)
     return __ret__.apply(lambda __response__: GetTopicResult(
         arn=pulumi.get(__response__, 'arn'),

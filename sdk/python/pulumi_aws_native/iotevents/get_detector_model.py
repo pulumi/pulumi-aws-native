@@ -122,7 +122,7 @@ def get_detector_model(detector_model_name: Optional[str] = None,
         role_arn=pulumi.get(__ret__, 'role_arn'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_detector_model_output(detector_model_name: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDetectorModelResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDetectorModelResult]:
     """
     The AWS::IoTEvents::DetectorModel resource creates a detector model. You create a *detector model* (a model of your equipment or process) using *states*. For each state, you define conditional (Boolean) logic that evaluates the incoming inputs to detect significant events. When an event is detected, it can change the state or trigger custom-built or predefined actions using other AWS services. You can define additional events that trigger actions when entering or exiting a state and, optionally, when a condition is met. For more information, see [How to Use](https://docs.aws.amazon.com/iotevents/latest/developerguide/how-to-use-iotevents.html) in the *Developer Guide*.
       When you successfully update a detector model (using the ITE console, ITE API or CLI commands, or CFN) all detector instances created by the model are reset to their initial states. (The detector's ``state``, and the values of any variables and timers are reset.)
@@ -135,7 +135,7 @@ def get_detector_model_output(detector_model_name: Optional[pulumi.Input[str]] =
     """
     __args__ = dict()
     __args__['detectorModelName'] = detector_model_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:iotevents:getDetectorModel', __args__, opts=opts, typ=GetDetectorModelResult)
     return __ret__.apply(lambda __response__: GetDetectorModelResult(
         detector_model_definition=pulumi.get(__response__, 'detector_model_definition'),

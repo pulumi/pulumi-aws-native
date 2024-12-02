@@ -41,7 +41,7 @@ export interface GetReadinessCheckResult {
 /**
  * Aws Route53 Recovery Readiness Check Schema and API specification.
  */
-export function getReadinessCheckOutput(args: GetReadinessCheckOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReadinessCheckResult> {
+export function getReadinessCheckOutput(args: GetReadinessCheckOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetReadinessCheckResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:route53recoveryreadiness:getReadinessCheck", {
         "readinessCheckName": args.readinessCheckName,

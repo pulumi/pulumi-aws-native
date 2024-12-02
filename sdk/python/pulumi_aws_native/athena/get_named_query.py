@@ -62,7 +62,7 @@ def get_named_query(named_query_id: Optional[str] = None,
     return AwaitableGetNamedQueryResult(
         named_query_id=pulumi.get(__ret__, 'named_query_id'))
 def get_named_query_output(named_query_id: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNamedQueryResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNamedQueryResult]:
     """
     Resource schema for AWS::Athena::NamedQuery
 
@@ -71,7 +71,7 @@ def get_named_query_output(named_query_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['namedQueryId'] = named_query_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:athena:getNamedQuery', __args__, opts=opts, typ=GetNamedQueryResult)
     return __ret__.apply(lambda __response__: GetNamedQueryResult(
         named_query_id=pulumi.get(__response__, 'named_query_id')))

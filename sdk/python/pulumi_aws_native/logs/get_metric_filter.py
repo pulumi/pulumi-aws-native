@@ -82,7 +82,7 @@ def get_metric_filter(filter_name: Optional[str] = None,
         metric_transformations=pulumi.get(__ret__, 'metric_transformations'))
 def get_metric_filter_output(filter_name: Optional[pulumi.Input[str]] = None,
                              log_group_name: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMetricFilterResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMetricFilterResult]:
     """
     The ``AWS::Logs::MetricFilter`` resource specifies a metric filter that describes how CWL extracts information from logs and transforms it into Amazon CloudWatch metrics. If you have multiple metric filters that are associated with a log group, all the filters are applied to the log streams in that group.
      The maximum number of metric filters that can be associated with a log group is 100.
@@ -94,7 +94,7 @@ def get_metric_filter_output(filter_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['filterName'] = filter_name
     __args__['logGroupName'] = log_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:logs:getMetricFilter', __args__, opts=opts, typ=GetMetricFilterResult)
     return __ret__.apply(lambda __response__: GetMetricFilterResult(
         filter_pattern=pulumi.get(__response__, 'filter_pattern'),

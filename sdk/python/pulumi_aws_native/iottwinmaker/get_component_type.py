@@ -237,7 +237,7 @@ def get_component_type(component_type_id: Optional[str] = None,
         update_date_time=pulumi.get(__ret__, 'update_date_time'))
 def get_component_type_output(component_type_id: Optional[pulumi.Input[str]] = None,
                               workspace_id: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetComponentTypeResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetComponentTypeResult]:
     """
     Resource schema for AWS::IoTTwinMaker::ComponentType
 
@@ -248,7 +248,7 @@ def get_component_type_output(component_type_id: Optional[pulumi.Input[str]] = N
     __args__ = dict()
     __args__['componentTypeId'] = component_type_id
     __args__['workspaceId'] = workspace_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:iottwinmaker:getComponentType', __args__, opts=opts, typ=GetComponentTypeResult)
     return __ret__.apply(lambda __response__: GetComponentTypeResult(
         arn=pulumi.get(__response__, 'arn'),

@@ -168,7 +168,7 @@ def get_prompt_version(arn: Optional[str] = None,
         variants=pulumi.get(__ret__, 'variants'),
         version=pulumi.get(__ret__, 'version'))
 def get_prompt_version_output(arn: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPromptVersionResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPromptVersionResult]:
     """
     Definition of AWS::Bedrock::PromptVersion Resource Type
 
@@ -177,7 +177,7 @@ def get_prompt_version_output(arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:bedrock:getPromptVersion', __args__, opts=opts, typ=GetPromptVersionResult)
     return __ret__.apply(lambda __response__: GetPromptVersionResult(
         arn=pulumi.get(__response__, 'arn'),

@@ -212,7 +212,7 @@ def get_route(cidr_block: Optional[str] = None,
         vpc_peering_connection_id=pulumi.get(__ret__, 'vpc_peering_connection_id'))
 def get_route_output(cidr_block: Optional[pulumi.Input[str]] = None,
                      route_table_id: Optional[pulumi.Input[str]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRouteResult]:
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRouteResult]:
     """
     Specifies a route in a route table. For more information, see [Routes](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html#route-table-routes) in the *Amazon VPC User Guide*.
      You must specify either a destination CIDR block or prefix list ID. You must also specify exactly one of the resources as the target.
@@ -225,7 +225,7 @@ def get_route_output(cidr_block: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['cidrBlock'] = cidr_block
     __args__['routeTableId'] = route_table_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getRoute', __args__, opts=opts, typ=GetRouteResult)
     return __ret__.apply(lambda __response__: GetRouteResult(
         carrier_gateway_id=pulumi.get(__response__, 'carrier_gateway_id'),

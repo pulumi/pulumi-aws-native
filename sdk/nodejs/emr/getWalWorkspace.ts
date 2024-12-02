@@ -33,7 +33,7 @@ export interface GetWalWorkspaceResult {
 /**
  * Resource schema for AWS::EMR::WALWorkspace Type
  */
-export function getWalWorkspaceOutput(args: GetWalWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWalWorkspaceResult> {
+export function getWalWorkspaceOutput(args: GetWalWorkspaceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWalWorkspaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:emr:getWalWorkspace", {
         "walWorkspaceName": args.walWorkspaceName,

@@ -43,7 +43,7 @@ export interface GetKeyGroupResult {
  * A key group.
  *  A key group contains a list of public keys that you can use with [CloudFront signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html).
  */
-export function getKeyGroupOutput(args: GetKeyGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKeyGroupResult> {
+export function getKeyGroupOutput(args: GetKeyGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetKeyGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:cloudfront:getKeyGroup", {
         "id": args.id,

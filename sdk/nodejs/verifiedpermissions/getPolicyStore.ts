@@ -53,7 +53,7 @@ export interface GetPolicyStoreResult {
 /**
  * Represents a policy store that you can place schema, policies, and policy templates in to validate authorization requests
  */
-export function getPolicyStoreOutput(args: GetPolicyStoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyStoreResult> {
+export function getPolicyStoreOutput(args: GetPolicyStoreOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPolicyStoreResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:verifiedpermissions:getPolicyStore", {
         "policyStoreId": args.policyStoreId,

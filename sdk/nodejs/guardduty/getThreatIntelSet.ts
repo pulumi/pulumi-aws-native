@@ -55,7 +55,7 @@ export interface GetThreatIntelSetResult {
 /**
  * Resource Type definition for AWS::GuardDuty::ThreatIntelSet
  */
-export function getThreatIntelSetOutput(args: GetThreatIntelSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetThreatIntelSetResult> {
+export function getThreatIntelSetOutput(args: GetThreatIntelSetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetThreatIntelSetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:guardduty:getThreatIntelSet", {
         "detectorId": args.detectorId,

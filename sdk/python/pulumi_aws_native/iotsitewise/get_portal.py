@@ -204,7 +204,7 @@ def get_portal(portal_id: Optional[str] = None,
         role_arn=pulumi.get(__ret__, 'role_arn'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_portal_output(portal_id: Optional[pulumi.Input[str]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPortalResult]:
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPortalResult]:
     """
     Resource schema for AWS::IoTSiteWise::Portal
 
@@ -213,7 +213,7 @@ def get_portal_output(portal_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['portalId'] = portal_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:iotsitewise:getPortal', __args__, opts=opts, typ=GetPortalResult)
     return __ret__.apply(lambda __response__: GetPortalResult(
         alarms=pulumi.get(__response__, 'alarms'),

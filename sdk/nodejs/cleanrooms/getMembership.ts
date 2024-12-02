@@ -71,7 +71,7 @@ export interface GetMembershipResult {
 /**
  * Represents an AWS account that is a part of a collaboration
  */
-export function getMembershipOutput(args: GetMembershipOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMembershipResult> {
+export function getMembershipOutput(args: GetMembershipOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMembershipResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:cleanrooms:getMembership", {
         "membershipIdentifier": args.membershipIdentifier,

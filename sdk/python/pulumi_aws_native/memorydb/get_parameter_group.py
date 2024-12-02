@@ -76,7 +76,7 @@ def get_parameter_group(parameter_group_name: Optional[str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_parameter_group_output(parameter_group_name: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetParameterGroupResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetParameterGroupResult]:
     """
     The AWS::MemoryDB::ParameterGroup resource creates an Amazon MemoryDB ParameterGroup.
 
@@ -85,7 +85,7 @@ def get_parameter_group_output(parameter_group_name: Optional[pulumi.Input[str]]
     """
     __args__ = dict()
     __args__['parameterGroupName'] = parameter_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:memorydb:getParameterGroup', __args__, opts=opts, typ=GetParameterGroupResult)
     return __ret__.apply(lambda __response__: GetParameterGroupResult(
         arn=pulumi.get(__response__, 'arn'),

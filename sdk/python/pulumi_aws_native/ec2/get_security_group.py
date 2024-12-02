@@ -116,7 +116,7 @@ def get_security_group(id: Optional[str] = None,
         security_group_ingress=pulumi.get(__ret__, 'security_group_ingress'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_security_group_output(id: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSecurityGroupResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecurityGroupResult]:
     """
     Resource Type definition for AWS::EC2::SecurityGroup
 
@@ -125,7 +125,7 @@ def get_security_group_output(id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getSecurityGroup', __args__, opts=opts, typ=GetSecurityGroupResult)
     return __ret__.apply(lambda __response__: GetSecurityGroupResult(
         group_id=pulumi.get(__response__, 'group_id'),

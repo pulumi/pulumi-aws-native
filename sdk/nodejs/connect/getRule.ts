@@ -53,7 +53,7 @@ export interface GetRuleResult {
 /**
  * Resource Type definition for AWS:Connect::Rule
  */
-export function getRuleOutput(args: GetRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRuleResult> {
+export function getRuleOutput(args: GetRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:connect:getRule", {
         "ruleArn": args.ruleArn,

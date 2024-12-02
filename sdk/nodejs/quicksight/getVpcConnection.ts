@@ -82,7 +82,7 @@ export interface GetVpcConnectionResult {
 /**
  * Definition of the AWS::QuickSight::VPCConnection Resource Type.
  */
-export function getVpcConnectionOutput(args: GetVpcConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcConnectionResult> {
+export function getVpcConnectionOutput(args: GetVpcConnectionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVpcConnectionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:quicksight:getVpcConnection", {
         "awsAccountId": args.awsAccountId,

@@ -77,7 +77,7 @@ export interface GetIndexResult {
 /**
  * Definition of AWS::QBusiness::Index Resource Type
  */
-export function getIndexOutput(args: GetIndexOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIndexResult> {
+export function getIndexOutput(args: GetIndexOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIndexResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:qbusiness:getIndex", {
         "applicationId": args.applicationId,

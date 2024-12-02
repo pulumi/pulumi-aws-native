@@ -34,7 +34,7 @@ export interface GetVersionResult {
 /**
  * Resource Type definition for AWS::Lambda::Version
  */
-export function getVersionOutput(args: GetVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVersionResult> {
+export function getVersionOutput(args: GetVersionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:lambda:getVersion", {
         "functionArn": args.functionArn,

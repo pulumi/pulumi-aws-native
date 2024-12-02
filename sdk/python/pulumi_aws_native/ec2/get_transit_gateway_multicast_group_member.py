@@ -148,7 +148,7 @@ def get_transit_gateway_multicast_group_member(group_ip_address: Optional[str] =
 def get_transit_gateway_multicast_group_member_output(group_ip_address: Optional[pulumi.Input[str]] = None,
                                                       network_interface_id: Optional[pulumi.Input[str]] = None,
                                                       transit_gateway_multicast_domain_id: Optional[pulumi.Input[str]] = None,
-                                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTransitGatewayMulticastGroupMemberResult]:
+                                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTransitGatewayMulticastGroupMemberResult]:
     """
     The AWS::EC2::TransitGatewayMulticastGroupMember registers and deregisters members and sources (network interfaces) with the transit gateway multicast group
 
@@ -161,7 +161,7 @@ def get_transit_gateway_multicast_group_member_output(group_ip_address: Optional
     __args__['groupIpAddress'] = group_ip_address
     __args__['networkInterfaceId'] = network_interface_id
     __args__['transitGatewayMulticastDomainId'] = transit_gateway_multicast_domain_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getTransitGatewayMulticastGroupMember', __args__, opts=opts, typ=GetTransitGatewayMulticastGroupMemberResult)
     return __ret__.apply(lambda __response__: GetTransitGatewayMulticastGroupMemberResult(
         group_member=pulumi.get(__response__, 'group_member'),

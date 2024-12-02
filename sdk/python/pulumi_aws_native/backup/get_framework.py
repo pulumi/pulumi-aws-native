@@ -150,7 +150,7 @@ def get_framework(framework_arn: Optional[str] = None,
         framework_status=pulumi.get(__ret__, 'framework_status'),
         framework_tags=pulumi.get(__ret__, 'framework_tags'))
 def get_framework_output(framework_arn: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFrameworkResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFrameworkResult]:
     """
     Contains detailed information about a framework. Frameworks contain controls, which evaluate and report on your backup events and resources. Frameworks generate daily compliance results.
 
@@ -159,7 +159,7 @@ def get_framework_output(framework_arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['frameworkArn'] = framework_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:backup:getFramework', __args__, opts=opts, typ=GetFrameworkResult)
     return __ret__.apply(lambda __response__: GetFrameworkResult(
         creation_time=pulumi.get(__response__, 'creation_time'),

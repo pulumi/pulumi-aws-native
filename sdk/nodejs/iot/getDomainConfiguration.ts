@@ -83,7 +83,7 @@ export interface GetDomainConfigurationResult {
 /**
  * Create and manage a Domain Configuration
  */
-export function getDomainConfigurationOutput(args: GetDomainConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainConfigurationResult> {
+export function getDomainConfigurationOutput(args: GetDomainConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDomainConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:iot:getDomainConfiguration", {
         "domainConfigurationName": args.domainConfigurationName,

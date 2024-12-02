@@ -240,7 +240,7 @@ def get_subscription_target(domain_id: Optional[str] = None,
 def get_subscription_target_output(domain_id: Optional[pulumi.Input[str]] = None,
                                    environment_id: Optional[pulumi.Input[str]] = None,
                                    id: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubscriptionTargetResult]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSubscriptionTargetResult]:
     """
     Subscription targets enables one to access the data to which you have subscribed in your projects.
 
@@ -253,7 +253,7 @@ def get_subscription_target_output(domain_id: Optional[pulumi.Input[str]] = None
     __args__['domainId'] = domain_id
     __args__['environmentId'] = environment_id
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:datazone:getSubscriptionTarget', __args__, opts=opts, typ=GetSubscriptionTargetResult)
     return __ret__.apply(lambda __response__: GetSubscriptionTargetResult(
         applicable_asset_types=pulumi.get(__response__, 'applicable_asset_types'),

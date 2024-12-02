@@ -61,7 +61,7 @@ export interface GetStudioComponentResult {
 /**
  * Resource Type definition for AWS::NimbleStudio::StudioComponent
  */
-export function getStudioComponentOutput(args: GetStudioComponentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStudioComponentResult> {
+export function getStudioComponentOutput(args: GetStudioComponentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStudioComponentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:nimblestudio:getStudioComponent", {
         "studioComponentId": args.studioComponentId,

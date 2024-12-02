@@ -168,7 +168,7 @@ def get_wireless_gateway(id: Optional[str] = None,
         thing_arn=pulumi.get(__ret__, 'thing_arn'),
         thing_name=pulumi.get(__ret__, 'thing_name'))
 def get_wireless_gateway_output(id: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWirelessGatewayResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWirelessGatewayResult]:
     """
     Create and manage wireless gateways, including LoRa gateways.
 
@@ -177,7 +177,7 @@ def get_wireless_gateway_output(id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:iotwireless:getWirelessGateway', __args__, opts=opts, typ=GetWirelessGatewayResult)
     return __ret__.apply(lambda __response__: GetWirelessGatewayResult(
         arn=pulumi.get(__response__, 'arn'),

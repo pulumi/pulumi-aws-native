@@ -61,7 +61,7 @@ export interface GetFilterResult {
 /**
  * Resource Type definition for AWS::GuardDuty::Filter
  */
-export function getFilterOutput(args: GetFilterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFilterResult> {
+export function getFilterOutput(args: GetFilterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFilterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:guardduty:getFilter", {
         "detectorId": args.detectorId,

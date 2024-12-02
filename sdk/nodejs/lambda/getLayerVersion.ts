@@ -30,7 +30,7 @@ export interface GetLayerVersionResult {
 /**
  * Resource Type definition for AWS::Lambda::LayerVersion
  */
-export function getLayerVersionOutput(args: GetLayerVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLayerVersionResult> {
+export function getLayerVersionOutput(args: GetLayerVersionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLayerVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:lambda:getLayerVersion", {
         "layerVersionArn": args.layerVersionArn,

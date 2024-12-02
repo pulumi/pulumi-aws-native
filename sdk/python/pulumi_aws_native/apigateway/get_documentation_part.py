@@ -79,7 +79,7 @@ def get_documentation_part(documentation_part_id: Optional[str] = None,
         properties=pulumi.get(__ret__, 'properties'))
 def get_documentation_part_output(documentation_part_id: Optional[pulumi.Input[str]] = None,
                                   rest_api_id: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDocumentationPartResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDocumentationPartResult]:
     """
     The ``AWS::ApiGateway::DocumentationPart`` resource creates a documentation part for an API. For more information, see [Representation of API Documentation in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api-content-representation.html) in the *API Gateway Developer Guide*.
 
@@ -90,7 +90,7 @@ def get_documentation_part_output(documentation_part_id: Optional[pulumi.Input[s
     __args__ = dict()
     __args__['documentationPartId'] = documentation_part_id
     __args__['restApiId'] = rest_api_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:apigateway:getDocumentationPart', __args__, opts=opts, typ=GetDocumentationPartResult)
     return __ret__.apply(lambda __response__: GetDocumentationPartResult(
         documentation_part_id=pulumi.get(__response__, 'documentation_part_id'),

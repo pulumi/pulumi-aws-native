@@ -103,7 +103,7 @@ def get_billing_group(billing_group_name: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_billing_group_output(billing_group_name: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBillingGroupResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBillingGroupResult]:
     """
     Resource Type definition for AWS::IoT::BillingGroup
 
@@ -112,7 +112,7 @@ def get_billing_group_output(billing_group_name: Optional[pulumi.Input[str]] = N
     """
     __args__ = dict()
     __args__['billingGroupName'] = billing_group_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:iot:getBillingGroup', __args__, opts=opts, typ=GetBillingGroupResult)
     return __ret__.apply(lambda __response__: GetBillingGroupResult(
         arn=pulumi.get(__response__, 'arn'),

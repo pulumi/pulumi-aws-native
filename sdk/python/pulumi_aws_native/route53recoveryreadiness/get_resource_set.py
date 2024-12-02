@@ -90,7 +90,7 @@ def get_resource_set(resource_set_name: Optional[str] = None,
         resources=pulumi.get(__ret__, 'resources'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_resource_set_output(resource_set_name: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourceSetResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourceSetResult]:
     """
     Schema for the AWS Route53 Recovery Readiness ResourceSet Resource and API.
 
@@ -99,7 +99,7 @@ def get_resource_set_output(resource_set_name: Optional[pulumi.Input[str]] = Non
     """
     __args__ = dict()
     __args__['resourceSetName'] = resource_set_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:route53recoveryreadiness:getResourceSet', __args__, opts=opts, typ=GetResourceSetResult)
     return __ret__.apply(lambda __response__: GetResourceSetResult(
         resource_set_arn=pulumi.get(__response__, 'resource_set_arn'),

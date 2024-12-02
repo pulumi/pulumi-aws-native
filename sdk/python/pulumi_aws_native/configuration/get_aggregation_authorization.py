@@ -80,7 +80,7 @@ def get_aggregation_authorization(authorized_account_id: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'))
 def get_aggregation_authorization_output(authorized_account_id: Optional[pulumi.Input[str]] = None,
                                          authorized_aws_region: Optional[pulumi.Input[str]] = None,
-                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAggregationAuthorizationResult]:
+                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAggregationAuthorizationResult]:
     """
     Resource Type definition for AWS::Config::AggregationAuthorization
 
@@ -91,7 +91,7 @@ def get_aggregation_authorization_output(authorized_account_id: Optional[pulumi.
     __args__ = dict()
     __args__['authorizedAccountId'] = authorized_account_id
     __args__['authorizedAwsRegion'] = authorized_aws_region
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:configuration:getAggregationAuthorization', __args__, opts=opts, typ=GetAggregationAuthorizationResult)
     return __ret__.apply(lambda __response__: GetAggregationAuthorizationResult(
         aggregation_authorization_arn=pulumi.get(__response__, 'aggregation_authorization_arn'),

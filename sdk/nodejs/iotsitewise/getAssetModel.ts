@@ -65,7 +65,7 @@ export interface GetAssetModelResult {
 /**
  * Resource schema for AWS::IoTSiteWise::AssetModel
  */
-export function getAssetModelOutput(args: GetAssetModelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssetModelResult> {
+export function getAssetModelOutput(args: GetAssetModelOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAssetModelResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:iotsitewise:getAssetModel", {
         "assetModelId": args.assetModelId,

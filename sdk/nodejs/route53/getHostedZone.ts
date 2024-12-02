@@ -95,7 +95,7 @@ export interface GetHostedZoneResult {
  *
  *  For more information, see [Access Management](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) in the *General Reference*.
  */
-export function getHostedZoneOutput(args: GetHostedZoneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHostedZoneResult> {
+export function getHostedZoneOutput(args: GetHostedZoneOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetHostedZoneResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:route53:getHostedZone", {
         "id": args.id,

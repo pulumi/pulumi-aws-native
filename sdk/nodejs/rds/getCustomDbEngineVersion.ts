@@ -50,7 +50,7 @@ export interface GetCustomDbEngineVersionResult {
 /**
  * The AWS::RDS::CustomDBEngineVersion resource creates an Amazon RDS custom DB engine version.
  */
-export function getCustomDbEngineVersionOutput(args: GetCustomDbEngineVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomDbEngineVersionResult> {
+export function getCustomDbEngineVersionOutput(args: GetCustomDbEngineVersionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCustomDbEngineVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:rds:getCustomDbEngineVersion", {
         "engine": args.engine,

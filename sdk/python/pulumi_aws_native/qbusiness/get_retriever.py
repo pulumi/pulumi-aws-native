@@ -173,7 +173,7 @@ def get_retriever(application_id: Optional[str] = None,
         updated_at=pulumi.get(__ret__, 'updated_at'))
 def get_retriever_output(application_id: Optional[pulumi.Input[str]] = None,
                          retriever_id: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRetrieverResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRetrieverResult]:
     """
     Definition of AWS::QBusiness::Retriever Resource Type
 
@@ -184,7 +184,7 @@ def get_retriever_output(application_id: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['applicationId'] = application_id
     __args__['retrieverId'] = retriever_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:qbusiness:getRetriever', __args__, opts=opts, typ=GetRetrieverResult)
     return __ret__.apply(lambda __response__: GetRetrieverResult(
         configuration=pulumi.get(__response__, 'configuration'),

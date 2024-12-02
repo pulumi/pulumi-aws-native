@@ -30,7 +30,7 @@ export interface GetSchemaResult {
 /**
  * Resource schema for AWS::Personalize::Schema.
  */
-export function getSchemaOutput(args: GetSchemaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSchemaResult> {
+export function getSchemaOutput(args: GetSchemaOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSchemaResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:personalize:getSchema", {
         "schemaArn": args.schemaArn,

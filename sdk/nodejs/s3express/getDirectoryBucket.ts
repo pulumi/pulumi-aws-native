@@ -45,7 +45,7 @@ export interface GetDirectoryBucketResult {
 /**
  * Resource Type definition for AWS::S3Express::DirectoryBucket.
  */
-export function getDirectoryBucketOutput(args: GetDirectoryBucketOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDirectoryBucketResult> {
+export function getDirectoryBucketOutput(args: GetDirectoryBucketOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDirectoryBucketResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:s3express:getDirectoryBucket", {
         "bucketName": args.bucketName,

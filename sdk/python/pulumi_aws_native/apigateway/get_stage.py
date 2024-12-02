@@ -211,7 +211,7 @@ def get_stage(rest_api_id: Optional[str] = None,
         variables=pulumi.get(__ret__, 'variables'))
 def get_stage_output(rest_api_id: Optional[pulumi.Input[str]] = None,
                      stage_name: Optional[pulumi.Input[str]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStageResult]:
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStageResult]:
     """
     The ``AWS::ApiGateway::Stage`` resource creates a stage for a deployment.
 
@@ -222,7 +222,7 @@ def get_stage_output(rest_api_id: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['restApiId'] = rest_api_id
     __args__['stageName'] = stage_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:apigateway:getStage', __args__, opts=opts, typ=GetStageResult)
     return __ret__.apply(lambda __response__: GetStageResult(
         access_log_setting=pulumi.get(__response__, 'access_log_setting'),

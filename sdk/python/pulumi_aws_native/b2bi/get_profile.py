@@ -168,13 +168,13 @@ def get_profile(profile_id: Optional[str] = None,
         profile_id=pulumi.get(__ret__, 'profile_id'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_profile_output(profile_id: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProfileResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProfileResult]:
     """
     Definition of AWS::B2BI::Profile Resource Type
     """
     __args__ = dict()
     __args__['profileId'] = profile_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:b2bi:getProfile', __args__, opts=opts, typ=GetProfileResult)
     return __ret__.apply(lambda __response__: GetProfileResult(
         business_name=pulumi.get(__response__, 'business_name'),

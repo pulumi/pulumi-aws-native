@@ -166,7 +166,7 @@ def get_membership(membership_identifier: Optional[str] = None,
         query_log_status=pulumi.get(__ret__, 'query_log_status'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_membership_output(membership_identifier: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMembershipResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMembershipResult]:
     """
     Represents an AWS account that is a part of a collaboration
 
@@ -177,7 +177,7 @@ def get_membership_output(membership_identifier: Optional[pulumi.Input[str]] = N
     """
     __args__ = dict()
     __args__['membershipIdentifier'] = membership_identifier
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:cleanrooms:getMembership', __args__, opts=opts, typ=GetMembershipResult)
     return __ret__.apply(lambda __response__: GetMembershipResult(
         arn=pulumi.get(__response__, 'arn'),

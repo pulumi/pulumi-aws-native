@@ -47,7 +47,7 @@ export interface GetLoadBalancerTlsCertificateResult {
 /**
  * Resource Type definition for AWS::Lightsail::LoadBalancerTlsCertificate
  */
-export function getLoadBalancerTlsCertificateOutput(args: GetLoadBalancerTlsCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLoadBalancerTlsCertificateResult> {
+export function getLoadBalancerTlsCertificateOutput(args: GetLoadBalancerTlsCertificateOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLoadBalancerTlsCertificateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:lightsail:getLoadBalancerTlsCertificate", {
         "certificateName": args.certificateName,

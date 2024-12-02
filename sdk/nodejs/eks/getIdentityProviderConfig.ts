@@ -47,7 +47,7 @@ export interface GetIdentityProviderConfigResult {
 /**
  * An object representing an Amazon EKS IdentityProviderConfig.
  */
-export function getIdentityProviderConfigOutput(args: GetIdentityProviderConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIdentityProviderConfigResult> {
+export function getIdentityProviderConfigOutput(args: GetIdentityProviderConfigOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIdentityProviderConfigResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:eks:getIdentityProviderConfig", {
         "clusterName": args.clusterName,

@@ -44,7 +44,7 @@ export interface GetAccessPointResult {
  * The ``AWS::EFS::AccessPoint`` resource creates an EFS access point. An access point is an application-specific view into an EFS file system that applies an operating system user and group, and a file system path, to any file system request made through the access point. The operating system user and group override any identity information provided by the NFS client. The file system path is exposed as the access point's root directory. Applications using the access point can only access data in its own directory and below. To learn more, see [Mounting a file system using EFS access points](https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html).
  *  This operation requires permissions for the ``elasticfilesystem:CreateAccessPoint`` action.
  */
-export function getAccessPointOutput(args: GetAccessPointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessPointResult> {
+export function getAccessPointOutput(args: GetAccessPointOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccessPointResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:efs:getAccessPoint", {
         "accessPointId": args.accessPointId,

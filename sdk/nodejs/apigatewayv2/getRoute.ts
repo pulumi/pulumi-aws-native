@@ -73,7 +73,7 @@ export interface GetRouteResult {
 /**
  * The ``AWS::ApiGatewayV2::Route`` resource creates a route for an API.
  */
-export function getRouteOutput(args: GetRouteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteResult> {
+export function getRouteOutput(args: GetRouteOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRouteResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:apigatewayv2:getRoute", {
         "apiId": args.apiId,

@@ -78,7 +78,7 @@ export interface GetPluginResult {
 /**
  * Definition of AWS::QBusiness::Plugin Resource Type
  */
-export function getPluginOutput(args: GetPluginOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPluginResult> {
+export function getPluginOutput(args: GetPluginOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetPluginResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:qbusiness:getPlugin", {
         "applicationId": args.applicationId,

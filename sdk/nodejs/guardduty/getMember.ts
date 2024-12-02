@@ -39,7 +39,7 @@ export interface GetMemberResult {
 /**
  * Resource Type definition for AWS::GuardDuty::Member
  */
-export function getMemberOutput(args: GetMemberOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMemberResult> {
+export function getMemberOutput(args: GetMemberOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMemberResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:guardduty:getMember", {
         "detectorId": args.detectorId,

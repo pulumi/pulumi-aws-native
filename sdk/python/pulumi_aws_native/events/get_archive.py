@@ -103,7 +103,7 @@ def get_archive(archive_name: Optional[str] = None,
         event_pattern=pulumi.get(__ret__, 'event_pattern'),
         retention_days=pulumi.get(__ret__, 'retention_days'))
 def get_archive_output(archive_name: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetArchiveResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetArchiveResult]:
     """
     Resource Type definition for AWS::Events::Archive
 
@@ -112,7 +112,7 @@ def get_archive_output(archive_name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['archiveName'] = archive_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:events:getArchive', __args__, opts=opts, typ=GetArchiveResult)
     return __ret__.apply(lambda __response__: GetArchiveResult(
         arn=pulumi.get(__response__, 'arn'),

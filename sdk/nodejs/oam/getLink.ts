@@ -49,7 +49,7 @@ export interface GetLinkResult {
 /**
  * Definition of AWS::Oam::Link Resource Type
  */
-export function getLinkOutput(args: GetLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLinkResult> {
+export function getLinkOutput(args: GetLinkOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLinkResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:oam:getLink", {
         "arn": args.arn,

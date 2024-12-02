@@ -88,7 +88,7 @@ def get_observability_configuration(observability_configuration_arn: Optional[st
         observability_configuration_arn=pulumi.get(__ret__, 'observability_configuration_arn'),
         observability_configuration_revision=pulumi.get(__ret__, 'observability_configuration_revision'))
 def get_observability_configuration_output(observability_configuration_arn: Optional[pulumi.Input[str]] = None,
-                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetObservabilityConfigurationResult]:
+                                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetObservabilityConfigurationResult]:
     """
     The AWS::AppRunner::ObservabilityConfiguration resource  is an AWS App Runner resource type that specifies an App Runner observability configuration
 
@@ -97,7 +97,7 @@ def get_observability_configuration_output(observability_configuration_arn: Opti
     """
     __args__ = dict()
     __args__['observabilityConfigurationArn'] = observability_configuration_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:apprunner:getObservabilityConfiguration', __args__, opts=opts, typ=GetObservabilityConfigurationResult)
     return __ret__.apply(lambda __response__: GetObservabilityConfigurationResult(
         latest=pulumi.get(__response__, 'latest'),

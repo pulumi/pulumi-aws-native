@@ -160,7 +160,7 @@ def get_budgets_action(action_id: Optional[str] = None,
         subscribers=pulumi.get(__ret__, 'subscribers'))
 def get_budgets_action_output(action_id: Optional[pulumi.Input[str]] = None,
                               budget_name: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBudgetsActionResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBudgetsActionResult]:
     """
     An example resource schema demonstrating some basic constructs and validation rules.
 
@@ -171,7 +171,7 @@ def get_budgets_action_output(action_id: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['actionId'] = action_id
     __args__['budgetName'] = budget_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:budgets:getBudgetsAction', __args__, opts=opts, typ=GetBudgetsActionResult)
     return __ret__.apply(lambda __response__: GetBudgetsActionResult(
         action_id=pulumi.get(__response__, 'action_id'),

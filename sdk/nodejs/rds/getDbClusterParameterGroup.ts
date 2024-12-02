@@ -49,7 +49,7 @@ export interface GetDbClusterParameterGroupResult {
  *   If you apply a parameter group to a DB cluster, then its DB instances might need to reboot. This can result in an outage while the DB instances are rebooting.
  *  If you apply a change to parameter group associated with a stopped DB cluster, then the updated stack waits until the DB cluster is started.
  */
-export function getDbClusterParameterGroupOutput(args: GetDbClusterParameterGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDbClusterParameterGroupResult> {
+export function getDbClusterParameterGroupOutput(args: GetDbClusterParameterGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDbClusterParameterGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:rds:getDbClusterParameterGroup", {
         "dbClusterParameterGroupName": args.dbClusterParameterGroupName,

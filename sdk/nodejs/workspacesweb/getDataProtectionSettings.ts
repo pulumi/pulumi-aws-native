@@ -33,7 +33,7 @@ export interface GetDataProtectionSettingsResult {
 /**
  * Definition of AWS::WorkSpacesWeb::DataProtectionSettings Resource Type
  */
-export function getDataProtectionSettingsOutput(args: GetDataProtectionSettingsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataProtectionSettingsResult> {
+export function getDataProtectionSettingsOutput(args: GetDataProtectionSettingsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDataProtectionSettingsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:workspacesweb:getDataProtectionSettings", {
         "dataProtectionSettingsArn": args.dataProtectionSettingsArn,

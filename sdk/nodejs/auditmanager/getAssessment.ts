@@ -69,7 +69,7 @@ export interface GetAssessmentResult {
 /**
  * An entity that defines the scope of audit evidence collected by AWS Audit Manager.
  */
-export function getAssessmentOutput(args: GetAssessmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssessmentResult> {
+export function getAssessmentOutput(args: GetAssessmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAssessmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:auditmanager:getAssessment", {
         "assessmentId": args.assessmentId,

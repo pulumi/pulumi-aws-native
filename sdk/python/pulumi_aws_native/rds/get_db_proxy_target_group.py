@@ -102,7 +102,7 @@ def get_db_proxy_target_group(target_group_arn: Optional[str] = None,
         db_instance_identifiers=pulumi.get(__ret__, 'db_instance_identifiers'),
         target_group_arn=pulumi.get(__ret__, 'target_group_arn'))
 def get_db_proxy_target_group_output(target_group_arn: Optional[pulumi.Input[str]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDbProxyTargetGroupResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDbProxyTargetGroupResult]:
     """
     Resource schema for AWS::RDS::DBProxyTargetGroup
 
@@ -111,7 +111,7 @@ def get_db_proxy_target_group_output(target_group_arn: Optional[pulumi.Input[str
     """
     __args__ = dict()
     __args__['targetGroupArn'] = target_group_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:rds:getDbProxyTargetGroup', __args__, opts=opts, typ=GetDbProxyTargetGroupResult)
     return __ret__.apply(lambda __response__: GetDbProxyTargetGroupResult(
         connection_pool_configuration_info=pulumi.get(__response__, 'connection_pool_configuration_info'),

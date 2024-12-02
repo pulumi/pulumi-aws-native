@@ -47,7 +47,7 @@ export interface GetIdentitySourceResult {
 /**
  * Definition of AWS::VerifiedPermissions::IdentitySource Resource Type
  */
-export function getIdentitySourceOutput(args: GetIdentitySourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIdentitySourceResult> {
+export function getIdentitySourceOutput(args: GetIdentitySourceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetIdentitySourceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:verifiedpermissions:getIdentitySource", {
         "identitySourceId": args.identitySourceId,

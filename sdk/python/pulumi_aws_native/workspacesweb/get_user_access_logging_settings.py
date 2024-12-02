@@ -102,7 +102,7 @@ def get_user_access_logging_settings(user_access_logging_settings_arn: Optional[
         tags=pulumi.get(__ret__, 'tags'),
         user_access_logging_settings_arn=pulumi.get(__ret__, 'user_access_logging_settings_arn'))
 def get_user_access_logging_settings_output(user_access_logging_settings_arn: Optional[pulumi.Input[str]] = None,
-                                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserAccessLoggingSettingsResult]:
+                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserAccessLoggingSettingsResult]:
     """
     Definition of AWS::WorkSpacesWeb::UserAccessLoggingSettings Resource Type
 
@@ -111,7 +111,7 @@ def get_user_access_logging_settings_output(user_access_logging_settings_arn: Op
     """
     __args__ = dict()
     __args__['userAccessLoggingSettingsArn'] = user_access_logging_settings_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:workspacesweb:getUserAccessLoggingSettings', __args__, opts=opts, typ=GetUserAccessLoggingSettingsResult)
     return __ret__.apply(lambda __response__: GetUserAccessLoggingSettingsResult(
         associated_portal_arns=pulumi.get(__response__, 'associated_portal_arns'),

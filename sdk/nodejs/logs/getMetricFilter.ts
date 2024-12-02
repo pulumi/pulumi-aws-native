@@ -44,7 +44,7 @@ export interface GetMetricFilterResult {
  * The ``AWS::Logs::MetricFilter`` resource specifies a metric filter that describes how CWL extracts information from logs and transforms it into Amazon CloudWatch metrics. If you have multiple metric filters that are associated with a log group, all the filters are applied to the log streams in that group.
  *  The maximum number of metric filters that can be associated with a log group is 100.
  */
-export function getMetricFilterOutput(args: GetMetricFilterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMetricFilterResult> {
+export function getMetricFilterOutput(args: GetMetricFilterOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMetricFilterResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:logs:getMetricFilter", {
         "filterName": args.filterName,

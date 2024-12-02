@@ -116,7 +116,7 @@ def get_flywheel(arn: Optional[str] = None,
         data_security_config=pulumi.get(__ret__, 'data_security_config'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_flywheel_output(arn: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFlywheelResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFlywheelResult]:
     """
     The AWS::Comprehend::Flywheel resource creates an Amazon Comprehend Flywheel that enables customer to train their model.
 
@@ -125,7 +125,7 @@ def get_flywheel_output(arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:comprehend:getFlywheel', __args__, opts=opts, typ=GetFlywheelResult)
     return __ret__.apply(lambda __response__: GetFlywheelResult(
         active_model_arn=pulumi.get(__response__, 'active_model_arn'),

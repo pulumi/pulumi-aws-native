@@ -77,7 +77,7 @@ export interface GetFunctionConfigurationResult {
 /**
  * An example resource schema demonstrating some basic constructs and validation rules.
  */
-export function getFunctionConfigurationOutput(args: GetFunctionConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFunctionConfigurationResult> {
+export function getFunctionConfigurationOutput(args: GetFunctionConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFunctionConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:appsync:getFunctionConfiguration", {
         "functionArn": args.functionArn,

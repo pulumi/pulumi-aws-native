@@ -38,7 +38,7 @@ export interface GetMessageTemplateVersionResult {
 /**
  * A version for the specified customer-managed message template within the specified knowledge base.
  */
-export function getMessageTemplateVersionOutput(args: GetMessageTemplateVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMessageTemplateVersionResult> {
+export function getMessageTemplateVersionOutput(args: GetMessageTemplateVersionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMessageTemplateVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:wisdom:getMessageTemplateVersion", {
         "messageTemplateVersionArn": args.messageTemplateVersionArn,

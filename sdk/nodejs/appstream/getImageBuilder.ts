@@ -121,7 +121,7 @@ export interface GetImageBuilderResult {
 /**
  * Resource Type definition for AWS::AppStream::ImageBuilder
  */
-export function getImageBuilderOutput(args: GetImageBuilderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImageBuilderResult> {
+export function getImageBuilderOutput(args: GetImageBuilderOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetImageBuilderResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:appstream:getImageBuilder", {
         "name": args.name,

@@ -78,7 +78,7 @@ export interface GetEntityResult {
 /**
  * Resource schema for AWS::IoTTwinMaker::Entity
  */
-export function getEntityOutput(args: GetEntityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEntityResult> {
+export function getEntityOutput(args: GetEntityOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEntityResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:iottwinmaker:getEntity", {
         "entityId": args.entityId,

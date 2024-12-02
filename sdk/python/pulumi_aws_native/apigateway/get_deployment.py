@@ -79,7 +79,7 @@ def get_deployment(deployment_id: Optional[str] = None,
         description=pulumi.get(__ret__, 'description'))
 def get_deployment_output(deployment_id: Optional[pulumi.Input[str]] = None,
                           rest_api_id: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDeploymentResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDeploymentResult]:
     """
     The ``AWS::ApiGateway::Deployment`` resource deploys an API Gateway ``RestApi`` resource to a stage so that clients can call the API over the internet. The stage acts as an environment.
 
@@ -90,7 +90,7 @@ def get_deployment_output(deployment_id: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['deploymentId'] = deployment_id
     __args__['restApiId'] = rest_api_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:apigateway:getDeployment', __args__, opts=opts, typ=GetDeploymentResult)
     return __ret__.apply(lambda __response__: GetDeploymentResult(
         deployment_id=pulumi.get(__response__, 'deployment_id'),

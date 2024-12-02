@@ -37,7 +37,7 @@ export interface GetEncoderConfigurationResult {
 /**
  * Resource Type definition for AWS::IVS::EncoderConfiguration.
  */
-export function getEncoderConfigurationOutput(args: GetEncoderConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEncoderConfigurationResult> {
+export function getEncoderConfigurationOutput(args: GetEncoderConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetEncoderConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:ivs:getEncoderConfiguration", {
         "arn": args.arn,

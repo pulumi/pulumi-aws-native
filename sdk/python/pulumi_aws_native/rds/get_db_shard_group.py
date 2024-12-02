@@ -115,7 +115,7 @@ def get_db_shard_group(db_shard_group_identifier: Optional[str] = None,
         max_acu=pulumi.get(__ret__, 'max_acu'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_db_shard_group_output(db_shard_group_identifier: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDbShardGroupResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDbShardGroupResult]:
     """
     The AWS::RDS::DBShardGroup resource creates an Amazon Aurora Limitless DB Shard Group.
 
@@ -124,7 +124,7 @@ def get_db_shard_group_output(db_shard_group_identifier: Optional[pulumi.Input[s
     """
     __args__ = dict()
     __args__['dbShardGroupIdentifier'] = db_shard_group_identifier
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:rds:getDbShardGroup', __args__, opts=opts, typ=GetDbShardGroupResult)
     return __ret__.apply(lambda __response__: GetDbShardGroupResult(
         compute_redundancy=pulumi.get(__response__, 'compute_redundancy'),

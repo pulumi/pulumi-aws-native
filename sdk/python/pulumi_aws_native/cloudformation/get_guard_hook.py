@@ -168,7 +168,7 @@ def get_guard_hook(hook_arn: Optional[str] = None,
         target_filters=pulumi.get(__ret__, 'target_filters'),
         target_operations=pulumi.get(__ret__, 'target_operations'))
 def get_guard_hook_output(hook_arn: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGuardHookResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGuardHookResult]:
     """
     This is a CloudFormation resource for activating the first-party AWS::Hooks::GuardHook.
 
@@ -177,7 +177,7 @@ def get_guard_hook_output(hook_arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['hookArn'] = hook_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:cloudformation:getGuardHook', __args__, opts=opts, typ=GetGuardHookResult)
     return __ret__.apply(lambda __response__: GetGuardHookResult(
         failure_mode=pulumi.get(__response__, 'failure_mode'),

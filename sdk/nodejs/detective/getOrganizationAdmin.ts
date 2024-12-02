@@ -30,7 +30,7 @@ export interface GetOrganizationAdminResult {
 /**
  * Resource schema for AWS::Detective::OrganizationAdmin
  */
-export function getOrganizationAdminOutput(args: GetOrganizationAdminOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrganizationAdminResult> {
+export function getOrganizationAdminOutput(args: GetOrganizationAdminOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOrganizationAdminResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:detective:getOrganizationAdmin", {
         "accountId": args.accountId,

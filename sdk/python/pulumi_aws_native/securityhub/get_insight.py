@@ -103,7 +103,7 @@ def get_insight(insight_arn: Optional[str] = None,
         insight_arn=pulumi.get(__ret__, 'insight_arn'),
         name=pulumi.get(__ret__, 'name'))
 def get_insight_output(insight_arn: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetInsightResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInsightResult]:
     """
     The AWS::SecurityHub::Insight resource represents the AWS Security Hub Insight in your account. An AWS Security Hub insight is a collection of related findings.
 
@@ -112,7 +112,7 @@ def get_insight_output(insight_arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['insightArn'] = insight_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:securityhub:getInsight', __args__, opts=opts, typ=GetInsightResult)
     return __ret__.apply(lambda __response__: GetInsightResult(
         filters=pulumi.get(__response__, 'filters'),

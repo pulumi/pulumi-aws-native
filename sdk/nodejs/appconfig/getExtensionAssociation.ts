@@ -46,7 +46,7 @@ export interface GetExtensionAssociationResult {
 /**
  * An example resource schema demonstrating some basic constructs and validation rules.
  */
-export function getExtensionAssociationOutput(args: GetExtensionAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetExtensionAssociationResult> {
+export function getExtensionAssociationOutput(args: GetExtensionAssociationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetExtensionAssociationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:appconfig:getExtensionAssociation", {
         "id": args.id,

@@ -41,7 +41,7 @@ export interface GetNetworkInterfaceAttachmentResult {
 /**
  * Attaches an elastic network interface (ENI) to an Amazon EC2 instance. You can use this resource type to attach additional network interfaces to an instance without interruption.
  */
-export function getNetworkInterfaceAttachmentOutput(args: GetNetworkInterfaceAttachmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkInterfaceAttachmentResult> {
+export function getNetworkInterfaceAttachmentOutput(args: GetNetworkInterfaceAttachmentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkInterfaceAttachmentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:ec2:getNetworkInterfaceAttachment", {
         "attachmentId": args.attachmentId,

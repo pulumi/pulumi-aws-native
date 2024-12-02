@@ -95,7 +95,7 @@ def get_live_source(live_source_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'))
 def get_live_source_output(live_source_name: Optional[pulumi.Input[str]] = None,
                            source_location_name: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLiveSourceResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLiveSourceResult]:
     """
     Definition of AWS::MediaTailor::LiveSource Resource Type
 
@@ -106,7 +106,7 @@ def get_live_source_output(live_source_name: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['liveSourceName'] = live_source_name
     __args__['sourceLocationName'] = source_location_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:mediatailor:getLiveSource', __args__, opts=opts, typ=GetLiveSourceResult)
     return __ret__.apply(lambda __response__: GetLiveSourceResult(
         arn=pulumi.get(__response__, 'arn'),

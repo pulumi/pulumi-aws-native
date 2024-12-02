@@ -142,7 +142,7 @@ def get_provisioning_template(template_name: Optional[str] = None,
         template_arn=pulumi.get(__ret__, 'template_arn'),
         template_body=pulumi.get(__ret__, 'template_body'))
 def get_provisioning_template_output(template_name: Optional[pulumi.Input[str]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProvisioningTemplateResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetProvisioningTemplateResult]:
     """
     Creates a fleet provisioning template.
 
@@ -151,7 +151,7 @@ def get_provisioning_template_output(template_name: Optional[pulumi.Input[str]] 
     """
     __args__ = dict()
     __args__['templateName'] = template_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:iot:getProvisioningTemplate', __args__, opts=opts, typ=GetProvisioningTemplateResult)
     return __ret__.apply(lambda __response__: GetProvisioningTemplateResult(
         description=pulumi.get(__response__, 'description'),

@@ -49,7 +49,7 @@ export interface GetComponentVersionResult {
 /**
  * Resource for Greengrass component version.
  */
-export function getComponentVersionOutput(args: GetComponentVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetComponentVersionResult> {
+export function getComponentVersionOutput(args: GetComponentVersionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetComponentVersionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:greengrassv2:getComponentVersion", {
         "arn": args.arn,

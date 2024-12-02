@@ -66,7 +66,7 @@ def get_user_pool_ui_customization_attachment(client_id: Optional[str] = None,
         css=pulumi.get(__ret__, 'css'))
 def get_user_pool_ui_customization_attachment_output(client_id: Optional[pulumi.Input[str]] = None,
                                                      user_pool_id: Optional[pulumi.Input[str]] = None,
-                                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUserPoolUiCustomizationAttachmentResult]:
+                                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetUserPoolUiCustomizationAttachmentResult]:
     """
     Resource Type definition for AWS::Cognito::UserPoolUICustomizationAttachment
 
@@ -77,7 +77,7 @@ def get_user_pool_ui_customization_attachment_output(client_id: Optional[pulumi.
     __args__ = dict()
     __args__['clientId'] = client_id
     __args__['userPoolId'] = user_pool_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:cognito:getUserPoolUiCustomizationAttachment', __args__, opts=opts, typ=GetUserPoolUiCustomizationAttachmentResult)
     return __ret__.apply(lambda __response__: GetUserPoolUiCustomizationAttachmentResult(
         css=pulumi.get(__response__, 'css')))

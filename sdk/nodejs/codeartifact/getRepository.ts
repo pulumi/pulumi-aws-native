@@ -59,7 +59,7 @@ export interface GetRepositoryResult {
 /**
  * The resource schema to create a CodeArtifact repository.
  */
-export function getRepositoryOutput(args: GetRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRepositoryResult> {
+export function getRepositoryOutput(args: GetRepositoryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRepositoryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:codeartifact:getRepository", {
         "arn": args.arn,

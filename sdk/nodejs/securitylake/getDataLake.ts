@@ -53,7 +53,7 @@ export interface GetDataLakeResult {
 /**
  * Resource Type definition for AWS::SecurityLake::DataLake
  */
-export function getDataLakeOutput(args: GetDataLakeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDataLakeResult> {
+export function getDataLakeOutput(args: GetDataLakeOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDataLakeResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:securitylake:getDataLake", {
         "arn": args.arn,

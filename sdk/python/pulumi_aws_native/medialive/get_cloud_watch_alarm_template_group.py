@@ -121,13 +121,13 @@ def get_cloud_watch_alarm_template_group(identifier: Optional[str] = None,
         identifier=pulumi.get(__ret__, 'identifier'),
         modified_at=pulumi.get(__ret__, 'modified_at'))
 def get_cloud_watch_alarm_template_group_output(identifier: Optional[pulumi.Input[str]] = None,
-                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCloudWatchAlarmTemplateGroupResult]:
+                                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCloudWatchAlarmTemplateGroupResult]:
     """
     Definition of AWS::MediaLive::CloudWatchAlarmTemplateGroup Resource Type
     """
     __args__ = dict()
     __args__['identifier'] = identifier
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:medialive:getCloudWatchAlarmTemplateGroup', __args__, opts=opts, typ=GetCloudWatchAlarmTemplateGroupResult)
     return __ret__.apply(lambda __response__: GetCloudWatchAlarmTemplateGroupResult(
         arn=pulumi.get(__response__, 'arn'),

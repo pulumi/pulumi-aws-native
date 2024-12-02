@@ -45,7 +45,7 @@ export interface GetProfilingGroupResult {
 /**
  * This resource schema represents the Profiling Group resource in the Amazon CodeGuru Profiler service.
  */
-export function getProfilingGroupOutput(args: GetProfilingGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProfilingGroupResult> {
+export function getProfilingGroupOutput(args: GetProfilingGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetProfilingGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:codeguruprofiler:getProfilingGroup", {
         "profilingGroupName": args.profilingGroupName,

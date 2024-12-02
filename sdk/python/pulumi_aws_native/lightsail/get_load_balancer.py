@@ -141,7 +141,7 @@ def get_load_balancer(load_balancer_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         tls_policy_name=pulumi.get(__ret__, 'tls_policy_name'))
 def get_load_balancer_output(load_balancer_name: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLoadBalancerResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLoadBalancerResult]:
     """
     Resource Type definition for AWS::Lightsail::LoadBalancer
 
@@ -150,7 +150,7 @@ def get_load_balancer_output(load_balancer_name: Optional[pulumi.Input[str]] = N
     """
     __args__ = dict()
     __args__['loadBalancerName'] = load_balancer_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:lightsail:getLoadBalancer', __args__, opts=opts, typ=GetLoadBalancerResult)
     return __ret__.apply(lambda __response__: GetLoadBalancerResult(
         attached_instances=pulumi.get(__response__, 'attached_instances'),

@@ -47,7 +47,7 @@ export interface GetSyncJobResult {
 /**
  * Resource schema for AWS::IoTTwinMaker::SyncJob
  */
-export function getSyncJobOutput(args: GetSyncJobOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSyncJobResult> {
+export function getSyncJobOutput(args: GetSyncJobOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSyncJobResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:iottwinmaker:getSyncJob", {
         "syncSource": args.syncSource,

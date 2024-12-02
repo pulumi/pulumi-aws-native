@@ -39,7 +39,7 @@ export interface GetTagAssociationResult {
 /**
  * A resource schema representing a Lake Formation Tag Association. While tag associations are not explicit Lake Formation resources, this CloudFormation resource can be used to associate tags with Lake Formation entities.
  */
-export function getTagAssociationOutput(args: GetTagAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTagAssociationResult> {
+export function getTagAssociationOutput(args: GetTagAssociationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTagAssociationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:lakeformation:getTagAssociation", {
         "resourceIdentifier": args.resourceIdentifier,

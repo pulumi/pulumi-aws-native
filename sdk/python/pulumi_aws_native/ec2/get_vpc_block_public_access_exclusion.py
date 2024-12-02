@@ -90,7 +90,7 @@ def get_vpc_block_public_access_exclusion(exclusion_id: Optional[str] = None,
         internet_gateway_exclusion_mode=pulumi.get(__ret__, 'internet_gateway_exclusion_mode'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_vpc_block_public_access_exclusion_output(exclusion_id: Optional[pulumi.Input[str]] = None,
-                                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVpcBlockPublicAccessExclusionResult]:
+                                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcBlockPublicAccessExclusionResult]:
     """
     Resource Type definition for AWS::EC2::VPCBlockPublicAccessExclusion.
 
@@ -99,7 +99,7 @@ def get_vpc_block_public_access_exclusion_output(exclusion_id: Optional[pulumi.I
     """
     __args__ = dict()
     __args__['exclusionId'] = exclusion_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getVpcBlockPublicAccessExclusion', __args__, opts=opts, typ=GetVpcBlockPublicAccessExclusionResult)
     return __ret__.apply(lambda __response__: GetVpcBlockPublicAccessExclusionResult(
         exclusion_id=pulumi.get(__response__, 'exclusion_id'),

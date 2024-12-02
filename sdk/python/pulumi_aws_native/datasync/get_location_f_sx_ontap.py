@@ -102,7 +102,7 @@ def get_location_f_sx_ontap(location_arn: Optional[str] = None,
         location_uri=pulumi.get(__ret__, 'location_uri'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_location_f_sx_ontap_output(location_arn: Optional[pulumi.Input[str]] = None,
-                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocationFSxOntapResult]:
+                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocationFSxOntapResult]:
     """
     Resource schema for AWS::DataSync::LocationFSxONTAP.
 
@@ -111,7 +111,7 @@ def get_location_f_sx_ontap_output(location_arn: Optional[pulumi.Input[str]] = N
     """
     __args__ = dict()
     __args__['locationArn'] = location_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:datasync:getLocationFSxOntap', __args__, opts=opts, typ=GetLocationFSxOntapResult)
     return __ret__.apply(lambda __response__: GetLocationFSxOntapResult(
         fsx_filesystem_arn=pulumi.get(__response__, 'fsx_filesystem_arn'),

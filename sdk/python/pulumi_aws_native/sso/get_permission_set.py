@@ -176,7 +176,7 @@ def get_permission_set(instance_arn: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'))
 def get_permission_set_output(instance_arn: Optional[pulumi.Input[str]] = None,
                               permission_set_arn: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPermissionSetResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPermissionSetResult]:
     """
     Resource Type definition for SSO PermissionSet
 
@@ -187,7 +187,7 @@ def get_permission_set_output(instance_arn: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['instanceArn'] = instance_arn
     __args__['permissionSetArn'] = permission_set_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:sso:getPermissionSet', __args__, opts=opts, typ=GetPermissionSetResult)
     return __ret__.apply(lambda __response__: GetPermissionSetResult(
         customer_managed_policy_references=pulumi.get(__response__, 'customer_managed_policy_references'),

@@ -141,7 +141,7 @@ def get_environment(environment_arn: Optional[str] = None,
         preferred_maintenance_window=pulumi.get(__ret__, 'preferred_maintenance_window'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_environment_output(environment_arn: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEnvironmentResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEnvironmentResult]:
     """
     Represents a runtime environment that can run migrated mainframe applications.
 
@@ -150,7 +150,7 @@ def get_environment_output(environment_arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['environmentArn'] = environment_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:m2:getEnvironment', __args__, opts=opts, typ=GetEnvironmentResult)
     return __ret__.apply(lambda __response__: GetEnvironmentResult(
         engine_version=pulumi.get(__response__, 'engine_version'),

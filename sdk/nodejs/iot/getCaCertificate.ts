@@ -61,7 +61,7 @@ export interface GetCaCertificateResult {
 /**
  * Registers a CA Certificate in IoT.
  */
-export function getCaCertificateOutput(args: GetCaCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCaCertificateResult> {
+export function getCaCertificateOutput(args: GetCaCertificateOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCaCertificateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:iot:getCaCertificate", {
         "id": args.id,

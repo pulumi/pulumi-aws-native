@@ -114,7 +114,7 @@ def get_grant(grant_arn: Optional[str] = None,
         license_arn=pulumi.get(__ret__, 'license_arn'),
         version=pulumi.get(__ret__, 'version'))
 def get_grant_output(grant_arn: Optional[pulumi.Input[str]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGrantResult]:
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGrantResult]:
     """
     An example resource schema demonstrating some basic constructs and validation rules.
 
@@ -123,7 +123,7 @@ def get_grant_output(grant_arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['grantArn'] = grant_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:licensemanager:getGrant', __args__, opts=opts, typ=GetGrantResult)
     return __ret__.apply(lambda __response__: GetGrantResult(
         grant_arn=pulumi.get(__response__, 'grant_arn'),

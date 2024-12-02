@@ -149,7 +149,7 @@ def get_package_version(package_id: Optional[str] = None,
 def get_package_version_output(package_id: Optional[pulumi.Input[str]] = None,
                                package_version: Optional[pulumi.Input[str]] = None,
                                patch_version: Optional[pulumi.Input[str]] = None,
-                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPackageVersionResult]:
+                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPackageVersionResult]:
     """
     Registers a package version.
 
@@ -162,7 +162,7 @@ def get_package_version_output(package_id: Optional[pulumi.Input[str]] = None,
     __args__['packageId'] = package_id
     __args__['packageVersion'] = package_version
     __args__['patchVersion'] = patch_version
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:panorama:getPackageVersion', __args__, opts=opts, typ=GetPackageVersionResult)
     return __ret__.apply(lambda __response__: GetPackageVersionResult(
         is_latest_patch=pulumi.get(__response__, 'is_latest_patch'),

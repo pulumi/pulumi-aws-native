@@ -76,7 +76,7 @@ def get_database(database_name: Optional[str] = None,
         catalog_id=pulumi.get(__ret__, 'catalog_id'),
         database_input=pulumi.get(__ret__, 'database_input'))
 def get_database_output(database_name: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDatabaseResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatabaseResult]:
     """
     Resource Type definition for AWS::Glue::Database
 
@@ -85,7 +85,7 @@ def get_database_output(database_name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['databaseName'] = database_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:glue:getDatabase', __args__, opts=opts, typ=GetDatabaseResult)
     return __ret__.apply(lambda __response__: GetDatabaseResult(
         catalog_id=pulumi.get(__response__, 'catalog_id'),

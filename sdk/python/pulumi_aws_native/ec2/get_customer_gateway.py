@@ -76,7 +76,7 @@ def get_customer_gateway(customer_gateway_id: Optional[str] = None,
         customer_gateway_id=pulumi.get(__ret__, 'customer_gateway_id'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_customer_gateway_output(customer_gateway_id: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCustomerGatewayResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCustomerGatewayResult]:
     """
     Specifies a customer gateway.
 
@@ -85,7 +85,7 @@ def get_customer_gateway_output(customer_gateway_id: Optional[pulumi.Input[str]]
     """
     __args__ = dict()
     __args__['customerGatewayId'] = customer_gateway_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getCustomerGateway', __args__, opts=opts, typ=GetCustomerGatewayResult)
     return __ret__.apply(lambda __response__: GetCustomerGatewayResult(
         customer_gateway_id=pulumi.get(__response__, 'customer_gateway_id'),

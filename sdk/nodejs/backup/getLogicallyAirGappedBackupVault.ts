@@ -53,7 +53,7 @@ export interface GetLogicallyAirGappedBackupVaultResult {
 /**
  * Resource Type definition for AWS::Backup::LogicallyAirGappedBackupVault
  */
-export function getLogicallyAirGappedBackupVaultOutput(args: GetLogicallyAirGappedBackupVaultOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLogicallyAirGappedBackupVaultResult> {
+export function getLogicallyAirGappedBackupVaultOutput(args: GetLogicallyAirGappedBackupVaultOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLogicallyAirGappedBackupVaultResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:backup:getLogicallyAirGappedBackupVault", {
         "backupVaultName": args.backupVaultName,

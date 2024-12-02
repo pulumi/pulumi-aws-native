@@ -172,7 +172,7 @@ def get_dashboard(aws_account_id: Optional[str] = None,
         version=pulumi.get(__ret__, 'version'))
 def get_dashboard_output(aws_account_id: Optional[pulumi.Input[str]] = None,
                          dashboard_id: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDashboardResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDashboardResult]:
     """
     Definition of the AWS::QuickSight::Dashboard Resource Type.
 
@@ -183,7 +183,7 @@ def get_dashboard_output(aws_account_id: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['awsAccountId'] = aws_account_id
     __args__['dashboardId'] = dashboard_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:quicksight:getDashboard', __args__, opts=opts, typ=GetDashboardResult)
     return __ret__.apply(lambda __response__: GetDashboardResult(
         arn=pulumi.get(__response__, 'arn'),

@@ -241,7 +241,7 @@ def get_transformer(transformer_id: Optional[str] = None,
         transformer_arn=pulumi.get(__ret__, 'transformer_arn'),
         transformer_id=pulumi.get(__ret__, 'transformer_id'))
 def get_transformer_output(transformer_id: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTransformerResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTransformerResult]:
     """
     Definition of AWS::B2BI::Transformer Resource Type
 
@@ -250,7 +250,7 @@ def get_transformer_output(transformer_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['transformerId'] = transformer_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:b2bi:getTransformer', __args__, opts=opts, typ=GetTransformerResult)
     return __ret__.apply(lambda __response__: GetTransformerResult(
         created_at=pulumi.get(__response__, 'created_at'),

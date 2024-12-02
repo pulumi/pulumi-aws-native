@@ -280,7 +280,7 @@ def get_association(association_id: Optional[str] = None,
         sync_compliance=pulumi.get(__ret__, 'sync_compliance'),
         targets=pulumi.get(__ret__, 'targets'))
 def get_association_output(association_id: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAssociationResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAssociationResult]:
     """
     The AWS::SSM::Association resource associates an SSM document in AWS Systems Manager with EC2 instances that contain a configuration agent to process the document.
 
@@ -289,7 +289,7 @@ def get_association_output(association_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['associationId'] = association_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ssm:getAssociation', __args__, opts=opts, typ=GetAssociationResult)
     return __ret__.apply(lambda __response__: GetAssociationResult(
         apply_only_at_cron_interval=pulumi.get(__response__, 'apply_only_at_cron_interval'),

@@ -139,7 +139,7 @@ def get_access_log_subscription(arn: Optional[str] = None,
         service_network_log_type=pulumi.get(__ret__, 'service_network_log_type'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_access_log_subscription_output(arn: Optional[pulumi.Input[str]] = None,
-                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAccessLogSubscriptionResult]:
+                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccessLogSubscriptionResult]:
     """
     Enables access logs to be sent to Amazon CloudWatch, Amazon S3, and Amazon Kinesis Data Firehose. The service network owner can use the access logs to audit the services in the network. The service network owner will only see access logs from clients and services that are associated with their service network. Access log entries represent traffic originated from VPCs associated with that network.
 
@@ -148,7 +148,7 @@ def get_access_log_subscription_output(arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:vpclattice:getAccessLogSubscription', __args__, opts=opts, typ=GetAccessLogSubscriptionResult)
     return __ret__.apply(lambda __response__: GetAccessLogSubscriptionResult(
         arn=pulumi.get(__response__, 'arn'),

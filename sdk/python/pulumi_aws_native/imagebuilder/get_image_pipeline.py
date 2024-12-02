@@ -233,7 +233,7 @@ def get_image_pipeline(arn: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         workflows=pulumi.get(__ret__, 'workflows'))
 def get_image_pipeline_output(arn: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetImagePipelineResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetImagePipelineResult]:
     """
     Resource schema for AWS::ImageBuilder::ImagePipeline
 
@@ -242,7 +242,7 @@ def get_image_pipeline_output(arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:imagebuilder:getImagePipeline', __args__, opts=opts, typ=GetImagePipelineResult)
     return __ret__.apply(lambda __response__: GetImagePipelineResult(
         arn=pulumi.get(__response__, 'arn'),

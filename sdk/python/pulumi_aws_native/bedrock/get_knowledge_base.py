@@ -183,7 +183,7 @@ def get_knowledge_base(knowledge_base_id: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
 def get_knowledge_base_output(knowledge_base_id: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetKnowledgeBaseResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetKnowledgeBaseResult]:
     """
     Definition of AWS::Bedrock::KnowledgeBase Resource Type
 
@@ -192,7 +192,7 @@ def get_knowledge_base_output(knowledge_base_id: Optional[pulumi.Input[str]] = N
     """
     __args__ = dict()
     __args__['knowledgeBaseId'] = knowledge_base_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:bedrock:getKnowledgeBase', __args__, opts=opts, typ=GetKnowledgeBaseResult)
     return __ret__.apply(lambda __response__: GetKnowledgeBaseResult(
         created_at=pulumi.get(__response__, 'created_at'),

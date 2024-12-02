@@ -197,7 +197,7 @@ def get_rest_api(rest_api_id: Optional[str] = None,
         root_resource_id=pulumi.get(__ret__, 'root_resource_id'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_rest_api_output(rest_api_id: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRestApiResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRestApiResult]:
     """
     The ``AWS::ApiGateway::RestApi`` resource creates a REST API. For more information, see [restapi:create](https://docs.aws.amazon.com/apigateway/latest/api/API_CreateRestApi.html) in the *Amazon API Gateway REST API Reference*.
      On January 1, 2016, the Swagger Specification was donated to the [OpenAPI initiative](https://docs.aws.amazon.com/https://www.openapis.org/), becoming the foundation of the OpenAPI Specification.
@@ -207,7 +207,7 @@ def get_rest_api_output(rest_api_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['restApiId'] = rest_api_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:apigateway:getRestApi', __args__, opts=opts, typ=GetRestApiResult)
     return __ret__.apply(lambda __response__: GetRestApiResult(
         api_key_source_type=pulumi.get(__response__, 'api_key_source_type'),

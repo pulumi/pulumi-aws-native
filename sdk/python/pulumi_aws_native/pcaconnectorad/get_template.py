@@ -90,7 +90,7 @@ def get_template(template_arn: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         template_arn=pulumi.get(__ret__, 'template_arn'))
 def get_template_output(template_arn: Optional[pulumi.Input[str]] = None,
-                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTemplateResult]:
+                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTemplateResult]:
     """
     Represents a template that defines certificate configurations, both for issuance and client handling
 
@@ -99,7 +99,7 @@ def get_template_output(template_arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['templateArn'] = template_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:pcaconnectorad:getTemplate', __args__, opts=opts, typ=GetTemplateResult)
     return __ret__.apply(lambda __response__: GetTemplateResult(
         definition=pulumi.get(__response__, 'definition'),

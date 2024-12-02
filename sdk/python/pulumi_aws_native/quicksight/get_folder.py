@@ -135,7 +135,7 @@ def get_folder(aws_account_id: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'))
 def get_folder_output(aws_account_id: Optional[pulumi.Input[str]] = None,
                       folder_id: Optional[pulumi.Input[str]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFolderResult]:
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFolderResult]:
     """
     Definition of the AWS::QuickSight::Folder Resource Type.
 
@@ -146,7 +146,7 @@ def get_folder_output(aws_account_id: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['awsAccountId'] = aws_account_id
     __args__['folderId'] = folder_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:quicksight:getFolder', __args__, opts=opts, typ=GetFolderResult)
     return __ret__.apply(lambda __response__: GetFolderResult(
         arn=pulumi.get(__response__, 'arn'),

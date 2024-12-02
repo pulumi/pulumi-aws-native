@@ -75,7 +75,7 @@ def get_state_machine_version(arn: Optional[str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         description=pulumi.get(__ret__, 'description'))
 def get_state_machine_version_output(arn: Optional[pulumi.Input[str]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetStateMachineVersionResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStateMachineVersionResult]:
     """
     Resource schema for StateMachineVersion
 
@@ -84,7 +84,7 @@ def get_state_machine_version_output(arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:stepfunctions:getStateMachineVersion', __args__, opts=opts, typ=GetStateMachineVersionResult)
     return __ret__.apply(lambda __response__: GetStateMachineVersionResult(
         arn=pulumi.get(__response__, 'arn'),

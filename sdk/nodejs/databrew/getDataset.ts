@@ -45,7 +45,7 @@ export interface GetDatasetResult {
 /**
  * Resource schema for AWS::DataBrew::Dataset.
  */
-export function getDatasetOutput(args: GetDatasetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatasetResult> {
+export function getDatasetOutput(args: GetDatasetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDatasetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:databrew:getDataset", {
         "name": args.name,

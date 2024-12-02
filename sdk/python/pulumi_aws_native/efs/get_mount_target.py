@@ -79,7 +79,7 @@ def get_mount_target(id: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         security_groups=pulumi.get(__ret__, 'security_groups'))
 def get_mount_target_output(id: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMountTargetResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMountTargetResult]:
     """
     The ``AWS::EFS::MountTarget`` resource is an Amazon EFS resource that creates a mount target for an EFS file system. You can then mount the file system on Amazon EC2 instances or other resources by using the mount target.
 
@@ -90,7 +90,7 @@ def get_mount_target_output(id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:efs:getMountTarget', __args__, opts=opts, typ=GetMountTargetResult)
     return __ret__.apply(lambda __response__: GetMountTargetResult(
         id=pulumi.get(__response__, 'id'),

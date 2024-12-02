@@ -169,7 +169,7 @@ def get_asset_model(asset_model_id: Optional[str] = None,
         asset_model_properties=pulumi.get(__ret__, 'asset_model_properties'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_asset_model_output(asset_model_id: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAssetModelResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAssetModelResult]:
     """
     Resource schema for AWS::IoTSiteWise::AssetModel
 
@@ -178,7 +178,7 @@ def get_asset_model_output(asset_model_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['assetModelId'] = asset_model_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:iotsitewise:getAssetModel', __args__, opts=opts, typ=GetAssetModelResult)
     return __ret__.apply(lambda __response__: GetAssetModelResult(
         asset_model_arn=pulumi.get(__response__, 'asset_model_arn'),

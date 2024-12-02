@@ -155,7 +155,7 @@ def get_ipam_scope(ipam_scope_id: Optional[str] = None,
         pool_count=pulumi.get(__ret__, 'pool_count'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_ipam_scope_output(ipam_scope_id: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIpamScopeResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIpamScopeResult]:
     """
     Resource Schema of AWS::EC2::IPAMScope Type
 
@@ -164,7 +164,7 @@ def get_ipam_scope_output(ipam_scope_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['ipamScopeId'] = ipam_scope_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getIpamScope', __args__, opts=opts, typ=GetIpamScopeResult)
     return __ret__.apply(lambda __response__: GetIpamScopeResult(
         arn=pulumi.get(__response__, 'arn'),

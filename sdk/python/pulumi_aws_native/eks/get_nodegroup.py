@@ -187,13 +187,13 @@ def get_nodegroup(id: Optional[str] = None,
         update_config=pulumi.get(__ret__, 'update_config'),
         version=pulumi.get(__ret__, 'version'))
 def get_nodegroup_output(id: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNodegroupResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNodegroupResult]:
     """
     Resource schema for AWS::EKS::Nodegroup
     """
     __args__ = dict()
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:eks:getNodegroup', __args__, opts=opts, typ=GetNodegroupResult)
     return __ret__.apply(lambda __response__: GetNodegroupResult(
         arn=pulumi.get(__response__, 'arn'),

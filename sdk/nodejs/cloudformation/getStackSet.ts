@@ -69,7 +69,7 @@ export interface GetStackSetResult {
 /**
  * StackSet as a resource provides one-click experience for provisioning a StackSet and StackInstances
  */
-export function getStackSetOutput(args: GetStackSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStackSetResult> {
+export function getStackSetOutput(args: GetStackSetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStackSetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:cloudformation:getStackSet", {
         "stackSetId": args.stackSetId,

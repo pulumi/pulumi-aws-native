@@ -343,7 +343,7 @@ def get_server(arn: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         workflow_details=pulumi.get(__ret__, 'workflow_details'))
 def get_server_output(arn: Optional[pulumi.Input[str]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServerResult]:
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerResult]:
     """
     Definition of AWS::Transfer::Server Resource Type
 
@@ -354,7 +354,7 @@ def get_server_output(arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:transfer:getServer', __args__, opts=opts, typ=GetServerResult)
     return __ret__.apply(lambda __response__: GetServerResult(
         arn=pulumi.get(__response__, 'arn'),

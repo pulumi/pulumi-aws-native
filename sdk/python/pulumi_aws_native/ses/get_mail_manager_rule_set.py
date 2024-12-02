@@ -117,7 +117,7 @@ def get_mail_manager_rule_set(rule_set_id: Optional[str] = None,
         rules=pulumi.get(__ret__, 'rules'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_mail_manager_rule_set_output(rule_set_id: Optional[pulumi.Input[str]] = None,
-                                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetMailManagerRuleSetResult]:
+                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMailManagerRuleSetResult]:
     """
     Definition of AWS::SES::MailManagerRuleSet Resource Type
 
@@ -126,7 +126,7 @@ def get_mail_manager_rule_set_output(rule_set_id: Optional[pulumi.Input[str]] = 
     """
     __args__ = dict()
     __args__['ruleSetId'] = rule_set_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ses:getMailManagerRuleSet', __args__, opts=opts, typ=GetMailManagerRuleSetResult)
     return __ret__.apply(lambda __response__: GetMailManagerRuleSetResult(
         rule_set_arn=pulumi.get(__response__, 'rule_set_arn'),

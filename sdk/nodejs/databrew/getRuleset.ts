@@ -37,7 +37,7 @@ export interface GetRulesetResult {
 /**
  * Resource schema for AWS::DataBrew::Ruleset.
  */
-export function getRulesetOutput(args: GetRulesetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRulesetResult> {
+export function getRulesetOutput(args: GetRulesetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRulesetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:databrew:getRuleset", {
         "name": args.name,

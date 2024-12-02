@@ -50,7 +50,7 @@ export interface GetSegmentDefinitionResult {
 /**
  * A segment definition resource of Amazon Connect Customer Profiles
  */
-export function getSegmentDefinitionOutput(args: GetSegmentDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSegmentDefinitionResult> {
+export function getSegmentDefinitionOutput(args: GetSegmentDefinitionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSegmentDefinitionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:customerprofiles:getSegmentDefinition", {
         "domainName": args.domainName,

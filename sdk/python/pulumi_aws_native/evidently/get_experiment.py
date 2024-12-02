@@ -199,7 +199,7 @@ def get_experiment(arn: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         treatments=pulumi.get(__ret__, 'treatments'))
 def get_experiment_output(arn: Optional[pulumi.Input[str]] = None,
-                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetExperimentResult]:
+                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetExperimentResult]:
     """
     Resource Type definition for AWS::Evidently::Experiment.
 
@@ -208,7 +208,7 @@ def get_experiment_output(arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:evidently:getExperiment', __args__, opts=opts, typ=GetExperimentResult)
     return __ret__.apply(lambda __response__: GetExperimentResult(
         arn=pulumi.get(__response__, 'arn'),

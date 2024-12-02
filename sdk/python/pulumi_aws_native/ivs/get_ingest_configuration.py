@@ -129,7 +129,7 @@ def get_ingest_configuration(arn: Optional[str] = None,
         stream_key=pulumi.get(__ret__, 'stream_key'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_ingest_configuration_output(arn: Optional[pulumi.Input[str]] = None,
-                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIngestConfigurationResult]:
+                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetIngestConfigurationResult]:
     """
     Resource Type definition for AWS::IVS::IngestConfiguration
 
@@ -138,7 +138,7 @@ def get_ingest_configuration_output(arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ivs:getIngestConfiguration', __args__, opts=opts, typ=GetIngestConfigurationResult)
     return __ret__.apply(lambda __response__: GetIngestConfigurationResult(
         arn=pulumi.get(__response__, 'arn'),

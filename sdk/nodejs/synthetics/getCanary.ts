@@ -85,7 +85,7 @@ export interface GetCanaryResult {
 /**
  * Resource Type definition for AWS::Synthetics::Canary
  */
-export function getCanaryOutput(args: GetCanaryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCanaryResult> {
+export function getCanaryOutput(args: GetCanaryOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCanaryResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:synthetics:getCanary", {
         "name": args.name,

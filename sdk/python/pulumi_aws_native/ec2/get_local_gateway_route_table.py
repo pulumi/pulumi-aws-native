@@ -128,7 +128,7 @@ def get_local_gateway_route_table(local_gateway_route_table_id: Optional[str] = 
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_local_gateway_route_table_output(local_gateway_route_table_id: Optional[pulumi.Input[str]] = None,
-                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLocalGatewayRouteTableResult]:
+                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocalGatewayRouteTableResult]:
     """
     Describes a route table for a local gateway.
 
@@ -137,7 +137,7 @@ def get_local_gateway_route_table_output(local_gateway_route_table_id: Optional[
     """
     __args__ = dict()
     __args__['localGatewayRouteTableId'] = local_gateway_route_table_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getLocalGatewayRouteTable', __args__, opts=opts, typ=GetLocalGatewayRouteTableResult)
     return __ret__.apply(lambda __response__: GetLocalGatewayRouteTableResult(
         local_gateway_route_table_arn=pulumi.get(__response__, 'local_gateway_route_table_arn'),

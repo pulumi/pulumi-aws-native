@@ -140,7 +140,7 @@ def get_workspace(workspace_id: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         update_date_time=pulumi.get(__ret__, 'update_date_time'))
 def get_workspace_output(workspace_id: Optional[pulumi.Input[str]] = None,
-                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspaceResult]:
+                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkspaceResult]:
     """
     Resource schema for AWS::IoTTwinMaker::Workspace
 
@@ -149,7 +149,7 @@ def get_workspace_output(workspace_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['workspaceId'] = workspace_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:iottwinmaker:getWorkspace', __args__, opts=opts, typ=GetWorkspaceResult)
     return __ret__.apply(lambda __response__: GetWorkspaceResult(
         arn=pulumi.get(__response__, 'arn'),

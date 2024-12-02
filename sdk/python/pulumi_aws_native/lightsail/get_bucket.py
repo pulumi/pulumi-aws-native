@@ -168,7 +168,7 @@ def get_bucket(bucket_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         url=pulumi.get(__ret__, 'url'))
 def get_bucket_output(bucket_name: Optional[pulumi.Input[str]] = None,
-                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBucketResult]:
+                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBucketResult]:
     """
     Resource Type definition for AWS::Lightsail::Bucket
 
@@ -177,7 +177,7 @@ def get_bucket_output(bucket_name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['bucketName'] = bucket_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:lightsail:getBucket', __args__, opts=opts, typ=GetBucketResult)
     return __ret__.apply(lambda __response__: GetBucketResult(
         able_to_update_bundle=pulumi.get(__response__, 'able_to_update_bundle'),

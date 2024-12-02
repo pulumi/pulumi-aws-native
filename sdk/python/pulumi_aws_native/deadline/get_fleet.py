@@ -207,7 +207,7 @@ def get_fleet(arn: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         worker_count=pulumi.get(__ret__, 'worker_count'))
 def get_fleet_output(arn: Optional[pulumi.Input[str]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFleetResult]:
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetFleetResult]:
     """
     Definition of AWS::Deadline::Fleet Resource Type
 
@@ -216,7 +216,7 @@ def get_fleet_output(arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:deadline:getFleet', __args__, opts=opts, typ=GetFleetResult)
     return __ret__.apply(lambda __response__: GetFleetResult(
         arn=pulumi.get(__response__, 'arn'),

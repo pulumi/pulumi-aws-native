@@ -13,7 +13,7 @@ export function getUrlSuffix(opts?: pulumi.InvokeOptions): Promise<GetUrlSuffixR
 export interface GetUrlSuffixResult {
     readonly urlSuffix: string;
 }
-export function getUrlSuffixOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetUrlSuffixResult> {
+export function getUrlSuffixOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetUrlSuffixResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:index:getUrlSuffix", {
     }, opts);

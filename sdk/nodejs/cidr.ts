@@ -22,7 +22,7 @@ export interface CidrArgs {
 export interface CidrResult {
     readonly subnets: string[];
 }
-export function cidrOutput(args: CidrOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<CidrResult> {
+export function cidrOutput(args: CidrOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<CidrResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:index:cidr", {
         "cidrBits": args.cidrBits,

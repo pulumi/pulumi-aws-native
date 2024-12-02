@@ -54,7 +54,7 @@ export interface GetAiAgentResult {
 /**
  * Definition of AWS::Wisdom::AIAgent Resource Type
  */
-export function getAiAgentOutput(args: GetAiAgentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAiAgentResult> {
+export function getAiAgentOutput(args: GetAiAgentOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAiAgentResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:wisdom:getAiAgent", {
         "aiAgentId": args.aiAgentId,

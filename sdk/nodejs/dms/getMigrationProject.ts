@@ -73,7 +73,7 @@ export interface GetMigrationProjectResult {
 /**
  * Resource schema for AWS::DMS::MigrationProject
  */
-export function getMigrationProjectOutput(args: GetMigrationProjectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMigrationProjectResult> {
+export function getMigrationProjectOutput(args: GetMigrationProjectOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMigrationProjectResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:dms:getMigrationProject", {
         "migrationProjectArn": args.migrationProjectArn,

@@ -119,7 +119,7 @@ def get_group(group_arn: Optional[str] = None,
         insights_configuration=pulumi.get(__ret__, 'insights_configuration'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_group_output(group_arn: Optional[pulumi.Input[str]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGroupResult]:
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGroupResult]:
     """
     This schema provides construct and validation rules for AWS-XRay Group resource parameters.
 
@@ -128,7 +128,7 @@ def get_group_output(group_arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['groupArn'] = group_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:xray:getGroup', __args__, opts=opts, typ=GetGroupResult)
     return __ret__.apply(lambda __response__: GetGroupResult(
         filter_expression=pulumi.get(__response__, 'filter_expression'),

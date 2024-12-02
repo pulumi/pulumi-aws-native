@@ -188,7 +188,7 @@ def get_replication_config(replication_config_arn: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         target_endpoint_arn=pulumi.get(__ret__, 'target_endpoint_arn'))
 def get_replication_config_output(replication_config_arn: Optional[pulumi.Input[str]] = None,
-                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetReplicationConfigResult]:
+                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReplicationConfigResult]:
     """
     A replication configuration that you later provide to configure and start a AWS DMS Serverless replication
 
@@ -197,7 +197,7 @@ def get_replication_config_output(replication_config_arn: Optional[pulumi.Input[
     """
     __args__ = dict()
     __args__['replicationConfigArn'] = replication_config_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:dms:getReplicationConfig', __args__, opts=opts, typ=GetReplicationConfigResult)
     return __ret__.apply(lambda __response__: GetReplicationConfigResult(
         compute_config=pulumi.get(__response__, 'compute_config'),

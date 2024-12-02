@@ -101,7 +101,7 @@ def get_gateway_response(id: Optional[str] = None,
         response_templates=pulumi.get(__ret__, 'response_templates'),
         status_code=pulumi.get(__ret__, 'status_code'))
 def get_gateway_response_output(id: Optional[pulumi.Input[str]] = None,
-                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGatewayResponseResult]:
+                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGatewayResponseResult]:
     """
     The ``AWS::ApiGateway::GatewayResponse`` resource creates a gateway response for your API. For more information, see [API Gateway Responses](https://docs.aws.amazon.com/apigateway/latest/developerguide/customize-gateway-responses.html#api-gateway-gatewayResponse-definition) in the *API Gateway Developer Guide*.
 
@@ -110,7 +110,7 @@ def get_gateway_response_output(id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['id'] = id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:apigateway:getGatewayResponse', __args__, opts=opts, typ=GetGatewayResponseResult)
     return __ret__.apply(lambda __response__: GetGatewayResponseResult(
         id=pulumi.get(__response__, 'id'),

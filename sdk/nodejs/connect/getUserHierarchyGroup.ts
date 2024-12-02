@@ -45,7 +45,7 @@ export interface GetUserHierarchyGroupResult {
 /**
  * Resource Type definition for AWS::Connect::UserHierarchyGroup
  */
-export function getUserHierarchyGroupOutput(args: GetUserHierarchyGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserHierarchyGroupResult> {
+export function getUserHierarchyGroupOutput(args: GetUserHierarchyGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetUserHierarchyGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:connect:getUserHierarchyGroup", {
         "userHierarchyGroupArn": args.userHierarchyGroupArn,

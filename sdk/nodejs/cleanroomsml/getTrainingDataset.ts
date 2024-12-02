@@ -41,7 +41,7 @@ export interface GetTrainingDatasetResult {
 /**
  * Definition of AWS::CleanRoomsML::TrainingDataset Resource Type
  */
-export function getTrainingDatasetOutput(args: GetTrainingDatasetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrainingDatasetResult> {
+export function getTrainingDatasetOutput(args: GetTrainingDatasetOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTrainingDatasetResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:cleanroomsml:getTrainingDataset", {
         "trainingDatasetArn": args.trainingDatasetArn,

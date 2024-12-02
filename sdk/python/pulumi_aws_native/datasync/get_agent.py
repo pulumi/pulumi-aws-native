@@ -103,7 +103,7 @@ def get_agent(agent_arn: Optional[str] = None,
         endpoint_type=pulumi.get(__ret__, 'endpoint_type'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_agent_output(agent_arn: Optional[pulumi.Input[str]] = None,
-                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAgentResult]:
+                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAgentResult]:
     """
     Resource schema for AWS::DataSync::Agent.
 
@@ -112,7 +112,7 @@ def get_agent_output(agent_arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['agentArn'] = agent_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:datasync:getAgent', __args__, opts=opts, typ=GetAgentResult)
     return __ret__.apply(lambda __response__: GetAgentResult(
         agent_arn=pulumi.get(__response__, 'agent_arn'),

@@ -201,7 +201,7 @@ def get_data_source(data_source_id: Optional[str] = None,
         vector_ingestion_configuration=pulumi.get(__ret__, 'vector_ingestion_configuration'))
 def get_data_source_output(data_source_id: Optional[pulumi.Input[str]] = None,
                            knowledge_base_id: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDataSourceResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataSourceResult]:
     """
     Definition of AWS::Bedrock::DataSource Resource Type
 
@@ -212,7 +212,7 @@ def get_data_source_output(data_source_id: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['dataSourceId'] = data_source_id
     __args__['knowledgeBaseId'] = knowledge_base_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:bedrock:getDataSource', __args__, opts=opts, typ=GetDataSourceResult)
     return __ret__.apply(lambda __response__: GetDataSourceResult(
         created_at=pulumi.get(__response__, 'created_at'),

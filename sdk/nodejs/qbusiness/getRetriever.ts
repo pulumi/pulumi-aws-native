@@ -70,7 +70,7 @@ export interface GetRetrieverResult {
 /**
  * Definition of AWS::QBusiness::Retriever Resource Type
  */
-export function getRetrieverOutput(args: GetRetrieverOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRetrieverResult> {
+export function getRetrieverOutput(args: GetRetrieverOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRetrieverResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:qbusiness:getRetriever", {
         "applicationId": args.applicationId,

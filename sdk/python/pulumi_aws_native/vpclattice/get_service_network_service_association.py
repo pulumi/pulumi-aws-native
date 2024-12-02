@@ -208,7 +208,7 @@ def get_service_network_service_association(arn: Optional[str] = None,
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_service_network_service_association_output(arn: Optional[pulumi.Input[str]] = None,
-                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceNetworkServiceAssociationResult]:
+                                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceNetworkServiceAssociationResult]:
     """
     Associates a service with a service network.
 
@@ -217,7 +217,7 @@ def get_service_network_service_association_output(arn: Optional[pulumi.Input[st
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:vpclattice:getServiceNetworkServiceAssociation', __args__, opts=opts, typ=GetServiceNetworkServiceAssociationResult)
     return __ret__.apply(lambda __response__: GetServiceNetworkServiceAssociationResult(
         arn=pulumi.get(__response__, 'arn'),

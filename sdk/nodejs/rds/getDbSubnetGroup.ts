@@ -49,7 +49,7 @@ export interface GetDbSubnetGroupResult {
  * The ``AWS::RDS::DBSubnetGroup`` resource creates a database subnet group. Subnet groups must contain at least two subnets in two different Availability Zones in the same region.
  *  For more information, see [Working with DB subnet groups](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html#USER_VPC.Subnets) in the *Amazon RDS User Guide*.
  */
-export function getDbSubnetGroupOutput(args: GetDbSubnetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDbSubnetGroupResult> {
+export function getDbSubnetGroupOutput(args: GetDbSubnetGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDbSubnetGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:rds:getDbSubnetGroup", {
         "dbSubnetGroupName": args.dbSubnetGroupName,

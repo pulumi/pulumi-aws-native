@@ -47,7 +47,7 @@ export interface GetResourceAssociationResult {
 /**
  * Resource Schema for AWS::ServiceCatalogAppRegistry::ResourceAssociation
  */
-export function getResourceAssociationOutput(args: GetResourceAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceAssociationResult> {
+export function getResourceAssociationOutput(args: GetResourceAssociationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetResourceAssociationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:servicecatalogappregistry:getResourceAssociation", {
         "applicationArn": args.applicationArn,

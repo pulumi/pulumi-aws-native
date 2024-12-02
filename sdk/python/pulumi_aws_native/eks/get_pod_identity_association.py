@@ -102,7 +102,7 @@ def get_pod_identity_association(association_arn: Optional[str] = None,
         role_arn=pulumi.get(__ret__, 'role_arn'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_pod_identity_association_output(association_arn: Optional[pulumi.Input[str]] = None,
-                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPodIdentityAssociationResult]:
+                                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPodIdentityAssociationResult]:
     """
     An object representing an Amazon EKS PodIdentityAssociation.
 
@@ -111,7 +111,7 @@ def get_pod_identity_association_output(association_arn: Optional[pulumi.Input[s
     """
     __args__ = dict()
     __args__['associationArn'] = association_arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:eks:getPodIdentityAssociation', __args__, opts=opts, typ=GetPodIdentityAssociationResult)
     return __ret__.apply(lambda __response__: GetPodIdentityAssociationResult(
         association_arn=pulumi.get(__response__, 'association_arn'),

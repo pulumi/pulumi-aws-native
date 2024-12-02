@@ -81,7 +81,7 @@ def get_bridge_source(bridge_arn: Optional[str] = None,
         network_source=pulumi.get(__ret__, 'network_source'))
 def get_bridge_source_output(bridge_arn: Optional[pulumi.Input[str]] = None,
                              name: Optional[pulumi.Input[str]] = None,
-                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBridgeSourceResult]:
+                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetBridgeSourceResult]:
     """
     Resource schema for AWS::MediaConnect::BridgeSource
 
@@ -92,7 +92,7 @@ def get_bridge_source_output(bridge_arn: Optional[pulumi.Input[str]] = None,
     __args__ = dict()
     __args__['bridgeArn'] = bridge_arn
     __args__['name'] = name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:mediaconnect:getBridgeSource', __args__, opts=opts, typ=GetBridgeSourceResult)
     return __ret__.apply(lambda __response__: GetBridgeSourceResult(
         flow_source=pulumi.get(__response__, 'flow_source'),

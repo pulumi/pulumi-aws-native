@@ -131,7 +131,7 @@ def get_schema_mapping(schema_name: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
 def get_schema_mapping_output(schema_name: Optional[pulumi.Input[str]] = None,
-                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSchemaMappingResult]:
+                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSchemaMappingResult]:
     """
     SchemaMapping defined in AWS Entity Resolution service
 
@@ -140,7 +140,7 @@ def get_schema_mapping_output(schema_name: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['schemaName'] = schema_name
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:entityresolution:getSchemaMapping', __args__, opts=opts, typ=GetSchemaMappingResult)
     return __ret__.apply(lambda __response__: GetSchemaMappingResult(
         created_at=pulumi.get(__response__, 'created_at'),

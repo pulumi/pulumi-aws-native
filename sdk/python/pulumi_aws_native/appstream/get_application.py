@@ -167,7 +167,7 @@ def get_application(arn: Optional[str] = None,
         launch_path=pulumi.get(__ret__, 'launch_path'),
         working_directory=pulumi.get(__ret__, 'working_directory'))
 def get_application_output(arn: Optional[pulumi.Input[str]] = None,
-                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetApplicationResult]:
+                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetApplicationResult]:
     """
     Resource Type definition for AWS::AppStream::Application
 
@@ -176,7 +176,7 @@ def get_application_output(arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:appstream:getApplication', __args__, opts=opts, typ=GetApplicationResult)
     return __ret__.apply(lambda __response__: GetApplicationResult(
         app_block_arn=pulumi.get(__response__, 'app_block_arn'),

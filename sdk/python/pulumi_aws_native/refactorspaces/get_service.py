@@ -97,7 +97,7 @@ def get_service(application_identifier: Optional[str] = None,
 def get_service_output(application_identifier: Optional[pulumi.Input[str]] = None,
                        environment_identifier: Optional[pulumi.Input[str]] = None,
                        service_identifier: Optional[pulumi.Input[str]] = None,
-                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceResult]:
+                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceResult]:
     """
     Definition of AWS::RefactorSpaces::Service Resource Type
 
@@ -110,7 +110,7 @@ def get_service_output(application_identifier: Optional[pulumi.Input[str]] = Non
     __args__['applicationIdentifier'] = application_identifier
     __args__['environmentIdentifier'] = environment_identifier
     __args__['serviceIdentifier'] = service_identifier
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:refactorspaces:getService', __args__, opts=opts, typ=GetServiceResult)
     return __ret__.apply(lambda __response__: GetServiceResult(
         arn=pulumi.get(__response__, 'arn'),

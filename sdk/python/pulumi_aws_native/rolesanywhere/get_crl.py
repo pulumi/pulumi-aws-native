@@ -128,7 +128,7 @@ def get_crl(crl_id: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         trust_anchor_arn=pulumi.get(__ret__, 'trust_anchor_arn'))
 def get_crl_output(crl_id: Optional[pulumi.Input[str]] = None,
-                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetCrlResult]:
+                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCrlResult]:
     """
     Definition of AWS::RolesAnywhere::CRL Resource Type
 
@@ -137,7 +137,7 @@ def get_crl_output(crl_id: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['crlId'] = crl_id
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:rolesanywhere:getCrl', __args__, opts=opts, typ=GetCrlResult)
     return __ret__.apply(lambda __response__: GetCrlResult(
         crl_data=pulumi.get(__response__, 'crl_data'),

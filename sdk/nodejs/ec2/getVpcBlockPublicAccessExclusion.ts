@@ -41,7 +41,7 @@ export interface GetVpcBlockPublicAccessExclusionResult {
 /**
  * Resource Type definition for AWS::EC2::VPCBlockPublicAccessExclusion.
  */
-export function getVpcBlockPublicAccessExclusionOutput(args: GetVpcBlockPublicAccessExclusionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcBlockPublicAccessExclusionResult> {
+export function getVpcBlockPublicAccessExclusionOutput(args: GetVpcBlockPublicAccessExclusionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetVpcBlockPublicAccessExclusionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:ec2:getVpcBlockPublicAccessExclusion", {
         "exclusionId": args.exclusionId,

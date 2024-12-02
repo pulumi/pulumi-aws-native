@@ -161,7 +161,7 @@ def get_subscription(arn: Optional[str] = None,
         replay_policy=pulumi.get(__ret__, 'replay_policy'),
         subscription_role_arn=pulumi.get(__ret__, 'subscription_role_arn'))
 def get_subscription_output(arn: Optional[pulumi.Input[str]] = None,
-                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubscriptionResult]:
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSubscriptionResult]:
     """
     Resource Type definition for AWS::SNS::Subscription
 
@@ -170,7 +170,7 @@ def get_subscription_output(arn: Optional[pulumi.Input[str]] = None,
     """
     __args__ = dict()
     __args__['arn'] = arn
-    opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
+    opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:sns:getSubscription', __args__, opts=opts, typ=GetSubscriptionResult)
     return __ret__.apply(lambda __response__: GetSubscriptionResult(
         arn=pulumi.get(__response__, 'arn'),

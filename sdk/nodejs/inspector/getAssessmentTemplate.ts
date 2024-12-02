@@ -30,7 +30,7 @@ export interface GetAssessmentTemplateResult {
 /**
  * Resource Type definition for AWS::Inspector::AssessmentTemplate
  */
-export function getAssessmentTemplateOutput(args: GetAssessmentTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAssessmentTemplateResult> {
+export function getAssessmentTemplateOutput(args: GetAssessmentTemplateOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAssessmentTemplateResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:inspector:getAssessmentTemplate", {
         "arn": args.arn,
