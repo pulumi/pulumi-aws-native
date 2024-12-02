@@ -58,7 +58,8 @@
   "primaryIdentifier" : [ "/properties/PublicTypeArn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "cloudformation:TestType", "cloudformation:DescribeType", "cloudformation:PublishType", "cloudformation:DescribePublisher", "s3:GetObject", "s3:PutObject" ]
+      "permissions" : [ "cloudformation:TestType", "cloudformation:DescribeType", "cloudformation:PublishType", "cloudformation:DescribePublisher", "s3:GetObject", "s3:PutObject" ],
+      "timeoutInMinutes" : 2160
     },
     "delete" : {
       "permissions" : [ ]

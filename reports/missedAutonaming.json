@@ -257,7 +257,7 @@
     "properties": {
       "certificateArn": {
         "type": "string",
-        "description": "The reference to an AWS -managed certificate that will be used by edge-optimized endpoint for this domain name. AWS Certificate Manager is the only supported source."
+        "description": "The reference to an AWS -managed certificate that will be used by edge-optimized endpoint or private endpoint for this domain name. AWS Certificate Manager is the only supported source."
       },
       "domainName": {
         "type": "string",
@@ -325,13 +325,16 @@
     "cfTypeName": "AWS::ApiGateway::DomainNameV2",
     "properties": {
       "certificateArn": {
-        "type": "string"
+        "type": "string",
+        "description": "The reference to an AWS -managed certificate that will be used by the private endpoint for this domain name. AWS Certificate Manager is the only supported source."
       },
       "domainName": {
-        "type": "string"
+        "type": "string",
+        "description": "Represents a custom domain name as a user-friendly host name of an API (RestApi)."
       },
       "endpointConfiguration": {
-        "$ref": "#/types/aws-native:apigateway:DomainNameV2EndpointConfiguration"
+        "$ref": "#/types/aws-native:apigateway:DomainNameV2EndpointConfiguration",
+        "description": "The endpoint configuration to indicate the types of endpoints an API (RestApi) or its custom domain name (DomainName) has."
       },
       "managementPolicy": {
         "$ref": "pulumi.json#/Any",
@@ -339,16 +342,18 @@
       },
       "policy": {
         "$ref": "pulumi.json#/Any",
-        "description": "Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::DomainNameV2` for more information about the expected schema for this property."
+        "description": "A stringified JSON policy document that applies to the `execute-api` service for this DomainName regardless of the caller and Method configuration. You can use `Fn::ToJsonString` to enter your `policy` . For more information, see [Fn::ToJsonString](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ToJsonString.html) .\n\nSearch the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::DomainNameV2` for more information about the expected schema for this property."
       },
       "securityPolicy": {
-        "type": "string"
+        "type": "string",
+        "description": "The Transport Layer Security (TLS) version + cipher suite for this DomainName. Only `TLS_1_2` is supported."
       },
       "tags": {
         "type": "array",
         "items": {
           "$ref": "#/types/aws-native:index:Tag"
-        }
+        },
+        "description": "The collection of tags. Each tag element is associated with a given resource."
       }
     }
   },
@@ -2185,7 +2190,8 @@
         "type": "array",
         "items": {
           "$ref": "#/types/aws-native:cognito:ManagedLoginBrandingAssetType"
-        }
+        },
+        "description": "An array of image files that you want to apply to roles like backgrounds, logos, and icons. Each object must also indicate whether it is for dark mode, light mode, or browser-adaptive mode."
       },
       "clientId": {
         "type": "string"
@@ -2195,13 +2201,15 @@
       },
       "settings": {
         "$ref": "pulumi.json#/Any",
-        "description": "Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::ManagedLoginBranding` for more information about the expected schema for this property."
+        "description": "A JSON file, encoded as a `Document` type, with the the settings that you want to apply to your style.\n\nSearch the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::ManagedLoginBranding` for more information about the expected schema for this property."
       },
       "useCognitoProvidedValues": {
-        "type": "boolean"
+        "type": "boolean",
+        "description": "When true, applies the default branding style options. This option reverts to a \"blank\" style that you can modify later in the branding designer."
       },
       "userPoolId": {
-        "type": "string"
+        "type": "string",
+        "description": "The user pool where the branding style is assigned."
       }
     }
   },
@@ -2210,11 +2218,14 @@
     "properties": {
       "customDomainConfig": {
         "$ref": "#/types/aws-native:cognito:UserPoolDomainCustomDomainConfigType",
-        "description": "The configuration for a custom domain that hosts the sign-up and sign-in pages for your application. Use this object to specify an SSL certificate that is managed by ACM."
+        "description": "The configuration for a custom domain that hosts the sign-up and sign-in pages for your application. Use this object to specify an SSL certificate that is managed by ACM.\n\nWhen you create a custom domain, the passkey RP ID defaults to the custom domain. If you had a prefix domain active, this will cause passkey integration for your prefix domain to stop working due to a mismatch in RP ID. To keep the prefix domain passkey integration working, you can explicitly set RP ID to the prefix domain. Update the RP ID in a [SetUserPoolMfaConfig](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SetUserPoolMfaConfig.html) request."
       },
       "domain": {
         "type": "string",
         "description": "The domain name for the custom domain that hosts the sign-up and sign-in pages for your application. One example might be `auth.example.com` .\n\nThis string can include only lowercase letters, numbers, and hyphens. Don't use a hyphen for the first or last character. Use periods to separate subdomain names."
+      },
+      "managedLoginVersion": {
+        "type": "integer"
       },
       "userPoolId": {
         "type": "string",
@@ -3620,7 +3631,7 @@
       },
       "endDate": {
         "type": "string",
-        "description": "The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. The Capacity Reservation's state changes to `expired` when it reaches its end date and time.\n\nYou must provide an `EndDate` value if `EndDateType` is `limited` . Omit `EndDate` if `EndDateType` is `unlimited` .\n\nIf the `EndDateType` is `limited` , the Capacity Reservation is cancelled within an hour from the specified time. For example, if you specify 5/31/2019, 13:30:55, the Capacity Reservation is guaranteed to end between 13:30:55 and 14:30:55 on 5/31/2019."
+        "description": "The date and time at which the Capacity Reservation expires. When a Capacity Reservation expires, the reserved capacity is released and you can no longer launch instances into it. The Capacity Reservation's state changes to `expired` when it reaches its end date and time.\n\nYou must provide an `EndDate` value if `EndDateType` is `limited` . Omit `EndDate` if `EndDateType` is `unlimited` .\n\nIf the `EndDateType` is `limited` , the Capacity Reservation is cancelled within an hour from the specified time. For example, if you specify 5/31/2019, 13:30:55, the Capacity Reservation is guaranteed to end between 13:30:55 and 14:30:55 on 5/31/2019.\n\nIf you are requesting a future-dated Capacity Reservation, you can't specify an end date and time that is within the commitment duration."
       },
       "endDateType": {
         "type": "string",
@@ -3632,11 +3643,11 @@
       },
       "instanceCount": {
         "type": "integer",
-        "description": "The number of instances for which to reserve capacity.\n\nValid range: 1 - 1000"
+        "description": "The number of instances for which to reserve capacity.\n\n\u003e You can request future-dated Capacity Reservations for an instance count with a minimum of 100 VPUs. For example, if you request a future-dated Capacity Reservation for `m5.xlarge` instances, you must request at least 25 instances ( *25 * m5.xlarge = 100 vCPUs* ). \n\nValid range: 1 - 1000"
       },
       "instanceMatchCriteria": {
         "type": "string",
-        "description": "Indicates the type of instance launches that the Capacity Reservation accepts. The options include:\n\n- `open` - The Capacity Reservation automatically matches all instances that have matching attributes (instance type, platform, and Availability Zone). Instances that have matching attributes run in the Capacity Reservation automatically without specifying any additional parameters.\n- `targeted` - The Capacity Reservation only accepts instances that have matching attributes (instance type, platform, and Availability Zone), and explicitly target the Capacity Reservation. This ensures that only permitted instances can use the reserved capacity.\n\nDefault: `open`"
+        "description": "Indicates the type of instance launches that the Capacity Reservation accepts. The options include:\n\n- `open` - The Capacity Reservation automatically matches all instances that have matching attributes (instance type, platform, and Availability Zone). Instances that have matching attributes run in the Capacity Reservation automatically without specifying any additional parameters.\n- `targeted` - The Capacity Reservation only accepts instances that have matching attributes (instance type, platform, and Availability Zone), and explicitly target the Capacity Reservation. This ensures that only permitted instances can use the reserved capacity.\n\n\u003e If you are requesting a future-dated Capacity Reservation, you must specify `targeted` . \n\nDefault: `open`"
       },
       "instancePlatform": {
         "type": "string",
@@ -3644,15 +3655,15 @@
       },
       "instanceType": {
         "type": "string",
-        "description": "The instance type for which to reserve capacity. For more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide* ."
+        "description": "The instance type for which to reserve capacity.\n\n\u003e You can request future-dated Capacity Reservations for instance types in the C, M, R, I, and T instance families only. \n\nFor more information, see [Instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide* ."
       },
       "outPostArn": {
         "type": "string",
-        "description": "The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation."
+        "description": "\u003e Not supported for future-dated Capacity Reservations. \n\nThe Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation."
       },
       "placementGroupArn": {
         "type": "string",
-        "description": "The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation. For more information, see [Capacity Reservations for cluster placement groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cr-cpg.html) in the *Amazon EC2 User Guide* ."
+        "description": "\u003e Not supported for future-dated Capacity Reservations. \n\nThe Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation. For more information, see [Capacity Reservations for cluster placement groups](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/cr-cpg.html) in the *Amazon EC2 User Guide* ."
       },
       "tagSpecifications": {
         "type": "array",
@@ -8554,14 +8565,16 @@
         "description": "(Kinesis and DynamoDB Streams only) Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, Lambda retries failed records until the record expires in the event source."
       },
       "metricsConfig": {
-        "$ref": "#/types/aws-native:lambda:EventSourceMappingMetricsConfig"
+        "$ref": "#/types/aws-native:lambda:EventSourceMappingMetricsConfig",
+        "description": "The metrics configuration for your event source. For more information, see [Event source mapping metrics](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics) ."
       },
       "parallelizationFactor": {
         "type": "integer",
         "description": "(Kinesis and DynamoDB Streams only) The number of batches to process concurrently from each shard. The default value is 1."
       },
       "provisionedPollerConfig": {
-        "$ref": "#/types/aws-native:lambda:EventSourceMappingProvisionedPollerConfig"
+        "$ref": "#/types/aws-native:lambda:EventSourceMappingProvisionedPollerConfig",
+        "description": "(Amazon MSK and self-managed Apache Kafka only) The provisioned mode configuration for the event source. For more information, see [provisioned mode](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode) ."
       },
       "queues": {
         "type": "array",
@@ -9235,6 +9248,54 @@
       "policy": {
         "$ref": "pulumi.json#/Any",
         "description": "\u003cp\u003eThe IAM policy for the channel. IAM policies are used to control access to your channel.\u003c/p\u003e\n\nSearch the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::MediaTailor::ChannelPolicy` for more information about the expected schema for this property."
+      }
+    }
+  },
+  "aws-native:memorydb:MultiRegionCluster": {
+    "cfTypeName": "AWS::MemoryDB::MultiRegionCluster",
+    "properties": {
+      "description": {
+        "type": "string",
+        "description": "Description of the multi region cluster."
+      },
+      "engine": {
+        "type": "string",
+        "description": "The engine type used by the multi region cluster."
+      },
+      "engineVersion": {
+        "type": "string",
+        "description": "The Redis engine version used by the multi region cluster."
+      },
+      "multiRegionClusterNameSuffix": {
+        "type": "string",
+        "description": "The name of the Multi Region cluster. This value must be unique as it also serves as the multi region cluster identifier."
+      },
+      "multiRegionParameterGroupName": {
+        "type": "string",
+        "description": "The name of the parameter group associated with the multi region cluster."
+      },
+      "nodeType": {
+        "type": "string",
+        "description": "The compute and memory capacity of the nodes in the multi region cluster."
+      },
+      "numShards": {
+        "type": "integer",
+        "description": "The number of shards the multi region cluster will contain."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "An array of key-value pairs to apply to this multi region cluster."
+      },
+      "tlsEnabled": {
+        "type": "boolean",
+        "description": "A flag that enables in-transit encryption when set to true.\n\nYou cannot modify the value of TransitEncryptionEnabled after the cluster is created. To enable in-transit encryption on a cluster you must set TransitEncryptionEnabled to true when you create a cluster."
+      },
+      "updateStrategy": {
+        "$ref": "#/types/aws-native:memorydb:MultiRegionClusterUpdateStrategy",
+        "description": "An enum string value that determines the update strategy for scaling. Possible values are 'COORDINATED' and 'UNCOORDINATED'. Default is 'COORDINATED'."
       }
     }
   },
@@ -13492,25 +13553,31 @@
         "type": "object",
         "additionalProperties": {
           "type": "string"
-        }
+        },
+        "description": "The additional encryption context of the data protection settings."
       },
       "customerManagedKey": {
-        "type": "string"
+        "type": "string",
+        "description": "The customer managed key used to encrypt sensitive information in the data protection settings."
       },
       "description": {
-        "type": "string"
+        "type": "string",
+        "description": "The description of the data protection settings."
       },
       "displayName": {
-        "type": "string"
+        "type": "string",
+        "description": "The display name of the data protection settings."
       },
       "inlineRedactionConfiguration": {
-        "$ref": "#/types/aws-native:workspacesweb:DataProtectionSettingsInlineRedactionConfiguration"
+        "$ref": "#/types/aws-native:workspacesweb:DataProtectionSettingsInlineRedactionConfiguration",
+        "description": "The inline redaction configuration for the data protection settings."
       },
       "tags": {
         "type": "array",
         "items": {
           "$ref": "#/types/aws-native:index:Tag"
-        }
+        },
+        "description": "The tags of the data protection settings."
       }
     }
   },
@@ -13605,7 +13672,8 @@
         "description": "The customer managed key of the web portal.\n\n*Pattern* : `^arn:[\\w+=\\/,.@-]+:kms:[a-zA-Z0-9\\-]*:[a-zA-Z0-9]{1,12}:key\\/[a-zA-Z0-9-]+$`"
       },
       "dataProtectionSettingsArn": {
-        "type": "string"
+        "type": "string",
+        "description": "The ARN of the data protection settings."
       },
       "displayName": {
         "type": "string",
