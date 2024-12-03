@@ -8,7 +8,6 @@ import (
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/naming"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
-	"github.com/pulumi/pulumi/sdk/v3/go/common/slice"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -36,8 +35,8 @@ func TestCalcPatch(t *testing.T) {
 			Properties: args.oldInputs.MapRepl(keysToUpperCamel, nil),
 		}, ExtensionResourceInputs{
 			Properties: args.newInputs.MapRepl(keysToUpperCamel, nil),
-			CreateOnly: slice.Map(args.spec.CreateOnly, naming.ToUpperCamel),
-			WriteOnly:  slice.Map(args.spec.WriteOnly, naming.ToUpperCamel),
+			CreateOnly: Map(args.spec.CreateOnly, naming.ToUpperCamel),
+			WriteOnly:  Map(args.spec.WriteOnly, naming.ToUpperCamel),
 		})
 		assert.NoError(t, err)
 		return patch
@@ -133,4 +132,21 @@ func TestCalcPatch(t *testing.T) {
 			})
 		})
 	}
+}
+
+// Map applies the given function to each element of the given slice and returns a new slice with the results.
+func Map[T, U any](s []T, f func(T) U) []U {
+	r := Prealloc[U](len(s))
+	for _, v := range s {
+		r = append(r, f(v))
+	}
+	return r
+}
+
+// Preallocates a slice of type T of a given length. If the input length is 0 then the returned slice will be nil.
+func Prealloc[T any](capacity int) []T {
+	if capacity == 0 {
+		return nil
+	}
+	return make([]T, 0, capacity)
 }
