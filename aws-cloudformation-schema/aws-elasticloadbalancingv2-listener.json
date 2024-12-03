@@ -67,6 +67,10 @@
         "TrustStoreArn" : {
           "description" : "The Amazon Resource Name (ARN) of the trust store.",
           "type" : "string"
+        },
+        "AdvertiseTrustStoreCaNames" : {
+          "description" : "",
+          "type" : "string"
         }
       }
     },

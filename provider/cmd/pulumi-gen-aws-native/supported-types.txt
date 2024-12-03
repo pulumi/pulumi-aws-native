@@ -1078,6 +1078,8 @@ AWS::WAFv2::WebACL
 AWS::WAFv2::WebACLAssociation
 AWS::Wisdom::AIAgent
 AWS::Wisdom::AIAgentVersion
+AWS::Wisdom::AIGuardrail
+AWS::Wisdom::AIGuardrailVersion
 AWS::Wisdom::AIPrompt
 AWS::Wisdom::AIPromptVersion
 AWS::Wisdom::Assistant
