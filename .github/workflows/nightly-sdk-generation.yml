@@ -99,7 +99,7 @@ jobs:
         git push origin generate-sdk/${{ github.run_id }}-${{ github.run_number }}
     - name: Create PR
       id: create-pr
-      uses: repo-sync/pull-request@65785d95a5a466e46a9d0708933a3bd51bbf9dde # v2.6.2
+      uses: repo-sync/pull-request@7e79a9f5dc3ad0ce53138f01df2fad14a04831c5 # v2.12.1
       with:
         destination_branch: master
         github_token: ${{ secrets.PULUMI_BOT_TOKEN }}
