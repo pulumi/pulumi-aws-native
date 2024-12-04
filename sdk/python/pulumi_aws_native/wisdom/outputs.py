@@ -19,6 +19,7 @@ from ._enums import *
 __all__ = [
     'AiAgentAiAgentConfiguration0Properties',
     'AiAgentAiAgentConfiguration1Properties',
+    'AiAgentAiAgentConfiguration2Properties',
     'AiAgentAnswerRecommendationAiAgentConfiguration',
     'AiAgentAssociationConfiguration',
     'AiAgentAssociationConfigurationDataProperties',
@@ -26,10 +27,23 @@ __all__ = [
     'AiAgentManualSearchAiAgentConfiguration',
     'AiAgentOrCondition0Properties',
     'AiAgentOrCondition1Properties',
+    'AiAgentSelfServiceAiAgentConfiguration',
     'AiAgentTagCondition',
     'AiAgentTagFilter0Properties',
     'AiAgentTagFilter1Properties',
     'AiAgentTagFilter2Properties',
+    'AiGuardrailAiGuardrailContentPolicyConfig',
+    'AiGuardrailAiGuardrailContextualGroundingPolicyConfig',
+    'AiGuardrailAiGuardrailSensitiveInformationPolicyConfig',
+    'AiGuardrailAiGuardrailTopicPolicyConfig',
+    'AiGuardrailAiGuardrailWordPolicyConfig',
+    'AiGuardrailGuardrailContentFilterConfig',
+    'AiGuardrailGuardrailContextualGroundingFilterConfig',
+    'AiGuardrailGuardrailManagedWordsConfig',
+    'AiGuardrailGuardrailPiiEntityConfig',
+    'AiGuardrailGuardrailRegexConfig',
+    'AiGuardrailGuardrailTopicConfig',
+    'AiGuardrailGuardrailWordConfig',
     'AiPromptAiPromptTemplateConfiguration',
     'AssistantAssociationAssociationData',
     'AssistantServerSideEncryptionConfiguration',
@@ -126,11 +140,42 @@ class AiAgentAiAgentConfiguration1Properties(dict):
 
 
 @pulumi.output_type
+class AiAgentAiAgentConfiguration2Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "selfServiceAiAgentConfiguration":
+            suggest = "self_service_ai_agent_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AiAgentAiAgentConfiguration2Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AiAgentAiAgentConfiguration2Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AiAgentAiAgentConfiguration2Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 self_service_ai_agent_configuration: 'outputs.AiAgentSelfServiceAiAgentConfiguration'):
+        pulumi.set(__self__, "self_service_ai_agent_configuration", self_service_ai_agent_configuration)
+
+    @property
+    @pulumi.getter(name="selfServiceAiAgentConfiguration")
+    def self_service_ai_agent_configuration(self) -> 'outputs.AiAgentSelfServiceAiAgentConfiguration':
+        return pulumi.get(self, "self_service_ai_agent_configuration")
+
+
+@pulumi.output_type
 class AiAgentAnswerRecommendationAiAgentConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "answerGenerationAiPromptId":
+        if key == "answerGenerationAiGuardrailId":
+            suggest = "answer_generation_ai_guardrail_id"
+        elif key == "answerGenerationAiPromptId":
             suggest = "answer_generation_ai_prompt_id"
         elif key == "associationConfigurations":
             suggest = "association_configurations"
@@ -151,10 +196,13 @@ class AiAgentAnswerRecommendationAiAgentConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 answer_generation_ai_guardrail_id: Optional[str] = None,
                  answer_generation_ai_prompt_id: Optional[str] = None,
                  association_configurations: Optional[Sequence['outputs.AiAgentAssociationConfiguration']] = None,
                  intent_labeling_generation_ai_prompt_id: Optional[str] = None,
                  query_reformulation_ai_prompt_id: Optional[str] = None):
+        if answer_generation_ai_guardrail_id is not None:
+            pulumi.set(__self__, "answer_generation_ai_guardrail_id", answer_generation_ai_guardrail_id)
         if answer_generation_ai_prompt_id is not None:
             pulumi.set(__self__, "answer_generation_ai_prompt_id", answer_generation_ai_prompt_id)
         if association_configurations is not None:
@@ -163,6 +211,11 @@ class AiAgentAnswerRecommendationAiAgentConfiguration(dict):
             pulumi.set(__self__, "intent_labeling_generation_ai_prompt_id", intent_labeling_generation_ai_prompt_id)
         if query_reformulation_ai_prompt_id is not None:
             pulumi.set(__self__, "query_reformulation_ai_prompt_id", query_reformulation_ai_prompt_id)
+
+    @property
+    @pulumi.getter(name="answerGenerationAiGuardrailId")
+    def answer_generation_ai_guardrail_id(self) -> Optional[str]:
+        return pulumi.get(self, "answer_generation_ai_guardrail_id")
 
     @property
     @pulumi.getter(name="answerGenerationAiPromptId")
@@ -319,7 +372,9 @@ class AiAgentManualSearchAiAgentConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "answerGenerationAiPromptId":
+        if key == "answerGenerationAiGuardrailId":
+            suggest = "answer_generation_ai_guardrail_id"
+        elif key == "answerGenerationAiPromptId":
             suggest = "answer_generation_ai_prompt_id"
         elif key == "associationConfigurations":
             suggest = "association_configurations"
@@ -336,12 +391,20 @@ class AiAgentManualSearchAiAgentConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 answer_generation_ai_guardrail_id: Optional[str] = None,
                  answer_generation_ai_prompt_id: Optional[str] = None,
                  association_configurations: Optional[Sequence['outputs.AiAgentAssociationConfiguration']] = None):
+        if answer_generation_ai_guardrail_id is not None:
+            pulumi.set(__self__, "answer_generation_ai_guardrail_id", answer_generation_ai_guardrail_id)
         if answer_generation_ai_prompt_id is not None:
             pulumi.set(__self__, "answer_generation_ai_prompt_id", answer_generation_ai_prompt_id)
         if association_configurations is not None:
             pulumi.set(__self__, "association_configurations", association_configurations)
+
+    @property
+    @pulumi.getter(name="answerGenerationAiGuardrailId")
+    def answer_generation_ai_guardrail_id(self) -> Optional[str]:
+        return pulumi.get(self, "answer_generation_ai_guardrail_id")
 
     @property
     @pulumi.getter(name="answerGenerationAiPromptId")
@@ -410,6 +473,66 @@ class AiAgentOrCondition1Properties(dict):
     @pulumi.getter(name="tagCondition")
     def tag_condition(self) -> 'outputs.AiAgentTagCondition':
         return pulumi.get(self, "tag_condition")
+
+
+@pulumi.output_type
+class AiAgentSelfServiceAiAgentConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "associationConfigurations":
+            suggest = "association_configurations"
+        elif key == "selfServiceAiGuardrailId":
+            suggest = "self_service_ai_guardrail_id"
+        elif key == "selfServiceAnswerGenerationAiPromptId":
+            suggest = "self_service_answer_generation_ai_prompt_id"
+        elif key == "selfServicePreProcessingAiPromptId":
+            suggest = "self_service_pre_processing_ai_prompt_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AiAgentSelfServiceAiAgentConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AiAgentSelfServiceAiAgentConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AiAgentSelfServiceAiAgentConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 association_configurations: Optional[Sequence['outputs.AiAgentAssociationConfiguration']] = None,
+                 self_service_ai_guardrail_id: Optional[str] = None,
+                 self_service_answer_generation_ai_prompt_id: Optional[str] = None,
+                 self_service_pre_processing_ai_prompt_id: Optional[str] = None):
+        if association_configurations is not None:
+            pulumi.set(__self__, "association_configurations", association_configurations)
+        if self_service_ai_guardrail_id is not None:
+            pulumi.set(__self__, "self_service_ai_guardrail_id", self_service_ai_guardrail_id)
+        if self_service_answer_generation_ai_prompt_id is not None:
+            pulumi.set(__self__, "self_service_answer_generation_ai_prompt_id", self_service_answer_generation_ai_prompt_id)
+        if self_service_pre_processing_ai_prompt_id is not None:
+            pulumi.set(__self__, "self_service_pre_processing_ai_prompt_id", self_service_pre_processing_ai_prompt_id)
+
+    @property
+    @pulumi.getter(name="associationConfigurations")
+    def association_configurations(self) -> Optional[Sequence['outputs.AiAgentAssociationConfiguration']]:
+        return pulumi.get(self, "association_configurations")
+
+    @property
+    @pulumi.getter(name="selfServiceAiGuardrailId")
+    def self_service_ai_guardrail_id(self) -> Optional[str]:
+        return pulumi.get(self, "self_service_ai_guardrail_id")
+
+    @property
+    @pulumi.getter(name="selfServiceAnswerGenerationAiPromptId")
+    def self_service_answer_generation_ai_prompt_id(self) -> Optional[str]:
+        return pulumi.get(self, "self_service_answer_generation_ai_prompt_id")
+
+    @property
+    @pulumi.getter(name="selfServicePreProcessingAiPromptId")
+    def self_service_pre_processing_ai_prompt_id(self) -> Optional[str]:
+        return pulumi.get(self, "self_service_pre_processing_ai_prompt_id")
 
 
 @pulumi.output_type
@@ -517,6 +640,480 @@ class AiAgentTagFilter2Properties(dict):
     @pulumi.getter(name="orConditions")
     def or_conditions(self) -> Sequence[Any]:
         return pulumi.get(self, "or_conditions")
+
+
+@pulumi.output_type
+class AiGuardrailAiGuardrailContentPolicyConfig(dict):
+    """
+    Content policy config for a guardrail.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filtersConfig":
+            suggest = "filters_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AiGuardrailAiGuardrailContentPolicyConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AiGuardrailAiGuardrailContentPolicyConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AiGuardrailAiGuardrailContentPolicyConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 filters_config: Sequence['outputs.AiGuardrailGuardrailContentFilterConfig']):
+        """
+        Content policy config for a guardrail.
+        :param Sequence['AiGuardrailGuardrailContentFilterConfig'] filters_config: List of content filter configs in content policy.
+        """
+        pulumi.set(__self__, "filters_config", filters_config)
+
+    @property
+    @pulumi.getter(name="filtersConfig")
+    def filters_config(self) -> Sequence['outputs.AiGuardrailGuardrailContentFilterConfig']:
+        """
+        List of content filter configs in content policy.
+        """
+        return pulumi.get(self, "filters_config")
+
+
+@pulumi.output_type
+class AiGuardrailAiGuardrailContextualGroundingPolicyConfig(dict):
+    """
+    Contextual grounding policy config for a guardrail.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filtersConfig":
+            suggest = "filters_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AiGuardrailAiGuardrailContextualGroundingPolicyConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AiGuardrailAiGuardrailContextualGroundingPolicyConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AiGuardrailAiGuardrailContextualGroundingPolicyConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 filters_config: Sequence['outputs.AiGuardrailGuardrailContextualGroundingFilterConfig']):
+        """
+        Contextual grounding policy config for a guardrail.
+        :param Sequence['AiGuardrailGuardrailContextualGroundingFilterConfig'] filters_config: List of contextual grounding filter configs.
+        """
+        pulumi.set(__self__, "filters_config", filters_config)
+
+    @property
+    @pulumi.getter(name="filtersConfig")
+    def filters_config(self) -> Sequence['outputs.AiGuardrailGuardrailContextualGroundingFilterConfig']:
+        """
+        List of contextual grounding filter configs.
+        """
+        return pulumi.get(self, "filters_config")
+
+
+@pulumi.output_type
+class AiGuardrailAiGuardrailSensitiveInformationPolicyConfig(dict):
+    """
+    Sensitive information policy config for a guardrail.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "piiEntitiesConfig":
+            suggest = "pii_entities_config"
+        elif key == "regexesConfig":
+            suggest = "regexes_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AiGuardrailAiGuardrailSensitiveInformationPolicyConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AiGuardrailAiGuardrailSensitiveInformationPolicyConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AiGuardrailAiGuardrailSensitiveInformationPolicyConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 pii_entities_config: Optional[Sequence['outputs.AiGuardrailGuardrailPiiEntityConfig']] = None,
+                 regexes_config: Optional[Sequence['outputs.AiGuardrailGuardrailRegexConfig']] = None):
+        """
+        Sensitive information policy config for a guardrail.
+        :param Sequence['AiGuardrailGuardrailPiiEntityConfig'] pii_entities_config: List of entities.
+        :param Sequence['AiGuardrailGuardrailRegexConfig'] regexes_config: List of regex.
+        """
+        if pii_entities_config is not None:
+            pulumi.set(__self__, "pii_entities_config", pii_entities_config)
+        if regexes_config is not None:
+            pulumi.set(__self__, "regexes_config", regexes_config)
+
+    @property
+    @pulumi.getter(name="piiEntitiesConfig")
+    def pii_entities_config(self) -> Optional[Sequence['outputs.AiGuardrailGuardrailPiiEntityConfig']]:
+        """
+        List of entities.
+        """
+        return pulumi.get(self, "pii_entities_config")
+
+    @property
+    @pulumi.getter(name="regexesConfig")
+    def regexes_config(self) -> Optional[Sequence['outputs.AiGuardrailGuardrailRegexConfig']]:
+        """
+        List of regex.
+        """
+        return pulumi.get(self, "regexes_config")
+
+
+@pulumi.output_type
+class AiGuardrailAiGuardrailTopicPolicyConfig(dict):
+    """
+    Topic policy config for a guardrail.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "topicsConfig":
+            suggest = "topics_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AiGuardrailAiGuardrailTopicPolicyConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AiGuardrailAiGuardrailTopicPolicyConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AiGuardrailAiGuardrailTopicPolicyConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 topics_config: Sequence['outputs.AiGuardrailGuardrailTopicConfig']):
+        """
+        Topic policy config for a guardrail.
+        :param Sequence['AiGuardrailGuardrailTopicConfig'] topics_config: List of topic configs in topic policy.
+        """
+        pulumi.set(__self__, "topics_config", topics_config)
+
+    @property
+    @pulumi.getter(name="topicsConfig")
+    def topics_config(self) -> Sequence['outputs.AiGuardrailGuardrailTopicConfig']:
+        """
+        List of topic configs in topic policy.
+        """
+        return pulumi.get(self, "topics_config")
+
+
+@pulumi.output_type
+class AiGuardrailAiGuardrailWordPolicyConfig(dict):
+    """
+    Word policy config for a guardrail.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "managedWordListsConfig":
+            suggest = "managed_word_lists_config"
+        elif key == "wordsConfig":
+            suggest = "words_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AiGuardrailAiGuardrailWordPolicyConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AiGuardrailAiGuardrailWordPolicyConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AiGuardrailAiGuardrailWordPolicyConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 managed_word_lists_config: Optional[Sequence['outputs.AiGuardrailGuardrailManagedWordsConfig']] = None,
+                 words_config: Optional[Sequence['outputs.AiGuardrailGuardrailWordConfig']] = None):
+        """
+        Word policy config for a guardrail.
+        :param Sequence['AiGuardrailGuardrailManagedWordsConfig'] managed_word_lists_config: A config for the list of managed words.
+        :param Sequence['AiGuardrailGuardrailWordConfig'] words_config: List of custom word configs.
+        """
+        if managed_word_lists_config is not None:
+            pulumi.set(__self__, "managed_word_lists_config", managed_word_lists_config)
+        if words_config is not None:
+            pulumi.set(__self__, "words_config", words_config)
+
+    @property
+    @pulumi.getter(name="managedWordListsConfig")
+    def managed_word_lists_config(self) -> Optional[Sequence['outputs.AiGuardrailGuardrailManagedWordsConfig']]:
+        """
+        A config for the list of managed words.
+        """
+        return pulumi.get(self, "managed_word_lists_config")
+
+    @property
+    @pulumi.getter(name="wordsConfig")
+    def words_config(self) -> Optional[Sequence['outputs.AiGuardrailGuardrailWordConfig']]:
+        """
+        List of custom word configs.
+        """
+        return pulumi.get(self, "words_config")
+
+
+@pulumi.output_type
+class AiGuardrailGuardrailContentFilterConfig(dict):
+    """
+    Content filter config in content policy.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inputStrength":
+            suggest = "input_strength"
+        elif key == "outputStrength":
+            suggest = "output_strength"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AiGuardrailGuardrailContentFilterConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AiGuardrailGuardrailContentFilterConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AiGuardrailGuardrailContentFilterConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 input_strength: 'AiGuardrailGuardrailFilterStrength',
+                 output_strength: 'AiGuardrailGuardrailFilterStrength',
+                 type: 'AiGuardrailGuardrailContentFilterType'):
+        """
+        Content filter config in content policy.
+        """
+        pulumi.set(__self__, "input_strength", input_strength)
+        pulumi.set(__self__, "output_strength", output_strength)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="inputStrength")
+    def input_strength(self) -> 'AiGuardrailGuardrailFilterStrength':
+        return pulumi.get(self, "input_strength")
+
+    @property
+    @pulumi.getter(name="outputStrength")
+    def output_strength(self) -> 'AiGuardrailGuardrailFilterStrength':
+        return pulumi.get(self, "output_strength")
+
+    @property
+    @pulumi.getter
+    def type(self) -> 'AiGuardrailGuardrailContentFilterType':
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class AiGuardrailGuardrailContextualGroundingFilterConfig(dict):
+    """
+    A config for grounding filter.
+    """
+    def __init__(__self__, *,
+                 threshold: float,
+                 type: 'AiGuardrailGuardrailContextualGroundingFilterType'):
+        """
+        A config for grounding filter.
+        :param float threshold: The threshold for this filter.
+        """
+        pulumi.set(__self__, "threshold", threshold)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def threshold(self) -> float:
+        """
+        The threshold for this filter.
+        """
+        return pulumi.get(self, "threshold")
+
+    @property
+    @pulumi.getter
+    def type(self) -> 'AiGuardrailGuardrailContextualGroundingFilterType':
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class AiGuardrailGuardrailManagedWordsConfig(dict):
+    """
+    A managed words config.
+    """
+    def __init__(__self__, *,
+                 type: 'AiGuardrailGuardrailManagedWordsType'):
+        """
+        A managed words config.
+        """
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> 'AiGuardrailGuardrailManagedWordsType':
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class AiGuardrailGuardrailPiiEntityConfig(dict):
+    """
+    Pii entity configuration.
+    """
+    def __init__(__self__, *,
+                 action: 'AiGuardrailGuardrailSensitiveInformationAction',
+                 type: 'AiGuardrailGuardrailPiiEntityType'):
+        """
+        Pii entity configuration.
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def action(self) -> 'AiGuardrailGuardrailSensitiveInformationAction':
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter
+    def type(self) -> 'AiGuardrailGuardrailPiiEntityType':
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class AiGuardrailGuardrailRegexConfig(dict):
+    """
+    A regex configuration.
+    """
+    def __init__(__self__, *,
+                 action: 'AiGuardrailGuardrailSensitiveInformationAction',
+                 name: str,
+                 pattern: str,
+                 description: Optional[str] = None):
+        """
+        A regex configuration.
+        :param str name: The regex name.
+        :param str pattern: The regex pattern.
+        :param str description: The regex description.
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "pattern", pattern)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter
+    def action(self) -> 'AiGuardrailGuardrailSensitiveInformationAction':
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The regex name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def pattern(self) -> str:
+        """
+        The regex pattern.
+        """
+        return pulumi.get(self, "pattern")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The regex description.
+        """
+        return pulumi.get(self, "description")
+
+
+@pulumi.output_type
+class AiGuardrailGuardrailTopicConfig(dict):
+    """
+    Topic config in topic policy.
+    """
+    def __init__(__self__, *,
+                 definition: str,
+                 name: str,
+                 type: 'AiGuardrailGuardrailTopicType',
+                 examples: Optional[Sequence[str]] = None):
+        """
+        Topic config in topic policy.
+        :param str definition: Definition of topic in topic policy
+        :param str name: Name of topic in topic policy
+        :param Sequence[str] examples: List of text examples
+        """
+        pulumi.set(__self__, "definition", definition)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if examples is not None:
+            pulumi.set(__self__, "examples", examples)
+
+    @property
+    @pulumi.getter
+    def definition(self) -> str:
+        """
+        Definition of topic in topic policy
+        """
+        return pulumi.get(self, "definition")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of topic in topic policy
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> 'AiGuardrailGuardrailTopicType':
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def examples(self) -> Optional[Sequence[str]]:
+        """
+        List of text examples
+        """
+        return pulumi.get(self, "examples")
+
+
+@pulumi.output_type
+class AiGuardrailGuardrailWordConfig(dict):
+    """
+    A custom word config.
+    """
+    def __init__(__self__, *,
+                 text: str):
+        """
+        A custom word config.
+        :param str text: The custom word text.
+        """
+        pulumi.set(__self__, "text", text)
+
+    @property
+    @pulumi.getter
+    def text(self) -> str:
+        """
+        The custom word text.
+        """
+        return pulumi.get(self, "text")
 
 
 @pulumi.output_type

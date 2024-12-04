@@ -56,7 +56,7 @@ export class AiAgent extends pulumi.CustomResource {
     /**
      * Configuration for the AI Agent.
      */
-    public readonly configuration!: pulumi.Output<outputs.wisdom.AiAgentAiAgentConfiguration0Properties | outputs.wisdom.AiAgentAiAgentConfiguration1Properties>;
+    public readonly configuration!: pulumi.Output<outputs.wisdom.AiAgentAiAgentConfiguration0Properties | outputs.wisdom.AiAgentAiAgentConfiguration1Properties | outputs.wisdom.AiAgentAiAgentConfiguration2Properties>;
     /**
      * The description of the AI Agent.
      */
@@ -132,7 +132,7 @@ export interface AiAgentArgs {
     /**
      * Configuration for the AI Agent.
      */
-    configuration: pulumi.Input<inputs.wisdom.AiAgentAiAgentConfiguration0PropertiesArgs | inputs.wisdom.AiAgentAiAgentConfiguration1PropertiesArgs>;
+    configuration: pulumi.Input<inputs.wisdom.AiAgentAiAgentConfiguration0PropertiesArgs | inputs.wisdom.AiAgentAiAgentConfiguration1PropertiesArgs | inputs.wisdom.AiAgentAiAgentConfiguration2PropertiesArgs>;
     /**
      * The description of the AI Agent.
      */

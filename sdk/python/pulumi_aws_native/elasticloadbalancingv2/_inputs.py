@@ -947,6 +947,7 @@ if not MYPY:
         """
         Specifies the configuration information for mutual authentication.
         """
+        advertise_trust_store_ca_names: NotRequired[pulumi.Input[str]]
         ignore_client_certificate_expiry: NotRequired[pulumi.Input[bool]]
         """
         Indicates whether expired client certificates are ignored.
@@ -965,6 +966,7 @@ elif False:
 @pulumi.input_type
 class ListenerMutualAuthenticationArgs:
     def __init__(__self__, *,
+                 advertise_trust_store_ca_names: Optional[pulumi.Input[str]] = None,
                  ignore_client_certificate_expiry: Optional[pulumi.Input[bool]] = None,
                  mode: Optional[pulumi.Input[str]] = None,
                  trust_store_arn: Optional[pulumi.Input[str]] = None):
@@ -974,12 +976,23 @@ class ListenerMutualAuthenticationArgs:
         :param pulumi.Input[str] mode: The client certificate handling method. Options are ``off``, ``passthrough`` or ``verify``. The default value is ``off``.
         :param pulumi.Input[str] trust_store_arn: The Amazon Resource Name (ARN) of the trust store.
         """
+        if advertise_trust_store_ca_names is not None:
+            pulumi.set(__self__, "advertise_trust_store_ca_names", advertise_trust_store_ca_names)
         if ignore_client_certificate_expiry is not None:
             pulumi.set(__self__, "ignore_client_certificate_expiry", ignore_client_certificate_expiry)
         if mode is not None:
             pulumi.set(__self__, "mode", mode)
         if trust_store_arn is not None:
             pulumi.set(__self__, "trust_store_arn", trust_store_arn)
+
+    @property
+    @pulumi.getter(name="advertiseTrustStoreCaNames")
+    def advertise_trust_store_ca_names(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "advertise_trust_store_ca_names")
+
+    @advertise_trust_store_ca_names.setter
+    def advertise_trust_store_ca_names(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "advertise_trust_store_ca_names", value)
 
     @property
     @pulumi.getter(name="ignoreClientCertificateExpiry")

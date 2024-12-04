@@ -28,11 +28,45 @@
         },
         "required" : [ "AnswerRecommendationAIAgentConfiguration" ],
         "additionalProperties" : false
+      }, {
+        "type" : "object",
+        "title" : "SelfServiceAIAgentConfiguration",
+        "properties" : {
+          "SelfServiceAIAgentConfiguration" : {
+            "$ref" : "#/definitions/SelfServiceAIAgentConfiguration"
+          }
+        },
+        "required" : [ "SelfServiceAIAgentConfiguration" ],
+        "additionalProperties" : false
       } ]
     },
     "AIAgentType" : {
       "type" : "string",
-      "enum" : [ "MANUAL_SEARCH", "ANSWER_RECOMMENDATION" ]
+      "enum" : [ "MANUAL_SEARCH", "ANSWER_RECOMMENDATION", "SELF_SERVICE" ]
+    },
+    "SelfServiceAIAgentConfiguration" : {
+      "type" : "object",
+      "properties" : {
+        "SelfServicePreProcessingAIPromptId" : {
+          "type" : "string",
+          "pattern" : "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}(:[A-Z0-9_$]+){0,1}$"
+        },
+        "SelfServiceAnswerGenerationAIPromptId" : {
+          "type" : "string",
+          "pattern" : "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}(:[A-Z0-9_$]+){0,1}$"
+        },
+        "SelfServiceAIGuardrailId" : {
+          "type" : "string",
+          "pattern" : "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}(:[A-Z0-9_$]+){0,1}$"
+        },
+        "AssociationConfigurations" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/AssociationConfiguration"
+          }
+        }
+      },
+      "additionalProperties" : false
     },
     "AnswerRecommendationAIAgentConfiguration" : {
       "type" : "object",
@@ -46,6 +80,10 @@
           "pattern" : "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}(:[A-Z0-9_$]+){0,1}$"
         },
         "AnswerGenerationAIPromptId" : {
+          "type" : "string",
+          "pattern" : "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}(:[A-Z0-9_$]+){0,1}$"
+        },
+        "AnswerGenerationAIGuardrailId" : {
           "type" : "string",
           "pattern" : "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}(:[A-Z0-9_$]+){0,1}$"
         },
@@ -112,6 +150,10 @@
       "type" : "object",
       "properties" : {
         "AnswerGenerationAIPromptId" : {
+          "type" : "string",
+          "pattern" : "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}(:[A-Z0-9_$]+){0,1}$"
+        },
+        "AnswerGenerationAIGuardrailId" : {
           "type" : "string",
           "pattern" : "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}(:[A-Z0-9_$]+){0,1}$"
         },

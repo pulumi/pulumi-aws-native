@@ -730,7 +730,9 @@ class ListenerMutualAuthentication(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "ignoreClientCertificateExpiry":
+        if key == "advertiseTrustStoreCaNames":
+            suggest = "advertise_trust_store_ca_names"
+        elif key == "ignoreClientCertificateExpiry":
             suggest = "ignore_client_certificate_expiry"
         elif key == "trustStoreArn":
             suggest = "trust_store_arn"
@@ -747,6 +749,7 @@ class ListenerMutualAuthentication(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 advertise_trust_store_ca_names: Optional[str] = None,
                  ignore_client_certificate_expiry: Optional[bool] = None,
                  mode: Optional[str] = None,
                  trust_store_arn: Optional[str] = None):
@@ -756,12 +759,19 @@ class ListenerMutualAuthentication(dict):
         :param str mode: The client certificate handling method. Options are ``off``, ``passthrough`` or ``verify``. The default value is ``off``.
         :param str trust_store_arn: The Amazon Resource Name (ARN) of the trust store.
         """
+        if advertise_trust_store_ca_names is not None:
+            pulumi.set(__self__, "advertise_trust_store_ca_names", advertise_trust_store_ca_names)
         if ignore_client_certificate_expiry is not None:
             pulumi.set(__self__, "ignore_client_certificate_expiry", ignore_client_certificate_expiry)
         if mode is not None:
             pulumi.set(__self__, "mode", mode)
         if trust_store_arn is not None:
             pulumi.set(__self__, "trust_store_arn", trust_store_arn)
+
+    @property
+    @pulumi.getter(name="advertiseTrustStoreCaNames")
+    def advertise_trust_store_ca_names(self) -> Optional[str]:
+        return pulumi.get(self, "advertise_trust_store_ca_names")
 
     @property
     @pulumi.getter(name="ignoreClientCertificateExpiry")

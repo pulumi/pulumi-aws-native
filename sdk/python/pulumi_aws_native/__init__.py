@@ -3276,6 +3276,8 @@ _utilities.register(
   "classes": {
    "aws-native:wisdom:AiAgent": "AiAgent",
    "aws-native:wisdom:AiAgentVersion": "AiAgentVersion",
+   "aws-native:wisdom:AiGuardrail": "AiGuardrail",
+   "aws-native:wisdom:AiGuardrailVersion": "AiGuardrailVersion",
    "aws-native:wisdom:AiPrompt": "AiPrompt",
    "aws-native:wisdom:AiPromptVersion": "AiPromptVersion",
    "aws-native:wisdom:Assistant": "Assistant",

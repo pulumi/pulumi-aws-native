@@ -23,7 +23,7 @@ __all__ = ['AiAgentArgs', 'AiAgent']
 class AiAgentArgs:
     def __init__(__self__, *,
                  assistant_id: pulumi.Input[str],
-                 configuration: pulumi.Input[Union['AiAgentAiAgentConfiguration0PropertiesArgs', 'AiAgentAiAgentConfiguration1PropertiesArgs']],
+                 configuration: pulumi.Input[Union['AiAgentAiAgentConfiguration0PropertiesArgs', 'AiAgentAiAgentConfiguration1PropertiesArgs', 'AiAgentAiAgentConfiguration2PropertiesArgs']],
                  type: pulumi.Input['AiAgentAiAgentType'],
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -31,7 +31,7 @@ class AiAgentArgs:
         """
         The set of arguments for constructing a AiAgent resource.
         :param pulumi.Input[str] assistant_id: The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
-        :param pulumi.Input[Union['AiAgentAiAgentConfiguration0PropertiesArgs', 'AiAgentAiAgentConfiguration1PropertiesArgs']] configuration: Configuration for the AI Agent.
+        :param pulumi.Input[Union['AiAgentAiAgentConfiguration0PropertiesArgs', 'AiAgentAiAgentConfiguration1PropertiesArgs', 'AiAgentAiAgentConfiguration2PropertiesArgs']] configuration: Configuration for the AI Agent.
         :param pulumi.Input['AiAgentAiAgentType'] type: The type of the AI Agent.
         :param pulumi.Input[str] description: The description of the AI Agent.
         :param pulumi.Input[str] name: The name of the AI Agent.
@@ -61,14 +61,14 @@ class AiAgentArgs:
 
     @property
     @pulumi.getter
-    def configuration(self) -> pulumi.Input[Union['AiAgentAiAgentConfiguration0PropertiesArgs', 'AiAgentAiAgentConfiguration1PropertiesArgs']]:
+    def configuration(self) -> pulumi.Input[Union['AiAgentAiAgentConfiguration0PropertiesArgs', 'AiAgentAiAgentConfiguration1PropertiesArgs', 'AiAgentAiAgentConfiguration2PropertiesArgs']]:
         """
         Configuration for the AI Agent.
         """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
-    def configuration(self, value: pulumi.Input[Union['AiAgentAiAgentConfiguration0PropertiesArgs', 'AiAgentAiAgentConfiguration1PropertiesArgs']]):
+    def configuration(self, value: pulumi.Input[Union['AiAgentAiAgentConfiguration0PropertiesArgs', 'AiAgentAiAgentConfiguration1PropertiesArgs', 'AiAgentAiAgentConfiguration2PropertiesArgs']]):
         pulumi.set(self, "configuration", value)
 
     @property
@@ -126,7 +126,7 @@ class AiAgent(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  assistant_id: Optional[pulumi.Input[str]] = None,
-                 configuration: Optional[pulumi.Input[Union[Union['AiAgentAiAgentConfiguration0PropertiesArgs', 'AiAgentAiAgentConfiguration0PropertiesArgsDict'], Union['AiAgentAiAgentConfiguration1PropertiesArgs', 'AiAgentAiAgentConfiguration1PropertiesArgsDict']]]] = None,
+                 configuration: Optional[pulumi.Input[Union[Union['AiAgentAiAgentConfiguration0PropertiesArgs', 'AiAgentAiAgentConfiguration0PropertiesArgsDict'], Union['AiAgentAiAgentConfiguration1PropertiesArgs', 'AiAgentAiAgentConfiguration1PropertiesArgsDict'], Union['AiAgentAiAgentConfiguration2PropertiesArgs', 'AiAgentAiAgentConfiguration2PropertiesArgsDict']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -138,7 +138,7 @@ class AiAgent(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] assistant_id: The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
-        :param pulumi.Input[Union[Union['AiAgentAiAgentConfiguration0PropertiesArgs', 'AiAgentAiAgentConfiguration0PropertiesArgsDict'], Union['AiAgentAiAgentConfiguration1PropertiesArgs', 'AiAgentAiAgentConfiguration1PropertiesArgsDict']]] configuration: Configuration for the AI Agent.
+        :param pulumi.Input[Union[Union['AiAgentAiAgentConfiguration0PropertiesArgs', 'AiAgentAiAgentConfiguration0PropertiesArgsDict'], Union['AiAgentAiAgentConfiguration1PropertiesArgs', 'AiAgentAiAgentConfiguration1PropertiesArgsDict'], Union['AiAgentAiAgentConfiguration2PropertiesArgs', 'AiAgentAiAgentConfiguration2PropertiesArgsDict']]] configuration: Configuration for the AI Agent.
         :param pulumi.Input[str] description: The description of the AI Agent.
         :param pulumi.Input[str] name: The name of the AI Agent.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags used to organize, track, or control access for this resource.
@@ -169,7 +169,7 @@ class AiAgent(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  assistant_id: Optional[pulumi.Input[str]] = None,
-                 configuration: Optional[pulumi.Input[Union[Union['AiAgentAiAgentConfiguration0PropertiesArgs', 'AiAgentAiAgentConfiguration0PropertiesArgsDict'], Union['AiAgentAiAgentConfiguration1PropertiesArgs', 'AiAgentAiAgentConfiguration1PropertiesArgsDict']]]] = None,
+                 configuration: Optional[pulumi.Input[Union[Union['AiAgentAiAgentConfiguration0PropertiesArgs', 'AiAgentAiAgentConfiguration0PropertiesArgsDict'], Union['AiAgentAiAgentConfiguration1PropertiesArgs', 'AiAgentAiAgentConfiguration1PropertiesArgsDict'], Union['AiAgentAiAgentConfiguration2PropertiesArgs', 'AiAgentAiAgentConfiguration2PropertiesArgsDict']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,

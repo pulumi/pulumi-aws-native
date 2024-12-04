@@ -15,6 +15,16 @@ export type AiAgentVersion = import("./aiAgentVersion").AiAgentVersion;
 export const AiAgentVersion: typeof import("./aiAgentVersion").AiAgentVersion = null as any;
 utilities.lazyLoad(exports, ["AiAgentVersion"], () => require("./aiAgentVersion"));
 
+export { AiGuardrailArgs } from "./aiGuardrail";
+export type AiGuardrail = import("./aiGuardrail").AiGuardrail;
+export const AiGuardrail: typeof import("./aiGuardrail").AiGuardrail = null as any;
+utilities.lazyLoad(exports, ["AiGuardrail"], () => require("./aiGuardrail"));
+
+export { AiGuardrailVersionArgs } from "./aiGuardrailVersion";
+export type AiGuardrailVersion = import("./aiGuardrailVersion").AiGuardrailVersion;
+export const AiGuardrailVersion: typeof import("./aiGuardrailVersion").AiGuardrailVersion = null as any;
+utilities.lazyLoad(exports, ["AiGuardrailVersion"], () => require("./aiGuardrailVersion"));
+
 export { AiPromptArgs } from "./aiPrompt";
 export type AiPrompt = import("./aiPrompt").AiPrompt;
 export const AiPrompt: typeof import("./aiPrompt").AiPrompt = null as any;
@@ -44,6 +54,16 @@ export { GetAiAgentVersionArgs, GetAiAgentVersionResult, GetAiAgentVersionOutput
 export const getAiAgentVersion: typeof import("./getAiAgentVersion").getAiAgentVersion = null as any;
 export const getAiAgentVersionOutput: typeof import("./getAiAgentVersion").getAiAgentVersionOutput = null as any;
 utilities.lazyLoad(exports, ["getAiAgentVersion","getAiAgentVersionOutput"], () => require("./getAiAgentVersion"));
+
+export { GetAiGuardrailArgs, GetAiGuardrailResult, GetAiGuardrailOutputArgs } from "./getAiGuardrail";
+export const getAiGuardrail: typeof import("./getAiGuardrail").getAiGuardrail = null as any;
+export const getAiGuardrailOutput: typeof import("./getAiGuardrail").getAiGuardrailOutput = null as any;
+utilities.lazyLoad(exports, ["getAiGuardrail","getAiGuardrailOutput"], () => require("./getAiGuardrail"));
+
+export { GetAiGuardrailVersionArgs, GetAiGuardrailVersionResult, GetAiGuardrailVersionOutputArgs } from "./getAiGuardrailVersion";
+export const getAiGuardrailVersion: typeof import("./getAiGuardrailVersion").getAiGuardrailVersion = null as any;
+export const getAiGuardrailVersionOutput: typeof import("./getAiGuardrailVersion").getAiGuardrailVersionOutput = null as any;
+utilities.lazyLoad(exports, ["getAiGuardrailVersion","getAiGuardrailVersionOutput"], () => require("./getAiGuardrailVersion"));
 
 export { GetAiPromptArgs, GetAiPromptResult, GetAiPromptOutputArgs } from "./getAiPrompt";
 export const getAiPrompt: typeof import("./getAiPrompt").getAiPrompt = null as any;
@@ -107,6 +127,10 @@ const _module = {
                 return new AiAgent(name, <any>undefined, { urn })
             case "aws-native:wisdom:AiAgentVersion":
                 return new AiAgentVersion(name, <any>undefined, { urn })
+            case "aws-native:wisdom:AiGuardrail":
+                return new AiGuardrail(name, <any>undefined, { urn })
+            case "aws-native:wisdom:AiGuardrailVersion":
+                return new AiGuardrailVersion(name, <any>undefined, { urn })
             case "aws-native:wisdom:AiPrompt":
                 return new AiPrompt(name, <any>undefined, { urn })
             case "aws-native:wisdom:AiPromptVersion":

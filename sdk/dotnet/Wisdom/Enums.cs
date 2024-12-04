@@ -46,6 +46,7 @@ namespace Pulumi.AwsNative.Wisdom
 
         public static AiAgentAiAgentType ManualSearch { get; } = new AiAgentAiAgentType("MANUAL_SEARCH");
         public static AiAgentAiAgentType AnswerRecommendation { get; } = new AiAgentAiAgentType("ANSWER_RECOMMENDATION");
+        public static AiAgentAiAgentType SelfService { get; } = new AiAgentAiAgentType("SELF_SERVICE");
 
         public static bool operator ==(AiAgentAiAgentType left, AiAgentAiAgentType right) => left.Equals(right);
         public static bool operator !=(AiAgentAiAgentType left, AiAgentAiAgentType right) => !left.Equals(right);
@@ -83,6 +84,256 @@ namespace Pulumi.AwsNative.Wisdom
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is AiAgentKnowledgeBaseSearchType other && Equals(other);
         public bool Equals(AiAgentKnowledgeBaseSearchType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of text to text filter in content policy
+    /// </summary>
+    [EnumType]
+    public readonly struct AiGuardrailGuardrailContentFilterType : IEquatable<AiGuardrailGuardrailContentFilterType>
+    {
+        private readonly string _value;
+
+        private AiGuardrailGuardrailContentFilterType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AiGuardrailGuardrailContentFilterType Sexual { get; } = new AiGuardrailGuardrailContentFilterType("SEXUAL");
+        public static AiGuardrailGuardrailContentFilterType Violence { get; } = new AiGuardrailGuardrailContentFilterType("VIOLENCE");
+        public static AiGuardrailGuardrailContentFilterType Hate { get; } = new AiGuardrailGuardrailContentFilterType("HATE");
+        public static AiGuardrailGuardrailContentFilterType Insults { get; } = new AiGuardrailGuardrailContentFilterType("INSULTS");
+        public static AiGuardrailGuardrailContentFilterType Misconduct { get; } = new AiGuardrailGuardrailContentFilterType("MISCONDUCT");
+        public static AiGuardrailGuardrailContentFilterType PromptAttack { get; } = new AiGuardrailGuardrailContentFilterType("PROMPT_ATTACK");
+
+        public static bool operator ==(AiGuardrailGuardrailContentFilterType left, AiGuardrailGuardrailContentFilterType right) => left.Equals(right);
+        public static bool operator !=(AiGuardrailGuardrailContentFilterType left, AiGuardrailGuardrailContentFilterType right) => !left.Equals(right);
+
+        public static explicit operator string(AiGuardrailGuardrailContentFilterType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AiGuardrailGuardrailContentFilterType other && Equals(other);
+        public bool Equals(AiGuardrailGuardrailContentFilterType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of contextual grounding filter
+    /// </summary>
+    [EnumType]
+    public readonly struct AiGuardrailGuardrailContextualGroundingFilterType : IEquatable<AiGuardrailGuardrailContextualGroundingFilterType>
+    {
+        private readonly string _value;
+
+        private AiGuardrailGuardrailContextualGroundingFilterType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AiGuardrailGuardrailContextualGroundingFilterType Grounding { get; } = new AiGuardrailGuardrailContextualGroundingFilterType("GROUNDING");
+        public static AiGuardrailGuardrailContextualGroundingFilterType Relevance { get; } = new AiGuardrailGuardrailContextualGroundingFilterType("RELEVANCE");
+
+        public static bool operator ==(AiGuardrailGuardrailContextualGroundingFilterType left, AiGuardrailGuardrailContextualGroundingFilterType right) => left.Equals(right);
+        public static bool operator !=(AiGuardrailGuardrailContextualGroundingFilterType left, AiGuardrailGuardrailContextualGroundingFilterType right) => !left.Equals(right);
+
+        public static explicit operator string(AiGuardrailGuardrailContextualGroundingFilterType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AiGuardrailGuardrailContextualGroundingFilterType other && Equals(other);
+        public bool Equals(AiGuardrailGuardrailContextualGroundingFilterType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Strength for filters
+    /// </summary>
+    [EnumType]
+    public readonly struct AiGuardrailGuardrailFilterStrength : IEquatable<AiGuardrailGuardrailFilterStrength>
+    {
+        private readonly string _value;
+
+        private AiGuardrailGuardrailFilterStrength(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AiGuardrailGuardrailFilterStrength None { get; } = new AiGuardrailGuardrailFilterStrength("NONE");
+        public static AiGuardrailGuardrailFilterStrength Low { get; } = new AiGuardrailGuardrailFilterStrength("LOW");
+        public static AiGuardrailGuardrailFilterStrength Medium { get; } = new AiGuardrailGuardrailFilterStrength("MEDIUM");
+        public static AiGuardrailGuardrailFilterStrength High { get; } = new AiGuardrailGuardrailFilterStrength("HIGH");
+
+        public static bool operator ==(AiGuardrailGuardrailFilterStrength left, AiGuardrailGuardrailFilterStrength right) => left.Equals(right);
+        public static bool operator !=(AiGuardrailGuardrailFilterStrength left, AiGuardrailGuardrailFilterStrength right) => !left.Equals(right);
+
+        public static explicit operator string(AiGuardrailGuardrailFilterStrength value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AiGuardrailGuardrailFilterStrength other && Equals(other);
+        public bool Equals(AiGuardrailGuardrailFilterStrength other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Options for managed words.
+    /// </summary>
+    [EnumType]
+    public readonly struct AiGuardrailGuardrailManagedWordsType : IEquatable<AiGuardrailGuardrailManagedWordsType>
+    {
+        private readonly string _value;
+
+        private AiGuardrailGuardrailManagedWordsType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AiGuardrailGuardrailManagedWordsType Profanity { get; } = new AiGuardrailGuardrailManagedWordsType("PROFANITY");
+
+        public static bool operator ==(AiGuardrailGuardrailManagedWordsType left, AiGuardrailGuardrailManagedWordsType right) => left.Equals(right);
+        public static bool operator !=(AiGuardrailGuardrailManagedWordsType left, AiGuardrailGuardrailManagedWordsType right) => !left.Equals(right);
+
+        public static explicit operator string(AiGuardrailGuardrailManagedWordsType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AiGuardrailGuardrailManagedWordsType other && Equals(other);
+        public bool Equals(AiGuardrailGuardrailManagedWordsType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The currently supported PII entities
+    /// </summary>
+    [EnumType]
+    public readonly struct AiGuardrailGuardrailPiiEntityType : IEquatable<AiGuardrailGuardrailPiiEntityType>
+    {
+        private readonly string _value;
+
+        private AiGuardrailGuardrailPiiEntityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AiGuardrailGuardrailPiiEntityType Address { get; } = new AiGuardrailGuardrailPiiEntityType("ADDRESS");
+        public static AiGuardrailGuardrailPiiEntityType Age { get; } = new AiGuardrailGuardrailPiiEntityType("AGE");
+        public static AiGuardrailGuardrailPiiEntityType AwsAccessKey { get; } = new AiGuardrailGuardrailPiiEntityType("AWS_ACCESS_KEY");
+        public static AiGuardrailGuardrailPiiEntityType AwsSecretKey { get; } = new AiGuardrailGuardrailPiiEntityType("AWS_SECRET_KEY");
+        public static AiGuardrailGuardrailPiiEntityType CaHealthNumber { get; } = new AiGuardrailGuardrailPiiEntityType("CA_HEALTH_NUMBER");
+        public static AiGuardrailGuardrailPiiEntityType CaSocialInsuranceNumber { get; } = new AiGuardrailGuardrailPiiEntityType("CA_SOCIAL_INSURANCE_NUMBER");
+        public static AiGuardrailGuardrailPiiEntityType CreditDebitCardCvv { get; } = new AiGuardrailGuardrailPiiEntityType("CREDIT_DEBIT_CARD_CVV");
+        public static AiGuardrailGuardrailPiiEntityType CreditDebitCardExpiry { get; } = new AiGuardrailGuardrailPiiEntityType("CREDIT_DEBIT_CARD_EXPIRY");
+        public static AiGuardrailGuardrailPiiEntityType CreditDebitCardNumber { get; } = new AiGuardrailGuardrailPiiEntityType("CREDIT_DEBIT_CARD_NUMBER");
+        public static AiGuardrailGuardrailPiiEntityType DriverId { get; } = new AiGuardrailGuardrailPiiEntityType("DRIVER_ID");
+        public static AiGuardrailGuardrailPiiEntityType Email { get; } = new AiGuardrailGuardrailPiiEntityType("EMAIL");
+        public static AiGuardrailGuardrailPiiEntityType InternationalBankAccountNumber { get; } = new AiGuardrailGuardrailPiiEntityType("INTERNATIONAL_BANK_ACCOUNT_NUMBER");
+        public static AiGuardrailGuardrailPiiEntityType IpAddress { get; } = new AiGuardrailGuardrailPiiEntityType("IP_ADDRESS");
+        public static AiGuardrailGuardrailPiiEntityType LicensePlate { get; } = new AiGuardrailGuardrailPiiEntityType("LICENSE_PLATE");
+        public static AiGuardrailGuardrailPiiEntityType MacAddress { get; } = new AiGuardrailGuardrailPiiEntityType("MAC_ADDRESS");
+        public static AiGuardrailGuardrailPiiEntityType Name { get; } = new AiGuardrailGuardrailPiiEntityType("NAME");
+        public static AiGuardrailGuardrailPiiEntityType Password { get; } = new AiGuardrailGuardrailPiiEntityType("PASSWORD");
+        public static AiGuardrailGuardrailPiiEntityType Phone { get; } = new AiGuardrailGuardrailPiiEntityType("PHONE");
+        public static AiGuardrailGuardrailPiiEntityType Pin { get; } = new AiGuardrailGuardrailPiiEntityType("PIN");
+        public static AiGuardrailGuardrailPiiEntityType SwiftCode { get; } = new AiGuardrailGuardrailPiiEntityType("SWIFT_CODE");
+        public static AiGuardrailGuardrailPiiEntityType UkNationalHealthServiceNumber { get; } = new AiGuardrailGuardrailPiiEntityType("UK_NATIONAL_HEALTH_SERVICE_NUMBER");
+        public static AiGuardrailGuardrailPiiEntityType UkNationalInsuranceNumber { get; } = new AiGuardrailGuardrailPiiEntityType("UK_NATIONAL_INSURANCE_NUMBER");
+        public static AiGuardrailGuardrailPiiEntityType UkUniqueTaxpayerReferenceNumber { get; } = new AiGuardrailGuardrailPiiEntityType("UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER");
+        public static AiGuardrailGuardrailPiiEntityType Url { get; } = new AiGuardrailGuardrailPiiEntityType("URL");
+        public static AiGuardrailGuardrailPiiEntityType Username { get; } = new AiGuardrailGuardrailPiiEntityType("USERNAME");
+        public static AiGuardrailGuardrailPiiEntityType UsBankAccountNumber { get; } = new AiGuardrailGuardrailPiiEntityType("US_BANK_ACCOUNT_NUMBER");
+        public static AiGuardrailGuardrailPiiEntityType UsBankRoutingNumber { get; } = new AiGuardrailGuardrailPiiEntityType("US_BANK_ROUTING_NUMBER");
+        public static AiGuardrailGuardrailPiiEntityType UsIndividualTaxIdentificationNumber { get; } = new AiGuardrailGuardrailPiiEntityType("US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER");
+        public static AiGuardrailGuardrailPiiEntityType UsPassportNumber { get; } = new AiGuardrailGuardrailPiiEntityType("US_PASSPORT_NUMBER");
+        public static AiGuardrailGuardrailPiiEntityType UsSocialSecurityNumber { get; } = new AiGuardrailGuardrailPiiEntityType("US_SOCIAL_SECURITY_NUMBER");
+        public static AiGuardrailGuardrailPiiEntityType VehicleIdentificationNumber { get; } = new AiGuardrailGuardrailPiiEntityType("VEHICLE_IDENTIFICATION_NUMBER");
+
+        public static bool operator ==(AiGuardrailGuardrailPiiEntityType left, AiGuardrailGuardrailPiiEntityType right) => left.Equals(right);
+        public static bool operator !=(AiGuardrailGuardrailPiiEntityType left, AiGuardrailGuardrailPiiEntityType right) => !left.Equals(right);
+
+        public static explicit operator string(AiGuardrailGuardrailPiiEntityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AiGuardrailGuardrailPiiEntityType other && Equals(other);
+        public bool Equals(AiGuardrailGuardrailPiiEntityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Options for sensitive information action.
+    /// </summary>
+    [EnumType]
+    public readonly struct AiGuardrailGuardrailSensitiveInformationAction : IEquatable<AiGuardrailGuardrailSensitiveInformationAction>
+    {
+        private readonly string _value;
+
+        private AiGuardrailGuardrailSensitiveInformationAction(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AiGuardrailGuardrailSensitiveInformationAction Block { get; } = new AiGuardrailGuardrailSensitiveInformationAction("BLOCK");
+        public static AiGuardrailGuardrailSensitiveInformationAction Anonymize { get; } = new AiGuardrailGuardrailSensitiveInformationAction("ANONYMIZE");
+
+        public static bool operator ==(AiGuardrailGuardrailSensitiveInformationAction left, AiGuardrailGuardrailSensitiveInformationAction right) => left.Equals(right);
+        public static bool operator !=(AiGuardrailGuardrailSensitiveInformationAction left, AiGuardrailGuardrailSensitiveInformationAction right) => !left.Equals(right);
+
+        public static explicit operator string(AiGuardrailGuardrailSensitiveInformationAction value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AiGuardrailGuardrailSensitiveInformationAction other && Equals(other);
+        public bool Equals(AiGuardrailGuardrailSensitiveInformationAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of topic in a policy
+    /// </summary>
+    [EnumType]
+    public readonly struct AiGuardrailGuardrailTopicType : IEquatable<AiGuardrailGuardrailTopicType>
+    {
+        private readonly string _value;
+
+        private AiGuardrailGuardrailTopicType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AiGuardrailGuardrailTopicType Deny { get; } = new AiGuardrailGuardrailTopicType("DENY");
+
+        public static bool operator ==(AiGuardrailGuardrailTopicType left, AiGuardrailGuardrailTopicType right) => left.Equals(right);
+        public static bool operator !=(AiGuardrailGuardrailTopicType left, AiGuardrailGuardrailTopicType right) => !left.Equals(right);
+
+        public static explicit operator string(AiGuardrailGuardrailTopicType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AiGuardrailGuardrailTopicType other && Equals(other);
+        public bool Equals(AiGuardrailGuardrailTopicType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -158,6 +409,8 @@ namespace Pulumi.AwsNative.Wisdom
         public static AiPromptAiPromptType AnswerGeneration { get; } = new AiPromptAiPromptType("ANSWER_GENERATION");
         public static AiPromptAiPromptType IntentLabelingGeneration { get; } = new AiPromptAiPromptType("INTENT_LABELING_GENERATION");
         public static AiPromptAiPromptType QueryReformulation { get; } = new AiPromptAiPromptType("QUERY_REFORMULATION");
+        public static AiPromptAiPromptType SelfServicePreProcessing { get; } = new AiPromptAiPromptType("SELF_SERVICE_PRE_PROCESSING");
+        public static AiPromptAiPromptType SelfServiceAnswerGeneration { get; } = new AiPromptAiPromptType("SELF_SERVICE_ANSWER_GENERATION");
 
         public static bool operator ==(AiPromptAiPromptType left, AiPromptAiPromptType right) => left.Equals(right);
         public static bool operator !=(AiPromptAiPromptType left, AiPromptAiPromptType right) => !left.Equals(right);

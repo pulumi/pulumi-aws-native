@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Inputs
     /// </summary>
     public sealed class ListenerMutualAuthenticationArgs : global::Pulumi.ResourceArgs
     {
+        [Input("advertiseTrustStoreCaNames")]
+        public Input<string>? AdvertiseTrustStoreCaNames { get; set; }
+
         /// <summary>
         /// Indicates whether expired client certificates are ignored.
         /// </summary>

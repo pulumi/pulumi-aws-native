@@ -13449,6 +13449,20 @@
       }
     }
   },
+  "aws-native:wisdom:AiGuardrailVersion": {
+    "cfTypeName": "AWS::Wisdom::AIGuardrailVersion",
+    "properties": {
+      "aiGuardrailId": {
+        "type": "string"
+      },
+      "assistantId": {
+        "type": "string"
+      },
+      "modifiedTimeSeconds": {
+        "type": "number"
+      }
+    }
+  },
   "aws-native:wisdom:AiPromptVersion": {
     "cfTypeName": "AWS::Wisdom::AIPromptVersion",
     "properties": {

@@ -84,7 +84,7 @@ namespace Pulumi.AwsNative.Wisdom
         /// <summary>
         /// Configuration for the AI Agent.
         /// </summary>
-        public readonly Union<Outputs.AiAgentAiAgentConfiguration0Properties, Outputs.AiAgentAiAgentConfiguration1Properties>? Configuration;
+        public readonly object? Configuration;
         /// <summary>
         /// The description of the AI Agent.
         /// </summary>
@@ -98,7 +98,7 @@ namespace Pulumi.AwsNative.Wisdom
 
             string? assistantArn,
 
-            Union<Outputs.AiAgentAiAgentConfiguration0Properties, Outputs.AiAgentAiAgentConfiguration1Properties>? configuration,
+            object? configuration,
 
             string? description)
         {

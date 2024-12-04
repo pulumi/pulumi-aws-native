@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Wisdom.Inputs
 
     public sealed class AiAgentAnswerRecommendationAiAgentConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        [Input("answerGenerationAiGuardrailId")]
+        public Input<string>? AnswerGenerationAiGuardrailId { get; set; }
+
         [Input("answerGenerationAiPromptId")]
         public Input<string>? AnswerGenerationAiPromptId { get; set; }
 

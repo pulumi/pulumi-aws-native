@@ -178,6 +178,7 @@ type AiAgentAiAgentType string
 const (
 	AiAgentAiAgentTypeManualSearch         = AiAgentAiAgentType("MANUAL_SEARCH")
 	AiAgentAiAgentTypeAnswerRecommendation = AiAgentAiAgentType("ANSWER_RECOMMENDATION")
+	AiAgentAiAgentTypeSelfService          = AiAgentAiAgentType("SELF_SERVICE")
 )
 
 func (AiAgentAiAgentType) ElementType() reflect.Type {
@@ -304,6 +305,7 @@ func (o AiAgentAiAgentTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 //
 //	AiAgentAiAgentTypeManualSearch
 //	AiAgentAiAgentTypeAnswerRecommendation
+//	AiAgentAiAgentTypeSelfService
 type AiAgentAiAgentTypeInput interface {
 	pulumi.Input
 
@@ -501,6 +503,1234 @@ func (in *aiAgentKnowledgeBaseSearchTypePtr) ToAiAgentKnowledgeBaseSearchTypePtr
 
 func (in *aiAgentKnowledgeBaseSearchTypePtr) ToAiAgentKnowledgeBaseSearchTypePtrOutputWithContext(ctx context.Context) AiAgentKnowledgeBaseSearchTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AiAgentKnowledgeBaseSearchTypePtrOutput)
+}
+
+// Type of text to text filter in content policy
+type AiGuardrailGuardrailContentFilterType string
+
+const (
+	AiGuardrailGuardrailContentFilterTypeSexual       = AiGuardrailGuardrailContentFilterType("SEXUAL")
+	AiGuardrailGuardrailContentFilterTypeViolence     = AiGuardrailGuardrailContentFilterType("VIOLENCE")
+	AiGuardrailGuardrailContentFilterTypeHate         = AiGuardrailGuardrailContentFilterType("HATE")
+	AiGuardrailGuardrailContentFilterTypeInsults      = AiGuardrailGuardrailContentFilterType("INSULTS")
+	AiGuardrailGuardrailContentFilterTypeMisconduct   = AiGuardrailGuardrailContentFilterType("MISCONDUCT")
+	AiGuardrailGuardrailContentFilterTypePromptAttack = AiGuardrailGuardrailContentFilterType("PROMPT_ATTACK")
+)
+
+func (AiGuardrailGuardrailContentFilterType) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiGuardrailGuardrailContentFilterType)(nil)).Elem()
+}
+
+func (e AiGuardrailGuardrailContentFilterType) ToAiGuardrailGuardrailContentFilterTypeOutput() AiGuardrailGuardrailContentFilterTypeOutput {
+	return pulumi.ToOutput(e).(AiGuardrailGuardrailContentFilterTypeOutput)
+}
+
+func (e AiGuardrailGuardrailContentFilterType) ToAiGuardrailGuardrailContentFilterTypeOutputWithContext(ctx context.Context) AiGuardrailGuardrailContentFilterTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AiGuardrailGuardrailContentFilterTypeOutput)
+}
+
+func (e AiGuardrailGuardrailContentFilterType) ToAiGuardrailGuardrailContentFilterTypePtrOutput() AiGuardrailGuardrailContentFilterTypePtrOutput {
+	return e.ToAiGuardrailGuardrailContentFilterTypePtrOutputWithContext(context.Background())
+}
+
+func (e AiGuardrailGuardrailContentFilterType) ToAiGuardrailGuardrailContentFilterTypePtrOutputWithContext(ctx context.Context) AiGuardrailGuardrailContentFilterTypePtrOutput {
+	return AiGuardrailGuardrailContentFilterType(e).ToAiGuardrailGuardrailContentFilterTypeOutputWithContext(ctx).ToAiGuardrailGuardrailContentFilterTypePtrOutputWithContext(ctx)
+}
+
+func (e AiGuardrailGuardrailContentFilterType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AiGuardrailGuardrailContentFilterType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AiGuardrailGuardrailContentFilterType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AiGuardrailGuardrailContentFilterType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AiGuardrailGuardrailContentFilterTypeOutput struct{ *pulumi.OutputState }
+
+func (AiGuardrailGuardrailContentFilterTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiGuardrailGuardrailContentFilterType)(nil)).Elem()
+}
+
+func (o AiGuardrailGuardrailContentFilterTypeOutput) ToAiGuardrailGuardrailContentFilterTypeOutput() AiGuardrailGuardrailContentFilterTypeOutput {
+	return o
+}
+
+func (o AiGuardrailGuardrailContentFilterTypeOutput) ToAiGuardrailGuardrailContentFilterTypeOutputWithContext(ctx context.Context) AiGuardrailGuardrailContentFilterTypeOutput {
+	return o
+}
+
+func (o AiGuardrailGuardrailContentFilterTypeOutput) ToAiGuardrailGuardrailContentFilterTypePtrOutput() AiGuardrailGuardrailContentFilterTypePtrOutput {
+	return o.ToAiGuardrailGuardrailContentFilterTypePtrOutputWithContext(context.Background())
+}
+
+func (o AiGuardrailGuardrailContentFilterTypeOutput) ToAiGuardrailGuardrailContentFilterTypePtrOutputWithContext(ctx context.Context) AiGuardrailGuardrailContentFilterTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AiGuardrailGuardrailContentFilterType) *AiGuardrailGuardrailContentFilterType {
+		return &v
+	}).(AiGuardrailGuardrailContentFilterTypePtrOutput)
+}
+
+func (o AiGuardrailGuardrailContentFilterTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AiGuardrailGuardrailContentFilterTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AiGuardrailGuardrailContentFilterType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AiGuardrailGuardrailContentFilterTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AiGuardrailGuardrailContentFilterTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AiGuardrailGuardrailContentFilterType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AiGuardrailGuardrailContentFilterTypePtrOutput struct{ *pulumi.OutputState }
+
+func (AiGuardrailGuardrailContentFilterTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AiGuardrailGuardrailContentFilterType)(nil)).Elem()
+}
+
+func (o AiGuardrailGuardrailContentFilterTypePtrOutput) ToAiGuardrailGuardrailContentFilterTypePtrOutput() AiGuardrailGuardrailContentFilterTypePtrOutput {
+	return o
+}
+
+func (o AiGuardrailGuardrailContentFilterTypePtrOutput) ToAiGuardrailGuardrailContentFilterTypePtrOutputWithContext(ctx context.Context) AiGuardrailGuardrailContentFilterTypePtrOutput {
+	return o
+}
+
+func (o AiGuardrailGuardrailContentFilterTypePtrOutput) Elem() AiGuardrailGuardrailContentFilterTypeOutput {
+	return o.ApplyT(func(v *AiGuardrailGuardrailContentFilterType) AiGuardrailGuardrailContentFilterType {
+		if v != nil {
+			return *v
+		}
+		var ret AiGuardrailGuardrailContentFilterType
+		return ret
+	}).(AiGuardrailGuardrailContentFilterTypeOutput)
+}
+
+func (o AiGuardrailGuardrailContentFilterTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AiGuardrailGuardrailContentFilterTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AiGuardrailGuardrailContentFilterType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AiGuardrailGuardrailContentFilterTypeInput is an input type that accepts values of the AiGuardrailGuardrailContentFilterType enum
+// A concrete instance of `AiGuardrailGuardrailContentFilterTypeInput` can be one of the following:
+//
+//	AiGuardrailGuardrailContentFilterTypeSexual
+//	AiGuardrailGuardrailContentFilterTypeViolence
+//	AiGuardrailGuardrailContentFilterTypeHate
+//	AiGuardrailGuardrailContentFilterTypeInsults
+//	AiGuardrailGuardrailContentFilterTypeMisconduct
+//	AiGuardrailGuardrailContentFilterTypePromptAttack
+type AiGuardrailGuardrailContentFilterTypeInput interface {
+	pulumi.Input
+
+	ToAiGuardrailGuardrailContentFilterTypeOutput() AiGuardrailGuardrailContentFilterTypeOutput
+	ToAiGuardrailGuardrailContentFilterTypeOutputWithContext(context.Context) AiGuardrailGuardrailContentFilterTypeOutput
+}
+
+var aiGuardrailGuardrailContentFilterTypePtrType = reflect.TypeOf((**AiGuardrailGuardrailContentFilterType)(nil)).Elem()
+
+type AiGuardrailGuardrailContentFilterTypePtrInput interface {
+	pulumi.Input
+
+	ToAiGuardrailGuardrailContentFilterTypePtrOutput() AiGuardrailGuardrailContentFilterTypePtrOutput
+	ToAiGuardrailGuardrailContentFilterTypePtrOutputWithContext(context.Context) AiGuardrailGuardrailContentFilterTypePtrOutput
+}
+
+type aiGuardrailGuardrailContentFilterTypePtr string
+
+func AiGuardrailGuardrailContentFilterTypePtr(v string) AiGuardrailGuardrailContentFilterTypePtrInput {
+	return (*aiGuardrailGuardrailContentFilterTypePtr)(&v)
+}
+
+func (*aiGuardrailGuardrailContentFilterTypePtr) ElementType() reflect.Type {
+	return aiGuardrailGuardrailContentFilterTypePtrType
+}
+
+func (in *aiGuardrailGuardrailContentFilterTypePtr) ToAiGuardrailGuardrailContentFilterTypePtrOutput() AiGuardrailGuardrailContentFilterTypePtrOutput {
+	return pulumi.ToOutput(in).(AiGuardrailGuardrailContentFilterTypePtrOutput)
+}
+
+func (in *aiGuardrailGuardrailContentFilterTypePtr) ToAiGuardrailGuardrailContentFilterTypePtrOutputWithContext(ctx context.Context) AiGuardrailGuardrailContentFilterTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AiGuardrailGuardrailContentFilterTypePtrOutput)
+}
+
+// Type of contextual grounding filter
+type AiGuardrailGuardrailContextualGroundingFilterType string
+
+const (
+	AiGuardrailGuardrailContextualGroundingFilterTypeGrounding = AiGuardrailGuardrailContextualGroundingFilterType("GROUNDING")
+	AiGuardrailGuardrailContextualGroundingFilterTypeRelevance = AiGuardrailGuardrailContextualGroundingFilterType("RELEVANCE")
+)
+
+func (AiGuardrailGuardrailContextualGroundingFilterType) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiGuardrailGuardrailContextualGroundingFilterType)(nil)).Elem()
+}
+
+func (e AiGuardrailGuardrailContextualGroundingFilterType) ToAiGuardrailGuardrailContextualGroundingFilterTypeOutput() AiGuardrailGuardrailContextualGroundingFilterTypeOutput {
+	return pulumi.ToOutput(e).(AiGuardrailGuardrailContextualGroundingFilterTypeOutput)
+}
+
+func (e AiGuardrailGuardrailContextualGroundingFilterType) ToAiGuardrailGuardrailContextualGroundingFilterTypeOutputWithContext(ctx context.Context) AiGuardrailGuardrailContextualGroundingFilterTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AiGuardrailGuardrailContextualGroundingFilterTypeOutput)
+}
+
+func (e AiGuardrailGuardrailContextualGroundingFilterType) ToAiGuardrailGuardrailContextualGroundingFilterTypePtrOutput() AiGuardrailGuardrailContextualGroundingFilterTypePtrOutput {
+	return e.ToAiGuardrailGuardrailContextualGroundingFilterTypePtrOutputWithContext(context.Background())
+}
+
+func (e AiGuardrailGuardrailContextualGroundingFilterType) ToAiGuardrailGuardrailContextualGroundingFilterTypePtrOutputWithContext(ctx context.Context) AiGuardrailGuardrailContextualGroundingFilterTypePtrOutput {
+	return AiGuardrailGuardrailContextualGroundingFilterType(e).ToAiGuardrailGuardrailContextualGroundingFilterTypeOutputWithContext(ctx).ToAiGuardrailGuardrailContextualGroundingFilterTypePtrOutputWithContext(ctx)
+}
+
+func (e AiGuardrailGuardrailContextualGroundingFilterType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AiGuardrailGuardrailContextualGroundingFilterType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AiGuardrailGuardrailContextualGroundingFilterType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AiGuardrailGuardrailContextualGroundingFilterType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AiGuardrailGuardrailContextualGroundingFilterTypeOutput struct{ *pulumi.OutputState }
+
+func (AiGuardrailGuardrailContextualGroundingFilterTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiGuardrailGuardrailContextualGroundingFilterType)(nil)).Elem()
+}
+
+func (o AiGuardrailGuardrailContextualGroundingFilterTypeOutput) ToAiGuardrailGuardrailContextualGroundingFilterTypeOutput() AiGuardrailGuardrailContextualGroundingFilterTypeOutput {
+	return o
+}
+
+func (o AiGuardrailGuardrailContextualGroundingFilterTypeOutput) ToAiGuardrailGuardrailContextualGroundingFilterTypeOutputWithContext(ctx context.Context) AiGuardrailGuardrailContextualGroundingFilterTypeOutput {
+	return o
+}
+
+func (o AiGuardrailGuardrailContextualGroundingFilterTypeOutput) ToAiGuardrailGuardrailContextualGroundingFilterTypePtrOutput() AiGuardrailGuardrailContextualGroundingFilterTypePtrOutput {
+	return o.ToAiGuardrailGuardrailContextualGroundingFilterTypePtrOutputWithContext(context.Background())
+}
+
+func (o AiGuardrailGuardrailContextualGroundingFilterTypeOutput) ToAiGuardrailGuardrailContextualGroundingFilterTypePtrOutputWithContext(ctx context.Context) AiGuardrailGuardrailContextualGroundingFilterTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AiGuardrailGuardrailContextualGroundingFilterType) *AiGuardrailGuardrailContextualGroundingFilterType {
+		return &v
+	}).(AiGuardrailGuardrailContextualGroundingFilterTypePtrOutput)
+}
+
+func (o AiGuardrailGuardrailContextualGroundingFilterTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AiGuardrailGuardrailContextualGroundingFilterTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AiGuardrailGuardrailContextualGroundingFilterType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AiGuardrailGuardrailContextualGroundingFilterTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AiGuardrailGuardrailContextualGroundingFilterTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AiGuardrailGuardrailContextualGroundingFilterType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AiGuardrailGuardrailContextualGroundingFilterTypePtrOutput struct{ *pulumi.OutputState }
+
+func (AiGuardrailGuardrailContextualGroundingFilterTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AiGuardrailGuardrailContextualGroundingFilterType)(nil)).Elem()
+}
+
+func (o AiGuardrailGuardrailContextualGroundingFilterTypePtrOutput) ToAiGuardrailGuardrailContextualGroundingFilterTypePtrOutput() AiGuardrailGuardrailContextualGroundingFilterTypePtrOutput {
+	return o
+}
+
+func (o AiGuardrailGuardrailContextualGroundingFilterTypePtrOutput) ToAiGuardrailGuardrailContextualGroundingFilterTypePtrOutputWithContext(ctx context.Context) AiGuardrailGuardrailContextualGroundingFilterTypePtrOutput {
+	return o
+}
+
+func (o AiGuardrailGuardrailContextualGroundingFilterTypePtrOutput) Elem() AiGuardrailGuardrailContextualGroundingFilterTypeOutput {
+	return o.ApplyT(func(v *AiGuardrailGuardrailContextualGroundingFilterType) AiGuardrailGuardrailContextualGroundingFilterType {
+		if v != nil {
+			return *v
+		}
+		var ret AiGuardrailGuardrailContextualGroundingFilterType
+		return ret
+	}).(AiGuardrailGuardrailContextualGroundingFilterTypeOutput)
+}
+
+func (o AiGuardrailGuardrailContextualGroundingFilterTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AiGuardrailGuardrailContextualGroundingFilterTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AiGuardrailGuardrailContextualGroundingFilterType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AiGuardrailGuardrailContextualGroundingFilterTypeInput is an input type that accepts values of the AiGuardrailGuardrailContextualGroundingFilterType enum
+// A concrete instance of `AiGuardrailGuardrailContextualGroundingFilterTypeInput` can be one of the following:
+//
+//	AiGuardrailGuardrailContextualGroundingFilterTypeGrounding
+//	AiGuardrailGuardrailContextualGroundingFilterTypeRelevance
+type AiGuardrailGuardrailContextualGroundingFilterTypeInput interface {
+	pulumi.Input
+
+	ToAiGuardrailGuardrailContextualGroundingFilterTypeOutput() AiGuardrailGuardrailContextualGroundingFilterTypeOutput
+	ToAiGuardrailGuardrailContextualGroundingFilterTypeOutputWithContext(context.Context) AiGuardrailGuardrailContextualGroundingFilterTypeOutput
+}
+
+var aiGuardrailGuardrailContextualGroundingFilterTypePtrType = reflect.TypeOf((**AiGuardrailGuardrailContextualGroundingFilterType)(nil)).Elem()
+
+type AiGuardrailGuardrailContextualGroundingFilterTypePtrInput interface {
+	pulumi.Input
+
+	ToAiGuardrailGuardrailContextualGroundingFilterTypePtrOutput() AiGuardrailGuardrailContextualGroundingFilterTypePtrOutput
+	ToAiGuardrailGuardrailContextualGroundingFilterTypePtrOutputWithContext(context.Context) AiGuardrailGuardrailContextualGroundingFilterTypePtrOutput
+}
+
+type aiGuardrailGuardrailContextualGroundingFilterTypePtr string
+
+func AiGuardrailGuardrailContextualGroundingFilterTypePtr(v string) AiGuardrailGuardrailContextualGroundingFilterTypePtrInput {
+	return (*aiGuardrailGuardrailContextualGroundingFilterTypePtr)(&v)
+}
+
+func (*aiGuardrailGuardrailContextualGroundingFilterTypePtr) ElementType() reflect.Type {
+	return aiGuardrailGuardrailContextualGroundingFilterTypePtrType
+}
+
+func (in *aiGuardrailGuardrailContextualGroundingFilterTypePtr) ToAiGuardrailGuardrailContextualGroundingFilterTypePtrOutput() AiGuardrailGuardrailContextualGroundingFilterTypePtrOutput {
+	return pulumi.ToOutput(in).(AiGuardrailGuardrailContextualGroundingFilterTypePtrOutput)
+}
+
+func (in *aiGuardrailGuardrailContextualGroundingFilterTypePtr) ToAiGuardrailGuardrailContextualGroundingFilterTypePtrOutputWithContext(ctx context.Context) AiGuardrailGuardrailContextualGroundingFilterTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AiGuardrailGuardrailContextualGroundingFilterTypePtrOutput)
+}
+
+// Strength for filters
+type AiGuardrailGuardrailFilterStrength string
+
+const (
+	AiGuardrailGuardrailFilterStrengthNone   = AiGuardrailGuardrailFilterStrength("NONE")
+	AiGuardrailGuardrailFilterStrengthLow    = AiGuardrailGuardrailFilterStrength("LOW")
+	AiGuardrailGuardrailFilterStrengthMedium = AiGuardrailGuardrailFilterStrength("MEDIUM")
+	AiGuardrailGuardrailFilterStrengthHigh   = AiGuardrailGuardrailFilterStrength("HIGH")
+)
+
+func (AiGuardrailGuardrailFilterStrength) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiGuardrailGuardrailFilterStrength)(nil)).Elem()
+}
+
+func (e AiGuardrailGuardrailFilterStrength) ToAiGuardrailGuardrailFilterStrengthOutput() AiGuardrailGuardrailFilterStrengthOutput {
+	return pulumi.ToOutput(e).(AiGuardrailGuardrailFilterStrengthOutput)
+}
+
+func (e AiGuardrailGuardrailFilterStrength) ToAiGuardrailGuardrailFilterStrengthOutputWithContext(ctx context.Context) AiGuardrailGuardrailFilterStrengthOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AiGuardrailGuardrailFilterStrengthOutput)
+}
+
+func (e AiGuardrailGuardrailFilterStrength) ToAiGuardrailGuardrailFilterStrengthPtrOutput() AiGuardrailGuardrailFilterStrengthPtrOutput {
+	return e.ToAiGuardrailGuardrailFilterStrengthPtrOutputWithContext(context.Background())
+}
+
+func (e AiGuardrailGuardrailFilterStrength) ToAiGuardrailGuardrailFilterStrengthPtrOutputWithContext(ctx context.Context) AiGuardrailGuardrailFilterStrengthPtrOutput {
+	return AiGuardrailGuardrailFilterStrength(e).ToAiGuardrailGuardrailFilterStrengthOutputWithContext(ctx).ToAiGuardrailGuardrailFilterStrengthPtrOutputWithContext(ctx)
+}
+
+func (e AiGuardrailGuardrailFilterStrength) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AiGuardrailGuardrailFilterStrength) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AiGuardrailGuardrailFilterStrength) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AiGuardrailGuardrailFilterStrength) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AiGuardrailGuardrailFilterStrengthOutput struct{ *pulumi.OutputState }
+
+func (AiGuardrailGuardrailFilterStrengthOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiGuardrailGuardrailFilterStrength)(nil)).Elem()
+}
+
+func (o AiGuardrailGuardrailFilterStrengthOutput) ToAiGuardrailGuardrailFilterStrengthOutput() AiGuardrailGuardrailFilterStrengthOutput {
+	return o
+}
+
+func (o AiGuardrailGuardrailFilterStrengthOutput) ToAiGuardrailGuardrailFilterStrengthOutputWithContext(ctx context.Context) AiGuardrailGuardrailFilterStrengthOutput {
+	return o
+}
+
+func (o AiGuardrailGuardrailFilterStrengthOutput) ToAiGuardrailGuardrailFilterStrengthPtrOutput() AiGuardrailGuardrailFilterStrengthPtrOutput {
+	return o.ToAiGuardrailGuardrailFilterStrengthPtrOutputWithContext(context.Background())
+}
+
+func (o AiGuardrailGuardrailFilterStrengthOutput) ToAiGuardrailGuardrailFilterStrengthPtrOutputWithContext(ctx context.Context) AiGuardrailGuardrailFilterStrengthPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AiGuardrailGuardrailFilterStrength) *AiGuardrailGuardrailFilterStrength {
+		return &v
+	}).(AiGuardrailGuardrailFilterStrengthPtrOutput)
+}
+
+func (o AiGuardrailGuardrailFilterStrengthOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AiGuardrailGuardrailFilterStrengthOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AiGuardrailGuardrailFilterStrength) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AiGuardrailGuardrailFilterStrengthOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AiGuardrailGuardrailFilterStrengthOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AiGuardrailGuardrailFilterStrength) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AiGuardrailGuardrailFilterStrengthPtrOutput struct{ *pulumi.OutputState }
+
+func (AiGuardrailGuardrailFilterStrengthPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AiGuardrailGuardrailFilterStrength)(nil)).Elem()
+}
+
+func (o AiGuardrailGuardrailFilterStrengthPtrOutput) ToAiGuardrailGuardrailFilterStrengthPtrOutput() AiGuardrailGuardrailFilterStrengthPtrOutput {
+	return o
+}
+
+func (o AiGuardrailGuardrailFilterStrengthPtrOutput) ToAiGuardrailGuardrailFilterStrengthPtrOutputWithContext(ctx context.Context) AiGuardrailGuardrailFilterStrengthPtrOutput {
+	return o
+}
+
+func (o AiGuardrailGuardrailFilterStrengthPtrOutput) Elem() AiGuardrailGuardrailFilterStrengthOutput {
+	return o.ApplyT(func(v *AiGuardrailGuardrailFilterStrength) AiGuardrailGuardrailFilterStrength {
+		if v != nil {
+			return *v
+		}
+		var ret AiGuardrailGuardrailFilterStrength
+		return ret
+	}).(AiGuardrailGuardrailFilterStrengthOutput)
+}
+
+func (o AiGuardrailGuardrailFilterStrengthPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AiGuardrailGuardrailFilterStrengthPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AiGuardrailGuardrailFilterStrength) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AiGuardrailGuardrailFilterStrengthInput is an input type that accepts values of the AiGuardrailGuardrailFilterStrength enum
+// A concrete instance of `AiGuardrailGuardrailFilterStrengthInput` can be one of the following:
+//
+//	AiGuardrailGuardrailFilterStrengthNone
+//	AiGuardrailGuardrailFilterStrengthLow
+//	AiGuardrailGuardrailFilterStrengthMedium
+//	AiGuardrailGuardrailFilterStrengthHigh
+type AiGuardrailGuardrailFilterStrengthInput interface {
+	pulumi.Input
+
+	ToAiGuardrailGuardrailFilterStrengthOutput() AiGuardrailGuardrailFilterStrengthOutput
+	ToAiGuardrailGuardrailFilterStrengthOutputWithContext(context.Context) AiGuardrailGuardrailFilterStrengthOutput
+}
+
+var aiGuardrailGuardrailFilterStrengthPtrType = reflect.TypeOf((**AiGuardrailGuardrailFilterStrength)(nil)).Elem()
+
+type AiGuardrailGuardrailFilterStrengthPtrInput interface {
+	pulumi.Input
+
+	ToAiGuardrailGuardrailFilterStrengthPtrOutput() AiGuardrailGuardrailFilterStrengthPtrOutput
+	ToAiGuardrailGuardrailFilterStrengthPtrOutputWithContext(context.Context) AiGuardrailGuardrailFilterStrengthPtrOutput
+}
+
+type aiGuardrailGuardrailFilterStrengthPtr string
+
+func AiGuardrailGuardrailFilterStrengthPtr(v string) AiGuardrailGuardrailFilterStrengthPtrInput {
+	return (*aiGuardrailGuardrailFilterStrengthPtr)(&v)
+}
+
+func (*aiGuardrailGuardrailFilterStrengthPtr) ElementType() reflect.Type {
+	return aiGuardrailGuardrailFilterStrengthPtrType
+}
+
+func (in *aiGuardrailGuardrailFilterStrengthPtr) ToAiGuardrailGuardrailFilterStrengthPtrOutput() AiGuardrailGuardrailFilterStrengthPtrOutput {
+	return pulumi.ToOutput(in).(AiGuardrailGuardrailFilterStrengthPtrOutput)
+}
+
+func (in *aiGuardrailGuardrailFilterStrengthPtr) ToAiGuardrailGuardrailFilterStrengthPtrOutputWithContext(ctx context.Context) AiGuardrailGuardrailFilterStrengthPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AiGuardrailGuardrailFilterStrengthPtrOutput)
+}
+
+// Options for managed words.
+type AiGuardrailGuardrailManagedWordsType string
+
+const (
+	AiGuardrailGuardrailManagedWordsTypeProfanity = AiGuardrailGuardrailManagedWordsType("PROFANITY")
+)
+
+func (AiGuardrailGuardrailManagedWordsType) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiGuardrailGuardrailManagedWordsType)(nil)).Elem()
+}
+
+func (e AiGuardrailGuardrailManagedWordsType) ToAiGuardrailGuardrailManagedWordsTypeOutput() AiGuardrailGuardrailManagedWordsTypeOutput {
+	return pulumi.ToOutput(e).(AiGuardrailGuardrailManagedWordsTypeOutput)
+}
+
+func (e AiGuardrailGuardrailManagedWordsType) ToAiGuardrailGuardrailManagedWordsTypeOutputWithContext(ctx context.Context) AiGuardrailGuardrailManagedWordsTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AiGuardrailGuardrailManagedWordsTypeOutput)
+}
+
+func (e AiGuardrailGuardrailManagedWordsType) ToAiGuardrailGuardrailManagedWordsTypePtrOutput() AiGuardrailGuardrailManagedWordsTypePtrOutput {
+	return e.ToAiGuardrailGuardrailManagedWordsTypePtrOutputWithContext(context.Background())
+}
+
+func (e AiGuardrailGuardrailManagedWordsType) ToAiGuardrailGuardrailManagedWordsTypePtrOutputWithContext(ctx context.Context) AiGuardrailGuardrailManagedWordsTypePtrOutput {
+	return AiGuardrailGuardrailManagedWordsType(e).ToAiGuardrailGuardrailManagedWordsTypeOutputWithContext(ctx).ToAiGuardrailGuardrailManagedWordsTypePtrOutputWithContext(ctx)
+}
+
+func (e AiGuardrailGuardrailManagedWordsType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AiGuardrailGuardrailManagedWordsType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AiGuardrailGuardrailManagedWordsType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AiGuardrailGuardrailManagedWordsType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AiGuardrailGuardrailManagedWordsTypeOutput struct{ *pulumi.OutputState }
+
+func (AiGuardrailGuardrailManagedWordsTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiGuardrailGuardrailManagedWordsType)(nil)).Elem()
+}
+
+func (o AiGuardrailGuardrailManagedWordsTypeOutput) ToAiGuardrailGuardrailManagedWordsTypeOutput() AiGuardrailGuardrailManagedWordsTypeOutput {
+	return o
+}
+
+func (o AiGuardrailGuardrailManagedWordsTypeOutput) ToAiGuardrailGuardrailManagedWordsTypeOutputWithContext(ctx context.Context) AiGuardrailGuardrailManagedWordsTypeOutput {
+	return o
+}
+
+func (o AiGuardrailGuardrailManagedWordsTypeOutput) ToAiGuardrailGuardrailManagedWordsTypePtrOutput() AiGuardrailGuardrailManagedWordsTypePtrOutput {
+	return o.ToAiGuardrailGuardrailManagedWordsTypePtrOutputWithContext(context.Background())
+}
+
+func (o AiGuardrailGuardrailManagedWordsTypeOutput) ToAiGuardrailGuardrailManagedWordsTypePtrOutputWithContext(ctx context.Context) AiGuardrailGuardrailManagedWordsTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AiGuardrailGuardrailManagedWordsType) *AiGuardrailGuardrailManagedWordsType {
+		return &v
+	}).(AiGuardrailGuardrailManagedWordsTypePtrOutput)
+}
+
+func (o AiGuardrailGuardrailManagedWordsTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AiGuardrailGuardrailManagedWordsTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AiGuardrailGuardrailManagedWordsType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AiGuardrailGuardrailManagedWordsTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AiGuardrailGuardrailManagedWordsTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AiGuardrailGuardrailManagedWordsType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AiGuardrailGuardrailManagedWordsTypePtrOutput struct{ *pulumi.OutputState }
+
+func (AiGuardrailGuardrailManagedWordsTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AiGuardrailGuardrailManagedWordsType)(nil)).Elem()
+}
+
+func (o AiGuardrailGuardrailManagedWordsTypePtrOutput) ToAiGuardrailGuardrailManagedWordsTypePtrOutput() AiGuardrailGuardrailManagedWordsTypePtrOutput {
+	return o
+}
+
+func (o AiGuardrailGuardrailManagedWordsTypePtrOutput) ToAiGuardrailGuardrailManagedWordsTypePtrOutputWithContext(ctx context.Context) AiGuardrailGuardrailManagedWordsTypePtrOutput {
+	return o
+}
+
+func (o AiGuardrailGuardrailManagedWordsTypePtrOutput) Elem() AiGuardrailGuardrailManagedWordsTypeOutput {
+	return o.ApplyT(func(v *AiGuardrailGuardrailManagedWordsType) AiGuardrailGuardrailManagedWordsType {
+		if v != nil {
+			return *v
+		}
+		var ret AiGuardrailGuardrailManagedWordsType
+		return ret
+	}).(AiGuardrailGuardrailManagedWordsTypeOutput)
+}
+
+func (o AiGuardrailGuardrailManagedWordsTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AiGuardrailGuardrailManagedWordsTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AiGuardrailGuardrailManagedWordsType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AiGuardrailGuardrailManagedWordsTypeInput is an input type that accepts values of the AiGuardrailGuardrailManagedWordsType enum
+// A concrete instance of `AiGuardrailGuardrailManagedWordsTypeInput` can be one of the following:
+//
+//	AiGuardrailGuardrailManagedWordsTypeProfanity
+type AiGuardrailGuardrailManagedWordsTypeInput interface {
+	pulumi.Input
+
+	ToAiGuardrailGuardrailManagedWordsTypeOutput() AiGuardrailGuardrailManagedWordsTypeOutput
+	ToAiGuardrailGuardrailManagedWordsTypeOutputWithContext(context.Context) AiGuardrailGuardrailManagedWordsTypeOutput
+}
+
+var aiGuardrailGuardrailManagedWordsTypePtrType = reflect.TypeOf((**AiGuardrailGuardrailManagedWordsType)(nil)).Elem()
+
+type AiGuardrailGuardrailManagedWordsTypePtrInput interface {
+	pulumi.Input
+
+	ToAiGuardrailGuardrailManagedWordsTypePtrOutput() AiGuardrailGuardrailManagedWordsTypePtrOutput
+	ToAiGuardrailGuardrailManagedWordsTypePtrOutputWithContext(context.Context) AiGuardrailGuardrailManagedWordsTypePtrOutput
+}
+
+type aiGuardrailGuardrailManagedWordsTypePtr string
+
+func AiGuardrailGuardrailManagedWordsTypePtr(v string) AiGuardrailGuardrailManagedWordsTypePtrInput {
+	return (*aiGuardrailGuardrailManagedWordsTypePtr)(&v)
+}
+
+func (*aiGuardrailGuardrailManagedWordsTypePtr) ElementType() reflect.Type {
+	return aiGuardrailGuardrailManagedWordsTypePtrType
+}
+
+func (in *aiGuardrailGuardrailManagedWordsTypePtr) ToAiGuardrailGuardrailManagedWordsTypePtrOutput() AiGuardrailGuardrailManagedWordsTypePtrOutput {
+	return pulumi.ToOutput(in).(AiGuardrailGuardrailManagedWordsTypePtrOutput)
+}
+
+func (in *aiGuardrailGuardrailManagedWordsTypePtr) ToAiGuardrailGuardrailManagedWordsTypePtrOutputWithContext(ctx context.Context) AiGuardrailGuardrailManagedWordsTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AiGuardrailGuardrailManagedWordsTypePtrOutput)
+}
+
+// The currently supported PII entities
+type AiGuardrailGuardrailPiiEntityType string
+
+const (
+	AiGuardrailGuardrailPiiEntityTypeAddress                             = AiGuardrailGuardrailPiiEntityType("ADDRESS")
+	AiGuardrailGuardrailPiiEntityTypeAge                                 = AiGuardrailGuardrailPiiEntityType("AGE")
+	AiGuardrailGuardrailPiiEntityTypeAwsAccessKey                        = AiGuardrailGuardrailPiiEntityType("AWS_ACCESS_KEY")
+	AiGuardrailGuardrailPiiEntityTypeAwsSecretKey                        = AiGuardrailGuardrailPiiEntityType("AWS_SECRET_KEY")
+	AiGuardrailGuardrailPiiEntityTypeCaHealthNumber                      = AiGuardrailGuardrailPiiEntityType("CA_HEALTH_NUMBER")
+	AiGuardrailGuardrailPiiEntityTypeCaSocialInsuranceNumber             = AiGuardrailGuardrailPiiEntityType("CA_SOCIAL_INSURANCE_NUMBER")
+	AiGuardrailGuardrailPiiEntityTypeCreditDebitCardCvv                  = AiGuardrailGuardrailPiiEntityType("CREDIT_DEBIT_CARD_CVV")
+	AiGuardrailGuardrailPiiEntityTypeCreditDebitCardExpiry               = AiGuardrailGuardrailPiiEntityType("CREDIT_DEBIT_CARD_EXPIRY")
+	AiGuardrailGuardrailPiiEntityTypeCreditDebitCardNumber               = AiGuardrailGuardrailPiiEntityType("CREDIT_DEBIT_CARD_NUMBER")
+	AiGuardrailGuardrailPiiEntityTypeDriverId                            = AiGuardrailGuardrailPiiEntityType("DRIVER_ID")
+	AiGuardrailGuardrailPiiEntityTypeEmail                               = AiGuardrailGuardrailPiiEntityType("EMAIL")
+	AiGuardrailGuardrailPiiEntityTypeInternationalBankAccountNumber      = AiGuardrailGuardrailPiiEntityType("INTERNATIONAL_BANK_ACCOUNT_NUMBER")
+	AiGuardrailGuardrailPiiEntityTypeIpAddress                           = AiGuardrailGuardrailPiiEntityType("IP_ADDRESS")
+	AiGuardrailGuardrailPiiEntityTypeLicensePlate                        = AiGuardrailGuardrailPiiEntityType("LICENSE_PLATE")
+	AiGuardrailGuardrailPiiEntityTypeMacAddress                          = AiGuardrailGuardrailPiiEntityType("MAC_ADDRESS")
+	AiGuardrailGuardrailPiiEntityTypeName                                = AiGuardrailGuardrailPiiEntityType("NAME")
+	AiGuardrailGuardrailPiiEntityTypePassword                            = AiGuardrailGuardrailPiiEntityType("PASSWORD")
+	AiGuardrailGuardrailPiiEntityTypePhone                               = AiGuardrailGuardrailPiiEntityType("PHONE")
+	AiGuardrailGuardrailPiiEntityTypePin                                 = AiGuardrailGuardrailPiiEntityType("PIN")
+	AiGuardrailGuardrailPiiEntityTypeSwiftCode                           = AiGuardrailGuardrailPiiEntityType("SWIFT_CODE")
+	AiGuardrailGuardrailPiiEntityTypeUkNationalHealthServiceNumber       = AiGuardrailGuardrailPiiEntityType("UK_NATIONAL_HEALTH_SERVICE_NUMBER")
+	AiGuardrailGuardrailPiiEntityTypeUkNationalInsuranceNumber           = AiGuardrailGuardrailPiiEntityType("UK_NATIONAL_INSURANCE_NUMBER")
+	AiGuardrailGuardrailPiiEntityTypeUkUniqueTaxpayerReferenceNumber     = AiGuardrailGuardrailPiiEntityType("UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER")
+	AiGuardrailGuardrailPiiEntityTypeUrl                                 = AiGuardrailGuardrailPiiEntityType("URL")
+	AiGuardrailGuardrailPiiEntityTypeUsername                            = AiGuardrailGuardrailPiiEntityType("USERNAME")
+	AiGuardrailGuardrailPiiEntityTypeUsBankAccountNumber                 = AiGuardrailGuardrailPiiEntityType("US_BANK_ACCOUNT_NUMBER")
+	AiGuardrailGuardrailPiiEntityTypeUsBankRoutingNumber                 = AiGuardrailGuardrailPiiEntityType("US_BANK_ROUTING_NUMBER")
+	AiGuardrailGuardrailPiiEntityTypeUsIndividualTaxIdentificationNumber = AiGuardrailGuardrailPiiEntityType("US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER")
+	AiGuardrailGuardrailPiiEntityTypeUsPassportNumber                    = AiGuardrailGuardrailPiiEntityType("US_PASSPORT_NUMBER")
+	AiGuardrailGuardrailPiiEntityTypeUsSocialSecurityNumber              = AiGuardrailGuardrailPiiEntityType("US_SOCIAL_SECURITY_NUMBER")
+	AiGuardrailGuardrailPiiEntityTypeVehicleIdentificationNumber         = AiGuardrailGuardrailPiiEntityType("VEHICLE_IDENTIFICATION_NUMBER")
+)
+
+func (AiGuardrailGuardrailPiiEntityType) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiGuardrailGuardrailPiiEntityType)(nil)).Elem()
+}
+
+func (e AiGuardrailGuardrailPiiEntityType) ToAiGuardrailGuardrailPiiEntityTypeOutput() AiGuardrailGuardrailPiiEntityTypeOutput {
+	return pulumi.ToOutput(e).(AiGuardrailGuardrailPiiEntityTypeOutput)
+}
+
+func (e AiGuardrailGuardrailPiiEntityType) ToAiGuardrailGuardrailPiiEntityTypeOutputWithContext(ctx context.Context) AiGuardrailGuardrailPiiEntityTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AiGuardrailGuardrailPiiEntityTypeOutput)
+}
+
+func (e AiGuardrailGuardrailPiiEntityType) ToAiGuardrailGuardrailPiiEntityTypePtrOutput() AiGuardrailGuardrailPiiEntityTypePtrOutput {
+	return e.ToAiGuardrailGuardrailPiiEntityTypePtrOutputWithContext(context.Background())
+}
+
+func (e AiGuardrailGuardrailPiiEntityType) ToAiGuardrailGuardrailPiiEntityTypePtrOutputWithContext(ctx context.Context) AiGuardrailGuardrailPiiEntityTypePtrOutput {
+	return AiGuardrailGuardrailPiiEntityType(e).ToAiGuardrailGuardrailPiiEntityTypeOutputWithContext(ctx).ToAiGuardrailGuardrailPiiEntityTypePtrOutputWithContext(ctx)
+}
+
+func (e AiGuardrailGuardrailPiiEntityType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AiGuardrailGuardrailPiiEntityType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AiGuardrailGuardrailPiiEntityType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AiGuardrailGuardrailPiiEntityType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AiGuardrailGuardrailPiiEntityTypeOutput struct{ *pulumi.OutputState }
+
+func (AiGuardrailGuardrailPiiEntityTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiGuardrailGuardrailPiiEntityType)(nil)).Elem()
+}
+
+func (o AiGuardrailGuardrailPiiEntityTypeOutput) ToAiGuardrailGuardrailPiiEntityTypeOutput() AiGuardrailGuardrailPiiEntityTypeOutput {
+	return o
+}
+
+func (o AiGuardrailGuardrailPiiEntityTypeOutput) ToAiGuardrailGuardrailPiiEntityTypeOutputWithContext(ctx context.Context) AiGuardrailGuardrailPiiEntityTypeOutput {
+	return o
+}
+
+func (o AiGuardrailGuardrailPiiEntityTypeOutput) ToAiGuardrailGuardrailPiiEntityTypePtrOutput() AiGuardrailGuardrailPiiEntityTypePtrOutput {
+	return o.ToAiGuardrailGuardrailPiiEntityTypePtrOutputWithContext(context.Background())
+}
+
+func (o AiGuardrailGuardrailPiiEntityTypeOutput) ToAiGuardrailGuardrailPiiEntityTypePtrOutputWithContext(ctx context.Context) AiGuardrailGuardrailPiiEntityTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AiGuardrailGuardrailPiiEntityType) *AiGuardrailGuardrailPiiEntityType {
+		return &v
+	}).(AiGuardrailGuardrailPiiEntityTypePtrOutput)
+}
+
+func (o AiGuardrailGuardrailPiiEntityTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AiGuardrailGuardrailPiiEntityTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AiGuardrailGuardrailPiiEntityType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AiGuardrailGuardrailPiiEntityTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AiGuardrailGuardrailPiiEntityTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AiGuardrailGuardrailPiiEntityType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AiGuardrailGuardrailPiiEntityTypePtrOutput struct{ *pulumi.OutputState }
+
+func (AiGuardrailGuardrailPiiEntityTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AiGuardrailGuardrailPiiEntityType)(nil)).Elem()
+}
+
+func (o AiGuardrailGuardrailPiiEntityTypePtrOutput) ToAiGuardrailGuardrailPiiEntityTypePtrOutput() AiGuardrailGuardrailPiiEntityTypePtrOutput {
+	return o
+}
+
+func (o AiGuardrailGuardrailPiiEntityTypePtrOutput) ToAiGuardrailGuardrailPiiEntityTypePtrOutputWithContext(ctx context.Context) AiGuardrailGuardrailPiiEntityTypePtrOutput {
+	return o
+}
+
+func (o AiGuardrailGuardrailPiiEntityTypePtrOutput) Elem() AiGuardrailGuardrailPiiEntityTypeOutput {
+	return o.ApplyT(func(v *AiGuardrailGuardrailPiiEntityType) AiGuardrailGuardrailPiiEntityType {
+		if v != nil {
+			return *v
+		}
+		var ret AiGuardrailGuardrailPiiEntityType
+		return ret
+	}).(AiGuardrailGuardrailPiiEntityTypeOutput)
+}
+
+func (o AiGuardrailGuardrailPiiEntityTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AiGuardrailGuardrailPiiEntityTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AiGuardrailGuardrailPiiEntityType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AiGuardrailGuardrailPiiEntityTypeInput is an input type that accepts values of the AiGuardrailGuardrailPiiEntityType enum
+// A concrete instance of `AiGuardrailGuardrailPiiEntityTypeInput` can be one of the following:
+//
+//	AiGuardrailGuardrailPiiEntityTypeAddress
+//	AiGuardrailGuardrailPiiEntityTypeAge
+//	AiGuardrailGuardrailPiiEntityTypeAwsAccessKey
+//	AiGuardrailGuardrailPiiEntityTypeAwsSecretKey
+//	AiGuardrailGuardrailPiiEntityTypeCaHealthNumber
+//	AiGuardrailGuardrailPiiEntityTypeCaSocialInsuranceNumber
+//	AiGuardrailGuardrailPiiEntityTypeCreditDebitCardCvv
+//	AiGuardrailGuardrailPiiEntityTypeCreditDebitCardExpiry
+//	AiGuardrailGuardrailPiiEntityTypeCreditDebitCardNumber
+//	AiGuardrailGuardrailPiiEntityTypeDriverId
+//	AiGuardrailGuardrailPiiEntityTypeEmail
+//	AiGuardrailGuardrailPiiEntityTypeInternationalBankAccountNumber
+//	AiGuardrailGuardrailPiiEntityTypeIpAddress
+//	AiGuardrailGuardrailPiiEntityTypeLicensePlate
+//	AiGuardrailGuardrailPiiEntityTypeMacAddress
+//	AiGuardrailGuardrailPiiEntityTypeName
+//	AiGuardrailGuardrailPiiEntityTypePassword
+//	AiGuardrailGuardrailPiiEntityTypePhone
+//	AiGuardrailGuardrailPiiEntityTypePin
+//	AiGuardrailGuardrailPiiEntityTypeSwiftCode
+//	AiGuardrailGuardrailPiiEntityTypeUkNationalHealthServiceNumber
+//	AiGuardrailGuardrailPiiEntityTypeUkNationalInsuranceNumber
+//	AiGuardrailGuardrailPiiEntityTypeUkUniqueTaxpayerReferenceNumber
+//	AiGuardrailGuardrailPiiEntityTypeUrl
+//	AiGuardrailGuardrailPiiEntityTypeUsername
+//	AiGuardrailGuardrailPiiEntityTypeUsBankAccountNumber
+//	AiGuardrailGuardrailPiiEntityTypeUsBankRoutingNumber
+//	AiGuardrailGuardrailPiiEntityTypeUsIndividualTaxIdentificationNumber
+//	AiGuardrailGuardrailPiiEntityTypeUsPassportNumber
+//	AiGuardrailGuardrailPiiEntityTypeUsSocialSecurityNumber
+//	AiGuardrailGuardrailPiiEntityTypeVehicleIdentificationNumber
+type AiGuardrailGuardrailPiiEntityTypeInput interface {
+	pulumi.Input
+
+	ToAiGuardrailGuardrailPiiEntityTypeOutput() AiGuardrailGuardrailPiiEntityTypeOutput
+	ToAiGuardrailGuardrailPiiEntityTypeOutputWithContext(context.Context) AiGuardrailGuardrailPiiEntityTypeOutput
+}
+
+var aiGuardrailGuardrailPiiEntityTypePtrType = reflect.TypeOf((**AiGuardrailGuardrailPiiEntityType)(nil)).Elem()
+
+type AiGuardrailGuardrailPiiEntityTypePtrInput interface {
+	pulumi.Input
+
+	ToAiGuardrailGuardrailPiiEntityTypePtrOutput() AiGuardrailGuardrailPiiEntityTypePtrOutput
+	ToAiGuardrailGuardrailPiiEntityTypePtrOutputWithContext(context.Context) AiGuardrailGuardrailPiiEntityTypePtrOutput
+}
+
+type aiGuardrailGuardrailPiiEntityTypePtr string
+
+func AiGuardrailGuardrailPiiEntityTypePtr(v string) AiGuardrailGuardrailPiiEntityTypePtrInput {
+	return (*aiGuardrailGuardrailPiiEntityTypePtr)(&v)
+}
+
+func (*aiGuardrailGuardrailPiiEntityTypePtr) ElementType() reflect.Type {
+	return aiGuardrailGuardrailPiiEntityTypePtrType
+}
+
+func (in *aiGuardrailGuardrailPiiEntityTypePtr) ToAiGuardrailGuardrailPiiEntityTypePtrOutput() AiGuardrailGuardrailPiiEntityTypePtrOutput {
+	return pulumi.ToOutput(in).(AiGuardrailGuardrailPiiEntityTypePtrOutput)
+}
+
+func (in *aiGuardrailGuardrailPiiEntityTypePtr) ToAiGuardrailGuardrailPiiEntityTypePtrOutputWithContext(ctx context.Context) AiGuardrailGuardrailPiiEntityTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AiGuardrailGuardrailPiiEntityTypePtrOutput)
+}
+
+// Options for sensitive information action.
+type AiGuardrailGuardrailSensitiveInformationAction string
+
+const (
+	AiGuardrailGuardrailSensitiveInformationActionBlock     = AiGuardrailGuardrailSensitiveInformationAction("BLOCK")
+	AiGuardrailGuardrailSensitiveInformationActionAnonymize = AiGuardrailGuardrailSensitiveInformationAction("ANONYMIZE")
+)
+
+func (AiGuardrailGuardrailSensitiveInformationAction) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiGuardrailGuardrailSensitiveInformationAction)(nil)).Elem()
+}
+
+func (e AiGuardrailGuardrailSensitiveInformationAction) ToAiGuardrailGuardrailSensitiveInformationActionOutput() AiGuardrailGuardrailSensitiveInformationActionOutput {
+	return pulumi.ToOutput(e).(AiGuardrailGuardrailSensitiveInformationActionOutput)
+}
+
+func (e AiGuardrailGuardrailSensitiveInformationAction) ToAiGuardrailGuardrailSensitiveInformationActionOutputWithContext(ctx context.Context) AiGuardrailGuardrailSensitiveInformationActionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AiGuardrailGuardrailSensitiveInformationActionOutput)
+}
+
+func (e AiGuardrailGuardrailSensitiveInformationAction) ToAiGuardrailGuardrailSensitiveInformationActionPtrOutput() AiGuardrailGuardrailSensitiveInformationActionPtrOutput {
+	return e.ToAiGuardrailGuardrailSensitiveInformationActionPtrOutputWithContext(context.Background())
+}
+
+func (e AiGuardrailGuardrailSensitiveInformationAction) ToAiGuardrailGuardrailSensitiveInformationActionPtrOutputWithContext(ctx context.Context) AiGuardrailGuardrailSensitiveInformationActionPtrOutput {
+	return AiGuardrailGuardrailSensitiveInformationAction(e).ToAiGuardrailGuardrailSensitiveInformationActionOutputWithContext(ctx).ToAiGuardrailGuardrailSensitiveInformationActionPtrOutputWithContext(ctx)
+}
+
+func (e AiGuardrailGuardrailSensitiveInformationAction) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AiGuardrailGuardrailSensitiveInformationAction) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AiGuardrailGuardrailSensitiveInformationAction) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AiGuardrailGuardrailSensitiveInformationAction) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AiGuardrailGuardrailSensitiveInformationActionOutput struct{ *pulumi.OutputState }
+
+func (AiGuardrailGuardrailSensitiveInformationActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiGuardrailGuardrailSensitiveInformationAction)(nil)).Elem()
+}
+
+func (o AiGuardrailGuardrailSensitiveInformationActionOutput) ToAiGuardrailGuardrailSensitiveInformationActionOutput() AiGuardrailGuardrailSensitiveInformationActionOutput {
+	return o
+}
+
+func (o AiGuardrailGuardrailSensitiveInformationActionOutput) ToAiGuardrailGuardrailSensitiveInformationActionOutputWithContext(ctx context.Context) AiGuardrailGuardrailSensitiveInformationActionOutput {
+	return o
+}
+
+func (o AiGuardrailGuardrailSensitiveInformationActionOutput) ToAiGuardrailGuardrailSensitiveInformationActionPtrOutput() AiGuardrailGuardrailSensitiveInformationActionPtrOutput {
+	return o.ToAiGuardrailGuardrailSensitiveInformationActionPtrOutputWithContext(context.Background())
+}
+
+func (o AiGuardrailGuardrailSensitiveInformationActionOutput) ToAiGuardrailGuardrailSensitiveInformationActionPtrOutputWithContext(ctx context.Context) AiGuardrailGuardrailSensitiveInformationActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AiGuardrailGuardrailSensitiveInformationAction) *AiGuardrailGuardrailSensitiveInformationAction {
+		return &v
+	}).(AiGuardrailGuardrailSensitiveInformationActionPtrOutput)
+}
+
+func (o AiGuardrailGuardrailSensitiveInformationActionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AiGuardrailGuardrailSensitiveInformationActionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AiGuardrailGuardrailSensitiveInformationAction) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AiGuardrailGuardrailSensitiveInformationActionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AiGuardrailGuardrailSensitiveInformationActionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AiGuardrailGuardrailSensitiveInformationAction) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AiGuardrailGuardrailSensitiveInformationActionPtrOutput struct{ *pulumi.OutputState }
+
+func (AiGuardrailGuardrailSensitiveInformationActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AiGuardrailGuardrailSensitiveInformationAction)(nil)).Elem()
+}
+
+func (o AiGuardrailGuardrailSensitiveInformationActionPtrOutput) ToAiGuardrailGuardrailSensitiveInformationActionPtrOutput() AiGuardrailGuardrailSensitiveInformationActionPtrOutput {
+	return o
+}
+
+func (o AiGuardrailGuardrailSensitiveInformationActionPtrOutput) ToAiGuardrailGuardrailSensitiveInformationActionPtrOutputWithContext(ctx context.Context) AiGuardrailGuardrailSensitiveInformationActionPtrOutput {
+	return o
+}
+
+func (o AiGuardrailGuardrailSensitiveInformationActionPtrOutput) Elem() AiGuardrailGuardrailSensitiveInformationActionOutput {
+	return o.ApplyT(func(v *AiGuardrailGuardrailSensitiveInformationAction) AiGuardrailGuardrailSensitiveInformationAction {
+		if v != nil {
+			return *v
+		}
+		var ret AiGuardrailGuardrailSensitiveInformationAction
+		return ret
+	}).(AiGuardrailGuardrailSensitiveInformationActionOutput)
+}
+
+func (o AiGuardrailGuardrailSensitiveInformationActionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AiGuardrailGuardrailSensitiveInformationActionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AiGuardrailGuardrailSensitiveInformationAction) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AiGuardrailGuardrailSensitiveInformationActionInput is an input type that accepts values of the AiGuardrailGuardrailSensitiveInformationAction enum
+// A concrete instance of `AiGuardrailGuardrailSensitiveInformationActionInput` can be one of the following:
+//
+//	AiGuardrailGuardrailSensitiveInformationActionBlock
+//	AiGuardrailGuardrailSensitiveInformationActionAnonymize
+type AiGuardrailGuardrailSensitiveInformationActionInput interface {
+	pulumi.Input
+
+	ToAiGuardrailGuardrailSensitiveInformationActionOutput() AiGuardrailGuardrailSensitiveInformationActionOutput
+	ToAiGuardrailGuardrailSensitiveInformationActionOutputWithContext(context.Context) AiGuardrailGuardrailSensitiveInformationActionOutput
+}
+
+var aiGuardrailGuardrailSensitiveInformationActionPtrType = reflect.TypeOf((**AiGuardrailGuardrailSensitiveInformationAction)(nil)).Elem()
+
+type AiGuardrailGuardrailSensitiveInformationActionPtrInput interface {
+	pulumi.Input
+
+	ToAiGuardrailGuardrailSensitiveInformationActionPtrOutput() AiGuardrailGuardrailSensitiveInformationActionPtrOutput
+	ToAiGuardrailGuardrailSensitiveInformationActionPtrOutputWithContext(context.Context) AiGuardrailGuardrailSensitiveInformationActionPtrOutput
+}
+
+type aiGuardrailGuardrailSensitiveInformationActionPtr string
+
+func AiGuardrailGuardrailSensitiveInformationActionPtr(v string) AiGuardrailGuardrailSensitiveInformationActionPtrInput {
+	return (*aiGuardrailGuardrailSensitiveInformationActionPtr)(&v)
+}
+
+func (*aiGuardrailGuardrailSensitiveInformationActionPtr) ElementType() reflect.Type {
+	return aiGuardrailGuardrailSensitiveInformationActionPtrType
+}
+
+func (in *aiGuardrailGuardrailSensitiveInformationActionPtr) ToAiGuardrailGuardrailSensitiveInformationActionPtrOutput() AiGuardrailGuardrailSensitiveInformationActionPtrOutput {
+	return pulumi.ToOutput(in).(AiGuardrailGuardrailSensitiveInformationActionPtrOutput)
+}
+
+func (in *aiGuardrailGuardrailSensitiveInformationActionPtr) ToAiGuardrailGuardrailSensitiveInformationActionPtrOutputWithContext(ctx context.Context) AiGuardrailGuardrailSensitiveInformationActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AiGuardrailGuardrailSensitiveInformationActionPtrOutput)
+}
+
+// Type of topic in a policy
+type AiGuardrailGuardrailTopicType string
+
+const (
+	AiGuardrailGuardrailTopicTypeDeny = AiGuardrailGuardrailTopicType("DENY")
+)
+
+func (AiGuardrailGuardrailTopicType) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiGuardrailGuardrailTopicType)(nil)).Elem()
+}
+
+func (e AiGuardrailGuardrailTopicType) ToAiGuardrailGuardrailTopicTypeOutput() AiGuardrailGuardrailTopicTypeOutput {
+	return pulumi.ToOutput(e).(AiGuardrailGuardrailTopicTypeOutput)
+}
+
+func (e AiGuardrailGuardrailTopicType) ToAiGuardrailGuardrailTopicTypeOutputWithContext(ctx context.Context) AiGuardrailGuardrailTopicTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AiGuardrailGuardrailTopicTypeOutput)
+}
+
+func (e AiGuardrailGuardrailTopicType) ToAiGuardrailGuardrailTopicTypePtrOutput() AiGuardrailGuardrailTopicTypePtrOutput {
+	return e.ToAiGuardrailGuardrailTopicTypePtrOutputWithContext(context.Background())
+}
+
+func (e AiGuardrailGuardrailTopicType) ToAiGuardrailGuardrailTopicTypePtrOutputWithContext(ctx context.Context) AiGuardrailGuardrailTopicTypePtrOutput {
+	return AiGuardrailGuardrailTopicType(e).ToAiGuardrailGuardrailTopicTypeOutputWithContext(ctx).ToAiGuardrailGuardrailTopicTypePtrOutputWithContext(ctx)
+}
+
+func (e AiGuardrailGuardrailTopicType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AiGuardrailGuardrailTopicType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AiGuardrailGuardrailTopicType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AiGuardrailGuardrailTopicType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AiGuardrailGuardrailTopicTypeOutput struct{ *pulumi.OutputState }
+
+func (AiGuardrailGuardrailTopicTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiGuardrailGuardrailTopicType)(nil)).Elem()
+}
+
+func (o AiGuardrailGuardrailTopicTypeOutput) ToAiGuardrailGuardrailTopicTypeOutput() AiGuardrailGuardrailTopicTypeOutput {
+	return o
+}
+
+func (o AiGuardrailGuardrailTopicTypeOutput) ToAiGuardrailGuardrailTopicTypeOutputWithContext(ctx context.Context) AiGuardrailGuardrailTopicTypeOutput {
+	return o
+}
+
+func (o AiGuardrailGuardrailTopicTypeOutput) ToAiGuardrailGuardrailTopicTypePtrOutput() AiGuardrailGuardrailTopicTypePtrOutput {
+	return o.ToAiGuardrailGuardrailTopicTypePtrOutputWithContext(context.Background())
+}
+
+func (o AiGuardrailGuardrailTopicTypeOutput) ToAiGuardrailGuardrailTopicTypePtrOutputWithContext(ctx context.Context) AiGuardrailGuardrailTopicTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AiGuardrailGuardrailTopicType) *AiGuardrailGuardrailTopicType {
+		return &v
+	}).(AiGuardrailGuardrailTopicTypePtrOutput)
+}
+
+func (o AiGuardrailGuardrailTopicTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AiGuardrailGuardrailTopicTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AiGuardrailGuardrailTopicType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AiGuardrailGuardrailTopicTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AiGuardrailGuardrailTopicTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AiGuardrailGuardrailTopicType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AiGuardrailGuardrailTopicTypePtrOutput struct{ *pulumi.OutputState }
+
+func (AiGuardrailGuardrailTopicTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AiGuardrailGuardrailTopicType)(nil)).Elem()
+}
+
+func (o AiGuardrailGuardrailTopicTypePtrOutput) ToAiGuardrailGuardrailTopicTypePtrOutput() AiGuardrailGuardrailTopicTypePtrOutput {
+	return o
+}
+
+func (o AiGuardrailGuardrailTopicTypePtrOutput) ToAiGuardrailGuardrailTopicTypePtrOutputWithContext(ctx context.Context) AiGuardrailGuardrailTopicTypePtrOutput {
+	return o
+}
+
+func (o AiGuardrailGuardrailTopicTypePtrOutput) Elem() AiGuardrailGuardrailTopicTypeOutput {
+	return o.ApplyT(func(v *AiGuardrailGuardrailTopicType) AiGuardrailGuardrailTopicType {
+		if v != nil {
+			return *v
+		}
+		var ret AiGuardrailGuardrailTopicType
+		return ret
+	}).(AiGuardrailGuardrailTopicTypeOutput)
+}
+
+func (o AiGuardrailGuardrailTopicTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AiGuardrailGuardrailTopicTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AiGuardrailGuardrailTopicType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AiGuardrailGuardrailTopicTypeInput is an input type that accepts values of the AiGuardrailGuardrailTopicType enum
+// A concrete instance of `AiGuardrailGuardrailTopicTypeInput` can be one of the following:
+//
+//	AiGuardrailGuardrailTopicTypeDeny
+type AiGuardrailGuardrailTopicTypeInput interface {
+	pulumi.Input
+
+	ToAiGuardrailGuardrailTopicTypeOutput() AiGuardrailGuardrailTopicTypeOutput
+	ToAiGuardrailGuardrailTopicTypeOutputWithContext(context.Context) AiGuardrailGuardrailTopicTypeOutput
+}
+
+var aiGuardrailGuardrailTopicTypePtrType = reflect.TypeOf((**AiGuardrailGuardrailTopicType)(nil)).Elem()
+
+type AiGuardrailGuardrailTopicTypePtrInput interface {
+	pulumi.Input
+
+	ToAiGuardrailGuardrailTopicTypePtrOutput() AiGuardrailGuardrailTopicTypePtrOutput
+	ToAiGuardrailGuardrailTopicTypePtrOutputWithContext(context.Context) AiGuardrailGuardrailTopicTypePtrOutput
+}
+
+type aiGuardrailGuardrailTopicTypePtr string
+
+func AiGuardrailGuardrailTopicTypePtr(v string) AiGuardrailGuardrailTopicTypePtrInput {
+	return (*aiGuardrailGuardrailTopicTypePtr)(&v)
+}
+
+func (*aiGuardrailGuardrailTopicTypePtr) ElementType() reflect.Type {
+	return aiGuardrailGuardrailTopicTypePtrType
+}
+
+func (in *aiGuardrailGuardrailTopicTypePtr) ToAiGuardrailGuardrailTopicTypePtrOutput() AiGuardrailGuardrailTopicTypePtrOutput {
+	return pulumi.ToOutput(in).(AiGuardrailGuardrailTopicTypePtrOutput)
+}
+
+func (in *aiGuardrailGuardrailTopicTypePtr) ToAiGuardrailGuardrailTopicTypePtrOutputWithContext(ctx context.Context) AiGuardrailGuardrailTopicTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AiGuardrailGuardrailTopicTypePtrOutput)
 }
 
 type AiPromptAiPromptApiFormat string
@@ -834,9 +2064,11 @@ func (in *aiPromptAiPromptTemplateTypePtr) ToAiPromptAiPromptTemplateTypePtrOutp
 type AiPromptAiPromptType string
 
 const (
-	AiPromptAiPromptTypeAnswerGeneration         = AiPromptAiPromptType("ANSWER_GENERATION")
-	AiPromptAiPromptTypeIntentLabelingGeneration = AiPromptAiPromptType("INTENT_LABELING_GENERATION")
-	AiPromptAiPromptTypeQueryReformulation       = AiPromptAiPromptType("QUERY_REFORMULATION")
+	AiPromptAiPromptTypeAnswerGeneration            = AiPromptAiPromptType("ANSWER_GENERATION")
+	AiPromptAiPromptTypeIntentLabelingGeneration    = AiPromptAiPromptType("INTENT_LABELING_GENERATION")
+	AiPromptAiPromptTypeQueryReformulation          = AiPromptAiPromptType("QUERY_REFORMULATION")
+	AiPromptAiPromptTypeSelfServicePreProcessing    = AiPromptAiPromptType("SELF_SERVICE_PRE_PROCESSING")
+	AiPromptAiPromptTypeSelfServiceAnswerGeneration = AiPromptAiPromptType("SELF_SERVICE_ANSWER_GENERATION")
 )
 
 func (AiPromptAiPromptType) ElementType() reflect.Type {
@@ -964,6 +2196,8 @@ func (o AiPromptAiPromptTypePtrOutput) ToStringPtrOutputWithContext(ctx context.
 //	AiPromptAiPromptTypeAnswerGeneration
 //	AiPromptAiPromptTypeIntentLabelingGeneration
 //	AiPromptAiPromptTypeQueryReformulation
+//	AiPromptAiPromptTypeSelfServicePreProcessing
+//	AiPromptAiPromptTypeSelfServiceAnswerGeneration
 type AiPromptAiPromptTypeInput interface {
 	pulumi.Input
 
@@ -2163,6 +3397,20 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentAiAgentTypePtrInput)(nil)).Elem(), AiAgentAiAgentType("MANUAL_SEARCH"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentKnowledgeBaseSearchTypeInput)(nil)).Elem(), AiAgentKnowledgeBaseSearchType("HYBRID"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentKnowledgeBaseSearchTypePtrInput)(nil)).Elem(), AiAgentKnowledgeBaseSearchType("HYBRID"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AiGuardrailGuardrailContentFilterTypeInput)(nil)).Elem(), AiGuardrailGuardrailContentFilterType("SEXUAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AiGuardrailGuardrailContentFilterTypePtrInput)(nil)).Elem(), AiGuardrailGuardrailContentFilterType("SEXUAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AiGuardrailGuardrailContextualGroundingFilterTypeInput)(nil)).Elem(), AiGuardrailGuardrailContextualGroundingFilterType("GROUNDING"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AiGuardrailGuardrailContextualGroundingFilterTypePtrInput)(nil)).Elem(), AiGuardrailGuardrailContextualGroundingFilterType("GROUNDING"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AiGuardrailGuardrailFilterStrengthInput)(nil)).Elem(), AiGuardrailGuardrailFilterStrength("NONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AiGuardrailGuardrailFilterStrengthPtrInput)(nil)).Elem(), AiGuardrailGuardrailFilterStrength("NONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AiGuardrailGuardrailManagedWordsTypeInput)(nil)).Elem(), AiGuardrailGuardrailManagedWordsType("PROFANITY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AiGuardrailGuardrailManagedWordsTypePtrInput)(nil)).Elem(), AiGuardrailGuardrailManagedWordsType("PROFANITY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AiGuardrailGuardrailPiiEntityTypeInput)(nil)).Elem(), AiGuardrailGuardrailPiiEntityType("ADDRESS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AiGuardrailGuardrailPiiEntityTypePtrInput)(nil)).Elem(), AiGuardrailGuardrailPiiEntityType("ADDRESS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AiGuardrailGuardrailSensitiveInformationActionInput)(nil)).Elem(), AiGuardrailGuardrailSensitiveInformationAction("BLOCK"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AiGuardrailGuardrailSensitiveInformationActionPtrInput)(nil)).Elem(), AiGuardrailGuardrailSensitiveInformationAction("BLOCK"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AiGuardrailGuardrailTopicTypeInput)(nil)).Elem(), AiGuardrailGuardrailTopicType("DENY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AiGuardrailGuardrailTopicTypePtrInput)(nil)).Elem(), AiGuardrailGuardrailTopicType("DENY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AiPromptAiPromptApiFormatInput)(nil)).Elem(), AiPromptAiPromptApiFormat("ANTHROPIC_CLAUDE_MESSAGES"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AiPromptAiPromptApiFormatPtrInput)(nil)).Elem(), AiPromptAiPromptApiFormat("ANTHROPIC_CLAUDE_MESSAGES"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AiPromptAiPromptTemplateTypeInput)(nil)).Elem(), AiPromptAiPromptTemplateType("TEXT"))
@@ -2189,6 +3437,20 @@ func init() {
 	pulumi.RegisterOutputType(AiAgentAiAgentTypePtrOutput{})
 	pulumi.RegisterOutputType(AiAgentKnowledgeBaseSearchTypeOutput{})
 	pulumi.RegisterOutputType(AiAgentKnowledgeBaseSearchTypePtrOutput{})
+	pulumi.RegisterOutputType(AiGuardrailGuardrailContentFilterTypeOutput{})
+	pulumi.RegisterOutputType(AiGuardrailGuardrailContentFilterTypePtrOutput{})
+	pulumi.RegisterOutputType(AiGuardrailGuardrailContextualGroundingFilterTypeOutput{})
+	pulumi.RegisterOutputType(AiGuardrailGuardrailContextualGroundingFilterTypePtrOutput{})
+	pulumi.RegisterOutputType(AiGuardrailGuardrailFilterStrengthOutput{})
+	pulumi.RegisterOutputType(AiGuardrailGuardrailFilterStrengthPtrOutput{})
+	pulumi.RegisterOutputType(AiGuardrailGuardrailManagedWordsTypeOutput{})
+	pulumi.RegisterOutputType(AiGuardrailGuardrailManagedWordsTypePtrOutput{})
+	pulumi.RegisterOutputType(AiGuardrailGuardrailPiiEntityTypeOutput{})
+	pulumi.RegisterOutputType(AiGuardrailGuardrailPiiEntityTypePtrOutput{})
+	pulumi.RegisterOutputType(AiGuardrailGuardrailSensitiveInformationActionOutput{})
+	pulumi.RegisterOutputType(AiGuardrailGuardrailSensitiveInformationActionPtrOutput{})
+	pulumi.RegisterOutputType(AiGuardrailGuardrailTopicTypeOutput{})
+	pulumi.RegisterOutputType(AiGuardrailGuardrailTopicTypePtrOutput{})
 	pulumi.RegisterOutputType(AiPromptAiPromptApiFormatOutput{})
 	pulumi.RegisterOutputType(AiPromptAiPromptApiFormatPtrOutput{})
 	pulumi.RegisterOutputType(AiPromptAiPromptTemplateTypeOutput{})

@@ -13,6 +13,7 @@ namespace Pulumi.AwsNative.Wisdom.Outputs
     [OutputType]
     public sealed class AiAgentAnswerRecommendationAiAgentConfiguration
     {
+        public readonly string? AnswerGenerationAiGuardrailId;
         public readonly string? AnswerGenerationAiPromptId;
         public readonly ImmutableArray<Outputs.AiAgentAssociationConfiguration> AssociationConfigurations;
         public readonly string? IntentLabelingGenerationAiPromptId;
@@ -20,6 +21,8 @@ namespace Pulumi.AwsNative.Wisdom.Outputs
 
         [OutputConstructor]
         private AiAgentAnswerRecommendationAiAgentConfiguration(
+            string? answerGenerationAiGuardrailId,
+
             string? answerGenerationAiPromptId,
 
             ImmutableArray<Outputs.AiAgentAssociationConfiguration> associationConfigurations,
@@ -28,6 +31,7 @@ namespace Pulumi.AwsNative.Wisdom.Outputs
 
             string? queryReformulationAiPromptId)
         {
+            AnswerGenerationAiGuardrailId = answerGenerationAiGuardrailId;
             AnswerGenerationAiPromptId = answerGenerationAiPromptId;
             AssociationConfigurations = associationConfigurations;
             IntentLabelingGenerationAiPromptId = intentLabelingGenerationAiPromptId;

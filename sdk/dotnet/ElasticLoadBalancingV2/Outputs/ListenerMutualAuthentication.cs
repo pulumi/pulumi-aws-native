@@ -16,6 +16,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Outputs
     [OutputType]
     public sealed class ListenerMutualAuthentication
     {
+        public readonly string? AdvertiseTrustStoreCaNames;
         /// <summary>
         /// Indicates whether expired client certificates are ignored.
         /// </summary>
@@ -31,12 +32,15 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Outputs
 
         [OutputConstructor]
         private ListenerMutualAuthentication(
+            string? advertiseTrustStoreCaNames,
+
             bool? ignoreClientCertificateExpiry,
 
             string? mode,
 
             string? trustStoreArn)
         {
+            AdvertiseTrustStoreCaNames = advertiseTrustStoreCaNames;
             IgnoreClientCertificateExpiry = ignoreClientCertificateExpiry;
             Mode = mode;
             TrustStoreArn = trustStoreArn;

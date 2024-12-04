@@ -20,6 +20,8 @@ __all__ = [
     'AiAgentAiAgentConfiguration0PropertiesArgsDict',
     'AiAgentAiAgentConfiguration1PropertiesArgs',
     'AiAgentAiAgentConfiguration1PropertiesArgsDict',
+    'AiAgentAiAgentConfiguration2PropertiesArgs',
+    'AiAgentAiAgentConfiguration2PropertiesArgsDict',
     'AiAgentAnswerRecommendationAiAgentConfigurationArgs',
     'AiAgentAnswerRecommendationAiAgentConfigurationArgsDict',
     'AiAgentAssociationConfigurationDataPropertiesArgs',
@@ -34,6 +36,8 @@ __all__ = [
     'AiAgentOrCondition0PropertiesArgsDict',
     'AiAgentOrCondition1PropertiesArgs',
     'AiAgentOrCondition1PropertiesArgsDict',
+    'AiAgentSelfServiceAiAgentConfigurationArgs',
+    'AiAgentSelfServiceAiAgentConfigurationArgsDict',
     'AiAgentTagConditionArgs',
     'AiAgentTagConditionArgsDict',
     'AiAgentTagFilter0PropertiesArgs',
@@ -42,6 +46,30 @@ __all__ = [
     'AiAgentTagFilter1PropertiesArgsDict',
     'AiAgentTagFilter2PropertiesArgs',
     'AiAgentTagFilter2PropertiesArgsDict',
+    'AiGuardrailAiGuardrailContentPolicyConfigArgs',
+    'AiGuardrailAiGuardrailContentPolicyConfigArgsDict',
+    'AiGuardrailAiGuardrailContextualGroundingPolicyConfigArgs',
+    'AiGuardrailAiGuardrailContextualGroundingPolicyConfigArgsDict',
+    'AiGuardrailAiGuardrailSensitiveInformationPolicyConfigArgs',
+    'AiGuardrailAiGuardrailSensitiveInformationPolicyConfigArgsDict',
+    'AiGuardrailAiGuardrailTopicPolicyConfigArgs',
+    'AiGuardrailAiGuardrailTopicPolicyConfigArgsDict',
+    'AiGuardrailAiGuardrailWordPolicyConfigArgs',
+    'AiGuardrailAiGuardrailWordPolicyConfigArgsDict',
+    'AiGuardrailGuardrailContentFilterConfigArgs',
+    'AiGuardrailGuardrailContentFilterConfigArgsDict',
+    'AiGuardrailGuardrailContextualGroundingFilterConfigArgs',
+    'AiGuardrailGuardrailContextualGroundingFilterConfigArgsDict',
+    'AiGuardrailGuardrailManagedWordsConfigArgs',
+    'AiGuardrailGuardrailManagedWordsConfigArgsDict',
+    'AiGuardrailGuardrailPiiEntityConfigArgs',
+    'AiGuardrailGuardrailPiiEntityConfigArgsDict',
+    'AiGuardrailGuardrailRegexConfigArgs',
+    'AiGuardrailGuardrailRegexConfigArgsDict',
+    'AiGuardrailGuardrailTopicConfigArgs',
+    'AiGuardrailGuardrailTopicConfigArgsDict',
+    'AiGuardrailGuardrailWordConfigArgs',
+    'AiGuardrailGuardrailWordConfigArgsDict',
     'AiPromptAiPromptTemplateConfigurationArgs',
     'AiPromptAiPromptTemplateConfigurationArgsDict',
     'AssistantAssociationAssociationDataArgs',
@@ -161,7 +189,30 @@ class AiAgentAiAgentConfiguration1PropertiesArgs:
 
 
 if not MYPY:
+    class AiAgentAiAgentConfiguration2PropertiesArgsDict(TypedDict):
+        self_service_ai_agent_configuration: pulumi.Input['AiAgentSelfServiceAiAgentConfigurationArgsDict']
+elif False:
+    AiAgentAiAgentConfiguration2PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AiAgentAiAgentConfiguration2PropertiesArgs:
+    def __init__(__self__, *,
+                 self_service_ai_agent_configuration: pulumi.Input['AiAgentSelfServiceAiAgentConfigurationArgs']):
+        pulumi.set(__self__, "self_service_ai_agent_configuration", self_service_ai_agent_configuration)
+
+    @property
+    @pulumi.getter(name="selfServiceAiAgentConfiguration")
+    def self_service_ai_agent_configuration(self) -> pulumi.Input['AiAgentSelfServiceAiAgentConfigurationArgs']:
+        return pulumi.get(self, "self_service_ai_agent_configuration")
+
+    @self_service_ai_agent_configuration.setter
+    def self_service_ai_agent_configuration(self, value: pulumi.Input['AiAgentSelfServiceAiAgentConfigurationArgs']):
+        pulumi.set(self, "self_service_ai_agent_configuration", value)
+
+
+if not MYPY:
     class AiAgentAnswerRecommendationAiAgentConfigurationArgsDict(TypedDict):
+        answer_generation_ai_guardrail_id: NotRequired[pulumi.Input[str]]
         answer_generation_ai_prompt_id: NotRequired[pulumi.Input[str]]
         association_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['AiAgentAssociationConfigurationArgsDict']]]]
         intent_labeling_generation_ai_prompt_id: NotRequired[pulumi.Input[str]]
@@ -172,10 +223,13 @@ elif False:
 @pulumi.input_type
 class AiAgentAnswerRecommendationAiAgentConfigurationArgs:
     def __init__(__self__, *,
+                 answer_generation_ai_guardrail_id: Optional[pulumi.Input[str]] = None,
                  answer_generation_ai_prompt_id: Optional[pulumi.Input[str]] = None,
                  association_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['AiAgentAssociationConfigurationArgs']]]] = None,
                  intent_labeling_generation_ai_prompt_id: Optional[pulumi.Input[str]] = None,
                  query_reformulation_ai_prompt_id: Optional[pulumi.Input[str]] = None):
+        if answer_generation_ai_guardrail_id is not None:
+            pulumi.set(__self__, "answer_generation_ai_guardrail_id", answer_generation_ai_guardrail_id)
         if answer_generation_ai_prompt_id is not None:
             pulumi.set(__self__, "answer_generation_ai_prompt_id", answer_generation_ai_prompt_id)
         if association_configurations is not None:
@@ -184,6 +238,15 @@ class AiAgentAnswerRecommendationAiAgentConfigurationArgs:
             pulumi.set(__self__, "intent_labeling_generation_ai_prompt_id", intent_labeling_generation_ai_prompt_id)
         if query_reformulation_ai_prompt_id is not None:
             pulumi.set(__self__, "query_reformulation_ai_prompt_id", query_reformulation_ai_prompt_id)
+
+    @property
+    @pulumi.getter(name="answerGenerationAiGuardrailId")
+    def answer_generation_ai_guardrail_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "answer_generation_ai_guardrail_id")
+
+    @answer_generation_ai_guardrail_id.setter
+    def answer_generation_ai_guardrail_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "answer_generation_ai_guardrail_id", value)
 
     @property
     @pulumi.getter(name="answerGenerationAiPromptId")
@@ -344,6 +407,7 @@ class AiAgentKnowledgeBaseAssociationConfigurationDataArgs:
 
 if not MYPY:
     class AiAgentManualSearchAiAgentConfigurationArgsDict(TypedDict):
+        answer_generation_ai_guardrail_id: NotRequired[pulumi.Input[str]]
         answer_generation_ai_prompt_id: NotRequired[pulumi.Input[str]]
         association_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['AiAgentAssociationConfigurationArgsDict']]]]
 elif False:
@@ -352,12 +416,24 @@ elif False:
 @pulumi.input_type
 class AiAgentManualSearchAiAgentConfigurationArgs:
     def __init__(__self__, *,
+                 answer_generation_ai_guardrail_id: Optional[pulumi.Input[str]] = None,
                  answer_generation_ai_prompt_id: Optional[pulumi.Input[str]] = None,
                  association_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['AiAgentAssociationConfigurationArgs']]]] = None):
+        if answer_generation_ai_guardrail_id is not None:
+            pulumi.set(__self__, "answer_generation_ai_guardrail_id", answer_generation_ai_guardrail_id)
         if answer_generation_ai_prompt_id is not None:
             pulumi.set(__self__, "answer_generation_ai_prompt_id", answer_generation_ai_prompt_id)
         if association_configurations is not None:
             pulumi.set(__self__, "association_configurations", association_configurations)
+
+    @property
+    @pulumi.getter(name="answerGenerationAiGuardrailId")
+    def answer_generation_ai_guardrail_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "answer_generation_ai_guardrail_id")
+
+    @answer_generation_ai_guardrail_id.setter
+    def answer_generation_ai_guardrail_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "answer_generation_ai_guardrail_id", value)
 
     @property
     @pulumi.getter(name="answerGenerationAiPromptId")
@@ -420,6 +496,68 @@ class AiAgentOrCondition1PropertiesArgs:
     @tag_condition.setter
     def tag_condition(self, value: pulumi.Input['AiAgentTagConditionArgs']):
         pulumi.set(self, "tag_condition", value)
+
+
+if not MYPY:
+    class AiAgentSelfServiceAiAgentConfigurationArgsDict(TypedDict):
+        association_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['AiAgentAssociationConfigurationArgsDict']]]]
+        self_service_ai_guardrail_id: NotRequired[pulumi.Input[str]]
+        self_service_answer_generation_ai_prompt_id: NotRequired[pulumi.Input[str]]
+        self_service_pre_processing_ai_prompt_id: NotRequired[pulumi.Input[str]]
+elif False:
+    AiAgentSelfServiceAiAgentConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AiAgentSelfServiceAiAgentConfigurationArgs:
+    def __init__(__self__, *,
+                 association_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['AiAgentAssociationConfigurationArgs']]]] = None,
+                 self_service_ai_guardrail_id: Optional[pulumi.Input[str]] = None,
+                 self_service_answer_generation_ai_prompt_id: Optional[pulumi.Input[str]] = None,
+                 self_service_pre_processing_ai_prompt_id: Optional[pulumi.Input[str]] = None):
+        if association_configurations is not None:
+            pulumi.set(__self__, "association_configurations", association_configurations)
+        if self_service_ai_guardrail_id is not None:
+            pulumi.set(__self__, "self_service_ai_guardrail_id", self_service_ai_guardrail_id)
+        if self_service_answer_generation_ai_prompt_id is not None:
+            pulumi.set(__self__, "self_service_answer_generation_ai_prompt_id", self_service_answer_generation_ai_prompt_id)
+        if self_service_pre_processing_ai_prompt_id is not None:
+            pulumi.set(__self__, "self_service_pre_processing_ai_prompt_id", self_service_pre_processing_ai_prompt_id)
+
+    @property
+    @pulumi.getter(name="associationConfigurations")
+    def association_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AiAgentAssociationConfigurationArgs']]]]:
+        return pulumi.get(self, "association_configurations")
+
+    @association_configurations.setter
+    def association_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AiAgentAssociationConfigurationArgs']]]]):
+        pulumi.set(self, "association_configurations", value)
+
+    @property
+    @pulumi.getter(name="selfServiceAiGuardrailId")
+    def self_service_ai_guardrail_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "self_service_ai_guardrail_id")
+
+    @self_service_ai_guardrail_id.setter
+    def self_service_ai_guardrail_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "self_service_ai_guardrail_id", value)
+
+    @property
+    @pulumi.getter(name="selfServiceAnswerGenerationAiPromptId")
+    def self_service_answer_generation_ai_prompt_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "self_service_answer_generation_ai_prompt_id")
+
+    @self_service_answer_generation_ai_prompt_id.setter
+    def self_service_answer_generation_ai_prompt_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "self_service_answer_generation_ai_prompt_id", value)
+
+    @property
+    @pulumi.getter(name="selfServicePreProcessingAiPromptId")
+    def self_service_pre_processing_ai_prompt_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "self_service_pre_processing_ai_prompt_id")
+
+    @self_service_pre_processing_ai_prompt_id.setter
+    def self_service_pre_processing_ai_prompt_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "self_service_pre_processing_ai_prompt_id", value)
 
 
 if not MYPY:
@@ -521,6 +659,597 @@ class AiAgentTagFilter2PropertiesArgs:
     @or_conditions.setter
     def or_conditions(self, value: pulumi.Input[Sequence[pulumi.Input[Union['AiAgentOrCondition0PropertiesArgs', 'AiAgentOrCondition1PropertiesArgs']]]]):
         pulumi.set(self, "or_conditions", value)
+
+
+if not MYPY:
+    class AiGuardrailAiGuardrailContentPolicyConfigArgsDict(TypedDict):
+        """
+        Content policy config for a guardrail.
+        """
+        filters_config: pulumi.Input[Sequence[pulumi.Input['AiGuardrailGuardrailContentFilterConfigArgsDict']]]
+        """
+        List of content filter configs in content policy.
+        """
+elif False:
+    AiGuardrailAiGuardrailContentPolicyConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AiGuardrailAiGuardrailContentPolicyConfigArgs:
+    def __init__(__self__, *,
+                 filters_config: pulumi.Input[Sequence[pulumi.Input['AiGuardrailGuardrailContentFilterConfigArgs']]]):
+        """
+        Content policy config for a guardrail.
+        :param pulumi.Input[Sequence[pulumi.Input['AiGuardrailGuardrailContentFilterConfigArgs']]] filters_config: List of content filter configs in content policy.
+        """
+        pulumi.set(__self__, "filters_config", filters_config)
+
+    @property
+    @pulumi.getter(name="filtersConfig")
+    def filters_config(self) -> pulumi.Input[Sequence[pulumi.Input['AiGuardrailGuardrailContentFilterConfigArgs']]]:
+        """
+        List of content filter configs in content policy.
+        """
+        return pulumi.get(self, "filters_config")
+
+    @filters_config.setter
+    def filters_config(self, value: pulumi.Input[Sequence[pulumi.Input['AiGuardrailGuardrailContentFilterConfigArgs']]]):
+        pulumi.set(self, "filters_config", value)
+
+
+if not MYPY:
+    class AiGuardrailAiGuardrailContextualGroundingPolicyConfigArgsDict(TypedDict):
+        """
+        Contextual grounding policy config for a guardrail.
+        """
+        filters_config: pulumi.Input[Sequence[pulumi.Input['AiGuardrailGuardrailContextualGroundingFilterConfigArgsDict']]]
+        """
+        List of contextual grounding filter configs.
+        """
+elif False:
+    AiGuardrailAiGuardrailContextualGroundingPolicyConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AiGuardrailAiGuardrailContextualGroundingPolicyConfigArgs:
+    def __init__(__self__, *,
+                 filters_config: pulumi.Input[Sequence[pulumi.Input['AiGuardrailGuardrailContextualGroundingFilterConfigArgs']]]):
+        """
+        Contextual grounding policy config for a guardrail.
+        :param pulumi.Input[Sequence[pulumi.Input['AiGuardrailGuardrailContextualGroundingFilterConfigArgs']]] filters_config: List of contextual grounding filter configs.
+        """
+        pulumi.set(__self__, "filters_config", filters_config)
+
+    @property
+    @pulumi.getter(name="filtersConfig")
+    def filters_config(self) -> pulumi.Input[Sequence[pulumi.Input['AiGuardrailGuardrailContextualGroundingFilterConfigArgs']]]:
+        """
+        List of contextual grounding filter configs.
+        """
+        return pulumi.get(self, "filters_config")
+
+    @filters_config.setter
+    def filters_config(self, value: pulumi.Input[Sequence[pulumi.Input['AiGuardrailGuardrailContextualGroundingFilterConfigArgs']]]):
+        pulumi.set(self, "filters_config", value)
+
+
+if not MYPY:
+    class AiGuardrailAiGuardrailSensitiveInformationPolicyConfigArgsDict(TypedDict):
+        """
+        Sensitive information policy config for a guardrail.
+        """
+        pii_entities_config: NotRequired[pulumi.Input[Sequence[pulumi.Input['AiGuardrailGuardrailPiiEntityConfigArgsDict']]]]
+        """
+        List of entities.
+        """
+        regexes_config: NotRequired[pulumi.Input[Sequence[pulumi.Input['AiGuardrailGuardrailRegexConfigArgsDict']]]]
+        """
+        List of regex.
+        """
+elif False:
+    AiGuardrailAiGuardrailSensitiveInformationPolicyConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AiGuardrailAiGuardrailSensitiveInformationPolicyConfigArgs:
+    def __init__(__self__, *,
+                 pii_entities_config: Optional[pulumi.Input[Sequence[pulumi.Input['AiGuardrailGuardrailPiiEntityConfigArgs']]]] = None,
+                 regexes_config: Optional[pulumi.Input[Sequence[pulumi.Input['AiGuardrailGuardrailRegexConfigArgs']]]] = None):
+        """
+        Sensitive information policy config for a guardrail.
+        :param pulumi.Input[Sequence[pulumi.Input['AiGuardrailGuardrailPiiEntityConfigArgs']]] pii_entities_config: List of entities.
+        :param pulumi.Input[Sequence[pulumi.Input['AiGuardrailGuardrailRegexConfigArgs']]] regexes_config: List of regex.
+        """
+        if pii_entities_config is not None:
+            pulumi.set(__self__, "pii_entities_config", pii_entities_config)
+        if regexes_config is not None:
+            pulumi.set(__self__, "regexes_config", regexes_config)
+
+    @property
+    @pulumi.getter(name="piiEntitiesConfig")
+    def pii_entities_config(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AiGuardrailGuardrailPiiEntityConfigArgs']]]]:
+        """
+        List of entities.
+        """
+        return pulumi.get(self, "pii_entities_config")
+
+    @pii_entities_config.setter
+    def pii_entities_config(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AiGuardrailGuardrailPiiEntityConfigArgs']]]]):
+        pulumi.set(self, "pii_entities_config", value)
+
+    @property
+    @pulumi.getter(name="regexesConfig")
+    def regexes_config(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AiGuardrailGuardrailRegexConfigArgs']]]]:
+        """
+        List of regex.
+        """
+        return pulumi.get(self, "regexes_config")
+
+    @regexes_config.setter
+    def regexes_config(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AiGuardrailGuardrailRegexConfigArgs']]]]):
+        pulumi.set(self, "regexes_config", value)
+
+
+if not MYPY:
+    class AiGuardrailAiGuardrailTopicPolicyConfigArgsDict(TypedDict):
+        """
+        Topic policy config for a guardrail.
+        """
+        topics_config: pulumi.Input[Sequence[pulumi.Input['AiGuardrailGuardrailTopicConfigArgsDict']]]
+        """
+        List of topic configs in topic policy.
+        """
+elif False:
+    AiGuardrailAiGuardrailTopicPolicyConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AiGuardrailAiGuardrailTopicPolicyConfigArgs:
+    def __init__(__self__, *,
+                 topics_config: pulumi.Input[Sequence[pulumi.Input['AiGuardrailGuardrailTopicConfigArgs']]]):
+        """
+        Topic policy config for a guardrail.
+        :param pulumi.Input[Sequence[pulumi.Input['AiGuardrailGuardrailTopicConfigArgs']]] topics_config: List of topic configs in topic policy.
+        """
+        pulumi.set(__self__, "topics_config", topics_config)
+
+    @property
+    @pulumi.getter(name="topicsConfig")
+    def topics_config(self) -> pulumi.Input[Sequence[pulumi.Input['AiGuardrailGuardrailTopicConfigArgs']]]:
+        """
+        List of topic configs in topic policy.
+        """
+        return pulumi.get(self, "topics_config")
+
+    @topics_config.setter
+    def topics_config(self, value: pulumi.Input[Sequence[pulumi.Input['AiGuardrailGuardrailTopicConfigArgs']]]):
+        pulumi.set(self, "topics_config", value)
+
+
+if not MYPY:
+    class AiGuardrailAiGuardrailWordPolicyConfigArgsDict(TypedDict):
+        """
+        Word policy config for a guardrail.
+        """
+        managed_word_lists_config: NotRequired[pulumi.Input[Sequence[pulumi.Input['AiGuardrailGuardrailManagedWordsConfigArgsDict']]]]
+        """
+        A config for the list of managed words.
+        """
+        words_config: NotRequired[pulumi.Input[Sequence[pulumi.Input['AiGuardrailGuardrailWordConfigArgsDict']]]]
+        """
+        List of custom word configs.
+        """
+elif False:
+    AiGuardrailAiGuardrailWordPolicyConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AiGuardrailAiGuardrailWordPolicyConfigArgs:
+    def __init__(__self__, *,
+                 managed_word_lists_config: Optional[pulumi.Input[Sequence[pulumi.Input['AiGuardrailGuardrailManagedWordsConfigArgs']]]] = None,
+                 words_config: Optional[pulumi.Input[Sequence[pulumi.Input['AiGuardrailGuardrailWordConfigArgs']]]] = None):
+        """
+        Word policy config for a guardrail.
+        :param pulumi.Input[Sequence[pulumi.Input['AiGuardrailGuardrailManagedWordsConfigArgs']]] managed_word_lists_config: A config for the list of managed words.
+        :param pulumi.Input[Sequence[pulumi.Input['AiGuardrailGuardrailWordConfigArgs']]] words_config: List of custom word configs.
+        """
+        if managed_word_lists_config is not None:
+            pulumi.set(__self__, "managed_word_lists_config", managed_word_lists_config)
+        if words_config is not None:
+            pulumi.set(__self__, "words_config", words_config)
+
+    @property
+    @pulumi.getter(name="managedWordListsConfig")
+    def managed_word_lists_config(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AiGuardrailGuardrailManagedWordsConfigArgs']]]]:
+        """
+        A config for the list of managed words.
+        """
+        return pulumi.get(self, "managed_word_lists_config")
+
+    @managed_word_lists_config.setter
+    def managed_word_lists_config(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AiGuardrailGuardrailManagedWordsConfigArgs']]]]):
+        pulumi.set(self, "managed_word_lists_config", value)
+
+    @property
+    @pulumi.getter(name="wordsConfig")
+    def words_config(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AiGuardrailGuardrailWordConfigArgs']]]]:
+        """
+        List of custom word configs.
+        """
+        return pulumi.get(self, "words_config")
+
+    @words_config.setter
+    def words_config(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AiGuardrailGuardrailWordConfigArgs']]]]):
+        pulumi.set(self, "words_config", value)
+
+
+if not MYPY:
+    class AiGuardrailGuardrailContentFilterConfigArgsDict(TypedDict):
+        """
+        Content filter config in content policy.
+        """
+        input_strength: pulumi.Input['AiGuardrailGuardrailFilterStrength']
+        output_strength: pulumi.Input['AiGuardrailGuardrailFilterStrength']
+        type: pulumi.Input['AiGuardrailGuardrailContentFilterType']
+elif False:
+    AiGuardrailGuardrailContentFilterConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AiGuardrailGuardrailContentFilterConfigArgs:
+    def __init__(__self__, *,
+                 input_strength: pulumi.Input['AiGuardrailGuardrailFilterStrength'],
+                 output_strength: pulumi.Input['AiGuardrailGuardrailFilterStrength'],
+                 type: pulumi.Input['AiGuardrailGuardrailContentFilterType']):
+        """
+        Content filter config in content policy.
+        """
+        pulumi.set(__self__, "input_strength", input_strength)
+        pulumi.set(__self__, "output_strength", output_strength)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="inputStrength")
+    def input_strength(self) -> pulumi.Input['AiGuardrailGuardrailFilterStrength']:
+        return pulumi.get(self, "input_strength")
+
+    @input_strength.setter
+    def input_strength(self, value: pulumi.Input['AiGuardrailGuardrailFilterStrength']):
+        pulumi.set(self, "input_strength", value)
+
+    @property
+    @pulumi.getter(name="outputStrength")
+    def output_strength(self) -> pulumi.Input['AiGuardrailGuardrailFilterStrength']:
+        return pulumi.get(self, "output_strength")
+
+    @output_strength.setter
+    def output_strength(self, value: pulumi.Input['AiGuardrailGuardrailFilterStrength']):
+        pulumi.set(self, "output_strength", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['AiGuardrailGuardrailContentFilterType']:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['AiGuardrailGuardrailContentFilterType']):
+        pulumi.set(self, "type", value)
+
+
+if not MYPY:
+    class AiGuardrailGuardrailContextualGroundingFilterConfigArgsDict(TypedDict):
+        """
+        A config for grounding filter.
+        """
+        threshold: pulumi.Input[float]
+        """
+        The threshold for this filter.
+        """
+        type: pulumi.Input['AiGuardrailGuardrailContextualGroundingFilterType']
+elif False:
+    AiGuardrailGuardrailContextualGroundingFilterConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AiGuardrailGuardrailContextualGroundingFilterConfigArgs:
+    def __init__(__self__, *,
+                 threshold: pulumi.Input[float],
+                 type: pulumi.Input['AiGuardrailGuardrailContextualGroundingFilterType']):
+        """
+        A config for grounding filter.
+        :param pulumi.Input[float] threshold: The threshold for this filter.
+        """
+        pulumi.set(__self__, "threshold", threshold)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def threshold(self) -> pulumi.Input[float]:
+        """
+        The threshold for this filter.
+        """
+        return pulumi.get(self, "threshold")
+
+    @threshold.setter
+    def threshold(self, value: pulumi.Input[float]):
+        pulumi.set(self, "threshold", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['AiGuardrailGuardrailContextualGroundingFilterType']:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['AiGuardrailGuardrailContextualGroundingFilterType']):
+        pulumi.set(self, "type", value)
+
+
+if not MYPY:
+    class AiGuardrailGuardrailManagedWordsConfigArgsDict(TypedDict):
+        """
+        A managed words config.
+        """
+        type: pulumi.Input['AiGuardrailGuardrailManagedWordsType']
+elif False:
+    AiGuardrailGuardrailManagedWordsConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AiGuardrailGuardrailManagedWordsConfigArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input['AiGuardrailGuardrailManagedWordsType']):
+        """
+        A managed words config.
+        """
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['AiGuardrailGuardrailManagedWordsType']:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['AiGuardrailGuardrailManagedWordsType']):
+        pulumi.set(self, "type", value)
+
+
+if not MYPY:
+    class AiGuardrailGuardrailPiiEntityConfigArgsDict(TypedDict):
+        """
+        Pii entity configuration.
+        """
+        action: pulumi.Input['AiGuardrailGuardrailSensitiveInformationAction']
+        type: pulumi.Input['AiGuardrailGuardrailPiiEntityType']
+elif False:
+    AiGuardrailGuardrailPiiEntityConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AiGuardrailGuardrailPiiEntityConfigArgs:
+    def __init__(__self__, *,
+                 action: pulumi.Input['AiGuardrailGuardrailSensitiveInformationAction'],
+                 type: pulumi.Input['AiGuardrailGuardrailPiiEntityType']):
+        """
+        Pii entity configuration.
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def action(self) -> pulumi.Input['AiGuardrailGuardrailSensitiveInformationAction']:
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: pulumi.Input['AiGuardrailGuardrailSensitiveInformationAction']):
+        pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['AiGuardrailGuardrailPiiEntityType']:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['AiGuardrailGuardrailPiiEntityType']):
+        pulumi.set(self, "type", value)
+
+
+if not MYPY:
+    class AiGuardrailGuardrailRegexConfigArgsDict(TypedDict):
+        """
+        A regex configuration.
+        """
+        action: pulumi.Input['AiGuardrailGuardrailSensitiveInformationAction']
+        name: pulumi.Input[str]
+        """
+        The regex name.
+        """
+        pattern: pulumi.Input[str]
+        """
+        The regex pattern.
+        """
+        description: NotRequired[pulumi.Input[str]]
+        """
+        The regex description.
+        """
+elif False:
+    AiGuardrailGuardrailRegexConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AiGuardrailGuardrailRegexConfigArgs:
+    def __init__(__self__, *,
+                 action: pulumi.Input['AiGuardrailGuardrailSensitiveInformationAction'],
+                 name: pulumi.Input[str],
+                 pattern: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None):
+        """
+        A regex configuration.
+        :param pulumi.Input[str] name: The regex name.
+        :param pulumi.Input[str] pattern: The regex pattern.
+        :param pulumi.Input[str] description: The regex description.
+        """
+        pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "pattern", pattern)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter
+    def action(self) -> pulumi.Input['AiGuardrailGuardrailSensitiveInformationAction']:
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: pulumi.Input['AiGuardrailGuardrailSensitiveInformationAction']):
+        pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The regex name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def pattern(self) -> pulumi.Input[str]:
+        """
+        The regex pattern.
+        """
+        return pulumi.get(self, "pattern")
+
+    @pattern.setter
+    def pattern(self, value: pulumi.Input[str]):
+        pulumi.set(self, "pattern", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The regex description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+
+if not MYPY:
+    class AiGuardrailGuardrailTopicConfigArgsDict(TypedDict):
+        """
+        Topic config in topic policy.
+        """
+        definition: pulumi.Input[str]
+        """
+        Definition of topic in topic policy
+        """
+        name: pulumi.Input[str]
+        """
+        Name of topic in topic policy
+        """
+        type: pulumi.Input['AiGuardrailGuardrailTopicType']
+        examples: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        List of text examples
+        """
+elif False:
+    AiGuardrailGuardrailTopicConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AiGuardrailGuardrailTopicConfigArgs:
+    def __init__(__self__, *,
+                 definition: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 type: pulumi.Input['AiGuardrailGuardrailTopicType'],
+                 examples: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        Topic config in topic policy.
+        :param pulumi.Input[str] definition: Definition of topic in topic policy
+        :param pulumi.Input[str] name: Name of topic in topic policy
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] examples: List of text examples
+        """
+        pulumi.set(__self__, "definition", definition)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "type", type)
+        if examples is not None:
+            pulumi.set(__self__, "examples", examples)
+
+    @property
+    @pulumi.getter
+    def definition(self) -> pulumi.Input[str]:
+        """
+        Definition of topic in topic policy
+        """
+        return pulumi.get(self, "definition")
+
+    @definition.setter
+    def definition(self, value: pulumi.Input[str]):
+        pulumi.set(self, "definition", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Name of topic in topic policy
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['AiGuardrailGuardrailTopicType']:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['AiGuardrailGuardrailTopicType']):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def examples(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of text examples
+        """
+        return pulumi.get(self, "examples")
+
+    @examples.setter
+    def examples(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "examples", value)
+
+
+if not MYPY:
+    class AiGuardrailGuardrailWordConfigArgsDict(TypedDict):
+        """
+        A custom word config.
+        """
+        text: pulumi.Input[str]
+        """
+        The custom word text.
+        """
+elif False:
+    AiGuardrailGuardrailWordConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AiGuardrailGuardrailWordConfigArgs:
+    def __init__(__self__, *,
+                 text: pulumi.Input[str]):
+        """
+        A custom word config.
+        :param pulumi.Input[str] text: The custom word text.
+        """
+        pulumi.set(__self__, "text", text)
+
+    @property
+    @pulumi.getter
+    def text(self) -> pulumi.Input[str]:
+        """
+        The custom word text.
+        """
+        return pulumi.get(self, "text")
+
+    @text.setter
+    def text(self, value: pulumi.Input[str]):
+        pulumi.set(self, "text", value)
 
 
 if not MYPY:

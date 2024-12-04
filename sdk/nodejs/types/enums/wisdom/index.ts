@@ -11,6 +11,7 @@ export type AiAgentAiAgentAssociationConfigurationType = (typeof AiAgentAiAgentA
 export const AiAgentAiAgentType = {
     ManualSearch: "MANUAL_SEARCH",
     AnswerRecommendation: "ANSWER_RECOMMENDATION",
+    SelfService: "SELF_SERVICE",
 } as const;
 
 export type AiAgentAiAgentType = (typeof AiAgentAiAgentType)[keyof typeof AiAgentAiAgentType];
@@ -21,6 +22,109 @@ export const AiAgentKnowledgeBaseSearchType = {
 } as const;
 
 export type AiAgentKnowledgeBaseSearchType = (typeof AiAgentKnowledgeBaseSearchType)[keyof typeof AiAgentKnowledgeBaseSearchType];
+
+export const AiGuardrailGuardrailContentFilterType = {
+    Sexual: "SEXUAL",
+    Violence: "VIOLENCE",
+    Hate: "HATE",
+    Insults: "INSULTS",
+    Misconduct: "MISCONDUCT",
+    PromptAttack: "PROMPT_ATTACK",
+} as const;
+
+/**
+ * Type of text to text filter in content policy
+ */
+export type AiGuardrailGuardrailContentFilterType = (typeof AiGuardrailGuardrailContentFilterType)[keyof typeof AiGuardrailGuardrailContentFilterType];
+
+export const AiGuardrailGuardrailContextualGroundingFilterType = {
+    Grounding: "GROUNDING",
+    Relevance: "RELEVANCE",
+} as const;
+
+/**
+ * Type of contextual grounding filter
+ */
+export type AiGuardrailGuardrailContextualGroundingFilterType = (typeof AiGuardrailGuardrailContextualGroundingFilterType)[keyof typeof AiGuardrailGuardrailContextualGroundingFilterType];
+
+export const AiGuardrailGuardrailFilterStrength = {
+    None: "NONE",
+    Low: "LOW",
+    Medium: "MEDIUM",
+    High: "HIGH",
+} as const;
+
+/**
+ * Strength for filters
+ */
+export type AiGuardrailGuardrailFilterStrength = (typeof AiGuardrailGuardrailFilterStrength)[keyof typeof AiGuardrailGuardrailFilterStrength];
+
+export const AiGuardrailGuardrailManagedWordsType = {
+    Profanity: "PROFANITY",
+} as const;
+
+/**
+ * Options for managed words.
+ */
+export type AiGuardrailGuardrailManagedWordsType = (typeof AiGuardrailGuardrailManagedWordsType)[keyof typeof AiGuardrailGuardrailManagedWordsType];
+
+export const AiGuardrailGuardrailPiiEntityType = {
+    Address: "ADDRESS",
+    Age: "AGE",
+    AwsAccessKey: "AWS_ACCESS_KEY",
+    AwsSecretKey: "AWS_SECRET_KEY",
+    CaHealthNumber: "CA_HEALTH_NUMBER",
+    CaSocialInsuranceNumber: "CA_SOCIAL_INSURANCE_NUMBER",
+    CreditDebitCardCvv: "CREDIT_DEBIT_CARD_CVV",
+    CreditDebitCardExpiry: "CREDIT_DEBIT_CARD_EXPIRY",
+    CreditDebitCardNumber: "CREDIT_DEBIT_CARD_NUMBER",
+    DriverId: "DRIVER_ID",
+    Email: "EMAIL",
+    InternationalBankAccountNumber: "INTERNATIONAL_BANK_ACCOUNT_NUMBER",
+    IpAddress: "IP_ADDRESS",
+    LicensePlate: "LICENSE_PLATE",
+    MacAddress: "MAC_ADDRESS",
+    Name: "NAME",
+    Password: "PASSWORD",
+    Phone: "PHONE",
+    Pin: "PIN",
+    SwiftCode: "SWIFT_CODE",
+    UkNationalHealthServiceNumber: "UK_NATIONAL_HEALTH_SERVICE_NUMBER",
+    UkNationalInsuranceNumber: "UK_NATIONAL_INSURANCE_NUMBER",
+    UkUniqueTaxpayerReferenceNumber: "UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER",
+    Url: "URL",
+    Username: "USERNAME",
+    UsBankAccountNumber: "US_BANK_ACCOUNT_NUMBER",
+    UsBankRoutingNumber: "US_BANK_ROUTING_NUMBER",
+    UsIndividualTaxIdentificationNumber: "US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER",
+    UsPassportNumber: "US_PASSPORT_NUMBER",
+    UsSocialSecurityNumber: "US_SOCIAL_SECURITY_NUMBER",
+    VehicleIdentificationNumber: "VEHICLE_IDENTIFICATION_NUMBER",
+} as const;
+
+/**
+ * The currently supported PII entities
+ */
+export type AiGuardrailGuardrailPiiEntityType = (typeof AiGuardrailGuardrailPiiEntityType)[keyof typeof AiGuardrailGuardrailPiiEntityType];
+
+export const AiGuardrailGuardrailSensitiveInformationAction = {
+    Block: "BLOCK",
+    Anonymize: "ANONYMIZE",
+} as const;
+
+/**
+ * Options for sensitive information action.
+ */
+export type AiGuardrailGuardrailSensitiveInformationAction = (typeof AiGuardrailGuardrailSensitiveInformationAction)[keyof typeof AiGuardrailGuardrailSensitiveInformationAction];
+
+export const AiGuardrailGuardrailTopicType = {
+    Deny: "DENY",
+} as const;
+
+/**
+ * Type of topic in a policy
+ */
+export type AiGuardrailGuardrailTopicType = (typeof AiGuardrailGuardrailTopicType)[keyof typeof AiGuardrailGuardrailTopicType];
 
 export const AiPromptAiPromptApiFormat = {
     AnthropicClaudeMessages: "ANTHROPIC_CLAUDE_MESSAGES",
@@ -39,6 +143,8 @@ export const AiPromptAiPromptType = {
     AnswerGeneration: "ANSWER_GENERATION",
     IntentLabelingGeneration: "INTENT_LABELING_GENERATION",
     QueryReformulation: "QUERY_REFORMULATION",
+    SelfServicePreProcessing: "SELF_SERVICE_PRE_PROCESSING",
+    SelfServiceAnswerGeneration: "SELF_SERVICE_ANSWER_GENERATION",
 } as const;
 
 export type AiPromptAiPromptType = (typeof AiPromptAiPromptType)[keyof typeof AiPromptAiPromptType];

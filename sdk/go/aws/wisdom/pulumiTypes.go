@@ -181,7 +181,92 @@ func (o AiAgentAiAgentConfiguration1PropertiesPtrOutput) AnswerRecommendationAiA
 	}).(AiAgentAnswerRecommendationAiAgentConfigurationPtrOutput)
 }
 
+type AiAgentAiAgentConfiguration2Properties struct {
+	SelfServiceAiAgentConfiguration AiAgentSelfServiceAiAgentConfiguration `pulumi:"selfServiceAiAgentConfiguration"`
+}
+
+// AiAgentAiAgentConfiguration2PropertiesInput is an input type that accepts AiAgentAiAgentConfiguration2PropertiesArgs and AiAgentAiAgentConfiguration2PropertiesOutput values.
+// You can construct a concrete instance of `AiAgentAiAgentConfiguration2PropertiesInput` via:
+//
+//	AiAgentAiAgentConfiguration2PropertiesArgs{...}
+type AiAgentAiAgentConfiguration2PropertiesInput interface {
+	pulumi.Input
+
+	ToAiAgentAiAgentConfiguration2PropertiesOutput() AiAgentAiAgentConfiguration2PropertiesOutput
+	ToAiAgentAiAgentConfiguration2PropertiesOutputWithContext(context.Context) AiAgentAiAgentConfiguration2PropertiesOutput
+}
+
+type AiAgentAiAgentConfiguration2PropertiesArgs struct {
+	SelfServiceAiAgentConfiguration AiAgentSelfServiceAiAgentConfigurationInput `pulumi:"selfServiceAiAgentConfiguration"`
+}
+
+func (AiAgentAiAgentConfiguration2PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiAgentAiAgentConfiguration2Properties)(nil)).Elem()
+}
+
+func (i AiAgentAiAgentConfiguration2PropertiesArgs) ToAiAgentAiAgentConfiguration2PropertiesOutput() AiAgentAiAgentConfiguration2PropertiesOutput {
+	return i.ToAiAgentAiAgentConfiguration2PropertiesOutputWithContext(context.Background())
+}
+
+func (i AiAgentAiAgentConfiguration2PropertiesArgs) ToAiAgentAiAgentConfiguration2PropertiesOutputWithContext(ctx context.Context) AiAgentAiAgentConfiguration2PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AiAgentAiAgentConfiguration2PropertiesOutput)
+}
+
+type AiAgentAiAgentConfiguration2PropertiesOutput struct{ *pulumi.OutputState }
+
+func (AiAgentAiAgentConfiguration2PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiAgentAiAgentConfiguration2Properties)(nil)).Elem()
+}
+
+func (o AiAgentAiAgentConfiguration2PropertiesOutput) ToAiAgentAiAgentConfiguration2PropertiesOutput() AiAgentAiAgentConfiguration2PropertiesOutput {
+	return o
+}
+
+func (o AiAgentAiAgentConfiguration2PropertiesOutput) ToAiAgentAiAgentConfiguration2PropertiesOutputWithContext(ctx context.Context) AiAgentAiAgentConfiguration2PropertiesOutput {
+	return o
+}
+
+func (o AiAgentAiAgentConfiguration2PropertiesOutput) SelfServiceAiAgentConfiguration() AiAgentSelfServiceAiAgentConfigurationOutput {
+	return o.ApplyT(func(v AiAgentAiAgentConfiguration2Properties) AiAgentSelfServiceAiAgentConfiguration {
+		return v.SelfServiceAiAgentConfiguration
+	}).(AiAgentSelfServiceAiAgentConfigurationOutput)
+}
+
+type AiAgentAiAgentConfiguration2PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (AiAgentAiAgentConfiguration2PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AiAgentAiAgentConfiguration2Properties)(nil)).Elem()
+}
+
+func (o AiAgentAiAgentConfiguration2PropertiesPtrOutput) ToAiAgentAiAgentConfiguration2PropertiesPtrOutput() AiAgentAiAgentConfiguration2PropertiesPtrOutput {
+	return o
+}
+
+func (o AiAgentAiAgentConfiguration2PropertiesPtrOutput) ToAiAgentAiAgentConfiguration2PropertiesPtrOutputWithContext(ctx context.Context) AiAgentAiAgentConfiguration2PropertiesPtrOutput {
+	return o
+}
+
+func (o AiAgentAiAgentConfiguration2PropertiesPtrOutput) Elem() AiAgentAiAgentConfiguration2PropertiesOutput {
+	return o.ApplyT(func(v *AiAgentAiAgentConfiguration2Properties) AiAgentAiAgentConfiguration2Properties {
+		if v != nil {
+			return *v
+		}
+		var ret AiAgentAiAgentConfiguration2Properties
+		return ret
+	}).(AiAgentAiAgentConfiguration2PropertiesOutput)
+}
+
+func (o AiAgentAiAgentConfiguration2PropertiesPtrOutput) SelfServiceAiAgentConfiguration() AiAgentSelfServiceAiAgentConfigurationPtrOutput {
+	return o.ApplyT(func(v *AiAgentAiAgentConfiguration2Properties) *AiAgentSelfServiceAiAgentConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.SelfServiceAiAgentConfiguration
+	}).(AiAgentSelfServiceAiAgentConfigurationPtrOutput)
+}
+
 type AiAgentAnswerRecommendationAiAgentConfiguration struct {
+	AnswerGenerationAiGuardrailId      *string                           `pulumi:"answerGenerationAiGuardrailId"`
 	AnswerGenerationAiPromptId         *string                           `pulumi:"answerGenerationAiPromptId"`
 	AssociationConfigurations          []AiAgentAssociationConfiguration `pulumi:"associationConfigurations"`
 	IntentLabelingGenerationAiPromptId *string                           `pulumi:"intentLabelingGenerationAiPromptId"`
@@ -200,6 +285,7 @@ type AiAgentAnswerRecommendationAiAgentConfigurationInput interface {
 }
 
 type AiAgentAnswerRecommendationAiAgentConfigurationArgs struct {
+	AnswerGenerationAiGuardrailId      pulumi.StringPtrInput                     `pulumi:"answerGenerationAiGuardrailId"`
 	AnswerGenerationAiPromptId         pulumi.StringPtrInput                     `pulumi:"answerGenerationAiPromptId"`
 	AssociationConfigurations          AiAgentAssociationConfigurationArrayInput `pulumi:"associationConfigurations"`
 	IntentLabelingGenerationAiPromptId pulumi.StringPtrInput                     `pulumi:"intentLabelingGenerationAiPromptId"`
@@ -230,6 +316,12 @@ func (o AiAgentAnswerRecommendationAiAgentConfigurationOutput) ToAiAgentAnswerRe
 
 func (o AiAgentAnswerRecommendationAiAgentConfigurationOutput) ToAiAgentAnswerRecommendationAiAgentConfigurationOutputWithContext(ctx context.Context) AiAgentAnswerRecommendationAiAgentConfigurationOutput {
 	return o
+}
+
+func (o AiAgentAnswerRecommendationAiAgentConfigurationOutput) AnswerGenerationAiGuardrailId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AiAgentAnswerRecommendationAiAgentConfiguration) *string {
+		return v.AnswerGenerationAiGuardrailId
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o AiAgentAnswerRecommendationAiAgentConfigurationOutput) AnswerGenerationAiPromptId() pulumi.StringPtrOutput {
@@ -274,6 +366,15 @@ func (o AiAgentAnswerRecommendationAiAgentConfigurationPtrOutput) Elem() AiAgent
 		var ret AiAgentAnswerRecommendationAiAgentConfiguration
 		return ret
 	}).(AiAgentAnswerRecommendationAiAgentConfigurationOutput)
+}
+
+func (o AiAgentAnswerRecommendationAiAgentConfigurationPtrOutput) AnswerGenerationAiGuardrailId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AiAgentAnswerRecommendationAiAgentConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AnswerGenerationAiGuardrailId
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o AiAgentAnswerRecommendationAiAgentConfigurationPtrOutput) AnswerGenerationAiPromptId() pulumi.StringPtrOutput {
@@ -727,8 +828,9 @@ func (o AiAgentKnowledgeBaseAssociationConfigurationDataPtrOutput) OverrideKnowl
 }
 
 type AiAgentManualSearchAiAgentConfiguration struct {
-	AnswerGenerationAiPromptId *string                           `pulumi:"answerGenerationAiPromptId"`
-	AssociationConfigurations  []AiAgentAssociationConfiguration `pulumi:"associationConfigurations"`
+	AnswerGenerationAiGuardrailId *string                           `pulumi:"answerGenerationAiGuardrailId"`
+	AnswerGenerationAiPromptId    *string                           `pulumi:"answerGenerationAiPromptId"`
+	AssociationConfigurations     []AiAgentAssociationConfiguration `pulumi:"associationConfigurations"`
 }
 
 // AiAgentManualSearchAiAgentConfigurationInput is an input type that accepts AiAgentManualSearchAiAgentConfigurationArgs and AiAgentManualSearchAiAgentConfigurationOutput values.
@@ -743,8 +845,9 @@ type AiAgentManualSearchAiAgentConfigurationInput interface {
 }
 
 type AiAgentManualSearchAiAgentConfigurationArgs struct {
-	AnswerGenerationAiPromptId pulumi.StringPtrInput                     `pulumi:"answerGenerationAiPromptId"`
-	AssociationConfigurations  AiAgentAssociationConfigurationArrayInput `pulumi:"associationConfigurations"`
+	AnswerGenerationAiGuardrailId pulumi.StringPtrInput                     `pulumi:"answerGenerationAiGuardrailId"`
+	AnswerGenerationAiPromptId    pulumi.StringPtrInput                     `pulumi:"answerGenerationAiPromptId"`
+	AssociationConfigurations     AiAgentAssociationConfigurationArrayInput `pulumi:"associationConfigurations"`
 }
 
 func (AiAgentManualSearchAiAgentConfigurationArgs) ElementType() reflect.Type {
@@ -771,6 +874,10 @@ func (o AiAgentManualSearchAiAgentConfigurationOutput) ToAiAgentManualSearchAiAg
 
 func (o AiAgentManualSearchAiAgentConfigurationOutput) ToAiAgentManualSearchAiAgentConfigurationOutputWithContext(ctx context.Context) AiAgentManualSearchAiAgentConfigurationOutput {
 	return o
+}
+
+func (o AiAgentManualSearchAiAgentConfigurationOutput) AnswerGenerationAiGuardrailId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AiAgentManualSearchAiAgentConfiguration) *string { return v.AnswerGenerationAiGuardrailId }).(pulumi.StringPtrOutput)
 }
 
 func (o AiAgentManualSearchAiAgentConfigurationOutput) AnswerGenerationAiPromptId() pulumi.StringPtrOutput {
@@ -805,6 +912,15 @@ func (o AiAgentManualSearchAiAgentConfigurationPtrOutput) Elem() AiAgentManualSe
 		var ret AiAgentManualSearchAiAgentConfiguration
 		return ret
 	}).(AiAgentManualSearchAiAgentConfigurationOutput)
+}
+
+func (o AiAgentManualSearchAiAgentConfigurationPtrOutput) AnswerGenerationAiGuardrailId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AiAgentManualSearchAiAgentConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AnswerGenerationAiGuardrailId
+	}).(pulumi.StringPtrOutput)
 }
 
 func (o AiAgentManualSearchAiAgentConfigurationPtrOutput) AnswerGenerationAiPromptId() pulumi.StringPtrOutput {
@@ -921,6 +1037,135 @@ func (o AiAgentOrCondition1PropertiesOutput) ToAiAgentOrCondition1PropertiesOutp
 
 func (o AiAgentOrCondition1PropertiesOutput) TagCondition() AiAgentTagConditionOutput {
 	return o.ApplyT(func(v AiAgentOrCondition1Properties) AiAgentTagCondition { return v.TagCondition }).(AiAgentTagConditionOutput)
+}
+
+type AiAgentSelfServiceAiAgentConfiguration struct {
+	AssociationConfigurations             []AiAgentAssociationConfiguration `pulumi:"associationConfigurations"`
+	SelfServiceAiGuardrailId              *string                           `pulumi:"selfServiceAiGuardrailId"`
+	SelfServiceAnswerGenerationAiPromptId *string                           `pulumi:"selfServiceAnswerGenerationAiPromptId"`
+	SelfServicePreProcessingAiPromptId    *string                           `pulumi:"selfServicePreProcessingAiPromptId"`
+}
+
+// AiAgentSelfServiceAiAgentConfigurationInput is an input type that accepts AiAgentSelfServiceAiAgentConfigurationArgs and AiAgentSelfServiceAiAgentConfigurationOutput values.
+// You can construct a concrete instance of `AiAgentSelfServiceAiAgentConfigurationInput` via:
+//
+//	AiAgentSelfServiceAiAgentConfigurationArgs{...}
+type AiAgentSelfServiceAiAgentConfigurationInput interface {
+	pulumi.Input
+
+	ToAiAgentSelfServiceAiAgentConfigurationOutput() AiAgentSelfServiceAiAgentConfigurationOutput
+	ToAiAgentSelfServiceAiAgentConfigurationOutputWithContext(context.Context) AiAgentSelfServiceAiAgentConfigurationOutput
+}
+
+type AiAgentSelfServiceAiAgentConfigurationArgs struct {
+	AssociationConfigurations             AiAgentAssociationConfigurationArrayInput `pulumi:"associationConfigurations"`
+	SelfServiceAiGuardrailId              pulumi.StringPtrInput                     `pulumi:"selfServiceAiGuardrailId"`
+	SelfServiceAnswerGenerationAiPromptId pulumi.StringPtrInput                     `pulumi:"selfServiceAnswerGenerationAiPromptId"`
+	SelfServicePreProcessingAiPromptId    pulumi.StringPtrInput                     `pulumi:"selfServicePreProcessingAiPromptId"`
+}
+
+func (AiAgentSelfServiceAiAgentConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiAgentSelfServiceAiAgentConfiguration)(nil)).Elem()
+}
+
+func (i AiAgentSelfServiceAiAgentConfigurationArgs) ToAiAgentSelfServiceAiAgentConfigurationOutput() AiAgentSelfServiceAiAgentConfigurationOutput {
+	return i.ToAiAgentSelfServiceAiAgentConfigurationOutputWithContext(context.Background())
+}
+
+func (i AiAgentSelfServiceAiAgentConfigurationArgs) ToAiAgentSelfServiceAiAgentConfigurationOutputWithContext(ctx context.Context) AiAgentSelfServiceAiAgentConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AiAgentSelfServiceAiAgentConfigurationOutput)
+}
+
+type AiAgentSelfServiceAiAgentConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AiAgentSelfServiceAiAgentConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiAgentSelfServiceAiAgentConfiguration)(nil)).Elem()
+}
+
+func (o AiAgentSelfServiceAiAgentConfigurationOutput) ToAiAgentSelfServiceAiAgentConfigurationOutput() AiAgentSelfServiceAiAgentConfigurationOutput {
+	return o
+}
+
+func (o AiAgentSelfServiceAiAgentConfigurationOutput) ToAiAgentSelfServiceAiAgentConfigurationOutputWithContext(ctx context.Context) AiAgentSelfServiceAiAgentConfigurationOutput {
+	return o
+}
+
+func (o AiAgentSelfServiceAiAgentConfigurationOutput) AssociationConfigurations() AiAgentAssociationConfigurationArrayOutput {
+	return o.ApplyT(func(v AiAgentSelfServiceAiAgentConfiguration) []AiAgentAssociationConfiguration {
+		return v.AssociationConfigurations
+	}).(AiAgentAssociationConfigurationArrayOutput)
+}
+
+func (o AiAgentSelfServiceAiAgentConfigurationOutput) SelfServiceAiGuardrailId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AiAgentSelfServiceAiAgentConfiguration) *string { return v.SelfServiceAiGuardrailId }).(pulumi.StringPtrOutput)
+}
+
+func (o AiAgentSelfServiceAiAgentConfigurationOutput) SelfServiceAnswerGenerationAiPromptId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AiAgentSelfServiceAiAgentConfiguration) *string { return v.SelfServiceAnswerGenerationAiPromptId }).(pulumi.StringPtrOutput)
+}
+
+func (o AiAgentSelfServiceAiAgentConfigurationOutput) SelfServicePreProcessingAiPromptId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AiAgentSelfServiceAiAgentConfiguration) *string { return v.SelfServicePreProcessingAiPromptId }).(pulumi.StringPtrOutput)
+}
+
+type AiAgentSelfServiceAiAgentConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AiAgentSelfServiceAiAgentConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AiAgentSelfServiceAiAgentConfiguration)(nil)).Elem()
+}
+
+func (o AiAgentSelfServiceAiAgentConfigurationPtrOutput) ToAiAgentSelfServiceAiAgentConfigurationPtrOutput() AiAgentSelfServiceAiAgentConfigurationPtrOutput {
+	return o
+}
+
+func (o AiAgentSelfServiceAiAgentConfigurationPtrOutput) ToAiAgentSelfServiceAiAgentConfigurationPtrOutputWithContext(ctx context.Context) AiAgentSelfServiceAiAgentConfigurationPtrOutput {
+	return o
+}
+
+func (o AiAgentSelfServiceAiAgentConfigurationPtrOutput) Elem() AiAgentSelfServiceAiAgentConfigurationOutput {
+	return o.ApplyT(func(v *AiAgentSelfServiceAiAgentConfiguration) AiAgentSelfServiceAiAgentConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AiAgentSelfServiceAiAgentConfiguration
+		return ret
+	}).(AiAgentSelfServiceAiAgentConfigurationOutput)
+}
+
+func (o AiAgentSelfServiceAiAgentConfigurationPtrOutput) AssociationConfigurations() AiAgentAssociationConfigurationArrayOutput {
+	return o.ApplyT(func(v *AiAgentSelfServiceAiAgentConfiguration) []AiAgentAssociationConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.AssociationConfigurations
+	}).(AiAgentAssociationConfigurationArrayOutput)
+}
+
+func (o AiAgentSelfServiceAiAgentConfigurationPtrOutput) SelfServiceAiGuardrailId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AiAgentSelfServiceAiAgentConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SelfServiceAiGuardrailId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AiAgentSelfServiceAiAgentConfigurationPtrOutput) SelfServiceAnswerGenerationAiPromptId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AiAgentSelfServiceAiAgentConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SelfServiceAnswerGenerationAiPromptId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o AiAgentSelfServiceAiAgentConfigurationPtrOutput) SelfServicePreProcessingAiPromptId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AiAgentSelfServiceAiAgentConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SelfServicePreProcessingAiPromptId
+	}).(pulumi.StringPtrOutput)
 }
 
 type AiAgentTagCondition struct {
@@ -1513,6 +1758,1529 @@ func (o AiAgentTagFilter2PropertiesPtrOutput) OrConditions() pulumi.ArrayOutput 
 		}
 		return v.OrConditions
 	}).(pulumi.ArrayOutput)
+}
+
+// Content policy config for a guardrail.
+type AiGuardrailAiGuardrailContentPolicyConfig struct {
+	// List of content filter configs in content policy.
+	FiltersConfig []AiGuardrailGuardrailContentFilterConfig `pulumi:"filtersConfig"`
+}
+
+// AiGuardrailAiGuardrailContentPolicyConfigInput is an input type that accepts AiGuardrailAiGuardrailContentPolicyConfigArgs and AiGuardrailAiGuardrailContentPolicyConfigOutput values.
+// You can construct a concrete instance of `AiGuardrailAiGuardrailContentPolicyConfigInput` via:
+//
+//	AiGuardrailAiGuardrailContentPolicyConfigArgs{...}
+type AiGuardrailAiGuardrailContentPolicyConfigInput interface {
+	pulumi.Input
+
+	ToAiGuardrailAiGuardrailContentPolicyConfigOutput() AiGuardrailAiGuardrailContentPolicyConfigOutput
+	ToAiGuardrailAiGuardrailContentPolicyConfigOutputWithContext(context.Context) AiGuardrailAiGuardrailContentPolicyConfigOutput
+}
+
+// Content policy config for a guardrail.
+type AiGuardrailAiGuardrailContentPolicyConfigArgs struct {
+	// List of content filter configs in content policy.
+	FiltersConfig AiGuardrailGuardrailContentFilterConfigArrayInput `pulumi:"filtersConfig"`
+}
+
+func (AiGuardrailAiGuardrailContentPolicyConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiGuardrailAiGuardrailContentPolicyConfig)(nil)).Elem()
+}
+
+func (i AiGuardrailAiGuardrailContentPolicyConfigArgs) ToAiGuardrailAiGuardrailContentPolicyConfigOutput() AiGuardrailAiGuardrailContentPolicyConfigOutput {
+	return i.ToAiGuardrailAiGuardrailContentPolicyConfigOutputWithContext(context.Background())
+}
+
+func (i AiGuardrailAiGuardrailContentPolicyConfigArgs) ToAiGuardrailAiGuardrailContentPolicyConfigOutputWithContext(ctx context.Context) AiGuardrailAiGuardrailContentPolicyConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AiGuardrailAiGuardrailContentPolicyConfigOutput)
+}
+
+func (i AiGuardrailAiGuardrailContentPolicyConfigArgs) ToAiGuardrailAiGuardrailContentPolicyConfigPtrOutput() AiGuardrailAiGuardrailContentPolicyConfigPtrOutput {
+	return i.ToAiGuardrailAiGuardrailContentPolicyConfigPtrOutputWithContext(context.Background())
+}
+
+func (i AiGuardrailAiGuardrailContentPolicyConfigArgs) ToAiGuardrailAiGuardrailContentPolicyConfigPtrOutputWithContext(ctx context.Context) AiGuardrailAiGuardrailContentPolicyConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AiGuardrailAiGuardrailContentPolicyConfigOutput).ToAiGuardrailAiGuardrailContentPolicyConfigPtrOutputWithContext(ctx)
+}
+
+// AiGuardrailAiGuardrailContentPolicyConfigPtrInput is an input type that accepts AiGuardrailAiGuardrailContentPolicyConfigArgs, AiGuardrailAiGuardrailContentPolicyConfigPtr and AiGuardrailAiGuardrailContentPolicyConfigPtrOutput values.
+// You can construct a concrete instance of `AiGuardrailAiGuardrailContentPolicyConfigPtrInput` via:
+//
+//	        AiGuardrailAiGuardrailContentPolicyConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type AiGuardrailAiGuardrailContentPolicyConfigPtrInput interface {
+	pulumi.Input
+
+	ToAiGuardrailAiGuardrailContentPolicyConfigPtrOutput() AiGuardrailAiGuardrailContentPolicyConfigPtrOutput
+	ToAiGuardrailAiGuardrailContentPolicyConfigPtrOutputWithContext(context.Context) AiGuardrailAiGuardrailContentPolicyConfigPtrOutput
+}
+
+type aiGuardrailAiGuardrailContentPolicyConfigPtrType AiGuardrailAiGuardrailContentPolicyConfigArgs
+
+func AiGuardrailAiGuardrailContentPolicyConfigPtr(v *AiGuardrailAiGuardrailContentPolicyConfigArgs) AiGuardrailAiGuardrailContentPolicyConfigPtrInput {
+	return (*aiGuardrailAiGuardrailContentPolicyConfigPtrType)(v)
+}
+
+func (*aiGuardrailAiGuardrailContentPolicyConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AiGuardrailAiGuardrailContentPolicyConfig)(nil)).Elem()
+}
+
+func (i *aiGuardrailAiGuardrailContentPolicyConfigPtrType) ToAiGuardrailAiGuardrailContentPolicyConfigPtrOutput() AiGuardrailAiGuardrailContentPolicyConfigPtrOutput {
+	return i.ToAiGuardrailAiGuardrailContentPolicyConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *aiGuardrailAiGuardrailContentPolicyConfigPtrType) ToAiGuardrailAiGuardrailContentPolicyConfigPtrOutputWithContext(ctx context.Context) AiGuardrailAiGuardrailContentPolicyConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AiGuardrailAiGuardrailContentPolicyConfigPtrOutput)
+}
+
+// Content policy config for a guardrail.
+type AiGuardrailAiGuardrailContentPolicyConfigOutput struct{ *pulumi.OutputState }
+
+func (AiGuardrailAiGuardrailContentPolicyConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiGuardrailAiGuardrailContentPolicyConfig)(nil)).Elem()
+}
+
+func (o AiGuardrailAiGuardrailContentPolicyConfigOutput) ToAiGuardrailAiGuardrailContentPolicyConfigOutput() AiGuardrailAiGuardrailContentPolicyConfigOutput {
+	return o
+}
+
+func (o AiGuardrailAiGuardrailContentPolicyConfigOutput) ToAiGuardrailAiGuardrailContentPolicyConfigOutputWithContext(ctx context.Context) AiGuardrailAiGuardrailContentPolicyConfigOutput {
+	return o
+}
+
+func (o AiGuardrailAiGuardrailContentPolicyConfigOutput) ToAiGuardrailAiGuardrailContentPolicyConfigPtrOutput() AiGuardrailAiGuardrailContentPolicyConfigPtrOutput {
+	return o.ToAiGuardrailAiGuardrailContentPolicyConfigPtrOutputWithContext(context.Background())
+}
+
+func (o AiGuardrailAiGuardrailContentPolicyConfigOutput) ToAiGuardrailAiGuardrailContentPolicyConfigPtrOutputWithContext(ctx context.Context) AiGuardrailAiGuardrailContentPolicyConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AiGuardrailAiGuardrailContentPolicyConfig) *AiGuardrailAiGuardrailContentPolicyConfig {
+		return &v
+	}).(AiGuardrailAiGuardrailContentPolicyConfigPtrOutput)
+}
+
+// List of content filter configs in content policy.
+func (o AiGuardrailAiGuardrailContentPolicyConfigOutput) FiltersConfig() AiGuardrailGuardrailContentFilterConfigArrayOutput {
+	return o.ApplyT(func(v AiGuardrailAiGuardrailContentPolicyConfig) []AiGuardrailGuardrailContentFilterConfig {
+		return v.FiltersConfig
+	}).(AiGuardrailGuardrailContentFilterConfigArrayOutput)
+}
+
+type AiGuardrailAiGuardrailContentPolicyConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (AiGuardrailAiGuardrailContentPolicyConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AiGuardrailAiGuardrailContentPolicyConfig)(nil)).Elem()
+}
+
+func (o AiGuardrailAiGuardrailContentPolicyConfigPtrOutput) ToAiGuardrailAiGuardrailContentPolicyConfigPtrOutput() AiGuardrailAiGuardrailContentPolicyConfigPtrOutput {
+	return o
+}
+
+func (o AiGuardrailAiGuardrailContentPolicyConfigPtrOutput) ToAiGuardrailAiGuardrailContentPolicyConfigPtrOutputWithContext(ctx context.Context) AiGuardrailAiGuardrailContentPolicyConfigPtrOutput {
+	return o
+}
+
+func (o AiGuardrailAiGuardrailContentPolicyConfigPtrOutput) Elem() AiGuardrailAiGuardrailContentPolicyConfigOutput {
+	return o.ApplyT(func(v *AiGuardrailAiGuardrailContentPolicyConfig) AiGuardrailAiGuardrailContentPolicyConfig {
+		if v != nil {
+			return *v
+		}
+		var ret AiGuardrailAiGuardrailContentPolicyConfig
+		return ret
+	}).(AiGuardrailAiGuardrailContentPolicyConfigOutput)
+}
+
+// List of content filter configs in content policy.
+func (o AiGuardrailAiGuardrailContentPolicyConfigPtrOutput) FiltersConfig() AiGuardrailGuardrailContentFilterConfigArrayOutput {
+	return o.ApplyT(func(v *AiGuardrailAiGuardrailContentPolicyConfig) []AiGuardrailGuardrailContentFilterConfig {
+		if v == nil {
+			return nil
+		}
+		return v.FiltersConfig
+	}).(AiGuardrailGuardrailContentFilterConfigArrayOutput)
+}
+
+// Contextual grounding policy config for a guardrail.
+type AiGuardrailAiGuardrailContextualGroundingPolicyConfig struct {
+	// List of contextual grounding filter configs.
+	FiltersConfig []AiGuardrailGuardrailContextualGroundingFilterConfig `pulumi:"filtersConfig"`
+}
+
+// AiGuardrailAiGuardrailContextualGroundingPolicyConfigInput is an input type that accepts AiGuardrailAiGuardrailContextualGroundingPolicyConfigArgs and AiGuardrailAiGuardrailContextualGroundingPolicyConfigOutput values.
+// You can construct a concrete instance of `AiGuardrailAiGuardrailContextualGroundingPolicyConfigInput` via:
+//
+//	AiGuardrailAiGuardrailContextualGroundingPolicyConfigArgs{...}
+type AiGuardrailAiGuardrailContextualGroundingPolicyConfigInput interface {
+	pulumi.Input
+
+	ToAiGuardrailAiGuardrailContextualGroundingPolicyConfigOutput() AiGuardrailAiGuardrailContextualGroundingPolicyConfigOutput
+	ToAiGuardrailAiGuardrailContextualGroundingPolicyConfigOutputWithContext(context.Context) AiGuardrailAiGuardrailContextualGroundingPolicyConfigOutput
+}
+
+// Contextual grounding policy config for a guardrail.
+type AiGuardrailAiGuardrailContextualGroundingPolicyConfigArgs struct {
+	// List of contextual grounding filter configs.
+	FiltersConfig AiGuardrailGuardrailContextualGroundingFilterConfigArrayInput `pulumi:"filtersConfig"`
+}
+
+func (AiGuardrailAiGuardrailContextualGroundingPolicyConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiGuardrailAiGuardrailContextualGroundingPolicyConfig)(nil)).Elem()
+}
+
+func (i AiGuardrailAiGuardrailContextualGroundingPolicyConfigArgs) ToAiGuardrailAiGuardrailContextualGroundingPolicyConfigOutput() AiGuardrailAiGuardrailContextualGroundingPolicyConfigOutput {
+	return i.ToAiGuardrailAiGuardrailContextualGroundingPolicyConfigOutputWithContext(context.Background())
+}
+
+func (i AiGuardrailAiGuardrailContextualGroundingPolicyConfigArgs) ToAiGuardrailAiGuardrailContextualGroundingPolicyConfigOutputWithContext(ctx context.Context) AiGuardrailAiGuardrailContextualGroundingPolicyConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AiGuardrailAiGuardrailContextualGroundingPolicyConfigOutput)
+}
+
+func (i AiGuardrailAiGuardrailContextualGroundingPolicyConfigArgs) ToAiGuardrailAiGuardrailContextualGroundingPolicyConfigPtrOutput() AiGuardrailAiGuardrailContextualGroundingPolicyConfigPtrOutput {
+	return i.ToAiGuardrailAiGuardrailContextualGroundingPolicyConfigPtrOutputWithContext(context.Background())
+}
+
+func (i AiGuardrailAiGuardrailContextualGroundingPolicyConfigArgs) ToAiGuardrailAiGuardrailContextualGroundingPolicyConfigPtrOutputWithContext(ctx context.Context) AiGuardrailAiGuardrailContextualGroundingPolicyConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AiGuardrailAiGuardrailContextualGroundingPolicyConfigOutput).ToAiGuardrailAiGuardrailContextualGroundingPolicyConfigPtrOutputWithContext(ctx)
+}
+
+// AiGuardrailAiGuardrailContextualGroundingPolicyConfigPtrInput is an input type that accepts AiGuardrailAiGuardrailContextualGroundingPolicyConfigArgs, AiGuardrailAiGuardrailContextualGroundingPolicyConfigPtr and AiGuardrailAiGuardrailContextualGroundingPolicyConfigPtrOutput values.
+// You can construct a concrete instance of `AiGuardrailAiGuardrailContextualGroundingPolicyConfigPtrInput` via:
+//
+//	        AiGuardrailAiGuardrailContextualGroundingPolicyConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type AiGuardrailAiGuardrailContextualGroundingPolicyConfigPtrInput interface {
+	pulumi.Input
+
+	ToAiGuardrailAiGuardrailContextualGroundingPolicyConfigPtrOutput() AiGuardrailAiGuardrailContextualGroundingPolicyConfigPtrOutput
+	ToAiGuardrailAiGuardrailContextualGroundingPolicyConfigPtrOutputWithContext(context.Context) AiGuardrailAiGuardrailContextualGroundingPolicyConfigPtrOutput
+}
+
+type aiGuardrailAiGuardrailContextualGroundingPolicyConfigPtrType AiGuardrailAiGuardrailContextualGroundingPolicyConfigArgs
+
+func AiGuardrailAiGuardrailContextualGroundingPolicyConfigPtr(v *AiGuardrailAiGuardrailContextualGroundingPolicyConfigArgs) AiGuardrailAiGuardrailContextualGroundingPolicyConfigPtrInput {
+	return (*aiGuardrailAiGuardrailContextualGroundingPolicyConfigPtrType)(v)
+}
+
+func (*aiGuardrailAiGuardrailContextualGroundingPolicyConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AiGuardrailAiGuardrailContextualGroundingPolicyConfig)(nil)).Elem()
+}
+
+func (i *aiGuardrailAiGuardrailContextualGroundingPolicyConfigPtrType) ToAiGuardrailAiGuardrailContextualGroundingPolicyConfigPtrOutput() AiGuardrailAiGuardrailContextualGroundingPolicyConfigPtrOutput {
+	return i.ToAiGuardrailAiGuardrailContextualGroundingPolicyConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *aiGuardrailAiGuardrailContextualGroundingPolicyConfigPtrType) ToAiGuardrailAiGuardrailContextualGroundingPolicyConfigPtrOutputWithContext(ctx context.Context) AiGuardrailAiGuardrailContextualGroundingPolicyConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AiGuardrailAiGuardrailContextualGroundingPolicyConfigPtrOutput)
+}
+
+// Contextual grounding policy config for a guardrail.
+type AiGuardrailAiGuardrailContextualGroundingPolicyConfigOutput struct{ *pulumi.OutputState }
+
+func (AiGuardrailAiGuardrailContextualGroundingPolicyConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiGuardrailAiGuardrailContextualGroundingPolicyConfig)(nil)).Elem()
+}
+
+func (o AiGuardrailAiGuardrailContextualGroundingPolicyConfigOutput) ToAiGuardrailAiGuardrailContextualGroundingPolicyConfigOutput() AiGuardrailAiGuardrailContextualGroundingPolicyConfigOutput {
+	return o
+}
+
+func (o AiGuardrailAiGuardrailContextualGroundingPolicyConfigOutput) ToAiGuardrailAiGuardrailContextualGroundingPolicyConfigOutputWithContext(ctx context.Context) AiGuardrailAiGuardrailContextualGroundingPolicyConfigOutput {
+	return o
+}
+
+func (o AiGuardrailAiGuardrailContextualGroundingPolicyConfigOutput) ToAiGuardrailAiGuardrailContextualGroundingPolicyConfigPtrOutput() AiGuardrailAiGuardrailContextualGroundingPolicyConfigPtrOutput {
+	return o.ToAiGuardrailAiGuardrailContextualGroundingPolicyConfigPtrOutputWithContext(context.Background())
+}
+
+func (o AiGuardrailAiGuardrailContextualGroundingPolicyConfigOutput) ToAiGuardrailAiGuardrailContextualGroundingPolicyConfigPtrOutputWithContext(ctx context.Context) AiGuardrailAiGuardrailContextualGroundingPolicyConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AiGuardrailAiGuardrailContextualGroundingPolicyConfig) *AiGuardrailAiGuardrailContextualGroundingPolicyConfig {
+		return &v
+	}).(AiGuardrailAiGuardrailContextualGroundingPolicyConfigPtrOutput)
+}
+
+// List of contextual grounding filter configs.
+func (o AiGuardrailAiGuardrailContextualGroundingPolicyConfigOutput) FiltersConfig() AiGuardrailGuardrailContextualGroundingFilterConfigArrayOutput {
+	return o.ApplyT(func(v AiGuardrailAiGuardrailContextualGroundingPolicyConfig) []AiGuardrailGuardrailContextualGroundingFilterConfig {
+		return v.FiltersConfig
+	}).(AiGuardrailGuardrailContextualGroundingFilterConfigArrayOutput)
+}
+
+type AiGuardrailAiGuardrailContextualGroundingPolicyConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (AiGuardrailAiGuardrailContextualGroundingPolicyConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AiGuardrailAiGuardrailContextualGroundingPolicyConfig)(nil)).Elem()
+}
+
+func (o AiGuardrailAiGuardrailContextualGroundingPolicyConfigPtrOutput) ToAiGuardrailAiGuardrailContextualGroundingPolicyConfigPtrOutput() AiGuardrailAiGuardrailContextualGroundingPolicyConfigPtrOutput {
+	return o
+}
+
+func (o AiGuardrailAiGuardrailContextualGroundingPolicyConfigPtrOutput) ToAiGuardrailAiGuardrailContextualGroundingPolicyConfigPtrOutputWithContext(ctx context.Context) AiGuardrailAiGuardrailContextualGroundingPolicyConfigPtrOutput {
+	return o
+}
+
+func (o AiGuardrailAiGuardrailContextualGroundingPolicyConfigPtrOutput) Elem() AiGuardrailAiGuardrailContextualGroundingPolicyConfigOutput {
+	return o.ApplyT(func(v *AiGuardrailAiGuardrailContextualGroundingPolicyConfig) AiGuardrailAiGuardrailContextualGroundingPolicyConfig {
+		if v != nil {
+			return *v
+		}
+		var ret AiGuardrailAiGuardrailContextualGroundingPolicyConfig
+		return ret
+	}).(AiGuardrailAiGuardrailContextualGroundingPolicyConfigOutput)
+}
+
+// List of contextual grounding filter configs.
+func (o AiGuardrailAiGuardrailContextualGroundingPolicyConfigPtrOutput) FiltersConfig() AiGuardrailGuardrailContextualGroundingFilterConfigArrayOutput {
+	return o.ApplyT(func(v *AiGuardrailAiGuardrailContextualGroundingPolicyConfig) []AiGuardrailGuardrailContextualGroundingFilterConfig {
+		if v == nil {
+			return nil
+		}
+		return v.FiltersConfig
+	}).(AiGuardrailGuardrailContextualGroundingFilterConfigArrayOutput)
+}
+
+// Sensitive information policy config for a guardrail.
+type AiGuardrailAiGuardrailSensitiveInformationPolicyConfig struct {
+	// List of entities.
+	PiiEntitiesConfig []AiGuardrailGuardrailPiiEntityConfig `pulumi:"piiEntitiesConfig"`
+	// List of regex.
+	RegexesConfig []AiGuardrailGuardrailRegexConfig `pulumi:"regexesConfig"`
+}
+
+// AiGuardrailAiGuardrailSensitiveInformationPolicyConfigInput is an input type that accepts AiGuardrailAiGuardrailSensitiveInformationPolicyConfigArgs and AiGuardrailAiGuardrailSensitiveInformationPolicyConfigOutput values.
+// You can construct a concrete instance of `AiGuardrailAiGuardrailSensitiveInformationPolicyConfigInput` via:
+//
+//	AiGuardrailAiGuardrailSensitiveInformationPolicyConfigArgs{...}
+type AiGuardrailAiGuardrailSensitiveInformationPolicyConfigInput interface {
+	pulumi.Input
+
+	ToAiGuardrailAiGuardrailSensitiveInformationPolicyConfigOutput() AiGuardrailAiGuardrailSensitiveInformationPolicyConfigOutput
+	ToAiGuardrailAiGuardrailSensitiveInformationPolicyConfigOutputWithContext(context.Context) AiGuardrailAiGuardrailSensitiveInformationPolicyConfigOutput
+}
+
+// Sensitive information policy config for a guardrail.
+type AiGuardrailAiGuardrailSensitiveInformationPolicyConfigArgs struct {
+	// List of entities.
+	PiiEntitiesConfig AiGuardrailGuardrailPiiEntityConfigArrayInput `pulumi:"piiEntitiesConfig"`
+	// List of regex.
+	RegexesConfig AiGuardrailGuardrailRegexConfigArrayInput `pulumi:"regexesConfig"`
+}
+
+func (AiGuardrailAiGuardrailSensitiveInformationPolicyConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiGuardrailAiGuardrailSensitiveInformationPolicyConfig)(nil)).Elem()
+}
+
+func (i AiGuardrailAiGuardrailSensitiveInformationPolicyConfigArgs) ToAiGuardrailAiGuardrailSensitiveInformationPolicyConfigOutput() AiGuardrailAiGuardrailSensitiveInformationPolicyConfigOutput {
+	return i.ToAiGuardrailAiGuardrailSensitiveInformationPolicyConfigOutputWithContext(context.Background())
+}
+
+func (i AiGuardrailAiGuardrailSensitiveInformationPolicyConfigArgs) ToAiGuardrailAiGuardrailSensitiveInformationPolicyConfigOutputWithContext(ctx context.Context) AiGuardrailAiGuardrailSensitiveInformationPolicyConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AiGuardrailAiGuardrailSensitiveInformationPolicyConfigOutput)
+}
+
+func (i AiGuardrailAiGuardrailSensitiveInformationPolicyConfigArgs) ToAiGuardrailAiGuardrailSensitiveInformationPolicyConfigPtrOutput() AiGuardrailAiGuardrailSensitiveInformationPolicyConfigPtrOutput {
+	return i.ToAiGuardrailAiGuardrailSensitiveInformationPolicyConfigPtrOutputWithContext(context.Background())
+}
+
+func (i AiGuardrailAiGuardrailSensitiveInformationPolicyConfigArgs) ToAiGuardrailAiGuardrailSensitiveInformationPolicyConfigPtrOutputWithContext(ctx context.Context) AiGuardrailAiGuardrailSensitiveInformationPolicyConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AiGuardrailAiGuardrailSensitiveInformationPolicyConfigOutput).ToAiGuardrailAiGuardrailSensitiveInformationPolicyConfigPtrOutputWithContext(ctx)
+}
+
+// AiGuardrailAiGuardrailSensitiveInformationPolicyConfigPtrInput is an input type that accepts AiGuardrailAiGuardrailSensitiveInformationPolicyConfigArgs, AiGuardrailAiGuardrailSensitiveInformationPolicyConfigPtr and AiGuardrailAiGuardrailSensitiveInformationPolicyConfigPtrOutput values.
+// You can construct a concrete instance of `AiGuardrailAiGuardrailSensitiveInformationPolicyConfigPtrInput` via:
+//
+//	        AiGuardrailAiGuardrailSensitiveInformationPolicyConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type AiGuardrailAiGuardrailSensitiveInformationPolicyConfigPtrInput interface {
+	pulumi.Input
+
+	ToAiGuardrailAiGuardrailSensitiveInformationPolicyConfigPtrOutput() AiGuardrailAiGuardrailSensitiveInformationPolicyConfigPtrOutput
+	ToAiGuardrailAiGuardrailSensitiveInformationPolicyConfigPtrOutputWithContext(context.Context) AiGuardrailAiGuardrailSensitiveInformationPolicyConfigPtrOutput
+}
+
+type aiGuardrailAiGuardrailSensitiveInformationPolicyConfigPtrType AiGuardrailAiGuardrailSensitiveInformationPolicyConfigArgs
+
+func AiGuardrailAiGuardrailSensitiveInformationPolicyConfigPtr(v *AiGuardrailAiGuardrailSensitiveInformationPolicyConfigArgs) AiGuardrailAiGuardrailSensitiveInformationPolicyConfigPtrInput {
+	return (*aiGuardrailAiGuardrailSensitiveInformationPolicyConfigPtrType)(v)
+}
+
+func (*aiGuardrailAiGuardrailSensitiveInformationPolicyConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AiGuardrailAiGuardrailSensitiveInformationPolicyConfig)(nil)).Elem()
+}
+
+func (i *aiGuardrailAiGuardrailSensitiveInformationPolicyConfigPtrType) ToAiGuardrailAiGuardrailSensitiveInformationPolicyConfigPtrOutput() AiGuardrailAiGuardrailSensitiveInformationPolicyConfigPtrOutput {
+	return i.ToAiGuardrailAiGuardrailSensitiveInformationPolicyConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *aiGuardrailAiGuardrailSensitiveInformationPolicyConfigPtrType) ToAiGuardrailAiGuardrailSensitiveInformationPolicyConfigPtrOutputWithContext(ctx context.Context) AiGuardrailAiGuardrailSensitiveInformationPolicyConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AiGuardrailAiGuardrailSensitiveInformationPolicyConfigPtrOutput)
+}
+
+// Sensitive information policy config for a guardrail.
+type AiGuardrailAiGuardrailSensitiveInformationPolicyConfigOutput struct{ *pulumi.OutputState }
+
+func (AiGuardrailAiGuardrailSensitiveInformationPolicyConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiGuardrailAiGuardrailSensitiveInformationPolicyConfig)(nil)).Elem()
+}
+
+func (o AiGuardrailAiGuardrailSensitiveInformationPolicyConfigOutput) ToAiGuardrailAiGuardrailSensitiveInformationPolicyConfigOutput() AiGuardrailAiGuardrailSensitiveInformationPolicyConfigOutput {
+	return o
+}
+
+func (o AiGuardrailAiGuardrailSensitiveInformationPolicyConfigOutput) ToAiGuardrailAiGuardrailSensitiveInformationPolicyConfigOutputWithContext(ctx context.Context) AiGuardrailAiGuardrailSensitiveInformationPolicyConfigOutput {
+	return o
+}
+
+func (o AiGuardrailAiGuardrailSensitiveInformationPolicyConfigOutput) ToAiGuardrailAiGuardrailSensitiveInformationPolicyConfigPtrOutput() AiGuardrailAiGuardrailSensitiveInformationPolicyConfigPtrOutput {
+	return o.ToAiGuardrailAiGuardrailSensitiveInformationPolicyConfigPtrOutputWithContext(context.Background())
+}
+
+func (o AiGuardrailAiGuardrailSensitiveInformationPolicyConfigOutput) ToAiGuardrailAiGuardrailSensitiveInformationPolicyConfigPtrOutputWithContext(ctx context.Context) AiGuardrailAiGuardrailSensitiveInformationPolicyConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AiGuardrailAiGuardrailSensitiveInformationPolicyConfig) *AiGuardrailAiGuardrailSensitiveInformationPolicyConfig {
+		return &v
+	}).(AiGuardrailAiGuardrailSensitiveInformationPolicyConfigPtrOutput)
+}
+
+// List of entities.
+func (o AiGuardrailAiGuardrailSensitiveInformationPolicyConfigOutput) PiiEntitiesConfig() AiGuardrailGuardrailPiiEntityConfigArrayOutput {
+	return o.ApplyT(func(v AiGuardrailAiGuardrailSensitiveInformationPolicyConfig) []AiGuardrailGuardrailPiiEntityConfig {
+		return v.PiiEntitiesConfig
+	}).(AiGuardrailGuardrailPiiEntityConfigArrayOutput)
+}
+
+// List of regex.
+func (o AiGuardrailAiGuardrailSensitiveInformationPolicyConfigOutput) RegexesConfig() AiGuardrailGuardrailRegexConfigArrayOutput {
+	return o.ApplyT(func(v AiGuardrailAiGuardrailSensitiveInformationPolicyConfig) []AiGuardrailGuardrailRegexConfig {
+		return v.RegexesConfig
+	}).(AiGuardrailGuardrailRegexConfigArrayOutput)
+}
+
+type AiGuardrailAiGuardrailSensitiveInformationPolicyConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (AiGuardrailAiGuardrailSensitiveInformationPolicyConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AiGuardrailAiGuardrailSensitiveInformationPolicyConfig)(nil)).Elem()
+}
+
+func (o AiGuardrailAiGuardrailSensitiveInformationPolicyConfigPtrOutput) ToAiGuardrailAiGuardrailSensitiveInformationPolicyConfigPtrOutput() AiGuardrailAiGuardrailSensitiveInformationPolicyConfigPtrOutput {
+	return o
+}
+
+func (o AiGuardrailAiGuardrailSensitiveInformationPolicyConfigPtrOutput) ToAiGuardrailAiGuardrailSensitiveInformationPolicyConfigPtrOutputWithContext(ctx context.Context) AiGuardrailAiGuardrailSensitiveInformationPolicyConfigPtrOutput {
+	return o
+}
+
+func (o AiGuardrailAiGuardrailSensitiveInformationPolicyConfigPtrOutput) Elem() AiGuardrailAiGuardrailSensitiveInformationPolicyConfigOutput {
+	return o.ApplyT(func(v *AiGuardrailAiGuardrailSensitiveInformationPolicyConfig) AiGuardrailAiGuardrailSensitiveInformationPolicyConfig {
+		if v != nil {
+			return *v
+		}
+		var ret AiGuardrailAiGuardrailSensitiveInformationPolicyConfig
+		return ret
+	}).(AiGuardrailAiGuardrailSensitiveInformationPolicyConfigOutput)
+}
+
+// List of entities.
+func (o AiGuardrailAiGuardrailSensitiveInformationPolicyConfigPtrOutput) PiiEntitiesConfig() AiGuardrailGuardrailPiiEntityConfigArrayOutput {
+	return o.ApplyT(func(v *AiGuardrailAiGuardrailSensitiveInformationPolicyConfig) []AiGuardrailGuardrailPiiEntityConfig {
+		if v == nil {
+			return nil
+		}
+		return v.PiiEntitiesConfig
+	}).(AiGuardrailGuardrailPiiEntityConfigArrayOutput)
+}
+
+// List of regex.
+func (o AiGuardrailAiGuardrailSensitiveInformationPolicyConfigPtrOutput) RegexesConfig() AiGuardrailGuardrailRegexConfigArrayOutput {
+	return o.ApplyT(func(v *AiGuardrailAiGuardrailSensitiveInformationPolicyConfig) []AiGuardrailGuardrailRegexConfig {
+		if v == nil {
+			return nil
+		}
+		return v.RegexesConfig
+	}).(AiGuardrailGuardrailRegexConfigArrayOutput)
+}
+
+// Topic policy config for a guardrail.
+type AiGuardrailAiGuardrailTopicPolicyConfig struct {
+	// List of topic configs in topic policy.
+	TopicsConfig []AiGuardrailGuardrailTopicConfig `pulumi:"topicsConfig"`
+}
+
+// AiGuardrailAiGuardrailTopicPolicyConfigInput is an input type that accepts AiGuardrailAiGuardrailTopicPolicyConfigArgs and AiGuardrailAiGuardrailTopicPolicyConfigOutput values.
+// You can construct a concrete instance of `AiGuardrailAiGuardrailTopicPolicyConfigInput` via:
+//
+//	AiGuardrailAiGuardrailTopicPolicyConfigArgs{...}
+type AiGuardrailAiGuardrailTopicPolicyConfigInput interface {
+	pulumi.Input
+
+	ToAiGuardrailAiGuardrailTopicPolicyConfigOutput() AiGuardrailAiGuardrailTopicPolicyConfigOutput
+	ToAiGuardrailAiGuardrailTopicPolicyConfigOutputWithContext(context.Context) AiGuardrailAiGuardrailTopicPolicyConfigOutput
+}
+
+// Topic policy config for a guardrail.
+type AiGuardrailAiGuardrailTopicPolicyConfigArgs struct {
+	// List of topic configs in topic policy.
+	TopicsConfig AiGuardrailGuardrailTopicConfigArrayInput `pulumi:"topicsConfig"`
+}
+
+func (AiGuardrailAiGuardrailTopicPolicyConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiGuardrailAiGuardrailTopicPolicyConfig)(nil)).Elem()
+}
+
+func (i AiGuardrailAiGuardrailTopicPolicyConfigArgs) ToAiGuardrailAiGuardrailTopicPolicyConfigOutput() AiGuardrailAiGuardrailTopicPolicyConfigOutput {
+	return i.ToAiGuardrailAiGuardrailTopicPolicyConfigOutputWithContext(context.Background())
+}
+
+func (i AiGuardrailAiGuardrailTopicPolicyConfigArgs) ToAiGuardrailAiGuardrailTopicPolicyConfigOutputWithContext(ctx context.Context) AiGuardrailAiGuardrailTopicPolicyConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AiGuardrailAiGuardrailTopicPolicyConfigOutput)
+}
+
+func (i AiGuardrailAiGuardrailTopicPolicyConfigArgs) ToAiGuardrailAiGuardrailTopicPolicyConfigPtrOutput() AiGuardrailAiGuardrailTopicPolicyConfigPtrOutput {
+	return i.ToAiGuardrailAiGuardrailTopicPolicyConfigPtrOutputWithContext(context.Background())
+}
+
+func (i AiGuardrailAiGuardrailTopicPolicyConfigArgs) ToAiGuardrailAiGuardrailTopicPolicyConfigPtrOutputWithContext(ctx context.Context) AiGuardrailAiGuardrailTopicPolicyConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AiGuardrailAiGuardrailTopicPolicyConfigOutput).ToAiGuardrailAiGuardrailTopicPolicyConfigPtrOutputWithContext(ctx)
+}
+
+// AiGuardrailAiGuardrailTopicPolicyConfigPtrInput is an input type that accepts AiGuardrailAiGuardrailTopicPolicyConfigArgs, AiGuardrailAiGuardrailTopicPolicyConfigPtr and AiGuardrailAiGuardrailTopicPolicyConfigPtrOutput values.
+// You can construct a concrete instance of `AiGuardrailAiGuardrailTopicPolicyConfigPtrInput` via:
+//
+//	        AiGuardrailAiGuardrailTopicPolicyConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type AiGuardrailAiGuardrailTopicPolicyConfigPtrInput interface {
+	pulumi.Input
+
+	ToAiGuardrailAiGuardrailTopicPolicyConfigPtrOutput() AiGuardrailAiGuardrailTopicPolicyConfigPtrOutput
+	ToAiGuardrailAiGuardrailTopicPolicyConfigPtrOutputWithContext(context.Context) AiGuardrailAiGuardrailTopicPolicyConfigPtrOutput
+}
+
+type aiGuardrailAiGuardrailTopicPolicyConfigPtrType AiGuardrailAiGuardrailTopicPolicyConfigArgs
+
+func AiGuardrailAiGuardrailTopicPolicyConfigPtr(v *AiGuardrailAiGuardrailTopicPolicyConfigArgs) AiGuardrailAiGuardrailTopicPolicyConfigPtrInput {
+	return (*aiGuardrailAiGuardrailTopicPolicyConfigPtrType)(v)
+}
+
+func (*aiGuardrailAiGuardrailTopicPolicyConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AiGuardrailAiGuardrailTopicPolicyConfig)(nil)).Elem()
+}
+
+func (i *aiGuardrailAiGuardrailTopicPolicyConfigPtrType) ToAiGuardrailAiGuardrailTopicPolicyConfigPtrOutput() AiGuardrailAiGuardrailTopicPolicyConfigPtrOutput {
+	return i.ToAiGuardrailAiGuardrailTopicPolicyConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *aiGuardrailAiGuardrailTopicPolicyConfigPtrType) ToAiGuardrailAiGuardrailTopicPolicyConfigPtrOutputWithContext(ctx context.Context) AiGuardrailAiGuardrailTopicPolicyConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AiGuardrailAiGuardrailTopicPolicyConfigPtrOutput)
+}
+
+// Topic policy config for a guardrail.
+type AiGuardrailAiGuardrailTopicPolicyConfigOutput struct{ *pulumi.OutputState }
+
+func (AiGuardrailAiGuardrailTopicPolicyConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiGuardrailAiGuardrailTopicPolicyConfig)(nil)).Elem()
+}
+
+func (o AiGuardrailAiGuardrailTopicPolicyConfigOutput) ToAiGuardrailAiGuardrailTopicPolicyConfigOutput() AiGuardrailAiGuardrailTopicPolicyConfigOutput {
+	return o
+}
+
+func (o AiGuardrailAiGuardrailTopicPolicyConfigOutput) ToAiGuardrailAiGuardrailTopicPolicyConfigOutputWithContext(ctx context.Context) AiGuardrailAiGuardrailTopicPolicyConfigOutput {
+	return o
+}
+
+func (o AiGuardrailAiGuardrailTopicPolicyConfigOutput) ToAiGuardrailAiGuardrailTopicPolicyConfigPtrOutput() AiGuardrailAiGuardrailTopicPolicyConfigPtrOutput {
+	return o.ToAiGuardrailAiGuardrailTopicPolicyConfigPtrOutputWithContext(context.Background())
+}
+
+func (o AiGuardrailAiGuardrailTopicPolicyConfigOutput) ToAiGuardrailAiGuardrailTopicPolicyConfigPtrOutputWithContext(ctx context.Context) AiGuardrailAiGuardrailTopicPolicyConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AiGuardrailAiGuardrailTopicPolicyConfig) *AiGuardrailAiGuardrailTopicPolicyConfig {
+		return &v
+	}).(AiGuardrailAiGuardrailTopicPolicyConfigPtrOutput)
+}
+
+// List of topic configs in topic policy.
+func (o AiGuardrailAiGuardrailTopicPolicyConfigOutput) TopicsConfig() AiGuardrailGuardrailTopicConfigArrayOutput {
+	return o.ApplyT(func(v AiGuardrailAiGuardrailTopicPolicyConfig) []AiGuardrailGuardrailTopicConfig {
+		return v.TopicsConfig
+	}).(AiGuardrailGuardrailTopicConfigArrayOutput)
+}
+
+type AiGuardrailAiGuardrailTopicPolicyConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (AiGuardrailAiGuardrailTopicPolicyConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AiGuardrailAiGuardrailTopicPolicyConfig)(nil)).Elem()
+}
+
+func (o AiGuardrailAiGuardrailTopicPolicyConfigPtrOutput) ToAiGuardrailAiGuardrailTopicPolicyConfigPtrOutput() AiGuardrailAiGuardrailTopicPolicyConfigPtrOutput {
+	return o
+}
+
+func (o AiGuardrailAiGuardrailTopicPolicyConfigPtrOutput) ToAiGuardrailAiGuardrailTopicPolicyConfigPtrOutputWithContext(ctx context.Context) AiGuardrailAiGuardrailTopicPolicyConfigPtrOutput {
+	return o
+}
+
+func (o AiGuardrailAiGuardrailTopicPolicyConfigPtrOutput) Elem() AiGuardrailAiGuardrailTopicPolicyConfigOutput {
+	return o.ApplyT(func(v *AiGuardrailAiGuardrailTopicPolicyConfig) AiGuardrailAiGuardrailTopicPolicyConfig {
+		if v != nil {
+			return *v
+		}
+		var ret AiGuardrailAiGuardrailTopicPolicyConfig
+		return ret
+	}).(AiGuardrailAiGuardrailTopicPolicyConfigOutput)
+}
+
+// List of topic configs in topic policy.
+func (o AiGuardrailAiGuardrailTopicPolicyConfigPtrOutput) TopicsConfig() AiGuardrailGuardrailTopicConfigArrayOutput {
+	return o.ApplyT(func(v *AiGuardrailAiGuardrailTopicPolicyConfig) []AiGuardrailGuardrailTopicConfig {
+		if v == nil {
+			return nil
+		}
+		return v.TopicsConfig
+	}).(AiGuardrailGuardrailTopicConfigArrayOutput)
+}
+
+// Word policy config for a guardrail.
+type AiGuardrailAiGuardrailWordPolicyConfig struct {
+	// A config for the list of managed words.
+	ManagedWordListsConfig []AiGuardrailGuardrailManagedWordsConfig `pulumi:"managedWordListsConfig"`
+	// List of custom word configs.
+	WordsConfig []AiGuardrailGuardrailWordConfig `pulumi:"wordsConfig"`
+}
+
+// AiGuardrailAiGuardrailWordPolicyConfigInput is an input type that accepts AiGuardrailAiGuardrailWordPolicyConfigArgs and AiGuardrailAiGuardrailWordPolicyConfigOutput values.
+// You can construct a concrete instance of `AiGuardrailAiGuardrailWordPolicyConfigInput` via:
+//
+//	AiGuardrailAiGuardrailWordPolicyConfigArgs{...}
+type AiGuardrailAiGuardrailWordPolicyConfigInput interface {
+	pulumi.Input
+
+	ToAiGuardrailAiGuardrailWordPolicyConfigOutput() AiGuardrailAiGuardrailWordPolicyConfigOutput
+	ToAiGuardrailAiGuardrailWordPolicyConfigOutputWithContext(context.Context) AiGuardrailAiGuardrailWordPolicyConfigOutput
+}
+
+// Word policy config for a guardrail.
+type AiGuardrailAiGuardrailWordPolicyConfigArgs struct {
+	// A config for the list of managed words.
+	ManagedWordListsConfig AiGuardrailGuardrailManagedWordsConfigArrayInput `pulumi:"managedWordListsConfig"`
+	// List of custom word configs.
+	WordsConfig AiGuardrailGuardrailWordConfigArrayInput `pulumi:"wordsConfig"`
+}
+
+func (AiGuardrailAiGuardrailWordPolicyConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiGuardrailAiGuardrailWordPolicyConfig)(nil)).Elem()
+}
+
+func (i AiGuardrailAiGuardrailWordPolicyConfigArgs) ToAiGuardrailAiGuardrailWordPolicyConfigOutput() AiGuardrailAiGuardrailWordPolicyConfigOutput {
+	return i.ToAiGuardrailAiGuardrailWordPolicyConfigOutputWithContext(context.Background())
+}
+
+func (i AiGuardrailAiGuardrailWordPolicyConfigArgs) ToAiGuardrailAiGuardrailWordPolicyConfigOutputWithContext(ctx context.Context) AiGuardrailAiGuardrailWordPolicyConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AiGuardrailAiGuardrailWordPolicyConfigOutput)
+}
+
+func (i AiGuardrailAiGuardrailWordPolicyConfigArgs) ToAiGuardrailAiGuardrailWordPolicyConfigPtrOutput() AiGuardrailAiGuardrailWordPolicyConfigPtrOutput {
+	return i.ToAiGuardrailAiGuardrailWordPolicyConfigPtrOutputWithContext(context.Background())
+}
+
+func (i AiGuardrailAiGuardrailWordPolicyConfigArgs) ToAiGuardrailAiGuardrailWordPolicyConfigPtrOutputWithContext(ctx context.Context) AiGuardrailAiGuardrailWordPolicyConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AiGuardrailAiGuardrailWordPolicyConfigOutput).ToAiGuardrailAiGuardrailWordPolicyConfigPtrOutputWithContext(ctx)
+}
+
+// AiGuardrailAiGuardrailWordPolicyConfigPtrInput is an input type that accepts AiGuardrailAiGuardrailWordPolicyConfigArgs, AiGuardrailAiGuardrailWordPolicyConfigPtr and AiGuardrailAiGuardrailWordPolicyConfigPtrOutput values.
+// You can construct a concrete instance of `AiGuardrailAiGuardrailWordPolicyConfigPtrInput` via:
+//
+//	        AiGuardrailAiGuardrailWordPolicyConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type AiGuardrailAiGuardrailWordPolicyConfigPtrInput interface {
+	pulumi.Input
+
+	ToAiGuardrailAiGuardrailWordPolicyConfigPtrOutput() AiGuardrailAiGuardrailWordPolicyConfigPtrOutput
+	ToAiGuardrailAiGuardrailWordPolicyConfigPtrOutputWithContext(context.Context) AiGuardrailAiGuardrailWordPolicyConfigPtrOutput
+}
+
+type aiGuardrailAiGuardrailWordPolicyConfigPtrType AiGuardrailAiGuardrailWordPolicyConfigArgs
+
+func AiGuardrailAiGuardrailWordPolicyConfigPtr(v *AiGuardrailAiGuardrailWordPolicyConfigArgs) AiGuardrailAiGuardrailWordPolicyConfigPtrInput {
+	return (*aiGuardrailAiGuardrailWordPolicyConfigPtrType)(v)
+}
+
+func (*aiGuardrailAiGuardrailWordPolicyConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AiGuardrailAiGuardrailWordPolicyConfig)(nil)).Elem()
+}
+
+func (i *aiGuardrailAiGuardrailWordPolicyConfigPtrType) ToAiGuardrailAiGuardrailWordPolicyConfigPtrOutput() AiGuardrailAiGuardrailWordPolicyConfigPtrOutput {
+	return i.ToAiGuardrailAiGuardrailWordPolicyConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *aiGuardrailAiGuardrailWordPolicyConfigPtrType) ToAiGuardrailAiGuardrailWordPolicyConfigPtrOutputWithContext(ctx context.Context) AiGuardrailAiGuardrailWordPolicyConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AiGuardrailAiGuardrailWordPolicyConfigPtrOutput)
+}
+
+// Word policy config for a guardrail.
+type AiGuardrailAiGuardrailWordPolicyConfigOutput struct{ *pulumi.OutputState }
+
+func (AiGuardrailAiGuardrailWordPolicyConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiGuardrailAiGuardrailWordPolicyConfig)(nil)).Elem()
+}
+
+func (o AiGuardrailAiGuardrailWordPolicyConfigOutput) ToAiGuardrailAiGuardrailWordPolicyConfigOutput() AiGuardrailAiGuardrailWordPolicyConfigOutput {
+	return o
+}
+
+func (o AiGuardrailAiGuardrailWordPolicyConfigOutput) ToAiGuardrailAiGuardrailWordPolicyConfigOutputWithContext(ctx context.Context) AiGuardrailAiGuardrailWordPolicyConfigOutput {
+	return o
+}
+
+func (o AiGuardrailAiGuardrailWordPolicyConfigOutput) ToAiGuardrailAiGuardrailWordPolicyConfigPtrOutput() AiGuardrailAiGuardrailWordPolicyConfigPtrOutput {
+	return o.ToAiGuardrailAiGuardrailWordPolicyConfigPtrOutputWithContext(context.Background())
+}
+
+func (o AiGuardrailAiGuardrailWordPolicyConfigOutput) ToAiGuardrailAiGuardrailWordPolicyConfigPtrOutputWithContext(ctx context.Context) AiGuardrailAiGuardrailWordPolicyConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AiGuardrailAiGuardrailWordPolicyConfig) *AiGuardrailAiGuardrailWordPolicyConfig {
+		return &v
+	}).(AiGuardrailAiGuardrailWordPolicyConfigPtrOutput)
+}
+
+// A config for the list of managed words.
+func (o AiGuardrailAiGuardrailWordPolicyConfigOutput) ManagedWordListsConfig() AiGuardrailGuardrailManagedWordsConfigArrayOutput {
+	return o.ApplyT(func(v AiGuardrailAiGuardrailWordPolicyConfig) []AiGuardrailGuardrailManagedWordsConfig {
+		return v.ManagedWordListsConfig
+	}).(AiGuardrailGuardrailManagedWordsConfigArrayOutput)
+}
+
+// List of custom word configs.
+func (o AiGuardrailAiGuardrailWordPolicyConfigOutput) WordsConfig() AiGuardrailGuardrailWordConfigArrayOutput {
+	return o.ApplyT(func(v AiGuardrailAiGuardrailWordPolicyConfig) []AiGuardrailGuardrailWordConfig { return v.WordsConfig }).(AiGuardrailGuardrailWordConfigArrayOutput)
+}
+
+type AiGuardrailAiGuardrailWordPolicyConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (AiGuardrailAiGuardrailWordPolicyConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AiGuardrailAiGuardrailWordPolicyConfig)(nil)).Elem()
+}
+
+func (o AiGuardrailAiGuardrailWordPolicyConfigPtrOutput) ToAiGuardrailAiGuardrailWordPolicyConfigPtrOutput() AiGuardrailAiGuardrailWordPolicyConfigPtrOutput {
+	return o
+}
+
+func (o AiGuardrailAiGuardrailWordPolicyConfigPtrOutput) ToAiGuardrailAiGuardrailWordPolicyConfigPtrOutputWithContext(ctx context.Context) AiGuardrailAiGuardrailWordPolicyConfigPtrOutput {
+	return o
+}
+
+func (o AiGuardrailAiGuardrailWordPolicyConfigPtrOutput) Elem() AiGuardrailAiGuardrailWordPolicyConfigOutput {
+	return o.ApplyT(func(v *AiGuardrailAiGuardrailWordPolicyConfig) AiGuardrailAiGuardrailWordPolicyConfig {
+		if v != nil {
+			return *v
+		}
+		var ret AiGuardrailAiGuardrailWordPolicyConfig
+		return ret
+	}).(AiGuardrailAiGuardrailWordPolicyConfigOutput)
+}
+
+// A config for the list of managed words.
+func (o AiGuardrailAiGuardrailWordPolicyConfigPtrOutput) ManagedWordListsConfig() AiGuardrailGuardrailManagedWordsConfigArrayOutput {
+	return o.ApplyT(func(v *AiGuardrailAiGuardrailWordPolicyConfig) []AiGuardrailGuardrailManagedWordsConfig {
+		if v == nil {
+			return nil
+		}
+		return v.ManagedWordListsConfig
+	}).(AiGuardrailGuardrailManagedWordsConfigArrayOutput)
+}
+
+// List of custom word configs.
+func (o AiGuardrailAiGuardrailWordPolicyConfigPtrOutput) WordsConfig() AiGuardrailGuardrailWordConfigArrayOutput {
+	return o.ApplyT(func(v *AiGuardrailAiGuardrailWordPolicyConfig) []AiGuardrailGuardrailWordConfig {
+		if v == nil {
+			return nil
+		}
+		return v.WordsConfig
+	}).(AiGuardrailGuardrailWordConfigArrayOutput)
+}
+
+// Content filter config in content policy.
+type AiGuardrailGuardrailContentFilterConfig struct {
+	InputStrength  AiGuardrailGuardrailFilterStrength    `pulumi:"inputStrength"`
+	OutputStrength AiGuardrailGuardrailFilterStrength    `pulumi:"outputStrength"`
+	Type           AiGuardrailGuardrailContentFilterType `pulumi:"type"`
+}
+
+// AiGuardrailGuardrailContentFilterConfigInput is an input type that accepts AiGuardrailGuardrailContentFilterConfigArgs and AiGuardrailGuardrailContentFilterConfigOutput values.
+// You can construct a concrete instance of `AiGuardrailGuardrailContentFilterConfigInput` via:
+//
+//	AiGuardrailGuardrailContentFilterConfigArgs{...}
+type AiGuardrailGuardrailContentFilterConfigInput interface {
+	pulumi.Input
+
+	ToAiGuardrailGuardrailContentFilterConfigOutput() AiGuardrailGuardrailContentFilterConfigOutput
+	ToAiGuardrailGuardrailContentFilterConfigOutputWithContext(context.Context) AiGuardrailGuardrailContentFilterConfigOutput
+}
+
+// Content filter config in content policy.
+type AiGuardrailGuardrailContentFilterConfigArgs struct {
+	InputStrength  AiGuardrailGuardrailFilterStrengthInput    `pulumi:"inputStrength"`
+	OutputStrength AiGuardrailGuardrailFilterStrengthInput    `pulumi:"outputStrength"`
+	Type           AiGuardrailGuardrailContentFilterTypeInput `pulumi:"type"`
+}
+
+func (AiGuardrailGuardrailContentFilterConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiGuardrailGuardrailContentFilterConfig)(nil)).Elem()
+}
+
+func (i AiGuardrailGuardrailContentFilterConfigArgs) ToAiGuardrailGuardrailContentFilterConfigOutput() AiGuardrailGuardrailContentFilterConfigOutput {
+	return i.ToAiGuardrailGuardrailContentFilterConfigOutputWithContext(context.Background())
+}
+
+func (i AiGuardrailGuardrailContentFilterConfigArgs) ToAiGuardrailGuardrailContentFilterConfigOutputWithContext(ctx context.Context) AiGuardrailGuardrailContentFilterConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AiGuardrailGuardrailContentFilterConfigOutput)
+}
+
+// AiGuardrailGuardrailContentFilterConfigArrayInput is an input type that accepts AiGuardrailGuardrailContentFilterConfigArray and AiGuardrailGuardrailContentFilterConfigArrayOutput values.
+// You can construct a concrete instance of `AiGuardrailGuardrailContentFilterConfigArrayInput` via:
+//
+//	AiGuardrailGuardrailContentFilterConfigArray{ AiGuardrailGuardrailContentFilterConfigArgs{...} }
+type AiGuardrailGuardrailContentFilterConfigArrayInput interface {
+	pulumi.Input
+
+	ToAiGuardrailGuardrailContentFilterConfigArrayOutput() AiGuardrailGuardrailContentFilterConfigArrayOutput
+	ToAiGuardrailGuardrailContentFilterConfigArrayOutputWithContext(context.Context) AiGuardrailGuardrailContentFilterConfigArrayOutput
+}
+
+type AiGuardrailGuardrailContentFilterConfigArray []AiGuardrailGuardrailContentFilterConfigInput
+
+func (AiGuardrailGuardrailContentFilterConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AiGuardrailGuardrailContentFilterConfig)(nil)).Elem()
+}
+
+func (i AiGuardrailGuardrailContentFilterConfigArray) ToAiGuardrailGuardrailContentFilterConfigArrayOutput() AiGuardrailGuardrailContentFilterConfigArrayOutput {
+	return i.ToAiGuardrailGuardrailContentFilterConfigArrayOutputWithContext(context.Background())
+}
+
+func (i AiGuardrailGuardrailContentFilterConfigArray) ToAiGuardrailGuardrailContentFilterConfigArrayOutputWithContext(ctx context.Context) AiGuardrailGuardrailContentFilterConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AiGuardrailGuardrailContentFilterConfigArrayOutput)
+}
+
+// Content filter config in content policy.
+type AiGuardrailGuardrailContentFilterConfigOutput struct{ *pulumi.OutputState }
+
+func (AiGuardrailGuardrailContentFilterConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiGuardrailGuardrailContentFilterConfig)(nil)).Elem()
+}
+
+func (o AiGuardrailGuardrailContentFilterConfigOutput) ToAiGuardrailGuardrailContentFilterConfigOutput() AiGuardrailGuardrailContentFilterConfigOutput {
+	return o
+}
+
+func (o AiGuardrailGuardrailContentFilterConfigOutput) ToAiGuardrailGuardrailContentFilterConfigOutputWithContext(ctx context.Context) AiGuardrailGuardrailContentFilterConfigOutput {
+	return o
+}
+
+func (o AiGuardrailGuardrailContentFilterConfigOutput) InputStrength() AiGuardrailGuardrailFilterStrengthOutput {
+	return o.ApplyT(func(v AiGuardrailGuardrailContentFilterConfig) AiGuardrailGuardrailFilterStrength {
+		return v.InputStrength
+	}).(AiGuardrailGuardrailFilterStrengthOutput)
+}
+
+func (o AiGuardrailGuardrailContentFilterConfigOutput) OutputStrength() AiGuardrailGuardrailFilterStrengthOutput {
+	return o.ApplyT(func(v AiGuardrailGuardrailContentFilterConfig) AiGuardrailGuardrailFilterStrength {
+		return v.OutputStrength
+	}).(AiGuardrailGuardrailFilterStrengthOutput)
+}
+
+func (o AiGuardrailGuardrailContentFilterConfigOutput) Type() AiGuardrailGuardrailContentFilterTypeOutput {
+	return o.ApplyT(func(v AiGuardrailGuardrailContentFilterConfig) AiGuardrailGuardrailContentFilterType { return v.Type }).(AiGuardrailGuardrailContentFilterTypeOutput)
+}
+
+type AiGuardrailGuardrailContentFilterConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (AiGuardrailGuardrailContentFilterConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AiGuardrailGuardrailContentFilterConfig)(nil)).Elem()
+}
+
+func (o AiGuardrailGuardrailContentFilterConfigArrayOutput) ToAiGuardrailGuardrailContentFilterConfigArrayOutput() AiGuardrailGuardrailContentFilterConfigArrayOutput {
+	return o
+}
+
+func (o AiGuardrailGuardrailContentFilterConfigArrayOutput) ToAiGuardrailGuardrailContentFilterConfigArrayOutputWithContext(ctx context.Context) AiGuardrailGuardrailContentFilterConfigArrayOutput {
+	return o
+}
+
+func (o AiGuardrailGuardrailContentFilterConfigArrayOutput) Index(i pulumi.IntInput) AiGuardrailGuardrailContentFilterConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AiGuardrailGuardrailContentFilterConfig {
+		return vs[0].([]AiGuardrailGuardrailContentFilterConfig)[vs[1].(int)]
+	}).(AiGuardrailGuardrailContentFilterConfigOutput)
+}
+
+// A config for grounding filter.
+type AiGuardrailGuardrailContextualGroundingFilterConfig struct {
+	// The threshold for this filter.
+	Threshold float64                                           `pulumi:"threshold"`
+	Type      AiGuardrailGuardrailContextualGroundingFilterType `pulumi:"type"`
+}
+
+// AiGuardrailGuardrailContextualGroundingFilterConfigInput is an input type that accepts AiGuardrailGuardrailContextualGroundingFilterConfigArgs and AiGuardrailGuardrailContextualGroundingFilterConfigOutput values.
+// You can construct a concrete instance of `AiGuardrailGuardrailContextualGroundingFilterConfigInput` via:
+//
+//	AiGuardrailGuardrailContextualGroundingFilterConfigArgs{...}
+type AiGuardrailGuardrailContextualGroundingFilterConfigInput interface {
+	pulumi.Input
+
+	ToAiGuardrailGuardrailContextualGroundingFilterConfigOutput() AiGuardrailGuardrailContextualGroundingFilterConfigOutput
+	ToAiGuardrailGuardrailContextualGroundingFilterConfigOutputWithContext(context.Context) AiGuardrailGuardrailContextualGroundingFilterConfigOutput
+}
+
+// A config for grounding filter.
+type AiGuardrailGuardrailContextualGroundingFilterConfigArgs struct {
+	// The threshold for this filter.
+	Threshold pulumi.Float64Input                                    `pulumi:"threshold"`
+	Type      AiGuardrailGuardrailContextualGroundingFilterTypeInput `pulumi:"type"`
+}
+
+func (AiGuardrailGuardrailContextualGroundingFilterConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiGuardrailGuardrailContextualGroundingFilterConfig)(nil)).Elem()
+}
+
+func (i AiGuardrailGuardrailContextualGroundingFilterConfigArgs) ToAiGuardrailGuardrailContextualGroundingFilterConfigOutput() AiGuardrailGuardrailContextualGroundingFilterConfigOutput {
+	return i.ToAiGuardrailGuardrailContextualGroundingFilterConfigOutputWithContext(context.Background())
+}
+
+func (i AiGuardrailGuardrailContextualGroundingFilterConfigArgs) ToAiGuardrailGuardrailContextualGroundingFilterConfigOutputWithContext(ctx context.Context) AiGuardrailGuardrailContextualGroundingFilterConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AiGuardrailGuardrailContextualGroundingFilterConfigOutput)
+}
+
+// AiGuardrailGuardrailContextualGroundingFilterConfigArrayInput is an input type that accepts AiGuardrailGuardrailContextualGroundingFilterConfigArray and AiGuardrailGuardrailContextualGroundingFilterConfigArrayOutput values.
+// You can construct a concrete instance of `AiGuardrailGuardrailContextualGroundingFilterConfigArrayInput` via:
+//
+//	AiGuardrailGuardrailContextualGroundingFilterConfigArray{ AiGuardrailGuardrailContextualGroundingFilterConfigArgs{...} }
+type AiGuardrailGuardrailContextualGroundingFilterConfigArrayInput interface {
+	pulumi.Input
+
+	ToAiGuardrailGuardrailContextualGroundingFilterConfigArrayOutput() AiGuardrailGuardrailContextualGroundingFilterConfigArrayOutput
+	ToAiGuardrailGuardrailContextualGroundingFilterConfigArrayOutputWithContext(context.Context) AiGuardrailGuardrailContextualGroundingFilterConfigArrayOutput
+}
+
+type AiGuardrailGuardrailContextualGroundingFilterConfigArray []AiGuardrailGuardrailContextualGroundingFilterConfigInput
+
+func (AiGuardrailGuardrailContextualGroundingFilterConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AiGuardrailGuardrailContextualGroundingFilterConfig)(nil)).Elem()
+}
+
+func (i AiGuardrailGuardrailContextualGroundingFilterConfigArray) ToAiGuardrailGuardrailContextualGroundingFilterConfigArrayOutput() AiGuardrailGuardrailContextualGroundingFilterConfigArrayOutput {
+	return i.ToAiGuardrailGuardrailContextualGroundingFilterConfigArrayOutputWithContext(context.Background())
+}
+
+func (i AiGuardrailGuardrailContextualGroundingFilterConfigArray) ToAiGuardrailGuardrailContextualGroundingFilterConfigArrayOutputWithContext(ctx context.Context) AiGuardrailGuardrailContextualGroundingFilterConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AiGuardrailGuardrailContextualGroundingFilterConfigArrayOutput)
+}
+
+// A config for grounding filter.
+type AiGuardrailGuardrailContextualGroundingFilterConfigOutput struct{ *pulumi.OutputState }
+
+func (AiGuardrailGuardrailContextualGroundingFilterConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiGuardrailGuardrailContextualGroundingFilterConfig)(nil)).Elem()
+}
+
+func (o AiGuardrailGuardrailContextualGroundingFilterConfigOutput) ToAiGuardrailGuardrailContextualGroundingFilterConfigOutput() AiGuardrailGuardrailContextualGroundingFilterConfigOutput {
+	return o
+}
+
+func (o AiGuardrailGuardrailContextualGroundingFilterConfigOutput) ToAiGuardrailGuardrailContextualGroundingFilterConfigOutputWithContext(ctx context.Context) AiGuardrailGuardrailContextualGroundingFilterConfigOutput {
+	return o
+}
+
+// The threshold for this filter.
+func (o AiGuardrailGuardrailContextualGroundingFilterConfigOutput) Threshold() pulumi.Float64Output {
+	return o.ApplyT(func(v AiGuardrailGuardrailContextualGroundingFilterConfig) float64 { return v.Threshold }).(pulumi.Float64Output)
+}
+
+func (o AiGuardrailGuardrailContextualGroundingFilterConfigOutput) Type() AiGuardrailGuardrailContextualGroundingFilterTypeOutput {
+	return o.ApplyT(func(v AiGuardrailGuardrailContextualGroundingFilterConfig) AiGuardrailGuardrailContextualGroundingFilterType {
+		return v.Type
+	}).(AiGuardrailGuardrailContextualGroundingFilterTypeOutput)
+}
+
+type AiGuardrailGuardrailContextualGroundingFilterConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (AiGuardrailGuardrailContextualGroundingFilterConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AiGuardrailGuardrailContextualGroundingFilterConfig)(nil)).Elem()
+}
+
+func (o AiGuardrailGuardrailContextualGroundingFilterConfigArrayOutput) ToAiGuardrailGuardrailContextualGroundingFilterConfigArrayOutput() AiGuardrailGuardrailContextualGroundingFilterConfigArrayOutput {
+	return o
+}
+
+func (o AiGuardrailGuardrailContextualGroundingFilterConfigArrayOutput) ToAiGuardrailGuardrailContextualGroundingFilterConfigArrayOutputWithContext(ctx context.Context) AiGuardrailGuardrailContextualGroundingFilterConfigArrayOutput {
+	return o
+}
+
+func (o AiGuardrailGuardrailContextualGroundingFilterConfigArrayOutput) Index(i pulumi.IntInput) AiGuardrailGuardrailContextualGroundingFilterConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AiGuardrailGuardrailContextualGroundingFilterConfig {
+		return vs[0].([]AiGuardrailGuardrailContextualGroundingFilterConfig)[vs[1].(int)]
+	}).(AiGuardrailGuardrailContextualGroundingFilterConfigOutput)
+}
+
+// A managed words config.
+type AiGuardrailGuardrailManagedWordsConfig struct {
+	Type AiGuardrailGuardrailManagedWordsType `pulumi:"type"`
+}
+
+// AiGuardrailGuardrailManagedWordsConfigInput is an input type that accepts AiGuardrailGuardrailManagedWordsConfigArgs and AiGuardrailGuardrailManagedWordsConfigOutput values.
+// You can construct a concrete instance of `AiGuardrailGuardrailManagedWordsConfigInput` via:
+//
+//	AiGuardrailGuardrailManagedWordsConfigArgs{...}
+type AiGuardrailGuardrailManagedWordsConfigInput interface {
+	pulumi.Input
+
+	ToAiGuardrailGuardrailManagedWordsConfigOutput() AiGuardrailGuardrailManagedWordsConfigOutput
+	ToAiGuardrailGuardrailManagedWordsConfigOutputWithContext(context.Context) AiGuardrailGuardrailManagedWordsConfigOutput
+}
+
+// A managed words config.
+type AiGuardrailGuardrailManagedWordsConfigArgs struct {
+	Type AiGuardrailGuardrailManagedWordsTypeInput `pulumi:"type"`
+}
+
+func (AiGuardrailGuardrailManagedWordsConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiGuardrailGuardrailManagedWordsConfig)(nil)).Elem()
+}
+
+func (i AiGuardrailGuardrailManagedWordsConfigArgs) ToAiGuardrailGuardrailManagedWordsConfigOutput() AiGuardrailGuardrailManagedWordsConfigOutput {
+	return i.ToAiGuardrailGuardrailManagedWordsConfigOutputWithContext(context.Background())
+}
+
+func (i AiGuardrailGuardrailManagedWordsConfigArgs) ToAiGuardrailGuardrailManagedWordsConfigOutputWithContext(ctx context.Context) AiGuardrailGuardrailManagedWordsConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AiGuardrailGuardrailManagedWordsConfigOutput)
+}
+
+// AiGuardrailGuardrailManagedWordsConfigArrayInput is an input type that accepts AiGuardrailGuardrailManagedWordsConfigArray and AiGuardrailGuardrailManagedWordsConfigArrayOutput values.
+// You can construct a concrete instance of `AiGuardrailGuardrailManagedWordsConfigArrayInput` via:
+//
+//	AiGuardrailGuardrailManagedWordsConfigArray{ AiGuardrailGuardrailManagedWordsConfigArgs{...} }
+type AiGuardrailGuardrailManagedWordsConfigArrayInput interface {
+	pulumi.Input
+
+	ToAiGuardrailGuardrailManagedWordsConfigArrayOutput() AiGuardrailGuardrailManagedWordsConfigArrayOutput
+	ToAiGuardrailGuardrailManagedWordsConfigArrayOutputWithContext(context.Context) AiGuardrailGuardrailManagedWordsConfigArrayOutput
+}
+
+type AiGuardrailGuardrailManagedWordsConfigArray []AiGuardrailGuardrailManagedWordsConfigInput
+
+func (AiGuardrailGuardrailManagedWordsConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AiGuardrailGuardrailManagedWordsConfig)(nil)).Elem()
+}
+
+func (i AiGuardrailGuardrailManagedWordsConfigArray) ToAiGuardrailGuardrailManagedWordsConfigArrayOutput() AiGuardrailGuardrailManagedWordsConfigArrayOutput {
+	return i.ToAiGuardrailGuardrailManagedWordsConfigArrayOutputWithContext(context.Background())
+}
+
+func (i AiGuardrailGuardrailManagedWordsConfigArray) ToAiGuardrailGuardrailManagedWordsConfigArrayOutputWithContext(ctx context.Context) AiGuardrailGuardrailManagedWordsConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AiGuardrailGuardrailManagedWordsConfigArrayOutput)
+}
+
+// A managed words config.
+type AiGuardrailGuardrailManagedWordsConfigOutput struct{ *pulumi.OutputState }
+
+func (AiGuardrailGuardrailManagedWordsConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiGuardrailGuardrailManagedWordsConfig)(nil)).Elem()
+}
+
+func (o AiGuardrailGuardrailManagedWordsConfigOutput) ToAiGuardrailGuardrailManagedWordsConfigOutput() AiGuardrailGuardrailManagedWordsConfigOutput {
+	return o
+}
+
+func (o AiGuardrailGuardrailManagedWordsConfigOutput) ToAiGuardrailGuardrailManagedWordsConfigOutputWithContext(ctx context.Context) AiGuardrailGuardrailManagedWordsConfigOutput {
+	return o
+}
+
+func (o AiGuardrailGuardrailManagedWordsConfigOutput) Type() AiGuardrailGuardrailManagedWordsTypeOutput {
+	return o.ApplyT(func(v AiGuardrailGuardrailManagedWordsConfig) AiGuardrailGuardrailManagedWordsType { return v.Type }).(AiGuardrailGuardrailManagedWordsTypeOutput)
+}
+
+type AiGuardrailGuardrailManagedWordsConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (AiGuardrailGuardrailManagedWordsConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AiGuardrailGuardrailManagedWordsConfig)(nil)).Elem()
+}
+
+func (o AiGuardrailGuardrailManagedWordsConfigArrayOutput) ToAiGuardrailGuardrailManagedWordsConfigArrayOutput() AiGuardrailGuardrailManagedWordsConfigArrayOutput {
+	return o
+}
+
+func (o AiGuardrailGuardrailManagedWordsConfigArrayOutput) ToAiGuardrailGuardrailManagedWordsConfigArrayOutputWithContext(ctx context.Context) AiGuardrailGuardrailManagedWordsConfigArrayOutput {
+	return o
+}
+
+func (o AiGuardrailGuardrailManagedWordsConfigArrayOutput) Index(i pulumi.IntInput) AiGuardrailGuardrailManagedWordsConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AiGuardrailGuardrailManagedWordsConfig {
+		return vs[0].([]AiGuardrailGuardrailManagedWordsConfig)[vs[1].(int)]
+	}).(AiGuardrailGuardrailManagedWordsConfigOutput)
+}
+
+// Pii entity configuration.
+type AiGuardrailGuardrailPiiEntityConfig struct {
+	Action AiGuardrailGuardrailSensitiveInformationAction `pulumi:"action"`
+	Type   AiGuardrailGuardrailPiiEntityType              `pulumi:"type"`
+}
+
+// AiGuardrailGuardrailPiiEntityConfigInput is an input type that accepts AiGuardrailGuardrailPiiEntityConfigArgs and AiGuardrailGuardrailPiiEntityConfigOutput values.
+// You can construct a concrete instance of `AiGuardrailGuardrailPiiEntityConfigInput` via:
+//
+//	AiGuardrailGuardrailPiiEntityConfigArgs{...}
+type AiGuardrailGuardrailPiiEntityConfigInput interface {
+	pulumi.Input
+
+	ToAiGuardrailGuardrailPiiEntityConfigOutput() AiGuardrailGuardrailPiiEntityConfigOutput
+	ToAiGuardrailGuardrailPiiEntityConfigOutputWithContext(context.Context) AiGuardrailGuardrailPiiEntityConfigOutput
+}
+
+// Pii entity configuration.
+type AiGuardrailGuardrailPiiEntityConfigArgs struct {
+	Action AiGuardrailGuardrailSensitiveInformationActionInput `pulumi:"action"`
+	Type   AiGuardrailGuardrailPiiEntityTypeInput              `pulumi:"type"`
+}
+
+func (AiGuardrailGuardrailPiiEntityConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiGuardrailGuardrailPiiEntityConfig)(nil)).Elem()
+}
+
+func (i AiGuardrailGuardrailPiiEntityConfigArgs) ToAiGuardrailGuardrailPiiEntityConfigOutput() AiGuardrailGuardrailPiiEntityConfigOutput {
+	return i.ToAiGuardrailGuardrailPiiEntityConfigOutputWithContext(context.Background())
+}
+
+func (i AiGuardrailGuardrailPiiEntityConfigArgs) ToAiGuardrailGuardrailPiiEntityConfigOutputWithContext(ctx context.Context) AiGuardrailGuardrailPiiEntityConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AiGuardrailGuardrailPiiEntityConfigOutput)
+}
+
+// AiGuardrailGuardrailPiiEntityConfigArrayInput is an input type that accepts AiGuardrailGuardrailPiiEntityConfigArray and AiGuardrailGuardrailPiiEntityConfigArrayOutput values.
+// You can construct a concrete instance of `AiGuardrailGuardrailPiiEntityConfigArrayInput` via:
+//
+//	AiGuardrailGuardrailPiiEntityConfigArray{ AiGuardrailGuardrailPiiEntityConfigArgs{...} }
+type AiGuardrailGuardrailPiiEntityConfigArrayInput interface {
+	pulumi.Input
+
+	ToAiGuardrailGuardrailPiiEntityConfigArrayOutput() AiGuardrailGuardrailPiiEntityConfigArrayOutput
+	ToAiGuardrailGuardrailPiiEntityConfigArrayOutputWithContext(context.Context) AiGuardrailGuardrailPiiEntityConfigArrayOutput
+}
+
+type AiGuardrailGuardrailPiiEntityConfigArray []AiGuardrailGuardrailPiiEntityConfigInput
+
+func (AiGuardrailGuardrailPiiEntityConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AiGuardrailGuardrailPiiEntityConfig)(nil)).Elem()
+}
+
+func (i AiGuardrailGuardrailPiiEntityConfigArray) ToAiGuardrailGuardrailPiiEntityConfigArrayOutput() AiGuardrailGuardrailPiiEntityConfigArrayOutput {
+	return i.ToAiGuardrailGuardrailPiiEntityConfigArrayOutputWithContext(context.Background())
+}
+
+func (i AiGuardrailGuardrailPiiEntityConfigArray) ToAiGuardrailGuardrailPiiEntityConfigArrayOutputWithContext(ctx context.Context) AiGuardrailGuardrailPiiEntityConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AiGuardrailGuardrailPiiEntityConfigArrayOutput)
+}
+
+// Pii entity configuration.
+type AiGuardrailGuardrailPiiEntityConfigOutput struct{ *pulumi.OutputState }
+
+func (AiGuardrailGuardrailPiiEntityConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiGuardrailGuardrailPiiEntityConfig)(nil)).Elem()
+}
+
+func (o AiGuardrailGuardrailPiiEntityConfigOutput) ToAiGuardrailGuardrailPiiEntityConfigOutput() AiGuardrailGuardrailPiiEntityConfigOutput {
+	return o
+}
+
+func (o AiGuardrailGuardrailPiiEntityConfigOutput) ToAiGuardrailGuardrailPiiEntityConfigOutputWithContext(ctx context.Context) AiGuardrailGuardrailPiiEntityConfigOutput {
+	return o
+}
+
+func (o AiGuardrailGuardrailPiiEntityConfigOutput) Action() AiGuardrailGuardrailSensitiveInformationActionOutput {
+	return o.ApplyT(func(v AiGuardrailGuardrailPiiEntityConfig) AiGuardrailGuardrailSensitiveInformationAction {
+		return v.Action
+	}).(AiGuardrailGuardrailSensitiveInformationActionOutput)
+}
+
+func (o AiGuardrailGuardrailPiiEntityConfigOutput) Type() AiGuardrailGuardrailPiiEntityTypeOutput {
+	return o.ApplyT(func(v AiGuardrailGuardrailPiiEntityConfig) AiGuardrailGuardrailPiiEntityType { return v.Type }).(AiGuardrailGuardrailPiiEntityTypeOutput)
+}
+
+type AiGuardrailGuardrailPiiEntityConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (AiGuardrailGuardrailPiiEntityConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AiGuardrailGuardrailPiiEntityConfig)(nil)).Elem()
+}
+
+func (o AiGuardrailGuardrailPiiEntityConfigArrayOutput) ToAiGuardrailGuardrailPiiEntityConfigArrayOutput() AiGuardrailGuardrailPiiEntityConfigArrayOutput {
+	return o
+}
+
+func (o AiGuardrailGuardrailPiiEntityConfigArrayOutput) ToAiGuardrailGuardrailPiiEntityConfigArrayOutputWithContext(ctx context.Context) AiGuardrailGuardrailPiiEntityConfigArrayOutput {
+	return o
+}
+
+func (o AiGuardrailGuardrailPiiEntityConfigArrayOutput) Index(i pulumi.IntInput) AiGuardrailGuardrailPiiEntityConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AiGuardrailGuardrailPiiEntityConfig {
+		return vs[0].([]AiGuardrailGuardrailPiiEntityConfig)[vs[1].(int)]
+	}).(AiGuardrailGuardrailPiiEntityConfigOutput)
+}
+
+// A regex configuration.
+type AiGuardrailGuardrailRegexConfig struct {
+	Action AiGuardrailGuardrailSensitiveInformationAction `pulumi:"action"`
+	// The regex description.
+	Description *string `pulumi:"description"`
+	// The regex name.
+	Name string `pulumi:"name"`
+	// The regex pattern.
+	Pattern string `pulumi:"pattern"`
+}
+
+// AiGuardrailGuardrailRegexConfigInput is an input type that accepts AiGuardrailGuardrailRegexConfigArgs and AiGuardrailGuardrailRegexConfigOutput values.
+// You can construct a concrete instance of `AiGuardrailGuardrailRegexConfigInput` via:
+//
+//	AiGuardrailGuardrailRegexConfigArgs{...}
+type AiGuardrailGuardrailRegexConfigInput interface {
+	pulumi.Input
+
+	ToAiGuardrailGuardrailRegexConfigOutput() AiGuardrailGuardrailRegexConfigOutput
+	ToAiGuardrailGuardrailRegexConfigOutputWithContext(context.Context) AiGuardrailGuardrailRegexConfigOutput
+}
+
+// A regex configuration.
+type AiGuardrailGuardrailRegexConfigArgs struct {
+	Action AiGuardrailGuardrailSensitiveInformationActionInput `pulumi:"action"`
+	// The regex description.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The regex name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The regex pattern.
+	Pattern pulumi.StringInput `pulumi:"pattern"`
+}
+
+func (AiGuardrailGuardrailRegexConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiGuardrailGuardrailRegexConfig)(nil)).Elem()
+}
+
+func (i AiGuardrailGuardrailRegexConfigArgs) ToAiGuardrailGuardrailRegexConfigOutput() AiGuardrailGuardrailRegexConfigOutput {
+	return i.ToAiGuardrailGuardrailRegexConfigOutputWithContext(context.Background())
+}
+
+func (i AiGuardrailGuardrailRegexConfigArgs) ToAiGuardrailGuardrailRegexConfigOutputWithContext(ctx context.Context) AiGuardrailGuardrailRegexConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AiGuardrailGuardrailRegexConfigOutput)
+}
+
+// AiGuardrailGuardrailRegexConfigArrayInput is an input type that accepts AiGuardrailGuardrailRegexConfigArray and AiGuardrailGuardrailRegexConfigArrayOutput values.
+// You can construct a concrete instance of `AiGuardrailGuardrailRegexConfigArrayInput` via:
+//
+//	AiGuardrailGuardrailRegexConfigArray{ AiGuardrailGuardrailRegexConfigArgs{...} }
+type AiGuardrailGuardrailRegexConfigArrayInput interface {
+	pulumi.Input
+
+	ToAiGuardrailGuardrailRegexConfigArrayOutput() AiGuardrailGuardrailRegexConfigArrayOutput
+	ToAiGuardrailGuardrailRegexConfigArrayOutputWithContext(context.Context) AiGuardrailGuardrailRegexConfigArrayOutput
+}
+
+type AiGuardrailGuardrailRegexConfigArray []AiGuardrailGuardrailRegexConfigInput
+
+func (AiGuardrailGuardrailRegexConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AiGuardrailGuardrailRegexConfig)(nil)).Elem()
+}
+
+func (i AiGuardrailGuardrailRegexConfigArray) ToAiGuardrailGuardrailRegexConfigArrayOutput() AiGuardrailGuardrailRegexConfigArrayOutput {
+	return i.ToAiGuardrailGuardrailRegexConfigArrayOutputWithContext(context.Background())
+}
+
+func (i AiGuardrailGuardrailRegexConfigArray) ToAiGuardrailGuardrailRegexConfigArrayOutputWithContext(ctx context.Context) AiGuardrailGuardrailRegexConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AiGuardrailGuardrailRegexConfigArrayOutput)
+}
+
+// A regex configuration.
+type AiGuardrailGuardrailRegexConfigOutput struct{ *pulumi.OutputState }
+
+func (AiGuardrailGuardrailRegexConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiGuardrailGuardrailRegexConfig)(nil)).Elem()
+}
+
+func (o AiGuardrailGuardrailRegexConfigOutput) ToAiGuardrailGuardrailRegexConfigOutput() AiGuardrailGuardrailRegexConfigOutput {
+	return o
+}
+
+func (o AiGuardrailGuardrailRegexConfigOutput) ToAiGuardrailGuardrailRegexConfigOutputWithContext(ctx context.Context) AiGuardrailGuardrailRegexConfigOutput {
+	return o
+}
+
+func (o AiGuardrailGuardrailRegexConfigOutput) Action() AiGuardrailGuardrailSensitiveInformationActionOutput {
+	return o.ApplyT(func(v AiGuardrailGuardrailRegexConfig) AiGuardrailGuardrailSensitiveInformationAction {
+		return v.Action
+	}).(AiGuardrailGuardrailSensitiveInformationActionOutput)
+}
+
+// The regex description.
+func (o AiGuardrailGuardrailRegexConfigOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AiGuardrailGuardrailRegexConfig) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The regex name.
+func (o AiGuardrailGuardrailRegexConfigOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AiGuardrailGuardrailRegexConfig) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The regex pattern.
+func (o AiGuardrailGuardrailRegexConfigOutput) Pattern() pulumi.StringOutput {
+	return o.ApplyT(func(v AiGuardrailGuardrailRegexConfig) string { return v.Pattern }).(pulumi.StringOutput)
+}
+
+type AiGuardrailGuardrailRegexConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (AiGuardrailGuardrailRegexConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AiGuardrailGuardrailRegexConfig)(nil)).Elem()
+}
+
+func (o AiGuardrailGuardrailRegexConfigArrayOutput) ToAiGuardrailGuardrailRegexConfigArrayOutput() AiGuardrailGuardrailRegexConfigArrayOutput {
+	return o
+}
+
+func (o AiGuardrailGuardrailRegexConfigArrayOutput) ToAiGuardrailGuardrailRegexConfigArrayOutputWithContext(ctx context.Context) AiGuardrailGuardrailRegexConfigArrayOutput {
+	return o
+}
+
+func (o AiGuardrailGuardrailRegexConfigArrayOutput) Index(i pulumi.IntInput) AiGuardrailGuardrailRegexConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AiGuardrailGuardrailRegexConfig {
+		return vs[0].([]AiGuardrailGuardrailRegexConfig)[vs[1].(int)]
+	}).(AiGuardrailGuardrailRegexConfigOutput)
+}
+
+// Topic config in topic policy.
+type AiGuardrailGuardrailTopicConfig struct {
+	// Definition of topic in topic policy
+	Definition string `pulumi:"definition"`
+	// List of text examples
+	Examples []string `pulumi:"examples"`
+	// Name of topic in topic policy
+	Name string                        `pulumi:"name"`
+	Type AiGuardrailGuardrailTopicType `pulumi:"type"`
+}
+
+// AiGuardrailGuardrailTopicConfigInput is an input type that accepts AiGuardrailGuardrailTopicConfigArgs and AiGuardrailGuardrailTopicConfigOutput values.
+// You can construct a concrete instance of `AiGuardrailGuardrailTopicConfigInput` via:
+//
+//	AiGuardrailGuardrailTopicConfigArgs{...}
+type AiGuardrailGuardrailTopicConfigInput interface {
+	pulumi.Input
+
+	ToAiGuardrailGuardrailTopicConfigOutput() AiGuardrailGuardrailTopicConfigOutput
+	ToAiGuardrailGuardrailTopicConfigOutputWithContext(context.Context) AiGuardrailGuardrailTopicConfigOutput
+}
+
+// Topic config in topic policy.
+type AiGuardrailGuardrailTopicConfigArgs struct {
+	// Definition of topic in topic policy
+	Definition pulumi.StringInput `pulumi:"definition"`
+	// List of text examples
+	Examples pulumi.StringArrayInput `pulumi:"examples"`
+	// Name of topic in topic policy
+	Name pulumi.StringInput                 `pulumi:"name"`
+	Type AiGuardrailGuardrailTopicTypeInput `pulumi:"type"`
+}
+
+func (AiGuardrailGuardrailTopicConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiGuardrailGuardrailTopicConfig)(nil)).Elem()
+}
+
+func (i AiGuardrailGuardrailTopicConfigArgs) ToAiGuardrailGuardrailTopicConfigOutput() AiGuardrailGuardrailTopicConfigOutput {
+	return i.ToAiGuardrailGuardrailTopicConfigOutputWithContext(context.Background())
+}
+
+func (i AiGuardrailGuardrailTopicConfigArgs) ToAiGuardrailGuardrailTopicConfigOutputWithContext(ctx context.Context) AiGuardrailGuardrailTopicConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AiGuardrailGuardrailTopicConfigOutput)
+}
+
+// AiGuardrailGuardrailTopicConfigArrayInput is an input type that accepts AiGuardrailGuardrailTopicConfigArray and AiGuardrailGuardrailTopicConfigArrayOutput values.
+// You can construct a concrete instance of `AiGuardrailGuardrailTopicConfigArrayInput` via:
+//
+//	AiGuardrailGuardrailTopicConfigArray{ AiGuardrailGuardrailTopicConfigArgs{...} }
+type AiGuardrailGuardrailTopicConfigArrayInput interface {
+	pulumi.Input
+
+	ToAiGuardrailGuardrailTopicConfigArrayOutput() AiGuardrailGuardrailTopicConfigArrayOutput
+	ToAiGuardrailGuardrailTopicConfigArrayOutputWithContext(context.Context) AiGuardrailGuardrailTopicConfigArrayOutput
+}
+
+type AiGuardrailGuardrailTopicConfigArray []AiGuardrailGuardrailTopicConfigInput
+
+func (AiGuardrailGuardrailTopicConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AiGuardrailGuardrailTopicConfig)(nil)).Elem()
+}
+
+func (i AiGuardrailGuardrailTopicConfigArray) ToAiGuardrailGuardrailTopicConfigArrayOutput() AiGuardrailGuardrailTopicConfigArrayOutput {
+	return i.ToAiGuardrailGuardrailTopicConfigArrayOutputWithContext(context.Background())
+}
+
+func (i AiGuardrailGuardrailTopicConfigArray) ToAiGuardrailGuardrailTopicConfigArrayOutputWithContext(ctx context.Context) AiGuardrailGuardrailTopicConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AiGuardrailGuardrailTopicConfigArrayOutput)
+}
+
+// Topic config in topic policy.
+type AiGuardrailGuardrailTopicConfigOutput struct{ *pulumi.OutputState }
+
+func (AiGuardrailGuardrailTopicConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiGuardrailGuardrailTopicConfig)(nil)).Elem()
+}
+
+func (o AiGuardrailGuardrailTopicConfigOutput) ToAiGuardrailGuardrailTopicConfigOutput() AiGuardrailGuardrailTopicConfigOutput {
+	return o
+}
+
+func (o AiGuardrailGuardrailTopicConfigOutput) ToAiGuardrailGuardrailTopicConfigOutputWithContext(ctx context.Context) AiGuardrailGuardrailTopicConfigOutput {
+	return o
+}
+
+// Definition of topic in topic policy
+func (o AiGuardrailGuardrailTopicConfigOutput) Definition() pulumi.StringOutput {
+	return o.ApplyT(func(v AiGuardrailGuardrailTopicConfig) string { return v.Definition }).(pulumi.StringOutput)
+}
+
+// List of text examples
+func (o AiGuardrailGuardrailTopicConfigOutput) Examples() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AiGuardrailGuardrailTopicConfig) []string { return v.Examples }).(pulumi.StringArrayOutput)
+}
+
+// Name of topic in topic policy
+func (o AiGuardrailGuardrailTopicConfigOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v AiGuardrailGuardrailTopicConfig) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o AiGuardrailGuardrailTopicConfigOutput) Type() AiGuardrailGuardrailTopicTypeOutput {
+	return o.ApplyT(func(v AiGuardrailGuardrailTopicConfig) AiGuardrailGuardrailTopicType { return v.Type }).(AiGuardrailGuardrailTopicTypeOutput)
+}
+
+type AiGuardrailGuardrailTopicConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (AiGuardrailGuardrailTopicConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AiGuardrailGuardrailTopicConfig)(nil)).Elem()
+}
+
+func (o AiGuardrailGuardrailTopicConfigArrayOutput) ToAiGuardrailGuardrailTopicConfigArrayOutput() AiGuardrailGuardrailTopicConfigArrayOutput {
+	return o
+}
+
+func (o AiGuardrailGuardrailTopicConfigArrayOutput) ToAiGuardrailGuardrailTopicConfigArrayOutputWithContext(ctx context.Context) AiGuardrailGuardrailTopicConfigArrayOutput {
+	return o
+}
+
+func (o AiGuardrailGuardrailTopicConfigArrayOutput) Index(i pulumi.IntInput) AiGuardrailGuardrailTopicConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AiGuardrailGuardrailTopicConfig {
+		return vs[0].([]AiGuardrailGuardrailTopicConfig)[vs[1].(int)]
+	}).(AiGuardrailGuardrailTopicConfigOutput)
+}
+
+// A custom word config.
+type AiGuardrailGuardrailWordConfig struct {
+	// The custom word text.
+	Text string `pulumi:"text"`
+}
+
+// AiGuardrailGuardrailWordConfigInput is an input type that accepts AiGuardrailGuardrailWordConfigArgs and AiGuardrailGuardrailWordConfigOutput values.
+// You can construct a concrete instance of `AiGuardrailGuardrailWordConfigInput` via:
+//
+//	AiGuardrailGuardrailWordConfigArgs{...}
+type AiGuardrailGuardrailWordConfigInput interface {
+	pulumi.Input
+
+	ToAiGuardrailGuardrailWordConfigOutput() AiGuardrailGuardrailWordConfigOutput
+	ToAiGuardrailGuardrailWordConfigOutputWithContext(context.Context) AiGuardrailGuardrailWordConfigOutput
+}
+
+// A custom word config.
+type AiGuardrailGuardrailWordConfigArgs struct {
+	// The custom word text.
+	Text pulumi.StringInput `pulumi:"text"`
+}
+
+func (AiGuardrailGuardrailWordConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiGuardrailGuardrailWordConfig)(nil)).Elem()
+}
+
+func (i AiGuardrailGuardrailWordConfigArgs) ToAiGuardrailGuardrailWordConfigOutput() AiGuardrailGuardrailWordConfigOutput {
+	return i.ToAiGuardrailGuardrailWordConfigOutputWithContext(context.Background())
+}
+
+func (i AiGuardrailGuardrailWordConfigArgs) ToAiGuardrailGuardrailWordConfigOutputWithContext(ctx context.Context) AiGuardrailGuardrailWordConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AiGuardrailGuardrailWordConfigOutput)
+}
+
+// AiGuardrailGuardrailWordConfigArrayInput is an input type that accepts AiGuardrailGuardrailWordConfigArray and AiGuardrailGuardrailWordConfigArrayOutput values.
+// You can construct a concrete instance of `AiGuardrailGuardrailWordConfigArrayInput` via:
+//
+//	AiGuardrailGuardrailWordConfigArray{ AiGuardrailGuardrailWordConfigArgs{...} }
+type AiGuardrailGuardrailWordConfigArrayInput interface {
+	pulumi.Input
+
+	ToAiGuardrailGuardrailWordConfigArrayOutput() AiGuardrailGuardrailWordConfigArrayOutput
+	ToAiGuardrailGuardrailWordConfigArrayOutputWithContext(context.Context) AiGuardrailGuardrailWordConfigArrayOutput
+}
+
+type AiGuardrailGuardrailWordConfigArray []AiGuardrailGuardrailWordConfigInput
+
+func (AiGuardrailGuardrailWordConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AiGuardrailGuardrailWordConfig)(nil)).Elem()
+}
+
+func (i AiGuardrailGuardrailWordConfigArray) ToAiGuardrailGuardrailWordConfigArrayOutput() AiGuardrailGuardrailWordConfigArrayOutput {
+	return i.ToAiGuardrailGuardrailWordConfigArrayOutputWithContext(context.Background())
+}
+
+func (i AiGuardrailGuardrailWordConfigArray) ToAiGuardrailGuardrailWordConfigArrayOutputWithContext(ctx context.Context) AiGuardrailGuardrailWordConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AiGuardrailGuardrailWordConfigArrayOutput)
+}
+
+// A custom word config.
+type AiGuardrailGuardrailWordConfigOutput struct{ *pulumi.OutputState }
+
+func (AiGuardrailGuardrailWordConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiGuardrailGuardrailWordConfig)(nil)).Elem()
+}
+
+func (o AiGuardrailGuardrailWordConfigOutput) ToAiGuardrailGuardrailWordConfigOutput() AiGuardrailGuardrailWordConfigOutput {
+	return o
+}
+
+func (o AiGuardrailGuardrailWordConfigOutput) ToAiGuardrailGuardrailWordConfigOutputWithContext(ctx context.Context) AiGuardrailGuardrailWordConfigOutput {
+	return o
+}
+
+// The custom word text.
+func (o AiGuardrailGuardrailWordConfigOutput) Text() pulumi.StringOutput {
+	return o.ApplyT(func(v AiGuardrailGuardrailWordConfig) string { return v.Text }).(pulumi.StringOutput)
+}
+
+type AiGuardrailGuardrailWordConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (AiGuardrailGuardrailWordConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AiGuardrailGuardrailWordConfig)(nil)).Elem()
+}
+
+func (o AiGuardrailGuardrailWordConfigArrayOutput) ToAiGuardrailGuardrailWordConfigArrayOutput() AiGuardrailGuardrailWordConfigArrayOutput {
+	return o
+}
+
+func (o AiGuardrailGuardrailWordConfigArrayOutput) ToAiGuardrailGuardrailWordConfigArrayOutputWithContext(ctx context.Context) AiGuardrailGuardrailWordConfigArrayOutput {
+	return o
+}
+
+func (o AiGuardrailGuardrailWordConfigArrayOutput) Index(i pulumi.IntInput) AiGuardrailGuardrailWordConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AiGuardrailGuardrailWordConfig {
+		return vs[0].([]AiGuardrailGuardrailWordConfig)[vs[1].(int)]
+	}).(AiGuardrailGuardrailWordConfigOutput)
 }
 
 type AiPromptAiPromptTemplateConfiguration struct {
@@ -7662,6 +9430,7 @@ type MessageTemplateTag struct {
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentAiAgentConfiguration0PropertiesInput)(nil)).Elem(), AiAgentAiAgentConfiguration0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentAiAgentConfiguration1PropertiesInput)(nil)).Elem(), AiAgentAiAgentConfiguration1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentAiAgentConfiguration2PropertiesInput)(nil)).Elem(), AiAgentAiAgentConfiguration2PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentAnswerRecommendationAiAgentConfigurationInput)(nil)).Elem(), AiAgentAnswerRecommendationAiAgentConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentAssociationConfigurationInput)(nil)).Elem(), AiAgentAssociationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentAssociationConfigurationArrayInput)(nil)).Elem(), AiAgentAssociationConfigurationArray{})
@@ -7672,6 +9441,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentManualSearchAiAgentConfigurationInput)(nil)).Elem(), AiAgentManualSearchAiAgentConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentOrCondition0PropertiesInput)(nil)).Elem(), AiAgentOrCondition0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentOrCondition1PropertiesInput)(nil)).Elem(), AiAgentOrCondition1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentSelfServiceAiAgentConfigurationInput)(nil)).Elem(), AiAgentSelfServiceAiAgentConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentTagConditionInput)(nil)).Elem(), AiAgentTagConditionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentTagConditionPtrInput)(nil)).Elem(), AiAgentTagConditionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentTagConditionArrayInput)(nil)).Elem(), AiAgentTagConditionArray{})
@@ -7681,6 +9451,30 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentTagFilter1PropertiesPtrInput)(nil)).Elem(), AiAgentTagFilter1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentTagFilter2PropertiesInput)(nil)).Elem(), AiAgentTagFilter2PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AiAgentTagFilter2PropertiesPtrInput)(nil)).Elem(), AiAgentTagFilter2PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AiGuardrailAiGuardrailContentPolicyConfigInput)(nil)).Elem(), AiGuardrailAiGuardrailContentPolicyConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AiGuardrailAiGuardrailContentPolicyConfigPtrInput)(nil)).Elem(), AiGuardrailAiGuardrailContentPolicyConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AiGuardrailAiGuardrailContextualGroundingPolicyConfigInput)(nil)).Elem(), AiGuardrailAiGuardrailContextualGroundingPolicyConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AiGuardrailAiGuardrailContextualGroundingPolicyConfigPtrInput)(nil)).Elem(), AiGuardrailAiGuardrailContextualGroundingPolicyConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AiGuardrailAiGuardrailSensitiveInformationPolicyConfigInput)(nil)).Elem(), AiGuardrailAiGuardrailSensitiveInformationPolicyConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AiGuardrailAiGuardrailSensitiveInformationPolicyConfigPtrInput)(nil)).Elem(), AiGuardrailAiGuardrailSensitiveInformationPolicyConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AiGuardrailAiGuardrailTopicPolicyConfigInput)(nil)).Elem(), AiGuardrailAiGuardrailTopicPolicyConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AiGuardrailAiGuardrailTopicPolicyConfigPtrInput)(nil)).Elem(), AiGuardrailAiGuardrailTopicPolicyConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AiGuardrailAiGuardrailWordPolicyConfigInput)(nil)).Elem(), AiGuardrailAiGuardrailWordPolicyConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AiGuardrailAiGuardrailWordPolicyConfigPtrInput)(nil)).Elem(), AiGuardrailAiGuardrailWordPolicyConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AiGuardrailGuardrailContentFilterConfigInput)(nil)).Elem(), AiGuardrailGuardrailContentFilterConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AiGuardrailGuardrailContentFilterConfigArrayInput)(nil)).Elem(), AiGuardrailGuardrailContentFilterConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AiGuardrailGuardrailContextualGroundingFilterConfigInput)(nil)).Elem(), AiGuardrailGuardrailContextualGroundingFilterConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AiGuardrailGuardrailContextualGroundingFilterConfigArrayInput)(nil)).Elem(), AiGuardrailGuardrailContextualGroundingFilterConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AiGuardrailGuardrailManagedWordsConfigInput)(nil)).Elem(), AiGuardrailGuardrailManagedWordsConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AiGuardrailGuardrailManagedWordsConfigArrayInput)(nil)).Elem(), AiGuardrailGuardrailManagedWordsConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AiGuardrailGuardrailPiiEntityConfigInput)(nil)).Elem(), AiGuardrailGuardrailPiiEntityConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AiGuardrailGuardrailPiiEntityConfigArrayInput)(nil)).Elem(), AiGuardrailGuardrailPiiEntityConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AiGuardrailGuardrailRegexConfigInput)(nil)).Elem(), AiGuardrailGuardrailRegexConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AiGuardrailGuardrailRegexConfigArrayInput)(nil)).Elem(), AiGuardrailGuardrailRegexConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AiGuardrailGuardrailTopicConfigInput)(nil)).Elem(), AiGuardrailGuardrailTopicConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AiGuardrailGuardrailTopicConfigArrayInput)(nil)).Elem(), AiGuardrailGuardrailTopicConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AiGuardrailGuardrailWordConfigInput)(nil)).Elem(), AiGuardrailGuardrailWordConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AiGuardrailGuardrailWordConfigArrayInput)(nil)).Elem(), AiGuardrailGuardrailWordConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AiPromptAiPromptTemplateConfigurationInput)(nil)).Elem(), AiPromptAiPromptTemplateConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssistantAssociationAssociationDataInput)(nil)).Elem(), AssistantAssociationAssociationDataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssistantServerSideEncryptionConfigurationInput)(nil)).Elem(), AssistantServerSideEncryptionConfigurationArgs{})
@@ -7752,6 +9546,8 @@ func init() {
 	pulumi.RegisterOutputType(AiAgentAiAgentConfiguration0PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(AiAgentAiAgentConfiguration1PropertiesOutput{})
 	pulumi.RegisterOutputType(AiAgentAiAgentConfiguration1PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(AiAgentAiAgentConfiguration2PropertiesOutput{})
+	pulumi.RegisterOutputType(AiAgentAiAgentConfiguration2PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(AiAgentAnswerRecommendationAiAgentConfigurationOutput{})
 	pulumi.RegisterOutputType(AiAgentAnswerRecommendationAiAgentConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AiAgentAssociationConfigurationOutput{})
@@ -7764,6 +9560,8 @@ func init() {
 	pulumi.RegisterOutputType(AiAgentManualSearchAiAgentConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AiAgentOrCondition0PropertiesOutput{})
 	pulumi.RegisterOutputType(AiAgentOrCondition1PropertiesOutput{})
+	pulumi.RegisterOutputType(AiAgentSelfServiceAiAgentConfigurationOutput{})
+	pulumi.RegisterOutputType(AiAgentSelfServiceAiAgentConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AiAgentTagConditionOutput{})
 	pulumi.RegisterOutputType(AiAgentTagConditionPtrOutput{})
 	pulumi.RegisterOutputType(AiAgentTagConditionArrayOutput{})
@@ -7773,6 +9571,30 @@ func init() {
 	pulumi.RegisterOutputType(AiAgentTagFilter1PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(AiAgentTagFilter2PropertiesOutput{})
 	pulumi.RegisterOutputType(AiAgentTagFilter2PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(AiGuardrailAiGuardrailContentPolicyConfigOutput{})
+	pulumi.RegisterOutputType(AiGuardrailAiGuardrailContentPolicyConfigPtrOutput{})
+	pulumi.RegisterOutputType(AiGuardrailAiGuardrailContextualGroundingPolicyConfigOutput{})
+	pulumi.RegisterOutputType(AiGuardrailAiGuardrailContextualGroundingPolicyConfigPtrOutput{})
+	pulumi.RegisterOutputType(AiGuardrailAiGuardrailSensitiveInformationPolicyConfigOutput{})
+	pulumi.RegisterOutputType(AiGuardrailAiGuardrailSensitiveInformationPolicyConfigPtrOutput{})
+	pulumi.RegisterOutputType(AiGuardrailAiGuardrailTopicPolicyConfigOutput{})
+	pulumi.RegisterOutputType(AiGuardrailAiGuardrailTopicPolicyConfigPtrOutput{})
+	pulumi.RegisterOutputType(AiGuardrailAiGuardrailWordPolicyConfigOutput{})
+	pulumi.RegisterOutputType(AiGuardrailAiGuardrailWordPolicyConfigPtrOutput{})
+	pulumi.RegisterOutputType(AiGuardrailGuardrailContentFilterConfigOutput{})
+	pulumi.RegisterOutputType(AiGuardrailGuardrailContentFilterConfigArrayOutput{})
+	pulumi.RegisterOutputType(AiGuardrailGuardrailContextualGroundingFilterConfigOutput{})
+	pulumi.RegisterOutputType(AiGuardrailGuardrailContextualGroundingFilterConfigArrayOutput{})
+	pulumi.RegisterOutputType(AiGuardrailGuardrailManagedWordsConfigOutput{})
+	pulumi.RegisterOutputType(AiGuardrailGuardrailManagedWordsConfigArrayOutput{})
+	pulumi.RegisterOutputType(AiGuardrailGuardrailPiiEntityConfigOutput{})
+	pulumi.RegisterOutputType(AiGuardrailGuardrailPiiEntityConfigArrayOutput{})
+	pulumi.RegisterOutputType(AiGuardrailGuardrailRegexConfigOutput{})
+	pulumi.RegisterOutputType(AiGuardrailGuardrailRegexConfigArrayOutput{})
+	pulumi.RegisterOutputType(AiGuardrailGuardrailTopicConfigOutput{})
+	pulumi.RegisterOutputType(AiGuardrailGuardrailTopicConfigArrayOutput{})
+	pulumi.RegisterOutputType(AiGuardrailGuardrailWordConfigOutput{})
+	pulumi.RegisterOutputType(AiGuardrailGuardrailWordConfigArrayOutput{})
 	pulumi.RegisterOutputType(AiPromptAiPromptTemplateConfigurationOutput{})
 	pulumi.RegisterOutputType(AiPromptAiPromptTemplateConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AssistantAssociationAssociationDataOutput{})

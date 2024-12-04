@@ -13,15 +13,19 @@ namespace Pulumi.AwsNative.Wisdom.Outputs
     [OutputType]
     public sealed class AiAgentManualSearchAiAgentConfiguration
     {
+        public readonly string? AnswerGenerationAiGuardrailId;
         public readonly string? AnswerGenerationAiPromptId;
         public readonly ImmutableArray<Outputs.AiAgentAssociationConfiguration> AssociationConfigurations;
 
         [OutputConstructor]
         private AiAgentManualSearchAiAgentConfiguration(
+            string? answerGenerationAiGuardrailId,
+
             string? answerGenerationAiPromptId,
 
             ImmutableArray<Outputs.AiAgentAssociationConfiguration> associationConfigurations)
         {
+            AnswerGenerationAiGuardrailId = answerGenerationAiGuardrailId;
             AnswerGenerationAiPromptId = answerGenerationAiPromptId;
             AssociationConfigurations = associationConfigurations;
         }

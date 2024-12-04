@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.Wisdom
         /// Configuration for the AI Agent.
         /// </summary>
         [Output("configuration")]
-        public Output<Union<Outputs.AiAgentAiAgentConfiguration0Properties, Outputs.AiAgentAiAgentConfiguration1Properties>> Configuration { get; private set; } = null!;
+        public Output<object> Configuration { get; private set; } = null!;
 
         /// <summary>
         /// The description of the AI Agent.
@@ -131,7 +131,7 @@ namespace Pulumi.AwsNative.Wisdom
         /// Configuration for the AI Agent.
         /// </summary>
         [Input("configuration", required: true)]
-        public InputUnion<Inputs.AiAgentAiAgentConfiguration0PropertiesArgs, Inputs.AiAgentAiAgentConfiguration1PropertiesArgs> Configuration { get; set; } = null!;
+        public object Configuration { get; set; } = null!;
 
         /// <summary>
         /// The description of the AI Agent.
