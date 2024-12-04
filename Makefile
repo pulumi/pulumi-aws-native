@@ -112,8 +112,6 @@ generate_python: .pulumi/bin/pulumi
 	.pulumi/bin/pulumi package gen-sdk provider/cmd/pulumi-resource-aws-native/schema.json --language python --version "$(VERSION_GENERIC)"
 
 build_python::
-	# Delete files not tracked in Git
-	cd sdk/python/ && git clean -fxd
 	cd sdk/python/ && \
         cp ../../README.md . && \
         rm -rf ./bin/ ../python.bin/ && cp -R . ../python.bin && mv ../python.bin ./bin && \
