@@ -2225,7 +2225,8 @@
         "description": "The domain name for the custom domain that hosts the sign-up and sign-in pages for your application. One example might be `auth.example.com` .\n\nThis string can include only lowercase letters, numbers, and hyphens. Don't use a hyphen for the first or last character. Use periods to separate subdomain names."
       },
       "managedLoginVersion": {
-        "type": "integer"
+        "type": "integer",
+        "description": "A version number that indicates the state of managed login for your domain. Version `1` is hosted UI (classic). Version `2` is the newer managed login with the branding designer. For more information, see [Managed login](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html) ."
       },
       "userPoolId": {
         "type": "string",
@@ -13302,10 +13303,11 @@
       },
       "resourceIdentifier": {
         "type": "string",
-        "description": "The ID or Amazon Resource Name (ARN) of the service network or service."
+        "description": "The ID or ARN of the service network or service."
       },
       "serviceNetworkLogType": {
-        "$ref": "#/types/aws-native:vpclattice:AccessLogSubscriptionServiceNetworkLogType"
+        "$ref": "#/types/aws-native:vpclattice:AccessLogSubscriptionServiceNetworkLogType",
+        "description": "Log type of the service network."
       },
       "tags": {
         "type": "array",
@@ -13325,7 +13327,7 @@
       },
       "resourceIdentifier": {
         "type": "string",
-        "description": "The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created."
+        "description": "The ID or ARN of the service network or service for which the policy is created."
       }
     }
   },
@@ -13342,6 +13344,23 @@
       }
     }
   },
+  "aws-native:vpclattice:ServiceNetworkResourceAssociation": {
+    "cfTypeName": "AWS::VpcLattice::ServiceNetworkResourceAssociation",
+    "properties": {
+      "resourceConfigurationId": {
+        "type": "string"
+      },
+      "serviceNetworkId": {
+        "type": "string"
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        }
+      }
+    }
+  },
   "aws-native:vpclattice:ServiceNetworkServiceAssociation": {
     "cfTypeName": "AWS::VpcLattice::ServiceNetworkServiceAssociation",
     "properties": {
@@ -13351,11 +13370,11 @@
       },
       "serviceIdentifier": {
         "type": "string",
-        "description": "The ID or Amazon Resource Name (ARN) of the service."
+        "description": "The ID or ARN of the service."
       },
       "serviceNetworkIdentifier": {
         "type": "string",
-        "description": "The ID or Amazon Resource Name (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts."
+        "description": "The ID or ARN of the service network. You must use an ARN if the resources are in different accounts."
       },
       "tags": {
         "type": "array",
@@ -13378,7 +13397,7 @@
       },
       "serviceNetworkIdentifier": {
         "type": "string",
-        "description": "The ID or Amazon Resource Name (ARN) of the service network. You must use the ARN when the resources specified in the operation are in different accounts."
+        "description": "The ID or ARN of the service network. You must use an ARN if the resources are in different accounts."
       },
       "tags": {
         "type": "array",

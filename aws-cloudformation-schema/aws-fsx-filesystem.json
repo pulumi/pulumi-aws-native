@@ -125,6 +125,9 @@
         "AutoImportPolicy" : {
           "type" : "string"
         },
+        "EfaEnabled" : {
+          "type" : "boolean"
+        },
         "ImportedFileChunkSize" : {
           "type" : "integer"
         },
@@ -312,6 +315,9 @@
         "EndpointIpAddressRange" : {
           "type" : "string"
         },
+        "ReadCacheConfiguration" : {
+          "$ref" : "#/definitions/ReadCacheConfiguration"
+        },
         "RouteTableIds" : {
           "type" : "array",
           "uniqueItems" : false,
@@ -339,6 +345,18 @@
         }
       },
       "required" : [ "DeploymentType" ]
+    },
+    "ReadCacheConfiguration" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "SizingMode" : {
+          "type" : "string"
+        },
+        "SizeGiB" : {
+          "type" : "integer"
+        }
+      }
     },
     "DiskIopsConfiguration" : {
       "type" : "object",
