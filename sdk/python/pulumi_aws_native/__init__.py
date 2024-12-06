@@ -3247,10 +3247,13 @@ _utilities.register(
    "aws-native:vpclattice:AccessLogSubscription": "AccessLogSubscription",
    "aws-native:vpclattice:AuthPolicy": "AuthPolicy",
    "aws-native:vpclattice:Listener": "Listener",
+   "aws-native:vpclattice:ResourceConfiguration": "ResourceConfiguration",
+   "aws-native:vpclattice:ResourceGateway": "ResourceGateway",
    "aws-native:vpclattice:ResourcePolicy": "ResourcePolicy",
    "aws-native:vpclattice:Rule": "Rule",
    "aws-native:vpclattice:Service": "Service",
    "aws-native:vpclattice:ServiceNetwork": "ServiceNetwork",
+   "aws-native:vpclattice:ServiceNetworkResourceAssociation": "ServiceNetworkResourceAssociation",
    "aws-native:vpclattice:ServiceNetworkServiceAssociation": "ServiceNetworkServiceAssociation",
    "aws-native:vpclattice:ServiceNetworkVpcAssociation": "ServiceNetworkVpcAssociation",
    "aws-native:vpclattice:TargetGroup": "TargetGroup"

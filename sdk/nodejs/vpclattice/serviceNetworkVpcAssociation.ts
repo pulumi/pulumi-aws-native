@@ -62,7 +62,7 @@ export class ServiceNetworkVpcAssociation extends pulumi.CustomResource {
      */
     public /*out*/ readonly serviceNetworkId!: pulumi.Output<string>;
     /**
-     * The ID or Amazon Resource Name (ARN) of the service network. You must use the ARN when the resources specified in the operation are in different accounts.
+     * The ID or ARN of the service network. You must use an ARN if the resources are in different accounts.
      */
     public readonly serviceNetworkIdentifier!: pulumi.Output<string | undefined>;
     /**
@@ -139,7 +139,7 @@ export interface ServiceNetworkVpcAssociationArgs {
      */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The ID or Amazon Resource Name (ARN) of the service network. You must use the ARN when the resources specified in the operation are in different accounts.
+     * The ID or ARN of the service network. You must use an ARN if the resources are in different accounts.
      */
     serviceNetworkIdentifier?: pulumi.Input<string>;
     /**

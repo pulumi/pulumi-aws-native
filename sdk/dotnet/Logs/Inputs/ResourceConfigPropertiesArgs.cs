@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Logs.Inputs
     /// </summary>
     public sealed class ResourceConfigPropertiesArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// This structure contains configuration details about an integration between CloudWatch Logs and OpenSearch Service.
+        /// </summary>
         [Input("openSearchResourceConfig")]
         public Input<Inputs.IntegrationOpenSearchResourceConfigArgs>? OpenSearchResourceConfig { get; set; }
 

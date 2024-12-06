@@ -29,7 +29,8 @@ class AccessLogSubscriptionArgs:
         """
         The set of arguments for constructing a AccessLogSubscription resource.
         :param pulumi.Input[str] destination_arn: The Amazon Resource Name (ARN) of the destination. The supported destination types are CloudWatch Log groups, Kinesis Data Firehose delivery streams, and Amazon S3 buckets.
-        :param pulumi.Input[str] resource_identifier: The ID or Amazon Resource Name (ARN) of the service network or service.
+        :param pulumi.Input[str] resource_identifier: The ID or ARN of the service network or service.
+        :param pulumi.Input['AccessLogSubscriptionServiceNetworkLogType'] service_network_log_type: Log type of the service network.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags for the access log subscription.
         """
         pulumi.set(__self__, "destination_arn", destination_arn)
@@ -56,7 +57,7 @@ class AccessLogSubscriptionArgs:
     @pulumi.getter(name="resourceIdentifier")
     def resource_identifier(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID or Amazon Resource Name (ARN) of the service network or service.
+        The ID or ARN of the service network or service.
         """
         return pulumi.get(self, "resource_identifier")
 
@@ -67,6 +68,9 @@ class AccessLogSubscriptionArgs:
     @property
     @pulumi.getter(name="serviceNetworkLogType")
     def service_network_log_type(self) -> Optional[pulumi.Input['AccessLogSubscriptionServiceNetworkLogType']]:
+        """
+        Log type of the service network.
+        """
         return pulumi.get(self, "service_network_log_type")
 
     @service_network_log_type.setter
@@ -102,7 +106,8 @@ class AccessLogSubscription(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] destination_arn: The Amazon Resource Name (ARN) of the destination. The supported destination types are CloudWatch Log groups, Kinesis Data Firehose delivery streams, and Amazon S3 buckets.
-        :param pulumi.Input[str] resource_identifier: The ID or Amazon Resource Name (ARN) of the service network or service.
+        :param pulumi.Input[str] resource_identifier: The ID or ARN of the service network or service.
+        :param pulumi.Input['AccessLogSubscriptionServiceNetworkLogType'] service_network_log_type: Log type of the service network.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags for the access log subscription.
         """
         ...
@@ -230,13 +235,16 @@ class AccessLogSubscription(pulumi.CustomResource):
     @pulumi.getter(name="resourceIdentifier")
     def resource_identifier(self) -> pulumi.Output[Optional[str]]:
         """
-        The ID or Amazon Resource Name (ARN) of the service network or service.
+        The ID or ARN of the service network or service.
         """
         return pulumi.get(self, "resource_identifier")
 
     @property
     @pulumi.getter(name="serviceNetworkLogType")
     def service_network_log_type(self) -> pulumi.Output[Optional['AccessLogSubscriptionServiceNetworkLogType']]:
+        """
+        Log type of the service network.
+        """
         return pulumi.get(self, "service_network_log_type")
 
     @property

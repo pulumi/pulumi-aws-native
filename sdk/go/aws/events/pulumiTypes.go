@@ -824,11 +824,11 @@ func (o ConnectionConnectivityParametersPtrOutput) ResourceParameters() Connecti
 }
 
 type ConnectionHttpParameters struct {
-	// Contains additional body string parameters for the connection.
+	// Any additional body string parameters for the connection.
 	BodyParameters []ConnectionParameter `pulumi:"bodyParameters"`
-	// Contains additional header parameters for the connection.
+	// Any additional header parameters for the connection.
 	HeaderParameters []ConnectionParameter `pulumi:"headerParameters"`
-	// Contains additional query string parameters for the connection.
+	// Any additional query string parameters for the connection.
 	QueryStringParameters []ConnectionParameter `pulumi:"queryStringParameters"`
 }
 
@@ -844,11 +844,11 @@ type ConnectionHttpParametersInput interface {
 }
 
 type ConnectionHttpParametersArgs struct {
-	// Contains additional body string parameters for the connection.
+	// Any additional body string parameters for the connection.
 	BodyParameters ConnectionParameterArrayInput `pulumi:"bodyParameters"`
-	// Contains additional header parameters for the connection.
+	// Any additional header parameters for the connection.
 	HeaderParameters ConnectionParameterArrayInput `pulumi:"headerParameters"`
-	// Contains additional query string parameters for the connection.
+	// Any additional query string parameters for the connection.
 	QueryStringParameters ConnectionParameterArrayInput `pulumi:"queryStringParameters"`
 }
 
@@ -929,17 +929,17 @@ func (o ConnectionHttpParametersOutput) ToConnectionHttpParametersPtrOutputWithC
 	}).(ConnectionHttpParametersPtrOutput)
 }
 
-// Contains additional body string parameters for the connection.
+// Any additional body string parameters for the connection.
 func (o ConnectionHttpParametersOutput) BodyParameters() ConnectionParameterArrayOutput {
 	return o.ApplyT(func(v ConnectionHttpParameters) []ConnectionParameter { return v.BodyParameters }).(ConnectionParameterArrayOutput)
 }
 
-// Contains additional header parameters for the connection.
+// Any additional header parameters for the connection.
 func (o ConnectionHttpParametersOutput) HeaderParameters() ConnectionParameterArrayOutput {
 	return o.ApplyT(func(v ConnectionHttpParameters) []ConnectionParameter { return v.HeaderParameters }).(ConnectionParameterArrayOutput)
 }
 
-// Contains additional query string parameters for the connection.
+// Any additional query string parameters for the connection.
 func (o ConnectionHttpParametersOutput) QueryStringParameters() ConnectionParameterArrayOutput {
 	return o.ApplyT(func(v ConnectionHttpParameters) []ConnectionParameter { return v.QueryStringParameters }).(ConnectionParameterArrayOutput)
 }
@@ -968,7 +968,7 @@ func (o ConnectionHttpParametersPtrOutput) Elem() ConnectionHttpParametersOutput
 	}).(ConnectionHttpParametersOutput)
 }
 
-// Contains additional body string parameters for the connection.
+// Any additional body string parameters for the connection.
 func (o ConnectionHttpParametersPtrOutput) BodyParameters() ConnectionParameterArrayOutput {
 	return o.ApplyT(func(v *ConnectionHttpParameters) []ConnectionParameter {
 		if v == nil {
@@ -978,7 +978,7 @@ func (o ConnectionHttpParametersPtrOutput) BodyParameters() ConnectionParameterA
 	}).(ConnectionParameterArrayOutput)
 }
 
-// Contains additional header parameters for the connection.
+// Any additional header parameters for the connection.
 func (o ConnectionHttpParametersPtrOutput) HeaderParameters() ConnectionParameterArrayOutput {
 	return o.ApplyT(func(v *ConnectionHttpParameters) []ConnectionParameter {
 		if v == nil {
@@ -988,7 +988,7 @@ func (o ConnectionHttpParametersPtrOutput) HeaderParameters() ConnectionParamete
 	}).(ConnectionParameterArrayOutput)
 }
 
-// Contains additional query string parameters for the connection.
+// Any additional query string parameters for the connection.
 func (o ConnectionHttpParametersPtrOutput) QueryStringParameters() ConnectionParameterArrayOutput {
 	return o.ApplyT(func(v *ConnectionHttpParameters) []ConnectionParameter {
 		if v == nil {
@@ -1001,11 +1001,11 @@ func (o ConnectionHttpParametersPtrOutput) QueryStringParameters() ConnectionPar
 type ConnectionOAuthParameters struct {
 	// The URL to the authorization endpoint when OAuth is specified as the authorization type.
 	AuthorizationEndpoint string `pulumi:"authorizationEndpoint"`
-	// A `CreateConnectionOAuthClientRequestParameters` object that contains the client parameters for OAuth authorization.
+	// The client parameters for OAuth authorization.
 	ClientParameters ConnectionClientParameters `pulumi:"clientParameters"`
 	// The method to use for the authorization request.
 	HttpMethod ConnectionOAuthParametersHttpMethod `pulumi:"httpMethod"`
-	// A `ConnectionHttpParameters` object that contains details about the additional parameters to use for the connection.
+	// Details about the additional parameters to use for the connection.
 	OAuthHttpParameters *ConnectionHttpParameters `pulumi:"oAuthHttpParameters"`
 }
 
@@ -1023,11 +1023,11 @@ type ConnectionOAuthParametersInput interface {
 type ConnectionOAuthParametersArgs struct {
 	// The URL to the authorization endpoint when OAuth is specified as the authorization type.
 	AuthorizationEndpoint pulumi.StringInput `pulumi:"authorizationEndpoint"`
-	// A `CreateConnectionOAuthClientRequestParameters` object that contains the client parameters for OAuth authorization.
+	// The client parameters for OAuth authorization.
 	ClientParameters ConnectionClientParametersInput `pulumi:"clientParameters"`
 	// The method to use for the authorization request.
 	HttpMethod ConnectionOAuthParametersHttpMethodInput `pulumi:"httpMethod"`
-	// A `ConnectionHttpParameters` object that contains details about the additional parameters to use for the connection.
+	// Details about the additional parameters to use for the connection.
 	OAuthHttpParameters ConnectionHttpParametersPtrInput `pulumi:"oAuthHttpParameters"`
 }
 
@@ -1113,7 +1113,7 @@ func (o ConnectionOAuthParametersOutput) AuthorizationEndpoint() pulumi.StringOu
 	return o.ApplyT(func(v ConnectionOAuthParameters) string { return v.AuthorizationEndpoint }).(pulumi.StringOutput)
 }
 
-// A `CreateConnectionOAuthClientRequestParameters` object that contains the client parameters for OAuth authorization.
+// The client parameters for OAuth authorization.
 func (o ConnectionOAuthParametersOutput) ClientParameters() ConnectionClientParametersOutput {
 	return o.ApplyT(func(v ConnectionOAuthParameters) ConnectionClientParameters { return v.ClientParameters }).(ConnectionClientParametersOutput)
 }
@@ -1123,7 +1123,7 @@ func (o ConnectionOAuthParametersOutput) HttpMethod() ConnectionOAuthParametersH
 	return o.ApplyT(func(v ConnectionOAuthParameters) ConnectionOAuthParametersHttpMethod { return v.HttpMethod }).(ConnectionOAuthParametersHttpMethodOutput)
 }
 
-// A `ConnectionHttpParameters` object that contains details about the additional parameters to use for the connection.
+// Details about the additional parameters to use for the connection.
 func (o ConnectionOAuthParametersOutput) OAuthHttpParameters() ConnectionHttpParametersPtrOutput {
 	return o.ApplyT(func(v ConnectionOAuthParameters) *ConnectionHttpParameters { return v.OAuthHttpParameters }).(ConnectionHttpParametersPtrOutput)
 }
@@ -1162,7 +1162,7 @@ func (o ConnectionOAuthParametersPtrOutput) AuthorizationEndpoint() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// A `CreateConnectionOAuthClientRequestParameters` object that contains the client parameters for OAuth authorization.
+// The client parameters for OAuth authorization.
 func (o ConnectionOAuthParametersPtrOutput) ClientParameters() ConnectionClientParametersPtrOutput {
 	return o.ApplyT(func(v *ConnectionOAuthParameters) *ConnectionClientParameters {
 		if v == nil {
@@ -1182,7 +1182,7 @@ func (o ConnectionOAuthParametersPtrOutput) HttpMethod() ConnectionOAuthParamete
 	}).(ConnectionOAuthParametersHttpMethodPtrOutput)
 }
 
-// A `ConnectionHttpParameters` object that contains details about the additional parameters to use for the connection.
+// Details about the additional parameters to use for the connection.
 func (o ConnectionOAuthParametersPtrOutput) OAuthHttpParameters() ConnectionHttpParametersPtrOutput {
 	return o.ApplyT(func(v *ConnectionOAuthParameters) *ConnectionHttpParameters {
 		if v == nil {
@@ -5942,7 +5942,7 @@ type RuleTarget struct {
 	//
 	// If you specify a Amazon Redshift Cluster as a Target, you can use this to specify parameters to invoke the Amazon Redshift Data API ExecuteStatement based on EventBridge events.
 	RedshiftDataParameters *RuleRedshiftDataParameters `pulumi:"redshiftDataParameters"`
-	// The `RetryPolicy` object that contains the retry policy configuration to use for the dead-letter queue.
+	// The retry policy configuration to use for the dead-letter queue.
 	RetryPolicy *RuleRetryPolicy `pulumi:"retryPolicy"`
 	// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. If one rule triggers multiple targets, you can use a different IAM role for each target.
 	RoleArn *string `pulumi:"roleArn"`
@@ -5998,7 +5998,7 @@ type RuleTargetArgs struct {
 	//
 	// If you specify a Amazon Redshift Cluster as a Target, you can use this to specify parameters to invoke the Amazon Redshift Data API ExecuteStatement based on EventBridge events.
 	RedshiftDataParameters RuleRedshiftDataParametersPtrInput `pulumi:"redshiftDataParameters"`
-	// The `RetryPolicy` object that contains the retry policy configuration to use for the dead-letter queue.
+	// The retry policy configuration to use for the dead-letter queue.
 	RetryPolicy RuleRetryPolicyPtrInput `pulumi:"retryPolicy"`
 	// The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. If one rule triggers multiple targets, you can use a different IAM role for each target.
 	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
@@ -6129,7 +6129,7 @@ func (o RuleTargetOutput) RedshiftDataParameters() RuleRedshiftDataParametersPtr
 	return o.ApplyT(func(v RuleTarget) *RuleRedshiftDataParameters { return v.RedshiftDataParameters }).(RuleRedshiftDataParametersPtrOutput)
 }
 
-// The `RetryPolicy` object that contains the retry policy configuration to use for the dead-letter queue.
+// The retry policy configuration to use for the dead-letter queue.
 func (o RuleTargetOutput) RetryPolicy() RuleRetryPolicyPtrOutput {
 	return o.ApplyT(func(v RuleTarget) *RuleRetryPolicy { return v.RetryPolicy }).(RuleRetryPolicyPtrOutput)
 }

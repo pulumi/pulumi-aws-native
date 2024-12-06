@@ -89,7 +89,7 @@ namespace Pulumi.AwsNative.Events.Inputs
         public Input<Inputs.RuleRedshiftDataParametersArgs>? RedshiftDataParameters { get; set; }
 
         /// <summary>
-        /// The `RetryPolicy` object that contains the retry policy configuration to use for the dead-letter queue.
+        /// The retry policy configuration to use for the dead-letter queue.
         /// </summary>
         [Input("retryPolicy")]
         public Input<Inputs.RuleRetryPolicyArgs>? RetryPolicy { get; set; }

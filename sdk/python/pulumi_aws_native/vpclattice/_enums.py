@@ -8,6 +8,11 @@ __all__ = [
     'AccessLogSubscriptionServiceNetworkLogType',
     'AuthPolicyState',
     'ListenerProtocol',
+    'ResourceConfigurationAuthType',
+    'ResourceConfigurationDnsResourceIpAddressType',
+    'ResourceConfigurationProtocolType',
+    'ResourceConfigurationType',
+    'ResourceGatewayIpAddressType',
     'RuleHttpMatchMethod',
     'ServiceAuthType',
     'ServiceNetworkAuthType',
@@ -26,6 +31,9 @@ __all__ = [
 
 
 class AccessLogSubscriptionServiceNetworkLogType(str, Enum):
+    """
+    Log type of the service network.
+    """
     SERVICE = "SERVICE"
     RESOURCE = "RESOURCE"
 
@@ -45,6 +53,34 @@ class ListenerProtocol(str, Enum):
     HTTP = "HTTP"
     HTTPS = "HTTPS"
     TLS_PASSTHROUGH = "TLS_PASSTHROUGH"
+
+
+class ResourceConfigurationAuthType(str, Enum):
+    NONE = "NONE"
+    AWS_IAM = "AWS_IAM"
+
+
+class ResourceConfigurationDnsResourceIpAddressType(str, Enum):
+    IPV4 = "IPV4"
+    IPV6 = "IPV6"
+    DUALSTACK = "DUALSTACK"
+
+
+class ResourceConfigurationProtocolType(str, Enum):
+    TCP = "TCP"
+
+
+class ResourceConfigurationType(str, Enum):
+    GROUP = "GROUP"
+    CHILD = "CHILD"
+    SINGLE = "SINGLE"
+    ARN = "ARN"
+
+
+class ResourceGatewayIpAddressType(str, Enum):
+    IPV4 = "IPV4"
+    IPV6 = "IPV6"
+    DUALSTACK = "DUALSTACK"
 
 
 class RuleHttpMatchMethod(str, Enum):

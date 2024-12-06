@@ -23,7 +23,7 @@ type Rule struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The ID of the listener.
 	AwsId pulumi.StringOutput `pulumi:"awsId"`
-	// The ID or Amazon Resource Name (ARN) of the listener.
+	// The ID or ARN of the listener.
 	ListenerIdentifier pulumi.StringPtrOutput `pulumi:"listenerIdentifier"`
 	// The rule match.
 	Match RuleMatchOutput `pulumi:"match"`
@@ -33,7 +33,7 @@ type Rule struct {
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
 	Priority pulumi.IntOutput `pulumi:"priority"`
-	// The ID or Amazon Resource Name (ARN) of the service.
+	// The ID or ARN of the service.
 	ServiceIdentifier pulumi.StringPtrOutput `pulumi:"serviceIdentifier"`
 	// The tags for the rule.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
@@ -96,7 +96,7 @@ func (RuleState) ElementType() reflect.Type {
 type ruleArgs struct {
 	// Describes the action for a rule.
 	Action RuleAction `pulumi:"action"`
-	// The ID or Amazon Resource Name (ARN) of the listener.
+	// The ID or ARN of the listener.
 	ListenerIdentifier *string `pulumi:"listenerIdentifier"`
 	// The rule match.
 	Match RuleMatch `pulumi:"match"`
@@ -106,7 +106,7 @@ type ruleArgs struct {
 	Name *string `pulumi:"name"`
 	// The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
 	Priority int `pulumi:"priority"`
-	// The ID or Amazon Resource Name (ARN) of the service.
+	// The ID or ARN of the service.
 	ServiceIdentifier *string `pulumi:"serviceIdentifier"`
 	// The tags for the rule.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -116,7 +116,7 @@ type ruleArgs struct {
 type RuleArgs struct {
 	// Describes the action for a rule.
 	Action RuleActionInput
-	// The ID or Amazon Resource Name (ARN) of the listener.
+	// The ID or ARN of the listener.
 	ListenerIdentifier pulumi.StringPtrInput
 	// The rule match.
 	Match RuleMatchInput
@@ -126,7 +126,7 @@ type RuleArgs struct {
 	Name pulumi.StringPtrInput
 	// The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
 	Priority pulumi.IntInput
-	// The ID or Amazon Resource Name (ARN) of the service.
+	// The ID or ARN of the service.
 	ServiceIdentifier pulumi.StringPtrInput
 	// The tags for the rule.
 	Tags aws.TagArrayInput
@@ -184,7 +184,7 @@ func (o RuleOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Rule) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
-// The ID or Amazon Resource Name (ARN) of the listener.
+// The ID or ARN of the listener.
 func (o RuleOutput) ListenerIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Rule) pulumi.StringPtrOutput { return v.ListenerIdentifier }).(pulumi.StringPtrOutput)
 }
@@ -206,7 +206,7 @@ func (o RuleOutput) Priority() pulumi.IntOutput {
 	return o.ApplyT(func(v *Rule) pulumi.IntOutput { return v.Priority }).(pulumi.IntOutput)
 }
 
-// The ID or Amazon Resource Name (ARN) of the service.
+// The ID or ARN of the service.
 func (o RuleOutput) ServiceIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Rule) pulumi.StringPtrOutput { return v.ServiceIdentifier }).(pulumi.StringPtrOutput)
 }

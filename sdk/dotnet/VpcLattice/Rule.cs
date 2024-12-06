@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.VpcLattice
         public Output<string> AwsId { get; private set; } = null!;
 
         /// <summary>
-        /// The ID or Amazon Resource Name (ARN) of the listener.
+        /// The ID or ARN of the listener.
         /// </summary>
         [Output("listenerIdentifier")]
         public Output<string?> ListenerIdentifier { get; private set; } = null!;
@@ -60,7 +60,7 @@ namespace Pulumi.AwsNative.VpcLattice
         public Output<int> Priority { get; private set; } = null!;
 
         /// <summary>
-        /// The ID or Amazon Resource Name (ARN) of the service.
+        /// The ID or ARN of the service.
         /// </summary>
         [Output("serviceIdentifier")]
         public Output<string?> ServiceIdentifier { get; private set; } = null!;
@@ -129,7 +129,7 @@ namespace Pulumi.AwsNative.VpcLattice
         public Input<Inputs.RuleActionArgs> Action { get; set; } = null!;
 
         /// <summary>
-        /// The ID or Amazon Resource Name (ARN) of the listener.
+        /// The ID or ARN of the listener.
         /// </summary>
         [Input("listenerIdentifier")]
         public Input<string>? ListenerIdentifier { get; set; }
@@ -155,7 +155,7 @@ namespace Pulumi.AwsNative.VpcLattice
         public Input<int> Priority { get; set; } = null!;
 
         /// <summary>
-        /// The ID or Amazon Resource Name (ARN) of the service.
+        /// The ID or ARN of the service.
         /// </summary>
         [Input("serviceIdentifier")]
         public Input<string>? ServiceIdentifier { get; set; }

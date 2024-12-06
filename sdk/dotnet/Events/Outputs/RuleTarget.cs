@@ -66,7 +66,7 @@ namespace Pulumi.AwsNative.Events.Outputs
         /// </summary>
         public readonly Outputs.RuleRedshiftDataParameters? RedshiftDataParameters;
         /// <summary>
-        /// The `RetryPolicy` object that contains the retry policy configuration to use for the dead-letter queue.
+        /// The retry policy configuration to use for the dead-letter queue.
         /// </summary>
         public readonly Outputs.RuleRetryPolicy? RetryPolicy;
         /// <summary>

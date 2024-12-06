@@ -46,11 +46,14 @@ namespace Pulumi.AwsNative.VpcLattice
         public Output<string> ResourceId { get; private set; } = null!;
 
         /// <summary>
-        /// The ID or Amazon Resource Name (ARN) of the service network or service.
+        /// The ID or ARN of the service network or service.
         /// </summary>
         [Output("resourceIdentifier")]
         public Output<string?> ResourceIdentifier { get; private set; } = null!;
 
+        /// <summary>
+        /// Log type of the service network.
+        /// </summary>
         [Output("serviceNetworkLogType")]
         public Output<Pulumi.AwsNative.VpcLattice.AccessLogSubscriptionServiceNetworkLogType?> ServiceNetworkLogType { get; private set; } = null!;
 
@@ -116,11 +119,14 @@ namespace Pulumi.AwsNative.VpcLattice
         public Input<string> DestinationArn { get; set; } = null!;
 
         /// <summary>
-        /// The ID or Amazon Resource Name (ARN) of the service network or service.
+        /// The ID or ARN of the service network or service.
         /// </summary>
         [Input("resourceIdentifier")]
         public Input<string>? ResourceIdentifier { get; set; }
 
+        /// <summary>
+        /// Log type of the service network.
+        /// </summary>
         [Input("serviceNetworkLogType")]
         public Input<Pulumi.AwsNative.VpcLattice.AccessLogSubscriptionServiceNetworkLogType>? ServiceNetworkLogType { get; set; }
 

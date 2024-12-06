@@ -10,6 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Log type of the service network.
 type AccessLogSubscriptionServiceNetworkLogType string
 
 const (
@@ -432,6 +433,837 @@ func (in *listenerProtocolPtr) ToListenerProtocolPtrOutput() ListenerProtocolPtr
 
 func (in *listenerProtocolPtr) ToListenerProtocolPtrOutputWithContext(ctx context.Context) ListenerProtocolPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ListenerProtocolPtrOutput)
+}
+
+type ResourceConfigurationAuthType string
+
+const (
+	ResourceConfigurationAuthTypeNone   = ResourceConfigurationAuthType("NONE")
+	ResourceConfigurationAuthTypeAwsIam = ResourceConfigurationAuthType("AWS_IAM")
+)
+
+func (ResourceConfigurationAuthType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceConfigurationAuthType)(nil)).Elem()
+}
+
+func (e ResourceConfigurationAuthType) ToResourceConfigurationAuthTypeOutput() ResourceConfigurationAuthTypeOutput {
+	return pulumi.ToOutput(e).(ResourceConfigurationAuthTypeOutput)
+}
+
+func (e ResourceConfigurationAuthType) ToResourceConfigurationAuthTypeOutputWithContext(ctx context.Context) ResourceConfigurationAuthTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ResourceConfigurationAuthTypeOutput)
+}
+
+func (e ResourceConfigurationAuthType) ToResourceConfigurationAuthTypePtrOutput() ResourceConfigurationAuthTypePtrOutput {
+	return e.ToResourceConfigurationAuthTypePtrOutputWithContext(context.Background())
+}
+
+func (e ResourceConfigurationAuthType) ToResourceConfigurationAuthTypePtrOutputWithContext(ctx context.Context) ResourceConfigurationAuthTypePtrOutput {
+	return ResourceConfigurationAuthType(e).ToResourceConfigurationAuthTypeOutputWithContext(ctx).ToResourceConfigurationAuthTypePtrOutputWithContext(ctx)
+}
+
+func (e ResourceConfigurationAuthType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ResourceConfigurationAuthType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ResourceConfigurationAuthType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ResourceConfigurationAuthType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ResourceConfigurationAuthTypeOutput struct{ *pulumi.OutputState }
+
+func (ResourceConfigurationAuthTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceConfigurationAuthType)(nil)).Elem()
+}
+
+func (o ResourceConfigurationAuthTypeOutput) ToResourceConfigurationAuthTypeOutput() ResourceConfigurationAuthTypeOutput {
+	return o
+}
+
+func (o ResourceConfigurationAuthTypeOutput) ToResourceConfigurationAuthTypeOutputWithContext(ctx context.Context) ResourceConfigurationAuthTypeOutput {
+	return o
+}
+
+func (o ResourceConfigurationAuthTypeOutput) ToResourceConfigurationAuthTypePtrOutput() ResourceConfigurationAuthTypePtrOutput {
+	return o.ToResourceConfigurationAuthTypePtrOutputWithContext(context.Background())
+}
+
+func (o ResourceConfigurationAuthTypeOutput) ToResourceConfigurationAuthTypePtrOutputWithContext(ctx context.Context) ResourceConfigurationAuthTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceConfigurationAuthType) *ResourceConfigurationAuthType {
+		return &v
+	}).(ResourceConfigurationAuthTypePtrOutput)
+}
+
+func (o ResourceConfigurationAuthTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ResourceConfigurationAuthTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ResourceConfigurationAuthType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ResourceConfigurationAuthTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceConfigurationAuthTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ResourceConfigurationAuthType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ResourceConfigurationAuthTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceConfigurationAuthTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceConfigurationAuthType)(nil)).Elem()
+}
+
+func (o ResourceConfigurationAuthTypePtrOutput) ToResourceConfigurationAuthTypePtrOutput() ResourceConfigurationAuthTypePtrOutput {
+	return o
+}
+
+func (o ResourceConfigurationAuthTypePtrOutput) ToResourceConfigurationAuthTypePtrOutputWithContext(ctx context.Context) ResourceConfigurationAuthTypePtrOutput {
+	return o
+}
+
+func (o ResourceConfigurationAuthTypePtrOutput) Elem() ResourceConfigurationAuthTypeOutput {
+	return o.ApplyT(func(v *ResourceConfigurationAuthType) ResourceConfigurationAuthType {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceConfigurationAuthType
+		return ret
+	}).(ResourceConfigurationAuthTypeOutput)
+}
+
+func (o ResourceConfigurationAuthTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceConfigurationAuthTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ResourceConfigurationAuthType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ResourceConfigurationAuthTypeInput is an input type that accepts values of the ResourceConfigurationAuthType enum
+// A concrete instance of `ResourceConfigurationAuthTypeInput` can be one of the following:
+//
+//	ResourceConfigurationAuthTypeNone
+//	ResourceConfigurationAuthTypeAwsIam
+type ResourceConfigurationAuthTypeInput interface {
+	pulumi.Input
+
+	ToResourceConfigurationAuthTypeOutput() ResourceConfigurationAuthTypeOutput
+	ToResourceConfigurationAuthTypeOutputWithContext(context.Context) ResourceConfigurationAuthTypeOutput
+}
+
+var resourceConfigurationAuthTypePtrType = reflect.TypeOf((**ResourceConfigurationAuthType)(nil)).Elem()
+
+type ResourceConfigurationAuthTypePtrInput interface {
+	pulumi.Input
+
+	ToResourceConfigurationAuthTypePtrOutput() ResourceConfigurationAuthTypePtrOutput
+	ToResourceConfigurationAuthTypePtrOutputWithContext(context.Context) ResourceConfigurationAuthTypePtrOutput
+}
+
+type resourceConfigurationAuthTypePtr string
+
+func ResourceConfigurationAuthTypePtr(v string) ResourceConfigurationAuthTypePtrInput {
+	return (*resourceConfigurationAuthTypePtr)(&v)
+}
+
+func (*resourceConfigurationAuthTypePtr) ElementType() reflect.Type {
+	return resourceConfigurationAuthTypePtrType
+}
+
+func (in *resourceConfigurationAuthTypePtr) ToResourceConfigurationAuthTypePtrOutput() ResourceConfigurationAuthTypePtrOutput {
+	return pulumi.ToOutput(in).(ResourceConfigurationAuthTypePtrOutput)
+}
+
+func (in *resourceConfigurationAuthTypePtr) ToResourceConfigurationAuthTypePtrOutputWithContext(ctx context.Context) ResourceConfigurationAuthTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ResourceConfigurationAuthTypePtrOutput)
+}
+
+type ResourceConfigurationDnsResourceIpAddressType string
+
+const (
+	ResourceConfigurationDnsResourceIpAddressTypeIpv4      = ResourceConfigurationDnsResourceIpAddressType("IPV4")
+	ResourceConfigurationDnsResourceIpAddressTypeIpv6      = ResourceConfigurationDnsResourceIpAddressType("IPV6")
+	ResourceConfigurationDnsResourceIpAddressTypeDualstack = ResourceConfigurationDnsResourceIpAddressType("DUALSTACK")
+)
+
+func (ResourceConfigurationDnsResourceIpAddressType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceConfigurationDnsResourceIpAddressType)(nil)).Elem()
+}
+
+func (e ResourceConfigurationDnsResourceIpAddressType) ToResourceConfigurationDnsResourceIpAddressTypeOutput() ResourceConfigurationDnsResourceIpAddressTypeOutput {
+	return pulumi.ToOutput(e).(ResourceConfigurationDnsResourceIpAddressTypeOutput)
+}
+
+func (e ResourceConfigurationDnsResourceIpAddressType) ToResourceConfigurationDnsResourceIpAddressTypeOutputWithContext(ctx context.Context) ResourceConfigurationDnsResourceIpAddressTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ResourceConfigurationDnsResourceIpAddressTypeOutput)
+}
+
+func (e ResourceConfigurationDnsResourceIpAddressType) ToResourceConfigurationDnsResourceIpAddressTypePtrOutput() ResourceConfigurationDnsResourceIpAddressTypePtrOutput {
+	return e.ToResourceConfigurationDnsResourceIpAddressTypePtrOutputWithContext(context.Background())
+}
+
+func (e ResourceConfigurationDnsResourceIpAddressType) ToResourceConfigurationDnsResourceIpAddressTypePtrOutputWithContext(ctx context.Context) ResourceConfigurationDnsResourceIpAddressTypePtrOutput {
+	return ResourceConfigurationDnsResourceIpAddressType(e).ToResourceConfigurationDnsResourceIpAddressTypeOutputWithContext(ctx).ToResourceConfigurationDnsResourceIpAddressTypePtrOutputWithContext(ctx)
+}
+
+func (e ResourceConfigurationDnsResourceIpAddressType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ResourceConfigurationDnsResourceIpAddressType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ResourceConfigurationDnsResourceIpAddressType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ResourceConfigurationDnsResourceIpAddressType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ResourceConfigurationDnsResourceIpAddressTypeOutput struct{ *pulumi.OutputState }
+
+func (ResourceConfigurationDnsResourceIpAddressTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceConfigurationDnsResourceIpAddressType)(nil)).Elem()
+}
+
+func (o ResourceConfigurationDnsResourceIpAddressTypeOutput) ToResourceConfigurationDnsResourceIpAddressTypeOutput() ResourceConfigurationDnsResourceIpAddressTypeOutput {
+	return o
+}
+
+func (o ResourceConfigurationDnsResourceIpAddressTypeOutput) ToResourceConfigurationDnsResourceIpAddressTypeOutputWithContext(ctx context.Context) ResourceConfigurationDnsResourceIpAddressTypeOutput {
+	return o
+}
+
+func (o ResourceConfigurationDnsResourceIpAddressTypeOutput) ToResourceConfigurationDnsResourceIpAddressTypePtrOutput() ResourceConfigurationDnsResourceIpAddressTypePtrOutput {
+	return o.ToResourceConfigurationDnsResourceIpAddressTypePtrOutputWithContext(context.Background())
+}
+
+func (o ResourceConfigurationDnsResourceIpAddressTypeOutput) ToResourceConfigurationDnsResourceIpAddressTypePtrOutputWithContext(ctx context.Context) ResourceConfigurationDnsResourceIpAddressTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceConfigurationDnsResourceIpAddressType) *ResourceConfigurationDnsResourceIpAddressType {
+		return &v
+	}).(ResourceConfigurationDnsResourceIpAddressTypePtrOutput)
+}
+
+func (o ResourceConfigurationDnsResourceIpAddressTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ResourceConfigurationDnsResourceIpAddressTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ResourceConfigurationDnsResourceIpAddressType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ResourceConfigurationDnsResourceIpAddressTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceConfigurationDnsResourceIpAddressTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ResourceConfigurationDnsResourceIpAddressType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ResourceConfigurationDnsResourceIpAddressTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceConfigurationDnsResourceIpAddressTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceConfigurationDnsResourceIpAddressType)(nil)).Elem()
+}
+
+func (o ResourceConfigurationDnsResourceIpAddressTypePtrOutput) ToResourceConfigurationDnsResourceIpAddressTypePtrOutput() ResourceConfigurationDnsResourceIpAddressTypePtrOutput {
+	return o
+}
+
+func (o ResourceConfigurationDnsResourceIpAddressTypePtrOutput) ToResourceConfigurationDnsResourceIpAddressTypePtrOutputWithContext(ctx context.Context) ResourceConfigurationDnsResourceIpAddressTypePtrOutput {
+	return o
+}
+
+func (o ResourceConfigurationDnsResourceIpAddressTypePtrOutput) Elem() ResourceConfigurationDnsResourceIpAddressTypeOutput {
+	return o.ApplyT(func(v *ResourceConfigurationDnsResourceIpAddressType) ResourceConfigurationDnsResourceIpAddressType {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceConfigurationDnsResourceIpAddressType
+		return ret
+	}).(ResourceConfigurationDnsResourceIpAddressTypeOutput)
+}
+
+func (o ResourceConfigurationDnsResourceIpAddressTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceConfigurationDnsResourceIpAddressTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ResourceConfigurationDnsResourceIpAddressType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ResourceConfigurationDnsResourceIpAddressTypeInput is an input type that accepts values of the ResourceConfigurationDnsResourceIpAddressType enum
+// A concrete instance of `ResourceConfigurationDnsResourceIpAddressTypeInput` can be one of the following:
+//
+//	ResourceConfigurationDnsResourceIpAddressTypeIpv4
+//	ResourceConfigurationDnsResourceIpAddressTypeIpv6
+//	ResourceConfigurationDnsResourceIpAddressTypeDualstack
+type ResourceConfigurationDnsResourceIpAddressTypeInput interface {
+	pulumi.Input
+
+	ToResourceConfigurationDnsResourceIpAddressTypeOutput() ResourceConfigurationDnsResourceIpAddressTypeOutput
+	ToResourceConfigurationDnsResourceIpAddressTypeOutputWithContext(context.Context) ResourceConfigurationDnsResourceIpAddressTypeOutput
+}
+
+var resourceConfigurationDnsResourceIpAddressTypePtrType = reflect.TypeOf((**ResourceConfigurationDnsResourceIpAddressType)(nil)).Elem()
+
+type ResourceConfigurationDnsResourceIpAddressTypePtrInput interface {
+	pulumi.Input
+
+	ToResourceConfigurationDnsResourceIpAddressTypePtrOutput() ResourceConfigurationDnsResourceIpAddressTypePtrOutput
+	ToResourceConfigurationDnsResourceIpAddressTypePtrOutputWithContext(context.Context) ResourceConfigurationDnsResourceIpAddressTypePtrOutput
+}
+
+type resourceConfigurationDnsResourceIpAddressTypePtr string
+
+func ResourceConfigurationDnsResourceIpAddressTypePtr(v string) ResourceConfigurationDnsResourceIpAddressTypePtrInput {
+	return (*resourceConfigurationDnsResourceIpAddressTypePtr)(&v)
+}
+
+func (*resourceConfigurationDnsResourceIpAddressTypePtr) ElementType() reflect.Type {
+	return resourceConfigurationDnsResourceIpAddressTypePtrType
+}
+
+func (in *resourceConfigurationDnsResourceIpAddressTypePtr) ToResourceConfigurationDnsResourceIpAddressTypePtrOutput() ResourceConfigurationDnsResourceIpAddressTypePtrOutput {
+	return pulumi.ToOutput(in).(ResourceConfigurationDnsResourceIpAddressTypePtrOutput)
+}
+
+func (in *resourceConfigurationDnsResourceIpAddressTypePtr) ToResourceConfigurationDnsResourceIpAddressTypePtrOutputWithContext(ctx context.Context) ResourceConfigurationDnsResourceIpAddressTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ResourceConfigurationDnsResourceIpAddressTypePtrOutput)
+}
+
+type ResourceConfigurationProtocolType string
+
+const (
+	ResourceConfigurationProtocolTypeTcp = ResourceConfigurationProtocolType("TCP")
+)
+
+func (ResourceConfigurationProtocolType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceConfigurationProtocolType)(nil)).Elem()
+}
+
+func (e ResourceConfigurationProtocolType) ToResourceConfigurationProtocolTypeOutput() ResourceConfigurationProtocolTypeOutput {
+	return pulumi.ToOutput(e).(ResourceConfigurationProtocolTypeOutput)
+}
+
+func (e ResourceConfigurationProtocolType) ToResourceConfigurationProtocolTypeOutputWithContext(ctx context.Context) ResourceConfigurationProtocolTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ResourceConfigurationProtocolTypeOutput)
+}
+
+func (e ResourceConfigurationProtocolType) ToResourceConfigurationProtocolTypePtrOutput() ResourceConfigurationProtocolTypePtrOutput {
+	return e.ToResourceConfigurationProtocolTypePtrOutputWithContext(context.Background())
+}
+
+func (e ResourceConfigurationProtocolType) ToResourceConfigurationProtocolTypePtrOutputWithContext(ctx context.Context) ResourceConfigurationProtocolTypePtrOutput {
+	return ResourceConfigurationProtocolType(e).ToResourceConfigurationProtocolTypeOutputWithContext(ctx).ToResourceConfigurationProtocolTypePtrOutputWithContext(ctx)
+}
+
+func (e ResourceConfigurationProtocolType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ResourceConfigurationProtocolType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ResourceConfigurationProtocolType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ResourceConfigurationProtocolType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ResourceConfigurationProtocolTypeOutput struct{ *pulumi.OutputState }
+
+func (ResourceConfigurationProtocolTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceConfigurationProtocolType)(nil)).Elem()
+}
+
+func (o ResourceConfigurationProtocolTypeOutput) ToResourceConfigurationProtocolTypeOutput() ResourceConfigurationProtocolTypeOutput {
+	return o
+}
+
+func (o ResourceConfigurationProtocolTypeOutput) ToResourceConfigurationProtocolTypeOutputWithContext(ctx context.Context) ResourceConfigurationProtocolTypeOutput {
+	return o
+}
+
+func (o ResourceConfigurationProtocolTypeOutput) ToResourceConfigurationProtocolTypePtrOutput() ResourceConfigurationProtocolTypePtrOutput {
+	return o.ToResourceConfigurationProtocolTypePtrOutputWithContext(context.Background())
+}
+
+func (o ResourceConfigurationProtocolTypeOutput) ToResourceConfigurationProtocolTypePtrOutputWithContext(ctx context.Context) ResourceConfigurationProtocolTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceConfigurationProtocolType) *ResourceConfigurationProtocolType {
+		return &v
+	}).(ResourceConfigurationProtocolTypePtrOutput)
+}
+
+func (o ResourceConfigurationProtocolTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ResourceConfigurationProtocolTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ResourceConfigurationProtocolType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ResourceConfigurationProtocolTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceConfigurationProtocolTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ResourceConfigurationProtocolType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ResourceConfigurationProtocolTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceConfigurationProtocolTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceConfigurationProtocolType)(nil)).Elem()
+}
+
+func (o ResourceConfigurationProtocolTypePtrOutput) ToResourceConfigurationProtocolTypePtrOutput() ResourceConfigurationProtocolTypePtrOutput {
+	return o
+}
+
+func (o ResourceConfigurationProtocolTypePtrOutput) ToResourceConfigurationProtocolTypePtrOutputWithContext(ctx context.Context) ResourceConfigurationProtocolTypePtrOutput {
+	return o
+}
+
+func (o ResourceConfigurationProtocolTypePtrOutput) Elem() ResourceConfigurationProtocolTypeOutput {
+	return o.ApplyT(func(v *ResourceConfigurationProtocolType) ResourceConfigurationProtocolType {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceConfigurationProtocolType
+		return ret
+	}).(ResourceConfigurationProtocolTypeOutput)
+}
+
+func (o ResourceConfigurationProtocolTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceConfigurationProtocolTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ResourceConfigurationProtocolType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ResourceConfigurationProtocolTypeInput is an input type that accepts values of the ResourceConfigurationProtocolType enum
+// A concrete instance of `ResourceConfigurationProtocolTypeInput` can be one of the following:
+//
+//	ResourceConfigurationProtocolTypeTcp
+type ResourceConfigurationProtocolTypeInput interface {
+	pulumi.Input
+
+	ToResourceConfigurationProtocolTypeOutput() ResourceConfigurationProtocolTypeOutput
+	ToResourceConfigurationProtocolTypeOutputWithContext(context.Context) ResourceConfigurationProtocolTypeOutput
+}
+
+var resourceConfigurationProtocolTypePtrType = reflect.TypeOf((**ResourceConfigurationProtocolType)(nil)).Elem()
+
+type ResourceConfigurationProtocolTypePtrInput interface {
+	pulumi.Input
+
+	ToResourceConfigurationProtocolTypePtrOutput() ResourceConfigurationProtocolTypePtrOutput
+	ToResourceConfigurationProtocolTypePtrOutputWithContext(context.Context) ResourceConfigurationProtocolTypePtrOutput
+}
+
+type resourceConfigurationProtocolTypePtr string
+
+func ResourceConfigurationProtocolTypePtr(v string) ResourceConfigurationProtocolTypePtrInput {
+	return (*resourceConfigurationProtocolTypePtr)(&v)
+}
+
+func (*resourceConfigurationProtocolTypePtr) ElementType() reflect.Type {
+	return resourceConfigurationProtocolTypePtrType
+}
+
+func (in *resourceConfigurationProtocolTypePtr) ToResourceConfigurationProtocolTypePtrOutput() ResourceConfigurationProtocolTypePtrOutput {
+	return pulumi.ToOutput(in).(ResourceConfigurationProtocolTypePtrOutput)
+}
+
+func (in *resourceConfigurationProtocolTypePtr) ToResourceConfigurationProtocolTypePtrOutputWithContext(ctx context.Context) ResourceConfigurationProtocolTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ResourceConfigurationProtocolTypePtrOutput)
+}
+
+type ResourceConfigurationType string
+
+const (
+	ResourceConfigurationTypeGroup  = ResourceConfigurationType("GROUP")
+	ResourceConfigurationTypeChild  = ResourceConfigurationType("CHILD")
+	ResourceConfigurationTypeSingle = ResourceConfigurationType("SINGLE")
+	ResourceConfigurationTypeArn    = ResourceConfigurationType("ARN")
+)
+
+func (ResourceConfigurationType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceConfigurationType)(nil)).Elem()
+}
+
+func (e ResourceConfigurationType) ToResourceConfigurationTypeOutput() ResourceConfigurationTypeOutput {
+	return pulumi.ToOutput(e).(ResourceConfigurationTypeOutput)
+}
+
+func (e ResourceConfigurationType) ToResourceConfigurationTypeOutputWithContext(ctx context.Context) ResourceConfigurationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ResourceConfigurationTypeOutput)
+}
+
+func (e ResourceConfigurationType) ToResourceConfigurationTypePtrOutput() ResourceConfigurationTypePtrOutput {
+	return e.ToResourceConfigurationTypePtrOutputWithContext(context.Background())
+}
+
+func (e ResourceConfigurationType) ToResourceConfigurationTypePtrOutputWithContext(ctx context.Context) ResourceConfigurationTypePtrOutput {
+	return ResourceConfigurationType(e).ToResourceConfigurationTypeOutputWithContext(ctx).ToResourceConfigurationTypePtrOutputWithContext(ctx)
+}
+
+func (e ResourceConfigurationType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ResourceConfigurationType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ResourceConfigurationType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ResourceConfigurationType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ResourceConfigurationTypeOutput struct{ *pulumi.OutputState }
+
+func (ResourceConfigurationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceConfigurationType)(nil)).Elem()
+}
+
+func (o ResourceConfigurationTypeOutput) ToResourceConfigurationTypeOutput() ResourceConfigurationTypeOutput {
+	return o
+}
+
+func (o ResourceConfigurationTypeOutput) ToResourceConfigurationTypeOutputWithContext(ctx context.Context) ResourceConfigurationTypeOutput {
+	return o
+}
+
+func (o ResourceConfigurationTypeOutput) ToResourceConfigurationTypePtrOutput() ResourceConfigurationTypePtrOutput {
+	return o.ToResourceConfigurationTypePtrOutputWithContext(context.Background())
+}
+
+func (o ResourceConfigurationTypeOutput) ToResourceConfigurationTypePtrOutputWithContext(ctx context.Context) ResourceConfigurationTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceConfigurationType) *ResourceConfigurationType {
+		return &v
+	}).(ResourceConfigurationTypePtrOutput)
+}
+
+func (o ResourceConfigurationTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ResourceConfigurationTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ResourceConfigurationType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ResourceConfigurationTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceConfigurationTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ResourceConfigurationType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ResourceConfigurationTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceConfigurationTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceConfigurationType)(nil)).Elem()
+}
+
+func (o ResourceConfigurationTypePtrOutput) ToResourceConfigurationTypePtrOutput() ResourceConfigurationTypePtrOutput {
+	return o
+}
+
+func (o ResourceConfigurationTypePtrOutput) ToResourceConfigurationTypePtrOutputWithContext(ctx context.Context) ResourceConfigurationTypePtrOutput {
+	return o
+}
+
+func (o ResourceConfigurationTypePtrOutput) Elem() ResourceConfigurationTypeOutput {
+	return o.ApplyT(func(v *ResourceConfigurationType) ResourceConfigurationType {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceConfigurationType
+		return ret
+	}).(ResourceConfigurationTypeOutput)
+}
+
+func (o ResourceConfigurationTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceConfigurationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ResourceConfigurationType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ResourceConfigurationTypeInput is an input type that accepts values of the ResourceConfigurationType enum
+// A concrete instance of `ResourceConfigurationTypeInput` can be one of the following:
+//
+//	ResourceConfigurationTypeGroup
+//	ResourceConfigurationTypeChild
+//	ResourceConfigurationTypeSingle
+//	ResourceConfigurationTypeArn
+type ResourceConfigurationTypeInput interface {
+	pulumi.Input
+
+	ToResourceConfigurationTypeOutput() ResourceConfigurationTypeOutput
+	ToResourceConfigurationTypeOutputWithContext(context.Context) ResourceConfigurationTypeOutput
+}
+
+var resourceConfigurationTypePtrType = reflect.TypeOf((**ResourceConfigurationType)(nil)).Elem()
+
+type ResourceConfigurationTypePtrInput interface {
+	pulumi.Input
+
+	ToResourceConfigurationTypePtrOutput() ResourceConfigurationTypePtrOutput
+	ToResourceConfigurationTypePtrOutputWithContext(context.Context) ResourceConfigurationTypePtrOutput
+}
+
+type resourceConfigurationTypePtr string
+
+func ResourceConfigurationTypePtr(v string) ResourceConfigurationTypePtrInput {
+	return (*resourceConfigurationTypePtr)(&v)
+}
+
+func (*resourceConfigurationTypePtr) ElementType() reflect.Type {
+	return resourceConfigurationTypePtrType
+}
+
+func (in *resourceConfigurationTypePtr) ToResourceConfigurationTypePtrOutput() ResourceConfigurationTypePtrOutput {
+	return pulumi.ToOutput(in).(ResourceConfigurationTypePtrOutput)
+}
+
+func (in *resourceConfigurationTypePtr) ToResourceConfigurationTypePtrOutputWithContext(ctx context.Context) ResourceConfigurationTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ResourceConfigurationTypePtrOutput)
+}
+
+type ResourceGatewayIpAddressType string
+
+const (
+	ResourceGatewayIpAddressTypeIpv4      = ResourceGatewayIpAddressType("IPV4")
+	ResourceGatewayIpAddressTypeIpv6      = ResourceGatewayIpAddressType("IPV6")
+	ResourceGatewayIpAddressTypeDualstack = ResourceGatewayIpAddressType("DUALSTACK")
+)
+
+func (ResourceGatewayIpAddressType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceGatewayIpAddressType)(nil)).Elem()
+}
+
+func (e ResourceGatewayIpAddressType) ToResourceGatewayIpAddressTypeOutput() ResourceGatewayIpAddressTypeOutput {
+	return pulumi.ToOutput(e).(ResourceGatewayIpAddressTypeOutput)
+}
+
+func (e ResourceGatewayIpAddressType) ToResourceGatewayIpAddressTypeOutputWithContext(ctx context.Context) ResourceGatewayIpAddressTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ResourceGatewayIpAddressTypeOutput)
+}
+
+func (e ResourceGatewayIpAddressType) ToResourceGatewayIpAddressTypePtrOutput() ResourceGatewayIpAddressTypePtrOutput {
+	return e.ToResourceGatewayIpAddressTypePtrOutputWithContext(context.Background())
+}
+
+func (e ResourceGatewayIpAddressType) ToResourceGatewayIpAddressTypePtrOutputWithContext(ctx context.Context) ResourceGatewayIpAddressTypePtrOutput {
+	return ResourceGatewayIpAddressType(e).ToResourceGatewayIpAddressTypeOutputWithContext(ctx).ToResourceGatewayIpAddressTypePtrOutputWithContext(ctx)
+}
+
+func (e ResourceGatewayIpAddressType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ResourceGatewayIpAddressType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ResourceGatewayIpAddressType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ResourceGatewayIpAddressType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ResourceGatewayIpAddressTypeOutput struct{ *pulumi.OutputState }
+
+func (ResourceGatewayIpAddressTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceGatewayIpAddressType)(nil)).Elem()
+}
+
+func (o ResourceGatewayIpAddressTypeOutput) ToResourceGatewayIpAddressTypeOutput() ResourceGatewayIpAddressTypeOutput {
+	return o
+}
+
+func (o ResourceGatewayIpAddressTypeOutput) ToResourceGatewayIpAddressTypeOutputWithContext(ctx context.Context) ResourceGatewayIpAddressTypeOutput {
+	return o
+}
+
+func (o ResourceGatewayIpAddressTypeOutput) ToResourceGatewayIpAddressTypePtrOutput() ResourceGatewayIpAddressTypePtrOutput {
+	return o.ToResourceGatewayIpAddressTypePtrOutputWithContext(context.Background())
+}
+
+func (o ResourceGatewayIpAddressTypeOutput) ToResourceGatewayIpAddressTypePtrOutputWithContext(ctx context.Context) ResourceGatewayIpAddressTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceGatewayIpAddressType) *ResourceGatewayIpAddressType {
+		return &v
+	}).(ResourceGatewayIpAddressTypePtrOutput)
+}
+
+func (o ResourceGatewayIpAddressTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ResourceGatewayIpAddressTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ResourceGatewayIpAddressType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ResourceGatewayIpAddressTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceGatewayIpAddressTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ResourceGatewayIpAddressType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ResourceGatewayIpAddressTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceGatewayIpAddressTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceGatewayIpAddressType)(nil)).Elem()
+}
+
+func (o ResourceGatewayIpAddressTypePtrOutput) ToResourceGatewayIpAddressTypePtrOutput() ResourceGatewayIpAddressTypePtrOutput {
+	return o
+}
+
+func (o ResourceGatewayIpAddressTypePtrOutput) ToResourceGatewayIpAddressTypePtrOutputWithContext(ctx context.Context) ResourceGatewayIpAddressTypePtrOutput {
+	return o
+}
+
+func (o ResourceGatewayIpAddressTypePtrOutput) Elem() ResourceGatewayIpAddressTypeOutput {
+	return o.ApplyT(func(v *ResourceGatewayIpAddressType) ResourceGatewayIpAddressType {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceGatewayIpAddressType
+		return ret
+	}).(ResourceGatewayIpAddressTypeOutput)
+}
+
+func (o ResourceGatewayIpAddressTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceGatewayIpAddressTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ResourceGatewayIpAddressType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ResourceGatewayIpAddressTypeInput is an input type that accepts values of the ResourceGatewayIpAddressType enum
+// A concrete instance of `ResourceGatewayIpAddressTypeInput` can be one of the following:
+//
+//	ResourceGatewayIpAddressTypeIpv4
+//	ResourceGatewayIpAddressTypeIpv6
+//	ResourceGatewayIpAddressTypeDualstack
+type ResourceGatewayIpAddressTypeInput interface {
+	pulumi.Input
+
+	ToResourceGatewayIpAddressTypeOutput() ResourceGatewayIpAddressTypeOutput
+	ToResourceGatewayIpAddressTypeOutputWithContext(context.Context) ResourceGatewayIpAddressTypeOutput
+}
+
+var resourceGatewayIpAddressTypePtrType = reflect.TypeOf((**ResourceGatewayIpAddressType)(nil)).Elem()
+
+type ResourceGatewayIpAddressTypePtrInput interface {
+	pulumi.Input
+
+	ToResourceGatewayIpAddressTypePtrOutput() ResourceGatewayIpAddressTypePtrOutput
+	ToResourceGatewayIpAddressTypePtrOutputWithContext(context.Context) ResourceGatewayIpAddressTypePtrOutput
+}
+
+type resourceGatewayIpAddressTypePtr string
+
+func ResourceGatewayIpAddressTypePtr(v string) ResourceGatewayIpAddressTypePtrInput {
+	return (*resourceGatewayIpAddressTypePtr)(&v)
+}
+
+func (*resourceGatewayIpAddressTypePtr) ElementType() reflect.Type {
+	return resourceGatewayIpAddressTypePtrType
+}
+
+func (in *resourceGatewayIpAddressTypePtr) ToResourceGatewayIpAddressTypePtrOutput() ResourceGatewayIpAddressTypePtrOutput {
+	return pulumi.ToOutput(in).(ResourceGatewayIpAddressTypePtrOutput)
+}
+
+func (in *resourceGatewayIpAddressTypePtr) ToResourceGatewayIpAddressTypePtrOutputWithContext(ctx context.Context) ResourceGatewayIpAddressTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ResourceGatewayIpAddressTypePtrOutput)
 }
 
 // The HTTP method type.
@@ -2502,6 +3334,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessLogSubscriptionServiceNetworkLogTypePtrInput)(nil)).Elem(), AccessLogSubscriptionServiceNetworkLogType("SERVICE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerProtocolInput)(nil)).Elem(), ListenerProtocol("HTTP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerProtocolPtrInput)(nil)).Elem(), ListenerProtocol("HTTP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceConfigurationAuthTypeInput)(nil)).Elem(), ResourceConfigurationAuthType("NONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceConfigurationAuthTypePtrInput)(nil)).Elem(), ResourceConfigurationAuthType("NONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceConfigurationDnsResourceIpAddressTypeInput)(nil)).Elem(), ResourceConfigurationDnsResourceIpAddressType("IPV4"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceConfigurationDnsResourceIpAddressTypePtrInput)(nil)).Elem(), ResourceConfigurationDnsResourceIpAddressType("IPV4"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceConfigurationProtocolTypeInput)(nil)).Elem(), ResourceConfigurationProtocolType("TCP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceConfigurationProtocolTypePtrInput)(nil)).Elem(), ResourceConfigurationProtocolType("TCP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceConfigurationTypeInput)(nil)).Elem(), ResourceConfigurationType("GROUP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceConfigurationTypePtrInput)(nil)).Elem(), ResourceConfigurationType("GROUP"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceGatewayIpAddressTypeInput)(nil)).Elem(), ResourceGatewayIpAddressType("IPV4"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceGatewayIpAddressTypePtrInput)(nil)).Elem(), ResourceGatewayIpAddressType("IPV4"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleHttpMatchMethodInput)(nil)).Elem(), RuleHttpMatchMethod("CONNECT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleHttpMatchMethodPtrInput)(nil)).Elem(), RuleHttpMatchMethod("CONNECT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceAuthTypeInput)(nil)).Elem(), ServiceAuthType("NONE"))
@@ -2528,6 +3370,16 @@ func init() {
 	pulumi.RegisterOutputType(AuthPolicyStateEnumPtrOutput{})
 	pulumi.RegisterOutputType(ListenerProtocolOutput{})
 	pulumi.RegisterOutputType(ListenerProtocolPtrOutput{})
+	pulumi.RegisterOutputType(ResourceConfigurationAuthTypeOutput{})
+	pulumi.RegisterOutputType(ResourceConfigurationAuthTypePtrOutput{})
+	pulumi.RegisterOutputType(ResourceConfigurationDnsResourceIpAddressTypeOutput{})
+	pulumi.RegisterOutputType(ResourceConfigurationDnsResourceIpAddressTypePtrOutput{})
+	pulumi.RegisterOutputType(ResourceConfigurationProtocolTypeOutput{})
+	pulumi.RegisterOutputType(ResourceConfigurationProtocolTypePtrOutput{})
+	pulumi.RegisterOutputType(ResourceConfigurationTypeOutput{})
+	pulumi.RegisterOutputType(ResourceConfigurationTypePtrOutput{})
+	pulumi.RegisterOutputType(ResourceGatewayIpAddressTypeOutput{})
+	pulumi.RegisterOutputType(ResourceGatewayIpAddressTypePtrOutput{})
 	pulumi.RegisterOutputType(RuleHttpMatchMethodOutput{})
 	pulumi.RegisterOutputType(RuleHttpMatchMethodPtrOutput{})
 	pulumi.RegisterOutputType(ServiceAuthTypeOutput{})

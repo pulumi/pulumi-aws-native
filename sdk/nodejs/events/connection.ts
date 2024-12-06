@@ -70,7 +70,9 @@ export class Connection extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * A `CreateConnectionAuthRequestParameters` object that contains the authorization parameters to use to authorize with the endpoint.
+     * The authorization parameters to use to authorize with the endpoint.
+     *
+     * You must include only authorization parameters for the `AuthorizationType` you specify.
      */
     public readonly authParameters!: pulumi.Output<outputs.events.ConnectionAuthParameters | undefined>;
     /**
@@ -135,7 +137,9 @@ export class Connection extends pulumi.CustomResource {
  */
 export interface ConnectionArgs {
     /**
-     * A `CreateConnectionAuthRequestParameters` object that contains the authorization parameters to use to authorize with the endpoint.
+     * The authorization parameters to use to authorize with the endpoint.
+     *
+     * You must include only authorization parameters for the `AuthorizationType` you specify.
      */
     authParameters?: pulumi.Input<inputs.events.ConnectionAuthParametersArgs>;
     /**

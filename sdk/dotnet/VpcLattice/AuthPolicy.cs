@@ -24,7 +24,7 @@ namespace Pulumi.AwsNative.VpcLattice
         public Output<object> Policy { get; private set; } = null!;
 
         /// <summary>
-        /// The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+        /// The ID or ARN of the service network or service for which the policy is created.
         /// </summary>
         [Output("resourceIdentifier")]
         public Output<string> ResourceIdentifier { get; private set; } = null!;
@@ -93,7 +93,7 @@ namespace Pulumi.AwsNative.VpcLattice
         public Input<object> Policy { get; set; } = null!;
 
         /// <summary>
-        /// The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+        /// The ID or ARN of the service network or service for which the policy is created.
         /// </summary>
         [Input("resourceIdentifier", required: true)]
         public Input<string> ResourceIdentifier { get; set; } = null!;

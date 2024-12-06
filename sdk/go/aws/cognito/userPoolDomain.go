@@ -27,7 +27,8 @@ type UserPoolDomain struct {
 	// The domain name for the custom domain that hosts the sign-up and sign-in pages for your application. One example might be `auth.example.com` .
 	//
 	// This string can include only lowercase letters, numbers, and hyphens. Don't use a hyphen for the first or last character. Use periods to separate subdomain names.
-	Domain              pulumi.StringOutput `pulumi:"domain"`
+	Domain pulumi.StringOutput `pulumi:"domain"`
+	// A version number that indicates the state of managed login for your domain. Version `1` is hosted UI (classic). Version `2` is the newer managed login with the branding designer. For more information, see [Managed login](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html) .
 	ManagedLoginVersion pulumi.IntPtrOutput `pulumi:"managedLoginVersion"`
 	// The ID of the user pool that is associated with the custom domain whose certificate you're updating.
 	UserPoolId pulumi.StringOutput `pulumi:"userPoolId"`
@@ -91,8 +92,9 @@ type userPoolDomainArgs struct {
 	// The domain name for the custom domain that hosts the sign-up and sign-in pages for your application. One example might be `auth.example.com` .
 	//
 	// This string can include only lowercase letters, numbers, and hyphens. Don't use a hyphen for the first or last character. Use periods to separate subdomain names.
-	Domain              string `pulumi:"domain"`
-	ManagedLoginVersion *int   `pulumi:"managedLoginVersion"`
+	Domain string `pulumi:"domain"`
+	// A version number that indicates the state of managed login for your domain. Version `1` is hosted UI (classic). Version `2` is the newer managed login with the branding designer. For more information, see [Managed login](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html) .
+	ManagedLoginVersion *int `pulumi:"managedLoginVersion"`
 	// The ID of the user pool that is associated with the custom domain whose certificate you're updating.
 	UserPoolId string `pulumi:"userPoolId"`
 }
@@ -106,7 +108,8 @@ type UserPoolDomainArgs struct {
 	// The domain name for the custom domain that hosts the sign-up and sign-in pages for your application. One example might be `auth.example.com` .
 	//
 	// This string can include only lowercase letters, numbers, and hyphens. Don't use a hyphen for the first or last character. Use periods to separate subdomain names.
-	Domain              pulumi.StringInput
+	Domain pulumi.StringInput
+	// A version number that indicates the state of managed login for your domain. Version `1` is hosted UI (classic). Version `2` is the newer managed login with the branding designer. For more information, see [Managed login](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html) .
 	ManagedLoginVersion pulumi.IntPtrInput
 	// The ID of the user pool that is associated with the custom domain whose certificate you're updating.
 	UserPoolId pulumi.StringInput
@@ -173,6 +176,7 @@ func (o UserPoolDomainOutput) Domain() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserPoolDomain) pulumi.StringOutput { return v.Domain }).(pulumi.StringOutput)
 }
 
+// A version number that indicates the state of managed login for your domain. Version `1` is hosted UI (classic). Version `2` is the newer managed login with the branding designer. For more information, see [Managed login](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html) .
 func (o UserPoolDomainOutput) ManagedLoginVersion() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *UserPoolDomain) pulumi.IntPtrOutput { return v.ManagedLoginVersion }).(pulumi.IntPtrOutput)
 }

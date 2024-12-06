@@ -823,8 +823,10 @@ AWS::Proton::EnvironmentAccountConnection
 AWS::Proton::EnvironmentTemplate
 AWS::Proton::ServiceTemplate
 AWS::QBusiness::Application
+AWS::QBusiness::DataAccessor
 AWS::QBusiness::DataSource
 AWS::QBusiness::Index
+AWS::QBusiness::Permission
 AWS::QBusiness::Plugin
 AWS::QBusiness::Retriever
 AWS::QBusiness::WebExperience
@@ -994,6 +996,7 @@ AWS::SageMaker::ModelPackage
 AWS::SageMaker::ModelPackageGroup
 AWS::SageMaker::ModelQualityJobDefinition
 AWS::SageMaker::MonitoringSchedule
+AWS::SageMaker::PartnerApp
 AWS::SageMaker::Pipeline
 AWS::SageMaker::Project
 AWS::SageMaker::Space
@@ -1063,10 +1066,13 @@ AWS::VoiceID::Domain
 AWS::VpcLattice::AccessLogSubscription
 AWS::VpcLattice::AuthPolicy
 AWS::VpcLattice::Listener
+AWS::VpcLattice::ResourceConfiguration
+AWS::VpcLattice::ResourceGateway
 AWS::VpcLattice::ResourcePolicy
 AWS::VpcLattice::Rule
 AWS::VpcLattice::Service
 AWS::VpcLattice::ServiceNetwork
+AWS::VpcLattice::ServiceNetworkResourceAssociation
 AWS::VpcLattice::ServiceNetworkServiceAssociation
 AWS::VpcLattice::ServiceNetworkVpcAssociation
 AWS::VpcLattice::TargetGroup

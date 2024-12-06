@@ -520,6 +520,567 @@ func (o ListenerWeightedTargetGroupArrayOutput) Index(i pulumi.IntInput) Listene
 	}).(ListenerWeightedTargetGroupOutput)
 }
 
+type ResourceConfigurationDefinition0Properties struct {
+	IpResource string `pulumi:"ipResource"`
+}
+
+// ResourceConfigurationDefinition0PropertiesInput is an input type that accepts ResourceConfigurationDefinition0PropertiesArgs and ResourceConfigurationDefinition0PropertiesOutput values.
+// You can construct a concrete instance of `ResourceConfigurationDefinition0PropertiesInput` via:
+//
+//	ResourceConfigurationDefinition0PropertiesArgs{...}
+type ResourceConfigurationDefinition0PropertiesInput interface {
+	pulumi.Input
+
+	ToResourceConfigurationDefinition0PropertiesOutput() ResourceConfigurationDefinition0PropertiesOutput
+	ToResourceConfigurationDefinition0PropertiesOutputWithContext(context.Context) ResourceConfigurationDefinition0PropertiesOutput
+}
+
+type ResourceConfigurationDefinition0PropertiesArgs struct {
+	IpResource pulumi.StringInput `pulumi:"ipResource"`
+}
+
+func (ResourceConfigurationDefinition0PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceConfigurationDefinition0Properties)(nil)).Elem()
+}
+
+func (i ResourceConfigurationDefinition0PropertiesArgs) ToResourceConfigurationDefinition0PropertiesOutput() ResourceConfigurationDefinition0PropertiesOutput {
+	return i.ToResourceConfigurationDefinition0PropertiesOutputWithContext(context.Background())
+}
+
+func (i ResourceConfigurationDefinition0PropertiesArgs) ToResourceConfigurationDefinition0PropertiesOutputWithContext(ctx context.Context) ResourceConfigurationDefinition0PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceConfigurationDefinition0PropertiesOutput)
+}
+
+func (i ResourceConfigurationDefinition0PropertiesArgs) ToResourceConfigurationDefinition0PropertiesPtrOutput() ResourceConfigurationDefinition0PropertiesPtrOutput {
+	return i.ToResourceConfigurationDefinition0PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ResourceConfigurationDefinition0PropertiesArgs) ToResourceConfigurationDefinition0PropertiesPtrOutputWithContext(ctx context.Context) ResourceConfigurationDefinition0PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceConfigurationDefinition0PropertiesOutput).ToResourceConfigurationDefinition0PropertiesPtrOutputWithContext(ctx)
+}
+
+// ResourceConfigurationDefinition0PropertiesPtrInput is an input type that accepts ResourceConfigurationDefinition0PropertiesArgs, ResourceConfigurationDefinition0PropertiesPtr and ResourceConfigurationDefinition0PropertiesPtrOutput values.
+// You can construct a concrete instance of `ResourceConfigurationDefinition0PropertiesPtrInput` via:
+//
+//	        ResourceConfigurationDefinition0PropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type ResourceConfigurationDefinition0PropertiesPtrInput interface {
+	pulumi.Input
+
+	ToResourceConfigurationDefinition0PropertiesPtrOutput() ResourceConfigurationDefinition0PropertiesPtrOutput
+	ToResourceConfigurationDefinition0PropertiesPtrOutputWithContext(context.Context) ResourceConfigurationDefinition0PropertiesPtrOutput
+}
+
+type resourceConfigurationDefinition0PropertiesPtrType ResourceConfigurationDefinition0PropertiesArgs
+
+func ResourceConfigurationDefinition0PropertiesPtr(v *ResourceConfigurationDefinition0PropertiesArgs) ResourceConfigurationDefinition0PropertiesPtrInput {
+	return (*resourceConfigurationDefinition0PropertiesPtrType)(v)
+}
+
+func (*resourceConfigurationDefinition0PropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceConfigurationDefinition0Properties)(nil)).Elem()
+}
+
+func (i *resourceConfigurationDefinition0PropertiesPtrType) ToResourceConfigurationDefinition0PropertiesPtrOutput() ResourceConfigurationDefinition0PropertiesPtrOutput {
+	return i.ToResourceConfigurationDefinition0PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *resourceConfigurationDefinition0PropertiesPtrType) ToResourceConfigurationDefinition0PropertiesPtrOutputWithContext(ctx context.Context) ResourceConfigurationDefinition0PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceConfigurationDefinition0PropertiesPtrOutput)
+}
+
+type ResourceConfigurationDefinition0PropertiesOutput struct{ *pulumi.OutputState }
+
+func (ResourceConfigurationDefinition0PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceConfigurationDefinition0Properties)(nil)).Elem()
+}
+
+func (o ResourceConfigurationDefinition0PropertiesOutput) ToResourceConfigurationDefinition0PropertiesOutput() ResourceConfigurationDefinition0PropertiesOutput {
+	return o
+}
+
+func (o ResourceConfigurationDefinition0PropertiesOutput) ToResourceConfigurationDefinition0PropertiesOutputWithContext(ctx context.Context) ResourceConfigurationDefinition0PropertiesOutput {
+	return o
+}
+
+func (o ResourceConfigurationDefinition0PropertiesOutput) ToResourceConfigurationDefinition0PropertiesPtrOutput() ResourceConfigurationDefinition0PropertiesPtrOutput {
+	return o.ToResourceConfigurationDefinition0PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceConfigurationDefinition0PropertiesOutput) ToResourceConfigurationDefinition0PropertiesPtrOutputWithContext(ctx context.Context) ResourceConfigurationDefinition0PropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceConfigurationDefinition0Properties) *ResourceConfigurationDefinition0Properties {
+		return &v
+	}).(ResourceConfigurationDefinition0PropertiesPtrOutput)
+}
+
+func (o ResourceConfigurationDefinition0PropertiesOutput) IpResource() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceConfigurationDefinition0Properties) string { return v.IpResource }).(pulumi.StringOutput)
+}
+
+type ResourceConfigurationDefinition0PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceConfigurationDefinition0PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceConfigurationDefinition0Properties)(nil)).Elem()
+}
+
+func (o ResourceConfigurationDefinition0PropertiesPtrOutput) ToResourceConfigurationDefinition0PropertiesPtrOutput() ResourceConfigurationDefinition0PropertiesPtrOutput {
+	return o
+}
+
+func (o ResourceConfigurationDefinition0PropertiesPtrOutput) ToResourceConfigurationDefinition0PropertiesPtrOutputWithContext(ctx context.Context) ResourceConfigurationDefinition0PropertiesPtrOutput {
+	return o
+}
+
+func (o ResourceConfigurationDefinition0PropertiesPtrOutput) Elem() ResourceConfigurationDefinition0PropertiesOutput {
+	return o.ApplyT(func(v *ResourceConfigurationDefinition0Properties) ResourceConfigurationDefinition0Properties {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceConfigurationDefinition0Properties
+		return ret
+	}).(ResourceConfigurationDefinition0PropertiesOutput)
+}
+
+func (o ResourceConfigurationDefinition0PropertiesPtrOutput) IpResource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceConfigurationDefinition0Properties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.IpResource
+	}).(pulumi.StringPtrOutput)
+}
+
+type ResourceConfigurationDefinition1Properties struct {
+	ArnResource string `pulumi:"arnResource"`
+}
+
+// ResourceConfigurationDefinition1PropertiesInput is an input type that accepts ResourceConfigurationDefinition1PropertiesArgs and ResourceConfigurationDefinition1PropertiesOutput values.
+// You can construct a concrete instance of `ResourceConfigurationDefinition1PropertiesInput` via:
+//
+//	ResourceConfigurationDefinition1PropertiesArgs{...}
+type ResourceConfigurationDefinition1PropertiesInput interface {
+	pulumi.Input
+
+	ToResourceConfigurationDefinition1PropertiesOutput() ResourceConfigurationDefinition1PropertiesOutput
+	ToResourceConfigurationDefinition1PropertiesOutputWithContext(context.Context) ResourceConfigurationDefinition1PropertiesOutput
+}
+
+type ResourceConfigurationDefinition1PropertiesArgs struct {
+	ArnResource pulumi.StringInput `pulumi:"arnResource"`
+}
+
+func (ResourceConfigurationDefinition1PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceConfigurationDefinition1Properties)(nil)).Elem()
+}
+
+func (i ResourceConfigurationDefinition1PropertiesArgs) ToResourceConfigurationDefinition1PropertiesOutput() ResourceConfigurationDefinition1PropertiesOutput {
+	return i.ToResourceConfigurationDefinition1PropertiesOutputWithContext(context.Background())
+}
+
+func (i ResourceConfigurationDefinition1PropertiesArgs) ToResourceConfigurationDefinition1PropertiesOutputWithContext(ctx context.Context) ResourceConfigurationDefinition1PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceConfigurationDefinition1PropertiesOutput)
+}
+
+func (i ResourceConfigurationDefinition1PropertiesArgs) ToResourceConfigurationDefinition1PropertiesPtrOutput() ResourceConfigurationDefinition1PropertiesPtrOutput {
+	return i.ToResourceConfigurationDefinition1PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ResourceConfigurationDefinition1PropertiesArgs) ToResourceConfigurationDefinition1PropertiesPtrOutputWithContext(ctx context.Context) ResourceConfigurationDefinition1PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceConfigurationDefinition1PropertiesOutput).ToResourceConfigurationDefinition1PropertiesPtrOutputWithContext(ctx)
+}
+
+// ResourceConfigurationDefinition1PropertiesPtrInput is an input type that accepts ResourceConfigurationDefinition1PropertiesArgs, ResourceConfigurationDefinition1PropertiesPtr and ResourceConfigurationDefinition1PropertiesPtrOutput values.
+// You can construct a concrete instance of `ResourceConfigurationDefinition1PropertiesPtrInput` via:
+//
+//	        ResourceConfigurationDefinition1PropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type ResourceConfigurationDefinition1PropertiesPtrInput interface {
+	pulumi.Input
+
+	ToResourceConfigurationDefinition1PropertiesPtrOutput() ResourceConfigurationDefinition1PropertiesPtrOutput
+	ToResourceConfigurationDefinition1PropertiesPtrOutputWithContext(context.Context) ResourceConfigurationDefinition1PropertiesPtrOutput
+}
+
+type resourceConfigurationDefinition1PropertiesPtrType ResourceConfigurationDefinition1PropertiesArgs
+
+func ResourceConfigurationDefinition1PropertiesPtr(v *ResourceConfigurationDefinition1PropertiesArgs) ResourceConfigurationDefinition1PropertiesPtrInput {
+	return (*resourceConfigurationDefinition1PropertiesPtrType)(v)
+}
+
+func (*resourceConfigurationDefinition1PropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceConfigurationDefinition1Properties)(nil)).Elem()
+}
+
+func (i *resourceConfigurationDefinition1PropertiesPtrType) ToResourceConfigurationDefinition1PropertiesPtrOutput() ResourceConfigurationDefinition1PropertiesPtrOutput {
+	return i.ToResourceConfigurationDefinition1PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *resourceConfigurationDefinition1PropertiesPtrType) ToResourceConfigurationDefinition1PropertiesPtrOutputWithContext(ctx context.Context) ResourceConfigurationDefinition1PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceConfigurationDefinition1PropertiesPtrOutput)
+}
+
+type ResourceConfigurationDefinition1PropertiesOutput struct{ *pulumi.OutputState }
+
+func (ResourceConfigurationDefinition1PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceConfigurationDefinition1Properties)(nil)).Elem()
+}
+
+func (o ResourceConfigurationDefinition1PropertiesOutput) ToResourceConfigurationDefinition1PropertiesOutput() ResourceConfigurationDefinition1PropertiesOutput {
+	return o
+}
+
+func (o ResourceConfigurationDefinition1PropertiesOutput) ToResourceConfigurationDefinition1PropertiesOutputWithContext(ctx context.Context) ResourceConfigurationDefinition1PropertiesOutput {
+	return o
+}
+
+func (o ResourceConfigurationDefinition1PropertiesOutput) ToResourceConfigurationDefinition1PropertiesPtrOutput() ResourceConfigurationDefinition1PropertiesPtrOutput {
+	return o.ToResourceConfigurationDefinition1PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceConfigurationDefinition1PropertiesOutput) ToResourceConfigurationDefinition1PropertiesPtrOutputWithContext(ctx context.Context) ResourceConfigurationDefinition1PropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceConfigurationDefinition1Properties) *ResourceConfigurationDefinition1Properties {
+		return &v
+	}).(ResourceConfigurationDefinition1PropertiesPtrOutput)
+}
+
+func (o ResourceConfigurationDefinition1PropertiesOutput) ArnResource() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceConfigurationDefinition1Properties) string { return v.ArnResource }).(pulumi.StringOutput)
+}
+
+type ResourceConfigurationDefinition1PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceConfigurationDefinition1PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceConfigurationDefinition1Properties)(nil)).Elem()
+}
+
+func (o ResourceConfigurationDefinition1PropertiesPtrOutput) ToResourceConfigurationDefinition1PropertiesPtrOutput() ResourceConfigurationDefinition1PropertiesPtrOutput {
+	return o
+}
+
+func (o ResourceConfigurationDefinition1PropertiesPtrOutput) ToResourceConfigurationDefinition1PropertiesPtrOutputWithContext(ctx context.Context) ResourceConfigurationDefinition1PropertiesPtrOutput {
+	return o
+}
+
+func (o ResourceConfigurationDefinition1PropertiesPtrOutput) Elem() ResourceConfigurationDefinition1PropertiesOutput {
+	return o.ApplyT(func(v *ResourceConfigurationDefinition1Properties) ResourceConfigurationDefinition1Properties {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceConfigurationDefinition1Properties
+		return ret
+	}).(ResourceConfigurationDefinition1PropertiesOutput)
+}
+
+func (o ResourceConfigurationDefinition1PropertiesPtrOutput) ArnResource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceConfigurationDefinition1Properties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ArnResource
+	}).(pulumi.StringPtrOutput)
+}
+
+type ResourceConfigurationDefinition2Properties struct {
+	DnsResource ResourceConfigurationDnsResource `pulumi:"dnsResource"`
+}
+
+// ResourceConfigurationDefinition2PropertiesInput is an input type that accepts ResourceConfigurationDefinition2PropertiesArgs and ResourceConfigurationDefinition2PropertiesOutput values.
+// You can construct a concrete instance of `ResourceConfigurationDefinition2PropertiesInput` via:
+//
+//	ResourceConfigurationDefinition2PropertiesArgs{...}
+type ResourceConfigurationDefinition2PropertiesInput interface {
+	pulumi.Input
+
+	ToResourceConfigurationDefinition2PropertiesOutput() ResourceConfigurationDefinition2PropertiesOutput
+	ToResourceConfigurationDefinition2PropertiesOutputWithContext(context.Context) ResourceConfigurationDefinition2PropertiesOutput
+}
+
+type ResourceConfigurationDefinition2PropertiesArgs struct {
+	DnsResource ResourceConfigurationDnsResourceInput `pulumi:"dnsResource"`
+}
+
+func (ResourceConfigurationDefinition2PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceConfigurationDefinition2Properties)(nil)).Elem()
+}
+
+func (i ResourceConfigurationDefinition2PropertiesArgs) ToResourceConfigurationDefinition2PropertiesOutput() ResourceConfigurationDefinition2PropertiesOutput {
+	return i.ToResourceConfigurationDefinition2PropertiesOutputWithContext(context.Background())
+}
+
+func (i ResourceConfigurationDefinition2PropertiesArgs) ToResourceConfigurationDefinition2PropertiesOutputWithContext(ctx context.Context) ResourceConfigurationDefinition2PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceConfigurationDefinition2PropertiesOutput)
+}
+
+func (i ResourceConfigurationDefinition2PropertiesArgs) ToResourceConfigurationDefinition2PropertiesPtrOutput() ResourceConfigurationDefinition2PropertiesPtrOutput {
+	return i.ToResourceConfigurationDefinition2PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ResourceConfigurationDefinition2PropertiesArgs) ToResourceConfigurationDefinition2PropertiesPtrOutputWithContext(ctx context.Context) ResourceConfigurationDefinition2PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceConfigurationDefinition2PropertiesOutput).ToResourceConfigurationDefinition2PropertiesPtrOutputWithContext(ctx)
+}
+
+// ResourceConfigurationDefinition2PropertiesPtrInput is an input type that accepts ResourceConfigurationDefinition2PropertiesArgs, ResourceConfigurationDefinition2PropertiesPtr and ResourceConfigurationDefinition2PropertiesPtrOutput values.
+// You can construct a concrete instance of `ResourceConfigurationDefinition2PropertiesPtrInput` via:
+//
+//	        ResourceConfigurationDefinition2PropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type ResourceConfigurationDefinition2PropertiesPtrInput interface {
+	pulumi.Input
+
+	ToResourceConfigurationDefinition2PropertiesPtrOutput() ResourceConfigurationDefinition2PropertiesPtrOutput
+	ToResourceConfigurationDefinition2PropertiesPtrOutputWithContext(context.Context) ResourceConfigurationDefinition2PropertiesPtrOutput
+}
+
+type resourceConfigurationDefinition2PropertiesPtrType ResourceConfigurationDefinition2PropertiesArgs
+
+func ResourceConfigurationDefinition2PropertiesPtr(v *ResourceConfigurationDefinition2PropertiesArgs) ResourceConfigurationDefinition2PropertiesPtrInput {
+	return (*resourceConfigurationDefinition2PropertiesPtrType)(v)
+}
+
+func (*resourceConfigurationDefinition2PropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceConfigurationDefinition2Properties)(nil)).Elem()
+}
+
+func (i *resourceConfigurationDefinition2PropertiesPtrType) ToResourceConfigurationDefinition2PropertiesPtrOutput() ResourceConfigurationDefinition2PropertiesPtrOutput {
+	return i.ToResourceConfigurationDefinition2PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *resourceConfigurationDefinition2PropertiesPtrType) ToResourceConfigurationDefinition2PropertiesPtrOutputWithContext(ctx context.Context) ResourceConfigurationDefinition2PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceConfigurationDefinition2PropertiesPtrOutput)
+}
+
+type ResourceConfigurationDefinition2PropertiesOutput struct{ *pulumi.OutputState }
+
+func (ResourceConfigurationDefinition2PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceConfigurationDefinition2Properties)(nil)).Elem()
+}
+
+func (o ResourceConfigurationDefinition2PropertiesOutput) ToResourceConfigurationDefinition2PropertiesOutput() ResourceConfigurationDefinition2PropertiesOutput {
+	return o
+}
+
+func (o ResourceConfigurationDefinition2PropertiesOutput) ToResourceConfigurationDefinition2PropertiesOutputWithContext(ctx context.Context) ResourceConfigurationDefinition2PropertiesOutput {
+	return o
+}
+
+func (o ResourceConfigurationDefinition2PropertiesOutput) ToResourceConfigurationDefinition2PropertiesPtrOutput() ResourceConfigurationDefinition2PropertiesPtrOutput {
+	return o.ToResourceConfigurationDefinition2PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceConfigurationDefinition2PropertiesOutput) ToResourceConfigurationDefinition2PropertiesPtrOutputWithContext(ctx context.Context) ResourceConfigurationDefinition2PropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceConfigurationDefinition2Properties) *ResourceConfigurationDefinition2Properties {
+		return &v
+	}).(ResourceConfigurationDefinition2PropertiesPtrOutput)
+}
+
+func (o ResourceConfigurationDefinition2PropertiesOutput) DnsResource() ResourceConfigurationDnsResourceOutput {
+	return o.ApplyT(func(v ResourceConfigurationDefinition2Properties) ResourceConfigurationDnsResource {
+		return v.DnsResource
+	}).(ResourceConfigurationDnsResourceOutput)
+}
+
+type ResourceConfigurationDefinition2PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceConfigurationDefinition2PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceConfigurationDefinition2Properties)(nil)).Elem()
+}
+
+func (o ResourceConfigurationDefinition2PropertiesPtrOutput) ToResourceConfigurationDefinition2PropertiesPtrOutput() ResourceConfigurationDefinition2PropertiesPtrOutput {
+	return o
+}
+
+func (o ResourceConfigurationDefinition2PropertiesPtrOutput) ToResourceConfigurationDefinition2PropertiesPtrOutputWithContext(ctx context.Context) ResourceConfigurationDefinition2PropertiesPtrOutput {
+	return o
+}
+
+func (o ResourceConfigurationDefinition2PropertiesPtrOutput) Elem() ResourceConfigurationDefinition2PropertiesOutput {
+	return o.ApplyT(func(v *ResourceConfigurationDefinition2Properties) ResourceConfigurationDefinition2Properties {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceConfigurationDefinition2Properties
+		return ret
+	}).(ResourceConfigurationDefinition2PropertiesOutput)
+}
+
+func (o ResourceConfigurationDefinition2PropertiesPtrOutput) DnsResource() ResourceConfigurationDnsResourcePtrOutput {
+	return o.ApplyT(func(v *ResourceConfigurationDefinition2Properties) *ResourceConfigurationDnsResource {
+		if v == nil {
+			return nil
+		}
+		return &v.DnsResource
+	}).(ResourceConfigurationDnsResourcePtrOutput)
+}
+
+type ResourceConfigurationDnsResource struct {
+	DomainName    string                                        `pulumi:"domainName"`
+	IpAddressType ResourceConfigurationDnsResourceIpAddressType `pulumi:"ipAddressType"`
+}
+
+// ResourceConfigurationDnsResourceInput is an input type that accepts ResourceConfigurationDnsResourceArgs and ResourceConfigurationDnsResourceOutput values.
+// You can construct a concrete instance of `ResourceConfigurationDnsResourceInput` via:
+//
+//	ResourceConfigurationDnsResourceArgs{...}
+type ResourceConfigurationDnsResourceInput interface {
+	pulumi.Input
+
+	ToResourceConfigurationDnsResourceOutput() ResourceConfigurationDnsResourceOutput
+	ToResourceConfigurationDnsResourceOutputWithContext(context.Context) ResourceConfigurationDnsResourceOutput
+}
+
+type ResourceConfigurationDnsResourceArgs struct {
+	DomainName    pulumi.StringInput                                 `pulumi:"domainName"`
+	IpAddressType ResourceConfigurationDnsResourceIpAddressTypeInput `pulumi:"ipAddressType"`
+}
+
+func (ResourceConfigurationDnsResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceConfigurationDnsResource)(nil)).Elem()
+}
+
+func (i ResourceConfigurationDnsResourceArgs) ToResourceConfigurationDnsResourceOutput() ResourceConfigurationDnsResourceOutput {
+	return i.ToResourceConfigurationDnsResourceOutputWithContext(context.Background())
+}
+
+func (i ResourceConfigurationDnsResourceArgs) ToResourceConfigurationDnsResourceOutputWithContext(ctx context.Context) ResourceConfigurationDnsResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceConfigurationDnsResourceOutput)
+}
+
+func (i ResourceConfigurationDnsResourceArgs) ToResourceConfigurationDnsResourcePtrOutput() ResourceConfigurationDnsResourcePtrOutput {
+	return i.ToResourceConfigurationDnsResourcePtrOutputWithContext(context.Background())
+}
+
+func (i ResourceConfigurationDnsResourceArgs) ToResourceConfigurationDnsResourcePtrOutputWithContext(ctx context.Context) ResourceConfigurationDnsResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceConfigurationDnsResourceOutput).ToResourceConfigurationDnsResourcePtrOutputWithContext(ctx)
+}
+
+// ResourceConfigurationDnsResourcePtrInput is an input type that accepts ResourceConfigurationDnsResourceArgs, ResourceConfigurationDnsResourcePtr and ResourceConfigurationDnsResourcePtrOutput values.
+// You can construct a concrete instance of `ResourceConfigurationDnsResourcePtrInput` via:
+//
+//	        ResourceConfigurationDnsResourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type ResourceConfigurationDnsResourcePtrInput interface {
+	pulumi.Input
+
+	ToResourceConfigurationDnsResourcePtrOutput() ResourceConfigurationDnsResourcePtrOutput
+	ToResourceConfigurationDnsResourcePtrOutputWithContext(context.Context) ResourceConfigurationDnsResourcePtrOutput
+}
+
+type resourceConfigurationDnsResourcePtrType ResourceConfigurationDnsResourceArgs
+
+func ResourceConfigurationDnsResourcePtr(v *ResourceConfigurationDnsResourceArgs) ResourceConfigurationDnsResourcePtrInput {
+	return (*resourceConfigurationDnsResourcePtrType)(v)
+}
+
+func (*resourceConfigurationDnsResourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceConfigurationDnsResource)(nil)).Elem()
+}
+
+func (i *resourceConfigurationDnsResourcePtrType) ToResourceConfigurationDnsResourcePtrOutput() ResourceConfigurationDnsResourcePtrOutput {
+	return i.ToResourceConfigurationDnsResourcePtrOutputWithContext(context.Background())
+}
+
+func (i *resourceConfigurationDnsResourcePtrType) ToResourceConfigurationDnsResourcePtrOutputWithContext(ctx context.Context) ResourceConfigurationDnsResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceConfigurationDnsResourcePtrOutput)
+}
+
+type ResourceConfigurationDnsResourceOutput struct{ *pulumi.OutputState }
+
+func (ResourceConfigurationDnsResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceConfigurationDnsResource)(nil)).Elem()
+}
+
+func (o ResourceConfigurationDnsResourceOutput) ToResourceConfigurationDnsResourceOutput() ResourceConfigurationDnsResourceOutput {
+	return o
+}
+
+func (o ResourceConfigurationDnsResourceOutput) ToResourceConfigurationDnsResourceOutputWithContext(ctx context.Context) ResourceConfigurationDnsResourceOutput {
+	return o
+}
+
+func (o ResourceConfigurationDnsResourceOutput) ToResourceConfigurationDnsResourcePtrOutput() ResourceConfigurationDnsResourcePtrOutput {
+	return o.ToResourceConfigurationDnsResourcePtrOutputWithContext(context.Background())
+}
+
+func (o ResourceConfigurationDnsResourceOutput) ToResourceConfigurationDnsResourcePtrOutputWithContext(ctx context.Context) ResourceConfigurationDnsResourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceConfigurationDnsResource) *ResourceConfigurationDnsResource {
+		return &v
+	}).(ResourceConfigurationDnsResourcePtrOutput)
+}
+
+func (o ResourceConfigurationDnsResourceOutput) DomainName() pulumi.StringOutput {
+	return o.ApplyT(func(v ResourceConfigurationDnsResource) string { return v.DomainName }).(pulumi.StringOutput)
+}
+
+func (o ResourceConfigurationDnsResourceOutput) IpAddressType() ResourceConfigurationDnsResourceIpAddressTypeOutput {
+	return o.ApplyT(func(v ResourceConfigurationDnsResource) ResourceConfigurationDnsResourceIpAddressType {
+		return v.IpAddressType
+	}).(ResourceConfigurationDnsResourceIpAddressTypeOutput)
+}
+
+type ResourceConfigurationDnsResourcePtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceConfigurationDnsResourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceConfigurationDnsResource)(nil)).Elem()
+}
+
+func (o ResourceConfigurationDnsResourcePtrOutput) ToResourceConfigurationDnsResourcePtrOutput() ResourceConfigurationDnsResourcePtrOutput {
+	return o
+}
+
+func (o ResourceConfigurationDnsResourcePtrOutput) ToResourceConfigurationDnsResourcePtrOutputWithContext(ctx context.Context) ResourceConfigurationDnsResourcePtrOutput {
+	return o
+}
+
+func (o ResourceConfigurationDnsResourcePtrOutput) Elem() ResourceConfigurationDnsResourceOutput {
+	return o.ApplyT(func(v *ResourceConfigurationDnsResource) ResourceConfigurationDnsResource {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceConfigurationDnsResource
+		return ret
+	}).(ResourceConfigurationDnsResourceOutput)
+}
+
+func (o ResourceConfigurationDnsResourcePtrOutput) DomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceConfigurationDnsResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DomainName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ResourceConfigurationDnsResourcePtrOutput) IpAddressType() ResourceConfigurationDnsResourceIpAddressTypePtrOutput {
+	return o.ApplyT(func(v *ResourceConfigurationDnsResource) *ResourceConfigurationDnsResourceIpAddressType {
+		if v == nil {
+			return nil
+		}
+		return &v.IpAddressType
+	}).(ResourceConfigurationDnsResourceIpAddressTypePtrOutput)
+}
+
+type ResourceConfigurationTag struct {
+	Key   string  `pulumi:"key"`
+	Value *string `pulumi:"value"`
+}
+
+type ResourceGatewayTag struct {
+	Key   string  `pulumi:"key"`
+	Value *string `pulumi:"value"`
+}
+
 type RuleAction struct {
 	// The fixed response action. The rule returns a custom HTTP response.
 	FixedResponse *RuleFixedResponse `pulumi:"fixedResponse"`
@@ -1883,6 +2444,12 @@ func (o ServiceDnsEntryPtrOutput) HostedZoneId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// A key-value pair to associate with a resource.
+type ServiceNetworkResourceAssociationTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
 type ServiceNetworkServiceAssociationDnsEntry struct {
 	// The domain name of the service.
 	DomainName *string `pulumi:"domainName"`
@@ -3021,6 +3588,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerForwardPtrInput)(nil)).Elem(), ListenerForwardArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerWeightedTargetGroupInput)(nil)).Elem(), ListenerWeightedTargetGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerWeightedTargetGroupArrayInput)(nil)).Elem(), ListenerWeightedTargetGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceConfigurationDefinition0PropertiesInput)(nil)).Elem(), ResourceConfigurationDefinition0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceConfigurationDefinition0PropertiesPtrInput)(nil)).Elem(), ResourceConfigurationDefinition0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceConfigurationDefinition1PropertiesInput)(nil)).Elem(), ResourceConfigurationDefinition1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceConfigurationDefinition1PropertiesPtrInput)(nil)).Elem(), ResourceConfigurationDefinition1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceConfigurationDefinition2PropertiesInput)(nil)).Elem(), ResourceConfigurationDefinition2PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceConfigurationDefinition2PropertiesPtrInput)(nil)).Elem(), ResourceConfigurationDefinition2PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceConfigurationDnsResourceInput)(nil)).Elem(), ResourceConfigurationDnsResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceConfigurationDnsResourcePtrInput)(nil)).Elem(), ResourceConfigurationDnsResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleActionInput)(nil)).Elem(), RuleActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleFixedResponseInput)(nil)).Elem(), RuleFixedResponseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleFixedResponsePtrInput)(nil)).Elem(), RuleFixedResponseArgs{})
@@ -3059,6 +3634,14 @@ func init() {
 	pulumi.RegisterOutputType(ListenerForwardPtrOutput{})
 	pulumi.RegisterOutputType(ListenerWeightedTargetGroupOutput{})
 	pulumi.RegisterOutputType(ListenerWeightedTargetGroupArrayOutput{})
+	pulumi.RegisterOutputType(ResourceConfigurationDefinition0PropertiesOutput{})
+	pulumi.RegisterOutputType(ResourceConfigurationDefinition0PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ResourceConfigurationDefinition1PropertiesOutput{})
+	pulumi.RegisterOutputType(ResourceConfigurationDefinition1PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ResourceConfigurationDefinition2PropertiesOutput{})
+	pulumi.RegisterOutputType(ResourceConfigurationDefinition2PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ResourceConfigurationDnsResourceOutput{})
+	pulumi.RegisterOutputType(ResourceConfigurationDnsResourcePtrOutput{})
 	pulumi.RegisterOutputType(RuleActionOutput{})
 	pulumi.RegisterOutputType(RuleActionPtrOutput{})
 	pulumi.RegisterOutputType(RuleFixedResponseOutput{})

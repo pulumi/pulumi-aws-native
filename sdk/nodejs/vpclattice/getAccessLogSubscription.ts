@@ -45,6 +45,9 @@ export interface GetAccessLogSubscriptionResult {
      * The ID of the service network or service.
      */
     readonly resourceId?: string;
+    /**
+     * Log type of the service network.
+     */
     readonly serviceNetworkLogType?: enums.vpclattice.AccessLogSubscriptionServiceNetworkLogType;
     /**
      * The tags for the access log subscription.

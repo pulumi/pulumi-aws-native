@@ -57,6 +57,9 @@ export class UserPoolDomain extends pulumi.CustomResource {
      * This string can include only lowercase letters, numbers, and hyphens. Don't use a hyphen for the first or last character. Use periods to separate subdomain names.
      */
     public readonly domain!: pulumi.Output<string>;
+    /**
+     * A version number that indicates the state of managed login for your domain. Version `1` is hosted UI (classic). Version `2` is the newer managed login with the branding designer. For more information, see [Managed login](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html) .
+     */
     public readonly managedLoginVersion!: pulumi.Output<number | undefined>;
     /**
      * The ID of the user pool that is associated with the custom domain whose certificate you're updating.
@@ -117,6 +120,9 @@ export interface UserPoolDomainArgs {
      * This string can include only lowercase letters, numbers, and hyphens. Don't use a hyphen for the first or last character. Use periods to separate subdomain names.
      */
     domain: pulumi.Input<string>;
+    /**
+     * A version number that indicates the state of managed login for your domain. Version `1` is hosted UI (classic). Version `2` is the newer managed login with the branding designer. For more information, see [Managed login](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html) .
+     */
     managedLoginVersion?: pulumi.Input<number>;
     /**
      * The ID of the user pool that is associated with the custom domain whose certificate you're updating.

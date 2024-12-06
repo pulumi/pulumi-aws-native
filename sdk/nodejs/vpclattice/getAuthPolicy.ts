@@ -19,7 +19,7 @@ export function getAuthPolicy(args: GetAuthPolicyArgs, opts?: pulumi.InvokeOptio
 
 export interface GetAuthPolicyArgs {
     /**
-     * The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+     * The ID or ARN of the service network or service for which the policy is created.
      */
     resourceIdentifier: string;
 }
@@ -48,7 +48,7 @@ export function getAuthPolicyOutput(args: GetAuthPolicyOutputArgs, opts?: pulumi
 
 export interface GetAuthPolicyOutputArgs {
     /**
-     * The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+     * The ID or ARN of the service network or service for which the policy is created.
      */
     resourceIdentifier: pulumi.Input<string>;
 }

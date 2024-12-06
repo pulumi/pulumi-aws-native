@@ -27,7 +27,7 @@ class AuthPolicyArgs:
         :param Any policy: The auth policy.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::VpcLattice::AuthPolicy` for more information about the expected schema for this property.
-        :param pulumi.Input[str] resource_identifier: The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+        :param pulumi.Input[str] resource_identifier: The ID or ARN of the service network or service for which the policy is created.
         """
         pulumi.set(__self__, "policy", policy)
         pulumi.set(__self__, "resource_identifier", resource_identifier)
@@ -50,7 +50,7 @@ class AuthPolicyArgs:
     @pulumi.getter(name="resourceIdentifier")
     def resource_identifier(self) -> pulumi.Input[str]:
         """
-        The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+        The ID or ARN of the service network or service for which the policy is created.
         """
         return pulumi.get(self, "resource_identifier")
 
@@ -75,7 +75,7 @@ class AuthPolicy(pulumi.CustomResource):
         :param Any policy: The auth policy.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::VpcLattice::AuthPolicy` for more information about the expected schema for this property.
-        :param pulumi.Input[str] resource_identifier: The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+        :param pulumi.Input[str] resource_identifier: The ID or ARN of the service network or service for which the policy is created.
         """
         ...
     @overload
@@ -162,7 +162,7 @@ class AuthPolicy(pulumi.CustomResource):
     @pulumi.getter(name="resourceIdentifier")
     def resource_identifier(self) -> pulumi.Output[str]:
         """
-        The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+        The ID or ARN of the service network or service for which the policy is created.
         """
         return pulumi.get(self, "resource_identifier")
 

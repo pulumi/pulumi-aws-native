@@ -70,7 +70,7 @@ export class ConfiguredTable extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The AWS Glue table that this configured table represents.
+     * The table that this configured table represents.
      */
     public readonly tableReference!: pulumi.Output<outputs.cleanrooms.ConfiguredTableTableReference>;
     /**
@@ -150,7 +150,7 @@ export interface ConfiguredTableArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The AWS Glue table that this configured table represents.
+     * The table that this configured table represents.
      */
     tableReference: pulumi.Input<inputs.cleanrooms.ConfiguredTableTableReferenceArgs>;
     /**

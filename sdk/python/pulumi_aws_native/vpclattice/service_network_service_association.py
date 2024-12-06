@@ -31,8 +31,8 @@ class ServiceNetworkServiceAssociationArgs:
         """
         The set of arguments for constructing a ServiceNetworkServiceAssociation resource.
         :param pulumi.Input['ServiceNetworkServiceAssociationDnsEntryArgs'] dns_entry: The DNS information of the service.
-        :param pulumi.Input[str] service_identifier: The ID or Amazon Resource Name (ARN) of the service.
-        :param pulumi.Input[str] service_network_identifier: The ID or Amazon Resource Name (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
+        :param pulumi.Input[str] service_identifier: The ID or ARN of the service.
+        :param pulumi.Input[str] service_network_identifier: The ID or ARN of the service network. You must use an ARN if the resources are in different accounts.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags for the association.
         """
         if dns_entry is not None:
@@ -60,7 +60,7 @@ class ServiceNetworkServiceAssociationArgs:
     @pulumi.getter(name="serviceIdentifier")
     def service_identifier(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID or Amazon Resource Name (ARN) of the service.
+        The ID or ARN of the service.
         """
         return pulumi.get(self, "service_identifier")
 
@@ -72,7 +72,7 @@ class ServiceNetworkServiceAssociationArgs:
     @pulumi.getter(name="serviceNetworkIdentifier")
     def service_network_identifier(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID or Amazon Resource Name (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
+        The ID or ARN of the service network. You must use an ARN if the resources are in different accounts.
         """
         return pulumi.get(self, "service_network_identifier")
 
@@ -109,8 +109,8 @@ class ServiceNetworkServiceAssociation(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ServiceNetworkServiceAssociationDnsEntryArgs', 'ServiceNetworkServiceAssociationDnsEntryArgsDict']] dns_entry: The DNS information of the service.
-        :param pulumi.Input[str] service_identifier: The ID or Amazon Resource Name (ARN) of the service.
-        :param pulumi.Input[str] service_network_identifier: The ID or Amazon Resource Name (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
+        :param pulumi.Input[str] service_identifier: The ID or ARN of the service.
+        :param pulumi.Input[str] service_network_identifier: The ID or ARN of the service network. You must use an ARN if the resources are in different accounts.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags for the association.
         """
         ...
@@ -256,7 +256,7 @@ class ServiceNetworkServiceAssociation(pulumi.CustomResource):
     @pulumi.getter(name="serviceIdentifier")
     def service_identifier(self) -> pulumi.Output[Optional[str]]:
         """
-        The ID or Amazon Resource Name (ARN) of the service.
+        The ID or ARN of the service.
         """
         return pulumi.get(self, "service_identifier")
 
@@ -288,7 +288,7 @@ class ServiceNetworkServiceAssociation(pulumi.CustomResource):
     @pulumi.getter(name="serviceNetworkIdentifier")
     def service_network_identifier(self) -> pulumi.Output[Optional[str]]:
         """
-        The ID or Amazon Resource Name (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
+        The ID or ARN of the service network. You must use an ARN if the resources are in different accounts.
         """
         return pulumi.get(self, "service_network_identifier")
 

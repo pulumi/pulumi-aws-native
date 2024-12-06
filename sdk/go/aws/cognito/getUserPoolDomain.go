@@ -35,8 +35,9 @@ type LookupUserPoolDomainResult struct {
 	// When you create a custom domain, the passkey RP ID defaults to the custom domain. If you had a prefix domain active, this will cause passkey integration for your prefix domain to stop working due to a mismatch in RP ID. To keep the prefix domain passkey integration working, you can explicitly set RP ID to the prefix domain. Update the RP ID in a [SetUserPoolMfaConfig](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SetUserPoolMfaConfig.html) request.
 	CustomDomainConfig *UserPoolDomainCustomDomainConfigType `pulumi:"customDomainConfig"`
 	// The resource ID.
-	Id                  *string `pulumi:"id"`
-	ManagedLoginVersion *int    `pulumi:"managedLoginVersion"`
+	Id *string `pulumi:"id"`
+	// A version number that indicates the state of managed login for your domain. Version `1` is hosted UI (classic). Version `2` is the newer managed login with the branding designer. For more information, see [Managed login](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html) .
+	ManagedLoginVersion *int `pulumi:"managedLoginVersion"`
 }
 
 func LookupUserPoolDomainOutput(ctx *pulumi.Context, args LookupUserPoolDomainOutputArgs, opts ...pulumi.InvokeOption) LookupUserPoolDomainResultOutput {
@@ -98,6 +99,7 @@ func (o LookupUserPoolDomainResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupUserPoolDomainResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// A version number that indicates the state of managed login for your domain. Version `1` is hosted UI (classic). Version `2` is the newer managed login with the branding designer. For more information, see [Managed login](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html) .
 func (o LookupUserPoolDomainResultOutput) ManagedLoginVersion() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupUserPoolDomainResult) *int { return v.ManagedLoginVersion }).(pulumi.IntPtrOutput)
 }

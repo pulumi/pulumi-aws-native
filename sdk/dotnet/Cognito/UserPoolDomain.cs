@@ -43,6 +43,9 @@ namespace Pulumi.AwsNative.Cognito
         [Output("domain")]
         public Output<string> Domain { get; private set; } = null!;
 
+        /// <summary>
+        /// A version number that indicates the state of managed login for your domain. Version `1` is hosted UI (classic). Version `2` is the newer managed login with the branding designer. For more information, see [Managed login](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html) .
+        /// </summary>
         [Output("managedLoginVersion")]
         public Output<int?> ManagedLoginVersion { get; private set; } = null!;
 
@@ -118,6 +121,9 @@ namespace Pulumi.AwsNative.Cognito
         [Input("domain", required: true)]
         public Input<string> Domain { get; set; } = null!;
 
+        /// <summary>
+        /// A version number that indicates the state of managed login for your domain. Version `1` is hosted UI (classic). Version `2` is the newer managed login with the branding designer. For more information, see [Managed login](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html) .
+        /// </summary>
         [Input("managedLoginVersion")]
         public Input<int>? ManagedLoginVersion { get; set; }
 

@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.Events.Inputs
         private InputList<Inputs.ConnectionParameterArgs>? _bodyParameters;
 
         /// <summary>
-        /// Contains additional body string parameters for the connection.
+        /// Any additional body string parameters for the connection.
         /// </summary>
         public InputList<Inputs.ConnectionParameterArgs> BodyParameters
         {
@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.Events.Inputs
         private InputList<Inputs.ConnectionParameterArgs>? _headerParameters;
 
         /// <summary>
-        /// Contains additional header parameters for the connection.
+        /// Any additional header parameters for the connection.
         /// </summary>
         public InputList<Inputs.ConnectionParameterArgs> HeaderParameters
         {
@@ -40,7 +40,7 @@ namespace Pulumi.AwsNative.Events.Inputs
         private InputList<Inputs.ConnectionParameterArgs>? _queryStringParameters;
 
         /// <summary>
-        /// Contains additional query string parameters for the connection.
+        /// Any additional query string parameters for the connection.
         /// </summary>
         public InputList<Inputs.ConnectionParameterArgs> QueryStringParameters
         {

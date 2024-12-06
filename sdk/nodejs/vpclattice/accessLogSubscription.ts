@@ -58,9 +58,12 @@ export class AccessLogSubscription extends pulumi.CustomResource {
      */
     public /*out*/ readonly resourceId!: pulumi.Output<string>;
     /**
-     * The ID or Amazon Resource Name (ARN) of the service network or service.
+     * The ID or ARN of the service network or service.
      */
     public readonly resourceIdentifier!: pulumi.Output<string | undefined>;
+    /**
+     * Log type of the service network.
+     */
     public readonly serviceNetworkLogType!: pulumi.Output<enums.vpclattice.AccessLogSubscriptionServiceNetworkLogType | undefined>;
     /**
      * The tags for the access log subscription.
@@ -115,9 +118,12 @@ export interface AccessLogSubscriptionArgs {
      */
     destinationArn: pulumi.Input<string>;
     /**
-     * The ID or Amazon Resource Name (ARN) of the service network or service.
+     * The ID or ARN of the service network or service.
      */
     resourceIdentifier?: pulumi.Input<string>;
+    /**
+     * Log type of the service network.
+     */
     serviceNetworkLogType?: pulumi.Input<enums.vpclattice.AccessLogSubscriptionServiceNetworkLogType>;
     /**
      * The tags for the access log subscription.

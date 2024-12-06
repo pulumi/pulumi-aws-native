@@ -7,6 +7,9 @@ export const AccessLogSubscriptionServiceNetworkLogType = {
     Resource: "RESOURCE",
 } as const;
 
+/**
+ * Log type of the service network.
+ */
 export type AccessLogSubscriptionServiceNetworkLogType = (typeof AccessLogSubscriptionServiceNetworkLogType)[keyof typeof AccessLogSubscriptionServiceNetworkLogType];
 
 export const AuthPolicyState = {
@@ -29,6 +32,44 @@ export const ListenerProtocol = {
  * The listener protocol.
  */
 export type ListenerProtocol = (typeof ListenerProtocol)[keyof typeof ListenerProtocol];
+
+export const ResourceConfigurationAuthType = {
+    None: "NONE",
+    AwsIam: "AWS_IAM",
+} as const;
+
+export type ResourceConfigurationAuthType = (typeof ResourceConfigurationAuthType)[keyof typeof ResourceConfigurationAuthType];
+
+export const ResourceConfigurationDnsResourceIpAddressType = {
+    Ipv4: "IPV4",
+    Ipv6: "IPV6",
+    Dualstack: "DUALSTACK",
+} as const;
+
+export type ResourceConfigurationDnsResourceIpAddressType = (typeof ResourceConfigurationDnsResourceIpAddressType)[keyof typeof ResourceConfigurationDnsResourceIpAddressType];
+
+export const ResourceConfigurationProtocolType = {
+    Tcp: "TCP",
+} as const;
+
+export type ResourceConfigurationProtocolType = (typeof ResourceConfigurationProtocolType)[keyof typeof ResourceConfigurationProtocolType];
+
+export const ResourceConfigurationType = {
+    Group: "GROUP",
+    Child: "CHILD",
+    Single: "SINGLE",
+    Arn: "ARN",
+} as const;
+
+export type ResourceConfigurationType = (typeof ResourceConfigurationType)[keyof typeof ResourceConfigurationType];
+
+export const ResourceGatewayIpAddressType = {
+    Ipv4: "IPV4",
+    Ipv6: "IPV6",
+    Dualstack: "DUALSTACK",
+} as const;
+
+export type ResourceGatewayIpAddressType = (typeof ResourceGatewayIpAddressType)[keyof typeof ResourceGatewayIpAddressType];
 
 export const RuleHttpMatchMethod = {
     Connect: "CONNECT",

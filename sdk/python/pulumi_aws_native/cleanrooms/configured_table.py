@@ -35,7 +35,7 @@ class ConfiguredTableArgs:
         The set of arguments for constructing a ConfiguredTable resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_columns: The columns within the underlying AWS Glue table that can be utilized within collaborations.
         :param pulumi.Input['ConfiguredTableAnalysisMethod'] analysis_method: The analysis method for the configured table. The only valid value is currently `DIRECT_QUERY`.
-        :param pulumi.Input['ConfiguredTableTableReferenceArgs'] table_reference: The AWS Glue table that this configured table represents.
+        :param pulumi.Input['ConfiguredTableTableReferenceArgs'] table_reference: The table that this configured table represents.
         :param pulumi.Input[Sequence[pulumi.Input['ConfiguredTableAnalysisRuleArgs']]] analysis_rules: The analysis rule that was created for the configured table.
         :param pulumi.Input[str] description: A description for the configured table.
         :param pulumi.Input[str] name: A name for the configured table.
@@ -81,7 +81,7 @@ class ConfiguredTableArgs:
     @pulumi.getter(name="tableReference")
     def table_reference(self) -> pulumi.Input['ConfiguredTableTableReferenceArgs']:
         """
-        The AWS Glue table that this configured table represents.
+        The table that this configured table represents.
         """
         return pulumi.get(self, "table_reference")
 
@@ -161,7 +161,7 @@ class ConfiguredTable(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['ConfiguredTableAnalysisRuleArgs', 'ConfiguredTableAnalysisRuleArgsDict']]]] analysis_rules: The analysis rule that was created for the configured table.
         :param pulumi.Input[str] description: A description for the configured table.
         :param pulumi.Input[str] name: A name for the configured table.
-        :param pulumi.Input[Union['ConfiguredTableTableReferenceArgs', 'ConfiguredTableTableReferenceArgsDict']] table_reference: The AWS Glue table that this configured table represents.
+        :param pulumi.Input[Union['ConfiguredTableTableReferenceArgs', 'ConfiguredTableTableReferenceArgsDict']] table_reference: The table that this configured table represents.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
         """
         ...
@@ -318,7 +318,7 @@ class ConfiguredTable(pulumi.CustomResource):
     @pulumi.getter(name="tableReference")
     def table_reference(self) -> pulumi.Output['outputs.ConfiguredTableTableReference']:
         """
-        The AWS Glue table that this configured table represents.
+        The table that this configured table represents.
         """
         return pulumi.get(self, "table_reference")
 

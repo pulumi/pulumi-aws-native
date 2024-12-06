@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.Events.Inputs
         public Input<string> AuthorizationEndpoint { get; set; } = null!;
 
         /// <summary>
-        /// A `CreateConnectionOAuthClientRequestParameters` object that contains the client parameters for OAuth authorization.
+        /// The client parameters for OAuth authorization.
         /// </summary>
         [Input("clientParameters", required: true)]
         public Input<Inputs.ConnectionClientParametersArgs> ClientParameters { get; set; } = null!;
@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.Events.Inputs
         public Input<Pulumi.AwsNative.Events.ConnectionOAuthParametersHttpMethod> HttpMethod { get; set; } = null!;
 
         /// <summary>
-        /// A `ConnectionHttpParameters` object that contains details about the additional parameters to use for the connection.
+        /// Details about the additional parameters to use for the connection.
         /// </summary>
         [Input("oAuthHttpParameters")]
         public Input<Inputs.ConnectionHttpParametersArgs>? OAuthHttpParameters { get; set; }

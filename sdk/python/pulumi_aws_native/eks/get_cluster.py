@@ -111,6 +111,9 @@ class GetClusterResult:
     @property
     @pulumi.getter(name="computeConfig")
     def compute_config(self) -> Optional['outputs.ClusterComputeConfig']:
+        """
+        Indicates the current configuration of the compute capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your AWS account. For more information, see EKS Auto Mode compute capability in the EKS User Guide.
+        """
         return pulumi.get(self, "compute_config")
 
     @property
@@ -164,6 +167,9 @@ class GetClusterResult:
     @property
     @pulumi.getter(name="storageConfig")
     def storage_config(self) -> Optional['outputs.ClusterStorageConfig']:
+        """
+        Indicates the current configuration of the block storage capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the block storage capability is enabled, EKS Auto Mode will create and delete EBS volumes in your AWS account. For more information, see EKS Auto Mode block storage capability in the EKS User Guide.
+        """
         return pulumi.get(self, "storage_config")
 
     @property

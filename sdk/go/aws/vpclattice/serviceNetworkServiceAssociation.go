@@ -28,7 +28,7 @@ type ServiceNetworkServiceAssociation struct {
 	ServiceArn pulumi.StringOutput `pulumi:"serviceArn"`
 	// The ID of the service.
 	ServiceId pulumi.StringOutput `pulumi:"serviceId"`
-	// The ID or Amazon Resource Name (ARN) of the service.
+	// The ID or ARN of the service.
 	ServiceIdentifier pulumi.StringPtrOutput `pulumi:"serviceIdentifier"`
 	// The name of the service.
 	ServiceName pulumi.StringOutput `pulumi:"serviceName"`
@@ -36,7 +36,7 @@ type ServiceNetworkServiceAssociation struct {
 	ServiceNetworkArn pulumi.StringOutput `pulumi:"serviceNetworkArn"`
 	// The ID of the service network.
 	ServiceNetworkId pulumi.StringOutput `pulumi:"serviceNetworkId"`
-	// The ID or Amazon Resource Name (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
+	// The ID or ARN of the service network. You must use an ARN if the resources are in different accounts.
 	ServiceNetworkIdentifier pulumi.StringPtrOutput `pulumi:"serviceNetworkIdentifier"`
 	// The name of the service network.
 	ServiceNetworkName pulumi.StringOutput `pulumi:"serviceNetworkName"`
@@ -93,9 +93,9 @@ func (ServiceNetworkServiceAssociationState) ElementType() reflect.Type {
 type serviceNetworkServiceAssociationArgs struct {
 	// The DNS information of the service.
 	DnsEntry *ServiceNetworkServiceAssociationDnsEntry `pulumi:"dnsEntry"`
-	// The ID or Amazon Resource Name (ARN) of the service.
+	// The ID or ARN of the service.
 	ServiceIdentifier *string `pulumi:"serviceIdentifier"`
-	// The ID or Amazon Resource Name (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
+	// The ID or ARN of the service network. You must use an ARN if the resources are in different accounts.
 	ServiceNetworkIdentifier *string `pulumi:"serviceNetworkIdentifier"`
 	// The tags for the association.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -105,9 +105,9 @@ type serviceNetworkServiceAssociationArgs struct {
 type ServiceNetworkServiceAssociationArgs struct {
 	// The DNS information of the service.
 	DnsEntry ServiceNetworkServiceAssociationDnsEntryPtrInput
-	// The ID or Amazon Resource Name (ARN) of the service.
+	// The ID or ARN of the service.
 	ServiceIdentifier pulumi.StringPtrInput
-	// The ID or Amazon Resource Name (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
+	// The ID or ARN of the service network. You must use an ARN if the resources are in different accounts.
 	ServiceNetworkIdentifier pulumi.StringPtrInput
 	// The tags for the association.
 	Tags aws.TagArrayInput
@@ -182,7 +182,7 @@ func (o ServiceNetworkServiceAssociationOutput) ServiceId() pulumi.StringOutput 
 	return o.ApplyT(func(v *ServiceNetworkServiceAssociation) pulumi.StringOutput { return v.ServiceId }).(pulumi.StringOutput)
 }
 
-// The ID or Amazon Resource Name (ARN) of the service.
+// The ID or ARN of the service.
 func (o ServiceNetworkServiceAssociationOutput) ServiceIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceNetworkServiceAssociation) pulumi.StringPtrOutput { return v.ServiceIdentifier }).(pulumi.StringPtrOutput)
 }
@@ -202,7 +202,7 @@ func (o ServiceNetworkServiceAssociationOutput) ServiceNetworkId() pulumi.String
 	return o.ApplyT(func(v *ServiceNetworkServiceAssociation) pulumi.StringOutput { return v.ServiceNetworkId }).(pulumi.StringOutput)
 }
 
-// The ID or Amazon Resource Name (ARN) of the service network. You must use the ARN if the resources specified in the operation are in different accounts.
+// The ID or ARN of the service network. You must use an ARN if the resources are in different accounts.
 func (o ServiceNetworkServiceAssociationOutput) ServiceNetworkIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceNetworkServiceAssociation) pulumi.StringPtrOutput { return v.ServiceNetworkIdentifier }).(pulumi.StringPtrOutput)
 }

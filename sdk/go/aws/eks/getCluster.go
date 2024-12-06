@@ -36,8 +36,9 @@ type LookupClusterResult struct {
 	// The certificate-authority-data for your cluster.
 	CertificateAuthorityData *string `pulumi:"certificateAuthorityData"`
 	// The cluster security group that was created by Amazon EKS for the cluster. Managed node groups use this security group for control plane to data plane communication.
-	ClusterSecurityGroupId *string               `pulumi:"clusterSecurityGroupId"`
-	ComputeConfig          *ClusterComputeConfig `pulumi:"computeConfig"`
+	ClusterSecurityGroupId *string `pulumi:"clusterSecurityGroupId"`
+	// Indicates the current configuration of the compute capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your AWS account. For more information, see EKS Auto Mode compute capability in the EKS User Guide.
+	ComputeConfig *ClusterComputeConfig `pulumi:"computeConfig"`
 	// Amazon Resource Name (ARN) or alias of the customer master key (CMK).
 	EncryptionConfigKeyArn *string `pulumi:"encryptionConfigKeyArn"`
 	// The endpoint for your Kubernetes API server, such as https://5E1D0CEXAMPLEA591B746AFC5AB30262.yl4.us-west-2.eks.amazonaws.com.
@@ -50,7 +51,8 @@ type LookupClusterResult struct {
 	OpenIdConnectIssuerUrl *string `pulumi:"openIdConnectIssuerUrl"`
 	// The VPC configuration that's used by the cluster control plane. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the *Amazon EKS User Guide* . You must specify at least two subnets. You can specify up to five security groups, but we recommend that you use a dedicated security group for your cluster control plane.
 	ResourcesVpcConfig *ClusterResourcesVpcConfig `pulumi:"resourcesVpcConfig"`
-	StorageConfig      *ClusterStorageConfig      `pulumi:"storageConfig"`
+	// Indicates the current configuration of the block storage capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the block storage capability is enabled, EKS Auto Mode will create and delete EBS volumes in your AWS account. For more information, see EKS Auto Mode block storage capability in the EKS User Guide.
+	StorageConfig *ClusterStorageConfig `pulumi:"storageConfig"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
 	// This value indicates if extended support is enabled or disabled for the cluster.
@@ -125,6 +127,7 @@ func (o LookupClusterResultOutput) ClusterSecurityGroupId() pulumi.StringPtrOutp
 	return o.ApplyT(func(v LookupClusterResult) *string { return v.ClusterSecurityGroupId }).(pulumi.StringPtrOutput)
 }
 
+// Indicates the current configuration of the compute capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your AWS account. For more information, see EKS Auto Mode compute capability in the EKS User Guide.
 func (o LookupClusterResultOutput) ComputeConfig() ClusterComputeConfigPtrOutput {
 	return o.ApplyT(func(v LookupClusterResult) *ClusterComputeConfig { return v.ComputeConfig }).(ClusterComputeConfigPtrOutput)
 }
@@ -159,6 +162,7 @@ func (o LookupClusterResultOutput) ResourcesVpcConfig() ClusterResourcesVpcConfi
 	return o.ApplyT(func(v LookupClusterResult) *ClusterResourcesVpcConfig { return v.ResourcesVpcConfig }).(ClusterResourcesVpcConfigPtrOutput)
 }
 
+// Indicates the current configuration of the block storage capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the block storage capability is enabled, EKS Auto Mode will create and delete EBS volumes in your AWS account. For more information, see EKS Auto Mode block storage capability in the EKS User Guide.
 func (o LookupClusterResultOutput) StorageConfig() ClusterStorageConfigPtrOutput {
 	return o.ApplyT(func(v LookupClusterResult) *ClusterStorageConfig { return v.StorageConfig }).(ClusterStorageConfigPtrOutput)
 }

@@ -44,7 +44,7 @@ export class AuthPolicy extends pulumi.CustomResource {
      */
     public readonly policy!: pulumi.Output<any>;
     /**
-     * The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+     * The ID or ARN of the service network or service for which the policy is created.
      */
     public readonly resourceIdentifier!: pulumi.Output<string>;
     /**
@@ -95,7 +95,7 @@ export interface AuthPolicyArgs {
      */
     policy: any;
     /**
-     * The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+     * The ID or ARN of the service network or service for which the policy is created.
      */
     resourceIdentifier: pulumi.Input<string>;
 }

@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.VpcLattice
     public sealed class GetAuthPolicyArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+        /// The ID or ARN of the service network or service for which the policy is created.
         /// </summary>
         [Input("resourceIdentifier", required: true)]
         public string ResourceIdentifier { get; set; } = null!;
@@ -42,7 +42,7 @@ namespace Pulumi.AwsNative.VpcLattice
     public sealed class GetAuthPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+        /// The ID or ARN of the service network or service for which the policy is created.
         /// </summary>
         [Input("resourceIdentifier", required: true)]
         public Input<string> ResourceIdentifier { get; set; } = null!;

@@ -24,6 +24,14 @@ __all__ = [
     'ListenerForwardArgsDict',
     'ListenerWeightedTargetGroupArgs',
     'ListenerWeightedTargetGroupArgsDict',
+    'ResourceConfigurationDefinition0PropertiesArgs',
+    'ResourceConfigurationDefinition0PropertiesArgsDict',
+    'ResourceConfigurationDefinition1PropertiesArgs',
+    'ResourceConfigurationDefinition1PropertiesArgsDict',
+    'ResourceConfigurationDefinition2PropertiesArgs',
+    'ResourceConfigurationDefinition2PropertiesArgsDict',
+    'ResourceConfigurationDnsResourceArgs',
+    'ResourceConfigurationDnsResourceArgsDict',
     'RuleActionArgs',
     'RuleActionArgsDict',
     'RuleFixedResponseArgs',
@@ -231,6 +239,106 @@ class ListenerWeightedTargetGroupArgs:
     @weight.setter
     def weight(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "weight", value)
+
+
+if not MYPY:
+    class ResourceConfigurationDefinition0PropertiesArgsDict(TypedDict):
+        ip_resource: pulumi.Input[str]
+elif False:
+    ResourceConfigurationDefinition0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ResourceConfigurationDefinition0PropertiesArgs:
+    def __init__(__self__, *,
+                 ip_resource: pulumi.Input[str]):
+        pulumi.set(__self__, "ip_resource", ip_resource)
+
+    @property
+    @pulumi.getter(name="ipResource")
+    def ip_resource(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "ip_resource")
+
+    @ip_resource.setter
+    def ip_resource(self, value: pulumi.Input[str]):
+        pulumi.set(self, "ip_resource", value)
+
+
+if not MYPY:
+    class ResourceConfigurationDefinition1PropertiesArgsDict(TypedDict):
+        arn_resource: pulumi.Input[str]
+elif False:
+    ResourceConfigurationDefinition1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ResourceConfigurationDefinition1PropertiesArgs:
+    def __init__(__self__, *,
+                 arn_resource: pulumi.Input[str]):
+        pulumi.set(__self__, "arn_resource", arn_resource)
+
+    @property
+    @pulumi.getter(name="arnResource")
+    def arn_resource(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "arn_resource")
+
+    @arn_resource.setter
+    def arn_resource(self, value: pulumi.Input[str]):
+        pulumi.set(self, "arn_resource", value)
+
+
+if not MYPY:
+    class ResourceConfigurationDefinition2PropertiesArgsDict(TypedDict):
+        dns_resource: pulumi.Input['ResourceConfigurationDnsResourceArgsDict']
+elif False:
+    ResourceConfigurationDefinition2PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ResourceConfigurationDefinition2PropertiesArgs:
+    def __init__(__self__, *,
+                 dns_resource: pulumi.Input['ResourceConfigurationDnsResourceArgs']):
+        pulumi.set(__self__, "dns_resource", dns_resource)
+
+    @property
+    @pulumi.getter(name="dnsResource")
+    def dns_resource(self) -> pulumi.Input['ResourceConfigurationDnsResourceArgs']:
+        return pulumi.get(self, "dns_resource")
+
+    @dns_resource.setter
+    def dns_resource(self, value: pulumi.Input['ResourceConfigurationDnsResourceArgs']):
+        pulumi.set(self, "dns_resource", value)
+
+
+if not MYPY:
+    class ResourceConfigurationDnsResourceArgsDict(TypedDict):
+        domain_name: pulumi.Input[str]
+        ip_address_type: pulumi.Input['ResourceConfigurationDnsResourceIpAddressType']
+elif False:
+    ResourceConfigurationDnsResourceArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ResourceConfigurationDnsResourceArgs:
+    def __init__(__self__, *,
+                 domain_name: pulumi.Input[str],
+                 ip_address_type: pulumi.Input['ResourceConfigurationDnsResourceIpAddressType']):
+        pulumi.set(__self__, "domain_name", domain_name)
+        pulumi.set(__self__, "ip_address_type", ip_address_type)
+
+    @property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "domain_name")
+
+    @domain_name.setter
+    def domain_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "domain_name", value)
+
+    @property
+    @pulumi.getter(name="ipAddressType")
+    def ip_address_type(self) -> pulumi.Input['ResourceConfigurationDnsResourceIpAddressType']:
+        return pulumi.get(self, "ip_address_type")
+
+    @ip_address_type.setter
+    def ip_address_type(self, value: pulumi.Input['ResourceConfigurationDnsResourceIpAddressType']):
+        pulumi.set(self, "ip_address_type", value)
 
 
 if not MYPY:

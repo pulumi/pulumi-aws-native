@@ -30,6 +30,16 @@ export const getListener: typeof import("./getListener").getListener = null as a
 export const getListenerOutput: typeof import("./getListener").getListenerOutput = null as any;
 utilities.lazyLoad(exports, ["getListener","getListenerOutput"], () => require("./getListener"));
 
+export { GetResourceConfigurationArgs, GetResourceConfigurationResult, GetResourceConfigurationOutputArgs } from "./getResourceConfiguration";
+export const getResourceConfiguration: typeof import("./getResourceConfiguration").getResourceConfiguration = null as any;
+export const getResourceConfigurationOutput: typeof import("./getResourceConfiguration").getResourceConfigurationOutput = null as any;
+utilities.lazyLoad(exports, ["getResourceConfiguration","getResourceConfigurationOutput"], () => require("./getResourceConfiguration"));
+
+export { GetResourceGatewayArgs, GetResourceGatewayResult, GetResourceGatewayOutputArgs } from "./getResourceGateway";
+export const getResourceGateway: typeof import("./getResourceGateway").getResourceGateway = null as any;
+export const getResourceGatewayOutput: typeof import("./getResourceGateway").getResourceGatewayOutput = null as any;
+utilities.lazyLoad(exports, ["getResourceGateway","getResourceGatewayOutput"], () => require("./getResourceGateway"));
+
 export { GetResourcePolicyArgs, GetResourcePolicyResult, GetResourcePolicyOutputArgs } from "./getResourcePolicy";
 export const getResourcePolicy: typeof import("./getResourcePolicy").getResourcePolicy = null as any;
 export const getResourcePolicyOutput: typeof import("./getResourcePolicy").getResourcePolicyOutput = null as any;
@@ -49,6 +59,11 @@ export { GetServiceNetworkArgs, GetServiceNetworkResult, GetServiceNetworkOutput
 export const getServiceNetwork: typeof import("./getServiceNetwork").getServiceNetwork = null as any;
 export const getServiceNetworkOutput: typeof import("./getServiceNetwork").getServiceNetworkOutput = null as any;
 utilities.lazyLoad(exports, ["getServiceNetwork","getServiceNetworkOutput"], () => require("./getServiceNetwork"));
+
+export { GetServiceNetworkResourceAssociationArgs, GetServiceNetworkResourceAssociationResult, GetServiceNetworkResourceAssociationOutputArgs } from "./getServiceNetworkResourceAssociation";
+export const getServiceNetworkResourceAssociation: typeof import("./getServiceNetworkResourceAssociation").getServiceNetworkResourceAssociation = null as any;
+export const getServiceNetworkResourceAssociationOutput: typeof import("./getServiceNetworkResourceAssociation").getServiceNetworkResourceAssociationOutput = null as any;
+utilities.lazyLoad(exports, ["getServiceNetworkResourceAssociation","getServiceNetworkResourceAssociationOutput"], () => require("./getServiceNetworkResourceAssociation"));
 
 export { GetServiceNetworkServiceAssociationArgs, GetServiceNetworkServiceAssociationResult, GetServiceNetworkServiceAssociationOutputArgs } from "./getServiceNetworkServiceAssociation";
 export const getServiceNetworkServiceAssociation: typeof import("./getServiceNetworkServiceAssociation").getServiceNetworkServiceAssociation = null as any;
@@ -70,6 +85,16 @@ export type Listener = import("./listener").Listener;
 export const Listener: typeof import("./listener").Listener = null as any;
 utilities.lazyLoad(exports, ["Listener"], () => require("./listener"));
 
+export { ResourceConfigurationArgs } from "./resourceConfiguration";
+export type ResourceConfiguration = import("./resourceConfiguration").ResourceConfiguration;
+export const ResourceConfiguration: typeof import("./resourceConfiguration").ResourceConfiguration = null as any;
+utilities.lazyLoad(exports, ["ResourceConfiguration"], () => require("./resourceConfiguration"));
+
+export { ResourceGatewayArgs } from "./resourceGateway";
+export type ResourceGateway = import("./resourceGateway").ResourceGateway;
+export const ResourceGateway: typeof import("./resourceGateway").ResourceGateway = null as any;
+utilities.lazyLoad(exports, ["ResourceGateway"], () => require("./resourceGateway"));
+
 export { ResourcePolicyArgs } from "./resourcePolicy";
 export type ResourcePolicy = import("./resourcePolicy").ResourcePolicy;
 export const ResourcePolicy: typeof import("./resourcePolicy").ResourcePolicy = null as any;
@@ -89,6 +114,11 @@ export { ServiceNetworkArgs } from "./serviceNetwork";
 export type ServiceNetwork = import("./serviceNetwork").ServiceNetwork;
 export const ServiceNetwork: typeof import("./serviceNetwork").ServiceNetwork = null as any;
 utilities.lazyLoad(exports, ["ServiceNetwork"], () => require("./serviceNetwork"));
+
+export { ServiceNetworkResourceAssociationArgs } from "./serviceNetworkResourceAssociation";
+export type ServiceNetworkResourceAssociation = import("./serviceNetworkResourceAssociation").ServiceNetworkResourceAssociation;
+export const ServiceNetworkResourceAssociation: typeof import("./serviceNetworkResourceAssociation").ServiceNetworkResourceAssociation = null as any;
+utilities.lazyLoad(exports, ["ServiceNetworkResourceAssociation"], () => require("./serviceNetworkResourceAssociation"));
 
 export { ServiceNetworkServiceAssociationArgs } from "./serviceNetworkServiceAssociation";
 export type ServiceNetworkServiceAssociation = import("./serviceNetworkServiceAssociation").ServiceNetworkServiceAssociation;
@@ -119,6 +149,10 @@ const _module = {
                 return new AuthPolicy(name, <any>undefined, { urn })
             case "aws-native:vpclattice:Listener":
                 return new Listener(name, <any>undefined, { urn })
+            case "aws-native:vpclattice:ResourceConfiguration":
+                return new ResourceConfiguration(name, <any>undefined, { urn })
+            case "aws-native:vpclattice:ResourceGateway":
+                return new ResourceGateway(name, <any>undefined, { urn })
             case "aws-native:vpclattice:ResourcePolicy":
                 return new ResourcePolicy(name, <any>undefined, { urn })
             case "aws-native:vpclattice:Rule":
@@ -127,6 +161,8 @@ const _module = {
                 return new Service(name, <any>undefined, { urn })
             case "aws-native:vpclattice:ServiceNetwork":
                 return new ServiceNetwork(name, <any>undefined, { urn })
+            case "aws-native:vpclattice:ServiceNetworkResourceAssociation":
+                return new ServiceNetworkResourceAssociation(name, <any>undefined, { urn })
             case "aws-native:vpclattice:ServiceNetworkServiceAssociation":
                 return new ServiceNetworkServiceAssociation(name, <any>undefined, { urn })
             case "aws-native:vpclattice:ServiceNetworkVpcAssociation":

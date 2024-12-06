@@ -91,6 +91,9 @@ class GetAccessLogSubscriptionResult:
     @property
     @pulumi.getter(name="serviceNetworkLogType")
     def service_network_log_type(self) -> Optional['AccessLogSubscriptionServiceNetworkLogType']:
+        """
+        Log type of the service network.
+        """
         return pulumi.get(self, "service_network_log_type")
 
     @property

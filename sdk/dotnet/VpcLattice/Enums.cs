@@ -7,6 +7,9 @@ using Pulumi;
 
 namespace Pulumi.AwsNative.VpcLattice
 {
+    /// <summary>
+    /// Log type of the service network.
+    /// </summary>
     [EnumType]
     public readonly struct AccessLogSubscriptionServiceNetworkLogType : IEquatable<AccessLogSubscriptionServiceNetworkLogType>
     {
@@ -91,6 +94,149 @@ namespace Pulumi.AwsNative.VpcLattice
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ListenerProtocol other && Equals(other);
         public bool Equals(ListenerProtocol other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct ResourceConfigurationAuthType : IEquatable<ResourceConfigurationAuthType>
+    {
+        private readonly string _value;
+
+        private ResourceConfigurationAuthType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ResourceConfigurationAuthType None { get; } = new ResourceConfigurationAuthType("NONE");
+        public static ResourceConfigurationAuthType AwsIam { get; } = new ResourceConfigurationAuthType("AWS_IAM");
+
+        public static bool operator ==(ResourceConfigurationAuthType left, ResourceConfigurationAuthType right) => left.Equals(right);
+        public static bool operator !=(ResourceConfigurationAuthType left, ResourceConfigurationAuthType right) => !left.Equals(right);
+
+        public static explicit operator string(ResourceConfigurationAuthType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ResourceConfigurationAuthType other && Equals(other);
+        public bool Equals(ResourceConfigurationAuthType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct ResourceConfigurationDnsResourceIpAddressType : IEquatable<ResourceConfigurationDnsResourceIpAddressType>
+    {
+        private readonly string _value;
+
+        private ResourceConfigurationDnsResourceIpAddressType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ResourceConfigurationDnsResourceIpAddressType Ipv4 { get; } = new ResourceConfigurationDnsResourceIpAddressType("IPV4");
+        public static ResourceConfigurationDnsResourceIpAddressType Ipv6 { get; } = new ResourceConfigurationDnsResourceIpAddressType("IPV6");
+        public static ResourceConfigurationDnsResourceIpAddressType Dualstack { get; } = new ResourceConfigurationDnsResourceIpAddressType("DUALSTACK");
+
+        public static bool operator ==(ResourceConfigurationDnsResourceIpAddressType left, ResourceConfigurationDnsResourceIpAddressType right) => left.Equals(right);
+        public static bool operator !=(ResourceConfigurationDnsResourceIpAddressType left, ResourceConfigurationDnsResourceIpAddressType right) => !left.Equals(right);
+
+        public static explicit operator string(ResourceConfigurationDnsResourceIpAddressType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ResourceConfigurationDnsResourceIpAddressType other && Equals(other);
+        public bool Equals(ResourceConfigurationDnsResourceIpAddressType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct ResourceConfigurationProtocolType : IEquatable<ResourceConfigurationProtocolType>
+    {
+        private readonly string _value;
+
+        private ResourceConfigurationProtocolType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ResourceConfigurationProtocolType Tcp { get; } = new ResourceConfigurationProtocolType("TCP");
+
+        public static bool operator ==(ResourceConfigurationProtocolType left, ResourceConfigurationProtocolType right) => left.Equals(right);
+        public static bool operator !=(ResourceConfigurationProtocolType left, ResourceConfigurationProtocolType right) => !left.Equals(right);
+
+        public static explicit operator string(ResourceConfigurationProtocolType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ResourceConfigurationProtocolType other && Equals(other);
+        public bool Equals(ResourceConfigurationProtocolType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct ResourceConfigurationType : IEquatable<ResourceConfigurationType>
+    {
+        private readonly string _value;
+
+        private ResourceConfigurationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ResourceConfigurationType Group { get; } = new ResourceConfigurationType("GROUP");
+        public static ResourceConfigurationType Child { get; } = new ResourceConfigurationType("CHILD");
+        public static ResourceConfigurationType Single { get; } = new ResourceConfigurationType("SINGLE");
+        public static ResourceConfigurationType Arn { get; } = new ResourceConfigurationType("ARN");
+
+        public static bool operator ==(ResourceConfigurationType left, ResourceConfigurationType right) => left.Equals(right);
+        public static bool operator !=(ResourceConfigurationType left, ResourceConfigurationType right) => !left.Equals(right);
+
+        public static explicit operator string(ResourceConfigurationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ResourceConfigurationType other && Equals(other);
+        public bool Equals(ResourceConfigurationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct ResourceGatewayIpAddressType : IEquatable<ResourceGatewayIpAddressType>
+    {
+        private readonly string _value;
+
+        private ResourceGatewayIpAddressType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ResourceGatewayIpAddressType Ipv4 { get; } = new ResourceGatewayIpAddressType("IPV4");
+        public static ResourceGatewayIpAddressType Ipv6 { get; } = new ResourceGatewayIpAddressType("IPV6");
+        public static ResourceGatewayIpAddressType Dualstack { get; } = new ResourceGatewayIpAddressType("DUALSTACK");
+
+        public static bool operator ==(ResourceGatewayIpAddressType left, ResourceGatewayIpAddressType right) => left.Equals(right);
+        public static bool operator !=(ResourceGatewayIpAddressType left, ResourceGatewayIpAddressType right) => !left.Equals(right);
+
+        public static explicit operator string(ResourceGatewayIpAddressType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ResourceGatewayIpAddressType other && Equals(other);
+        public bool Equals(ResourceGatewayIpAddressType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

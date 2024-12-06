@@ -62,7 +62,7 @@ namespace Pulumi.AwsNative.CleanRooms
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The AWS Glue table that this configured table represents.
+        /// The table that this configured table represents.
         /// </summary>
         [Output("tableReference")]
         public Output<Outputs.ConfiguredTableTableReference> TableReference { get; private set; } = null!;
@@ -167,7 +167,7 @@ namespace Pulumi.AwsNative.CleanRooms
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The AWS Glue table that this configured table represents.
+        /// The table that this configured table represents.
         /// </summary>
         [Input("tableReference", required: true)]
         public Input<Inputs.ConfiguredTableTableReferenceArgs> TableReference { get; set; } = null!;

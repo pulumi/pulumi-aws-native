@@ -50,7 +50,7 @@ export class Rule extends pulumi.CustomResource {
      */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
     /**
-     * The ID or Amazon Resource Name (ARN) of the listener.
+     * The ID or ARN of the listener.
      */
     public readonly listenerIdentifier!: pulumi.Output<string | undefined>;
     /**
@@ -68,7 +68,7 @@ export class Rule extends pulumi.CustomResource {
      */
     public readonly priority!: pulumi.Output<number>;
     /**
-     * The ID or Amazon Resource Name (ARN) of the service.
+     * The ID or ARN of the service.
      */
     public readonly serviceIdentifier!: pulumi.Output<string | undefined>;
     /**
@@ -132,7 +132,7 @@ export interface RuleArgs {
      */
     action: pulumi.Input<inputs.vpclattice.RuleActionArgs>;
     /**
-     * The ID or Amazon Resource Name (ARN) of the listener.
+     * The ID or ARN of the listener.
      */
     listenerIdentifier?: pulumi.Input<string>;
     /**
@@ -150,7 +150,7 @@ export interface RuleArgs {
      */
     priority: pulumi.Input<number>;
     /**
-     * The ID or Amazon Resource Name (ARN) of the service.
+     * The ID or ARN of the service.
      */
     serviceIdentifier?: pulumi.Input<string>;
     /**

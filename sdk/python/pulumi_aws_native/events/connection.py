@@ -29,7 +29,9 @@ class ConnectionArgs:
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Connection resource.
-        :param pulumi.Input['ConnectionAuthParametersArgs'] auth_parameters: A `CreateConnectionAuthRequestParameters` object that contains the authorization parameters to use to authorize with the endpoint.
+        :param pulumi.Input['ConnectionAuthParametersArgs'] auth_parameters: The authorization parameters to use to authorize with the endpoint.
+               
+               You must include only authorization parameters for the `AuthorizationType` you specify.
         :param pulumi.Input['ConnectionAuthorizationType'] authorization_type: The type of authorization to use for the connection.
                
                > OAUTH tokens are refreshed when a 401 or 407 response is returned.
@@ -52,7 +54,9 @@ class ConnectionArgs:
     @pulumi.getter(name="authParameters")
     def auth_parameters(self) -> Optional[pulumi.Input['ConnectionAuthParametersArgs']]:
         """
-        A `CreateConnectionAuthRequestParameters` object that contains the authorization parameters to use to authorize with the endpoint.
+        The authorization parameters to use to authorize with the endpoint.
+
+        You must include only authorization parameters for the `AuthorizationType` you specify.
         """
         return pulumi.get(self, "auth_parameters")
 
@@ -153,7 +157,9 @@ class Connection(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ConnectionAuthParametersArgs', 'ConnectionAuthParametersArgsDict']] auth_parameters: A `CreateConnectionAuthRequestParameters` object that contains the authorization parameters to use to authorize with the endpoint.
+        :param pulumi.Input[Union['ConnectionAuthParametersArgs', 'ConnectionAuthParametersArgsDict']] auth_parameters: The authorization parameters to use to authorize with the endpoint.
+               
+               You must include only authorization parameters for the `AuthorizationType` you specify.
         :param pulumi.Input['ConnectionAuthorizationType'] authorization_type: The type of authorization to use for the connection.
                
                > OAUTH tokens are refreshed when a 401 or 407 response is returned.
@@ -277,7 +283,9 @@ class Connection(pulumi.CustomResource):
     @pulumi.getter(name="authParameters")
     def auth_parameters(self) -> pulumi.Output[Optional['outputs.ConnectionAuthParameters']]:
         """
-        A `CreateConnectionAuthRequestParameters` object that contains the authorization parameters to use to authorize with the endpoint.
+        The authorization parameters to use to authorize with the endpoint.
+
+        You must include only authorization parameters for the `AuthorizationType` you specify.
         """
         return pulumi.get(self, "auth_parameters")
 

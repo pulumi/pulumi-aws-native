@@ -28,8 +28,9 @@ type Cluster struct {
 	// The certificate-authority-data for your cluster.
 	CertificateAuthorityData pulumi.StringOutput `pulumi:"certificateAuthorityData"`
 	// The cluster security group that was created by Amazon EKS for the cluster. Managed node groups use this security group for control plane to data plane communication.
-	ClusterSecurityGroupId pulumi.StringOutput           `pulumi:"clusterSecurityGroupId"`
-	ComputeConfig          ClusterComputeConfigPtrOutput `pulumi:"computeConfig"`
+	ClusterSecurityGroupId pulumi.StringOutput `pulumi:"clusterSecurityGroupId"`
+	// Indicates the current configuration of the compute capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your AWS account. For more information, see EKS Auto Mode compute capability in the EKS User Guide.
+	ComputeConfig ClusterComputeConfigPtrOutput `pulumi:"computeConfig"`
 	// The encryption configuration for the cluster.
 	EncryptionConfig ClusterEncryptionConfigArrayOutput `pulumi:"encryptionConfig"`
 	// Amazon Resource Name (ARN) or alias of the customer master key (CMK).
@@ -45,12 +46,14 @@ type Cluster struct {
 	// The issuer URL for the cluster's OIDC identity provider, such as https://oidc.eks.us-west-2.amazonaws.com/id/EXAMPLED539D4633E53DE1B716D3041E. If you need to remove https:// from this output value, you can include the following code in your template.
 	OpenIdConnectIssuerUrl pulumi.StringOutput `pulumi:"openIdConnectIssuerUrl"`
 	// An object representing the configuration of your local Amazon EKS cluster on an AWS Outpost. This object isn't available for clusters on the AWS cloud.
-	OutpostConfig       ClusterOutpostConfigPtrOutput       `pulumi:"outpostConfig"`
+	OutpostConfig ClusterOutpostConfigPtrOutput `pulumi:"outpostConfig"`
+	// The configuration in the cluster for EKS Hybrid Nodes. You can't change or update this configuration after the cluster is created.
 	RemoteNetworkConfig ClusterRemoteNetworkConfigPtrOutput `pulumi:"remoteNetworkConfig"`
 	// The VPC configuration that's used by the cluster control plane. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the *Amazon EKS User Guide* . You must specify at least two subnets. You can specify up to five security groups, but we recommend that you use a dedicated security group for your cluster control plane.
 	ResourcesVpcConfig ClusterResourcesVpcConfigOutput `pulumi:"resourcesVpcConfig"`
 	// The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
-	RoleArn       pulumi.StringOutput           `pulumi:"roleArn"`
+	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
+	// Indicates the current configuration of the block storage capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the block storage capability is enabled, EKS Auto Mode will create and delete EBS volumes in your AWS account. For more information, see EKS Auto Mode block storage capability in the EKS User Guide.
 	StorageConfig ClusterStorageConfigPtrOutput `pulumi:"storageConfig"`
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
@@ -124,8 +127,9 @@ type clusterArgs struct {
 	// The access configuration for the cluster.
 	AccessConfig *ClusterAccessConfig `pulumi:"accessConfig"`
 	// Set this value to false to avoid creating the default networking add-ons when the cluster is created.
-	BootstrapSelfManagedAddons *bool                 `pulumi:"bootstrapSelfManagedAddons"`
-	ComputeConfig              *ClusterComputeConfig `pulumi:"computeConfig"`
+	BootstrapSelfManagedAddons *bool `pulumi:"bootstrapSelfManagedAddons"`
+	// Indicates the current configuration of the compute capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your AWS account. For more information, see EKS Auto Mode compute capability in the EKS User Guide.
+	ComputeConfig *ClusterComputeConfig `pulumi:"computeConfig"`
 	// The encryption configuration for the cluster.
 	EncryptionConfig []ClusterEncryptionConfig `pulumi:"encryptionConfig"`
 	// The Kubernetes network configuration for the cluster.
@@ -135,12 +139,14 @@ type clusterArgs struct {
 	// The unique name to give to your cluster.
 	Name *string `pulumi:"name"`
 	// An object representing the configuration of your local Amazon EKS cluster on an AWS Outpost. This object isn't available for clusters on the AWS cloud.
-	OutpostConfig       *ClusterOutpostConfig       `pulumi:"outpostConfig"`
+	OutpostConfig *ClusterOutpostConfig `pulumi:"outpostConfig"`
+	// The configuration in the cluster for EKS Hybrid Nodes. You can't change or update this configuration after the cluster is created.
 	RemoteNetworkConfig *ClusterRemoteNetworkConfig `pulumi:"remoteNetworkConfig"`
 	// The VPC configuration that's used by the cluster control plane. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the *Amazon EKS User Guide* . You must specify at least two subnets. You can specify up to five security groups, but we recommend that you use a dedicated security group for your cluster control plane.
 	ResourcesVpcConfig ClusterResourcesVpcConfig `pulumi:"resourcesVpcConfig"`
 	// The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
-	RoleArn       string                `pulumi:"roleArn"`
+	RoleArn string `pulumi:"roleArn"`
+	// Indicates the current configuration of the block storage capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the block storage capability is enabled, EKS Auto Mode will create and delete EBS volumes in your AWS account. For more information, see EKS Auto Mode block storage capability in the EKS User Guide.
 	StorageConfig *ClusterStorageConfig `pulumi:"storageConfig"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
@@ -160,7 +166,8 @@ type ClusterArgs struct {
 	AccessConfig ClusterAccessConfigPtrInput
 	// Set this value to false to avoid creating the default networking add-ons when the cluster is created.
 	BootstrapSelfManagedAddons pulumi.BoolPtrInput
-	ComputeConfig              ClusterComputeConfigPtrInput
+	// Indicates the current configuration of the compute capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your AWS account. For more information, see EKS Auto Mode compute capability in the EKS User Guide.
+	ComputeConfig ClusterComputeConfigPtrInput
 	// The encryption configuration for the cluster.
 	EncryptionConfig ClusterEncryptionConfigArrayInput
 	// The Kubernetes network configuration for the cluster.
@@ -170,12 +177,14 @@ type ClusterArgs struct {
 	// The unique name to give to your cluster.
 	Name pulumi.StringPtrInput
 	// An object representing the configuration of your local Amazon EKS cluster on an AWS Outpost. This object isn't available for clusters on the AWS cloud.
-	OutpostConfig       ClusterOutpostConfigPtrInput
+	OutpostConfig ClusterOutpostConfigPtrInput
+	// The configuration in the cluster for EKS Hybrid Nodes. You can't change or update this configuration after the cluster is created.
 	RemoteNetworkConfig ClusterRemoteNetworkConfigPtrInput
 	// The VPC configuration that's used by the cluster control plane. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the *Amazon EKS User Guide* . You must specify at least two subnets. You can specify up to five security groups, but we recommend that you use a dedicated security group for your cluster control plane.
 	ResourcesVpcConfig ClusterResourcesVpcConfigInput
 	// The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
-	RoleArn       pulumi.StringInput
+	RoleArn pulumi.StringInput
+	// Indicates the current configuration of the block storage capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the block storage capability is enabled, EKS Auto Mode will create and delete EBS volumes in your AWS account. For more information, see EKS Auto Mode block storage capability in the EKS User Guide.
 	StorageConfig ClusterStorageConfigPtrInput
 	// An array of key-value pairs to apply to this resource.
 	Tags aws.TagArrayInput
@@ -256,6 +265,7 @@ func (o ClusterOutput) ClusterSecurityGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ClusterSecurityGroupId }).(pulumi.StringOutput)
 }
 
+// Indicates the current configuration of the compute capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your AWS account. For more information, see EKS Auto Mode compute capability in the EKS User Guide.
 func (o ClusterOutput) ComputeConfig() ClusterComputeConfigPtrOutput {
 	return o.ApplyT(func(v *Cluster) ClusterComputeConfigPtrOutput { return v.ComputeConfig }).(ClusterComputeConfigPtrOutput)
 }
@@ -300,6 +310,7 @@ func (o ClusterOutput) OutpostConfig() ClusterOutpostConfigPtrOutput {
 	return o.ApplyT(func(v *Cluster) ClusterOutpostConfigPtrOutput { return v.OutpostConfig }).(ClusterOutpostConfigPtrOutput)
 }
 
+// The configuration in the cluster for EKS Hybrid Nodes. You can't change or update this configuration after the cluster is created.
 func (o ClusterOutput) RemoteNetworkConfig() ClusterRemoteNetworkConfigPtrOutput {
 	return o.ApplyT(func(v *Cluster) ClusterRemoteNetworkConfigPtrOutput { return v.RemoteNetworkConfig }).(ClusterRemoteNetworkConfigPtrOutput)
 }
@@ -314,6 +325,7 @@ func (o ClusterOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }
 
+// Indicates the current configuration of the block storage capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the block storage capability is enabled, EKS Auto Mode will create and delete EBS volumes in your AWS account. For more information, see EKS Auto Mode block storage capability in the EKS User Guide.
 func (o ClusterOutput) StorageConfig() ClusterStorageConfigPtrOutput {
 	return o.ApplyT(func(v *Cluster) ClusterStorageConfigPtrOutput { return v.StorageConfig }).(ClusterStorageConfigPtrOutput)
 }

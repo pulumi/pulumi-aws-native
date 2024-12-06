@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Logs.Outputs
     [OutputType]
     public sealed class ResourceConfigProperties
     {
+        /// <summary>
+        /// This structure contains configuration details about an integration between CloudWatch Logs and OpenSearch Service.
+        /// </summary>
         public readonly Outputs.IntegrationOpenSearchResourceConfig? OpenSearchResourceConfig;
 
         [OutputConstructor]

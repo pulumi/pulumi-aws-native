@@ -23,7 +23,7 @@ func LookupAuthPolicy(ctx *pulumi.Context, args *LookupAuthPolicyArgs, opts ...p
 }
 
 type LookupAuthPolicyArgs struct {
-	// The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+	// The ID or ARN of the service network or service for which the policy is created.
 	ResourceIdentifier string `pulumi:"resourceIdentifier"`
 }
 
@@ -56,7 +56,7 @@ func LookupAuthPolicyOutput(ctx *pulumi.Context, args LookupAuthPolicyOutputArgs
 }
 
 type LookupAuthPolicyOutputArgs struct {
-	// The ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+	// The ID or ARN of the service network or service for which the policy is created.
 	ResourceIdentifier pulumi.StringInput `pulumi:"resourceIdentifier"`
 }
 

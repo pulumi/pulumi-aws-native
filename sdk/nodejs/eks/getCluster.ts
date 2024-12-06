@@ -41,6 +41,9 @@ export interface GetClusterResult {
      * The cluster security group that was created by Amazon EKS for the cluster. Managed node groups use this security group for control plane to data plane communication.
      */
     readonly clusterSecurityGroupId?: string;
+    /**
+     * Indicates the current configuration of the compute capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your AWS account. For more information, see EKS Auto Mode compute capability in the EKS User Guide.
+     */
     readonly computeConfig?: outputs.eks.ClusterComputeConfig;
     /**
      * Amazon Resource Name (ARN) or alias of the customer master key (CMK).
@@ -66,6 +69,9 @@ export interface GetClusterResult {
      * The VPC configuration that's used by the cluster control plane. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the *Amazon EKS User Guide* . You must specify at least two subnets. You can specify up to five security groups, but we recommend that you use a dedicated security group for your cluster control plane.
      */
     readonly resourcesVpcConfig?: outputs.eks.ClusterResourcesVpcConfig;
+    /**
+     * Indicates the current configuration of the block storage capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the block storage capability is enabled, EKS Auto Mode will create and delete EBS volumes in your AWS account. For more information, see EKS Auto Mode block storage capability in the EKS User Guide.
+     */
     readonly storageConfig?: outputs.eks.ClusterStorageConfig;
     /**
      * An array of key-value pairs to apply to this resource.

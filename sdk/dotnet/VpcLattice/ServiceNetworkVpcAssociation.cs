@@ -52,7 +52,7 @@ namespace Pulumi.AwsNative.VpcLattice
         public Output<string> ServiceNetworkId { get; private set; } = null!;
 
         /// <summary>
-        /// The ID or Amazon Resource Name (ARN) of the service network. You must use the ARN when the resources specified in the operation are in different accounts.
+        /// The ID or ARN of the service network. You must use an ARN if the resources are in different accounts.
         /// </summary>
         [Output("serviceNetworkIdentifier")]
         public Output<string?> ServiceNetworkIdentifier { get; private set; } = null!;
@@ -150,7 +150,7 @@ namespace Pulumi.AwsNative.VpcLattice
         }
 
         /// <summary>
-        /// The ID or Amazon Resource Name (ARN) of the service network. You must use the ARN when the resources specified in the operation are in different accounts.
+        /// The ID or ARN of the service network. You must use an ARN if the resources are in different accounts.
         /// </summary>
         [Input("serviceNetworkIdentifier")]
         public Input<string>? ServiceNetworkIdentifier { get; set; }

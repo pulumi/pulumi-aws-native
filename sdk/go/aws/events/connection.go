@@ -63,7 +63,9 @@ type Connection struct {
 
 	// The arn of the connection resource.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// A `CreateConnectionAuthRequestParameters` object that contains the authorization parameters to use to authorize with the endpoint.
+	// The authorization parameters to use to authorize with the endpoint.
+	//
+	// You must include only authorization parameters for the `AuthorizationType` you specify.
 	AuthParameters ConnectionAuthParametersPtrOutput `pulumi:"authParameters"`
 	// The type of authorization to use for the connection.
 	//
@@ -123,7 +125,9 @@ func (ConnectionState) ElementType() reflect.Type {
 }
 
 type connectionArgs struct {
-	// A `CreateConnectionAuthRequestParameters` object that contains the authorization parameters to use to authorize with the endpoint.
+	// The authorization parameters to use to authorize with the endpoint.
+	//
+	// You must include only authorization parameters for the `AuthorizationType` you specify.
 	AuthParameters *ConnectionAuthParameters `pulumi:"authParameters"`
 	// The type of authorization to use for the connection.
 	//
@@ -139,7 +143,9 @@ type connectionArgs struct {
 
 // The set of arguments for constructing a Connection resource.
 type ConnectionArgs struct {
-	// A `CreateConnectionAuthRequestParameters` object that contains the authorization parameters to use to authorize with the endpoint.
+	// The authorization parameters to use to authorize with the endpoint.
+	//
+	// You must include only authorization parameters for the `AuthorizationType` you specify.
 	AuthParameters ConnectionAuthParametersPtrInput
 	// The type of authorization to use for the connection.
 	//
@@ -195,7 +201,9 @@ func (o ConnectionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// A `CreateConnectionAuthRequestParameters` object that contains the authorization parameters to use to authorize with the endpoint.
+// The authorization parameters to use to authorize with the endpoint.
+//
+// You must include only authorization parameters for the `AuthorizationType` you specify.
 func (o ConnectionOutput) AuthParameters() ConnectionAuthParametersPtrOutput {
 	return o.ApplyT(func(v *Connection) ConnectionAuthParametersPtrOutput { return v.AuthParameters }).(ConnectionAuthParametersPtrOutput)
 }

@@ -36,11 +36,11 @@ class RuleArgs:
         :param pulumi.Input['RuleActionArgs'] action: Describes the action for a rule.
         :param pulumi.Input['RuleMatchArgs'] match: The rule match.
         :param pulumi.Input[int] priority: The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
-        :param pulumi.Input[str] listener_identifier: The ID or Amazon Resource Name (ARN) of the listener.
+        :param pulumi.Input[str] listener_identifier: The ID or ARN of the listener.
         :param pulumi.Input[str] name: The name of the rule. The name must be unique within the listener. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
                
                If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
-        :param pulumi.Input[str] service_identifier: The ID or Amazon Resource Name (ARN) of the service.
+        :param pulumi.Input[str] service_identifier: The ID or ARN of the service.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags for the rule.
         """
         pulumi.set(__self__, "action", action)
@@ -95,7 +95,7 @@ class RuleArgs:
     @pulumi.getter(name="listenerIdentifier")
     def listener_identifier(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID or Amazon Resource Name (ARN) of the listener.
+        The ID or ARN of the listener.
         """
         return pulumi.get(self, "listener_identifier")
 
@@ -121,7 +121,7 @@ class RuleArgs:
     @pulumi.getter(name="serviceIdentifier")
     def service_identifier(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID or Amazon Resource Name (ARN) of the service.
+        The ID or ARN of the service.
         """
         return pulumi.get(self, "service_identifier")
 
@@ -161,13 +161,13 @@ class Rule(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['RuleActionArgs', 'RuleActionArgsDict']] action: Describes the action for a rule.
-        :param pulumi.Input[str] listener_identifier: The ID or Amazon Resource Name (ARN) of the listener.
+        :param pulumi.Input[str] listener_identifier: The ID or ARN of the listener.
         :param pulumi.Input[Union['RuleMatchArgs', 'RuleMatchArgsDict']] match: The rule match.
         :param pulumi.Input[str] name: The name of the rule. The name must be unique within the listener. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
                
                If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
         :param pulumi.Input[int] priority: The priority assigned to the rule. Each rule for a specific listener must have a unique priority. The lower the priority number the higher the priority.
-        :param pulumi.Input[str] service_identifier: The ID or Amazon Resource Name (ARN) of the service.
+        :param pulumi.Input[str] service_identifier: The ID or ARN of the service.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags for the rule.
         """
         ...
@@ -288,7 +288,7 @@ class Rule(pulumi.CustomResource):
     @pulumi.getter(name="listenerIdentifier")
     def listener_identifier(self) -> pulumi.Output[Optional[str]]:
         """
-        The ID or Amazon Resource Name (ARN) of the listener.
+        The ID or ARN of the listener.
         """
         return pulumi.get(self, "listener_identifier")
 
@@ -322,7 +322,7 @@ class Rule(pulumi.CustomResource):
     @pulumi.getter(name="serviceIdentifier")
     def service_identifier(self) -> pulumi.Output[Optional[str]]:
         """
-        The ID or Amazon Resource Name (ARN) of the service.
+        The ID or ARN of the service.
         """
         return pulumi.get(self, "service_identifier")
 

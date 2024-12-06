@@ -30,7 +30,9 @@ export interface GetConnectionResult {
      */
     readonly arn?: string;
     /**
-     * A `CreateConnectionAuthRequestParameters` object that contains the authorization parameters to use to authorize with the endpoint.
+     * The authorization parameters to use to authorize with the endpoint.
+     *
+     * You must include only authorization parameters for the `AuthorizationType` you specify.
      */
     readonly authParameters?: outputs.events.ConnectionAuthParameters;
     /**

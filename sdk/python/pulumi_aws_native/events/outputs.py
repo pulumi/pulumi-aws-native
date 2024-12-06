@@ -329,9 +329,9 @@ class ConnectionHttpParameters(dict):
                  header_parameters: Optional[Sequence['outputs.ConnectionParameter']] = None,
                  query_string_parameters: Optional[Sequence['outputs.ConnectionParameter']] = None):
         """
-        :param Sequence['ConnectionParameter'] body_parameters: Contains additional body string parameters for the connection.
-        :param Sequence['ConnectionParameter'] header_parameters: Contains additional header parameters for the connection.
-        :param Sequence['ConnectionParameter'] query_string_parameters: Contains additional query string parameters for the connection.
+        :param Sequence['ConnectionParameter'] body_parameters: Any additional body string parameters for the connection.
+        :param Sequence['ConnectionParameter'] header_parameters: Any additional header parameters for the connection.
+        :param Sequence['ConnectionParameter'] query_string_parameters: Any additional query string parameters for the connection.
         """
         if body_parameters is not None:
             pulumi.set(__self__, "body_parameters", body_parameters)
@@ -344,7 +344,7 @@ class ConnectionHttpParameters(dict):
     @pulumi.getter(name="bodyParameters")
     def body_parameters(self) -> Optional[Sequence['outputs.ConnectionParameter']]:
         """
-        Contains additional body string parameters for the connection.
+        Any additional body string parameters for the connection.
         """
         return pulumi.get(self, "body_parameters")
 
@@ -352,7 +352,7 @@ class ConnectionHttpParameters(dict):
     @pulumi.getter(name="headerParameters")
     def header_parameters(self) -> Optional[Sequence['outputs.ConnectionParameter']]:
         """
-        Contains additional header parameters for the connection.
+        Any additional header parameters for the connection.
         """
         return pulumi.get(self, "header_parameters")
 
@@ -360,7 +360,7 @@ class ConnectionHttpParameters(dict):
     @pulumi.getter(name="queryStringParameters")
     def query_string_parameters(self) -> Optional[Sequence['outputs.ConnectionParameter']]:
         """
-        Contains additional query string parameters for the connection.
+        Any additional query string parameters for the connection.
         """
         return pulumi.get(self, "query_string_parameters")
 
@@ -397,9 +397,9 @@ class ConnectionOAuthParameters(dict):
                  o_auth_http_parameters: Optional['outputs.ConnectionHttpParameters'] = None):
         """
         :param str authorization_endpoint: The URL to the authorization endpoint when OAuth is specified as the authorization type.
-        :param 'ConnectionClientParameters' client_parameters: A `CreateConnectionOAuthClientRequestParameters` object that contains the client parameters for OAuth authorization.
+        :param 'ConnectionClientParameters' client_parameters: The client parameters for OAuth authorization.
         :param 'ConnectionOAuthParametersHttpMethod' http_method: The method to use for the authorization request.
-        :param 'ConnectionHttpParameters' o_auth_http_parameters: A `ConnectionHttpParameters` object that contains details about the additional parameters to use for the connection.
+        :param 'ConnectionHttpParameters' o_auth_http_parameters: Details about the additional parameters to use for the connection.
         """
         pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
         pulumi.set(__self__, "client_parameters", client_parameters)
@@ -419,7 +419,7 @@ class ConnectionOAuthParameters(dict):
     @pulumi.getter(name="clientParameters")
     def client_parameters(self) -> 'outputs.ConnectionClientParameters':
         """
-        A `CreateConnectionOAuthClientRequestParameters` object that contains the client parameters for OAuth authorization.
+        The client parameters for OAuth authorization.
         """
         return pulumi.get(self, "client_parameters")
 
@@ -435,7 +435,7 @@ class ConnectionOAuthParameters(dict):
     @pulumi.getter(name="oAuthHttpParameters")
     def o_auth_http_parameters(self) -> Optional['outputs.ConnectionHttpParameters']:
         """
-        A `ConnectionHttpParameters` object that contains details about the additional parameters to use for the connection.
+        Details about the additional parameters to use for the connection.
         """
         return pulumi.get(self, "o_auth_http_parameters")
 
@@ -2050,7 +2050,7 @@ class RuleTarget(dict):
         :param 'RuleRedshiftDataParameters' redshift_data_parameters: Contains the Amazon Redshift Data API parameters to use when the target is a Amazon Redshift cluster.
                
                If you specify a Amazon Redshift Cluster as a Target, you can use this to specify parameters to invoke the Amazon Redshift Data API ExecuteStatement based on EventBridge events.
-        :param 'RuleRetryPolicy' retry_policy: The `RetryPolicy` object that contains the retry policy configuration to use for the dead-letter queue.
+        :param 'RuleRetryPolicy' retry_policy: The retry policy configuration to use for the dead-letter queue.
         :param str role_arn: The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. If one rule triggers multiple targets, you can use a different IAM role for each target.
         :param 'RuleRunCommandParameters' run_command_parameters: Parameters used when you are using the rule to invoke Amazon EC2 Run Command.
         :param 'RuleSageMakerPipelineParameters' sage_maker_pipeline_parameters: Contains the SageMaker Model Building Pipeline parameters to start execution of a SageMaker Model Building Pipeline.
@@ -2197,7 +2197,7 @@ class RuleTarget(dict):
     @pulumi.getter(name="retryPolicy")
     def retry_policy(self) -> Optional['outputs.RuleRetryPolicy']:
         """
-        The `RetryPolicy` object that contains the retry policy configuration to use for the dead-letter queue.
+        The retry policy configuration to use for the dead-letter queue.
         """
         return pulumi.get(self, "retry_policy")
 

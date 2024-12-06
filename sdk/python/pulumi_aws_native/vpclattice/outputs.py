@@ -21,6 +21,10 @@ __all__ = [
     'ListenerFixedResponse',
     'ListenerForward',
     'ListenerWeightedTargetGroup',
+    'ResourceConfigurationDefinition0Properties',
+    'ResourceConfigurationDefinition1Properties',
+    'ResourceConfigurationDefinition2Properties',
+    'ResourceConfigurationDnsResource',
     'RuleAction',
     'RuleFixedResponse',
     'RuleForward',
@@ -207,6 +211,131 @@ class ListenerWeightedTargetGroup(dict):
         Only required if you specify multiple target groups for a forward action. The weight determines how requests are distributed to the target group. For example, if you specify two target groups, each with a weight of 10, each target group receives half the requests. If you specify two target groups, one with a weight of 10 and the other with a weight of 20, the target group with a weight of 20 receives twice as many requests as the other target group. If there's only one target group specified, then the default value is 100.
         """
         return pulumi.get(self, "weight")
+
+
+@pulumi.output_type
+class ResourceConfigurationDefinition0Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipResource":
+            suggest = "ip_resource"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceConfigurationDefinition0Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceConfigurationDefinition0Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceConfigurationDefinition0Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ip_resource: str):
+        pulumi.set(__self__, "ip_resource", ip_resource)
+
+    @property
+    @pulumi.getter(name="ipResource")
+    def ip_resource(self) -> str:
+        return pulumi.get(self, "ip_resource")
+
+
+@pulumi.output_type
+class ResourceConfigurationDefinition1Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "arnResource":
+            suggest = "arn_resource"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceConfigurationDefinition1Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceConfigurationDefinition1Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceConfigurationDefinition1Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 arn_resource: str):
+        pulumi.set(__self__, "arn_resource", arn_resource)
+
+    @property
+    @pulumi.getter(name="arnResource")
+    def arn_resource(self) -> str:
+        return pulumi.get(self, "arn_resource")
+
+
+@pulumi.output_type
+class ResourceConfigurationDefinition2Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dnsResource":
+            suggest = "dns_resource"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceConfigurationDefinition2Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceConfigurationDefinition2Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceConfigurationDefinition2Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dns_resource: 'outputs.ResourceConfigurationDnsResource'):
+        pulumi.set(__self__, "dns_resource", dns_resource)
+
+    @property
+    @pulumi.getter(name="dnsResource")
+    def dns_resource(self) -> 'outputs.ResourceConfigurationDnsResource':
+        return pulumi.get(self, "dns_resource")
+
+
+@pulumi.output_type
+class ResourceConfigurationDnsResource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "domainName":
+            suggest = "domain_name"
+        elif key == "ipAddressType":
+            suggest = "ip_address_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceConfigurationDnsResource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceConfigurationDnsResource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceConfigurationDnsResource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 domain_name: str,
+                 ip_address_type: 'ResourceConfigurationDnsResourceIpAddressType'):
+        pulumi.set(__self__, "domain_name", domain_name)
+        pulumi.set(__self__, "ip_address_type", ip_address_type)
+
+    @property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> str:
+        return pulumi.get(self, "domain_name")
+
+    @property
+    @pulumi.getter(name="ipAddressType")
+    def ip_address_type(self) -> 'ResourceConfigurationDnsResourceIpAddressType':
+        return pulumi.get(self, "ip_address_type")
 
 
 @pulumi.output_type

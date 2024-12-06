@@ -27,6 +27,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AuthPolicy{}
 	case "aws-native:vpclattice:Listener":
 		r = &Listener{}
+	case "aws-native:vpclattice:ResourceConfiguration":
+		r = &ResourceConfiguration{}
+	case "aws-native:vpclattice:ResourceGateway":
+		r = &ResourceGateway{}
 	case "aws-native:vpclattice:ResourcePolicy":
 		r = &ResourcePolicy{}
 	case "aws-native:vpclattice:Rule":
@@ -35,6 +39,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Service{}
 	case "aws-native:vpclattice:ServiceNetwork":
 		r = &ServiceNetwork{}
+	case "aws-native:vpclattice:ServiceNetworkResourceAssociation":
+		r = &ServiceNetworkResourceAssociation{}
 	case "aws-native:vpclattice:ServiceNetworkServiceAssociation":
 		r = &ServiceNetworkServiceAssociation{}
 	case "aws-native:vpclattice:ServiceNetworkVpcAssociation":

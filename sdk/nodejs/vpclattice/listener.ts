@@ -72,7 +72,7 @@ export class Listener extends pulumi.CustomResource {
      */
     public /*out*/ readonly serviceId!: pulumi.Output<string>;
     /**
-     * The ID or Amazon Resource Name (ARN) of the service.
+     * The ID or ARN of the service.
      */
     public readonly serviceIdentifier!: pulumi.Output<string | undefined>;
     /**
@@ -149,7 +149,7 @@ export interface ListenerArgs {
      */
     protocol: pulumi.Input<enums.vpclattice.ListenerProtocol>;
     /**
-     * The ID or Amazon Resource Name (ARN) of the service.
+     * The ID or ARN of the service.
      */
     serviceIdentifier?: pulumi.Input<string>;
     /**

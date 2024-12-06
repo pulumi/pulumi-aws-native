@@ -46,11 +46,14 @@ class ClusterArgs:
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
         :param pulumi.Input['ClusterAccessConfigArgs'] access_config: The access configuration for the cluster.
         :param pulumi.Input[bool] bootstrap_self_managed_addons: Set this value to false to avoid creating the default networking add-ons when the cluster is created.
+        :param pulumi.Input['ClusterComputeConfigArgs'] compute_config: Indicates the current configuration of the compute capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your AWS account. For more information, see EKS Auto Mode compute capability in the EKS User Guide.
         :param pulumi.Input[Sequence[pulumi.Input['ClusterEncryptionConfigArgs']]] encryption_config: The encryption configuration for the cluster.
         :param pulumi.Input['ClusterKubernetesNetworkConfigArgs'] kubernetes_network_config: The Kubernetes network configuration for the cluster.
         :param pulumi.Input['LoggingArgs'] logging: The logging configuration for your cluster.
         :param pulumi.Input[str] name: The unique name to give to your cluster.
         :param pulumi.Input['ClusterOutpostConfigArgs'] outpost_config: An object representing the configuration of your local Amazon EKS cluster on an AWS Outpost. This object isn't available for clusters on the AWS cloud.
+        :param pulumi.Input['ClusterRemoteNetworkConfigArgs'] remote_network_config: The configuration in the cluster for EKS Hybrid Nodes. You can't change or update this configuration after the cluster is created.
+        :param pulumi.Input['ClusterStorageConfigArgs'] storage_config: Indicates the current configuration of the block storage capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the block storage capability is enabled, EKS Auto Mode will create and delete EBS volumes in your AWS account. For more information, see EKS Auto Mode block storage capability in the EKS User Guide.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input['ClusterUpgradePolicyArgs'] upgrade_policy: This value indicates if extended support is enabled or disabled for the cluster.
                
@@ -140,6 +143,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="computeConfig")
     def compute_config(self) -> Optional[pulumi.Input['ClusterComputeConfigArgs']]:
+        """
+        Indicates the current configuration of the compute capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your AWS account. For more information, see EKS Auto Mode compute capability in the EKS User Guide.
+        """
         return pulumi.get(self, "compute_config")
 
     @compute_config.setter
@@ -209,6 +215,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="remoteNetworkConfig")
     def remote_network_config(self) -> Optional[pulumi.Input['ClusterRemoteNetworkConfigArgs']]:
+        """
+        The configuration in the cluster for EKS Hybrid Nodes. You can't change or update this configuration after the cluster is created.
+        """
         return pulumi.get(self, "remote_network_config")
 
     @remote_network_config.setter
@@ -218,6 +227,9 @@ class ClusterArgs:
     @property
     @pulumi.getter(name="storageConfig")
     def storage_config(self) -> Optional[pulumi.Input['ClusterStorageConfigArgs']]:
+        """
+        Indicates the current configuration of the block storage capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the block storage capability is enabled, EKS Auto Mode will create and delete EBS volumes in your AWS account. For more information, see EKS Auto Mode block storage capability in the EKS User Guide.
+        """
         return pulumi.get(self, "storage_config")
 
     @storage_config.setter
@@ -304,13 +316,16 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ClusterAccessConfigArgs', 'ClusterAccessConfigArgsDict']] access_config: The access configuration for the cluster.
         :param pulumi.Input[bool] bootstrap_self_managed_addons: Set this value to false to avoid creating the default networking add-ons when the cluster is created.
+        :param pulumi.Input[Union['ClusterComputeConfigArgs', 'ClusterComputeConfigArgsDict']] compute_config: Indicates the current configuration of the compute capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your AWS account. For more information, see EKS Auto Mode compute capability in the EKS User Guide.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterEncryptionConfigArgs', 'ClusterEncryptionConfigArgsDict']]]] encryption_config: The encryption configuration for the cluster.
         :param pulumi.Input[Union['ClusterKubernetesNetworkConfigArgs', 'ClusterKubernetesNetworkConfigArgsDict']] kubernetes_network_config: The Kubernetes network configuration for the cluster.
         :param pulumi.Input[Union['LoggingArgs', 'LoggingArgsDict']] logging: The logging configuration for your cluster.
         :param pulumi.Input[str] name: The unique name to give to your cluster.
         :param pulumi.Input[Union['ClusterOutpostConfigArgs', 'ClusterOutpostConfigArgsDict']] outpost_config: An object representing the configuration of your local Amazon EKS cluster on an AWS Outpost. This object isn't available for clusters on the AWS cloud.
+        :param pulumi.Input[Union['ClusterRemoteNetworkConfigArgs', 'ClusterRemoteNetworkConfigArgsDict']] remote_network_config: The configuration in the cluster for EKS Hybrid Nodes. You can't change or update this configuration after the cluster is created.
         :param pulumi.Input[Union['ClusterResourcesVpcConfigArgs', 'ClusterResourcesVpcConfigArgsDict']] resources_vpc_config: The VPC configuration that's used by the cluster control plane. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the *Amazon EKS User Guide* . You must specify at least two subnets. You can specify up to five security groups, but we recommend that you use a dedicated security group for your cluster control plane.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
+        :param pulumi.Input[Union['ClusterStorageConfigArgs', 'ClusterStorageConfigArgsDict']] storage_config: Indicates the current configuration of the block storage capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the block storage capability is enabled, EKS Auto Mode will create and delete EBS volumes in your AWS account. For more information, see EKS Auto Mode block storage capability in the EKS User Guide.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[Union['ClusterUpgradePolicyArgs', 'ClusterUpgradePolicyArgsDict']] upgrade_policy: This value indicates if extended support is enabled or disabled for the cluster.
                
@@ -494,6 +509,9 @@ class Cluster(pulumi.CustomResource):
     @property
     @pulumi.getter(name="computeConfig")
     def compute_config(self) -> pulumi.Output[Optional['outputs.ClusterComputeConfig']]:
+        """
+        Indicates the current configuration of the compute capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your AWS account. For more information, see EKS Auto Mode compute capability in the EKS User Guide.
+        """
         return pulumi.get(self, "compute_config")
 
     @property
@@ -563,6 +581,9 @@ class Cluster(pulumi.CustomResource):
     @property
     @pulumi.getter(name="remoteNetworkConfig")
     def remote_network_config(self) -> pulumi.Output[Optional['outputs.ClusterRemoteNetworkConfig']]:
+        """
+        The configuration in the cluster for EKS Hybrid Nodes. You can't change or update this configuration after the cluster is created.
+        """
         return pulumi.get(self, "remote_network_config")
 
     @property
@@ -584,6 +605,9 @@ class Cluster(pulumi.CustomResource):
     @property
     @pulumi.getter(name="storageConfig")
     def storage_config(self) -> pulumi.Output[Optional['outputs.ClusterStorageConfig']]:
+        """
+        Indicates the current configuration of the block storage capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the block storage capability is enabled, EKS Auto Mode will create and delete EBS volumes in your AWS account. For more information, see EKS Auto Mode block storage capability in the EKS User Guide.
+        """
         return pulumi.get(self, "storage_config")
 
     @property

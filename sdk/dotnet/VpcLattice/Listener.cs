@@ -66,7 +66,7 @@ namespace Pulumi.AwsNative.VpcLattice
         public Output<string> ServiceId { get; private set; } = null!;
 
         /// <summary>
-        /// The ID or Amazon Resource Name (ARN) of the service.
+        /// The ID or ARN of the service.
         /// </summary>
         [Output("serviceIdentifier")]
         public Output<string?> ServiceIdentifier { get; private set; } = null!;
@@ -156,7 +156,7 @@ namespace Pulumi.AwsNative.VpcLattice
         public Input<Pulumi.AwsNative.VpcLattice.ListenerProtocol> Protocol { get; set; } = null!;
 
         /// <summary>
-        /// The ID or Amazon Resource Name (ARN) of the service.
+        /// The ID or ARN of the service.
         /// </summary>
         [Input("serviceIdentifier")]
         public Input<string>? ServiceIdentifier { get; set; }

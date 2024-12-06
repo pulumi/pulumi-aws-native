@@ -83,10 +83,27 @@ class DeliveryDestinationDestinationPolicyArgs:
 if not MYPY:
     class IntegrationOpenSearchResourceConfigArgsDict(TypedDict):
         dashboard_viewer_principals: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        Specify the ARNs of IAM roles and IAM users who you want to grant permission to for viewing the dashboards.
+
+        > In addition to specifying these users here, you must also grant them the *CloudWatchOpenSearchDashboardsAccess* IAM policy. For more information, see
+        """
         data_source_role_arn: pulumi.Input[str]
+        """
+        Specify the ARN of an IAM role that CloudWatch Logs will use to create the integration. This role must have the permissions necessary to access the OpenSearch Service collection to be able to create the dashboards. For more information about the permissions needed, see [Create an IAM role to access the OpenSearch Service collection](https://docs.aws.amazon.com/OpenSearch-Dashboards-CreateRole) in the CloudWatch Logs User Guide.
+        """
         application_arn: NotRequired[pulumi.Input[str]]
+        """
+        If you want to use an existing OpenSearch Service application for your integration with OpenSearch Service, specify it here. If you omit this, a new application will be created.
+        """
         kms_key_arn: NotRequired[pulumi.Input[str]]
+        """
+        To have the vended dashboard data encrypted with AWS KMS instead of the CloudWatch Logs default encryption method, specify the ARN of the AWS KMS key that you want to use.
+        """
         retention_days: NotRequired[pulumi.Input[int]]
+        """
+        Specify how many days that you want the data derived by OpenSearch Service to be retained in the index that the dashboard refers to. This also sets the maximum time period that you can choose when viewing data in the dashboard. Choosing a longer time frame will incur additional costs.
+        """
 elif False:
     IntegrationOpenSearchResourceConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -98,6 +115,15 @@ class IntegrationOpenSearchResourceConfigArgs:
                  application_arn: Optional[pulumi.Input[str]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  retention_days: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] dashboard_viewer_principals: Specify the ARNs of IAM roles and IAM users who you want to grant permission to for viewing the dashboards.
+               
+               > In addition to specifying these users here, you must also grant them the *CloudWatchOpenSearchDashboardsAccess* IAM policy. For more information, see
+        :param pulumi.Input[str] data_source_role_arn: Specify the ARN of an IAM role that CloudWatch Logs will use to create the integration. This role must have the permissions necessary to access the OpenSearch Service collection to be able to create the dashboards. For more information about the permissions needed, see [Create an IAM role to access the OpenSearch Service collection](https://docs.aws.amazon.com/OpenSearch-Dashboards-CreateRole) in the CloudWatch Logs User Guide.
+        :param pulumi.Input[str] application_arn: If you want to use an existing OpenSearch Service application for your integration with OpenSearch Service, specify it here. If you omit this, a new application will be created.
+        :param pulumi.Input[str] kms_key_arn: To have the vended dashboard data encrypted with AWS KMS instead of the CloudWatch Logs default encryption method, specify the ARN of the AWS KMS key that you want to use.
+        :param pulumi.Input[int] retention_days: Specify how many days that you want the data derived by OpenSearch Service to be retained in the index that the dashboard refers to. This also sets the maximum time period that you can choose when viewing data in the dashboard. Choosing a longer time frame will incur additional costs.
+        """
         pulumi.set(__self__, "dashboard_viewer_principals", dashboard_viewer_principals)
         pulumi.set(__self__, "data_source_role_arn", data_source_role_arn)
         if application_arn is not None:
@@ -110,6 +136,11 @@ class IntegrationOpenSearchResourceConfigArgs:
     @property
     @pulumi.getter(name="dashboardViewerPrincipals")
     def dashboard_viewer_principals(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Specify the ARNs of IAM roles and IAM users who you want to grant permission to for viewing the dashboards.
+
+        > In addition to specifying these users here, you must also grant them the *CloudWatchOpenSearchDashboardsAccess* IAM policy. For more information, see
+        """
         return pulumi.get(self, "dashboard_viewer_principals")
 
     @dashboard_viewer_principals.setter
@@ -119,6 +150,9 @@ class IntegrationOpenSearchResourceConfigArgs:
     @property
     @pulumi.getter(name="dataSourceRoleArn")
     def data_source_role_arn(self) -> pulumi.Input[str]:
+        """
+        Specify the ARN of an IAM role that CloudWatch Logs will use to create the integration. This role must have the permissions necessary to access the OpenSearch Service collection to be able to create the dashboards. For more information about the permissions needed, see [Create an IAM role to access the OpenSearch Service collection](https://docs.aws.amazon.com/OpenSearch-Dashboards-CreateRole) in the CloudWatch Logs User Guide.
+        """
         return pulumi.get(self, "data_source_role_arn")
 
     @data_source_role_arn.setter
@@ -128,6 +162,9 @@ class IntegrationOpenSearchResourceConfigArgs:
     @property
     @pulumi.getter(name="applicationArn")
     def application_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        If you want to use an existing OpenSearch Service application for your integration with OpenSearch Service, specify it here. If you omit this, a new application will be created.
+        """
         return pulumi.get(self, "application_arn")
 
     @application_arn.setter
@@ -137,6 +174,9 @@ class IntegrationOpenSearchResourceConfigArgs:
     @property
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        To have the vended dashboard data encrypted with AWS KMS instead of the CloudWatch Logs default encryption method, specify the ARN of the AWS KMS key that you want to use.
+        """
         return pulumi.get(self, "kms_key_arn")
 
     @kms_key_arn.setter
@@ -146,6 +186,9 @@ class IntegrationOpenSearchResourceConfigArgs:
     @property
     @pulumi.getter(name="retentionDays")
     def retention_days(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specify how many days that you want the data derived by OpenSearch Service to be retained in the index that the dashboard refers to. This also sets the maximum time period that you can choose when viewing data in the dashboard. Choosing a longer time frame will incur additional costs.
+        """
         return pulumi.get(self, "retention_days")
 
     @retention_days.setter
@@ -368,6 +411,9 @@ if not MYPY:
         OpenSearchResourceConfig for the given Integration
         """
         open_search_resource_config: NotRequired[pulumi.Input['IntegrationOpenSearchResourceConfigArgsDict']]
+        """
+        This structure contains configuration details about an integration between CloudWatch Logs and OpenSearch Service.
+        """
 elif False:
     ResourceConfigPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -377,6 +423,7 @@ class ResourceConfigPropertiesArgs:
                  open_search_resource_config: Optional[pulumi.Input['IntegrationOpenSearchResourceConfigArgs']] = None):
         """
         OpenSearchResourceConfig for the given Integration
+        :param pulumi.Input['IntegrationOpenSearchResourceConfigArgs'] open_search_resource_config: This structure contains configuration details about an integration between CloudWatch Logs and OpenSearch Service.
         """
         if open_search_resource_config is not None:
             pulumi.set(__self__, "open_search_resource_config", open_search_resource_config)
@@ -384,6 +431,9 @@ class ResourceConfigPropertiesArgs:
     @property
     @pulumi.getter(name="openSearchResourceConfig")
     def open_search_resource_config(self) -> Optional[pulumi.Input['IntegrationOpenSearchResourceConfigArgs']]:
+        """
+        This structure contains configuration details about an integration between CloudWatch Logs and OpenSearch Service.
+        """
         return pulumi.get(self, "open_search_resource_config")
 
     @open_search_resource_config.setter
