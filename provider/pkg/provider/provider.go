@@ -978,7 +978,7 @@ func (p *cfnProvider) Read(ctx context.Context, req *pulumirpc.ReadRequest) (*pu
 			// There may be no old state (i.e., importing a new resource).
 			// Extract inputs from the response body.
 			newStateProps := resource.NewPropertyMapFromMap(rawState)
-			inputs, err = schema.GetInputsFromState(&spec, newStateProps)
+			newInputs, err = schema.GetInputsFromState(&spec, newStateProps)
 			if err != nil {
 				return nil, err
 			}
@@ -990,7 +990,7 @@ func (p *cfnProvider) Read(ctx context.Context, req *pulumirpc.ReadRequest) (*pu
 			// The current approach is complicated but it's aimed to minimize the noise while refreshing:
 			// 0. We have "old" inputs and outputs before refresh and "new" outputs read from AWS.
 			// 1. Project old outputs to their corresponding input shape (exclude attributes).
-			oldInputProjection, err := schema.GetInputsFromState(&spec, oldState)
+			oldInputProjection, err := schema.GetInputsFromState(&spec, inputs)
 			if err != nil {
 				return nil, err
 			}
@@ -1035,7 +1035,7 @@ func (p *cfnProvider) Read(ctx context.Context, req *pulumirpc.ReadRequest) (*pu
 
 	// Serialize and return the calculated inputs.
 	inputsRecord, err := plugin.MarshalProperties(
-		inputs,
+		newInputs,
 		plugin.MarshalOptions{Label: fmt.Sprintf("%s.inputs", label), KeepSecrets: true, KeepUnknowns: true, SkipNulls: true})
 	if err != nil {
 		return nil, err
