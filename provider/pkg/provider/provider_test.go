@@ -102,6 +102,111 @@ func TestConfigure(t *testing.T) {
 	})
 }
 
+func TestCreatePreview(t *testing.T) {
+	ctrl := gomock.NewController(t)
+	defer ctrl.Finish()
+
+	mockCCC := client.NewMockCloudControlClient(ctrl)
+	mockCustomResource := resources.NewMockCustomResource(ctrl)
+
+	ctx, cancel := context.WithCancel(context.Background())
+	provider := &cfnProvider{
+		name: "test-provider",
+		resourceMap: &metadata.CloudAPIMetadata{Resources: map[string]metadata.CloudAPIResource{
+			"aws-native:s3:Bucket": metadata.CloudAPIResource{
+				CfType: "AWS::S3::Bucket",
+				Outputs: map[string]schema.PropertySpec{
+					"arn":        {TypeSpec: schema.TypeSpec{Type: "string"}},
+					"bucketName": {TypeSpec: schema.TypeSpec{Type: "string"}},
+				},
+				ReadOnly: []string{"arn", "domainName", "dualStackDomainName", "regionalDomainName", "websiteUrl"},
+			},
+		}},
+		customResources: map[string]resources.CustomResource{"custom:resource": mockCustomResource},
+		ccc:             mockCCC,
+		canceler: &cancellationContext{
+			context: ctx,
+			cancel:  cancel,
+		},
+	}
+
+	urn := resource.NewURN("stack", "project", "parent", "custom:resource", "name")
+
+	t.Run("Outputs are computed", func(t *testing.T) {
+		req := &pulumirpc.CreateRequest{
+			Urn:        string(urn),
+			Preview:    true,
+			Properties: mustMarshalProperties(t, resource.PropertyMap{"bucketName": resource.NewStringProperty("name")}),
+			Timeout:    float64((5 * time.Minute).Seconds()),
+		}
+		req.Urn = string(resource.NewURN("stack", "project", "parent", "aws-native:s3:Bucket", "name"))
+
+		resp, err := provider.Create(ctx, req)
+		assert.NoError(t, err)
+		assert.Empty(t, resp.Id)
+		require.NotNil(t, resp.Properties)
+		props := mustUnmarshalProperties(t, resp.Properties)
+		require.True(t, props.HasValue("arn"), "Expected 'arn' property in response")
+		require.True(t, props.HasValue("bucketName"), "Expected 'bucketName' property in response")
+		assert.Equal(t, "name", props["bucketName"].StringValue())
+		assert.True(t, props["arn"].IsComputed())
+	})
+}
+
+func TestUpdatePreview(t *testing.T) {
+	ctrl := gomock.NewController(t)
+	defer ctrl.Finish()
+
+	mockCCC := client.NewMockCloudControlClient(ctrl)
+	mockCustomResource := resources.NewMockCustomResource(ctrl)
+
+	ctx, cancel := context.WithCancel(context.Background())
+	provider := &cfnProvider{
+		name: "test-provider",
+		resourceMap: &metadata.CloudAPIMetadata{Resources: map[string]metadata.CloudAPIResource{
+			"aws-native:s3:Bucket": metadata.CloudAPIResource{
+				CfType: "AWS::S3::Bucket",
+				Outputs: map[string]schema.PropertySpec{
+					"arn":        {TypeSpec: schema.TypeSpec{Type: "string"}},
+					"bucketName": {TypeSpec: schema.TypeSpec{Type: "string"}},
+				},
+				ReadOnly: []string{"arn", "domainName", "dualStackDomainName", "regionalDomainName", "websiteUrl"},
+			},
+		}},
+		customResources: map[string]resources.CustomResource{"custom:resource": mockCustomResource},
+		ccc:             mockCCC,
+		canceler: &cancellationContext{
+			context: ctx,
+			cancel:  cancel,
+		},
+	}
+
+	urn := resource.NewURN("stack", "project", "parent", "custom:resource", "name")
+
+	t.Run("Stable outputs appear in preview", func(t *testing.T) {
+		req := &pulumirpc.UpdateRequest{
+			Urn:     string(urn),
+			Preview: true,
+			Olds: mustMarshalProperties(t, resource.PropertyMap{
+				"bucketName": resource.NewStringProperty("name"),
+				"arn":        resource.NewStringProperty("bucketArn"),
+			}),
+			News:    mustMarshalProperties(t, resource.PropertyMap{"bucketName": resource.NewStringProperty("name")}),
+			Timeout: float64((5 * time.Minute).Seconds()),
+		}
+		req.Urn = string(resource.NewURN("stack", "project", "parent", "aws-native:s3:Bucket", "name"))
+
+		resp, err := provider.Update(ctx, req)
+		assert.NoError(t, err)
+		require.NotNil(t, resp.Properties)
+		props := mustUnmarshalProperties(t, resp.Properties)
+		require.True(t, props.HasValue("arn"), "Expected 'arn' property in response")
+		require.True(t, props.HasValue("bucketName"), "Expected 'bucketName' property in response")
+		assert.Equal(t, "name", props["bucketName"].StringValue())
+		assert.Equal(t, "bucketArn", props["arn"].StringValue())
+	})
+}
+
 func TestCreate(t *testing.T) {
 	ctrl := gomock.NewController(t)
 	defer ctrl.Finish()

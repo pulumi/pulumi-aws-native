@@ -531,7 +531,8 @@ func (p *cfnProvider) Configure(ctx context.Context, req *pulumirpc.ConfigureReq
 	p.configured = true
 
 	return &pulumirpc.ConfigureResponse{
-		AcceptSecrets: true,
+		AcceptSecrets:   true,
+		SupportsPreview: true,
 	}, nil
 }
 
@@ -847,8 +848,32 @@ func (p *cfnProvider) Create(ctx context.Context, req *pulumirpc.CreateRequest) 
 	}
 
 	resourceToken := string(urn.Type())
-	var id *string
+
 	var outputs resource.PropertyMap
+	if req.GetPreview() {
+		if _, ok := p.customResources[resourceToken]; ok {
+			outputs = PreviewOutputs(inputs, nil, nil, nil)
+		} else {
+			spec, hasSpec := p.resourceMap.Resources[resourceToken]
+			if !hasSpec {
+				return nil, errors.Errorf("Resource type %s not found", resourceToken)
+			}
+			outputs = PreviewOutputs(inputs, p.resourceMap.Types, spec.Outputs, spec.ReadOnly)
+		}
+
+		previewState, err := plugin.MarshalProperties(
+			outputs,
+			plugin.MarshalOptions{Label: fmt.Sprintf("%s.checkpoint", label), KeepSecrets: true, KeepUnknowns: true, SkipNulls: true},
+		)
+		if err != nil {
+			return nil, err
+		}
+		return &pulumirpc.CreateResponse{
+			Properties: previewState,
+		}, nil
+	}
+
+	var id *string
 	var createErr error
 	timeout := time.Duration(req.GetTimeout()) * time.Second
 	if customResource, ok := p.customResources[resourceToken]; ok {
@@ -1077,6 +1102,30 @@ func (p *cfnProvider) Update(ctx context.Context, req *pulumirpc.UpdateRequest) 
 	var outputs resource.PropertyMap
 	id := req.GetId()
 	resourceToken := string(urn.Type())
+
+	if req.GetPreview() {
+		if _, ok := p.customResources[resourceToken]; ok {
+			outputs = PreviewOutputs(newInputs, nil, nil, nil)
+		} else {
+			spec, hasSpec := p.resourceMap.Resources[resourceToken]
+			if !hasSpec {
+				return nil, errors.Errorf("Resource type %s not found", resourceToken)
+			}
+			resourceTypeName := urn.Type().Name()
+			outputs = PreviewOutputs(newInputs, p.resourceMap.Types, spec.Outputs, spec.ReadOnly)
+			outputs = populateStableOutputs(newInputs, oldState, spec.ReadOnly, resourceTypeName)
+		}
+
+		previewState, err := plugin.MarshalProperties(
+			outputs,
+			plugin.MarshalOptions{Label: fmt.Sprintf("%s.checkpoint", label), KeepSecrets: true, KeepUnknowns: true, SkipNulls: true},
+		)
+		if err != nil {
+			return nil, err
+		}
+		return &pulumirpc.UpdateResponse{Properties: previewState}, nil
+	}
+
 	if customResource, ok := p.customResources[resourceToken]; ok {
 		timeout := time.Duration(req.GetTimeout()) * time.Second
 		// Custom resource
