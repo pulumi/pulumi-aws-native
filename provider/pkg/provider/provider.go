@@ -978,7 +978,7 @@ func (p *cfnProvider) Read(ctx context.Context, req *pulumirpc.ReadRequest) (*pu
 			// There may be no old state (i.e., importing a new resource).
 			// Extract inputs from the response body.
 			newStateProps := resource.NewPropertyMapFromMap(rawState)
-			inputs, err = schema.GetInputsFromState(&spec, newStateProps)
+			newInputs, err = schema.GetInputsFromState(&spec, newStateProps)
 			if err != nil {
 				return nil, err
 			}
@@ -1035,7 +1035,7 @@ func (p *cfnProvider) Read(ctx context.Context, req *pulumirpc.ReadRequest) (*pu
 
 	// Serialize and return the calculated inputs.
 	inputsRecord, err := plugin.MarshalProperties(
-		inputs,
+		newInputs,
 		plugin.MarshalOptions{Label: fmt.Sprintf("%s.inputs", label), KeepSecrets: true, KeepUnknowns: true, SkipNulls: true})
 	if err != nil {
 		return nil, err
