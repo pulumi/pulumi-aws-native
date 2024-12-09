@@ -8567,7 +8567,7 @@
       },
       "metricsConfig": {
         "$ref": "#/types/aws-native:lambda:EventSourceMappingMetricsConfig",
-        "description": "The metrics configuration for your event source. For more information, see [Event source mapping metrics](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics) ."
+        "description": "The metrics configuration for your event source. For more information, see [Event source mapping metrics](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics)."
       },
       "parallelizationFactor": {
         "type": "integer",
@@ -8575,7 +8575,7 @@
       },
       "provisionedPollerConfig": {
         "$ref": "#/types/aws-native:lambda:EventSourceMappingProvisionedPollerConfig",
-        "description": "(Amazon MSK and self-managed Apache Kafka only) The provisioned mode configuration for the event source. For more information, see [provisioned mode](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode) ."
+        "description": "(Amazon MSK and self-managed Apache Kafka only) The provisioned mode configuration for the event source. For more information, see [provisioned mode](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode)."
       },
       "queues": {
         "type": "array",
@@ -10249,6 +10249,9 @@
         "$ref": "#/types/aws-native:qbusiness:ApplicationQAppsConfiguration",
         "description": "Configuration information about Amazon Q Apps."
       },
+      "quickSightConfiguration": {
+        "$ref": "#/types/aws-native:qbusiness:ApplicationQuickSightConfiguration"
+      },
       "roleArn": {
         "type": "string",
         "description": "The Amazon Resource Name (ARN) of an IAM role with permissions to access your Amazon CloudWatch logs and metrics. If this property is not specified, Amazon Q Business will create a [service linked role (SLR)](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/using-service-linked-roles.html#slr-permissions) and use it as the application's role."
@@ -10259,6 +10262,32 @@
           "$ref": "#/types/aws-native:index:Tag"
         },
         "description": "A list of key-value pairs that identify or categorize your Amazon Q Business application. You can also use tags to help control access to the application. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @."
+      }
+    }
+  },
+  "aws-native:qbusiness:DataAccessor": {
+    "cfTypeName": "AWS::QBusiness::DataAccessor",
+    "properties": {
+      "actionConfigurations": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:qbusiness:DataAccessorActionConfiguration"
+        }
+      },
+      "applicationId": {
+        "type": "string"
+      },
+      "displayName": {
+        "type": "string"
+      },
+      "principal": {
+        "type": "string"
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        }
       }
     }
   },
@@ -10288,6 +10317,9 @@
       "indexId": {
         "type": "string",
         "description": "The identifier of the index the data source is attached to."
+      },
+      "mediaExtractionConfiguration": {
+        "$ref": "#/types/aws-native:qbusiness:DataSourceMediaExtractionConfiguration"
       },
       "roleArn": {
         "type": "string",
@@ -10346,6 +10378,26 @@
       "type": {
         "$ref": "#/types/aws-native:qbusiness:IndexType",
         "description": "The index type that's suitable for your needs. For more information on what's included in each type of index, see [Amazon Q Business tiers](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/tiers.html#index-tiers) ."
+      }
+    }
+  },
+  "aws-native:qbusiness:Permission": {
+    "cfTypeName": "AWS::QBusiness::Permission",
+    "properties": {
+      "actions": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "applicationId": {
+        "type": "string"
+      },
+      "principal": {
+        "type": "string"
+      },
+      "statementId": {
+        "type": "string"
       }
     }
   },
@@ -10444,6 +10496,9 @@
       "applicationId": {
         "type": "string",
         "description": "The identifier of the Amazon Q Business web experience."
+      },
+      "customizationConfiguration": {
+        "$ref": "#/types/aws-native:qbusiness:WebExperienceCustomizationConfiguration"
       },
       "identityProviderConfiguration": {
         "oneOf": [

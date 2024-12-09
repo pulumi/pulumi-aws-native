@@ -31,7 +31,7 @@
   },
   "additionalProperties" : false,
   "readOnlyProperties" : [ "/properties/Arn" ],
-  "createOnlyProperties" : [ "/properties/StateMachineArn", "/properties/StateMachineRevisionId" ],
+  "createOnlyProperties" : [ "/properties/StateMachineArn", "/properties/StateMachineRevisionId", "/properties/Description" ],
   "writeOnlyProperties" : [ "/properties/StateMachineArn" ],
   "primaryIdentifier" : [ "/properties/Arn" ],
   "handlers" : {

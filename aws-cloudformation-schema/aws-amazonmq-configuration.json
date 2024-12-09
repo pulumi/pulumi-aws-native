@@ -72,7 +72,7 @@
     "tagProperty" : "/properties/Tags",
     "permissions" : [ "mq:ListTags", "mq:CreateTags", "mq:DeleteTags" ]
   },
-  "required" : [ "EngineType", "Data", "Name" ],
+  "required" : [ "EngineType", "Name" ],
   "propertyTransform" : {
     "/properties/AuthenticationStrategy" : "$uppercase(AuthenticationStrategy)",
     "/properties/EngineType" : "$uppercase(EngineType)"

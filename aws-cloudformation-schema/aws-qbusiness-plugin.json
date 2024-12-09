@@ -84,6 +84,18 @@
           "maxLength" : 1284,
           "minLength" : 0,
           "pattern" : "^arn:[a-z0-9-\\.]{1,63}:[a-z0-9-\\.]{0,63}:[a-z0-9-\\.]{0,63}:[a-z0-9-\\.]{0,63}:[^/].{0,1023}$"
+        },
+        "AuthorizationUrl" : {
+          "type" : "string",
+          "maxLength" : 2048,
+          "minLength" : 1,
+          "pattern" : "^(https?|ftp|file)://([^\\s]*)$"
+        },
+        "TokenUrl" : {
+          "type" : "string",
+          "maxLength" : 2048,
+          "minLength" : 1,
+          "pattern" : "^(https?|ftp|file)://([^\\s]*)$"
         }
       },
       "required" : [ "RoleArn", "SecretArn" ],
@@ -132,7 +144,7 @@
     },
     "PluginType" : {
       "type" : "string",
-      "enum" : [ "SERVICE_NOW", "SALESFORCE", "JIRA", "ZENDESK", "CUSTOM" ]
+      "enum" : [ "SERVICE_NOW", "SALESFORCE", "JIRA", "ZENDESK", "CUSTOM", "QUICKSIGHT", "SERVICENOW_NOW_PLATFORM", "JIRA_CLOUD", "SALESFORCE_CRM", "ZENDESK_SUITE", "ATLASSIAN_CONFLUENCE", "GOOGLE_CALENDAR", "MICROSOFT_TEAMS", "MICROSOFT_EXCHANGE", "PAGERDUTY_ADVANCE", "SMARTSHEET", "ASANA" ]
     },
     "S3" : {
       "type" : "object",
@@ -219,7 +231,6 @@
     },
     "Tags" : {
       "type" : "array",
-      "insertionOrder" : false,
       "items" : {
         "$ref" : "#/definitions/Tag"
       },
@@ -234,13 +245,13 @@
       "format" : "date-time"
     }
   },
-  "required" : [ "ApplicationId", "AuthConfiguration", "DisplayName", "Type" ],
+  "required" : [ "AuthConfiguration", "DisplayName", "Type" ],
   "readOnlyProperties" : [ "/properties/BuildStatus", "/properties/CreatedAt", "/properties/PluginArn", "/properties/PluginId", "/properties/UpdatedAt" ],
   "createOnlyProperties" : [ "/properties/ApplicationId", "/properties/Type" ],
   "primaryIdentifier" : [ "/properties/ApplicationId", "/properties/PluginId" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "iam:PassRole", "qbusiness:CreatePlugin", "qbusiness:GetPlugin", "qbusiness:ListTagsForResource", "qbusiness:TagResource", "qbusiness:UpdatePlugin" ]
+      "permissions" : [ "iam:PassRole", "qbusiness:CreatePlugin", "qbusiness:GetPlugin", "qbusiness:ListTagsForResource", "qbusiness:TagResource" ]
     },
     "read" : {
       "permissions" : [ "qbusiness:GetPlugin", "qbusiness:ListTagsForResource" ]
@@ -264,7 +275,12 @@
     }
   },
   "tagging" : {
-    "taggable" : true
+    "taggable" : true,
+    "tagUpdatable" : true,
+    "tagOnCreate" : true,
+    "cloudFormationSystemTags" : true,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "qbusiness:UntagResource", "qbusiness:TagResource", "qbusiness:ListTagsForResource" ]
   },
   "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-qbusiness",
   "additionalProperties" : false

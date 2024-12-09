@@ -188,7 +188,7 @@
     "Edition" : {
       "description" : "Edition of index",
       "type" : "string",
-      "enum" : [ "DEVELOPER_EDITION", "ENTERPRISE_EDITION" ]
+      "enum" : [ "DEVELOPER_EDITION", "ENTERPRISE_EDITION", "GEN_AI_ENTERPRISE_EDITION" ]
     },
     "Name" : {
       "description" : "Name of index",
