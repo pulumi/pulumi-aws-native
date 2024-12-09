@@ -7,14 +7,17 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .application import *
+from .data_accessor import *
 from .data_source import *
 from .get_application import *
+from .get_data_accessor import *
 from .get_data_source import *
 from .get_index import *
 from .get_plugin import *
 from .get_retriever import *
 from .get_web_experience import *
 from .index import *
+from .permission import *
 from .plugin import *
 from .retriever import *
 from .web_experience import *

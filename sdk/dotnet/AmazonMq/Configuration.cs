@@ -77,7 +77,7 @@ namespace Pulumi.AwsNative.AmazonMq
         /// The base64-encoded XML configuration.
         /// </summary>
         [Output("data")]
-        public Output<string> Data { get; private set; } = null!;
+        public Output<string?> Data { get; private set; } = null!;
 
         /// <summary>
         /// The description of the configuration.
@@ -176,8 +176,8 @@ namespace Pulumi.AwsNative.AmazonMq
         /// <summary>
         /// The base64-encoded XML configuration.
         /// </summary>
-        [Input("data", required: true)]
-        public Input<string> Data { get; set; } = null!;
+        [Input("data")]
+        public Input<string>? Data { get; set; }
 
         /// <summary>
         /// The description of the configuration.

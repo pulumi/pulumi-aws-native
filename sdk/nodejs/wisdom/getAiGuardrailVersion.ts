@@ -19,6 +19,9 @@ export function getAiGuardrailVersion(args: GetAiGuardrailVersionArgs, opts?: pu
 export interface GetAiGuardrailVersionArgs {
     aiGuardrailId: string;
     assistantId: string;
+    /**
+     * The version number for this AI Guardrail version.
+     */
     versionNumber: number;
 }
 
@@ -26,6 +29,9 @@ export interface GetAiGuardrailVersionResult {
     readonly aiGuardrailArn?: string;
     readonly aiGuardrailVersionId?: string;
     readonly assistantArn?: string;
+    /**
+     * The version number for this AI Guardrail version.
+     */
     readonly versionNumber?: number;
 }
 /**
@@ -43,5 +49,8 @@ export function getAiGuardrailVersionOutput(args: GetAiGuardrailVersionOutputArg
 export interface GetAiGuardrailVersionOutputArgs {
     aiGuardrailId: pulumi.Input<string>;
     assistantId: pulumi.Input<string>;
+    /**
+     * The version number for this AI Guardrail version.
+     */
     versionNumber: pulumi.Input<number>;
 }

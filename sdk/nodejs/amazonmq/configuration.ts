@@ -84,7 +84,7 @@ export class Configuration extends pulumi.CustomResource {
     /**
      * The base64-encoded XML configuration.
      */
-    public readonly data!: pulumi.Output<string>;
+    public readonly data!: pulumi.Output<string | undefined>;
     /**
      * The description of the configuration.
      */
@@ -121,9 +121,6 @@ export class Configuration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.data === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'data'");
-            }
             if ((!args || args.engineType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'engineType'");
             }
@@ -167,7 +164,7 @@ export interface ConfigurationArgs {
     /**
      * The base64-encoded XML configuration.
      */
-    data: pulumi.Input<string>;
+    data?: pulumi.Input<string>;
     /**
      * The description of the configuration.
      */

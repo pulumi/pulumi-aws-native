@@ -466,6 +466,10 @@ __all__ = [
     'OnlineStoreConfigPropertiesArgsDict',
     'ParallelismConfigurationPropertiesArgs',
     'ParallelismConfigurationPropertiesArgsDict',
+    'PartnerAppConfigArgs',
+    'PartnerAppConfigArgsDict',
+    'PartnerAppMaintenanceConfigArgs',
+    'PartnerAppMaintenanceConfigArgsDict',
     'PipelineDefinition0PropertiesArgs',
     'PipelineDefinition0PropertiesArgsDict',
     'PipelineDefinition1PropertiesArgs',
@@ -16819,6 +16823,97 @@ class ParallelismConfigurationPropertiesArgs:
     @max_parallel_execution_steps.setter
     def max_parallel_execution_steps(self, value: pulumi.Input[int]):
         pulumi.set(self, "max_parallel_execution_steps", value)
+
+
+if not MYPY:
+    class PartnerAppConfigArgsDict(TypedDict):
+        """
+        A collection of configuration settings for the PartnerApp.
+        """
+        admin_users: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        """
+        A list of users with administrator privileges for the PartnerApp.
+        """
+        arguments: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        A list of arguments to pass to the PartnerApp.
+        """
+elif False:
+    PartnerAppConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PartnerAppConfigArgs:
+    def __init__(__self__, *,
+                 admin_users: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 arguments: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        A collection of configuration settings for the PartnerApp.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] admin_users: A list of users with administrator privileges for the PartnerApp.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] arguments: A list of arguments to pass to the PartnerApp.
+        """
+        if admin_users is not None:
+            pulumi.set(__self__, "admin_users", admin_users)
+        if arguments is not None:
+            pulumi.set(__self__, "arguments", arguments)
+
+    @property
+    @pulumi.getter(name="adminUsers")
+    def admin_users(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of users with administrator privileges for the PartnerApp.
+        """
+        return pulumi.get(self, "admin_users")
+
+    @admin_users.setter
+    def admin_users(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "admin_users", value)
+
+    @property
+    @pulumi.getter
+    def arguments(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A list of arguments to pass to the PartnerApp.
+        """
+        return pulumi.get(self, "arguments")
+
+    @arguments.setter
+    def arguments(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "arguments", value)
+
+
+if not MYPY:
+    class PartnerAppMaintenanceConfigArgsDict(TypedDict):
+        """
+        A collection of settings that specify the maintenance schedule for the PartnerApp.
+        """
+        maintenance_window_start: pulumi.Input[str]
+        """
+        The maintenance window start day and time for the PartnerApp.
+        """
+elif False:
+    PartnerAppMaintenanceConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PartnerAppMaintenanceConfigArgs:
+    def __init__(__self__, *,
+                 maintenance_window_start: pulumi.Input[str]):
+        """
+        A collection of settings that specify the maintenance schedule for the PartnerApp.
+        :param pulumi.Input[str] maintenance_window_start: The maintenance window start day and time for the PartnerApp.
+        """
+        pulumi.set(__self__, "maintenance_window_start", maintenance_window_start)
+
+    @property
+    @pulumi.getter(name="maintenanceWindowStart")
+    def maintenance_window_start(self) -> pulumi.Input[str]:
+        """
+        The maintenance window start day and time for the PartnerApp.
+        """
+        return pulumi.get(self, "maintenance_window_start")
+
+    @maintenance_window_start.setter
+    def maintenance_window_start(self, value: pulumi.Input[str]):
+        pulumi.set(self, "maintenance_window_start", value)
 
 
 if not MYPY:

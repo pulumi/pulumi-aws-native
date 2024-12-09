@@ -2651,8 +2651,10 @@ _utilities.register(
   "fqn": "pulumi_aws_native.qbusiness",
   "classes": {
    "aws-native:qbusiness:Application": "Application",
+   "aws-native:qbusiness:DataAccessor": "DataAccessor",
    "aws-native:qbusiness:DataSource": "DataSource",
    "aws-native:qbusiness:Index": "Index",
+   "aws-native:qbusiness:Permission": "Permission",
    "aws-native:qbusiness:Plugin": "Plugin",
    "aws-native:qbusiness:Retriever": "Retriever",
    "aws-native:qbusiness:WebExperience": "WebExperience"
@@ -2957,6 +2959,7 @@ _utilities.register(
    "aws-native:sagemaker:ModelPackageGroup": "ModelPackageGroup",
    "aws-native:sagemaker:ModelQualityJobDefinition": "ModelQualityJobDefinition",
    "aws-native:sagemaker:MonitoringSchedule": "MonitoringSchedule",
+   "aws-native:sagemaker:PartnerApp": "PartnerApp",
    "aws-native:sagemaker:Pipeline": "Pipeline",
    "aws-native:sagemaker:Project": "Project",
    "aws-native:sagemaker:Space": "Space",

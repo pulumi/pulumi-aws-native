@@ -63,6 +63,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ModelQualityJobDefinition{}
 	case "aws-native:sagemaker:MonitoringSchedule":
 		r = &MonitoringSchedule{}
+	case "aws-native:sagemaker:PartnerApp":
+		r = &PartnerApp{}
 	case "aws-native:sagemaker:Pipeline":
 		r = &Pipeline{}
 	case "aws-native:sagemaker:Project":

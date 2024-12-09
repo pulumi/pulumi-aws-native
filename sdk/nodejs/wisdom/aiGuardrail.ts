@@ -37,9 +37,21 @@ export class AiGuardrail extends pulumi.CustomResource {
         return obj['__pulumiType'] === AiGuardrail.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the AI Guardrail.
+     */
     public /*out*/ readonly aiGuardrailArn!: pulumi.Output<string>;
+    /**
+     * The identifier of the Amazon Q in Connect AI Guardrail.
+     */
     public /*out*/ readonly aiGuardrailId!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.
+     */
     public /*out*/ readonly assistantArn!: pulumi.Output<string>;
+    /**
+     * The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+     */
     public readonly assistantId!: pulumi.Output<string>;
     /**
      * Messaging for when violations are detected in text
@@ -49,16 +61,37 @@ export class AiGuardrail extends pulumi.CustomResource {
      * Messaging for when violations are detected in text
      */
     public readonly blockedOutputsMessaging!: pulumi.Output<string>;
+    /**
+     * Contains details about how to handle harmful content.
+     */
     public readonly contentPolicyConfig!: pulumi.Output<outputs.wisdom.AiGuardrailAiGuardrailContentPolicyConfig | undefined>;
+    /**
+     * The policy configuration details for the AI Guardrail's contextual grounding policy.
+     */
     public readonly contextualGroundingPolicyConfig!: pulumi.Output<outputs.wisdom.AiGuardrailAiGuardrailContextualGroundingPolicyConfig | undefined>;
     /**
      * Description of the guardrail or its version
      */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the AI Guardrail.
+     */
     public readonly name!: pulumi.Output<string | undefined>;
+    /**
+     * Contains details about PII entities and regular expressions to configure for the AI Guardrail.
+     */
     public readonly sensitiveInformationPolicyConfig!: pulumi.Output<outputs.wisdom.AiGuardrailAiGuardrailSensitiveInformationPolicyConfig | undefined>;
+    /**
+     * The tags used to organize, track, or control access for this resource.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Contains details about topics that the AI Guardrail should identify and deny.
+     */
     public readonly topicPolicyConfig!: pulumi.Output<outputs.wisdom.AiGuardrailAiGuardrailTopicPolicyConfig | undefined>;
+    /**
+     * Contains details about the word policy to configured for the AI Guardrail.
+     */
     public readonly wordPolicyConfig!: pulumi.Output<outputs.wisdom.AiGuardrailAiGuardrailWordPolicyConfig | undefined>;
 
     /**
@@ -122,6 +155,9 @@ export class AiGuardrail extends pulumi.CustomResource {
  * The set of arguments for constructing a AiGuardrail resource.
  */
 export interface AiGuardrailArgs {
+    /**
+     * The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+     */
     assistantId: pulumi.Input<string>;
     /**
      * Messaging for when violations are detected in text
@@ -131,15 +167,36 @@ export interface AiGuardrailArgs {
      * Messaging for when violations are detected in text
      */
     blockedOutputsMessaging: pulumi.Input<string>;
+    /**
+     * Contains details about how to handle harmful content.
+     */
     contentPolicyConfig?: pulumi.Input<inputs.wisdom.AiGuardrailAiGuardrailContentPolicyConfigArgs>;
+    /**
+     * The policy configuration details for the AI Guardrail's contextual grounding policy.
+     */
     contextualGroundingPolicyConfig?: pulumi.Input<inputs.wisdom.AiGuardrailAiGuardrailContextualGroundingPolicyConfigArgs>;
     /**
      * Description of the guardrail or its version
      */
     description?: pulumi.Input<string>;
+    /**
+     * The name of the AI Guardrail.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * Contains details about PII entities and regular expressions to configure for the AI Guardrail.
+     */
     sensitiveInformationPolicyConfig?: pulumi.Input<inputs.wisdom.AiGuardrailAiGuardrailSensitiveInformationPolicyConfigArgs>;
+    /**
+     * The tags used to organize, track, or control access for this resource.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Contains details about topics that the AI Guardrail should identify and deny.
+     */
     topicPolicyConfig?: pulumi.Input<inputs.wisdom.AiGuardrailAiGuardrailTopicPolicyConfigArgs>;
+    /**
+     * Contains details about the word policy to configured for the AI Guardrail.
+     */
     wordPolicyConfig?: pulumi.Input<inputs.wisdom.AiGuardrailAiGuardrailWordPolicyConfigArgs>;
 }

@@ -26,10 +26,6 @@ export interface GetStateMachineVersionResult {
      * Returns the ARN of the state machine version. For example, `arn:aws:states:us-east-1:123456789012:stateMachine:myStateMachine:1` .
      */
     readonly arn?: string;
-    /**
-     * An optional description of the state machine version.
-     */
-    readonly description?: string;
 }
 /**
  * Resource schema for StateMachineVersion

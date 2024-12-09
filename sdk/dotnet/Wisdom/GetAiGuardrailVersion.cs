@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.Wisdom
         [Input("assistantId", required: true)]
         public string AssistantId { get; set; } = null!;
 
+        /// <summary>
+        /// The version number for this AI Guardrail version.
+        /// </summary>
         [Input("versionNumber", required: true)]
         public double VersionNumber { get; set; }
 
@@ -50,6 +53,9 @@ namespace Pulumi.AwsNative.Wisdom
         [Input("assistantId", required: true)]
         public Input<string> AssistantId { get; set; } = null!;
 
+        /// <summary>
+        /// The version number for this AI Guardrail version.
+        /// </summary>
         [Input("versionNumber", required: true)]
         public Input<double> VersionNumber { get; set; } = null!;
 
@@ -66,6 +72,9 @@ namespace Pulumi.AwsNative.Wisdom
         public readonly string? AiGuardrailArn;
         public readonly string? AiGuardrailVersionId;
         public readonly string? AssistantArn;
+        /// <summary>
+        /// The version number for this AI Guardrail version.
+        /// </summary>
         public readonly double? VersionNumber;
 
         [OutputConstructor]

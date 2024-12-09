@@ -186,5 +186,8 @@ class AiGuardrailVersion(pulumi.CustomResource):
     @property
     @pulumi.getter(name="versionNumber")
     def version_number(self) -> pulumi.Output[float]:
+        """
+        The version number for this AI Guardrail version.
+        """
         return pulumi.get(self, "version_number")
 

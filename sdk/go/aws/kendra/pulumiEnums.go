@@ -3222,8 +3222,9 @@ func (in *indexDocumentAttributeValueTypePtr) ToIndexDocumentAttributeValueTypeP
 type IndexEdition string
 
 const (
-	IndexEditionDeveloperEdition  = IndexEdition("DEVELOPER_EDITION")
-	IndexEditionEnterpriseEdition = IndexEdition("ENTERPRISE_EDITION")
+	IndexEditionDeveloperEdition       = IndexEdition("DEVELOPER_EDITION")
+	IndexEditionEnterpriseEdition      = IndexEdition("ENTERPRISE_EDITION")
+	IndexEditionGenAiEnterpriseEdition = IndexEdition("GEN_AI_ENTERPRISE_EDITION")
 )
 
 func (IndexEdition) ElementType() reflect.Type {
@@ -3350,6 +3351,7 @@ func (o IndexEditionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 //
 //	IndexEditionDeveloperEdition
 //	IndexEditionEnterpriseEdition
+//	IndexEditionGenAiEnterpriseEdition
 type IndexEditionInput interface {
 	pulumi.Input
 

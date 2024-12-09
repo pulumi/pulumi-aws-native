@@ -10,13 +10,16 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lambda.Inputs
 {
 
+    /// <summary>
+    /// The metrics configuration for your event source. Use this configuration object to define which metrics you want your event source mapping to produce.
+    /// </summary>
     public sealed class EventSourceMappingMetricsConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("metrics")]
         private InputList<Pulumi.AwsNative.Lambda.EventSourceMappingMetricsConfigMetricsItem>? _metrics;
 
         /// <summary>
-        /// Metric groups to enable.
+        /// The metrics you want your event source mapping to produce. Include ``EventCount`` to receive event source mapping metrics related to the number of events processed by your event source mapping. For more information about these metrics, see [Event source mapping metrics](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics).
         /// </summary>
         public InputList<Pulumi.AwsNative.Lambda.EventSourceMappingMetricsConfigMetricsItem> Metrics
         {

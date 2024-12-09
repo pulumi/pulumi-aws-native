@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.QBusiness
         /// The identifier of the application that will contain the plugin.
         /// </summary>
         [Output("applicationId")]
-        public Output<string> ApplicationId { get; private set; } = null!;
+        public Output<string?> ApplicationId { get; private set; } = null!;
 
         /// <summary>
         /// Authentication configuration information for an Amazon Q Business plugin.
@@ -146,8 +146,8 @@ namespace Pulumi.AwsNative.QBusiness
         /// <summary>
         /// The identifier of the application that will contain the plugin.
         /// </summary>
-        [Input("applicationId", required: true)]
-        public Input<string> ApplicationId { get; set; } = null!;
+        [Input("applicationId")]
+        public Input<string>? ApplicationId { get; set; }
 
         /// <summary>
         /// Authentication configuration information for an Amazon Q Business plugin.

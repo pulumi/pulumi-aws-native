@@ -48,7 +48,8 @@ type DataSource struct {
 	// For more information, see [Custom document enrichment](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/custom-document-enrichment.html) .
 	DocumentEnrichmentConfiguration DataSourceDocumentEnrichmentConfigurationPtrOutput `pulumi:"documentEnrichmentConfiguration"`
 	// The identifier of the index the data source is attached to.
-	IndexId pulumi.StringOutput `pulumi:"indexId"`
+	IndexId                      pulumi.StringOutput                             `pulumi:"indexId"`
+	MediaExtractionConfiguration DataSourceMediaExtractionConfigurationPtrOutput `pulumi:"mediaExtractionConfiguration"`
 	// The Amazon Resource Name (ARN) of an IAM role with permission to access the data source and required resources.
 	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
 	// The status of the Amazon Q Business data source.
@@ -149,7 +150,8 @@ type dataSourceArgs struct {
 	// For more information, see [Custom document enrichment](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/custom-document-enrichment.html) .
 	DocumentEnrichmentConfiguration *DataSourceDocumentEnrichmentConfiguration `pulumi:"documentEnrichmentConfiguration"`
 	// The identifier of the index the data source is attached to.
-	IndexId string `pulumi:"indexId"`
+	IndexId                      string                                  `pulumi:"indexId"`
+	MediaExtractionConfiguration *DataSourceMediaExtractionConfiguration `pulumi:"mediaExtractionConfiguration"`
 	// The Amazon Resource Name (ARN) of an IAM role with permission to access the data source and required resources.
 	RoleArn *string `pulumi:"roleArn"`
 	// Sets the frequency for Amazon Q Business to check the documents in your data source repository and update your index. If you don't set a schedule, Amazon Q Business won't periodically update the index.
@@ -189,7 +191,8 @@ type DataSourceArgs struct {
 	// For more information, see [Custom document enrichment](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/custom-document-enrichment.html) .
 	DocumentEnrichmentConfiguration DataSourceDocumentEnrichmentConfigurationPtrInput
 	// The identifier of the index the data source is attached to.
-	IndexId pulumi.StringInput
+	IndexId                      pulumi.StringInput
+	MediaExtractionConfiguration DataSourceMediaExtractionConfigurationPtrInput
 	// The Amazon Resource Name (ARN) of an IAM role with permission to access the data source and required resources.
 	RoleArn pulumi.StringPtrInput
 	// Sets the frequency for Amazon Q Business to check the documents in your data source repository and update your index. If you don't set a schedule, Amazon Q Business won't periodically update the index.
@@ -298,6 +301,12 @@ func (o DataSourceOutput) DocumentEnrichmentConfiguration() DataSourceDocumentEn
 // The identifier of the index the data source is attached to.
 func (o DataSourceOutput) IndexId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.IndexId }).(pulumi.StringOutput)
+}
+
+func (o DataSourceOutput) MediaExtractionConfiguration() DataSourceMediaExtractionConfigurationPtrOutput {
+	return o.ApplyT(func(v *DataSource) DataSourceMediaExtractionConfigurationPtrOutput {
+		return v.MediaExtractionConfiguration
+	}).(DataSourceMediaExtractionConfigurationPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of an IAM role with permission to access the data source and required resources.

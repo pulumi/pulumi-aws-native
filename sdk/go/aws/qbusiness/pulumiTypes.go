@@ -725,10 +725,1378 @@ func (o ApplicationQAppsConfigurationPtrOutput) QAppsControlMode() ApplicationQA
 	}).(ApplicationQAppsControlModePtrOutput)
 }
 
+type ApplicationQuickSightConfiguration struct {
+	ClientNamespace string `pulumi:"clientNamespace"`
+}
+
+// ApplicationQuickSightConfigurationInput is an input type that accepts ApplicationQuickSightConfigurationArgs and ApplicationQuickSightConfigurationOutput values.
+// You can construct a concrete instance of `ApplicationQuickSightConfigurationInput` via:
+//
+//	ApplicationQuickSightConfigurationArgs{...}
+type ApplicationQuickSightConfigurationInput interface {
+	pulumi.Input
+
+	ToApplicationQuickSightConfigurationOutput() ApplicationQuickSightConfigurationOutput
+	ToApplicationQuickSightConfigurationOutputWithContext(context.Context) ApplicationQuickSightConfigurationOutput
+}
+
+type ApplicationQuickSightConfigurationArgs struct {
+	ClientNamespace pulumi.StringInput `pulumi:"clientNamespace"`
+}
+
+func (ApplicationQuickSightConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationQuickSightConfiguration)(nil)).Elem()
+}
+
+func (i ApplicationQuickSightConfigurationArgs) ToApplicationQuickSightConfigurationOutput() ApplicationQuickSightConfigurationOutput {
+	return i.ToApplicationQuickSightConfigurationOutputWithContext(context.Background())
+}
+
+func (i ApplicationQuickSightConfigurationArgs) ToApplicationQuickSightConfigurationOutputWithContext(ctx context.Context) ApplicationQuickSightConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationQuickSightConfigurationOutput)
+}
+
+func (i ApplicationQuickSightConfigurationArgs) ToApplicationQuickSightConfigurationPtrOutput() ApplicationQuickSightConfigurationPtrOutput {
+	return i.ToApplicationQuickSightConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationQuickSightConfigurationArgs) ToApplicationQuickSightConfigurationPtrOutputWithContext(ctx context.Context) ApplicationQuickSightConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationQuickSightConfigurationOutput).ToApplicationQuickSightConfigurationPtrOutputWithContext(ctx)
+}
+
+// ApplicationQuickSightConfigurationPtrInput is an input type that accepts ApplicationQuickSightConfigurationArgs, ApplicationQuickSightConfigurationPtr and ApplicationQuickSightConfigurationPtrOutput values.
+// You can construct a concrete instance of `ApplicationQuickSightConfigurationPtrInput` via:
+//
+//	        ApplicationQuickSightConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApplicationQuickSightConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToApplicationQuickSightConfigurationPtrOutput() ApplicationQuickSightConfigurationPtrOutput
+	ToApplicationQuickSightConfigurationPtrOutputWithContext(context.Context) ApplicationQuickSightConfigurationPtrOutput
+}
+
+type applicationQuickSightConfigurationPtrType ApplicationQuickSightConfigurationArgs
+
+func ApplicationQuickSightConfigurationPtr(v *ApplicationQuickSightConfigurationArgs) ApplicationQuickSightConfigurationPtrInput {
+	return (*applicationQuickSightConfigurationPtrType)(v)
+}
+
+func (*applicationQuickSightConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationQuickSightConfiguration)(nil)).Elem()
+}
+
+func (i *applicationQuickSightConfigurationPtrType) ToApplicationQuickSightConfigurationPtrOutput() ApplicationQuickSightConfigurationPtrOutput {
+	return i.ToApplicationQuickSightConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *applicationQuickSightConfigurationPtrType) ToApplicationQuickSightConfigurationPtrOutputWithContext(ctx context.Context) ApplicationQuickSightConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationQuickSightConfigurationPtrOutput)
+}
+
+type ApplicationQuickSightConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ApplicationQuickSightConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationQuickSightConfiguration)(nil)).Elem()
+}
+
+func (o ApplicationQuickSightConfigurationOutput) ToApplicationQuickSightConfigurationOutput() ApplicationQuickSightConfigurationOutput {
+	return o
+}
+
+func (o ApplicationQuickSightConfigurationOutput) ToApplicationQuickSightConfigurationOutputWithContext(ctx context.Context) ApplicationQuickSightConfigurationOutput {
+	return o
+}
+
+func (o ApplicationQuickSightConfigurationOutput) ToApplicationQuickSightConfigurationPtrOutput() ApplicationQuickSightConfigurationPtrOutput {
+	return o.ToApplicationQuickSightConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationQuickSightConfigurationOutput) ToApplicationQuickSightConfigurationPtrOutputWithContext(ctx context.Context) ApplicationQuickSightConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationQuickSightConfiguration) *ApplicationQuickSightConfiguration {
+		return &v
+	}).(ApplicationQuickSightConfigurationPtrOutput)
+}
+
+func (o ApplicationQuickSightConfigurationOutput) ClientNamespace() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationQuickSightConfiguration) string { return v.ClientNamespace }).(pulumi.StringOutput)
+}
+
+type ApplicationQuickSightConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationQuickSightConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationQuickSightConfiguration)(nil)).Elem()
+}
+
+func (o ApplicationQuickSightConfigurationPtrOutput) ToApplicationQuickSightConfigurationPtrOutput() ApplicationQuickSightConfigurationPtrOutput {
+	return o
+}
+
+func (o ApplicationQuickSightConfigurationPtrOutput) ToApplicationQuickSightConfigurationPtrOutputWithContext(ctx context.Context) ApplicationQuickSightConfigurationPtrOutput {
+	return o
+}
+
+func (o ApplicationQuickSightConfigurationPtrOutput) Elem() ApplicationQuickSightConfigurationOutput {
+	return o.ApplyT(func(v *ApplicationQuickSightConfiguration) ApplicationQuickSightConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationQuickSightConfiguration
+		return ret
+	}).(ApplicationQuickSightConfigurationOutput)
+}
+
+func (o ApplicationQuickSightConfigurationPtrOutput) ClientNamespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationQuickSightConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClientNamespace
+	}).(pulumi.StringPtrOutput)
+}
+
 type ApplicationTag struct {
 	// The key for the tag. Keys are not case sensitive and must be unique for the Amazon Q Business application or data source.
 	Key string `pulumi:"key"`
 	// The value associated with the tag. The value may be an empty string but it can't be null.
+	Value string `pulumi:"value"`
+}
+
+type DataAccessorActionConfiguration struct {
+	Action              string                                 `pulumi:"action"`
+	FilterConfiguration *DataAccessorActionFilterConfiguration `pulumi:"filterConfiguration"`
+}
+
+// DataAccessorActionConfigurationInput is an input type that accepts DataAccessorActionConfigurationArgs and DataAccessorActionConfigurationOutput values.
+// You can construct a concrete instance of `DataAccessorActionConfigurationInput` via:
+//
+//	DataAccessorActionConfigurationArgs{...}
+type DataAccessorActionConfigurationInput interface {
+	pulumi.Input
+
+	ToDataAccessorActionConfigurationOutput() DataAccessorActionConfigurationOutput
+	ToDataAccessorActionConfigurationOutputWithContext(context.Context) DataAccessorActionConfigurationOutput
+}
+
+type DataAccessorActionConfigurationArgs struct {
+	Action              pulumi.StringInput                            `pulumi:"action"`
+	FilterConfiguration DataAccessorActionFilterConfigurationPtrInput `pulumi:"filterConfiguration"`
+}
+
+func (DataAccessorActionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAccessorActionConfiguration)(nil)).Elem()
+}
+
+func (i DataAccessorActionConfigurationArgs) ToDataAccessorActionConfigurationOutput() DataAccessorActionConfigurationOutput {
+	return i.ToDataAccessorActionConfigurationOutputWithContext(context.Background())
+}
+
+func (i DataAccessorActionConfigurationArgs) ToDataAccessorActionConfigurationOutputWithContext(ctx context.Context) DataAccessorActionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataAccessorActionConfigurationOutput)
+}
+
+// DataAccessorActionConfigurationArrayInput is an input type that accepts DataAccessorActionConfigurationArray and DataAccessorActionConfigurationArrayOutput values.
+// You can construct a concrete instance of `DataAccessorActionConfigurationArrayInput` via:
+//
+//	DataAccessorActionConfigurationArray{ DataAccessorActionConfigurationArgs{...} }
+type DataAccessorActionConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToDataAccessorActionConfigurationArrayOutput() DataAccessorActionConfigurationArrayOutput
+	ToDataAccessorActionConfigurationArrayOutputWithContext(context.Context) DataAccessorActionConfigurationArrayOutput
+}
+
+type DataAccessorActionConfigurationArray []DataAccessorActionConfigurationInput
+
+func (DataAccessorActionConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataAccessorActionConfiguration)(nil)).Elem()
+}
+
+func (i DataAccessorActionConfigurationArray) ToDataAccessorActionConfigurationArrayOutput() DataAccessorActionConfigurationArrayOutput {
+	return i.ToDataAccessorActionConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i DataAccessorActionConfigurationArray) ToDataAccessorActionConfigurationArrayOutputWithContext(ctx context.Context) DataAccessorActionConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataAccessorActionConfigurationArrayOutput)
+}
+
+type DataAccessorActionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DataAccessorActionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAccessorActionConfiguration)(nil)).Elem()
+}
+
+func (o DataAccessorActionConfigurationOutput) ToDataAccessorActionConfigurationOutput() DataAccessorActionConfigurationOutput {
+	return o
+}
+
+func (o DataAccessorActionConfigurationOutput) ToDataAccessorActionConfigurationOutputWithContext(ctx context.Context) DataAccessorActionConfigurationOutput {
+	return o
+}
+
+func (o DataAccessorActionConfigurationOutput) Action() pulumi.StringOutput {
+	return o.ApplyT(func(v DataAccessorActionConfiguration) string { return v.Action }).(pulumi.StringOutput)
+}
+
+func (o DataAccessorActionConfigurationOutput) FilterConfiguration() DataAccessorActionFilterConfigurationPtrOutput {
+	return o.ApplyT(func(v DataAccessorActionConfiguration) *DataAccessorActionFilterConfiguration {
+		return v.FilterConfiguration
+	}).(DataAccessorActionFilterConfigurationPtrOutput)
+}
+
+type DataAccessorActionConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (DataAccessorActionConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataAccessorActionConfiguration)(nil)).Elem()
+}
+
+func (o DataAccessorActionConfigurationArrayOutput) ToDataAccessorActionConfigurationArrayOutput() DataAccessorActionConfigurationArrayOutput {
+	return o
+}
+
+func (o DataAccessorActionConfigurationArrayOutput) ToDataAccessorActionConfigurationArrayOutputWithContext(ctx context.Context) DataAccessorActionConfigurationArrayOutput {
+	return o
+}
+
+func (o DataAccessorActionConfigurationArrayOutput) Index(i pulumi.IntInput) DataAccessorActionConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataAccessorActionConfiguration {
+		return vs[0].([]DataAccessorActionConfiguration)[vs[1].(int)]
+	}).(DataAccessorActionConfigurationOutput)
+}
+
+type DataAccessorActionFilterConfiguration struct {
+	DocumentAttributeFilter DataAccessorAttributeFilter `pulumi:"documentAttributeFilter"`
+}
+
+// DataAccessorActionFilterConfigurationInput is an input type that accepts DataAccessorActionFilterConfigurationArgs and DataAccessorActionFilterConfigurationOutput values.
+// You can construct a concrete instance of `DataAccessorActionFilterConfigurationInput` via:
+//
+//	DataAccessorActionFilterConfigurationArgs{...}
+type DataAccessorActionFilterConfigurationInput interface {
+	pulumi.Input
+
+	ToDataAccessorActionFilterConfigurationOutput() DataAccessorActionFilterConfigurationOutput
+	ToDataAccessorActionFilterConfigurationOutputWithContext(context.Context) DataAccessorActionFilterConfigurationOutput
+}
+
+type DataAccessorActionFilterConfigurationArgs struct {
+	DocumentAttributeFilter DataAccessorAttributeFilterInput `pulumi:"documentAttributeFilter"`
+}
+
+func (DataAccessorActionFilterConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAccessorActionFilterConfiguration)(nil)).Elem()
+}
+
+func (i DataAccessorActionFilterConfigurationArgs) ToDataAccessorActionFilterConfigurationOutput() DataAccessorActionFilterConfigurationOutput {
+	return i.ToDataAccessorActionFilterConfigurationOutputWithContext(context.Background())
+}
+
+func (i DataAccessorActionFilterConfigurationArgs) ToDataAccessorActionFilterConfigurationOutputWithContext(ctx context.Context) DataAccessorActionFilterConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataAccessorActionFilterConfigurationOutput)
+}
+
+func (i DataAccessorActionFilterConfigurationArgs) ToDataAccessorActionFilterConfigurationPtrOutput() DataAccessorActionFilterConfigurationPtrOutput {
+	return i.ToDataAccessorActionFilterConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DataAccessorActionFilterConfigurationArgs) ToDataAccessorActionFilterConfigurationPtrOutputWithContext(ctx context.Context) DataAccessorActionFilterConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataAccessorActionFilterConfigurationOutput).ToDataAccessorActionFilterConfigurationPtrOutputWithContext(ctx)
+}
+
+// DataAccessorActionFilterConfigurationPtrInput is an input type that accepts DataAccessorActionFilterConfigurationArgs, DataAccessorActionFilterConfigurationPtr and DataAccessorActionFilterConfigurationPtrOutput values.
+// You can construct a concrete instance of `DataAccessorActionFilterConfigurationPtrInput` via:
+//
+//	        DataAccessorActionFilterConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataAccessorActionFilterConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDataAccessorActionFilterConfigurationPtrOutput() DataAccessorActionFilterConfigurationPtrOutput
+	ToDataAccessorActionFilterConfigurationPtrOutputWithContext(context.Context) DataAccessorActionFilterConfigurationPtrOutput
+}
+
+type dataAccessorActionFilterConfigurationPtrType DataAccessorActionFilterConfigurationArgs
+
+func DataAccessorActionFilterConfigurationPtr(v *DataAccessorActionFilterConfigurationArgs) DataAccessorActionFilterConfigurationPtrInput {
+	return (*dataAccessorActionFilterConfigurationPtrType)(v)
+}
+
+func (*dataAccessorActionFilterConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataAccessorActionFilterConfiguration)(nil)).Elem()
+}
+
+func (i *dataAccessorActionFilterConfigurationPtrType) ToDataAccessorActionFilterConfigurationPtrOutput() DataAccessorActionFilterConfigurationPtrOutput {
+	return i.ToDataAccessorActionFilterConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *dataAccessorActionFilterConfigurationPtrType) ToDataAccessorActionFilterConfigurationPtrOutputWithContext(ctx context.Context) DataAccessorActionFilterConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataAccessorActionFilterConfigurationPtrOutput)
+}
+
+type DataAccessorActionFilterConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DataAccessorActionFilterConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAccessorActionFilterConfiguration)(nil)).Elem()
+}
+
+func (o DataAccessorActionFilterConfigurationOutput) ToDataAccessorActionFilterConfigurationOutput() DataAccessorActionFilterConfigurationOutput {
+	return o
+}
+
+func (o DataAccessorActionFilterConfigurationOutput) ToDataAccessorActionFilterConfigurationOutputWithContext(ctx context.Context) DataAccessorActionFilterConfigurationOutput {
+	return o
+}
+
+func (o DataAccessorActionFilterConfigurationOutput) ToDataAccessorActionFilterConfigurationPtrOutput() DataAccessorActionFilterConfigurationPtrOutput {
+	return o.ToDataAccessorActionFilterConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DataAccessorActionFilterConfigurationOutput) ToDataAccessorActionFilterConfigurationPtrOutputWithContext(ctx context.Context) DataAccessorActionFilterConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataAccessorActionFilterConfiguration) *DataAccessorActionFilterConfiguration {
+		return &v
+	}).(DataAccessorActionFilterConfigurationPtrOutput)
+}
+
+func (o DataAccessorActionFilterConfigurationOutput) DocumentAttributeFilter() DataAccessorAttributeFilterOutput {
+	return o.ApplyT(func(v DataAccessorActionFilterConfiguration) DataAccessorAttributeFilter {
+		return v.DocumentAttributeFilter
+	}).(DataAccessorAttributeFilterOutput)
+}
+
+type DataAccessorActionFilterConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DataAccessorActionFilterConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataAccessorActionFilterConfiguration)(nil)).Elem()
+}
+
+func (o DataAccessorActionFilterConfigurationPtrOutput) ToDataAccessorActionFilterConfigurationPtrOutput() DataAccessorActionFilterConfigurationPtrOutput {
+	return o
+}
+
+func (o DataAccessorActionFilterConfigurationPtrOutput) ToDataAccessorActionFilterConfigurationPtrOutputWithContext(ctx context.Context) DataAccessorActionFilterConfigurationPtrOutput {
+	return o
+}
+
+func (o DataAccessorActionFilterConfigurationPtrOutput) Elem() DataAccessorActionFilterConfigurationOutput {
+	return o.ApplyT(func(v *DataAccessorActionFilterConfiguration) DataAccessorActionFilterConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DataAccessorActionFilterConfiguration
+		return ret
+	}).(DataAccessorActionFilterConfigurationOutput)
+}
+
+func (o DataAccessorActionFilterConfigurationPtrOutput) DocumentAttributeFilter() DataAccessorAttributeFilterPtrOutput {
+	return o.ApplyT(func(v *DataAccessorActionFilterConfiguration) *DataAccessorAttributeFilter {
+		if v == nil {
+			return nil
+		}
+		return &v.DocumentAttributeFilter
+	}).(DataAccessorAttributeFilterPtrOutput)
+}
+
+type DataAccessorAttributeFilter struct {
+	AndAllFilters       []DataAccessorAttributeFilter  `pulumi:"andAllFilters"`
+	ContainsAll         *DataAccessorDocumentAttribute `pulumi:"containsAll"`
+	ContainsAny         *DataAccessorDocumentAttribute `pulumi:"containsAny"`
+	EqualsTo            *DataAccessorDocumentAttribute `pulumi:"equalsTo"`
+	GreaterThan         *DataAccessorDocumentAttribute `pulumi:"greaterThan"`
+	GreaterThanOrEquals *DataAccessorDocumentAttribute `pulumi:"greaterThanOrEquals"`
+	LessThan            *DataAccessorDocumentAttribute `pulumi:"lessThan"`
+	LessThanOrEquals    *DataAccessorDocumentAttribute `pulumi:"lessThanOrEquals"`
+	NotFilter           *DataAccessorAttributeFilter   `pulumi:"notFilter"`
+	OrAllFilters        []DataAccessorAttributeFilter  `pulumi:"orAllFilters"`
+}
+
+// DataAccessorAttributeFilterInput is an input type that accepts DataAccessorAttributeFilterArgs and DataAccessorAttributeFilterOutput values.
+// You can construct a concrete instance of `DataAccessorAttributeFilterInput` via:
+//
+//	DataAccessorAttributeFilterArgs{...}
+type DataAccessorAttributeFilterInput interface {
+	pulumi.Input
+
+	ToDataAccessorAttributeFilterOutput() DataAccessorAttributeFilterOutput
+	ToDataAccessorAttributeFilterOutputWithContext(context.Context) DataAccessorAttributeFilterOutput
+}
+
+type DataAccessorAttributeFilterArgs struct {
+	AndAllFilters       DataAccessorAttributeFilterArrayInput `pulumi:"andAllFilters"`
+	ContainsAll         DataAccessorDocumentAttributePtrInput `pulumi:"containsAll"`
+	ContainsAny         DataAccessorDocumentAttributePtrInput `pulumi:"containsAny"`
+	EqualsTo            DataAccessorDocumentAttributePtrInput `pulumi:"equalsTo"`
+	GreaterThan         DataAccessorDocumentAttributePtrInput `pulumi:"greaterThan"`
+	GreaterThanOrEquals DataAccessorDocumentAttributePtrInput `pulumi:"greaterThanOrEquals"`
+	LessThan            DataAccessorDocumentAttributePtrInput `pulumi:"lessThan"`
+	LessThanOrEquals    DataAccessorDocumentAttributePtrInput `pulumi:"lessThanOrEquals"`
+	NotFilter           DataAccessorAttributeFilterPtrInput   `pulumi:"notFilter"`
+	OrAllFilters        DataAccessorAttributeFilterArrayInput `pulumi:"orAllFilters"`
+}
+
+func (DataAccessorAttributeFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAccessorAttributeFilter)(nil)).Elem()
+}
+
+func (i DataAccessorAttributeFilterArgs) ToDataAccessorAttributeFilterOutput() DataAccessorAttributeFilterOutput {
+	return i.ToDataAccessorAttributeFilterOutputWithContext(context.Background())
+}
+
+func (i DataAccessorAttributeFilterArgs) ToDataAccessorAttributeFilterOutputWithContext(ctx context.Context) DataAccessorAttributeFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataAccessorAttributeFilterOutput)
+}
+
+func (i DataAccessorAttributeFilterArgs) ToDataAccessorAttributeFilterPtrOutput() DataAccessorAttributeFilterPtrOutput {
+	return i.ToDataAccessorAttributeFilterPtrOutputWithContext(context.Background())
+}
+
+func (i DataAccessorAttributeFilterArgs) ToDataAccessorAttributeFilterPtrOutputWithContext(ctx context.Context) DataAccessorAttributeFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataAccessorAttributeFilterOutput).ToDataAccessorAttributeFilterPtrOutputWithContext(ctx)
+}
+
+// DataAccessorAttributeFilterPtrInput is an input type that accepts DataAccessorAttributeFilterArgs, DataAccessorAttributeFilterPtr and DataAccessorAttributeFilterPtrOutput values.
+// You can construct a concrete instance of `DataAccessorAttributeFilterPtrInput` via:
+//
+//	        DataAccessorAttributeFilterArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataAccessorAttributeFilterPtrInput interface {
+	pulumi.Input
+
+	ToDataAccessorAttributeFilterPtrOutput() DataAccessorAttributeFilterPtrOutput
+	ToDataAccessorAttributeFilterPtrOutputWithContext(context.Context) DataAccessorAttributeFilterPtrOutput
+}
+
+type dataAccessorAttributeFilterPtrType DataAccessorAttributeFilterArgs
+
+func DataAccessorAttributeFilterPtr(v *DataAccessorAttributeFilterArgs) DataAccessorAttributeFilterPtrInput {
+	return (*dataAccessorAttributeFilterPtrType)(v)
+}
+
+func (*dataAccessorAttributeFilterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataAccessorAttributeFilter)(nil)).Elem()
+}
+
+func (i *dataAccessorAttributeFilterPtrType) ToDataAccessorAttributeFilterPtrOutput() DataAccessorAttributeFilterPtrOutput {
+	return i.ToDataAccessorAttributeFilterPtrOutputWithContext(context.Background())
+}
+
+func (i *dataAccessorAttributeFilterPtrType) ToDataAccessorAttributeFilterPtrOutputWithContext(ctx context.Context) DataAccessorAttributeFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataAccessorAttributeFilterPtrOutput)
+}
+
+// DataAccessorAttributeFilterArrayInput is an input type that accepts DataAccessorAttributeFilterArray and DataAccessorAttributeFilterArrayOutput values.
+// You can construct a concrete instance of `DataAccessorAttributeFilterArrayInput` via:
+//
+//	DataAccessorAttributeFilterArray{ DataAccessorAttributeFilterArgs{...} }
+type DataAccessorAttributeFilterArrayInput interface {
+	pulumi.Input
+
+	ToDataAccessorAttributeFilterArrayOutput() DataAccessorAttributeFilterArrayOutput
+	ToDataAccessorAttributeFilterArrayOutputWithContext(context.Context) DataAccessorAttributeFilterArrayOutput
+}
+
+type DataAccessorAttributeFilterArray []DataAccessorAttributeFilterInput
+
+func (DataAccessorAttributeFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataAccessorAttributeFilter)(nil)).Elem()
+}
+
+func (i DataAccessorAttributeFilterArray) ToDataAccessorAttributeFilterArrayOutput() DataAccessorAttributeFilterArrayOutput {
+	return i.ToDataAccessorAttributeFilterArrayOutputWithContext(context.Background())
+}
+
+func (i DataAccessorAttributeFilterArray) ToDataAccessorAttributeFilterArrayOutputWithContext(ctx context.Context) DataAccessorAttributeFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataAccessorAttributeFilterArrayOutput)
+}
+
+type DataAccessorAttributeFilterOutput struct{ *pulumi.OutputState }
+
+func (DataAccessorAttributeFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAccessorAttributeFilter)(nil)).Elem()
+}
+
+func (o DataAccessorAttributeFilterOutput) ToDataAccessorAttributeFilterOutput() DataAccessorAttributeFilterOutput {
+	return o
+}
+
+func (o DataAccessorAttributeFilterOutput) ToDataAccessorAttributeFilterOutputWithContext(ctx context.Context) DataAccessorAttributeFilterOutput {
+	return o
+}
+
+func (o DataAccessorAttributeFilterOutput) ToDataAccessorAttributeFilterPtrOutput() DataAccessorAttributeFilterPtrOutput {
+	return o.ToDataAccessorAttributeFilterPtrOutputWithContext(context.Background())
+}
+
+func (o DataAccessorAttributeFilterOutput) ToDataAccessorAttributeFilterPtrOutputWithContext(ctx context.Context) DataAccessorAttributeFilterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataAccessorAttributeFilter) *DataAccessorAttributeFilter {
+		return &v
+	}).(DataAccessorAttributeFilterPtrOutput)
+}
+
+func (o DataAccessorAttributeFilterOutput) AndAllFilters() DataAccessorAttributeFilterArrayOutput {
+	return o.ApplyT(func(v DataAccessorAttributeFilter) []DataAccessorAttributeFilter { return v.AndAllFilters }).(DataAccessorAttributeFilterArrayOutput)
+}
+
+func (o DataAccessorAttributeFilterOutput) ContainsAll() DataAccessorDocumentAttributePtrOutput {
+	return o.ApplyT(func(v DataAccessorAttributeFilter) *DataAccessorDocumentAttribute { return v.ContainsAll }).(DataAccessorDocumentAttributePtrOutput)
+}
+
+func (o DataAccessorAttributeFilterOutput) ContainsAny() DataAccessorDocumentAttributePtrOutput {
+	return o.ApplyT(func(v DataAccessorAttributeFilter) *DataAccessorDocumentAttribute { return v.ContainsAny }).(DataAccessorDocumentAttributePtrOutput)
+}
+
+func (o DataAccessorAttributeFilterOutput) EqualsTo() DataAccessorDocumentAttributePtrOutput {
+	return o.ApplyT(func(v DataAccessorAttributeFilter) *DataAccessorDocumentAttribute { return v.EqualsTo }).(DataAccessorDocumentAttributePtrOutput)
+}
+
+func (o DataAccessorAttributeFilterOutput) GreaterThan() DataAccessorDocumentAttributePtrOutput {
+	return o.ApplyT(func(v DataAccessorAttributeFilter) *DataAccessorDocumentAttribute { return v.GreaterThan }).(DataAccessorDocumentAttributePtrOutput)
+}
+
+func (o DataAccessorAttributeFilterOutput) GreaterThanOrEquals() DataAccessorDocumentAttributePtrOutput {
+	return o.ApplyT(func(v DataAccessorAttributeFilter) *DataAccessorDocumentAttribute { return v.GreaterThanOrEquals }).(DataAccessorDocumentAttributePtrOutput)
+}
+
+func (o DataAccessorAttributeFilterOutput) LessThan() DataAccessorDocumentAttributePtrOutput {
+	return o.ApplyT(func(v DataAccessorAttributeFilter) *DataAccessorDocumentAttribute { return v.LessThan }).(DataAccessorDocumentAttributePtrOutput)
+}
+
+func (o DataAccessorAttributeFilterOutput) LessThanOrEquals() DataAccessorDocumentAttributePtrOutput {
+	return o.ApplyT(func(v DataAccessorAttributeFilter) *DataAccessorDocumentAttribute { return v.LessThanOrEquals }).(DataAccessorDocumentAttributePtrOutput)
+}
+
+func (o DataAccessorAttributeFilterOutput) NotFilter() DataAccessorAttributeFilterPtrOutput {
+	return o.ApplyT(func(v DataAccessorAttributeFilter) *DataAccessorAttributeFilter { return v.NotFilter }).(DataAccessorAttributeFilterPtrOutput)
+}
+
+func (o DataAccessorAttributeFilterOutput) OrAllFilters() DataAccessorAttributeFilterArrayOutput {
+	return o.ApplyT(func(v DataAccessorAttributeFilter) []DataAccessorAttributeFilter { return v.OrAllFilters }).(DataAccessorAttributeFilterArrayOutput)
+}
+
+type DataAccessorAttributeFilterPtrOutput struct{ *pulumi.OutputState }
+
+func (DataAccessorAttributeFilterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataAccessorAttributeFilter)(nil)).Elem()
+}
+
+func (o DataAccessorAttributeFilterPtrOutput) ToDataAccessorAttributeFilterPtrOutput() DataAccessorAttributeFilterPtrOutput {
+	return o
+}
+
+func (o DataAccessorAttributeFilterPtrOutput) ToDataAccessorAttributeFilterPtrOutputWithContext(ctx context.Context) DataAccessorAttributeFilterPtrOutput {
+	return o
+}
+
+func (o DataAccessorAttributeFilterPtrOutput) Elem() DataAccessorAttributeFilterOutput {
+	return o.ApplyT(func(v *DataAccessorAttributeFilter) DataAccessorAttributeFilter {
+		if v != nil {
+			return *v
+		}
+		var ret DataAccessorAttributeFilter
+		return ret
+	}).(DataAccessorAttributeFilterOutput)
+}
+
+func (o DataAccessorAttributeFilterPtrOutput) AndAllFilters() DataAccessorAttributeFilterArrayOutput {
+	return o.ApplyT(func(v *DataAccessorAttributeFilter) []DataAccessorAttributeFilter {
+		if v == nil {
+			return nil
+		}
+		return v.AndAllFilters
+	}).(DataAccessorAttributeFilterArrayOutput)
+}
+
+func (o DataAccessorAttributeFilterPtrOutput) ContainsAll() DataAccessorDocumentAttributePtrOutput {
+	return o.ApplyT(func(v *DataAccessorAttributeFilter) *DataAccessorDocumentAttribute {
+		if v == nil {
+			return nil
+		}
+		return v.ContainsAll
+	}).(DataAccessorDocumentAttributePtrOutput)
+}
+
+func (o DataAccessorAttributeFilterPtrOutput) ContainsAny() DataAccessorDocumentAttributePtrOutput {
+	return o.ApplyT(func(v *DataAccessorAttributeFilter) *DataAccessorDocumentAttribute {
+		if v == nil {
+			return nil
+		}
+		return v.ContainsAny
+	}).(DataAccessorDocumentAttributePtrOutput)
+}
+
+func (o DataAccessorAttributeFilterPtrOutput) EqualsTo() DataAccessorDocumentAttributePtrOutput {
+	return o.ApplyT(func(v *DataAccessorAttributeFilter) *DataAccessorDocumentAttribute {
+		if v == nil {
+			return nil
+		}
+		return v.EqualsTo
+	}).(DataAccessorDocumentAttributePtrOutput)
+}
+
+func (o DataAccessorAttributeFilterPtrOutput) GreaterThan() DataAccessorDocumentAttributePtrOutput {
+	return o.ApplyT(func(v *DataAccessorAttributeFilter) *DataAccessorDocumentAttribute {
+		if v == nil {
+			return nil
+		}
+		return v.GreaterThan
+	}).(DataAccessorDocumentAttributePtrOutput)
+}
+
+func (o DataAccessorAttributeFilterPtrOutput) GreaterThanOrEquals() DataAccessorDocumentAttributePtrOutput {
+	return o.ApplyT(func(v *DataAccessorAttributeFilter) *DataAccessorDocumentAttribute {
+		if v == nil {
+			return nil
+		}
+		return v.GreaterThanOrEquals
+	}).(DataAccessorDocumentAttributePtrOutput)
+}
+
+func (o DataAccessorAttributeFilterPtrOutput) LessThan() DataAccessorDocumentAttributePtrOutput {
+	return o.ApplyT(func(v *DataAccessorAttributeFilter) *DataAccessorDocumentAttribute {
+		if v == nil {
+			return nil
+		}
+		return v.LessThan
+	}).(DataAccessorDocumentAttributePtrOutput)
+}
+
+func (o DataAccessorAttributeFilterPtrOutput) LessThanOrEquals() DataAccessorDocumentAttributePtrOutput {
+	return o.ApplyT(func(v *DataAccessorAttributeFilter) *DataAccessorDocumentAttribute {
+		if v == nil {
+			return nil
+		}
+		return v.LessThanOrEquals
+	}).(DataAccessorDocumentAttributePtrOutput)
+}
+
+func (o DataAccessorAttributeFilterPtrOutput) NotFilter() DataAccessorAttributeFilterPtrOutput {
+	return o.ApplyT(func(v *DataAccessorAttributeFilter) *DataAccessorAttributeFilter {
+		if v == nil {
+			return nil
+		}
+		return v.NotFilter
+	}).(DataAccessorAttributeFilterPtrOutput)
+}
+
+func (o DataAccessorAttributeFilterPtrOutput) OrAllFilters() DataAccessorAttributeFilterArrayOutput {
+	return o.ApplyT(func(v *DataAccessorAttributeFilter) []DataAccessorAttributeFilter {
+		if v == nil {
+			return nil
+		}
+		return v.OrAllFilters
+	}).(DataAccessorAttributeFilterArrayOutput)
+}
+
+type DataAccessorAttributeFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (DataAccessorAttributeFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataAccessorAttributeFilter)(nil)).Elem()
+}
+
+func (o DataAccessorAttributeFilterArrayOutput) ToDataAccessorAttributeFilterArrayOutput() DataAccessorAttributeFilterArrayOutput {
+	return o
+}
+
+func (o DataAccessorAttributeFilterArrayOutput) ToDataAccessorAttributeFilterArrayOutputWithContext(ctx context.Context) DataAccessorAttributeFilterArrayOutput {
+	return o
+}
+
+func (o DataAccessorAttributeFilterArrayOutput) Index(i pulumi.IntInput) DataAccessorAttributeFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataAccessorAttributeFilter {
+		return vs[0].([]DataAccessorAttributeFilter)[vs[1].(int)]
+	}).(DataAccessorAttributeFilterOutput)
+}
+
+type DataAccessorDocumentAttribute struct {
+	Name  string      `pulumi:"name"`
+	Value interface{} `pulumi:"value"`
+}
+
+// DataAccessorDocumentAttributeInput is an input type that accepts DataAccessorDocumentAttributeArgs and DataAccessorDocumentAttributeOutput values.
+// You can construct a concrete instance of `DataAccessorDocumentAttributeInput` via:
+//
+//	DataAccessorDocumentAttributeArgs{...}
+type DataAccessorDocumentAttributeInput interface {
+	pulumi.Input
+
+	ToDataAccessorDocumentAttributeOutput() DataAccessorDocumentAttributeOutput
+	ToDataAccessorDocumentAttributeOutputWithContext(context.Context) DataAccessorDocumentAttributeOutput
+}
+
+type DataAccessorDocumentAttributeArgs struct {
+	Name  pulumi.StringInput `pulumi:"name"`
+	Value pulumi.Input       `pulumi:"value"`
+}
+
+func (DataAccessorDocumentAttributeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAccessorDocumentAttribute)(nil)).Elem()
+}
+
+func (i DataAccessorDocumentAttributeArgs) ToDataAccessorDocumentAttributeOutput() DataAccessorDocumentAttributeOutput {
+	return i.ToDataAccessorDocumentAttributeOutputWithContext(context.Background())
+}
+
+func (i DataAccessorDocumentAttributeArgs) ToDataAccessorDocumentAttributeOutputWithContext(ctx context.Context) DataAccessorDocumentAttributeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataAccessorDocumentAttributeOutput)
+}
+
+func (i DataAccessorDocumentAttributeArgs) ToDataAccessorDocumentAttributePtrOutput() DataAccessorDocumentAttributePtrOutput {
+	return i.ToDataAccessorDocumentAttributePtrOutputWithContext(context.Background())
+}
+
+func (i DataAccessorDocumentAttributeArgs) ToDataAccessorDocumentAttributePtrOutputWithContext(ctx context.Context) DataAccessorDocumentAttributePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataAccessorDocumentAttributeOutput).ToDataAccessorDocumentAttributePtrOutputWithContext(ctx)
+}
+
+// DataAccessorDocumentAttributePtrInput is an input type that accepts DataAccessorDocumentAttributeArgs, DataAccessorDocumentAttributePtr and DataAccessorDocumentAttributePtrOutput values.
+// You can construct a concrete instance of `DataAccessorDocumentAttributePtrInput` via:
+//
+//	        DataAccessorDocumentAttributeArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataAccessorDocumentAttributePtrInput interface {
+	pulumi.Input
+
+	ToDataAccessorDocumentAttributePtrOutput() DataAccessorDocumentAttributePtrOutput
+	ToDataAccessorDocumentAttributePtrOutputWithContext(context.Context) DataAccessorDocumentAttributePtrOutput
+}
+
+type dataAccessorDocumentAttributePtrType DataAccessorDocumentAttributeArgs
+
+func DataAccessorDocumentAttributePtr(v *DataAccessorDocumentAttributeArgs) DataAccessorDocumentAttributePtrInput {
+	return (*dataAccessorDocumentAttributePtrType)(v)
+}
+
+func (*dataAccessorDocumentAttributePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataAccessorDocumentAttribute)(nil)).Elem()
+}
+
+func (i *dataAccessorDocumentAttributePtrType) ToDataAccessorDocumentAttributePtrOutput() DataAccessorDocumentAttributePtrOutput {
+	return i.ToDataAccessorDocumentAttributePtrOutputWithContext(context.Background())
+}
+
+func (i *dataAccessorDocumentAttributePtrType) ToDataAccessorDocumentAttributePtrOutputWithContext(ctx context.Context) DataAccessorDocumentAttributePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataAccessorDocumentAttributePtrOutput)
+}
+
+type DataAccessorDocumentAttributeOutput struct{ *pulumi.OutputState }
+
+func (DataAccessorDocumentAttributeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAccessorDocumentAttribute)(nil)).Elem()
+}
+
+func (o DataAccessorDocumentAttributeOutput) ToDataAccessorDocumentAttributeOutput() DataAccessorDocumentAttributeOutput {
+	return o
+}
+
+func (o DataAccessorDocumentAttributeOutput) ToDataAccessorDocumentAttributeOutputWithContext(ctx context.Context) DataAccessorDocumentAttributeOutput {
+	return o
+}
+
+func (o DataAccessorDocumentAttributeOutput) ToDataAccessorDocumentAttributePtrOutput() DataAccessorDocumentAttributePtrOutput {
+	return o.ToDataAccessorDocumentAttributePtrOutputWithContext(context.Background())
+}
+
+func (o DataAccessorDocumentAttributeOutput) ToDataAccessorDocumentAttributePtrOutputWithContext(ctx context.Context) DataAccessorDocumentAttributePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataAccessorDocumentAttribute) *DataAccessorDocumentAttribute {
+		return &v
+	}).(DataAccessorDocumentAttributePtrOutput)
+}
+
+func (o DataAccessorDocumentAttributeOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DataAccessorDocumentAttribute) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o DataAccessorDocumentAttributeOutput) Value() pulumi.AnyOutput {
+	return o.ApplyT(func(v DataAccessorDocumentAttribute) interface{} { return v.Value }).(pulumi.AnyOutput)
+}
+
+type DataAccessorDocumentAttributePtrOutput struct{ *pulumi.OutputState }
+
+func (DataAccessorDocumentAttributePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataAccessorDocumentAttribute)(nil)).Elem()
+}
+
+func (o DataAccessorDocumentAttributePtrOutput) ToDataAccessorDocumentAttributePtrOutput() DataAccessorDocumentAttributePtrOutput {
+	return o
+}
+
+func (o DataAccessorDocumentAttributePtrOutput) ToDataAccessorDocumentAttributePtrOutputWithContext(ctx context.Context) DataAccessorDocumentAttributePtrOutput {
+	return o
+}
+
+func (o DataAccessorDocumentAttributePtrOutput) Elem() DataAccessorDocumentAttributeOutput {
+	return o.ApplyT(func(v *DataAccessorDocumentAttribute) DataAccessorDocumentAttribute {
+		if v != nil {
+			return *v
+		}
+		var ret DataAccessorDocumentAttribute
+		return ret
+	}).(DataAccessorDocumentAttributeOutput)
+}
+
+func (o DataAccessorDocumentAttributePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataAccessorDocumentAttribute) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DataAccessorDocumentAttributePtrOutput) Value() pulumi.AnyOutput {
+	return o.ApplyT(func(v *DataAccessorDocumentAttribute) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Value
+	}).(pulumi.AnyOutput)
+}
+
+type DataAccessorDocumentAttributeValue0Properties struct {
+	StringValue string `pulumi:"stringValue"`
+}
+
+// DataAccessorDocumentAttributeValue0PropertiesInput is an input type that accepts DataAccessorDocumentAttributeValue0PropertiesArgs and DataAccessorDocumentAttributeValue0PropertiesOutput values.
+// You can construct a concrete instance of `DataAccessorDocumentAttributeValue0PropertiesInput` via:
+//
+//	DataAccessorDocumentAttributeValue0PropertiesArgs{...}
+type DataAccessorDocumentAttributeValue0PropertiesInput interface {
+	pulumi.Input
+
+	ToDataAccessorDocumentAttributeValue0PropertiesOutput() DataAccessorDocumentAttributeValue0PropertiesOutput
+	ToDataAccessorDocumentAttributeValue0PropertiesOutputWithContext(context.Context) DataAccessorDocumentAttributeValue0PropertiesOutput
+}
+
+type DataAccessorDocumentAttributeValue0PropertiesArgs struct {
+	StringValue pulumi.StringInput `pulumi:"stringValue"`
+}
+
+func (DataAccessorDocumentAttributeValue0PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAccessorDocumentAttributeValue0Properties)(nil)).Elem()
+}
+
+func (i DataAccessorDocumentAttributeValue0PropertiesArgs) ToDataAccessorDocumentAttributeValue0PropertiesOutput() DataAccessorDocumentAttributeValue0PropertiesOutput {
+	return i.ToDataAccessorDocumentAttributeValue0PropertiesOutputWithContext(context.Background())
+}
+
+func (i DataAccessorDocumentAttributeValue0PropertiesArgs) ToDataAccessorDocumentAttributeValue0PropertiesOutputWithContext(ctx context.Context) DataAccessorDocumentAttributeValue0PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataAccessorDocumentAttributeValue0PropertiesOutput)
+}
+
+func (i DataAccessorDocumentAttributeValue0PropertiesArgs) ToDataAccessorDocumentAttributeValue0PropertiesPtrOutput() DataAccessorDocumentAttributeValue0PropertiesPtrOutput {
+	return i.ToDataAccessorDocumentAttributeValue0PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i DataAccessorDocumentAttributeValue0PropertiesArgs) ToDataAccessorDocumentAttributeValue0PropertiesPtrOutputWithContext(ctx context.Context) DataAccessorDocumentAttributeValue0PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataAccessorDocumentAttributeValue0PropertiesOutput).ToDataAccessorDocumentAttributeValue0PropertiesPtrOutputWithContext(ctx)
+}
+
+// DataAccessorDocumentAttributeValue0PropertiesPtrInput is an input type that accepts DataAccessorDocumentAttributeValue0PropertiesArgs, DataAccessorDocumentAttributeValue0PropertiesPtr and DataAccessorDocumentAttributeValue0PropertiesPtrOutput values.
+// You can construct a concrete instance of `DataAccessorDocumentAttributeValue0PropertiesPtrInput` via:
+//
+//	        DataAccessorDocumentAttributeValue0PropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataAccessorDocumentAttributeValue0PropertiesPtrInput interface {
+	pulumi.Input
+
+	ToDataAccessorDocumentAttributeValue0PropertiesPtrOutput() DataAccessorDocumentAttributeValue0PropertiesPtrOutput
+	ToDataAccessorDocumentAttributeValue0PropertiesPtrOutputWithContext(context.Context) DataAccessorDocumentAttributeValue0PropertiesPtrOutput
+}
+
+type dataAccessorDocumentAttributeValue0PropertiesPtrType DataAccessorDocumentAttributeValue0PropertiesArgs
+
+func DataAccessorDocumentAttributeValue0PropertiesPtr(v *DataAccessorDocumentAttributeValue0PropertiesArgs) DataAccessorDocumentAttributeValue0PropertiesPtrInput {
+	return (*dataAccessorDocumentAttributeValue0PropertiesPtrType)(v)
+}
+
+func (*dataAccessorDocumentAttributeValue0PropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataAccessorDocumentAttributeValue0Properties)(nil)).Elem()
+}
+
+func (i *dataAccessorDocumentAttributeValue0PropertiesPtrType) ToDataAccessorDocumentAttributeValue0PropertiesPtrOutput() DataAccessorDocumentAttributeValue0PropertiesPtrOutput {
+	return i.ToDataAccessorDocumentAttributeValue0PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *dataAccessorDocumentAttributeValue0PropertiesPtrType) ToDataAccessorDocumentAttributeValue0PropertiesPtrOutputWithContext(ctx context.Context) DataAccessorDocumentAttributeValue0PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataAccessorDocumentAttributeValue0PropertiesPtrOutput)
+}
+
+type DataAccessorDocumentAttributeValue0PropertiesOutput struct{ *pulumi.OutputState }
+
+func (DataAccessorDocumentAttributeValue0PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAccessorDocumentAttributeValue0Properties)(nil)).Elem()
+}
+
+func (o DataAccessorDocumentAttributeValue0PropertiesOutput) ToDataAccessorDocumentAttributeValue0PropertiesOutput() DataAccessorDocumentAttributeValue0PropertiesOutput {
+	return o
+}
+
+func (o DataAccessorDocumentAttributeValue0PropertiesOutput) ToDataAccessorDocumentAttributeValue0PropertiesOutputWithContext(ctx context.Context) DataAccessorDocumentAttributeValue0PropertiesOutput {
+	return o
+}
+
+func (o DataAccessorDocumentAttributeValue0PropertiesOutput) ToDataAccessorDocumentAttributeValue0PropertiesPtrOutput() DataAccessorDocumentAttributeValue0PropertiesPtrOutput {
+	return o.ToDataAccessorDocumentAttributeValue0PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o DataAccessorDocumentAttributeValue0PropertiesOutput) ToDataAccessorDocumentAttributeValue0PropertiesPtrOutputWithContext(ctx context.Context) DataAccessorDocumentAttributeValue0PropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataAccessorDocumentAttributeValue0Properties) *DataAccessorDocumentAttributeValue0Properties {
+		return &v
+	}).(DataAccessorDocumentAttributeValue0PropertiesPtrOutput)
+}
+
+func (o DataAccessorDocumentAttributeValue0PropertiesOutput) StringValue() pulumi.StringOutput {
+	return o.ApplyT(func(v DataAccessorDocumentAttributeValue0Properties) string { return v.StringValue }).(pulumi.StringOutput)
+}
+
+type DataAccessorDocumentAttributeValue0PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (DataAccessorDocumentAttributeValue0PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataAccessorDocumentAttributeValue0Properties)(nil)).Elem()
+}
+
+func (o DataAccessorDocumentAttributeValue0PropertiesPtrOutput) ToDataAccessorDocumentAttributeValue0PropertiesPtrOutput() DataAccessorDocumentAttributeValue0PropertiesPtrOutput {
+	return o
+}
+
+func (o DataAccessorDocumentAttributeValue0PropertiesPtrOutput) ToDataAccessorDocumentAttributeValue0PropertiesPtrOutputWithContext(ctx context.Context) DataAccessorDocumentAttributeValue0PropertiesPtrOutput {
+	return o
+}
+
+func (o DataAccessorDocumentAttributeValue0PropertiesPtrOutput) Elem() DataAccessorDocumentAttributeValue0PropertiesOutput {
+	return o.ApplyT(func(v *DataAccessorDocumentAttributeValue0Properties) DataAccessorDocumentAttributeValue0Properties {
+		if v != nil {
+			return *v
+		}
+		var ret DataAccessorDocumentAttributeValue0Properties
+		return ret
+	}).(DataAccessorDocumentAttributeValue0PropertiesOutput)
+}
+
+func (o DataAccessorDocumentAttributeValue0PropertiesPtrOutput) StringValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataAccessorDocumentAttributeValue0Properties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StringValue
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataAccessorDocumentAttributeValue1Properties struct {
+	StringListValue []string `pulumi:"stringListValue"`
+}
+
+// DataAccessorDocumentAttributeValue1PropertiesInput is an input type that accepts DataAccessorDocumentAttributeValue1PropertiesArgs and DataAccessorDocumentAttributeValue1PropertiesOutput values.
+// You can construct a concrete instance of `DataAccessorDocumentAttributeValue1PropertiesInput` via:
+//
+//	DataAccessorDocumentAttributeValue1PropertiesArgs{...}
+type DataAccessorDocumentAttributeValue1PropertiesInput interface {
+	pulumi.Input
+
+	ToDataAccessorDocumentAttributeValue1PropertiesOutput() DataAccessorDocumentAttributeValue1PropertiesOutput
+	ToDataAccessorDocumentAttributeValue1PropertiesOutputWithContext(context.Context) DataAccessorDocumentAttributeValue1PropertiesOutput
+}
+
+type DataAccessorDocumentAttributeValue1PropertiesArgs struct {
+	StringListValue pulumi.StringArrayInput `pulumi:"stringListValue"`
+}
+
+func (DataAccessorDocumentAttributeValue1PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAccessorDocumentAttributeValue1Properties)(nil)).Elem()
+}
+
+func (i DataAccessorDocumentAttributeValue1PropertiesArgs) ToDataAccessorDocumentAttributeValue1PropertiesOutput() DataAccessorDocumentAttributeValue1PropertiesOutput {
+	return i.ToDataAccessorDocumentAttributeValue1PropertiesOutputWithContext(context.Background())
+}
+
+func (i DataAccessorDocumentAttributeValue1PropertiesArgs) ToDataAccessorDocumentAttributeValue1PropertiesOutputWithContext(ctx context.Context) DataAccessorDocumentAttributeValue1PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataAccessorDocumentAttributeValue1PropertiesOutput)
+}
+
+func (i DataAccessorDocumentAttributeValue1PropertiesArgs) ToDataAccessorDocumentAttributeValue1PropertiesPtrOutput() DataAccessorDocumentAttributeValue1PropertiesPtrOutput {
+	return i.ToDataAccessorDocumentAttributeValue1PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i DataAccessorDocumentAttributeValue1PropertiesArgs) ToDataAccessorDocumentAttributeValue1PropertiesPtrOutputWithContext(ctx context.Context) DataAccessorDocumentAttributeValue1PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataAccessorDocumentAttributeValue1PropertiesOutput).ToDataAccessorDocumentAttributeValue1PropertiesPtrOutputWithContext(ctx)
+}
+
+// DataAccessorDocumentAttributeValue1PropertiesPtrInput is an input type that accepts DataAccessorDocumentAttributeValue1PropertiesArgs, DataAccessorDocumentAttributeValue1PropertiesPtr and DataAccessorDocumentAttributeValue1PropertiesPtrOutput values.
+// You can construct a concrete instance of `DataAccessorDocumentAttributeValue1PropertiesPtrInput` via:
+//
+//	        DataAccessorDocumentAttributeValue1PropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataAccessorDocumentAttributeValue1PropertiesPtrInput interface {
+	pulumi.Input
+
+	ToDataAccessorDocumentAttributeValue1PropertiesPtrOutput() DataAccessorDocumentAttributeValue1PropertiesPtrOutput
+	ToDataAccessorDocumentAttributeValue1PropertiesPtrOutputWithContext(context.Context) DataAccessorDocumentAttributeValue1PropertiesPtrOutput
+}
+
+type dataAccessorDocumentAttributeValue1PropertiesPtrType DataAccessorDocumentAttributeValue1PropertiesArgs
+
+func DataAccessorDocumentAttributeValue1PropertiesPtr(v *DataAccessorDocumentAttributeValue1PropertiesArgs) DataAccessorDocumentAttributeValue1PropertiesPtrInput {
+	return (*dataAccessorDocumentAttributeValue1PropertiesPtrType)(v)
+}
+
+func (*dataAccessorDocumentAttributeValue1PropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataAccessorDocumentAttributeValue1Properties)(nil)).Elem()
+}
+
+func (i *dataAccessorDocumentAttributeValue1PropertiesPtrType) ToDataAccessorDocumentAttributeValue1PropertiesPtrOutput() DataAccessorDocumentAttributeValue1PropertiesPtrOutput {
+	return i.ToDataAccessorDocumentAttributeValue1PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *dataAccessorDocumentAttributeValue1PropertiesPtrType) ToDataAccessorDocumentAttributeValue1PropertiesPtrOutputWithContext(ctx context.Context) DataAccessorDocumentAttributeValue1PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataAccessorDocumentAttributeValue1PropertiesPtrOutput)
+}
+
+type DataAccessorDocumentAttributeValue1PropertiesOutput struct{ *pulumi.OutputState }
+
+func (DataAccessorDocumentAttributeValue1PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAccessorDocumentAttributeValue1Properties)(nil)).Elem()
+}
+
+func (o DataAccessorDocumentAttributeValue1PropertiesOutput) ToDataAccessorDocumentAttributeValue1PropertiesOutput() DataAccessorDocumentAttributeValue1PropertiesOutput {
+	return o
+}
+
+func (o DataAccessorDocumentAttributeValue1PropertiesOutput) ToDataAccessorDocumentAttributeValue1PropertiesOutputWithContext(ctx context.Context) DataAccessorDocumentAttributeValue1PropertiesOutput {
+	return o
+}
+
+func (o DataAccessorDocumentAttributeValue1PropertiesOutput) ToDataAccessorDocumentAttributeValue1PropertiesPtrOutput() DataAccessorDocumentAttributeValue1PropertiesPtrOutput {
+	return o.ToDataAccessorDocumentAttributeValue1PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o DataAccessorDocumentAttributeValue1PropertiesOutput) ToDataAccessorDocumentAttributeValue1PropertiesPtrOutputWithContext(ctx context.Context) DataAccessorDocumentAttributeValue1PropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataAccessorDocumentAttributeValue1Properties) *DataAccessorDocumentAttributeValue1Properties {
+		return &v
+	}).(DataAccessorDocumentAttributeValue1PropertiesPtrOutput)
+}
+
+func (o DataAccessorDocumentAttributeValue1PropertiesOutput) StringListValue() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DataAccessorDocumentAttributeValue1Properties) []string { return v.StringListValue }).(pulumi.StringArrayOutput)
+}
+
+type DataAccessorDocumentAttributeValue1PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (DataAccessorDocumentAttributeValue1PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataAccessorDocumentAttributeValue1Properties)(nil)).Elem()
+}
+
+func (o DataAccessorDocumentAttributeValue1PropertiesPtrOutput) ToDataAccessorDocumentAttributeValue1PropertiesPtrOutput() DataAccessorDocumentAttributeValue1PropertiesPtrOutput {
+	return o
+}
+
+func (o DataAccessorDocumentAttributeValue1PropertiesPtrOutput) ToDataAccessorDocumentAttributeValue1PropertiesPtrOutputWithContext(ctx context.Context) DataAccessorDocumentAttributeValue1PropertiesPtrOutput {
+	return o
+}
+
+func (o DataAccessorDocumentAttributeValue1PropertiesPtrOutput) Elem() DataAccessorDocumentAttributeValue1PropertiesOutput {
+	return o.ApplyT(func(v *DataAccessorDocumentAttributeValue1Properties) DataAccessorDocumentAttributeValue1Properties {
+		if v != nil {
+			return *v
+		}
+		var ret DataAccessorDocumentAttributeValue1Properties
+		return ret
+	}).(DataAccessorDocumentAttributeValue1PropertiesOutput)
+}
+
+func (o DataAccessorDocumentAttributeValue1PropertiesPtrOutput) StringListValue() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DataAccessorDocumentAttributeValue1Properties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.StringListValue
+	}).(pulumi.StringArrayOutput)
+}
+
+type DataAccessorDocumentAttributeValue2Properties struct {
+	LongValue float64 `pulumi:"longValue"`
+}
+
+// DataAccessorDocumentAttributeValue2PropertiesInput is an input type that accepts DataAccessorDocumentAttributeValue2PropertiesArgs and DataAccessorDocumentAttributeValue2PropertiesOutput values.
+// You can construct a concrete instance of `DataAccessorDocumentAttributeValue2PropertiesInput` via:
+//
+//	DataAccessorDocumentAttributeValue2PropertiesArgs{...}
+type DataAccessorDocumentAttributeValue2PropertiesInput interface {
+	pulumi.Input
+
+	ToDataAccessorDocumentAttributeValue2PropertiesOutput() DataAccessorDocumentAttributeValue2PropertiesOutput
+	ToDataAccessorDocumentAttributeValue2PropertiesOutputWithContext(context.Context) DataAccessorDocumentAttributeValue2PropertiesOutput
+}
+
+type DataAccessorDocumentAttributeValue2PropertiesArgs struct {
+	LongValue pulumi.Float64Input `pulumi:"longValue"`
+}
+
+func (DataAccessorDocumentAttributeValue2PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAccessorDocumentAttributeValue2Properties)(nil)).Elem()
+}
+
+func (i DataAccessorDocumentAttributeValue2PropertiesArgs) ToDataAccessorDocumentAttributeValue2PropertiesOutput() DataAccessorDocumentAttributeValue2PropertiesOutput {
+	return i.ToDataAccessorDocumentAttributeValue2PropertiesOutputWithContext(context.Background())
+}
+
+func (i DataAccessorDocumentAttributeValue2PropertiesArgs) ToDataAccessorDocumentAttributeValue2PropertiesOutputWithContext(ctx context.Context) DataAccessorDocumentAttributeValue2PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataAccessorDocumentAttributeValue2PropertiesOutput)
+}
+
+func (i DataAccessorDocumentAttributeValue2PropertiesArgs) ToDataAccessorDocumentAttributeValue2PropertiesPtrOutput() DataAccessorDocumentAttributeValue2PropertiesPtrOutput {
+	return i.ToDataAccessorDocumentAttributeValue2PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i DataAccessorDocumentAttributeValue2PropertiesArgs) ToDataAccessorDocumentAttributeValue2PropertiesPtrOutputWithContext(ctx context.Context) DataAccessorDocumentAttributeValue2PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataAccessorDocumentAttributeValue2PropertiesOutput).ToDataAccessorDocumentAttributeValue2PropertiesPtrOutputWithContext(ctx)
+}
+
+// DataAccessorDocumentAttributeValue2PropertiesPtrInput is an input type that accepts DataAccessorDocumentAttributeValue2PropertiesArgs, DataAccessorDocumentAttributeValue2PropertiesPtr and DataAccessorDocumentAttributeValue2PropertiesPtrOutput values.
+// You can construct a concrete instance of `DataAccessorDocumentAttributeValue2PropertiesPtrInput` via:
+//
+//	        DataAccessorDocumentAttributeValue2PropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataAccessorDocumentAttributeValue2PropertiesPtrInput interface {
+	pulumi.Input
+
+	ToDataAccessorDocumentAttributeValue2PropertiesPtrOutput() DataAccessorDocumentAttributeValue2PropertiesPtrOutput
+	ToDataAccessorDocumentAttributeValue2PropertiesPtrOutputWithContext(context.Context) DataAccessorDocumentAttributeValue2PropertiesPtrOutput
+}
+
+type dataAccessorDocumentAttributeValue2PropertiesPtrType DataAccessorDocumentAttributeValue2PropertiesArgs
+
+func DataAccessorDocumentAttributeValue2PropertiesPtr(v *DataAccessorDocumentAttributeValue2PropertiesArgs) DataAccessorDocumentAttributeValue2PropertiesPtrInput {
+	return (*dataAccessorDocumentAttributeValue2PropertiesPtrType)(v)
+}
+
+func (*dataAccessorDocumentAttributeValue2PropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataAccessorDocumentAttributeValue2Properties)(nil)).Elem()
+}
+
+func (i *dataAccessorDocumentAttributeValue2PropertiesPtrType) ToDataAccessorDocumentAttributeValue2PropertiesPtrOutput() DataAccessorDocumentAttributeValue2PropertiesPtrOutput {
+	return i.ToDataAccessorDocumentAttributeValue2PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *dataAccessorDocumentAttributeValue2PropertiesPtrType) ToDataAccessorDocumentAttributeValue2PropertiesPtrOutputWithContext(ctx context.Context) DataAccessorDocumentAttributeValue2PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataAccessorDocumentAttributeValue2PropertiesPtrOutput)
+}
+
+type DataAccessorDocumentAttributeValue2PropertiesOutput struct{ *pulumi.OutputState }
+
+func (DataAccessorDocumentAttributeValue2PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAccessorDocumentAttributeValue2Properties)(nil)).Elem()
+}
+
+func (o DataAccessorDocumentAttributeValue2PropertiesOutput) ToDataAccessorDocumentAttributeValue2PropertiesOutput() DataAccessorDocumentAttributeValue2PropertiesOutput {
+	return o
+}
+
+func (o DataAccessorDocumentAttributeValue2PropertiesOutput) ToDataAccessorDocumentAttributeValue2PropertiesOutputWithContext(ctx context.Context) DataAccessorDocumentAttributeValue2PropertiesOutput {
+	return o
+}
+
+func (o DataAccessorDocumentAttributeValue2PropertiesOutput) ToDataAccessorDocumentAttributeValue2PropertiesPtrOutput() DataAccessorDocumentAttributeValue2PropertiesPtrOutput {
+	return o.ToDataAccessorDocumentAttributeValue2PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o DataAccessorDocumentAttributeValue2PropertiesOutput) ToDataAccessorDocumentAttributeValue2PropertiesPtrOutputWithContext(ctx context.Context) DataAccessorDocumentAttributeValue2PropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataAccessorDocumentAttributeValue2Properties) *DataAccessorDocumentAttributeValue2Properties {
+		return &v
+	}).(DataAccessorDocumentAttributeValue2PropertiesPtrOutput)
+}
+
+func (o DataAccessorDocumentAttributeValue2PropertiesOutput) LongValue() pulumi.Float64Output {
+	return o.ApplyT(func(v DataAccessorDocumentAttributeValue2Properties) float64 { return v.LongValue }).(pulumi.Float64Output)
+}
+
+type DataAccessorDocumentAttributeValue2PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (DataAccessorDocumentAttributeValue2PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataAccessorDocumentAttributeValue2Properties)(nil)).Elem()
+}
+
+func (o DataAccessorDocumentAttributeValue2PropertiesPtrOutput) ToDataAccessorDocumentAttributeValue2PropertiesPtrOutput() DataAccessorDocumentAttributeValue2PropertiesPtrOutput {
+	return o
+}
+
+func (o DataAccessorDocumentAttributeValue2PropertiesPtrOutput) ToDataAccessorDocumentAttributeValue2PropertiesPtrOutputWithContext(ctx context.Context) DataAccessorDocumentAttributeValue2PropertiesPtrOutput {
+	return o
+}
+
+func (o DataAccessorDocumentAttributeValue2PropertiesPtrOutput) Elem() DataAccessorDocumentAttributeValue2PropertiesOutput {
+	return o.ApplyT(func(v *DataAccessorDocumentAttributeValue2Properties) DataAccessorDocumentAttributeValue2Properties {
+		if v != nil {
+			return *v
+		}
+		var ret DataAccessorDocumentAttributeValue2Properties
+		return ret
+	}).(DataAccessorDocumentAttributeValue2PropertiesOutput)
+}
+
+func (o DataAccessorDocumentAttributeValue2PropertiesPtrOutput) LongValue() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *DataAccessorDocumentAttributeValue2Properties) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.LongValue
+	}).(pulumi.Float64PtrOutput)
+}
+
+type DataAccessorDocumentAttributeValue3Properties struct {
+	DateValue string `pulumi:"dateValue"`
+}
+
+// DataAccessorDocumentAttributeValue3PropertiesInput is an input type that accepts DataAccessorDocumentAttributeValue3PropertiesArgs and DataAccessorDocumentAttributeValue3PropertiesOutput values.
+// You can construct a concrete instance of `DataAccessorDocumentAttributeValue3PropertiesInput` via:
+//
+//	DataAccessorDocumentAttributeValue3PropertiesArgs{...}
+type DataAccessorDocumentAttributeValue3PropertiesInput interface {
+	pulumi.Input
+
+	ToDataAccessorDocumentAttributeValue3PropertiesOutput() DataAccessorDocumentAttributeValue3PropertiesOutput
+	ToDataAccessorDocumentAttributeValue3PropertiesOutputWithContext(context.Context) DataAccessorDocumentAttributeValue3PropertiesOutput
+}
+
+type DataAccessorDocumentAttributeValue3PropertiesArgs struct {
+	DateValue pulumi.StringInput `pulumi:"dateValue"`
+}
+
+func (DataAccessorDocumentAttributeValue3PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAccessorDocumentAttributeValue3Properties)(nil)).Elem()
+}
+
+func (i DataAccessorDocumentAttributeValue3PropertiesArgs) ToDataAccessorDocumentAttributeValue3PropertiesOutput() DataAccessorDocumentAttributeValue3PropertiesOutput {
+	return i.ToDataAccessorDocumentAttributeValue3PropertiesOutputWithContext(context.Background())
+}
+
+func (i DataAccessorDocumentAttributeValue3PropertiesArgs) ToDataAccessorDocumentAttributeValue3PropertiesOutputWithContext(ctx context.Context) DataAccessorDocumentAttributeValue3PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataAccessorDocumentAttributeValue3PropertiesOutput)
+}
+
+func (i DataAccessorDocumentAttributeValue3PropertiesArgs) ToDataAccessorDocumentAttributeValue3PropertiesPtrOutput() DataAccessorDocumentAttributeValue3PropertiesPtrOutput {
+	return i.ToDataAccessorDocumentAttributeValue3PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i DataAccessorDocumentAttributeValue3PropertiesArgs) ToDataAccessorDocumentAttributeValue3PropertiesPtrOutputWithContext(ctx context.Context) DataAccessorDocumentAttributeValue3PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataAccessorDocumentAttributeValue3PropertiesOutput).ToDataAccessorDocumentAttributeValue3PropertiesPtrOutputWithContext(ctx)
+}
+
+// DataAccessorDocumentAttributeValue3PropertiesPtrInput is an input type that accepts DataAccessorDocumentAttributeValue3PropertiesArgs, DataAccessorDocumentAttributeValue3PropertiesPtr and DataAccessorDocumentAttributeValue3PropertiesPtrOutput values.
+// You can construct a concrete instance of `DataAccessorDocumentAttributeValue3PropertiesPtrInput` via:
+//
+//	        DataAccessorDocumentAttributeValue3PropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataAccessorDocumentAttributeValue3PropertiesPtrInput interface {
+	pulumi.Input
+
+	ToDataAccessorDocumentAttributeValue3PropertiesPtrOutput() DataAccessorDocumentAttributeValue3PropertiesPtrOutput
+	ToDataAccessorDocumentAttributeValue3PropertiesPtrOutputWithContext(context.Context) DataAccessorDocumentAttributeValue3PropertiesPtrOutput
+}
+
+type dataAccessorDocumentAttributeValue3PropertiesPtrType DataAccessorDocumentAttributeValue3PropertiesArgs
+
+func DataAccessorDocumentAttributeValue3PropertiesPtr(v *DataAccessorDocumentAttributeValue3PropertiesArgs) DataAccessorDocumentAttributeValue3PropertiesPtrInput {
+	return (*dataAccessorDocumentAttributeValue3PropertiesPtrType)(v)
+}
+
+func (*dataAccessorDocumentAttributeValue3PropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataAccessorDocumentAttributeValue3Properties)(nil)).Elem()
+}
+
+func (i *dataAccessorDocumentAttributeValue3PropertiesPtrType) ToDataAccessorDocumentAttributeValue3PropertiesPtrOutput() DataAccessorDocumentAttributeValue3PropertiesPtrOutput {
+	return i.ToDataAccessorDocumentAttributeValue3PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *dataAccessorDocumentAttributeValue3PropertiesPtrType) ToDataAccessorDocumentAttributeValue3PropertiesPtrOutputWithContext(ctx context.Context) DataAccessorDocumentAttributeValue3PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataAccessorDocumentAttributeValue3PropertiesPtrOutput)
+}
+
+type DataAccessorDocumentAttributeValue3PropertiesOutput struct{ *pulumi.OutputState }
+
+func (DataAccessorDocumentAttributeValue3PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataAccessorDocumentAttributeValue3Properties)(nil)).Elem()
+}
+
+func (o DataAccessorDocumentAttributeValue3PropertiesOutput) ToDataAccessorDocumentAttributeValue3PropertiesOutput() DataAccessorDocumentAttributeValue3PropertiesOutput {
+	return o
+}
+
+func (o DataAccessorDocumentAttributeValue3PropertiesOutput) ToDataAccessorDocumentAttributeValue3PropertiesOutputWithContext(ctx context.Context) DataAccessorDocumentAttributeValue3PropertiesOutput {
+	return o
+}
+
+func (o DataAccessorDocumentAttributeValue3PropertiesOutput) ToDataAccessorDocumentAttributeValue3PropertiesPtrOutput() DataAccessorDocumentAttributeValue3PropertiesPtrOutput {
+	return o.ToDataAccessorDocumentAttributeValue3PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o DataAccessorDocumentAttributeValue3PropertiesOutput) ToDataAccessorDocumentAttributeValue3PropertiesPtrOutputWithContext(ctx context.Context) DataAccessorDocumentAttributeValue3PropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataAccessorDocumentAttributeValue3Properties) *DataAccessorDocumentAttributeValue3Properties {
+		return &v
+	}).(DataAccessorDocumentAttributeValue3PropertiesPtrOutput)
+}
+
+func (o DataAccessorDocumentAttributeValue3PropertiesOutput) DateValue() pulumi.StringOutput {
+	return o.ApplyT(func(v DataAccessorDocumentAttributeValue3Properties) string { return v.DateValue }).(pulumi.StringOutput)
+}
+
+type DataAccessorDocumentAttributeValue3PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (DataAccessorDocumentAttributeValue3PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataAccessorDocumentAttributeValue3Properties)(nil)).Elem()
+}
+
+func (o DataAccessorDocumentAttributeValue3PropertiesPtrOutput) ToDataAccessorDocumentAttributeValue3PropertiesPtrOutput() DataAccessorDocumentAttributeValue3PropertiesPtrOutput {
+	return o
+}
+
+func (o DataAccessorDocumentAttributeValue3PropertiesPtrOutput) ToDataAccessorDocumentAttributeValue3PropertiesPtrOutputWithContext(ctx context.Context) DataAccessorDocumentAttributeValue3PropertiesPtrOutput {
+	return o
+}
+
+func (o DataAccessorDocumentAttributeValue3PropertiesPtrOutput) Elem() DataAccessorDocumentAttributeValue3PropertiesOutput {
+	return o.ApplyT(func(v *DataAccessorDocumentAttributeValue3Properties) DataAccessorDocumentAttributeValue3Properties {
+		if v != nil {
+			return *v
+		}
+		var ret DataAccessorDocumentAttributeValue3Properties
+		return ret
+	}).(DataAccessorDocumentAttributeValue3PropertiesOutput)
+}
+
+func (o DataAccessorDocumentAttributeValue3PropertiesPtrOutput) DateValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataAccessorDocumentAttributeValue3Properties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DateValue
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataAccessorTag struct {
+	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
 }
 
@@ -2035,6 +3403,141 @@ func (o DataSourceHookConfigurationPtrOutput) S3BucketName() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+type DataSourceImageExtractionConfiguration struct {
+	ImageExtractionStatus DataSourceImageExtractionStatus `pulumi:"imageExtractionStatus"`
+}
+
+// DataSourceImageExtractionConfigurationInput is an input type that accepts DataSourceImageExtractionConfigurationArgs and DataSourceImageExtractionConfigurationOutput values.
+// You can construct a concrete instance of `DataSourceImageExtractionConfigurationInput` via:
+//
+//	DataSourceImageExtractionConfigurationArgs{...}
+type DataSourceImageExtractionConfigurationInput interface {
+	pulumi.Input
+
+	ToDataSourceImageExtractionConfigurationOutput() DataSourceImageExtractionConfigurationOutput
+	ToDataSourceImageExtractionConfigurationOutputWithContext(context.Context) DataSourceImageExtractionConfigurationOutput
+}
+
+type DataSourceImageExtractionConfigurationArgs struct {
+	ImageExtractionStatus DataSourceImageExtractionStatusInput `pulumi:"imageExtractionStatus"`
+}
+
+func (DataSourceImageExtractionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceImageExtractionConfiguration)(nil)).Elem()
+}
+
+func (i DataSourceImageExtractionConfigurationArgs) ToDataSourceImageExtractionConfigurationOutput() DataSourceImageExtractionConfigurationOutput {
+	return i.ToDataSourceImageExtractionConfigurationOutputWithContext(context.Background())
+}
+
+func (i DataSourceImageExtractionConfigurationArgs) ToDataSourceImageExtractionConfigurationOutputWithContext(ctx context.Context) DataSourceImageExtractionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceImageExtractionConfigurationOutput)
+}
+
+func (i DataSourceImageExtractionConfigurationArgs) ToDataSourceImageExtractionConfigurationPtrOutput() DataSourceImageExtractionConfigurationPtrOutput {
+	return i.ToDataSourceImageExtractionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceImageExtractionConfigurationArgs) ToDataSourceImageExtractionConfigurationPtrOutputWithContext(ctx context.Context) DataSourceImageExtractionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceImageExtractionConfigurationOutput).ToDataSourceImageExtractionConfigurationPtrOutputWithContext(ctx)
+}
+
+// DataSourceImageExtractionConfigurationPtrInput is an input type that accepts DataSourceImageExtractionConfigurationArgs, DataSourceImageExtractionConfigurationPtr and DataSourceImageExtractionConfigurationPtrOutput values.
+// You can construct a concrete instance of `DataSourceImageExtractionConfigurationPtrInput` via:
+//
+//	        DataSourceImageExtractionConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceImageExtractionConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceImageExtractionConfigurationPtrOutput() DataSourceImageExtractionConfigurationPtrOutput
+	ToDataSourceImageExtractionConfigurationPtrOutputWithContext(context.Context) DataSourceImageExtractionConfigurationPtrOutput
+}
+
+type dataSourceImageExtractionConfigurationPtrType DataSourceImageExtractionConfigurationArgs
+
+func DataSourceImageExtractionConfigurationPtr(v *DataSourceImageExtractionConfigurationArgs) DataSourceImageExtractionConfigurationPtrInput {
+	return (*dataSourceImageExtractionConfigurationPtrType)(v)
+}
+
+func (*dataSourceImageExtractionConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceImageExtractionConfiguration)(nil)).Elem()
+}
+
+func (i *dataSourceImageExtractionConfigurationPtrType) ToDataSourceImageExtractionConfigurationPtrOutput() DataSourceImageExtractionConfigurationPtrOutput {
+	return i.ToDataSourceImageExtractionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceImageExtractionConfigurationPtrType) ToDataSourceImageExtractionConfigurationPtrOutputWithContext(ctx context.Context) DataSourceImageExtractionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceImageExtractionConfigurationPtrOutput)
+}
+
+type DataSourceImageExtractionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DataSourceImageExtractionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceImageExtractionConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceImageExtractionConfigurationOutput) ToDataSourceImageExtractionConfigurationOutput() DataSourceImageExtractionConfigurationOutput {
+	return o
+}
+
+func (o DataSourceImageExtractionConfigurationOutput) ToDataSourceImageExtractionConfigurationOutputWithContext(ctx context.Context) DataSourceImageExtractionConfigurationOutput {
+	return o
+}
+
+func (o DataSourceImageExtractionConfigurationOutput) ToDataSourceImageExtractionConfigurationPtrOutput() DataSourceImageExtractionConfigurationPtrOutput {
+	return o.ToDataSourceImageExtractionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceImageExtractionConfigurationOutput) ToDataSourceImageExtractionConfigurationPtrOutputWithContext(ctx context.Context) DataSourceImageExtractionConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceImageExtractionConfiguration) *DataSourceImageExtractionConfiguration {
+		return &v
+	}).(DataSourceImageExtractionConfigurationPtrOutput)
+}
+
+func (o DataSourceImageExtractionConfigurationOutput) ImageExtractionStatus() DataSourceImageExtractionStatusOutput {
+	return o.ApplyT(func(v DataSourceImageExtractionConfiguration) DataSourceImageExtractionStatus {
+		return v.ImageExtractionStatus
+	}).(DataSourceImageExtractionStatusOutput)
+}
+
+type DataSourceImageExtractionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceImageExtractionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceImageExtractionConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceImageExtractionConfigurationPtrOutput) ToDataSourceImageExtractionConfigurationPtrOutput() DataSourceImageExtractionConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceImageExtractionConfigurationPtrOutput) ToDataSourceImageExtractionConfigurationPtrOutputWithContext(ctx context.Context) DataSourceImageExtractionConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceImageExtractionConfigurationPtrOutput) Elem() DataSourceImageExtractionConfigurationOutput {
+	return o.ApplyT(func(v *DataSourceImageExtractionConfiguration) DataSourceImageExtractionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceImageExtractionConfiguration
+		return ret
+	}).(DataSourceImageExtractionConfigurationOutput)
+}
+
+func (o DataSourceImageExtractionConfigurationPtrOutput) ImageExtractionStatus() DataSourceImageExtractionStatusPtrOutput {
+	return o.ApplyT(func(v *DataSourceImageExtractionConfiguration) *DataSourceImageExtractionStatus {
+		if v == nil {
+			return nil
+		}
+		return &v.ImageExtractionStatus
+	}).(DataSourceImageExtractionStatusPtrOutput)
+}
+
 type DataSourceInlineDocumentEnrichmentConfiguration struct {
 	// Configuration of the condition used for the target document attribute or metadata field when ingesting documents into Amazon Q Business .
 	Condition *DataSourceDocumentAttributeCondition `pulumi:"condition"`
@@ -2154,6 +3657,141 @@ func (o DataSourceInlineDocumentEnrichmentConfigurationArrayOutput) Index(i pulu
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataSourceInlineDocumentEnrichmentConfiguration {
 		return vs[0].([]DataSourceInlineDocumentEnrichmentConfiguration)[vs[1].(int)]
 	}).(DataSourceInlineDocumentEnrichmentConfigurationOutput)
+}
+
+type DataSourceMediaExtractionConfiguration struct {
+	ImageExtractionConfiguration *DataSourceImageExtractionConfiguration `pulumi:"imageExtractionConfiguration"`
+}
+
+// DataSourceMediaExtractionConfigurationInput is an input type that accepts DataSourceMediaExtractionConfigurationArgs and DataSourceMediaExtractionConfigurationOutput values.
+// You can construct a concrete instance of `DataSourceMediaExtractionConfigurationInput` via:
+//
+//	DataSourceMediaExtractionConfigurationArgs{...}
+type DataSourceMediaExtractionConfigurationInput interface {
+	pulumi.Input
+
+	ToDataSourceMediaExtractionConfigurationOutput() DataSourceMediaExtractionConfigurationOutput
+	ToDataSourceMediaExtractionConfigurationOutputWithContext(context.Context) DataSourceMediaExtractionConfigurationOutput
+}
+
+type DataSourceMediaExtractionConfigurationArgs struct {
+	ImageExtractionConfiguration DataSourceImageExtractionConfigurationPtrInput `pulumi:"imageExtractionConfiguration"`
+}
+
+func (DataSourceMediaExtractionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceMediaExtractionConfiguration)(nil)).Elem()
+}
+
+func (i DataSourceMediaExtractionConfigurationArgs) ToDataSourceMediaExtractionConfigurationOutput() DataSourceMediaExtractionConfigurationOutput {
+	return i.ToDataSourceMediaExtractionConfigurationOutputWithContext(context.Background())
+}
+
+func (i DataSourceMediaExtractionConfigurationArgs) ToDataSourceMediaExtractionConfigurationOutputWithContext(ctx context.Context) DataSourceMediaExtractionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceMediaExtractionConfigurationOutput)
+}
+
+func (i DataSourceMediaExtractionConfigurationArgs) ToDataSourceMediaExtractionConfigurationPtrOutput() DataSourceMediaExtractionConfigurationPtrOutput {
+	return i.ToDataSourceMediaExtractionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceMediaExtractionConfigurationArgs) ToDataSourceMediaExtractionConfigurationPtrOutputWithContext(ctx context.Context) DataSourceMediaExtractionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceMediaExtractionConfigurationOutput).ToDataSourceMediaExtractionConfigurationPtrOutputWithContext(ctx)
+}
+
+// DataSourceMediaExtractionConfigurationPtrInput is an input type that accepts DataSourceMediaExtractionConfigurationArgs, DataSourceMediaExtractionConfigurationPtr and DataSourceMediaExtractionConfigurationPtrOutput values.
+// You can construct a concrete instance of `DataSourceMediaExtractionConfigurationPtrInput` via:
+//
+//	        DataSourceMediaExtractionConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceMediaExtractionConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceMediaExtractionConfigurationPtrOutput() DataSourceMediaExtractionConfigurationPtrOutput
+	ToDataSourceMediaExtractionConfigurationPtrOutputWithContext(context.Context) DataSourceMediaExtractionConfigurationPtrOutput
+}
+
+type dataSourceMediaExtractionConfigurationPtrType DataSourceMediaExtractionConfigurationArgs
+
+func DataSourceMediaExtractionConfigurationPtr(v *DataSourceMediaExtractionConfigurationArgs) DataSourceMediaExtractionConfigurationPtrInput {
+	return (*dataSourceMediaExtractionConfigurationPtrType)(v)
+}
+
+func (*dataSourceMediaExtractionConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceMediaExtractionConfiguration)(nil)).Elem()
+}
+
+func (i *dataSourceMediaExtractionConfigurationPtrType) ToDataSourceMediaExtractionConfigurationPtrOutput() DataSourceMediaExtractionConfigurationPtrOutput {
+	return i.ToDataSourceMediaExtractionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceMediaExtractionConfigurationPtrType) ToDataSourceMediaExtractionConfigurationPtrOutputWithContext(ctx context.Context) DataSourceMediaExtractionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceMediaExtractionConfigurationPtrOutput)
+}
+
+type DataSourceMediaExtractionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DataSourceMediaExtractionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceMediaExtractionConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceMediaExtractionConfigurationOutput) ToDataSourceMediaExtractionConfigurationOutput() DataSourceMediaExtractionConfigurationOutput {
+	return o
+}
+
+func (o DataSourceMediaExtractionConfigurationOutput) ToDataSourceMediaExtractionConfigurationOutputWithContext(ctx context.Context) DataSourceMediaExtractionConfigurationOutput {
+	return o
+}
+
+func (o DataSourceMediaExtractionConfigurationOutput) ToDataSourceMediaExtractionConfigurationPtrOutput() DataSourceMediaExtractionConfigurationPtrOutput {
+	return o.ToDataSourceMediaExtractionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceMediaExtractionConfigurationOutput) ToDataSourceMediaExtractionConfigurationPtrOutputWithContext(ctx context.Context) DataSourceMediaExtractionConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceMediaExtractionConfiguration) *DataSourceMediaExtractionConfiguration {
+		return &v
+	}).(DataSourceMediaExtractionConfigurationPtrOutput)
+}
+
+func (o DataSourceMediaExtractionConfigurationOutput) ImageExtractionConfiguration() DataSourceImageExtractionConfigurationPtrOutput {
+	return o.ApplyT(func(v DataSourceMediaExtractionConfiguration) *DataSourceImageExtractionConfiguration {
+		return v.ImageExtractionConfiguration
+	}).(DataSourceImageExtractionConfigurationPtrOutput)
+}
+
+type DataSourceMediaExtractionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceMediaExtractionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceMediaExtractionConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceMediaExtractionConfigurationPtrOutput) ToDataSourceMediaExtractionConfigurationPtrOutput() DataSourceMediaExtractionConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceMediaExtractionConfigurationPtrOutput) ToDataSourceMediaExtractionConfigurationPtrOutputWithContext(ctx context.Context) DataSourceMediaExtractionConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceMediaExtractionConfigurationPtrOutput) Elem() DataSourceMediaExtractionConfigurationOutput {
+	return o.ApplyT(func(v *DataSourceMediaExtractionConfiguration) DataSourceMediaExtractionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceMediaExtractionConfiguration
+		return ret
+	}).(DataSourceMediaExtractionConfigurationOutput)
+}
+
+func (o DataSourceMediaExtractionConfigurationPtrOutput) ImageExtractionConfiguration() DataSourceImageExtractionConfigurationPtrOutput {
+	return o.ApplyT(func(v *DataSourceMediaExtractionConfiguration) *DataSourceImageExtractionConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.ImageExtractionConfiguration
+	}).(DataSourceImageExtractionConfigurationPtrOutput)
 }
 
 type DataSourceTag struct {
@@ -3567,8 +5205,10 @@ func (o PluginNoAuthConfigurationPtrOutput) Elem() PluginNoAuthConfigurationOutp
 }
 
 type PluginOAuth2ClientCredentialConfiguration struct {
-	RoleArn   string `pulumi:"roleArn"`
-	SecretArn string `pulumi:"secretArn"`
+	AuthorizationUrl *string `pulumi:"authorizationUrl"`
+	RoleArn          string  `pulumi:"roleArn"`
+	SecretArn        string  `pulumi:"secretArn"`
+	TokenUrl         *string `pulumi:"tokenUrl"`
 }
 
 // PluginOAuth2ClientCredentialConfigurationInput is an input type that accepts PluginOAuth2ClientCredentialConfigurationArgs and PluginOAuth2ClientCredentialConfigurationOutput values.
@@ -3583,8 +5223,10 @@ type PluginOAuth2ClientCredentialConfigurationInput interface {
 }
 
 type PluginOAuth2ClientCredentialConfigurationArgs struct {
-	RoleArn   pulumi.StringInput `pulumi:"roleArn"`
-	SecretArn pulumi.StringInput `pulumi:"secretArn"`
+	AuthorizationUrl pulumi.StringPtrInput `pulumi:"authorizationUrl"`
+	RoleArn          pulumi.StringInput    `pulumi:"roleArn"`
+	SecretArn        pulumi.StringInput    `pulumi:"secretArn"`
+	TokenUrl         pulumi.StringPtrInput `pulumi:"tokenUrl"`
 }
 
 func (PluginOAuth2ClientCredentialConfigurationArgs) ElementType() reflect.Type {
@@ -3613,12 +5255,20 @@ func (o PluginOAuth2ClientCredentialConfigurationOutput) ToPluginOAuth2ClientCre
 	return o
 }
 
+func (o PluginOAuth2ClientCredentialConfigurationOutput) AuthorizationUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PluginOAuth2ClientCredentialConfiguration) *string { return v.AuthorizationUrl }).(pulumi.StringPtrOutput)
+}
+
 func (o PluginOAuth2ClientCredentialConfigurationOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v PluginOAuth2ClientCredentialConfiguration) string { return v.RoleArn }).(pulumi.StringOutput)
 }
 
 func (o PluginOAuth2ClientCredentialConfigurationOutput) SecretArn() pulumi.StringOutput {
 	return o.ApplyT(func(v PluginOAuth2ClientCredentialConfiguration) string { return v.SecretArn }).(pulumi.StringOutput)
+}
+
+func (o PluginOAuth2ClientCredentialConfigurationOutput) TokenUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PluginOAuth2ClientCredentialConfiguration) *string { return v.TokenUrl }).(pulumi.StringPtrOutput)
 }
 
 type PluginOAuth2ClientCredentialConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -3645,6 +5295,15 @@ func (o PluginOAuth2ClientCredentialConfigurationPtrOutput) Elem() PluginOAuth2C
 	}).(PluginOAuth2ClientCredentialConfigurationOutput)
 }
 
+func (o PluginOAuth2ClientCredentialConfigurationPtrOutput) AuthorizationUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PluginOAuth2ClientCredentialConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AuthorizationUrl
+	}).(pulumi.StringPtrOutput)
+}
+
 func (o PluginOAuth2ClientCredentialConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PluginOAuth2ClientCredentialConfiguration) *string {
 		if v == nil {
@@ -3660,6 +5319,15 @@ func (o PluginOAuth2ClientCredentialConfigurationPtrOutput) SecretArn() pulumi.S
 			return nil
 		}
 		return &v.SecretArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PluginOAuth2ClientCredentialConfigurationPtrOutput) TokenUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PluginOAuth2ClientCredentialConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TokenUrl
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -4155,6 +5823,184 @@ type RetrieverTag struct {
 	Key string `pulumi:"key"`
 	// The value associated with the tag. The value may be an empty string but it can't be null.
 	Value string `pulumi:"value"`
+}
+
+type WebExperienceCustomizationConfiguration struct {
+	CustomCssUrl *string `pulumi:"customCssUrl"`
+	FaviconUrl   *string `pulumi:"faviconUrl"`
+	FontUrl      *string `pulumi:"fontUrl"`
+	LogoUrl      *string `pulumi:"logoUrl"`
+}
+
+// WebExperienceCustomizationConfigurationInput is an input type that accepts WebExperienceCustomizationConfigurationArgs and WebExperienceCustomizationConfigurationOutput values.
+// You can construct a concrete instance of `WebExperienceCustomizationConfigurationInput` via:
+//
+//	WebExperienceCustomizationConfigurationArgs{...}
+type WebExperienceCustomizationConfigurationInput interface {
+	pulumi.Input
+
+	ToWebExperienceCustomizationConfigurationOutput() WebExperienceCustomizationConfigurationOutput
+	ToWebExperienceCustomizationConfigurationOutputWithContext(context.Context) WebExperienceCustomizationConfigurationOutput
+}
+
+type WebExperienceCustomizationConfigurationArgs struct {
+	CustomCssUrl pulumi.StringPtrInput `pulumi:"customCssUrl"`
+	FaviconUrl   pulumi.StringPtrInput `pulumi:"faviconUrl"`
+	FontUrl      pulumi.StringPtrInput `pulumi:"fontUrl"`
+	LogoUrl      pulumi.StringPtrInput `pulumi:"logoUrl"`
+}
+
+func (WebExperienceCustomizationConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebExperienceCustomizationConfiguration)(nil)).Elem()
+}
+
+func (i WebExperienceCustomizationConfigurationArgs) ToWebExperienceCustomizationConfigurationOutput() WebExperienceCustomizationConfigurationOutput {
+	return i.ToWebExperienceCustomizationConfigurationOutputWithContext(context.Background())
+}
+
+func (i WebExperienceCustomizationConfigurationArgs) ToWebExperienceCustomizationConfigurationOutputWithContext(ctx context.Context) WebExperienceCustomizationConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebExperienceCustomizationConfigurationOutput)
+}
+
+func (i WebExperienceCustomizationConfigurationArgs) ToWebExperienceCustomizationConfigurationPtrOutput() WebExperienceCustomizationConfigurationPtrOutput {
+	return i.ToWebExperienceCustomizationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i WebExperienceCustomizationConfigurationArgs) ToWebExperienceCustomizationConfigurationPtrOutputWithContext(ctx context.Context) WebExperienceCustomizationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebExperienceCustomizationConfigurationOutput).ToWebExperienceCustomizationConfigurationPtrOutputWithContext(ctx)
+}
+
+// WebExperienceCustomizationConfigurationPtrInput is an input type that accepts WebExperienceCustomizationConfigurationArgs, WebExperienceCustomizationConfigurationPtr and WebExperienceCustomizationConfigurationPtrOutput values.
+// You can construct a concrete instance of `WebExperienceCustomizationConfigurationPtrInput` via:
+//
+//	        WebExperienceCustomizationConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type WebExperienceCustomizationConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToWebExperienceCustomizationConfigurationPtrOutput() WebExperienceCustomizationConfigurationPtrOutput
+	ToWebExperienceCustomizationConfigurationPtrOutputWithContext(context.Context) WebExperienceCustomizationConfigurationPtrOutput
+}
+
+type webExperienceCustomizationConfigurationPtrType WebExperienceCustomizationConfigurationArgs
+
+func WebExperienceCustomizationConfigurationPtr(v *WebExperienceCustomizationConfigurationArgs) WebExperienceCustomizationConfigurationPtrInput {
+	return (*webExperienceCustomizationConfigurationPtrType)(v)
+}
+
+func (*webExperienceCustomizationConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebExperienceCustomizationConfiguration)(nil)).Elem()
+}
+
+func (i *webExperienceCustomizationConfigurationPtrType) ToWebExperienceCustomizationConfigurationPtrOutput() WebExperienceCustomizationConfigurationPtrOutput {
+	return i.ToWebExperienceCustomizationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *webExperienceCustomizationConfigurationPtrType) ToWebExperienceCustomizationConfigurationPtrOutputWithContext(ctx context.Context) WebExperienceCustomizationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WebExperienceCustomizationConfigurationPtrOutput)
+}
+
+type WebExperienceCustomizationConfigurationOutput struct{ *pulumi.OutputState }
+
+func (WebExperienceCustomizationConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WebExperienceCustomizationConfiguration)(nil)).Elem()
+}
+
+func (o WebExperienceCustomizationConfigurationOutput) ToWebExperienceCustomizationConfigurationOutput() WebExperienceCustomizationConfigurationOutput {
+	return o
+}
+
+func (o WebExperienceCustomizationConfigurationOutput) ToWebExperienceCustomizationConfigurationOutputWithContext(ctx context.Context) WebExperienceCustomizationConfigurationOutput {
+	return o
+}
+
+func (o WebExperienceCustomizationConfigurationOutput) ToWebExperienceCustomizationConfigurationPtrOutput() WebExperienceCustomizationConfigurationPtrOutput {
+	return o.ToWebExperienceCustomizationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o WebExperienceCustomizationConfigurationOutput) ToWebExperienceCustomizationConfigurationPtrOutputWithContext(ctx context.Context) WebExperienceCustomizationConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebExperienceCustomizationConfiguration) *WebExperienceCustomizationConfiguration {
+		return &v
+	}).(WebExperienceCustomizationConfigurationPtrOutput)
+}
+
+func (o WebExperienceCustomizationConfigurationOutput) CustomCssUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebExperienceCustomizationConfiguration) *string { return v.CustomCssUrl }).(pulumi.StringPtrOutput)
+}
+
+func (o WebExperienceCustomizationConfigurationOutput) FaviconUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebExperienceCustomizationConfiguration) *string { return v.FaviconUrl }).(pulumi.StringPtrOutput)
+}
+
+func (o WebExperienceCustomizationConfigurationOutput) FontUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebExperienceCustomizationConfiguration) *string { return v.FontUrl }).(pulumi.StringPtrOutput)
+}
+
+func (o WebExperienceCustomizationConfigurationOutput) LogoUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WebExperienceCustomizationConfiguration) *string { return v.LogoUrl }).(pulumi.StringPtrOutput)
+}
+
+type WebExperienceCustomizationConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (WebExperienceCustomizationConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WebExperienceCustomizationConfiguration)(nil)).Elem()
+}
+
+func (o WebExperienceCustomizationConfigurationPtrOutput) ToWebExperienceCustomizationConfigurationPtrOutput() WebExperienceCustomizationConfigurationPtrOutput {
+	return o
+}
+
+func (o WebExperienceCustomizationConfigurationPtrOutput) ToWebExperienceCustomizationConfigurationPtrOutputWithContext(ctx context.Context) WebExperienceCustomizationConfigurationPtrOutput {
+	return o
+}
+
+func (o WebExperienceCustomizationConfigurationPtrOutput) Elem() WebExperienceCustomizationConfigurationOutput {
+	return o.ApplyT(func(v *WebExperienceCustomizationConfiguration) WebExperienceCustomizationConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret WebExperienceCustomizationConfiguration
+		return ret
+	}).(WebExperienceCustomizationConfigurationOutput)
+}
+
+func (o WebExperienceCustomizationConfigurationPtrOutput) CustomCssUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebExperienceCustomizationConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomCssUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o WebExperienceCustomizationConfigurationPtrOutput) FaviconUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebExperienceCustomizationConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FaviconUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o WebExperienceCustomizationConfigurationPtrOutput) FontUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebExperienceCustomizationConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FontUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o WebExperienceCustomizationConfigurationPtrOutput) LogoUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WebExperienceCustomizationConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogoUrl
+	}).(pulumi.StringPtrOutput)
 }
 
 type WebExperienceIdentityProviderConfiguration0Properties struct {
@@ -4726,6 +6572,25 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationPersonalizationConfigurationPtrInput)(nil)).Elem(), ApplicationPersonalizationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationQAppsConfigurationInput)(nil)).Elem(), ApplicationQAppsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationQAppsConfigurationPtrInput)(nil)).Elem(), ApplicationQAppsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationQuickSightConfigurationInput)(nil)).Elem(), ApplicationQuickSightConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationQuickSightConfigurationPtrInput)(nil)).Elem(), ApplicationQuickSightConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAccessorActionConfigurationInput)(nil)).Elem(), DataAccessorActionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAccessorActionConfigurationArrayInput)(nil)).Elem(), DataAccessorActionConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAccessorActionFilterConfigurationInput)(nil)).Elem(), DataAccessorActionFilterConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAccessorActionFilterConfigurationPtrInput)(nil)).Elem(), DataAccessorActionFilterConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAccessorAttributeFilterInput)(nil)).Elem(), DataAccessorAttributeFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAccessorAttributeFilterPtrInput)(nil)).Elem(), DataAccessorAttributeFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAccessorAttributeFilterArrayInput)(nil)).Elem(), DataAccessorAttributeFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAccessorDocumentAttributeInput)(nil)).Elem(), DataAccessorDocumentAttributeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAccessorDocumentAttributePtrInput)(nil)).Elem(), DataAccessorDocumentAttributeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAccessorDocumentAttributeValue0PropertiesInput)(nil)).Elem(), DataAccessorDocumentAttributeValue0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAccessorDocumentAttributeValue0PropertiesPtrInput)(nil)).Elem(), DataAccessorDocumentAttributeValue0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAccessorDocumentAttributeValue1PropertiesInput)(nil)).Elem(), DataAccessorDocumentAttributeValue1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAccessorDocumentAttributeValue1PropertiesPtrInput)(nil)).Elem(), DataAccessorDocumentAttributeValue1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAccessorDocumentAttributeValue2PropertiesInput)(nil)).Elem(), DataAccessorDocumentAttributeValue2PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAccessorDocumentAttributeValue2PropertiesPtrInput)(nil)).Elem(), DataAccessorDocumentAttributeValue2PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAccessorDocumentAttributeValue3PropertiesInput)(nil)).Elem(), DataAccessorDocumentAttributeValue3PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataAccessorDocumentAttributeValue3PropertiesPtrInput)(nil)).Elem(), DataAccessorDocumentAttributeValue3PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceDocumentAttributeConditionInput)(nil)).Elem(), DataSourceDocumentAttributeConditionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceDocumentAttributeConditionPtrInput)(nil)).Elem(), DataSourceDocumentAttributeConditionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceDocumentAttributeTargetInput)(nil)).Elem(), DataSourceDocumentAttributeTargetArgs{})
@@ -4742,8 +6607,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceDocumentEnrichmentConfigurationPtrInput)(nil)).Elem(), DataSourceDocumentEnrichmentConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceHookConfigurationInput)(nil)).Elem(), DataSourceHookConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceHookConfigurationPtrInput)(nil)).Elem(), DataSourceHookConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceImageExtractionConfigurationInput)(nil)).Elem(), DataSourceImageExtractionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceImageExtractionConfigurationPtrInput)(nil)).Elem(), DataSourceImageExtractionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceInlineDocumentEnrichmentConfigurationInput)(nil)).Elem(), DataSourceInlineDocumentEnrichmentConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceInlineDocumentEnrichmentConfigurationArrayInput)(nil)).Elem(), DataSourceInlineDocumentEnrichmentConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceMediaExtractionConfigurationInput)(nil)).Elem(), DataSourceMediaExtractionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceMediaExtractionConfigurationPtrInput)(nil)).Elem(), DataSourceMediaExtractionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceVpcConfigurationInput)(nil)).Elem(), DataSourceVpcConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceVpcConfigurationPtrInput)(nil)).Elem(), DataSourceVpcConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexCapacityConfigurationInput)(nil)).Elem(), IndexCapacityConfigurationArgs{})
@@ -4768,6 +6637,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RetrieverConfiguration1PropertiesInput)(nil)).Elem(), RetrieverConfiguration1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RetrieverKendraIndexConfigurationInput)(nil)).Elem(), RetrieverKendraIndexConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RetrieverNativeIndexConfigurationInput)(nil)).Elem(), RetrieverNativeIndexConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebExperienceCustomizationConfigurationInput)(nil)).Elem(), WebExperienceCustomizationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebExperienceCustomizationConfigurationPtrInput)(nil)).Elem(), WebExperienceCustomizationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebExperienceIdentityProviderConfiguration0PropertiesInput)(nil)).Elem(), WebExperienceIdentityProviderConfiguration0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebExperienceIdentityProviderConfiguration0PropertiesPtrInput)(nil)).Elem(), WebExperienceIdentityProviderConfiguration0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebExperienceIdentityProviderConfiguration1PropertiesInput)(nil)).Elem(), WebExperienceIdentityProviderConfiguration1PropertiesArgs{})
@@ -4786,6 +6657,25 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationPersonalizationConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationQAppsConfigurationOutput{})
 	pulumi.RegisterOutputType(ApplicationQAppsConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationQuickSightConfigurationOutput{})
+	pulumi.RegisterOutputType(ApplicationQuickSightConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DataAccessorActionConfigurationOutput{})
+	pulumi.RegisterOutputType(DataAccessorActionConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(DataAccessorActionFilterConfigurationOutput{})
+	pulumi.RegisterOutputType(DataAccessorActionFilterConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DataAccessorAttributeFilterOutput{})
+	pulumi.RegisterOutputType(DataAccessorAttributeFilterPtrOutput{})
+	pulumi.RegisterOutputType(DataAccessorAttributeFilterArrayOutput{})
+	pulumi.RegisterOutputType(DataAccessorDocumentAttributeOutput{})
+	pulumi.RegisterOutputType(DataAccessorDocumentAttributePtrOutput{})
+	pulumi.RegisterOutputType(DataAccessorDocumentAttributeValue0PropertiesOutput{})
+	pulumi.RegisterOutputType(DataAccessorDocumentAttributeValue0PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(DataAccessorDocumentAttributeValue1PropertiesOutput{})
+	pulumi.RegisterOutputType(DataAccessorDocumentAttributeValue1PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(DataAccessorDocumentAttributeValue2PropertiesOutput{})
+	pulumi.RegisterOutputType(DataAccessorDocumentAttributeValue2PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(DataAccessorDocumentAttributeValue3PropertiesOutput{})
+	pulumi.RegisterOutputType(DataAccessorDocumentAttributeValue3PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceDocumentAttributeConditionOutput{})
 	pulumi.RegisterOutputType(DataSourceDocumentAttributeConditionPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceDocumentAttributeTargetOutput{})
@@ -4802,8 +6692,12 @@ func init() {
 	pulumi.RegisterOutputType(DataSourceDocumentEnrichmentConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceHookConfigurationOutput{})
 	pulumi.RegisterOutputType(DataSourceHookConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceImageExtractionConfigurationOutput{})
+	pulumi.RegisterOutputType(DataSourceImageExtractionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceInlineDocumentEnrichmentConfigurationOutput{})
 	pulumi.RegisterOutputType(DataSourceInlineDocumentEnrichmentConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(DataSourceMediaExtractionConfigurationOutput{})
+	pulumi.RegisterOutputType(DataSourceMediaExtractionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceVpcConfigurationOutput{})
 	pulumi.RegisterOutputType(DataSourceVpcConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(IndexCapacityConfigurationOutput{})
@@ -4842,6 +6736,8 @@ func init() {
 	pulumi.RegisterOutputType(RetrieverKendraIndexConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RetrieverNativeIndexConfigurationOutput{})
 	pulumi.RegisterOutputType(RetrieverNativeIndexConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(WebExperienceCustomizationConfigurationOutput{})
+	pulumi.RegisterOutputType(WebExperienceCustomizationConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(WebExperienceIdentityProviderConfiguration0PropertiesOutput{})
 	pulumi.RegisterOutputType(WebExperienceIdentityProviderConfiguration0PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(WebExperienceIdentityProviderConfiguration1PropertiesOutput{})

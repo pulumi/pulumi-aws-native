@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDataSourceResult:
-    def __init__(__self__, configuration=None, created_at=None, data_source_arn=None, data_source_id=None, description=None, display_name=None, document_enrichment_configuration=None, role_arn=None, status=None, sync_schedule=None, tags=None, type=None, updated_at=None, vpc_configuration=None):
+    def __init__(__self__, configuration=None, created_at=None, data_source_arn=None, data_source_id=None, description=None, display_name=None, document_enrichment_configuration=None, media_extraction_configuration=None, role_arn=None, status=None, sync_schedule=None, tags=None, type=None, updated_at=None, vpc_configuration=None):
         if configuration and not isinstance(configuration, dict):
             raise TypeError("Expected argument 'configuration' to be a dict")
         pulumi.set(__self__, "configuration", configuration)
@@ -48,6 +48,9 @@ class GetDataSourceResult:
         if document_enrichment_configuration and not isinstance(document_enrichment_configuration, dict):
             raise TypeError("Expected argument 'document_enrichment_configuration' to be a dict")
         pulumi.set(__self__, "document_enrichment_configuration", document_enrichment_configuration)
+        if media_extraction_configuration and not isinstance(media_extraction_configuration, dict):
+            raise TypeError("Expected argument 'media_extraction_configuration' to be a dict")
+        pulumi.set(__self__, "media_extraction_configuration", media_extraction_configuration)
         if role_arn and not isinstance(role_arn, str):
             raise TypeError("Expected argument 'role_arn' to be a str")
         pulumi.set(__self__, "role_arn", role_arn)
@@ -141,6 +144,11 @@ class GetDataSourceResult:
         return pulumi.get(self, "document_enrichment_configuration")
 
     @property
+    @pulumi.getter(name="mediaExtractionConfiguration")
+    def media_extraction_configuration(self) -> Optional['outputs.DataSourceMediaExtractionConfiguration']:
+        return pulumi.get(self, "media_extraction_configuration")
+
+    @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[str]:
         """
@@ -212,6 +220,7 @@ class AwaitableGetDataSourceResult(GetDataSourceResult):
             description=self.description,
             display_name=self.display_name,
             document_enrichment_configuration=self.document_enrichment_configuration,
+            media_extraction_configuration=self.media_extraction_configuration,
             role_arn=self.role_arn,
             status=self.status,
             sync_schedule=self.sync_schedule,
@@ -248,6 +257,7 @@ def get_data_source(application_id: Optional[str] = None,
         description=pulumi.get(__ret__, 'description'),
         display_name=pulumi.get(__ret__, 'display_name'),
         document_enrichment_configuration=pulumi.get(__ret__, 'document_enrichment_configuration'),
+        media_extraction_configuration=pulumi.get(__ret__, 'media_extraction_configuration'),
         role_arn=pulumi.get(__ret__, 'role_arn'),
         status=pulumi.get(__ret__, 'status'),
         sync_schedule=pulumi.get(__ret__, 'sync_schedule'),
@@ -281,6 +291,7 @@ def get_data_source_output(application_id: Optional[pulumi.Input[str]] = None,
         description=pulumi.get(__response__, 'description'),
         display_name=pulumi.get(__response__, 'display_name'),
         document_enrichment_configuration=pulumi.get(__response__, 'document_enrichment_configuration'),
+        media_extraction_configuration=pulumi.get(__response__, 'media_extraction_configuration'),
         role_arn=pulumi.get(__response__, 'role_arn'),
         status=pulumi.get(__response__, 'status'),
         sync_schedule=pulumi.get(__response__, 'sync_schedule'),

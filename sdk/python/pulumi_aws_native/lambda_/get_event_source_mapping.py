@@ -233,7 +233,7 @@ class GetEventSourceMappingResult:
     @pulumi.getter(name="metricsConfig")
     def metrics_config(self) -> Optional['outputs.EventSourceMappingMetricsConfig']:
         """
-        The metrics configuration for your event source. For more information, see [Event source mapping metrics](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics) .
+        The metrics configuration for your event source. For more information, see [Event source mapping metrics](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics).
         """
         return pulumi.get(self, "metrics_config")
 
@@ -249,7 +249,7 @@ class GetEventSourceMappingResult:
     @pulumi.getter(name="provisionedPollerConfig")
     def provisioned_poller_config(self) -> Optional['outputs.EventSourceMappingProvisionedPollerConfig']:
         """
-        (Amazon MSK and self-managed Apache Kafka only) The provisioned mode configuration for the event source. For more information, see [provisioned mode](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode) .
+        (Amazon MSK and self-managed Apache Kafka only) The provisioned mode configuration for the event source. For more information, see [provisioned mode](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode).
         """
         return pulumi.get(self, "provisioned_poller_config")
 

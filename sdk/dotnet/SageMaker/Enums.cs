@@ -2857,6 +2857,69 @@ namespace Pulumi.AwsNative.SageMaker
     }
 
     /// <summary>
+    /// The Auth type of PartnerApp.
+    /// </summary>
+    [EnumType]
+    public readonly struct PartnerAppAuthType : IEquatable<PartnerAppAuthType>
+    {
+        private readonly string _value;
+
+        private PartnerAppAuthType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PartnerAppAuthType Iam { get; } = new PartnerAppAuthType("IAM");
+
+        public static bool operator ==(PartnerAppAuthType left, PartnerAppAuthType right) => left.Equals(right);
+        public static bool operator !=(PartnerAppAuthType left, PartnerAppAuthType right) => !left.Equals(right);
+
+        public static explicit operator string(PartnerAppAuthType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PartnerAppAuthType other && Equals(other);
+        public bool Equals(PartnerAppAuthType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of PartnerApp.
+    /// </summary>
+    [EnumType]
+    public readonly struct PartnerAppType : IEquatable<PartnerAppType>
+    {
+        private readonly string _value;
+
+        private PartnerAppType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PartnerAppType LakeraGuard { get; } = new PartnerAppType("lakera-guard");
+        public static PartnerAppType Comet { get; } = new PartnerAppType("comet");
+        public static PartnerAppType DeepchecksLlmEvaluation { get; } = new PartnerAppType("deepchecks-llm-evaluation");
+        public static PartnerAppType Fiddler { get; } = new PartnerAppType("fiddler");
+
+        public static bool operator ==(PartnerAppType left, PartnerAppType right) => left.Equals(right);
+        public static bool operator !=(PartnerAppType left, PartnerAppType right) => !left.Equals(right);
+
+        public static explicit operator string(PartnerAppType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PartnerAppType other && Equals(other);
+        public bool Equals(PartnerAppType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The status of a project.
     /// </summary>
     [EnumType]

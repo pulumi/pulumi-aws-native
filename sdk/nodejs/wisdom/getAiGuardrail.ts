@@ -19,13 +19,28 @@ export function getAiGuardrail(args: GetAiGuardrailArgs, opts?: pulumi.InvokeOpt
 }
 
 export interface GetAiGuardrailArgs {
+    /**
+     * The identifier of the Amazon Q in Connect AI Guardrail.
+     */
     aiGuardrailId: string;
+    /**
+     * The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+     */
     assistantId: string;
 }
 
 export interface GetAiGuardrailResult {
+    /**
+     * The Amazon Resource Name (ARN) of the AI Guardrail.
+     */
     readonly aiGuardrailArn?: string;
+    /**
+     * The identifier of the Amazon Q in Connect AI Guardrail.
+     */
     readonly aiGuardrailId?: string;
+    /**
+     * The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.
+     */
     readonly assistantArn?: string;
     /**
      * Messaging for when violations are detected in text
@@ -35,14 +50,29 @@ export interface GetAiGuardrailResult {
      * Messaging for when violations are detected in text
      */
     readonly blockedOutputsMessaging?: string;
+    /**
+     * Contains details about how to handle harmful content.
+     */
     readonly contentPolicyConfig?: outputs.wisdom.AiGuardrailAiGuardrailContentPolicyConfig;
+    /**
+     * The policy configuration details for the AI Guardrail's contextual grounding policy.
+     */
     readonly contextualGroundingPolicyConfig?: outputs.wisdom.AiGuardrailAiGuardrailContextualGroundingPolicyConfig;
     /**
      * Description of the guardrail or its version
      */
     readonly description?: string;
+    /**
+     * Contains details about PII entities and regular expressions to configure for the AI Guardrail.
+     */
     readonly sensitiveInformationPolicyConfig?: outputs.wisdom.AiGuardrailAiGuardrailSensitiveInformationPolicyConfig;
+    /**
+     * Contains details about topics that the AI Guardrail should identify and deny.
+     */
     readonly topicPolicyConfig?: outputs.wisdom.AiGuardrailAiGuardrailTopicPolicyConfig;
+    /**
+     * Contains details about the word policy to configured for the AI Guardrail.
+     */
     readonly wordPolicyConfig?: outputs.wisdom.AiGuardrailAiGuardrailWordPolicyConfig;
 }
 /**
@@ -57,6 +87,12 @@ export function getAiGuardrailOutput(args: GetAiGuardrailOutputArgs, opts?: pulu
 }
 
 export interface GetAiGuardrailOutputArgs {
+    /**
+     * The identifier of the Amazon Q in Connect AI Guardrail.
+     */
     aiGuardrailId: pulumi.Input<string>;
+    /**
+     * The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+     */
     assistantId: pulumi.Input<string>;
 }

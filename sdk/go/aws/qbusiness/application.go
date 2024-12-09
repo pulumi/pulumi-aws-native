@@ -47,7 +47,8 @@ type Application struct {
 	// Configuration information about chat response personalization. For more information, see [Personalizing chat responses](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/personalizing-chat-responses.html) .
 	PersonalizationConfiguration ApplicationPersonalizationConfigurationPtrOutput `pulumi:"personalizationConfiguration"`
 	// Configuration information about Amazon Q Apps.
-	QAppsConfiguration ApplicationQAppsConfigurationPtrOutput `pulumi:"qAppsConfiguration"`
+	QAppsConfiguration      ApplicationQAppsConfigurationPtrOutput      `pulumi:"qAppsConfiguration"`
+	QuickSightConfiguration ApplicationQuickSightConfigurationPtrOutput `pulumi:"quickSightConfiguration"`
 	// The Amazon Resource Name (ARN) of an IAM role with permissions to access your Amazon CloudWatch logs and metrics. If this property is not specified, Amazon Q Business will create a [service linked role (SLR)](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/using-service-linked-roles.html#slr-permissions) and use it as the application's role.
 	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
 	// The status of the Amazon Q Business application. The application is ready to use when the status is `ACTIVE` .
@@ -73,6 +74,7 @@ func NewApplication(ctx *pulumi.Context,
 		"encryptionConfiguration",
 		"iamIdentityProviderArn",
 		"identityType",
+		"quickSightConfiguration",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -130,7 +132,8 @@ type applicationArgs struct {
 	// Configuration information about chat response personalization. For more information, see [Personalizing chat responses](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/personalizing-chat-responses.html) .
 	PersonalizationConfiguration *ApplicationPersonalizationConfiguration `pulumi:"personalizationConfiguration"`
 	// Configuration information about Amazon Q Apps.
-	QAppsConfiguration *ApplicationQAppsConfiguration `pulumi:"qAppsConfiguration"`
+	QAppsConfiguration      *ApplicationQAppsConfiguration      `pulumi:"qAppsConfiguration"`
+	QuickSightConfiguration *ApplicationQuickSightConfiguration `pulumi:"quickSightConfiguration"`
 	// The Amazon Resource Name (ARN) of an IAM role with permissions to access your Amazon CloudWatch logs and metrics. If this property is not specified, Amazon Q Business will create a [service linked role (SLR)](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/using-service-linked-roles.html#slr-permissions) and use it as the application's role.
 	RoleArn *string `pulumi:"roleArn"`
 	// A list of key-value pairs that identify or categorize your Amazon Q Business application. You can also use tags to help control access to the application. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
@@ -161,7 +164,8 @@ type ApplicationArgs struct {
 	// Configuration information about chat response personalization. For more information, see [Personalizing chat responses](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/personalizing-chat-responses.html) .
 	PersonalizationConfiguration ApplicationPersonalizationConfigurationPtrInput
 	// Configuration information about Amazon Q Apps.
-	QAppsConfiguration ApplicationQAppsConfigurationPtrInput
+	QAppsConfiguration      ApplicationQAppsConfigurationPtrInput
+	QuickSightConfiguration ApplicationQuickSightConfigurationPtrInput
 	// The Amazon Resource Name (ARN) of an IAM role with permissions to access your Amazon CloudWatch logs and metrics. If this property is not specified, Amazon Q Business will create a [service linked role (SLR)](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/using-service-linked-roles.html#slr-permissions) and use it as the application's role.
 	RoleArn pulumi.StringPtrInput
 	// A list of key-value pairs that identify or categorize your Amazon Q Business application. You can also use tags to help control access to the application. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
@@ -283,6 +287,10 @@ func (o ApplicationOutput) PersonalizationConfiguration() ApplicationPersonaliza
 // Configuration information about Amazon Q Apps.
 func (o ApplicationOutput) QAppsConfiguration() ApplicationQAppsConfigurationPtrOutput {
 	return o.ApplyT(func(v *Application) ApplicationQAppsConfigurationPtrOutput { return v.QAppsConfiguration }).(ApplicationQAppsConfigurationPtrOutput)
+}
+
+func (o ApplicationOutput) QuickSightConfiguration() ApplicationQuickSightConfigurationPtrOutput {
+	return o.ApplyT(func(v *Application) ApplicationQuickSightConfigurationPtrOutput { return v.QuickSightConfiguration }).(ApplicationQuickSightConfigurationPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of an IAM role with permissions to access your Amazon CloudWatch logs and metrics. If this property is not specified, Amazon Q Business will create a [service linked role (SLR)](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/using-service-linked-roles.html#slr-permissions) and use it as the application's role.

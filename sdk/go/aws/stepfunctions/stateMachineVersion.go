@@ -41,6 +41,7 @@ func NewStateMachineVersion(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'StateMachineArn'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"description",
 		"stateMachineArn",
 		"stateMachineRevisionId",
 	})

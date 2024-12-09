@@ -243,6 +243,8 @@ __all__ = [
     'OfflineStoreConfigProperties',
     'OnlineStoreConfigProperties',
     'ParallelismConfigurationProperties',
+    'PartnerAppConfig',
+    'PartnerAppMaintenanceConfig',
     'PipelineDefinition0Properties',
     'PipelineDefinition1Properties',
     'PipelineS3Location',
@@ -14278,6 +14280,97 @@ class ParallelismConfigurationProperties(dict):
         Maximum parallel execution steps
         """
         return pulumi.get(self, "max_parallel_execution_steps")
+
+
+@pulumi.output_type
+class PartnerAppConfig(dict):
+    """
+    A collection of configuration settings for the PartnerApp.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "adminUsers":
+            suggest = "admin_users"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PartnerAppConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PartnerAppConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PartnerAppConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 admin_users: Optional[Sequence[str]] = None,
+                 arguments: Optional[Mapping[str, str]] = None):
+        """
+        A collection of configuration settings for the PartnerApp.
+        :param Sequence[str] admin_users: A list of users with administrator privileges for the PartnerApp.
+        :param Mapping[str, str] arguments: A list of arguments to pass to the PartnerApp.
+        """
+        if admin_users is not None:
+            pulumi.set(__self__, "admin_users", admin_users)
+        if arguments is not None:
+            pulumi.set(__self__, "arguments", arguments)
+
+    @property
+    @pulumi.getter(name="adminUsers")
+    def admin_users(self) -> Optional[Sequence[str]]:
+        """
+        A list of users with administrator privileges for the PartnerApp.
+        """
+        return pulumi.get(self, "admin_users")
+
+    @property
+    @pulumi.getter
+    def arguments(self) -> Optional[Mapping[str, str]]:
+        """
+        A list of arguments to pass to the PartnerApp.
+        """
+        return pulumi.get(self, "arguments")
+
+
+@pulumi.output_type
+class PartnerAppMaintenanceConfig(dict):
+    """
+    A collection of settings that specify the maintenance schedule for the PartnerApp.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maintenanceWindowStart":
+            suggest = "maintenance_window_start"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PartnerAppMaintenanceConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PartnerAppMaintenanceConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PartnerAppMaintenanceConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 maintenance_window_start: str):
+        """
+        A collection of settings that specify the maintenance schedule for the PartnerApp.
+        :param str maintenance_window_start: The maintenance window start day and time for the PartnerApp.
+        """
+        pulumi.set(__self__, "maintenance_window_start", maintenance_window_start)
+
+    @property
+    @pulumi.getter(name="maintenanceWindowStart")
+    def maintenance_window_start(self) -> str:
+        """
+        The maintenance window start day and time for the PartnerApp.
+        """
+        return pulumi.get(self, "maintenance_window_start")
 
 
 @pulumi.output_type

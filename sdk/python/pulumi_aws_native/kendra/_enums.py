@@ -213,6 +213,7 @@ class IndexEdition(str, Enum):
     """
     DEVELOPER_EDITION = "DEVELOPER_EDITION"
     ENTERPRISE_EDITION = "ENTERPRISE_EDITION"
+    GEN_AI_ENTERPRISE_EDITION = "GEN_AI_ENTERPRISE_EDITION"
 
 
 class IndexKeyLocation(str, Enum):

@@ -76,7 +76,7 @@ type Configuration struct {
 	// The ID of the Amazon MQ configuration.
 	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// The base64-encoded XML configuration.
-	Data pulumi.StringOutput `pulumi:"data"`
+	Data pulumi.StringPtrOutput `pulumi:"data"`
 	// The description of the configuration.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The type of broker engine. Note: Currently, Amazon MQ only supports ACTIVEMQ for creating and editing broker configurations.
@@ -98,9 +98,6 @@ func NewConfiguration(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.Data == nil {
-		return nil, errors.New("invalid value for required argument 'Data'")
-	}
 	if args.EngineType == nil {
 		return nil, errors.New("invalid value for required argument 'EngineType'")
 	}
@@ -147,7 +144,7 @@ type configurationArgs struct {
 	// The authentication strategy associated with the configuration. The default is SIMPLE.
 	AuthenticationStrategy *string `pulumi:"authenticationStrategy"`
 	// The base64-encoded XML configuration.
-	Data string `pulumi:"data"`
+	Data *string `pulumi:"data"`
 	// The description of the configuration.
 	Description *string `pulumi:"description"`
 	// The type of broker engine. Note: Currently, Amazon MQ only supports ACTIVEMQ for creating and editing broker configurations.
@@ -165,7 +162,7 @@ type ConfigurationArgs struct {
 	// The authentication strategy associated with the configuration. The default is SIMPLE.
 	AuthenticationStrategy pulumi.StringPtrInput
 	// The base64-encoded XML configuration.
-	Data pulumi.StringInput
+	Data pulumi.StringPtrInput
 	// The description of the configuration.
 	Description pulumi.StringPtrInput
 	// The type of broker engine. Note: Currently, Amazon MQ only supports ACTIVEMQ for creating and editing broker configurations.
@@ -231,8 +228,8 @@ func (o ConfigurationOutput) AwsId() pulumi.StringOutput {
 }
 
 // The base64-encoded XML configuration.
-func (o ConfigurationOutput) Data() pulumi.StringOutput {
-	return o.ApplyT(func(v *Configuration) pulumi.StringOutput { return v.Data }).(pulumi.StringOutput)
+func (o ConfigurationOutput) Data() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Configuration) pulumi.StringPtrOutput { return v.Data }).(pulumi.StringPtrOutput)
 }
 
 // The description of the configuration.

@@ -15,6 +15,7 @@ __all__ = [
     'DataSourceAttributeValueOperator',
     'DataSourceDocumentContentOperator',
     'DataSourceDocumentEnrichmentConditionOperator',
+    'DataSourceImageExtractionStatus',
     'DataSourceStatus',
     'IndexAttributeType',
     'IndexStatus',
@@ -45,6 +46,7 @@ class ApplicationIdentityType(str, Enum):
     AWS_IAM_IDP_SAML = "AWS_IAM_IDP_SAML"
     AWS_IAM_IDP_OIDC = "AWS_IAM_IDP_OIDC"
     AWS_IAM_IDC = "AWS_IAM_IDC"
+    AWS_QUICKSIGHT_IDP = "AWS_QUICKSIGHT_IDP"
 
 
 class ApplicationPersonalizationControlMode(str, Enum):
@@ -90,6 +92,11 @@ class DataSourceDocumentEnrichmentConditionOperator(str, Enum):
     EXISTS = "EXISTS"
     NOT_EXISTS = "NOT_EXISTS"
     BEGINS_WITH = "BEGINS_WITH"
+
+
+class DataSourceImageExtractionStatus(str, Enum):
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
 
 
 class DataSourceStatus(str, Enum):
@@ -146,6 +153,18 @@ class PluginType(str, Enum):
     JIRA = "JIRA"
     ZENDESK = "ZENDESK"
     CUSTOM = "CUSTOM"
+    QUICKSIGHT = "QUICKSIGHT"
+    SERVICENOW_NOW_PLATFORM = "SERVICENOW_NOW_PLATFORM"
+    JIRA_CLOUD = "JIRA_CLOUD"
+    SALESFORCE_CRM = "SALESFORCE_CRM"
+    ZENDESK_SUITE = "ZENDESK_SUITE"
+    ATLASSIAN_CONFLUENCE = "ATLASSIAN_CONFLUENCE"
+    GOOGLE_CALENDAR = "GOOGLE_CALENDAR"
+    MICROSOFT_TEAMS = "MICROSOFT_TEAMS"
+    MICROSOFT_EXCHANGE = "MICROSOFT_EXCHANGE"
+    PAGERDUTY_ADVANCE = "PAGERDUTY_ADVANCE"
+    SMARTSHEET = "SMARTSHEET"
+    ASANA = "ASANA"
 
 
 class QBusinessIndexStatus(str, Enum):

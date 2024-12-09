@@ -25,6 +25,7 @@ __all__ = ['WebExperienceArgs', 'WebExperience']
 class WebExperienceArgs:
     def __init__(__self__, *,
                  application_id: pulumi.Input[str],
+                 customization_configuration: Optional[pulumi.Input['WebExperienceCustomizationConfigurationArgs']] = None,
                  identity_provider_configuration: Optional[pulumi.Input[Union['WebExperienceIdentityProviderConfiguration0PropertiesArgs', 'WebExperienceIdentityProviderConfiguration1PropertiesArgs']]] = None,
                  origins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
@@ -50,6 +51,8 @@ class WebExperienceArgs:
         :param pulumi.Input[str] welcome_message: A message in an Amazon Q Business web experience.
         """
         pulumi.set(__self__, "application_id", application_id)
+        if customization_configuration is not None:
+            pulumi.set(__self__, "customization_configuration", customization_configuration)
         if identity_provider_configuration is not None:
             pulumi.set(__self__, "identity_provider_configuration", identity_provider_configuration)
         if origins is not None:
@@ -78,6 +81,15 @@ class WebExperienceArgs:
     @application_id.setter
     def application_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "application_id", value)
+
+    @property
+    @pulumi.getter(name="customizationConfiguration")
+    def customization_configuration(self) -> Optional[pulumi.Input['WebExperienceCustomizationConfigurationArgs']]:
+        return pulumi.get(self, "customization_configuration")
+
+    @customization_configuration.setter
+    def customization_configuration(self, value: Optional[pulumi.Input['WebExperienceCustomizationConfigurationArgs']]):
+        pulumi.set(self, "customization_configuration", value)
 
     @property
     @pulumi.getter(name="identityProviderConfiguration")
@@ -186,6 +198,7 @@ class WebExperience(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_id: Optional[pulumi.Input[str]] = None,
+                 customization_configuration: Optional[pulumi.Input[Union['WebExperienceCustomizationConfigurationArgs', 'WebExperienceCustomizationConfigurationArgsDict']]] = None,
                  identity_provider_configuration: Optional[pulumi.Input[Union[Union['WebExperienceIdentityProviderConfiguration0PropertiesArgs', 'WebExperienceIdentityProviderConfiguration0PropertiesArgsDict'], Union['WebExperienceIdentityProviderConfiguration1PropertiesArgs', 'WebExperienceIdentityProviderConfiguration1PropertiesArgsDict']]]] = None,
                  origins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
@@ -239,6 +252,7 @@ class WebExperience(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_id: Optional[pulumi.Input[str]] = None,
+                 customization_configuration: Optional[pulumi.Input[Union['WebExperienceCustomizationConfigurationArgs', 'WebExperienceCustomizationConfigurationArgsDict']]] = None,
                  identity_provider_configuration: Optional[pulumi.Input[Union[Union['WebExperienceIdentityProviderConfiguration0PropertiesArgs', 'WebExperienceIdentityProviderConfiguration0PropertiesArgsDict'], Union['WebExperienceIdentityProviderConfiguration1PropertiesArgs', 'WebExperienceIdentityProviderConfiguration1PropertiesArgsDict']]]] = None,
                  origins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
@@ -259,6 +273,7 @@ class WebExperience(pulumi.CustomResource):
             if application_id is None and not opts.urn:
                 raise TypeError("Missing required property 'application_id'")
             __props__.__dict__["application_id"] = application_id
+            __props__.__dict__["customization_configuration"] = customization_configuration
             __props__.__dict__["identity_provider_configuration"] = identity_provider_configuration
             __props__.__dict__["origins"] = origins
             __props__.__dict__["role_arn"] = role_arn
@@ -299,6 +314,7 @@ class WebExperience(pulumi.CustomResource):
 
         __props__.__dict__["application_id"] = None
         __props__.__dict__["created_at"] = None
+        __props__.__dict__["customization_configuration"] = None
         __props__.__dict__["default_endpoint"] = None
         __props__.__dict__["identity_provider_configuration"] = None
         __props__.__dict__["origins"] = None
@@ -329,6 +345,11 @@ class WebExperience(pulumi.CustomResource):
         The Unix timestamp when the Amazon Q Business application was last updated.
         """
         return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="customizationConfiguration")
+    def customization_configuration(self) -> pulumi.Output[Optional['outputs.WebExperienceCustomizationConfiguration']]:
+        return pulumi.get(self, "customization_configuration")
 
     @property
     @pulumi.getter(name="defaultEndpoint")

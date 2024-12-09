@@ -34149,6 +34149,310 @@ func (o ParallelismConfigurationPropertiesPtrOutput) MaxParallelExecutionSteps()
 	}).(pulumi.IntPtrOutput)
 }
 
+// A collection of configuration settings for the PartnerApp.
+type PartnerAppConfig struct {
+	// A list of users with administrator privileges for the PartnerApp.
+	AdminUsers []string `pulumi:"adminUsers"`
+	// A list of arguments to pass to the PartnerApp.
+	Arguments map[string]string `pulumi:"arguments"`
+}
+
+// PartnerAppConfigInput is an input type that accepts PartnerAppConfigArgs and PartnerAppConfigOutput values.
+// You can construct a concrete instance of `PartnerAppConfigInput` via:
+//
+//	PartnerAppConfigArgs{...}
+type PartnerAppConfigInput interface {
+	pulumi.Input
+
+	ToPartnerAppConfigOutput() PartnerAppConfigOutput
+	ToPartnerAppConfigOutputWithContext(context.Context) PartnerAppConfigOutput
+}
+
+// A collection of configuration settings for the PartnerApp.
+type PartnerAppConfigArgs struct {
+	// A list of users with administrator privileges for the PartnerApp.
+	AdminUsers pulumi.StringArrayInput `pulumi:"adminUsers"`
+	// A list of arguments to pass to the PartnerApp.
+	Arguments pulumi.StringMapInput `pulumi:"arguments"`
+}
+
+func (PartnerAppConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartnerAppConfig)(nil)).Elem()
+}
+
+func (i PartnerAppConfigArgs) ToPartnerAppConfigOutput() PartnerAppConfigOutput {
+	return i.ToPartnerAppConfigOutputWithContext(context.Background())
+}
+
+func (i PartnerAppConfigArgs) ToPartnerAppConfigOutputWithContext(ctx context.Context) PartnerAppConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartnerAppConfigOutput)
+}
+
+func (i PartnerAppConfigArgs) ToPartnerAppConfigPtrOutput() PartnerAppConfigPtrOutput {
+	return i.ToPartnerAppConfigPtrOutputWithContext(context.Background())
+}
+
+func (i PartnerAppConfigArgs) ToPartnerAppConfigPtrOutputWithContext(ctx context.Context) PartnerAppConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartnerAppConfigOutput).ToPartnerAppConfigPtrOutputWithContext(ctx)
+}
+
+// PartnerAppConfigPtrInput is an input type that accepts PartnerAppConfigArgs, PartnerAppConfigPtr and PartnerAppConfigPtrOutput values.
+// You can construct a concrete instance of `PartnerAppConfigPtrInput` via:
+//
+//	        PartnerAppConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type PartnerAppConfigPtrInput interface {
+	pulumi.Input
+
+	ToPartnerAppConfigPtrOutput() PartnerAppConfigPtrOutput
+	ToPartnerAppConfigPtrOutputWithContext(context.Context) PartnerAppConfigPtrOutput
+}
+
+type partnerAppConfigPtrType PartnerAppConfigArgs
+
+func PartnerAppConfigPtr(v *PartnerAppConfigArgs) PartnerAppConfigPtrInput {
+	return (*partnerAppConfigPtrType)(v)
+}
+
+func (*partnerAppConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PartnerAppConfig)(nil)).Elem()
+}
+
+func (i *partnerAppConfigPtrType) ToPartnerAppConfigPtrOutput() PartnerAppConfigPtrOutput {
+	return i.ToPartnerAppConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *partnerAppConfigPtrType) ToPartnerAppConfigPtrOutputWithContext(ctx context.Context) PartnerAppConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartnerAppConfigPtrOutput)
+}
+
+// A collection of configuration settings for the PartnerApp.
+type PartnerAppConfigOutput struct{ *pulumi.OutputState }
+
+func (PartnerAppConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartnerAppConfig)(nil)).Elem()
+}
+
+func (o PartnerAppConfigOutput) ToPartnerAppConfigOutput() PartnerAppConfigOutput {
+	return o
+}
+
+func (o PartnerAppConfigOutput) ToPartnerAppConfigOutputWithContext(ctx context.Context) PartnerAppConfigOutput {
+	return o
+}
+
+func (o PartnerAppConfigOutput) ToPartnerAppConfigPtrOutput() PartnerAppConfigPtrOutput {
+	return o.ToPartnerAppConfigPtrOutputWithContext(context.Background())
+}
+
+func (o PartnerAppConfigOutput) ToPartnerAppConfigPtrOutputWithContext(ctx context.Context) PartnerAppConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PartnerAppConfig) *PartnerAppConfig {
+		return &v
+	}).(PartnerAppConfigPtrOutput)
+}
+
+// A list of users with administrator privileges for the PartnerApp.
+func (o PartnerAppConfigOutput) AdminUsers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PartnerAppConfig) []string { return v.AdminUsers }).(pulumi.StringArrayOutput)
+}
+
+// A list of arguments to pass to the PartnerApp.
+func (o PartnerAppConfigOutput) Arguments() pulumi.StringMapOutput {
+	return o.ApplyT(func(v PartnerAppConfig) map[string]string { return v.Arguments }).(pulumi.StringMapOutput)
+}
+
+type PartnerAppConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (PartnerAppConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PartnerAppConfig)(nil)).Elem()
+}
+
+func (o PartnerAppConfigPtrOutput) ToPartnerAppConfigPtrOutput() PartnerAppConfigPtrOutput {
+	return o
+}
+
+func (o PartnerAppConfigPtrOutput) ToPartnerAppConfigPtrOutputWithContext(ctx context.Context) PartnerAppConfigPtrOutput {
+	return o
+}
+
+func (o PartnerAppConfigPtrOutput) Elem() PartnerAppConfigOutput {
+	return o.ApplyT(func(v *PartnerAppConfig) PartnerAppConfig {
+		if v != nil {
+			return *v
+		}
+		var ret PartnerAppConfig
+		return ret
+	}).(PartnerAppConfigOutput)
+}
+
+// A list of users with administrator privileges for the PartnerApp.
+func (o PartnerAppConfigPtrOutput) AdminUsers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PartnerAppConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AdminUsers
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of arguments to pass to the PartnerApp.
+func (o PartnerAppConfigPtrOutput) Arguments() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *PartnerAppConfig) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Arguments
+	}).(pulumi.StringMapOutput)
+}
+
+// A collection of settings that specify the maintenance schedule for the PartnerApp.
+type PartnerAppMaintenanceConfig struct {
+	// The maintenance window start day and time for the PartnerApp.
+	MaintenanceWindowStart string `pulumi:"maintenanceWindowStart"`
+}
+
+// PartnerAppMaintenanceConfigInput is an input type that accepts PartnerAppMaintenanceConfigArgs and PartnerAppMaintenanceConfigOutput values.
+// You can construct a concrete instance of `PartnerAppMaintenanceConfigInput` via:
+//
+//	PartnerAppMaintenanceConfigArgs{...}
+type PartnerAppMaintenanceConfigInput interface {
+	pulumi.Input
+
+	ToPartnerAppMaintenanceConfigOutput() PartnerAppMaintenanceConfigOutput
+	ToPartnerAppMaintenanceConfigOutputWithContext(context.Context) PartnerAppMaintenanceConfigOutput
+}
+
+// A collection of settings that specify the maintenance schedule for the PartnerApp.
+type PartnerAppMaintenanceConfigArgs struct {
+	// The maintenance window start day and time for the PartnerApp.
+	MaintenanceWindowStart pulumi.StringInput `pulumi:"maintenanceWindowStart"`
+}
+
+func (PartnerAppMaintenanceConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartnerAppMaintenanceConfig)(nil)).Elem()
+}
+
+func (i PartnerAppMaintenanceConfigArgs) ToPartnerAppMaintenanceConfigOutput() PartnerAppMaintenanceConfigOutput {
+	return i.ToPartnerAppMaintenanceConfigOutputWithContext(context.Background())
+}
+
+func (i PartnerAppMaintenanceConfigArgs) ToPartnerAppMaintenanceConfigOutputWithContext(ctx context.Context) PartnerAppMaintenanceConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartnerAppMaintenanceConfigOutput)
+}
+
+func (i PartnerAppMaintenanceConfigArgs) ToPartnerAppMaintenanceConfigPtrOutput() PartnerAppMaintenanceConfigPtrOutput {
+	return i.ToPartnerAppMaintenanceConfigPtrOutputWithContext(context.Background())
+}
+
+func (i PartnerAppMaintenanceConfigArgs) ToPartnerAppMaintenanceConfigPtrOutputWithContext(ctx context.Context) PartnerAppMaintenanceConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartnerAppMaintenanceConfigOutput).ToPartnerAppMaintenanceConfigPtrOutputWithContext(ctx)
+}
+
+// PartnerAppMaintenanceConfigPtrInput is an input type that accepts PartnerAppMaintenanceConfigArgs, PartnerAppMaintenanceConfigPtr and PartnerAppMaintenanceConfigPtrOutput values.
+// You can construct a concrete instance of `PartnerAppMaintenanceConfigPtrInput` via:
+//
+//	        PartnerAppMaintenanceConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type PartnerAppMaintenanceConfigPtrInput interface {
+	pulumi.Input
+
+	ToPartnerAppMaintenanceConfigPtrOutput() PartnerAppMaintenanceConfigPtrOutput
+	ToPartnerAppMaintenanceConfigPtrOutputWithContext(context.Context) PartnerAppMaintenanceConfigPtrOutput
+}
+
+type partnerAppMaintenanceConfigPtrType PartnerAppMaintenanceConfigArgs
+
+func PartnerAppMaintenanceConfigPtr(v *PartnerAppMaintenanceConfigArgs) PartnerAppMaintenanceConfigPtrInput {
+	return (*partnerAppMaintenanceConfigPtrType)(v)
+}
+
+func (*partnerAppMaintenanceConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PartnerAppMaintenanceConfig)(nil)).Elem()
+}
+
+func (i *partnerAppMaintenanceConfigPtrType) ToPartnerAppMaintenanceConfigPtrOutput() PartnerAppMaintenanceConfigPtrOutput {
+	return i.ToPartnerAppMaintenanceConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *partnerAppMaintenanceConfigPtrType) ToPartnerAppMaintenanceConfigPtrOutputWithContext(ctx context.Context) PartnerAppMaintenanceConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartnerAppMaintenanceConfigPtrOutput)
+}
+
+// A collection of settings that specify the maintenance schedule for the PartnerApp.
+type PartnerAppMaintenanceConfigOutput struct{ *pulumi.OutputState }
+
+func (PartnerAppMaintenanceConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartnerAppMaintenanceConfig)(nil)).Elem()
+}
+
+func (o PartnerAppMaintenanceConfigOutput) ToPartnerAppMaintenanceConfigOutput() PartnerAppMaintenanceConfigOutput {
+	return o
+}
+
+func (o PartnerAppMaintenanceConfigOutput) ToPartnerAppMaintenanceConfigOutputWithContext(ctx context.Context) PartnerAppMaintenanceConfigOutput {
+	return o
+}
+
+func (o PartnerAppMaintenanceConfigOutput) ToPartnerAppMaintenanceConfigPtrOutput() PartnerAppMaintenanceConfigPtrOutput {
+	return o.ToPartnerAppMaintenanceConfigPtrOutputWithContext(context.Background())
+}
+
+func (o PartnerAppMaintenanceConfigOutput) ToPartnerAppMaintenanceConfigPtrOutputWithContext(ctx context.Context) PartnerAppMaintenanceConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PartnerAppMaintenanceConfig) *PartnerAppMaintenanceConfig {
+		return &v
+	}).(PartnerAppMaintenanceConfigPtrOutput)
+}
+
+// The maintenance window start day and time for the PartnerApp.
+func (o PartnerAppMaintenanceConfigOutput) MaintenanceWindowStart() pulumi.StringOutput {
+	return o.ApplyT(func(v PartnerAppMaintenanceConfig) string { return v.MaintenanceWindowStart }).(pulumi.StringOutput)
+}
+
+type PartnerAppMaintenanceConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (PartnerAppMaintenanceConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PartnerAppMaintenanceConfig)(nil)).Elem()
+}
+
+func (o PartnerAppMaintenanceConfigPtrOutput) ToPartnerAppMaintenanceConfigPtrOutput() PartnerAppMaintenanceConfigPtrOutput {
+	return o
+}
+
+func (o PartnerAppMaintenanceConfigPtrOutput) ToPartnerAppMaintenanceConfigPtrOutputWithContext(ctx context.Context) PartnerAppMaintenanceConfigPtrOutput {
+	return o
+}
+
+func (o PartnerAppMaintenanceConfigPtrOutput) Elem() PartnerAppMaintenanceConfigOutput {
+	return o.ApplyT(func(v *PartnerAppMaintenanceConfig) PartnerAppMaintenanceConfig {
+		if v != nil {
+			return *v
+		}
+		var ret PartnerAppMaintenanceConfig
+		return ret
+	}).(PartnerAppMaintenanceConfigOutput)
+}
+
+// The maintenance window start day and time for the PartnerApp.
+func (o PartnerAppMaintenanceConfigPtrOutput) MaintenanceWindowStart() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PartnerAppMaintenanceConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MaintenanceWindowStart
+	}).(pulumi.StringPtrOutput)
+}
+
+type PartnerAppTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
 // The definition of the pipeline. This can be either a JSON string or an Amazon S3 location.
 type PipelineDefinition0Properties struct {
 	// A specification that defines the pipeline in JSON format.
@@ -40816,6 +41120,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OnlineStoreConfigPropertiesPtrInput)(nil)).Elem(), OnlineStoreConfigPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ParallelismConfigurationPropertiesInput)(nil)).Elem(), ParallelismConfigurationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ParallelismConfigurationPropertiesPtrInput)(nil)).Elem(), ParallelismConfigurationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PartnerAppConfigInput)(nil)).Elem(), PartnerAppConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PartnerAppConfigPtrInput)(nil)).Elem(), PartnerAppConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PartnerAppMaintenanceConfigInput)(nil)).Elem(), PartnerAppMaintenanceConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PartnerAppMaintenanceConfigPtrInput)(nil)).Elem(), PartnerAppMaintenanceConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineDefinition0PropertiesInput)(nil)).Elem(), PipelineDefinition0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineDefinition1PropertiesInput)(nil)).Elem(), PipelineDefinition1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PipelineS3LocationInput)(nil)).Elem(), PipelineS3LocationArgs{})
@@ -41304,6 +41612,10 @@ func init() {
 	pulumi.RegisterOutputType(OnlineStoreConfigPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ParallelismConfigurationPropertiesOutput{})
 	pulumi.RegisterOutputType(ParallelismConfigurationPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(PartnerAppConfigOutput{})
+	pulumi.RegisterOutputType(PartnerAppConfigPtrOutput{})
+	pulumi.RegisterOutputType(PartnerAppMaintenanceConfigOutput{})
+	pulumi.RegisterOutputType(PartnerAppMaintenanceConfigPtrOutput{})
 	pulumi.RegisterOutputType(PipelineDefinition0PropertiesOutput{})
 	pulumi.RegisterOutputType(PipelineDefinition0PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(PipelineDefinition1PropertiesOutput{})

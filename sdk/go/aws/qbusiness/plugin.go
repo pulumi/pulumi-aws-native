@@ -18,7 +18,7 @@ type Plugin struct {
 	pulumi.CustomResourceState
 
 	// The identifier of the application that will contain the plugin.
-	ApplicationId pulumi.StringOutput `pulumi:"applicationId"`
+	ApplicationId pulumi.StringPtrOutput `pulumi:"applicationId"`
 	// Authentication configuration information for an Amazon Q Business plugin.
 	AuthConfiguration pulumi.AnyOutput `pulumi:"authConfiguration"`
 	// The current status of a plugin. A plugin is modified asynchronously.
@@ -52,9 +52,6 @@ func NewPlugin(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ApplicationId == nil {
-		return nil, errors.New("invalid value for required argument 'ApplicationId'")
-	}
 	if args.AuthConfiguration == nil {
 		return nil, errors.New("invalid value for required argument 'AuthConfiguration'")
 	}
@@ -103,7 +100,7 @@ func (PluginState) ElementType() reflect.Type {
 
 type pluginArgs struct {
 	// The identifier of the application that will contain the plugin.
-	ApplicationId string `pulumi:"applicationId"`
+	ApplicationId *string `pulumi:"applicationId"`
 	// Authentication configuration information for an Amazon Q Business plugin.
 	AuthConfiguration interface{} `pulumi:"authConfiguration"`
 	// Configuration information required to create a custom plugin.
@@ -123,7 +120,7 @@ type pluginArgs struct {
 // The set of arguments for constructing a Plugin resource.
 type PluginArgs struct {
 	// The identifier of the application that will contain the plugin.
-	ApplicationId pulumi.StringInput
+	ApplicationId pulumi.StringPtrInput
 	// Authentication configuration information for an Amazon Q Business plugin.
 	AuthConfiguration pulumi.Input
 	// Configuration information required to create a custom plugin.
@@ -178,8 +175,8 @@ func (o PluginOutput) ToPluginOutputWithContext(ctx context.Context) PluginOutpu
 }
 
 // The identifier of the application that will contain the plugin.
-func (o PluginOutput) ApplicationId() pulumi.StringOutput {
-	return o.ApplyT(func(v *Plugin) pulumi.StringOutput { return v.ApplicationId }).(pulumi.StringOutput)
+func (o PluginOutput) ApplicationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Plugin) pulumi.StringPtrOutput { return v.ApplicationId }).(pulumi.StringPtrOutput)
 }
 
 // Authentication configuration information for an Amazon Q Business plugin.

@@ -1045,6 +1045,27 @@ export const MonitoringScheduleStatus = {
  */
 export type MonitoringScheduleStatus = (typeof MonitoringScheduleStatus)[keyof typeof MonitoringScheduleStatus];
 
+export const PartnerAppAuthType = {
+    Iam: "IAM",
+} as const;
+
+/**
+ * The Auth type of PartnerApp.
+ */
+export type PartnerAppAuthType = (typeof PartnerAppAuthType)[keyof typeof PartnerAppAuthType];
+
+export const PartnerAppType = {
+    LakeraGuard: "lakera-guard",
+    Comet: "comet",
+    DeepchecksLlmEvaluation: "deepchecks-llm-evaluation",
+    Fiddler: "fiddler",
+} as const;
+
+/**
+ * The type of PartnerApp.
+ */
+export type PartnerAppType = (typeof PartnerAppType)[keyof typeof PartnerAppType];
+
 export const ProjectStatus = {
     Pending: "Pending",
     CreateInProgress: "CreateInProgress",

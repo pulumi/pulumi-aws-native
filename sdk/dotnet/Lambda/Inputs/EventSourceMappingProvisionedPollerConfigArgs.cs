@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Lambda.Inputs
 {
 
+    /// <summary>
+    /// The [provisioned mode](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode) configuration for the event source. Use provisioned mode to customize the minimum and maximum number of event pollers for your event source.
+    /// </summary>
     public sealed class EventSourceMappingProvisionedPollerConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>

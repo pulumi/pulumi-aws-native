@@ -12,11 +12,17 @@ namespace Pulumi.AwsNative.QBusiness.Inputs
 
     public sealed class PluginOAuth2ClientCredentialConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        [Input("authorizationUrl")]
+        public Input<string>? AuthorizationUrl { get; set; }
+
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
 
         [Input("secretArn", required: true)]
         public Input<string> SecretArn { get; set; } = null!;
+
+        [Input("tokenUrl")]
+        public Input<string>? TokenUrl { get; set; }
 
         public PluginOAuth2ClientCredentialConfigurationArgs()
         {

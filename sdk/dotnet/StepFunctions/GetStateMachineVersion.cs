@@ -61,19 +61,11 @@ namespace Pulumi.AwsNative.StepFunctions
         /// Returns the ARN of the state machine version. For example, `arn:aws:states:us-east-1:123456789012:stateMachine:myStateMachine:1` .
         /// </summary>
         public readonly string? Arn;
-        /// <summary>
-        /// An optional description of the state machine version.
-        /// </summary>
-        public readonly string? Description;
 
         [OutputConstructor]
-        private GetStateMachineVersionResult(
-            string? arn,
-
-            string? description)
+        private GetStateMachineVersionResult(string? arn)
         {
             Arn = arn;
-            Description = description;
         }
     }
 }

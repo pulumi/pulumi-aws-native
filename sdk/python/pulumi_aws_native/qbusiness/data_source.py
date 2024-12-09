@@ -30,6 +30,7 @@ class DataSourceArgs:
                  index_id: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
                  document_enrichment_configuration: Optional[pulumi.Input['DataSourceDocumentEnrichmentConfigurationArgs']] = None,
+                 media_extraction_configuration: Optional[pulumi.Input['DataSourceMediaExtractionConfigurationArgs']] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  sync_schedule: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
@@ -71,6 +72,8 @@ class DataSourceArgs:
             pulumi.set(__self__, "description", description)
         if document_enrichment_configuration is not None:
             pulumi.set(__self__, "document_enrichment_configuration", document_enrichment_configuration)
+        if media_extraction_configuration is not None:
+            pulumi.set(__self__, "media_extraction_configuration", media_extraction_configuration)
         if role_arn is not None:
             pulumi.set(__self__, "role_arn", role_arn)
         if sync_schedule is not None:
@@ -167,6 +170,15 @@ class DataSourceArgs:
         pulumi.set(self, "document_enrichment_configuration", value)
 
     @property
+    @pulumi.getter(name="mediaExtractionConfiguration")
+    def media_extraction_configuration(self) -> Optional[pulumi.Input['DataSourceMediaExtractionConfigurationArgs']]:
+        return pulumi.get(self, "media_extraction_configuration")
+
+    @media_extraction_configuration.setter
+    def media_extraction_configuration(self, value: Optional[pulumi.Input['DataSourceMediaExtractionConfigurationArgs']]):
+        pulumi.set(self, "media_extraction_configuration", value)
+
+    @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[str]]:
         """
@@ -228,6 +240,7 @@ class DataSource(pulumi.CustomResource):
                  display_name: Optional[pulumi.Input[str]] = None,
                  document_enrichment_configuration: Optional[pulumi.Input[Union['DataSourceDocumentEnrichmentConfigurationArgs', 'DataSourceDocumentEnrichmentConfigurationArgsDict']]] = None,
                  index_id: Optional[pulumi.Input[str]] = None,
+                 media_extraction_configuration: Optional[pulumi.Input[Union['DataSourceMediaExtractionConfigurationArgs', 'DataSourceMediaExtractionConfigurationArgsDict']]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  sync_schedule: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
@@ -295,6 +308,7 @@ class DataSource(pulumi.CustomResource):
                  display_name: Optional[pulumi.Input[str]] = None,
                  document_enrichment_configuration: Optional[pulumi.Input[Union['DataSourceDocumentEnrichmentConfigurationArgs', 'DataSourceDocumentEnrichmentConfigurationArgsDict']]] = None,
                  index_id: Optional[pulumi.Input[str]] = None,
+                 media_extraction_configuration: Optional[pulumi.Input[Union['DataSourceMediaExtractionConfigurationArgs', 'DataSourceMediaExtractionConfigurationArgsDict']]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  sync_schedule: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
@@ -322,6 +336,7 @@ class DataSource(pulumi.CustomResource):
             if index_id is None and not opts.urn:
                 raise TypeError("Missing required property 'index_id'")
             __props__.__dict__["index_id"] = index_id
+            __props__.__dict__["media_extraction_configuration"] = media_extraction_configuration
             __props__.__dict__["role_arn"] = role_arn
             __props__.__dict__["sync_schedule"] = sync_schedule
             __props__.__dict__["tags"] = tags
@@ -365,6 +380,7 @@ class DataSource(pulumi.CustomResource):
         __props__.__dict__["display_name"] = None
         __props__.__dict__["document_enrichment_configuration"] = None
         __props__.__dict__["index_id"] = None
+        __props__.__dict__["media_extraction_configuration"] = None
         __props__.__dict__["role_arn"] = None
         __props__.__dict__["status"] = None
         __props__.__dict__["sync_schedule"] = None
@@ -459,6 +475,11 @@ class DataSource(pulumi.CustomResource):
         The identifier of the index the data source is attached to.
         """
         return pulumi.get(self, "index_id")
+
+    @property
+    @pulumi.getter(name="mediaExtractionConfiguration")
+    def media_extraction_configuration(self) -> pulumi.Output[Optional['outputs.DataSourceMediaExtractionConfiguration']]:
+        return pulumi.get(self, "media_extraction_configuration")
 
     @property
     @pulumi.getter(name="roleArn")

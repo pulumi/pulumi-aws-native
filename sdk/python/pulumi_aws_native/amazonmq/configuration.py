@@ -21,27 +21,28 @@ __all__ = ['ConfigurationArgs', 'Configuration']
 @pulumi.input_type
 class ConfigurationArgs:
     def __init__(__self__, *,
-                 data: pulumi.Input[str],
                  engine_type: pulumi.Input[str],
                  authentication_strategy: Optional[pulumi.Input[str]] = None,
+                 data: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Configuration resource.
-        :param pulumi.Input[str] data: The base64-encoded XML configuration.
         :param pulumi.Input[str] engine_type: The type of broker engine. Note: Currently, Amazon MQ only supports ACTIVEMQ for creating and editing broker configurations.
         :param pulumi.Input[str] authentication_strategy: The authentication strategy associated with the configuration. The default is SIMPLE.
+        :param pulumi.Input[str] data: The base64-encoded XML configuration.
         :param pulumi.Input[str] description: The description of the configuration.
         :param pulumi.Input[str] engine_version: The version of the broker engine.
         :param pulumi.Input[str] name: The name of the configuration.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Create tags when creating the configuration.
         """
-        pulumi.set(__self__, "data", data)
         pulumi.set(__self__, "engine_type", engine_type)
         if authentication_strategy is not None:
             pulumi.set(__self__, "authentication_strategy", authentication_strategy)
+        if data is not None:
+            pulumi.set(__self__, "data", data)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if engine_version is not None:
@@ -50,18 +51,6 @@ class ConfigurationArgs:
             pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter
-    def data(self) -> pulumi.Input[str]:
-        """
-        The base64-encoded XML configuration.
-        """
-        return pulumi.get(self, "data")
-
-    @data.setter
-    def data(self, value: pulumi.Input[str]):
-        pulumi.set(self, "data", value)
 
     @property
     @pulumi.getter(name="engineType")
@@ -86,6 +75,18 @@ class ConfigurationArgs:
     @authentication_strategy.setter
     def authentication_strategy(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "authentication_strategy", value)
+
+    @property
+    @pulumi.getter
+    def data(self) -> Optional[pulumi.Input[str]]:
+        """
+        The base64-encoded XML configuration.
+        """
+        return pulumi.get(self, "data")
+
+    @data.setter
+    def data(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "data", value)
 
     @property
     @pulumi.getter
@@ -267,8 +268,6 @@ class Configuration(pulumi.CustomResource):
             __props__ = ConfigurationArgs.__new__(ConfigurationArgs)
 
             __props__.__dict__["authentication_strategy"] = authentication_strategy
-            if data is None and not opts.urn:
-                raise TypeError("Missing required property 'data'")
             __props__.__dict__["data"] = data
             __props__.__dict__["description"] = description
             if engine_type is None and not opts.urn:
@@ -342,7 +341,7 @@ class Configuration(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def data(self) -> pulumi.Output[str]:
+    def data(self) -> pulumi.Output[Optional[str]]:
         """
         The base64-encoded XML configuration.
         """

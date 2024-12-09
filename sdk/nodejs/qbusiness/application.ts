@@ -96,6 +96,7 @@ export class Application extends pulumi.CustomResource {
      * Configuration information about Amazon Q Apps.
      */
     public readonly qAppsConfiguration!: pulumi.Output<outputs.qbusiness.ApplicationQAppsConfiguration | undefined>;
+    public readonly quickSightConfiguration!: pulumi.Output<outputs.qbusiness.ApplicationQuickSightConfiguration | undefined>;
     /**
      * The Amazon Resource Name (ARN) of an IAM role with permissions to access your Amazon CloudWatch logs and metrics. If this property is not specified, Amazon Q Business will create a [service linked role (SLR)](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/using-service-linked-roles.html#slr-permissions) and use it as the application's role.
      */
@@ -138,6 +139,7 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["identityType"] = args ? args.identityType : undefined;
             resourceInputs["personalizationConfiguration"] = args ? args.personalizationConfiguration : undefined;
             resourceInputs["qAppsConfiguration"] = args ? args.qAppsConfiguration : undefined;
+            resourceInputs["quickSightConfiguration"] = args ? args.quickSightConfiguration : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["applicationArn"] = undefined /*out*/;
@@ -162,13 +164,14 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["identityType"] = undefined /*out*/;
             resourceInputs["personalizationConfiguration"] = undefined /*out*/;
             resourceInputs["qAppsConfiguration"] = undefined /*out*/;
+            resourceInputs["quickSightConfiguration"] = undefined /*out*/;
             resourceInputs["roleArn"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["clientIdsForOidc[*]", "encryptionConfiguration", "iamIdentityProviderArn", "identityType"] };
+        const replaceOnChanges = { replaceOnChanges: ["clientIdsForOidc[*]", "encryptionConfiguration", "iamIdentityProviderArn", "identityType", "quickSightConfiguration"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Application.__pulumiType, name, resourceInputs, opts);
     }
@@ -221,6 +224,7 @@ export interface ApplicationArgs {
      * Configuration information about Amazon Q Apps.
      */
     qAppsConfiguration?: pulumi.Input<inputs.qbusiness.ApplicationQAppsConfigurationArgs>;
+    quickSightConfiguration?: pulumi.Input<inputs.qbusiness.ApplicationQuickSightConfigurationArgs>;
     /**
      * The Amazon Resource Name (ARN) of an IAM role with permissions to access your Amazon CloudWatch logs and metrics. If this property is not specified, Amazon Q Business will create a [service linked role (SLR)](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/using-service-linked-roles.html#slr-permissions) and use it as the application's role.
      */

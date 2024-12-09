@@ -91,6 +91,8 @@ __all__ = [
     'MonitoringScheduleMonitoringType',
     'MonitoringScheduleS3OutputS3UploadMode',
     'MonitoringScheduleStatus',
+    'PartnerAppAuthType',
+    'PartnerAppType',
     'ProjectStatus',
     'SpaceAppType',
     'SpaceResourceSpecInstanceType',
@@ -976,6 +978,23 @@ class MonitoringScheduleStatus(str, Enum):
     FAILED = "Failed"
     SCHEDULED = "Scheduled"
     STOPPED = "Stopped"
+
+
+class PartnerAppAuthType(str, Enum):
+    """
+    The Auth type of PartnerApp.
+    """
+    IAM = "IAM"
+
+
+class PartnerAppType(str, Enum):
+    """
+    The type of PartnerApp.
+    """
+    LAKERA_GUARD = "lakera-guard"
+    COMET = "comet"
+    DEEPCHECKS_LLM_EVALUATION = "deepchecks-llm-evaluation"
+    FIDDLER = "fiddler"
 
 
 class ProjectStatus(str, Enum):

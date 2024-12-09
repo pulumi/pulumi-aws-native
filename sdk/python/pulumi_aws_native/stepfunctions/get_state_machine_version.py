@@ -23,13 +23,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetStateMachineVersionResult:
-    def __init__(__self__, arn=None, description=None):
+    def __init__(__self__, arn=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
-        if description and not isinstance(description, str):
-            raise TypeError("Expected argument 'description' to be a str")
-        pulumi.set(__self__, "description", description)
 
     @property
     @pulumi.getter
@@ -39,14 +36,6 @@ class GetStateMachineVersionResult:
         """
         return pulumi.get(self, "arn")
 
-    @property
-    @pulumi.getter
-    def description(self) -> Optional[str]:
-        """
-        An optional description of the state machine version.
-        """
-        return pulumi.get(self, "description")
-
 
 class AwaitableGetStateMachineVersionResult(GetStateMachineVersionResult):
     # pylint: disable=using-constant-test
@@ -54,8 +43,7 @@ class AwaitableGetStateMachineVersionResult(GetStateMachineVersionResult):
         if False:
             yield self
         return GetStateMachineVersionResult(
-            arn=self.arn,
-            description=self.description)
+            arn=self.arn)
 
 
 def get_state_machine_version(arn: Optional[str] = None,
@@ -72,8 +60,7 @@ def get_state_machine_version(arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:stepfunctions:getStateMachineVersion', __args__, opts=opts, typ=GetStateMachineVersionResult).value
 
     return AwaitableGetStateMachineVersionResult(
-        arn=pulumi.get(__ret__, 'arn'),
-        description=pulumi.get(__ret__, 'description'))
+        arn=pulumi.get(__ret__, 'arn'))
 def get_state_machine_version_output(arn: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStateMachineVersionResult]:
     """
@@ -87,5 +74,4 @@ def get_state_machine_version_output(arn: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:stepfunctions:getStateMachineVersion', __args__, opts=opts, typ=GetStateMachineVersionResult)
     return __ret__.apply(lambda __response__: GetStateMachineVersionResult(
-        arn=pulumi.get(__response__, 'arn'),
-        description=pulumi.get(__response__, 'description')))
+        arn=pulumi.get(__response__, 'arn')))

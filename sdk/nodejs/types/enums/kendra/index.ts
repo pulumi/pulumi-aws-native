@@ -218,6 +218,7 @@ export type IndexDocumentAttributeValueType = (typeof IndexDocumentAttributeValu
 export const IndexEdition = {
     DeveloperEdition: "DEVELOPER_EDITION",
     EnterpriseEdition: "ENTERPRISE_EDITION",
+    GenAiEnterpriseEdition: "GEN_AI_ENTERPRISE_EDITION",
 } as const;
 
 /**

@@ -63,16 +63,25 @@ class GetAiGuardrailResult:
     @property
     @pulumi.getter(name="aiGuardrailArn")
     def ai_guardrail_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the AI Guardrail.
+        """
         return pulumi.get(self, "ai_guardrail_arn")
 
     @property
     @pulumi.getter(name="aiGuardrailId")
     def ai_guardrail_id(self) -> Optional[str]:
+        """
+        The identifier of the Amazon Q in Connect AI Guardrail.
+        """
         return pulumi.get(self, "ai_guardrail_id")
 
     @property
     @pulumi.getter(name="assistantArn")
     def assistant_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.
+        """
         return pulumi.get(self, "assistant_arn")
 
     @property
@@ -94,11 +103,17 @@ class GetAiGuardrailResult:
     @property
     @pulumi.getter(name="contentPolicyConfig")
     def content_policy_config(self) -> Optional['outputs.AiGuardrailAiGuardrailContentPolicyConfig']:
+        """
+        Contains details about how to handle harmful content.
+        """
         return pulumi.get(self, "content_policy_config")
 
     @property
     @pulumi.getter(name="contextualGroundingPolicyConfig")
     def contextual_grounding_policy_config(self) -> Optional['outputs.AiGuardrailAiGuardrailContextualGroundingPolicyConfig']:
+        """
+        The policy configuration details for the AI Guardrail's contextual grounding policy.
+        """
         return pulumi.get(self, "contextual_grounding_policy_config")
 
     @property
@@ -112,16 +127,25 @@ class GetAiGuardrailResult:
     @property
     @pulumi.getter(name="sensitiveInformationPolicyConfig")
     def sensitive_information_policy_config(self) -> Optional['outputs.AiGuardrailAiGuardrailSensitiveInformationPolicyConfig']:
+        """
+        Contains details about PII entities and regular expressions to configure for the AI Guardrail.
+        """
         return pulumi.get(self, "sensitive_information_policy_config")
 
     @property
     @pulumi.getter(name="topicPolicyConfig")
     def topic_policy_config(self) -> Optional['outputs.AiGuardrailAiGuardrailTopicPolicyConfig']:
+        """
+        Contains details about topics that the AI Guardrail should identify and deny.
+        """
         return pulumi.get(self, "topic_policy_config")
 
     @property
     @pulumi.getter(name="wordPolicyConfig")
     def word_policy_config(self) -> Optional['outputs.AiGuardrailAiGuardrailWordPolicyConfig']:
+        """
+        Contains details about the word policy to configured for the AI Guardrail.
+        """
         return pulumi.get(self, "word_policy_config")
 
 
@@ -149,6 +173,10 @@ def get_ai_guardrail(ai_guardrail_id: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAiGuardrailResult:
     """
     Definition of AWS::Wisdom::AIGuardrail Resource Type
+
+
+    :param str ai_guardrail_id: The identifier of the Amazon Q in Connect AI Guardrail.
+    :param str assistant_id: The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
     """
     __args__ = dict()
     __args__['aiGuardrailId'] = ai_guardrail_id
@@ -173,6 +201,10 @@ def get_ai_guardrail_output(ai_guardrail_id: Optional[pulumi.Input[str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAiGuardrailResult]:
     """
     Definition of AWS::Wisdom::AIGuardrail Resource Type
+
+
+    :param str ai_guardrail_id: The identifier of the Amazon Q in Connect AI Guardrail.
+    :param str assistant_id: The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
     """
     __args__ = dict()
     __args__['aiGuardrailId'] = ai_guardrail_id

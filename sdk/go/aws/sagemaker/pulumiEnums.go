@@ -14275,6 +14275,340 @@ func (in *monitoringScheduleStatusPtr) ToMonitoringScheduleStatusPtrOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, in).(MonitoringScheduleStatusPtrOutput)
 }
 
+// The Auth type of PartnerApp.
+type PartnerAppAuthType string
+
+const (
+	PartnerAppAuthTypeIam = PartnerAppAuthType("IAM")
+)
+
+func (PartnerAppAuthType) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartnerAppAuthType)(nil)).Elem()
+}
+
+func (e PartnerAppAuthType) ToPartnerAppAuthTypeOutput() PartnerAppAuthTypeOutput {
+	return pulumi.ToOutput(e).(PartnerAppAuthTypeOutput)
+}
+
+func (e PartnerAppAuthType) ToPartnerAppAuthTypeOutputWithContext(ctx context.Context) PartnerAppAuthTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PartnerAppAuthTypeOutput)
+}
+
+func (e PartnerAppAuthType) ToPartnerAppAuthTypePtrOutput() PartnerAppAuthTypePtrOutput {
+	return e.ToPartnerAppAuthTypePtrOutputWithContext(context.Background())
+}
+
+func (e PartnerAppAuthType) ToPartnerAppAuthTypePtrOutputWithContext(ctx context.Context) PartnerAppAuthTypePtrOutput {
+	return PartnerAppAuthType(e).ToPartnerAppAuthTypeOutputWithContext(ctx).ToPartnerAppAuthTypePtrOutputWithContext(ctx)
+}
+
+func (e PartnerAppAuthType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PartnerAppAuthType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PartnerAppAuthType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PartnerAppAuthType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PartnerAppAuthTypeOutput struct{ *pulumi.OutputState }
+
+func (PartnerAppAuthTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartnerAppAuthType)(nil)).Elem()
+}
+
+func (o PartnerAppAuthTypeOutput) ToPartnerAppAuthTypeOutput() PartnerAppAuthTypeOutput {
+	return o
+}
+
+func (o PartnerAppAuthTypeOutput) ToPartnerAppAuthTypeOutputWithContext(ctx context.Context) PartnerAppAuthTypeOutput {
+	return o
+}
+
+func (o PartnerAppAuthTypeOutput) ToPartnerAppAuthTypePtrOutput() PartnerAppAuthTypePtrOutput {
+	return o.ToPartnerAppAuthTypePtrOutputWithContext(context.Background())
+}
+
+func (o PartnerAppAuthTypeOutput) ToPartnerAppAuthTypePtrOutputWithContext(ctx context.Context) PartnerAppAuthTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PartnerAppAuthType) *PartnerAppAuthType {
+		return &v
+	}).(PartnerAppAuthTypePtrOutput)
+}
+
+func (o PartnerAppAuthTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PartnerAppAuthTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PartnerAppAuthType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PartnerAppAuthTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PartnerAppAuthTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PartnerAppAuthType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PartnerAppAuthTypePtrOutput struct{ *pulumi.OutputState }
+
+func (PartnerAppAuthTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PartnerAppAuthType)(nil)).Elem()
+}
+
+func (o PartnerAppAuthTypePtrOutput) ToPartnerAppAuthTypePtrOutput() PartnerAppAuthTypePtrOutput {
+	return o
+}
+
+func (o PartnerAppAuthTypePtrOutput) ToPartnerAppAuthTypePtrOutputWithContext(ctx context.Context) PartnerAppAuthTypePtrOutput {
+	return o
+}
+
+func (o PartnerAppAuthTypePtrOutput) Elem() PartnerAppAuthTypeOutput {
+	return o.ApplyT(func(v *PartnerAppAuthType) PartnerAppAuthType {
+		if v != nil {
+			return *v
+		}
+		var ret PartnerAppAuthType
+		return ret
+	}).(PartnerAppAuthTypeOutput)
+}
+
+func (o PartnerAppAuthTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PartnerAppAuthTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PartnerAppAuthType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PartnerAppAuthTypeInput is an input type that accepts values of the PartnerAppAuthType enum
+// A concrete instance of `PartnerAppAuthTypeInput` can be one of the following:
+//
+//	PartnerAppAuthTypeIam
+type PartnerAppAuthTypeInput interface {
+	pulumi.Input
+
+	ToPartnerAppAuthTypeOutput() PartnerAppAuthTypeOutput
+	ToPartnerAppAuthTypeOutputWithContext(context.Context) PartnerAppAuthTypeOutput
+}
+
+var partnerAppAuthTypePtrType = reflect.TypeOf((**PartnerAppAuthType)(nil)).Elem()
+
+type PartnerAppAuthTypePtrInput interface {
+	pulumi.Input
+
+	ToPartnerAppAuthTypePtrOutput() PartnerAppAuthTypePtrOutput
+	ToPartnerAppAuthTypePtrOutputWithContext(context.Context) PartnerAppAuthTypePtrOutput
+}
+
+type partnerAppAuthTypePtr string
+
+func PartnerAppAuthTypePtr(v string) PartnerAppAuthTypePtrInput {
+	return (*partnerAppAuthTypePtr)(&v)
+}
+
+func (*partnerAppAuthTypePtr) ElementType() reflect.Type {
+	return partnerAppAuthTypePtrType
+}
+
+func (in *partnerAppAuthTypePtr) ToPartnerAppAuthTypePtrOutput() PartnerAppAuthTypePtrOutput {
+	return pulumi.ToOutput(in).(PartnerAppAuthTypePtrOutput)
+}
+
+func (in *partnerAppAuthTypePtr) ToPartnerAppAuthTypePtrOutputWithContext(ctx context.Context) PartnerAppAuthTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PartnerAppAuthTypePtrOutput)
+}
+
+// The type of PartnerApp.
+type PartnerAppType string
+
+const (
+	PartnerAppTypeLakeraGuard             = PartnerAppType("lakera-guard")
+	PartnerAppTypeComet                   = PartnerAppType("comet")
+	PartnerAppTypeDeepchecksLlmEvaluation = PartnerAppType("deepchecks-llm-evaluation")
+	PartnerAppTypeFiddler                 = PartnerAppType("fiddler")
+)
+
+func (PartnerAppType) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartnerAppType)(nil)).Elem()
+}
+
+func (e PartnerAppType) ToPartnerAppTypeOutput() PartnerAppTypeOutput {
+	return pulumi.ToOutput(e).(PartnerAppTypeOutput)
+}
+
+func (e PartnerAppType) ToPartnerAppTypeOutputWithContext(ctx context.Context) PartnerAppTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PartnerAppTypeOutput)
+}
+
+func (e PartnerAppType) ToPartnerAppTypePtrOutput() PartnerAppTypePtrOutput {
+	return e.ToPartnerAppTypePtrOutputWithContext(context.Background())
+}
+
+func (e PartnerAppType) ToPartnerAppTypePtrOutputWithContext(ctx context.Context) PartnerAppTypePtrOutput {
+	return PartnerAppType(e).ToPartnerAppTypeOutputWithContext(ctx).ToPartnerAppTypePtrOutputWithContext(ctx)
+}
+
+func (e PartnerAppType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PartnerAppType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PartnerAppType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PartnerAppType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PartnerAppTypeOutput struct{ *pulumi.OutputState }
+
+func (PartnerAppTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartnerAppType)(nil)).Elem()
+}
+
+func (o PartnerAppTypeOutput) ToPartnerAppTypeOutput() PartnerAppTypeOutput {
+	return o
+}
+
+func (o PartnerAppTypeOutput) ToPartnerAppTypeOutputWithContext(ctx context.Context) PartnerAppTypeOutput {
+	return o
+}
+
+func (o PartnerAppTypeOutput) ToPartnerAppTypePtrOutput() PartnerAppTypePtrOutput {
+	return o.ToPartnerAppTypePtrOutputWithContext(context.Background())
+}
+
+func (o PartnerAppTypeOutput) ToPartnerAppTypePtrOutputWithContext(ctx context.Context) PartnerAppTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PartnerAppType) *PartnerAppType {
+		return &v
+	}).(PartnerAppTypePtrOutput)
+}
+
+func (o PartnerAppTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PartnerAppTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PartnerAppType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PartnerAppTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PartnerAppTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PartnerAppType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PartnerAppTypePtrOutput struct{ *pulumi.OutputState }
+
+func (PartnerAppTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PartnerAppType)(nil)).Elem()
+}
+
+func (o PartnerAppTypePtrOutput) ToPartnerAppTypePtrOutput() PartnerAppTypePtrOutput {
+	return o
+}
+
+func (o PartnerAppTypePtrOutput) ToPartnerAppTypePtrOutputWithContext(ctx context.Context) PartnerAppTypePtrOutput {
+	return o
+}
+
+func (o PartnerAppTypePtrOutput) Elem() PartnerAppTypeOutput {
+	return o.ApplyT(func(v *PartnerAppType) PartnerAppType {
+		if v != nil {
+			return *v
+		}
+		var ret PartnerAppType
+		return ret
+	}).(PartnerAppTypeOutput)
+}
+
+func (o PartnerAppTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PartnerAppTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PartnerAppType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PartnerAppTypeInput is an input type that accepts values of the PartnerAppType enum
+// A concrete instance of `PartnerAppTypeInput` can be one of the following:
+//
+//	PartnerAppTypeLakeraGuard
+//	PartnerAppTypeComet
+//	PartnerAppTypeDeepchecksLlmEvaluation
+//	PartnerAppTypeFiddler
+type PartnerAppTypeInput interface {
+	pulumi.Input
+
+	ToPartnerAppTypeOutput() PartnerAppTypeOutput
+	ToPartnerAppTypeOutputWithContext(context.Context) PartnerAppTypeOutput
+}
+
+var partnerAppTypePtrType = reflect.TypeOf((**PartnerAppType)(nil)).Elem()
+
+type PartnerAppTypePtrInput interface {
+	pulumi.Input
+
+	ToPartnerAppTypePtrOutput() PartnerAppTypePtrOutput
+	ToPartnerAppTypePtrOutputWithContext(context.Context) PartnerAppTypePtrOutput
+}
+
+type partnerAppTypePtr string
+
+func PartnerAppTypePtr(v string) PartnerAppTypePtrInput {
+	return (*partnerAppTypePtr)(&v)
+}
+
+func (*partnerAppTypePtr) ElementType() reflect.Type {
+	return partnerAppTypePtrType
+}
+
+func (in *partnerAppTypePtr) ToPartnerAppTypePtrOutput() PartnerAppTypePtrOutput {
+	return pulumi.ToOutput(in).(PartnerAppTypePtrOutput)
+}
+
+func (in *partnerAppTypePtr) ToPartnerAppTypePtrOutputWithContext(ctx context.Context) PartnerAppTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PartnerAppTypePtrOutput)
+}
+
 // The status of a project.
 type ProjectStatus string
 
@@ -16914,6 +17248,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleS3OutputS3UploadModePtrInput)(nil)).Elem(), MonitoringScheduleS3OutputS3UploadMode("Continuous"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleStatusInput)(nil)).Elem(), MonitoringScheduleStatus("Pending"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleStatusPtrInput)(nil)).Elem(), MonitoringScheduleStatus("Pending"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PartnerAppAuthTypeInput)(nil)).Elem(), PartnerAppAuthType("IAM"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PartnerAppAuthTypePtrInput)(nil)).Elem(), PartnerAppAuthType("IAM"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PartnerAppTypeInput)(nil)).Elem(), PartnerAppType("lakera-guard"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PartnerAppTypePtrInput)(nil)).Elem(), PartnerAppType("lakera-guard"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SpaceAppTypeInput)(nil)).Elem(), SpaceAppType("JupyterServer"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SpaceAppTypePtrInput)(nil)).Elem(), SpaceAppType("JupyterServer"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SpaceResourceSpecInstanceTypeInput)(nil)).Elem(), SpaceResourceSpecInstanceType("system"))
@@ -17115,6 +17453,10 @@ func init() {
 	pulumi.RegisterOutputType(MonitoringScheduleS3OutputS3UploadModePtrOutput{})
 	pulumi.RegisterOutputType(MonitoringScheduleStatusOutput{})
 	pulumi.RegisterOutputType(MonitoringScheduleStatusPtrOutput{})
+	pulumi.RegisterOutputType(PartnerAppAuthTypeOutput{})
+	pulumi.RegisterOutputType(PartnerAppAuthTypePtrOutput{})
+	pulumi.RegisterOutputType(PartnerAppTypeOutput{})
+	pulumi.RegisterOutputType(PartnerAppTypePtrOutput{})
 	pulumi.RegisterOutputType(ProjectStatusOutput{})
 	pulumi.RegisterOutputType(ProjectStatusPtrOutput{})
 	pulumi.RegisterOutputType(SpaceAppTypeOutput{})

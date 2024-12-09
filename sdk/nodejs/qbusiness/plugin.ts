@@ -40,7 +40,7 @@ export class Plugin extends pulumi.CustomResource {
     /**
      * The identifier of the application that will contain the plugin.
      */
-    public readonly applicationId!: pulumi.Output<string>;
+    public readonly applicationId!: pulumi.Output<string | undefined>;
     /**
      * Authentication configuration information for an Amazon Q Business plugin.
      */
@@ -101,9 +101,6 @@ export class Plugin extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.applicationId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'applicationId'");
-            }
             if ((!args || args.authConfiguration === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'authConfiguration'");
             }
@@ -155,7 +152,7 @@ export interface PluginArgs {
     /**
      * The identifier of the application that will contain the plugin.
      */
-    applicationId: pulumi.Input<string>;
+    applicationId?: pulumi.Input<string>;
     /**
      * Authentication configuration information for an Amazon Q Business plugin.
      */

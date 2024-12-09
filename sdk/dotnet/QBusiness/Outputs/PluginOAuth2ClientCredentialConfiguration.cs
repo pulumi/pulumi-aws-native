@@ -13,17 +13,25 @@ namespace Pulumi.AwsNative.QBusiness.Outputs
     [OutputType]
     public sealed class PluginOAuth2ClientCredentialConfiguration
     {
+        public readonly string? AuthorizationUrl;
         public readonly string RoleArn;
         public readonly string SecretArn;
+        public readonly string? TokenUrl;
 
         [OutputConstructor]
         private PluginOAuth2ClientCredentialConfiguration(
+            string? authorizationUrl,
+
             string roleArn,
 
-            string secretArn)
+            string secretArn,
+
+            string? tokenUrl)
         {
+            AuthorizationUrl = authorizationUrl;
             RoleArn = roleArn;
             SecretArn = secretArn;
+            TokenUrl = tokenUrl;
         }
     }
 }

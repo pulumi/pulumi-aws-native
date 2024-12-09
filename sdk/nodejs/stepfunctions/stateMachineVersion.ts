@@ -80,7 +80,7 @@ export class StateMachineVersion extends pulumi.CustomResource {
             resourceInputs["stateMachineRevisionId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["stateMachineArn", "stateMachineRevisionId"] };
+        const replaceOnChanges = { replaceOnChanges: ["description", "stateMachineArn", "stateMachineRevisionId"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(StateMachineVersion.__pulumiType, name, resourceInputs, opts);
     }

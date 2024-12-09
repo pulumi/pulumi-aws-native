@@ -45,6 +45,7 @@ export class WebExperience extends pulumi.CustomResource {
      * The Unix timestamp when the Amazon Q Business application was last updated.
      */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    public readonly customizationConfiguration!: pulumi.Output<outputs.qbusiness.WebExperienceCustomizationConfiguration | undefined>;
     /**
      * The endpoint URLs for your Amazon Q Business web experience. The URLs are unique and fully hosted by AWS .
      */
@@ -117,6 +118,7 @@ export class WebExperience extends pulumi.CustomResource {
                 throw new Error("Missing required property 'applicationId'");
             }
             resourceInputs["applicationId"] = args ? args.applicationId : undefined;
+            resourceInputs["customizationConfiguration"] = args ? args.customizationConfiguration : undefined;
             resourceInputs["identityProviderConfiguration"] = args ? args.identityProviderConfiguration : undefined;
             resourceInputs["origins"] = args ? args.origins : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
@@ -134,6 +136,7 @@ export class WebExperience extends pulumi.CustomResource {
         } else {
             resourceInputs["applicationId"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["customizationConfiguration"] = undefined /*out*/;
             resourceInputs["defaultEndpoint"] = undefined /*out*/;
             resourceInputs["identityProviderConfiguration"] = undefined /*out*/;
             resourceInputs["origins"] = undefined /*out*/;
@@ -163,6 +166,7 @@ export interface WebExperienceArgs {
      * The identifier of the Amazon Q Business web experience.
      */
     applicationId: pulumi.Input<string>;
+    customizationConfiguration?: pulumi.Input<inputs.qbusiness.WebExperienceCustomizationConfigurationArgs>;
     /**
      * Provides information about the identity provider (IdP) used to authenticate end users of an Amazon Q Business web experience.
      */

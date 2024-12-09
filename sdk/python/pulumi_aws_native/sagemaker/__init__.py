@@ -35,6 +35,7 @@ from .get_model_package import *
 from .get_model_package_group import *
 from .get_model_quality_job_definition import *
 from .get_monitoring_schedule import *
+from .get_partner_app import *
 from .get_pipeline import *
 from .get_project import *
 from .get_space import *
@@ -52,6 +53,7 @@ from .model_package import *
 from .model_package_group import *
 from .model_quality_job_definition import *
 from .monitoring_schedule import *
+from .partner_app import *
 from .pipeline import *
 from .project import *
 from .space import *

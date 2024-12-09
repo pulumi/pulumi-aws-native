@@ -20,7 +20,8 @@ type WebExperience struct {
 	// The identifier of the Amazon Q Business web experience.
 	ApplicationId pulumi.StringOutput `pulumi:"applicationId"`
 	// The Unix timestamp when the Amazon Q Business application was last updated.
-	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	CreatedAt                  pulumi.StringOutput                              `pulumi:"createdAt"`
+	CustomizationConfiguration WebExperienceCustomizationConfigurationPtrOutput `pulumi:"customizationConfiguration"`
 	// The endpoint URLs for your Amazon Q Business web experience. The URLs are unique and fully hosted by AWS .
 	DefaultEndpoint pulumi.StringOutput `pulumi:"defaultEndpoint"`
 	// Provides information about the identity provider (IdP) used to authenticate end users of an Amazon Q Business web experience.
@@ -101,7 +102,8 @@ func (WebExperienceState) ElementType() reflect.Type {
 
 type webExperienceArgs struct {
 	// The identifier of the Amazon Q Business web experience.
-	ApplicationId string `pulumi:"applicationId"`
+	ApplicationId              string                                   `pulumi:"applicationId"`
+	CustomizationConfiguration *WebExperienceCustomizationConfiguration `pulumi:"customizationConfiguration"`
 	// Provides information about the identity provider (IdP) used to authenticate end users of an Amazon Q Business web experience.
 	IdentityProviderConfiguration interface{} `pulumi:"identityProviderConfiguration"`
 	// Sets the website domain origins that are allowed to embed the Amazon Q Business web experience. The *domain origin* refers to the base URL for accessing a website including the protocol ( `http/https` ), the domain name, and the port number (if specified).
@@ -127,7 +129,8 @@ type webExperienceArgs struct {
 // The set of arguments for constructing a WebExperience resource.
 type WebExperienceArgs struct {
 	// The identifier of the Amazon Q Business web experience.
-	ApplicationId pulumi.StringInput
+	ApplicationId              pulumi.StringInput
+	CustomizationConfiguration WebExperienceCustomizationConfigurationPtrInput
 	// Provides information about the identity provider (IdP) used to authenticate end users of an Amazon Q Business web experience.
 	IdentityProviderConfiguration pulumi.Input
 	// Sets the website domain origins that are allowed to embed the Amazon Q Business web experience. The *domain origin* refers to the base URL for accessing a website including the protocol ( `http/https` ), the domain name, and the port number (if specified).
@@ -195,6 +198,12 @@ func (o WebExperienceOutput) ApplicationId() pulumi.StringOutput {
 // The Unix timestamp when the Amazon Q Business application was last updated.
 func (o WebExperienceOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *WebExperience) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+func (o WebExperienceOutput) CustomizationConfiguration() WebExperienceCustomizationConfigurationPtrOutput {
+	return o.ApplyT(func(v *WebExperience) WebExperienceCustomizationConfigurationPtrOutput {
+		return v.CustomizationConfiguration
+	}).(WebExperienceCustomizationConfigurationPtrOutput)
 }
 
 // The endpoint URLs for your Amazon Q Business web experience. The URLs are unique and fully hosted by AWS .

@@ -343,9 +343,10 @@ func (in *applicationAutoSubscriptionStatusPtr) ToApplicationAutoSubscriptionSta
 type ApplicationIdentityType string
 
 const (
-	ApplicationIdentityTypeAwsIamIdpSaml = ApplicationIdentityType("AWS_IAM_IDP_SAML")
-	ApplicationIdentityTypeAwsIamIdpOidc = ApplicationIdentityType("AWS_IAM_IDP_OIDC")
-	ApplicationIdentityTypeAwsIamIdc     = ApplicationIdentityType("AWS_IAM_IDC")
+	ApplicationIdentityTypeAwsIamIdpSaml    = ApplicationIdentityType("AWS_IAM_IDP_SAML")
+	ApplicationIdentityTypeAwsIamIdpOidc    = ApplicationIdentityType("AWS_IAM_IDP_OIDC")
+	ApplicationIdentityTypeAwsIamIdc        = ApplicationIdentityType("AWS_IAM_IDC")
+	ApplicationIdentityTypeAwsQuicksightIdp = ApplicationIdentityType("AWS_QUICKSIGHT_IDP")
 )
 
 func (ApplicationIdentityType) ElementType() reflect.Type {
@@ -473,6 +474,7 @@ func (o ApplicationIdentityTypePtrOutput) ToStringPtrOutputWithContext(ctx conte
 //	ApplicationIdentityTypeAwsIamIdpSaml
 //	ApplicationIdentityTypeAwsIamIdpOidc
 //	ApplicationIdentityTypeAwsIamIdc
+//	ApplicationIdentityTypeAwsQuicksightIdp
 type ApplicationIdentityTypeInput interface {
 	pulumi.Input
 
@@ -1604,6 +1606,171 @@ func (in *dataSourceDocumentEnrichmentConditionOperatorPtr) ToDataSourceDocument
 	return pulumi.ToOutputWithContext(ctx, in).(DataSourceDocumentEnrichmentConditionOperatorPtrOutput)
 }
 
+type DataSourceImageExtractionStatus string
+
+const (
+	DataSourceImageExtractionStatusEnabled  = DataSourceImageExtractionStatus("ENABLED")
+	DataSourceImageExtractionStatusDisabled = DataSourceImageExtractionStatus("DISABLED")
+)
+
+func (DataSourceImageExtractionStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceImageExtractionStatus)(nil)).Elem()
+}
+
+func (e DataSourceImageExtractionStatus) ToDataSourceImageExtractionStatusOutput() DataSourceImageExtractionStatusOutput {
+	return pulumi.ToOutput(e).(DataSourceImageExtractionStatusOutput)
+}
+
+func (e DataSourceImageExtractionStatus) ToDataSourceImageExtractionStatusOutputWithContext(ctx context.Context) DataSourceImageExtractionStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DataSourceImageExtractionStatusOutput)
+}
+
+func (e DataSourceImageExtractionStatus) ToDataSourceImageExtractionStatusPtrOutput() DataSourceImageExtractionStatusPtrOutput {
+	return e.ToDataSourceImageExtractionStatusPtrOutputWithContext(context.Background())
+}
+
+func (e DataSourceImageExtractionStatus) ToDataSourceImageExtractionStatusPtrOutputWithContext(ctx context.Context) DataSourceImageExtractionStatusPtrOutput {
+	return DataSourceImageExtractionStatus(e).ToDataSourceImageExtractionStatusOutputWithContext(ctx).ToDataSourceImageExtractionStatusPtrOutputWithContext(ctx)
+}
+
+func (e DataSourceImageExtractionStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataSourceImageExtractionStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataSourceImageExtractionStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DataSourceImageExtractionStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DataSourceImageExtractionStatusOutput struct{ *pulumi.OutputState }
+
+func (DataSourceImageExtractionStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceImageExtractionStatus)(nil)).Elem()
+}
+
+func (o DataSourceImageExtractionStatusOutput) ToDataSourceImageExtractionStatusOutput() DataSourceImageExtractionStatusOutput {
+	return o
+}
+
+func (o DataSourceImageExtractionStatusOutput) ToDataSourceImageExtractionStatusOutputWithContext(ctx context.Context) DataSourceImageExtractionStatusOutput {
+	return o
+}
+
+func (o DataSourceImageExtractionStatusOutput) ToDataSourceImageExtractionStatusPtrOutput() DataSourceImageExtractionStatusPtrOutput {
+	return o.ToDataSourceImageExtractionStatusPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceImageExtractionStatusOutput) ToDataSourceImageExtractionStatusPtrOutputWithContext(ctx context.Context) DataSourceImageExtractionStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceImageExtractionStatus) *DataSourceImageExtractionStatus {
+		return &v
+	}).(DataSourceImageExtractionStatusPtrOutput)
+}
+
+func (o DataSourceImageExtractionStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DataSourceImageExtractionStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataSourceImageExtractionStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DataSourceImageExtractionStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceImageExtractionStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataSourceImageExtractionStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataSourceImageExtractionStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceImageExtractionStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceImageExtractionStatus)(nil)).Elem()
+}
+
+func (o DataSourceImageExtractionStatusPtrOutput) ToDataSourceImageExtractionStatusPtrOutput() DataSourceImageExtractionStatusPtrOutput {
+	return o
+}
+
+func (o DataSourceImageExtractionStatusPtrOutput) ToDataSourceImageExtractionStatusPtrOutputWithContext(ctx context.Context) DataSourceImageExtractionStatusPtrOutput {
+	return o
+}
+
+func (o DataSourceImageExtractionStatusPtrOutput) Elem() DataSourceImageExtractionStatusOutput {
+	return o.ApplyT(func(v *DataSourceImageExtractionStatus) DataSourceImageExtractionStatus {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceImageExtractionStatus
+		return ret
+	}).(DataSourceImageExtractionStatusOutput)
+}
+
+func (o DataSourceImageExtractionStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceImageExtractionStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DataSourceImageExtractionStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DataSourceImageExtractionStatusInput is an input type that accepts values of the DataSourceImageExtractionStatus enum
+// A concrete instance of `DataSourceImageExtractionStatusInput` can be one of the following:
+//
+//	DataSourceImageExtractionStatusEnabled
+//	DataSourceImageExtractionStatusDisabled
+type DataSourceImageExtractionStatusInput interface {
+	pulumi.Input
+
+	ToDataSourceImageExtractionStatusOutput() DataSourceImageExtractionStatusOutput
+	ToDataSourceImageExtractionStatusOutputWithContext(context.Context) DataSourceImageExtractionStatusOutput
+}
+
+var dataSourceImageExtractionStatusPtrType = reflect.TypeOf((**DataSourceImageExtractionStatus)(nil)).Elem()
+
+type DataSourceImageExtractionStatusPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceImageExtractionStatusPtrOutput() DataSourceImageExtractionStatusPtrOutput
+	ToDataSourceImageExtractionStatusPtrOutputWithContext(context.Context) DataSourceImageExtractionStatusPtrOutput
+}
+
+type dataSourceImageExtractionStatusPtr string
+
+func DataSourceImageExtractionStatusPtr(v string) DataSourceImageExtractionStatusPtrInput {
+	return (*dataSourceImageExtractionStatusPtr)(&v)
+}
+
+func (*dataSourceImageExtractionStatusPtr) ElementType() reflect.Type {
+	return dataSourceImageExtractionStatusPtrType
+}
+
+func (in *dataSourceImageExtractionStatusPtr) ToDataSourceImageExtractionStatusPtrOutput() DataSourceImageExtractionStatusPtrOutput {
+	return pulumi.ToOutput(in).(DataSourceImageExtractionStatusPtrOutput)
+}
+
+func (in *dataSourceImageExtractionStatusPtr) ToDataSourceImageExtractionStatusPtrOutputWithContext(ctx context.Context) DataSourceImageExtractionStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DataSourceImageExtractionStatusPtrOutput)
+}
+
 type DataSourceStatus string
 
 const (
@@ -2551,11 +2718,23 @@ func (in *pluginStateEnumPtr) ToPluginStateEnumPtrOutputWithContext(ctx context.
 type PluginType string
 
 const (
-	PluginTypeServiceNow = PluginType("SERVICE_NOW")
-	PluginTypeSalesforce = PluginType("SALESFORCE")
-	PluginTypeJira       = PluginType("JIRA")
-	PluginTypeZendesk    = PluginType("ZENDESK")
-	PluginTypeCustom     = PluginType("CUSTOM")
+	PluginTypeServiceNow            = PluginType("SERVICE_NOW")
+	PluginTypeSalesforce            = PluginType("SALESFORCE")
+	PluginTypeJira                  = PluginType("JIRA")
+	PluginTypeZendesk               = PluginType("ZENDESK")
+	PluginTypeCustom                = PluginType("CUSTOM")
+	PluginTypeQuicksight            = PluginType("QUICKSIGHT")
+	PluginTypeServicenowNowPlatform = PluginType("SERVICENOW_NOW_PLATFORM")
+	PluginTypeJiraCloud             = PluginType("JIRA_CLOUD")
+	PluginTypeSalesforceCrm         = PluginType("SALESFORCE_CRM")
+	PluginTypeZendeskSuite          = PluginType("ZENDESK_SUITE")
+	PluginTypeAtlassianConfluence   = PluginType("ATLASSIAN_CONFLUENCE")
+	PluginTypeGoogleCalendar        = PluginType("GOOGLE_CALENDAR")
+	PluginTypeMicrosoftTeams        = PluginType("MICROSOFT_TEAMS")
+	PluginTypeMicrosoftExchange     = PluginType("MICROSOFT_EXCHANGE")
+	PluginTypePagerdutyAdvance      = PluginType("PAGERDUTY_ADVANCE")
+	PluginTypeSmartsheet            = PluginType("SMARTSHEET")
+	PluginTypeAsana                 = PluginType("ASANA")
 )
 
 func (PluginType) ElementType() reflect.Type {
@@ -2685,6 +2864,18 @@ func (o PluginTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) p
 //	PluginTypeJira
 //	PluginTypeZendesk
 //	PluginTypeCustom
+//	PluginTypeQuicksight
+//	PluginTypeServicenowNowPlatform
+//	PluginTypeJiraCloud
+//	PluginTypeSalesforceCrm
+//	PluginTypeZendeskSuite
+//	PluginTypeAtlassianConfluence
+//	PluginTypeGoogleCalendar
+//	PluginTypeMicrosoftTeams
+//	PluginTypeMicrosoftExchange
+//	PluginTypePagerdutyAdvance
+//	PluginTypeSmartsheet
+//	PluginTypeAsana
 type PluginTypeInput interface {
 	pulumi.Input
 
@@ -3417,6 +3608,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceDocumentContentOperatorPtrInput)(nil)).Elem(), DataSourceDocumentContentOperator("DELETE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceDocumentEnrichmentConditionOperatorInput)(nil)).Elem(), DataSourceDocumentEnrichmentConditionOperator("GREATER_THAN"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceDocumentEnrichmentConditionOperatorPtrInput)(nil)).Elem(), DataSourceDocumentEnrichmentConditionOperator("GREATER_THAN"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceImageExtractionStatusInput)(nil)).Elem(), DataSourceImageExtractionStatus("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceImageExtractionStatusPtrInput)(nil)).Elem(), DataSourceImageExtractionStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexAttributeTypeInput)(nil)).Elem(), IndexAttributeType("STRING"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexAttributeTypePtrInput)(nil)).Elem(), IndexAttributeType("STRING"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexTypeInput)(nil)).Elem(), IndexType("ENTERPRISE"))
@@ -3453,6 +3646,8 @@ func init() {
 	pulumi.RegisterOutputType(DataSourceDocumentContentOperatorPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceDocumentEnrichmentConditionOperatorOutput{})
 	pulumi.RegisterOutputType(DataSourceDocumentEnrichmentConditionOperatorPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceImageExtractionStatusOutput{})
+	pulumi.RegisterOutputType(DataSourceImageExtractionStatusPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceStatusOutput{})
 	pulumi.RegisterOutputType(DataSourceStatusPtrOutput{})
 	pulumi.RegisterOutputType(IndexAttributeTypeOutput{})

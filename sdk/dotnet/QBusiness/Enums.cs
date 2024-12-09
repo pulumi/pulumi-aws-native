@@ -76,6 +76,7 @@ namespace Pulumi.AwsNative.QBusiness
         public static ApplicationIdentityType AwsIamIdpSaml { get; } = new ApplicationIdentityType("AWS_IAM_IDP_SAML");
         public static ApplicationIdentityType AwsIamIdpOidc { get; } = new ApplicationIdentityType("AWS_IAM_IDP_OIDC");
         public static ApplicationIdentityType AwsIamIdc { get; } = new ApplicationIdentityType("AWS_IAM_IDC");
+        public static ApplicationIdentityType AwsQuicksightIdp { get; } = new ApplicationIdentityType("AWS_QUICKSIGHT_IDP");
 
         public static bool operator ==(ApplicationIdentityType left, ApplicationIdentityType right) => left.Equals(right);
         public static bool operator !=(ApplicationIdentityType left, ApplicationIdentityType right) => !left.Equals(right);
@@ -291,6 +292,34 @@ namespace Pulumi.AwsNative.QBusiness
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DataSourceDocumentEnrichmentConditionOperator other && Equals(other);
         public bool Equals(DataSourceDocumentEnrichmentConditionOperator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DataSourceImageExtractionStatus : IEquatable<DataSourceImageExtractionStatus>
+    {
+        private readonly string _value;
+
+        private DataSourceImageExtractionStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataSourceImageExtractionStatus Enabled { get; } = new DataSourceImageExtractionStatus("ENABLED");
+        public static DataSourceImageExtractionStatus Disabled { get; } = new DataSourceImageExtractionStatus("DISABLED");
+
+        public static bool operator ==(DataSourceImageExtractionStatus left, DataSourceImageExtractionStatus right) => left.Equals(right);
+        public static bool operator !=(DataSourceImageExtractionStatus left, DataSourceImageExtractionStatus right) => !left.Equals(right);
+
+        public static explicit operator string(DataSourceImageExtractionStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataSourceImageExtractionStatus other && Equals(other);
+        public bool Equals(DataSourceImageExtractionStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -522,6 +551,18 @@ namespace Pulumi.AwsNative.QBusiness
         public static PluginType Jira { get; } = new PluginType("JIRA");
         public static PluginType Zendesk { get; } = new PluginType("ZENDESK");
         public static PluginType Custom { get; } = new PluginType("CUSTOM");
+        public static PluginType Quicksight { get; } = new PluginType("QUICKSIGHT");
+        public static PluginType ServicenowNowPlatform { get; } = new PluginType("SERVICENOW_NOW_PLATFORM");
+        public static PluginType JiraCloud { get; } = new PluginType("JIRA_CLOUD");
+        public static PluginType SalesforceCrm { get; } = new PluginType("SALESFORCE_CRM");
+        public static PluginType ZendeskSuite { get; } = new PluginType("ZENDESK_SUITE");
+        public static PluginType AtlassianConfluence { get; } = new PluginType("ATLASSIAN_CONFLUENCE");
+        public static PluginType GoogleCalendar { get; } = new PluginType("GOOGLE_CALENDAR");
+        public static PluginType MicrosoftTeams { get; } = new PluginType("MICROSOFT_TEAMS");
+        public static PluginType MicrosoftExchange { get; } = new PluginType("MICROSOFT_EXCHANGE");
+        public static PluginType PagerdutyAdvance { get; } = new PluginType("PAGERDUTY_ADVANCE");
+        public static PluginType Smartsheet { get; } = new PluginType("SMARTSHEET");
+        public static PluginType Asana { get; } = new PluginType("ASANA");
 
         public static bool operator ==(PluginType left, PluginType right) => left.Equals(right);
         public static bool operator !=(PluginType left, PluginType right) => !left.Equals(right);

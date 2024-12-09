@@ -73,9 +73,10 @@ namespace Pulumi.AwsNative.Ec2.Inputs
         }
 
         /// <summary>
-        /// The type of network interface. To create an Elastic Fabric Adapter (EFA), specify ``efa``. For more information, see [Elastic Fabric Adapter](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html) in the *Amazon EC2 User Guide*.
+        /// The type of network interface. To create an Elastic Fabric Adapter (EFA), specify ``efa`` or ``efa``. For more information, see [Elastic Fabric Adapter](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html) in the *Amazon EC2 User Guide*.
         ///  If you are not creating an EFA, specify ``interface`` or omit this parameter.
-        ///  Valid values: ``interface`` | ``efa``
+        ///  If you specify ``efa-only``, do not assign any IP addresses to the network interface. EFA-only network interfaces do not support IP addresses.
+        ///  Valid values: ``interface`` | ``efa`` | ``efa-only``
         /// </summary>
         [Input("interfaceType")]
         public Input<string>? InterfaceType { get; set; }

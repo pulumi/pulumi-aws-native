@@ -23,16 +23,18 @@ func LookupAiGuardrailVersion(ctx *pulumi.Context, args *LookupAiGuardrailVersio
 }
 
 type LookupAiGuardrailVersionArgs struct {
-	AiGuardrailId string  `pulumi:"aiGuardrailId"`
-	AssistantId   string  `pulumi:"assistantId"`
+	AiGuardrailId string `pulumi:"aiGuardrailId"`
+	AssistantId   string `pulumi:"assistantId"`
+	// The version number for this AI Guardrail version.
 	VersionNumber float64 `pulumi:"versionNumber"`
 }
 
 type LookupAiGuardrailVersionResult struct {
-	AiGuardrailArn       *string  `pulumi:"aiGuardrailArn"`
-	AiGuardrailVersionId *string  `pulumi:"aiGuardrailVersionId"`
-	AssistantArn         *string  `pulumi:"assistantArn"`
-	VersionNumber        *float64 `pulumi:"versionNumber"`
+	AiGuardrailArn       *string `pulumi:"aiGuardrailArn"`
+	AiGuardrailVersionId *string `pulumi:"aiGuardrailVersionId"`
+	AssistantArn         *string `pulumi:"assistantArn"`
+	// The version number for this AI Guardrail version.
+	VersionNumber *float64 `pulumi:"versionNumber"`
 }
 
 func LookupAiGuardrailVersionOutput(ctx *pulumi.Context, args LookupAiGuardrailVersionOutputArgs, opts ...pulumi.InvokeOption) LookupAiGuardrailVersionResultOutput {
@@ -55,8 +57,9 @@ func LookupAiGuardrailVersionOutput(ctx *pulumi.Context, args LookupAiGuardrailV
 }
 
 type LookupAiGuardrailVersionOutputArgs struct {
-	AiGuardrailId pulumi.StringInput  `pulumi:"aiGuardrailId"`
-	AssistantId   pulumi.StringInput  `pulumi:"assistantId"`
+	AiGuardrailId pulumi.StringInput `pulumi:"aiGuardrailId"`
+	AssistantId   pulumi.StringInput `pulumi:"assistantId"`
+	// The version number for this AI Guardrail version.
 	VersionNumber pulumi.Float64Input `pulumi:"versionNumber"`
 }
 
@@ -90,6 +93,7 @@ func (o LookupAiGuardrailVersionResultOutput) AssistantArn() pulumi.StringPtrOut
 	return o.ApplyT(func(v LookupAiGuardrailVersionResult) *string { return v.AssistantArn }).(pulumi.StringPtrOutput)
 }
 
+// The version number for this AI Guardrail version.
 func (o LookupAiGuardrailVersionResultOutput) VersionNumber() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v LookupAiGuardrailVersionResult) *float64 { return v.VersionNumber }).(pulumi.Float64PtrOutput)
 }

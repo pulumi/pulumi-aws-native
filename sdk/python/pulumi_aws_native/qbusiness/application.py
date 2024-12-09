@@ -35,6 +35,7 @@ class ApplicationArgs:
                  identity_type: Optional[pulumi.Input['ApplicationIdentityType']] = None,
                  personalization_configuration: Optional[pulumi.Input['ApplicationPersonalizationConfigurationArgs']] = None,
                  q_apps_configuration: Optional[pulumi.Input['ApplicationQAppsConfigurationArgs']] = None,
+                 quick_sight_configuration: Optional[pulumi.Input['ApplicationQuickSightConfigurationArgs']] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
@@ -75,6 +76,8 @@ class ApplicationArgs:
             pulumi.set(__self__, "personalization_configuration", personalization_configuration)
         if q_apps_configuration is not None:
             pulumi.set(__self__, "q_apps_configuration", q_apps_configuration)
+        if quick_sight_configuration is not None:
+            pulumi.set(__self__, "quick_sight_configuration", quick_sight_configuration)
         if role_arn is not None:
             pulumi.set(__self__, "role_arn", role_arn)
         if tags is not None:
@@ -212,6 +215,15 @@ class ApplicationArgs:
         pulumi.set(self, "q_apps_configuration", value)
 
     @property
+    @pulumi.getter(name="quickSightConfiguration")
+    def quick_sight_configuration(self) -> Optional[pulumi.Input['ApplicationQuickSightConfigurationArgs']]:
+        return pulumi.get(self, "quick_sight_configuration")
+
+    @quick_sight_configuration.setter
+    def quick_sight_configuration(self, value: Optional[pulumi.Input['ApplicationQuickSightConfigurationArgs']]):
+        pulumi.set(self, "quick_sight_configuration", value)
+
+    @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[str]]:
         """
@@ -252,6 +264,7 @@ class Application(pulumi.CustomResource):
                  identity_type: Optional[pulumi.Input['ApplicationIdentityType']] = None,
                  personalization_configuration: Optional[pulumi.Input[Union['ApplicationPersonalizationConfigurationArgs', 'ApplicationPersonalizationConfigurationArgsDict']]] = None,
                  q_apps_configuration: Optional[pulumi.Input[Union['ApplicationQAppsConfigurationArgs', 'ApplicationQAppsConfigurationArgsDict']]] = None,
+                 quick_sight_configuration: Optional[pulumi.Input[Union['ApplicationQuickSightConfigurationArgs', 'ApplicationQuickSightConfigurationArgsDict']]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
@@ -310,6 +323,7 @@ class Application(pulumi.CustomResource):
                  identity_type: Optional[pulumi.Input['ApplicationIdentityType']] = None,
                  personalization_configuration: Optional[pulumi.Input[Union['ApplicationPersonalizationConfigurationArgs', 'ApplicationPersonalizationConfigurationArgsDict']]] = None,
                  q_apps_configuration: Optional[pulumi.Input[Union['ApplicationQAppsConfigurationArgs', 'ApplicationQAppsConfigurationArgsDict']]] = None,
+                 quick_sight_configuration: Optional[pulumi.Input[Union['ApplicationQuickSightConfigurationArgs', 'ApplicationQuickSightConfigurationArgsDict']]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
@@ -334,6 +348,7 @@ class Application(pulumi.CustomResource):
             __props__.__dict__["identity_type"] = identity_type
             __props__.__dict__["personalization_configuration"] = personalization_configuration
             __props__.__dict__["q_apps_configuration"] = q_apps_configuration
+            __props__.__dict__["quick_sight_configuration"] = quick_sight_configuration
             __props__.__dict__["role_arn"] = role_arn
             __props__.__dict__["tags"] = tags
             __props__.__dict__["application_arn"] = None
@@ -342,7 +357,7 @@ class Application(pulumi.CustomResource):
             __props__.__dict__["identity_center_application_arn"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["updated_at"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["clientIdsForOidc[*]", "encryptionConfiguration", "iamIdentityProviderArn", "identityType"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["clientIdsForOidc[*]", "encryptionConfiguration", "iamIdentityProviderArn", "identityType", "quickSightConfiguration"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Application, __self__).__init__(
             'aws-native:qbusiness:Application',
@@ -381,6 +396,7 @@ class Application(pulumi.CustomResource):
         __props__.__dict__["identity_type"] = None
         __props__.__dict__["personalization_configuration"] = None
         __props__.__dict__["q_apps_configuration"] = None
+        __props__.__dict__["quick_sight_configuration"] = None
         __props__.__dict__["role_arn"] = None
         __props__.__dict__["status"] = None
         __props__.__dict__["tags"] = None
@@ -505,6 +521,11 @@ class Application(pulumi.CustomResource):
         Configuration information about Amazon Q Apps.
         """
         return pulumi.get(self, "q_apps_configuration")
+
+    @property
+    @pulumi.getter(name="quickSightConfiguration")
+    def quick_sight_configuration(self) -> pulumi.Output[Optional['outputs.ApplicationQuickSightConfiguration']]:
+        return pulumi.get(self, "quick_sight_configuration")
 
     @property
     @pulumi.getter(name="roleArn")

@@ -16,23 +16,34 @@ import (
 type AiGuardrail struct {
 	pulumi.CustomResourceState
 
+	// The Amazon Resource Name (ARN) of the AI Guardrail.
 	AiGuardrailArn pulumi.StringOutput `pulumi:"aiGuardrailArn"`
-	AiGuardrailId  pulumi.StringOutput `pulumi:"aiGuardrailId"`
-	AssistantArn   pulumi.StringOutput `pulumi:"assistantArn"`
-	AssistantId    pulumi.StringOutput `pulumi:"assistantId"`
+	// The identifier of the Amazon Q in Connect AI Guardrail.
+	AiGuardrailId pulumi.StringOutput `pulumi:"aiGuardrailId"`
+	// The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.
+	AssistantArn pulumi.StringOutput `pulumi:"assistantArn"`
+	// The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+	AssistantId pulumi.StringOutput `pulumi:"assistantId"`
 	// Messaging for when violations are detected in text
 	BlockedInputMessaging pulumi.StringOutput `pulumi:"blockedInputMessaging"`
 	// Messaging for when violations are detected in text
-	BlockedOutputsMessaging         pulumi.StringOutput                                            `pulumi:"blockedOutputsMessaging"`
-	ContentPolicyConfig             AiGuardrailAiGuardrailContentPolicyConfigPtrOutput             `pulumi:"contentPolicyConfig"`
+	BlockedOutputsMessaging pulumi.StringOutput `pulumi:"blockedOutputsMessaging"`
+	// Contains details about how to handle harmful content.
+	ContentPolicyConfig AiGuardrailAiGuardrailContentPolicyConfigPtrOutput `pulumi:"contentPolicyConfig"`
+	// The policy configuration details for the AI Guardrail's contextual grounding policy.
 	ContextualGroundingPolicyConfig AiGuardrailAiGuardrailContextualGroundingPolicyConfigPtrOutput `pulumi:"contextualGroundingPolicyConfig"`
 	// Description of the guardrail or its version
-	Description                      pulumi.StringPtrOutput                                          `pulumi:"description"`
-	Name                             pulumi.StringPtrOutput                                          `pulumi:"name"`
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The name of the AI Guardrail.
+	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// Contains details about PII entities and regular expressions to configure for the AI Guardrail.
 	SensitiveInformationPolicyConfig AiGuardrailAiGuardrailSensitiveInformationPolicyConfigPtrOutput `pulumi:"sensitiveInformationPolicyConfig"`
-	Tags                             pulumi.StringMapOutput                                          `pulumi:"tags"`
-	TopicPolicyConfig                AiGuardrailAiGuardrailTopicPolicyConfigPtrOutput                `pulumi:"topicPolicyConfig"`
-	WordPolicyConfig                 AiGuardrailAiGuardrailWordPolicyConfigPtrOutput                 `pulumi:"wordPolicyConfig"`
+	// The tags used to organize, track, or control access for this resource.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// Contains details about topics that the AI Guardrail should identify and deny.
+	TopicPolicyConfig AiGuardrailAiGuardrailTopicPolicyConfigPtrOutput `pulumi:"topicPolicyConfig"`
+	// Contains details about the word policy to configured for the AI Guardrail.
+	WordPolicyConfig AiGuardrailAiGuardrailWordPolicyConfigPtrOutput `pulumi:"wordPolicyConfig"`
 }
 
 // NewAiGuardrail registers a new resource with the given unique name, arguments, and options.
@@ -90,38 +101,54 @@ func (AiGuardrailState) ElementType() reflect.Type {
 }
 
 type aiGuardrailArgs struct {
+	// The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
 	AssistantId string `pulumi:"assistantId"`
 	// Messaging for when violations are detected in text
 	BlockedInputMessaging string `pulumi:"blockedInputMessaging"`
 	// Messaging for when violations are detected in text
-	BlockedOutputsMessaging         string                                                 `pulumi:"blockedOutputsMessaging"`
-	ContentPolicyConfig             *AiGuardrailAiGuardrailContentPolicyConfig             `pulumi:"contentPolicyConfig"`
+	BlockedOutputsMessaging string `pulumi:"blockedOutputsMessaging"`
+	// Contains details about how to handle harmful content.
+	ContentPolicyConfig *AiGuardrailAiGuardrailContentPolicyConfig `pulumi:"contentPolicyConfig"`
+	// The policy configuration details for the AI Guardrail's contextual grounding policy.
 	ContextualGroundingPolicyConfig *AiGuardrailAiGuardrailContextualGroundingPolicyConfig `pulumi:"contextualGroundingPolicyConfig"`
 	// Description of the guardrail or its version
-	Description                      *string                                                 `pulumi:"description"`
-	Name                             *string                                                 `pulumi:"name"`
+	Description *string `pulumi:"description"`
+	// The name of the AI Guardrail.
+	Name *string `pulumi:"name"`
+	// Contains details about PII entities and regular expressions to configure for the AI Guardrail.
 	SensitiveInformationPolicyConfig *AiGuardrailAiGuardrailSensitiveInformationPolicyConfig `pulumi:"sensitiveInformationPolicyConfig"`
-	Tags                             map[string]string                                       `pulumi:"tags"`
-	TopicPolicyConfig                *AiGuardrailAiGuardrailTopicPolicyConfig                `pulumi:"topicPolicyConfig"`
-	WordPolicyConfig                 *AiGuardrailAiGuardrailWordPolicyConfig                 `pulumi:"wordPolicyConfig"`
+	// The tags used to organize, track, or control access for this resource.
+	Tags map[string]string `pulumi:"tags"`
+	// Contains details about topics that the AI Guardrail should identify and deny.
+	TopicPolicyConfig *AiGuardrailAiGuardrailTopicPolicyConfig `pulumi:"topicPolicyConfig"`
+	// Contains details about the word policy to configured for the AI Guardrail.
+	WordPolicyConfig *AiGuardrailAiGuardrailWordPolicyConfig `pulumi:"wordPolicyConfig"`
 }
 
 // The set of arguments for constructing a AiGuardrail resource.
 type AiGuardrailArgs struct {
+	// The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
 	AssistantId pulumi.StringInput
 	// Messaging for when violations are detected in text
 	BlockedInputMessaging pulumi.StringInput
 	// Messaging for when violations are detected in text
-	BlockedOutputsMessaging         pulumi.StringInput
-	ContentPolicyConfig             AiGuardrailAiGuardrailContentPolicyConfigPtrInput
+	BlockedOutputsMessaging pulumi.StringInput
+	// Contains details about how to handle harmful content.
+	ContentPolicyConfig AiGuardrailAiGuardrailContentPolicyConfigPtrInput
+	// The policy configuration details for the AI Guardrail's contextual grounding policy.
 	ContextualGroundingPolicyConfig AiGuardrailAiGuardrailContextualGroundingPolicyConfigPtrInput
 	// Description of the guardrail or its version
-	Description                      pulumi.StringPtrInput
-	Name                             pulumi.StringPtrInput
+	Description pulumi.StringPtrInput
+	// The name of the AI Guardrail.
+	Name pulumi.StringPtrInput
+	// Contains details about PII entities and regular expressions to configure for the AI Guardrail.
 	SensitiveInformationPolicyConfig AiGuardrailAiGuardrailSensitiveInformationPolicyConfigPtrInput
-	Tags                             pulumi.StringMapInput
-	TopicPolicyConfig                AiGuardrailAiGuardrailTopicPolicyConfigPtrInput
-	WordPolicyConfig                 AiGuardrailAiGuardrailWordPolicyConfigPtrInput
+	// The tags used to organize, track, or control access for this resource.
+	Tags pulumi.StringMapInput
+	// Contains details about topics that the AI Guardrail should identify and deny.
+	TopicPolicyConfig AiGuardrailAiGuardrailTopicPolicyConfigPtrInput
+	// Contains details about the word policy to configured for the AI Guardrail.
+	WordPolicyConfig AiGuardrailAiGuardrailWordPolicyConfigPtrInput
 }
 
 func (AiGuardrailArgs) ElementType() reflect.Type {
@@ -161,18 +188,22 @@ func (o AiGuardrailOutput) ToAiGuardrailOutputWithContext(ctx context.Context) A
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the AI Guardrail.
 func (o AiGuardrailOutput) AiGuardrailArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AiGuardrail) pulumi.StringOutput { return v.AiGuardrailArn }).(pulumi.StringOutput)
 }
 
+// The identifier of the Amazon Q in Connect AI Guardrail.
 func (o AiGuardrailOutput) AiGuardrailId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AiGuardrail) pulumi.StringOutput { return v.AiGuardrailId }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.
 func (o AiGuardrailOutput) AssistantArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AiGuardrail) pulumi.StringOutput { return v.AssistantArn }).(pulumi.StringOutput)
 }
 
+// The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
 func (o AiGuardrailOutput) AssistantId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AiGuardrail) pulumi.StringOutput { return v.AssistantId }).(pulumi.StringOutput)
 }
@@ -187,10 +218,12 @@ func (o AiGuardrailOutput) BlockedOutputsMessaging() pulumi.StringOutput {
 	return o.ApplyT(func(v *AiGuardrail) pulumi.StringOutput { return v.BlockedOutputsMessaging }).(pulumi.StringOutput)
 }
 
+// Contains details about how to handle harmful content.
 func (o AiGuardrailOutput) ContentPolicyConfig() AiGuardrailAiGuardrailContentPolicyConfigPtrOutput {
 	return o.ApplyT(func(v *AiGuardrail) AiGuardrailAiGuardrailContentPolicyConfigPtrOutput { return v.ContentPolicyConfig }).(AiGuardrailAiGuardrailContentPolicyConfigPtrOutput)
 }
 
+// The policy configuration details for the AI Guardrail's contextual grounding policy.
 func (o AiGuardrailOutput) ContextualGroundingPolicyConfig() AiGuardrailAiGuardrailContextualGroundingPolicyConfigPtrOutput {
 	return o.ApplyT(func(v *AiGuardrail) AiGuardrailAiGuardrailContextualGroundingPolicyConfigPtrOutput {
 		return v.ContextualGroundingPolicyConfig
@@ -202,24 +235,29 @@ func (o AiGuardrailOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AiGuardrail) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The name of the AI Guardrail.
 func (o AiGuardrailOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AiGuardrail) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Contains details about PII entities and regular expressions to configure for the AI Guardrail.
 func (o AiGuardrailOutput) SensitiveInformationPolicyConfig() AiGuardrailAiGuardrailSensitiveInformationPolicyConfigPtrOutput {
 	return o.ApplyT(func(v *AiGuardrail) AiGuardrailAiGuardrailSensitiveInformationPolicyConfigPtrOutput {
 		return v.SensitiveInformationPolicyConfig
 	}).(AiGuardrailAiGuardrailSensitiveInformationPolicyConfigPtrOutput)
 }
 
+// The tags used to organize, track, or control access for this resource.
 func (o AiGuardrailOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AiGuardrail) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Contains details about topics that the AI Guardrail should identify and deny.
 func (o AiGuardrailOutput) TopicPolicyConfig() AiGuardrailAiGuardrailTopicPolicyConfigPtrOutput {
 	return o.ApplyT(func(v *AiGuardrail) AiGuardrailAiGuardrailTopicPolicyConfigPtrOutput { return v.TopicPolicyConfig }).(AiGuardrailAiGuardrailTopicPolicyConfigPtrOutput)
 }
 
+// Contains details about the word policy to configured for the AI Guardrail.
 func (o AiGuardrailOutput) WordPolicyConfig() AiGuardrailAiGuardrailWordPolicyConfigPtrOutput {
 	return o.ApplyT(func(v *AiGuardrail) AiGuardrailAiGuardrailWordPolicyConfigPtrOutput { return v.WordPolicyConfig }).(AiGuardrailAiGuardrailWordPolicyConfigPtrOutput)
 }

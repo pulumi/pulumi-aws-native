@@ -613,6 +613,7 @@ namespace Pulumi.AwsNative.Kendra
 
         public static IndexEdition DeveloperEdition { get; } = new IndexEdition("DEVELOPER_EDITION");
         public static IndexEdition EnterpriseEdition { get; } = new IndexEdition("ENTERPRISE_EDITION");
+        public static IndexEdition GenAiEnterpriseEdition { get; } = new IndexEdition("GEN_AI_ENTERPRISE_EDITION");
 
         public static bool operator ==(IndexEdition left, IndexEdition right) => left.Equals(right);
         public static bool operator !=(IndexEdition left, IndexEdition right) => !left.Equals(right);

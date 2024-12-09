@@ -24,29 +24,30 @@ __all__ = ['PluginArgs', 'Plugin']
 @pulumi.input_type
 class PluginArgs:
     def __init__(__self__, *,
-                 application_id: pulumi.Input[str],
                  auth_configuration: pulumi.Input[Union['PluginAuthConfiguration0PropertiesArgs', 'PluginAuthConfiguration1PropertiesArgs', 'PluginAuthConfiguration2PropertiesArgs']],
                  display_name: pulumi.Input[str],
                  type: pulumi.Input['PluginType'],
+                 application_id: Optional[pulumi.Input[str]] = None,
                  custom_plugin_configuration: Optional[pulumi.Input['PluginCustomPluginConfigurationArgs']] = None,
                  server_url: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input['PluginState']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Plugin resource.
-        :param pulumi.Input[str] application_id: The identifier of the application that will contain the plugin.
         :param pulumi.Input[Union['PluginAuthConfiguration0PropertiesArgs', 'PluginAuthConfiguration1PropertiesArgs', 'PluginAuthConfiguration2PropertiesArgs']] auth_configuration: Authentication configuration information for an Amazon Q Business plugin.
         :param pulumi.Input[str] display_name: The name of the plugin.
         :param pulumi.Input['PluginType'] type: The type of the plugin.
+        :param pulumi.Input[str] application_id: The identifier of the application that will contain the plugin.
         :param pulumi.Input['PluginCustomPluginConfigurationArgs'] custom_plugin_configuration: Configuration information required to create a custom plugin.
         :param pulumi.Input[str] server_url: The plugin server URL used for configuration.
         :param pulumi.Input['PluginState'] state: The current status of the plugin.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A list of key-value pairs that identify or categorize the data source connector. You can also use tags to help control access to the data source connector. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
         """
-        pulumi.set(__self__, "application_id", application_id)
         pulumi.set(__self__, "auth_configuration", auth_configuration)
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "type", type)
+        if application_id is not None:
+            pulumi.set(__self__, "application_id", application_id)
         if custom_plugin_configuration is not None:
             pulumi.set(__self__, "custom_plugin_configuration", custom_plugin_configuration)
         if server_url is not None:
@@ -55,18 +56,6 @@ class PluginArgs:
             pulumi.set(__self__, "state", state)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="applicationId")
-    def application_id(self) -> pulumi.Input[str]:
-        """
-        The identifier of the application that will contain the plugin.
-        """
-        return pulumi.get(self, "application_id")
-
-    @application_id.setter
-    def application_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "application_id", value)
 
     @property
     @pulumi.getter(name="authConfiguration")
@@ -103,6 +92,18 @@ class PluginArgs:
     @type.setter
     def type(self, value: pulumi.Input['PluginType']):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="applicationId")
+    def application_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identifier of the application that will contain the plugin.
+        """
+        return pulumi.get(self, "application_id")
+
+    @application_id.setter
+    def application_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "application_id", value)
 
     @property
     @pulumi.getter(name="customPluginConfiguration")
@@ -222,8 +223,6 @@ class Plugin(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = PluginArgs.__new__(PluginArgs)
 
-            if application_id is None and not opts.urn:
-                raise TypeError("Missing required property 'application_id'")
             __props__.__dict__["application_id"] = application_id
             if auth_configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'auth_configuration'")
@@ -284,7 +283,7 @@ class Plugin(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="applicationId")
-    def application_id(self) -> pulumi.Output[str]:
+    def application_id(self) -> pulumi.Output[Optional[str]]:
         """
         The identifier of the application that will contain the plugin.
         """

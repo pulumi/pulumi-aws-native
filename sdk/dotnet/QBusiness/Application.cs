@@ -104,6 +104,9 @@ namespace Pulumi.AwsNative.QBusiness
         [Output("qAppsConfiguration")]
         public Output<Outputs.ApplicationQAppsConfiguration?> QAppsConfiguration { get; private set; } = null!;
 
+        [Output("quickSightConfiguration")]
+        public Output<Outputs.ApplicationQuickSightConfiguration?> QuickSightConfiguration { get; private set; } = null!;
+
         /// <summary>
         /// The Amazon Resource Name (ARN) of an IAM role with permissions to access your Amazon CloudWatch logs and metrics. If this property is not specified, Amazon Q Business will create a [service linked role (SLR)](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/using-service-linked-roles.html#slr-permissions) and use it as the application's role.
         /// </summary>
@@ -157,6 +160,7 @@ namespace Pulumi.AwsNative.QBusiness
                     "encryptionConfiguration",
                     "iamIdentityProviderArn",
                     "identityType",
+                    "quickSightConfiguration",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -249,6 +253,9 @@ namespace Pulumi.AwsNative.QBusiness
         /// </summary>
         [Input("qAppsConfiguration")]
         public Input<Inputs.ApplicationQAppsConfigurationArgs>? QAppsConfiguration { get; set; }
+
+        [Input("quickSightConfiguration")]
+        public Input<Inputs.ApplicationQuickSightConfigurationArgs>? QuickSightConfiguration { get; set; }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of an IAM role with permissions to access your Amazon CloudWatch logs and metrics. If this property is not specified, Amazon Q Business will create a [service linked role (SLR)](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/using-service-linked-roles.html#slr-permissions) and use it as the application's role.

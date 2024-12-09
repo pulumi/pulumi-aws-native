@@ -136,7 +136,7 @@ export class EventSourceMapping extends pulumi.CustomResource {
      */
     public readonly maximumRetryAttempts!: pulumi.Output<number | undefined>;
     /**
-     * The metrics configuration for your event source. For more information, see [Event source mapping metrics](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics) .
+     * The metrics configuration for your event source. For more information, see [Event source mapping metrics](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics).
      */
     public readonly metricsConfig!: pulumi.Output<outputs.lambda.EventSourceMappingMetricsConfig | undefined>;
     /**
@@ -144,7 +144,7 @@ export class EventSourceMapping extends pulumi.CustomResource {
      */
     public readonly parallelizationFactor!: pulumi.Output<number | undefined>;
     /**
-     * (Amazon MSK and self-managed Apache Kafka only) The provisioned mode configuration for the event source. For more information, see [provisioned mode](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode) .
+     * (Amazon MSK and self-managed Apache Kafka only) The provisioned mode configuration for the event source. For more information, see [provisioned mode](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode).
      */
     public readonly provisionedPollerConfig!: pulumi.Output<outputs.lambda.EventSourceMappingProvisionedPollerConfig | undefined>;
     /**
@@ -360,7 +360,7 @@ export interface EventSourceMappingArgs {
      */
     maximumRetryAttempts?: pulumi.Input<number>;
     /**
-     * The metrics configuration for your event source. For more information, see [Event source mapping metrics](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics) .
+     * The metrics configuration for your event source. For more information, see [Event source mapping metrics](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics).
      */
     metricsConfig?: pulumi.Input<inputs.lambda.EventSourceMappingMetricsConfigArgs>;
     /**
@@ -368,7 +368,7 @@ export interface EventSourceMappingArgs {
      */
     parallelizationFactor?: pulumi.Input<number>;
     /**
-     * (Amazon MSK and self-managed Apache Kafka only) The provisioned mode configuration for the event source. For more information, see [provisioned mode](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode) .
+     * (Amazon MSK and self-managed Apache Kafka only) The provisioned mode configuration for the event source. For more information, see [provisioned mode](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode).
      */
     provisionedPollerConfig?: pulumi.Input<inputs.lambda.EventSourceMappingProvisionedPollerConfigArgs>;
     /**

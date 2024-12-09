@@ -22,6 +22,15 @@ __all__ = [
     'ApplicationEncryptionConfiguration',
     'ApplicationPersonalizationConfiguration',
     'ApplicationQAppsConfiguration',
+    'ApplicationQuickSightConfiguration',
+    'DataAccessorActionConfiguration',
+    'DataAccessorActionFilterConfiguration',
+    'DataAccessorAttributeFilter',
+    'DataAccessorDocumentAttribute',
+    'DataAccessorDocumentAttributeValue0Properties',
+    'DataAccessorDocumentAttributeValue1Properties',
+    'DataAccessorDocumentAttributeValue2Properties',
+    'DataAccessorDocumentAttributeValue3Properties',
     'DataSourceDocumentAttributeCondition',
     'DataSourceDocumentAttributeTarget',
     'DataSourceDocumentAttributeValue0Properties',
@@ -30,7 +39,9 @@ __all__ = [
     'DataSourceDocumentAttributeValue3Properties',
     'DataSourceDocumentEnrichmentConfiguration',
     'DataSourceHookConfiguration',
+    'DataSourceImageExtractionConfiguration',
     'DataSourceInlineDocumentEnrichmentConfiguration',
+    'DataSourceMediaExtractionConfiguration',
     'DataSourceVpcConfiguration',
     'IndexCapacityConfiguration',
     'IndexDocumentAttributeConfiguration',
@@ -50,6 +61,7 @@ __all__ = [
     'RetrieverConfiguration1Properties',
     'RetrieverKendraIndexConfiguration',
     'RetrieverNativeIndexConfiguration',
+    'WebExperienceCustomizationConfiguration',
     'WebExperienceIdentityProviderConfiguration0Properties',
     'WebExperienceIdentityProviderConfiguration1Properties',
     'WebExperienceOpenIdConnectProviderConfiguration',
@@ -244,6 +256,356 @@ class ApplicationQAppsConfiguration(dict):
         Status information about whether end users can create and use Amazon Q Apps in the web experience.
         """
         return pulumi.get(self, "q_apps_control_mode")
+
+
+@pulumi.output_type
+class ApplicationQuickSightConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientNamespace":
+            suggest = "client_namespace"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationQuickSightConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationQuickSightConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationQuickSightConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_namespace: str):
+        pulumi.set(__self__, "client_namespace", client_namespace)
+
+    @property
+    @pulumi.getter(name="clientNamespace")
+    def client_namespace(self) -> str:
+        return pulumi.get(self, "client_namespace")
+
+
+@pulumi.output_type
+class DataAccessorActionConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filterConfiguration":
+            suggest = "filter_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataAccessorActionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataAccessorActionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataAccessorActionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 action: str,
+                 filter_configuration: Optional['outputs.DataAccessorActionFilterConfiguration'] = None):
+        pulumi.set(__self__, "action", action)
+        if filter_configuration is not None:
+            pulumi.set(__self__, "filter_configuration", filter_configuration)
+
+    @property
+    @pulumi.getter
+    def action(self) -> str:
+        return pulumi.get(self, "action")
+
+    @property
+    @pulumi.getter(name="filterConfiguration")
+    def filter_configuration(self) -> Optional['outputs.DataAccessorActionFilterConfiguration']:
+        return pulumi.get(self, "filter_configuration")
+
+
+@pulumi.output_type
+class DataAccessorActionFilterConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "documentAttributeFilter":
+            suggest = "document_attribute_filter"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataAccessorActionFilterConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataAccessorActionFilterConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataAccessorActionFilterConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 document_attribute_filter: 'outputs.DataAccessorAttributeFilter'):
+        pulumi.set(__self__, "document_attribute_filter", document_attribute_filter)
+
+    @property
+    @pulumi.getter(name="documentAttributeFilter")
+    def document_attribute_filter(self) -> 'outputs.DataAccessorAttributeFilter':
+        return pulumi.get(self, "document_attribute_filter")
+
+
+@pulumi.output_type
+class DataAccessorAttributeFilter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "andAllFilters":
+            suggest = "and_all_filters"
+        elif key == "containsAll":
+            suggest = "contains_all"
+        elif key == "containsAny":
+            suggest = "contains_any"
+        elif key == "equalsTo":
+            suggest = "equals_to"
+        elif key == "greaterThan":
+            suggest = "greater_than"
+        elif key == "greaterThanOrEquals":
+            suggest = "greater_than_or_equals"
+        elif key == "lessThan":
+            suggest = "less_than"
+        elif key == "lessThanOrEquals":
+            suggest = "less_than_or_equals"
+        elif key == "notFilter":
+            suggest = "not_filter"
+        elif key == "orAllFilters":
+            suggest = "or_all_filters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataAccessorAttributeFilter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataAccessorAttributeFilter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataAccessorAttributeFilter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 and_all_filters: Optional[Sequence['outputs.DataAccessorAttributeFilter']] = None,
+                 contains_all: Optional['outputs.DataAccessorDocumentAttribute'] = None,
+                 contains_any: Optional['outputs.DataAccessorDocumentAttribute'] = None,
+                 equals_to: Optional['outputs.DataAccessorDocumentAttribute'] = None,
+                 greater_than: Optional['outputs.DataAccessorDocumentAttribute'] = None,
+                 greater_than_or_equals: Optional['outputs.DataAccessorDocumentAttribute'] = None,
+                 less_than: Optional['outputs.DataAccessorDocumentAttribute'] = None,
+                 less_than_or_equals: Optional['outputs.DataAccessorDocumentAttribute'] = None,
+                 not_filter: Optional['outputs.DataAccessorAttributeFilter'] = None,
+                 or_all_filters: Optional[Sequence['outputs.DataAccessorAttributeFilter']] = None):
+        if and_all_filters is not None:
+            pulumi.set(__self__, "and_all_filters", and_all_filters)
+        if contains_all is not None:
+            pulumi.set(__self__, "contains_all", contains_all)
+        if contains_any is not None:
+            pulumi.set(__self__, "contains_any", contains_any)
+        if equals_to is not None:
+            pulumi.set(__self__, "equals_to", equals_to)
+        if greater_than is not None:
+            pulumi.set(__self__, "greater_than", greater_than)
+        if greater_than_or_equals is not None:
+            pulumi.set(__self__, "greater_than_or_equals", greater_than_or_equals)
+        if less_than is not None:
+            pulumi.set(__self__, "less_than", less_than)
+        if less_than_or_equals is not None:
+            pulumi.set(__self__, "less_than_or_equals", less_than_or_equals)
+        if not_filter is not None:
+            pulumi.set(__self__, "not_filter", not_filter)
+        if or_all_filters is not None:
+            pulumi.set(__self__, "or_all_filters", or_all_filters)
+
+    @property
+    @pulumi.getter(name="andAllFilters")
+    def and_all_filters(self) -> Optional[Sequence['outputs.DataAccessorAttributeFilter']]:
+        return pulumi.get(self, "and_all_filters")
+
+    @property
+    @pulumi.getter(name="containsAll")
+    def contains_all(self) -> Optional['outputs.DataAccessorDocumentAttribute']:
+        return pulumi.get(self, "contains_all")
+
+    @property
+    @pulumi.getter(name="containsAny")
+    def contains_any(self) -> Optional['outputs.DataAccessorDocumentAttribute']:
+        return pulumi.get(self, "contains_any")
+
+    @property
+    @pulumi.getter(name="equalsTo")
+    def equals_to(self) -> Optional['outputs.DataAccessorDocumentAttribute']:
+        return pulumi.get(self, "equals_to")
+
+    @property
+    @pulumi.getter(name="greaterThan")
+    def greater_than(self) -> Optional['outputs.DataAccessorDocumentAttribute']:
+        return pulumi.get(self, "greater_than")
+
+    @property
+    @pulumi.getter(name="greaterThanOrEquals")
+    def greater_than_or_equals(self) -> Optional['outputs.DataAccessorDocumentAttribute']:
+        return pulumi.get(self, "greater_than_or_equals")
+
+    @property
+    @pulumi.getter(name="lessThan")
+    def less_than(self) -> Optional['outputs.DataAccessorDocumentAttribute']:
+        return pulumi.get(self, "less_than")
+
+    @property
+    @pulumi.getter(name="lessThanOrEquals")
+    def less_than_or_equals(self) -> Optional['outputs.DataAccessorDocumentAttribute']:
+        return pulumi.get(self, "less_than_or_equals")
+
+    @property
+    @pulumi.getter(name="notFilter")
+    def not_filter(self) -> Optional['outputs.DataAccessorAttributeFilter']:
+        return pulumi.get(self, "not_filter")
+
+    @property
+    @pulumi.getter(name="orAllFilters")
+    def or_all_filters(self) -> Optional[Sequence['outputs.DataAccessorAttributeFilter']]:
+        return pulumi.get(self, "or_all_filters")
+
+
+@pulumi.output_type
+class DataAccessorDocumentAttribute(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 value: Any):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Any:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class DataAccessorDocumentAttributeValue0Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "stringValue":
+            suggest = "string_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataAccessorDocumentAttributeValue0Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataAccessorDocumentAttributeValue0Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataAccessorDocumentAttributeValue0Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 string_value: str):
+        pulumi.set(__self__, "string_value", string_value)
+
+    @property
+    @pulumi.getter(name="stringValue")
+    def string_value(self) -> str:
+        return pulumi.get(self, "string_value")
+
+
+@pulumi.output_type
+class DataAccessorDocumentAttributeValue1Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "stringListValue":
+            suggest = "string_list_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataAccessorDocumentAttributeValue1Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataAccessorDocumentAttributeValue1Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataAccessorDocumentAttributeValue1Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 string_list_value: Sequence[str]):
+        pulumi.set(__self__, "string_list_value", string_list_value)
+
+    @property
+    @pulumi.getter(name="stringListValue")
+    def string_list_value(self) -> Sequence[str]:
+        return pulumi.get(self, "string_list_value")
+
+
+@pulumi.output_type
+class DataAccessorDocumentAttributeValue2Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "longValue":
+            suggest = "long_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataAccessorDocumentAttributeValue2Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataAccessorDocumentAttributeValue2Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataAccessorDocumentAttributeValue2Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 long_value: float):
+        pulumi.set(__self__, "long_value", long_value)
+
+    @property
+    @pulumi.getter(name="longValue")
+    def long_value(self) -> float:
+        return pulumi.get(self, "long_value")
+
+
+@pulumi.output_type
+class DataAccessorDocumentAttributeValue3Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dateValue":
+            suggest = "date_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataAccessorDocumentAttributeValue3Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataAccessorDocumentAttributeValue3Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataAccessorDocumentAttributeValue3Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 date_value: str):
+        pulumi.set(__self__, "date_value", date_value)
+
+    @property
+    @pulumi.getter(name="dateValue")
+    def date_value(self) -> str:
+        return pulumi.get(self, "date_value")
 
 
 @pulumi.output_type
@@ -625,6 +987,35 @@ class DataSourceHookConfiguration(dict):
 
 
 @pulumi.output_type
+class DataSourceImageExtractionConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "imageExtractionStatus":
+            suggest = "image_extraction_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceImageExtractionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceImageExtractionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceImageExtractionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 image_extraction_status: 'DataSourceImageExtractionStatus'):
+        pulumi.set(__self__, "image_extraction_status", image_extraction_status)
+
+    @property
+    @pulumi.getter(name="imageExtractionStatus")
+    def image_extraction_status(self) -> 'DataSourceImageExtractionStatus':
+        return pulumi.get(self, "image_extraction_status")
+
+
+@pulumi.output_type
 class DataSourceInlineDocumentEnrichmentConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -682,6 +1073,36 @@ class DataSourceInlineDocumentEnrichmentConfiguration(dict):
         Configuration of the target document attribute or metadata field when ingesting documents into Amazon Q Business . You can also include a value.
         """
         return pulumi.get(self, "target")
+
+
+@pulumi.output_type
+class DataSourceMediaExtractionConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "imageExtractionConfiguration":
+            suggest = "image_extraction_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceMediaExtractionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceMediaExtractionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceMediaExtractionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 image_extraction_configuration: Optional['outputs.DataSourceImageExtractionConfiguration'] = None):
+        if image_extraction_configuration is not None:
+            pulumi.set(__self__, "image_extraction_configuration", image_extraction_configuration)
+
+    @property
+    @pulumi.getter(name="imageExtractionConfiguration")
+    def image_extraction_configuration(self) -> Optional['outputs.DataSourceImageExtractionConfiguration']:
+        return pulumi.get(self, "image_extraction_configuration")
 
 
 @pulumi.output_type
@@ -1103,6 +1524,10 @@ class PluginOAuth2ClientCredentialConfiguration(dict):
             suggest = "role_arn"
         elif key == "secretArn":
             suggest = "secret_arn"
+        elif key == "authorizationUrl":
+            suggest = "authorization_url"
+        elif key == "tokenUrl":
+            suggest = "token_url"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in PluginOAuth2ClientCredentialConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -1117,9 +1542,15 @@ class PluginOAuth2ClientCredentialConfiguration(dict):
 
     def __init__(__self__, *,
                  role_arn: str,
-                 secret_arn: str):
+                 secret_arn: str,
+                 authorization_url: Optional[str] = None,
+                 token_url: Optional[str] = None):
         pulumi.set(__self__, "role_arn", role_arn)
         pulumi.set(__self__, "secret_arn", secret_arn)
+        if authorization_url is not None:
+            pulumi.set(__self__, "authorization_url", authorization_url)
+        if token_url is not None:
+            pulumi.set(__self__, "token_url", token_url)
 
     @property
     @pulumi.getter(name="roleArn")
@@ -1130,6 +1561,16 @@ class PluginOAuth2ClientCredentialConfiguration(dict):
     @pulumi.getter(name="secretArn")
     def secret_arn(self) -> str:
         return pulumi.get(self, "secret_arn")
+
+    @property
+    @pulumi.getter(name="authorizationUrl")
+    def authorization_url(self) -> Optional[str]:
+        return pulumi.get(self, "authorization_url")
+
+    @property
+    @pulumi.getter(name="tokenUrl")
+    def token_url(self) -> Optional[str]:
+        return pulumi.get(self, "token_url")
 
 
 @pulumi.output_type
@@ -1265,6 +1706,66 @@ class RetrieverNativeIndexConfiguration(dict):
     @pulumi.getter(name="indexId")
     def index_id(self) -> str:
         return pulumi.get(self, "index_id")
+
+
+@pulumi.output_type
+class WebExperienceCustomizationConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customCssUrl":
+            suggest = "custom_css_url"
+        elif key == "faviconUrl":
+            suggest = "favicon_url"
+        elif key == "fontUrl":
+            suggest = "font_url"
+        elif key == "logoUrl":
+            suggest = "logo_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WebExperienceCustomizationConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WebExperienceCustomizationConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WebExperienceCustomizationConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 custom_css_url: Optional[str] = None,
+                 favicon_url: Optional[str] = None,
+                 font_url: Optional[str] = None,
+                 logo_url: Optional[str] = None):
+        if custom_css_url is not None:
+            pulumi.set(__self__, "custom_css_url", custom_css_url)
+        if favicon_url is not None:
+            pulumi.set(__self__, "favicon_url", favicon_url)
+        if font_url is not None:
+            pulumi.set(__self__, "font_url", font_url)
+        if logo_url is not None:
+            pulumi.set(__self__, "logo_url", logo_url)
+
+    @property
+    @pulumi.getter(name="customCssUrl")
+    def custom_css_url(self) -> Optional[str]:
+        return pulumi.get(self, "custom_css_url")
+
+    @property
+    @pulumi.getter(name="faviconUrl")
+    def favicon_url(self) -> Optional[str]:
+        return pulumi.get(self, "favicon_url")
+
+    @property
+    @pulumi.getter(name="fontUrl")
+    def font_url(self) -> Optional[str]:
+        return pulumi.get(self, "font_url")
+
+    @property
+    @pulumi.getter(name="logoUrl")
+    def logo_url(self) -> Optional[str]:
+        return pulumi.get(self, "logo_url")
 
 
 @pulumi.output_type

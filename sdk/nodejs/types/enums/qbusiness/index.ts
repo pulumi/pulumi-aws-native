@@ -20,6 +20,7 @@ export const ApplicationIdentityType = {
     AwsIamIdpSaml: "AWS_IAM_IDP_SAML",
     AwsIamIdpOidc: "AWS_IAM_IDP_OIDC",
     AwsIamIdc: "AWS_IAM_IDC",
+    AwsQuicksightIdp: "AWS_QUICKSIGHT_IDP",
 } as const;
 
 export type ApplicationIdentityType = (typeof ApplicationIdentityType)[keyof typeof ApplicationIdentityType];
@@ -82,6 +83,13 @@ export const DataSourceDocumentEnrichmentConditionOperator = {
 } as const;
 
 export type DataSourceDocumentEnrichmentConditionOperator = (typeof DataSourceDocumentEnrichmentConditionOperator)[keyof typeof DataSourceDocumentEnrichmentConditionOperator];
+
+export const DataSourceImageExtractionStatus = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+export type DataSourceImageExtractionStatus = (typeof DataSourceImageExtractionStatus)[keyof typeof DataSourceImageExtractionStatus];
 
 export const DataSourceStatus = {
     PendingCreation: "PENDING_CREATION",
@@ -151,6 +159,18 @@ export const PluginType = {
     Jira: "JIRA",
     Zendesk: "ZENDESK",
     Custom: "CUSTOM",
+    Quicksight: "QUICKSIGHT",
+    ServicenowNowPlatform: "SERVICENOW_NOW_PLATFORM",
+    JiraCloud: "JIRA_CLOUD",
+    SalesforceCrm: "SALESFORCE_CRM",
+    ZendeskSuite: "ZENDESK_SUITE",
+    AtlassianConfluence: "ATLASSIAN_CONFLUENCE",
+    GoogleCalendar: "GOOGLE_CALENDAR",
+    MicrosoftTeams: "MICROSOFT_TEAMS",
+    MicrosoftExchange: "MICROSOFT_EXCHANGE",
+    PagerdutyAdvance: "PAGERDUTY_ADVANCE",
+    Smartsheet: "SMARTSHEET",
+    Asana: "ASANA",
 } as const;
 
 export type PluginType = (typeof PluginType)[keyof typeof PluginType];

@@ -87,6 +87,7 @@ export class DataSource extends pulumi.CustomResource {
      * The identifier of the index the data source is attached to.
      */
     public readonly indexId!: pulumi.Output<string>;
+    public readonly mediaExtractionConfiguration!: pulumi.Output<outputs.qbusiness.DataSourceMediaExtractionConfiguration | undefined>;
     /**
      * The Amazon Resource Name (ARN) of an IAM role with permission to access the data source and required resources.
      */
@@ -147,6 +148,7 @@ export class DataSource extends pulumi.CustomResource {
             resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["documentEnrichmentConfiguration"] = args ? args.documentEnrichmentConfiguration : undefined;
             resourceInputs["indexId"] = args ? args.indexId : undefined;
+            resourceInputs["mediaExtractionConfiguration"] = args ? args.mediaExtractionConfiguration : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["syncSchedule"] = args ? args.syncSchedule : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -167,6 +169,7 @@ export class DataSource extends pulumi.CustomResource {
             resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["documentEnrichmentConfiguration"] = undefined /*out*/;
             resourceInputs["indexId"] = undefined /*out*/;
+            resourceInputs["mediaExtractionConfiguration"] = undefined /*out*/;
             resourceInputs["roleArn"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["syncSchedule"] = undefined /*out*/;
@@ -224,6 +227,7 @@ export interface DataSourceArgs {
      * The identifier of the index the data source is attached to.
      */
     indexId: pulumi.Input<string>;
+    mediaExtractionConfiguration?: pulumi.Input<inputs.qbusiness.DataSourceMediaExtractionConfigurationArgs>;
     /**
      * The Amazon Resource Name (ARN) of an IAM role with permission to access the data source and required resources.
      */

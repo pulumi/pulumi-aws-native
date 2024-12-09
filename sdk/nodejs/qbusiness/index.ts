@@ -10,6 +10,11 @@ export type Application = import("./application").Application;
 export const Application: typeof import("./application").Application = null as any;
 utilities.lazyLoad(exports, ["Application"], () => require("./application"));
 
+export { DataAccessorArgs } from "./dataAccessor";
+export type DataAccessor = import("./dataAccessor").DataAccessor;
+export const DataAccessor: typeof import("./dataAccessor").DataAccessor = null as any;
+utilities.lazyLoad(exports, ["DataAccessor"], () => require("./dataAccessor"));
+
 export { DataSourceArgs } from "./dataSource";
 export type DataSource = import("./dataSource").DataSource;
 export const DataSource: typeof import("./dataSource").DataSource = null as any;
@@ -19,6 +24,11 @@ export { GetApplicationArgs, GetApplicationResult, GetApplicationOutputArgs } fr
 export const getApplication: typeof import("./getApplication").getApplication = null as any;
 export const getApplicationOutput: typeof import("./getApplication").getApplicationOutput = null as any;
 utilities.lazyLoad(exports, ["getApplication","getApplicationOutput"], () => require("./getApplication"));
+
+export { GetDataAccessorArgs, GetDataAccessorResult, GetDataAccessorOutputArgs } from "./getDataAccessor";
+export const getDataAccessor: typeof import("./getDataAccessor").getDataAccessor = null as any;
+export const getDataAccessorOutput: typeof import("./getDataAccessor").getDataAccessorOutput = null as any;
+utilities.lazyLoad(exports, ["getDataAccessor","getDataAccessorOutput"], () => require("./getDataAccessor"));
 
 export { GetDataSourceArgs, GetDataSourceResult, GetDataSourceOutputArgs } from "./getDataSource";
 export const getDataSource: typeof import("./getDataSource").getDataSource = null as any;
@@ -50,6 +60,11 @@ export type Index = import("./index_").Index;
 export const Index: typeof import("./index_").Index = null as any;
 utilities.lazyLoad(exports, ["Index"], () => require("./index_"));
 
+export { PermissionArgs } from "./permission";
+export type Permission = import("./permission").Permission;
+export const Permission: typeof import("./permission").Permission = null as any;
+utilities.lazyLoad(exports, ["Permission"], () => require("./permission"));
+
 export { PluginArgs } from "./plugin";
 export type Plugin = import("./plugin").Plugin;
 export const Plugin: typeof import("./plugin").Plugin = null as any;
@@ -75,10 +90,14 @@ const _module = {
         switch (type) {
             case "aws-native:qbusiness:Application":
                 return new Application(name, <any>undefined, { urn })
+            case "aws-native:qbusiness:DataAccessor":
+                return new DataAccessor(name, <any>undefined, { urn })
             case "aws-native:qbusiness:DataSource":
                 return new DataSource(name, <any>undefined, { urn })
             case "aws-native:qbusiness:Index":
                 return new Index(name, <any>undefined, { urn })
+            case "aws-native:qbusiness:Permission":
+                return new Permission(name, <any>undefined, { urn })
             case "aws-native:qbusiness:Plugin":
                 return new Plugin(name, <any>undefined, { urn })
             case "aws-native:qbusiness:Retriever":

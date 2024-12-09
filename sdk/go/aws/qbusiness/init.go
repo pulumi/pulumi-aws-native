@@ -23,10 +23,14 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:qbusiness:Application":
 		r = &Application{}
+	case "aws-native:qbusiness:DataAccessor":
+		r = &DataAccessor{}
 	case "aws-native:qbusiness:DataSource":
 		r = &DataSource{}
 	case "aws-native:qbusiness:Index":
 		r = &Index{}
+	case "aws-native:qbusiness:Permission":
+		r = &Permission{}
 	case "aws-native:qbusiness:Plugin":
 		r = &Plugin{}
 	case "aws-native:qbusiness:Retriever":

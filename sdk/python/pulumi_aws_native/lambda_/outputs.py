@@ -599,10 +599,14 @@ class EventSourceMappingFilterCriteria(dict):
 
 @pulumi.output_type
 class EventSourceMappingMetricsConfig(dict):
+    """
+    The metrics configuration for your event source. Use this configuration object to define which metrics you want your event source mapping to produce.
+    """
     def __init__(__self__, *,
                  metrics: Optional[Sequence['EventSourceMappingMetricsConfigMetricsItem']] = None):
         """
-        :param Sequence['EventSourceMappingMetricsConfigMetricsItem'] metrics: Metric groups to enable.
+        The metrics configuration for your event source. Use this configuration object to define which metrics you want your event source mapping to produce.
+        :param Sequence['EventSourceMappingMetricsConfigMetricsItem'] metrics: The metrics you want your event source mapping to produce. Include ``EventCount`` to receive event source mapping metrics related to the number of events processed by your event source mapping. For more information about these metrics, see [Event source mapping metrics](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics).
         """
         if metrics is not None:
             pulumi.set(__self__, "metrics", metrics)
@@ -611,7 +615,7 @@ class EventSourceMappingMetricsConfig(dict):
     @pulumi.getter
     def metrics(self) -> Optional[Sequence['EventSourceMappingMetricsConfigMetricsItem']]:
         """
-        Metric groups to enable.
+        The metrics you want your event source mapping to produce. Include ``EventCount`` to receive event source mapping metrics related to the number of events processed by your event source mapping. For more information about these metrics, see [Event source mapping metrics](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics).
         """
         return pulumi.get(self, "metrics")
 
@@ -626,9 +630,8 @@ class EventSourceMappingOnFailure(dict):
         """
         A destination for events that failed processing.
         :param str destination: The Amazon Resource Name (ARN) of the destination resource.
-                To retain records of [asynchronous invocations](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations), you can configure an Amazon SNS topic, Amazon SQS queue, Lambda function, or Amazon EventBridge event bus as the destination.
-                To retain records of failed invocations from [Kinesis and DynamoDB event sources](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#event-source-mapping-destinations), you can configure an Amazon SNS topic or Amazon SQS queue as the destination.
-                To retain records of failed invocations from [self-managed Kafka](https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-smaa-onfailure-destination) or [Amazon MSK](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-onfailure-destination), you can configure an Amazon SNS topic, Amazon SQS queue, or Amazon S3 bucket as the destination.
+                To retain records of unsuccessful [asynchronous invocations](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations), you can configure an Amazon SNS topic, Amazon SQS queue, Amazon S3 bucket, Lambda function, or Amazon EventBridge event bus as the destination.
+                To retain records of failed invocations from [Kinesis](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html), [DynamoDB](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html), [self-managed Kafka](https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-smaa-onfailure-destination) or [Amazon MSK](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-onfailure-destination), you can configure an Amazon SNS topic, Amazon SQS queue, or Amazon S3 bucket as the destination.
         """
         if destination is not None:
             pulumi.set(__self__, "destination", destination)
@@ -638,15 +641,17 @@ class EventSourceMappingOnFailure(dict):
     def destination(self) -> Optional[str]:
         """
         The Amazon Resource Name (ARN) of the destination resource.
-         To retain records of [asynchronous invocations](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations), you can configure an Amazon SNS topic, Amazon SQS queue, Lambda function, or Amazon EventBridge event bus as the destination.
-         To retain records of failed invocations from [Kinesis and DynamoDB event sources](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#event-source-mapping-destinations), you can configure an Amazon SNS topic or Amazon SQS queue as the destination.
-         To retain records of failed invocations from [self-managed Kafka](https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-smaa-onfailure-destination) or [Amazon MSK](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-onfailure-destination), you can configure an Amazon SNS topic, Amazon SQS queue, or Amazon S3 bucket as the destination.
+         To retain records of unsuccessful [asynchronous invocations](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations), you can configure an Amazon SNS topic, Amazon SQS queue, Amazon S3 bucket, Lambda function, or Amazon EventBridge event bus as the destination.
+         To retain records of failed invocations from [Kinesis](https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html), [DynamoDB](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html), [self-managed Kafka](https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-smaa-onfailure-destination) or [Amazon MSK](https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-onfailure-destination), you can configure an Amazon SNS topic, Amazon SQS queue, or Amazon S3 bucket as the destination.
         """
         return pulumi.get(self, "destination")
 
 
 @pulumi.output_type
 class EventSourceMappingProvisionedPollerConfig(dict):
+    """
+    The [provisioned mode](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode) configuration for the event source. Use provisioned mode to customize the minimum and maximum number of event pollers for your event source.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -670,6 +675,7 @@ class EventSourceMappingProvisionedPollerConfig(dict):
                  maximum_pollers: Optional[int] = None,
                  minimum_pollers: Optional[int] = None):
         """
+        The [provisioned mode](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode) configuration for the event source. Use provisioned mode to customize the minimum and maximum number of event pollers for your event source.
         :param int maximum_pollers: The maximum number of event pollers this event source can scale up to.
         :param int minimum_pollers: The minimum number of event pollers this event source can scale down to.
         """

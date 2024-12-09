@@ -15,15 +15,27 @@ namespace Pulumi.AwsNative.Wisdom
     [AwsNativeResourceType("aws-native:wisdom:AiGuardrail")]
     public partial class AiGuardrail : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the AI Guardrail.
+        /// </summary>
         [Output("aiGuardrailArn")]
         public Output<string> AiGuardrailArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The identifier of the Amazon Q in Connect AI Guardrail.
+        /// </summary>
         [Output("aiGuardrailId")]
         public Output<string> AiGuardrailId { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.
+        /// </summary>
         [Output("assistantArn")]
         public Output<string> AssistantArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+        /// </summary>
         [Output("assistantId")]
         public Output<string> AssistantId { get; private set; } = null!;
 
@@ -39,9 +51,15 @@ namespace Pulumi.AwsNative.Wisdom
         [Output("blockedOutputsMessaging")]
         public Output<string> BlockedOutputsMessaging { get; private set; } = null!;
 
+        /// <summary>
+        /// Contains details about how to handle harmful content.
+        /// </summary>
         [Output("contentPolicyConfig")]
         public Output<Outputs.AiGuardrailAiGuardrailContentPolicyConfig?> ContentPolicyConfig { get; private set; } = null!;
 
+        /// <summary>
+        /// The policy configuration details for the AI Guardrail's contextual grounding policy.
+        /// </summary>
         [Output("contextualGroundingPolicyConfig")]
         public Output<Outputs.AiGuardrailAiGuardrailContextualGroundingPolicyConfig?> ContextualGroundingPolicyConfig { get; private set; } = null!;
 
@@ -51,18 +69,33 @@ namespace Pulumi.AwsNative.Wisdom
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the AI Guardrail.
+        /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Contains details about PII entities and regular expressions to configure for the AI Guardrail.
+        /// </summary>
         [Output("sensitiveInformationPolicyConfig")]
         public Output<Outputs.AiGuardrailAiGuardrailSensitiveInformationPolicyConfig?> SensitiveInformationPolicyConfig { get; private set; } = null!;
 
+        /// <summary>
+        /// The tags used to organize, track, or control access for this resource.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// Contains details about topics that the AI Guardrail should identify and deny.
+        /// </summary>
         [Output("topicPolicyConfig")]
         public Output<Outputs.AiGuardrailAiGuardrailTopicPolicyConfig?> TopicPolicyConfig { get; private set; } = null!;
 
+        /// <summary>
+        /// Contains details about the word policy to configured for the AI Guardrail.
+        /// </summary>
         [Output("wordPolicyConfig")]
         public Output<Outputs.AiGuardrailAiGuardrailWordPolicyConfig?> WordPolicyConfig { get; private set; } = null!;
 
@@ -117,6 +150,9 @@ namespace Pulumi.AwsNative.Wisdom
 
     public sealed class AiGuardrailArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+        /// </summary>
         [Input("assistantId", required: true)]
         public Input<string> AssistantId { get; set; } = null!;
 
@@ -132,9 +168,15 @@ namespace Pulumi.AwsNative.Wisdom
         [Input("blockedOutputsMessaging", required: true)]
         public Input<string> BlockedOutputsMessaging { get; set; } = null!;
 
+        /// <summary>
+        /// Contains details about how to handle harmful content.
+        /// </summary>
         [Input("contentPolicyConfig")]
         public Input<Inputs.AiGuardrailAiGuardrailContentPolicyConfigArgs>? ContentPolicyConfig { get; set; }
 
+        /// <summary>
+        /// The policy configuration details for the AI Guardrail's contextual grounding policy.
+        /// </summary>
         [Input("contextualGroundingPolicyConfig")]
         public Input<Inputs.AiGuardrailAiGuardrailContextualGroundingPolicyConfigArgs>? ContextualGroundingPolicyConfig { get; set; }
 
@@ -144,23 +186,39 @@ namespace Pulumi.AwsNative.Wisdom
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The name of the AI Guardrail.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Contains details about PII entities and regular expressions to configure for the AI Guardrail.
+        /// </summary>
         [Input("sensitiveInformationPolicyConfig")]
         public Input<Inputs.AiGuardrailAiGuardrailSensitiveInformationPolicyConfigArgs>? SensitiveInformationPolicyConfig { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// The tags used to organize, track, or control access for this resource.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// Contains details about topics that the AI Guardrail should identify and deny.
+        /// </summary>
         [Input("topicPolicyConfig")]
         public Input<Inputs.AiGuardrailAiGuardrailTopicPolicyConfigArgs>? TopicPolicyConfig { get; set; }
 
+        /// <summary>
+        /// Contains details about the word policy to configured for the AI Guardrail.
+        /// </summary>
         [Input("wordPolicyConfig")]
         public Input<Inputs.AiGuardrailAiGuardrailWordPolicyConfigArgs>? WordPolicyConfig { get; set; }
 

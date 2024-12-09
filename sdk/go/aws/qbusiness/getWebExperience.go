@@ -32,7 +32,8 @@ type LookupWebExperienceArgs struct {
 
 type LookupWebExperienceResult struct {
 	// The Unix timestamp when the Amazon Q Business application was last updated.
-	CreatedAt *string `pulumi:"createdAt"`
+	CreatedAt                  *string                                  `pulumi:"createdAt"`
+	CustomizationConfiguration *WebExperienceCustomizationConfiguration `pulumi:"customizationConfiguration"`
 	// The endpoint URLs for your Amazon Q Business web experience. The URLs are unique and fully hosted by AWS .
 	DefaultEndpoint *string `pulumi:"defaultEndpoint"`
 	// Provides information about the identity provider (IdP) used to authenticate end users of an Amazon Q Business web experience.
@@ -112,6 +113,12 @@ func (o LookupWebExperienceResultOutput) ToLookupWebExperienceResultOutputWithCo
 // The Unix timestamp when the Amazon Q Business application was last updated.
 func (o LookupWebExperienceResultOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupWebExperienceResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupWebExperienceResultOutput) CustomizationConfiguration() WebExperienceCustomizationConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupWebExperienceResult) *WebExperienceCustomizationConfiguration {
+		return v.CustomizationConfiguration
+	}).(WebExperienceCustomizationConfigurationPtrOutput)
 }
 
 // The endpoint URLs for your Amazon Q Business web experience. The URLs are unique and fully hosted by AWS .

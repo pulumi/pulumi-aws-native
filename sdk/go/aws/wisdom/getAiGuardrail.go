@@ -23,25 +23,35 @@ func LookupAiGuardrail(ctx *pulumi.Context, args *LookupAiGuardrailArgs, opts ..
 }
 
 type LookupAiGuardrailArgs struct {
+	// The identifier of the Amazon Q in Connect AI Guardrail.
 	AiGuardrailId string `pulumi:"aiGuardrailId"`
-	AssistantId   string `pulumi:"assistantId"`
+	// The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+	AssistantId string `pulumi:"assistantId"`
 }
 
 type LookupAiGuardrailResult struct {
+	// The Amazon Resource Name (ARN) of the AI Guardrail.
 	AiGuardrailArn *string `pulumi:"aiGuardrailArn"`
-	AiGuardrailId  *string `pulumi:"aiGuardrailId"`
-	AssistantArn   *string `pulumi:"assistantArn"`
+	// The identifier of the Amazon Q in Connect AI Guardrail.
+	AiGuardrailId *string `pulumi:"aiGuardrailId"`
+	// The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.
+	AssistantArn *string `pulumi:"assistantArn"`
 	// Messaging for when violations are detected in text
 	BlockedInputMessaging *string `pulumi:"blockedInputMessaging"`
 	// Messaging for when violations are detected in text
-	BlockedOutputsMessaging         *string                                                `pulumi:"blockedOutputsMessaging"`
-	ContentPolicyConfig             *AiGuardrailAiGuardrailContentPolicyConfig             `pulumi:"contentPolicyConfig"`
+	BlockedOutputsMessaging *string `pulumi:"blockedOutputsMessaging"`
+	// Contains details about how to handle harmful content.
+	ContentPolicyConfig *AiGuardrailAiGuardrailContentPolicyConfig `pulumi:"contentPolicyConfig"`
+	// The policy configuration details for the AI Guardrail's contextual grounding policy.
 	ContextualGroundingPolicyConfig *AiGuardrailAiGuardrailContextualGroundingPolicyConfig `pulumi:"contextualGroundingPolicyConfig"`
 	// Description of the guardrail or its version
-	Description                      *string                                                 `pulumi:"description"`
+	Description *string `pulumi:"description"`
+	// Contains details about PII entities and regular expressions to configure for the AI Guardrail.
 	SensitiveInformationPolicyConfig *AiGuardrailAiGuardrailSensitiveInformationPolicyConfig `pulumi:"sensitiveInformationPolicyConfig"`
-	TopicPolicyConfig                *AiGuardrailAiGuardrailTopicPolicyConfig                `pulumi:"topicPolicyConfig"`
-	WordPolicyConfig                 *AiGuardrailAiGuardrailWordPolicyConfig                 `pulumi:"wordPolicyConfig"`
+	// Contains details about topics that the AI Guardrail should identify and deny.
+	TopicPolicyConfig *AiGuardrailAiGuardrailTopicPolicyConfig `pulumi:"topicPolicyConfig"`
+	// Contains details about the word policy to configured for the AI Guardrail.
+	WordPolicyConfig *AiGuardrailAiGuardrailWordPolicyConfig `pulumi:"wordPolicyConfig"`
 }
 
 func LookupAiGuardrailOutput(ctx *pulumi.Context, args LookupAiGuardrailOutputArgs, opts ...pulumi.InvokeOption) LookupAiGuardrailResultOutput {
@@ -64,8 +74,10 @@ func LookupAiGuardrailOutput(ctx *pulumi.Context, args LookupAiGuardrailOutputAr
 }
 
 type LookupAiGuardrailOutputArgs struct {
+	// The identifier of the Amazon Q in Connect AI Guardrail.
 	AiGuardrailId pulumi.StringInput `pulumi:"aiGuardrailId"`
-	AssistantId   pulumi.StringInput `pulumi:"assistantId"`
+	// The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+	AssistantId pulumi.StringInput `pulumi:"assistantId"`
 }
 
 func (LookupAiGuardrailOutputArgs) ElementType() reflect.Type {
@@ -86,14 +98,17 @@ func (o LookupAiGuardrailResultOutput) ToLookupAiGuardrailResultOutputWithContex
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the AI Guardrail.
 func (o LookupAiGuardrailResultOutput) AiGuardrailArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAiGuardrailResult) *string { return v.AiGuardrailArn }).(pulumi.StringPtrOutput)
 }
 
+// The identifier of the Amazon Q in Connect AI Guardrail.
 func (o LookupAiGuardrailResultOutput) AiGuardrailId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAiGuardrailResult) *string { return v.AiGuardrailId }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.
 func (o LookupAiGuardrailResultOutput) AssistantArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAiGuardrailResult) *string { return v.AssistantArn }).(pulumi.StringPtrOutput)
 }
@@ -108,12 +123,14 @@ func (o LookupAiGuardrailResultOutput) BlockedOutputsMessaging() pulumi.StringPt
 	return o.ApplyT(func(v LookupAiGuardrailResult) *string { return v.BlockedOutputsMessaging }).(pulumi.StringPtrOutput)
 }
 
+// Contains details about how to handle harmful content.
 func (o LookupAiGuardrailResultOutput) ContentPolicyConfig() AiGuardrailAiGuardrailContentPolicyConfigPtrOutput {
 	return o.ApplyT(func(v LookupAiGuardrailResult) *AiGuardrailAiGuardrailContentPolicyConfig {
 		return v.ContentPolicyConfig
 	}).(AiGuardrailAiGuardrailContentPolicyConfigPtrOutput)
 }
 
+// The policy configuration details for the AI Guardrail's contextual grounding policy.
 func (o LookupAiGuardrailResultOutput) ContextualGroundingPolicyConfig() AiGuardrailAiGuardrailContextualGroundingPolicyConfigPtrOutput {
 	return o.ApplyT(func(v LookupAiGuardrailResult) *AiGuardrailAiGuardrailContextualGroundingPolicyConfig {
 		return v.ContextualGroundingPolicyConfig
@@ -125,16 +142,19 @@ func (o LookupAiGuardrailResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAiGuardrailResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Contains details about PII entities and regular expressions to configure for the AI Guardrail.
 func (o LookupAiGuardrailResultOutput) SensitiveInformationPolicyConfig() AiGuardrailAiGuardrailSensitiveInformationPolicyConfigPtrOutput {
 	return o.ApplyT(func(v LookupAiGuardrailResult) *AiGuardrailAiGuardrailSensitiveInformationPolicyConfig {
 		return v.SensitiveInformationPolicyConfig
 	}).(AiGuardrailAiGuardrailSensitiveInformationPolicyConfigPtrOutput)
 }
 
+// Contains details about topics that the AI Guardrail should identify and deny.
 func (o LookupAiGuardrailResultOutput) TopicPolicyConfig() AiGuardrailAiGuardrailTopicPolicyConfigPtrOutput {
 	return o.ApplyT(func(v LookupAiGuardrailResult) *AiGuardrailAiGuardrailTopicPolicyConfig { return v.TopicPolicyConfig }).(AiGuardrailAiGuardrailTopicPolicyConfigPtrOutput)
 }
 
+// Contains details about the word policy to configured for the AI Guardrail.
 func (o LookupAiGuardrailResultOutput) WordPolicyConfig() AiGuardrailAiGuardrailWordPolicyConfigPtrOutput {
 	return o.ApplyT(func(v LookupAiGuardrailResult) *AiGuardrailAiGuardrailWordPolicyConfig { return v.WordPolicyConfig }).(AiGuardrailAiGuardrailWordPolicyConfigPtrOutput)
 }

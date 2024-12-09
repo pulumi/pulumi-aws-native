@@ -35,9 +35,17 @@ class AiGuardrailArgs:
                  word_policy_config: Optional[pulumi.Input['AiGuardrailAiGuardrailWordPolicyConfigArgs']] = None):
         """
         The set of arguments for constructing a AiGuardrail resource.
+        :param pulumi.Input[str] assistant_id: The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
         :param pulumi.Input[str] blocked_input_messaging: Messaging for when violations are detected in text
         :param pulumi.Input[str] blocked_outputs_messaging: Messaging for when violations are detected in text
+        :param pulumi.Input['AiGuardrailAiGuardrailContentPolicyConfigArgs'] content_policy_config: Contains details about how to handle harmful content.
+        :param pulumi.Input['AiGuardrailAiGuardrailContextualGroundingPolicyConfigArgs'] contextual_grounding_policy_config: The policy configuration details for the AI Guardrail's contextual grounding policy.
         :param pulumi.Input[str] description: Description of the guardrail or its version
+        :param pulumi.Input[str] name: The name of the AI Guardrail.
+        :param pulumi.Input['AiGuardrailAiGuardrailSensitiveInformationPolicyConfigArgs'] sensitive_information_policy_config: Contains details about PII entities and regular expressions to configure for the AI Guardrail.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags used to organize, track, or control access for this resource.
+        :param pulumi.Input['AiGuardrailAiGuardrailTopicPolicyConfigArgs'] topic_policy_config: Contains details about topics that the AI Guardrail should identify and deny.
+        :param pulumi.Input['AiGuardrailAiGuardrailWordPolicyConfigArgs'] word_policy_config: Contains details about the word policy to configured for the AI Guardrail.
         """
         pulumi.set(__self__, "assistant_id", assistant_id)
         pulumi.set(__self__, "blocked_input_messaging", blocked_input_messaging)
@@ -62,6 +70,9 @@ class AiGuardrailArgs:
     @property
     @pulumi.getter(name="assistantId")
     def assistant_id(self) -> pulumi.Input[str]:
+        """
+        The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+        """
         return pulumi.get(self, "assistant_id")
 
     @assistant_id.setter
@@ -95,6 +106,9 @@ class AiGuardrailArgs:
     @property
     @pulumi.getter(name="contentPolicyConfig")
     def content_policy_config(self) -> Optional[pulumi.Input['AiGuardrailAiGuardrailContentPolicyConfigArgs']]:
+        """
+        Contains details about how to handle harmful content.
+        """
         return pulumi.get(self, "content_policy_config")
 
     @content_policy_config.setter
@@ -104,6 +118,9 @@ class AiGuardrailArgs:
     @property
     @pulumi.getter(name="contextualGroundingPolicyConfig")
     def contextual_grounding_policy_config(self) -> Optional[pulumi.Input['AiGuardrailAiGuardrailContextualGroundingPolicyConfigArgs']]:
+        """
+        The policy configuration details for the AI Guardrail's contextual grounding policy.
+        """
         return pulumi.get(self, "contextual_grounding_policy_config")
 
     @contextual_grounding_policy_config.setter
@@ -125,6 +142,9 @@ class AiGuardrailArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the AI Guardrail.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -134,6 +154,9 @@ class AiGuardrailArgs:
     @property
     @pulumi.getter(name="sensitiveInformationPolicyConfig")
     def sensitive_information_policy_config(self) -> Optional[pulumi.Input['AiGuardrailAiGuardrailSensitiveInformationPolicyConfigArgs']]:
+        """
+        Contains details about PII entities and regular expressions to configure for the AI Guardrail.
+        """
         return pulumi.get(self, "sensitive_information_policy_config")
 
     @sensitive_information_policy_config.setter
@@ -143,6 +166,9 @@ class AiGuardrailArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The tags used to organize, track, or control access for this resource.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -152,6 +178,9 @@ class AiGuardrailArgs:
     @property
     @pulumi.getter(name="topicPolicyConfig")
     def topic_policy_config(self) -> Optional[pulumi.Input['AiGuardrailAiGuardrailTopicPolicyConfigArgs']]:
+        """
+        Contains details about topics that the AI Guardrail should identify and deny.
+        """
         return pulumi.get(self, "topic_policy_config")
 
     @topic_policy_config.setter
@@ -161,6 +190,9 @@ class AiGuardrailArgs:
     @property
     @pulumi.getter(name="wordPolicyConfig")
     def word_policy_config(self) -> Optional[pulumi.Input['AiGuardrailAiGuardrailWordPolicyConfigArgs']]:
+        """
+        Contains details about the word policy to configured for the AI Guardrail.
+        """
         return pulumi.get(self, "word_policy_config")
 
     @word_policy_config.setter
@@ -190,9 +222,17 @@ class AiGuardrail(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] assistant_id: The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
         :param pulumi.Input[str] blocked_input_messaging: Messaging for when violations are detected in text
         :param pulumi.Input[str] blocked_outputs_messaging: Messaging for when violations are detected in text
+        :param pulumi.Input[Union['AiGuardrailAiGuardrailContentPolicyConfigArgs', 'AiGuardrailAiGuardrailContentPolicyConfigArgsDict']] content_policy_config: Contains details about how to handle harmful content.
+        :param pulumi.Input[Union['AiGuardrailAiGuardrailContextualGroundingPolicyConfigArgs', 'AiGuardrailAiGuardrailContextualGroundingPolicyConfigArgsDict']] contextual_grounding_policy_config: The policy configuration details for the AI Guardrail's contextual grounding policy.
         :param pulumi.Input[str] description: Description of the guardrail or its version
+        :param pulumi.Input[str] name: The name of the AI Guardrail.
+        :param pulumi.Input[Union['AiGuardrailAiGuardrailSensitiveInformationPolicyConfigArgs', 'AiGuardrailAiGuardrailSensitiveInformationPolicyConfigArgsDict']] sensitive_information_policy_config: Contains details about PII entities and regular expressions to configure for the AI Guardrail.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The tags used to organize, track, or control access for this resource.
+        :param pulumi.Input[Union['AiGuardrailAiGuardrailTopicPolicyConfigArgs', 'AiGuardrailAiGuardrailTopicPolicyConfigArgsDict']] topic_policy_config: Contains details about topics that the AI Guardrail should identify and deny.
+        :param pulumi.Input[Union['AiGuardrailAiGuardrailWordPolicyConfigArgs', 'AiGuardrailAiGuardrailWordPolicyConfigArgsDict']] word_policy_config: Contains details about the word policy to configured for the AI Guardrail.
         """
         ...
     @overload
@@ -301,21 +341,33 @@ class AiGuardrail(pulumi.CustomResource):
     @property
     @pulumi.getter(name="aiGuardrailArn")
     def ai_guardrail_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the AI Guardrail.
+        """
         return pulumi.get(self, "ai_guardrail_arn")
 
     @property
     @pulumi.getter(name="aiGuardrailId")
     def ai_guardrail_id(self) -> pulumi.Output[str]:
+        """
+        The identifier of the Amazon Q in Connect AI Guardrail.
+        """
         return pulumi.get(self, "ai_guardrail_id")
 
     @property
     @pulumi.getter(name="assistantArn")
     def assistant_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.
+        """
         return pulumi.get(self, "assistant_arn")
 
     @property
     @pulumi.getter(name="assistantId")
     def assistant_id(self) -> pulumi.Output[str]:
+        """
+        The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+        """
         return pulumi.get(self, "assistant_id")
 
     @property
@@ -337,11 +389,17 @@ class AiGuardrail(pulumi.CustomResource):
     @property
     @pulumi.getter(name="contentPolicyConfig")
     def content_policy_config(self) -> pulumi.Output[Optional['outputs.AiGuardrailAiGuardrailContentPolicyConfig']]:
+        """
+        Contains details about how to handle harmful content.
+        """
         return pulumi.get(self, "content_policy_config")
 
     @property
     @pulumi.getter(name="contextualGroundingPolicyConfig")
     def contextual_grounding_policy_config(self) -> pulumi.Output[Optional['outputs.AiGuardrailAiGuardrailContextualGroundingPolicyConfig']]:
+        """
+        The policy configuration details for the AI Guardrail's contextual grounding policy.
+        """
         return pulumi.get(self, "contextual_grounding_policy_config")
 
     @property
@@ -355,25 +413,40 @@ class AiGuardrail(pulumi.CustomResource):
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the AI Guardrail.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="sensitiveInformationPolicyConfig")
     def sensitive_information_policy_config(self) -> pulumi.Output[Optional['outputs.AiGuardrailAiGuardrailSensitiveInformationPolicyConfig']]:
+        """
+        Contains details about PII entities and regular expressions to configure for the AI Guardrail.
+        """
         return pulumi.get(self, "sensitive_information_policy_config")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        The tags used to organize, track, or control access for this resource.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="topicPolicyConfig")
     def topic_policy_config(self) -> pulumi.Output[Optional['outputs.AiGuardrailAiGuardrailTopicPolicyConfig']]:
+        """
+        Contains details about topics that the AI Guardrail should identify and deny.
+        """
         return pulumi.get(self, "topic_policy_config")
 
     @property
     @pulumi.getter(name="wordPolicyConfig")
     def word_policy_config(self) -> pulumi.Output[Optional['outputs.AiGuardrailAiGuardrailWordPolicyConfig']]:
+        """
+        Contains details about the word policy to configured for the AI Guardrail.
+        """
         return pulumi.get(self, "word_policy_config")
 

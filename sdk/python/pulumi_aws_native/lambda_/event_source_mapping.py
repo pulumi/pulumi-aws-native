@@ -93,9 +93,9 @@ class EventSourceMappingArgs:
         :param pulumi.Input[int] maximum_record_age_in_seconds: (Kinesis and DynamoDB Streams only) Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, Lambda never discards old records.
                  The minimum valid value for maximum record age is 60s. Although values less than 60 and greater than -1 fall within the parameter's absolute range, they are not allowed
         :param pulumi.Input[int] maximum_retry_attempts: (Kinesis and DynamoDB Streams only) Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, Lambda retries failed records until the record expires in the event source.
-        :param pulumi.Input['EventSourceMappingMetricsConfigArgs'] metrics_config: The metrics configuration for your event source. For more information, see [Event source mapping metrics](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics) .
+        :param pulumi.Input['EventSourceMappingMetricsConfigArgs'] metrics_config: The metrics configuration for your event source. For more information, see [Event source mapping metrics](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics).
         :param pulumi.Input[int] parallelization_factor: (Kinesis and DynamoDB Streams only) The number of batches to process concurrently from each shard. The default value is 1.
-        :param pulumi.Input['EventSourceMappingProvisionedPollerConfigArgs'] provisioned_poller_config: (Amazon MSK and self-managed Apache Kafka only) The provisioned mode configuration for the event source. For more information, see [provisioned mode](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode) .
+        :param pulumi.Input['EventSourceMappingProvisionedPollerConfigArgs'] provisioned_poller_config: (Amazon MSK and self-managed Apache Kafka only) The provisioned mode configuration for the event source. For more information, see [provisioned mode](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] queues: (Amazon MQ) The name of the Amazon MQ broker destination queue to consume.
         :param pulumi.Input['EventSourceMappingScalingConfigArgs'] scaling_config: (Amazon SQS only) The scaling configuration for the event source. For more information, see [Configuring maximum concurrency for Amazon SQS event sources](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency).
         :param pulumi.Input['EventSourceMappingSelfManagedEventSourceArgs'] self_managed_event_source: The self-managed Apache Kafka cluster for your event source.
@@ -363,7 +363,7 @@ class EventSourceMappingArgs:
     @pulumi.getter(name="metricsConfig")
     def metrics_config(self) -> Optional[pulumi.Input['EventSourceMappingMetricsConfigArgs']]:
         """
-        The metrics configuration for your event source. For more information, see [Event source mapping metrics](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics) .
+        The metrics configuration for your event source. For more information, see [Event source mapping metrics](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics).
         """
         return pulumi.get(self, "metrics_config")
 
@@ -387,7 +387,7 @@ class EventSourceMappingArgs:
     @pulumi.getter(name="provisionedPollerConfig")
     def provisioned_poller_config(self) -> Optional[pulumi.Input['EventSourceMappingProvisionedPollerConfigArgs']]:
         """
-        (Amazon MSK and self-managed Apache Kafka only) The provisioned mode configuration for the event source. For more information, see [provisioned mode](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode) .
+        (Amazon MSK and self-managed Apache Kafka only) The provisioned mode configuration for the event source. For more information, see [provisioned mode](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode).
         """
         return pulumi.get(self, "provisioned_poller_config")
 
@@ -606,9 +606,9 @@ class EventSourceMapping(pulumi.CustomResource):
         :param pulumi.Input[int] maximum_record_age_in_seconds: (Kinesis and DynamoDB Streams only) Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, Lambda never discards old records.
                  The minimum valid value for maximum record age is 60s. Although values less than 60 and greater than -1 fall within the parameter's absolute range, they are not allowed
         :param pulumi.Input[int] maximum_retry_attempts: (Kinesis and DynamoDB Streams only) Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, Lambda retries failed records until the record expires in the event source.
-        :param pulumi.Input[Union['EventSourceMappingMetricsConfigArgs', 'EventSourceMappingMetricsConfigArgsDict']] metrics_config: The metrics configuration for your event source. For more information, see [Event source mapping metrics](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics) .
+        :param pulumi.Input[Union['EventSourceMappingMetricsConfigArgs', 'EventSourceMappingMetricsConfigArgsDict']] metrics_config: The metrics configuration for your event source. For more information, see [Event source mapping metrics](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics).
         :param pulumi.Input[int] parallelization_factor: (Kinesis and DynamoDB Streams only) The number of batches to process concurrently from each shard. The default value is 1.
-        :param pulumi.Input[Union['EventSourceMappingProvisionedPollerConfigArgs', 'EventSourceMappingProvisionedPollerConfigArgsDict']] provisioned_poller_config: (Amazon MSK and self-managed Apache Kafka only) The provisioned mode configuration for the event source. For more information, see [provisioned mode](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode) .
+        :param pulumi.Input[Union['EventSourceMappingProvisionedPollerConfigArgs', 'EventSourceMappingProvisionedPollerConfigArgsDict']] provisioned_poller_config: (Amazon MSK and self-managed Apache Kafka only) The provisioned mode configuration for the event source. For more information, see [provisioned mode](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] queues: (Amazon MQ) The name of the Amazon MQ broker destination queue to consume.
         :param pulumi.Input[Union['EventSourceMappingScalingConfigArgs', 'EventSourceMappingScalingConfigArgsDict']] scaling_config: (Amazon SQS only) The scaling configuration for the event source. For more information, see [Configuring maximum concurrency for Amazon SQS event sources](https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-max-concurrency).
         :param pulumi.Input[Union['EventSourceMappingSelfManagedEventSourceArgs', 'EventSourceMappingSelfManagedEventSourceArgsDict']] self_managed_event_source: The self-managed Apache Kafka cluster for your event source.
@@ -936,7 +936,7 @@ class EventSourceMapping(pulumi.CustomResource):
     @pulumi.getter(name="metricsConfig")
     def metrics_config(self) -> pulumi.Output[Optional['outputs.EventSourceMappingMetricsConfig']]:
         """
-        The metrics configuration for your event source. For more information, see [Event source mapping metrics](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics) .
+        The metrics configuration for your event source. For more information, see [Event source mapping metrics](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-metrics-types.html#event-source-mapping-metrics).
         """
         return pulumi.get(self, "metrics_config")
 
@@ -952,7 +952,7 @@ class EventSourceMapping(pulumi.CustomResource):
     @pulumi.getter(name="provisionedPollerConfig")
     def provisioned_poller_config(self) -> pulumi.Output[Optional['outputs.EventSourceMappingProvisionedPollerConfig']]:
         """
-        (Amazon MSK and self-managed Apache Kafka only) The provisioned mode configuration for the event source. For more information, see [provisioned mode](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode) .
+        (Amazon MSK and self-managed Apache Kafka only) The provisioned mode configuration for the event source. For more information, see [provisioned mode](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#invocation-eventsourcemapping-provisioned-mode).
         """
         return pulumi.get(self, "provisioned_poller_config")
 

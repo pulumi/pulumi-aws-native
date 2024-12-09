@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.QBusiness
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
+        [Output("customizationConfiguration")]
+        public Output<Outputs.WebExperienceCustomizationConfiguration?> CustomizationConfiguration { get; private set; } = null!;
+
         /// <summary>
         /// The endpoint URLs for your Amazon Q Business web experience. The URLs are unique and fully hosted by AWS .
         /// </summary>
@@ -163,6 +166,9 @@ namespace Pulumi.AwsNative.QBusiness
         /// </summary>
         [Input("applicationId", required: true)]
         public Input<string> ApplicationId { get; set; } = null!;
+
+        [Input("customizationConfiguration")]
+        public Input<Inputs.WebExperienceCustomizationConfigurationArgs>? CustomizationConfiguration { get; set; }
 
         /// <summary>
         /// Provides information about the identity provider (IdP) used to authenticate end users of an Amazon Q Business web experience.

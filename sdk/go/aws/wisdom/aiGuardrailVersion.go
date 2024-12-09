@@ -22,7 +22,8 @@ type AiGuardrailVersion struct {
 	AssistantArn         pulumi.StringOutput     `pulumi:"assistantArn"`
 	AssistantId          pulumi.StringOutput     `pulumi:"assistantId"`
 	ModifiedTimeSeconds  pulumi.Float64PtrOutput `pulumi:"modifiedTimeSeconds"`
-	VersionNumber        pulumi.Float64Output    `pulumi:"versionNumber"`
+	// The version number for this AI Guardrail version.
+	VersionNumber pulumi.Float64Output `pulumi:"versionNumber"`
 }
 
 // NewAiGuardrailVersion registers a new resource with the given unique name, arguments, and options.
@@ -150,6 +151,7 @@ func (o AiGuardrailVersionOutput) ModifiedTimeSeconds() pulumi.Float64PtrOutput 
 	return o.ApplyT(func(v *AiGuardrailVersion) pulumi.Float64PtrOutput { return v.ModifiedTimeSeconds }).(pulumi.Float64PtrOutput)
 }
 
+// The version number for this AI Guardrail version.
 func (o AiGuardrailVersionOutput) VersionNumber() pulumi.Float64Output {
 	return o.ApplyT(func(v *AiGuardrailVersion) pulumi.Float64Output { return v.VersionNumber }).(pulumi.Float64Output)
 }

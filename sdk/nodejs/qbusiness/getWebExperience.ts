@@ -34,6 +34,7 @@ export interface GetWebExperienceResult {
      * The Unix timestamp when the Amazon Q Business application was last updated.
      */
     readonly createdAt?: string;
+    readonly customizationConfiguration?: outputs.qbusiness.WebExperienceCustomizationConfiguration;
     /**
      * The endpoint URLs for your Amazon Q Business web experience. The URLs are unique and fully hosted by AWS .
      */

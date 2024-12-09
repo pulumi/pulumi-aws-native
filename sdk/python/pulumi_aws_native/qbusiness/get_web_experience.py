@@ -26,10 +26,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetWebExperienceResult:
-    def __init__(__self__, created_at=None, default_endpoint=None, identity_provider_configuration=None, origins=None, role_arn=None, sample_prompts_control_mode=None, status=None, subtitle=None, tags=None, title=None, updated_at=None, web_experience_arn=None, web_experience_id=None, welcome_message=None):
+    def __init__(__self__, created_at=None, customization_configuration=None, default_endpoint=None, identity_provider_configuration=None, origins=None, role_arn=None, sample_prompts_control_mode=None, status=None, subtitle=None, tags=None, title=None, updated_at=None, web_experience_arn=None, web_experience_id=None, welcome_message=None):
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
+        if customization_configuration and not isinstance(customization_configuration, dict):
+            raise TypeError("Expected argument 'customization_configuration' to be a dict")
+        pulumi.set(__self__, "customization_configuration", customization_configuration)
         if default_endpoint and not isinstance(default_endpoint, str):
             raise TypeError("Expected argument 'default_endpoint' to be a str")
         pulumi.set(__self__, "default_endpoint", default_endpoint)
@@ -77,6 +80,11 @@ class GetWebExperienceResult:
         The Unix timestamp when the Amazon Q Business application was last updated.
         """
         return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="customizationConfiguration")
+    def customization_configuration(self) -> Optional['outputs.WebExperienceCustomizationConfiguration']:
+        return pulumi.get(self, "customization_configuration")
 
     @property
     @pulumi.getter(name="defaultEndpoint")
@@ -194,6 +202,7 @@ class AwaitableGetWebExperienceResult(GetWebExperienceResult):
             yield self
         return GetWebExperienceResult(
             created_at=self.created_at,
+            customization_configuration=self.customization_configuration,
             default_endpoint=self.default_endpoint,
             identity_provider_configuration=self.identity_provider_configuration,
             origins=self.origins,
@@ -227,6 +236,7 @@ def get_web_experience(application_id: Optional[str] = None,
 
     return AwaitableGetWebExperienceResult(
         created_at=pulumi.get(__ret__, 'created_at'),
+        customization_configuration=pulumi.get(__ret__, 'customization_configuration'),
         default_endpoint=pulumi.get(__ret__, 'default_endpoint'),
         identity_provider_configuration=pulumi.get(__ret__, 'identity_provider_configuration'),
         origins=pulumi.get(__ret__, 'origins'),
@@ -257,6 +267,7 @@ def get_web_experience_output(application_id: Optional[pulumi.Input[str]] = None
     __ret__ = pulumi.runtime.invoke_output('aws-native:qbusiness:getWebExperience', __args__, opts=opts, typ=GetWebExperienceResult)
     return __ret__.apply(lambda __response__: GetWebExperienceResult(
         created_at=pulumi.get(__response__, 'created_at'),
+        customization_configuration=pulumi.get(__response__, 'customization_configuration'),
         default_endpoint=pulumi.get(__response__, 'default_endpoint'),
         identity_provider_configuration=pulumi.get(__response__, 'identity_provider_configuration'),
         origins=pulumi.get(__response__, 'origins'),

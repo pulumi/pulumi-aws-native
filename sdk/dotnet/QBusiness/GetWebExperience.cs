@@ -73,6 +73,7 @@ namespace Pulumi.AwsNative.QBusiness
         /// The Unix timestamp when the Amazon Q Business application was last updated.
         /// </summary>
         public readonly string? CreatedAt;
+        public readonly Outputs.WebExperienceCustomizationConfiguration? CustomizationConfiguration;
         /// <summary>
         /// The endpoint URLs for your Amazon Q Business web experience. The URLs are unique and fully hosted by AWS .
         /// </summary>
@@ -134,6 +135,8 @@ namespace Pulumi.AwsNative.QBusiness
         private GetWebExperienceResult(
             string? createdAt,
 
+            Outputs.WebExperienceCustomizationConfiguration? customizationConfiguration,
+
             string? defaultEndpoint,
 
             Union<Outputs.WebExperienceIdentityProviderConfiguration0Properties, Outputs.WebExperienceIdentityProviderConfiguration1Properties>? identityProviderConfiguration,
@@ -161,6 +164,7 @@ namespace Pulumi.AwsNative.QBusiness
             string? welcomeMessage)
         {
             CreatedAt = createdAt;
+            CustomizationConfiguration = customizationConfiguration;
             DefaultEndpoint = defaultEndpoint;
             IdentityProviderConfiguration = identityProviderConfiguration;
             Origins = origins;

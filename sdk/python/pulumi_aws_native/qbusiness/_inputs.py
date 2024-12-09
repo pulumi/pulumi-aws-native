@@ -26,6 +26,24 @@ __all__ = [
     'ApplicationPersonalizationConfigurationArgsDict',
     'ApplicationQAppsConfigurationArgs',
     'ApplicationQAppsConfigurationArgsDict',
+    'ApplicationQuickSightConfigurationArgs',
+    'ApplicationQuickSightConfigurationArgsDict',
+    'DataAccessorActionConfigurationArgs',
+    'DataAccessorActionConfigurationArgsDict',
+    'DataAccessorActionFilterConfigurationArgs',
+    'DataAccessorActionFilterConfigurationArgsDict',
+    'DataAccessorAttributeFilterArgs',
+    'DataAccessorAttributeFilterArgsDict',
+    'DataAccessorDocumentAttributeValue0PropertiesArgs',
+    'DataAccessorDocumentAttributeValue0PropertiesArgsDict',
+    'DataAccessorDocumentAttributeValue1PropertiesArgs',
+    'DataAccessorDocumentAttributeValue1PropertiesArgsDict',
+    'DataAccessorDocumentAttributeValue2PropertiesArgs',
+    'DataAccessorDocumentAttributeValue2PropertiesArgsDict',
+    'DataAccessorDocumentAttributeValue3PropertiesArgs',
+    'DataAccessorDocumentAttributeValue3PropertiesArgsDict',
+    'DataAccessorDocumentAttributeArgs',
+    'DataAccessorDocumentAttributeArgsDict',
     'DataSourceDocumentAttributeConditionArgs',
     'DataSourceDocumentAttributeConditionArgsDict',
     'DataSourceDocumentAttributeTargetArgs',
@@ -42,8 +60,12 @@ __all__ = [
     'DataSourceDocumentEnrichmentConfigurationArgsDict',
     'DataSourceHookConfigurationArgs',
     'DataSourceHookConfigurationArgsDict',
+    'DataSourceImageExtractionConfigurationArgs',
+    'DataSourceImageExtractionConfigurationArgsDict',
     'DataSourceInlineDocumentEnrichmentConfigurationArgs',
     'DataSourceInlineDocumentEnrichmentConfigurationArgsDict',
+    'DataSourceMediaExtractionConfigurationArgs',
+    'DataSourceMediaExtractionConfigurationArgsDict',
     'DataSourceVpcConfigurationArgs',
     'DataSourceVpcConfigurationArgsDict',
     'IndexCapacityConfigurationArgs',
@@ -78,6 +100,8 @@ __all__ = [
     'RetrieverKendraIndexConfigurationArgsDict',
     'RetrieverNativeIndexConfigurationArgs',
     'RetrieverNativeIndexConfigurationArgsDict',
+    'WebExperienceCustomizationConfigurationArgs',
+    'WebExperienceCustomizationConfigurationArgsDict',
     'WebExperienceIdentityProviderConfiguration0PropertiesArgs',
     'WebExperienceIdentityProviderConfiguration0PropertiesArgsDict',
     'WebExperienceIdentityProviderConfiguration1PropertiesArgs',
@@ -264,6 +288,347 @@ class ApplicationQAppsConfigurationArgs:
     @q_apps_control_mode.setter
     def q_apps_control_mode(self, value: pulumi.Input['ApplicationQAppsControlMode']):
         pulumi.set(self, "q_apps_control_mode", value)
+
+
+if not MYPY:
+    class ApplicationQuickSightConfigurationArgsDict(TypedDict):
+        client_namespace: pulumi.Input[str]
+elif False:
+    ApplicationQuickSightConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ApplicationQuickSightConfigurationArgs:
+    def __init__(__self__, *,
+                 client_namespace: pulumi.Input[str]):
+        pulumi.set(__self__, "client_namespace", client_namespace)
+
+    @property
+    @pulumi.getter(name="clientNamespace")
+    def client_namespace(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "client_namespace")
+
+    @client_namespace.setter
+    def client_namespace(self, value: pulumi.Input[str]):
+        pulumi.set(self, "client_namespace", value)
+
+
+if not MYPY:
+    class DataAccessorActionConfigurationArgsDict(TypedDict):
+        action: pulumi.Input[str]
+        filter_configuration: NotRequired[pulumi.Input['DataAccessorActionFilterConfigurationArgsDict']]
+elif False:
+    DataAccessorActionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataAccessorActionConfigurationArgs:
+    def __init__(__self__, *,
+                 action: pulumi.Input[str],
+                 filter_configuration: Optional[pulumi.Input['DataAccessorActionFilterConfigurationArgs']] = None):
+        pulumi.set(__self__, "action", action)
+        if filter_configuration is not None:
+            pulumi.set(__self__, "filter_configuration", filter_configuration)
+
+    @property
+    @pulumi.getter
+    def action(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: pulumi.Input[str]):
+        pulumi.set(self, "action", value)
+
+    @property
+    @pulumi.getter(name="filterConfiguration")
+    def filter_configuration(self) -> Optional[pulumi.Input['DataAccessorActionFilterConfigurationArgs']]:
+        return pulumi.get(self, "filter_configuration")
+
+    @filter_configuration.setter
+    def filter_configuration(self, value: Optional[pulumi.Input['DataAccessorActionFilterConfigurationArgs']]):
+        pulumi.set(self, "filter_configuration", value)
+
+
+if not MYPY:
+    class DataAccessorActionFilterConfigurationArgsDict(TypedDict):
+        document_attribute_filter: pulumi.Input['DataAccessorAttributeFilterArgsDict']
+elif False:
+    DataAccessorActionFilterConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataAccessorActionFilterConfigurationArgs:
+    def __init__(__self__, *,
+                 document_attribute_filter: pulumi.Input['DataAccessorAttributeFilterArgs']):
+        pulumi.set(__self__, "document_attribute_filter", document_attribute_filter)
+
+    @property
+    @pulumi.getter(name="documentAttributeFilter")
+    def document_attribute_filter(self) -> pulumi.Input['DataAccessorAttributeFilterArgs']:
+        return pulumi.get(self, "document_attribute_filter")
+
+    @document_attribute_filter.setter
+    def document_attribute_filter(self, value: pulumi.Input['DataAccessorAttributeFilterArgs']):
+        pulumi.set(self, "document_attribute_filter", value)
+
+
+if not MYPY:
+    class DataAccessorAttributeFilterArgsDict(TypedDict):
+        and_all_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataAccessorAttributeFilterArgsDict']]]]
+        contains_all: NotRequired[pulumi.Input['DataAccessorDocumentAttributeArgsDict']]
+        contains_any: NotRequired[pulumi.Input['DataAccessorDocumentAttributeArgsDict']]
+        equals_to: NotRequired[pulumi.Input['DataAccessorDocumentAttributeArgsDict']]
+        greater_than: NotRequired[pulumi.Input['DataAccessorDocumentAttributeArgsDict']]
+        greater_than_or_equals: NotRequired[pulumi.Input['DataAccessorDocumentAttributeArgsDict']]
+        less_than: NotRequired[pulumi.Input['DataAccessorDocumentAttributeArgsDict']]
+        less_than_or_equals: NotRequired[pulumi.Input['DataAccessorDocumentAttributeArgsDict']]
+        not_filter: NotRequired[pulumi.Input['DataAccessorAttributeFilterArgsDict']]
+        or_all_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['DataAccessorAttributeFilterArgsDict']]]]
+elif False:
+    DataAccessorAttributeFilterArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataAccessorAttributeFilterArgs:
+    def __init__(__self__, *,
+                 and_all_filters: Optional[pulumi.Input[Sequence[pulumi.Input['DataAccessorAttributeFilterArgs']]]] = None,
+                 contains_all: Optional[pulumi.Input['DataAccessorDocumentAttributeArgs']] = None,
+                 contains_any: Optional[pulumi.Input['DataAccessorDocumentAttributeArgs']] = None,
+                 equals_to: Optional[pulumi.Input['DataAccessorDocumentAttributeArgs']] = None,
+                 greater_than: Optional[pulumi.Input['DataAccessorDocumentAttributeArgs']] = None,
+                 greater_than_or_equals: Optional[pulumi.Input['DataAccessorDocumentAttributeArgs']] = None,
+                 less_than: Optional[pulumi.Input['DataAccessorDocumentAttributeArgs']] = None,
+                 less_than_or_equals: Optional[pulumi.Input['DataAccessorDocumentAttributeArgs']] = None,
+                 not_filter: Optional[pulumi.Input['DataAccessorAttributeFilterArgs']] = None,
+                 or_all_filters: Optional[pulumi.Input[Sequence[pulumi.Input['DataAccessorAttributeFilterArgs']]]] = None):
+        if and_all_filters is not None:
+            pulumi.set(__self__, "and_all_filters", and_all_filters)
+        if contains_all is not None:
+            pulumi.set(__self__, "contains_all", contains_all)
+        if contains_any is not None:
+            pulumi.set(__self__, "contains_any", contains_any)
+        if equals_to is not None:
+            pulumi.set(__self__, "equals_to", equals_to)
+        if greater_than is not None:
+            pulumi.set(__self__, "greater_than", greater_than)
+        if greater_than_or_equals is not None:
+            pulumi.set(__self__, "greater_than_or_equals", greater_than_or_equals)
+        if less_than is not None:
+            pulumi.set(__self__, "less_than", less_than)
+        if less_than_or_equals is not None:
+            pulumi.set(__self__, "less_than_or_equals", less_than_or_equals)
+        if not_filter is not None:
+            pulumi.set(__self__, "not_filter", not_filter)
+        if or_all_filters is not None:
+            pulumi.set(__self__, "or_all_filters", or_all_filters)
+
+    @property
+    @pulumi.getter(name="andAllFilters")
+    def and_all_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataAccessorAttributeFilterArgs']]]]:
+        return pulumi.get(self, "and_all_filters")
+
+    @and_all_filters.setter
+    def and_all_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataAccessorAttributeFilterArgs']]]]):
+        pulumi.set(self, "and_all_filters", value)
+
+    @property
+    @pulumi.getter(name="containsAll")
+    def contains_all(self) -> Optional[pulumi.Input['DataAccessorDocumentAttributeArgs']]:
+        return pulumi.get(self, "contains_all")
+
+    @contains_all.setter
+    def contains_all(self, value: Optional[pulumi.Input['DataAccessorDocumentAttributeArgs']]):
+        pulumi.set(self, "contains_all", value)
+
+    @property
+    @pulumi.getter(name="containsAny")
+    def contains_any(self) -> Optional[pulumi.Input['DataAccessorDocumentAttributeArgs']]:
+        return pulumi.get(self, "contains_any")
+
+    @contains_any.setter
+    def contains_any(self, value: Optional[pulumi.Input['DataAccessorDocumentAttributeArgs']]):
+        pulumi.set(self, "contains_any", value)
+
+    @property
+    @pulumi.getter(name="equalsTo")
+    def equals_to(self) -> Optional[pulumi.Input['DataAccessorDocumentAttributeArgs']]:
+        return pulumi.get(self, "equals_to")
+
+    @equals_to.setter
+    def equals_to(self, value: Optional[pulumi.Input['DataAccessorDocumentAttributeArgs']]):
+        pulumi.set(self, "equals_to", value)
+
+    @property
+    @pulumi.getter(name="greaterThan")
+    def greater_than(self) -> Optional[pulumi.Input['DataAccessorDocumentAttributeArgs']]:
+        return pulumi.get(self, "greater_than")
+
+    @greater_than.setter
+    def greater_than(self, value: Optional[pulumi.Input['DataAccessorDocumentAttributeArgs']]):
+        pulumi.set(self, "greater_than", value)
+
+    @property
+    @pulumi.getter(name="greaterThanOrEquals")
+    def greater_than_or_equals(self) -> Optional[pulumi.Input['DataAccessorDocumentAttributeArgs']]:
+        return pulumi.get(self, "greater_than_or_equals")
+
+    @greater_than_or_equals.setter
+    def greater_than_or_equals(self, value: Optional[pulumi.Input['DataAccessorDocumentAttributeArgs']]):
+        pulumi.set(self, "greater_than_or_equals", value)
+
+    @property
+    @pulumi.getter(name="lessThan")
+    def less_than(self) -> Optional[pulumi.Input['DataAccessorDocumentAttributeArgs']]:
+        return pulumi.get(self, "less_than")
+
+    @less_than.setter
+    def less_than(self, value: Optional[pulumi.Input['DataAccessorDocumentAttributeArgs']]):
+        pulumi.set(self, "less_than", value)
+
+    @property
+    @pulumi.getter(name="lessThanOrEquals")
+    def less_than_or_equals(self) -> Optional[pulumi.Input['DataAccessorDocumentAttributeArgs']]:
+        return pulumi.get(self, "less_than_or_equals")
+
+    @less_than_or_equals.setter
+    def less_than_or_equals(self, value: Optional[pulumi.Input['DataAccessorDocumentAttributeArgs']]):
+        pulumi.set(self, "less_than_or_equals", value)
+
+    @property
+    @pulumi.getter(name="notFilter")
+    def not_filter(self) -> Optional[pulumi.Input['DataAccessorAttributeFilterArgs']]:
+        return pulumi.get(self, "not_filter")
+
+    @not_filter.setter
+    def not_filter(self, value: Optional[pulumi.Input['DataAccessorAttributeFilterArgs']]):
+        pulumi.set(self, "not_filter", value)
+
+    @property
+    @pulumi.getter(name="orAllFilters")
+    def or_all_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataAccessorAttributeFilterArgs']]]]:
+        return pulumi.get(self, "or_all_filters")
+
+    @or_all_filters.setter
+    def or_all_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DataAccessorAttributeFilterArgs']]]]):
+        pulumi.set(self, "or_all_filters", value)
+
+
+if not MYPY:
+    class DataAccessorDocumentAttributeValue0PropertiesArgsDict(TypedDict):
+        string_value: pulumi.Input[str]
+elif False:
+    DataAccessorDocumentAttributeValue0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataAccessorDocumentAttributeValue0PropertiesArgs:
+    def __init__(__self__, *,
+                 string_value: pulumi.Input[str]):
+        pulumi.set(__self__, "string_value", string_value)
+
+    @property
+    @pulumi.getter(name="stringValue")
+    def string_value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "string_value")
+
+    @string_value.setter
+    def string_value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "string_value", value)
+
+
+if not MYPY:
+    class DataAccessorDocumentAttributeValue1PropertiesArgsDict(TypedDict):
+        string_list_value: pulumi.Input[Sequence[pulumi.Input[str]]]
+elif False:
+    DataAccessorDocumentAttributeValue1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataAccessorDocumentAttributeValue1PropertiesArgs:
+    def __init__(__self__, *,
+                 string_list_value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(__self__, "string_list_value", string_list_value)
+
+    @property
+    @pulumi.getter(name="stringListValue")
+    def string_list_value(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        return pulumi.get(self, "string_list_value")
+
+    @string_list_value.setter
+    def string_list_value(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "string_list_value", value)
+
+
+if not MYPY:
+    class DataAccessorDocumentAttributeValue2PropertiesArgsDict(TypedDict):
+        long_value: pulumi.Input[float]
+elif False:
+    DataAccessorDocumentAttributeValue2PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataAccessorDocumentAttributeValue2PropertiesArgs:
+    def __init__(__self__, *,
+                 long_value: pulumi.Input[float]):
+        pulumi.set(__self__, "long_value", long_value)
+
+    @property
+    @pulumi.getter(name="longValue")
+    def long_value(self) -> pulumi.Input[float]:
+        return pulumi.get(self, "long_value")
+
+    @long_value.setter
+    def long_value(self, value: pulumi.Input[float]):
+        pulumi.set(self, "long_value", value)
+
+
+if not MYPY:
+    class DataAccessorDocumentAttributeValue3PropertiesArgsDict(TypedDict):
+        date_value: pulumi.Input[str]
+elif False:
+    DataAccessorDocumentAttributeValue3PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataAccessorDocumentAttributeValue3PropertiesArgs:
+    def __init__(__self__, *,
+                 date_value: pulumi.Input[str]):
+        pulumi.set(__self__, "date_value", date_value)
+
+    @property
+    @pulumi.getter(name="dateValue")
+    def date_value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "date_value")
+
+    @date_value.setter
+    def date_value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "date_value", value)
+
+
+if not MYPY:
+    class DataAccessorDocumentAttributeArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        value: pulumi.Input[Union['DataAccessorDocumentAttributeValue0PropertiesArgsDict', 'DataAccessorDocumentAttributeValue1PropertiesArgsDict', 'DataAccessorDocumentAttributeValue2PropertiesArgsDict', 'DataAccessorDocumentAttributeValue3PropertiesArgsDict']]
+elif False:
+    DataAccessorDocumentAttributeArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataAccessorDocumentAttributeArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 value: pulumi.Input[Union['DataAccessorDocumentAttributeValue0PropertiesArgs', 'DataAccessorDocumentAttributeValue1PropertiesArgs', 'DataAccessorDocumentAttributeValue2PropertiesArgs', 'DataAccessorDocumentAttributeValue3PropertiesArgs']]):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Union['DataAccessorDocumentAttributeValue0PropertiesArgs', 'DataAccessorDocumentAttributeValue1PropertiesArgs', 'DataAccessorDocumentAttributeValue2PropertiesArgs', 'DataAccessorDocumentAttributeValue3PropertiesArgs']]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Union['DataAccessorDocumentAttributeValue0PropertiesArgs', 'DataAccessorDocumentAttributeValue1PropertiesArgs', 'DataAccessorDocumentAttributeValue2PropertiesArgs', 'DataAccessorDocumentAttributeValue3PropertiesArgs']]):
+        pulumi.set(self, "value", value)
 
 
 if not MYPY:
@@ -690,6 +1055,28 @@ class DataSourceHookConfigurationArgs:
 
 
 if not MYPY:
+    class DataSourceImageExtractionConfigurationArgsDict(TypedDict):
+        image_extraction_status: pulumi.Input['DataSourceImageExtractionStatus']
+elif False:
+    DataSourceImageExtractionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataSourceImageExtractionConfigurationArgs:
+    def __init__(__self__, *,
+                 image_extraction_status: pulumi.Input['DataSourceImageExtractionStatus']):
+        pulumi.set(__self__, "image_extraction_status", image_extraction_status)
+
+    @property
+    @pulumi.getter(name="imageExtractionStatus")
+    def image_extraction_status(self) -> pulumi.Input['DataSourceImageExtractionStatus']:
+        return pulumi.get(self, "image_extraction_status")
+
+    @image_extraction_status.setter
+    def image_extraction_status(self, value: pulumi.Input['DataSourceImageExtractionStatus']):
+        pulumi.set(self, "image_extraction_status", value)
+
+
+if not MYPY:
     class DataSourceInlineDocumentEnrichmentConfigurationArgsDict(TypedDict):
         condition: NotRequired[pulumi.Input['DataSourceDocumentAttributeConditionArgsDict']]
         """
@@ -759,6 +1146,29 @@ class DataSourceInlineDocumentEnrichmentConfigurationArgs:
     @target.setter
     def target(self, value: Optional[pulumi.Input['DataSourceDocumentAttributeTargetArgs']]):
         pulumi.set(self, "target", value)
+
+
+if not MYPY:
+    class DataSourceMediaExtractionConfigurationArgsDict(TypedDict):
+        image_extraction_configuration: NotRequired[pulumi.Input['DataSourceImageExtractionConfigurationArgsDict']]
+elif False:
+    DataSourceMediaExtractionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataSourceMediaExtractionConfigurationArgs:
+    def __init__(__self__, *,
+                 image_extraction_configuration: Optional[pulumi.Input['DataSourceImageExtractionConfigurationArgs']] = None):
+        if image_extraction_configuration is not None:
+            pulumi.set(__self__, "image_extraction_configuration", image_extraction_configuration)
+
+    @property
+    @pulumi.getter(name="imageExtractionConfiguration")
+    def image_extraction_configuration(self) -> Optional[pulumi.Input['DataSourceImageExtractionConfigurationArgs']]:
+        return pulumi.get(self, "image_extraction_configuration")
+
+    @image_extraction_configuration.setter
+    def image_extraction_configuration(self, value: Optional[pulumi.Input['DataSourceImageExtractionConfigurationArgs']]):
+        pulumi.set(self, "image_extraction_configuration", value)
 
 
 if not MYPY:
@@ -1144,6 +1554,8 @@ if not MYPY:
     class PluginOAuth2ClientCredentialConfigurationArgsDict(TypedDict):
         role_arn: pulumi.Input[str]
         secret_arn: pulumi.Input[str]
+        authorization_url: NotRequired[pulumi.Input[str]]
+        token_url: NotRequired[pulumi.Input[str]]
 elif False:
     PluginOAuth2ClientCredentialConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1151,9 +1563,15 @@ elif False:
 class PluginOAuth2ClientCredentialConfigurationArgs:
     def __init__(__self__, *,
                  role_arn: pulumi.Input[str],
-                 secret_arn: pulumi.Input[str]):
+                 secret_arn: pulumi.Input[str],
+                 authorization_url: Optional[pulumi.Input[str]] = None,
+                 token_url: Optional[pulumi.Input[str]] = None):
         pulumi.set(__self__, "role_arn", role_arn)
         pulumi.set(__self__, "secret_arn", secret_arn)
+        if authorization_url is not None:
+            pulumi.set(__self__, "authorization_url", authorization_url)
+        if token_url is not None:
+            pulumi.set(__self__, "token_url", token_url)
 
     @property
     @pulumi.getter(name="roleArn")
@@ -1172,6 +1590,24 @@ class PluginOAuth2ClientCredentialConfigurationArgs:
     @secret_arn.setter
     def secret_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "secret_arn", value)
+
+    @property
+    @pulumi.getter(name="authorizationUrl")
+    def authorization_url(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "authorization_url")
+
+    @authorization_url.setter
+    def authorization_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "authorization_url", value)
+
+    @property
+    @pulumi.getter(name="tokenUrl")
+    def token_url(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "token_url")
+
+    @token_url.setter
+    def token_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "token_url", value)
 
 
 if not MYPY:
@@ -1294,6 +1730,68 @@ class RetrieverNativeIndexConfigurationArgs:
     @index_id.setter
     def index_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "index_id", value)
+
+
+if not MYPY:
+    class WebExperienceCustomizationConfigurationArgsDict(TypedDict):
+        custom_css_url: NotRequired[pulumi.Input[str]]
+        favicon_url: NotRequired[pulumi.Input[str]]
+        font_url: NotRequired[pulumi.Input[str]]
+        logo_url: NotRequired[pulumi.Input[str]]
+elif False:
+    WebExperienceCustomizationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WebExperienceCustomizationConfigurationArgs:
+    def __init__(__self__, *,
+                 custom_css_url: Optional[pulumi.Input[str]] = None,
+                 favicon_url: Optional[pulumi.Input[str]] = None,
+                 font_url: Optional[pulumi.Input[str]] = None,
+                 logo_url: Optional[pulumi.Input[str]] = None):
+        if custom_css_url is not None:
+            pulumi.set(__self__, "custom_css_url", custom_css_url)
+        if favicon_url is not None:
+            pulumi.set(__self__, "favicon_url", favicon_url)
+        if font_url is not None:
+            pulumi.set(__self__, "font_url", font_url)
+        if logo_url is not None:
+            pulumi.set(__self__, "logo_url", logo_url)
+
+    @property
+    @pulumi.getter(name="customCssUrl")
+    def custom_css_url(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "custom_css_url")
+
+    @custom_css_url.setter
+    def custom_css_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "custom_css_url", value)
+
+    @property
+    @pulumi.getter(name="faviconUrl")
+    def favicon_url(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "favicon_url")
+
+    @favicon_url.setter
+    def favicon_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "favicon_url", value)
+
+    @property
+    @pulumi.getter(name="fontUrl")
+    def font_url(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "font_url")
+
+    @font_url.setter
+    def font_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "font_url", value)
+
+    @property
+    @pulumi.getter(name="logoUrl")
+    def logo_url(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "logo_url")
+
+    @logo_url.setter
+    def logo_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "logo_url", value)
 
 
 if not MYPY:

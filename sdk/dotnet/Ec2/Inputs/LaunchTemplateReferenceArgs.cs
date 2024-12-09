@@ -12,9 +12,6 @@ namespace Pulumi.AwsNative.Ec2.Inputs
 
     public sealed class LaunchTemplateReferenceArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The instance family to refer. Ensure that you specify the correct family name. For example, C6i and C6g are valid values, but C6 is not.
-        /// </summary>
         [Input("instanceFamily")]
         public Input<string>? InstanceFamily { get; set; }
 

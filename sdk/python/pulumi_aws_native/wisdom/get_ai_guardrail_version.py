@@ -55,6 +55,9 @@ class GetAiGuardrailVersionResult:
     @property
     @pulumi.getter(name="versionNumber")
     def version_number(self) -> Optional[float]:
+        """
+        The version number for this AI Guardrail version.
+        """
         return pulumi.get(self, "version_number")
 
 
@@ -76,6 +79,9 @@ def get_ai_guardrail_version(ai_guardrail_id: Optional[str] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAiGuardrailVersionResult:
     """
     Definition of AWS::Wisdom::AIGuardrailVersion Resource Type
+
+
+    :param float version_number: The version number for this AI Guardrail version.
     """
     __args__ = dict()
     __args__['aiGuardrailId'] = ai_guardrail_id
@@ -95,6 +101,9 @@ def get_ai_guardrail_version_output(ai_guardrail_id: Optional[pulumi.Input[str]]
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAiGuardrailVersionResult]:
     """
     Definition of AWS::Wisdom::AIGuardrailVersion Resource Type
+
+
+    :param float version_number: The version number for this AI Guardrail version.
     """
     __args__ = dict()
     __args__['aiGuardrailId'] = ai_guardrail_id

@@ -83,6 +83,9 @@ namespace Pulumi.AwsNative.QBusiness
         [Output("indexId")]
         public Output<string> IndexId { get; private set; } = null!;
 
+        [Output("mediaExtractionConfiguration")]
+        public Output<Outputs.DataSourceMediaExtractionConfiguration?> MediaExtractionConfiguration { get; private set; } = null!;
+
         /// <summary>
         /// The Amazon Resource Name (ARN) of an IAM role with permission to access the data source and required resources.
         /// </summary>
@@ -226,6 +229,9 @@ namespace Pulumi.AwsNative.QBusiness
         /// </summary>
         [Input("indexId", required: true)]
         public Input<string> IndexId { get; set; } = null!;
+
+        [Input("mediaExtractionConfiguration")]
+        public Input<Inputs.DataSourceMediaExtractionConfigurationArgs>? MediaExtractionConfiguration { get; set; }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of an IAM role with permission to access the data source and required resources.

@@ -150,6 +150,11 @@ export const getMonitoringSchedule: typeof import("./getMonitoringSchedule").get
 export const getMonitoringScheduleOutput: typeof import("./getMonitoringSchedule").getMonitoringScheduleOutput = null as any;
 utilities.lazyLoad(exports, ["getMonitoringSchedule","getMonitoringScheduleOutput"], () => require("./getMonitoringSchedule"));
 
+export { GetPartnerAppArgs, GetPartnerAppResult, GetPartnerAppOutputArgs } from "./getPartnerApp";
+export const getPartnerApp: typeof import("./getPartnerApp").getPartnerApp = null as any;
+export const getPartnerAppOutput: typeof import("./getPartnerApp").getPartnerAppOutput = null as any;
+utilities.lazyLoad(exports, ["getPartnerApp","getPartnerAppOutput"], () => require("./getPartnerApp"));
+
 export { GetPipelineArgs, GetPipelineResult, GetPipelineOutputArgs } from "./getPipeline";
 export const getPipeline: typeof import("./getPipeline").getPipeline = null as any;
 export const getPipelineOutput: typeof import("./getPipeline").getPipelineOutput = null as any;
@@ -235,6 +240,11 @@ export type MonitoringSchedule = import("./monitoringSchedule").MonitoringSchedu
 export const MonitoringSchedule: typeof import("./monitoringSchedule").MonitoringSchedule = null as any;
 utilities.lazyLoad(exports, ["MonitoringSchedule"], () => require("./monitoringSchedule"));
 
+export { PartnerAppArgs } from "./partnerApp";
+export type PartnerApp = import("./partnerApp").PartnerApp;
+export const PartnerApp: typeof import("./partnerApp").PartnerApp = null as any;
+utilities.lazyLoad(exports, ["PartnerApp"], () => require("./partnerApp"));
+
 export { PipelineArgs } from "./pipeline";
 export type Pipeline = import("./pipeline").Pipeline;
 export const Pipeline: typeof import("./pipeline").Pipeline = null as any;
@@ -310,6 +320,8 @@ const _module = {
                 return new ModelQualityJobDefinition(name, <any>undefined, { urn })
             case "aws-native:sagemaker:MonitoringSchedule":
                 return new MonitoringSchedule(name, <any>undefined, { urn })
+            case "aws-native:sagemaker:PartnerApp":
+                return new PartnerApp(name, <any>undefined, { urn })
             case "aws-native:sagemaker:Pipeline":
                 return new Pipeline(name, <any>undefined, { urn })
             case "aws-native:sagemaker:Project":

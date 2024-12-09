@@ -68,6 +68,7 @@ namespace Pulumi.AwsNative.StepFunctions
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
+                    "description",
                     "stateMachineArn",
                     "stateMachineRevisionId",
                 },

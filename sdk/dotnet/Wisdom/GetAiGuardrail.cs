@@ -27,9 +27,15 @@ namespace Pulumi.AwsNative.Wisdom
 
     public sealed class GetAiGuardrailArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The identifier of the Amazon Q in Connect AI Guardrail.
+        /// </summary>
         [Input("aiGuardrailId", required: true)]
         public string AiGuardrailId { get; set; } = null!;
 
+        /// <summary>
+        /// The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+        /// </summary>
         [Input("assistantId", required: true)]
         public string AssistantId { get; set; } = null!;
 
@@ -41,9 +47,15 @@ namespace Pulumi.AwsNative.Wisdom
 
     public sealed class GetAiGuardrailInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The identifier of the Amazon Q in Connect AI Guardrail.
+        /// </summary>
         [Input("aiGuardrailId", required: true)]
         public Input<string> AiGuardrailId { get; set; } = null!;
 
+        /// <summary>
+        /// The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
+        /// </summary>
         [Input("assistantId", required: true)]
         public Input<string> AssistantId { get; set; } = null!;
 
@@ -57,8 +69,17 @@ namespace Pulumi.AwsNative.Wisdom
     [OutputType]
     public sealed class GetAiGuardrailResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the AI Guardrail.
+        /// </summary>
         public readonly string? AiGuardrailArn;
+        /// <summary>
+        /// The identifier of the Amazon Q in Connect AI Guardrail.
+        /// </summary>
         public readonly string? AiGuardrailId;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.
+        /// </summary>
         public readonly string? AssistantArn;
         /// <summary>
         /// Messaging for when violations are detected in text
@@ -68,14 +89,29 @@ namespace Pulumi.AwsNative.Wisdom
         /// Messaging for when violations are detected in text
         /// </summary>
         public readonly string? BlockedOutputsMessaging;
+        /// <summary>
+        /// Contains details about how to handle harmful content.
+        /// </summary>
         public readonly Outputs.AiGuardrailAiGuardrailContentPolicyConfig? ContentPolicyConfig;
+        /// <summary>
+        /// The policy configuration details for the AI Guardrail's contextual grounding policy.
+        /// </summary>
         public readonly Outputs.AiGuardrailAiGuardrailContextualGroundingPolicyConfig? ContextualGroundingPolicyConfig;
         /// <summary>
         /// Description of the guardrail or its version
         /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// Contains details about PII entities and regular expressions to configure for the AI Guardrail.
+        /// </summary>
         public readonly Outputs.AiGuardrailAiGuardrailSensitiveInformationPolicyConfig? SensitiveInformationPolicyConfig;
+        /// <summary>
+        /// Contains details about topics that the AI Guardrail should identify and deny.
+        /// </summary>
         public readonly Outputs.AiGuardrailAiGuardrailTopicPolicyConfig? TopicPolicyConfig;
+        /// <summary>
+        /// Contains details about the word policy to configured for the AI Guardrail.
+        /// </summary>
         public readonly Outputs.AiGuardrailAiGuardrailWordPolicyConfig? WordPolicyConfig;
 
         [OutputConstructor]
