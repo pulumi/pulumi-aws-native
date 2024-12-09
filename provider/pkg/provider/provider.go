@@ -990,7 +990,7 @@ func (p *cfnProvider) Read(ctx context.Context, req *pulumirpc.ReadRequest) (*pu
 			// The current approach is complicated but it's aimed to minimize the noise while refreshing:
 			// 0. We have "old" inputs and outputs before refresh and "new" outputs read from AWS.
 			// 1. Project old outputs to their corresponding input shape (exclude attributes).
-			oldInputProjection, err := schema.GetInputsFromState(&spec, inputs)
+			oldInputProjection, err := schema.GetInputsFromState(&spec, oldState)
 			if err != nil {
 				return nil, err
 			}
