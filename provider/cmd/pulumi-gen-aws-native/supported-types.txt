@@ -935,6 +935,8 @@ AWS::S3Outposts::AccessPoint
 AWS::S3Outposts::Bucket
 AWS::S3Outposts::BucketPolicy
 AWS::S3Outposts::Endpoint
+AWS::S3Tables::TableBucket
+AWS::S3Tables::TableBucketPolicy
 AWS::SES::ConfigurationSet
 AWS::SES::ConfigurationSetEventDestination
 AWS::SES::ContactList

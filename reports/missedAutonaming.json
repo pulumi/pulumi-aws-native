@@ -2194,10 +2194,12 @@
         "description": "An array of image files that you want to apply to roles like backgrounds, logos, and icons. Each object must also indicate whether it is for dark mode, light mode, or browser-adaptive mode."
       },
       "clientId": {
-        "type": "string"
+        "type": "string",
+        "description": "The app client that's assigned to the branding style that you want more information about."
       },
       "returnMergedResources": {
-        "type": "boolean"
+        "type": "boolean",
+        "description": "When `true` , returns values for branding options that are unchanged from Amazon Cognito defaults. When `false` or when you omit this parameter, returns only values that you customized in your branding style."
       },
       "settings": {
         "$ref": "pulumi.json#/Any",
@@ -2205,7 +2207,7 @@
       },
       "useCognitoProvidedValues": {
         "type": "boolean",
-        "description": "When true, applies the default branding style options. This option reverts to a \"blank\" style that you can modify later in the branding designer."
+        "description": "When true, applies the default branding style options. This option reverts to default style options that are managed by Amazon Cognito. You can modify them later in the branding designer.\n\nWhen you specify `true` for this option, you must also omit values for `Settings` and `Assets` in the request."
       },
       "userPoolId": {
         "type": "string",
@@ -2272,7 +2274,7 @@
       },
       "userPoolId": {
         "type": "string",
-        "description": "The user pool ID for the user pool."
+        "description": "The ID of the user pool."
       }
     }
   },
@@ -2285,7 +2287,7 @@
       },
       "userPoolId": {
         "type": "string",
-        "description": "The user pool ID for the user pool."
+        "description": "The ID of the user pool that contains the group that you want to add the user to."
       },
       "username": {
         "type": "string",
@@ -10215,7 +10217,8 @@
         "type": "array",
         "items": {
           "type": "string"
-        }
+        },
+        "description": "The OIDC client ID for a Amazon Q Business application."
       },
       "description": {
         "type": "string",
