@@ -848,8 +848,8 @@ func readPropSdkNames(resourceSpec *jsschema.Schema, listName string) codegen.St
 	if p, ok := resourceSpec.Extras[listName]; ok {
 		pSlice := p.([]interface{})
 		for _, v := range pSlice {
-			n := strings.TrimPrefix(v.(string), "/properties/")
-			output.Add(naming.ToSdkName(n))
+			n := ResourceProperty(strings.TrimPrefix(v.(string), "/properties/"))
+			output.Add(n.ToSdkName())
 		}
 	}
 	return output
@@ -951,6 +951,7 @@ func (ctx *cfSchemaContext) gatherResourceType() error {
 		Required:          requiredInputs.SortedValues(),
 		AutoNamingSpec:    autoNamingSpec,
 		WriteOnly:         writeOnlyProperties.SortedValues(),
+		ReadOnly:          readPropSdkNames(ctx.resourceSpec, "readOnlyProperties").SortedValues(),
 		IrreversibleNames: irreversibleNames,
 		TagsProperty:      naming.ToSdkName(tagsProp),
 		TagsStyle:         tagsStyle,
