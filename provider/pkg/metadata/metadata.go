@@ -16,16 +16,30 @@ type CloudAPIMetadata struct {
 
 // CloudAPIResource contains metadata for a single AWS Resource.
 type CloudAPIResource struct {
-	CfType            string                          `json:"cf"`
-	Inputs            map[string]pschema.PropertySpec `json:"inputs"`
-	Outputs           map[string]pschema.PropertySpec `json:"outputs"`
-	AutoNamingSpec    *AutoNamingSpec                 `json:"autoNamingSpec,omitempty"`
-	Required          []string                        `json:"required,omitempty"`
-	CreateOnly        []string                        `json:"createOnly,omitempty"`
-	WriteOnly         []string                        `json:"writeOnly,omitempty"`
-	IrreversibleNames map[string]string               `json:"irreversibleNames,omitempty"`
-	TagsProperty      string                          `json:"tagsProperty,omitempty"`
-	TagsStyle         default_tags.TagsStyle          `json:"tagsStyle,omitempty"`
+	CfType         string                          `json:"cf"`
+	Inputs         map[string]pschema.PropertySpec `json:"inputs"`
+	Outputs        map[string]pschema.PropertySpec `json:"outputs"`
+	AutoNamingSpec *AutoNamingSpec                 `json:"autoNamingSpec,omitempty"`
+	Required       []string                        `json:"required,omitempty"`
+	CreateOnly     []string                        `json:"createOnly,omitempty"`
+	// ReadOnly properties are properties that only exist as output values
+	// The properties can be top level properties or can be nested within object or array
+	// properties.
+	// '/' is used to denote a nested object property
+	// '/*/' is used to denote a nested array property
+	// e.g.
+	// - ReadOnly: [
+	//     'arn', // top level
+	//     'someObjectProp/arn', // the arn value of someObjectProp is an output (but not the other properties of someObjectProp)
+	//     'someArrayProp/*/someObjectProp/arn'
+	//   ]
+	//
+	// NOTE: The values in this property will have been converted from CFN casing to pulumi sdk casing
+	ReadOnly          []string               `json:"readOnly,omitempty"`
+	WriteOnly         []string               `json:"writeOnly,omitempty"`
+	IrreversibleNames map[string]string      `json:"irreversibleNames,omitempty"`
+	TagsProperty      string                 `json:"tagsProperty,omitempty"`
+	TagsStyle         default_tags.TagsStyle `json:"tagsStyle,omitempty"`
 
 	// Describes the behavior of the CF Ref intrinsic for this resource.
 	CfRef *CfRefBehavior `json:"cfRef,omitempty"`
