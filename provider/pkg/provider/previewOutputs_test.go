@@ -9,7 +9,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestPrevierOutputs(t *testing.T) {
+func TestPreviewOutputs(t *testing.T) {
 	t.Run("Nested output value", func(t *testing.T) {
 		result := previewResourceOutputs(
 			resource.NewPropertyMapFromMap(map[string]interface{}{
