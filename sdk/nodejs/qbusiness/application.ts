@@ -53,6 +53,9 @@ export class Application extends pulumi.CustomResource {
      * Subscription configuration information for an Amazon Q Business application using IAM identity federation for user management.
      */
     public readonly autoSubscriptionConfiguration!: pulumi.Output<outputs.qbusiness.ApplicationAutoSubscriptionConfiguration | undefined>;
+    /**
+     * The OIDC client ID for a Amazon Q Business application.
+     */
     public readonly clientIdsForOidc!: pulumi.Output<string[] | undefined>;
     /**
      * The Unix timestamp when the Amazon Q Business application was created.
@@ -189,6 +192,9 @@ export interface ApplicationArgs {
      * Subscription configuration information for an Amazon Q Business application using IAM identity federation for user management.
      */
     autoSubscriptionConfiguration?: pulumi.Input<inputs.qbusiness.ApplicationAutoSubscriptionConfigurationArgs>;
+    /**
+     * The OIDC client ID for a Amazon Q Business application.
+     */
     clientIdsForOidc?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A description for the Amazon Q Business application.

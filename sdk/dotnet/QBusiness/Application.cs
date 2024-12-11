@@ -39,6 +39,9 @@ namespace Pulumi.AwsNative.QBusiness
         [Output("autoSubscriptionConfiguration")]
         public Output<Outputs.ApplicationAutoSubscriptionConfiguration?> AutoSubscriptionConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// The OIDC client ID for a Amazon Q Business application.
+        /// </summary>
         [Output("clientIdsForOidc")]
         public Output<ImmutableArray<string>> ClientIdsForOidc { get; private set; } = null!;
 
@@ -198,6 +201,10 @@ namespace Pulumi.AwsNative.QBusiness
 
         [Input("clientIdsForOidc")]
         private InputList<string>? _clientIdsForOidc;
+
+        /// <summary>
+        /// The OIDC client ID for a Amazon Q Business application.
+        /// </summary>
         public InputList<string> ClientIdsForOidc
         {
             get => _clientIdsForOidc ?? (_clientIdsForOidc = new InputList<string>());

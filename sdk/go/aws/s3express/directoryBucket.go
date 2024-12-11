@@ -18,17 +18,17 @@ type DirectoryBucket struct {
 
 	// Returns the Amazon Resource Name (ARN) of the specified bucket.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Returns the code for the Availability Zone where the directory bucket was created.
+	// Returns the code for the Availability Zone or Local Zone where the directory bucket was created. An example for the code of an Availability Zone is 'us-east-1f'.
 	AvailabilityZoneName pulumi.StringOutput `pulumi:"availabilityZoneName"`
 	// Specifies default encryption for a bucket using server-side encryption with Amazon S3 managed keys (SSE-S3) or AWS KMS keys (SSE-KMS). For information about default encryption for directory buckets, see [Setting and monitoring default encryption for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-bucket-encryption.html) in the *Amazon S3 User Guide* .
 	BucketEncryption DirectoryBucketBucketEncryptionPtrOutput `pulumi:"bucketEncryption"`
-	// Specifies a name for the bucket. The bucket name must contain only lowercase letters, numbers, and hyphens (-). A directory bucket name must be unique in the chosen Availability Zone. The bucket name must also follow the format 'bucket_base_name--az_id--x-s3' (for example, 'DOC-EXAMPLE-BUCKET--usw2-az1--x-s3'). If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
+	// Specifies a name for the bucket. The bucket name must contain only lowercase letters, numbers, and hyphens (-). A directory bucket name must be unique in the chosen Availability Zone or Local Zone. The bucket name must also follow the format 'bucket_base_name--zone_id--x-s3'. The zone_id can be the ID of an Availability Zone or a Local Zone. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
 	BucketName pulumi.StringPtrOutput `pulumi:"bucketName"`
-	// Specifies the number of Availability Zone that's used for redundancy for the bucket.
+	// Specifies the number of Availability Zone or Local Zone that's used for redundancy for the bucket.
 	DataRedundancy DirectoryBucketDataRedundancyOutput `pulumi:"dataRedundancy"`
 	// Lifecycle rules that define how Amazon S3 Express manages objects during their lifetime.
 	LifecycleConfiguration DirectoryBucketLifecycleConfigurationPtrOutput `pulumi:"lifecycleConfiguration"`
-	// Specifies the AZ ID of the Availability Zone where the directory bucket will be created. An example AZ ID value is 'use1-az5'.
+	// Specifies the Zone ID of the Availability Zone or Local Zone where the directory bucket will be created. An example Availability Zone ID value is 'use1-az5'.
 	LocationName pulumi.StringOutput `pulumi:"locationName"`
 }
 
@@ -86,13 +86,13 @@ func (DirectoryBucketState) ElementType() reflect.Type {
 type directoryBucketArgs struct {
 	// Specifies default encryption for a bucket using server-side encryption with Amazon S3 managed keys (SSE-S3) or AWS KMS keys (SSE-KMS). For information about default encryption for directory buckets, see [Setting and monitoring default encryption for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-bucket-encryption.html) in the *Amazon S3 User Guide* .
 	BucketEncryption *DirectoryBucketBucketEncryption `pulumi:"bucketEncryption"`
-	// Specifies a name for the bucket. The bucket name must contain only lowercase letters, numbers, and hyphens (-). A directory bucket name must be unique in the chosen Availability Zone. The bucket name must also follow the format 'bucket_base_name--az_id--x-s3' (for example, 'DOC-EXAMPLE-BUCKET--usw2-az1--x-s3'). If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
+	// Specifies a name for the bucket. The bucket name must contain only lowercase letters, numbers, and hyphens (-). A directory bucket name must be unique in the chosen Availability Zone or Local Zone. The bucket name must also follow the format 'bucket_base_name--zone_id--x-s3'. The zone_id can be the ID of an Availability Zone or a Local Zone. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
 	BucketName *string `pulumi:"bucketName"`
-	// Specifies the number of Availability Zone that's used for redundancy for the bucket.
+	// Specifies the number of Availability Zone or Local Zone that's used for redundancy for the bucket.
 	DataRedundancy DirectoryBucketDataRedundancy `pulumi:"dataRedundancy"`
 	// Lifecycle rules that define how Amazon S3 Express manages objects during their lifetime.
 	LifecycleConfiguration *DirectoryBucketLifecycleConfiguration `pulumi:"lifecycleConfiguration"`
-	// Specifies the AZ ID of the Availability Zone where the directory bucket will be created. An example AZ ID value is 'use1-az5'.
+	// Specifies the Zone ID of the Availability Zone or Local Zone where the directory bucket will be created. An example Availability Zone ID value is 'use1-az5'.
 	LocationName string `pulumi:"locationName"`
 }
 
@@ -100,13 +100,13 @@ type directoryBucketArgs struct {
 type DirectoryBucketArgs struct {
 	// Specifies default encryption for a bucket using server-side encryption with Amazon S3 managed keys (SSE-S3) or AWS KMS keys (SSE-KMS). For information about default encryption for directory buckets, see [Setting and monitoring default encryption for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-bucket-encryption.html) in the *Amazon S3 User Guide* .
 	BucketEncryption DirectoryBucketBucketEncryptionPtrInput
-	// Specifies a name for the bucket. The bucket name must contain only lowercase letters, numbers, and hyphens (-). A directory bucket name must be unique in the chosen Availability Zone. The bucket name must also follow the format 'bucket_base_name--az_id--x-s3' (for example, 'DOC-EXAMPLE-BUCKET--usw2-az1--x-s3'). If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
+	// Specifies a name for the bucket. The bucket name must contain only lowercase letters, numbers, and hyphens (-). A directory bucket name must be unique in the chosen Availability Zone or Local Zone. The bucket name must also follow the format 'bucket_base_name--zone_id--x-s3'. The zone_id can be the ID of an Availability Zone or a Local Zone. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
 	BucketName pulumi.StringPtrInput
-	// Specifies the number of Availability Zone that's used for redundancy for the bucket.
+	// Specifies the number of Availability Zone or Local Zone that's used for redundancy for the bucket.
 	DataRedundancy DirectoryBucketDataRedundancyInput
 	// Lifecycle rules that define how Amazon S3 Express manages objects during their lifetime.
 	LifecycleConfiguration DirectoryBucketLifecycleConfigurationPtrInput
-	// Specifies the AZ ID of the Availability Zone where the directory bucket will be created. An example AZ ID value is 'use1-az5'.
+	// Specifies the Zone ID of the Availability Zone or Local Zone where the directory bucket will be created. An example Availability Zone ID value is 'use1-az5'.
 	LocationName pulumi.StringInput
 }
 
@@ -152,7 +152,7 @@ func (o DirectoryBucketOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DirectoryBucket) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Returns the code for the Availability Zone where the directory bucket was created.
+// Returns the code for the Availability Zone or Local Zone where the directory bucket was created. An example for the code of an Availability Zone is 'us-east-1f'.
 func (o DirectoryBucketOutput) AvailabilityZoneName() pulumi.StringOutput {
 	return o.ApplyT(func(v *DirectoryBucket) pulumi.StringOutput { return v.AvailabilityZoneName }).(pulumi.StringOutput)
 }
@@ -162,12 +162,12 @@ func (o DirectoryBucketOutput) BucketEncryption() DirectoryBucketBucketEncryptio
 	return o.ApplyT(func(v *DirectoryBucket) DirectoryBucketBucketEncryptionPtrOutput { return v.BucketEncryption }).(DirectoryBucketBucketEncryptionPtrOutput)
 }
 
-// Specifies a name for the bucket. The bucket name must contain only lowercase letters, numbers, and hyphens (-). A directory bucket name must be unique in the chosen Availability Zone. The bucket name must also follow the format 'bucket_base_name--az_id--x-s3' (for example, 'DOC-EXAMPLE-BUCKET--usw2-az1--x-s3'). If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
+// Specifies a name for the bucket. The bucket name must contain only lowercase letters, numbers, and hyphens (-). A directory bucket name must be unique in the chosen Availability Zone or Local Zone. The bucket name must also follow the format 'bucket_base_name--zone_id--x-s3'. The zone_id can be the ID of an Availability Zone or a Local Zone. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
 func (o DirectoryBucketOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DirectoryBucket) pulumi.StringPtrOutput { return v.BucketName }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the number of Availability Zone that's used for redundancy for the bucket.
+// Specifies the number of Availability Zone or Local Zone that's used for redundancy for the bucket.
 func (o DirectoryBucketOutput) DataRedundancy() DirectoryBucketDataRedundancyOutput {
 	return o.ApplyT(func(v *DirectoryBucket) DirectoryBucketDataRedundancyOutput { return v.DataRedundancy }).(DirectoryBucketDataRedundancyOutput)
 }
@@ -179,7 +179,7 @@ func (o DirectoryBucketOutput) LifecycleConfiguration() DirectoryBucketLifecycle
 	}).(DirectoryBucketLifecycleConfigurationPtrOutput)
 }
 
-// Specifies the AZ ID of the Availability Zone where the directory bucket will be created. An example AZ ID value is 'use1-az5'.
+// Specifies the Zone ID of the Availability Zone or Local Zone where the directory bucket will be created. An example Availability Zone ID value is 'use1-az5'.
 func (o DirectoryBucketOutput) LocationName() pulumi.StringOutput {
 	return o.ApplyT(func(v *DirectoryBucket) pulumi.StringOutput { return v.LocationName }).(pulumi.StringOutput)
 }

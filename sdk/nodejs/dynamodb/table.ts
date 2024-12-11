@@ -306,8 +306,8 @@ export class Table extends pulumi.CustomResource {
      */
     public readonly globalSecondaryIndexes!: pulumi.Output<outputs.dynamodb.TableGlobalSecondaryIndex[] | undefined>;
     /**
-     * Specifies the properties of data being imported from the S3 bucket source to the table.
-     *   If you specify the ``ImportSourceSpecification`` property, and also specify either the ``StreamSpecification``, the ``TableClass`` property, or the ``DeletionProtectionEnabled`` property, the IAM entity creating/updating stack must have ``UpdateTable`` permission.
+     * Specifies the properties of data being imported from the S3 bucket source to the" table.
+     *   If you specify the ``ImportSourceSpecification`` property, and also specify either the ``StreamSpecification``, the ``TableClass`` property, the ``DeletionProtectionEnabled`` property, or the ``WarmThroughput`` property, the IAM entity creating/updating stack must have ``UpdateTable`` permission.
      */
     public readonly importSourceSpecification!: pulumi.Output<outputs.dynamodb.TableImportSourceSpecification | undefined>;
     /**
@@ -482,8 +482,8 @@ export interface TableArgs {
      */
     globalSecondaryIndexes?: pulumi.Input<pulumi.Input<inputs.dynamodb.TableGlobalSecondaryIndexArgs>[]>;
     /**
-     * Specifies the properties of data being imported from the S3 bucket source to the table.
-     *   If you specify the ``ImportSourceSpecification`` property, and also specify either the ``StreamSpecification``, the ``TableClass`` property, or the ``DeletionProtectionEnabled`` property, the IAM entity creating/updating stack must have ``UpdateTable`` permission.
+     * Specifies the properties of data being imported from the S3 bucket source to the" table.
+     *   If you specify the ``ImportSourceSpecification`` property, and also specify either the ``StreamSpecification``, the ``TableClass`` property, the ``DeletionProtectionEnabled`` property, or the ``WarmThroughput`` property, the IAM entity creating/updating stack must have ``UpdateTable`` permission.
      */
     importSourceSpecification?: pulumi.Input<inputs.dynamodb.TableImportSourceSpecificationArgs>;
     /**

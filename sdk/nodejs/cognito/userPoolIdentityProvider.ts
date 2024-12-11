@@ -35,11 +35,11 @@ export class UserPoolIdentityProvider extends pulumi.CustomResource {
     }
 
     /**
-     * A mapping of IdP attributes to standard and custom user pool attributes.
+     * A mapping of IdP attributes to standard and custom user pool attributes. Specify a user pool attribute as the key of the key-value pair, and the IdP attribute claim name as the value.
      */
     public readonly attributeMapping!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A list of IdP identifiers.
+     * An array of IdP identifiers, for example `"IdPIdentifiers": [ "MyIdP", "MyIdP2" ]` . Identifiers are friendly names that you can pass in the `idp_identifier` query parameter of requests to the [Authorize endpoint](https://docs.aws.amazon.com/cognito/latest/developerguide/authorization-endpoint.html) to silently redirect to sign-in with the associated IdP. Identifiers in a domain format also enable the use of [email-address matching with SAML providers](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managing-saml-idp-naming.html) .
      */
     public readonly idpIdentifiers!: pulumi.Output<string[] | undefined>;
     /**
@@ -75,15 +75,15 @@ export class UserPoolIdentityProvider extends pulumi.CustomResource {
      */
     public readonly providerDetails!: pulumi.Output<{[key: string]: string}>;
     /**
-     * The IdP name.
+     * The name that you want to assign to the IdP. You can pass the identity provider name in the `identity_provider` query parameter of requests to the [Authorize endpoint](https://docs.aws.amazon.com/cognito/latest/developerguide/authorization-endpoint.html) to silently redirect to sign-in with the associated IdP.
      */
     public readonly providerName!: pulumi.Output<string>;
     /**
-     * The IdP type.
+     * The type of IdP that you want to add. Amazon Cognito supports OIDC, SAML 2.0, Login With Amazon, Sign In With Apple, Google, and Facebook IdPs.
      */
     public readonly providerType!: pulumi.Output<string>;
     /**
-     * The user pool ID.
+     * The Id of the user pool where you want to create an IdP.
      */
     public readonly userPoolId!: pulumi.Output<string>;
 
@@ -133,11 +133,11 @@ export class UserPoolIdentityProvider extends pulumi.CustomResource {
  */
 export interface UserPoolIdentityProviderArgs {
     /**
-     * A mapping of IdP attributes to standard and custom user pool attributes.
+     * A mapping of IdP attributes to standard and custom user pool attributes. Specify a user pool attribute as the key of the key-value pair, and the IdP attribute claim name as the value.
      */
     attributeMapping?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A list of IdP identifiers.
+     * An array of IdP identifiers, for example `"IdPIdentifiers": [ "MyIdP", "MyIdP2" ]` . Identifiers are friendly names that you can pass in the `idp_identifier` query parameter of requests to the [Authorize endpoint](https://docs.aws.amazon.com/cognito/latest/developerguide/authorization-endpoint.html) to silently redirect to sign-in with the associated IdP. Identifiers in a domain format also enable the use of [email-address matching with SAML providers](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managing-saml-idp-naming.html) .
      */
     idpIdentifiers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -173,15 +173,15 @@ export interface UserPoolIdentityProviderArgs {
      */
     providerDetails: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The IdP name.
+     * The name that you want to assign to the IdP. You can pass the identity provider name in the `identity_provider` query parameter of requests to the [Authorize endpoint](https://docs.aws.amazon.com/cognito/latest/developerguide/authorization-endpoint.html) to silently redirect to sign-in with the associated IdP.
      */
     providerName?: pulumi.Input<string>;
     /**
-     * The IdP type.
+     * The type of IdP that you want to add. Amazon Cognito supports OIDC, SAML 2.0, Login With Amazon, Sign In With Apple, Google, and Facebook IdPs.
      */
     providerType: pulumi.Input<string>;
     /**
-     * The user pool ID.
+     * The Id of the user pool where you want to create an IdP.
      */
     userPoolId: pulumi.Input<string>;
 }

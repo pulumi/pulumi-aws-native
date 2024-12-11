@@ -19,6 +19,7 @@ type InvoiceUnitResourceTag struct {
 }
 
 type InvoiceUnitRule struct {
+	// The list of `LINKED_ACCOUNT` IDs where charges are included within the invoice unit.
 	LinkedAccounts []string `pulumi:"linkedAccounts"`
 }
 
@@ -34,6 +35,7 @@ type InvoiceUnitRuleInput interface {
 }
 
 type InvoiceUnitRuleArgs struct {
+	// The list of `LINKED_ACCOUNT` IDs where charges are included within the invoice unit.
 	LinkedAccounts pulumi.StringArrayInput `pulumi:"linkedAccounts"`
 }
 
@@ -63,6 +65,7 @@ func (o InvoiceUnitRuleOutput) ToInvoiceUnitRuleOutputWithContext(ctx context.Co
 	return o
 }
 
+// The list of `LINKED_ACCOUNT` IDs where charges are included within the invoice unit.
 func (o InvoiceUnitRuleOutput) LinkedAccounts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v InvoiceUnitRule) []string { return v.LinkedAccounts }).(pulumi.StringArrayOutput)
 }
@@ -91,6 +94,7 @@ func (o InvoiceUnitRulePtrOutput) Elem() InvoiceUnitRuleOutput {
 	}).(InvoiceUnitRuleOutput)
 }
 
+// The list of `LINKED_ACCOUNT` IDs where charges are included within the invoice unit.
 func (o InvoiceUnitRulePtrOutput) LinkedAccounts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *InvoiceUnitRule) []string {
 		if v == nil {

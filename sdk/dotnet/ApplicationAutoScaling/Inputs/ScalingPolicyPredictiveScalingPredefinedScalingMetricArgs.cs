@@ -10,6 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApplicationAutoScaling.Inputs
 {
 
+    /// <summary>
+    /// Describes a scaling metric for a predictive scaling policy. 
+    ///  When returned in the output of ``DescribePolicies``, it indicates that a predictive scaling policy uses individually specified load and scaling metrics instead of a metric pair.
+    /// </summary>
     public sealed class ScalingPolicyPredictiveScalingPredefinedScalingMetricArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>

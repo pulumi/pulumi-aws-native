@@ -25,7 +25,7 @@ func LookupUserPoolClient(ctx *pulumi.Context, args *LookupUserPoolClientArgs, o
 type LookupUserPoolClientArgs struct {
 	// The ID of the app client, for example `1example23456789` .
 	ClientId string `pulumi:"clientId"`
-	// The user pool ID for the user pool where you want to create a user pool client.
+	// The ID of the user pool where you want to create an app client.
 	UserPoolId string `pulumi:"userPoolId"`
 }
 
@@ -57,11 +57,11 @@ type LookupUserPoolClientResult struct {
 	//
 	// To use OAuth 2.0 features, configure one of these features in the Amazon Cognito console or set `AllowedOAuthFlowsUserPoolClient` to `true` in a `CreateUserPoolClient` or `UpdateUserPoolClient` API request. If you don't set a value for `AllowedOAuthFlowsUserPoolClient` in a request with the AWS CLI or SDKs, it defaults to `false` .
 	AllowedOAuthFlowsUserPoolClient *bool `pulumi:"allowedOAuthFlowsUserPoolClient"`
-	// The allowed OAuth scopes. Possible values provided by OAuth are `phone` , `email` , `openid` , and `profile` . Possible values provided by AWS are `aws.cognito.signin.user.admin` . Custom scopes created in Resource Servers are also supported.
+	// The OAuth 2.0 scopes that you want to permit your app client to authorize. Scopes govern access control to user pool self-service API operations, user data from the `userInfo` endpoint, and third-party APIs. Possible values provided by OAuth are `phone` , `email` , `openid` , and `profile` . Possible values provided by AWS are `aws.cognito.signin.user.admin` . Custom scopes created in Resource Servers are also supported.
 	AllowedOAuthScopes []string `pulumi:"allowedOAuthScopes"`
 	// The user pool analytics configuration for collecting metrics and sending them to your Amazon Pinpoint campaign.
 	//
-	// > In AWS Regions where Amazon Pinpoint isn't available, user pools only support sending events to Amazon Pinpoint projects in AWS Region us-east-1. In Regions where Amazon Pinpoint is available, user pools support sending events to Amazon Pinpoint projects within that same Region.
+	// In AWS Regions where Amazon Pinpoint isn't available, user pools might not have access to analytics or might be configurable with campaigns in the US East (N. Virginia) Region. For more information, see [Using Amazon Pinpoint analytics](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-pinpoint-integration.html) .
 	AnalyticsConfiguration *UserPoolClientAnalyticsConfiguration `pulumi:"analyticsConfiguration"`
 	// Amazon Cognito creates a session token for each API request in an authentication flow. `AuthSessionValidity` is the duration, in minutes, of that session token. Your user pool native user must respond to each authentication challenge before the session expires.
 	AuthSessionValidity *int `pulumi:"authSessionValidity"`
@@ -70,7 +70,7 @@ type LookupUserPoolClientResult struct {
 	// A redirect URI must:
 	//
 	// - Be an absolute URI.
-	// - Be registered with the authorization server.
+	// - Be registered with the authorization server. Amazon Cognito doesn't accept authorization requests with `redirect_uri` values that aren't in the list of `CallbackURLs` that you provide in this parameter.
 	// - Not include a fragment component.
 	//
 	// See [OAuth 2.0 - Redirection Endpoint](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc6749#section-3.1.2) .
@@ -81,22 +81,10 @@ type LookupUserPoolClientResult struct {
 	CallbackUrls []string `pulumi:"callbackUrls"`
 	// The ID of the app client, for example `1example23456789` .
 	ClientId *string `pulumi:"clientId"`
-	// The client name for the user pool client you would like to create.
+	// A friendly name for the app client that you want to create.
 	ClientName   *string `pulumi:"clientName"`
 	ClientSecret *string `pulumi:"clientSecret"`
 	// The default redirect URI. In app clients with one assigned IdP, replaces `redirect_uri` in authentication requests. Must be in the `CallbackURLs` list.
-	//
-	// A redirect URI must:
-	//
-	// - Be an absolute URI.
-	// - Be registered with the authorization server.
-	// - Not include a fragment component.
-	//
-	// For more information, see [Default redirect URI](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-client-apps.html#cognito-user-pools-app-idp-settings-about) .
-	//
-	// Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes only.
-	//
-	// App callback URLs such as myapp://example are also supported.
 	DefaultRedirectUri *string `pulumi:"defaultRedirectUri"`
 	// Activates the propagation of additional user context data. For more information about propagation of user context data, see [Adding advanced security to a user pool](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-threat-protection.html) . If you don’t include this parameter, you can't send device fingerprint information, including source IP address, to Amazon Cognito advanced security. You can only activate `EnablePropagateAdditionalUserContextData` in an app client that has a client secret.
 	EnablePropagateAdditionalUserContextData *bool `pulumi:"enablePropagateAdditionalUserContextData"`
@@ -129,7 +117,7 @@ type LookupUserPoolClientResult struct {
 	// If you don't specify otherwise in the configuration of your app client, your ID
 	// tokens are valid for one hour.
 	IdTokenValidity *int `pulumi:"idTokenValidity"`
-	// A list of allowed logout URLs for the IdPs.
+	// A list of allowed logout URLs for managed login authentication. For more information, see [Logout endpoint](https://docs.aws.amazon.com/cognito/latest/developerguide/logout-endpoint.html) .
 	LogoutUrls []string `pulumi:"logoutUrls"`
 	Name       *string  `pulumi:"name"`
 	// Errors and responses that you want Amazon Cognito APIs to return during authentication, account confirmation, and password recovery when the user doesn't exist in the user pool. When set to `ENABLED` and the user doesn't exist, authentication returns an error indicating either the username or password was incorrect. Account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to `LEGACY` , those APIs return a `UserNotFoundException` exception if the user doesn't exist in the user pool.
@@ -157,9 +145,9 @@ type LookupUserPoolClientResult struct {
 	RefreshTokenValidity *int `pulumi:"refreshTokenValidity"`
 	// A list of provider names for the identity providers (IdPs) that are supported on this client. The following are supported: `COGNITO` , `Facebook` , `Google` , `SignInWithApple` , and `LoginWithAmazon` . You can also specify the names that you configured for the SAML and OIDC IdPs in your user pool, for example `MySAMLIdP` or `MyOIDCIdP` .
 	//
-	// This setting applies to providers that you can access with the [hosted UI and OAuth 2.0 authorization server](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-app-integration.html) . The removal of `COGNITO` from this list doesn't prevent authentication operations for local users with the user pools API in an AWS SDK. The only way to prevent API-based authentication is to block access with a [AWS WAF rule](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-waf.html) .
+	// This setting applies to providers that you can access with [managed login](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html) . The removal of `COGNITO` from this list doesn't prevent authentication operations for local users with the user pools API in an AWS SDK. The only way to prevent API-based authentication is to block access with a [AWS WAF rule](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-waf.html) .
 	SupportedIdentityProviders []string `pulumi:"supportedIdentityProviders"`
-	// The units in which the validity times are represented. The default unit for RefreshToken is days, and default for ID and access tokens are hours.
+	// The units that validity times are represented in. The default unit for refresh tokens is days, and the default for ID and access tokens are hours.
 	TokenValidityUnits *UserPoolClientTokenValidityUnits `pulumi:"tokenValidityUnits"`
 	// The list of user attributes that you want your app client to have write access to. After your user authenticates in your app, their access token authorizes them to set or modify their own attribute value for any attribute in this list. An example of this kind of activity is when you present your user with a form to update their profile information and they change their last name. Your app then makes an [UpdateUserAttributes](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserAttributes.html) API request and sets `family_name` to the new value.
 	//
@@ -191,7 +179,7 @@ func LookupUserPoolClientOutput(ctx *pulumi.Context, args LookupUserPoolClientOu
 type LookupUserPoolClientOutputArgs struct {
 	// The ID of the app client, for example `1example23456789` .
 	ClientId pulumi.StringInput `pulumi:"clientId"`
-	// The user pool ID for the user pool where you want to create a user pool client.
+	// The ID of the user pool where you want to create an app client.
 	UserPoolId pulumi.StringInput `pulumi:"userPoolId"`
 }
 
@@ -249,14 +237,14 @@ func (o LookupUserPoolClientResultOutput) AllowedOAuthFlowsUserPoolClient() pulu
 	return o.ApplyT(func(v LookupUserPoolClientResult) *bool { return v.AllowedOAuthFlowsUserPoolClient }).(pulumi.BoolPtrOutput)
 }
 
-// The allowed OAuth scopes. Possible values provided by OAuth are `phone` , `email` , `openid` , and `profile` . Possible values provided by AWS are `aws.cognito.signin.user.admin` . Custom scopes created in Resource Servers are also supported.
+// The OAuth 2.0 scopes that you want to permit your app client to authorize. Scopes govern access control to user pool self-service API operations, user data from the `userInfo` endpoint, and third-party APIs. Possible values provided by OAuth are `phone` , `email` , `openid` , and `profile` . Possible values provided by AWS are `aws.cognito.signin.user.admin` . Custom scopes created in Resource Servers are also supported.
 func (o LookupUserPoolClientResultOutput) AllowedOAuthScopes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupUserPoolClientResult) []string { return v.AllowedOAuthScopes }).(pulumi.StringArrayOutput)
 }
 
 // The user pool analytics configuration for collecting metrics and sending them to your Amazon Pinpoint campaign.
 //
-// > In AWS Regions where Amazon Pinpoint isn't available, user pools only support sending events to Amazon Pinpoint projects in AWS Region us-east-1. In Regions where Amazon Pinpoint is available, user pools support sending events to Amazon Pinpoint projects within that same Region.
+// In AWS Regions where Amazon Pinpoint isn't available, user pools might not have access to analytics or might be configurable with campaigns in the US East (N. Virginia) Region. For more information, see [Using Amazon Pinpoint analytics](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-pinpoint-integration.html) .
 func (o LookupUserPoolClientResultOutput) AnalyticsConfiguration() UserPoolClientAnalyticsConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupUserPoolClientResult) *UserPoolClientAnalyticsConfiguration {
 		return v.AnalyticsConfiguration
@@ -273,7 +261,7 @@ func (o LookupUserPoolClientResultOutput) AuthSessionValidity() pulumi.IntPtrOut
 // A redirect URI must:
 //
 // - Be an absolute URI.
-// - Be registered with the authorization server.
+// - Be registered with the authorization server. Amazon Cognito doesn't accept authorization requests with `redirect_uri` values that aren't in the list of `CallbackURLs` that you provide in this parameter.
 // - Not include a fragment component.
 //
 // See [OAuth 2.0 - Redirection Endpoint](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc6749#section-3.1.2) .
@@ -290,7 +278,7 @@ func (o LookupUserPoolClientResultOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupUserPoolClientResult) *string { return v.ClientId }).(pulumi.StringPtrOutput)
 }
 
-// The client name for the user pool client you would like to create.
+// A friendly name for the app client that you want to create.
 func (o LookupUserPoolClientResultOutput) ClientName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupUserPoolClientResult) *string { return v.ClientName }).(pulumi.StringPtrOutput)
 }
@@ -300,18 +288,6 @@ func (o LookupUserPoolClientResultOutput) ClientSecret() pulumi.StringPtrOutput 
 }
 
 // The default redirect URI. In app clients with one assigned IdP, replaces `redirect_uri` in authentication requests. Must be in the `CallbackURLs` list.
-//
-// A redirect URI must:
-//
-// - Be an absolute URI.
-// - Be registered with the authorization server.
-// - Not include a fragment component.
-//
-// For more information, see [Default redirect URI](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-client-apps.html#cognito-user-pools-app-idp-settings-about) .
-//
-// Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes only.
-//
-// App callback URLs such as myapp://example are also supported.
 func (o LookupUserPoolClientResultOutput) DefaultRedirectUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupUserPoolClientResult) *string { return v.DefaultRedirectUri }).(pulumi.StringPtrOutput)
 }
@@ -359,7 +335,7 @@ func (o LookupUserPoolClientResultOutput) IdTokenValidity() pulumi.IntPtrOutput 
 	return o.ApplyT(func(v LookupUserPoolClientResult) *int { return v.IdTokenValidity }).(pulumi.IntPtrOutput)
 }
 
-// A list of allowed logout URLs for the IdPs.
+// A list of allowed logout URLs for managed login authentication. For more information, see [Logout endpoint](https://docs.aws.amazon.com/cognito/latest/developerguide/logout-endpoint.html) .
 func (o LookupUserPoolClientResultOutput) LogoutUrls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupUserPoolClientResult) []string { return v.LogoutUrls }).(pulumi.StringArrayOutput)
 }
@@ -402,12 +378,12 @@ func (o LookupUserPoolClientResultOutput) RefreshTokenValidity() pulumi.IntPtrOu
 
 // A list of provider names for the identity providers (IdPs) that are supported on this client. The following are supported: `COGNITO` , `Facebook` , `Google` , `SignInWithApple` , and `LoginWithAmazon` . You can also specify the names that you configured for the SAML and OIDC IdPs in your user pool, for example `MySAMLIdP` or `MyOIDCIdP` .
 //
-// This setting applies to providers that you can access with the [hosted UI and OAuth 2.0 authorization server](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-app-integration.html) . The removal of `COGNITO` from this list doesn't prevent authentication operations for local users with the user pools API in an AWS SDK. The only way to prevent API-based authentication is to block access with a [AWS WAF rule](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-waf.html) .
+// This setting applies to providers that you can access with [managed login](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html) . The removal of `COGNITO` from this list doesn't prevent authentication operations for local users with the user pools API in an AWS SDK. The only way to prevent API-based authentication is to block access with a [AWS WAF rule](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-waf.html) .
 func (o LookupUserPoolClientResultOutput) SupportedIdentityProviders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupUserPoolClientResult) []string { return v.SupportedIdentityProviders }).(pulumi.StringArrayOutput)
 }
 
-// The units in which the validity times are represented. The default unit for RefreshToken is days, and default for ID and access tokens are hours.
+// The units that validity times are represented in. The default unit for refresh tokens is days, and the default for ID and access tokens are hours.
 func (o LookupUserPoolClientResultOutput) TokenValidityUnits() UserPoolClientTokenValidityUnitsPtrOutput {
 	return o.ApplyT(func(v LookupUserPoolClientResult) *UserPoolClientTokenValidityUnits { return v.TokenValidityUnits }).(UserPoolClientTokenValidityUnitsPtrOutput)
 }

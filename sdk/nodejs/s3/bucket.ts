@@ -609,6 +609,7 @@ export class Bucket extends pulumi.CustomResource {
      * Settings that define where logs are stored.
      */
     public readonly loggingConfiguration!: pulumi.Output<outputs.s3.BucketLoggingConfiguration | undefined>;
+    public readonly metadataTableConfiguration!: pulumi.Output<outputs.s3.BucketMetadataTableConfiguration | undefined>;
     /**
      * Specifies a metrics configuration for the CloudWatch request metrics (specified by the metrics configuration ID) from an Amazon S3 bucket. If you're updating an existing metrics configuration, note that this is a full replacement of the existing metrics configuration. If you don't include the elements you want to keep, they are erased. For more information, see [PutBucketMetricsConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTMetricConfiguration.html).
      */
@@ -691,6 +692,7 @@ export class Bucket extends pulumi.CustomResource {
             resourceInputs["inventoryConfigurations"] = args ? args.inventoryConfigurations : undefined;
             resourceInputs["lifecycleConfiguration"] = args ? args.lifecycleConfiguration : undefined;
             resourceInputs["loggingConfiguration"] = args ? args.loggingConfiguration : undefined;
+            resourceInputs["metadataTableConfiguration"] = args ? args.metadataTableConfiguration : undefined;
             resourceInputs["metricsConfigurations"] = args ? args.metricsConfigurations : undefined;
             resourceInputs["notificationConfiguration"] = args ? args.notificationConfiguration : undefined;
             resourceInputs["objectLockConfiguration"] = args ? args.objectLockConfiguration : undefined;
@@ -720,6 +722,7 @@ export class Bucket extends pulumi.CustomResource {
             resourceInputs["inventoryConfigurations"] = undefined /*out*/;
             resourceInputs["lifecycleConfiguration"] = undefined /*out*/;
             resourceInputs["loggingConfiguration"] = undefined /*out*/;
+            resourceInputs["metadataTableConfiguration"] = undefined /*out*/;
             resourceInputs["metricsConfigurations"] = undefined /*out*/;
             resourceInputs["notificationConfiguration"] = undefined /*out*/;
             resourceInputs["objectLockConfiguration"] = undefined /*out*/;
@@ -788,6 +791,7 @@ export interface BucketArgs {
      * Settings that define where logs are stored.
      */
     loggingConfiguration?: pulumi.Input<inputs.s3.BucketLoggingConfigurationArgs>;
+    metadataTableConfiguration?: pulumi.Input<inputs.s3.BucketMetadataTableConfigurationArgs>;
     /**
      * Specifies a metrics configuration for the CloudWatch request metrics (specified by the metrics configuration ID) from an Amazon S3 bucket. If you're updating an existing metrics configuration, note that this is a full replacement of the existing metrics configuration. If you don't include the elements you want to keep, they are erased. For more information, see [PutBucketMetricsConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTMetricConfiguration.html).
      */

@@ -16,13 +16,13 @@ namespace Pulumi.AwsNative.Cognito
     public partial class UserPoolIdentityProvider : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A mapping of IdP attributes to standard and custom user pool attributes.
+        /// A mapping of IdP attributes to standard and custom user pool attributes. Specify a user pool attribute as the key of the key-value pair, and the IdP attribute claim name as the value.
         /// </summary>
         [Output("attributeMapping")]
         public Output<ImmutableDictionary<string, string>?> AttributeMapping { get; private set; } = null!;
 
         /// <summary>
-        /// A list of IdP identifiers.
+        /// An array of IdP identifiers, for example `"IdPIdentifiers": [ "MyIdP", "MyIdP2" ]` . Identifiers are friendly names that you can pass in the `idp_identifier` query parameter of requests to the [Authorize endpoint](https://docs.aws.amazon.com/cognito/latest/developerguide/authorization-endpoint.html) to silently redirect to sign-in with the associated IdP. Identifiers in a domain format also enable the use of [email-address matching with SAML providers](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managing-saml-idp-naming.html) .
         /// </summary>
         [Output("idpIdentifiers")]
         public Output<ImmutableArray<string>> IdpIdentifiers { get; private set; } = null!;
@@ -62,19 +62,19 @@ namespace Pulumi.AwsNative.Cognito
         public Output<ImmutableDictionary<string, string>> ProviderDetails { get; private set; } = null!;
 
         /// <summary>
-        /// The IdP name.
+        /// The name that you want to assign to the IdP. You can pass the identity provider name in the `identity_provider` query parameter of requests to the [Authorize endpoint](https://docs.aws.amazon.com/cognito/latest/developerguide/authorization-endpoint.html) to silently redirect to sign-in with the associated IdP.
         /// </summary>
         [Output("providerName")]
         public Output<string> ProviderName { get; private set; } = null!;
 
         /// <summary>
-        /// The IdP type.
+        /// The type of IdP that you want to add. Amazon Cognito supports OIDC, SAML 2.0, Login With Amazon, Sign In With Apple, Google, and Facebook IdPs.
         /// </summary>
         [Output("providerType")]
         public Output<string> ProviderType { get; private set; } = null!;
 
         /// <summary>
-        /// The user pool ID.
+        /// The Id of the user pool where you want to create an IdP.
         /// </summary>
         [Output("userPoolId")]
         public Output<string> UserPoolId { get; private set; } = null!;
@@ -134,7 +134,7 @@ namespace Pulumi.AwsNative.Cognito
         private InputMap<string>? _attributeMapping;
 
         /// <summary>
-        /// A mapping of IdP attributes to standard and custom user pool attributes.
+        /// A mapping of IdP attributes to standard and custom user pool attributes. Specify a user pool attribute as the key of the key-value pair, and the IdP attribute claim name as the value.
         /// </summary>
         public InputMap<string> AttributeMapping
         {
@@ -146,7 +146,7 @@ namespace Pulumi.AwsNative.Cognito
         private InputList<string>? _idpIdentifiers;
 
         /// <summary>
-        /// A list of IdP identifiers.
+        /// An array of IdP identifiers, for example `"IdPIdentifiers": [ "MyIdP", "MyIdP2" ]` . Identifiers are friendly names that you can pass in the `idp_identifier` query parameter of requests to the [Authorize endpoint](https://docs.aws.amazon.com/cognito/latest/developerguide/authorization-endpoint.html) to silently redirect to sign-in with the associated IdP. Identifiers in a domain format also enable the use of [email-address matching with SAML providers](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managing-saml-idp-naming.html) .
         /// </summary>
         public InputList<string> IdpIdentifiers
         {
@@ -195,19 +195,19 @@ namespace Pulumi.AwsNative.Cognito
         }
 
         /// <summary>
-        /// The IdP name.
+        /// The name that you want to assign to the IdP. You can pass the identity provider name in the `identity_provider` query parameter of requests to the [Authorize endpoint](https://docs.aws.amazon.com/cognito/latest/developerguide/authorization-endpoint.html) to silently redirect to sign-in with the associated IdP.
         /// </summary>
         [Input("providerName")]
         public Input<string>? ProviderName { get; set; }
 
         /// <summary>
-        /// The IdP type.
+        /// The type of IdP that you want to add. Amazon Cognito supports OIDC, SAML 2.0, Login With Amazon, Sign In With Apple, Google, and Facebook IdPs.
         /// </summary>
         [Input("providerType", required: true)]
         public Input<string> ProviderType { get; set; } = null!;
 
         /// <summary>
-        /// The user pool ID.
+        /// The Id of the user pool where you want to create an IdP.
         /// </summary>
         [Input("userPoolId", required: true)]
         public Input<string> UserPoolId { get; set; } = null!;

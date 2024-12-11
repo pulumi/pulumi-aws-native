@@ -8,7 +8,7 @@ using Pulumi;
 namespace Pulumi.AwsNative.Rds
 {
     /// <summary>
-    /// The availability status to be assigned to the CEV.
+    /// A value that indicates the status of a custom engine version (CEV).
     /// </summary>
     [EnumType]
     public readonly struct CustomDbEngineVersionStatus : IEquatable<CustomDbEngineVersionStatus>

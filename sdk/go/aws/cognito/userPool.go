@@ -21,11 +21,11 @@ type UserPool struct {
 	//
 	// This data type is a request and response parameter of [CreateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.html) and [UpdateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.html) , and a response parameter of [DescribeUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html) .
 	AdminCreateUserConfig UserPoolAdminCreateUserConfigPtrOutput `pulumi:"adminCreateUserConfig"`
-	// Attributes supported as an alias for this user pool. Possible values: *phone_number* , *email* , or *preferred_username* .
+	// Attributes supported as an alias for this user pool. Possible values: *phone_number* , *email* , or *preferred_username* . For more information about alias attributes, see [Customizing sign-in attributes](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#user-pool-settings-aliases) .
 	AliasAttributes pulumi.StringArrayOutput `pulumi:"aliasAttributes"`
 	// The Amazon Resource Name (ARN) of the user pool, such as `arn:aws:cognito-idp:us-east-1:123412341234:userpool/us-east-1_123412341` .
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The attributes to be auto-verified. Possible values: *email* , *phone_number* .
+	// The attributes that you want your user pool to automatically verify. Possible values: *email* , *phone_number* . For more information see [Verifying contact information at sign-up](https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#allowing-users-to-sign-up-and-confirm-themselves) .
 	AutoVerifiedAttributes pulumi.StringArrayOutput `pulumi:"autoVerifiedAttributes"`
 	// When active, `DeletionProtection` prevents accidental deletion of your user
 	// pool. Before you can delete a user pool that you have protected against deletion, you
@@ -33,9 +33,9 @@ type UserPool struct {
 	//
 	// When you try to delete a protected user pool in a `DeleteUserPool` API request, Amazon Cognito returns an `InvalidParameterException` error. To delete a protected user pool, send a new `DeleteUserPool` request after you deactivate deletion protection in an `UpdateUserPool` API request.
 	DeletionProtection pulumi.StringPtrOutput `pulumi:"deletionProtection"`
-	// The device-remembering configuration for a user pool. A null value indicates that you have deactivated device remembering in your user pool.
+	// The device-remembering configuration for a user pool. Device remembering or device tracking is a "Remember me on this device" option for user pools that perform authentication with the device key of a trusted device in the back end, instead of a user-provided MFA code. For more information about device authentication, see [Working with user devices in your user pool](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html) . A null value indicates that you have deactivated device remembering in your user pool.
 	//
-	// > When you provide a value for any `DeviceConfiguration` field, you activate the Amazon Cognito device-remembering feature.
+	// > When you provide a value for any `DeviceConfiguration` field, you activate the Amazon Cognito device-remembering feature. For more infor
 	DeviceConfiguration        UserPoolDeviceConfigurationPtrOutput `pulumi:"deviceConfiguration"`
 	EmailAuthenticationMessage pulumi.StringPtrOutput               `pulumi:"emailAuthenticationMessage"`
 	EmailAuthenticationSubject pulumi.StringPtrOutput               `pulumi:"emailAuthenticationSubject"`
@@ -69,11 +69,11 @@ type UserPool struct {
 	ProviderName pulumi.StringOutput `pulumi:"providerName"`
 	// The URL of the provider of the Amazon Cognito user pool, specified as a `String` .
 	ProviderUrl pulumi.StringOutput `pulumi:"providerUrl"`
-	// An array of schema attributes for the new user pool. These attributes can be standard or custom attributes.
+	// An array of attributes for the new user pool. You can add custom attributes and modify the properties of default attributes. The specifications in this parameter set the required attributes in your user pool. For more information, see [Working with user attributes](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html) .
 	Schema UserPoolSchemaAttributeArrayOutput `pulumi:"schema"`
 	// The contents of the SMS authentication message.
 	SmsAuthenticationMessage pulumi.StringPtrOutput `pulumi:"smsAuthenticationMessage"`
-	// The SMS configuration with the settings that your Amazon Cognito user pool must use to send an SMS message from your AWS account through Amazon Simple Notification Service. To send SMS messages with Amazon SNS in the AWS Region that you want, the Amazon Cognito user pool uses an AWS Identity and Access Management (IAM) role in your AWS account .
+	// The SMS configuration with the settings that your Amazon Cognito user pool must use to send an SMS message from your AWS account through Amazon Simple Notification Service. To send SMS messages with Amazon SNS in the AWS Region that you want, the Amazon Cognito user pool uses an AWS Identity and Access Management (IAM) role in your AWS account . For more information see [SMS message settings](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html) .
 	SmsConfiguration UserPoolSmsConfigurationPtrOutput `pulumi:"smsConfiguration"`
 	// This parameter is no longer used. See [VerificationMessageTemplateType](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-verificationmessagetemplate.html) .
 	SmsVerificationMessage pulumi.StringPtrOutput `pulumi:"smsVerificationMessage"`
@@ -87,7 +87,7 @@ type UserPool struct {
 	UserPoolAddOns UserPoolAddOnsPtrOutput `pulumi:"userPoolAddOns"`
 	// The ID of the user pool.
 	UserPoolId pulumi.StringOutput `pulumi:"userPoolId"`
-	// A string used to name the user pool.
+	// A friendlhy name for your user pool.
 	UserPoolName pulumi.StringPtrOutput `pulumi:"userPoolName"`
 	// The tag keys and values to assign to the user pool. A tag is a label that you can use to categorize and manage user pools in different ways, such as by purpose, owner, environment, or other criteria.
 	UserPoolTags pulumi.StringMapOutput `pulumi:"userPoolTags"`
@@ -95,16 +95,26 @@ type UserPool struct {
 	UserPoolTier UserPoolTierPtrOutput `pulumi:"userPoolTier"`
 	// Specifies whether a user can use an email address or phone number as a username when they sign up.
 	UsernameAttributes pulumi.StringArrayOutput `pulumi:"usernameAttributes"`
-	// Case sensitivity on the username input for the selected sign-in option. When case sensitivity is set to `False` (case insensitive), users can sign in with any combination of capital and lowercase letters. For example, `username` , `USERNAME` , or `UserName` , or for email, `email@example.com` or `EMaiL@eXamplE.Com` . For most use cases, set case sensitivity to `False` (case insensitive) as a best practice. When usernames and email addresses are case insensitive, Amazon Cognito treats any variation in case as the same user, and prevents a case variation from being assigned to the same attribute for a different user.
+	// Sets the case sensitivity option for sign-in usernames. When `CaseSensitive` is `false` (case insensitive), users can sign in with any combination of capital and lowercase letters. For example, `username` , `USERNAME` , or `UserName` , or for email, `email@example.com` or `EMaiL@eXamplE.Com` . For most use cases, set case sensitivity to `false` as a best practice. When usernames and email addresses are case insensitive, Amazon Cognito treats any variation in case as the same user, and prevents a case variation from being assigned to the same attribute for a different user.
 	//
-	// This configuration is immutable after you set it. For more information, see [UsernameConfigurationType](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UsernameConfigurationType.html) .
+	// When `CaseSensitive` is `true` (case sensitive), Amazon Cognito interprets `USERNAME` and `UserName` as distinct users.
+	//
+	// This configuration is immutable after you set it.
 	UsernameConfiguration UserPoolUsernameConfigurationPtrOutput `pulumi:"usernameConfiguration"`
 	// The template for the verification message that your user pool delivers to users who set an email address or phone number attribute.
 	//
 	// Set the email message type that corresponds to your `DefaultEmailOption` selection. For `CONFIRM_WITH_LINK` , specify an `EmailMessageByLink` and leave `EmailMessage` blank. For `CONFIRM_WITH_CODE` , specify an `EmailMessage` and leave `EmailMessageByLink` blank. When you supply both parameters with either choice, Amazon Cognito returns an error.
 	VerificationMessageTemplate UserPoolVerificationMessageTemplatePtrOutput `pulumi:"verificationMessageTemplate"`
-	WebAuthnRelyingPartyId      pulumi.StringPtrOutput                       `pulumi:"webAuthnRelyingPartyId"`
-	WebAuthnUserVerification    pulumi.StringPtrOutput                       `pulumi:"webAuthnUserVerification"`
+	// Sets or displays the authentication domain, typically your user pool domain, that passkey providers must use as a relying party (RP) in their configuration.
+	//
+	// Under the following conditions, the passkey relying party ID must be the fully-qualified domain name of your custom domain:
+	//
+	// - The user pool is configured for passkey authentication.
+	// - The user pool has a custom domain, whether or not it also has a prefix domain.
+	// - Your application performs authentication with managed login or the classic hosted UI.
+	WebAuthnRelyingPartyId pulumi.StringPtrOutput `pulumi:"webAuthnRelyingPartyId"`
+	// When `required` , users can only register and sign in users with passkeys that are capable of [user verification](https://docs.aws.amazon.com/https://www.w3.org/TR/webauthn-2/#enum-userVerificationRequirement) . When `preferred` , your user pool doesn't require the use of authenticators with user verification but encourages it.
+	WebAuthnUserVerification pulumi.StringPtrOutput `pulumi:"webAuthnUserVerification"`
 }
 
 // NewUserPool registers a new resource with the given unique name, arguments, and options.
@@ -153,9 +163,9 @@ type userPoolArgs struct {
 	//
 	// This data type is a request and response parameter of [CreateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.html) and [UpdateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.html) , and a response parameter of [DescribeUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html) .
 	AdminCreateUserConfig *UserPoolAdminCreateUserConfig `pulumi:"adminCreateUserConfig"`
-	// Attributes supported as an alias for this user pool. Possible values: *phone_number* , *email* , or *preferred_username* .
+	// Attributes supported as an alias for this user pool. Possible values: *phone_number* , *email* , or *preferred_username* . For more information about alias attributes, see [Customizing sign-in attributes](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#user-pool-settings-aliases) .
 	AliasAttributes []string `pulumi:"aliasAttributes"`
-	// The attributes to be auto-verified. Possible values: *email* , *phone_number* .
+	// The attributes that you want your user pool to automatically verify. Possible values: *email* , *phone_number* . For more information see [Verifying contact information at sign-up](https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#allowing-users-to-sign-up-and-confirm-themselves) .
 	AutoVerifiedAttributes []string `pulumi:"autoVerifiedAttributes"`
 	// When active, `DeletionProtection` prevents accidental deletion of your user
 	// pool. Before you can delete a user pool that you have protected against deletion, you
@@ -163,9 +173,9 @@ type userPoolArgs struct {
 	//
 	// When you try to delete a protected user pool in a `DeleteUserPool` API request, Amazon Cognito returns an `InvalidParameterException` error. To delete a protected user pool, send a new `DeleteUserPool` request after you deactivate deletion protection in an `UpdateUserPool` API request.
 	DeletionProtection *string `pulumi:"deletionProtection"`
-	// The device-remembering configuration for a user pool. A null value indicates that you have deactivated device remembering in your user pool.
+	// The device-remembering configuration for a user pool. Device remembering or device tracking is a "Remember me on this device" option for user pools that perform authentication with the device key of a trusted device in the back end, instead of a user-provided MFA code. For more information about device authentication, see [Working with user devices in your user pool](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html) . A null value indicates that you have deactivated device remembering in your user pool.
 	//
-	// > When you provide a value for any `DeviceConfiguration` field, you activate the Amazon Cognito device-remembering feature.
+	// > When you provide a value for any `DeviceConfiguration` field, you activate the Amazon Cognito device-remembering feature. For more infor
 	DeviceConfiguration        *UserPoolDeviceConfiguration `pulumi:"deviceConfiguration"`
 	EmailAuthenticationMessage *string                      `pulumi:"emailAuthenticationMessage"`
 	EmailAuthenticationSubject *string                      `pulumi:"emailAuthenticationSubject"`
@@ -195,11 +205,11 @@ type userPoolArgs struct {
 	//
 	// This data type is a request and response parameter of [CreateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.html) and [UpdateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.html) , and a response parameter of [DescribeUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html) .
 	Policies *UserPoolPolicies `pulumi:"policies"`
-	// An array of schema attributes for the new user pool. These attributes can be standard or custom attributes.
+	// An array of attributes for the new user pool. You can add custom attributes and modify the properties of default attributes. The specifications in this parameter set the required attributes in your user pool. For more information, see [Working with user attributes](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html) .
 	Schema []UserPoolSchemaAttribute `pulumi:"schema"`
 	// The contents of the SMS authentication message.
 	SmsAuthenticationMessage *string `pulumi:"smsAuthenticationMessage"`
-	// The SMS configuration with the settings that your Amazon Cognito user pool must use to send an SMS message from your AWS account through Amazon Simple Notification Service. To send SMS messages with Amazon SNS in the AWS Region that you want, the Amazon Cognito user pool uses an AWS Identity and Access Management (IAM) role in your AWS account .
+	// The SMS configuration with the settings that your Amazon Cognito user pool must use to send an SMS message from your AWS account through Amazon Simple Notification Service. To send SMS messages with Amazon SNS in the AWS Region that you want, the Amazon Cognito user pool uses an AWS Identity and Access Management (IAM) role in your AWS account . For more information see [SMS message settings](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html) .
 	SmsConfiguration *UserPoolSmsConfiguration `pulumi:"smsConfiguration"`
 	// This parameter is no longer used. See [VerificationMessageTemplateType](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-verificationmessagetemplate.html) .
 	SmsVerificationMessage *string `pulumi:"smsVerificationMessage"`
@@ -211,7 +221,7 @@ type userPoolArgs struct {
 	//
 	// For more information, see [Adding advanced security to a user pool](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-advanced-security.html) .
 	UserPoolAddOns *UserPoolAddOns `pulumi:"userPoolAddOns"`
-	// A string used to name the user pool.
+	// A friendlhy name for your user pool.
 	UserPoolName *string `pulumi:"userPoolName"`
 	// The tag keys and values to assign to the user pool. A tag is a label that you can use to categorize and manage user pools in different ways, such as by purpose, owner, environment, or other criteria.
 	UserPoolTags map[string]string `pulumi:"userPoolTags"`
@@ -219,16 +229,26 @@ type userPoolArgs struct {
 	UserPoolTier *UserPoolTier `pulumi:"userPoolTier"`
 	// Specifies whether a user can use an email address or phone number as a username when they sign up.
 	UsernameAttributes []string `pulumi:"usernameAttributes"`
-	// Case sensitivity on the username input for the selected sign-in option. When case sensitivity is set to `False` (case insensitive), users can sign in with any combination of capital and lowercase letters. For example, `username` , `USERNAME` , or `UserName` , or for email, `email@example.com` or `EMaiL@eXamplE.Com` . For most use cases, set case sensitivity to `False` (case insensitive) as a best practice. When usernames and email addresses are case insensitive, Amazon Cognito treats any variation in case as the same user, and prevents a case variation from being assigned to the same attribute for a different user.
+	// Sets the case sensitivity option for sign-in usernames. When `CaseSensitive` is `false` (case insensitive), users can sign in with any combination of capital and lowercase letters. For example, `username` , `USERNAME` , or `UserName` , or for email, `email@example.com` or `EMaiL@eXamplE.Com` . For most use cases, set case sensitivity to `false` as a best practice. When usernames and email addresses are case insensitive, Amazon Cognito treats any variation in case as the same user, and prevents a case variation from being assigned to the same attribute for a different user.
 	//
-	// This configuration is immutable after you set it. For more information, see [UsernameConfigurationType](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UsernameConfigurationType.html) .
+	// When `CaseSensitive` is `true` (case sensitive), Amazon Cognito interprets `USERNAME` and `UserName` as distinct users.
+	//
+	// This configuration is immutable after you set it.
 	UsernameConfiguration *UserPoolUsernameConfiguration `pulumi:"usernameConfiguration"`
 	// The template for the verification message that your user pool delivers to users who set an email address or phone number attribute.
 	//
 	// Set the email message type that corresponds to your `DefaultEmailOption` selection. For `CONFIRM_WITH_LINK` , specify an `EmailMessageByLink` and leave `EmailMessage` blank. For `CONFIRM_WITH_CODE` , specify an `EmailMessage` and leave `EmailMessageByLink` blank. When you supply both parameters with either choice, Amazon Cognito returns an error.
 	VerificationMessageTemplate *UserPoolVerificationMessageTemplate `pulumi:"verificationMessageTemplate"`
-	WebAuthnRelyingPartyId      *string                              `pulumi:"webAuthnRelyingPartyId"`
-	WebAuthnUserVerification    *string                              `pulumi:"webAuthnUserVerification"`
+	// Sets or displays the authentication domain, typically your user pool domain, that passkey providers must use as a relying party (RP) in their configuration.
+	//
+	// Under the following conditions, the passkey relying party ID must be the fully-qualified domain name of your custom domain:
+	//
+	// - The user pool is configured for passkey authentication.
+	// - The user pool has a custom domain, whether or not it also has a prefix domain.
+	// - Your application performs authentication with managed login or the classic hosted UI.
+	WebAuthnRelyingPartyId *string `pulumi:"webAuthnRelyingPartyId"`
+	// When `required` , users can only register and sign in users with passkeys that are capable of [user verification](https://docs.aws.amazon.com/https://www.w3.org/TR/webauthn-2/#enum-userVerificationRequirement) . When `preferred` , your user pool doesn't require the use of authenticators with user verification but encourages it.
+	WebAuthnUserVerification *string `pulumi:"webAuthnUserVerification"`
 }
 
 // The set of arguments for constructing a UserPool resource.
@@ -239,9 +259,9 @@ type UserPoolArgs struct {
 	//
 	// This data type is a request and response parameter of [CreateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.html) and [UpdateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.html) , and a response parameter of [DescribeUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html) .
 	AdminCreateUserConfig UserPoolAdminCreateUserConfigPtrInput
-	// Attributes supported as an alias for this user pool. Possible values: *phone_number* , *email* , or *preferred_username* .
+	// Attributes supported as an alias for this user pool. Possible values: *phone_number* , *email* , or *preferred_username* . For more information about alias attributes, see [Customizing sign-in attributes](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#user-pool-settings-aliases) .
 	AliasAttributes pulumi.StringArrayInput
-	// The attributes to be auto-verified. Possible values: *email* , *phone_number* .
+	// The attributes that you want your user pool to automatically verify. Possible values: *email* , *phone_number* . For more information see [Verifying contact information at sign-up](https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#allowing-users-to-sign-up-and-confirm-themselves) .
 	AutoVerifiedAttributes pulumi.StringArrayInput
 	// When active, `DeletionProtection` prevents accidental deletion of your user
 	// pool. Before you can delete a user pool that you have protected against deletion, you
@@ -249,9 +269,9 @@ type UserPoolArgs struct {
 	//
 	// When you try to delete a protected user pool in a `DeleteUserPool` API request, Amazon Cognito returns an `InvalidParameterException` error. To delete a protected user pool, send a new `DeleteUserPool` request after you deactivate deletion protection in an `UpdateUserPool` API request.
 	DeletionProtection pulumi.StringPtrInput
-	// The device-remembering configuration for a user pool. A null value indicates that you have deactivated device remembering in your user pool.
+	// The device-remembering configuration for a user pool. Device remembering or device tracking is a "Remember me on this device" option for user pools that perform authentication with the device key of a trusted device in the back end, instead of a user-provided MFA code. For more information about device authentication, see [Working with user devices in your user pool](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html) . A null value indicates that you have deactivated device remembering in your user pool.
 	//
-	// > When you provide a value for any `DeviceConfiguration` field, you activate the Amazon Cognito device-remembering feature.
+	// > When you provide a value for any `DeviceConfiguration` field, you activate the Amazon Cognito device-remembering feature. For more infor
 	DeviceConfiguration        UserPoolDeviceConfigurationPtrInput
 	EmailAuthenticationMessage pulumi.StringPtrInput
 	EmailAuthenticationSubject pulumi.StringPtrInput
@@ -281,11 +301,11 @@ type UserPoolArgs struct {
 	//
 	// This data type is a request and response parameter of [CreateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.html) and [UpdateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.html) , and a response parameter of [DescribeUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html) .
 	Policies UserPoolPoliciesPtrInput
-	// An array of schema attributes for the new user pool. These attributes can be standard or custom attributes.
+	// An array of attributes for the new user pool. You can add custom attributes and modify the properties of default attributes. The specifications in this parameter set the required attributes in your user pool. For more information, see [Working with user attributes](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html) .
 	Schema UserPoolSchemaAttributeArrayInput
 	// The contents of the SMS authentication message.
 	SmsAuthenticationMessage pulumi.StringPtrInput
-	// The SMS configuration with the settings that your Amazon Cognito user pool must use to send an SMS message from your AWS account through Amazon Simple Notification Service. To send SMS messages with Amazon SNS in the AWS Region that you want, the Amazon Cognito user pool uses an AWS Identity and Access Management (IAM) role in your AWS account .
+	// The SMS configuration with the settings that your Amazon Cognito user pool must use to send an SMS message from your AWS account through Amazon Simple Notification Service. To send SMS messages with Amazon SNS in the AWS Region that you want, the Amazon Cognito user pool uses an AWS Identity and Access Management (IAM) role in your AWS account . For more information see [SMS message settings](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html) .
 	SmsConfiguration UserPoolSmsConfigurationPtrInput
 	// This parameter is no longer used. See [VerificationMessageTemplateType](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-verificationmessagetemplate.html) .
 	SmsVerificationMessage pulumi.StringPtrInput
@@ -297,7 +317,7 @@ type UserPoolArgs struct {
 	//
 	// For more information, see [Adding advanced security to a user pool](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-advanced-security.html) .
 	UserPoolAddOns UserPoolAddOnsPtrInput
-	// A string used to name the user pool.
+	// A friendlhy name for your user pool.
 	UserPoolName pulumi.StringPtrInput
 	// The tag keys and values to assign to the user pool. A tag is a label that you can use to categorize and manage user pools in different ways, such as by purpose, owner, environment, or other criteria.
 	UserPoolTags pulumi.StringMapInput
@@ -305,16 +325,26 @@ type UserPoolArgs struct {
 	UserPoolTier UserPoolTierPtrInput
 	// Specifies whether a user can use an email address or phone number as a username when they sign up.
 	UsernameAttributes pulumi.StringArrayInput
-	// Case sensitivity on the username input for the selected sign-in option. When case sensitivity is set to `False` (case insensitive), users can sign in with any combination of capital and lowercase letters. For example, `username` , `USERNAME` , or `UserName` , or for email, `email@example.com` or `EMaiL@eXamplE.Com` . For most use cases, set case sensitivity to `False` (case insensitive) as a best practice. When usernames and email addresses are case insensitive, Amazon Cognito treats any variation in case as the same user, and prevents a case variation from being assigned to the same attribute for a different user.
+	// Sets the case sensitivity option for sign-in usernames. When `CaseSensitive` is `false` (case insensitive), users can sign in with any combination of capital and lowercase letters. For example, `username` , `USERNAME` , or `UserName` , or for email, `email@example.com` or `EMaiL@eXamplE.Com` . For most use cases, set case sensitivity to `false` as a best practice. When usernames and email addresses are case insensitive, Amazon Cognito treats any variation in case as the same user, and prevents a case variation from being assigned to the same attribute for a different user.
 	//
-	// This configuration is immutable after you set it. For more information, see [UsernameConfigurationType](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UsernameConfigurationType.html) .
+	// When `CaseSensitive` is `true` (case sensitive), Amazon Cognito interprets `USERNAME` and `UserName` as distinct users.
+	//
+	// This configuration is immutable after you set it.
 	UsernameConfiguration UserPoolUsernameConfigurationPtrInput
 	// The template for the verification message that your user pool delivers to users who set an email address or phone number attribute.
 	//
 	// Set the email message type that corresponds to your `DefaultEmailOption` selection. For `CONFIRM_WITH_LINK` , specify an `EmailMessageByLink` and leave `EmailMessage` blank. For `CONFIRM_WITH_CODE` , specify an `EmailMessage` and leave `EmailMessageByLink` blank. When you supply both parameters with either choice, Amazon Cognito returns an error.
 	VerificationMessageTemplate UserPoolVerificationMessageTemplatePtrInput
-	WebAuthnRelyingPartyId      pulumi.StringPtrInput
-	WebAuthnUserVerification    pulumi.StringPtrInput
+	// Sets or displays the authentication domain, typically your user pool domain, that passkey providers must use as a relying party (RP) in their configuration.
+	//
+	// Under the following conditions, the passkey relying party ID must be the fully-qualified domain name of your custom domain:
+	//
+	// - The user pool is configured for passkey authentication.
+	// - The user pool has a custom domain, whether or not it also has a prefix domain.
+	// - Your application performs authentication with managed login or the classic hosted UI.
+	WebAuthnRelyingPartyId pulumi.StringPtrInput
+	// When `required` , users can only register and sign in users with passkeys that are capable of [user verification](https://docs.aws.amazon.com/https://www.w3.org/TR/webauthn-2/#enum-userVerificationRequirement) . When `preferred` , your user pool doesn't require the use of authenticators with user verification but encourages it.
+	WebAuthnUserVerification pulumi.StringPtrInput
 }
 
 func (UserPoolArgs) ElementType() reflect.Type {
@@ -366,7 +396,7 @@ func (o UserPoolOutput) AdminCreateUserConfig() UserPoolAdminCreateUserConfigPtr
 	return o.ApplyT(func(v *UserPool) UserPoolAdminCreateUserConfigPtrOutput { return v.AdminCreateUserConfig }).(UserPoolAdminCreateUserConfigPtrOutput)
 }
 
-// Attributes supported as an alias for this user pool. Possible values: *phone_number* , *email* , or *preferred_username* .
+// Attributes supported as an alias for this user pool. Possible values: *phone_number* , *email* , or *preferred_username* . For more information about alias attributes, see [Customizing sign-in attributes](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#user-pool-settings-aliases) .
 func (o UserPoolOutput) AliasAttributes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *UserPool) pulumi.StringArrayOutput { return v.AliasAttributes }).(pulumi.StringArrayOutput)
 }
@@ -376,7 +406,7 @@ func (o UserPoolOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserPool) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The attributes to be auto-verified. Possible values: *email* , *phone_number* .
+// The attributes that you want your user pool to automatically verify. Possible values: *email* , *phone_number* . For more information see [Verifying contact information at sign-up](https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#allowing-users-to-sign-up-and-confirm-themselves) .
 func (o UserPoolOutput) AutoVerifiedAttributes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *UserPool) pulumi.StringArrayOutput { return v.AutoVerifiedAttributes }).(pulumi.StringArrayOutput)
 }
@@ -390,9 +420,9 @@ func (o UserPoolOutput) DeletionProtection() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPool) pulumi.StringPtrOutput { return v.DeletionProtection }).(pulumi.StringPtrOutput)
 }
 
-// The device-remembering configuration for a user pool. A null value indicates that you have deactivated device remembering in your user pool.
+// The device-remembering configuration for a user pool. Device remembering or device tracking is a "Remember me on this device" option for user pools that perform authentication with the device key of a trusted device in the back end, instead of a user-provided MFA code. For more information about device authentication, see [Working with user devices in your user pool](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html) . A null value indicates that you have deactivated device remembering in your user pool.
 //
-// > When you provide a value for any `DeviceConfiguration` field, you activate the Amazon Cognito device-remembering feature.
+// > When you provide a value for any `DeviceConfiguration` field, you activate the Amazon Cognito device-remembering feature. For more infor
 func (o UserPoolOutput) DeviceConfiguration() UserPoolDeviceConfigurationPtrOutput {
 	return o.ApplyT(func(v *UserPool) UserPoolDeviceConfigurationPtrOutput { return v.DeviceConfiguration }).(UserPoolDeviceConfigurationPtrOutput)
 }
@@ -462,7 +492,7 @@ func (o UserPoolOutput) ProviderUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserPool) pulumi.StringOutput { return v.ProviderUrl }).(pulumi.StringOutput)
 }
 
-// An array of schema attributes for the new user pool. These attributes can be standard or custom attributes.
+// An array of attributes for the new user pool. You can add custom attributes and modify the properties of default attributes. The specifications in this parameter set the required attributes in your user pool. For more information, see [Working with user attributes](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html) .
 func (o UserPoolOutput) Schema() UserPoolSchemaAttributeArrayOutput {
 	return o.ApplyT(func(v *UserPool) UserPoolSchemaAttributeArrayOutput { return v.Schema }).(UserPoolSchemaAttributeArrayOutput)
 }
@@ -472,7 +502,7 @@ func (o UserPoolOutput) SmsAuthenticationMessage() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPool) pulumi.StringPtrOutput { return v.SmsAuthenticationMessage }).(pulumi.StringPtrOutput)
 }
 
-// The SMS configuration with the settings that your Amazon Cognito user pool must use to send an SMS message from your AWS account through Amazon Simple Notification Service. To send SMS messages with Amazon SNS in the AWS Region that you want, the Amazon Cognito user pool uses an AWS Identity and Access Management (IAM) role in your AWS account .
+// The SMS configuration with the settings that your Amazon Cognito user pool must use to send an SMS message from your AWS account through Amazon Simple Notification Service. To send SMS messages with Amazon SNS in the AWS Region that you want, the Amazon Cognito user pool uses an AWS Identity and Access Management (IAM) role in your AWS account . For more information see [SMS message settings](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html) .
 func (o UserPoolOutput) SmsConfiguration() UserPoolSmsConfigurationPtrOutput {
 	return o.ApplyT(func(v *UserPool) UserPoolSmsConfigurationPtrOutput { return v.SmsConfiguration }).(UserPoolSmsConfigurationPtrOutput)
 }
@@ -501,7 +531,7 @@ func (o UserPoolOutput) UserPoolId() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserPool) pulumi.StringOutput { return v.UserPoolId }).(pulumi.StringOutput)
 }
 
-// A string used to name the user pool.
+// A friendlhy name for your user pool.
 func (o UserPoolOutput) UserPoolName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPool) pulumi.StringPtrOutput { return v.UserPoolName }).(pulumi.StringPtrOutput)
 }
@@ -521,9 +551,11 @@ func (o UserPoolOutput) UsernameAttributes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *UserPool) pulumi.StringArrayOutput { return v.UsernameAttributes }).(pulumi.StringArrayOutput)
 }
 
-// Case sensitivity on the username input for the selected sign-in option. When case sensitivity is set to `False` (case insensitive), users can sign in with any combination of capital and lowercase letters. For example, `username` , `USERNAME` , or `UserName` , or for email, `email@example.com` or `EMaiL@eXamplE.Com` . For most use cases, set case sensitivity to `False` (case insensitive) as a best practice. When usernames and email addresses are case insensitive, Amazon Cognito treats any variation in case as the same user, and prevents a case variation from being assigned to the same attribute for a different user.
+// Sets the case sensitivity option for sign-in usernames. When `CaseSensitive` is `false` (case insensitive), users can sign in with any combination of capital and lowercase letters. For example, `username` , `USERNAME` , or `UserName` , or for email, `email@example.com` or `EMaiL@eXamplE.Com` . For most use cases, set case sensitivity to `false` as a best practice. When usernames and email addresses are case insensitive, Amazon Cognito treats any variation in case as the same user, and prevents a case variation from being assigned to the same attribute for a different user.
 //
-// This configuration is immutable after you set it. For more information, see [UsernameConfigurationType](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UsernameConfigurationType.html) .
+// When `CaseSensitive` is `true` (case sensitive), Amazon Cognito interprets `USERNAME` and `UserName` as distinct users.
+//
+// This configuration is immutable after you set it.
 func (o UserPoolOutput) UsernameConfiguration() UserPoolUsernameConfigurationPtrOutput {
 	return o.ApplyT(func(v *UserPool) UserPoolUsernameConfigurationPtrOutput { return v.UsernameConfiguration }).(UserPoolUsernameConfigurationPtrOutput)
 }
@@ -535,10 +567,18 @@ func (o UserPoolOutput) VerificationMessageTemplate() UserPoolVerificationMessag
 	return o.ApplyT(func(v *UserPool) UserPoolVerificationMessageTemplatePtrOutput { return v.VerificationMessageTemplate }).(UserPoolVerificationMessageTemplatePtrOutput)
 }
 
+// Sets or displays the authentication domain, typically your user pool domain, that passkey providers must use as a relying party (RP) in their configuration.
+//
+// Under the following conditions, the passkey relying party ID must be the fully-qualified domain name of your custom domain:
+//
+// - The user pool is configured for passkey authentication.
+// - The user pool has a custom domain, whether or not it also has a prefix domain.
+// - Your application performs authentication with managed login or the classic hosted UI.
 func (o UserPoolOutput) WebAuthnRelyingPartyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPool) pulumi.StringPtrOutput { return v.WebAuthnRelyingPartyId }).(pulumi.StringPtrOutput)
 }
 
+// When `required` , users can only register and sign in users with passkeys that are capable of [user verification](https://docs.aws.amazon.com/https://www.w3.org/TR/webauthn-2/#enum-userVerificationRequirement) . When `preferred` , your user pool doesn't require the use of authenticators with user verification but encourages it.
 func (o UserPoolOutput) WebAuthnUserVerification() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPool) pulumi.StringPtrOutput { return v.WebAuthnUserVerification }).(pulumi.StringPtrOutput)
 }

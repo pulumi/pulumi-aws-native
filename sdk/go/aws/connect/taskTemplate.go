@@ -35,6 +35,8 @@ type TaskTemplate struct {
 	InstanceArn pulumi.StringOutput `pulumi:"instanceArn"`
 	// The name of the task template.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// The identifier of the contact flow.
+	SelfAssignContactFlowArn pulumi.StringPtrOutput `pulumi:"selfAssignContactFlowArn"`
 	// The status of the task template.
 	Status TaskTemplateStatusPtrOutput `pulumi:"status"`
 	// One or more tags.
@@ -100,6 +102,8 @@ type taskTemplateArgs struct {
 	InstanceArn string `pulumi:"instanceArn"`
 	// The name of the task template.
 	Name *string `pulumi:"name"`
+	// The identifier of the contact flow.
+	SelfAssignContactFlowArn *string `pulumi:"selfAssignContactFlowArn"`
 	// The status of the task template.
 	Status *TaskTemplateStatus `pulumi:"status"`
 	// One or more tags.
@@ -124,6 +128,8 @@ type TaskTemplateArgs struct {
 	InstanceArn pulumi.StringInput
 	// The name of the task template.
 	Name pulumi.StringPtrInput
+	// The identifier of the contact flow.
+	SelfAssignContactFlowArn pulumi.StringPtrInput
 	// The status of the task template.
 	Status TaskTemplateStatusPtrInput
 	// One or more tags.
@@ -210,6 +216,11 @@ func (o TaskTemplateOutput) InstanceArn() pulumi.StringOutput {
 // The name of the task template.
 func (o TaskTemplateOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskTemplate) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The identifier of the contact flow.
+func (o TaskTemplateOutput) SelfAssignContactFlowArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskTemplate) pulumi.StringPtrOutput { return v.SelfAssignContactFlowArn }).(pulumi.StringPtrOutput)
 }
 
 // The status of the task template.

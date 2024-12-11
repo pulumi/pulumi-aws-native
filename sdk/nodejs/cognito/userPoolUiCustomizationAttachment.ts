@@ -43,7 +43,7 @@ export class UserPoolUiCustomizationAttachment extends pulumi.CustomResource {
      */
     public readonly css!: pulumi.Output<string | undefined>;
     /**
-     * The user pool ID for the user pool.
+     * The ID of the user pool.
      */
     public readonly userPoolId!: pulumi.Output<string>;
 
@@ -92,7 +92,7 @@ export interface UserPoolUiCustomizationAttachmentArgs {
      */
     css?: pulumi.Input<string>;
     /**
-     * The user pool ID for the user pool.
+     * The ID of the user pool.
      */
     userPoolId: pulumi.Input<string>;
 }

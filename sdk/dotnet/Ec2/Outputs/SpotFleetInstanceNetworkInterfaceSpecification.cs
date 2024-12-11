@@ -56,7 +56,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.SpotFleetPrivateIpAddressSpecification> PrivateIpAddresses;
         /// <summary>
-        /// The number of secondary private IPv4 addresses. You can't specify this option and specify more than one private IP address using the private IP addresses option. You cannot specify this option if you're launching more than one instance in a [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) request.
+        /// The number of secondary private IPv4 addresses. You can’t specify this parameter and also specify a secondary private IP address using the `PrivateIpAddress` parameter.
         /// </summary>
         public readonly int? SecondaryPrivateIpAddressCount;
         /// <summary>

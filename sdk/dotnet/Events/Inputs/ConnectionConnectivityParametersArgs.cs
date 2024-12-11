@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Events.Inputs
 
     public sealed class ConnectionConnectivityParametersArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The parameters for EventBridge to use when invoking the resource endpoint.
+        /// </summary>
         [Input("resourceParameters", required: true)]
         public Input<Inputs.ConnectionResourceParametersArgs> ResourceParameters { get; set; } = null!;
 

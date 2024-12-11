@@ -15,27 +15,51 @@ namespace Pulumi.AwsNative.Invoicing
     [AwsNativeResourceType("aws-native:invoicing:InvoiceUnit")]
     public partial class InvoiceUnit : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The assigned description for an invoice unit. This information can't be modified or deleted.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The account that receives invoices related to the invoice unit.
+        /// </summary>
         [Output("invoiceReceiver")]
         public Output<string> InvoiceReceiver { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN to identify an invoice unit. This information can't be modified or deleted.
+        /// </summary>
         [Output("invoiceUnitArn")]
         public Output<string> InvoiceUnitArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The last time the invoice unit was updated. This is important to determine the version of invoice unit configuration used to create the invoices. Any invoice created after this modified time will use this invoice unit configuration.
+        /// </summary>
         [Output("lastModified")]
         public Output<double> LastModified { get; private set; } = null!;
 
+        /// <summary>
+        /// A unique name that is distinctive within your AWS .
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The tag structure that contains a tag key and value.
+        /// </summary>
         [Output("resourceTags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> ResourceTags { get; private set; } = null!;
 
+        /// <summary>
+        /// An `InvoiceUnitRule` object used the categorize invoice units.
+        /// </summary>
         [Output("rule")]
         public Output<Outputs.InvoiceUnitRule> Rule { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether the invoice unit based tax inheritance is/ should be enabled or disabled.
+        /// </summary>
         [Output("taxInheritanceDisabled")]
         public Output<bool?> TaxInheritanceDisabled { get; private set; } = null!;
 
@@ -89,26 +113,45 @@ namespace Pulumi.AwsNative.Invoicing
 
     public sealed class InvoiceUnitArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The assigned description for an invoice unit. This information can't be modified or deleted.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The account that receives invoices related to the invoice unit.
+        /// </summary>
         [Input("invoiceReceiver", required: true)]
         public Input<string> InvoiceReceiver { get; set; } = null!;
 
+        /// <summary>
+        /// A unique name that is distinctive within your AWS .
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("resourceTags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _resourceTags;
+
+        /// <summary>
+        /// The tag structure that contains a tag key and value.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> ResourceTags
         {
             get => _resourceTags ?? (_resourceTags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _resourceTags = value;
         }
 
+        /// <summary>
+        /// An `InvoiceUnitRule` object used the categorize invoice units.
+        /// </summary>
         [Input("rule", required: true)]
         public Input<Inputs.InvoiceUnitRuleArgs> Rule { get; set; } = null!;
 
+        /// <summary>
+        /// Whether the invoice unit based tax inheritance is/ should be enabled or disabled.
+        /// </summary>
         [Input("taxInheritanceDisabled")]
         public Input<bool>? TaxInheritanceDisabled { get; set; }
 

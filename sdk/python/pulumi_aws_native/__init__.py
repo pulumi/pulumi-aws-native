@@ -396,6 +396,8 @@ if typing.TYPE_CHECKING:
     s3objectlambda = __s3objectlambda
     import pulumi_aws_native.s3outposts as __s3outposts
     s3outposts = __s3outposts
+    import pulumi_aws_native.s3tables as __s3tables
+    s3tables = __s3tables
     import pulumi_aws_native.sagemaker as __sagemaker
     sagemaker = __sagemaker
     import pulumi_aws_native.scheduler as __scheduler
@@ -650,6 +652,7 @@ else:
     s3express = _utilities.lazy_import('pulumi_aws_native.s3express')
     s3objectlambda = _utilities.lazy_import('pulumi_aws_native.s3objectlambda')
     s3outposts = _utilities.lazy_import('pulumi_aws_native.s3outposts')
+    s3tables = _utilities.lazy_import('pulumi_aws_native.s3tables')
     sagemaker = _utilities.lazy_import('pulumi_aws_native.sagemaker')
     scheduler = _utilities.lazy_import('pulumi_aws_native.scheduler')
     secretsmanager = _utilities.lazy_import('pulumi_aws_native.secretsmanager')
@@ -1985,6 +1988,7 @@ _utilities.register(
    "aws-native:iot:CaCertificate": "CaCertificate",
    "aws-native:iot:Certificate": "Certificate",
    "aws-native:iot:CertificateProvider": "CertificateProvider",
+   "aws-native:iot:Command": "Command",
    "aws-native:iot:CustomMetric": "CustomMetric",
    "aws-native:iot:Dimension": "Dimension",
    "aws-native:iot:DomainConfiguration": "DomainConfiguration",
@@ -2690,7 +2694,8 @@ _utilities.register(
   "mod": "ram",
   "fqn": "pulumi_aws_native.ram",
   "classes": {
-   "aws-native:ram:Permission": "Permission"
+   "aws-native:ram:Permission": "Permission",
+   "aws-native:ram:ResourceShare": "ResourceShare"
   }
  },
  {
@@ -2931,6 +2936,15 @@ _utilities.register(
    "aws-native:s3outposts:Bucket": "Bucket",
    "aws-native:s3outposts:BucketPolicy": "BucketPolicy",
    "aws-native:s3outposts:Endpoint": "Endpoint"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "s3tables",
+  "fqn": "pulumi_aws_native.s3tables",
+  "classes": {
+   "aws-native:s3tables:TableBucket": "TableBucket",
+   "aws-native:s3tables:TableBucketPolicy": "TableBucketPolicy"
   }
  },
  {

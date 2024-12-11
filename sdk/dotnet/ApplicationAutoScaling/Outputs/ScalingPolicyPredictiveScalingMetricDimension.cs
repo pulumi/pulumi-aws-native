@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApplicationAutoScaling.Outputs
 {
 
+    /// <summary>
+    /// Describes the dimension of a metric.
+    /// </summary>
     [OutputType]
     public sealed class ScalingPolicyPredictiveScalingMetricDimension
     {

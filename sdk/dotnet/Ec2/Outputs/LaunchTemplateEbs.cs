@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// </summary>
         public readonly int? Iops;
         /// <summary>
-        /// Identifier (key ID, key alias, key ARN, or alias ARN) of the customer managed KMS key to use for EBS encryption.
+        /// The ARN of the symmetric KMSlong (KMS) CMK used for encryption.
         /// </summary>
         public readonly string? KmsKeyId;
         /// <summary>

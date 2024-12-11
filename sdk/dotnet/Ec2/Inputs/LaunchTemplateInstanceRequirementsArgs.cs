@@ -20,7 +20,7 @@ namespace Pulumi.AwsNative.Ec2.Inputs
     ///   
     ///   If you specify ``InstanceRequirements``, you can't specify ``InstanceType``.
     ///  Attribute-based instance type selection is only supported when using Auto Scaling groups, EC2 Fleet, and Spot Fleet to launch instances. If you plan to use the launch template in the [launch instance wizard](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.html), or with the [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) API or [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) AWS CloudFormation resource, you can't specify ``InstanceRequirements``.
-    ///   For more information, see [Specify attributes for instance type selection for EC2 Fleet or Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html) and [Spot placement score](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html) in the *Amazon EC2 User Guide*.
+    ///   For more information, see [Attribute-based instance type selection for EC2 Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html), [Attribute-based instance type selection for Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html), and [Spot placement score](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html) in the *Amazon EC2 User Guide*.
     /// </summary>
     public sealed class LaunchTemplateInstanceRequirementsArgs : global::Pulumi.ResourceArgs
     {
@@ -91,6 +91,7 @@ namespace Pulumi.AwsNative.Ec2.Inputs
         /// The accelerator types that must be on the instance type.
         ///   +  For instance types with GPU accelerators, specify ``gpu``.
         ///   +  For instance types with FPGA accelerators, specify ``fpga``.
+        ///   +  For instance types with inference accelerators, specify ``inference``.
         ///   
         ///  Default: Any accelerator type
         /// </summary>
@@ -135,7 +136,7 @@ namespace Pulumi.AwsNative.Ec2.Inputs
         public Input<Inputs.LaunchTemplateBaselineEbsBandwidthMbpsArgs>? BaselineEbsBandwidthMbps { get; set; }
 
         /// <summary>
-        /// The baseline performance to consider, using an instance family as a baseline reference. The instance family establishes the lowest acceptable level of performance. Amazon EC2 uses this baseline to guide instance type selection, but there is no guarantee that the selected instance types will always exceed the baseline for every application. Currently, this parameter only supports CPU performance as a baseline performance factor. For more information, see [Performance protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html#ec2fleet-abis-performance-protection) in the *Amazon EC2 User Guide*.
+        /// The baseline performance to consider, using an instance family as a baseline reference. The instance family establishes the lowest acceptable level of performance. Amazon EC2 uses this baseline to guide instance type selection, but there is no guarantee that the selected instance types will always exceed the baseline for every application. Currently, this parameter only supports CPU performance as a baseline performance factor. For more information, see [Performance protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html#ec2fleet-abis-performance-protection) in the *Amazon EC2 User Guide* .
         /// </summary>
         [Input("baselinePerformanceFactors")]
         public Input<Inputs.LaunchTemplateBaselinePerformanceFactorsArgs>? BaselinePerformanceFactors { get; set; }
@@ -159,7 +160,6 @@ namespace Pulumi.AwsNative.Ec2.Inputs
         ///   +  For instance types with Intel CPUs, specify ``intel``.
         ///   +  For instance types with AMD CPUs, specify ``amd``.
         ///   +  For instance types with AWS CPUs, specify ``amazon-web-services``.
-        ///   +  For instance types with Apple CPUs, specify ``apple``.
         ///   
         ///   Don't confuse the CPU manufacturer with the CPU architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
         ///   Default: Any manufacturer

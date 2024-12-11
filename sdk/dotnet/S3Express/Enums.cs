@@ -8,7 +8,7 @@ using Pulumi;
 namespace Pulumi.AwsNative.S3Express
 {
     /// <summary>
-    /// Specifies the number of Availability Zone that's used for redundancy for the bucket.
+    /// Specifies the number of Availability Zone or Local Zone that's used for redundancy for the bucket.
     /// </summary>
     [EnumType]
     public readonly struct DirectoryBucketDataRedundancy : IEquatable<DirectoryBucketDataRedundancy>
@@ -21,6 +21,7 @@ namespace Pulumi.AwsNative.S3Express
         }
 
         public static DirectoryBucketDataRedundancy SingleAvailabilityZone { get; } = new DirectoryBucketDataRedundancy("SingleAvailabilityZone");
+        public static DirectoryBucketDataRedundancy SingleLocalZone { get; } = new DirectoryBucketDataRedundancy("SingleLocalZone");
 
         public static bool operator ==(DirectoryBucketDataRedundancy left, DirectoryBucketDataRedundancy right) => left.Equals(right);
         public static bool operator !=(DirectoryBucketDataRedundancy left, DirectoryBucketDataRedundancy right) => !left.Equals(right);

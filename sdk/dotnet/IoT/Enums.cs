@@ -240,6 +240,37 @@ namespace Pulumi.AwsNative.IoT
     }
 
     /// <summary>
+    /// The namespace to which the command belongs.
+    /// </summary>
+    [EnumType]
+    public readonly struct CommandNamespace : IEquatable<CommandNamespace>
+    {
+        private readonly string _value;
+
+        private CommandNamespace(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CommandNamespace AwsIoT { get; } = new CommandNamespace("AWS-IoT");
+        public static CommandNamespace AwsIoTFleetWise { get; } = new CommandNamespace("AWS-IoT-FleetWise");
+
+        public static bool operator ==(CommandNamespace left, CommandNamespace right) => left.Equals(right);
+        public static bool operator !=(CommandNamespace left, CommandNamespace right) => !left.Equals(right);
+
+        public static explicit operator string(CommandNamespace value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CommandNamespace other && Equals(other);
+        public bool Equals(CommandNamespace other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of the custom metric. Types include string-list, ip-address-list, number-list, and number.
     /// </summary>
     [EnumType]

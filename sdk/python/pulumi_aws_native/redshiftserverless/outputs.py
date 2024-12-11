@@ -23,6 +23,7 @@ __all__ = [
     'WorkgroupConfigParameter',
     'WorkgroupEndpoint',
     'WorkgroupNetworkInterface',
+    'WorkgroupPerformanceTarget',
     'WorkgroupVpcEndpoint',
 ]
 
@@ -308,6 +309,8 @@ class Workgroup(dict):
             suggest = "max_capacity"
         elif key == "namespaceName":
             suggest = "namespace_name"
+        elif key == "pricePerformanceTarget":
+            suggest = "price_performance_target"
         elif key == "publiclyAccessible":
             suggest = "publicly_accessible"
         elif key == "securityGroupIds":
@@ -340,6 +343,7 @@ class Workgroup(dict):
                  enhanced_vpc_routing: Optional[bool] = None,
                  max_capacity: Optional[int] = None,
                  namespace_name: Optional[str] = None,
+                 price_performance_target: Optional['outputs.WorkgroupPerformanceTarget'] = None,
                  publicly_accessible: Optional[bool] = None,
                  security_group_ids: Optional[Sequence[str]] = None,
                  status: Optional['WorkgroupStatus'] = None,
@@ -377,6 +381,8 @@ class Workgroup(dict):
             pulumi.set(__self__, "max_capacity", max_capacity)
         if namespace_name is not None:
             pulumi.set(__self__, "namespace_name", namespace_name)
+        if price_performance_target is not None:
+            pulumi.set(__self__, "price_performance_target", price_performance_target)
         if publicly_accessible is not None:
             pulumi.set(__self__, "publicly_accessible", publicly_accessible)
         if security_group_ids is not None:
@@ -447,6 +453,11 @@ class Workgroup(dict):
         The namespace the workgroup is associated with.
         """
         return pulumi.get(self, "namespace_name")
+
+    @property
+    @pulumi.getter(name="pricePerformanceTarget")
+    def price_performance_target(self) -> Optional['outputs.WorkgroupPerformanceTarget']:
+        return pulumi.get(self, "price_performance_target")
 
     @property
     @pulumi.getter(name="publiclyAccessible")
@@ -691,6 +702,27 @@ class WorkgroupNetworkInterface(dict):
         The unique identifier of the subnet.
         """
         return pulumi.get(self, "subnet_id")
+
+
+@pulumi.output_type
+class WorkgroupPerformanceTarget(dict):
+    def __init__(__self__, *,
+                 level: Optional[int] = None,
+                 status: Optional['WorkgroupPerformanceTargetStatus'] = None):
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[int]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional['WorkgroupPerformanceTargetStatus']:
+        return pulumi.get(self, "status")
 
 
 @pulumi.output_type

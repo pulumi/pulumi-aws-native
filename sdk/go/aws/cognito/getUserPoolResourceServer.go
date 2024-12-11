@@ -27,7 +27,7 @@ type LookupUserPoolResourceServerArgs struct {
 	//
 	// Amazon Cognito represents scopes in the access token in the format `$resource-server-identifier/$scope` . Longer scope-identifier strings increase the size of your access tokens.
 	Identifier string `pulumi:"identifier"`
-	// The user pool ID for the user pool.
+	// The ID of the user pool where you want to create a resource server.
 	UserPoolId string `pulumi:"userPoolId"`
 }
 
@@ -62,7 +62,7 @@ type LookupUserPoolResourceServerOutputArgs struct {
 	//
 	// Amazon Cognito represents scopes in the access token in the format `$resource-server-identifier/$scope` . Longer scope-identifier strings increase the size of your access tokens.
 	Identifier pulumi.StringInput `pulumi:"identifier"`
-	// The user pool ID for the user pool.
+	// The ID of the user pool where you want to create a resource server.
 	UserPoolId pulumi.StringInput `pulumi:"userPoolId"`
 }
 

@@ -18,6 +18,13 @@ export const NamespaceStatus = {
 
 export type NamespaceStatus = (typeof NamespaceStatus)[keyof typeof NamespaceStatus];
 
+export const WorkgroupPerformanceTargetStatus = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+export type WorkgroupPerformanceTargetStatus = (typeof WorkgroupPerformanceTargetStatus)[keyof typeof WorkgroupPerformanceTargetStatus];
+
 export const WorkgroupStatus = {
     Creating: "CREATING",
     Available: "AVAILABLE",

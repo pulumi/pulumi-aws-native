@@ -511,6 +511,9 @@ class ScalingPolicyPredefinedMetricSpecification(dict):
 
 @pulumi.output_type
 class ScalingPolicyPredictiveScalingCustomizedCapacityMetric(dict):
+    """
+    Represents a CloudWatch metric of your choosing for a predictive scaling policy.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -531,6 +534,7 @@ class ScalingPolicyPredictiveScalingCustomizedCapacityMetric(dict):
     def __init__(__self__, *,
                  metric_data_queries: Sequence['outputs.ScalingPolicyPredictiveScalingMetricDataQuery']):
         """
+        Represents a CloudWatch metric of your choosing for a predictive scaling policy.
         :param Sequence['ScalingPolicyPredictiveScalingMetricDataQuery'] metric_data_queries: One or more metric data queries to provide data points for a metric specification.
         """
         pulumi.set(__self__, "metric_data_queries", metric_data_queries)
@@ -546,6 +550,9 @@ class ScalingPolicyPredictiveScalingCustomizedCapacityMetric(dict):
 
 @pulumi.output_type
 class ScalingPolicyPredictiveScalingCustomizedLoadMetric(dict):
+    """
+    The customized load metric specification.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -565,6 +572,9 @@ class ScalingPolicyPredictiveScalingCustomizedLoadMetric(dict):
 
     def __init__(__self__, *,
                  metric_data_queries: Sequence['outputs.ScalingPolicyPredictiveScalingMetricDataQuery']):
+        """
+        The customized load metric specification.
+        """
         pulumi.set(__self__, "metric_data_queries", metric_data_queries)
 
     @property
@@ -575,6 +585,9 @@ class ScalingPolicyPredictiveScalingCustomizedLoadMetric(dict):
 
 @pulumi.output_type
 class ScalingPolicyPredictiveScalingCustomizedScalingMetric(dict):
+    """
+    One or more metric data queries to provide data points for a metric specification.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -595,6 +608,7 @@ class ScalingPolicyPredictiveScalingCustomizedScalingMetric(dict):
     def __init__(__self__, *,
                  metric_data_queries: Sequence['outputs.ScalingPolicyPredictiveScalingMetricDataQuery']):
         """
+        One or more metric data queries to provide data points for a metric specification.
         :param Sequence['ScalingPolicyPredictiveScalingMetricDataQuery'] metric_data_queries: One or more metric data queries to provide data points for a metric specification.
         """
         pulumi.set(__self__, "metric_data_queries", metric_data_queries)
@@ -610,6 +624,9 @@ class ScalingPolicyPredictiveScalingCustomizedScalingMetric(dict):
 
 @pulumi.output_type
 class ScalingPolicyPredictiveScalingMetric(dict):
+    """
+    Describes the scaling metric.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -632,7 +649,8 @@ class ScalingPolicyPredictiveScalingMetric(dict):
                  metric_name: Optional[str] = None,
                  namespace: Optional[str] = None):
         """
-        :param Sequence['ScalingPolicyPredictiveScalingMetricDimension'] dimensions: The dimensions for the metric.
+        Describes the scaling metric.
+        :param Sequence['ScalingPolicyPredictiveScalingMetricDimension'] dimensions: Describes the dimensions of the metric.
         :param str metric_name: The name of the metric.
         :param str namespace: The namespace of the metric.
         """
@@ -647,7 +665,7 @@ class ScalingPolicyPredictiveScalingMetric(dict):
     @pulumi.getter
     def dimensions(self) -> Optional[Sequence['outputs.ScalingPolicyPredictiveScalingMetricDimension']]:
         """
-        The dimensions for the metric.
+        Describes the dimensions of the metric.
         """
         return pulumi.get(self, "dimensions")
 
@@ -670,6 +688,9 @@ class ScalingPolicyPredictiveScalingMetric(dict):
 
 @pulumi.output_type
 class ScalingPolicyPredictiveScalingMetricDataQuery(dict):
+    """
+    The metric data to return. Also defines whether this call is returning data for one metric only, or whether it is performing a math expression on the values of returned metric statistics to create a new time series. A time series is a series of data points, each of which is associated with a timestamp.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -696,11 +717,16 @@ class ScalingPolicyPredictiveScalingMetricDataQuery(dict):
                  metric_stat: Optional['outputs.ScalingPolicyPredictiveScalingMetricStat'] = None,
                  return_data: Optional[bool] = None):
         """
-        :param str expression: The math expression to perform on the returned data, if this object is performing a math expression.
-        :param str id: A short name that identifies the object's results in the response.
+        The metric data to return. Also defines whether this call is returning data for one metric only, or whether it is performing a math expression on the values of returned metric statistics to create a new time series. A time series is a series of data points, each of which is associated with a timestamp.
+        :param str expression: The math expression to perform on the returned data, if this object is performing a math expression. This expression can use the ``Id`` of the other metrics to refer to those metrics, and can also use the ``Id`` of other expressions to use the result of those expressions. 
+                Conditional: Within each ``MetricDataQuery`` object, you must specify either ``Expression`` or ``MetricStat``, but not both.
+        :param str id: A short name that identifies the object's results in the response. This name must be unique among all ``MetricDataQuery`` objects specified for a single scaling policy. If you are performing math expressions on this set of data, this name represents that data and can serve as a variable in the mathematical expression. The valid characters are letters, numbers, and underscores. The first character must be a lowercase letter.
         :param str label: A human-readable label for this metric or expression. This is especially useful if this is a math expression, so that you know what the value represents.
-        :param 'ScalingPolicyPredictiveScalingMetricStat' metric_stat: Information about the metric data to return.
-        :param bool return_data: Indicates whether to return the timestamps and raw data values of this metric.
+        :param 'ScalingPolicyPredictiveScalingMetricStat' metric_stat: Information about the metric data to return. 
+                Conditional: Within each ``MetricDataQuery`` object, you must specify either ``Expression`` or ``MetricStat``, but not both.
+        :param bool return_data: Indicates whether to return the timestamps and raw data values of this metric. 
+                If you use any math expressions, specify ``true`` for this value for only the final math expression that the metric specification is based on. You must specify ``false`` for ``ReturnData`` for all the other metrics and expressions used in the metric specification.
+                If you are only retrieving metrics and not performing any math expressions, do not specify anything for ``ReturnData``. This sets it to its default (``true``).
         """
         if expression is not None:
             pulumi.set(__self__, "expression", expression)
@@ -717,7 +743,8 @@ class ScalingPolicyPredictiveScalingMetricDataQuery(dict):
     @pulumi.getter
     def expression(self) -> Optional[str]:
         """
-        The math expression to perform on the returned data, if this object is performing a math expression.
+        The math expression to perform on the returned data, if this object is performing a math expression. This expression can use the ``Id`` of the other metrics to refer to those metrics, and can also use the ``Id`` of other expressions to use the result of those expressions. 
+         Conditional: Within each ``MetricDataQuery`` object, you must specify either ``Expression`` or ``MetricStat``, but not both.
         """
         return pulumi.get(self, "expression")
 
@@ -725,7 +752,7 @@ class ScalingPolicyPredictiveScalingMetricDataQuery(dict):
     @pulumi.getter
     def id(self) -> Optional[str]:
         """
-        A short name that identifies the object's results in the response.
+        A short name that identifies the object's results in the response. This name must be unique among all ``MetricDataQuery`` objects specified for a single scaling policy. If you are performing math expressions on this set of data, this name represents that data and can serve as a variable in the mathematical expression. The valid characters are letters, numbers, and underscores. The first character must be a lowercase letter.
         """
         return pulumi.get(self, "id")
 
@@ -741,7 +768,8 @@ class ScalingPolicyPredictiveScalingMetricDataQuery(dict):
     @pulumi.getter(name="metricStat")
     def metric_stat(self) -> Optional['outputs.ScalingPolicyPredictiveScalingMetricStat']:
         """
-        Information about the metric data to return.
+        Information about the metric data to return. 
+         Conditional: Within each ``MetricDataQuery`` object, you must specify either ``Expression`` or ``MetricStat``, but not both.
         """
         return pulumi.get(self, "metric_stat")
 
@@ -749,17 +777,23 @@ class ScalingPolicyPredictiveScalingMetricDataQuery(dict):
     @pulumi.getter(name="returnData")
     def return_data(self) -> Optional[bool]:
         """
-        Indicates whether to return the timestamps and raw data values of this metric.
+        Indicates whether to return the timestamps and raw data values of this metric. 
+         If you use any math expressions, specify ``true`` for this value for only the final math expression that the metric specification is based on. You must specify ``false`` for ``ReturnData`` for all the other metrics and expressions used in the metric specification.
+         If you are only retrieving metrics and not performing any math expressions, do not specify anything for ``ReturnData``. This sets it to its default (``true``).
         """
         return pulumi.get(self, "return_data")
 
 
 @pulumi.output_type
 class ScalingPolicyPredictiveScalingMetricDimension(dict):
+    """
+    Describes the dimension of a metric.
+    """
     def __init__(__self__, *,
                  name: Optional[str] = None,
                  value: Optional[str] = None):
         """
+        Describes the dimension of a metric.
         :param str name: The name of the dimension.
         :param str value: The value of the dimension.
         """
@@ -787,6 +821,10 @@ class ScalingPolicyPredictiveScalingMetricDimension(dict):
 
 @pulumi.output_type
 class ScalingPolicyPredictiveScalingMetricSpecification(dict):
+    """
+    This structure specifies the metrics and target utilization settings for a predictive scaling policy. 
+     You must specify either a metric pair, or a load metric and a scaling metric individually. Specifying a metric pair instead of individual metrics provides a simpler way to configure metrics for a scaling policy. You choose the metric pair, and the policy automatically knows the correct sum and average statistics to use for the load metric and the scaling metric.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -825,6 +863,8 @@ class ScalingPolicyPredictiveScalingMetricSpecification(dict):
                  predefined_metric_pair_specification: Optional['outputs.ScalingPolicyPredictiveScalingPredefinedMetricPair'] = None,
                  predefined_scaling_metric_specification: Optional['outputs.ScalingPolicyPredictiveScalingPredefinedScalingMetric'] = None):
         """
+        This structure specifies the metrics and target utilization settings for a predictive scaling policy. 
+         You must specify either a metric pair, or a load metric and a scaling metric individually. Specifying a metric pair instead of individual metrics provides a simpler way to configure metrics for a scaling policy. You choose the metric pair, and the policy automatically knows the correct sum and average statistics to use for the load metric and the scaling metric.
         :param float target_value: Specifies the target utilization.
         :param 'ScalingPolicyPredictiveScalingCustomizedCapacityMetric' customized_capacity_metric_specification: The customized capacity metric specification.
         :param 'ScalingPolicyPredictiveScalingCustomizedLoadMetric' customized_load_metric_specification: The customized load metric specification.
@@ -906,14 +946,19 @@ class ScalingPolicyPredictiveScalingMetricSpecification(dict):
 
 @pulumi.output_type
 class ScalingPolicyPredictiveScalingMetricStat(dict):
+    """
+    This structure defines the CloudWatch metric to return, along with the statistic and unit.
+    """
     def __init__(__self__, *,
                  metric: Optional['outputs.ScalingPolicyPredictiveScalingMetric'] = None,
                  stat: Optional[str] = None,
                  unit: Optional[str] = None):
         """
-        :param 'ScalingPolicyPredictiveScalingMetric' metric: The CloudWatch metric to return, including the metric name, namespace, and dimensions. 
-        :param str stat: The statistic to return. It can include any CloudWatch statistic or extended statistic.
-        :param str unit: The unit to use for the returned data points.
+        This structure defines the CloudWatch metric to return, along with the statistic and unit.
+        :param 'ScalingPolicyPredictiveScalingMetric' metric: The CloudWatch metric to return, including the metric name, namespace, and dimensions. To get the exact metric name, namespace, and dimensions, inspect the [Metric](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_Metric.html) object that is returned by a call to [ListMetrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetrics.html).
+        :param str stat: The statistic to return. It can include any CloudWatch statistic or extended statistic. For a list of valid values, see the table in [Statistics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Statistic) in the *Amazon CloudWatch User Guide*. 
+                The most commonly used metrics for predictive scaling are ``Average`` and ``Sum``.
+        :param str unit: The unit to use for the returned data points. For a complete list of the units that CloudWatch supports, see the [MetricDatum](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html) data type in the *Amazon CloudWatch API Reference*.
         """
         if metric is not None:
             pulumi.set(__self__, "metric", metric)
@@ -926,7 +971,7 @@ class ScalingPolicyPredictiveScalingMetricStat(dict):
     @pulumi.getter
     def metric(self) -> Optional['outputs.ScalingPolicyPredictiveScalingMetric']:
         """
-        The CloudWatch metric to return, including the metric name, namespace, and dimensions. 
+        The CloudWatch metric to return, including the metric name, namespace, and dimensions. To get the exact metric name, namespace, and dimensions, inspect the [Metric](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_Metric.html) object that is returned by a call to [ListMetrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_ListMetrics.html).
         """
         return pulumi.get(self, "metric")
 
@@ -934,7 +979,8 @@ class ScalingPolicyPredictiveScalingMetricStat(dict):
     @pulumi.getter
     def stat(self) -> Optional[str]:
         """
-        The statistic to return. It can include any CloudWatch statistic or extended statistic.
+        The statistic to return. It can include any CloudWatch statistic or extended statistic. For a list of valid values, see the table in [Statistics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Statistic) in the *Amazon CloudWatch User Guide*. 
+         The most commonly used metrics for predictive scaling are ``Average`` and ``Sum``.
         """
         return pulumi.get(self, "stat")
 
@@ -942,13 +988,16 @@ class ScalingPolicyPredictiveScalingMetricStat(dict):
     @pulumi.getter
     def unit(self) -> Optional[str]:
         """
-        The unit to use for the returned data points.
+        The unit to use for the returned data points. For a complete list of the units that CloudWatch supports, see the [MetricDatum](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_MetricDatum.html) data type in the *Amazon CloudWatch API Reference*.
         """
         return pulumi.get(self, "unit")
 
 
 @pulumi.output_type
 class ScalingPolicyPredictiveScalingPolicyConfiguration(dict):
+    """
+    Represents a predictive scaling policy configuration.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -979,17 +1028,15 @@ class ScalingPolicyPredictiveScalingPolicyConfiguration(dict):
                  mode: Optional[str] = None,
                  scheduling_buffer_time: Optional[int] = None):
         """
-        :param Sequence['ScalingPolicyPredictiveScalingMetricSpecification'] metric_specifications: This structure includes the metrics and target utilization to use for predictive scaling.
-               
-               This is an array, but we currently only support a single metric specification. That is, you can specify a target value and a single metric pair, or a target value and one scaling metric and one load metric.
-        :param str max_capacity_breach_behavior: Defines the behavior that should be applied if the forecast capacity approaches or exceeds the maximum capacity. Defaults to `HonorMaxCapacity` if not specified.
-        :param int max_capacity_buffer: The size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity. The value is specified as a percentage relative to the forecast capacity. For example, if the buffer is 10, this means a 10 percent buffer, such that if the forecast capacity is 50, and the maximum capacity is 40, then the effective maximum capacity is 55.
-               
-               Required if the `MaxCapacityBreachBehavior` property is set to `IncreaseMaxCapacity` , and cannot be used otherwise.
-        :param str mode: The predictive scaling mode. Defaults to `ForecastOnly` if not specified.
-        :param int scheduling_buffer_time: The amount of time, in seconds, that the start time can be advanced.
-               
-               The value must be less than the forecast interval duration of 3600 seconds (60 minutes). Defaults to 300 seconds if not specified.
+        Represents a predictive scaling policy configuration.
+        :param Sequence['ScalingPolicyPredictiveScalingMetricSpecification'] metric_specifications: This structure includes the metrics and target utilization to use for predictive scaling. 
+                This is an array, but we currently only support a single metric specification. That is, you can specify a target value and a single metric pair, or a target value and one scaling metric and one load metric.
+        :param str max_capacity_breach_behavior: Defines the behavior that should be applied if the forecast capacity approaches or exceeds the maximum capacity. Defaults to ``HonorMaxCapacity`` if not specified.
+        :param int max_capacity_buffer: The size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity. The value is specified as a percentage relative to the forecast capacity. For example, if the buffer is 10, this means a 10 percent buffer, such that if the forecast capacity is 50, and the maximum capacity is 40, then the effective maximum capacity is 55. 
+                Required if the ``MaxCapacityBreachBehavior`` property is set to ``IncreaseMaxCapacity``, and cannot be used otherwise.
+        :param str mode: The predictive scaling mode. Defaults to ``ForecastOnly`` if not specified.
+        :param int scheduling_buffer_time: The amount of time, in seconds, that the start time can be advanced. 
+                The value must be less than the forecast interval duration of 3600 seconds (60 minutes). Defaults to 300 seconds if not specified.
         """
         pulumi.set(__self__, "metric_specifications", metric_specifications)
         if max_capacity_breach_behavior is not None:
@@ -1005,9 +1052,8 @@ class ScalingPolicyPredictiveScalingPolicyConfiguration(dict):
     @pulumi.getter(name="metricSpecifications")
     def metric_specifications(self) -> Sequence['outputs.ScalingPolicyPredictiveScalingMetricSpecification']:
         """
-        This structure includes the metrics and target utilization to use for predictive scaling.
-
-        This is an array, but we currently only support a single metric specification. That is, you can specify a target value and a single metric pair, or a target value and one scaling metric and one load metric.
+        This structure includes the metrics and target utilization to use for predictive scaling. 
+         This is an array, but we currently only support a single metric specification. That is, you can specify a target value and a single metric pair, or a target value and one scaling metric and one load metric.
         """
         return pulumi.get(self, "metric_specifications")
 
@@ -1015,7 +1061,7 @@ class ScalingPolicyPredictiveScalingPolicyConfiguration(dict):
     @pulumi.getter(name="maxCapacityBreachBehavior")
     def max_capacity_breach_behavior(self) -> Optional[str]:
         """
-        Defines the behavior that should be applied if the forecast capacity approaches or exceeds the maximum capacity. Defaults to `HonorMaxCapacity` if not specified.
+        Defines the behavior that should be applied if the forecast capacity approaches or exceeds the maximum capacity. Defaults to ``HonorMaxCapacity`` if not specified.
         """
         return pulumi.get(self, "max_capacity_breach_behavior")
 
@@ -1023,9 +1069,8 @@ class ScalingPolicyPredictiveScalingPolicyConfiguration(dict):
     @pulumi.getter(name="maxCapacityBuffer")
     def max_capacity_buffer(self) -> Optional[int]:
         """
-        The size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity. The value is specified as a percentage relative to the forecast capacity. For example, if the buffer is 10, this means a 10 percent buffer, such that if the forecast capacity is 50, and the maximum capacity is 40, then the effective maximum capacity is 55.
-
-        Required if the `MaxCapacityBreachBehavior` property is set to `IncreaseMaxCapacity` , and cannot be used otherwise.
+        The size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity. The value is specified as a percentage relative to the forecast capacity. For example, if the buffer is 10, this means a 10 percent buffer, such that if the forecast capacity is 50, and the maximum capacity is 40, then the effective maximum capacity is 55. 
+         Required if the ``MaxCapacityBreachBehavior`` property is set to ``IncreaseMaxCapacity``, and cannot be used otherwise.
         """
         return pulumi.get(self, "max_capacity_buffer")
 
@@ -1033,7 +1078,7 @@ class ScalingPolicyPredictiveScalingPolicyConfiguration(dict):
     @pulumi.getter
     def mode(self) -> Optional[str]:
         """
-        The predictive scaling mode. Defaults to `ForecastOnly` if not specified.
+        The predictive scaling mode. Defaults to ``ForecastOnly`` if not specified.
         """
         return pulumi.get(self, "mode")
 
@@ -1041,15 +1086,18 @@ class ScalingPolicyPredictiveScalingPolicyConfiguration(dict):
     @pulumi.getter(name="schedulingBufferTime")
     def scheduling_buffer_time(self) -> Optional[int]:
         """
-        The amount of time, in seconds, that the start time can be advanced.
-
-        The value must be less than the forecast interval duration of 3600 seconds (60 minutes). Defaults to 300 seconds if not specified.
+        The amount of time, in seconds, that the start time can be advanced. 
+         The value must be less than the forecast interval duration of 3600 seconds (60 minutes). Defaults to 300 seconds if not specified.
         """
         return pulumi.get(self, "scheduling_buffer_time")
 
 
 @pulumi.output_type
 class ScalingPolicyPredictiveScalingPredefinedLoadMetric(dict):
+    """
+    Describes a load metric for a predictive scaling policy. 
+     When returned in the output of ``DescribePolicies``, it indicates that a predictive scaling policy uses individually specified load and scaling metrics instead of a metric pair.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1073,6 +1121,8 @@ class ScalingPolicyPredictiveScalingPredefinedLoadMetric(dict):
                  predefined_metric_type: str,
                  resource_label: Optional[str] = None):
         """
+        Describes a load metric for a predictive scaling policy. 
+         When returned in the output of ``DescribePolicies``, it indicates that a predictive scaling policy uses individually specified load and scaling metrics instead of a metric pair.
         :param str predefined_metric_type: The metric type.
         :param str resource_label: A label that uniquely identifies a target group.
         """
@@ -1099,6 +1149,9 @@ class ScalingPolicyPredictiveScalingPredefinedLoadMetric(dict):
 
 @pulumi.output_type
 class ScalingPolicyPredictiveScalingPredefinedMetricPair(dict):
+    """
+    Represents a metric pair for a predictive scaling policy.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1122,6 +1175,7 @@ class ScalingPolicyPredictiveScalingPredefinedMetricPair(dict):
                  predefined_metric_type: str,
                  resource_label: Optional[str] = None):
         """
+        Represents a metric pair for a predictive scaling policy.
         :param str predefined_metric_type: Indicates which metrics to use. There are two different types of metrics for each metric type: one is a load metric and one is a scaling metric.
         :param str resource_label: A label that uniquely identifies a specific target group from which to determine the total and average request count.
         """
@@ -1148,6 +1202,10 @@ class ScalingPolicyPredictiveScalingPredefinedMetricPair(dict):
 
 @pulumi.output_type
 class ScalingPolicyPredictiveScalingPredefinedScalingMetric(dict):
+    """
+    Describes a scaling metric for a predictive scaling policy. 
+     When returned in the output of ``DescribePolicies``, it indicates that a predictive scaling policy uses individually specified load and scaling metrics instead of a metric pair.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1171,6 +1229,8 @@ class ScalingPolicyPredictiveScalingPredefinedScalingMetric(dict):
                  predefined_metric_type: str,
                  resource_label: Optional[str] = None):
         """
+        Describes a scaling metric for a predictive scaling policy. 
+         When returned in the output of ``DescribePolicies``, it indicates that a predictive scaling policy uses individually specified load and scaling metrics instead of a metric pair.
         :param str predefined_metric_type: The metric type.
         :param str resource_label: A label that uniquely identifies a specific target group from which to determine the average request count.
         """

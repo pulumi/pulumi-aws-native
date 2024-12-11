@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:ram:Permission":
 		r = &Permission{}
+	case "aws-native:ram:ResourceShare":
+		r = &ResourceShare{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

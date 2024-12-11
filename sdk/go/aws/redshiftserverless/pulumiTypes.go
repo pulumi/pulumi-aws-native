@@ -411,7 +411,8 @@ type WorkgroupType struct {
 	// The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries. The max capacity is specified in RPUs.
 	MaxCapacity *int `pulumi:"maxCapacity"`
 	// The namespace the workgroup is associated with.
-	NamespaceName *string `pulumi:"namespaceName"`
+	NamespaceName          *string                     `pulumi:"namespaceName"`
+	PricePerformanceTarget *WorkgroupPerformanceTarget `pulumi:"pricePerformanceTarget"`
 	// A value that specifies whether the workgroup can be accessible from a public network.
 	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
 	// An array of security group IDs to associate with the workgroup.
@@ -475,6 +476,10 @@ func (o WorkgroupTypeOutput) MaxCapacity() pulumi.IntPtrOutput {
 // The namespace the workgroup is associated with.
 func (o WorkgroupTypeOutput) NamespaceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkgroupType) *string { return v.NamespaceName }).(pulumi.StringPtrOutput)
+}
+
+func (o WorkgroupTypeOutput) PricePerformanceTarget() WorkgroupPerformanceTargetPtrOutput {
+	return o.ApplyT(func(v WorkgroupType) *WorkgroupPerformanceTarget { return v.PricePerformanceTarget }).(WorkgroupPerformanceTargetPtrOutput)
 }
 
 // A value that specifies whether the workgroup can be accessible from a public network.
@@ -604,6 +609,15 @@ func (o WorkgroupTypePtrOutput) NamespaceName() pulumi.StringPtrOutput {
 		}
 		return v.NamespaceName
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o WorkgroupTypePtrOutput) PricePerformanceTarget() WorkgroupPerformanceTargetPtrOutput {
+	return o.ApplyT(func(v *WorkgroupType) *WorkgroupPerformanceTarget {
+		if v == nil {
+			return nil
+		}
+		return v.PricePerformanceTarget
+	}).(WorkgroupPerformanceTargetPtrOutput)
 }
 
 // A value that specifies whether the workgroup can be accessible from a public network.
@@ -939,6 +953,154 @@ func (o WorkgroupNetworkInterfaceArrayOutput) Index(i pulumi.IntInput) Workgroup
 	}).(WorkgroupNetworkInterfaceOutput)
 }
 
+type WorkgroupPerformanceTarget struct {
+	Level  *int                              `pulumi:"level"`
+	Status *WorkgroupPerformanceTargetStatus `pulumi:"status"`
+}
+
+// WorkgroupPerformanceTargetInput is an input type that accepts WorkgroupPerformanceTargetArgs and WorkgroupPerformanceTargetOutput values.
+// You can construct a concrete instance of `WorkgroupPerformanceTargetInput` via:
+//
+//	WorkgroupPerformanceTargetArgs{...}
+type WorkgroupPerformanceTargetInput interface {
+	pulumi.Input
+
+	ToWorkgroupPerformanceTargetOutput() WorkgroupPerformanceTargetOutput
+	ToWorkgroupPerformanceTargetOutputWithContext(context.Context) WorkgroupPerformanceTargetOutput
+}
+
+type WorkgroupPerformanceTargetArgs struct {
+	Level  pulumi.IntPtrInput                       `pulumi:"level"`
+	Status WorkgroupPerformanceTargetStatusPtrInput `pulumi:"status"`
+}
+
+func (WorkgroupPerformanceTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkgroupPerformanceTarget)(nil)).Elem()
+}
+
+func (i WorkgroupPerformanceTargetArgs) ToWorkgroupPerformanceTargetOutput() WorkgroupPerformanceTargetOutput {
+	return i.ToWorkgroupPerformanceTargetOutputWithContext(context.Background())
+}
+
+func (i WorkgroupPerformanceTargetArgs) ToWorkgroupPerformanceTargetOutputWithContext(ctx context.Context) WorkgroupPerformanceTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupPerformanceTargetOutput)
+}
+
+func (i WorkgroupPerformanceTargetArgs) ToWorkgroupPerformanceTargetPtrOutput() WorkgroupPerformanceTargetPtrOutput {
+	return i.ToWorkgroupPerformanceTargetPtrOutputWithContext(context.Background())
+}
+
+func (i WorkgroupPerformanceTargetArgs) ToWorkgroupPerformanceTargetPtrOutputWithContext(ctx context.Context) WorkgroupPerformanceTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupPerformanceTargetOutput).ToWorkgroupPerformanceTargetPtrOutputWithContext(ctx)
+}
+
+// WorkgroupPerformanceTargetPtrInput is an input type that accepts WorkgroupPerformanceTargetArgs, WorkgroupPerformanceTargetPtr and WorkgroupPerformanceTargetPtrOutput values.
+// You can construct a concrete instance of `WorkgroupPerformanceTargetPtrInput` via:
+//
+//	        WorkgroupPerformanceTargetArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkgroupPerformanceTargetPtrInput interface {
+	pulumi.Input
+
+	ToWorkgroupPerformanceTargetPtrOutput() WorkgroupPerformanceTargetPtrOutput
+	ToWorkgroupPerformanceTargetPtrOutputWithContext(context.Context) WorkgroupPerformanceTargetPtrOutput
+}
+
+type workgroupPerformanceTargetPtrType WorkgroupPerformanceTargetArgs
+
+func WorkgroupPerformanceTargetPtr(v *WorkgroupPerformanceTargetArgs) WorkgroupPerformanceTargetPtrInput {
+	return (*workgroupPerformanceTargetPtrType)(v)
+}
+
+func (*workgroupPerformanceTargetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkgroupPerformanceTarget)(nil)).Elem()
+}
+
+func (i *workgroupPerformanceTargetPtrType) ToWorkgroupPerformanceTargetPtrOutput() WorkgroupPerformanceTargetPtrOutput {
+	return i.ToWorkgroupPerformanceTargetPtrOutputWithContext(context.Background())
+}
+
+func (i *workgroupPerformanceTargetPtrType) ToWorkgroupPerformanceTargetPtrOutputWithContext(ctx context.Context) WorkgroupPerformanceTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupPerformanceTargetPtrOutput)
+}
+
+type WorkgroupPerformanceTargetOutput struct{ *pulumi.OutputState }
+
+func (WorkgroupPerformanceTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkgroupPerformanceTarget)(nil)).Elem()
+}
+
+func (o WorkgroupPerformanceTargetOutput) ToWorkgroupPerformanceTargetOutput() WorkgroupPerformanceTargetOutput {
+	return o
+}
+
+func (o WorkgroupPerformanceTargetOutput) ToWorkgroupPerformanceTargetOutputWithContext(ctx context.Context) WorkgroupPerformanceTargetOutput {
+	return o
+}
+
+func (o WorkgroupPerformanceTargetOutput) ToWorkgroupPerformanceTargetPtrOutput() WorkgroupPerformanceTargetPtrOutput {
+	return o.ToWorkgroupPerformanceTargetPtrOutputWithContext(context.Background())
+}
+
+func (o WorkgroupPerformanceTargetOutput) ToWorkgroupPerformanceTargetPtrOutputWithContext(ctx context.Context) WorkgroupPerformanceTargetPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkgroupPerformanceTarget) *WorkgroupPerformanceTarget {
+		return &v
+	}).(WorkgroupPerformanceTargetPtrOutput)
+}
+
+func (o WorkgroupPerformanceTargetOutput) Level() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v WorkgroupPerformanceTarget) *int { return v.Level }).(pulumi.IntPtrOutput)
+}
+
+func (o WorkgroupPerformanceTargetOutput) Status() WorkgroupPerformanceTargetStatusPtrOutput {
+	return o.ApplyT(func(v WorkgroupPerformanceTarget) *WorkgroupPerformanceTargetStatus { return v.Status }).(WorkgroupPerformanceTargetStatusPtrOutput)
+}
+
+type WorkgroupPerformanceTargetPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkgroupPerformanceTargetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkgroupPerformanceTarget)(nil)).Elem()
+}
+
+func (o WorkgroupPerformanceTargetPtrOutput) ToWorkgroupPerformanceTargetPtrOutput() WorkgroupPerformanceTargetPtrOutput {
+	return o
+}
+
+func (o WorkgroupPerformanceTargetPtrOutput) ToWorkgroupPerformanceTargetPtrOutputWithContext(ctx context.Context) WorkgroupPerformanceTargetPtrOutput {
+	return o
+}
+
+func (o WorkgroupPerformanceTargetPtrOutput) Elem() WorkgroupPerformanceTargetOutput {
+	return o.ApplyT(func(v *WorkgroupPerformanceTarget) WorkgroupPerformanceTarget {
+		if v != nil {
+			return *v
+		}
+		var ret WorkgroupPerformanceTarget
+		return ret
+	}).(WorkgroupPerformanceTargetOutput)
+}
+
+func (o WorkgroupPerformanceTargetPtrOutput) Level() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WorkgroupPerformanceTarget) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Level
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o WorkgroupPerformanceTargetPtrOutput) Status() WorkgroupPerformanceTargetStatusPtrOutput {
+	return o.ApplyT(func(v *WorkgroupPerformanceTarget) *WorkgroupPerformanceTargetStatus {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(WorkgroupPerformanceTargetStatusPtrOutput)
+}
+
 type WorkgroupTag struct {
 	// The key to use in the tag.
 	Key string `pulumi:"key"`
@@ -1009,6 +1171,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceSnapshotCopyConfigurationArrayInput)(nil)).Elem(), NamespaceSnapshotCopyConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupConfigParameterInput)(nil)).Elem(), WorkgroupConfigParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupConfigParameterArrayInput)(nil)).Elem(), WorkgroupConfigParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupPerformanceTargetInput)(nil)).Elem(), WorkgroupPerformanceTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupPerformanceTargetPtrInput)(nil)).Elem(), WorkgroupPerformanceTargetArgs{})
 	pulumi.RegisterOutputType(NamespaceTypeOutput{})
 	pulumi.RegisterOutputType(NamespaceTypePtrOutput{})
 	pulumi.RegisterOutputType(NamespaceSnapshotCopyConfigurationOutput{})
@@ -1021,6 +1185,8 @@ func init() {
 	pulumi.RegisterOutputType(WorkgroupEndpointPtrOutput{})
 	pulumi.RegisterOutputType(WorkgroupNetworkInterfaceOutput{})
 	pulumi.RegisterOutputType(WorkgroupNetworkInterfaceArrayOutput{})
+	pulumi.RegisterOutputType(WorkgroupPerformanceTargetOutput{})
+	pulumi.RegisterOutputType(WorkgroupPerformanceTargetPtrOutput{})
 	pulumi.RegisterOutputType(WorkgroupVpcEndpointOutput{})
 	pulumi.RegisterOutputType(WorkgroupVpcEndpointArrayOutput{})
 }

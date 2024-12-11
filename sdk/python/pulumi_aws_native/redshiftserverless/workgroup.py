@@ -30,6 +30,7 @@ class WorkgroupArgs:
                  max_capacity: Optional[pulumi.Input[int]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
+                 price_performance_target: Optional[pulumi.Input['WorkgroupPerformanceTargetArgs']] = None,
                  publicly_accessible: Optional[pulumi.Input[bool]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -43,6 +44,7 @@ class WorkgroupArgs:
         :param pulumi.Input[int] max_capacity: The max compute capacity of the workgroup in Redshift Processing Units (RPUs).
         :param pulumi.Input[str] namespace_name: The namespace the workgroup is associated with.
         :param pulumi.Input[int] port: The custom port to use when connecting to a workgroup. Valid port ranges are 5431-5455 and 8191-8215. The default is 5439.
+        :param pulumi.Input['WorkgroupPerformanceTargetArgs'] price_performance_target: A property that represents the price performance target settings for the workgroup.
         :param pulumi.Input[bool] publicly_accessible: A value that specifies whether the workgroup can be accessible from a public network.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: A list of security group IDs to associate with the workgroup.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of subnet IDs the workgroup is associated with.
@@ -61,6 +63,8 @@ class WorkgroupArgs:
             pulumi.set(__self__, "namespace_name", namespace_name)
         if port is not None:
             pulumi.set(__self__, "port", port)
+        if price_performance_target is not None:
+            pulumi.set(__self__, "price_performance_target", price_performance_target)
         if publicly_accessible is not None:
             pulumi.set(__self__, "publicly_accessible", publicly_accessible)
         if security_group_ids is not None:
@@ -145,6 +149,18 @@ class WorkgroupArgs:
         pulumi.set(self, "port", value)
 
     @property
+    @pulumi.getter(name="pricePerformanceTarget")
+    def price_performance_target(self) -> Optional[pulumi.Input['WorkgroupPerformanceTargetArgs']]:
+        """
+        A property that represents the price performance target settings for the workgroup.
+        """
+        return pulumi.get(self, "price_performance_target")
+
+    @price_performance_target.setter
+    def price_performance_target(self, value: Optional[pulumi.Input['WorkgroupPerformanceTargetArgs']]):
+        pulumi.set(self, "price_performance_target", value)
+
+    @property
     @pulumi.getter(name="publiclyAccessible")
     def publicly_accessible(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -216,6 +232,7 @@ class Workgroup(pulumi.CustomResource):
                  max_capacity: Optional[pulumi.Input[int]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
+                 price_performance_target: Optional[pulumi.Input[Union['WorkgroupPerformanceTargetArgs', 'WorkgroupPerformanceTargetArgsDict']]] = None,
                  publicly_accessible: Optional[pulumi.Input[bool]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -233,6 +250,7 @@ class Workgroup(pulumi.CustomResource):
         :param pulumi.Input[int] max_capacity: The max compute capacity of the workgroup in Redshift Processing Units (RPUs).
         :param pulumi.Input[str] namespace_name: The namespace the workgroup is associated with.
         :param pulumi.Input[int] port: The custom port to use when connecting to a workgroup. Valid port ranges are 5431-5455 and 8191-8215. The default is 5439.
+        :param pulumi.Input[Union['WorkgroupPerformanceTargetArgs', 'WorkgroupPerformanceTargetArgsDict']] price_performance_target: A property that represents the price performance target settings for the workgroup.
         :param pulumi.Input[bool] publicly_accessible: A value that specifies whether the workgroup can be accessible from a public network.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: A list of security group IDs to associate with the workgroup.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: A list of subnet IDs the workgroup is associated with.
@@ -269,6 +287,7 @@ class Workgroup(pulumi.CustomResource):
                  max_capacity: Optional[pulumi.Input[int]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
+                 price_performance_target: Optional[pulumi.Input[Union['WorkgroupPerformanceTargetArgs', 'WorkgroupPerformanceTargetArgsDict']]] = None,
                  publicly_accessible: Optional[pulumi.Input[bool]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -289,6 +308,7 @@ class Workgroup(pulumi.CustomResource):
             __props__.__dict__["max_capacity"] = max_capacity
             __props__.__dict__["namespace_name"] = namespace_name
             __props__.__dict__["port"] = port
+            __props__.__dict__["price_performance_target"] = price_performance_target
             __props__.__dict__["publicly_accessible"] = publicly_accessible
             __props__.__dict__["security_group_ids"] = security_group_ids
             __props__.__dict__["subnet_ids"] = subnet_ids
@@ -325,6 +345,7 @@ class Workgroup(pulumi.CustomResource):
         __props__.__dict__["max_capacity"] = None
         __props__.__dict__["namespace_name"] = None
         __props__.__dict__["port"] = None
+        __props__.__dict__["price_performance_target"] = None
         __props__.__dict__["publicly_accessible"] = None
         __props__.__dict__["security_group_ids"] = None
         __props__.__dict__["subnet_ids"] = None
@@ -380,6 +401,14 @@ class Workgroup(pulumi.CustomResource):
         The custom port to use when connecting to a workgroup. Valid port ranges are 5431-5455 and 8191-8215. The default is 5439.
         """
         return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter(name="pricePerformanceTarget")
+    def price_performance_target(self) -> pulumi.Output[Optional['outputs.WorkgroupPerformanceTarget']]:
+        """
+        A property that represents the price performance target settings for the workgroup.
+        """
+        return pulumi.get(self, "price_performance_target")
 
     @property
     @pulumi.getter(name="publiclyAccessible")

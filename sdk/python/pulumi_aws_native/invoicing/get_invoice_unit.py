@@ -48,31 +48,49 @@ class GetInvoiceUnitResult:
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        The assigned description for an invoice unit. This information can't be modified or deleted.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="invoiceUnitArn")
     def invoice_unit_arn(self) -> Optional[str]:
+        """
+        The ARN to identify an invoice unit. This information can't be modified or deleted.
+        """
         return pulumi.get(self, "invoice_unit_arn")
 
     @property
     @pulumi.getter(name="lastModified")
     def last_modified(self) -> Optional[float]:
+        """
+        The last time the invoice unit was updated. This is important to determine the version of invoice unit configuration used to create the invoices. Any invoice created after this modified time will use this invoice unit configuration.
+        """
         return pulumi.get(self, "last_modified")
 
     @property
     @pulumi.getter(name="resourceTags")
     def resource_tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        The tag structure that contains a tag key and value.
+        """
         return pulumi.get(self, "resource_tags")
 
     @property
     @pulumi.getter
     def rule(self) -> Optional['outputs.InvoiceUnitRule']:
+        """
+        An `InvoiceUnitRule` object used the categorize invoice units.
+        """
         return pulumi.get(self, "rule")
 
     @property
     @pulumi.getter(name="taxInheritanceDisabled")
     def tax_inheritance_disabled(self) -> Optional[bool]:
+        """
+        Whether the invoice unit based tax inheritance is/ should be enabled or disabled.
+        """
         return pulumi.get(self, "tax_inheritance_disabled")
 
 
@@ -94,6 +112,9 @@ def get_invoice_unit(invoice_unit_arn: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetInvoiceUnitResult:
     """
     An invoice unit is a set of mutually exclusive accounts that correspond to your business entity. Invoice units allow you to separate AWS account costs and configures your invoice for each business entity.
+
+
+    :param str invoice_unit_arn: The ARN to identify an invoice unit. This information can't be modified or deleted.
     """
     __args__ = dict()
     __args__['invoiceUnitArn'] = invoice_unit_arn
@@ -111,6 +132,9 @@ def get_invoice_unit_output(invoice_unit_arn: Optional[pulumi.Input[str]] = None
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetInvoiceUnitResult]:
     """
     An invoice unit is a set of mutually exclusive accounts that correspond to your business entity. Invoice units allow you to separate AWS account costs and configures your invoice for each business entity.
+
+
+    :param str invoice_unit_arn: The ARN to identify an invoice unit. This information can't be modified or deleted.
     """
     __args__ = dict()
     __args__['invoiceUnitArn'] = invoice_unit_arn

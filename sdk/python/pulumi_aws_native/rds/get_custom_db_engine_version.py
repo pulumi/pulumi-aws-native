@@ -59,7 +59,7 @@ class GetCustomDbEngineVersionResult:
     @pulumi.getter
     def status(self) -> Optional['CustomDbEngineVersionStatus']:
         """
-        The availability status to be assigned to the CEV.
+        A value that indicates the status of a custom engine version (CEV).
         """
         return pulumi.get(self, "status")
 
@@ -67,7 +67,7 @@ class GetCustomDbEngineVersionResult:
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
-        An array of key-value pairs to apply to this resource.
+        A list of tags. For more information, see [Tagging Amazon RDS Resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html) in the *Amazon RDS User Guide.*
         """
         return pulumi.get(self, "tags")
 
@@ -88,11 +88,16 @@ def get_custom_db_engine_version(engine: Optional[str] = None,
                                  engine_version: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCustomDbEngineVersionResult:
     """
-    The AWS::RDS::CustomDBEngineVersion resource creates an Amazon RDS custom DB engine version.
+    Creates a custom DB engine version (CEV).
 
 
-    :param str engine: The database engine to use for your custom engine version (CEV). The only supported value is `custom-oracle-ee`.
-    :param str engine_version: The name of your CEV. The name format is 19.customized_string . For example, a valid name is 19.my_cev1. This setting is required for RDS Custom for Oracle, but optional for Amazon RDS. The combination of Engine and EngineVersion is unique per customer per Region.
+    :param str engine: The database engine to use for your custom engine version (CEV).
+            Valid values:
+             +   ``custom-oracle-ee`` 
+             +   ``custom-oracle-ee-cdb``
+    :param str engine_version: The name of your CEV. The name format is ``major version.customized_string``. For example, a valid CEV name is ``19.my_cev1``. This setting is required for RDS Custom for Oracle, but optional for Amazon RDS. The combination of ``Engine`` and ``EngineVersion`` is unique per customer per Region.
+             *Constraints:* Minimum length is 1. Maximum length is 60.
+             *Pattern:* ``^[a-z0-9_.-]{1,60$``}
     """
     __args__ = dict()
     __args__['engine'] = engine
@@ -109,11 +114,16 @@ def get_custom_db_engine_version_output(engine: Optional[pulumi.Input[str]] = No
                                         engine_version: Optional[pulumi.Input[str]] = None,
                                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCustomDbEngineVersionResult]:
     """
-    The AWS::RDS::CustomDBEngineVersion resource creates an Amazon RDS custom DB engine version.
+    Creates a custom DB engine version (CEV).
 
 
-    :param str engine: The database engine to use for your custom engine version (CEV). The only supported value is `custom-oracle-ee`.
-    :param str engine_version: The name of your CEV. The name format is 19.customized_string . For example, a valid name is 19.my_cev1. This setting is required for RDS Custom for Oracle, but optional for Amazon RDS. The combination of Engine and EngineVersion is unique per customer per Region.
+    :param str engine: The database engine to use for your custom engine version (CEV).
+            Valid values:
+             +   ``custom-oracle-ee`` 
+             +   ``custom-oracle-ee-cdb``
+    :param str engine_version: The name of your CEV. The name format is ``major version.customized_string``. For example, a valid CEV name is ``19.my_cev1``. This setting is required for RDS Custom for Oracle, but optional for Amazon RDS. The combination of ``Engine`` and ``EngineVersion`` is unique per customer per Region.
+             *Constraints:* Minimum length is 1. Maximum length is 60.
+             *Pattern:* ``^[a-z0-9_.-]{1,60$``}
     """
     __args__ = dict()
     __args__['engine'] = engine

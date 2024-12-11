@@ -94,6 +94,10 @@ namespace Pulumi.AwsNative.Connect
         /// </summary>
         public readonly string? Name;
         /// <summary>
+        /// The identifier of the contact flow.
+        /// </summary>
+        public readonly string? SelfAssignContactFlowArn;
+        /// <summary>
         /// The status of the task template.
         /// </summary>
         public readonly Pulumi.AwsNative.Connect.TaskTemplateStatus? Status;
@@ -122,6 +126,8 @@ namespace Pulumi.AwsNative.Connect
 
             string? name,
 
+            string? selfAssignContactFlowArn,
+
             Pulumi.AwsNative.Connect.TaskTemplateStatus? status,
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
@@ -135,6 +141,7 @@ namespace Pulumi.AwsNative.Connect
             Fields = fields;
             InstanceArn = instanceArn;
             Name = name;
+            SelfAssignContactFlowArn = selfAssignContactFlowArn;
             Status = status;
             Tags = tags;
         }

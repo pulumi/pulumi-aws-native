@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Cognito.Inputs
 
     public sealed class UserPoolAdvancedSecurityAdditionalFlowsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The operating mode of advanced security features in custom authentication with [Custom authentication challenge Lambda triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-challenge.html) .
+        /// </summary>
         [Input("customAuthMode")]
         public Input<string>? CustomAuthMode { get; set; }
 

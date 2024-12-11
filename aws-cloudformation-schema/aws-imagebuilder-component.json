@@ -89,13 +89,13 @@
       "permissions" : [ "iam:CreateServiceLinkedRole", "iam:GetRole", "kms:GenerateDataKey", "kms:GenerateDataKeyPair", "kms:GenerateDataKeyPairWithoutPlaintext", "kms:GenerateDataKeyWithoutPlaintext", "kms:Encrypt", "kms:Decrypt", "s3:GetObject", "s3:HeadBucket", "s3:GetBucketLocation", "imagebuilder:TagResource", "imagebuilder:GetComponent", "imagebuilder:CreateComponent" ]
     },
     "read" : {
-      "permissions" : [ "imagebuilder:GetComponent" ]
+      "permissions" : [ "imagebuilder:GetComponent", "kms:Decrypt" ]
     },
     "delete" : {
       "permissions" : [ "imagebuilder:GetComponent", "imagebuilder:UnTagResource", "imagebuilder:DeleteComponent" ]
     },
     "list" : {
-      "permissions" : [ "imagebuilder:ListComponents" ],
+      "permissions" : [ "imagebuilder:ListComponents", "imagebuilder:ListComponentBuildVersions" ],
       "handlerSchema" : {
         "properties" : {
           "Arn" : {

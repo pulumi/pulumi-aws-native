@@ -306,8 +306,8 @@ type Table struct {
 	//   +  If you update either the contributor insights specification or the provisioned throughput values of global secondary indexes, you can update the table without interruption.
 	//   +  You can delete or add one global secondary index without interruption. If you do both in the same update (for example, by changing the index's logical ID), the update fails.
 	GlobalSecondaryIndexes TableGlobalSecondaryIndexArrayOutput `pulumi:"globalSecondaryIndexes"`
-	// Specifies the properties of data being imported from the S3 bucket source to the table.
-	//   If you specify the ``ImportSourceSpecification`` property, and also specify either the ``StreamSpecification``, the ``TableClass`` property, or the ``DeletionProtectionEnabled`` property, the IAM entity creating/updating stack must have ``UpdateTable`` permission.
+	// Specifies the properties of data being imported from the S3 bucket source to the" table.
+	//   If you specify the ``ImportSourceSpecification`` property, and also specify either the ``StreamSpecification``, the ``TableClass`` property, the ``DeletionProtectionEnabled`` property, or the ``WarmThroughput`` property, the IAM entity creating/updating stack must have ``UpdateTable`` permission.
 	ImportSourceSpecification TableImportSourceSpecificationPtrOutput `pulumi:"importSourceSpecification"`
 	// Specifies the attributes that make up the primary key for the table. The attributes in the ``KeySchema`` property must also be defined in the ``AttributeDefinitions`` property.
 	KeySchema pulumi.AnyOutput `pulumi:"keySchema"`
@@ -418,8 +418,8 @@ type tableArgs struct {
 	//   +  If you update either the contributor insights specification or the provisioned throughput values of global secondary indexes, you can update the table without interruption.
 	//   +  You can delete or add one global secondary index without interruption. If you do both in the same update (for example, by changing the index's logical ID), the update fails.
 	GlobalSecondaryIndexes []TableGlobalSecondaryIndex `pulumi:"globalSecondaryIndexes"`
-	// Specifies the properties of data being imported from the S3 bucket source to the table.
-	//   If you specify the ``ImportSourceSpecification`` property, and also specify either the ``StreamSpecification``, the ``TableClass`` property, or the ``DeletionProtectionEnabled`` property, the IAM entity creating/updating stack must have ``UpdateTable`` permission.
+	// Specifies the properties of data being imported from the S3 bucket source to the" table.
+	//   If you specify the ``ImportSourceSpecification`` property, and also specify either the ``StreamSpecification``, the ``TableClass`` property, the ``DeletionProtectionEnabled`` property, or the ``WarmThroughput`` property, the IAM entity creating/updating stack must have ``UpdateTable`` permission.
 	ImportSourceSpecification *TableImportSourceSpecification `pulumi:"importSourceSpecification"`
 	// Specifies the attributes that make up the primary key for the table. The attributes in the ``KeySchema`` property must also be defined in the ``AttributeDefinitions`` property.
 	KeySchema interface{} `pulumi:"keySchema"`
@@ -480,8 +480,8 @@ type TableArgs struct {
 	//   +  If you update either the contributor insights specification or the provisioned throughput values of global secondary indexes, you can update the table without interruption.
 	//   +  You can delete or add one global secondary index without interruption. If you do both in the same update (for example, by changing the index's logical ID), the update fails.
 	GlobalSecondaryIndexes TableGlobalSecondaryIndexArrayInput
-	// Specifies the properties of data being imported from the S3 bucket source to the table.
-	//   If you specify the ``ImportSourceSpecification`` property, and also specify either the ``StreamSpecification``, the ``TableClass`` property, or the ``DeletionProtectionEnabled`` property, the IAM entity creating/updating stack must have ``UpdateTable`` permission.
+	// Specifies the properties of data being imported from the S3 bucket source to the" table.
+	//   If you specify the ``ImportSourceSpecification`` property, and also specify either the ``StreamSpecification``, the ``TableClass`` property, the ``DeletionProtectionEnabled`` property, or the ``WarmThroughput`` property, the IAM entity creating/updating stack must have ``UpdateTable`` permission.
 	ImportSourceSpecification TableImportSourceSpecificationPtrInput
 	// Specifies the attributes that make up the primary key for the table. The attributes in the ``KeySchema`` property must also be defined in the ``AttributeDefinitions`` property.
 	KeySchema pulumi.Input
@@ -602,9 +602,9 @@ func (o TableOutput) GlobalSecondaryIndexes() TableGlobalSecondaryIndexArrayOutp
 	return o.ApplyT(func(v *Table) TableGlobalSecondaryIndexArrayOutput { return v.GlobalSecondaryIndexes }).(TableGlobalSecondaryIndexArrayOutput)
 }
 
-// Specifies the properties of data being imported from the S3 bucket source to the table.
+// Specifies the properties of data being imported from the S3 bucket source to the" table.
 //
-//	If you specify the ``ImportSourceSpecification`` property, and also specify either the ``StreamSpecification``, the ``TableClass`` property, or the ``DeletionProtectionEnabled`` property, the IAM entity creating/updating stack must have ``UpdateTable`` permission.
+//	If you specify the ``ImportSourceSpecification`` property, and also specify either the ``StreamSpecification``, the ``TableClass`` property, the ``DeletionProtectionEnabled`` property, or the ``WarmThroughput`` property, the IAM entity creating/updating stack must have ``UpdateTable`` permission.
 func (o TableOutput) ImportSourceSpecification() TableImportSourceSpecificationPtrOutput {
 	return o.ApplyT(func(v *Table) TableImportSourceSpecificationPtrOutput { return v.ImportSourceSpecification }).(TableImportSourceSpecificationPtrOutput)
 }

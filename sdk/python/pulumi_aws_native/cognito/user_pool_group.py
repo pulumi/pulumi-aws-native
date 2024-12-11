@@ -26,15 +26,15 @@ class UserPoolGroupArgs:
                  role_arn: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a UserPoolGroup resource.
-        :param pulumi.Input[str] user_pool_id: The user pool ID for the user pool.
-        :param pulumi.Input[str] description: A string containing the description of the group.
-        :param pulumi.Input[str] group_name: The name of the group. Must be unique.
+        :param pulumi.Input[str] user_pool_id: The ID of the user pool where you want to create a user group.
+        :param pulumi.Input[str] description: A description of the group that you're creating.
+        :param pulumi.Input[str] group_name: A name for the group. This name must be unique in your user pool.
         :param pulumi.Input[int] precedence: A non-negative integer value that specifies the precedence of this group relative to the other groups that a user can belong to in the user pool. Zero is the highest precedence value. Groups with lower `Precedence` values take precedence over groups with higher or null `Precedence` values. If a user belongs to two or more groups, it is the group with the lowest precedence value whose role ARN is given in the user's tokens for the `cognito:roles` and `cognito:preferred_role` claims.
                
                Two groups can have the same `Precedence` value. If this happens, neither group takes precedence over the other. If two groups with the same `Precedence` have the same role ARN, that role is used in the `cognito:preferred_role` claim in tokens for users in each group. If the two groups have different role ARNs, the `cognito:preferred_role` claim isn't set in users' tokens.
                
                The default `Precedence` value is null. The maximum `Precedence` value is `2^31-1` .
-        :param pulumi.Input[str] role_arn: The role Amazon Resource Name (ARN) for the group.
+        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) for the IAM role that you want to associate with the group. A group role primarily declares a preferred role for the credentials that you get from an identity pool. Amazon Cognito ID tokens have a `cognito:preferred_role` claim that presents the highest-precedence group that a user belongs to. Both ID and access tokens also contain a `cognito:groups` claim that list all the groups that a user is a member of.
         """
         pulumi.set(__self__, "user_pool_id", user_pool_id)
         if description is not None:
@@ -50,7 +50,7 @@ class UserPoolGroupArgs:
     @pulumi.getter(name="userPoolId")
     def user_pool_id(self) -> pulumi.Input[str]:
         """
-        The user pool ID for the user pool.
+        The ID of the user pool where you want to create a user group.
         """
         return pulumi.get(self, "user_pool_id")
 
@@ -62,7 +62,7 @@ class UserPoolGroupArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        A string containing the description of the group.
+        A description of the group that you're creating.
         """
         return pulumi.get(self, "description")
 
@@ -74,7 +74,7 @@ class UserPoolGroupArgs:
     @pulumi.getter(name="groupName")
     def group_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the group. Must be unique.
+        A name for the group. This name must be unique in your user pool.
         """
         return pulumi.get(self, "group_name")
 
@@ -102,7 +102,7 @@ class UserPoolGroupArgs:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The role Amazon Resource Name (ARN) for the group.
+        The Amazon Resource Name (ARN) for the IAM role that you want to associate with the group. A group role primarily declares a preferred role for the credentials that you get from an identity pool. Amazon Cognito ID tokens have a `cognito:preferred_role` claim that presents the highest-precedence group that a user belongs to. Both ID and access tokens also contain a `cognito:groups` claim that list all the groups that a user is a member of.
         """
         return pulumi.get(self, "role_arn")
 
@@ -127,15 +127,15 @@ class UserPoolGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: A string containing the description of the group.
-        :param pulumi.Input[str] group_name: The name of the group. Must be unique.
+        :param pulumi.Input[str] description: A description of the group that you're creating.
+        :param pulumi.Input[str] group_name: A name for the group. This name must be unique in your user pool.
         :param pulumi.Input[int] precedence: A non-negative integer value that specifies the precedence of this group relative to the other groups that a user can belong to in the user pool. Zero is the highest precedence value. Groups with lower `Precedence` values take precedence over groups with higher or null `Precedence` values. If a user belongs to two or more groups, it is the group with the lowest precedence value whose role ARN is given in the user's tokens for the `cognito:roles` and `cognito:preferred_role` claims.
                
                Two groups can have the same `Precedence` value. If this happens, neither group takes precedence over the other. If two groups with the same `Precedence` have the same role ARN, that role is used in the `cognito:preferred_role` claim in tokens for users in each group. If the two groups have different role ARNs, the `cognito:preferred_role` claim isn't set in users' tokens.
                
                The default `Precedence` value is null. The maximum `Precedence` value is `2^31-1` .
-        :param pulumi.Input[str] role_arn: The role Amazon Resource Name (ARN) for the group.
-        :param pulumi.Input[str] user_pool_id: The user pool ID for the user pool.
+        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) for the IAM role that you want to associate with the group. A group role primarily declares a preferred role for the credentials that you get from an identity pool. Amazon Cognito ID tokens have a `cognito:preferred_role` claim that presents the highest-precedence group that a user belongs to. Both ID and access tokens also contain a `cognito:groups` claim that list all the groups that a user is a member of.
+        :param pulumi.Input[str] user_pool_id: The ID of the user pool where you want to create a user group.
         """
         ...
     @overload
@@ -217,7 +217,7 @@ class UserPoolGroup(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        A string containing the description of the group.
+        A description of the group that you're creating.
         """
         return pulumi.get(self, "description")
 
@@ -225,7 +225,7 @@ class UserPoolGroup(pulumi.CustomResource):
     @pulumi.getter(name="groupName")
     def group_name(self) -> pulumi.Output[Optional[str]]:
         """
-        The name of the group. Must be unique.
+        A name for the group. This name must be unique in your user pool.
         """
         return pulumi.get(self, "group_name")
 
@@ -245,7 +245,7 @@ class UserPoolGroup(pulumi.CustomResource):
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[Optional[str]]:
         """
-        The role Amazon Resource Name (ARN) for the group.
+        The Amazon Resource Name (ARN) for the IAM role that you want to associate with the group. A group role primarily declares a preferred role for the credentials that you get from an identity pool. Amazon Cognito ID tokens have a `cognito:preferred_role` claim that presents the highest-precedence group that a user belongs to. Both ID and access tokens also contain a `cognito:groups` claim that list all the groups that a user is a member of.
         """
         return pulumi.get(self, "role_arn")
 
@@ -253,7 +253,7 @@ class UserPoolGroup(pulumi.CustomResource):
     @pulumi.getter(name="userPoolId")
     def user_pool_id(self) -> pulumi.Output[str]:
         """
-        The user pool ID for the user pool.
+        The ID of the user pool where you want to create a user group.
         """
         return pulumi.get(self, "user_pool_id")
 

@@ -23,16 +23,16 @@ func LookupUserPoolIdentityProvider(ctx *pulumi.Context, args *LookupUserPoolIde
 }
 
 type LookupUserPoolIdentityProviderArgs struct {
-	// The IdP name.
+	// The name that you want to assign to the IdP. You can pass the identity provider name in the `identity_provider` query parameter of requests to the [Authorize endpoint](https://docs.aws.amazon.com/cognito/latest/developerguide/authorization-endpoint.html) to silently redirect to sign-in with the associated IdP.
 	ProviderName string `pulumi:"providerName"`
-	// The user pool ID.
+	// The Id of the user pool where you want to create an IdP.
 	UserPoolId string `pulumi:"userPoolId"`
 }
 
 type LookupUserPoolIdentityProviderResult struct {
-	// A mapping of IdP attributes to standard and custom user pool attributes.
+	// A mapping of IdP attributes to standard and custom user pool attributes. Specify a user pool attribute as the key of the key-value pair, and the IdP attribute claim name as the value.
 	AttributeMapping map[string]string `pulumi:"attributeMapping"`
-	// A list of IdP identifiers.
+	// An array of IdP identifiers, for example `"IdPIdentifiers": [ "MyIdP", "MyIdP2" ]` . Identifiers are friendly names that you can pass in the `idp_identifier` query parameter of requests to the [Authorize endpoint](https://docs.aws.amazon.com/cognito/latest/developerguide/authorization-endpoint.html) to silently redirect to sign-in with the associated IdP. Identifiers in a domain format also enable the use of [email-address matching with SAML providers](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managing-saml-idp-naming.html) .
 	IdpIdentifiers []string `pulumi:"idpIdentifiers"`
 	// The scopes, URLs, and identifiers for your external identity provider. The following
 	// examples describe the provider detail keys for each IdP type. These values and their
@@ -86,9 +86,9 @@ func LookupUserPoolIdentityProviderOutput(ctx *pulumi.Context, args LookupUserPo
 }
 
 type LookupUserPoolIdentityProviderOutputArgs struct {
-	// The IdP name.
+	// The name that you want to assign to the IdP. You can pass the identity provider name in the `identity_provider` query parameter of requests to the [Authorize endpoint](https://docs.aws.amazon.com/cognito/latest/developerguide/authorization-endpoint.html) to silently redirect to sign-in with the associated IdP.
 	ProviderName pulumi.StringInput `pulumi:"providerName"`
-	// The user pool ID.
+	// The Id of the user pool where you want to create an IdP.
 	UserPoolId pulumi.StringInput `pulumi:"userPoolId"`
 }
 
@@ -110,12 +110,12 @@ func (o LookupUserPoolIdentityProviderResultOutput) ToLookupUserPoolIdentityProv
 	return o
 }
 
-// A mapping of IdP attributes to standard and custom user pool attributes.
+// A mapping of IdP attributes to standard and custom user pool attributes. Specify a user pool attribute as the key of the key-value pair, and the IdP attribute claim name as the value.
 func (o LookupUserPoolIdentityProviderResultOutput) AttributeMapping() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupUserPoolIdentityProviderResult) map[string]string { return v.AttributeMapping }).(pulumi.StringMapOutput)
 }
 
-// A list of IdP identifiers.
+// An array of IdP identifiers, for example `"IdPIdentifiers": [ "MyIdP", "MyIdP2" ]` . Identifiers are friendly names that you can pass in the `idp_identifier` query parameter of requests to the [Authorize endpoint](https://docs.aws.amazon.com/cognito/latest/developerguide/authorization-endpoint.html) to silently redirect to sign-in with the associated IdP. Identifiers in a domain format also enable the use of [email-address matching with SAML providers](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managing-saml-idp-naming.html) .
 func (o LookupUserPoolIdentityProviderResultOutput) IdpIdentifiers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupUserPoolIdentityProviderResult) []string { return v.IdpIdentifiers }).(pulumi.StringArrayOutput)
 }

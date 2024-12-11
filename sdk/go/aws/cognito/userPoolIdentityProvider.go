@@ -16,9 +16,9 @@ import (
 type UserPoolIdentityProvider struct {
 	pulumi.CustomResourceState
 
-	// A mapping of IdP attributes to standard and custom user pool attributes.
+	// A mapping of IdP attributes to standard and custom user pool attributes. Specify a user pool attribute as the key of the key-value pair, and the IdP attribute claim name as the value.
 	AttributeMapping pulumi.StringMapOutput `pulumi:"attributeMapping"`
-	// A list of IdP identifiers.
+	// An array of IdP identifiers, for example `"IdPIdentifiers": [ "MyIdP", "MyIdP2" ]` . Identifiers are friendly names that you can pass in the `idp_identifier` query parameter of requests to the [Authorize endpoint](https://docs.aws.amazon.com/cognito/latest/developerguide/authorization-endpoint.html) to silently redirect to sign-in with the associated IdP. Identifiers in a domain format also enable the use of [email-address matching with SAML providers](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managing-saml-idp-naming.html) .
 	IdpIdentifiers pulumi.StringArrayOutput `pulumi:"idpIdentifiers"`
 	// The scopes, URLs, and identifiers for your external identity provider. The following
 	// examples describe the provider detail keys for each IdP type. These values and their
@@ -50,11 +50,11 @@ type UserPoolIdentityProvider struct {
 	//
 	// Describe response: `"ProviderDetails": { "api_version": "v17.0", "attributes_url": "https://graph.facebook.com/v17.0/me?fields=", "attributes_url_add_attributes": "true", "authorize_scopes": "public_profile, email", "authorize_url": "https://www.facebook.com/v17.0/dialog/oauth", "client_id": "1example23456789", "client_secret": "provider-app-client-secret", "token_request_method": "GET", "token_url": "https://graph.facebook.com/v17.0/oauth/access_token" }`
 	ProviderDetails pulumi.StringMapOutput `pulumi:"providerDetails"`
-	// The IdP name.
+	// The name that you want to assign to the IdP. You can pass the identity provider name in the `identity_provider` query parameter of requests to the [Authorize endpoint](https://docs.aws.amazon.com/cognito/latest/developerguide/authorization-endpoint.html) to silently redirect to sign-in with the associated IdP.
 	ProviderName pulumi.StringOutput `pulumi:"providerName"`
-	// The IdP type.
+	// The type of IdP that you want to add. Amazon Cognito supports OIDC, SAML 2.0, Login With Amazon, Sign In With Apple, Google, and Facebook IdPs.
 	ProviderType pulumi.StringOutput `pulumi:"providerType"`
-	// The user pool ID.
+	// The Id of the user pool where you want to create an IdP.
 	UserPoolId pulumi.StringOutput `pulumi:"userPoolId"`
 }
 
@@ -113,9 +113,9 @@ func (UserPoolIdentityProviderState) ElementType() reflect.Type {
 }
 
 type userPoolIdentityProviderArgs struct {
-	// A mapping of IdP attributes to standard and custom user pool attributes.
+	// A mapping of IdP attributes to standard and custom user pool attributes. Specify a user pool attribute as the key of the key-value pair, and the IdP attribute claim name as the value.
 	AttributeMapping map[string]string `pulumi:"attributeMapping"`
-	// A list of IdP identifiers.
+	// An array of IdP identifiers, for example `"IdPIdentifiers": [ "MyIdP", "MyIdP2" ]` . Identifiers are friendly names that you can pass in the `idp_identifier` query parameter of requests to the [Authorize endpoint](https://docs.aws.amazon.com/cognito/latest/developerguide/authorization-endpoint.html) to silently redirect to sign-in with the associated IdP. Identifiers in a domain format also enable the use of [email-address matching with SAML providers](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managing-saml-idp-naming.html) .
 	IdpIdentifiers []string `pulumi:"idpIdentifiers"`
 	// The scopes, URLs, and identifiers for your external identity provider. The following
 	// examples describe the provider detail keys for each IdP type. These values and their
@@ -147,19 +147,19 @@ type userPoolIdentityProviderArgs struct {
 	//
 	// Describe response: `"ProviderDetails": { "api_version": "v17.0", "attributes_url": "https://graph.facebook.com/v17.0/me?fields=", "attributes_url_add_attributes": "true", "authorize_scopes": "public_profile, email", "authorize_url": "https://www.facebook.com/v17.0/dialog/oauth", "client_id": "1example23456789", "client_secret": "provider-app-client-secret", "token_request_method": "GET", "token_url": "https://graph.facebook.com/v17.0/oauth/access_token" }`
 	ProviderDetails map[string]string `pulumi:"providerDetails"`
-	// The IdP name.
+	// The name that you want to assign to the IdP. You can pass the identity provider name in the `identity_provider` query parameter of requests to the [Authorize endpoint](https://docs.aws.amazon.com/cognito/latest/developerguide/authorization-endpoint.html) to silently redirect to sign-in with the associated IdP.
 	ProviderName *string `pulumi:"providerName"`
-	// The IdP type.
+	// The type of IdP that you want to add. Amazon Cognito supports OIDC, SAML 2.0, Login With Amazon, Sign In With Apple, Google, and Facebook IdPs.
 	ProviderType string `pulumi:"providerType"`
-	// The user pool ID.
+	// The Id of the user pool where you want to create an IdP.
 	UserPoolId string `pulumi:"userPoolId"`
 }
 
 // The set of arguments for constructing a UserPoolIdentityProvider resource.
 type UserPoolIdentityProviderArgs struct {
-	// A mapping of IdP attributes to standard and custom user pool attributes.
+	// A mapping of IdP attributes to standard and custom user pool attributes. Specify a user pool attribute as the key of the key-value pair, and the IdP attribute claim name as the value.
 	AttributeMapping pulumi.StringMapInput
-	// A list of IdP identifiers.
+	// An array of IdP identifiers, for example `"IdPIdentifiers": [ "MyIdP", "MyIdP2" ]` . Identifiers are friendly names that you can pass in the `idp_identifier` query parameter of requests to the [Authorize endpoint](https://docs.aws.amazon.com/cognito/latest/developerguide/authorization-endpoint.html) to silently redirect to sign-in with the associated IdP. Identifiers in a domain format also enable the use of [email-address matching with SAML providers](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managing-saml-idp-naming.html) .
 	IdpIdentifiers pulumi.StringArrayInput
 	// The scopes, URLs, and identifiers for your external identity provider. The following
 	// examples describe the provider detail keys for each IdP type. These values and their
@@ -191,11 +191,11 @@ type UserPoolIdentityProviderArgs struct {
 	//
 	// Describe response: `"ProviderDetails": { "api_version": "v17.0", "attributes_url": "https://graph.facebook.com/v17.0/me?fields=", "attributes_url_add_attributes": "true", "authorize_scopes": "public_profile, email", "authorize_url": "https://www.facebook.com/v17.0/dialog/oauth", "client_id": "1example23456789", "client_secret": "provider-app-client-secret", "token_request_method": "GET", "token_url": "https://graph.facebook.com/v17.0/oauth/access_token" }`
 	ProviderDetails pulumi.StringMapInput
-	// The IdP name.
+	// The name that you want to assign to the IdP. You can pass the identity provider name in the `identity_provider` query parameter of requests to the [Authorize endpoint](https://docs.aws.amazon.com/cognito/latest/developerguide/authorization-endpoint.html) to silently redirect to sign-in with the associated IdP.
 	ProviderName pulumi.StringPtrInput
-	// The IdP type.
+	// The type of IdP that you want to add. Amazon Cognito supports OIDC, SAML 2.0, Login With Amazon, Sign In With Apple, Google, and Facebook IdPs.
 	ProviderType pulumi.StringInput
-	// The user pool ID.
+	// The Id of the user pool where you want to create an IdP.
 	UserPoolId pulumi.StringInput
 }
 
@@ -236,12 +236,12 @@ func (o UserPoolIdentityProviderOutput) ToUserPoolIdentityProviderOutputWithCont
 	return o
 }
 
-// A mapping of IdP attributes to standard and custom user pool attributes.
+// A mapping of IdP attributes to standard and custom user pool attributes. Specify a user pool attribute as the key of the key-value pair, and the IdP attribute claim name as the value.
 func (o UserPoolIdentityProviderOutput) AttributeMapping() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *UserPoolIdentityProvider) pulumi.StringMapOutput { return v.AttributeMapping }).(pulumi.StringMapOutput)
 }
 
-// A list of IdP identifiers.
+// An array of IdP identifiers, for example `"IdPIdentifiers": [ "MyIdP", "MyIdP2" ]` . Identifiers are friendly names that you can pass in the `idp_identifier` query parameter of requests to the [Authorize endpoint](https://docs.aws.amazon.com/cognito/latest/developerguide/authorization-endpoint.html) to silently redirect to sign-in with the associated IdP. Identifiers in a domain format also enable the use of [email-address matching with SAML providers](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managing-saml-idp-naming.html) .
 func (o UserPoolIdentityProviderOutput) IdpIdentifiers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *UserPoolIdentityProvider) pulumi.StringArrayOutput { return v.IdpIdentifiers }).(pulumi.StringArrayOutput)
 }
@@ -279,17 +279,17 @@ func (o UserPoolIdentityProviderOutput) ProviderDetails() pulumi.StringMapOutput
 	return o.ApplyT(func(v *UserPoolIdentityProvider) pulumi.StringMapOutput { return v.ProviderDetails }).(pulumi.StringMapOutput)
 }
 
-// The IdP name.
+// The name that you want to assign to the IdP. You can pass the identity provider name in the `identity_provider` query parameter of requests to the [Authorize endpoint](https://docs.aws.amazon.com/cognito/latest/developerguide/authorization-endpoint.html) to silently redirect to sign-in with the associated IdP.
 func (o UserPoolIdentityProviderOutput) ProviderName() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserPoolIdentityProvider) pulumi.StringOutput { return v.ProviderName }).(pulumi.StringOutput)
 }
 
-// The IdP type.
+// The type of IdP that you want to add. Amazon Cognito supports OIDC, SAML 2.0, Login With Amazon, Sign In With Apple, Google, and Facebook IdPs.
 func (o UserPoolIdentityProviderOutput) ProviderType() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserPoolIdentityProvider) pulumi.StringOutput { return v.ProviderType }).(pulumi.StringOutput)
 }
 
-// The user pool ID.
+// The Id of the user pool where you want to create an IdP.
 func (o UserPoolIdentityProviderOutput) UserPoolId() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserPoolIdentityProvider) pulumi.StringOutput { return v.UserPoolId }).(pulumi.StringOutput)
 }

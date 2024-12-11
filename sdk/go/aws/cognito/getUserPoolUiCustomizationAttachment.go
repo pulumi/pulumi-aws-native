@@ -25,7 +25,7 @@ func LookupUserPoolUiCustomizationAttachment(ctx *pulumi.Context, args *LookupUs
 type LookupUserPoolUiCustomizationAttachmentArgs struct {
 	// The app client ID for your UI customization. When this value isn't present, the customization applies to all user pool app clients that don't have client-level settings..
 	ClientId string `pulumi:"clientId"`
-	// The user pool ID for the user pool.
+	// The ID of the user pool.
 	UserPoolId string `pulumi:"userPoolId"`
 }
 
@@ -56,7 +56,7 @@ func LookupUserPoolUiCustomizationAttachmentOutput(ctx *pulumi.Context, args Loo
 type LookupUserPoolUiCustomizationAttachmentOutputArgs struct {
 	// The app client ID for your UI customization. When this value isn't present, the customization applies to all user pool app clients that don't have client-level settings..
 	ClientId pulumi.StringInput `pulumi:"clientId"`
-	// The user pool ID for the user pool.
+	// The ID of the user pool.
 	UserPoolId pulumi.StringInput `pulumi:"userPoolId"`
 }
 

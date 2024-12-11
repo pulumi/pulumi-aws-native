@@ -4442,7 +4442,7 @@ func (o DataSourceIntermediateStoragePtrOutput) S3Location() DataSourceS3Locatio
 
 // Settings for parsing document contents
 type DataSourceParsingConfiguration struct {
-	// Settings for a foundation model used to parse documents for a data source.
+	// If you specify `BEDROCK_FOUNDATION_MODEL` as the parsing strategy for ingesting your data source, use this object to modify configurations for using a foundation model to parse documents.
 	BedrockFoundationModelConfiguration *DataSourceBedrockFoundationModelConfiguration `pulumi:"bedrockFoundationModelConfiguration"`
 	// The parsing strategy for the data source.
 	ParsingStrategy DataSourceParsingStrategy `pulumi:"parsingStrategy"`
@@ -4461,7 +4461,7 @@ type DataSourceParsingConfigurationInput interface {
 
 // Settings for parsing document contents
 type DataSourceParsingConfigurationArgs struct {
-	// Settings for a foundation model used to parse documents for a data source.
+	// If you specify `BEDROCK_FOUNDATION_MODEL` as the parsing strategy for ingesting your data source, use this object to modify configurations for using a foundation model to parse documents.
 	BedrockFoundationModelConfiguration DataSourceBedrockFoundationModelConfigurationPtrInput `pulumi:"bedrockFoundationModelConfiguration"`
 	// The parsing strategy for the data source.
 	ParsingStrategy DataSourceParsingStrategyInput `pulumi:"parsingStrategy"`
@@ -4545,7 +4545,7 @@ func (o DataSourceParsingConfigurationOutput) ToDataSourceParsingConfigurationPt
 	}).(DataSourceParsingConfigurationPtrOutput)
 }
 
-// Settings for a foundation model used to parse documents for a data source.
+// If you specify `BEDROCK_FOUNDATION_MODEL` as the parsing strategy for ingesting your data source, use this object to modify configurations for using a foundation model to parse documents.
 func (o DataSourceParsingConfigurationOutput) BedrockFoundationModelConfiguration() DataSourceBedrockFoundationModelConfigurationPtrOutput {
 	return o.ApplyT(func(v DataSourceParsingConfiguration) *DataSourceBedrockFoundationModelConfiguration {
 		return v.BedrockFoundationModelConfiguration
@@ -4581,7 +4581,7 @@ func (o DataSourceParsingConfigurationPtrOutput) Elem() DataSourceParsingConfigu
 	}).(DataSourceParsingConfigurationOutput)
 }
 
-// Settings for a foundation model used to parse documents for a data source.
+// If you specify `BEDROCK_FOUNDATION_MODEL` as the parsing strategy for ingesting your data source, use this object to modify configurations for using a foundation model to parse documents.
 func (o DataSourceParsingConfigurationPtrOutput) BedrockFoundationModelConfiguration() DataSourceBedrockFoundationModelConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceParsingConfiguration) *DataSourceBedrockFoundationModelConfiguration {
 		if v == nil {
@@ -7125,7 +7125,7 @@ type DataSourceVectorIngestionConfiguration struct {
 	ChunkingConfiguration *DataSourceChunkingConfiguration `pulumi:"chunkingConfiguration"`
 	// A custom document transformer for parsed data source documents.
 	CustomTransformationConfiguration *DataSourceCustomTransformationConfiguration `pulumi:"customTransformationConfiguration"`
-	// A custom parser for data source documents.
+	// Configurations for a parser to use for parsing documents in your data source. If you exclude this field, the default parser will be used.
 	ParsingConfiguration *DataSourceParsingConfiguration `pulumi:"parsingConfiguration"`
 }
 
@@ -7146,7 +7146,7 @@ type DataSourceVectorIngestionConfigurationArgs struct {
 	ChunkingConfiguration DataSourceChunkingConfigurationPtrInput `pulumi:"chunkingConfiguration"`
 	// A custom document transformer for parsed data source documents.
 	CustomTransformationConfiguration DataSourceCustomTransformationConfigurationPtrInput `pulumi:"customTransformationConfiguration"`
-	// A custom parser for data source documents.
+	// Configurations for a parser to use for parsing documents in your data source. If you exclude this field, the default parser will be used.
 	ParsingConfiguration DataSourceParsingConfigurationPtrInput `pulumi:"parsingConfiguration"`
 }
 
@@ -7242,7 +7242,7 @@ func (o DataSourceVectorIngestionConfigurationOutput) CustomTransformationConfig
 	}).(DataSourceCustomTransformationConfigurationPtrOutput)
 }
 
-// A custom parser for data source documents.
+// Configurations for a parser to use for parsing documents in your data source. If you exclude this field, the default parser will be used.
 func (o DataSourceVectorIngestionConfigurationOutput) ParsingConfiguration() DataSourceParsingConfigurationPtrOutput {
 	return o.ApplyT(func(v DataSourceVectorIngestionConfiguration) *DataSourceParsingConfiguration {
 		return v.ParsingConfiguration
@@ -7293,7 +7293,7 @@ func (o DataSourceVectorIngestionConfigurationPtrOutput) CustomTransformationCon
 	}).(DataSourceCustomTransformationConfigurationPtrOutput)
 }
 
-// A custom parser for data source documents.
+// Configurations for a parser to use for parsing documents in your data source. If you exclude this field, the default parser will be used.
 func (o DataSourceVectorIngestionConfigurationPtrOutput) ParsingConfiguration() DataSourceParsingConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceVectorIngestionConfiguration) *DataSourceParsingConfiguration {
 		if v == nil {
@@ -18651,7 +18651,7 @@ type GuardrailPiiEntityConfig struct {
 	// A physical address, such as "100 Main Street, Anytown, USA" or "Suite #12, Building 123". An address can include information such as the street, building, location, city, state, country, county, zip code, precinct, and neighborhood.
 	// - *AGE*
 	//
-	// An individual's age, including the quantity and unit of time. For example, in the phrase "I am 40 years old," Guarrails recognizes "40 years" as an age.
+	// An individual's age, including the quantity and unit of time. For example, in the phrase "I am 40 years old," Guardrails recognizes "40 years" as an age.
 	// - *NAME*
 	//
 	// An individual's name. This entity type does not include titles, such as Dr., Mr., Mrs., or Miss. guardrails doesn't apply this entity type to names that are part of organizations or addresses. For example, guardrails recognizes the "John Doe Organization" as an organization, and it recognizes "Jane Doe Street" as an address.
@@ -18678,7 +18678,7 @@ type GuardrailPiiEntityConfig struct {
 	// A Vehicle Identification Number (VIN) uniquely identifies a vehicle. VIN content and format are defined in the *ISO 3779* specification. Each country has specific codes and formats for VINs.
 	// - *Finance*
 	//
-	// - *REDIT_DEBIT_CARD_CVV*
+	// - *CREDIT_DEBIT_CARD_CVV*
 	//
 	// A three-digit card verification code (CVV) that is present on VISA, MasterCard, and Discover credit and debit cards. For American Express credit or debit cards, the CVV is a four-digit numeric code.
 	// - *CREDIT_DEBIT_CARD_EXPIRY*
@@ -18787,7 +18787,7 @@ type GuardrailPiiEntityConfigArgs struct {
 	// A physical address, such as "100 Main Street, Anytown, USA" or "Suite #12, Building 123". An address can include information such as the street, building, location, city, state, country, county, zip code, precinct, and neighborhood.
 	// - *AGE*
 	//
-	// An individual's age, including the quantity and unit of time. For example, in the phrase "I am 40 years old," Guarrails recognizes "40 years" as an age.
+	// An individual's age, including the quantity and unit of time. For example, in the phrase "I am 40 years old," Guardrails recognizes "40 years" as an age.
 	// - *NAME*
 	//
 	// An individual's name. This entity type does not include titles, such as Dr., Mr., Mrs., or Miss. guardrails doesn't apply this entity type to names that are part of organizations or addresses. For example, guardrails recognizes the "John Doe Organization" as an organization, and it recognizes "Jane Doe Street" as an address.
@@ -18814,7 +18814,7 @@ type GuardrailPiiEntityConfigArgs struct {
 	// A Vehicle Identification Number (VIN) uniquely identifies a vehicle. VIN content and format are defined in the *ISO 3779* specification. Each country has specific codes and formats for VINs.
 	// - *Finance*
 	//
-	// - *REDIT_DEBIT_CARD_CVV*
+	// - *CREDIT_DEBIT_CARD_CVV*
 	//
 	// A three-digit card verification code (CVV) that is present on VISA, MasterCard, and Discover credit and debit cards. For American Express credit or debit cards, the CVV is a four-digit numeric code.
 	// - *CREDIT_DEBIT_CARD_EXPIRY*
@@ -18965,7 +18965,7 @@ func (o GuardrailPiiEntityConfigOutput) Action() GuardrailSensitiveInformationAc
 // A physical address, such as "100 Main Street, Anytown, USA" or "Suite #12, Building 123". An address can include information such as the street, building, location, city, state, country, county, zip code, precinct, and neighborhood.
 // - *AGE*
 //
-// An individual's age, including the quantity and unit of time. For example, in the phrase "I am 40 years old," Guarrails recognizes "40 years" as an age.
+// An individual's age, including the quantity and unit of time. For example, in the phrase "I am 40 years old," Guardrails recognizes "40 years" as an age.
 // - *NAME*
 //
 // An individual's name. This entity type does not include titles, such as Dr., Mr., Mrs., or Miss. guardrails doesn't apply this entity type to names that are part of organizations or addresses. For example, guardrails recognizes the "John Doe Organization" as an organization, and it recognizes "Jane Doe Street" as an address.
@@ -18992,7 +18992,7 @@ func (o GuardrailPiiEntityConfigOutput) Action() GuardrailSensitiveInformationAc
 // A Vehicle Identification Number (VIN) uniquely identifies a vehicle. VIN content and format are defined in the *ISO 3779* specification. Each country has specific codes and formats for VINs.
 // - *Finance*
 //
-// - *REDIT_DEBIT_CARD_CVV*
+// - *CREDIT_DEBIT_CARD_CVV*
 //
 // A three-digit card verification code (CVV) that is present on VISA, MasterCard, and Discover credit and debit cards. For American Express credit or debit cards, the CVV is a four-digit numeric code.
 // - *CREDIT_DEBIT_CARD_EXPIRY*

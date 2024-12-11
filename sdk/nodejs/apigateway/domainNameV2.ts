@@ -58,10 +58,6 @@ export class DomainNameV2 extends pulumi.CustomResource {
      */
     public readonly endpointConfiguration!: pulumi.Output<outputs.apigateway.DomainNameV2EndpointConfiguration | undefined>;
     /**
-     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::DomainNameV2` for more information about the expected schema for this property.
-     */
-    public readonly managementPolicy!: pulumi.Output<any | undefined>;
-    /**
      * A stringified JSON policy document that applies to the `execute-api` service for this DomainName regardless of the caller and Method configuration. You can use `Fn::ToJsonString` to enter your `policy` . For more information, see [Fn::ToJsonString](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ToJsonString.html) .
      *
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::DomainNameV2` for more information about the expected schema for this property.
@@ -90,7 +86,6 @@ export class DomainNameV2 extends pulumi.CustomResource {
             resourceInputs["certificateArn"] = args ? args.certificateArn : undefined;
             resourceInputs["domainName"] = args ? args.domainName : undefined;
             resourceInputs["endpointConfiguration"] = args ? args.endpointConfiguration : undefined;
-            resourceInputs["managementPolicy"] = args ? args.managementPolicy : undefined;
             resourceInputs["policy"] = args ? args.policy : undefined;
             resourceInputs["securityPolicy"] = args ? args.securityPolicy : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -102,7 +97,6 @@ export class DomainNameV2 extends pulumi.CustomResource {
             resourceInputs["domainNameArn"] = undefined /*out*/;
             resourceInputs["domainNameId"] = undefined /*out*/;
             resourceInputs["endpointConfiguration"] = undefined /*out*/;
-            resourceInputs["managementPolicy"] = undefined /*out*/;
             resourceInputs["policy"] = undefined /*out*/;
             resourceInputs["securityPolicy"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -130,10 +124,6 @@ export interface DomainNameV2Args {
      * The endpoint configuration to indicate the types of endpoints an API (RestApi) or its custom domain name (DomainName) has.
      */
     endpointConfiguration?: pulumi.Input<inputs.apigateway.DomainNameV2EndpointConfigurationArgs>;
-    /**
-     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::DomainNameV2` for more information about the expected schema for this property.
-     */
-    managementPolicy?: any;
     /**
      * A stringified JSON policy document that applies to the `execute-api` service for this DomainName regardless of the caller and Method configuration. You can use `Fn::ToJsonString` to enter your `policy` . For more information, see [Fn::ToJsonString](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ToJsonString.html) .
      *

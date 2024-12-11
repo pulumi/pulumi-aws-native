@@ -25,7 +25,7 @@ class UserPoolUiCustomizationAttachmentArgs:
         """
         The set of arguments for constructing a UserPoolUiCustomizationAttachment resource.
         :param pulumi.Input[str] client_id: The app client ID for your UI customization. When this value isn't present, the customization applies to all user pool app clients that don't have client-level settings..
-        :param pulumi.Input[str] user_pool_id: The user pool ID for the user pool.
+        :param pulumi.Input[str] user_pool_id: The ID of the user pool.
         :param pulumi.Input[str] css: The CSS values in the UI customization.
         """
         pulumi.set(__self__, "client_id", client_id)
@@ -49,7 +49,7 @@ class UserPoolUiCustomizationAttachmentArgs:
     @pulumi.getter(name="userPoolId")
     def user_pool_id(self) -> pulumi.Input[str]:
         """
-        The user pool ID for the user pool.
+        The ID of the user pool.
         """
         return pulumi.get(self, "user_pool_id")
 
@@ -86,7 +86,7 @@ class UserPoolUiCustomizationAttachment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] client_id: The app client ID for your UI customization. When this value isn't present, the customization applies to all user pool app clients that don't have client-level settings..
         :param pulumi.Input[str] css: The CSS values in the UI customization.
-        :param pulumi.Input[str] user_pool_id: The user pool ID for the user pool.
+        :param pulumi.Input[str] user_pool_id: The ID of the user pool.
         """
         ...
     @overload
@@ -180,7 +180,7 @@ class UserPoolUiCustomizationAttachment(pulumi.CustomResource):
     @pulumi.getter(name="userPoolId")
     def user_pool_id(self) -> pulumi.Output[str]:
         """
-        The user pool ID for the user pool.
+        The ID of the user pool.
         """
         return pulumi.get(self, "user_pool_id")
 

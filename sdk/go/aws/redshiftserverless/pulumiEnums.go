@@ -313,6 +313,171 @@ func (o NamespaceStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Conte
 	}).(pulumi.StringPtrOutput)
 }
 
+type WorkgroupPerformanceTargetStatus string
+
+const (
+	WorkgroupPerformanceTargetStatusEnabled  = WorkgroupPerformanceTargetStatus("ENABLED")
+	WorkgroupPerformanceTargetStatusDisabled = WorkgroupPerformanceTargetStatus("DISABLED")
+)
+
+func (WorkgroupPerformanceTargetStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkgroupPerformanceTargetStatus)(nil)).Elem()
+}
+
+func (e WorkgroupPerformanceTargetStatus) ToWorkgroupPerformanceTargetStatusOutput() WorkgroupPerformanceTargetStatusOutput {
+	return pulumi.ToOutput(e).(WorkgroupPerformanceTargetStatusOutput)
+}
+
+func (e WorkgroupPerformanceTargetStatus) ToWorkgroupPerformanceTargetStatusOutputWithContext(ctx context.Context) WorkgroupPerformanceTargetStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(WorkgroupPerformanceTargetStatusOutput)
+}
+
+func (e WorkgroupPerformanceTargetStatus) ToWorkgroupPerformanceTargetStatusPtrOutput() WorkgroupPerformanceTargetStatusPtrOutput {
+	return e.ToWorkgroupPerformanceTargetStatusPtrOutputWithContext(context.Background())
+}
+
+func (e WorkgroupPerformanceTargetStatus) ToWorkgroupPerformanceTargetStatusPtrOutputWithContext(ctx context.Context) WorkgroupPerformanceTargetStatusPtrOutput {
+	return WorkgroupPerformanceTargetStatus(e).ToWorkgroupPerformanceTargetStatusOutputWithContext(ctx).ToWorkgroupPerformanceTargetStatusPtrOutputWithContext(ctx)
+}
+
+func (e WorkgroupPerformanceTargetStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WorkgroupPerformanceTargetStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e WorkgroupPerformanceTargetStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e WorkgroupPerformanceTargetStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type WorkgroupPerformanceTargetStatusOutput struct{ *pulumi.OutputState }
+
+func (WorkgroupPerformanceTargetStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkgroupPerformanceTargetStatus)(nil)).Elem()
+}
+
+func (o WorkgroupPerformanceTargetStatusOutput) ToWorkgroupPerformanceTargetStatusOutput() WorkgroupPerformanceTargetStatusOutput {
+	return o
+}
+
+func (o WorkgroupPerformanceTargetStatusOutput) ToWorkgroupPerformanceTargetStatusOutputWithContext(ctx context.Context) WorkgroupPerformanceTargetStatusOutput {
+	return o
+}
+
+func (o WorkgroupPerformanceTargetStatusOutput) ToWorkgroupPerformanceTargetStatusPtrOutput() WorkgroupPerformanceTargetStatusPtrOutput {
+	return o.ToWorkgroupPerformanceTargetStatusPtrOutputWithContext(context.Background())
+}
+
+func (o WorkgroupPerformanceTargetStatusOutput) ToWorkgroupPerformanceTargetStatusPtrOutputWithContext(ctx context.Context) WorkgroupPerformanceTargetStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkgroupPerformanceTargetStatus) *WorkgroupPerformanceTargetStatus {
+		return &v
+	}).(WorkgroupPerformanceTargetStatusPtrOutput)
+}
+
+func (o WorkgroupPerformanceTargetStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o WorkgroupPerformanceTargetStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WorkgroupPerformanceTargetStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o WorkgroupPerformanceTargetStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WorkgroupPerformanceTargetStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e WorkgroupPerformanceTargetStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type WorkgroupPerformanceTargetStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkgroupPerformanceTargetStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkgroupPerformanceTargetStatus)(nil)).Elem()
+}
+
+func (o WorkgroupPerformanceTargetStatusPtrOutput) ToWorkgroupPerformanceTargetStatusPtrOutput() WorkgroupPerformanceTargetStatusPtrOutput {
+	return o
+}
+
+func (o WorkgroupPerformanceTargetStatusPtrOutput) ToWorkgroupPerformanceTargetStatusPtrOutputWithContext(ctx context.Context) WorkgroupPerformanceTargetStatusPtrOutput {
+	return o
+}
+
+func (o WorkgroupPerformanceTargetStatusPtrOutput) Elem() WorkgroupPerformanceTargetStatusOutput {
+	return o.ApplyT(func(v *WorkgroupPerformanceTargetStatus) WorkgroupPerformanceTargetStatus {
+		if v != nil {
+			return *v
+		}
+		var ret WorkgroupPerformanceTargetStatus
+		return ret
+	}).(WorkgroupPerformanceTargetStatusOutput)
+}
+
+func (o WorkgroupPerformanceTargetStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o WorkgroupPerformanceTargetStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *WorkgroupPerformanceTargetStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// WorkgroupPerformanceTargetStatusInput is an input type that accepts values of the WorkgroupPerformanceTargetStatus enum
+// A concrete instance of `WorkgroupPerformanceTargetStatusInput` can be one of the following:
+//
+//	WorkgroupPerformanceTargetStatusEnabled
+//	WorkgroupPerformanceTargetStatusDisabled
+type WorkgroupPerformanceTargetStatusInput interface {
+	pulumi.Input
+
+	ToWorkgroupPerformanceTargetStatusOutput() WorkgroupPerformanceTargetStatusOutput
+	ToWorkgroupPerformanceTargetStatusOutputWithContext(context.Context) WorkgroupPerformanceTargetStatusOutput
+}
+
+var workgroupPerformanceTargetStatusPtrType = reflect.TypeOf((**WorkgroupPerformanceTargetStatus)(nil)).Elem()
+
+type WorkgroupPerformanceTargetStatusPtrInput interface {
+	pulumi.Input
+
+	ToWorkgroupPerformanceTargetStatusPtrOutput() WorkgroupPerformanceTargetStatusPtrOutput
+	ToWorkgroupPerformanceTargetStatusPtrOutputWithContext(context.Context) WorkgroupPerformanceTargetStatusPtrOutput
+}
+
+type workgroupPerformanceTargetStatusPtr string
+
+func WorkgroupPerformanceTargetStatusPtr(v string) WorkgroupPerformanceTargetStatusPtrInput {
+	return (*workgroupPerformanceTargetStatusPtr)(&v)
+}
+
+func (*workgroupPerformanceTargetStatusPtr) ElementType() reflect.Type {
+	return workgroupPerformanceTargetStatusPtrType
+}
+
+func (in *workgroupPerformanceTargetStatusPtr) ToWorkgroupPerformanceTargetStatusPtrOutput() WorkgroupPerformanceTargetStatusPtrOutput {
+	return pulumi.ToOutput(in).(WorkgroupPerformanceTargetStatusPtrOutput)
+}
+
+func (in *workgroupPerformanceTargetStatusPtr) ToWorkgroupPerformanceTargetStatusPtrOutputWithContext(ctx context.Context) WorkgroupPerformanceTargetStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(WorkgroupPerformanceTargetStatusPtrOutput)
+}
+
 type WorkgroupStatus string
 
 const (
@@ -409,11 +574,15 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceLogExportInput)(nil)).Elem(), NamespaceLogExport("useractivitylog"))
 	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceLogExportPtrInput)(nil)).Elem(), NamespaceLogExport("useractivitylog"))
 	pulumi.RegisterInputType(reflect.TypeOf((*NamespaceLogExportArrayInput)(nil)).Elem(), NamespaceLogExportArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupPerformanceTargetStatusInput)(nil)).Elem(), WorkgroupPerformanceTargetStatus("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupPerformanceTargetStatusPtrInput)(nil)).Elem(), WorkgroupPerformanceTargetStatus("ENABLED"))
 	pulumi.RegisterOutputType(NamespaceLogExportOutput{})
 	pulumi.RegisterOutputType(NamespaceLogExportPtrOutput{})
 	pulumi.RegisterOutputType(NamespaceLogExportArrayOutput{})
 	pulumi.RegisterOutputType(NamespaceStatusOutput{})
 	pulumi.RegisterOutputType(NamespaceStatusPtrOutput{})
+	pulumi.RegisterOutputType(WorkgroupPerformanceTargetStatusOutput{})
+	pulumi.RegisterOutputType(WorkgroupPerformanceTargetStatusPtrOutput{})
 	pulumi.RegisterOutputType(WorkgroupStatusOutput{})
 	pulumi.RegisterOutputType(WorkgroupStatusPtrOutput{})
 }

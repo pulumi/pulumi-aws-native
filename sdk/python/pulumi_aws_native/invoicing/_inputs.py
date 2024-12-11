@@ -24,6 +24,9 @@ MYPY = False
 if not MYPY:
     class InvoiceUnitRuleArgsDict(TypedDict):
         linked_accounts: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        The list of `LINKED_ACCOUNT` IDs where charges are included within the invoice unit.
+        """
 elif False:
     InvoiceUnitRuleArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -31,11 +34,17 @@ elif False:
 class InvoiceUnitRuleArgs:
     def __init__(__self__, *,
                  linked_accounts: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] linked_accounts: The list of `LINKED_ACCOUNT` IDs where charges are included within the invoice unit.
+        """
         pulumi.set(__self__, "linked_accounts", linked_accounts)
 
     @property
     @pulumi.getter(name="linkedAccounts")
     def linked_accounts(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The list of `LINKED_ACCOUNT` IDs where charges are included within the invoice unit.
+        """
         return pulumi.get(self, "linked_accounts")
 
     @linked_accounts.setter

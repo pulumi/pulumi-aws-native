@@ -18,15 +18,36 @@ export function getInvoiceUnit(args: GetInvoiceUnitArgs, opts?: pulumi.InvokeOpt
 }
 
 export interface GetInvoiceUnitArgs {
+    /**
+     * The ARN to identify an invoice unit. This information can't be modified or deleted.
+     */
     invoiceUnitArn: string;
 }
 
 export interface GetInvoiceUnitResult {
+    /**
+     * The assigned description for an invoice unit. This information can't be modified or deleted.
+     */
     readonly description?: string;
+    /**
+     * The ARN to identify an invoice unit. This information can't be modified or deleted.
+     */
     readonly invoiceUnitArn?: string;
+    /**
+     * The last time the invoice unit was updated. This is important to determine the version of invoice unit configuration used to create the invoices. Any invoice created after this modified time will use this invoice unit configuration.
+     */
     readonly lastModified?: number;
+    /**
+     * The tag structure that contains a tag key and value.
+     */
     readonly resourceTags?: outputs.Tag[];
+    /**
+     * An `InvoiceUnitRule` object used the categorize invoice units.
+     */
     readonly rule?: outputs.invoicing.InvoiceUnitRule;
+    /**
+     * Whether the invoice unit based tax inheritance is/ should be enabled or disabled.
+     */
     readonly taxInheritanceDisabled?: boolean;
 }
 /**
@@ -40,5 +61,8 @@ export function getInvoiceUnitOutput(args: GetInvoiceUnitOutputArgs, opts?: pulu
 }
 
 export interface GetInvoiceUnitOutputArgs {
+    /**
+     * The ARN to identify an invoice unit. This information can't be modified or deleted.
+     */
     invoiceUnitArn: pulumi.Input<string>;
 }

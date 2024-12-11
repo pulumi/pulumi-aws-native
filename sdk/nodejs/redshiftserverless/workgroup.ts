@@ -62,6 +62,10 @@ export class Workgroup extends pulumi.CustomResource {
      */
     public readonly port!: pulumi.Output<number | undefined>;
     /**
+     * A property that represents the price performance target settings for the workgroup.
+     */
+    public readonly pricePerformanceTarget!: pulumi.Output<outputs.redshiftserverless.WorkgroupPerformanceTarget | undefined>;
+    /**
      * A value that specifies whether the workgroup can be accessible from a public network.
      */
     public readonly publiclyAccessible!: pulumi.Output<boolean | undefined>;
@@ -103,6 +107,7 @@ export class Workgroup extends pulumi.CustomResource {
             resourceInputs["maxCapacity"] = args ? args.maxCapacity : undefined;
             resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
             resourceInputs["port"] = args ? args.port : undefined;
+            resourceInputs["pricePerformanceTarget"] = args ? args.pricePerformanceTarget : undefined;
             resourceInputs["publiclyAccessible"] = args ? args.publiclyAccessible : undefined;
             resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
             resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
@@ -116,6 +121,7 @@ export class Workgroup extends pulumi.CustomResource {
             resourceInputs["maxCapacity"] = undefined /*out*/;
             resourceInputs["namespaceName"] = undefined /*out*/;
             resourceInputs["port"] = undefined /*out*/;
+            resourceInputs["pricePerformanceTarget"] = undefined /*out*/;
             resourceInputs["publiclyAccessible"] = undefined /*out*/;
             resourceInputs["securityGroupIds"] = undefined /*out*/;
             resourceInputs["subnetIds"] = undefined /*out*/;
@@ -158,6 +164,10 @@ export interface WorkgroupArgs {
      * The custom port to use when connecting to a workgroup. Valid port ranges are 5431-5455 and 8191-8215. The default is 5439.
      */
     port?: pulumi.Input<number>;
+    /**
+     * A property that represents the price performance target settings for the workgroup.
+     */
+    pricePerformanceTarget?: pulumi.Input<inputs.redshiftserverless.WorkgroupPerformanceTargetArgs>;
     /**
      * A value that specifies whether the workgroup can be accessible from a public network.
      */

@@ -66,6 +66,10 @@ namespace Pulumi.AwsNative.RedshiftServerless
         /// </summary>
         public readonly int? Port;
         /// <summary>
+        /// A property that represents the price performance target settings for the workgroup.
+        /// </summary>
+        public readonly Outputs.WorkgroupPerformanceTarget? PricePerformanceTarget;
+        /// <summary>
         /// A value that specifies whether the workgroup can be accessible from a public network.
         /// </summary>
         public readonly bool? PubliclyAccessible;
@@ -84,6 +88,8 @@ namespace Pulumi.AwsNative.RedshiftServerless
 
             int? port,
 
+            Outputs.WorkgroupPerformanceTarget? pricePerformanceTarget,
+
             bool? publiclyAccessible,
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
@@ -92,6 +98,7 @@ namespace Pulumi.AwsNative.RedshiftServerless
         {
             EnhancedVpcRouting = enhancedVpcRouting;
             Port = port;
+            PricePerformanceTarget = pricePerformanceTarget;
             PubliclyAccessible = publiclyAccessible;
             Tags = tags;
             WorkgroupValue = workgroup;

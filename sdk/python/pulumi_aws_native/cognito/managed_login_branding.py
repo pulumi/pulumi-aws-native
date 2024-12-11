@@ -32,10 +32,14 @@ class ManagedLoginBrandingArgs:
         The set of arguments for constructing a ManagedLoginBranding resource.
         :param pulumi.Input[str] user_pool_id: The user pool where the branding style is assigned.
         :param pulumi.Input[Sequence[pulumi.Input['ManagedLoginBrandingAssetTypeArgs']]] assets: An array of image files that you want to apply to roles like backgrounds, logos, and icons. Each object must also indicate whether it is for dark mode, light mode, or browser-adaptive mode.
+        :param pulumi.Input[str] client_id: The app client that's assigned to the branding style that you want more information about.
+        :param pulumi.Input[bool] return_merged_resources: When `true` , returns values for branding options that are unchanged from Amazon Cognito defaults. When `false` or when you omit this parameter, returns only values that you customized in your branding style.
         :param Any settings: A JSON file, encoded as a `Document` type, with the the settings that you want to apply to your style.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::ManagedLoginBranding` for more information about the expected schema for this property.
-        :param pulumi.Input[bool] use_cognito_provided_values: When true, applies the default branding style options. This option reverts to a "blank" style that you can modify later in the branding designer.
+        :param pulumi.Input[bool] use_cognito_provided_values: When true, applies the default branding style options. This option reverts to default style options that are managed by Amazon Cognito. You can modify them later in the branding designer.
+               
+               When you specify `true` for this option, you must also omit values for `Settings` and `Assets` in the request.
         """
         pulumi.set(__self__, "user_pool_id", user_pool_id)
         if assets is not None:
@@ -76,6 +80,9 @@ class ManagedLoginBrandingArgs:
     @property
     @pulumi.getter(name="clientId")
     def client_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The app client that's assigned to the branding style that you want more information about.
+        """
         return pulumi.get(self, "client_id")
 
     @client_id.setter
@@ -85,6 +92,9 @@ class ManagedLoginBrandingArgs:
     @property
     @pulumi.getter(name="returnMergedResources")
     def return_merged_resources(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When `true` , returns values for branding options that are unchanged from Amazon Cognito defaults. When `false` or when you omit this parameter, returns only values that you customized in your branding style.
+        """
         return pulumi.get(self, "return_merged_resources")
 
     @return_merged_resources.setter
@@ -109,7 +119,9 @@ class ManagedLoginBrandingArgs:
     @pulumi.getter(name="useCognitoProvidedValues")
     def use_cognito_provided_values(self) -> Optional[pulumi.Input[bool]]:
         """
-        When true, applies the default branding style options. This option reverts to a "blank" style that you can modify later in the branding designer.
+        When true, applies the default branding style options. This option reverts to default style options that are managed by Amazon Cognito. You can modify them later in the branding designer.
+
+        When you specify `true` for this option, you must also omit values for `Settings` and `Assets` in the request.
         """
         return pulumi.get(self, "use_cognito_provided_values")
 
@@ -136,10 +148,14 @@ class ManagedLoginBranding(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ManagedLoginBrandingAssetTypeArgs', 'ManagedLoginBrandingAssetTypeArgsDict']]]] assets: An array of image files that you want to apply to roles like backgrounds, logos, and icons. Each object must also indicate whether it is for dark mode, light mode, or browser-adaptive mode.
+        :param pulumi.Input[str] client_id: The app client that's assigned to the branding style that you want more information about.
+        :param pulumi.Input[bool] return_merged_resources: When `true` , returns values for branding options that are unchanged from Amazon Cognito defaults. When `false` or when you omit this parameter, returns only values that you customized in your branding style.
         :param Any settings: A JSON file, encoded as a `Document` type, with the the settings that you want to apply to your style.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::ManagedLoginBranding` for more information about the expected schema for this property.
-        :param pulumi.Input[bool] use_cognito_provided_values: When true, applies the default branding style options. This option reverts to a "blank" style that you can modify later in the branding designer.
+        :param pulumi.Input[bool] use_cognito_provided_values: When true, applies the default branding style options. This option reverts to default style options that are managed by Amazon Cognito. You can modify them later in the branding designer.
+               
+               When you specify `true` for this option, you must also omit values for `Settings` and `Assets` in the request.
         :param pulumi.Input[str] user_pool_id: The user pool where the branding style is assigned.
         """
         ...
@@ -234,6 +250,9 @@ class ManagedLoginBranding(pulumi.CustomResource):
     @property
     @pulumi.getter(name="clientId")
     def client_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The app client that's assigned to the branding style that you want more information about.
+        """
         return pulumi.get(self, "client_id")
 
     @property
@@ -247,6 +266,9 @@ class ManagedLoginBranding(pulumi.CustomResource):
     @property
     @pulumi.getter(name="returnMergedResources")
     def return_merged_resources(self) -> pulumi.Output[Optional[bool]]:
+        """
+        When `true` , returns values for branding options that are unchanged from Amazon Cognito defaults. When `false` or when you omit this parameter, returns only values that you customized in your branding style.
+        """
         return pulumi.get(self, "return_merged_resources")
 
     @property
@@ -263,7 +285,9 @@ class ManagedLoginBranding(pulumi.CustomResource):
     @pulumi.getter(name="useCognitoProvidedValues")
     def use_cognito_provided_values(self) -> pulumi.Output[Optional[bool]]:
         """
-        When true, applies the default branding style options. This option reverts to a "blank" style that you can modify later in the branding designer.
+        When true, applies the default branding style options. This option reverts to default style options that are managed by Amazon Cognito. You can modify them later in the branding designer.
+
+        When you specify `true` for this option, you must also omit values for `Settings` and `Assets` in the request.
         """
         return pulumi.get(self, "use_cognito_provided_values")
 

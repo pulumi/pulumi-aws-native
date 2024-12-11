@@ -10,33 +10,33 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApplicationAutoScaling.Outputs
 {
 
+    /// <summary>
+    /// Represents a predictive scaling policy configuration.
+    /// </summary>
     [OutputType]
     public sealed class ScalingPolicyPredictiveScalingPolicyConfiguration
     {
         /// <summary>
-        /// Defines the behavior that should be applied if the forecast capacity approaches or exceeds the maximum capacity. Defaults to `HonorMaxCapacity` if not specified.
+        /// Defines the behavior that should be applied if the forecast capacity approaches or exceeds the maximum capacity. Defaults to ``HonorMaxCapacity`` if not specified.
         /// </summary>
         public readonly string? MaxCapacityBreachBehavior;
         /// <summary>
-        /// The size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity. The value is specified as a percentage relative to the forecast capacity. For example, if the buffer is 10, this means a 10 percent buffer, such that if the forecast capacity is 50, and the maximum capacity is 40, then the effective maximum capacity is 55.
-        /// 
-        /// Required if the `MaxCapacityBreachBehavior` property is set to `IncreaseMaxCapacity` , and cannot be used otherwise.
+        /// The size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity. The value is specified as a percentage relative to the forecast capacity. For example, if the buffer is 10, this means a 10 percent buffer, such that if the forecast capacity is 50, and the maximum capacity is 40, then the effective maximum capacity is 55. 
+        ///  Required if the ``MaxCapacityBreachBehavior`` property is set to ``IncreaseMaxCapacity``, and cannot be used otherwise.
         /// </summary>
         public readonly int? MaxCapacityBuffer;
         /// <summary>
-        /// This structure includes the metrics and target utilization to use for predictive scaling.
-        /// 
-        /// This is an array, but we currently only support a single metric specification. That is, you can specify a target value and a single metric pair, or a target value and one scaling metric and one load metric.
+        /// This structure includes the metrics and target utilization to use for predictive scaling. 
+        ///  This is an array, but we currently only support a single metric specification. That is, you can specify a target value and a single metric pair, or a target value and one scaling metric and one load metric.
         /// </summary>
         public readonly ImmutableArray<Outputs.ScalingPolicyPredictiveScalingMetricSpecification> MetricSpecifications;
         /// <summary>
-        /// The predictive scaling mode. Defaults to `ForecastOnly` if not specified.
+        /// The predictive scaling mode. Defaults to ``ForecastOnly`` if not specified.
         /// </summary>
         public readonly string? Mode;
         /// <summary>
-        /// The amount of time, in seconds, that the start time can be advanced.
-        /// 
-        /// The value must be less than the forecast interval duration of 3600 seconds (60 minutes). Defaults to 300 seconds if not specified.
+        /// The amount of time, in seconds, that the start time can be advanced. 
+        ///  The value must be less than the forecast interval duration of 3600 seconds (60 minutes). Defaults to 300 seconds if not specified.
         /// </summary>
         public readonly int? SchedulingBufferTime;
 

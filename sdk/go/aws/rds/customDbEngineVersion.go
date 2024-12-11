@@ -13,35 +13,45 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The AWS::RDS::CustomDBEngineVersion resource creates an Amazon RDS custom DB engine version.
+// Creates a custom DB engine version (CEV).
 type CustomDbEngineVersion struct {
 	pulumi.CustomResourceState
 
-	// The name of an Amazon S3 bucket that contains database installation files for your CEV. For example, a valid bucket name is `my-custom-installation-files`.
+	// The name of an Amazon S3 bucket that contains database installation files for your CEV. For example, a valid bucket name is ``my-custom-installation-files``.
 	DatabaseInstallationFilesS3BucketName pulumi.StringPtrOutput `pulumi:"databaseInstallationFilesS3BucketName"`
-	// The Amazon S3 directory that contains the database installation files for your CEV. For example, a valid bucket name is `123456789012/cev1`. If this setting isn't specified, no prefix is assumed.
+	// The Amazon S3 directory that contains the database installation files for your CEV. For example, a valid bucket name is ``123456789012/cev1``. If this setting isn't specified, no prefix is assumed.
 	DatabaseInstallationFilesS3Prefix pulumi.StringPtrOutput `pulumi:"databaseInstallationFilesS3Prefix"`
 	// The ARN of the custom engine version.
 	DbEngineVersionArn pulumi.StringOutput `pulumi:"dbEngineVersionArn"`
 	// An optional description of your CEV.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The database engine to use for your custom engine version (CEV). The only supported value is `custom-oracle-ee`.
+	// The database engine to use for your custom engine version (CEV).
+	//  Valid values:
+	//   +   ``custom-oracle-ee``
+	//   +   ``custom-oracle-ee-cdb``
 	Engine pulumi.StringOutput `pulumi:"engine"`
-	// The name of your CEV. The name format is 19.customized_string . For example, a valid name is 19.my_cev1. This setting is required for RDS Custom for Oracle, but optional for Amazon RDS. The combination of Engine and EngineVersion is unique per customer per Region.
+	// The name of your CEV. The name format is ``major version.customized_string``. For example, a valid CEV name is ``19.my_cev1``. This setting is required for RDS Custom for Oracle, but optional for Amazon RDS. The combination of ``Engine`` and ``EngineVersion`` is unique per customer per Region.
+	//   *Constraints:* Minimum length is 1. Maximum length is 60.
+	//   *Pattern:* ``^[a-z0-9_.-]{1,60$``}
 	EngineVersion pulumi.StringOutput `pulumi:"engineVersion"`
-	// The identifier of Amazon Machine Image (AMI) used for CEV.
+	// A value that indicates the ID of the AMI.
 	ImageId pulumi.StringPtrOutput `pulumi:"imageId"`
-	// The AWS KMS key identifier for an encrypted CEV. A symmetric KMS key is required for RDS Custom, but optional for Amazon RDS.
+	// The AWS KMS key identifier for an encrypted CEV. A symmetric encryption KMS key is required for RDS Custom, but optional for Amazon RDS.
+	//  If you have an existing symmetric encryption KMS key in your account, you can use it with RDS Custom. No further action is necessary. If you don't already have a symmetric encryption KMS key in your account, follow the instructions in [Creating a symmetric encryption KMS key](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html#create-symmetric-cmk) in the *Key Management Service Developer Guide*.
+	//  You can choose the same symmetric encryption key when you create a CEV and a DB instance, or choose different keys.
 	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
 	// The CEV manifest, which is a JSON document that describes the installation .zip files stored in Amazon S3. Specify the name/value pairs in a file or a quoted string. RDS Custom applies the patches in the order in which they are listed.
+	//  The following JSON fields are valid:
+	//   + MediaImportTemplateVersion Version of the CEV manifest. The date is in the format YYYY-MM-DD. + databaseInstallationFileNames Ordered list of installation files for the CEV. + opatchFileNames Ordered list of OPatch installers used for the Oracle DB engine. + psuRuPatchFileNames The PSU and RU patches for this CEV. + OtherPatchFileNames The patches that are not in the list of PSU and RU patches. Amazon RDS applies these patches after applying the PSU and RU patches.
+	//      For more information, see [Creating the CEV manifest](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.html#custom-cev.preparing.manifest) in the *Amazon RDS User Guide*.
 	Manifest pulumi.StringPtrOutput `pulumi:"manifest"`
-	// The identifier of the source custom engine version.
+	// The ARN of a CEV to use as a source for creating a new CEV. You can specify a different Amazon Machine Imagine (AMI) by using either ``Source`` or ``UseAwsProvidedLatestImage``. You can't specify a different JSON manifest when you specify ``SourceCustomDbEngineVersionIdentifier``.
 	SourceCustomDbEngineVersionIdentifier pulumi.StringPtrOutput `pulumi:"sourceCustomDbEngineVersionIdentifier"`
-	// The availability status to be assigned to the CEV.
+	// A value that indicates the status of a custom engine version (CEV).
 	Status CustomDbEngineVersionStatusPtrOutput `pulumi:"status"`
-	// An array of key-value pairs to apply to this resource.
+	// A list of tags. For more information, see [Tagging Amazon RDS Resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html) in the *Amazon RDS User Guide.*
 	Tags aws.TagArrayOutput `pulumi:"tags"`
-	// A value that indicates whether AWS provided latest image is applied automatically to the Custom Engine Version. By default, AWS provided latest image is applied automatically. This value is only applied on create.
+	// Specifies whether to use the latest service-provided Amazon Machine Image (AMI) for the CEV. If you specify ``UseAwsProvidedLatestImage``, you can't also specify ``ImageId``.
 	UseAwsProvidedLatestImage pulumi.BoolPtrOutput `pulumi:"useAwsProvidedLatestImage"`
 }
 
@@ -103,57 +113,77 @@ func (CustomDbEngineVersionState) ElementType() reflect.Type {
 }
 
 type customDbEngineVersionArgs struct {
-	// The name of an Amazon S3 bucket that contains database installation files for your CEV. For example, a valid bucket name is `my-custom-installation-files`.
+	// The name of an Amazon S3 bucket that contains database installation files for your CEV. For example, a valid bucket name is ``my-custom-installation-files``.
 	DatabaseInstallationFilesS3BucketName *string `pulumi:"databaseInstallationFilesS3BucketName"`
-	// The Amazon S3 directory that contains the database installation files for your CEV. For example, a valid bucket name is `123456789012/cev1`. If this setting isn't specified, no prefix is assumed.
+	// The Amazon S3 directory that contains the database installation files for your CEV. For example, a valid bucket name is ``123456789012/cev1``. If this setting isn't specified, no prefix is assumed.
 	DatabaseInstallationFilesS3Prefix *string `pulumi:"databaseInstallationFilesS3Prefix"`
 	// An optional description of your CEV.
 	Description *string `pulumi:"description"`
-	// The database engine to use for your custom engine version (CEV). The only supported value is `custom-oracle-ee`.
+	// The database engine to use for your custom engine version (CEV).
+	//  Valid values:
+	//   +   ``custom-oracle-ee``
+	//   +   ``custom-oracle-ee-cdb``
 	Engine string `pulumi:"engine"`
-	// The name of your CEV. The name format is 19.customized_string . For example, a valid name is 19.my_cev1. This setting is required for RDS Custom for Oracle, but optional for Amazon RDS. The combination of Engine and EngineVersion is unique per customer per Region.
+	// The name of your CEV. The name format is ``major version.customized_string``. For example, a valid CEV name is ``19.my_cev1``. This setting is required for RDS Custom for Oracle, but optional for Amazon RDS. The combination of ``Engine`` and ``EngineVersion`` is unique per customer per Region.
+	//   *Constraints:* Minimum length is 1. Maximum length is 60.
+	//   *Pattern:* ``^[a-z0-9_.-]{1,60$``}
 	EngineVersion string `pulumi:"engineVersion"`
-	// The identifier of Amazon Machine Image (AMI) used for CEV.
+	// A value that indicates the ID of the AMI.
 	ImageId *string `pulumi:"imageId"`
-	// The AWS KMS key identifier for an encrypted CEV. A symmetric KMS key is required for RDS Custom, but optional for Amazon RDS.
+	// The AWS KMS key identifier for an encrypted CEV. A symmetric encryption KMS key is required for RDS Custom, but optional for Amazon RDS.
+	//  If you have an existing symmetric encryption KMS key in your account, you can use it with RDS Custom. No further action is necessary. If you don't already have a symmetric encryption KMS key in your account, follow the instructions in [Creating a symmetric encryption KMS key](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html#create-symmetric-cmk) in the *Key Management Service Developer Guide*.
+	//  You can choose the same symmetric encryption key when you create a CEV and a DB instance, or choose different keys.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// The CEV manifest, which is a JSON document that describes the installation .zip files stored in Amazon S3. Specify the name/value pairs in a file or a quoted string. RDS Custom applies the patches in the order in which they are listed.
+	//  The following JSON fields are valid:
+	//   + MediaImportTemplateVersion Version of the CEV manifest. The date is in the format YYYY-MM-DD. + databaseInstallationFileNames Ordered list of installation files for the CEV. + opatchFileNames Ordered list of OPatch installers used for the Oracle DB engine. + psuRuPatchFileNames The PSU and RU patches for this CEV. + OtherPatchFileNames The patches that are not in the list of PSU and RU patches. Amazon RDS applies these patches after applying the PSU and RU patches.
+	//      For more information, see [Creating the CEV manifest](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.html#custom-cev.preparing.manifest) in the *Amazon RDS User Guide*.
 	Manifest *string `pulumi:"manifest"`
-	// The identifier of the source custom engine version.
+	// The ARN of a CEV to use as a source for creating a new CEV. You can specify a different Amazon Machine Imagine (AMI) by using either ``Source`` or ``UseAwsProvidedLatestImage``. You can't specify a different JSON manifest when you specify ``SourceCustomDbEngineVersionIdentifier``.
 	SourceCustomDbEngineVersionIdentifier *string `pulumi:"sourceCustomDbEngineVersionIdentifier"`
-	// The availability status to be assigned to the CEV.
+	// A value that indicates the status of a custom engine version (CEV).
 	Status *CustomDbEngineVersionStatus `pulumi:"status"`
-	// An array of key-value pairs to apply to this resource.
+	// A list of tags. For more information, see [Tagging Amazon RDS Resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html) in the *Amazon RDS User Guide.*
 	Tags []aws.Tag `pulumi:"tags"`
-	// A value that indicates whether AWS provided latest image is applied automatically to the Custom Engine Version. By default, AWS provided latest image is applied automatically. This value is only applied on create.
+	// Specifies whether to use the latest service-provided Amazon Machine Image (AMI) for the CEV. If you specify ``UseAwsProvidedLatestImage``, you can't also specify ``ImageId``.
 	UseAwsProvidedLatestImage *bool `pulumi:"useAwsProvidedLatestImage"`
 }
 
 // The set of arguments for constructing a CustomDbEngineVersion resource.
 type CustomDbEngineVersionArgs struct {
-	// The name of an Amazon S3 bucket that contains database installation files for your CEV. For example, a valid bucket name is `my-custom-installation-files`.
+	// The name of an Amazon S3 bucket that contains database installation files for your CEV. For example, a valid bucket name is ``my-custom-installation-files``.
 	DatabaseInstallationFilesS3BucketName pulumi.StringPtrInput
-	// The Amazon S3 directory that contains the database installation files for your CEV. For example, a valid bucket name is `123456789012/cev1`. If this setting isn't specified, no prefix is assumed.
+	// The Amazon S3 directory that contains the database installation files for your CEV. For example, a valid bucket name is ``123456789012/cev1``. If this setting isn't specified, no prefix is assumed.
 	DatabaseInstallationFilesS3Prefix pulumi.StringPtrInput
 	// An optional description of your CEV.
 	Description pulumi.StringPtrInput
-	// The database engine to use for your custom engine version (CEV). The only supported value is `custom-oracle-ee`.
+	// The database engine to use for your custom engine version (CEV).
+	//  Valid values:
+	//   +   ``custom-oracle-ee``
+	//   +   ``custom-oracle-ee-cdb``
 	Engine pulumi.StringInput
-	// The name of your CEV. The name format is 19.customized_string . For example, a valid name is 19.my_cev1. This setting is required for RDS Custom for Oracle, but optional for Amazon RDS. The combination of Engine and EngineVersion is unique per customer per Region.
+	// The name of your CEV. The name format is ``major version.customized_string``. For example, a valid CEV name is ``19.my_cev1``. This setting is required for RDS Custom for Oracle, but optional for Amazon RDS. The combination of ``Engine`` and ``EngineVersion`` is unique per customer per Region.
+	//   *Constraints:* Minimum length is 1. Maximum length is 60.
+	//   *Pattern:* ``^[a-z0-9_.-]{1,60$``}
 	EngineVersion pulumi.StringInput
-	// The identifier of Amazon Machine Image (AMI) used for CEV.
+	// A value that indicates the ID of the AMI.
 	ImageId pulumi.StringPtrInput
-	// The AWS KMS key identifier for an encrypted CEV. A symmetric KMS key is required for RDS Custom, but optional for Amazon RDS.
+	// The AWS KMS key identifier for an encrypted CEV. A symmetric encryption KMS key is required for RDS Custom, but optional for Amazon RDS.
+	//  If you have an existing symmetric encryption KMS key in your account, you can use it with RDS Custom. No further action is necessary. If you don't already have a symmetric encryption KMS key in your account, follow the instructions in [Creating a symmetric encryption KMS key](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html#create-symmetric-cmk) in the *Key Management Service Developer Guide*.
+	//  You can choose the same symmetric encryption key when you create a CEV and a DB instance, or choose different keys.
 	KmsKeyId pulumi.StringPtrInput
 	// The CEV manifest, which is a JSON document that describes the installation .zip files stored in Amazon S3. Specify the name/value pairs in a file or a quoted string. RDS Custom applies the patches in the order in which they are listed.
+	//  The following JSON fields are valid:
+	//   + MediaImportTemplateVersion Version of the CEV manifest. The date is in the format YYYY-MM-DD. + databaseInstallationFileNames Ordered list of installation files for the CEV. + opatchFileNames Ordered list of OPatch installers used for the Oracle DB engine. + psuRuPatchFileNames The PSU and RU patches for this CEV. + OtherPatchFileNames The patches that are not in the list of PSU and RU patches. Amazon RDS applies these patches after applying the PSU and RU patches.
+	//      For more information, see [Creating the CEV manifest](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.html#custom-cev.preparing.manifest) in the *Amazon RDS User Guide*.
 	Manifest pulumi.StringPtrInput
-	// The identifier of the source custom engine version.
+	// The ARN of a CEV to use as a source for creating a new CEV. You can specify a different Amazon Machine Imagine (AMI) by using either ``Source`` or ``UseAwsProvidedLatestImage``. You can't specify a different JSON manifest when you specify ``SourceCustomDbEngineVersionIdentifier``.
 	SourceCustomDbEngineVersionIdentifier pulumi.StringPtrInput
-	// The availability status to be assigned to the CEV.
+	// A value that indicates the status of a custom engine version (CEV).
 	Status CustomDbEngineVersionStatusPtrInput
-	// An array of key-value pairs to apply to this resource.
+	// A list of tags. For more information, see [Tagging Amazon RDS Resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html) in the *Amazon RDS User Guide.*
 	Tags aws.TagArrayInput
-	// A value that indicates whether AWS provided latest image is applied automatically to the Custom Engine Version. By default, AWS provided latest image is applied automatically. This value is only applied on create.
+	// Specifies whether to use the latest service-provided Amazon Machine Image (AMI) for the CEV. If you specify ``UseAwsProvidedLatestImage``, you can't also specify ``ImageId``.
 	UseAwsProvidedLatestImage pulumi.BoolPtrInput
 }
 
@@ -194,12 +224,12 @@ func (o CustomDbEngineVersionOutput) ToCustomDbEngineVersionOutputWithContext(ct
 	return o
 }
 
-// The name of an Amazon S3 bucket that contains database installation files for your CEV. For example, a valid bucket name is `my-custom-installation-files`.
+// The name of an Amazon S3 bucket that contains database installation files for your CEV. For example, a valid bucket name is “my-custom-installation-files“.
 func (o CustomDbEngineVersionOutput) DatabaseInstallationFilesS3BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomDbEngineVersion) pulumi.StringPtrOutput { return v.DatabaseInstallationFilesS3BucketName }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon S3 directory that contains the database installation files for your CEV. For example, a valid bucket name is `123456789012/cev1`. If this setting isn't specified, no prefix is assumed.
+// The Amazon S3 directory that contains the database installation files for your CEV. For example, a valid bucket name is “123456789012/cev1“. If this setting isn't specified, no prefix is assumed.
 func (o CustomDbEngineVersionOutput) DatabaseInstallationFilesS3Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomDbEngineVersion) pulumi.StringPtrOutput { return v.DatabaseInstallationFilesS3Prefix }).(pulumi.StringPtrOutput)
 }
@@ -214,47 +244,61 @@ func (o CustomDbEngineVersionOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomDbEngineVersion) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The database engine to use for your custom engine version (CEV). The only supported value is `custom-oracle-ee`.
+// The database engine to use for your custom engine version (CEV).
+//
+//	Valid values:
+//	 +   ``custom-oracle-ee``
+//	 +   ``custom-oracle-ee-cdb``
 func (o CustomDbEngineVersionOutput) Engine() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomDbEngineVersion) pulumi.StringOutput { return v.Engine }).(pulumi.StringOutput)
 }
 
-// The name of your CEV. The name format is 19.customized_string . For example, a valid name is 19.my_cev1. This setting is required for RDS Custom for Oracle, but optional for Amazon RDS. The combination of Engine and EngineVersion is unique per customer per Region.
+// The name of your CEV. The name format is “major version.customized_string“. For example, a valid CEV name is “19.my_cev1“. This setting is required for RDS Custom for Oracle, but optional for Amazon RDS. The combination of “Engine“ and “EngineVersion“ is unique per customer per Region.
+//
+//	*Constraints:* Minimum length is 1. Maximum length is 60.
+//	*Pattern:* ``^[a-z0-9_.-]{1,60$``}
 func (o CustomDbEngineVersionOutput) EngineVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomDbEngineVersion) pulumi.StringOutput { return v.EngineVersion }).(pulumi.StringOutput)
 }
 
-// The identifier of Amazon Machine Image (AMI) used for CEV.
+// A value that indicates the ID of the AMI.
 func (o CustomDbEngineVersionOutput) ImageId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomDbEngineVersion) pulumi.StringPtrOutput { return v.ImageId }).(pulumi.StringPtrOutput)
 }
 
-// The AWS KMS key identifier for an encrypted CEV. A symmetric KMS key is required for RDS Custom, but optional for Amazon RDS.
+// The AWS KMS key identifier for an encrypted CEV. A symmetric encryption KMS key is required for RDS Custom, but optional for Amazon RDS.
+//
+//	If you have an existing symmetric encryption KMS key in your account, you can use it with RDS Custom. No further action is necessary. If you don't already have a symmetric encryption KMS key in your account, follow the instructions in [Creating a symmetric encryption KMS key](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html#create-symmetric-cmk) in the *Key Management Service Developer Guide*.
+//	You can choose the same symmetric encryption key when you create a CEV and a DB instance, or choose different keys.
 func (o CustomDbEngineVersionOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomDbEngineVersion) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
 // The CEV manifest, which is a JSON document that describes the installation .zip files stored in Amazon S3. Specify the name/value pairs in a file or a quoted string. RDS Custom applies the patches in the order in which they are listed.
+//
+//	The following JSON fields are valid:
+//	 + MediaImportTemplateVersion Version of the CEV manifest. The date is in the format YYYY-MM-DD. + databaseInstallationFileNames Ordered list of installation files for the CEV. + opatchFileNames Ordered list of OPatch installers used for the Oracle DB engine. + psuRuPatchFileNames The PSU and RU patches for this CEV. + OtherPatchFileNames The patches that are not in the list of PSU and RU patches. Amazon RDS applies these patches after applying the PSU and RU patches.
+//	    For more information, see [Creating the CEV manifest](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.html#custom-cev.preparing.manifest) in the *Amazon RDS User Guide*.
 func (o CustomDbEngineVersionOutput) Manifest() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomDbEngineVersion) pulumi.StringPtrOutput { return v.Manifest }).(pulumi.StringPtrOutput)
 }
 
-// The identifier of the source custom engine version.
+// The ARN of a CEV to use as a source for creating a new CEV. You can specify a different Amazon Machine Imagine (AMI) by using either “Source“ or “UseAwsProvidedLatestImage“. You can't specify a different JSON manifest when you specify “SourceCustomDbEngineVersionIdentifier“.
 func (o CustomDbEngineVersionOutput) SourceCustomDbEngineVersionIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomDbEngineVersion) pulumi.StringPtrOutput { return v.SourceCustomDbEngineVersionIdentifier }).(pulumi.StringPtrOutput)
 }
 
-// The availability status to be assigned to the CEV.
+// A value that indicates the status of a custom engine version (CEV).
 func (o CustomDbEngineVersionOutput) Status() CustomDbEngineVersionStatusPtrOutput {
 	return o.ApplyT(func(v *CustomDbEngineVersion) CustomDbEngineVersionStatusPtrOutput { return v.Status }).(CustomDbEngineVersionStatusPtrOutput)
 }
 
-// An array of key-value pairs to apply to this resource.
+// A list of tags. For more information, see [Tagging Amazon RDS Resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html) in the *Amazon RDS User Guide.*
 func (o CustomDbEngineVersionOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *CustomDbEngineVersion) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
-// A value that indicates whether AWS provided latest image is applied automatically to the Custom Engine Version. By default, AWS provided latest image is applied automatically. This value is only applied on create.
+// Specifies whether to use the latest service-provided Amazon Machine Image (AMI) for the CEV. If you specify “UseAwsProvidedLatestImage“, you can't also specify “ImageId“.
 func (o CustomDbEngineVersionOutput) UseAwsProvidedLatestImage() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CustomDbEngineVersion) pulumi.BoolPtrOutput { return v.UseAwsProvidedLatestImage }).(pulumi.BoolPtrOutput)
 }

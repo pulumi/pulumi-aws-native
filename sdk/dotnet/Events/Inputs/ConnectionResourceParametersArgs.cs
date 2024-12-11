@@ -12,9 +12,17 @@ namespace Pulumi.AwsNative.Events.Inputs
 
     public sealed class ConnectionResourceParametersArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// For connections to private APIs, the Amazon Resource Name (ARN) of the resource association EventBridge created between the connection and the private API's resource configuration.
+        /// 
+        /// &gt; The value of this property is set by EventBridge . Any value you specify in your template is ignored.
+        /// </summary>
         [Input("resourceAssociationArn")]
         public Input<string>? ResourceAssociationArn { get; set; }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Amazon VPC Lattice resource configuration for the resource endpoint.
+        /// </summary>
         [Input("resourceConfigurationArn", required: true)]
         public Input<string> ResourceConfigurationArn { get; set; } = null!;
 

@@ -87,6 +87,16 @@ export const CertificateStatus = {
  */
 export type CertificateStatus = (typeof CertificateStatus)[keyof typeof CertificateStatus];
 
+export const CommandNamespace = {
+    AwsIoT: "AWS-IoT",
+    AwsIoTFleetWise: "AWS-IoT-FleetWise",
+} as const;
+
+/**
+ * The namespace to which the command belongs.
+ */
+export type CommandNamespace = (typeof CommandNamespace)[keyof typeof CommandNamespace];
+
 export const CustomMetricMetricType = {
     StringList: "string-list",
     IpAddressList: "ip-address-list",

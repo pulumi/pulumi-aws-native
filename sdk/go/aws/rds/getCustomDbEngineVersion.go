@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The AWS::RDS::CustomDBEngineVersion resource creates an Amazon RDS custom DB engine version.
+// Creates a custom DB engine version (CEV).
 func LookupCustomDbEngineVersion(ctx *pulumi.Context, args *LookupCustomDbEngineVersionArgs, opts ...pulumi.InvokeOption) (*LookupCustomDbEngineVersionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupCustomDbEngineVersionResult
@@ -24,9 +24,14 @@ func LookupCustomDbEngineVersion(ctx *pulumi.Context, args *LookupCustomDbEngine
 }
 
 type LookupCustomDbEngineVersionArgs struct {
-	// The database engine to use for your custom engine version (CEV). The only supported value is `custom-oracle-ee`.
+	// The database engine to use for your custom engine version (CEV).
+	//  Valid values:
+	//   +   ``custom-oracle-ee``
+	//   +   ``custom-oracle-ee-cdb``
 	Engine string `pulumi:"engine"`
-	// The name of your CEV. The name format is 19.customized_string . For example, a valid name is 19.my_cev1. This setting is required for RDS Custom for Oracle, but optional for Amazon RDS. The combination of Engine and EngineVersion is unique per customer per Region.
+	// The name of your CEV. The name format is ``major version.customized_string``. For example, a valid CEV name is ``19.my_cev1``. This setting is required for RDS Custom for Oracle, but optional for Amazon RDS. The combination of ``Engine`` and ``EngineVersion`` is unique per customer per Region.
+	//   *Constraints:* Minimum length is 1. Maximum length is 60.
+	//   *Pattern:* ``^[a-z0-9_.-]{1,60$``}
 	EngineVersion string `pulumi:"engineVersion"`
 }
 
@@ -35,9 +40,9 @@ type LookupCustomDbEngineVersionResult struct {
 	DbEngineVersionArn *string `pulumi:"dbEngineVersionArn"`
 	// An optional description of your CEV.
 	Description *string `pulumi:"description"`
-	// The availability status to be assigned to the CEV.
+	// A value that indicates the status of a custom engine version (CEV).
 	Status *CustomDbEngineVersionStatus `pulumi:"status"`
-	// An array of key-value pairs to apply to this resource.
+	// A list of tags. For more information, see [Tagging Amazon RDS Resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html) in the *Amazon RDS User Guide.*
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -61,9 +66,14 @@ func LookupCustomDbEngineVersionOutput(ctx *pulumi.Context, args LookupCustomDbE
 }
 
 type LookupCustomDbEngineVersionOutputArgs struct {
-	// The database engine to use for your custom engine version (CEV). The only supported value is `custom-oracle-ee`.
+	// The database engine to use for your custom engine version (CEV).
+	//  Valid values:
+	//   +   ``custom-oracle-ee``
+	//   +   ``custom-oracle-ee-cdb``
 	Engine pulumi.StringInput `pulumi:"engine"`
-	// The name of your CEV. The name format is 19.customized_string . For example, a valid name is 19.my_cev1. This setting is required for RDS Custom for Oracle, but optional for Amazon RDS. The combination of Engine and EngineVersion is unique per customer per Region.
+	// The name of your CEV. The name format is ``major version.customized_string``. For example, a valid CEV name is ``19.my_cev1``. This setting is required for RDS Custom for Oracle, but optional for Amazon RDS. The combination of ``Engine`` and ``EngineVersion`` is unique per customer per Region.
+	//   *Constraints:* Minimum length is 1. Maximum length is 60.
+	//   *Pattern:* ``^[a-z0-9_.-]{1,60$``}
 	EngineVersion pulumi.StringInput `pulumi:"engineVersion"`
 }
 
@@ -95,12 +105,12 @@ func (o LookupCustomDbEngineVersionResultOutput) Description() pulumi.StringPtrO
 	return o.ApplyT(func(v LookupCustomDbEngineVersionResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The availability status to be assigned to the CEV.
+// A value that indicates the status of a custom engine version (CEV).
 func (o LookupCustomDbEngineVersionResultOutput) Status() CustomDbEngineVersionStatusPtrOutput {
 	return o.ApplyT(func(v LookupCustomDbEngineVersionResult) *CustomDbEngineVersionStatus { return v.Status }).(CustomDbEngineVersionStatusPtrOutput)
 }
 
-// An array of key-value pairs to apply to this resource.
+// A list of tags. For more information, see [Tagging Amazon RDS Resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html) in the *Amazon RDS User Guide.*
 func (o LookupCustomDbEngineVersionResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupCustomDbEngineVersionResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

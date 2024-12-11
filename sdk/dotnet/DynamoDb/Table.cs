@@ -376,8 +376,8 @@ namespace Pulumi.AwsNative.DynamoDb
         public Output<ImmutableArray<Outputs.TableGlobalSecondaryIndex>> GlobalSecondaryIndexes { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the properties of data being imported from the S3 bucket source to the table.
-        ///   If you specify the ``ImportSourceSpecification`` property, and also specify either the ``StreamSpecification``, the ``TableClass`` property, or the ``DeletionProtectionEnabled`` property, the IAM entity creating/updating stack must have ``UpdateTable`` permission.
+        /// Specifies the properties of data being imported from the S3 bucket source to the" table.
+        ///   If you specify the ``ImportSourceSpecification`` property, and also specify either the ``StreamSpecification``, the ``TableClass`` property, the ``DeletionProtectionEnabled`` property, or the ``WarmThroughput`` property, the IAM entity creating/updating stack must have ``UpdateTable`` permission.
         /// </summary>
         [Output("importSourceSpecification")]
         public Output<Outputs.TableImportSourceSpecification?> ImportSourceSpecification { get; private set; } = null!;
@@ -584,8 +584,8 @@ namespace Pulumi.AwsNative.DynamoDb
         }
 
         /// <summary>
-        /// Specifies the properties of data being imported from the S3 bucket source to the table.
-        ///   If you specify the ``ImportSourceSpecification`` property, and also specify either the ``StreamSpecification``, the ``TableClass`` property, or the ``DeletionProtectionEnabled`` property, the IAM entity creating/updating stack must have ``UpdateTable`` permission.
+        /// Specifies the properties of data being imported from the S3 bucket source to the" table.
+        ///   If you specify the ``ImportSourceSpecification`` property, and also specify either the ``StreamSpecification``, the ``TableClass`` property, the ``DeletionProtectionEnabled`` property, or the ``WarmThroughput`` property, the IAM entity creating/updating stack must have ``UpdateTable`` permission.
         /// </summary>
         [Input("importSourceSpecification")]
         public Input<Inputs.TableImportSourceSpecificationArgs>? ImportSourceSpecification { get; set; }

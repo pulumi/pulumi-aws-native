@@ -17,14 +17,22 @@ import (
 type InvoiceUnit struct {
 	pulumi.CustomResourceState
 
-	Description            pulumi.StringPtrOutput `pulumi:"description"`
-	InvoiceReceiver        pulumi.StringOutput    `pulumi:"invoiceReceiver"`
-	InvoiceUnitArn         pulumi.StringOutput    `pulumi:"invoiceUnitArn"`
-	LastModified           pulumi.Float64Output   `pulumi:"lastModified"`
-	Name                   pulumi.StringOutput    `pulumi:"name"`
-	ResourceTags           aws.TagArrayOutput     `pulumi:"resourceTags"`
-	Rule                   InvoiceUnitRuleOutput  `pulumi:"rule"`
-	TaxInheritanceDisabled pulumi.BoolPtrOutput   `pulumi:"taxInheritanceDisabled"`
+	// The assigned description for an invoice unit. This information can't be modified or deleted.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The account that receives invoices related to the invoice unit.
+	InvoiceReceiver pulumi.StringOutput `pulumi:"invoiceReceiver"`
+	// The ARN to identify an invoice unit. This information can't be modified or deleted.
+	InvoiceUnitArn pulumi.StringOutput `pulumi:"invoiceUnitArn"`
+	// The last time the invoice unit was updated. This is important to determine the version of invoice unit configuration used to create the invoices. Any invoice created after this modified time will use this invoice unit configuration.
+	LastModified pulumi.Float64Output `pulumi:"lastModified"`
+	// A unique name that is distinctive within your AWS .
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The tag structure that contains a tag key and value.
+	ResourceTags aws.TagArrayOutput `pulumi:"resourceTags"`
+	// An `InvoiceUnitRule` object used the categorize invoice units.
+	Rule InvoiceUnitRuleOutput `pulumi:"rule"`
+	// Whether the invoice unit based tax inheritance is/ should be enabled or disabled.
+	TaxInheritanceDisabled pulumi.BoolPtrOutput `pulumi:"taxInheritanceDisabled"`
 }
 
 // NewInvoiceUnit registers a new resource with the given unique name, arguments, and options.
@@ -78,21 +86,33 @@ func (InvoiceUnitState) ElementType() reflect.Type {
 }
 
 type invoiceUnitArgs struct {
-	Description            *string         `pulumi:"description"`
-	InvoiceReceiver        string          `pulumi:"invoiceReceiver"`
-	Name                   *string         `pulumi:"name"`
-	ResourceTags           []aws.Tag       `pulumi:"resourceTags"`
-	Rule                   InvoiceUnitRule `pulumi:"rule"`
-	TaxInheritanceDisabled *bool           `pulumi:"taxInheritanceDisabled"`
+	// The assigned description for an invoice unit. This information can't be modified or deleted.
+	Description *string `pulumi:"description"`
+	// The account that receives invoices related to the invoice unit.
+	InvoiceReceiver string `pulumi:"invoiceReceiver"`
+	// A unique name that is distinctive within your AWS .
+	Name *string `pulumi:"name"`
+	// The tag structure that contains a tag key and value.
+	ResourceTags []aws.Tag `pulumi:"resourceTags"`
+	// An `InvoiceUnitRule` object used the categorize invoice units.
+	Rule InvoiceUnitRule `pulumi:"rule"`
+	// Whether the invoice unit based tax inheritance is/ should be enabled or disabled.
+	TaxInheritanceDisabled *bool `pulumi:"taxInheritanceDisabled"`
 }
 
 // The set of arguments for constructing a InvoiceUnit resource.
 type InvoiceUnitArgs struct {
-	Description            pulumi.StringPtrInput
-	InvoiceReceiver        pulumi.StringInput
-	Name                   pulumi.StringPtrInput
-	ResourceTags           aws.TagArrayInput
-	Rule                   InvoiceUnitRuleInput
+	// The assigned description for an invoice unit. This information can't be modified or deleted.
+	Description pulumi.StringPtrInput
+	// The account that receives invoices related to the invoice unit.
+	InvoiceReceiver pulumi.StringInput
+	// A unique name that is distinctive within your AWS .
+	Name pulumi.StringPtrInput
+	// The tag structure that contains a tag key and value.
+	ResourceTags aws.TagArrayInput
+	// An `InvoiceUnitRule` object used the categorize invoice units.
+	Rule InvoiceUnitRuleInput
+	// Whether the invoice unit based tax inheritance is/ should be enabled or disabled.
 	TaxInheritanceDisabled pulumi.BoolPtrInput
 }
 
@@ -133,34 +153,42 @@ func (o InvoiceUnitOutput) ToInvoiceUnitOutputWithContext(ctx context.Context) I
 	return o
 }
 
+// The assigned description for an invoice unit. This information can't be modified or deleted.
 func (o InvoiceUnitOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InvoiceUnit) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The account that receives invoices related to the invoice unit.
 func (o InvoiceUnitOutput) InvoiceReceiver() pulumi.StringOutput {
 	return o.ApplyT(func(v *InvoiceUnit) pulumi.StringOutput { return v.InvoiceReceiver }).(pulumi.StringOutput)
 }
 
+// The ARN to identify an invoice unit. This information can't be modified or deleted.
 func (o InvoiceUnitOutput) InvoiceUnitArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *InvoiceUnit) pulumi.StringOutput { return v.InvoiceUnitArn }).(pulumi.StringOutput)
 }
 
+// The last time the invoice unit was updated. This is important to determine the version of invoice unit configuration used to create the invoices. Any invoice created after this modified time will use this invoice unit configuration.
 func (o InvoiceUnitOutput) LastModified() pulumi.Float64Output {
 	return o.ApplyT(func(v *InvoiceUnit) pulumi.Float64Output { return v.LastModified }).(pulumi.Float64Output)
 }
 
+// A unique name that is distinctive within your AWS .
 func (o InvoiceUnitOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *InvoiceUnit) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The tag structure that contains a tag key and value.
 func (o InvoiceUnitOutput) ResourceTags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *InvoiceUnit) aws.TagArrayOutput { return v.ResourceTags }).(aws.TagArrayOutput)
 }
 
+// An `InvoiceUnitRule` object used the categorize invoice units.
 func (o InvoiceUnitOutput) Rule() InvoiceUnitRuleOutput {
 	return o.ApplyT(func(v *InvoiceUnit) InvoiceUnitRuleOutput { return v.Rule }).(InvoiceUnitRuleOutput)
 }
 
+// Whether the invoice unit based tax inheritance is/ should be enabled or disabled.
 func (o InvoiceUnitOutput) TaxInheritanceDisabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *InvoiceUnit) pulumi.BoolPtrOutput { return v.TaxInheritanceDisabled }).(pulumi.BoolPtrOutput)
 }

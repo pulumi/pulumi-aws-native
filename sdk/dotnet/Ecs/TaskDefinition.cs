@@ -332,6 +332,9 @@ namespace Pulumi.AwsNative.Ecs
         [Output("cpu")]
         public Output<string?> Cpu { get; private set; } = null!;
 
+        [Output("enableFaultInjection")]
+        public Output<bool?> EnableFaultInjection { get; private set; } = null!;
+
         /// <summary>
         /// The ephemeral storage settings to use for tasks run with the task definition.
         /// </summary>
@@ -498,6 +501,7 @@ namespace Pulumi.AwsNative.Ecs
                 {
                     "containerDefinitions[*]",
                     "cpu",
+                    "enableFaultInjection",
                     "ephemeralStorage",
                     "executionRoleArn",
                     "family",
@@ -563,6 +567,9 @@ namespace Pulumi.AwsNative.Ecs
         /// </summary>
         [Input("cpu")]
         public Input<string>? Cpu { get; set; }
+
+        [Input("enableFaultInjection")]
+        public Input<bool>? EnableFaultInjection { get; set; }
 
         /// <summary>
         /// The ephemeral storage settings to use for tasks run with the task definition.

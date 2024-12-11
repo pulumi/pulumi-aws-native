@@ -41,11 +41,17 @@ export class ManagedLoginBranding extends pulumi.CustomResource {
      * An array of image files that you want to apply to roles like backgrounds, logos, and icons. Each object must also indicate whether it is for dark mode, light mode, or browser-adaptive mode.
      */
     public readonly assets!: pulumi.Output<outputs.cognito.ManagedLoginBrandingAssetType[] | undefined>;
+    /**
+     * The app client that's assigned to the branding style that you want more information about.
+     */
     public readonly clientId!: pulumi.Output<string | undefined>;
     /**
      * The ID of the managed login branding style.
      */
     public /*out*/ readonly managedLoginBrandingId!: pulumi.Output<string>;
+    /**
+     * When `true` , returns values for branding options that are unchanged from Amazon Cognito defaults. When `false` or when you omit this parameter, returns only values that you customized in your branding style.
+     */
     public readonly returnMergedResources!: pulumi.Output<boolean | undefined>;
     /**
      * A JSON file, encoded as a `Document` type, with the the settings that you want to apply to your style.
@@ -54,7 +60,9 @@ export class ManagedLoginBranding extends pulumi.CustomResource {
      */
     public readonly settings!: pulumi.Output<any | undefined>;
     /**
-     * When true, applies the default branding style options. This option reverts to a "blank" style that you can modify later in the branding designer.
+     * When true, applies the default branding style options. This option reverts to default style options that are managed by Amazon Cognito. You can modify them later in the branding designer.
+     *
+     * When you specify `true` for this option, you must also omit values for `Settings` and `Assets` in the request.
      */
     public readonly useCognitoProvidedValues!: pulumi.Output<boolean | undefined>;
     /**
@@ -107,7 +115,13 @@ export interface ManagedLoginBrandingArgs {
      * An array of image files that you want to apply to roles like backgrounds, logos, and icons. Each object must also indicate whether it is for dark mode, light mode, or browser-adaptive mode.
      */
     assets?: pulumi.Input<pulumi.Input<inputs.cognito.ManagedLoginBrandingAssetTypeArgs>[]>;
+    /**
+     * The app client that's assigned to the branding style that you want more information about.
+     */
     clientId?: pulumi.Input<string>;
+    /**
+     * When `true` , returns values for branding options that are unchanged from Amazon Cognito defaults. When `false` or when you omit this parameter, returns only values that you customized in your branding style.
+     */
     returnMergedResources?: pulumi.Input<boolean>;
     /**
      * A JSON file, encoded as a `Document` type, with the the settings that you want to apply to your style.
@@ -116,7 +130,9 @@ export interface ManagedLoginBrandingArgs {
      */
     settings?: any;
     /**
-     * When true, applies the default branding style options. This option reverts to a "blank" style that you can modify later in the branding designer.
+     * When true, applies the default branding style options. This option reverts to default style options that are managed by Amazon Cognito. You can modify them later in the branding designer.
+     *
+     * When you specify `true` for this option, you must also omit values for `Settings` and `Assets` in the request.
      */
     useCognitoProvidedValues?: pulumi.Input<boolean>;
     /**

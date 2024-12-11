@@ -72,13 +72,13 @@
       "permissions" : [ "iam:GetRole", "kms:GenerateDataKey", "kms:GenerateDataKeyPair", "kms:GenerateDataKeyPairWithoutPlaintext", "kms:GenerateDataKeyWithoutPlaintext", "kms:Encrypt", "kms:Decrypt", "s3:GetObject", "s3:HeadBucket", "s3:GetBucketLocation", "imagebuilder:TagResource", "imagebuilder:GetWorkflow", "imagebuilder:CreateWorkflow" ]
     },
     "read" : {
-      "permissions" : [ "imagebuilder:GetWorkflow" ]
+      "permissions" : [ "imagebuilder:GetWorkflow", "kms:Decrypt" ]
     },
     "delete" : {
       "permissions" : [ "imagebuilder:GetWorkflow", "imagebuilder:UnTagResource", "imagebuilder:DeleteWorkflow" ]
     },
     "list" : {
-      "permissions" : [ "imagebuilder:ListWorkflows" ],
+      "permissions" : [ "imagebuilder:ListWorkflows", "imagebuilder:ListWorkflowBuildVersions" ],
       "handlerSchema" : {
         "properties" : {
           "Arn" : {

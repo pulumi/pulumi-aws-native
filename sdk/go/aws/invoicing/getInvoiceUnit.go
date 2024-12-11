@@ -24,16 +24,23 @@ func LookupInvoiceUnit(ctx *pulumi.Context, args *LookupInvoiceUnitArgs, opts ..
 }
 
 type LookupInvoiceUnitArgs struct {
+	// The ARN to identify an invoice unit. This information can't be modified or deleted.
 	InvoiceUnitArn string `pulumi:"invoiceUnitArn"`
 }
 
 type LookupInvoiceUnitResult struct {
-	Description            *string          `pulumi:"description"`
-	InvoiceUnitArn         *string          `pulumi:"invoiceUnitArn"`
-	LastModified           *float64         `pulumi:"lastModified"`
-	ResourceTags           []aws.Tag        `pulumi:"resourceTags"`
-	Rule                   *InvoiceUnitRule `pulumi:"rule"`
-	TaxInheritanceDisabled *bool            `pulumi:"taxInheritanceDisabled"`
+	// The assigned description for an invoice unit. This information can't be modified or deleted.
+	Description *string `pulumi:"description"`
+	// The ARN to identify an invoice unit. This information can't be modified or deleted.
+	InvoiceUnitArn *string `pulumi:"invoiceUnitArn"`
+	// The last time the invoice unit was updated. This is important to determine the version of invoice unit configuration used to create the invoices. Any invoice created after this modified time will use this invoice unit configuration.
+	LastModified *float64 `pulumi:"lastModified"`
+	// The tag structure that contains a tag key and value.
+	ResourceTags []aws.Tag `pulumi:"resourceTags"`
+	// An `InvoiceUnitRule` object used the categorize invoice units.
+	Rule *InvoiceUnitRule `pulumi:"rule"`
+	// Whether the invoice unit based tax inheritance is/ should be enabled or disabled.
+	TaxInheritanceDisabled *bool `pulumi:"taxInheritanceDisabled"`
 }
 
 func LookupInvoiceUnitOutput(ctx *pulumi.Context, args LookupInvoiceUnitOutputArgs, opts ...pulumi.InvokeOption) LookupInvoiceUnitResultOutput {
@@ -56,6 +63,7 @@ func LookupInvoiceUnitOutput(ctx *pulumi.Context, args LookupInvoiceUnitOutputAr
 }
 
 type LookupInvoiceUnitOutputArgs struct {
+	// The ARN to identify an invoice unit. This information can't be modified or deleted.
 	InvoiceUnitArn pulumi.StringInput `pulumi:"invoiceUnitArn"`
 }
 
@@ -77,26 +85,32 @@ func (o LookupInvoiceUnitResultOutput) ToLookupInvoiceUnitResultOutputWithContex
 	return o
 }
 
+// The assigned description for an invoice unit. This information can't be modified or deleted.
 func (o LookupInvoiceUnitResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupInvoiceUnitResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The ARN to identify an invoice unit. This information can't be modified or deleted.
 func (o LookupInvoiceUnitResultOutput) InvoiceUnitArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupInvoiceUnitResult) *string { return v.InvoiceUnitArn }).(pulumi.StringPtrOutput)
 }
 
+// The last time the invoice unit was updated. This is important to determine the version of invoice unit configuration used to create the invoices. Any invoice created after this modified time will use this invoice unit configuration.
 func (o LookupInvoiceUnitResultOutput) LastModified() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v LookupInvoiceUnitResult) *float64 { return v.LastModified }).(pulumi.Float64PtrOutput)
 }
 
+// The tag structure that contains a tag key and value.
 func (o LookupInvoiceUnitResultOutput) ResourceTags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupInvoiceUnitResult) []aws.Tag { return v.ResourceTags }).(aws.TagArrayOutput)
 }
 
+// An `InvoiceUnitRule` object used the categorize invoice units.
 func (o LookupInvoiceUnitResultOutput) Rule() InvoiceUnitRulePtrOutput {
 	return o.ApplyT(func(v LookupInvoiceUnitResult) *InvoiceUnitRule { return v.Rule }).(InvoiceUnitRulePtrOutput)
 }
 
+// Whether the invoice unit based tax inheritance is/ should be enabled or disabled.
 func (o LookupInvoiceUnitResultOutput) TaxInheritanceDisabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupInvoiceUnitResult) *bool { return v.TaxInheritanceDisabled }).(pulumi.BoolPtrOutput)
 }

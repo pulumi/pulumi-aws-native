@@ -17,18 +17,18 @@ export function getUserPoolGroup(args: GetUserPoolGroupArgs, opts?: pulumi.Invok
 
 export interface GetUserPoolGroupArgs {
     /**
-     * The name of the group. Must be unique.
+     * A name for the group. This name must be unique in your user pool.
      */
     groupName: string;
     /**
-     * The user pool ID for the user pool.
+     * The ID of the user pool where you want to create a user group.
      */
     userPoolId: string;
 }
 
 export interface GetUserPoolGroupResult {
     /**
-     * A string containing the description of the group.
+     * A description of the group that you're creating.
      */
     readonly description?: string;
     /**
@@ -40,7 +40,7 @@ export interface GetUserPoolGroupResult {
      */
     readonly precedence?: number;
     /**
-     * The role Amazon Resource Name (ARN) for the group.
+     * The Amazon Resource Name (ARN) for the IAM role that you want to associate with the group. A group role primarily declares a preferred role for the credentials that you get from an identity pool. Amazon Cognito ID tokens have a `cognito:preferred_role` claim that presents the highest-precedence group that a user belongs to. Both ID and access tokens also contain a `cognito:groups` claim that list all the groups that a user is a member of.
      */
     readonly roleArn?: string;
 }
@@ -57,11 +57,11 @@ export function getUserPoolGroupOutput(args: GetUserPoolGroupOutputArgs, opts?: 
 
 export interface GetUserPoolGroupOutputArgs {
     /**
-     * The name of the group. Must be unique.
+     * A name for the group. This name must be unique in your user pool.
      */
     groupName: pulumi.Input<string>;
     /**
-     * The user pool ID for the user pool.
+     * The ID of the user pool where you want to create a user group.
      */
     userPoolId: pulumi.Input<string>;
 }

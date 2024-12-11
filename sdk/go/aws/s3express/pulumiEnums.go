@@ -10,11 +10,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Specifies the number of Availability Zone that's used for redundancy for the bucket.
+// Specifies the number of Availability Zone or Local Zone that's used for redundancy for the bucket.
 type DirectoryBucketDataRedundancy string
 
 const (
 	DirectoryBucketDataRedundancySingleAvailabilityZone = DirectoryBucketDataRedundancy("SingleAvailabilityZone")
+	DirectoryBucketDataRedundancySingleLocalZone        = DirectoryBucketDataRedundancy("SingleLocalZone")
 )
 
 func (DirectoryBucketDataRedundancy) ElementType() reflect.Type {
@@ -140,6 +141,7 @@ func (o DirectoryBucketDataRedundancyPtrOutput) ToStringPtrOutputWithContext(ctx
 // A concrete instance of `DirectoryBucketDataRedundancyInput` can be one of the following:
 //
 //	DirectoryBucketDataRedundancySingleAvailabilityZone
+//	DirectoryBucketDataRedundancySingleLocalZone
 type DirectoryBucketDataRedundancyInput interface {
 	pulumi.Input
 

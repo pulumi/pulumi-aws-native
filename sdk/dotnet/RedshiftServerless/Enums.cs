@@ -66,6 +66,34 @@ namespace Pulumi.AwsNative.RedshiftServerless
     }
 
     [EnumType]
+    public readonly struct WorkgroupPerformanceTargetStatus : IEquatable<WorkgroupPerformanceTargetStatus>
+    {
+        private readonly string _value;
+
+        private WorkgroupPerformanceTargetStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WorkgroupPerformanceTargetStatus Enabled { get; } = new WorkgroupPerformanceTargetStatus("ENABLED");
+        public static WorkgroupPerformanceTargetStatus Disabled { get; } = new WorkgroupPerformanceTargetStatus("DISABLED");
+
+        public static bool operator ==(WorkgroupPerformanceTargetStatus left, WorkgroupPerformanceTargetStatus right) => left.Equals(right);
+        public static bool operator !=(WorkgroupPerformanceTargetStatus left, WorkgroupPerformanceTargetStatus right) => !left.Equals(right);
+
+        public static explicit operator string(WorkgroupPerformanceTargetStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WorkgroupPerformanceTargetStatus other && Equals(other);
+        public bool Equals(WorkgroupPerformanceTargetStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct WorkgroupStatus : IEquatable<WorkgroupStatus>
     {
         private readonly string _value;

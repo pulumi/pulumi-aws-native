@@ -173,7 +173,10 @@ type ConnectionAuthParameters struct {
 	// The API Key parameters to use for authorization.
 	ApiKeyAuthParameters *ConnectionApiKeyAuthParameters `pulumi:"apiKeyAuthParameters"`
 	// The authorization parameters for Basic authorization.
-	BasicAuthParameters    *ConnectionBasicAuthParameters    `pulumi:"basicAuthParameters"`
+	BasicAuthParameters *ConnectionBasicAuthParameters `pulumi:"basicAuthParameters"`
+	// For private OAuth authentication endpoints. The parameters EventBridge uses to authenticate against the endpoint.
+	//
+	// For more information, see [Authorization methods for connections](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-target-connection-auth.html) in the **Amazon EventBridge User Guide** .
 	ConnectivityParameters *ConnectionConnectivityParameters `pulumi:"connectivityParameters"`
 	// Additional parameters for the connection that are passed through with every invocation to the HTTP endpoint.
 	InvocationHttpParameters *ConnectionHttpParameters `pulumi:"invocationHttpParameters"`
@@ -196,7 +199,10 @@ type ConnectionAuthParametersArgs struct {
 	// The API Key parameters to use for authorization.
 	ApiKeyAuthParameters ConnectionApiKeyAuthParametersPtrInput `pulumi:"apiKeyAuthParameters"`
 	// The authorization parameters for Basic authorization.
-	BasicAuthParameters    ConnectionBasicAuthParametersPtrInput    `pulumi:"basicAuthParameters"`
+	BasicAuthParameters ConnectionBasicAuthParametersPtrInput `pulumi:"basicAuthParameters"`
+	// For private OAuth authentication endpoints. The parameters EventBridge uses to authenticate against the endpoint.
+	//
+	// For more information, see [Authorization methods for connections](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-target-connection-auth.html) in the **Amazon EventBridge User Guide** .
 	ConnectivityParameters ConnectionConnectivityParametersPtrInput `pulumi:"connectivityParameters"`
 	// Additional parameters for the connection that are passed through with every invocation to the HTTP endpoint.
 	InvocationHttpParameters ConnectionHttpParametersPtrInput `pulumi:"invocationHttpParameters"`
@@ -291,6 +297,9 @@ func (o ConnectionAuthParametersOutput) BasicAuthParameters() ConnectionBasicAut
 	return o.ApplyT(func(v ConnectionAuthParameters) *ConnectionBasicAuthParameters { return v.BasicAuthParameters }).(ConnectionBasicAuthParametersPtrOutput)
 }
 
+// For private OAuth authentication endpoints. The parameters EventBridge uses to authenticate against the endpoint.
+//
+// For more information, see [Authorization methods for connections](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-target-connection-auth.html) in the **Amazon EventBridge User Guide** .
 func (o ConnectionAuthParametersOutput) ConnectivityParameters() ConnectionConnectivityParametersPtrOutput {
 	return o.ApplyT(func(v ConnectionAuthParameters) *ConnectionConnectivityParameters { return v.ConnectivityParameters }).(ConnectionConnectivityParametersPtrOutput)
 }
@@ -349,6 +358,9 @@ func (o ConnectionAuthParametersPtrOutput) BasicAuthParameters() ConnectionBasic
 	}).(ConnectionBasicAuthParametersPtrOutput)
 }
 
+// For private OAuth authentication endpoints. The parameters EventBridge uses to authenticate against the endpoint.
+//
+// For more information, see [Authorization methods for connections](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-target-connection-auth.html) in the **Amazon EventBridge User Guide** .
 func (o ConnectionAuthParametersPtrOutput) ConnectivityParameters() ConnectionConnectivityParametersPtrOutput {
 	return o.ApplyT(func(v *ConnectionAuthParameters) *ConnectionConnectivityParameters {
 		if v == nil {
@@ -691,6 +703,7 @@ func (o ConnectionClientParametersPtrOutput) ClientSecret() pulumi.StringPtrOutp
 }
 
 type ConnectionConnectivityParameters struct {
+	// The parameters for EventBridge to use when invoking the resource endpoint.
 	ResourceParameters ConnectionResourceParameters `pulumi:"resourceParameters"`
 }
 
@@ -706,6 +719,7 @@ type ConnectionConnectivityParametersInput interface {
 }
 
 type ConnectionConnectivityParametersArgs struct {
+	// The parameters for EventBridge to use when invoking the resource endpoint.
 	ResourceParameters ConnectionResourceParametersInput `pulumi:"resourceParameters"`
 }
 
@@ -786,6 +800,7 @@ func (o ConnectionConnectivityParametersOutput) ToConnectionConnectivityParamete
 	}).(ConnectionConnectivityParametersPtrOutput)
 }
 
+// The parameters for EventBridge to use when invoking the resource endpoint.
 func (o ConnectionConnectivityParametersOutput) ResourceParameters() ConnectionResourceParametersOutput {
 	return o.ApplyT(func(v ConnectionConnectivityParameters) ConnectionResourceParameters { return v.ResourceParameters }).(ConnectionResourceParametersOutput)
 }
@@ -814,6 +829,7 @@ func (o ConnectionConnectivityParametersPtrOutput) Elem() ConnectionConnectivity
 	}).(ConnectionConnectivityParametersOutput)
 }
 
+// The parameters for EventBridge to use when invoking the resource endpoint.
 func (o ConnectionConnectivityParametersPtrOutput) ResourceParameters() ConnectionResourceParametersPtrOutput {
 	return o.ApplyT(func(v *ConnectionConnectivityParameters) *ConnectionResourceParameters {
 		if v == nil {
@@ -1308,8 +1324,12 @@ func (o ConnectionParameterArrayOutput) Index(i pulumi.IntInput) ConnectionParam
 }
 
 type ConnectionResourceParameters struct {
-	ResourceAssociationArn   *string `pulumi:"resourceAssociationArn"`
-	ResourceConfigurationArn string  `pulumi:"resourceConfigurationArn"`
+	// For connections to private APIs, the Amazon Resource Name (ARN) of the resource association EventBridge created between the connection and the private API's resource configuration.
+	//
+	// > The value of this property is set by EventBridge . Any value you specify in your template is ignored.
+	ResourceAssociationArn *string `pulumi:"resourceAssociationArn"`
+	// The Amazon Resource Name (ARN) of the Amazon VPC Lattice resource configuration for the resource endpoint.
+	ResourceConfigurationArn string `pulumi:"resourceConfigurationArn"`
 }
 
 // ConnectionResourceParametersInput is an input type that accepts ConnectionResourceParametersArgs and ConnectionResourceParametersOutput values.
@@ -1324,8 +1344,12 @@ type ConnectionResourceParametersInput interface {
 }
 
 type ConnectionResourceParametersArgs struct {
-	ResourceAssociationArn   pulumi.StringPtrInput `pulumi:"resourceAssociationArn"`
-	ResourceConfigurationArn pulumi.StringInput    `pulumi:"resourceConfigurationArn"`
+	// For connections to private APIs, the Amazon Resource Name (ARN) of the resource association EventBridge created between the connection and the private API's resource configuration.
+	//
+	// > The value of this property is set by EventBridge . Any value you specify in your template is ignored.
+	ResourceAssociationArn pulumi.StringPtrInput `pulumi:"resourceAssociationArn"`
+	// The Amazon Resource Name (ARN) of the Amazon VPC Lattice resource configuration for the resource endpoint.
+	ResourceConfigurationArn pulumi.StringInput `pulumi:"resourceConfigurationArn"`
 }
 
 func (ConnectionResourceParametersArgs) ElementType() reflect.Type {
@@ -1405,10 +1429,14 @@ func (o ConnectionResourceParametersOutput) ToConnectionResourceParametersPtrOut
 	}).(ConnectionResourceParametersPtrOutput)
 }
 
+// For connections to private APIs, the Amazon Resource Name (ARN) of the resource association EventBridge created between the connection and the private API's resource configuration.
+//
+// > The value of this property is set by EventBridge . Any value you specify in your template is ignored.
 func (o ConnectionResourceParametersOutput) ResourceAssociationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectionResourceParameters) *string { return v.ResourceAssociationArn }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Amazon VPC Lattice resource configuration for the resource endpoint.
 func (o ConnectionResourceParametersOutput) ResourceConfigurationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ConnectionResourceParameters) string { return v.ResourceConfigurationArn }).(pulumi.StringOutput)
 }
@@ -1437,6 +1465,9 @@ func (o ConnectionResourceParametersPtrOutput) Elem() ConnectionResourceParamete
 	}).(ConnectionResourceParametersOutput)
 }
 
+// For connections to private APIs, the Amazon Resource Name (ARN) of the resource association EventBridge created between the connection and the private API's resource configuration.
+//
+// > The value of this property is set by EventBridge . Any value you specify in your template is ignored.
 func (o ConnectionResourceParametersPtrOutput) ResourceAssociationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectionResourceParameters) *string {
 		if v == nil {
@@ -1446,6 +1477,7 @@ func (o ConnectionResourceParametersPtrOutput) ResourceAssociationArn() pulumi.S
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the Amazon VPC Lattice resource configuration for the resource endpoint.
 func (o ConnectionResourceParametersPtrOutput) ResourceConfigurationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectionResourceParameters) *string {
 		if v == nil {
@@ -2198,6 +2230,7 @@ type EventBusTag struct {
 
 // The private resource the HTTP request will be sent to.
 type InvocationConnectivityParametersProperties struct {
+	// The parameters for EventBridge to use when invoking the resource endpoint.
 	ResourceParameters ConnectionResourceParameters `pulumi:"resourceParameters"`
 }
 
@@ -2214,6 +2247,7 @@ type InvocationConnectivityParametersPropertiesInput interface {
 
 // The private resource the HTTP request will be sent to.
 type InvocationConnectivityParametersPropertiesArgs struct {
+	// The parameters for EventBridge to use when invoking the resource endpoint.
 	ResourceParameters ConnectionResourceParametersInput `pulumi:"resourceParameters"`
 }
 
@@ -2295,6 +2329,7 @@ func (o InvocationConnectivityParametersPropertiesOutput) ToInvocationConnectivi
 	}).(InvocationConnectivityParametersPropertiesPtrOutput)
 }
 
+// The parameters for EventBridge to use when invoking the resource endpoint.
 func (o InvocationConnectivityParametersPropertiesOutput) ResourceParameters() ConnectionResourceParametersOutput {
 	return o.ApplyT(func(v InvocationConnectivityParametersProperties) ConnectionResourceParameters {
 		return v.ResourceParameters
@@ -2325,6 +2360,7 @@ func (o InvocationConnectivityParametersPropertiesPtrOutput) Elem() InvocationCo
 	}).(InvocationConnectivityParametersPropertiesOutput)
 }
 
+// The parameters for EventBridge to use when invoking the resource endpoint.
 func (o InvocationConnectivityParametersPropertiesPtrOutput) ResourceParameters() ConnectionResourceParametersPtrOutput {
 	return o.ApplyT(func(v *InvocationConnectivityParametersProperties) *ConnectionResourceParameters {
 		if v == nil {

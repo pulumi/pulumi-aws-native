@@ -30,7 +30,7 @@ class UserPoolResourceServerArgs:
         :param pulumi.Input[str] identifier: A unique resource server identifier for the resource server. The identifier can be an API friendly name like `solar-system-data` . You can also set an API URL like `https://solar-system-data-api.example.com` as your identifier.
                
                Amazon Cognito represents scopes in the access token in the format `$resource-server-identifier/$scope` . Longer scope-identifier strings increase the size of your access tokens.
-        :param pulumi.Input[str] user_pool_id: The user pool ID for the user pool.
+        :param pulumi.Input[str] user_pool_id: The ID of the user pool where you want to create a resource server.
         :param pulumi.Input[str] name: A friendly name for the resource server.
         :param pulumi.Input[Sequence[pulumi.Input['UserPoolResourceServerResourceServerScopeTypeArgs']]] scopes: A list of scopes. Each scope is a map with keys `ScopeName` and `ScopeDescription` .
         """
@@ -59,7 +59,7 @@ class UserPoolResourceServerArgs:
     @pulumi.getter(name="userPoolId")
     def user_pool_id(self) -> pulumi.Input[str]:
         """
-        The user pool ID for the user pool.
+        The ID of the user pool where you want to create a resource server.
         """
         return pulumi.get(self, "user_pool_id")
 
@@ -112,7 +112,7 @@ class UserPoolResourceServer(pulumi.CustomResource):
                Amazon Cognito represents scopes in the access token in the format `$resource-server-identifier/$scope` . Longer scope-identifier strings increase the size of your access tokens.
         :param pulumi.Input[str] name: A friendly name for the resource server.
         :param pulumi.Input[Sequence[pulumi.Input[Union['UserPoolResourceServerResourceServerScopeTypeArgs', 'UserPoolResourceServerResourceServerScopeTypeArgsDict']]]] scopes: A list of scopes. Each scope is a map with keys `ScopeName` and `ScopeDescription` .
-        :param pulumi.Input[str] user_pool_id: The user pool ID for the user pool.
+        :param pulumi.Input[str] user_pool_id: The ID of the user pool where you want to create a resource server.
         """
         ...
     @overload
@@ -219,7 +219,7 @@ class UserPoolResourceServer(pulumi.CustomResource):
     @pulumi.getter(name="userPoolId")
     def user_pool_id(self) -> pulumi.Output[str]:
         """
-        The user pool ID for the user pool.
+        The ID of the user pool where you want to create a resource server.
         """
         return pulumi.get(self, "user_pool_id")
 

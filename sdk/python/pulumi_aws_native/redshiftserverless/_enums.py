@@ -7,6 +7,7 @@ from enum import Enum
 __all__ = [
     'NamespaceLogExport',
     'NamespaceStatus',
+    'WorkgroupPerformanceTargetStatus',
     'WorkgroupStatus',
 ]
 
@@ -21,6 +22,11 @@ class NamespaceStatus(str, Enum):
     AVAILABLE = "AVAILABLE"
     MODIFYING = "MODIFYING"
     DELETING = "DELETING"
+
+
+class WorkgroupPerformanceTargetStatus(str, Enum):
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
 
 
 class WorkgroupStatus(str, Enum):

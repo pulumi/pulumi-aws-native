@@ -161,6 +161,11 @@ if not MYPY:
         The authorization parameters for Basic authorization.
         """
         connectivity_parameters: NotRequired[pulumi.Input['ConnectionConnectivityParametersArgsDict']]
+        """
+        For private OAuth authentication endpoints. The parameters EventBridge uses to authenticate against the endpoint.
+
+        For more information, see [Authorization methods for connections](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-target-connection-auth.html) in the **Amazon EventBridge User Guide** .
+        """
         invocation_http_parameters: NotRequired[pulumi.Input['ConnectionHttpParametersArgsDict']]
         """
         Additional parameters for the connection that are passed through with every invocation to the HTTP endpoint.
@@ -183,6 +188,9 @@ class ConnectionAuthParametersArgs:
         """
         :param pulumi.Input['ConnectionApiKeyAuthParametersArgs'] api_key_auth_parameters: The API Key parameters to use for authorization.
         :param pulumi.Input['ConnectionBasicAuthParametersArgs'] basic_auth_parameters: The authorization parameters for Basic authorization.
+        :param pulumi.Input['ConnectionConnectivityParametersArgs'] connectivity_parameters: For private OAuth authentication endpoints. The parameters EventBridge uses to authenticate against the endpoint.
+               
+               For more information, see [Authorization methods for connections](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-target-connection-auth.html) in the **Amazon EventBridge User Guide** .
         :param pulumi.Input['ConnectionHttpParametersArgs'] invocation_http_parameters: Additional parameters for the connection that are passed through with every invocation to the HTTP endpoint.
         :param pulumi.Input['ConnectionOAuthParametersArgs'] o_auth_parameters: The OAuth parameters to use for authorization.
         """
@@ -224,6 +232,11 @@ class ConnectionAuthParametersArgs:
     @property
     @pulumi.getter(name="connectivityParameters")
     def connectivity_parameters(self) -> Optional[pulumi.Input['ConnectionConnectivityParametersArgs']]:
+        """
+        For private OAuth authentication endpoints. The parameters EventBridge uses to authenticate against the endpoint.
+
+        For more information, see [Authorization methods for connections](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-target-connection-auth.html) in the **Amazon EventBridge User Guide** .
+        """
         return pulumi.get(self, "connectivity_parameters")
 
     @connectivity_parameters.setter
@@ -358,6 +371,9 @@ class ConnectionClientParametersArgs:
 if not MYPY:
     class ConnectionConnectivityParametersArgsDict(TypedDict):
         resource_parameters: pulumi.Input['ConnectionResourceParametersArgsDict']
+        """
+        The parameters for EventBridge to use when invoking the resource endpoint.
+        """
 elif False:
     ConnectionConnectivityParametersArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -365,11 +381,17 @@ elif False:
 class ConnectionConnectivityParametersArgs:
     def __init__(__self__, *,
                  resource_parameters: pulumi.Input['ConnectionResourceParametersArgs']):
+        """
+        :param pulumi.Input['ConnectionResourceParametersArgs'] resource_parameters: The parameters for EventBridge to use when invoking the resource endpoint.
+        """
         pulumi.set(__self__, "resource_parameters", resource_parameters)
 
     @property
     @pulumi.getter(name="resourceParameters")
     def resource_parameters(self) -> pulumi.Input['ConnectionResourceParametersArgs']:
+        """
+        The parameters for EventBridge to use when invoking the resource endpoint.
+        """
         return pulumi.get(self, "resource_parameters")
 
     @resource_parameters.setter
@@ -611,7 +633,15 @@ class ConnectionParameterArgs:
 if not MYPY:
     class ConnectionResourceParametersArgsDict(TypedDict):
         resource_configuration_arn: pulumi.Input[str]
+        """
+        The Amazon Resource Name (ARN) of the Amazon VPC Lattice resource configuration for the resource endpoint.
+        """
         resource_association_arn: NotRequired[pulumi.Input[str]]
+        """
+        For connections to private APIs, the Amazon Resource Name (ARN) of the resource association EventBridge created between the connection and the private API's resource configuration.
+
+        > The value of this property is set by EventBridge . Any value you specify in your template is ignored.
+        """
 elif False:
     ConnectionResourceParametersArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -620,6 +650,12 @@ class ConnectionResourceParametersArgs:
     def __init__(__self__, *,
                  resource_configuration_arn: pulumi.Input[str],
                  resource_association_arn: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] resource_configuration_arn: The Amazon Resource Name (ARN) of the Amazon VPC Lattice resource configuration for the resource endpoint.
+        :param pulumi.Input[str] resource_association_arn: For connections to private APIs, the Amazon Resource Name (ARN) of the resource association EventBridge created between the connection and the private API's resource configuration.
+               
+               > The value of this property is set by EventBridge . Any value you specify in your template is ignored.
+        """
         pulumi.set(__self__, "resource_configuration_arn", resource_configuration_arn)
         if resource_association_arn is not None:
             pulumi.set(__self__, "resource_association_arn", resource_association_arn)
@@ -627,6 +663,9 @@ class ConnectionResourceParametersArgs:
     @property
     @pulumi.getter(name="resourceConfigurationArn")
     def resource_configuration_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the Amazon VPC Lattice resource configuration for the resource endpoint.
+        """
         return pulumi.get(self, "resource_configuration_arn")
 
     @resource_configuration_arn.setter
@@ -636,6 +675,11 @@ class ConnectionResourceParametersArgs:
     @property
     @pulumi.getter(name="resourceAssociationArn")
     def resource_association_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        For connections to private APIs, the Amazon Resource Name (ARN) of the resource association EventBridge created between the connection and the private API's resource configuration.
+
+        > The value of this property is set by EventBridge . Any value you specify in your template is ignored.
+        """
         return pulumi.get(self, "resource_association_arn")
 
     @resource_association_arn.setter
@@ -881,6 +925,9 @@ if not MYPY:
         The private resource the HTTP request will be sent to.
         """
         resource_parameters: pulumi.Input['ConnectionResourceParametersArgsDict']
+        """
+        The parameters for EventBridge to use when invoking the resource endpoint.
+        """
 elif False:
     InvocationConnectivityParametersPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -890,12 +937,16 @@ class InvocationConnectivityParametersPropertiesArgs:
                  resource_parameters: pulumi.Input['ConnectionResourceParametersArgs']):
         """
         The private resource the HTTP request will be sent to.
+        :param pulumi.Input['ConnectionResourceParametersArgs'] resource_parameters: The parameters for EventBridge to use when invoking the resource endpoint.
         """
         pulumi.set(__self__, "resource_parameters", resource_parameters)
 
     @property
     @pulumi.getter(name="resourceParameters")
     def resource_parameters(self) -> pulumi.Input['ConnectionResourceParametersArgs']:
+        """
+        The parameters for EventBridge to use when invoking the resource endpoint.
+        """
         return pulumi.get(self, "resource_parameters")
 
     @resource_parameters.setter

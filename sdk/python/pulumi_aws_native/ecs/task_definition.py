@@ -26,6 +26,7 @@ class TaskDefinitionArgs:
     def __init__(__self__, *,
                  container_definitions: Optional[pulumi.Input[Sequence[pulumi.Input['TaskDefinitionContainerDefinitionArgs']]]] = None,
                  cpu: Optional[pulumi.Input[str]] = None,
+                 enable_fault_injection: Optional[pulumi.Input[bool]] = None,
                  ephemeral_storage: Optional[pulumi.Input['TaskDefinitionEphemeralStorageArgs']] = None,
                  execution_role_arn: Optional[pulumi.Input[str]] = None,
                  family: Optional[pulumi.Input[str]] = None,
@@ -119,6 +120,8 @@ class TaskDefinitionArgs:
             pulumi.set(__self__, "container_definitions", container_definitions)
         if cpu is not None:
             pulumi.set(__self__, "cpu", cpu)
+        if enable_fault_injection is not None:
+            pulumi.set(__self__, "enable_fault_injection", enable_fault_injection)
         if ephemeral_storage is not None:
             pulumi.set(__self__, "ephemeral_storage", ephemeral_storage)
         if execution_role_arn is not None:
@@ -184,6 +187,15 @@ class TaskDefinitionArgs:
     @cpu.setter
     def cpu(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "cpu", value)
+
+    @property
+    @pulumi.getter(name="enableFaultInjection")
+    def enable_fault_injection(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enable_fault_injection")
+
+    @enable_fault_injection.setter
+    def enable_fault_injection(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_fault_injection", value)
 
     @property
     @pulumi.getter(name="ephemeralStorage")
@@ -416,6 +428,7 @@ class TaskDefinition(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  container_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TaskDefinitionContainerDefinitionArgs', 'TaskDefinitionContainerDefinitionArgsDict']]]]] = None,
                  cpu: Optional[pulumi.Input[str]] = None,
+                 enable_fault_injection: Optional[pulumi.Input[bool]] = None,
                  ephemeral_storage: Optional[pulumi.Input[Union['TaskDefinitionEphemeralStorageArgs', 'TaskDefinitionEphemeralStorageArgsDict']]] = None,
                  execution_role_arn: Optional[pulumi.Input[str]] = None,
                  family: Optional[pulumi.Input[str]] = None,
@@ -891,6 +904,7 @@ class TaskDefinition(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  container_definitions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TaskDefinitionContainerDefinitionArgs', 'TaskDefinitionContainerDefinitionArgsDict']]]]] = None,
                  cpu: Optional[pulumi.Input[str]] = None,
+                 enable_fault_injection: Optional[pulumi.Input[bool]] = None,
                  ephemeral_storage: Optional[pulumi.Input[Union['TaskDefinitionEphemeralStorageArgs', 'TaskDefinitionEphemeralStorageArgsDict']]] = None,
                  execution_role_arn: Optional[pulumi.Input[str]] = None,
                  family: Optional[pulumi.Input[str]] = None,
@@ -917,6 +931,7 @@ class TaskDefinition(pulumi.CustomResource):
 
             __props__.__dict__["container_definitions"] = container_definitions
             __props__.__dict__["cpu"] = cpu
+            __props__.__dict__["enable_fault_injection"] = enable_fault_injection
             __props__.__dict__["ephemeral_storage"] = ephemeral_storage
             __props__.__dict__["execution_role_arn"] = execution_role_arn
             __props__.__dict__["family"] = family
@@ -933,7 +948,7 @@ class TaskDefinition(pulumi.CustomResource):
             __props__.__dict__["task_role_arn"] = task_role_arn
             __props__.__dict__["volumes"] = volumes
             __props__.__dict__["task_definition_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["containerDefinitions[*]", "cpu", "ephemeralStorage", "executionRoleArn", "family", "inferenceAccelerators[*]", "ipcMode", "memory", "networkMode", "pidMode", "placementConstraints[*]", "proxyConfiguration", "requiresCompatibilities[*]", "runtimePlatform", "taskRoleArn", "volumes[*]"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["containerDefinitions[*]", "cpu", "enableFaultInjection", "ephemeralStorage", "executionRoleArn", "family", "inferenceAccelerators[*]", "ipcMode", "memory", "networkMode", "pidMode", "placementConstraints[*]", "proxyConfiguration", "requiresCompatibilities[*]", "runtimePlatform", "taskRoleArn", "volumes[*]"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(TaskDefinition, __self__).__init__(
             'aws-native:ecs:TaskDefinition',
@@ -959,6 +974,7 @@ class TaskDefinition(pulumi.CustomResource):
 
         __props__.__dict__["container_definitions"] = None
         __props__.__dict__["cpu"] = None
+        __props__.__dict__["enable_fault_injection"] = None
         __props__.__dict__["ephemeral_storage"] = None
         __props__.__dict__["execution_role_arn"] = None
         __props__.__dict__["family"] = None
@@ -1003,6 +1019,11 @@ class TaskDefinition(pulumi.CustomResource):
          This option requires Linux platform ``1.4.0`` or later.
         """
         return pulumi.get(self, "cpu")
+
+    @property
+    @pulumi.getter(name="enableFaultInjection")
+    def enable_fault_injection(self) -> pulumi.Output[Optional[bool]]:
+        return pulumi.get(self, "enable_fault_injection")
 
     @property
     @pulumi.getter(name="ephemeralStorage")

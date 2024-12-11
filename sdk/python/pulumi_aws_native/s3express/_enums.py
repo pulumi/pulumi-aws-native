@@ -13,9 +13,10 @@ __all__ = [
 
 class DirectoryBucketDataRedundancy(str, Enum):
     """
-    Specifies the number of Availability Zone that's used for redundancy for the bucket.
+    Specifies the number of Availability Zone or Local Zone that's used for redundancy for the bucket.
     """
     SINGLE_AVAILABILITY_ZONE = "SingleAvailabilityZone"
+    SINGLE_LOCAL_ZONE = "SingleLocalZone"
 
 
 class DirectoryBucketRuleStatus(str, Enum):

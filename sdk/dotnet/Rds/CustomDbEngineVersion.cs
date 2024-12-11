@@ -10,19 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Rds
 {
     /// <summary>
-    /// The AWS::RDS::CustomDBEngineVersion resource creates an Amazon RDS custom DB engine version.
+    /// Creates a custom DB engine version (CEV).
     /// </summary>
     [AwsNativeResourceType("aws-native:rds:CustomDbEngineVersion")]
     public partial class CustomDbEngineVersion : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The name of an Amazon S3 bucket that contains database installation files for your CEV. For example, a valid bucket name is `my-custom-installation-files`.
+        /// The name of an Amazon S3 bucket that contains database installation files for your CEV. For example, a valid bucket name is ``my-custom-installation-files``.
         /// </summary>
         [Output("databaseInstallationFilesS3BucketName")]
         public Output<string?> DatabaseInstallationFilesS3BucketName { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon S3 directory that contains the database installation files for your CEV. For example, a valid bucket name is `123456789012/cev1`. If this setting isn't specified, no prefix is assumed.
+        /// The Amazon S3 directory that contains the database installation files for your CEV. For example, a valid bucket name is ``123456789012/cev1``. If this setting isn't specified, no prefix is assumed.
         /// </summary>
         [Output("databaseInstallationFilesS3Prefix")]
         public Output<string?> DatabaseInstallationFilesS3Prefix { get; private set; } = null!;
@@ -40,55 +40,65 @@ namespace Pulumi.AwsNative.Rds
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The database engine to use for your custom engine version (CEV). The only supported value is `custom-oracle-ee`.
+        /// The database engine to use for your custom engine version (CEV).
+        ///  Valid values:
+        ///   +   ``custom-oracle-ee`` 
+        ///   +   ``custom-oracle-ee-cdb``
         /// </summary>
         [Output("engine")]
         public Output<string> Engine { get; private set; } = null!;
 
         /// <summary>
-        /// The name of your CEV. The name format is 19.customized_string . For example, a valid name is 19.my_cev1. This setting is required for RDS Custom for Oracle, but optional for Amazon RDS. The combination of Engine and EngineVersion is unique per customer per Region.
+        /// The name of your CEV. The name format is ``major version.customized_string``. For example, a valid CEV name is ``19.my_cev1``. This setting is required for RDS Custom for Oracle, but optional for Amazon RDS. The combination of ``Engine`` and ``EngineVersion`` is unique per customer per Region.
+        ///   *Constraints:* Minimum length is 1. Maximum length is 60.
+        ///   *Pattern:* ``^[a-z0-9_.-]{1,60$``}
         /// </summary>
         [Output("engineVersion")]
         public Output<string> EngineVersion { get; private set; } = null!;
 
         /// <summary>
-        /// The identifier of Amazon Machine Image (AMI) used for CEV.
+        /// A value that indicates the ID of the AMI.
         /// </summary>
         [Output("imageId")]
         public Output<string?> ImageId { get; private set; } = null!;
 
         /// <summary>
-        /// The AWS KMS key identifier for an encrypted CEV. A symmetric KMS key is required for RDS Custom, but optional for Amazon RDS.
+        /// The AWS KMS key identifier for an encrypted CEV. A symmetric encryption KMS key is required for RDS Custom, but optional for Amazon RDS.
+        ///  If you have an existing symmetric encryption KMS key in your account, you can use it with RDS Custom. No further action is necessary. If you don't already have a symmetric encryption KMS key in your account, follow the instructions in [Creating a symmetric encryption KMS key](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html#create-symmetric-cmk) in the *Key Management Service Developer Guide*.
+        ///  You can choose the same symmetric encryption key when you create a CEV and a DB instance, or choose different keys.
         /// </summary>
         [Output("kmsKeyId")]
         public Output<string?> KmsKeyId { get; private set; } = null!;
 
         /// <summary>
         /// The CEV manifest, which is a JSON document that describes the installation .zip files stored in Amazon S3. Specify the name/value pairs in a file or a quoted string. RDS Custom applies the patches in the order in which they are listed.
+        ///  The following JSON fields are valid:
+        ///   + MediaImportTemplateVersion Version of the CEV manifest. The date is in the format YYYY-MM-DD. + databaseInstallationFileNames Ordered list of installation files for the CEV. + opatchFileNames Ordered list of OPatch installers used for the Oracle DB engine. + psuRuPatchFileNames The PSU and RU patches for this CEV. + OtherPatchFileNames The patches that are not in the list of PSU and RU patches. Amazon RDS applies these patches after applying the PSU and RU patches. 
+        ///  For more information, see [Creating the CEV manifest](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.html#custom-cev.preparing.manifest) in the *Amazon RDS User Guide*.
         /// </summary>
         [Output("manifest")]
         public Output<string?> Manifest { get; private set; } = null!;
 
         /// <summary>
-        /// The identifier of the source custom engine version.
+        /// The ARN of a CEV to use as a source for creating a new CEV. You can specify a different Amazon Machine Imagine (AMI) by using either ``Source`` or ``UseAwsProvidedLatestImage``. You can't specify a different JSON manifest when you specify ``SourceCustomDbEngineVersionIdentifier``.
         /// </summary>
         [Output("sourceCustomDbEngineVersionIdentifier")]
         public Output<string?> SourceCustomDbEngineVersionIdentifier { get; private set; } = null!;
 
         /// <summary>
-        /// The availability status to be assigned to the CEV.
+        /// A value that indicates the status of a custom engine version (CEV).
         /// </summary>
         [Output("status")]
         public Output<Pulumi.AwsNative.Rds.CustomDbEngineVersionStatus?> Status { get; private set; } = null!;
 
         /// <summary>
-        /// An array of key-value pairs to apply to this resource.
+        /// A list of tags. For more information, see [Tagging Amazon RDS Resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html) in the *Amazon RDS User Guide.*
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A value that indicates whether AWS provided latest image is applied automatically to the Custom Engine Version. By default, AWS provided latest image is applied automatically. This value is only applied on create.
+        /// Specifies whether to use the latest service-provided Amazon Machine Image (AMI) for the CEV. If you specify ``UseAwsProvidedLatestImage``, you can't also specify ``ImageId``.
         /// </summary>
         [Output("useAwsProvidedLatestImage")]
         public Output<bool?> UseAwsProvidedLatestImage { get; private set; } = null!;
@@ -151,13 +161,13 @@ namespace Pulumi.AwsNative.Rds
     public sealed class CustomDbEngineVersionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of an Amazon S3 bucket that contains database installation files for your CEV. For example, a valid bucket name is `my-custom-installation-files`.
+        /// The name of an Amazon S3 bucket that contains database installation files for your CEV. For example, a valid bucket name is ``my-custom-installation-files``.
         /// </summary>
         [Input("databaseInstallationFilesS3BucketName")]
         public Input<string>? DatabaseInstallationFilesS3BucketName { get; set; }
 
         /// <summary>
-        /// The Amazon S3 directory that contains the database installation files for your CEV. For example, a valid bucket name is `123456789012/cev1`. If this setting isn't specified, no prefix is assumed.
+        /// The Amazon S3 directory that contains the database installation files for your CEV. For example, a valid bucket name is ``123456789012/cev1``. If this setting isn't specified, no prefix is assumed.
         /// </summary>
         [Input("databaseInstallationFilesS3Prefix")]
         public Input<string>? DatabaseInstallationFilesS3Prefix { get; set; }
@@ -169,43 +179,53 @@ namespace Pulumi.AwsNative.Rds
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The database engine to use for your custom engine version (CEV). The only supported value is `custom-oracle-ee`.
+        /// The database engine to use for your custom engine version (CEV).
+        ///  Valid values:
+        ///   +   ``custom-oracle-ee`` 
+        ///   +   ``custom-oracle-ee-cdb``
         /// </summary>
         [Input("engine", required: true)]
         public Input<string> Engine { get; set; } = null!;
 
         /// <summary>
-        /// The name of your CEV. The name format is 19.customized_string . For example, a valid name is 19.my_cev1. This setting is required for RDS Custom for Oracle, but optional for Amazon RDS. The combination of Engine and EngineVersion is unique per customer per Region.
+        /// The name of your CEV. The name format is ``major version.customized_string``. For example, a valid CEV name is ``19.my_cev1``. This setting is required for RDS Custom for Oracle, but optional for Amazon RDS. The combination of ``Engine`` and ``EngineVersion`` is unique per customer per Region.
+        ///   *Constraints:* Minimum length is 1. Maximum length is 60.
+        ///   *Pattern:* ``^[a-z0-9_.-]{1,60$``}
         /// </summary>
         [Input("engineVersion", required: true)]
         public Input<string> EngineVersion { get; set; } = null!;
 
         /// <summary>
-        /// The identifier of Amazon Machine Image (AMI) used for CEV.
+        /// A value that indicates the ID of the AMI.
         /// </summary>
         [Input("imageId")]
         public Input<string>? ImageId { get; set; }
 
         /// <summary>
-        /// The AWS KMS key identifier for an encrypted CEV. A symmetric KMS key is required for RDS Custom, but optional for Amazon RDS.
+        /// The AWS KMS key identifier for an encrypted CEV. A symmetric encryption KMS key is required for RDS Custom, but optional for Amazon RDS.
+        ///  If you have an existing symmetric encryption KMS key in your account, you can use it with RDS Custom. No further action is necessary. If you don't already have a symmetric encryption KMS key in your account, follow the instructions in [Creating a symmetric encryption KMS key](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html#create-symmetric-cmk) in the *Key Management Service Developer Guide*.
+        ///  You can choose the same symmetric encryption key when you create a CEV and a DB instance, or choose different keys.
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
         /// The CEV manifest, which is a JSON document that describes the installation .zip files stored in Amazon S3. Specify the name/value pairs in a file or a quoted string. RDS Custom applies the patches in the order in which they are listed.
+        ///  The following JSON fields are valid:
+        ///   + MediaImportTemplateVersion Version of the CEV manifest. The date is in the format YYYY-MM-DD. + databaseInstallationFileNames Ordered list of installation files for the CEV. + opatchFileNames Ordered list of OPatch installers used for the Oracle DB engine. + psuRuPatchFileNames The PSU and RU patches for this CEV. + OtherPatchFileNames The patches that are not in the list of PSU and RU patches. Amazon RDS applies these patches after applying the PSU and RU patches. 
+        ///  For more information, see [Creating the CEV manifest](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.html#custom-cev.preparing.manifest) in the *Amazon RDS User Guide*.
         /// </summary>
         [Input("manifest")]
         public Input<string>? Manifest { get; set; }
 
         /// <summary>
-        /// The identifier of the source custom engine version.
+        /// The ARN of a CEV to use as a source for creating a new CEV. You can specify a different Amazon Machine Imagine (AMI) by using either ``Source`` or ``UseAwsProvidedLatestImage``. You can't specify a different JSON manifest when you specify ``SourceCustomDbEngineVersionIdentifier``.
         /// </summary>
         [Input("sourceCustomDbEngineVersionIdentifier")]
         public Input<string>? SourceCustomDbEngineVersionIdentifier { get; set; }
 
         /// <summary>
-        /// The availability status to be assigned to the CEV.
+        /// A value that indicates the status of a custom engine version (CEV).
         /// </summary>
         [Input("status")]
         public Input<Pulumi.AwsNative.Rds.CustomDbEngineVersionStatus>? Status { get; set; }
@@ -214,7 +234,7 @@ namespace Pulumi.AwsNative.Rds
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
-        /// An array of key-value pairs to apply to this resource.
+        /// A list of tags. For more information, see [Tagging Amazon RDS Resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html) in the *Amazon RDS User Guide.*
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
@@ -223,7 +243,7 @@ namespace Pulumi.AwsNative.Rds
         }
 
         /// <summary>
-        /// A value that indicates whether AWS provided latest image is applied automatically to the Custom Engine Version. By default, AWS provided latest image is applied automatically. This value is only applied on create.
+        /// Specifies whether to use the latest service-provided Amazon Machine Image (AMI) for the CEV. If you specify ``UseAwsProvidedLatestImage``, you can't also specify ``ImageId``.
         /// </summary>
         [Input("useAwsProvidedLatestImage")]
         public Input<bool>? UseAwsProvidedLatestImage { get; set; }

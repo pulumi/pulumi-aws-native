@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetTaskTemplateResult:
-    def __init__(__self__, arn=None, client_token=None, constraints=None, contact_flow_arn=None, defaults=None, description=None, fields=None, instance_arn=None, name=None, status=None, tags=None):
+    def __init__(__self__, arn=None, client_token=None, constraints=None, contact_flow_arn=None, defaults=None, description=None, fields=None, instance_arn=None, name=None, self_assign_contact_flow_arn=None, status=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -54,6 +54,9 @@ class GetTaskTemplateResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if self_assign_contact_flow_arn and not isinstance(self_assign_contact_flow_arn, str):
+            raise TypeError("Expected argument 'self_assign_contact_flow_arn' to be a str")
+        pulumi.set(__self__, "self_assign_contact_flow_arn", self_assign_contact_flow_arn)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
@@ -134,6 +137,14 @@ class GetTaskTemplateResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="selfAssignContactFlowArn")
+    def self_assign_contact_flow_arn(self) -> Optional[str]:
+        """
+        The identifier of the contact flow.
+        """
+        return pulumi.get(self, "self_assign_contact_flow_arn")
+
+    @property
     @pulumi.getter
     def status(self) -> Optional['TaskTemplateStatus']:
         """
@@ -165,6 +176,7 @@ class AwaitableGetTaskTemplateResult(GetTaskTemplateResult):
             fields=self.fields,
             instance_arn=self.instance_arn,
             name=self.name,
+            self_assign_contact_flow_arn=self.self_assign_contact_flow_arn,
             status=self.status,
             tags=self.tags)
 
@@ -192,6 +204,7 @@ def get_task_template(arn: Optional[str] = None,
         fields=pulumi.get(__ret__, 'fields'),
         instance_arn=pulumi.get(__ret__, 'instance_arn'),
         name=pulumi.get(__ret__, 'name'),
+        self_assign_contact_flow_arn=pulumi.get(__ret__, 'self_assign_contact_flow_arn'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_task_template_output(arn: Optional[pulumi.Input[str]] = None,
@@ -216,5 +229,6 @@ def get_task_template_output(arn: Optional[pulumi.Input[str]] = None,
         fields=pulumi.get(__response__, 'fields'),
         instance_arn=pulumi.get(__response__, 'instance_arn'),
         name=pulumi.get(__response__, 'name'),
+        self_assign_contact_flow_arn=pulumi.get(__response__, 'self_assign_contact_flow_arn'),
         status=pulumi.get(__response__, 'status'),
         tags=pulumi.get(__response__, 'tags')))

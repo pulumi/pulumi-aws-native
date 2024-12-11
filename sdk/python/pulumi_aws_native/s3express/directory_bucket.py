@@ -29,10 +29,10 @@ class DirectoryBucketArgs:
                  lifecycle_configuration: Optional[pulumi.Input['DirectoryBucketLifecycleConfigurationArgs']] = None):
         """
         The set of arguments for constructing a DirectoryBucket resource.
-        :param pulumi.Input['DirectoryBucketDataRedundancy'] data_redundancy: Specifies the number of Availability Zone that's used for redundancy for the bucket.
-        :param pulumi.Input[str] location_name: Specifies the AZ ID of the Availability Zone where the directory bucket will be created. An example AZ ID value is 'use1-az5'.
+        :param pulumi.Input['DirectoryBucketDataRedundancy'] data_redundancy: Specifies the number of Availability Zone or Local Zone that's used for redundancy for the bucket.
+        :param pulumi.Input[str] location_name: Specifies the Zone ID of the Availability Zone or Local Zone where the directory bucket will be created. An example Availability Zone ID value is 'use1-az5'.
         :param pulumi.Input['DirectoryBucketBucketEncryptionArgs'] bucket_encryption: Specifies default encryption for a bucket using server-side encryption with Amazon S3 managed keys (SSE-S3) or AWS KMS keys (SSE-KMS). For information about default encryption for directory buckets, see [Setting and monitoring default encryption for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-bucket-encryption.html) in the *Amazon S3 User Guide* .
-        :param pulumi.Input[str] bucket_name: Specifies a name for the bucket. The bucket name must contain only lowercase letters, numbers, and hyphens (-). A directory bucket name must be unique in the chosen Availability Zone. The bucket name must also follow the format 'bucket_base_name--az_id--x-s3' (for example, 'DOC-EXAMPLE-BUCKET--usw2-az1--x-s3'). If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
+        :param pulumi.Input[str] bucket_name: Specifies a name for the bucket. The bucket name must contain only lowercase letters, numbers, and hyphens (-). A directory bucket name must be unique in the chosen Availability Zone or Local Zone. The bucket name must also follow the format 'bucket_base_name--zone_id--x-s3'. The zone_id can be the ID of an Availability Zone or a Local Zone. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
         :param pulumi.Input['DirectoryBucketLifecycleConfigurationArgs'] lifecycle_configuration: Lifecycle rules that define how Amazon S3 Express manages objects during their lifetime.
         """
         pulumi.set(__self__, "data_redundancy", data_redundancy)
@@ -48,7 +48,7 @@ class DirectoryBucketArgs:
     @pulumi.getter(name="dataRedundancy")
     def data_redundancy(self) -> pulumi.Input['DirectoryBucketDataRedundancy']:
         """
-        Specifies the number of Availability Zone that's used for redundancy for the bucket.
+        Specifies the number of Availability Zone or Local Zone that's used for redundancy for the bucket.
         """
         return pulumi.get(self, "data_redundancy")
 
@@ -60,7 +60,7 @@ class DirectoryBucketArgs:
     @pulumi.getter(name="locationName")
     def location_name(self) -> pulumi.Input[str]:
         """
-        Specifies the AZ ID of the Availability Zone where the directory bucket will be created. An example AZ ID value is 'use1-az5'.
+        Specifies the Zone ID of the Availability Zone or Local Zone where the directory bucket will be created. An example Availability Zone ID value is 'use1-az5'.
         """
         return pulumi.get(self, "location_name")
 
@@ -84,7 +84,7 @@ class DirectoryBucketArgs:
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies a name for the bucket. The bucket name must contain only lowercase letters, numbers, and hyphens (-). A directory bucket name must be unique in the chosen Availability Zone. The bucket name must also follow the format 'bucket_base_name--az_id--x-s3' (for example, 'DOC-EXAMPLE-BUCKET--usw2-az1--x-s3'). If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
+        Specifies a name for the bucket. The bucket name must contain only lowercase letters, numbers, and hyphens (-). A directory bucket name must be unique in the chosen Availability Zone or Local Zone. The bucket name must also follow the format 'bucket_base_name--zone_id--x-s3'. The zone_id can be the ID of an Availability Zone or a Local Zone. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
         """
         return pulumi.get(self, "bucket_name")
 
@@ -122,10 +122,10 @@ class DirectoryBucket(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['DirectoryBucketBucketEncryptionArgs', 'DirectoryBucketBucketEncryptionArgsDict']] bucket_encryption: Specifies default encryption for a bucket using server-side encryption with Amazon S3 managed keys (SSE-S3) or AWS KMS keys (SSE-KMS). For information about default encryption for directory buckets, see [Setting and monitoring default encryption for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-bucket-encryption.html) in the *Amazon S3 User Guide* .
-        :param pulumi.Input[str] bucket_name: Specifies a name for the bucket. The bucket name must contain only lowercase letters, numbers, and hyphens (-). A directory bucket name must be unique in the chosen Availability Zone. The bucket name must also follow the format 'bucket_base_name--az_id--x-s3' (for example, 'DOC-EXAMPLE-BUCKET--usw2-az1--x-s3'). If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
-        :param pulumi.Input['DirectoryBucketDataRedundancy'] data_redundancy: Specifies the number of Availability Zone that's used for redundancy for the bucket.
+        :param pulumi.Input[str] bucket_name: Specifies a name for the bucket. The bucket name must contain only lowercase letters, numbers, and hyphens (-). A directory bucket name must be unique in the chosen Availability Zone or Local Zone. The bucket name must also follow the format 'bucket_base_name--zone_id--x-s3'. The zone_id can be the ID of an Availability Zone or a Local Zone. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
+        :param pulumi.Input['DirectoryBucketDataRedundancy'] data_redundancy: Specifies the number of Availability Zone or Local Zone that's used for redundancy for the bucket.
         :param pulumi.Input[Union['DirectoryBucketLifecycleConfigurationArgs', 'DirectoryBucketLifecycleConfigurationArgsDict']] lifecycle_configuration: Lifecycle rules that define how Amazon S3 Express manages objects during their lifetime.
-        :param pulumi.Input[str] location_name: Specifies the AZ ID of the Availability Zone where the directory bucket will be created. An example AZ ID value is 'use1-az5'.
+        :param pulumi.Input[str] location_name: Specifies the Zone ID of the Availability Zone or Local Zone where the directory bucket will be created. An example Availability Zone ID value is 'use1-az5'.
         """
         ...
     @overload
@@ -221,7 +221,7 @@ class DirectoryBucket(pulumi.CustomResource):
     @pulumi.getter(name="availabilityZoneName")
     def availability_zone_name(self) -> pulumi.Output[str]:
         """
-        Returns the code for the Availability Zone where the directory bucket was created.
+        Returns the code for the Availability Zone or Local Zone where the directory bucket was created. An example for the code of an Availability Zone is 'us-east-1f'.
         """
         return pulumi.get(self, "availability_zone_name")
 
@@ -237,7 +237,7 @@ class DirectoryBucket(pulumi.CustomResource):
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies a name for the bucket. The bucket name must contain only lowercase letters, numbers, and hyphens (-). A directory bucket name must be unique in the chosen Availability Zone. The bucket name must also follow the format 'bucket_base_name--az_id--x-s3' (for example, 'DOC-EXAMPLE-BUCKET--usw2-az1--x-s3'). If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
+        Specifies a name for the bucket. The bucket name must contain only lowercase letters, numbers, and hyphens (-). A directory bucket name must be unique in the chosen Availability Zone or Local Zone. The bucket name must also follow the format 'bucket_base_name--zone_id--x-s3'. The zone_id can be the ID of an Availability Zone or a Local Zone. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
         """
         return pulumi.get(self, "bucket_name")
 
@@ -245,7 +245,7 @@ class DirectoryBucket(pulumi.CustomResource):
     @pulumi.getter(name="dataRedundancy")
     def data_redundancy(self) -> pulumi.Output['DirectoryBucketDataRedundancy']:
         """
-        Specifies the number of Availability Zone that's used for redundancy for the bucket.
+        Specifies the number of Availability Zone or Local Zone that's used for redundancy for the bucket.
         """
         return pulumi.get(self, "data_redundancy")
 
@@ -261,7 +261,7 @@ class DirectoryBucket(pulumi.CustomResource):
     @pulumi.getter(name="locationName")
     def location_name(self) -> pulumi.Output[str]:
         """
-        Specifies the AZ ID of the Availability Zone where the directory bucket will be created. An example AZ ID value is 'use1-az5'.
+        Specifies the Zone ID of the Availability Zone or Local Zone where the directory bucket will be created. An example Availability Zone ID value is 'use1-az5'.
         """
         return pulumi.get(self, "location_name")
 

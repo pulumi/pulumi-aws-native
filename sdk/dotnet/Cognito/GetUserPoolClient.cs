@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.Cognito
         public string ClientId { get; set; } = null!;
 
         /// <summary>
-        /// The user pool ID for the user pool where you want to create a user pool client.
+        /// The ID of the user pool where you want to create an app client.
         /// </summary>
         [Input("userPoolId", required: true)]
         public string UserPoolId { get; set; } = null!;
@@ -54,7 +54,7 @@ namespace Pulumi.AwsNative.Cognito
         public Input<string> ClientId { get; set; } = null!;
 
         /// <summary>
-        /// The user pool ID for the user pool where you want to create a user pool client.
+        /// The ID of the user pool where you want to create an app client.
         /// </summary>
         [Input("userPoolId", required: true)]
         public Input<string> UserPoolId { get; set; } = null!;
@@ -103,13 +103,13 @@ namespace Pulumi.AwsNative.Cognito
         /// </summary>
         public readonly bool? AllowedOAuthFlowsUserPoolClient;
         /// <summary>
-        /// The allowed OAuth scopes. Possible values provided by OAuth are `phone` , `email` , `openid` , and `profile` . Possible values provided by AWS are `aws.cognito.signin.user.admin` . Custom scopes created in Resource Servers are also supported.
+        /// The OAuth 2.0 scopes that you want to permit your app client to authorize. Scopes govern access control to user pool self-service API operations, user data from the `userInfo` endpoint, and third-party APIs. Possible values provided by OAuth are `phone` , `email` , `openid` , and `profile` . Possible values provided by AWS are `aws.cognito.signin.user.admin` . Custom scopes created in Resource Servers are also supported.
         /// </summary>
         public readonly ImmutableArray<string> AllowedOAuthScopes;
         /// <summary>
         /// The user pool analytics configuration for collecting metrics and sending them to your Amazon Pinpoint campaign.
         /// 
-        /// &gt; In AWS Regions where Amazon Pinpoint isn't available, user pools only support sending events to Amazon Pinpoint projects in AWS Region us-east-1. In Regions where Amazon Pinpoint is available, user pools support sending events to Amazon Pinpoint projects within that same Region.
+        /// In AWS Regions where Amazon Pinpoint isn't available, user pools might not have access to analytics or might be configurable with campaigns in the US East (N. Virginia) Region. For more information, see [Using Amazon Pinpoint analytics](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-pinpoint-integration.html) .
         /// </summary>
         public readonly Outputs.UserPoolClientAnalyticsConfiguration? AnalyticsConfiguration;
         /// <summary>
@@ -122,7 +122,7 @@ namespace Pulumi.AwsNative.Cognito
         /// A redirect URI must:
         /// 
         /// - Be an absolute URI.
-        /// - Be registered with the authorization server.
+        /// - Be registered with the authorization server. Amazon Cognito doesn't accept authorization requests with `redirect_uri` values that aren't in the list of `CallbackURLs` that you provide in this parameter.
         /// - Not include a fragment component.
         /// 
         /// See [OAuth 2.0 - Redirection Endpoint](https://docs.aws.amazon.com/https://tools.ietf.org/html/rfc6749#section-3.1.2) .
@@ -137,24 +137,12 @@ namespace Pulumi.AwsNative.Cognito
         /// </summary>
         public readonly string? ClientId;
         /// <summary>
-        /// The client name for the user pool client you would like to create.
+        /// A friendly name for the app client that you want to create.
         /// </summary>
         public readonly string? ClientName;
         public readonly string? ClientSecret;
         /// <summary>
         /// The default redirect URI. In app clients with one assigned IdP, replaces `redirect_uri` in authentication requests. Must be in the `CallbackURLs` list.
-        /// 
-        /// A redirect URI must:
-        /// 
-        /// - Be an absolute URI.
-        /// - Be registered with the authorization server.
-        /// - Not include a fragment component.
-        /// 
-        /// For more information, see [Default redirect URI](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-client-apps.html#cognito-user-pools-app-idp-settings-about) .
-        /// 
-        /// Amazon Cognito requires HTTPS over HTTP except for http://localhost for testing purposes only.
-        /// 
-        /// App callback URLs such as myapp://example are also supported.
         /// </summary>
         public readonly string? DefaultRedirectUri;
         /// <summary>
@@ -197,7 +185,7 @@ namespace Pulumi.AwsNative.Cognito
         /// </summary>
         public readonly int? IdTokenValidity;
         /// <summary>
-        /// A list of allowed logout URLs for the IdPs.
+        /// A list of allowed logout URLs for managed login authentication. For more information, see [Logout endpoint](https://docs.aws.amazon.com/cognito/latest/developerguide/logout-endpoint.html) .
         /// </summary>
         public readonly ImmutableArray<string> LogoutUrls;
         public readonly string? Name;
@@ -233,11 +221,11 @@ namespace Pulumi.AwsNative.Cognito
         /// <summary>
         /// A list of provider names for the identity providers (IdPs) that are supported on this client. The following are supported: `COGNITO` , `Facebook` , `Google` , `SignInWithApple` , and `LoginWithAmazon` . You can also specify the names that you configured for the SAML and OIDC IdPs in your user pool, for example `MySAMLIdP` or `MyOIDCIdP` .
         /// 
-        /// This setting applies to providers that you can access with the [hosted UI and OAuth 2.0 authorization server](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-app-integration.html) . The removal of `COGNITO` from this list doesn't prevent authentication operations for local users with the user pools API in an AWS SDK. The only way to prevent API-based authentication is to block access with a [AWS WAF rule](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-waf.html) .
+        /// This setting applies to providers that you can access with [managed login](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html) . The removal of `COGNITO` from this list doesn't prevent authentication operations for local users with the user pools API in an AWS SDK. The only way to prevent API-based authentication is to block access with a [AWS WAF rule](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-waf.html) .
         /// </summary>
         public readonly ImmutableArray<string> SupportedIdentityProviders;
         /// <summary>
-        /// The units in which the validity times are represented. The default unit for RefreshToken is days, and default for ID and access tokens are hours.
+        /// The units that validity times are represented in. The default unit for refresh tokens is days, and the default for ID and access tokens are hours.
         /// </summary>
         public readonly Outputs.UserPoolClientTokenValidityUnits? TokenValidityUnits;
         /// <summary>

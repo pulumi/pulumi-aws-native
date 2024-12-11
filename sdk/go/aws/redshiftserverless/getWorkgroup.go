@@ -33,6 +33,8 @@ type LookupWorkgroupResult struct {
 	EnhancedVpcRouting *bool `pulumi:"enhancedVpcRouting"`
 	// The custom port to use when connecting to a workgroup. Valid port ranges are 5431-5455 and 8191-8215. The default is 5439.
 	Port *int `pulumi:"port"`
+	// A property that represents the price performance target settings for the workgroup.
+	PricePerformanceTarget *WorkgroupPerformanceTarget `pulumi:"pricePerformanceTarget"`
 	// A value that specifies whether the workgroup can be accessible from a public network.
 	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
 	// The map of the key-value pairs used to tag the workgroup.
@@ -91,6 +93,11 @@ func (o LookupWorkgroupResultOutput) EnhancedVpcRouting() pulumi.BoolPtrOutput {
 // The custom port to use when connecting to a workgroup. Valid port ranges are 5431-5455 and 8191-8215. The default is 5439.
 func (o LookupWorkgroupResultOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LookupWorkgroupResult) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+// A property that represents the price performance target settings for the workgroup.
+func (o LookupWorkgroupResultOutput) PricePerformanceTarget() WorkgroupPerformanceTargetPtrOutput {
+	return o.ApplyT(func(v LookupWorkgroupResult) *WorkgroupPerformanceTarget { return v.PricePerformanceTarget }).(WorkgroupPerformanceTargetPtrOutput)
 }
 
 // A value that specifies whether the workgroup can be accessible from a public network.

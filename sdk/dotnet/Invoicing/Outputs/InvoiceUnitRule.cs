@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.Invoicing.Outputs
     [OutputType]
     public sealed class InvoiceUnitRule
     {
+        /// <summary>
+        /// The list of `LINKED_ACCOUNT` IDs where charges are included within the invoice unit.
+        /// </summary>
         public readonly ImmutableArray<string> LinkedAccounts;
 
         [OutputConstructor]

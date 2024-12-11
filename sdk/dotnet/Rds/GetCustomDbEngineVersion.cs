@@ -12,13 +12,13 @@ namespace Pulumi.AwsNative.Rds
     public static class GetCustomDbEngineVersion
     {
         /// <summary>
-        /// The AWS::RDS::CustomDBEngineVersion resource creates an Amazon RDS custom DB engine version.
+        /// Creates a custom DB engine version (CEV).
         /// </summary>
         public static Task<GetCustomDbEngineVersionResult> InvokeAsync(GetCustomDbEngineVersionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCustomDbEngineVersionResult>("aws-native:rds:getCustomDbEngineVersion", args ?? new GetCustomDbEngineVersionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The AWS::RDS::CustomDBEngineVersion resource creates an Amazon RDS custom DB engine version.
+        /// Creates a custom DB engine version (CEV).
         /// </summary>
         public static Output<GetCustomDbEngineVersionResult> Invoke(GetCustomDbEngineVersionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCustomDbEngineVersionResult>("aws-native:rds:getCustomDbEngineVersion", args ?? new GetCustomDbEngineVersionInvokeArgs(), options.WithDefaults());
@@ -28,13 +28,18 @@ namespace Pulumi.AwsNative.Rds
     public sealed class GetCustomDbEngineVersionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The database engine to use for your custom engine version (CEV). The only supported value is `custom-oracle-ee`.
+        /// The database engine to use for your custom engine version (CEV).
+        ///  Valid values:
+        ///   +   ``custom-oracle-ee`` 
+        ///   +   ``custom-oracle-ee-cdb``
         /// </summary>
         [Input("engine", required: true)]
         public string Engine { get; set; } = null!;
 
         /// <summary>
-        /// The name of your CEV. The name format is 19.customized_string . For example, a valid name is 19.my_cev1. This setting is required for RDS Custom for Oracle, but optional for Amazon RDS. The combination of Engine and EngineVersion is unique per customer per Region.
+        /// The name of your CEV. The name format is ``major version.customized_string``. For example, a valid CEV name is ``19.my_cev1``. This setting is required for RDS Custom for Oracle, but optional for Amazon RDS. The combination of ``Engine`` and ``EngineVersion`` is unique per customer per Region.
+        ///   *Constraints:* Minimum length is 1. Maximum length is 60.
+        ///   *Pattern:* ``^[a-z0-9_.-]{1,60$``}
         /// </summary>
         [Input("engineVersion", required: true)]
         public string EngineVersion { get; set; } = null!;
@@ -48,13 +53,18 @@ namespace Pulumi.AwsNative.Rds
     public sealed class GetCustomDbEngineVersionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The database engine to use for your custom engine version (CEV). The only supported value is `custom-oracle-ee`.
+        /// The database engine to use for your custom engine version (CEV).
+        ///  Valid values:
+        ///   +   ``custom-oracle-ee`` 
+        ///   +   ``custom-oracle-ee-cdb``
         /// </summary>
         [Input("engine", required: true)]
         public Input<string> Engine { get; set; } = null!;
 
         /// <summary>
-        /// The name of your CEV. The name format is 19.customized_string . For example, a valid name is 19.my_cev1. This setting is required for RDS Custom for Oracle, but optional for Amazon RDS. The combination of Engine and EngineVersion is unique per customer per Region.
+        /// The name of your CEV. The name format is ``major version.customized_string``. For example, a valid CEV name is ``19.my_cev1``. This setting is required for RDS Custom for Oracle, but optional for Amazon RDS. The combination of ``Engine`` and ``EngineVersion`` is unique per customer per Region.
+        ///   *Constraints:* Minimum length is 1. Maximum length is 60.
+        ///   *Pattern:* ``^[a-z0-9_.-]{1,60$``}
         /// </summary>
         [Input("engineVersion", required: true)]
         public Input<string> EngineVersion { get; set; } = null!;
@@ -78,11 +88,11 @@ namespace Pulumi.AwsNative.Rds
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// The availability status to be assigned to the CEV.
+        /// A value that indicates the status of a custom engine version (CEV).
         /// </summary>
         public readonly Pulumi.AwsNative.Rds.CustomDbEngineVersionStatus? Status;
         /// <summary>
-        /// An array of key-value pairs to apply to this resource.
+        /// A list of tags. For more information, see [Tagging Amazon RDS Resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html) in the *Amazon RDS User Guide.*
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 

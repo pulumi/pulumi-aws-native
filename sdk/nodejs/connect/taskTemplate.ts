@@ -74,6 +74,10 @@ export class TaskTemplate extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string | undefined>;
     /**
+     * The identifier of the contact flow.
+     */
+    public readonly selfAssignContactFlowArn!: pulumi.Output<string | undefined>;
+    /**
      * The status of the task template.
      */
     public readonly status!: pulumi.Output<enums.connect.TaskTemplateStatus | undefined>;
@@ -104,6 +108,7 @@ export class TaskTemplate extends pulumi.CustomResource {
             resourceInputs["fields"] = args ? args.fields : undefined;
             resourceInputs["instanceArn"] = args ? args.instanceArn : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["selfAssignContactFlowArn"] = args ? args.selfAssignContactFlowArn : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
@@ -117,6 +122,7 @@ export class TaskTemplate extends pulumi.CustomResource {
             resourceInputs["fields"] = undefined /*out*/;
             resourceInputs["instanceArn"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["selfAssignContactFlowArn"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
@@ -161,6 +167,10 @@ export interface TaskTemplateArgs {
      * The name of the task template.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The identifier of the contact flow.
+     */
+    selfAssignContactFlowArn?: pulumi.Input<string>;
     /**
      * The status of the task template.
      */

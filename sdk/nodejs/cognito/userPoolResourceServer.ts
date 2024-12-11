@@ -52,7 +52,7 @@ export class UserPoolResourceServer extends pulumi.CustomResource {
      */
     public readonly scopes!: pulumi.Output<outputs.cognito.UserPoolResourceServerResourceServerScopeType[] | undefined>;
     /**
-     * The user pool ID for the user pool.
+     * The ID of the user pool where you want to create a resource server.
      */
     public readonly userPoolId!: pulumi.Output<string>;
 
@@ -109,7 +109,7 @@ export interface UserPoolResourceServerArgs {
      */
     scopes?: pulumi.Input<pulumi.Input<inputs.cognito.UserPoolResourceServerResourceServerScopeTypeArgs>[]>;
     /**
-     * The user pool ID for the user pool.
+     * The ID of the user pool where you want to create a resource server.
      */
     userPoolId: pulumi.Input<string>;
 }

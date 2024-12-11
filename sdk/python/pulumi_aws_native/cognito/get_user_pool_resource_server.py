@@ -69,7 +69,7 @@ def get_user_pool_resource_server(identifier: Optional[str] = None,
     :param str identifier: A unique resource server identifier for the resource server. The identifier can be an API friendly name like `solar-system-data` . You can also set an API URL like `https://solar-system-data-api.example.com` as your identifier.
            
            Amazon Cognito represents scopes in the access token in the format `$resource-server-identifier/$scope` . Longer scope-identifier strings increase the size of your access tokens.
-    :param str user_pool_id: The user pool ID for the user pool.
+    :param str user_pool_id: The ID of the user pool where you want to create a resource server.
     """
     __args__ = dict()
     __args__['identifier'] = identifier
@@ -90,7 +90,7 @@ def get_user_pool_resource_server_output(identifier: Optional[pulumi.Input[str]]
     :param str identifier: A unique resource server identifier for the resource server. The identifier can be an API friendly name like `solar-system-data` . You can also set an API URL like `https://solar-system-data-api.example.com` as your identifier.
            
            Amazon Cognito represents scopes in the access token in the format `$resource-server-identifier/$scope` . Longer scope-identifier strings increase the size of your access tokens.
-    :param str user_pool_id: The user pool ID for the user pool.
+    :param str user_pool_id: The ID of the user pool where you want to create a resource server.
     """
     __args__ = dict()
     __args__['identifier'] = identifier

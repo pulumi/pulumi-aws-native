@@ -9,7 +9,7 @@ export const CustomDbEngineVersionStatus = {
 } as const;
 
 /**
- * The availability status to be assigned to the CEV.
+ * A value that indicates the status of a custom engine version (CEV).
  */
 export type CustomDbEngineVersionStatus = (typeof CustomDbEngineVersionStatus)[keyof typeof CustomDbEngineVersionStatus];
 

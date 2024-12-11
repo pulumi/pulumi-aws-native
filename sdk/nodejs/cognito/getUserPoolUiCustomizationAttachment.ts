@@ -21,7 +21,7 @@ export interface GetUserPoolUiCustomizationAttachmentArgs {
      */
     clientId: string;
     /**
-     * The user pool ID for the user pool.
+     * The ID of the user pool.
      */
     userPoolId: string;
 }
@@ -49,7 +49,7 @@ export interface GetUserPoolUiCustomizationAttachmentOutputArgs {
      */
     clientId: pulumi.Input<string>;
     /**
-     * The user pool ID for the user pool.
+     * The ID of the user pool.
      */
     userPoolId: pulumi.Input<string>;
 }

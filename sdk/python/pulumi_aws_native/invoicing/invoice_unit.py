@@ -31,6 +31,12 @@ class InvoiceUnitArgs:
                  tax_inheritance_disabled: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a InvoiceUnit resource.
+        :param pulumi.Input[str] invoice_receiver: The account that receives invoices related to the invoice unit.
+        :param pulumi.Input['InvoiceUnitRuleArgs'] rule: An `InvoiceUnitRule` object used the categorize invoice units.
+        :param pulumi.Input[str] description: The assigned description for an invoice unit. This information can't be modified or deleted.
+        :param pulumi.Input[str] name: A unique name that is distinctive within your AWS .
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] resource_tags: The tag structure that contains a tag key and value.
+        :param pulumi.Input[bool] tax_inheritance_disabled: Whether the invoice unit based tax inheritance is/ should be enabled or disabled.
         """
         pulumi.set(__self__, "invoice_receiver", invoice_receiver)
         pulumi.set(__self__, "rule", rule)
@@ -46,6 +52,9 @@ class InvoiceUnitArgs:
     @property
     @pulumi.getter(name="invoiceReceiver")
     def invoice_receiver(self) -> pulumi.Input[str]:
+        """
+        The account that receives invoices related to the invoice unit.
+        """
         return pulumi.get(self, "invoice_receiver")
 
     @invoice_receiver.setter
@@ -55,6 +64,9 @@ class InvoiceUnitArgs:
     @property
     @pulumi.getter
     def rule(self) -> pulumi.Input['InvoiceUnitRuleArgs']:
+        """
+        An `InvoiceUnitRule` object used the categorize invoice units.
+        """
         return pulumi.get(self, "rule")
 
     @rule.setter
@@ -64,6 +76,9 @@ class InvoiceUnitArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The assigned description for an invoice unit. This information can't be modified or deleted.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -73,6 +88,9 @@ class InvoiceUnitArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A unique name that is distinctive within your AWS .
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -82,6 +100,9 @@ class InvoiceUnitArgs:
     @property
     @pulumi.getter(name="resourceTags")
     def resource_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        The tag structure that contains a tag key and value.
+        """
         return pulumi.get(self, "resource_tags")
 
     @resource_tags.setter
@@ -91,6 +112,9 @@ class InvoiceUnitArgs:
     @property
     @pulumi.getter(name="taxInheritanceDisabled")
     def tax_inheritance_disabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the invoice unit based tax inheritance is/ should be enabled or disabled.
+        """
         return pulumi.get(self, "tax_inheritance_disabled")
 
     @tax_inheritance_disabled.setter
@@ -115,6 +139,12 @@ class InvoiceUnit(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: The assigned description for an invoice unit. This information can't be modified or deleted.
+        :param pulumi.Input[str] invoice_receiver: The account that receives invoices related to the invoice unit.
+        :param pulumi.Input[str] name: A unique name that is distinctive within your AWS .
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] resource_tags: The tag structure that contains a tag key and value.
+        :param pulumi.Input[Union['InvoiceUnitRuleArgs', 'InvoiceUnitRuleArgsDict']] rule: An `InvoiceUnitRule` object used the categorize invoice units.
+        :param pulumi.Input[bool] tax_inheritance_disabled: Whether the invoice unit based tax inheritance is/ should be enabled or disabled.
         """
         ...
     @overload
@@ -204,40 +234,64 @@ class InvoiceUnit(pulumi.CustomResource):
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        The assigned description for an invoice unit. This information can't be modified or deleted.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="invoiceReceiver")
     def invoice_receiver(self) -> pulumi.Output[str]:
+        """
+        The account that receives invoices related to the invoice unit.
+        """
         return pulumi.get(self, "invoice_receiver")
 
     @property
     @pulumi.getter(name="invoiceUnitArn")
     def invoice_unit_arn(self) -> pulumi.Output[str]:
+        """
+        The ARN to identify an invoice unit. This information can't be modified or deleted.
+        """
         return pulumi.get(self, "invoice_unit_arn")
 
     @property
     @pulumi.getter(name="lastModified")
     def last_modified(self) -> pulumi.Output[float]:
+        """
+        The last time the invoice unit was updated. This is important to determine the version of invoice unit configuration used to create the invoices. Any invoice created after this modified time will use this invoice unit configuration.
+        """
         return pulumi.get(self, "last_modified")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
+        """
+        A unique name that is distinctive within your AWS .
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="resourceTags")
     def resource_tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        The tag structure that contains a tag key and value.
+        """
         return pulumi.get(self, "resource_tags")
 
     @property
     @pulumi.getter
     def rule(self) -> pulumi.Output['outputs.InvoiceUnitRule']:
+        """
+        An `InvoiceUnitRule` object used the categorize invoice units.
+        """
         return pulumi.get(self, "rule")
 
     @property
     @pulumi.getter(name="taxInheritanceDisabled")
     def tax_inheritance_disabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether the invoice unit based tax inheritance is/ should be enabled or disabled.
+        """
         return pulumi.get(self, "tax_inheritance_disabled")
 

@@ -70,6 +70,12 @@ namespace Pulumi.AwsNative.Connect
         public Output<string?> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The identifier of the contact flow.
+        /// </summary>
+        [Output("selfAssignContactFlowArn")]
+        public Output<string?> SelfAssignContactFlowArn { get; private set; } = null!;
+
+        /// <summary>
         /// The status of the task template.
         /// </summary>
         [Output("status")]
@@ -185,6 +191,12 @@ namespace Pulumi.AwsNative.Connect
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The identifier of the contact flow.
+        /// </summary>
+        [Input("selfAssignContactFlowArn")]
+        public Input<string>? SelfAssignContactFlowArn { get; set; }
 
         /// <summary>
         /// The status of the task template.

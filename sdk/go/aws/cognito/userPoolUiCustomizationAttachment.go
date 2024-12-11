@@ -20,7 +20,7 @@ type UserPoolUiCustomizationAttachment struct {
 	ClientId pulumi.StringOutput `pulumi:"clientId"`
 	// The CSS values in the UI customization.
 	Css pulumi.StringPtrOutput `pulumi:"css"`
-	// The user pool ID for the user pool.
+	// The ID of the user pool.
 	UserPoolId pulumi.StringOutput `pulumi:"userPoolId"`
 }
 
@@ -79,7 +79,7 @@ type userPoolUiCustomizationAttachmentArgs struct {
 	ClientId string `pulumi:"clientId"`
 	// The CSS values in the UI customization.
 	Css *string `pulumi:"css"`
-	// The user pool ID for the user pool.
+	// The ID of the user pool.
 	UserPoolId string `pulumi:"userPoolId"`
 }
 
@@ -89,7 +89,7 @@ type UserPoolUiCustomizationAttachmentArgs struct {
 	ClientId pulumi.StringInput
 	// The CSS values in the UI customization.
 	Css pulumi.StringPtrInput
-	// The user pool ID for the user pool.
+	// The ID of the user pool.
 	UserPoolId pulumi.StringInput
 }
 
@@ -140,7 +140,7 @@ func (o UserPoolUiCustomizationAttachmentOutput) Css() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolUiCustomizationAttachment) pulumi.StringPtrOutput { return v.Css }).(pulumi.StringPtrOutput)
 }
 
-// The user pool ID for the user pool.
+// The ID of the user pool.
 func (o UserPoolUiCustomizationAttachmentOutput) UserPoolId() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserPoolUiCustomizationAttachment) pulumi.StringOutput { return v.UserPoolId }).(pulumi.StringOutput)
 }

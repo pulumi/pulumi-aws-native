@@ -44,9 +44,6 @@
     "Policy" : {
       "type" : [ "object", "string" ]
     },
-    "ManagementPolicy" : {
-      "type" : [ "object", "string" ]
-    },
     "DomainNameId" : {
       "type" : "string"
     },
@@ -75,16 +72,16 @@
   "readOnlyProperties" : [ "/properties/DomainNameId", "/properties/DomainNameArn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "apigateway:POST", "apigateway:GET", "apigateway:UpdateDomainNamePolicy", "apigateway:UpdateDomainNameManagementPolicy" ]
+      "permissions" : [ "apigateway:POST", "apigateway:GET", "apigateway:UpdateDomainNamePolicy" ]
     },
     "read" : {
       "permissions" : [ "apigateway:GET" ]
     },
     "update" : {
-      "permissions" : [ "apigateway:GET", "apigateway:PUT", "apigateway:PATCH", "apigateway:UpdateDomainNamePolicy", "apigateway:UpdateDomainNameManagementPolicy" ]
+      "permissions" : [ "apigateway:GET", "apigateway:PUT", "apigateway:PATCH", "apigateway:UpdateDomainNamePolicy" ]
     },
     "delete" : {
-      "permissions" : [ "apigateway:DELETE", "apigateway:GET", "apigateway:UpdateDomainNamePolicy", "apigateway:UpdateDomainNameManagementPolicy" ]
+      "permissions" : [ "apigateway:DELETE", "apigateway:GET", "apigateway:UpdateDomainNamePolicy" ]
     },
     "list" : {
       "permissions" : [ "apigateway:GET" ]

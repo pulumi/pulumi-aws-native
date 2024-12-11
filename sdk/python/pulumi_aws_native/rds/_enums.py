@@ -19,7 +19,7 @@ __all__ = [
 
 class CustomDbEngineVersionStatus(str, Enum):
     """
-    The availability status to be assigned to the CEV.
+    A value that indicates the status of a custom engine version (CEV).
     """
     AVAILABLE = "available"
     INACTIVE = "inactive"

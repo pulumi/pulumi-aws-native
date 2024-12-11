@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApplicationAutoScaling.Inputs
 {
 
+    /// <summary>
+    /// Represents a CloudWatch metric of your choosing for a predictive scaling policy.
+    /// </summary>
     public sealed class ScalingPolicyPredictiveScalingCustomizedCapacityMetricArgs : global::Pulumi.ResourceArgs
     {
         [Input("metricDataQueries", required: true)]

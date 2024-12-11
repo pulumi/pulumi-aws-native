@@ -36,7 +36,7 @@ namespace Pulumi.AwsNative.Cognito
         public Output<ImmutableArray<Outputs.UserPoolResourceServerResourceServerScopeType>> Scopes { get; private set; } = null!;
 
         /// <summary>
-        /// The user pool ID for the user pool.
+        /// The ID of the user pool where you want to create a resource server.
         /// </summary>
         [Output("userPoolId")]
         public Output<string> UserPoolId { get; private set; } = null!;
@@ -118,7 +118,7 @@ namespace Pulumi.AwsNative.Cognito
         }
 
         /// <summary>
-        /// The user pool ID for the user pool.
+        /// The ID of the user pool where you want to create a resource server.
         /// </summary>
         [Input("userPoolId", required: true)]
         public Input<string> UserPoolId { get; set; } = null!;

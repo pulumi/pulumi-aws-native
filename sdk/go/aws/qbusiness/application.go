@@ -25,7 +25,8 @@ type Application struct {
 	AttachmentsConfiguration ApplicationAttachmentsConfigurationPtrOutput `pulumi:"attachmentsConfiguration"`
 	// Subscription configuration information for an Amazon Q Business application using IAM identity federation for user management.
 	AutoSubscriptionConfiguration ApplicationAutoSubscriptionConfigurationPtrOutput `pulumi:"autoSubscriptionConfiguration"`
-	ClientIdsForOidc              pulumi.StringArrayOutput                          `pulumi:"clientIdsForOidc"`
+	// The OIDC client ID for a Amazon Q Business application.
+	ClientIdsForOidc pulumi.StringArrayOutput `pulumi:"clientIdsForOidc"`
 	// The Unix timestamp when the Amazon Q Business application was created.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// A description for the Amazon Q Business application.
@@ -114,7 +115,8 @@ type applicationArgs struct {
 	AttachmentsConfiguration *ApplicationAttachmentsConfiguration `pulumi:"attachmentsConfiguration"`
 	// Subscription configuration information for an Amazon Q Business application using IAM identity federation for user management.
 	AutoSubscriptionConfiguration *ApplicationAutoSubscriptionConfiguration `pulumi:"autoSubscriptionConfiguration"`
-	ClientIdsForOidc              []string                                  `pulumi:"clientIdsForOidc"`
+	// The OIDC client ID for a Amazon Q Business application.
+	ClientIdsForOidc []string `pulumi:"clientIdsForOidc"`
 	// A description for the Amazon Q Business application.
 	Description *string `pulumi:"description"`
 	// The name of the Amazon Q Business application.
@@ -146,7 +148,8 @@ type ApplicationArgs struct {
 	AttachmentsConfiguration ApplicationAttachmentsConfigurationPtrInput
 	// Subscription configuration information for an Amazon Q Business application using IAM identity federation for user management.
 	AutoSubscriptionConfiguration ApplicationAutoSubscriptionConfigurationPtrInput
-	ClientIdsForOidc              pulumi.StringArrayInput
+	// The OIDC client ID for a Amazon Q Business application.
+	ClientIdsForOidc pulumi.StringArrayInput
 	// A description for the Amazon Q Business application.
 	Description pulumi.StringPtrInput
 	// The name of the Amazon Q Business application.
@@ -231,6 +234,7 @@ func (o ApplicationOutput) AutoSubscriptionConfiguration() ApplicationAutoSubscr
 	}).(ApplicationAutoSubscriptionConfigurationPtrOutput)
 }
 
+// The OIDC client ID for a Amazon Q Business application.
 func (o ApplicationOutput) ClientIdsForOidc() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringArrayOutput { return v.ClientIdsForOidc }).(pulumi.StringArrayOutput)
 }

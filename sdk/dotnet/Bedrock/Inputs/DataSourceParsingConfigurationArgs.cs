@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
     public sealed class DataSourceParsingConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Settings for a foundation model used to parse documents for a data source.
+        /// If you specify `BEDROCK_FOUNDATION_MODEL` as the parsing strategy for ingesting your data source, use this object to modify configurations for using a foundation model to parse documents.
         /// </summary>
         [Input("bedrockFoundationModelConfiguration")]
         public Input<Inputs.DataSourceBedrockFoundationModelConfigurationArgs>? BedrockFoundationModelConfiguration { get; set; }

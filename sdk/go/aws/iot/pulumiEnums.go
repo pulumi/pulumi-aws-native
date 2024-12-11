@@ -1236,6 +1236,172 @@ func (in *certificateStatusPtr) ToCertificateStatusPtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(CertificateStatusPtrOutput)
 }
 
+// The namespace to which the command belongs.
+type CommandNamespace string
+
+const (
+	CommandNamespaceAwsIoT          = CommandNamespace("AWS-IoT")
+	CommandNamespaceAwsIoTFleetWise = CommandNamespace("AWS-IoT-FleetWise")
+)
+
+func (CommandNamespace) ElementType() reflect.Type {
+	return reflect.TypeOf((*CommandNamespace)(nil)).Elem()
+}
+
+func (e CommandNamespace) ToCommandNamespaceOutput() CommandNamespaceOutput {
+	return pulumi.ToOutput(e).(CommandNamespaceOutput)
+}
+
+func (e CommandNamespace) ToCommandNamespaceOutputWithContext(ctx context.Context) CommandNamespaceOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CommandNamespaceOutput)
+}
+
+func (e CommandNamespace) ToCommandNamespacePtrOutput() CommandNamespacePtrOutput {
+	return e.ToCommandNamespacePtrOutputWithContext(context.Background())
+}
+
+func (e CommandNamespace) ToCommandNamespacePtrOutputWithContext(ctx context.Context) CommandNamespacePtrOutput {
+	return CommandNamespace(e).ToCommandNamespaceOutputWithContext(ctx).ToCommandNamespacePtrOutputWithContext(ctx)
+}
+
+func (e CommandNamespace) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CommandNamespace) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CommandNamespace) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CommandNamespace) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type CommandNamespaceOutput struct{ *pulumi.OutputState }
+
+func (CommandNamespaceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CommandNamespace)(nil)).Elem()
+}
+
+func (o CommandNamespaceOutput) ToCommandNamespaceOutput() CommandNamespaceOutput {
+	return o
+}
+
+func (o CommandNamespaceOutput) ToCommandNamespaceOutputWithContext(ctx context.Context) CommandNamespaceOutput {
+	return o
+}
+
+func (o CommandNamespaceOutput) ToCommandNamespacePtrOutput() CommandNamespacePtrOutput {
+	return o.ToCommandNamespacePtrOutputWithContext(context.Background())
+}
+
+func (o CommandNamespaceOutput) ToCommandNamespacePtrOutputWithContext(ctx context.Context) CommandNamespacePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CommandNamespace) *CommandNamespace {
+		return &v
+	}).(CommandNamespacePtrOutput)
+}
+
+func (o CommandNamespaceOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CommandNamespaceOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CommandNamespace) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CommandNamespaceOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CommandNamespaceOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CommandNamespace) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CommandNamespacePtrOutput struct{ *pulumi.OutputState }
+
+func (CommandNamespacePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CommandNamespace)(nil)).Elem()
+}
+
+func (o CommandNamespacePtrOutput) ToCommandNamespacePtrOutput() CommandNamespacePtrOutput {
+	return o
+}
+
+func (o CommandNamespacePtrOutput) ToCommandNamespacePtrOutputWithContext(ctx context.Context) CommandNamespacePtrOutput {
+	return o
+}
+
+func (o CommandNamespacePtrOutput) Elem() CommandNamespaceOutput {
+	return o.ApplyT(func(v *CommandNamespace) CommandNamespace {
+		if v != nil {
+			return *v
+		}
+		var ret CommandNamespace
+		return ret
+	}).(CommandNamespaceOutput)
+}
+
+func (o CommandNamespacePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CommandNamespacePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CommandNamespace) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// CommandNamespaceInput is an input type that accepts values of the CommandNamespace enum
+// A concrete instance of `CommandNamespaceInput` can be one of the following:
+//
+//	CommandNamespaceAwsIoT
+//	CommandNamespaceAwsIoTFleetWise
+type CommandNamespaceInput interface {
+	pulumi.Input
+
+	ToCommandNamespaceOutput() CommandNamespaceOutput
+	ToCommandNamespaceOutputWithContext(context.Context) CommandNamespaceOutput
+}
+
+var commandNamespacePtrType = reflect.TypeOf((**CommandNamespace)(nil)).Elem()
+
+type CommandNamespacePtrInput interface {
+	pulumi.Input
+
+	ToCommandNamespacePtrOutput() CommandNamespacePtrOutput
+	ToCommandNamespacePtrOutputWithContext(context.Context) CommandNamespacePtrOutput
+}
+
+type commandNamespacePtr string
+
+func CommandNamespacePtr(v string) CommandNamespacePtrInput {
+	return (*commandNamespacePtr)(&v)
+}
+
+func (*commandNamespacePtr) ElementType() reflect.Type {
+	return commandNamespacePtrType
+}
+
+func (in *commandNamespacePtr) ToCommandNamespacePtrOutput() CommandNamespacePtrOutput {
+	return pulumi.ToOutput(in).(CommandNamespacePtrOutput)
+}
+
+func (in *commandNamespacePtr) ToCommandNamespacePtrOutputWithContext(ctx context.Context) CommandNamespacePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CommandNamespacePtrOutput)
+}
+
 // The type of the custom metric. Types include string-list, ip-address-list, number-list, and number.
 type CustomMetricMetricType string
 
@@ -5951,6 +6117,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateProviderOperationArrayInput)(nil)).Elem(), CertificateProviderOperationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateStatusInput)(nil)).Elem(), CertificateStatus("ACTIVE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateStatusPtrInput)(nil)).Elem(), CertificateStatus("ACTIVE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CommandNamespaceInput)(nil)).Elem(), CommandNamespace("AWS-IoT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CommandNamespacePtrInput)(nil)).Elem(), CommandNamespace("AWS-IoT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomMetricMetricTypeInput)(nil)).Elem(), CustomMetricMetricType("string-list"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomMetricMetricTypePtrInput)(nil)).Elem(), CustomMetricMetricType("string-list"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DimensionTypeInput)(nil)).Elem(), DimensionType("TOPIC_FILTER"))
@@ -6018,6 +6186,8 @@ func init() {
 	pulumi.RegisterOutputType(CertificateProviderOperationArrayOutput{})
 	pulumi.RegisterOutputType(CertificateStatusOutput{})
 	pulumi.RegisterOutputType(CertificateStatusPtrOutput{})
+	pulumi.RegisterOutputType(CommandNamespaceOutput{})
+	pulumi.RegisterOutputType(CommandNamespacePtrOutput{})
 	pulumi.RegisterOutputType(CustomMetricMetricTypeOutput{})
 	pulumi.RegisterOutputType(CustomMetricMetricTypePtrOutput{})
 	pulumi.RegisterOutputType(DimensionTypeOutput{})

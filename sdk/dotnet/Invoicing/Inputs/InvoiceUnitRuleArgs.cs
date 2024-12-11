@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.Invoicing.Inputs
     {
         [Input("linkedAccounts", required: true)]
         private InputList<string>? _linkedAccounts;
+
+        /// <summary>
+        /// The list of `LINKED_ACCOUNT` IDs where charges are included within the invoice unit.
+        /// </summary>
         public InputList<string> LinkedAccounts
         {
             get => _linkedAccounts ?? (_linkedAccounts = new InputList<string>());

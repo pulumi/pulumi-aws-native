@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.S3Express
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Returns the code for the Availability Zone where the directory bucket was created.
+        /// Returns the code for the Availability Zone or Local Zone where the directory bucket was created. An example for the code of an Availability Zone is 'us-east-1f'.
         /// </summary>
         [Output("availabilityZoneName")]
         public Output<string> AvailabilityZoneName { get; private set; } = null!;
@@ -34,13 +34,13 @@ namespace Pulumi.AwsNative.S3Express
         public Output<Outputs.DirectoryBucketBucketEncryption?> BucketEncryption { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies a name for the bucket. The bucket name must contain only lowercase letters, numbers, and hyphens (-). A directory bucket name must be unique in the chosen Availability Zone. The bucket name must also follow the format 'bucket_base_name--az_id--x-s3' (for example, 'DOC-EXAMPLE-BUCKET--usw2-az1--x-s3'). If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
+        /// Specifies a name for the bucket. The bucket name must contain only lowercase letters, numbers, and hyphens (-). A directory bucket name must be unique in the chosen Availability Zone or Local Zone. The bucket name must also follow the format 'bucket_base_name--zone_id--x-s3'. The zone_id can be the ID of an Availability Zone or a Local Zone. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
         /// </summary>
         [Output("bucketName")]
         public Output<string?> BucketName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the number of Availability Zone that's used for redundancy for the bucket.
+        /// Specifies the number of Availability Zone or Local Zone that's used for redundancy for the bucket.
         /// </summary>
         [Output("dataRedundancy")]
         public Output<Pulumi.AwsNative.S3Express.DirectoryBucketDataRedundancy> DataRedundancy { get; private set; } = null!;
@@ -52,7 +52,7 @@ namespace Pulumi.AwsNative.S3Express
         public Output<Outputs.DirectoryBucketLifecycleConfiguration?> LifecycleConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the AZ ID of the Availability Zone where the directory bucket will be created. An example AZ ID value is 'use1-az5'.
+        /// Specifies the Zone ID of the Availability Zone or Local Zone where the directory bucket will be created. An example Availability Zone ID value is 'use1-az5'.
         /// </summary>
         [Output("locationName")]
         public Output<string> LocationName { get; private set; } = null!;
@@ -115,13 +115,13 @@ namespace Pulumi.AwsNative.S3Express
         public Input<Inputs.DirectoryBucketBucketEncryptionArgs>? BucketEncryption { get; set; }
 
         /// <summary>
-        /// Specifies a name for the bucket. The bucket name must contain only lowercase letters, numbers, and hyphens (-). A directory bucket name must be unique in the chosen Availability Zone. The bucket name must also follow the format 'bucket_base_name--az_id--x-s3' (for example, 'DOC-EXAMPLE-BUCKET--usw2-az1--x-s3'). If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
+        /// Specifies a name for the bucket. The bucket name must contain only lowercase letters, numbers, and hyphens (-). A directory bucket name must be unique in the chosen Availability Zone or Local Zone. The bucket name must also follow the format 'bucket_base_name--zone_id--x-s3'. The zone_id can be the ID of an Availability Zone or a Local Zone. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
         /// </summary>
         [Input("bucketName")]
         public Input<string>? BucketName { get; set; }
 
         /// <summary>
-        /// Specifies the number of Availability Zone that's used for redundancy for the bucket.
+        /// Specifies the number of Availability Zone or Local Zone that's used for redundancy for the bucket.
         /// </summary>
         [Input("dataRedundancy", required: true)]
         public Input<Pulumi.AwsNative.S3Express.DirectoryBucketDataRedundancy> DataRedundancy { get; set; } = null!;
@@ -133,7 +133,7 @@ namespace Pulumi.AwsNative.S3Express
         public Input<Inputs.DirectoryBucketLifecycleConfigurationArgs>? LifecycleConfiguration { get; set; }
 
         /// <summary>
-        /// Specifies the AZ ID of the Availability Zone where the directory bucket will be created. An example AZ ID value is 'use1-az5'.
+        /// Specifies the Zone ID of the Availability Zone or Local Zone where the directory bucket will be created. An example Availability Zone ID value is 'use1-az5'.
         /// </summary>
         [Input("locationName", required: true)]
         public Input<string> LocationName { get; set; } = null!;

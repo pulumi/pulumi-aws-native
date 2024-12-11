@@ -43,6 +43,7 @@ class ApplicationArgs:
         :param pulumi.Input[str] display_name: The name of the Amazon Q Business application.
         :param pulumi.Input['ApplicationAttachmentsConfigurationArgs'] attachments_configuration: Configuration information for the file upload during chat feature.
         :param pulumi.Input['ApplicationAutoSubscriptionConfigurationArgs'] auto_subscription_configuration: Subscription configuration information for an Amazon Q Business application using IAM identity federation for user management.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] client_ids_for_oidc: The OIDC client ID for a Amazon Q Business application.
         :param pulumi.Input[str] description: A description for the Amazon Q Business application.
         :param pulumi.Input['ApplicationEncryptionConfigurationArgs'] encryption_configuration: Provides the identifier of the AWS KMS key used to encrypt data indexed by Amazon Q Business. Amazon Q Business doesn't support asymmetric keys.
         :param pulumi.Input[str] iam_identity_provider_arn: The Amazon Resource Name (ARN) of an identity provider being used by an Amazon Q Business application.
@@ -122,6 +123,9 @@ class ApplicationArgs:
     @property
     @pulumi.getter(name="clientIdsForOidc")
     def client_ids_for_oidc(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The OIDC client ID for a Amazon Q Business application.
+        """
         return pulumi.get(self, "client_ids_for_oidc")
 
     @client_ids_for_oidc.setter
@@ -275,6 +279,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ApplicationAttachmentsConfigurationArgs', 'ApplicationAttachmentsConfigurationArgsDict']] attachments_configuration: Configuration information for the file upload during chat feature.
         :param pulumi.Input[Union['ApplicationAutoSubscriptionConfigurationArgs', 'ApplicationAutoSubscriptionConfigurationArgsDict']] auto_subscription_configuration: Subscription configuration information for an Amazon Q Business application using IAM identity federation for user management.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] client_ids_for_oidc: The OIDC client ID for a Amazon Q Business application.
         :param pulumi.Input[str] description: A description for the Amazon Q Business application.
         :param pulumi.Input[str] display_name: The name of the Amazon Q Business application.
         :param pulumi.Input[Union['ApplicationEncryptionConfigurationArgs', 'ApplicationEncryptionConfigurationArgsDict']] encryption_configuration: Provides the identifier of the AWS KMS key used to encrypt data indexed by Amazon Q Business. Amazon Q Business doesn't support asymmetric keys.
@@ -438,6 +443,9 @@ class Application(pulumi.CustomResource):
     @property
     @pulumi.getter(name="clientIdsForOidc")
     def client_ids_for_oidc(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        The OIDC client ID for a Amazon Q Business application.
+        """
         return pulumi.get(self, "client_ids_for_oidc")
 
     @property

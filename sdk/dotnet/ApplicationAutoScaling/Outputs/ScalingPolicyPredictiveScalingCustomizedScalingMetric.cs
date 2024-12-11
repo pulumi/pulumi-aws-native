@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApplicationAutoScaling.Outputs
 {
 
+    /// <summary>
+    /// One or more metric data queries to provide data points for a metric specification.
+    /// </summary>
     [OutputType]
     public sealed class ScalingPolicyPredictiveScalingCustomizedScalingMetric
     {

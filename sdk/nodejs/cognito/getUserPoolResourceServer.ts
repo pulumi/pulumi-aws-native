@@ -26,7 +26,7 @@ export interface GetUserPoolResourceServerArgs {
      */
     identifier: string;
     /**
-     * The user pool ID for the user pool.
+     * The ID of the user pool where you want to create a resource server.
      */
     userPoolId: string;
 }
@@ -60,7 +60,7 @@ export interface GetUserPoolResourceServerOutputArgs {
      */
     identifier: pulumi.Input<string>;
     /**
-     * The user pool ID for the user pool.
+     * The ID of the user pool where you want to create a resource server.
      */
     userPoolId: pulumi.Input<string>;
 }

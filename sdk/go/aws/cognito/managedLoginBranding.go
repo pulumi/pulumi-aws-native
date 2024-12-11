@@ -17,16 +17,20 @@ type ManagedLoginBranding struct {
 	pulumi.CustomResourceState
 
 	// An array of image files that you want to apply to roles like backgrounds, logos, and icons. Each object must also indicate whether it is for dark mode, light mode, or browser-adaptive mode.
-	Assets   ManagedLoginBrandingAssetTypeArrayOutput `pulumi:"assets"`
-	ClientId pulumi.StringPtrOutput                   `pulumi:"clientId"`
+	Assets ManagedLoginBrandingAssetTypeArrayOutput `pulumi:"assets"`
+	// The app client that's assigned to the branding style that you want more information about.
+	ClientId pulumi.StringPtrOutput `pulumi:"clientId"`
 	// The ID of the managed login branding style.
-	ManagedLoginBrandingId pulumi.StringOutput  `pulumi:"managedLoginBrandingId"`
-	ReturnMergedResources  pulumi.BoolPtrOutput `pulumi:"returnMergedResources"`
+	ManagedLoginBrandingId pulumi.StringOutput `pulumi:"managedLoginBrandingId"`
+	// When `true` , returns values for branding options that are unchanged from Amazon Cognito defaults. When `false` or when you omit this parameter, returns only values that you customized in your branding style.
+	ReturnMergedResources pulumi.BoolPtrOutput `pulumi:"returnMergedResources"`
 	// A JSON file, encoded as a `Document` type, with the the settings that you want to apply to your style.
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::ManagedLoginBranding` for more information about the expected schema for this property.
 	Settings pulumi.AnyOutput `pulumi:"settings"`
-	// When true, applies the default branding style options. This option reverts to a "blank" style that you can modify later in the branding designer.
+	// When true, applies the default branding style options. This option reverts to default style options that are managed by Amazon Cognito. You can modify them later in the branding designer.
+	//
+	// When you specify `true` for this option, you must also omit values for `Settings` and `Assets` in the request.
 	UseCognitoProvidedValues pulumi.BoolPtrOutput `pulumi:"useCognitoProvidedValues"`
 	// The user pool where the branding style is assigned.
 	UserPoolId pulumi.StringOutput `pulumi:"userPoolId"`
@@ -81,14 +85,18 @@ func (ManagedLoginBrandingState) ElementType() reflect.Type {
 
 type managedLoginBrandingArgs struct {
 	// An array of image files that you want to apply to roles like backgrounds, logos, and icons. Each object must also indicate whether it is for dark mode, light mode, or browser-adaptive mode.
-	Assets                []ManagedLoginBrandingAssetType `pulumi:"assets"`
-	ClientId              *string                         `pulumi:"clientId"`
-	ReturnMergedResources *bool                           `pulumi:"returnMergedResources"`
+	Assets []ManagedLoginBrandingAssetType `pulumi:"assets"`
+	// The app client that's assigned to the branding style that you want more information about.
+	ClientId *string `pulumi:"clientId"`
+	// When `true` , returns values for branding options that are unchanged from Amazon Cognito defaults. When `false` or when you omit this parameter, returns only values that you customized in your branding style.
+	ReturnMergedResources *bool `pulumi:"returnMergedResources"`
 	// A JSON file, encoded as a `Document` type, with the the settings that you want to apply to your style.
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::ManagedLoginBranding` for more information about the expected schema for this property.
 	Settings interface{} `pulumi:"settings"`
-	// When true, applies the default branding style options. This option reverts to a "blank" style that you can modify later in the branding designer.
+	// When true, applies the default branding style options. This option reverts to default style options that are managed by Amazon Cognito. You can modify them later in the branding designer.
+	//
+	// When you specify `true` for this option, you must also omit values for `Settings` and `Assets` in the request.
 	UseCognitoProvidedValues *bool `pulumi:"useCognitoProvidedValues"`
 	// The user pool where the branding style is assigned.
 	UserPoolId string `pulumi:"userPoolId"`
@@ -97,14 +105,18 @@ type managedLoginBrandingArgs struct {
 // The set of arguments for constructing a ManagedLoginBranding resource.
 type ManagedLoginBrandingArgs struct {
 	// An array of image files that you want to apply to roles like backgrounds, logos, and icons. Each object must also indicate whether it is for dark mode, light mode, or browser-adaptive mode.
-	Assets                ManagedLoginBrandingAssetTypeArrayInput
-	ClientId              pulumi.StringPtrInput
+	Assets ManagedLoginBrandingAssetTypeArrayInput
+	// The app client that's assigned to the branding style that you want more information about.
+	ClientId pulumi.StringPtrInput
+	// When `true` , returns values for branding options that are unchanged from Amazon Cognito defaults. When `false` or when you omit this parameter, returns only values that you customized in your branding style.
 	ReturnMergedResources pulumi.BoolPtrInput
 	// A JSON file, encoded as a `Document` type, with the the settings that you want to apply to your style.
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Cognito::ManagedLoginBranding` for more information about the expected schema for this property.
 	Settings pulumi.Input
-	// When true, applies the default branding style options. This option reverts to a "blank" style that you can modify later in the branding designer.
+	// When true, applies the default branding style options. This option reverts to default style options that are managed by Amazon Cognito. You can modify them later in the branding designer.
+	//
+	// When you specify `true` for this option, you must also omit values for `Settings` and `Assets` in the request.
 	UseCognitoProvidedValues pulumi.BoolPtrInput
 	// The user pool where the branding style is assigned.
 	UserPoolId pulumi.StringInput
@@ -152,6 +164,7 @@ func (o ManagedLoginBrandingOutput) Assets() ManagedLoginBrandingAssetTypeArrayO
 	return o.ApplyT(func(v *ManagedLoginBranding) ManagedLoginBrandingAssetTypeArrayOutput { return v.Assets }).(ManagedLoginBrandingAssetTypeArrayOutput)
 }
 
+// The app client that's assigned to the branding style that you want more information about.
 func (o ManagedLoginBrandingOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedLoginBranding) pulumi.StringPtrOutput { return v.ClientId }).(pulumi.StringPtrOutput)
 }
@@ -161,6 +174,7 @@ func (o ManagedLoginBrandingOutput) ManagedLoginBrandingId() pulumi.StringOutput
 	return o.ApplyT(func(v *ManagedLoginBranding) pulumi.StringOutput { return v.ManagedLoginBrandingId }).(pulumi.StringOutput)
 }
 
+// When `true` , returns values for branding options that are unchanged from Amazon Cognito defaults. When `false` or when you omit this parameter, returns only values that you customized in your branding style.
 func (o ManagedLoginBrandingOutput) ReturnMergedResources() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ManagedLoginBranding) pulumi.BoolPtrOutput { return v.ReturnMergedResources }).(pulumi.BoolPtrOutput)
 }
@@ -172,7 +186,9 @@ func (o ManagedLoginBrandingOutput) Settings() pulumi.AnyOutput {
 	return o.ApplyT(func(v *ManagedLoginBranding) pulumi.AnyOutput { return v.Settings }).(pulumi.AnyOutput)
 }
 
-// When true, applies the default branding style options. This option reverts to a "blank" style that you can modify later in the branding designer.
+// When true, applies the default branding style options. This option reverts to default style options that are managed by Amazon Cognito. You can modify them later in the branding designer.
+//
+// When you specify `true` for this option, you must also omit values for `Settings` and `Assets` in the request.
 func (o ManagedLoginBrandingOutput) UseCognitoProvidedValues() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ManagedLoginBranding) pulumi.BoolPtrOutput { return v.UseCognitoProvidedValues }).(pulumi.BoolPtrOutput)
 }

@@ -54,7 +54,7 @@ def get_user_pool_ui_customization_attachment(client_id: Optional[str] = None,
 
 
     :param str client_id: The app client ID for your UI customization. When this value isn't present, the customization applies to all user pool app clients that don't have client-level settings..
-    :param str user_pool_id: The user pool ID for the user pool.
+    :param str user_pool_id: The ID of the user pool.
     """
     __args__ = dict()
     __args__['clientId'] = client_id
@@ -72,7 +72,7 @@ def get_user_pool_ui_customization_attachment_output(client_id: Optional[pulumi.
 
 
     :param str client_id: The app client ID for your UI customization. When this value isn't present, the customization applies to all user pool app clients that don't have client-level settings..
-    :param str user_pool_id: The user pool ID for the user pool.
+    :param str user_pool_id: The ID of the user pool.
     """
     __args__ = dict()
     __args__['clientId'] = client_id

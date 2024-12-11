@@ -145,7 +145,7 @@ class GetUserPoolResult:
     @pulumi.getter(name="aliasAttributes")
     def alias_attributes(self) -> Optional[Sequence[str]]:
         """
-        Attributes supported as an alias for this user pool. Possible values: *phone_number* , *email* , or *preferred_username* .
+        Attributes supported as an alias for this user pool. Possible values: *phone_number* , *email* , or *preferred_username* . For more information about alias attributes, see [Customizing sign-in attributes](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#user-pool-settings-aliases) .
         """
         return pulumi.get(self, "alias_attributes")
 
@@ -161,7 +161,7 @@ class GetUserPoolResult:
     @pulumi.getter(name="autoVerifiedAttributes")
     def auto_verified_attributes(self) -> Optional[Sequence[str]]:
         """
-        The attributes to be auto-verified. Possible values: *email* , *phone_number* .
+        The attributes that you want your user pool to automatically verify. Possible values: *email* , *phone_number* . For more information see [Verifying contact information at sign-up](https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#allowing-users-to-sign-up-and-confirm-themselves) .
         """
         return pulumi.get(self, "auto_verified_attributes")
 
@@ -181,9 +181,9 @@ class GetUserPoolResult:
     @pulumi.getter(name="deviceConfiguration")
     def device_configuration(self) -> Optional['outputs.UserPoolDeviceConfiguration']:
         """
-        The device-remembering configuration for a user pool. A null value indicates that you have deactivated device remembering in your user pool.
+        The device-remembering configuration for a user pool. Device remembering or device tracking is a "Remember me on this device" option for user pools that perform authentication with the device key of a trusted device in the back end, instead of a user-provided MFA code. For more information about device authentication, see [Working with user devices in your user pool](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html) . A null value indicates that you have deactivated device remembering in your user pool.
 
-        > When you provide a value for any `DeviceConfiguration` field, you activate the Amazon Cognito device-remembering feature.
+        > When you provide a value for any `DeviceConfiguration` field, you activate the Amazon Cognito device-remembering feature. For more infor
         """
         return pulumi.get(self, "device_configuration")
 
@@ -271,7 +271,7 @@ class GetUserPoolResult:
     @pulumi.getter
     def schema(self) -> Optional[Sequence['outputs.UserPoolSchemaAttribute']]:
         """
-        An array of schema attributes for the new user pool. These attributes can be standard or custom attributes.
+        An array of attributes for the new user pool. You can add custom attributes and modify the properties of default attributes. The specifications in this parameter set the required attributes in your user pool. For more information, see [Working with user attributes](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html) .
         """
         return pulumi.get(self, "schema")
 
@@ -287,7 +287,7 @@ class GetUserPoolResult:
     @pulumi.getter(name="smsConfiguration")
     def sms_configuration(self) -> Optional['outputs.UserPoolSmsConfiguration']:
         """
-        The SMS configuration with the settings that your Amazon Cognito user pool must use to send an SMS message from your AWS account through Amazon Simple Notification Service. To send SMS messages with Amazon SNS in the AWS Region that you want, the Amazon Cognito user pool uses an AWS Identity and Access Management (IAM) role in your AWS account .
+        The SMS configuration with the settings that your Amazon Cognito user pool must use to send an SMS message from your AWS account through Amazon Simple Notification Service. To send SMS messages with Amazon SNS in the AWS Region that you want, the Amazon Cognito user pool uses an AWS Identity and Access Management (IAM) role in your AWS account . For more information see [SMS message settings](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html) .
         """
         return pulumi.get(self, "sms_configuration")
 
@@ -331,7 +331,7 @@ class GetUserPoolResult:
     @pulumi.getter(name="userPoolName")
     def user_pool_name(self) -> Optional[str]:
         """
-        A string used to name the user pool.
+        A friendlhy name for your user pool.
         """
         return pulumi.get(self, "user_pool_name")
 
@@ -363,9 +363,11 @@ class GetUserPoolResult:
     @pulumi.getter(name="usernameConfiguration")
     def username_configuration(self) -> Optional['outputs.UserPoolUsernameConfiguration']:
         """
-        Case sensitivity on the username input for the selected sign-in option. When case sensitivity is set to `False` (case insensitive), users can sign in with any combination of capital and lowercase letters. For example, `username` , `USERNAME` , or `UserName` , or for email, `email@example.com` or `EMaiL@eXamplE.Com` . For most use cases, set case sensitivity to `False` (case insensitive) as a best practice. When usernames and email addresses are case insensitive, Amazon Cognito treats any variation in case as the same user, and prevents a case variation from being assigned to the same attribute for a different user.
+        Sets the case sensitivity option for sign-in usernames. When `CaseSensitive` is `false` (case insensitive), users can sign in with any combination of capital and lowercase letters. For example, `username` , `USERNAME` , or `UserName` , or for email, `email@example.com` or `EMaiL@eXamplE.Com` . For most use cases, set case sensitivity to `false` as a best practice. When usernames and email addresses are case insensitive, Amazon Cognito treats any variation in case as the same user, and prevents a case variation from being assigned to the same attribute for a different user.
 
-        This configuration is immutable after you set it. For more information, see [UsernameConfigurationType](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UsernameConfigurationType.html) .
+        When `CaseSensitive` is `true` (case sensitive), Amazon Cognito interprets `USERNAME` and `UserName` as distinct users.
+
+        This configuration is immutable after you set it.
         """
         return pulumi.get(self, "username_configuration")
 
@@ -382,11 +384,23 @@ class GetUserPoolResult:
     @property
     @pulumi.getter(name="webAuthnRelyingPartyId")
     def web_authn_relying_party_id(self) -> Optional[str]:
+        """
+        Sets or displays the authentication domain, typically your user pool domain, that passkey providers must use as a relying party (RP) in their configuration.
+
+        Under the following conditions, the passkey relying party ID must be the fully-qualified domain name of your custom domain:
+
+        - The user pool is configured for passkey authentication.
+        - The user pool has a custom domain, whether or not it also has a prefix domain.
+        - Your application performs authentication with managed login or the classic hosted UI.
+        """
         return pulumi.get(self, "web_authn_relying_party_id")
 
     @property
     @pulumi.getter(name="webAuthnUserVerification")
     def web_authn_user_verification(self) -> Optional[str]:
+        """
+        When `required` , users can only register and sign in users with passkeys that are capable of [user verification](https://docs.aws.amazon.com/https://www.w3.org/TR/webauthn-2/#enum-userVerificationRequirement) . When `preferred` , your user pool doesn't require the use of authenticators with user verification but encourages it.
+        """
         return pulumi.get(self, "web_authn_user_verification")
 
 

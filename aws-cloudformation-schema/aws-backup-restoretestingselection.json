@@ -105,7 +105,7 @@
       "timeoutInMinutes" : 5
     },
     "list" : {
-      "permissions" : [ "backup:ListRestoreTestingSelections" ],
+      "permissions" : [ "backup:ListRestoreTestingSelections", "backup:ListRestoreTestingPlans" ],
       "timeoutInMinutes" : 5
     }
   }

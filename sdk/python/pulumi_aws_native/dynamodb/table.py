@@ -64,8 +64,8 @@ class TableArgs:
                 Updates are not supported. The following are exceptions:
                  +  If you update either the contributor insights specification or the provisioned throughput values of global secondary indexes, you can update the table without interruption.
                  +  You can delete or add one global secondary index without interruption. If you do both in the same update (for example, by changing the index's logical ID), the update fails.
-        :param pulumi.Input['TableImportSourceSpecificationArgs'] import_source_specification: Specifies the properties of data being imported from the S3 bucket source to the table.
-                 If you specify the ``ImportSourceSpecification`` property, and also specify either the ``StreamSpecification``, the ``TableClass`` property, or the ``DeletionProtectionEnabled`` property, the IAM entity creating/updating stack must have ``UpdateTable`` permission.
+        :param pulumi.Input['TableImportSourceSpecificationArgs'] import_source_specification: Specifies the properties of data being imported from the S3 bucket source to the" table.
+                 If you specify the ``ImportSourceSpecification`` property, and also specify either the ``StreamSpecification``, the ``TableClass`` property, the ``DeletionProtectionEnabled`` property, or the ``WarmThroughput`` property, the IAM entity creating/updating stack must have ``UpdateTable`` permission.
         :param pulumi.Input['TableKinesisStreamSpecificationArgs'] kinesis_stream_specification: The Kinesis Data Streams configuration for the specified table.
         :param pulumi.Input[Sequence[pulumi.Input['TableLocalSecondaryIndexArgs']]] local_secondary_indexes: Local secondary indexes to be created on the table. You can create up to 5 local secondary indexes. Each index is scoped to a given hash key value. The size of each hash key can be up to 10 gigabytes.
         :param pulumi.Input['TableOnDemandThroughputArgs'] on_demand_throughput: Sets the maximum number of read and write units for the specified on-demand table. If you use this property, you must specify ``MaxReadRequestUnits``, ``MaxWriteRequestUnits``, or both.
@@ -213,8 +213,8 @@ class TableArgs:
     @pulumi.getter(name="importSourceSpecification")
     def import_source_specification(self) -> Optional[pulumi.Input['TableImportSourceSpecificationArgs']]:
         """
-        Specifies the properties of data being imported from the S3 bucket source to the table.
-          If you specify the ``ImportSourceSpecification`` property, and also specify either the ``StreamSpecification``, the ``TableClass`` property, or the ``DeletionProtectionEnabled`` property, the IAM entity creating/updating stack must have ``UpdateTable`` permission.
+        Specifies the properties of data being imported from the S3 bucket source to the" table.
+          If you specify the ``ImportSourceSpecification`` property, and also specify either the ``StreamSpecification``, the ``TableClass`` property, the ``DeletionProtectionEnabled`` property, or the ``WarmThroughput`` property, the IAM entity creating/updating stack must have ``UpdateTable`` permission.
         """
         return pulumi.get(self, "import_source_specification")
 
@@ -662,8 +662,8 @@ class Table(pulumi.CustomResource):
                 Updates are not supported. The following are exceptions:
                  +  If you update either the contributor insights specification or the provisioned throughput values of global secondary indexes, you can update the table without interruption.
                  +  You can delete or add one global secondary index without interruption. If you do both in the same update (for example, by changing the index's logical ID), the update fails.
-        :param pulumi.Input[Union['TableImportSourceSpecificationArgs', 'TableImportSourceSpecificationArgsDict']] import_source_specification: Specifies the properties of data being imported from the S3 bucket source to the table.
-                 If you specify the ``ImportSourceSpecification`` property, and also specify either the ``StreamSpecification``, the ``TableClass`` property, or the ``DeletionProtectionEnabled`` property, the IAM entity creating/updating stack must have ``UpdateTable`` permission.
+        :param pulumi.Input[Union['TableImportSourceSpecificationArgs', 'TableImportSourceSpecificationArgsDict']] import_source_specification: Specifies the properties of data being imported from the S3 bucket source to the" table.
+                 If you specify the ``ImportSourceSpecification`` property, and also specify either the ``StreamSpecification``, the ``TableClass`` property, the ``DeletionProtectionEnabled`` property, or the ``WarmThroughput`` property, the IAM entity creating/updating stack must have ``UpdateTable`` permission.
         :param pulumi.Input[Union[Sequence[pulumi.Input[Union['TableKeySchemaArgs', 'TableKeySchemaArgsDict']]], Any]] key_schema: Specifies the attributes that make up the primary key for the table. The attributes in the ``KeySchema`` property must also be defined in the ``AttributeDefinitions`` property.
         :param pulumi.Input[Union['TableKinesisStreamSpecificationArgs', 'TableKinesisStreamSpecificationArgsDict']] kinesis_stream_specification: The Kinesis Data Streams configuration for the specified table.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TableLocalSecondaryIndexArgs', 'TableLocalSecondaryIndexArgsDict']]]] local_secondary_indexes: Local secondary indexes to be created on the table. You can create up to 5 local secondary indexes. Each index is scoped to a given hash key value. The size of each hash key can be up to 10 gigabytes.
@@ -1103,8 +1103,8 @@ class Table(pulumi.CustomResource):
     @pulumi.getter(name="importSourceSpecification")
     def import_source_specification(self) -> pulumi.Output[Optional['outputs.TableImportSourceSpecification']]:
         """
-        Specifies the properties of data being imported from the S3 bucket source to the table.
-          If you specify the ``ImportSourceSpecification`` property, and also specify either the ``StreamSpecification``, the ``TableClass`` property, or the ``DeletionProtectionEnabled`` property, the IAM entity creating/updating stack must have ``UpdateTable`` permission.
+        Specifies the properties of data being imported from the S3 bucket source to the" table.
+          If you specify the ``ImportSourceSpecification`` property, and also specify either the ``StreamSpecification``, the ``TableClass`` property, the ``DeletionProtectionEnabled`` property, or the ``WarmThroughput`` property, the IAM entity creating/updating stack must have ``UpdateTable`` permission.
         """
         return pulumi.get(self, "import_source_specification")
 

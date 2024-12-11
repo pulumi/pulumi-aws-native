@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.Cognito
         [Output("assets")]
         public Output<ImmutableArray<Outputs.ManagedLoginBrandingAssetType>> Assets { get; private set; } = null!;
 
+        /// <summary>
+        /// The app client that's assigned to the branding style that you want more information about.
+        /// </summary>
         [Output("clientId")]
         public Output<string?> ClientId { get; private set; } = null!;
 
@@ -30,6 +33,9 @@ namespace Pulumi.AwsNative.Cognito
         [Output("managedLoginBrandingId")]
         public Output<string> ManagedLoginBrandingId { get; private set; } = null!;
 
+        /// <summary>
+        /// When `true` , returns values for branding options that are unchanged from Amazon Cognito defaults. When `false` or when you omit this parameter, returns only values that you customized in your branding style.
+        /// </summary>
         [Output("returnMergedResources")]
         public Output<bool?> ReturnMergedResources { get; private set; } = null!;
 
@@ -42,7 +48,9 @@ namespace Pulumi.AwsNative.Cognito
         public Output<object?> Settings { get; private set; } = null!;
 
         /// <summary>
-        /// When true, applies the default branding style options. This option reverts to a "blank" style that you can modify later in the branding designer.
+        /// When true, applies the default branding style options. This option reverts to default style options that are managed by Amazon Cognito. You can modify them later in the branding designer.
+        /// 
+        /// When you specify `true` for this option, you must also omit values for `Settings` and `Assets` in the request.
         /// </summary>
         [Output("useCognitoProvidedValues")]
         public Output<bool?> UseCognitoProvidedValues { get; private set; } = null!;
@@ -115,9 +123,15 @@ namespace Pulumi.AwsNative.Cognito
             set => _assets = value;
         }
 
+        /// <summary>
+        /// The app client that's assigned to the branding style that you want more information about.
+        /// </summary>
         [Input("clientId")]
         public Input<string>? ClientId { get; set; }
 
+        /// <summary>
+        /// When `true` , returns values for branding options that are unchanged from Amazon Cognito defaults. When `false` or when you omit this parameter, returns only values that you customized in your branding style.
+        /// </summary>
         [Input("returnMergedResources")]
         public Input<bool>? ReturnMergedResources { get; set; }
 
@@ -130,7 +144,9 @@ namespace Pulumi.AwsNative.Cognito
         public Input<object>? Settings { get; set; }
 
         /// <summary>
-        /// When true, applies the default branding style options. This option reverts to a "blank" style that you can modify later in the branding designer.
+        /// When true, applies the default branding style options. This option reverts to default style options that are managed by Amazon Cognito. You can modify them later in the branding designer.
+        /// 
+        /// When you specify `true` for this option, you must also omit values for `Settings` and `Assets` in the request.
         /// </summary>
         [Input("useCognitoProvidedValues")]
         public Input<bool>? UseCognitoProvidedValues { get; set; }

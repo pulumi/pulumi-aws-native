@@ -48,7 +48,7 @@ export class UserPool extends pulumi.CustomResource {
      */
     public readonly adminCreateUserConfig!: pulumi.Output<outputs.cognito.UserPoolAdminCreateUserConfig | undefined>;
     /**
-     * Attributes supported as an alias for this user pool. Possible values: *phone_number* , *email* , or *preferred_username* .
+     * Attributes supported as an alias for this user pool. Possible values: *phone_number* , *email* , or *preferred_username* . For more information about alias attributes, see [Customizing sign-in attributes](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#user-pool-settings-aliases) .
      */
     public readonly aliasAttributes!: pulumi.Output<string[] | undefined>;
     /**
@@ -56,7 +56,7 @@ export class UserPool extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The attributes to be auto-verified. Possible values: *email* , *phone_number* .
+     * The attributes that you want your user pool to automatically verify. Possible values: *email* , *phone_number* . For more information see [Verifying contact information at sign-up](https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#allowing-users-to-sign-up-and-confirm-themselves) .
      */
     public readonly autoVerifiedAttributes!: pulumi.Output<string[] | undefined>;
     /**
@@ -68,9 +68,9 @@ export class UserPool extends pulumi.CustomResource {
      */
     public readonly deletionProtection!: pulumi.Output<string | undefined>;
     /**
-     * The device-remembering configuration for a user pool. A null value indicates that you have deactivated device remembering in your user pool.
+     * The device-remembering configuration for a user pool. Device remembering or device tracking is a "Remember me on this device" option for user pools that perform authentication with the device key of a trusted device in the back end, instead of a user-provided MFA code. For more information about device authentication, see [Working with user devices in your user pool](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html) . A null value indicates that you have deactivated device remembering in your user pool.
      *
-     * > When you provide a value for any `DeviceConfiguration` field, you activate the Amazon Cognito device-remembering feature.
+     * > When you provide a value for any `DeviceConfiguration` field, you activate the Amazon Cognito device-remembering feature. For more infor
      */
     public readonly deviceConfiguration!: pulumi.Output<outputs.cognito.UserPoolDeviceConfiguration | undefined>;
     public readonly emailAuthenticationMessage!: pulumi.Output<string | undefined>;
@@ -124,7 +124,7 @@ export class UserPool extends pulumi.CustomResource {
      */
     public /*out*/ readonly providerUrl!: pulumi.Output<string>;
     /**
-     * An array of schema attributes for the new user pool. These attributes can be standard or custom attributes.
+     * An array of attributes for the new user pool. You can add custom attributes and modify the properties of default attributes. The specifications in this parameter set the required attributes in your user pool. For more information, see [Working with user attributes](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html) .
      */
     public readonly schema!: pulumi.Output<outputs.cognito.UserPoolSchemaAttribute[] | undefined>;
     /**
@@ -132,7 +132,7 @@ export class UserPool extends pulumi.CustomResource {
      */
     public readonly smsAuthenticationMessage!: pulumi.Output<string | undefined>;
     /**
-     * The SMS configuration with the settings that your Amazon Cognito user pool must use to send an SMS message from your AWS account through Amazon Simple Notification Service. To send SMS messages with Amazon SNS in the AWS Region that you want, the Amazon Cognito user pool uses an AWS Identity and Access Management (IAM) role in your AWS account .
+     * The SMS configuration with the settings that your Amazon Cognito user pool must use to send an SMS message from your AWS account through Amazon Simple Notification Service. To send SMS messages with Amazon SNS in the AWS Region that you want, the Amazon Cognito user pool uses an AWS Identity and Access Management (IAM) role in your AWS account . For more information see [SMS message settings](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html) .
      */
     public readonly smsConfiguration!: pulumi.Output<outputs.cognito.UserPoolSmsConfiguration | undefined>;
     /**
@@ -156,7 +156,7 @@ export class UserPool extends pulumi.CustomResource {
      */
     public /*out*/ readonly userPoolId!: pulumi.Output<string>;
     /**
-     * A string used to name the user pool.
+     * A friendlhy name for your user pool.
      */
     public readonly userPoolName!: pulumi.Output<string | undefined>;
     /**
@@ -172,9 +172,11 @@ export class UserPool extends pulumi.CustomResource {
      */
     public readonly usernameAttributes!: pulumi.Output<string[] | undefined>;
     /**
-     * Case sensitivity on the username input for the selected sign-in option. When case sensitivity is set to `False` (case insensitive), users can sign in with any combination of capital and lowercase letters. For example, `username` , `USERNAME` , or `UserName` , or for email, `email@example.com` or `EMaiL@eXamplE.Com` . For most use cases, set case sensitivity to `False` (case insensitive) as a best practice. When usernames and email addresses are case insensitive, Amazon Cognito treats any variation in case as the same user, and prevents a case variation from being assigned to the same attribute for a different user.
+     * Sets the case sensitivity option for sign-in usernames. When `CaseSensitive` is `false` (case insensitive), users can sign in with any combination of capital and lowercase letters. For example, `username` , `USERNAME` , or `UserName` , or for email, `email@example.com` or `EMaiL@eXamplE.Com` . For most use cases, set case sensitivity to `false` as a best practice. When usernames and email addresses are case insensitive, Amazon Cognito treats any variation in case as the same user, and prevents a case variation from being assigned to the same attribute for a different user.
      *
-     * This configuration is immutable after you set it. For more information, see [UsernameConfigurationType](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UsernameConfigurationType.html) .
+     * When `CaseSensitive` is `true` (case sensitive), Amazon Cognito interprets `USERNAME` and `UserName` as distinct users.
+     *
+     * This configuration is immutable after you set it.
      */
     public readonly usernameConfiguration!: pulumi.Output<outputs.cognito.UserPoolUsernameConfiguration | undefined>;
     /**
@@ -183,7 +185,19 @@ export class UserPool extends pulumi.CustomResource {
      * Set the email message type that corresponds to your `DefaultEmailOption` selection. For `CONFIRM_WITH_LINK` , specify an `EmailMessageByLink` and leave `EmailMessage` blank. For `CONFIRM_WITH_CODE` , specify an `EmailMessage` and leave `EmailMessageByLink` blank. When you supply both parameters with either choice, Amazon Cognito returns an error.
      */
     public readonly verificationMessageTemplate!: pulumi.Output<outputs.cognito.UserPoolVerificationMessageTemplate | undefined>;
+    /**
+     * Sets or displays the authentication domain, typically your user pool domain, that passkey providers must use as a relying party (RP) in their configuration.
+     *
+     * Under the following conditions, the passkey relying party ID must be the fully-qualified domain name of your custom domain:
+     *
+     * - The user pool is configured for passkey authentication.
+     * - The user pool has a custom domain, whether or not it also has a prefix domain.
+     * - Your application performs authentication with managed login or the classic hosted UI.
+     */
     public readonly webAuthnRelyingPartyId!: pulumi.Output<string | undefined>;
+    /**
+     * When `required` , users can only register and sign in users with passkeys that are capable of [user verification](https://docs.aws.amazon.com/https://www.w3.org/TR/webauthn-2/#enum-userVerificationRequirement) . When `preferred` , your user pool doesn't require the use of authenticators with user verification but encourages it.
+     */
     public readonly webAuthnUserVerification!: pulumi.Output<string | undefined>;
 
     /**
@@ -285,11 +299,11 @@ export interface UserPoolArgs {
      */
     adminCreateUserConfig?: pulumi.Input<inputs.cognito.UserPoolAdminCreateUserConfigArgs>;
     /**
-     * Attributes supported as an alias for this user pool. Possible values: *phone_number* , *email* , or *preferred_username* .
+     * Attributes supported as an alias for this user pool. Possible values: *phone_number* , *email* , or *preferred_username* . For more information about alias attributes, see [Customizing sign-in attributes](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#user-pool-settings-aliases) .
      */
     aliasAttributes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The attributes to be auto-verified. Possible values: *email* , *phone_number* .
+     * The attributes that you want your user pool to automatically verify. Possible values: *email* , *phone_number* . For more information see [Verifying contact information at sign-up](https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#allowing-users-to-sign-up-and-confirm-themselves) .
      */
     autoVerifiedAttributes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -301,9 +315,9 @@ export interface UserPoolArgs {
      */
     deletionProtection?: pulumi.Input<string>;
     /**
-     * The device-remembering configuration for a user pool. A null value indicates that you have deactivated device remembering in your user pool.
+     * The device-remembering configuration for a user pool. Device remembering or device tracking is a "Remember me on this device" option for user pools that perform authentication with the device key of a trusted device in the back end, instead of a user-provided MFA code. For more information about device authentication, see [Working with user devices in your user pool](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html) . A null value indicates that you have deactivated device remembering in your user pool.
      *
-     * > When you provide a value for any `DeviceConfiguration` field, you activate the Amazon Cognito device-remembering feature.
+     * > When you provide a value for any `DeviceConfiguration` field, you activate the Amazon Cognito device-remembering feature. For more infor
      */
     deviceConfiguration?: pulumi.Input<inputs.cognito.UserPoolDeviceConfigurationArgs>;
     emailAuthenticationMessage?: pulumi.Input<string>;
@@ -349,7 +363,7 @@ export interface UserPoolArgs {
      */
     policies?: pulumi.Input<inputs.cognito.UserPoolPoliciesArgs>;
     /**
-     * An array of schema attributes for the new user pool. These attributes can be standard or custom attributes.
+     * An array of attributes for the new user pool. You can add custom attributes and modify the properties of default attributes. The specifications in this parameter set the required attributes in your user pool. For more information, see [Working with user attributes](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html) .
      */
     schema?: pulumi.Input<pulumi.Input<inputs.cognito.UserPoolSchemaAttributeArgs>[]>;
     /**
@@ -357,7 +371,7 @@ export interface UserPoolArgs {
      */
     smsAuthenticationMessage?: pulumi.Input<string>;
     /**
-     * The SMS configuration with the settings that your Amazon Cognito user pool must use to send an SMS message from your AWS account through Amazon Simple Notification Service. To send SMS messages with Amazon SNS in the AWS Region that you want, the Amazon Cognito user pool uses an AWS Identity and Access Management (IAM) role in your AWS account .
+     * The SMS configuration with the settings that your Amazon Cognito user pool must use to send an SMS message from your AWS account through Amazon Simple Notification Service. To send SMS messages with Amazon SNS in the AWS Region that you want, the Amazon Cognito user pool uses an AWS Identity and Access Management (IAM) role in your AWS account . For more information see [SMS message settings](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html) .
      */
     smsConfiguration?: pulumi.Input<inputs.cognito.UserPoolSmsConfigurationArgs>;
     /**
@@ -377,7 +391,7 @@ export interface UserPoolArgs {
      */
     userPoolAddOns?: pulumi.Input<inputs.cognito.UserPoolAddOnsArgs>;
     /**
-     * A string used to name the user pool.
+     * A friendlhy name for your user pool.
      */
     userPoolName?: pulumi.Input<string>;
     /**
@@ -393,9 +407,11 @@ export interface UserPoolArgs {
      */
     usernameAttributes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Case sensitivity on the username input for the selected sign-in option. When case sensitivity is set to `False` (case insensitive), users can sign in with any combination of capital and lowercase letters. For example, `username` , `USERNAME` , or `UserName` , or for email, `email@example.com` or `EMaiL@eXamplE.Com` . For most use cases, set case sensitivity to `False` (case insensitive) as a best practice. When usernames and email addresses are case insensitive, Amazon Cognito treats any variation in case as the same user, and prevents a case variation from being assigned to the same attribute for a different user.
+     * Sets the case sensitivity option for sign-in usernames. When `CaseSensitive` is `false` (case insensitive), users can sign in with any combination of capital and lowercase letters. For example, `username` , `USERNAME` , or `UserName` , or for email, `email@example.com` or `EMaiL@eXamplE.Com` . For most use cases, set case sensitivity to `false` as a best practice. When usernames and email addresses are case insensitive, Amazon Cognito treats any variation in case as the same user, and prevents a case variation from being assigned to the same attribute for a different user.
      *
-     * This configuration is immutable after you set it. For more information, see [UsernameConfigurationType](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UsernameConfigurationType.html) .
+     * When `CaseSensitive` is `true` (case sensitive), Amazon Cognito interprets `USERNAME` and `UserName` as distinct users.
+     *
+     * This configuration is immutable after you set it.
      */
     usernameConfiguration?: pulumi.Input<inputs.cognito.UserPoolUsernameConfigurationArgs>;
     /**
@@ -404,6 +420,18 @@ export interface UserPoolArgs {
      * Set the email message type that corresponds to your `DefaultEmailOption` selection. For `CONFIRM_WITH_LINK` , specify an `EmailMessageByLink` and leave `EmailMessage` blank. For `CONFIRM_WITH_CODE` , specify an `EmailMessage` and leave `EmailMessageByLink` blank. When you supply both parameters with either choice, Amazon Cognito returns an error.
      */
     verificationMessageTemplate?: pulumi.Input<inputs.cognito.UserPoolVerificationMessageTemplateArgs>;
+    /**
+     * Sets or displays the authentication domain, typically your user pool domain, that passkey providers must use as a relying party (RP) in their configuration.
+     *
+     * Under the following conditions, the passkey relying party ID must be the fully-qualified domain name of your custom domain:
+     *
+     * - The user pool is configured for passkey authentication.
+     * - The user pool has a custom domain, whether or not it also has a prefix domain.
+     * - Your application performs authentication with managed login or the classic hosted UI.
+     */
     webAuthnRelyingPartyId?: pulumi.Input<string>;
+    /**
+     * When `required` , users can only register and sign in users with passkeys that are capable of [user verification](https://docs.aws.amazon.com/https://www.w3.org/TR/webauthn-2/#enum-userVerificationRequirement) . When `preferred` , your user pool doesn't require the use of authenticators with user verification but encourages it.
+     */
     webAuthnUserVerification?: pulumi.Input<string>;
 }

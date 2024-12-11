@@ -23,14 +23,14 @@ func LookupDirectoryBucket(ctx *pulumi.Context, args *LookupDirectoryBucketArgs,
 }
 
 type LookupDirectoryBucketArgs struct {
-	// Specifies a name for the bucket. The bucket name must contain only lowercase letters, numbers, and hyphens (-). A directory bucket name must be unique in the chosen Availability Zone. The bucket name must also follow the format 'bucket_base_name--az_id--x-s3' (for example, 'DOC-EXAMPLE-BUCKET--usw2-az1--x-s3'). If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
+	// Specifies a name for the bucket. The bucket name must contain only lowercase letters, numbers, and hyphens (-). A directory bucket name must be unique in the chosen Availability Zone or Local Zone. The bucket name must also follow the format 'bucket_base_name--zone_id--x-s3'. The zone_id can be the ID of an Availability Zone or a Local Zone. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
 	BucketName string `pulumi:"bucketName"`
 }
 
 type LookupDirectoryBucketResult struct {
 	// Returns the Amazon Resource Name (ARN) of the specified bucket.
 	Arn *string `pulumi:"arn"`
-	// Returns the code for the Availability Zone where the directory bucket was created.
+	// Returns the code for the Availability Zone or Local Zone where the directory bucket was created. An example for the code of an Availability Zone is 'us-east-1f'.
 	AvailabilityZoneName *string `pulumi:"availabilityZoneName"`
 	// Specifies default encryption for a bucket using server-side encryption with Amazon S3 managed keys (SSE-S3) or AWS KMS keys (SSE-KMS). For information about default encryption for directory buckets, see [Setting and monitoring default encryption for directory buckets](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-bucket-encryption.html) in the *Amazon S3 User Guide* .
 	BucketEncryption *DirectoryBucketBucketEncryption `pulumi:"bucketEncryption"`
@@ -58,7 +58,7 @@ func LookupDirectoryBucketOutput(ctx *pulumi.Context, args LookupDirectoryBucket
 }
 
 type LookupDirectoryBucketOutputArgs struct {
-	// Specifies a name for the bucket. The bucket name must contain only lowercase letters, numbers, and hyphens (-). A directory bucket name must be unique in the chosen Availability Zone. The bucket name must also follow the format 'bucket_base_name--az_id--x-s3' (for example, 'DOC-EXAMPLE-BUCKET--usw2-az1--x-s3'). If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
+	// Specifies a name for the bucket. The bucket name must contain only lowercase letters, numbers, and hyphens (-). A directory bucket name must be unique in the chosen Availability Zone or Local Zone. The bucket name must also follow the format 'bucket_base_name--zone_id--x-s3'. The zone_id can be the ID of an Availability Zone or a Local Zone. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
 	BucketName pulumi.StringInput `pulumi:"bucketName"`
 }
 
@@ -85,7 +85,7 @@ func (o LookupDirectoryBucketResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDirectoryBucketResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
-// Returns the code for the Availability Zone where the directory bucket was created.
+// Returns the code for the Availability Zone or Local Zone where the directory bucket was created. An example for the code of an Availability Zone is 'us-east-1f'.
 func (o LookupDirectoryBucketResultOutput) AvailabilityZoneName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDirectoryBucketResult) *string { return v.AvailabilityZoneName }).(pulumi.StringPtrOutput)
 }

@@ -38,7 +38,7 @@ class GetUserPoolIdentityProviderResult:
     @pulumi.getter(name="attributeMapping")
     def attribute_mapping(self) -> Optional[Mapping[str, str]]:
         """
-        A mapping of IdP attributes to standard and custom user pool attributes.
+        A mapping of IdP attributes to standard and custom user pool attributes. Specify a user pool attribute as the key of the key-value pair, and the IdP attribute claim name as the value.
         """
         return pulumi.get(self, "attribute_mapping")
 
@@ -46,7 +46,7 @@ class GetUserPoolIdentityProviderResult:
     @pulumi.getter(name="idpIdentifiers")
     def idp_identifiers(self) -> Optional[Sequence[str]]:
         """
-        A list of IdP identifiers.
+        An array of IdP identifiers, for example `"IdPIdentifiers": [ "MyIdP", "MyIdP2" ]` . Identifiers are friendly names that you can pass in the `idp_identifier` query parameter of requests to the [Authorize endpoint](https://docs.aws.amazon.com/cognito/latest/developerguide/authorization-endpoint.html) to silently redirect to sign-in with the associated IdP. Identifiers in a domain format also enable the use of [email-address matching with SAML providers](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managing-saml-idp-naming.html) .
         """
         return pulumi.get(self, "idp_identifiers")
 
@@ -105,8 +105,8 @@ def get_user_pool_identity_provider(provider_name: Optional[str] = None,
     Resource Type definition for AWS::Cognito::UserPoolIdentityProvider
 
 
-    :param str provider_name: The IdP name.
-    :param str user_pool_id: The user pool ID.
+    :param str provider_name: The name that you want to assign to the IdP. You can pass the identity provider name in the `identity_provider` query parameter of requests to the [Authorize endpoint](https://docs.aws.amazon.com/cognito/latest/developerguide/authorization-endpoint.html) to silently redirect to sign-in with the associated IdP.
+    :param str user_pool_id: The Id of the user pool where you want to create an IdP.
     """
     __args__ = dict()
     __args__['providerName'] = provider_name
@@ -125,8 +125,8 @@ def get_user_pool_identity_provider_output(provider_name: Optional[pulumi.Input[
     Resource Type definition for AWS::Cognito::UserPoolIdentityProvider
 
 
-    :param str provider_name: The IdP name.
-    :param str user_pool_id: The user pool ID.
+    :param str provider_name: The name that you want to assign to the IdP. You can pass the identity provider name in the `identity_provider` query parameter of requests to the [Authorize endpoint](https://docs.aws.amazon.com/cognito/latest/developerguide/authorization-endpoint.html) to silently redirect to sign-in with the associated IdP.
+    :param str user_pool_id: The Id of the user pool where you want to create an IdP.
     """
     __args__ = dict()
     __args__['providerName'] = provider_name

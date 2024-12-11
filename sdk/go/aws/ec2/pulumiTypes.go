@@ -9351,9 +9351,6 @@ func (o LaunchTemplateBaselineEbsBandwidthMbpsPtrOutput) Min() pulumi.IntPtrOutp
 	}).(pulumi.IntPtrOutput)
 }
 
-// The baseline performance to consider, using an instance family as a baseline reference. The instance family establishes the lowest acceptable level of performance. Amazon EC2 uses this baseline to guide instance type selection, but there is no guarantee that the selected instance types will always exceed the baseline for every application.
-//
-//	Currently, this parameter only supports CPU performance as a baseline performance factor. For example, specifying ``c6i`` would use the CPU performance of the ``c6i`` family as the baseline reference.
 type LaunchTemplateBaselinePerformanceFactors struct {
 	// The CPU performance to consider, using an instance family as the baseline reference.
 	Cpu *LaunchTemplateCpu `pulumi:"cpu"`
@@ -9370,9 +9367,6 @@ type LaunchTemplateBaselinePerformanceFactorsInput interface {
 	ToLaunchTemplateBaselinePerformanceFactorsOutputWithContext(context.Context) LaunchTemplateBaselinePerformanceFactorsOutput
 }
 
-// The baseline performance to consider, using an instance family as a baseline reference. The instance family establishes the lowest acceptable level of performance. Amazon EC2 uses this baseline to guide instance type selection, but there is no guarantee that the selected instance types will always exceed the baseline for every application.
-//
-//	Currently, this parameter only supports CPU performance as a baseline performance factor. For example, specifying ``c6i`` would use the CPU performance of the ``c6i`` family as the baseline reference.
 type LaunchTemplateBaselinePerformanceFactorsArgs struct {
 	// The CPU performance to consider, using an instance family as the baseline reference.
 	Cpu LaunchTemplateCpuPtrInput `pulumi:"cpu"`
@@ -9431,9 +9425,6 @@ func (i *launchTemplateBaselinePerformanceFactorsPtrType) ToLaunchTemplateBaseli
 	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateBaselinePerformanceFactorsPtrOutput)
 }
 
-// The baseline performance to consider, using an instance family as a baseline reference. The instance family establishes the lowest acceptable level of performance. Amazon EC2 uses this baseline to guide instance type selection, but there is no guarantee that the selected instance types will always exceed the baseline for every application.
-//
-//	Currently, this parameter only supports CPU performance as a baseline performance factor. For example, specifying ``c6i`` would use the CPU performance of the ``c6i`` family as the baseline reference.
 type LaunchTemplateBaselinePerformanceFactorsOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplateBaselinePerformanceFactorsOutput) ElementType() reflect.Type {
@@ -9635,8 +9626,7 @@ func (o LaunchTemplateBlockDeviceMappingArrayOutput) Index(i pulumi.IntInput) La
 //	``CapacityReservationSpecification`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
 type LaunchTemplateCapacityReservationSpecification struct {
 	// Indicates the instance's Capacity Reservation preferences. Possible preferences include:
-	//   +   ``capacity-reservations-only`` - The instance will only run in a Capacity Reservation or Capacity Reservation group. If capacity isn't available, the instance will fail to launch.
-	//   +   ``open`` - The instance can run in any ``open`` Capacity Reservation that has matching attributes (instance type, platform, Availability Zone, tenancy).
+	//   +   ``open`` - The instance can run in any ``open`` Capacity Reservation that has matching attributes (instance type, platform, Availability Zone).
 	//   +   ``none`` - The instance avoids running in a Capacity Reservation even if one is available. The instance runs in On-Demand capacity.
 	CapacityReservationPreference *string `pulumi:"capacityReservationPreference"`
 	// Information about the target Capacity Reservation or Capacity Reservation group.
@@ -9659,8 +9649,7 @@ type LaunchTemplateCapacityReservationSpecificationInput interface {
 //	``CapacityReservationSpecification`` is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
 type LaunchTemplateCapacityReservationSpecificationArgs struct {
 	// Indicates the instance's Capacity Reservation preferences. Possible preferences include:
-	//   +   ``capacity-reservations-only`` - The instance will only run in a Capacity Reservation or Capacity Reservation group. If capacity isn't available, the instance will fail to launch.
-	//   +   ``open`` - The instance can run in any ``open`` Capacity Reservation that has matching attributes (instance type, platform, Availability Zone, tenancy).
+	//   +   ``open`` - The instance can run in any ``open`` Capacity Reservation that has matching attributes (instance type, platform, Availability Zone).
 	//   +   ``none`` - The instance avoids running in a Capacity Reservation even if one is available. The instance runs in On-Demand capacity.
 	CapacityReservationPreference pulumi.StringPtrInput `pulumi:"capacityReservationPreference"`
 	// Information about the target Capacity Reservation or Capacity Reservation group.
@@ -9748,8 +9737,7 @@ func (o LaunchTemplateCapacityReservationSpecificationOutput) ToLaunchTemplateCa
 }
 
 // Indicates the instance's Capacity Reservation preferences. Possible preferences include:
-//   - “capacity-reservations-only“ - The instance will only run in a Capacity Reservation or Capacity Reservation group. If capacity isn't available, the instance will fail to launch.
-//   - “open“ - The instance can run in any “open“ Capacity Reservation that has matching attributes (instance type, platform, Availability Zone, tenancy).
+//   - “open“ - The instance can run in any “open“ Capacity Reservation that has matching attributes (instance type, platform, Availability Zone).
 //   - “none“ - The instance avoids running in a Capacity Reservation even if one is available. The instance runs in On-Demand capacity.
 func (o LaunchTemplateCapacityReservationSpecificationOutput) CapacityReservationPreference() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateCapacityReservationSpecification) *string { return v.CapacityReservationPreference }).(pulumi.StringPtrOutput)
@@ -9787,8 +9775,7 @@ func (o LaunchTemplateCapacityReservationSpecificationPtrOutput) Elem() LaunchTe
 }
 
 // Indicates the instance's Capacity Reservation preferences. Possible preferences include:
-//   - “capacity-reservations-only“ - The instance will only run in a Capacity Reservation or Capacity Reservation group. If capacity isn't available, the instance will fail to launch.
-//   - “open“ - The instance can run in any “open“ Capacity Reservation that has matching attributes (instance type, platform, Availability Zone, tenancy).
+//   - “open“ - The instance can run in any “open“ Capacity Reservation that has matching attributes (instance type, platform, Availability Zone).
 //   - “none“ - The instance avoids running in a Capacity Reservation even if one is available. The instance runs in On-Demand capacity.
 func (o LaunchTemplateCapacityReservationSpecificationPtrOutput) CapacityReservationPreference() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateCapacityReservationSpecification) *string {
@@ -10642,8 +10629,7 @@ type LaunchTemplateData struct {
 	// Deprecated.
 	//   Amazon Elastic Graphics reached end of life on January 8, 2024. For workloads that require graphics acceleration, we recommend that you use Amazon EC2 G4ad, G4dn, or G5 instances.
 	ElasticGpuSpecifications []LaunchTemplateElasticGpuSpecification `pulumi:"elasticGpuSpecifications"`
-	// Amazon Elastic Inference is no longer available.
-	//   An elastic inference accelerator to associate with the instance. Elastic inference accelerators are a resource you can attach to your Amazon EC2 instances to accelerate your Deep Learning (DL) inference workloads.
+	// An elastic inference accelerator to associate with the instance. Elastic inference accelerators are a resource you can attach to your Amazon EC2 instances to accelerate your Deep Learning (DL) inference workloads.
 	//  You cannot specify accelerators from different generations in the same request.
 	//   Starting April 15, 2023, AWS will not onboard new customers to Amazon Elastic Inference (EI), and will help current customers migrate their workloads to options that offer better price and performance. After April 15, 2023, new customers will not be able to launch instances with Amazon EI accelerators in Amazon SageMaker, Amazon ECS, or Amazon EC2. However, customers who have used Amazon EI at least once during the past 30-day period are considered current customers and will be able to continue using the service.
 	ElasticInferenceAccelerators []LaunchTemplateElasticInferenceAccelerator `pulumi:"elasticInferenceAccelerators"`
@@ -10677,7 +10663,7 @@ type LaunchTemplateData struct {
 	//
 	//   If you specify ``InstanceRequirements``, you can't specify ``InstanceType``.
 	//  Attribute-based instance type selection is only supported when using Auto Scaling groups, EC2 Fleet, and Spot Fleet to launch instances. If you plan to use the launch template in the [launch instance wizard](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.html), or with the [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) API or [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) AWS CloudFormation resource, you can't specify ``InstanceRequirements``.
-	//   For more information, see [Specify attributes for instance type selection for EC2 Fleet or Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html) and [Spot placement score](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html) in the *Amazon EC2 User Guide*.
+	//   For more information, see [Attribute-based instance type selection for EC2 Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html), [Attribute-based instance type selection for Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html), and [Spot placement score](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html) in the *Amazon EC2 User Guide*.
 	InstanceRequirements *LaunchTemplateInstanceRequirements `pulumi:"instanceRequirements"`
 	// The instance type. For more information, see [Amazon EC2 instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide*.
 	//  If you specify ``InstanceType``, you can't specify ``InstanceRequirements``.
@@ -10697,8 +10683,7 @@ type LaunchTemplateData struct {
 	// The monitoring for the instance.
 	Monitoring *LaunchTemplateMonitoring `pulumi:"monitoring"`
 	// The network interfaces for the instance.
-	NetworkInterfaces         []LaunchTemplateNetworkInterface `pulumi:"networkInterfaces"`
-	NetworkPerformanceOptions interface{}                      `pulumi:"networkPerformanceOptions"`
+	NetworkInterfaces []LaunchTemplateNetworkInterface `pulumi:"networkInterfaces"`
 	// The placement for the instance.
 	Placement *LaunchTemplatePlacement `pulumi:"placement"`
 	// The hostname type for EC2 instances launched into this subnet and how DNS A and AAAA record queries should be handled. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *User Guide*.
@@ -10712,7 +10697,8 @@ type LaunchTemplateData struct {
 	// The names of the security groups. For a nondefault VPC, you must use security group IDs instead.
 	//  If you specify a network interface, you must specify any security groups as part of the network interface instead of using this parameter.
 	SecurityGroups []string `pulumi:"securityGroups"`
-	// The tags to apply to resources that are created during instance launch.
+	// The tags to apply to the resources that are created during instance launch.
+	//  To tag a resource after it has been created, see [CreateTags](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html).
 	//  To tag the launch template itself, use [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html#cfn-ec2-launchtemplate-tagspecifications).
 	TagSpecifications []TagSpecification `pulumi:"tagSpecifications"`
 	// The user data to make available to the instance. You must provide base64-encoded text. User data is limited to 16 KB. For more information, see [Run commands on your Amazon EC2 instance at launch](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html) in the *Amazon EC2 User Guide*.
@@ -10752,8 +10738,7 @@ type LaunchTemplateDataArgs struct {
 	// Deprecated.
 	//   Amazon Elastic Graphics reached end of life on January 8, 2024. For workloads that require graphics acceleration, we recommend that you use Amazon EC2 G4ad, G4dn, or G5 instances.
 	ElasticGpuSpecifications LaunchTemplateElasticGpuSpecificationArrayInput `pulumi:"elasticGpuSpecifications"`
-	// Amazon Elastic Inference is no longer available.
-	//   An elastic inference accelerator to associate with the instance. Elastic inference accelerators are a resource you can attach to your Amazon EC2 instances to accelerate your Deep Learning (DL) inference workloads.
+	// An elastic inference accelerator to associate with the instance. Elastic inference accelerators are a resource you can attach to your Amazon EC2 instances to accelerate your Deep Learning (DL) inference workloads.
 	//  You cannot specify accelerators from different generations in the same request.
 	//   Starting April 15, 2023, AWS will not onboard new customers to Amazon Elastic Inference (EI), and will help current customers migrate their workloads to options that offer better price and performance. After April 15, 2023, new customers will not be able to launch instances with Amazon EI accelerators in Amazon SageMaker, Amazon ECS, or Amazon EC2. However, customers who have used Amazon EI at least once during the past 30-day period are considered current customers and will be able to continue using the service.
 	ElasticInferenceAccelerators LaunchTemplateElasticInferenceAcceleratorArrayInput `pulumi:"elasticInferenceAccelerators"`
@@ -10787,7 +10772,7 @@ type LaunchTemplateDataArgs struct {
 	//
 	//   If you specify ``InstanceRequirements``, you can't specify ``InstanceType``.
 	//  Attribute-based instance type selection is only supported when using Auto Scaling groups, EC2 Fleet, and Spot Fleet to launch instances. If you plan to use the launch template in the [launch instance wizard](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.html), or with the [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) API or [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) AWS CloudFormation resource, you can't specify ``InstanceRequirements``.
-	//   For more information, see [Specify attributes for instance type selection for EC2 Fleet or Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html) and [Spot placement score](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html) in the *Amazon EC2 User Guide*.
+	//   For more information, see [Attribute-based instance type selection for EC2 Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html), [Attribute-based instance type selection for Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html), and [Spot placement score](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html) in the *Amazon EC2 User Guide*.
 	InstanceRequirements LaunchTemplateInstanceRequirementsPtrInput `pulumi:"instanceRequirements"`
 	// The instance type. For more information, see [Amazon EC2 instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html) in the *Amazon EC2 User Guide*.
 	//  If you specify ``InstanceType``, you can't specify ``InstanceRequirements``.
@@ -10807,8 +10792,7 @@ type LaunchTemplateDataArgs struct {
 	// The monitoring for the instance.
 	Monitoring LaunchTemplateMonitoringPtrInput `pulumi:"monitoring"`
 	// The network interfaces for the instance.
-	NetworkInterfaces         LaunchTemplateNetworkInterfaceArrayInput `pulumi:"networkInterfaces"`
-	NetworkPerformanceOptions pulumi.Input                             `pulumi:"networkPerformanceOptions"`
+	NetworkInterfaces LaunchTemplateNetworkInterfaceArrayInput `pulumi:"networkInterfaces"`
 	// The placement for the instance.
 	Placement LaunchTemplatePlacementPtrInput `pulumi:"placement"`
 	// The hostname type for EC2 instances launched into this subnet and how DNS A and AAAA record queries should be handled. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *User Guide*.
@@ -10822,7 +10806,8 @@ type LaunchTemplateDataArgs struct {
 	// The names of the security groups. For a nondefault VPC, you must use security group IDs instead.
 	//  If you specify a network interface, you must specify any security groups as part of the network interface instead of using this parameter.
 	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
-	// The tags to apply to resources that are created during instance launch.
+	// The tags to apply to the resources that are created during instance launch.
+	//  To tag a resource after it has been created, see [CreateTags](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html).
 	//  To tag the launch template itself, use [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html#cfn-ec2-launchtemplate-tagspecifications).
 	TagSpecifications TagSpecificationArrayInput `pulumi:"tagSpecifications"`
 	// The user data to make available to the instance. You must provide base64-encoded text. User data is limited to 16 KB. For more information, see [Run commands on your Amazon EC2 instance at launch](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html) in the *Amazon EC2 User Guide*.
@@ -10903,9 +10888,8 @@ func (o LaunchTemplateDataOutput) ElasticGpuSpecifications() LaunchTemplateElast
 	return o.ApplyT(func(v LaunchTemplateData) []LaunchTemplateElasticGpuSpecification { return v.ElasticGpuSpecifications }).(LaunchTemplateElasticGpuSpecificationArrayOutput)
 }
 
-// Amazon Elastic Inference is no longer available.
+// An elastic inference accelerator to associate with the instance. Elastic inference accelerators are a resource you can attach to your Amazon EC2 instances to accelerate your Deep Learning (DL) inference workloads.
 //
-//	 An elastic inference accelerator to associate with the instance. Elastic inference accelerators are a resource you can attach to your Amazon EC2 instances to accelerate your Deep Learning (DL) inference workloads.
 //	You cannot specify accelerators from different generations in the same request.
 //	 Starting April 15, 2023, AWS will not onboard new customers to Amazon Elastic Inference (EI), and will help current customers migrate their workloads to options that offer better price and performance. After April 15, 2023, new customers will not be able to launch instances with Amazon EI accelerators in Amazon SageMaker, Amazon ECS, or Amazon EC2. However, customers who have used Amazon EI at least once during the past 30-day period are considered current customers and will be able to continue using the service.
 func (o LaunchTemplateDataOutput) ElasticInferenceAccelerators() LaunchTemplateElasticInferenceAcceleratorArrayOutput {
@@ -10966,7 +10950,7 @@ func (o LaunchTemplateDataOutput) InstanceMarketOptions() LaunchTemplateInstance
 //
 //	 If you specify ``InstanceRequirements``, you can't specify ``InstanceType``.
 //	Attribute-based instance type selection is only supported when using Auto Scaling groups, EC2 Fleet, and Spot Fleet to launch instances. If you plan to use the launch template in the [launch instance wizard](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.html), or with the [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) API or [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) AWS CloudFormation resource, you can't specify ``InstanceRequirements``.
-//	 For more information, see [Specify attributes for instance type selection for EC2 Fleet or Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html) and [Spot placement score](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html) in the *Amazon EC2 User Guide*.
+//	 For more information, see [Attribute-based instance type selection for EC2 Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html), [Attribute-based instance type selection for Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html), and [Spot placement score](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html) in the *Amazon EC2 User Guide*.
 func (o LaunchTemplateDataOutput) InstanceRequirements() LaunchTemplateInstanceRequirementsPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateData) *LaunchTemplateInstanceRequirements { return v.InstanceRequirements }).(LaunchTemplateInstanceRequirementsPtrOutput)
 }
@@ -11017,10 +11001,6 @@ func (o LaunchTemplateDataOutput) NetworkInterfaces() LaunchTemplateNetworkInter
 	return o.ApplyT(func(v LaunchTemplateData) []LaunchTemplateNetworkInterface { return v.NetworkInterfaces }).(LaunchTemplateNetworkInterfaceArrayOutput)
 }
 
-func (o LaunchTemplateDataOutput) NetworkPerformanceOptions() pulumi.AnyOutput {
-	return o.ApplyT(func(v LaunchTemplateData) interface{} { return v.NetworkPerformanceOptions }).(pulumi.AnyOutput)
-}
-
 // The placement for the instance.
 func (o LaunchTemplateDataOutput) Placement() LaunchTemplatePlacementPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateData) *LaunchTemplatePlacement { return v.Placement }).(LaunchTemplatePlacementPtrOutput)
@@ -11052,8 +11032,9 @@ func (o LaunchTemplateDataOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LaunchTemplateData) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
 }
 
-// The tags to apply to resources that are created during instance launch.
+// The tags to apply to the resources that are created during instance launch.
 //
+//	To tag a resource after it has been created, see [CreateTags](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html).
 //	To tag the launch template itself, use [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html#cfn-ec2-launchtemplate-tagspecifications).
 func (o LaunchTemplateDataOutput) TagSpecifications() TagSpecificationArrayOutput {
 	return o.ApplyT(func(v LaunchTemplateData) []TagSpecification { return v.TagSpecifications }).(TagSpecificationArrayOutput)
@@ -11083,7 +11064,7 @@ type LaunchTemplateEbs struct {
 	//  For ``io2`` volumes, you can achieve up to 256,000 IOPS on [instances built on the Nitro System](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances). On other instances, you can achieve performance up to 32,000 IOPS.
 	//  This parameter is supported for ``io1``, ``io2``, and ``gp3`` volumes only.
 	Iops *int `pulumi:"iops"`
-	// Identifier (key ID, key alias, key ARN, or alias ARN) of the customer managed KMS key to use for EBS encryption.
+	// The ARN of the symmetric KMSlong (KMS) CMK used for encryption.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// The ID of the snapshot.
 	SnapshotId *string `pulumi:"snapshotId"`
@@ -11129,7 +11110,7 @@ type LaunchTemplateEbsArgs struct {
 	//  For ``io2`` volumes, you can achieve up to 256,000 IOPS on [instances built on the Nitro System](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances). On other instances, you can achieve performance up to 32,000 IOPS.
 	//  This parameter is supported for ``io1``, ``io2``, and ``gp3`` volumes only.
 	Iops pulumi.IntPtrInput `pulumi:"iops"`
-	// Identifier (key ID, key alias, key ARN, or alias ARN) of the customer managed KMS key to use for EBS encryption.
+	// The ARN of the symmetric KMSlong (KMS) CMK used for encryption.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
 	// The ID of the snapshot.
 	SnapshotId pulumi.StringPtrInput `pulumi:"snapshotId"`
@@ -11250,7 +11231,7 @@ func (o LaunchTemplateEbsOutput) Iops() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateEbs) *int { return v.Iops }).(pulumi.IntPtrOutput)
 }
 
-// Identifier (key ID, key alias, key ARN, or alias ARN) of the customer managed KMS key to use for EBS encryption.
+// The ARN of the symmetric KMSlong (KMS) CMK used for encryption.
 func (o LaunchTemplateEbsOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateEbs) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
@@ -11344,7 +11325,7 @@ func (o LaunchTemplateEbsPtrOutput) Iops() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Identifier (key ID, key alias, key ARN, or alias ARN) of the customer managed KMS key to use for EBS encryption.
+// The ARN of the symmetric KMSlong (KMS) CMK used for encryption.
 func (o LaunchTemplateEbsPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateEbs) *string {
 		if v == nil {
@@ -12571,7 +12552,7 @@ func (o LaunchTemplateInstanceMarketOptionsPtrOutput) SpotOptions() LaunchTempla
 //
 //	 If you specify ``InstanceRequirements``, you can't specify ``InstanceType``.
 //	Attribute-based instance type selection is only supported when using Auto Scaling groups, EC2 Fleet, and Spot Fleet to launch instances. If you plan to use the launch template in the [launch instance wizard](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.html), or with the [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) API or [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) AWS CloudFormation resource, you can't specify ``InstanceRequirements``.
-//	 For more information, see [Specify attributes for instance type selection for EC2 Fleet or Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html) and [Spot placement score](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html) in the *Amazon EC2 User Guide*.
+//	 For more information, see [Attribute-based instance type selection for EC2 Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html), [Attribute-based instance type selection for Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html), and [Spot placement score](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html) in the *Amazon EC2 User Guide*.
 type LaunchTemplateInstanceRequirements struct {
 	// The minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips) on an instance.
 	//  To exclude accelerator-enabled instance types, set ``Max`` to ``0``.
@@ -12608,6 +12589,7 @@ type LaunchTemplateInstanceRequirements struct {
 	// The accelerator types that must be on the instance type.
 	//   +  For instance types with GPU accelerators, specify ``gpu``.
 	//   +  For instance types with FPGA accelerators, specify ``fpga``.
+	//   +  For instance types with inference accelerators, specify ``inference``.
 	//
 	//  Default: Any accelerator type
 	AcceleratorTypes []string `pulumi:"acceleratorTypes"`
@@ -12627,7 +12609,7 @@ type LaunchTemplateInstanceRequirements struct {
 	// The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps. For more information, see [Amazon EBS–optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html) in the *Amazon EC2 User Guide*.
 	//  Default: No minimum or maximum limits
 	BaselineEbsBandwidthMbps *LaunchTemplateBaselineEbsBandwidthMbps `pulumi:"baselineEbsBandwidthMbps"`
-	// The baseline performance to consider, using an instance family as a baseline reference. The instance family establishes the lowest acceptable level of performance. Amazon EC2 uses this baseline to guide instance type selection, but there is no guarantee that the selected instance types will always exceed the baseline for every application. Currently, this parameter only supports CPU performance as a baseline performance factor. For more information, see [Performance protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html#ec2fleet-abis-performance-protection) in the *Amazon EC2 User Guide*.
+	// The baseline performance to consider, using an instance family as a baseline reference. The instance family establishes the lowest acceptable level of performance. Amazon EC2 uses this baseline to guide instance type selection, but there is no guarantee that the selected instance types will always exceed the baseline for every application. Currently, this parameter only supports CPU performance as a baseline performance factor. For more information, see [Performance protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html#ec2fleet-abis-performance-protection) in the *Amazon EC2 User Guide* .
 	BaselinePerformanceFactors *LaunchTemplateBaselinePerformanceFactors `pulumi:"baselinePerformanceFactors"`
 	// Indicates whether burstable performance T instance types are included, excluded, or required. For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html).
 	//   +  To include burstable performance instance types, specify ``included``.
@@ -12640,7 +12622,6 @@ type LaunchTemplateInstanceRequirements struct {
 	//   +  For instance types with Intel CPUs, specify ``intel``.
 	//   +  For instance types with AMD CPUs, specify ``amd``.
 	//   +  For instance types with AWS CPUs, specify ``amazon-web-services``.
-	//   +  For instance types with Apple CPUs, specify ``apple``.
 	//
 	//   Don't confuse the CPU manufacturer with the CPU architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
 	//   Default: Any manufacturer
@@ -12731,7 +12712,7 @@ type LaunchTemplateInstanceRequirementsInput interface {
 //
 //	 If you specify ``InstanceRequirements``, you can't specify ``InstanceType``.
 //	Attribute-based instance type selection is only supported when using Auto Scaling groups, EC2 Fleet, and Spot Fleet to launch instances. If you plan to use the launch template in the [launch instance wizard](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.html), or with the [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) API or [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) AWS CloudFormation resource, you can't specify ``InstanceRequirements``.
-//	 For more information, see [Specify attributes for instance type selection for EC2 Fleet or Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html) and [Spot placement score](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html) in the *Amazon EC2 User Guide*.
+//	 For more information, see [Attribute-based instance type selection for EC2 Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html), [Attribute-based instance type selection for Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html), and [Spot placement score](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html) in the *Amazon EC2 User Guide*.
 type LaunchTemplateInstanceRequirementsArgs struct {
 	// The minimum and maximum number of accelerators (GPUs, FPGAs, or AWS Inferentia chips) on an instance.
 	//  To exclude accelerator-enabled instance types, set ``Max`` to ``0``.
@@ -12768,6 +12749,7 @@ type LaunchTemplateInstanceRequirementsArgs struct {
 	// The accelerator types that must be on the instance type.
 	//   +  For instance types with GPU accelerators, specify ``gpu``.
 	//   +  For instance types with FPGA accelerators, specify ``fpga``.
+	//   +  For instance types with inference accelerators, specify ``inference``.
 	//
 	//  Default: Any accelerator type
 	AcceleratorTypes pulumi.StringArrayInput `pulumi:"acceleratorTypes"`
@@ -12787,7 +12769,7 @@ type LaunchTemplateInstanceRequirementsArgs struct {
 	// The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps. For more information, see [Amazon EBS–optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html) in the *Amazon EC2 User Guide*.
 	//  Default: No minimum or maximum limits
 	BaselineEbsBandwidthMbps LaunchTemplateBaselineEbsBandwidthMbpsPtrInput `pulumi:"baselineEbsBandwidthMbps"`
-	// The baseline performance to consider, using an instance family as a baseline reference. The instance family establishes the lowest acceptable level of performance. Amazon EC2 uses this baseline to guide instance type selection, but there is no guarantee that the selected instance types will always exceed the baseline for every application. Currently, this parameter only supports CPU performance as a baseline performance factor. For more information, see [Performance protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html#ec2fleet-abis-performance-protection) in the *Amazon EC2 User Guide*.
+	// The baseline performance to consider, using an instance family as a baseline reference. The instance family establishes the lowest acceptable level of performance. Amazon EC2 uses this baseline to guide instance type selection, but there is no guarantee that the selected instance types will always exceed the baseline for every application. Currently, this parameter only supports CPU performance as a baseline performance factor. For more information, see [Performance protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html#ec2fleet-abis-performance-protection) in the *Amazon EC2 User Guide* .
 	BaselinePerformanceFactors LaunchTemplateBaselinePerformanceFactorsPtrInput `pulumi:"baselinePerformanceFactors"`
 	// Indicates whether burstable performance T instance types are included, excluded, or required. For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html).
 	//   +  To include burstable performance instance types, specify ``included``.
@@ -12800,7 +12782,6 @@ type LaunchTemplateInstanceRequirementsArgs struct {
 	//   +  For instance types with Intel CPUs, specify ``intel``.
 	//   +  For instance types with AMD CPUs, specify ``amd``.
 	//   +  For instance types with AWS CPUs, specify ``amazon-web-services``.
-	//   +  For instance types with Apple CPUs, specify ``apple``.
 	//
 	//   Don't confuse the CPU manufacturer with the CPU architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
 	//   Default: Any manufacturer
@@ -12933,7 +12914,7 @@ func (i *launchTemplateInstanceRequirementsPtrType) ToLaunchTemplateInstanceRequ
 //
 //	 If you specify ``InstanceRequirements``, you can't specify ``InstanceType``.
 //	Attribute-based instance type selection is only supported when using Auto Scaling groups, EC2 Fleet, and Spot Fleet to launch instances. If you plan to use the launch template in the [launch instance wizard](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-instance-wizard.html), or with the [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) API or [AWS::EC2::Instance](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html) AWS CloudFormation resource, you can't specify ``InstanceRequirements``.
-//	 For more information, see [Specify attributes for instance type selection for EC2 Fleet or Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html) and [Spot placement score](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html) in the *Amazon EC2 User Guide*.
+//	 For more information, see [Attribute-based instance type selection for EC2 Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html), [Attribute-based instance type selection for Spot Fleet](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-attribute-based-instance-type-selection.html), and [Spot placement score](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html) in the *Amazon EC2 User Guide*.
 type LaunchTemplateInstanceRequirementsOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplateInstanceRequirementsOutput) ElementType() reflect.Type {
@@ -13029,6 +13010,8 @@ func (o LaunchTemplateInstanceRequirementsOutput) AcceleratorTotalMemoryMiB() La
 //
 //   - For instance types with FPGA accelerators, specify “fpga“.
 //
+//   - For instance types with inference accelerators, specify “inference“.
+//
 //     Default: Any accelerator type
 func (o LaunchTemplateInstanceRequirementsOutput) AcceleratorTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) []string { return v.AcceleratorTypes }).(pulumi.StringArrayOutput)
@@ -13066,7 +13049,7 @@ func (o LaunchTemplateInstanceRequirementsOutput) BaselineEbsBandwidthMbps() Lau
 	}).(LaunchTemplateBaselineEbsBandwidthMbpsPtrOutput)
 }
 
-// The baseline performance to consider, using an instance family as a baseline reference. The instance family establishes the lowest acceptable level of performance. Amazon EC2 uses this baseline to guide instance type selection, but there is no guarantee that the selected instance types will always exceed the baseline for every application. Currently, this parameter only supports CPU performance as a baseline performance factor. For more information, see [Performance protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html#ec2fleet-abis-performance-protection) in the *Amazon EC2 User Guide*.
+// The baseline performance to consider, using an instance family as a baseline reference. The instance family establishes the lowest acceptable level of performance. Amazon EC2 uses this baseline to guide instance type selection, but there is no guarantee that the selected instance types will always exceed the baseline for every application. Currently, this parameter only supports CPU performance as a baseline performance factor. For more information, see [Performance protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html#ec2fleet-abis-performance-protection) in the *Amazon EC2 User Guide* .
 func (o LaunchTemplateInstanceRequirementsOutput) BaselinePerformanceFactors() LaunchTemplateBaselinePerformanceFactorsPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateInstanceRequirements) *LaunchTemplateBaselinePerformanceFactors {
 		return v.BaselinePerformanceFactors
@@ -13093,8 +13076,6 @@ func (o LaunchTemplateInstanceRequirementsOutput) BurstablePerformance() pulumi.
 //   - For instance types with AMD CPUs, specify “amd“.
 //
 //   - For instance types with AWS CPUs, specify “amazon-web-services“.
-//
-//   - For instance types with Apple CPUs, specify “apple“.
 //
 //     Don't confuse the CPU manufacturer with the CPU architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
 //     Default: Any manufacturer
@@ -13343,6 +13324,8 @@ func (o LaunchTemplateInstanceRequirementsPtrOutput) AcceleratorTotalMemoryMiB()
 //
 //   - For instance types with FPGA accelerators, specify “fpga“.
 //
+//   - For instance types with inference accelerators, specify “inference“.
+//
 //     Default: Any accelerator type
 func (o LaunchTemplateInstanceRequirementsPtrOutput) AcceleratorTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) []string {
@@ -13398,7 +13381,7 @@ func (o LaunchTemplateInstanceRequirementsPtrOutput) BaselineEbsBandwidthMbps() 
 	}).(LaunchTemplateBaselineEbsBandwidthMbpsPtrOutput)
 }
 
-// The baseline performance to consider, using an instance family as a baseline reference. The instance family establishes the lowest acceptable level of performance. Amazon EC2 uses this baseline to guide instance type selection, but there is no guarantee that the selected instance types will always exceed the baseline for every application. Currently, this parameter only supports CPU performance as a baseline performance factor. For more information, see [Performance protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html#ec2fleet-abis-performance-protection) in the *Amazon EC2 User Guide*.
+// The baseline performance to consider, using an instance family as a baseline reference. The instance family establishes the lowest acceptable level of performance. Amazon EC2 uses this baseline to guide instance type selection, but there is no guarantee that the selected instance types will always exceed the baseline for every application. Currently, this parameter only supports CPU performance as a baseline performance factor. For more information, see [Performance protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html#ec2fleet-abis-performance-protection) in the *Amazon EC2 User Guide* .
 func (o LaunchTemplateInstanceRequirementsPtrOutput) BaselinePerformanceFactors() LaunchTemplateBaselinePerformanceFactorsPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateInstanceRequirements) *LaunchTemplateBaselinePerformanceFactors {
 		if v == nil {
@@ -13433,8 +13416,6 @@ func (o LaunchTemplateInstanceRequirementsPtrOutput) BurstablePerformance() pulu
 //   - For instance types with AMD CPUs, specify “amd“.
 //
 //   - For instance types with AWS CPUs, specify “amazon-web-services“.
-//
-//   - For instance types with Apple CPUs, specify “apple“.
 //
 //     Don't confuse the CPU manufacturer with the CPU architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
 //     Default: Any manufacturer
@@ -15122,10 +15103,9 @@ type LaunchTemplateNetworkInterface struct {
 	EnaSrdSpecification *LaunchTemplateEnaSrdSpecification `pulumi:"enaSrdSpecification"`
 	// The IDs of one or more security groups.
 	Groups []string `pulumi:"groups"`
-	// The type of network interface. To create an Elastic Fabric Adapter (EFA), specify ``efa`` or ``efa``. For more information, see [Elastic Fabric Adapter](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html) in the *Amazon EC2 User Guide*.
+	// The type of network interface. To create an Elastic Fabric Adapter (EFA), specify ``efa``. For more information, see [Elastic Fabric Adapter](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html) in the *Amazon EC2 User Guide*.
 	//  If you are not creating an EFA, specify ``interface`` or omit this parameter.
-	//  If you specify ``efa-only``, do not assign any IP addresses to the network interface. EFA-only network interfaces do not support IP addresses.
-	//  Valid values: ``interface`` | ``efa`` | ``efa-only``
+	//  Valid values: ``interface`` | ``efa``
 	InterfaceType *string `pulumi:"interfaceType"`
 	// The number of IPv4 prefixes to be automatically assigned to the network interface. You cannot use this option if you use the ``Ipv4Prefix`` option.
 	Ipv4PrefixCount *int `pulumi:"ipv4PrefixCount"`
@@ -15188,10 +15168,9 @@ type LaunchTemplateNetworkInterfaceArgs struct {
 	EnaSrdSpecification LaunchTemplateEnaSrdSpecificationPtrInput `pulumi:"enaSrdSpecification"`
 	// The IDs of one or more security groups.
 	Groups pulumi.StringArrayInput `pulumi:"groups"`
-	// The type of network interface. To create an Elastic Fabric Adapter (EFA), specify ``efa`` or ``efa``. For more information, see [Elastic Fabric Adapter](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html) in the *Amazon EC2 User Guide*.
+	// The type of network interface. To create an Elastic Fabric Adapter (EFA), specify ``efa``. For more information, see [Elastic Fabric Adapter](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html) in the *Amazon EC2 User Guide*.
 	//  If you are not creating an EFA, specify ``interface`` or omit this parameter.
-	//  If you specify ``efa-only``, do not assign any IP addresses to the network interface. EFA-only network interfaces do not support IP addresses.
-	//  Valid values: ``interface`` | ``efa`` | ``efa-only``
+	//  Valid values: ``interface`` | ``efa``
 	InterfaceType pulumi.StringPtrInput `pulumi:"interfaceType"`
 	// The number of IPv4 prefixes to be automatically assigned to the network interface. You cannot use this option if you use the ``Ipv4Prefix`` option.
 	Ipv4PrefixCount pulumi.IntPtrInput `pulumi:"ipv4PrefixCount"`
@@ -15323,11 +15302,10 @@ func (o LaunchTemplateNetworkInterfaceOutput) Groups() pulumi.StringArrayOutput 
 	return o.ApplyT(func(v LaunchTemplateNetworkInterface) []string { return v.Groups }).(pulumi.StringArrayOutput)
 }
 
-// The type of network interface. To create an Elastic Fabric Adapter (EFA), specify “efa“ or “efa“. For more information, see [Elastic Fabric Adapter](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html) in the *Amazon EC2 User Guide*.
+// The type of network interface. To create an Elastic Fabric Adapter (EFA), specify “efa“. For more information, see [Elastic Fabric Adapter](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html) in the *Amazon EC2 User Guide*.
 //
 //	If you are not creating an EFA, specify ``interface`` or omit this parameter.
-//	If you specify ``efa-only``, do not assign any IP addresses to the network interface. EFA-only network interfaces do not support IP addresses.
-//	Valid values: ``interface`` | ``efa`` | ``efa-only``
+//	Valid values: ``interface`` | ``efa``
 func (o LaunchTemplateNetworkInterfaceOutput) InterfaceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *string { return v.InterfaceType }).(pulumi.StringPtrOutput)
 }
@@ -16168,6 +16146,7 @@ func (o LaunchTemplatePrivateIpAddArrayOutput) Index(i pulumi.IntInput) LaunchTe
 }
 
 type LaunchTemplateReference struct {
+	// The instance family to refer. Ensure that you specify the correct family name. For example, C6i and C6g are valid values, but C6 is not.
 	InstanceFamily *string `pulumi:"instanceFamily"`
 }
 
@@ -16183,6 +16162,7 @@ type LaunchTemplateReferenceInput interface {
 }
 
 type LaunchTemplateReferenceArgs struct {
+	// The instance family to refer. Ensure that you specify the correct family name. For example, C6i and C6g are valid values, but C6 is not.
 	InstanceFamily pulumi.StringPtrInput `pulumi:"instanceFamily"`
 }
 
@@ -16237,6 +16217,7 @@ func (o LaunchTemplateReferenceOutput) ToLaunchTemplateReferenceOutputWithContex
 	return o
 }
 
+// The instance family to refer. Ensure that you specify the correct family name. For example, C6i and C6g are valid values, but C6 is not.
 func (o LaunchTemplateReferenceOutput) InstanceFamily() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateReference) *string { return v.InstanceFamily }).(pulumi.StringPtrOutput)
 }
@@ -16626,8 +16607,7 @@ func (o LaunchTemplateTagArrayOutput) Index(i pulumi.IntInput) LaunchTemplateTag
 
 // Specifies the tags to apply to the launch template during creation.
 //
-//	To specify the tags for the resources that are created during instance launch, use [AWS::EC2::LaunchTemplate TagSpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-tagspecification.html).
-//	 ``LaunchTemplateTagSpecification`` is a property of [AWS::EC2::LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html).
+//	``LaunchTemplateTagSpecification`` is a property of [AWS::EC2::LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html).
 type LaunchTemplateTagSpecification struct {
 	// The type of resource. To tag a launch template, ``ResourceType`` must be ``launch-template``.
 	ResourceType *string `pulumi:"resourceType"`
@@ -16648,8 +16628,7 @@ type LaunchTemplateTagSpecificationInput interface {
 
 // Specifies the tags to apply to the launch template during creation.
 //
-//	To specify the tags for the resources that are created during instance launch, use [AWS::EC2::LaunchTemplate TagSpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-tagspecification.html).
-//	 ``LaunchTemplateTagSpecification`` is a property of [AWS::EC2::LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html).
+//	``LaunchTemplateTagSpecification`` is a property of [AWS::EC2::LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html).
 type LaunchTemplateTagSpecificationArgs struct {
 	// The type of resource. To tag a launch template, ``ResourceType`` must be ``launch-template``.
 	ResourceType pulumi.StringPtrInput `pulumi:"resourceType"`
@@ -16696,8 +16675,7 @@ func (i LaunchTemplateTagSpecificationArray) ToLaunchTemplateTagSpecificationArr
 
 // Specifies the tags to apply to the launch template during creation.
 //
-//	To specify the tags for the resources that are created during instance launch, use [AWS::EC2::LaunchTemplate TagSpecification](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-tagspecification.html).
-//	 ``LaunchTemplateTagSpecification`` is a property of [AWS::EC2::LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html).
+//	``LaunchTemplateTagSpecification`` is a property of [AWS::EC2::LaunchTemplate](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-launchtemplate.html).
 type LaunchTemplateTagSpecificationOutput struct{ *pulumi.OutputState }
 
 func (LaunchTemplateTagSpecificationOutput) ElementType() reflect.Type {
@@ -23818,7 +23796,7 @@ type SpotFleetInstanceNetworkInterfaceSpecification struct {
 	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
 	// The private IPv4 addresses to assign to the network interface. Only one private IPv4 address can be designated as primary. You cannot specify this option if you're launching more than one instance in a [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) request.
 	PrivateIpAddresses []SpotFleetPrivateIpAddressSpecification `pulumi:"privateIpAddresses"`
-	// The number of secondary private IPv4 addresses. You can't specify this option and specify more than one private IP address using the private IP addresses option. You cannot specify this option if you're launching more than one instance in a [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) request.
+	// The number of secondary private IPv4 addresses. You can’t specify this parameter and also specify a secondary private IP address using the `PrivateIpAddress` parameter.
 	SecondaryPrivateIpAddressCount *int `pulumi:"secondaryPrivateIpAddressCount"`
 	// The ID of the subnet associated with the network interface.
 	SubnetId *string `pulumi:"subnetId"`
@@ -23860,7 +23838,7 @@ type SpotFleetInstanceNetworkInterfaceSpecificationArgs struct {
 	NetworkInterfaceId pulumi.StringPtrInput `pulumi:"networkInterfaceId"`
 	// The private IPv4 addresses to assign to the network interface. Only one private IPv4 address can be designated as primary. You cannot specify this option if you're launching more than one instance in a [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) request.
 	PrivateIpAddresses SpotFleetPrivateIpAddressSpecificationArrayInput `pulumi:"privateIpAddresses"`
-	// The number of secondary private IPv4 addresses. You can't specify this option and specify more than one private IP address using the private IP addresses option. You cannot specify this option if you're launching more than one instance in a [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) request.
+	// The number of secondary private IPv4 addresses. You can’t specify this parameter and also specify a secondary private IP address using the `PrivateIpAddress` parameter.
 	SecondaryPrivateIpAddressCount pulumi.IntPtrInput `pulumi:"secondaryPrivateIpAddressCount"`
 	// The ID of the subnet associated with the network interface.
 	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
@@ -23972,7 +23950,7 @@ func (o SpotFleetInstanceNetworkInterfaceSpecificationOutput) PrivateIpAddresses
 	}).(SpotFleetPrivateIpAddressSpecificationArrayOutput)
 }
 
-// The number of secondary private IPv4 addresses. You can't specify this option and specify more than one private IP address using the private IP addresses option. You cannot specify this option if you're launching more than one instance in a [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) request.
+// The number of secondary private IPv4 addresses. You can’t specify this parameter and also specify a secondary private IP address using the `PrivateIpAddress` parameter.
 func (o SpotFleetInstanceNetworkInterfaceSpecificationOutput) SecondaryPrivateIpAddressCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SpotFleetInstanceNetworkInterfaceSpecification) *int { return v.SecondaryPrivateIpAddressCount }).(pulumi.IntPtrOutput)
 }
@@ -28805,7 +28783,7 @@ type SubnetTag struct {
 	Value string `pulumi:"value"`
 }
 
-// Specifies the tags to apply to resources that are created during instance launch.
+// Specifies the tags to apply to a resource when the resource is created for the launch template.
 //
 //	``TagSpecification`` is a property type of [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-tagspecifications). [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-tagspecifications) is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
 type TagSpecification struct {
@@ -28827,7 +28805,7 @@ type TagSpecificationInput interface {
 	ToTagSpecificationOutputWithContext(context.Context) TagSpecificationOutput
 }
 
-// Specifies the tags to apply to resources that are created during instance launch.
+// Specifies the tags to apply to a resource when the resource is created for the launch template.
 //
 //	``TagSpecification`` is a property type of [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-tagspecifications). [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-tagspecifications) is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
 type TagSpecificationArgs struct {
@@ -28875,7 +28853,7 @@ func (i TagSpecificationArray) ToTagSpecificationArrayOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(TagSpecificationArrayOutput)
 }
 
-// Specifies the tags to apply to resources that are created during instance launch.
+// Specifies the tags to apply to a resource when the resource is created for the launch template.
 //
 //	``TagSpecification`` is a property type of [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-tagspecifications). [TagSpecifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html#cfn-ec2-launchtemplate-launchtemplatedata-tagspecifications) is a property of [AWS::EC2::LaunchTemplate LaunchTemplateData](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html).
 type TagSpecificationOutput struct{ *pulumi.OutputState }

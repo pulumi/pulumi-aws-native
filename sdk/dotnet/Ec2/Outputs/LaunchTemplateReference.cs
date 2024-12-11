@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.Ec2.Outputs
     [OutputType]
     public sealed class LaunchTemplateReference
     {
+        /// <summary>
+        /// The instance family to refer. Ensure that you specify the correct family name. For example, C6i and C6g are valid values, but C6 is not.
+        /// </summary>
         public readonly string? InstanceFamily;
 
         [OutputConstructor]

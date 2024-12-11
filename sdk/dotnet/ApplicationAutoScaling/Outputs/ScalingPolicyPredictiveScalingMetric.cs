@@ -10,11 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApplicationAutoScaling.Outputs
 {
 
+    /// <summary>
+    /// Describes the scaling metric.
+    /// </summary>
     [OutputType]
     public sealed class ScalingPolicyPredictiveScalingMetric
     {
         /// <summary>
-        /// The dimensions for the metric.
+        /// Describes the dimensions of the metric.
         /// </summary>
         public readonly ImmutableArray<Outputs.ScalingPolicyPredictiveScalingMetricDimension> Dimensions;
         /// <summary>

@@ -40,6 +40,8 @@ __all__ = [
     'BucketLambdaConfiguration',
     'BucketLifecycleConfiguration',
     'BucketLoggingConfiguration',
+    'BucketMetadataTableConfiguration',
+    'BucketMetadataTableError',
     'BucketMetrics',
     'BucketMetricsConfiguration',
     'BucketNoncurrentVersionExpiration',
@@ -66,6 +68,7 @@ __all__ = [
     'BucketRoutingRuleCondition',
     'BucketRule',
     'BucketS3KeyFilter',
+    'BucketS3TablesDestination',
     'BucketServerSideEncryptionByDefault',
     'BucketServerSideEncryptionRule',
     'BucketSourceSelectionCriteria',
@@ -1365,6 +1368,109 @@ class BucketLoggingConfiguration(dict):
         Amazon S3 key format for log objects. Only one format, either PartitionedPrefix or SimplePrefix, is allowed.
         """
         return pulumi.get(self, "target_object_key_format")
+
+
+@pulumi.output_type
+class BucketMetadataTableConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3TablesDestination":
+            suggest = "s3_tables_destination"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketMetadataTableConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketMetadataTableConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketMetadataTableConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_tables_destination: 'outputs.BucketS3TablesDestination',
+                 error: Optional['outputs.BucketMetadataTableError'] = None,
+                 status: Optional[str] = None):
+        """
+        :param 'BucketMetadataTableError' error: Returns the <code>Error</code> value of the GetBucketMetadataTableConfiguration response.
+        :param str status: Returns the <code>Status</code> value of the <code>GetBucketMetadataTableConfigurationResult</code> response. This value indicates the status of the metadata table. The status values are:<br/><code>CREATING</code> - The metadata table is in the process of being created in the specified table bucket.<br/><code>ACTIVE</code> - The metadata table has been created successfully and records are being delivered to the table.<br/><code>FAILED</code> - Amazon S3 is unable to create the metadata table, or Amazon S3 is unable to deliver records.
+        """
+        pulumi.set(__self__, "s3_tables_destination", s3_tables_destination)
+        if error is not None:
+            pulumi.set(__self__, "error", error)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="s3TablesDestination")
+    def s3_tables_destination(self) -> 'outputs.BucketS3TablesDestination':
+        return pulumi.get(self, "s3_tables_destination")
+
+    @property
+    @pulumi.getter
+    def error(self) -> Optional['outputs.BucketMetadataTableError']:
+        """
+        Returns the <code>Error</code> value of the GetBucketMetadataTableConfiguration response.
+        """
+        return pulumi.get(self, "error")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[str]:
+        """
+        Returns the <code>Status</code> value of the <code>GetBucketMetadataTableConfigurationResult</code> response. This value indicates the status of the metadata table. The status values are:<br/><code>CREATING</code> - The metadata table is in the process of being created in the specified table bucket.<br/><code>ACTIVE</code> - The metadata table has been created successfully and records are being delivered to the table.<br/><code>FAILED</code> - Amazon S3 is unable to create the metadata table, or Amazon S3 is unable to deliver records.
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class BucketMetadataTableError(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "errorCode":
+            suggest = "error_code"
+        elif key == "errorMessage":
+            suggest = "error_message"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketMetadataTableError. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketMetadataTableError.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketMetadataTableError.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 error_code: str,
+                 error_message: str):
+        """
+        :param str error_code: If the <code>CreateBucketMetadataTableConfiguration</code> request succeeds, but S3 Metadata was unable to create the table, this structure contains the error code. The possible error codes and error messages are as follows:<br/><code>AccessDeniedCreatingResources</code> - You don't have sufficient permissions to create the required resources. Make sure that you have <code>s3tables:CreateNamespace</code>, <code>s3tables:CreateTable</code>, <code>s3tables:GetTable</code> and <code>s3tables:PutTablePolicy</code> permissions, and then try again. To create a new metadata table, you must delete the metadata configuration for this bucket, and then create a new metadata configuration.<br/><code>AccessDeniedWritingToTable</code> - Unable to write to the metadata table because of missing resource permissions. To fix the resource policy, Amazon S3 needs to create a new metadata table. To create a new metadata table, you must delete the metadata configuration for this bucket, and then create a new metadata configuration.<br/><code>DestinationTableNotFound</code> - The destination table doesn't exist. To create a new metadata table, you must delete the metadata configuration for this bucket, and then create a new metadata configuration.<br/><code>ServerInternalError</code> - An internal error has occurred. To create a new metadata table, you must delete the metadata configuration for this bucket, and then create a new metadata configuration.<br/><code>TableAlreadyExists</code> - The table that you specified already exists in the table bucket's namespace. Specify a different table name. To create a new metadata table, you must delete the metadata configuration for this bucket, and then create a new metadata configuration.<br/><code>TableBucketNotFound</code> - The table bucket that you specified doesn't exist in this AWS Region and account. Create or choose a different table bucket. To create a new metadata table, you must delete the metadata configuration for this bucket, and then create a new metadata configuration.
+        :param str error_message: If the <code>CreateBucketMetadataTableConfiguration</code> request succeeds, but S3 Metadata was unable to create the table, this structure contains the error code. The possible error codes and error messages are as follows:<br/><code>AccessDeniedCreatingResources</code> - You don't have sufficient permissions to create the required resources. Make sure that you have <code>s3tables:CreateNamespace</code>, <code>s3tables:CreateTable</code>, <code>s3tables:GetTable</code> and <code>s3tables:PutTablePolicy</code> permissions, and then try again. To create a new metadata table, you must delete the metadata configuration for this bucket, and then create a new metadata configuration.<br/><code>AccessDeniedWritingToTable</code> - Unable to write to the metadata table because of missing resource permissions. To fix the resource policy, Amazon S3 needs to create a new metadata table. To create a new metadata table, you must delete the metadata configuration for this bucket, and then create a new metadata configuration.<br/><code>DestinationTableNotFound</code> - The destination table doesn't exist. To create a new metadata table, you must delete the metadata configuration for this bucket, and then create a new metadata configuration.<br/><code>ServerInternalError</code> - An internal error has occurred. To create a new metadata table, you must delete the metadata configuration for this bucket, and then create a new metadata configuration.<br/><code>TableAlreadyExists</code> - The table that you specified already exists in the table bucket's namespace. Specify a different table name. To create a new metadata table, you must delete the metadata configuration for this bucket, and then create a new metadata configuration.<br/><code>TableBucketNotFound</code> - The table bucket that you specified doesn't exist in this AWS Region and account. Create or choose a different table bucket. To create a new metadata table, you must delete the metadata configuration for this bucket, and then create a new metadata configuration.
+        """
+        pulumi.set(__self__, "error_code", error_code)
+        pulumi.set(__self__, "error_message", error_message)
+
+    @property
+    @pulumi.getter(name="errorCode")
+    def error_code(self) -> str:
+        """
+        If the <code>CreateBucketMetadataTableConfiguration</code> request succeeds, but S3 Metadata was unable to create the table, this structure contains the error code. The possible error codes and error messages are as follows:<br/><code>AccessDeniedCreatingResources</code> - You don't have sufficient permissions to create the required resources. Make sure that you have <code>s3tables:CreateNamespace</code>, <code>s3tables:CreateTable</code>, <code>s3tables:GetTable</code> and <code>s3tables:PutTablePolicy</code> permissions, and then try again. To create a new metadata table, you must delete the metadata configuration for this bucket, and then create a new metadata configuration.<br/><code>AccessDeniedWritingToTable</code> - Unable to write to the metadata table because of missing resource permissions. To fix the resource policy, Amazon S3 needs to create a new metadata table. To create a new metadata table, you must delete the metadata configuration for this bucket, and then create a new metadata configuration.<br/><code>DestinationTableNotFound</code> - The destination table doesn't exist. To create a new metadata table, you must delete the metadata configuration for this bucket, and then create a new metadata configuration.<br/><code>ServerInternalError</code> - An internal error has occurred. To create a new metadata table, you must delete the metadata configuration for this bucket, and then create a new metadata configuration.<br/><code>TableAlreadyExists</code> - The table that you specified already exists in the table bucket's namespace. Specify a different table name. To create a new metadata table, you must delete the metadata configuration for this bucket, and then create a new metadata configuration.<br/><code>TableBucketNotFound</code> - The table bucket that you specified doesn't exist in this AWS Region and account. Create or choose a different table bucket. To create a new metadata table, you must delete the metadata configuration for this bucket, and then create a new metadata configuration.
+        """
+        return pulumi.get(self, "error_code")
+
+    @property
+    @pulumi.getter(name="errorMessage")
+    def error_message(self) -> str:
+        """
+        If the <code>CreateBucketMetadataTableConfiguration</code> request succeeds, but S3 Metadata was unable to create the table, this structure contains the error code. The possible error codes and error messages are as follows:<br/><code>AccessDeniedCreatingResources</code> - You don't have sufficient permissions to create the required resources. Make sure that you have <code>s3tables:CreateNamespace</code>, <code>s3tables:CreateTable</code>, <code>s3tables:GetTable</code> and <code>s3tables:PutTablePolicy</code> permissions, and then try again. To create a new metadata table, you must delete the metadata configuration for this bucket, and then create a new metadata configuration.<br/><code>AccessDeniedWritingToTable</code> - Unable to write to the metadata table because of missing resource permissions. To fix the resource policy, Amazon S3 needs to create a new metadata table. To create a new metadata table, you must delete the metadata configuration for this bucket, and then create a new metadata configuration.<br/><code>DestinationTableNotFound</code> - The destination table doesn't exist. To create a new metadata table, you must delete the metadata configuration for this bucket, and then create a new metadata configuration.<br/><code>ServerInternalError</code> - An internal error has occurred. To create a new metadata table, you must delete the metadata configuration for this bucket, and then create a new metadata configuration.<br/><code>TableAlreadyExists</code> - The table that you specified already exists in the table bucket's namespace. Specify a different table name. To create a new metadata table, you must delete the metadata configuration for this bucket, and then create a new metadata configuration.<br/><code>TableBucketNotFound</code> - The table bucket that you specified doesn't exist in this AWS Region and account. Create or choose a different table bucket. To create a new metadata table, you must delete the metadata configuration for this bucket, and then create a new metadata configuration.
+        """
+        return pulumi.get(self, "error_message")
 
 
 @pulumi.output_type
@@ -3070,6 +3176,82 @@ class BucketS3KeyFilter(dict):
         A list of containers for the key-value pair that defines the criteria for the filter rule.
         """
         return pulumi.get(self, "rules")
+
+
+@pulumi.output_type
+class BucketS3TablesDestination(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tableBucketArn":
+            suggest = "table_bucket_arn"
+        elif key == "tableName":
+            suggest = "table_name"
+        elif key == "tableArn":
+            suggest = "table_arn"
+        elif key == "tableNamespace":
+            suggest = "table_namespace"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketS3TablesDestination. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketS3TablesDestination.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketS3TablesDestination.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 table_bucket_arn: str,
+                 table_name: str,
+                 table_arn: Optional[str] = None,
+                 table_namespace: Optional[str] = None):
+        """
+        :param str table_bucket_arn: The Amazon Resource Name (ARN) for the table bucket that's specified as the destination in the metadata table configuration. The destination table bucket must be in the same Region and AWS account as the general purpose bucket.
+        :param str table_name: The name for the metadata table in your metadata table configuration. The specified metadata table name must be unique within the <code>aws_s3_metadata</code> namespace in the destination table bucket.
+        :param str table_arn: The Amazon Resource Name (ARN) for the metadata table in the metadata table configuration. The specified metadata table name must be unique within the <code>aws_s3_metadata</code> namespace in the destination table bucket.
+        :param str table_namespace: The table bucket namespace for the metadata table in your metadata table configuration. This value is always <code>aws_s3_metadata</code>.
+        """
+        pulumi.set(__self__, "table_bucket_arn", table_bucket_arn)
+        pulumi.set(__self__, "table_name", table_name)
+        if table_arn is not None:
+            pulumi.set(__self__, "table_arn", table_arn)
+        if table_namespace is not None:
+            pulumi.set(__self__, "table_namespace", table_namespace)
+
+    @property
+    @pulumi.getter(name="tableBucketArn")
+    def table_bucket_arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) for the table bucket that's specified as the destination in the metadata table configuration. The destination table bucket must be in the same Region and AWS account as the general purpose bucket.
+        """
+        return pulumi.get(self, "table_bucket_arn")
+
+    @property
+    @pulumi.getter(name="tableName")
+    def table_name(self) -> str:
+        """
+        The name for the metadata table in your metadata table configuration. The specified metadata table name must be unique within the <code>aws_s3_metadata</code> namespace in the destination table bucket.
+        """
+        return pulumi.get(self, "table_name")
+
+    @property
+    @pulumi.getter(name="tableArn")
+    def table_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) for the metadata table in the metadata table configuration. The specified metadata table name must be unique within the <code>aws_s3_metadata</code> namespace in the destination table bucket.
+        """
+        return pulumi.get(self, "table_arn")
+
+    @property
+    @pulumi.getter(name="tableNamespace")
+    def table_namespace(self) -> Optional[str]:
+        """
+        The table bucket namespace for the metadata table in your metadata table configuration. This value is always <code>aws_s3_metadata</code>.
+        """
+        return pulumi.get(self, "table_namespace")
 
 
 @pulumi.output_type

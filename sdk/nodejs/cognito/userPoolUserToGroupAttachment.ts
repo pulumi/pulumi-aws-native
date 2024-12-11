@@ -39,7 +39,7 @@ export class UserPoolUserToGroupAttachment extends pulumi.CustomResource {
      */
     public readonly groupName!: pulumi.Output<string>;
     /**
-     * The user pool ID for the user pool.
+     * The ID of the user pool that contains the group that you want to add the user to.
      */
     public readonly userPoolId!: pulumi.Output<string>;
     /**
@@ -91,7 +91,7 @@ export interface UserPoolUserToGroupAttachmentArgs {
      */
     groupName: pulumi.Input<string>;
     /**
-     * The user pool ID for the user pool.
+     * The ID of the user pool that contains the group that you want to add the user to.
      */
     userPoolId: pulumi.Input<string>;
     /**

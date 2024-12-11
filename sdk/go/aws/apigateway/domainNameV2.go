@@ -26,8 +26,6 @@ type DomainNameV2 struct {
 	DomainNameId pulumi.StringOutput `pulumi:"domainNameId"`
 	// The endpoint configuration to indicate the types of endpoints an API (RestApi) or its custom domain name (DomainName) has.
 	EndpointConfiguration DomainNameV2EndpointConfigurationPtrOutput `pulumi:"endpointConfiguration"`
-	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::DomainNameV2` for more information about the expected schema for this property.
-	ManagementPolicy pulumi.AnyOutput `pulumi:"managementPolicy"`
 	// A stringified JSON policy document that applies to the `execute-api` service for this DomainName regardless of the caller and Method configuration. You can use `Fn::ToJsonString` to enter your `policy` . For more information, see [Fn::ToJsonString](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ToJsonString.html) .
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::DomainNameV2` for more information about the expected schema for this property.
@@ -90,8 +88,6 @@ type domainNameV2Args struct {
 	DomainName *string `pulumi:"domainName"`
 	// The endpoint configuration to indicate the types of endpoints an API (RestApi) or its custom domain name (DomainName) has.
 	EndpointConfiguration *DomainNameV2EndpointConfiguration `pulumi:"endpointConfiguration"`
-	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::DomainNameV2` for more information about the expected schema for this property.
-	ManagementPolicy interface{} `pulumi:"managementPolicy"`
 	// A stringified JSON policy document that applies to the `execute-api` service for this DomainName regardless of the caller and Method configuration. You can use `Fn::ToJsonString` to enter your `policy` . For more information, see [Fn::ToJsonString](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ToJsonString.html) .
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::DomainNameV2` for more information about the expected schema for this property.
@@ -110,8 +106,6 @@ type DomainNameV2Args struct {
 	DomainName pulumi.StringPtrInput
 	// The endpoint configuration to indicate the types of endpoints an API (RestApi) or its custom domain name (DomainName) has.
 	EndpointConfiguration DomainNameV2EndpointConfigurationPtrInput
-	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::DomainNameV2` for more information about the expected schema for this property.
-	ManagementPolicy pulumi.Input
 	// A stringified JSON policy document that applies to the `execute-api` service for this DomainName regardless of the caller and Method configuration. You can use `Fn::ToJsonString` to enter your `policy` . For more information, see [Fn::ToJsonString](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ToJsonString.html) .
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::DomainNameV2` for more information about the expected schema for this property.
@@ -182,11 +176,6 @@ func (o DomainNameV2Output) DomainNameId() pulumi.StringOutput {
 // The endpoint configuration to indicate the types of endpoints an API (RestApi) or its custom domain name (DomainName) has.
 func (o DomainNameV2Output) EndpointConfiguration() DomainNameV2EndpointConfigurationPtrOutput {
 	return o.ApplyT(func(v *DomainNameV2) DomainNameV2EndpointConfigurationPtrOutput { return v.EndpointConfiguration }).(DomainNameV2EndpointConfigurationPtrOutput)
-}
-
-// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::DomainNameV2` for more information about the expected schema for this property.
-func (o DomainNameV2Output) ManagementPolicy() pulumi.AnyOutput {
-	return o.ApplyT(func(v *DomainNameV2) pulumi.AnyOutput { return v.ManagementPolicy }).(pulumi.AnyOutput)
 }
 
 // A stringified JSON policy document that applies to the `execute-api` service for this DomainName regardless of the caller and Method configuration. You can use `Fn::ToJsonString` to enter your `policy` . For more information, see [Fn::ToJsonString](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ToJsonString.html) .

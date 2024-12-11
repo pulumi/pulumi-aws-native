@@ -6182,7 +6182,7 @@ type TaskDefinitionContainerDefinition struct {
 	//
 	//   This parameter is not supported for Windows containers.
 	User *string `pulumi:"user"`
-	// Specifies whether Amazon ECS will resolve the container image tag provided in the container definition to an image digest. By default, the value is `enabled` . If you set the value for a container as `disabled` , Amazon ECS will not resolve the provided container image tag to a digest and will use the original image URI specified in the container definition for deployment. For more information about container image resolution, see [Container image resolution](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html#deployment-container-image-stability) in the *Amazon ECS Developer Guide* .
+	// Specifies whether Amazon ECS will resolve the container image tag provided in the container definition to an image digest. By default, the value is ``enabled``. If you set the value for a container as ``disabled``, Amazon ECS will not resolve the provided container image tag to a digest and will use the original image URI specified in the container definition for deployment. For more information about container image resolution, see [Container image resolution](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html#deployment-container-image-stability) in the *Amazon ECS Developer Guide*.
 	VersionConsistency *TaskDefinitionContainerDefinitionVersionConsistency `pulumi:"versionConsistency"`
 	// Data volumes to mount from another container. This parameter maps to ``VolumesFrom`` in the docker container create command and the ``--volumes-from`` option to docker run.
 	VolumesFrom []TaskDefinitionVolumeFrom `pulumi:"volumesFrom"`
@@ -6368,7 +6368,7 @@ type TaskDefinitionContainerDefinitionArgs struct {
 	//
 	//   This parameter is not supported for Windows containers.
 	User pulumi.StringPtrInput `pulumi:"user"`
-	// Specifies whether Amazon ECS will resolve the container image tag provided in the container definition to an image digest. By default, the value is `enabled` . If you set the value for a container as `disabled` , Amazon ECS will not resolve the provided container image tag to a digest and will use the original image URI specified in the container definition for deployment. For more information about container image resolution, see [Container image resolution](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html#deployment-container-image-stability) in the *Amazon ECS Developer Guide* .
+	// Specifies whether Amazon ECS will resolve the container image tag provided in the container definition to an image digest. By default, the value is ``enabled``. If you set the value for a container as ``disabled``, Amazon ECS will not resolve the provided container image tag to a digest and will use the original image URI specified in the container definition for deployment. For more information about container image resolution, see [Container image resolution](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html#deployment-container-image-stability) in the *Amazon ECS Developer Guide*.
 	VersionConsistency TaskDefinitionContainerDefinitionVersionConsistencyPtrInput `pulumi:"versionConsistency"`
 	// Data volumes to mount from another container. This parameter maps to ``VolumesFrom`` in the docker container create command and the ``--volumes-from`` option to docker run.
 	VolumesFrom TaskDefinitionVolumeFromArrayInput `pulumi:"volumesFrom"`
@@ -6742,7 +6742,7 @@ func (o TaskDefinitionContainerDefinitionOutput) User() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionContainerDefinition) *string { return v.User }).(pulumi.StringPtrOutput)
 }
 
-// Specifies whether Amazon ECS will resolve the container image tag provided in the container definition to an image digest. By default, the value is `enabled` . If you set the value for a container as `disabled` , Amazon ECS will not resolve the provided container image tag to a digest and will use the original image URI specified in the container definition for deployment. For more information about container image resolution, see [Container image resolution](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html#deployment-container-image-stability) in the *Amazon ECS Developer Guide* .
+// Specifies whether Amazon ECS will resolve the container image tag provided in the container definition to an image digest. By default, the value is “enabled“. If you set the value for a container as “disabled“, Amazon ECS will not resolve the provided container image tag to a digest and will use the original image URI specified in the container definition for deployment. For more information about container image resolution, see [Container image resolution](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html#deployment-container-image-stability) in the *Amazon ECS Developer Guide*.
 func (o TaskDefinitionContainerDefinitionOutput) VersionConsistency() TaskDefinitionContainerDefinitionVersionConsistencyPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionContainerDefinition) *TaskDefinitionContainerDefinitionVersionConsistency {
 		return v.VersionConsistency

@@ -18,7 +18,7 @@ type UserPoolUserToGroupAttachment struct {
 
 	// The name of the group that you want to add your user to.
 	GroupName pulumi.StringOutput `pulumi:"groupName"`
-	// The user pool ID for the user pool.
+	// The ID of the user pool that contains the group that you want to add the user to.
 	UserPoolId pulumi.StringOutput `pulumi:"userPoolId"`
 	// The user's username.
 	Username pulumi.StringOutput `pulumi:"username"`
@@ -81,7 +81,7 @@ func (UserPoolUserToGroupAttachmentState) ElementType() reflect.Type {
 type userPoolUserToGroupAttachmentArgs struct {
 	// The name of the group that you want to add your user to.
 	GroupName string `pulumi:"groupName"`
-	// The user pool ID for the user pool.
+	// The ID of the user pool that contains the group that you want to add the user to.
 	UserPoolId string `pulumi:"userPoolId"`
 	// The user's username.
 	Username string `pulumi:"username"`
@@ -91,7 +91,7 @@ type userPoolUserToGroupAttachmentArgs struct {
 type UserPoolUserToGroupAttachmentArgs struct {
 	// The name of the group that you want to add your user to.
 	GroupName pulumi.StringInput
-	// The user pool ID for the user pool.
+	// The ID of the user pool that contains the group that you want to add the user to.
 	UserPoolId pulumi.StringInput
 	// The user's username.
 	Username pulumi.StringInput
@@ -139,7 +139,7 @@ func (o UserPoolUserToGroupAttachmentOutput) GroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserPoolUserToGroupAttachment) pulumi.StringOutput { return v.GroupName }).(pulumi.StringOutput)
 }
 
-// The user pool ID for the user pool.
+// The ID of the user pool that contains the group that you want to add the user to.
 func (o UserPoolUserToGroupAttachmentOutput) UserPoolId() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserPoolUserToGroupAttachment) pulumi.StringOutput { return v.UserPoolId }).(pulumi.StringOutput)
 }

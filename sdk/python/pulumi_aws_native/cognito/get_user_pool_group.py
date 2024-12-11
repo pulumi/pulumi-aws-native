@@ -38,7 +38,7 @@ class GetUserPoolGroupResult:
     @pulumi.getter
     def description(self) -> Optional[str]:
         """
-        A string containing the description of the group.
+        A description of the group that you're creating.
         """
         return pulumi.get(self, "description")
 
@@ -58,7 +58,7 @@ class GetUserPoolGroupResult:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[str]:
         """
-        The role Amazon Resource Name (ARN) for the group.
+        The Amazon Resource Name (ARN) for the IAM role that you want to associate with the group. A group role primarily declares a preferred role for the credentials that you get from an identity pool. Amazon Cognito ID tokens have a `cognito:preferred_role` claim that presents the highest-precedence group that a user belongs to. Both ID and access tokens also contain a `cognito:groups` claim that list all the groups that a user is a member of.
         """
         return pulumi.get(self, "role_arn")
 
@@ -81,8 +81,8 @@ def get_user_pool_group(group_name: Optional[str] = None,
     Resource Type definition for AWS::Cognito::UserPoolGroup
 
 
-    :param str group_name: The name of the group. Must be unique.
-    :param str user_pool_id: The user pool ID for the user pool.
+    :param str group_name: A name for the group. This name must be unique in your user pool.
+    :param str user_pool_id: The ID of the user pool where you want to create a user group.
     """
     __args__ = dict()
     __args__['groupName'] = group_name
@@ -101,8 +101,8 @@ def get_user_pool_group_output(group_name: Optional[pulumi.Input[str]] = None,
     Resource Type definition for AWS::Cognito::UserPoolGroup
 
 
-    :param str group_name: The name of the group. Must be unique.
-    :param str user_pool_id: The user pool ID for the user pool.
+    :param str group_name: A name for the group. This name must be unique in your user pool.
+    :param str user_pool_id: The ID of the user pool where you want to create a user group.
     """
     __args__ = dict()
     __args__['groupName'] = group_name

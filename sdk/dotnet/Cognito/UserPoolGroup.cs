@@ -16,13 +16,13 @@ namespace Pulumi.AwsNative.Cognito
     public partial class UserPoolGroup : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A string containing the description of the group.
+        /// A description of the group that you're creating.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the group. Must be unique.
+        /// A name for the group. This name must be unique in your user pool.
         /// </summary>
         [Output("groupName")]
         public Output<string?> GroupName { get; private set; } = null!;
@@ -38,13 +38,13 @@ namespace Pulumi.AwsNative.Cognito
         public Output<int?> Precedence { get; private set; } = null!;
 
         /// <summary>
-        /// The role Amazon Resource Name (ARN) for the group.
+        /// The Amazon Resource Name (ARN) for the IAM role that you want to associate with the group. A group role primarily declares a preferred role for the credentials that you get from an identity pool. Amazon Cognito ID tokens have a `cognito:preferred_role` claim that presents the highest-precedence group that a user belongs to. Both ID and access tokens also contain a `cognito:groups` claim that list all the groups that a user is a member of.
         /// </summary>
         [Output("roleArn")]
         public Output<string?> RoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// The user pool ID for the user pool.
+        /// The ID of the user pool where you want to create a user group.
         /// </summary>
         [Output("userPoolId")]
         public Output<string> UserPoolId { get; private set; } = null!;
@@ -100,13 +100,13 @@ namespace Pulumi.AwsNative.Cognito
     public sealed class UserPoolGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A string containing the description of the group.
+        /// A description of the group that you're creating.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The name of the group. Must be unique.
+        /// A name for the group. This name must be unique in your user pool.
         /// </summary>
         [Input("groupName")]
         public Input<string>? GroupName { get; set; }
@@ -122,13 +122,13 @@ namespace Pulumi.AwsNative.Cognito
         public Input<int>? Precedence { get; set; }
 
         /// <summary>
-        /// The role Amazon Resource Name (ARN) for the group.
+        /// The Amazon Resource Name (ARN) for the IAM role that you want to associate with the group. A group role primarily declares a preferred role for the credentials that you get from an identity pool. Amazon Cognito ID tokens have a `cognito:preferred_role` claim that presents the highest-precedence group that a user belongs to. Both ID and access tokens also contain a `cognito:groups` claim that list all the groups that a user is a member of.
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
 
         /// <summary>
-        /// The user pool ID for the user pool.
+        /// The ID of the user pool where you want to create a user group.
         /// </summary>
         [Input("userPoolId", required: true)]
         public Input<string> UserPoolId { get; set; } = null!;

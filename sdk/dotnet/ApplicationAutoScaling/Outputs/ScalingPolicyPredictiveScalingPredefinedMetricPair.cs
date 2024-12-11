@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApplicationAutoScaling.Outputs
 {
 
+    /// <summary>
+    /// Represents a metric pair for a predictive scaling policy.
+    /// </summary>
     [OutputType]
     public sealed class ScalingPolicyPredictiveScalingPredefinedMetricPair
     {

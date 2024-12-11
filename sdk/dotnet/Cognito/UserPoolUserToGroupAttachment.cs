@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.Cognito
         public Output<string> GroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The user pool ID for the user pool.
+        /// The ID of the user pool that contains the group that you want to add the user to.
         /// </summary>
         [Output("userPoolId")]
         public Output<string> UserPoolId { get; private set; } = null!;
@@ -91,7 +91,7 @@ namespace Pulumi.AwsNative.Cognito
         public Input<string> GroupName { get; set; } = null!;
 
         /// <summary>
-        /// The user pool ID for the user pool.
+        /// The ID of the user pool that contains the group that you want to add the user to.
         /// </summary>
         [Input("userPoolId", required: true)]
         public Input<string> UserPoolId { get; set; } = null!;

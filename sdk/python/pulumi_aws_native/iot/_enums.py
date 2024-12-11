@@ -12,6 +12,7 @@ __all__ = [
     'CertificateMode',
     'CertificateProviderOperation',
     'CertificateStatus',
+    'CommandNamespace',
     'CustomMetricMetricType',
     'DimensionType',
     'DomainConfigurationApplicationProtocol',
@@ -113,6 +114,14 @@ class CertificateStatus(str, Enum):
     REVOKED = "REVOKED"
     PENDING_TRANSFER = "PENDING_TRANSFER"
     PENDING_ACTIVATION = "PENDING_ACTIVATION"
+
+
+class CommandNamespace(str, Enum):
+    """
+    The namespace to which the command belongs.
+    """
+    AWS_IO_T = "AWS-IoT"
+    AWS_IO_T_FLEET_WISE = "AWS-IoT-FleetWise"
 
 
 class CustomMetricMetricType(str, Enum):

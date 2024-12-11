@@ -35,6 +35,11 @@ export type CertificateProvider = import("./certificateProvider").CertificatePro
 export const CertificateProvider: typeof import("./certificateProvider").CertificateProvider = null as any;
 utilities.lazyLoad(exports, ["CertificateProvider"], () => require("./certificateProvider"));
 
+export { CommandArgs } from "./command";
+export type Command = import("./command").Command;
+export const Command: typeof import("./command").Command = null as any;
+utilities.lazyLoad(exports, ["Command"], () => require("./command"));
+
 export { CustomMetricArgs } from "./customMetric";
 export type CustomMetric = import("./customMetric").CustomMetric;
 export const CustomMetric: typeof import("./customMetric").CustomMetric = null as any;
@@ -84,6 +89,11 @@ export { GetCertificateProviderArgs, GetCertificateProviderResult, GetCertificat
 export const getCertificateProvider: typeof import("./getCertificateProvider").getCertificateProvider = null as any;
 export const getCertificateProviderOutput: typeof import("./getCertificateProvider").getCertificateProviderOutput = null as any;
 utilities.lazyLoad(exports, ["getCertificateProvider","getCertificateProviderOutput"], () => require("./getCertificateProvider"));
+
+export { GetCommandArgs, GetCommandResult, GetCommandOutputArgs } from "./getCommand";
+export const getCommand: typeof import("./getCommand").getCommand = null as any;
+export const getCommandOutput: typeof import("./getCommand").getCommandOutput = null as any;
+utilities.lazyLoad(exports, ["getCommand","getCommandOutput"], () => require("./getCommand"));
 
 export { GetCustomMetricArgs, GetCustomMetricResult, GetCustomMetricOutputArgs } from "./getCustomMetric";
 export const getCustomMetric: typeof import("./getCustomMetric").getCustomMetric = null as any;
@@ -285,6 +295,8 @@ const _module = {
                 return new Certificate(name, <any>undefined, { urn })
             case "aws-native:iot:CertificateProvider":
                 return new CertificateProvider(name, <any>undefined, { urn })
+            case "aws-native:iot:Command":
+                return new Command(name, <any>undefined, { urn })
             case "aws-native:iot:CustomMetric":
                 return new CustomMetric(name, <any>undefined, { urn })
             case "aws-native:iot:Dimension":

@@ -18,6 +18,11 @@ namespace Pulumi.AwsNative.Cognito.Inputs
         [Input("passwordPolicy")]
         public Input<Inputs.UserPoolPasswordPolicyArgs>? PasswordPolicy { get; set; }
 
+        /// <summary>
+        /// The policy for allowed types of authentication in a user pool.
+        /// 
+        /// This data type is a request and response parameter of [CreateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.html) and [UpdateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.html) , and a response parameter of [DescribeUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html) .
+        /// </summary>
         [Input("signInPolicy")]
         public Input<Inputs.UserPoolSignInPolicyArgs>? SignInPolicy { get; set; }
 

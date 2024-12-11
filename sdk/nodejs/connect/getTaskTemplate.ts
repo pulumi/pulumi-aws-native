@@ -62,6 +62,10 @@ export interface GetTaskTemplateResult {
      */
     readonly name?: string;
     /**
+     * The identifier of the contact flow.
+     */
+    readonly selfAssignContactFlowArn?: string;
+    /**
      * The status of the task template.
      */
     readonly status?: enums.connect.TaskTemplateStatus;

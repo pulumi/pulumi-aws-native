@@ -39,11 +39,17 @@ class InvoiceUnitRule(dict):
 
     def __init__(__self__, *,
                  linked_accounts: Sequence[str]):
+        """
+        :param Sequence[str] linked_accounts: The list of `LINKED_ACCOUNT` IDs where charges are included within the invoice unit.
+        """
         pulumi.set(__self__, "linked_accounts", linked_accounts)
 
     @property
     @pulumi.getter(name="linkedAccounts")
     def linked_accounts(self) -> Sequence[str]:
+        """
+        The list of `LINKED_ACCOUNT` IDs where charges are included within the invoice unit.
+        """
         return pulumi.get(self, "linked_accounts")
 
 

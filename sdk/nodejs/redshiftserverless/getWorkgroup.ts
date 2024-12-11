@@ -34,6 +34,10 @@ export interface GetWorkgroupResult {
      */
     readonly port?: number;
     /**
+     * A property that represents the price performance target settings for the workgroup.
+     */
+    readonly pricePerformanceTarget?: outputs.redshiftserverless.WorkgroupPerformanceTarget;
+    /**
      * A value that specifies whether the workgroup can be accessible from a public network.
      */
     readonly publiclyAccessible?: boolean;

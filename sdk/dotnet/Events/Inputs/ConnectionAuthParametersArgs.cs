@@ -24,6 +24,11 @@ namespace Pulumi.AwsNative.Events.Inputs
         [Input("basicAuthParameters")]
         public Input<Inputs.ConnectionBasicAuthParametersArgs>? BasicAuthParameters { get; set; }
 
+        /// <summary>
+        /// For private OAuth authentication endpoints. The parameters EventBridge uses to authenticate against the endpoint.
+        /// 
+        /// For more information, see [Authorization methods for connections](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-target-connection-auth.html) in the **Amazon EventBridge User Guide** .
+        /// </summary>
         [Input("connectivityParameters")]
         public Input<Inputs.ConnectionConnectivityParametersArgs>? ConnectivityParameters { get; set; }
 

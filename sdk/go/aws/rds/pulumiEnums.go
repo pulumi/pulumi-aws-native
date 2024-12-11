@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The availability status to be assigned to the CEV.
+// A value that indicates the status of a custom engine version (CEV).
 type CustomDbEngineVersionStatus string
 
 const (

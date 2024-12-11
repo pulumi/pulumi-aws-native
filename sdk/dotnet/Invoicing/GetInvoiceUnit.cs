@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Invoicing
 
     public sealed class GetInvoiceUnitArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ARN to identify an invoice unit. This information can't be modified or deleted.
+        /// </summary>
         [Input("invoiceUnitArn", required: true)]
         public string InvoiceUnitArn { get; set; } = null!;
 
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.Invoicing
 
     public sealed class GetInvoiceUnitInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ARN to identify an invoice unit. This information can't be modified or deleted.
+        /// </summary>
         [Input("invoiceUnitArn", required: true)]
         public Input<string> InvoiceUnitArn { get; set; } = null!;
 
@@ -51,11 +57,29 @@ namespace Pulumi.AwsNative.Invoicing
     [OutputType]
     public sealed class GetInvoiceUnitResult
     {
+        /// <summary>
+        /// The assigned description for an invoice unit. This information can't be modified or deleted.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The ARN to identify an invoice unit. This information can't be modified or deleted.
+        /// </summary>
         public readonly string? InvoiceUnitArn;
+        /// <summary>
+        /// The last time the invoice unit was updated. This is important to determine the version of invoice unit configuration used to create the invoices. Any invoice created after this modified time will use this invoice unit configuration.
+        /// </summary>
         public readonly double? LastModified;
+        /// <summary>
+        /// The tag structure that contains a tag key and value.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> ResourceTags;
+        /// <summary>
+        /// An `InvoiceUnitRule` object used the categorize invoice units.
+        /// </summary>
         public readonly Outputs.InvoiceUnitRule? Rule;
+        /// <summary>
+        /// Whether the invoice unit based tax inheritance is/ should be enabled or disabled.
+        /// </summary>
         public readonly bool? TaxInheritanceDisabled;
 
         [OutputConstructor]

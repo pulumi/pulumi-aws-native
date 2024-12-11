@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
         /// </summary>
         public readonly Outputs.DataSourceCustomTransformationConfiguration? CustomTransformationConfiguration;
         /// <summary>
-        /// A custom parser for data source documents.
+        /// Configurations for a parser to use for parsing documents in your data source. If you exclude this field, the default parser will be used.
         /// </summary>
         public readonly Outputs.DataSourceParsingConfiguration? ParsingConfiguration;
 

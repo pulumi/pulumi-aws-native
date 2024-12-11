@@ -28,6 +28,8 @@ type Workgroup struct {
 	NamespaceName pulumi.StringPtrOutput `pulumi:"namespaceName"`
 	// The custom port to use when connecting to a workgroup. Valid port ranges are 5431-5455 and 8191-8215. The default is 5439.
 	Port pulumi.IntPtrOutput `pulumi:"port"`
+	// A property that represents the price performance target settings for the workgroup.
+	PricePerformanceTarget WorkgroupPerformanceTargetPtrOutput `pulumi:"pricePerformanceTarget"`
 	// A value that specifies whether the workgroup can be accessible from a public network.
 	PubliclyAccessible pulumi.BoolPtrOutput `pulumi:"publiclyAccessible"`
 	// A list of security group IDs to associate with the workgroup.
@@ -99,6 +101,8 @@ type workgroupArgs struct {
 	NamespaceName *string `pulumi:"namespaceName"`
 	// The custom port to use when connecting to a workgroup. Valid port ranges are 5431-5455 and 8191-8215. The default is 5439.
 	Port *int `pulumi:"port"`
+	// A property that represents the price performance target settings for the workgroup.
+	PricePerformanceTarget *WorkgroupPerformanceTarget `pulumi:"pricePerformanceTarget"`
 	// A value that specifies whether the workgroup can be accessible from a public network.
 	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
 	// A list of security group IDs to associate with the workgroup.
@@ -125,6 +129,8 @@ type WorkgroupArgs struct {
 	NamespaceName pulumi.StringPtrInput
 	// The custom port to use when connecting to a workgroup. Valid port ranges are 5431-5455 and 8191-8215. The default is 5439.
 	Port pulumi.IntPtrInput
+	// A property that represents the price performance target settings for the workgroup.
+	PricePerformanceTarget WorkgroupPerformanceTargetPtrInput
 	// A value that specifies whether the workgroup can be accessible from a public network.
 	PubliclyAccessible pulumi.BoolPtrInput
 	// A list of security group IDs to associate with the workgroup.
@@ -202,6 +208,11 @@ func (o WorkgroupOutput) NamespaceName() pulumi.StringPtrOutput {
 // The custom port to use when connecting to a workgroup. Valid port ranges are 5431-5455 and 8191-8215. The default is 5439.
 func (o WorkgroupOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Workgroup) pulumi.IntPtrOutput { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+// A property that represents the price performance target settings for the workgroup.
+func (o WorkgroupOutput) PricePerformanceTarget() WorkgroupPerformanceTargetPtrOutput {
+	return o.ApplyT(func(v *Workgroup) WorkgroupPerformanceTargetPtrOutput { return v.PricePerformanceTarget }).(WorkgroupPerformanceTargetPtrOutput)
 }
 
 // A value that specifies whether the workgroup can be accessible from a public network.

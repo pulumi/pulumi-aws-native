@@ -24,7 +24,7 @@ type UserPoolResourceServer struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A list of scopes. Each scope is a map with keys `ScopeName` and `ScopeDescription` .
 	Scopes UserPoolResourceServerResourceServerScopeTypeArrayOutput `pulumi:"scopes"`
-	// The user pool ID for the user pool.
+	// The ID of the user pool where you want to create a resource server.
 	UserPoolId pulumi.StringOutput `pulumi:"userPoolId"`
 }
 
@@ -87,7 +87,7 @@ type userPoolResourceServerArgs struct {
 	Name *string `pulumi:"name"`
 	// A list of scopes. Each scope is a map with keys `ScopeName` and `ScopeDescription` .
 	Scopes []UserPoolResourceServerResourceServerScopeType `pulumi:"scopes"`
-	// The user pool ID for the user pool.
+	// The ID of the user pool where you want to create a resource server.
 	UserPoolId string `pulumi:"userPoolId"`
 }
 
@@ -101,7 +101,7 @@ type UserPoolResourceServerArgs struct {
 	Name pulumi.StringPtrInput
 	// A list of scopes. Each scope is a map with keys `ScopeName` and `ScopeDescription` .
 	Scopes UserPoolResourceServerResourceServerScopeTypeArrayInput
-	// The user pool ID for the user pool.
+	// The ID of the user pool where you want to create a resource server.
 	UserPoolId pulumi.StringInput
 }
 
@@ -161,7 +161,7 @@ func (o UserPoolResourceServerOutput) Scopes() UserPoolResourceServerResourceSer
 	}).(UserPoolResourceServerResourceServerScopeTypeArrayOutput)
 }
 
-// The user pool ID for the user pool.
+// The ID of the user pool where you want to create a resource server.
 func (o UserPoolResourceServerOutput) UserPoolId() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserPoolResourceServer) pulumi.StringOutput { return v.UserPoolId }).(pulumi.StringOutput)
 }

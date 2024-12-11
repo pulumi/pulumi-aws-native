@@ -16,9 +16,9 @@ import (
 type UserPoolGroup struct {
 	pulumi.CustomResourceState
 
-	// A string containing the description of the group.
+	// A description of the group that you're creating.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The name of the group. Must be unique.
+	// A name for the group. This name must be unique in your user pool.
 	GroupName pulumi.StringPtrOutput `pulumi:"groupName"`
 	// A non-negative integer value that specifies the precedence of this group relative to the other groups that a user can belong to in the user pool. Zero is the highest precedence value. Groups with lower `Precedence` values take precedence over groups with higher or null `Precedence` values. If a user belongs to two or more groups, it is the group with the lowest precedence value whose role ARN is given in the user's tokens for the `cognito:roles` and `cognito:preferred_role` claims.
 	//
@@ -26,9 +26,9 @@ type UserPoolGroup struct {
 	//
 	// The default `Precedence` value is null. The maximum `Precedence` value is `2^31-1` .
 	Precedence pulumi.IntPtrOutput `pulumi:"precedence"`
-	// The role Amazon Resource Name (ARN) for the group.
+	// The Amazon Resource Name (ARN) for the IAM role that you want to associate with the group. A group role primarily declares a preferred role for the credentials that you get from an identity pool. Amazon Cognito ID tokens have a `cognito:preferred_role` claim that presents the highest-precedence group that a user belongs to. Both ID and access tokens also contain a `cognito:groups` claim that list all the groups that a user is a member of.
 	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
-	// The user pool ID for the user pool.
+	// The ID of the user pool where you want to create a user group.
 	UserPoolId pulumi.StringOutput `pulumi:"userPoolId"`
 }
 
@@ -80,9 +80,9 @@ func (UserPoolGroupState) ElementType() reflect.Type {
 }
 
 type userPoolGroupArgs struct {
-	// A string containing the description of the group.
+	// A description of the group that you're creating.
 	Description *string `pulumi:"description"`
-	// The name of the group. Must be unique.
+	// A name for the group. This name must be unique in your user pool.
 	GroupName *string `pulumi:"groupName"`
 	// A non-negative integer value that specifies the precedence of this group relative to the other groups that a user can belong to in the user pool. Zero is the highest precedence value. Groups with lower `Precedence` values take precedence over groups with higher or null `Precedence` values. If a user belongs to two or more groups, it is the group with the lowest precedence value whose role ARN is given in the user's tokens for the `cognito:roles` and `cognito:preferred_role` claims.
 	//
@@ -90,17 +90,17 @@ type userPoolGroupArgs struct {
 	//
 	// The default `Precedence` value is null. The maximum `Precedence` value is `2^31-1` .
 	Precedence *int `pulumi:"precedence"`
-	// The role Amazon Resource Name (ARN) for the group.
+	// The Amazon Resource Name (ARN) for the IAM role that you want to associate with the group. A group role primarily declares a preferred role for the credentials that you get from an identity pool. Amazon Cognito ID tokens have a `cognito:preferred_role` claim that presents the highest-precedence group that a user belongs to. Both ID and access tokens also contain a `cognito:groups` claim that list all the groups that a user is a member of.
 	RoleArn *string `pulumi:"roleArn"`
-	// The user pool ID for the user pool.
+	// The ID of the user pool where you want to create a user group.
 	UserPoolId string `pulumi:"userPoolId"`
 }
 
 // The set of arguments for constructing a UserPoolGroup resource.
 type UserPoolGroupArgs struct {
-	// A string containing the description of the group.
+	// A description of the group that you're creating.
 	Description pulumi.StringPtrInput
-	// The name of the group. Must be unique.
+	// A name for the group. This name must be unique in your user pool.
 	GroupName pulumi.StringPtrInput
 	// A non-negative integer value that specifies the precedence of this group relative to the other groups that a user can belong to in the user pool. Zero is the highest precedence value. Groups with lower `Precedence` values take precedence over groups with higher or null `Precedence` values. If a user belongs to two or more groups, it is the group with the lowest precedence value whose role ARN is given in the user's tokens for the `cognito:roles` and `cognito:preferred_role` claims.
 	//
@@ -108,9 +108,9 @@ type UserPoolGroupArgs struct {
 	//
 	// The default `Precedence` value is null. The maximum `Precedence` value is `2^31-1` .
 	Precedence pulumi.IntPtrInput
-	// The role Amazon Resource Name (ARN) for the group.
+	// The Amazon Resource Name (ARN) for the IAM role that you want to associate with the group. A group role primarily declares a preferred role for the credentials that you get from an identity pool. Amazon Cognito ID tokens have a `cognito:preferred_role` claim that presents the highest-precedence group that a user belongs to. Both ID and access tokens also contain a `cognito:groups` claim that list all the groups that a user is a member of.
 	RoleArn pulumi.StringPtrInput
-	// The user pool ID for the user pool.
+	// The ID of the user pool where you want to create a user group.
 	UserPoolId pulumi.StringInput
 }
 
@@ -151,12 +151,12 @@ func (o UserPoolGroupOutput) ToUserPoolGroupOutputWithContext(ctx context.Contex
 	return o
 }
 
-// A string containing the description of the group.
+// A description of the group that you're creating.
 func (o UserPoolGroupOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolGroup) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The name of the group. Must be unique.
+// A name for the group. This name must be unique in your user pool.
 func (o UserPoolGroupOutput) GroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolGroup) pulumi.StringPtrOutput { return v.GroupName }).(pulumi.StringPtrOutput)
 }
@@ -170,12 +170,12 @@ func (o UserPoolGroupOutput) Precedence() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *UserPoolGroup) pulumi.IntPtrOutput { return v.Precedence }).(pulumi.IntPtrOutput)
 }
 
-// The role Amazon Resource Name (ARN) for the group.
+// The Amazon Resource Name (ARN) for the IAM role that you want to associate with the group. A group role primarily declares a preferred role for the credentials that you get from an identity pool. Amazon Cognito ID tokens have a `cognito:preferred_role` claim that presents the highest-precedence group that a user belongs to. Both ID and access tokens also contain a `cognito:groups` claim that list all the groups that a user is a member of.
 func (o UserPoolGroupOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolGroup) pulumi.StringPtrOutput { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
-// The user pool ID for the user pool.
+// The ID of the user pool where you want to create a user group.
 func (o UserPoolGroupOutput) UserPoolId() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserPoolGroup) pulumi.StringOutput { return v.UserPoolId }).(pulumi.StringOutput)
 }

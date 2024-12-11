@@ -36,7 +36,7 @@ namespace Pulumi.AwsNative.Cognito
         public string Identifier { get; set; } = null!;
 
         /// <summary>
-        /// The user pool ID for the user pool.
+        /// The ID of the user pool where you want to create a resource server.
         /// </summary>
         [Input("userPoolId", required: true)]
         public string UserPoolId { get; set; } = null!;
@@ -58,7 +58,7 @@ namespace Pulumi.AwsNative.Cognito
         public Input<string> Identifier { get; set; } = null!;
 
         /// <summary>
-        /// The user pool ID for the user pool.
+        /// The ID of the user pool where you want to create a resource server.
         /// </summary>
         [Input("userPoolId", required: true)]
         public Input<string> UserPoolId { get; set; } = null!;

@@ -34,6 +34,7 @@ class BucketArgs:
                  inventory_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['BucketInventoryConfigurationArgs']]]] = None,
                  lifecycle_configuration: Optional[pulumi.Input['BucketLifecycleConfigurationArgs']] = None,
                  logging_configuration: Optional[pulumi.Input['BucketLoggingConfigurationArgs']] = None,
+                 metadata_table_configuration: Optional[pulumi.Input['BucketMetadataTableConfigurationArgs']] = None,
                  metrics_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['BucketMetricsConfigurationArgs']]]] = None,
                  notification_configuration: Optional[pulumi.Input['BucketNotificationConfigurationArgs']] = None,
                  object_lock_configuration: Optional[pulumi.Input['BucketObjectLockConfigurationArgs']] = None,
@@ -97,6 +98,8 @@ class BucketArgs:
             pulumi.set(__self__, "lifecycle_configuration", lifecycle_configuration)
         if logging_configuration is not None:
             pulumi.set(__self__, "logging_configuration", logging_configuration)
+        if metadata_table_configuration is not None:
+            pulumi.set(__self__, "metadata_table_configuration", metadata_table_configuration)
         if metrics_configurations is not None:
             pulumi.set(__self__, "metrics_configurations", metrics_configurations)
         if notification_configuration is not None:
@@ -243,6 +246,15 @@ class BucketArgs:
         pulumi.set(self, "logging_configuration", value)
 
     @property
+    @pulumi.getter(name="metadataTableConfiguration")
+    def metadata_table_configuration(self) -> Optional[pulumi.Input['BucketMetadataTableConfigurationArgs']]:
+        return pulumi.get(self, "metadata_table_configuration")
+
+    @metadata_table_configuration.setter
+    def metadata_table_configuration(self, value: Optional[pulumi.Input['BucketMetadataTableConfigurationArgs']]):
+        pulumi.set(self, "metadata_table_configuration", value)
+
+    @property
     @pulumi.getter(name="metricsConfigurations")
     def metrics_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BucketMetricsConfigurationArgs']]]]:
         """
@@ -384,6 +396,7 @@ class Bucket(pulumi.CustomResource):
                  inventory_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketInventoryConfigurationArgs', 'BucketInventoryConfigurationArgsDict']]]]] = None,
                  lifecycle_configuration: Optional[pulumi.Input[Union['BucketLifecycleConfigurationArgs', 'BucketLifecycleConfigurationArgsDict']]] = None,
                  logging_configuration: Optional[pulumi.Input[Union['BucketLoggingConfigurationArgs', 'BucketLoggingConfigurationArgsDict']]] = None,
+                 metadata_table_configuration: Optional[pulumi.Input[Union['BucketMetadataTableConfigurationArgs', 'BucketMetadataTableConfigurationArgsDict']]] = None,
                  metrics_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketMetricsConfigurationArgs', 'BucketMetricsConfigurationArgsDict']]]]] = None,
                  notification_configuration: Optional[pulumi.Input[Union['BucketNotificationConfigurationArgs', 'BucketNotificationConfigurationArgsDict']]] = None,
                  object_lock_configuration: Optional[pulumi.Input[Union['BucketObjectLockConfigurationArgs', 'BucketObjectLockConfigurationArgsDict']]] = None,
@@ -1439,6 +1452,7 @@ class Bucket(pulumi.CustomResource):
                  inventory_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketInventoryConfigurationArgs', 'BucketInventoryConfigurationArgsDict']]]]] = None,
                  lifecycle_configuration: Optional[pulumi.Input[Union['BucketLifecycleConfigurationArgs', 'BucketLifecycleConfigurationArgsDict']]] = None,
                  logging_configuration: Optional[pulumi.Input[Union['BucketLoggingConfigurationArgs', 'BucketLoggingConfigurationArgsDict']]] = None,
+                 metadata_table_configuration: Optional[pulumi.Input[Union['BucketMetadataTableConfigurationArgs', 'BucketMetadataTableConfigurationArgsDict']]] = None,
                  metrics_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BucketMetricsConfigurationArgs', 'BucketMetricsConfigurationArgsDict']]]]] = None,
                  notification_configuration: Optional[pulumi.Input[Union['BucketNotificationConfigurationArgs', 'BucketNotificationConfigurationArgsDict']]] = None,
                  object_lock_configuration: Optional[pulumi.Input[Union['BucketObjectLockConfigurationArgs', 'BucketObjectLockConfigurationArgsDict']]] = None,
@@ -1468,6 +1482,7 @@ class Bucket(pulumi.CustomResource):
             __props__.__dict__["inventory_configurations"] = inventory_configurations
             __props__.__dict__["lifecycle_configuration"] = lifecycle_configuration
             __props__.__dict__["logging_configuration"] = logging_configuration
+            __props__.__dict__["metadata_table_configuration"] = metadata_table_configuration
             __props__.__dict__["metrics_configurations"] = metrics_configurations
             __props__.__dict__["notification_configuration"] = notification_configuration
             __props__.__dict__["object_lock_configuration"] = object_lock_configuration
@@ -1520,6 +1535,7 @@ class Bucket(pulumi.CustomResource):
         __props__.__dict__["inventory_configurations"] = None
         __props__.__dict__["lifecycle_configuration"] = None
         __props__.__dict__["logging_configuration"] = None
+        __props__.__dict__["metadata_table_configuration"] = None
         __props__.__dict__["metrics_configurations"] = None
         __props__.__dict__["notification_configuration"] = None
         __props__.__dict__["object_lock_configuration"] = None
@@ -1649,6 +1665,11 @@ class Bucket(pulumi.CustomResource):
         Settings that define where logs are stored.
         """
         return pulumi.get(self, "logging_configuration")
+
+    @property
+    @pulumi.getter(name="metadataTableConfiguration")
+    def metadata_table_configuration(self) -> pulumi.Output[Optional['outputs.BucketMetadataTableConfiguration']]:
+        return pulumi.get(self, "metadata_table_configuration")
 
     @property
     @pulumi.getter(name="metricsConfigurations")

@@ -1362,6 +1362,497 @@ type CertificateProviderTag struct {
 	Value string `pulumi:"value"`
 }
 
+type CommandParameter struct {
+	DefaultValue *CommandParameterValue `pulumi:"defaultValue"`
+	Description  *string                `pulumi:"description"`
+	Name         string                 `pulumi:"name"`
+	Value        *CommandParameterValue `pulumi:"value"`
+}
+
+// CommandParameterInput is an input type that accepts CommandParameterArgs and CommandParameterOutput values.
+// You can construct a concrete instance of `CommandParameterInput` via:
+//
+//	CommandParameterArgs{...}
+type CommandParameterInput interface {
+	pulumi.Input
+
+	ToCommandParameterOutput() CommandParameterOutput
+	ToCommandParameterOutputWithContext(context.Context) CommandParameterOutput
+}
+
+type CommandParameterArgs struct {
+	DefaultValue CommandParameterValuePtrInput `pulumi:"defaultValue"`
+	Description  pulumi.StringPtrInput         `pulumi:"description"`
+	Name         pulumi.StringInput            `pulumi:"name"`
+	Value        CommandParameterValuePtrInput `pulumi:"value"`
+}
+
+func (CommandParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CommandParameter)(nil)).Elem()
+}
+
+func (i CommandParameterArgs) ToCommandParameterOutput() CommandParameterOutput {
+	return i.ToCommandParameterOutputWithContext(context.Background())
+}
+
+func (i CommandParameterArgs) ToCommandParameterOutputWithContext(ctx context.Context) CommandParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CommandParameterOutput)
+}
+
+// CommandParameterArrayInput is an input type that accepts CommandParameterArray and CommandParameterArrayOutput values.
+// You can construct a concrete instance of `CommandParameterArrayInput` via:
+//
+//	CommandParameterArray{ CommandParameterArgs{...} }
+type CommandParameterArrayInput interface {
+	pulumi.Input
+
+	ToCommandParameterArrayOutput() CommandParameterArrayOutput
+	ToCommandParameterArrayOutputWithContext(context.Context) CommandParameterArrayOutput
+}
+
+type CommandParameterArray []CommandParameterInput
+
+func (CommandParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CommandParameter)(nil)).Elem()
+}
+
+func (i CommandParameterArray) ToCommandParameterArrayOutput() CommandParameterArrayOutput {
+	return i.ToCommandParameterArrayOutputWithContext(context.Background())
+}
+
+func (i CommandParameterArray) ToCommandParameterArrayOutputWithContext(ctx context.Context) CommandParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CommandParameterArrayOutput)
+}
+
+type CommandParameterOutput struct{ *pulumi.OutputState }
+
+func (CommandParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CommandParameter)(nil)).Elem()
+}
+
+func (o CommandParameterOutput) ToCommandParameterOutput() CommandParameterOutput {
+	return o
+}
+
+func (o CommandParameterOutput) ToCommandParameterOutputWithContext(ctx context.Context) CommandParameterOutput {
+	return o
+}
+
+func (o CommandParameterOutput) DefaultValue() CommandParameterValuePtrOutput {
+	return o.ApplyT(func(v CommandParameter) *CommandParameterValue { return v.DefaultValue }).(CommandParameterValuePtrOutput)
+}
+
+func (o CommandParameterOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CommandParameter) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o CommandParameterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v CommandParameter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o CommandParameterOutput) Value() CommandParameterValuePtrOutput {
+	return o.ApplyT(func(v CommandParameter) *CommandParameterValue { return v.Value }).(CommandParameterValuePtrOutput)
+}
+
+type CommandParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (CommandParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CommandParameter)(nil)).Elem()
+}
+
+func (o CommandParameterArrayOutput) ToCommandParameterArrayOutput() CommandParameterArrayOutput {
+	return o
+}
+
+func (o CommandParameterArrayOutput) ToCommandParameterArrayOutputWithContext(ctx context.Context) CommandParameterArrayOutput {
+	return o
+}
+
+func (o CommandParameterArrayOutput) Index(i pulumi.IntInput) CommandParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CommandParameter {
+		return vs[0].([]CommandParameter)[vs[1].(int)]
+	}).(CommandParameterOutput)
+}
+
+type CommandParameterValue struct {
+	B   *bool    `pulumi:"b"`
+	Bin *string  `pulumi:"bin"`
+	D   *float64 `pulumi:"d"`
+	I   *int     `pulumi:"i"`
+	L   *string  `pulumi:"l"`
+	S   *string  `pulumi:"s"`
+	Ul  *string  `pulumi:"ul"`
+}
+
+// CommandParameterValueInput is an input type that accepts CommandParameterValueArgs and CommandParameterValueOutput values.
+// You can construct a concrete instance of `CommandParameterValueInput` via:
+//
+//	CommandParameterValueArgs{...}
+type CommandParameterValueInput interface {
+	pulumi.Input
+
+	ToCommandParameterValueOutput() CommandParameterValueOutput
+	ToCommandParameterValueOutputWithContext(context.Context) CommandParameterValueOutput
+}
+
+type CommandParameterValueArgs struct {
+	B   pulumi.BoolPtrInput    `pulumi:"b"`
+	Bin pulumi.StringPtrInput  `pulumi:"bin"`
+	D   pulumi.Float64PtrInput `pulumi:"d"`
+	I   pulumi.IntPtrInput     `pulumi:"i"`
+	L   pulumi.StringPtrInput  `pulumi:"l"`
+	S   pulumi.StringPtrInput  `pulumi:"s"`
+	Ul  pulumi.StringPtrInput  `pulumi:"ul"`
+}
+
+func (CommandParameterValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CommandParameterValue)(nil)).Elem()
+}
+
+func (i CommandParameterValueArgs) ToCommandParameterValueOutput() CommandParameterValueOutput {
+	return i.ToCommandParameterValueOutputWithContext(context.Background())
+}
+
+func (i CommandParameterValueArgs) ToCommandParameterValueOutputWithContext(ctx context.Context) CommandParameterValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CommandParameterValueOutput)
+}
+
+func (i CommandParameterValueArgs) ToCommandParameterValuePtrOutput() CommandParameterValuePtrOutput {
+	return i.ToCommandParameterValuePtrOutputWithContext(context.Background())
+}
+
+func (i CommandParameterValueArgs) ToCommandParameterValuePtrOutputWithContext(ctx context.Context) CommandParameterValuePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CommandParameterValueOutput).ToCommandParameterValuePtrOutputWithContext(ctx)
+}
+
+// CommandParameterValuePtrInput is an input type that accepts CommandParameterValueArgs, CommandParameterValuePtr and CommandParameterValuePtrOutput values.
+// You can construct a concrete instance of `CommandParameterValuePtrInput` via:
+//
+//	        CommandParameterValueArgs{...}
+//
+//	or:
+//
+//	        nil
+type CommandParameterValuePtrInput interface {
+	pulumi.Input
+
+	ToCommandParameterValuePtrOutput() CommandParameterValuePtrOutput
+	ToCommandParameterValuePtrOutputWithContext(context.Context) CommandParameterValuePtrOutput
+}
+
+type commandParameterValuePtrType CommandParameterValueArgs
+
+func CommandParameterValuePtr(v *CommandParameterValueArgs) CommandParameterValuePtrInput {
+	return (*commandParameterValuePtrType)(v)
+}
+
+func (*commandParameterValuePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CommandParameterValue)(nil)).Elem()
+}
+
+func (i *commandParameterValuePtrType) ToCommandParameterValuePtrOutput() CommandParameterValuePtrOutput {
+	return i.ToCommandParameterValuePtrOutputWithContext(context.Background())
+}
+
+func (i *commandParameterValuePtrType) ToCommandParameterValuePtrOutputWithContext(ctx context.Context) CommandParameterValuePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CommandParameterValuePtrOutput)
+}
+
+type CommandParameterValueOutput struct{ *pulumi.OutputState }
+
+func (CommandParameterValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CommandParameterValue)(nil)).Elem()
+}
+
+func (o CommandParameterValueOutput) ToCommandParameterValueOutput() CommandParameterValueOutput {
+	return o
+}
+
+func (o CommandParameterValueOutput) ToCommandParameterValueOutputWithContext(ctx context.Context) CommandParameterValueOutput {
+	return o
+}
+
+func (o CommandParameterValueOutput) ToCommandParameterValuePtrOutput() CommandParameterValuePtrOutput {
+	return o.ToCommandParameterValuePtrOutputWithContext(context.Background())
+}
+
+func (o CommandParameterValueOutput) ToCommandParameterValuePtrOutputWithContext(ctx context.Context) CommandParameterValuePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CommandParameterValue) *CommandParameterValue {
+		return &v
+	}).(CommandParameterValuePtrOutput)
+}
+
+func (o CommandParameterValueOutput) B() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CommandParameterValue) *bool { return v.B }).(pulumi.BoolPtrOutput)
+}
+
+func (o CommandParameterValueOutput) Bin() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CommandParameterValue) *string { return v.Bin }).(pulumi.StringPtrOutput)
+}
+
+func (o CommandParameterValueOutput) D() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v CommandParameterValue) *float64 { return v.D }).(pulumi.Float64PtrOutput)
+}
+
+func (o CommandParameterValueOutput) I() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CommandParameterValue) *int { return v.I }).(pulumi.IntPtrOutput)
+}
+
+func (o CommandParameterValueOutput) L() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CommandParameterValue) *string { return v.L }).(pulumi.StringPtrOutput)
+}
+
+func (o CommandParameterValueOutput) S() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CommandParameterValue) *string { return v.S }).(pulumi.StringPtrOutput)
+}
+
+func (o CommandParameterValueOutput) Ul() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CommandParameterValue) *string { return v.Ul }).(pulumi.StringPtrOutput)
+}
+
+type CommandParameterValuePtrOutput struct{ *pulumi.OutputState }
+
+func (CommandParameterValuePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CommandParameterValue)(nil)).Elem()
+}
+
+func (o CommandParameterValuePtrOutput) ToCommandParameterValuePtrOutput() CommandParameterValuePtrOutput {
+	return o
+}
+
+func (o CommandParameterValuePtrOutput) ToCommandParameterValuePtrOutputWithContext(ctx context.Context) CommandParameterValuePtrOutput {
+	return o
+}
+
+func (o CommandParameterValuePtrOutput) Elem() CommandParameterValueOutput {
+	return o.ApplyT(func(v *CommandParameterValue) CommandParameterValue {
+		if v != nil {
+			return *v
+		}
+		var ret CommandParameterValue
+		return ret
+	}).(CommandParameterValueOutput)
+}
+
+func (o CommandParameterValuePtrOutput) B() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CommandParameterValue) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.B
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o CommandParameterValuePtrOutput) Bin() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CommandParameterValue) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Bin
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CommandParameterValuePtrOutput) D() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *CommandParameterValue) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.D
+	}).(pulumi.Float64PtrOutput)
+}
+
+func (o CommandParameterValuePtrOutput) I() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CommandParameterValue) *int {
+		if v == nil {
+			return nil
+		}
+		return v.I
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o CommandParameterValuePtrOutput) L() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CommandParameterValue) *string {
+		if v == nil {
+			return nil
+		}
+		return v.L
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CommandParameterValuePtrOutput) S() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CommandParameterValue) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CommandParameterValuePtrOutput) Ul() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CommandParameterValue) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Ul
+	}).(pulumi.StringPtrOutput)
+}
+
+type CommandPayload struct {
+	Content     *string `pulumi:"content"`
+	ContentType *string `pulumi:"contentType"`
+}
+
+// CommandPayloadInput is an input type that accepts CommandPayloadArgs and CommandPayloadOutput values.
+// You can construct a concrete instance of `CommandPayloadInput` via:
+//
+//	CommandPayloadArgs{...}
+type CommandPayloadInput interface {
+	pulumi.Input
+
+	ToCommandPayloadOutput() CommandPayloadOutput
+	ToCommandPayloadOutputWithContext(context.Context) CommandPayloadOutput
+}
+
+type CommandPayloadArgs struct {
+	Content     pulumi.StringPtrInput `pulumi:"content"`
+	ContentType pulumi.StringPtrInput `pulumi:"contentType"`
+}
+
+func (CommandPayloadArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CommandPayload)(nil)).Elem()
+}
+
+func (i CommandPayloadArgs) ToCommandPayloadOutput() CommandPayloadOutput {
+	return i.ToCommandPayloadOutputWithContext(context.Background())
+}
+
+func (i CommandPayloadArgs) ToCommandPayloadOutputWithContext(ctx context.Context) CommandPayloadOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CommandPayloadOutput)
+}
+
+func (i CommandPayloadArgs) ToCommandPayloadPtrOutput() CommandPayloadPtrOutput {
+	return i.ToCommandPayloadPtrOutputWithContext(context.Background())
+}
+
+func (i CommandPayloadArgs) ToCommandPayloadPtrOutputWithContext(ctx context.Context) CommandPayloadPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CommandPayloadOutput).ToCommandPayloadPtrOutputWithContext(ctx)
+}
+
+// CommandPayloadPtrInput is an input type that accepts CommandPayloadArgs, CommandPayloadPtr and CommandPayloadPtrOutput values.
+// You can construct a concrete instance of `CommandPayloadPtrInput` via:
+//
+//	        CommandPayloadArgs{...}
+//
+//	or:
+//
+//	        nil
+type CommandPayloadPtrInput interface {
+	pulumi.Input
+
+	ToCommandPayloadPtrOutput() CommandPayloadPtrOutput
+	ToCommandPayloadPtrOutputWithContext(context.Context) CommandPayloadPtrOutput
+}
+
+type commandPayloadPtrType CommandPayloadArgs
+
+func CommandPayloadPtr(v *CommandPayloadArgs) CommandPayloadPtrInput {
+	return (*commandPayloadPtrType)(v)
+}
+
+func (*commandPayloadPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CommandPayload)(nil)).Elem()
+}
+
+func (i *commandPayloadPtrType) ToCommandPayloadPtrOutput() CommandPayloadPtrOutput {
+	return i.ToCommandPayloadPtrOutputWithContext(context.Background())
+}
+
+func (i *commandPayloadPtrType) ToCommandPayloadPtrOutputWithContext(ctx context.Context) CommandPayloadPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CommandPayloadPtrOutput)
+}
+
+type CommandPayloadOutput struct{ *pulumi.OutputState }
+
+func (CommandPayloadOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CommandPayload)(nil)).Elem()
+}
+
+func (o CommandPayloadOutput) ToCommandPayloadOutput() CommandPayloadOutput {
+	return o
+}
+
+func (o CommandPayloadOutput) ToCommandPayloadOutputWithContext(ctx context.Context) CommandPayloadOutput {
+	return o
+}
+
+func (o CommandPayloadOutput) ToCommandPayloadPtrOutput() CommandPayloadPtrOutput {
+	return o.ToCommandPayloadPtrOutputWithContext(context.Background())
+}
+
+func (o CommandPayloadOutput) ToCommandPayloadPtrOutputWithContext(ctx context.Context) CommandPayloadPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CommandPayload) *CommandPayload {
+		return &v
+	}).(CommandPayloadPtrOutput)
+}
+
+func (o CommandPayloadOutput) Content() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CommandPayload) *string { return v.Content }).(pulumi.StringPtrOutput)
+}
+
+func (o CommandPayloadOutput) ContentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CommandPayload) *string { return v.ContentType }).(pulumi.StringPtrOutput)
+}
+
+type CommandPayloadPtrOutput struct{ *pulumi.OutputState }
+
+func (CommandPayloadPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CommandPayload)(nil)).Elem()
+}
+
+func (o CommandPayloadPtrOutput) ToCommandPayloadPtrOutput() CommandPayloadPtrOutput {
+	return o
+}
+
+func (o CommandPayloadPtrOutput) ToCommandPayloadPtrOutputWithContext(ctx context.Context) CommandPayloadPtrOutput {
+	return o
+}
+
+func (o CommandPayloadPtrOutput) Elem() CommandPayloadOutput {
+	return o.ApplyT(func(v *CommandPayload) CommandPayload {
+		if v != nil {
+			return *v
+		}
+		var ret CommandPayload
+		return ret
+	}).(CommandPayloadOutput)
+}
+
+func (o CommandPayloadPtrOutput) Content() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CommandPayload) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Content
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o CommandPayloadPtrOutput) ContentType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CommandPayload) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ContentType
+	}).(pulumi.StringPtrOutput)
+}
+
+// A key-value pair to associate with a resource.
+type CommandTag struct {
+	// The tag's key.
+	Key string `pulumi:"key"`
+	// The tag's value.
+	Value string `pulumi:"value"`
+}
+
 // A key-value pair to associate with a resource.
 type CustomMetricTag struct {
 	// The tag's key.
@@ -14545,6 +15036,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BillingGroupPropertiesPropertiesPtrInput)(nil)).Elem(), BillingGroupPropertiesPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CaCertificateRegistrationConfigInput)(nil)).Elem(), CaCertificateRegistrationConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CaCertificateRegistrationConfigPtrInput)(nil)).Elem(), CaCertificateRegistrationConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CommandParameterInput)(nil)).Elem(), CommandParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CommandParameterArrayInput)(nil)).Elem(), CommandParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CommandParameterValueInput)(nil)).Elem(), CommandParameterValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CommandParameterValuePtrInput)(nil)).Elem(), CommandParameterValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CommandPayloadInput)(nil)).Elem(), CommandPayloadArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CommandPayloadPtrInput)(nil)).Elem(), CommandPayloadArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainConfigurationAuthorizerConfigInput)(nil)).Elem(), DomainConfigurationAuthorizerConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainConfigurationAuthorizerConfigPtrInput)(nil)).Elem(), DomainConfigurationAuthorizerConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainConfigurationClientCertificateConfigInput)(nil)).Elem(), DomainConfigurationClientCertificateConfigArgs{})
@@ -14710,6 +15207,12 @@ func init() {
 	pulumi.RegisterOutputType(BillingGroupPropertiesPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(CaCertificateRegistrationConfigOutput{})
 	pulumi.RegisterOutputType(CaCertificateRegistrationConfigPtrOutput{})
+	pulumi.RegisterOutputType(CommandParameterOutput{})
+	pulumi.RegisterOutputType(CommandParameterArrayOutput{})
+	pulumi.RegisterOutputType(CommandParameterValueOutput{})
+	pulumi.RegisterOutputType(CommandParameterValuePtrOutput{})
+	pulumi.RegisterOutputType(CommandPayloadOutput{})
+	pulumi.RegisterOutputType(CommandPayloadPtrOutput{})
 	pulumi.RegisterOutputType(DomainConfigurationAuthorizerConfigOutput{})
 	pulumi.RegisterOutputType(DomainConfigurationAuthorizerConfigPtrOutput{})
 	pulumi.RegisterOutputType(DomainConfigurationClientCertificateConfigOutput{})

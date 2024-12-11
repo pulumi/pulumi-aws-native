@@ -652,6 +652,7 @@ class UserPoolAddOns(dict):
                  advanced_security_additional_flows: Optional['outputs.UserPoolAdvancedSecurityAdditionalFlows'] = None,
                  advanced_security_mode: Optional[str] = None):
         """
+        :param 'UserPoolAdvancedSecurityAdditionalFlows' advanced_security_additional_flows: Advanced security configuration options for additional authentication types in your user pool, including custom authentication.
         :param str advanced_security_mode: The operating mode of advanced security features for standard authentication types in your user pool, including username-password and secure remote password (SRP) authentication.
         """
         if advanced_security_additional_flows is not None:
@@ -662,6 +663,9 @@ class UserPoolAddOns(dict):
     @property
     @pulumi.getter(name="advancedSecurityAdditionalFlows")
     def advanced_security_additional_flows(self) -> Optional['outputs.UserPoolAdvancedSecurityAdditionalFlows']:
+        """
+        Advanced security configuration options for additional authentication types in your user pool, including custom authentication.
+        """
         return pulumi.get(self, "advanced_security_additional_flows")
 
     @property
@@ -770,12 +774,18 @@ class UserPoolAdvancedSecurityAdditionalFlows(dict):
 
     def __init__(__self__, *,
                  custom_auth_mode: Optional[str] = None):
+        """
+        :param str custom_auth_mode: The operating mode of advanced security features in custom authentication with [Custom authentication challenge Lambda triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-challenge.html) .
+        """
         if custom_auth_mode is not None:
             pulumi.set(__self__, "custom_auth_mode", custom_auth_mode)
 
     @property
     @pulumi.getter(name="customAuthMode")
     def custom_auth_mode(self) -> Optional[str]:
+        """
+        The operating mode of advanced security features in custom authentication with [Custom authentication challenge Lambda triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-challenge.html) .
+        """
         return pulumi.get(self, "custom_auth_mode")
 
 
@@ -1757,6 +1767,9 @@ class UserPoolPolicies(dict):
                  sign_in_policy: Optional['outputs.UserPoolSignInPolicy'] = None):
         """
         :param 'UserPoolPasswordPolicy' password_policy: The password policy settings for a user pool, including complexity, history, and length requirements.
+        :param 'UserPoolSignInPolicy' sign_in_policy: The policy for allowed types of authentication in a user pool.
+               
+               This data type is a request and response parameter of [CreateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.html) and [UpdateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.html) , and a response parameter of [DescribeUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html) .
         """
         if password_policy is not None:
             pulumi.set(__self__, "password_policy", password_policy)
@@ -1774,6 +1787,11 @@ class UserPoolPolicies(dict):
     @property
     @pulumi.getter(name="signInPolicy")
     def sign_in_policy(self) -> Optional['outputs.UserPoolSignInPolicy']:
+        """
+        The policy for allowed types of authentication in a user pool.
+
+        This data type is a request and response parameter of [CreateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.html) and [UpdateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.html) , and a response parameter of [DescribeUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html) .
+        """
         return pulumi.get(self, "sign_in_policy")
 
 
@@ -2518,12 +2536,22 @@ class UserPoolSignInPolicy(dict):
 
     def __init__(__self__, *,
                  allowed_first_auth_factors: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] allowed_first_auth_factors: The sign-in methods that a user pool supports as the first factor. You can permit users to start authentication with a standard username and password, or with other one-time password and hardware factors.
+               
+               Supports values of `EMAIL_OTP` , `SMS_OTP` , `WEB_AUTHN` and `PASSWORD` ,
+        """
         if allowed_first_auth_factors is not None:
             pulumi.set(__self__, "allowed_first_auth_factors", allowed_first_auth_factors)
 
     @property
     @pulumi.getter(name="allowedFirstAuthFactors")
     def allowed_first_auth_factors(self) -> Optional[Sequence[str]]:
+        """
+        The sign-in methods that a user pool supports as the first factor. You can permit users to start authentication with a standard username and password, or with other one-time password and hardware factors.
+
+        Supports values of `EMAIL_OTP` , `SMS_OTP` , `WEB_AUTHN` and `PASSWORD` ,
+        """
         return pulumi.get(self, "allowed_first_auth_factors")
 
 

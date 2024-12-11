@@ -26,7 +26,6 @@ class DomainNameV2Args:
                  certificate_arn: Optional[pulumi.Input[str]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  endpoint_configuration: Optional[pulumi.Input['DomainNameV2EndpointConfigurationArgs']] = None,
-                 management_policy: Optional[Any] = None,
                  policy: Optional[Any] = None,
                  security_policy: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
@@ -35,7 +34,6 @@ class DomainNameV2Args:
         :param pulumi.Input[str] certificate_arn: The reference to an AWS -managed certificate that will be used by the private endpoint for this domain name. AWS Certificate Manager is the only supported source.
         :param pulumi.Input[str] domain_name: Represents a custom domain name as a user-friendly host name of an API (RestApi).
         :param pulumi.Input['DomainNameV2EndpointConfigurationArgs'] endpoint_configuration: The endpoint configuration to indicate the types of endpoints an API (RestApi) or its custom domain name (DomainName) has.
-        :param Any management_policy: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::DomainNameV2` for more information about the expected schema for this property.
         :param Any policy: A stringified JSON policy document that applies to the `execute-api` service for this DomainName regardless of the caller and Method configuration. You can use `Fn::ToJsonString` to enter your `policy` . For more information, see [Fn::ToJsonString](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ToJsonString.html) .
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::DomainNameV2` for more information about the expected schema for this property.
@@ -48,8 +46,6 @@ class DomainNameV2Args:
             pulumi.set(__self__, "domain_name", domain_name)
         if endpoint_configuration is not None:
             pulumi.set(__self__, "endpoint_configuration", endpoint_configuration)
-        if management_policy is not None:
-            pulumi.set(__self__, "management_policy", management_policy)
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
         if security_policy is not None:
@@ -92,18 +88,6 @@ class DomainNameV2Args:
     @endpoint_configuration.setter
     def endpoint_configuration(self, value: Optional[pulumi.Input['DomainNameV2EndpointConfigurationArgs']]):
         pulumi.set(self, "endpoint_configuration", value)
-
-    @property
-    @pulumi.getter(name="managementPolicy")
-    def management_policy(self) -> Optional[Any]:
-        """
-        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::DomainNameV2` for more information about the expected schema for this property.
-        """
-        return pulumi.get(self, "management_policy")
-
-    @management_policy.setter
-    def management_policy(self, value: Optional[Any]):
-        pulumi.set(self, "management_policy", value)
 
     @property
     @pulumi.getter
@@ -152,7 +136,6 @@ class DomainNameV2(pulumi.CustomResource):
                  certificate_arn: Optional[pulumi.Input[str]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  endpoint_configuration: Optional[pulumi.Input[Union['DomainNameV2EndpointConfigurationArgs', 'DomainNameV2EndpointConfigurationArgsDict']]] = None,
-                 management_policy: Optional[Any] = None,
                  policy: Optional[Any] = None,
                  security_policy: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
@@ -165,7 +148,6 @@ class DomainNameV2(pulumi.CustomResource):
         :param pulumi.Input[str] certificate_arn: The reference to an AWS -managed certificate that will be used by the private endpoint for this domain name. AWS Certificate Manager is the only supported source.
         :param pulumi.Input[str] domain_name: Represents a custom domain name as a user-friendly host name of an API (RestApi).
         :param pulumi.Input[Union['DomainNameV2EndpointConfigurationArgs', 'DomainNameV2EndpointConfigurationArgsDict']] endpoint_configuration: The endpoint configuration to indicate the types of endpoints an API (RestApi) or its custom domain name (DomainName) has.
-        :param Any management_policy: Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::DomainNameV2` for more information about the expected schema for this property.
         :param Any policy: A stringified JSON policy document that applies to the `execute-api` service for this DomainName regardless of the caller and Method configuration. You can use `Fn::ToJsonString` to enter your `policy` . For more information, see [Fn::ToJsonString](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ToJsonString.html) .
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::DomainNameV2` for more information about the expected schema for this property.
@@ -199,7 +181,6 @@ class DomainNameV2(pulumi.CustomResource):
                  certificate_arn: Optional[pulumi.Input[str]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  endpoint_configuration: Optional[pulumi.Input[Union['DomainNameV2EndpointConfigurationArgs', 'DomainNameV2EndpointConfigurationArgsDict']]] = None,
-                 management_policy: Optional[Any] = None,
                  policy: Optional[Any] = None,
                  security_policy: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
@@ -215,7 +196,6 @@ class DomainNameV2(pulumi.CustomResource):
             __props__.__dict__["certificate_arn"] = certificate_arn
             __props__.__dict__["domain_name"] = domain_name
             __props__.__dict__["endpoint_configuration"] = endpoint_configuration
-            __props__.__dict__["management_policy"] = management_policy
             __props__.__dict__["policy"] = policy
             __props__.__dict__["security_policy"] = security_policy
             __props__.__dict__["tags"] = tags
@@ -250,7 +230,6 @@ class DomainNameV2(pulumi.CustomResource):
         __props__.__dict__["domain_name_arn"] = None
         __props__.__dict__["domain_name_id"] = None
         __props__.__dict__["endpoint_configuration"] = None
-        __props__.__dict__["management_policy"] = None
         __props__.__dict__["policy"] = None
         __props__.__dict__["security_policy"] = None
         __props__.__dict__["tags"] = None
@@ -295,14 +274,6 @@ class DomainNameV2(pulumi.CustomResource):
         The endpoint configuration to indicate the types of endpoints an API (RestApi) or its custom domain name (DomainName) has.
         """
         return pulumi.get(self, "endpoint_configuration")
-
-    @property
-    @pulumi.getter(name="managementPolicy")
-    def management_policy(self) -> pulumi.Output[Optional[Any]]:
-        """
-        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::DomainNameV2` for more information about the expected schema for this property.
-        """
-        return pulumi.get(self, "management_policy")
 
     @property
     @pulumi.getter

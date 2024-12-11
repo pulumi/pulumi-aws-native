@@ -33,6 +33,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Certificate{}
 	case "aws-native:iot:CertificateProvider":
 		r = &CertificateProvider{}
+	case "aws-native:iot:Command":
+		r = &Command{}
 	case "aws-native:iot:CustomMetric":
 		r = &CustomMetric{}
 	case "aws-native:iot:Dimension":

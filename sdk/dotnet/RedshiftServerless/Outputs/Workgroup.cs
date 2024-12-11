@@ -41,6 +41,7 @@ namespace Pulumi.AwsNative.RedshiftServerless.Outputs
         /// The namespace the workgroup is associated with.
         /// </summary>
         public readonly string? NamespaceName;
+        public readonly Outputs.WorkgroupPerformanceTarget? PricePerformanceTarget;
         /// <summary>
         /// A value that specifies whether the workgroup can be accessible from a public network.
         /// </summary>
@@ -86,6 +87,8 @@ namespace Pulumi.AwsNative.RedshiftServerless.Outputs
 
             string? namespaceName,
 
+            Outputs.WorkgroupPerformanceTarget? pricePerformanceTarget,
+
             bool? publiclyAccessible,
 
             ImmutableArray<string> securityGroupIds,
@@ -107,6 +110,7 @@ namespace Pulumi.AwsNative.RedshiftServerless.Outputs
             EnhancedVpcRouting = enhancedVpcRouting;
             MaxCapacity = maxCapacity;
             NamespaceName = namespaceName;
+            PricePerformanceTarget = pricePerformanceTarget;
             PubliclyAccessible = publiclyAccessible;
             SecurityGroupIds = securityGroupIds;
             Status = status;

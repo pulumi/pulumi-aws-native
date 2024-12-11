@@ -2166,7 +2166,7 @@ if not MYPY:
         """
         bedrock_foundation_model_configuration: NotRequired[pulumi.Input['DataSourceBedrockFoundationModelConfigurationArgsDict']]
         """
-        Settings for a foundation model used to parse documents for a data source.
+        If you specify `BEDROCK_FOUNDATION_MODEL` as the parsing strategy for ingesting your data source, use this object to modify configurations for using a foundation model to parse documents.
         """
 elif False:
     DataSourceParsingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
@@ -2179,7 +2179,7 @@ class DataSourceParsingConfigurationArgs:
         """
         Settings for parsing document contents
         :param pulumi.Input['DataSourceParsingStrategy'] parsing_strategy: The parsing strategy for the data source.
-        :param pulumi.Input['DataSourceBedrockFoundationModelConfigurationArgs'] bedrock_foundation_model_configuration: Settings for a foundation model used to parse documents for a data source.
+        :param pulumi.Input['DataSourceBedrockFoundationModelConfigurationArgs'] bedrock_foundation_model_configuration: If you specify `BEDROCK_FOUNDATION_MODEL` as the parsing strategy for ingesting your data source, use this object to modify configurations for using a foundation model to parse documents.
         """
         pulumi.set(__self__, "parsing_strategy", parsing_strategy)
         if bedrock_foundation_model_configuration is not None:
@@ -2201,7 +2201,7 @@ class DataSourceParsingConfigurationArgs:
     @pulumi.getter(name="bedrockFoundationModelConfiguration")
     def bedrock_foundation_model_configuration(self) -> Optional[pulumi.Input['DataSourceBedrockFoundationModelConfigurationArgs']]:
         """
-        Settings for a foundation model used to parse documents for a data source.
+        If you specify `BEDROCK_FOUNDATION_MODEL` as the parsing strategy for ingesting your data source, use this object to modify configurations for using a foundation model to parse documents.
         """
         return pulumi.get(self, "bedrock_foundation_model_configuration")
 
@@ -3155,7 +3155,7 @@ if not MYPY:
         """
         parsing_configuration: NotRequired[pulumi.Input['DataSourceParsingConfigurationArgsDict']]
         """
-        A custom parser for data source documents.
+        Configurations for a parser to use for parsing documents in your data source. If you exclude this field, the default parser will be used.
         """
 elif False:
     DataSourceVectorIngestionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
@@ -3170,7 +3170,7 @@ class DataSourceVectorIngestionConfigurationArgs:
         Details about how to chunk the documents in the data source. A chunk refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried.
         :param pulumi.Input['DataSourceChunkingConfigurationArgs'] chunking_configuration: Details about how to chunk the documents in the data source. A *chunk* refers to an excerpt from a data source that is returned when the knowledge base that it belongs to is queried.
         :param pulumi.Input['DataSourceCustomTransformationConfigurationArgs'] custom_transformation_configuration: A custom document transformer for parsed data source documents.
-        :param pulumi.Input['DataSourceParsingConfigurationArgs'] parsing_configuration: A custom parser for data source documents.
+        :param pulumi.Input['DataSourceParsingConfigurationArgs'] parsing_configuration: Configurations for a parser to use for parsing documents in your data source. If you exclude this field, the default parser will be used.
         """
         if chunking_configuration is not None:
             pulumi.set(__self__, "chunking_configuration", chunking_configuration)
@@ -3207,7 +3207,7 @@ class DataSourceVectorIngestionConfigurationArgs:
     @pulumi.getter(name="parsingConfiguration")
     def parsing_configuration(self) -> Optional[pulumi.Input['DataSourceParsingConfigurationArgs']]:
         """
-        A custom parser for data source documents.
+        Configurations for a parser to use for parsing documents in your data source. If you exclude this field, the default parser will be used.
         """
         return pulumi.get(self, "parsing_configuration")
 
@@ -5739,7 +5739,7 @@ if not MYPY:
         A physical address, such as "100 Main Street, Anytown, USA" or "Suite #12, Building 123". An address can include information such as the street, building, location, city, state, country, county, zip code, precinct, and neighborhood.
         - *AGE*
 
-        An individual's age, including the quantity and unit of time. For example, in the phrase "I am 40 years old," Guarrails recognizes "40 years" as an age.
+        An individual's age, including the quantity and unit of time. For example, in the phrase "I am 40 years old," Guardrails recognizes "40 years" as an age.
         - *NAME*
 
         An individual's name. This entity type does not include titles, such as Dr., Mr., Mrs., or Miss. guardrails doesn't apply this entity type to names that are part of organizations or addresses. For example, guardrails recognizes the "John Doe Organization" as an organization, and it recognizes "Jane Doe Street" as an address.
@@ -5766,7 +5766,7 @@ if not MYPY:
         A Vehicle Identification Number (VIN) uniquely identifies a vehicle. VIN content and format are defined in the *ISO 3779* specification. Each country has specific codes and formats for VINs.
         - *Finance*
 
-        - *REDIT_DEBIT_CARD_CVV*
+        - *CREDIT_DEBIT_CARD_CVV*
 
         A three-digit card verification code (CVV) that is present on VISA, MasterCard, and Discover credit and debit cards. For American Express credit or debit cards, the CVV is a four-digit numeric code.
         - *CREDIT_DEBIT_CARD_EXPIRY*
@@ -5869,7 +5869,7 @@ class GuardrailPiiEntityConfigArgs:
                A physical address, such as "100 Main Street, Anytown, USA" or "Suite #12, Building 123". An address can include information such as the street, building, location, city, state, country, county, zip code, precinct, and neighborhood.
                - *AGE*
                
-               An individual's age, including the quantity and unit of time. For example, in the phrase "I am 40 years old," Guarrails recognizes "40 years" as an age.
+               An individual's age, including the quantity and unit of time. For example, in the phrase "I am 40 years old," Guardrails recognizes "40 years" as an age.
                - *NAME*
                
                An individual's name. This entity type does not include titles, such as Dr., Mr., Mrs., or Miss. guardrails doesn't apply this entity type to names that are part of organizations or addresses. For example, guardrails recognizes the "John Doe Organization" as an organization, and it recognizes "Jane Doe Street" as an address.
@@ -5896,7 +5896,7 @@ class GuardrailPiiEntityConfigArgs:
                A Vehicle Identification Number (VIN) uniquely identifies a vehicle. VIN content and format are defined in the *ISO 3779* specification. Each country has specific codes and formats for VINs.
                - *Finance*
                
-               - *REDIT_DEBIT_CARD_CVV*
+               - *CREDIT_DEBIT_CARD_CVV*
                
                A three-digit card verification code (CVV) that is present on VISA, MasterCard, and Discover credit and debit cards. For American Express credit or debit cards, the CVV is a four-digit numeric code.
                - *CREDIT_DEBIT_CARD_EXPIRY*
@@ -6007,7 +6007,7 @@ class GuardrailPiiEntityConfigArgs:
         A physical address, such as "100 Main Street, Anytown, USA" or "Suite #12, Building 123". An address can include information such as the street, building, location, city, state, country, county, zip code, precinct, and neighborhood.
         - *AGE*
 
-        An individual's age, including the quantity and unit of time. For example, in the phrase "I am 40 years old," Guarrails recognizes "40 years" as an age.
+        An individual's age, including the quantity and unit of time. For example, in the phrase "I am 40 years old," Guardrails recognizes "40 years" as an age.
         - *NAME*
 
         An individual's name. This entity type does not include titles, such as Dr., Mr., Mrs., or Miss. guardrails doesn't apply this entity type to names that are part of organizations or addresses. For example, guardrails recognizes the "John Doe Organization" as an organization, and it recognizes "Jane Doe Street" as an address.
@@ -6034,7 +6034,7 @@ class GuardrailPiiEntityConfigArgs:
         A Vehicle Identification Number (VIN) uniquely identifies a vehicle. VIN content and format are defined in the *ISO 3779* specification. Each country has specific codes and formats for VINs.
         - *Finance*
 
-        - *REDIT_DEBIT_CARD_CVV*
+        - *CREDIT_DEBIT_CARD_CVV*
 
         A three-digit card verification code (CVV) that is present on VISA, MasterCard, and Discover credit and debit cards. For American Express credit or debit cards, the CVV is a four-digit numeric code.
         - *CREDIT_DEBIT_CARD_EXPIRY*

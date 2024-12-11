@@ -238,6 +238,7 @@ export class TaskDefinition extends pulumi.CustomResource {
      *  This option requires Linux platform ``1.4.0`` or later.
      */
     public readonly cpu!: pulumi.Output<string | undefined>;
+    public readonly enableFaultInjection!: pulumi.Output<boolean | undefined>;
     /**
      * The ephemeral storage settings to use for tasks run with the task definition.
      */
@@ -359,6 +360,7 @@ export class TaskDefinition extends pulumi.CustomResource {
         if (!opts.id) {
             resourceInputs["containerDefinitions"] = args ? args.containerDefinitions : undefined;
             resourceInputs["cpu"] = args ? args.cpu : undefined;
+            resourceInputs["enableFaultInjection"] = args ? args.enableFaultInjection : undefined;
             resourceInputs["ephemeralStorage"] = args ? args.ephemeralStorage : undefined;
             resourceInputs["executionRoleArn"] = args ? args.executionRoleArn : undefined;
             resourceInputs["family"] = args ? args.family : undefined;
@@ -378,6 +380,7 @@ export class TaskDefinition extends pulumi.CustomResource {
         } else {
             resourceInputs["containerDefinitions"] = undefined /*out*/;
             resourceInputs["cpu"] = undefined /*out*/;
+            resourceInputs["enableFaultInjection"] = undefined /*out*/;
             resourceInputs["ephemeralStorage"] = undefined /*out*/;
             resourceInputs["executionRoleArn"] = undefined /*out*/;
             resourceInputs["family"] = undefined /*out*/;
@@ -396,7 +399,7 @@ export class TaskDefinition extends pulumi.CustomResource {
             resourceInputs["volumes"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["containerDefinitions[*]", "cpu", "ephemeralStorage", "executionRoleArn", "family", "inferenceAccelerators[*]", "ipcMode", "memory", "networkMode", "pidMode", "placementConstraints[*]", "proxyConfiguration", "requiresCompatibilities[*]", "runtimePlatform", "taskRoleArn", "volumes[*]"] };
+        const replaceOnChanges = { replaceOnChanges: ["containerDefinitions[*]", "cpu", "enableFaultInjection", "ephemeralStorage", "executionRoleArn", "family", "inferenceAccelerators[*]", "ipcMode", "memory", "networkMode", "pidMode", "placementConstraints[*]", "proxyConfiguration", "requiresCompatibilities[*]", "runtimePlatform", "taskRoleArn", "volumes[*]"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(TaskDefinition.__pulumiType, name, resourceInputs, opts);
     }
@@ -425,6 +428,7 @@ export interface TaskDefinitionArgs {
      *  This option requires Linux platform ``1.4.0`` or later.
      */
     cpu?: pulumi.Input<string>;
+    enableFaultInjection?: pulumi.Input<boolean>;
     /**
      * The ephemeral storage settings to use for tasks run with the task definition.
      */

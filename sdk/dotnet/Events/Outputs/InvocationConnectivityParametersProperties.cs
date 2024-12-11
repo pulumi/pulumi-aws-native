@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Events.Outputs
     [OutputType]
     public sealed class InvocationConnectivityParametersProperties
     {
+        /// <summary>
+        /// The parameters for EventBridge to use when invoking the resource endpoint.
+        /// </summary>
         public readonly Outputs.ConnectionResourceParameters ResourceParameters;
 
         [OutputConstructor]

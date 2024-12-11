@@ -1619,6 +1619,7 @@ func (o UserPoolAccountRecoverySettingPtrOutput) RecoveryMechanisms() UserPoolRe
 }
 
 type UserPoolAddOns struct {
+	// Advanced security configuration options for additional authentication types in your user pool, including custom authentication.
 	AdvancedSecurityAdditionalFlows *UserPoolAdvancedSecurityAdditionalFlows `pulumi:"advancedSecurityAdditionalFlows"`
 	// The operating mode of advanced security features for standard authentication types in your user pool, including username-password and secure remote password (SRP) authentication.
 	AdvancedSecurityMode *string `pulumi:"advancedSecurityMode"`
@@ -1636,6 +1637,7 @@ type UserPoolAddOnsInput interface {
 }
 
 type UserPoolAddOnsArgs struct {
+	// Advanced security configuration options for additional authentication types in your user pool, including custom authentication.
 	AdvancedSecurityAdditionalFlows UserPoolAdvancedSecurityAdditionalFlowsPtrInput `pulumi:"advancedSecurityAdditionalFlows"`
 	// The operating mode of advanced security features for standard authentication types in your user pool, including username-password and secure remote password (SRP) authentication.
 	AdvancedSecurityMode pulumi.StringPtrInput `pulumi:"advancedSecurityMode"`
@@ -1718,6 +1720,7 @@ func (o UserPoolAddOnsOutput) ToUserPoolAddOnsPtrOutputWithContext(ctx context.C
 	}).(UserPoolAddOnsPtrOutput)
 }
 
+// Advanced security configuration options for additional authentication types in your user pool, including custom authentication.
 func (o UserPoolAddOnsOutput) AdvancedSecurityAdditionalFlows() UserPoolAdvancedSecurityAdditionalFlowsPtrOutput {
 	return o.ApplyT(func(v UserPoolAddOns) *UserPoolAdvancedSecurityAdditionalFlows {
 		return v.AdvancedSecurityAdditionalFlows
@@ -1753,6 +1756,7 @@ func (o UserPoolAddOnsPtrOutput) Elem() UserPoolAddOnsOutput {
 	}).(UserPoolAddOnsOutput)
 }
 
+// Advanced security configuration options for additional authentication types in your user pool, including custom authentication.
 func (o UserPoolAddOnsPtrOutput) AdvancedSecurityAdditionalFlows() UserPoolAdvancedSecurityAdditionalFlowsPtrOutput {
 	return o.ApplyT(func(v *UserPoolAddOns) *UserPoolAdvancedSecurityAdditionalFlows {
 		if v == nil {
@@ -1972,6 +1976,7 @@ func (o UserPoolAdminCreateUserConfigPtrOutput) UnusedAccountValidityDays() pulu
 }
 
 type UserPoolAdvancedSecurityAdditionalFlows struct {
+	// The operating mode of advanced security features in custom authentication with [Custom authentication challenge Lambda triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-challenge.html) .
 	CustomAuthMode *string `pulumi:"customAuthMode"`
 }
 
@@ -1987,6 +1992,7 @@ type UserPoolAdvancedSecurityAdditionalFlowsInput interface {
 }
 
 type UserPoolAdvancedSecurityAdditionalFlowsArgs struct {
+	// The operating mode of advanced security features in custom authentication with [Custom authentication challenge Lambda triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-challenge.html) .
 	CustomAuthMode pulumi.StringPtrInput `pulumi:"customAuthMode"`
 }
 
@@ -2067,6 +2073,7 @@ func (o UserPoolAdvancedSecurityAdditionalFlowsOutput) ToUserPoolAdvancedSecurit
 	}).(UserPoolAdvancedSecurityAdditionalFlowsPtrOutput)
 }
 
+// The operating mode of advanced security features in custom authentication with [Custom authentication challenge Lambda triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-challenge.html) .
 func (o UserPoolAdvancedSecurityAdditionalFlowsOutput) CustomAuthMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolAdvancedSecurityAdditionalFlows) *string { return v.CustomAuthMode }).(pulumi.StringPtrOutput)
 }
@@ -2095,6 +2102,7 @@ func (o UserPoolAdvancedSecurityAdditionalFlowsPtrOutput) Elem() UserPoolAdvance
 	}).(UserPoolAdvancedSecurityAdditionalFlowsOutput)
 }
 
+// The operating mode of advanced security features in custom authentication with [Custom authentication challenge Lambda triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-challenge.html) .
 func (o UserPoolAdvancedSecurityAdditionalFlowsPtrOutput) CustomAuthMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolAdvancedSecurityAdditionalFlows) *string {
 		if v == nil {
@@ -4411,7 +4419,10 @@ func (o UserPoolPasswordPolicyPtrOutput) TemporaryPasswordValidityDays() pulumi.
 type UserPoolPolicies struct {
 	// The password policy settings for a user pool, including complexity, history, and length requirements.
 	PasswordPolicy *UserPoolPasswordPolicy `pulumi:"passwordPolicy"`
-	SignInPolicy   *UserPoolSignInPolicy   `pulumi:"signInPolicy"`
+	// The policy for allowed types of authentication in a user pool.
+	//
+	// This data type is a request and response parameter of [CreateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.html) and [UpdateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.html) , and a response parameter of [DescribeUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html) .
+	SignInPolicy *UserPoolSignInPolicy `pulumi:"signInPolicy"`
 }
 
 // UserPoolPoliciesInput is an input type that accepts UserPoolPoliciesArgs and UserPoolPoliciesOutput values.
@@ -4428,7 +4439,10 @@ type UserPoolPoliciesInput interface {
 type UserPoolPoliciesArgs struct {
 	// The password policy settings for a user pool, including complexity, history, and length requirements.
 	PasswordPolicy UserPoolPasswordPolicyPtrInput `pulumi:"passwordPolicy"`
-	SignInPolicy   UserPoolSignInPolicyPtrInput   `pulumi:"signInPolicy"`
+	// The policy for allowed types of authentication in a user pool.
+	//
+	// This data type is a request and response parameter of [CreateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.html) and [UpdateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.html) , and a response parameter of [DescribeUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html) .
+	SignInPolicy UserPoolSignInPolicyPtrInput `pulumi:"signInPolicy"`
 }
 
 func (UserPoolPoliciesArgs) ElementType() reflect.Type {
@@ -4513,6 +4527,9 @@ func (o UserPoolPoliciesOutput) PasswordPolicy() UserPoolPasswordPolicyPtrOutput
 	return o.ApplyT(func(v UserPoolPolicies) *UserPoolPasswordPolicy { return v.PasswordPolicy }).(UserPoolPasswordPolicyPtrOutput)
 }
 
+// The policy for allowed types of authentication in a user pool.
+//
+// This data type is a request and response parameter of [CreateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.html) and [UpdateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.html) , and a response parameter of [DescribeUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html) .
 func (o UserPoolPoliciesOutput) SignInPolicy() UserPoolSignInPolicyPtrOutput {
 	return o.ApplyT(func(v UserPoolPolicies) *UserPoolSignInPolicy { return v.SignInPolicy }).(UserPoolSignInPolicyPtrOutput)
 }
@@ -4551,6 +4568,9 @@ func (o UserPoolPoliciesPtrOutput) PasswordPolicy() UserPoolPasswordPolicyPtrOut
 	}).(UserPoolPasswordPolicyPtrOutput)
 }
 
+// The policy for allowed types of authentication in a user pool.
+//
+// This data type is a request and response parameter of [CreateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.html) and [UpdateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.html) , and a response parameter of [DescribeUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html) .
 func (o UserPoolPoliciesPtrOutput) SignInPolicy() UserPoolSignInPolicyPtrOutput {
 	return o.ApplyT(func(v *UserPoolPolicies) *UserPoolSignInPolicy {
 		if v == nil {
@@ -6493,6 +6513,9 @@ func (o UserPoolSchemaAttributeArrayOutput) Index(i pulumi.IntInput) UserPoolSch
 }
 
 type UserPoolSignInPolicy struct {
+	// The sign-in methods that a user pool supports as the first factor. You can permit users to start authentication with a standard username and password, or with other one-time password and hardware factors.
+	//
+	// Supports values of `EMAIL_OTP` , `SMS_OTP` , `WEB_AUTHN` and `PASSWORD` ,
 	AllowedFirstAuthFactors []string `pulumi:"allowedFirstAuthFactors"`
 }
 
@@ -6508,6 +6531,9 @@ type UserPoolSignInPolicyInput interface {
 }
 
 type UserPoolSignInPolicyArgs struct {
+	// The sign-in methods that a user pool supports as the first factor. You can permit users to start authentication with a standard username and password, or with other one-time password and hardware factors.
+	//
+	// Supports values of `EMAIL_OTP` , `SMS_OTP` , `WEB_AUTHN` and `PASSWORD` ,
 	AllowedFirstAuthFactors pulumi.StringArrayInput `pulumi:"allowedFirstAuthFactors"`
 }
 
@@ -6588,6 +6614,9 @@ func (o UserPoolSignInPolicyOutput) ToUserPoolSignInPolicyPtrOutputWithContext(c
 	}).(UserPoolSignInPolicyPtrOutput)
 }
 
+// The sign-in methods that a user pool supports as the first factor. You can permit users to start authentication with a standard username and password, or with other one-time password and hardware factors.
+//
+// Supports values of `EMAIL_OTP` , `SMS_OTP` , `WEB_AUTHN` and `PASSWORD` ,
 func (o UserPoolSignInPolicyOutput) AllowedFirstAuthFactors() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v UserPoolSignInPolicy) []string { return v.AllowedFirstAuthFactors }).(pulumi.StringArrayOutput)
 }
@@ -6616,6 +6645,9 @@ func (o UserPoolSignInPolicyPtrOutput) Elem() UserPoolSignInPolicyOutput {
 	}).(UserPoolSignInPolicyOutput)
 }
 
+// The sign-in methods that a user pool supports as the first factor. You can permit users to start authentication with a standard username and password, or with other one-time password and hardware factors.
+//
+// Supports values of `EMAIL_OTP` , `SMS_OTP` , `WEB_AUTHN` and `PASSWORD` ,
 func (o UserPoolSignInPolicyPtrOutput) AllowedFirstAuthFactors() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *UserPoolSignInPolicy) []string {
 		if v == nil {

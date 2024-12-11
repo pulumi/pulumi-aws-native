@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Cognito.Inputs
 
     public sealed class UserPoolAddOnsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Advanced security configuration options for additional authentication types in your user pool, including custom authentication.
+        /// </summary>
         [Input("advancedSecurityAdditionalFlows")]
         public Input<Inputs.UserPoolAdvancedSecurityAdditionalFlowsArgs>? AdvancedSecurityAdditionalFlows { get; set; }
 

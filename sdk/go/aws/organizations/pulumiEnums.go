@@ -359,7 +359,7 @@ func (in *organizationFeatureSetPtr) ToOrganizationFeatureSetPtrOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, in).(OrganizationFeatureSetPtrOutput)
 }
 
-// The type of policy to create. You can specify one of the following values: AISERVICES_OPT_OUT_POLICY, BACKUP_POLICY, SERVICE_CONTROL_POLICY, TAG_POLICY, CHATBOT_POLICY, RESOURCE_CONTROL_POLICY
+// The type of policy to create. You can specify one of the following values: AISERVICES_OPT_OUT_POLICY, BACKUP_POLICY, SERVICE_CONTROL_POLICY, TAG_POLICY, CHATBOT_POLICY, RESOURCE_CONTROL_POLICY,DECLARATIVE_POLICY_EC2
 type PolicyType string
 
 const (
@@ -369,6 +369,7 @@ const (
 	PolicyTypeTagPolicy              = PolicyType("TAG_POLICY")
 	PolicyTypeChatbotPolicy          = PolicyType("CHATBOT_POLICY")
 	PolicyTypeResourceControlPolicy  = PolicyType("RESOURCE_CONTROL_POLICY")
+	PolicyTypeDeclarativePolicyEc2   = PolicyType("DECLARATIVE_POLICY_EC2")
 )
 
 func (PolicyType) ElementType() reflect.Type {
@@ -499,6 +500,7 @@ func (o PolicyTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) p
 //	PolicyTypeTagPolicy
 //	PolicyTypeChatbotPolicy
 //	PolicyTypeResourceControlPolicy
+//	PolicyTypeDeclarativePolicyEc2
 type PolicyTypeInput interface {
 	pulumi.Input
 

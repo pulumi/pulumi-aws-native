@@ -102,7 +102,7 @@ namespace Pulumi.AwsNative.Organizations
     }
 
     /// <summary>
-    /// The type of policy to create. You can specify one of the following values: AISERVICES_OPT_OUT_POLICY, BACKUP_POLICY, SERVICE_CONTROL_POLICY, TAG_POLICY, CHATBOT_POLICY, RESOURCE_CONTROL_POLICY
+    /// The type of policy to create. You can specify one of the following values: AISERVICES_OPT_OUT_POLICY, BACKUP_POLICY, SERVICE_CONTROL_POLICY, TAG_POLICY, CHATBOT_POLICY, RESOURCE_CONTROL_POLICY,DECLARATIVE_POLICY_EC2
     /// </summary>
     [EnumType]
     public readonly struct PolicyType : IEquatable<PolicyType>
@@ -120,6 +120,7 @@ namespace Pulumi.AwsNative.Organizations
         public static PolicyType TagPolicy { get; } = new PolicyType("TAG_POLICY");
         public static PolicyType ChatbotPolicy { get; } = new PolicyType("CHATBOT_POLICY");
         public static PolicyType ResourceControlPolicy { get; } = new PolicyType("RESOURCE_CONTROL_POLICY");
+        public static PolicyType DeclarativePolicyEc2 { get; } = new PolicyType("DECLARATIVE_POLICY_EC2");
 
         public static bool operator ==(PolicyType left, PolicyType right) => left.Equals(right);
         public static bool operator !=(PolicyType left, PolicyType right) => !left.Equals(right);

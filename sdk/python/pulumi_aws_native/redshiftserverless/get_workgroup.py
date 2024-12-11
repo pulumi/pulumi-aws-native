@@ -26,13 +26,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetWorkgroupResult:
-    def __init__(__self__, enhanced_vpc_routing=None, port=None, publicly_accessible=None, tags=None, workgroup=None):
+    def __init__(__self__, enhanced_vpc_routing=None, port=None, price_performance_target=None, publicly_accessible=None, tags=None, workgroup=None):
         if enhanced_vpc_routing and not isinstance(enhanced_vpc_routing, bool):
             raise TypeError("Expected argument 'enhanced_vpc_routing' to be a bool")
         pulumi.set(__self__, "enhanced_vpc_routing", enhanced_vpc_routing)
         if port and not isinstance(port, int):
             raise TypeError("Expected argument 'port' to be a int")
         pulumi.set(__self__, "port", port)
+        if price_performance_target and not isinstance(price_performance_target, dict):
+            raise TypeError("Expected argument 'price_performance_target' to be a dict")
+        pulumi.set(__self__, "price_performance_target", price_performance_target)
         if publicly_accessible and not isinstance(publicly_accessible, bool):
             raise TypeError("Expected argument 'publicly_accessible' to be a bool")
         pulumi.set(__self__, "publicly_accessible", publicly_accessible)
@@ -58,6 +61,14 @@ class GetWorkgroupResult:
         The custom port to use when connecting to a workgroup. Valid port ranges are 5431-5455 and 8191-8215. The default is 5439.
         """
         return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter(name="pricePerformanceTarget")
+    def price_performance_target(self) -> Optional['outputs.WorkgroupPerformanceTarget']:
+        """
+        A property that represents the price performance target settings for the workgroup.
+        """
+        return pulumi.get(self, "price_performance_target")
 
     @property
     @pulumi.getter(name="publiclyAccessible")
@@ -92,6 +103,7 @@ class AwaitableGetWorkgroupResult(GetWorkgroupResult):
         return GetWorkgroupResult(
             enhanced_vpc_routing=self.enhanced_vpc_routing,
             port=self.port,
+            price_performance_target=self.price_performance_target,
             publicly_accessible=self.publicly_accessible,
             tags=self.tags,
             workgroup=self.workgroup)
@@ -113,6 +125,7 @@ def get_workgroup(workgroup_name: Optional[str] = None,
     return AwaitableGetWorkgroupResult(
         enhanced_vpc_routing=pulumi.get(__ret__, 'enhanced_vpc_routing'),
         port=pulumi.get(__ret__, 'port'),
+        price_performance_target=pulumi.get(__ret__, 'price_performance_target'),
         publicly_accessible=pulumi.get(__ret__, 'publicly_accessible'),
         tags=pulumi.get(__ret__, 'tags'),
         workgroup=pulumi.get(__ret__, 'workgroup'))
@@ -131,6 +144,7 @@ def get_workgroup_output(workgroup_name: Optional[pulumi.Input[str]] = None,
     return __ret__.apply(lambda __response__: GetWorkgroupResult(
         enhanced_vpc_routing=pulumi.get(__response__, 'enhanced_vpc_routing'),
         port=pulumi.get(__response__, 'port'),
+        price_performance_target=pulumi.get(__response__, 'price_performance_target'),
         publicly_accessible=pulumi.get(__response__, 'publicly_accessible'),
         tags=pulumi.get(__response__, 'tags'),
         workgroup=pulumi.get(__response__, 'workgroup')))

@@ -42,7 +42,7 @@ export class DirectoryBucket extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * Returns the code for the Availability Zone where the directory bucket was created.
+     * Returns the code for the Availability Zone or Local Zone where the directory bucket was created. An example for the code of an Availability Zone is 'us-east-1f'.
      */
     public /*out*/ readonly availabilityZoneName!: pulumi.Output<string>;
     /**
@@ -50,11 +50,11 @@ export class DirectoryBucket extends pulumi.CustomResource {
      */
     public readonly bucketEncryption!: pulumi.Output<outputs.s3express.DirectoryBucketBucketEncryption | undefined>;
     /**
-     * Specifies a name for the bucket. The bucket name must contain only lowercase letters, numbers, and hyphens (-). A directory bucket name must be unique in the chosen Availability Zone. The bucket name must also follow the format 'bucket_base_name--az_id--x-s3' (for example, 'DOC-EXAMPLE-BUCKET--usw2-az1--x-s3'). If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
+     * Specifies a name for the bucket. The bucket name must contain only lowercase letters, numbers, and hyphens (-). A directory bucket name must be unique in the chosen Availability Zone or Local Zone. The bucket name must also follow the format 'bucket_base_name--zone_id--x-s3'. The zone_id can be the ID of an Availability Zone or a Local Zone. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
      */
     public readonly bucketName!: pulumi.Output<string | undefined>;
     /**
-     * Specifies the number of Availability Zone that's used for redundancy for the bucket.
+     * Specifies the number of Availability Zone or Local Zone that's used for redundancy for the bucket.
      */
     public readonly dataRedundancy!: pulumi.Output<enums.s3express.DirectoryBucketDataRedundancy>;
     /**
@@ -62,7 +62,7 @@ export class DirectoryBucket extends pulumi.CustomResource {
      */
     public readonly lifecycleConfiguration!: pulumi.Output<outputs.s3express.DirectoryBucketLifecycleConfiguration | undefined>;
     /**
-     * Specifies the AZ ID of the Availability Zone where the directory bucket will be created. An example AZ ID value is 'use1-az5'.
+     * Specifies the Zone ID of the Availability Zone or Local Zone where the directory bucket will be created. An example Availability Zone ID value is 'use1-az5'.
      */
     public readonly locationName!: pulumi.Output<string>;
 
@@ -115,11 +115,11 @@ export interface DirectoryBucketArgs {
      */
     bucketEncryption?: pulumi.Input<inputs.s3express.DirectoryBucketBucketEncryptionArgs>;
     /**
-     * Specifies a name for the bucket. The bucket name must contain only lowercase letters, numbers, and hyphens (-). A directory bucket name must be unique in the chosen Availability Zone. The bucket name must also follow the format 'bucket_base_name--az_id--x-s3' (for example, 'DOC-EXAMPLE-BUCKET--usw2-az1--x-s3'). If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
+     * Specifies a name for the bucket. The bucket name must contain only lowercase letters, numbers, and hyphens (-). A directory bucket name must be unique in the chosen Availability Zone or Local Zone. The bucket name must also follow the format 'bucket_base_name--zone_id--x-s3'. The zone_id can be the ID of an Availability Zone or a Local Zone. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the bucket name.
      */
     bucketName?: pulumi.Input<string>;
     /**
-     * Specifies the number of Availability Zone that's used for redundancy for the bucket.
+     * Specifies the number of Availability Zone or Local Zone that's used for redundancy for the bucket.
      */
     dataRedundancy: pulumi.Input<enums.s3express.DirectoryBucketDataRedundancy>;
     /**
@@ -127,7 +127,7 @@ export interface DirectoryBucketArgs {
      */
     lifecycleConfiguration?: pulumi.Input<inputs.s3express.DirectoryBucketLifecycleConfigurationArgs>;
     /**
-     * Specifies the AZ ID of the Availability Zone where the directory bucket will be created. An example AZ ID value is 'use1-az5'.
+     * Specifies the Zone ID of the Availability Zone or Local Zone where the directory bucket will be created. An example Availability Zone ID value is 'use1-az5'.
      */
     locationName: pulumi.Input<string>;
 }

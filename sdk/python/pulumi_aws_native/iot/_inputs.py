@@ -30,6 +30,12 @@ __all__ = [
     'BillingGroupPropertiesPropertiesArgsDict',
     'CaCertificateRegistrationConfigArgs',
     'CaCertificateRegistrationConfigArgsDict',
+    'CommandParameterValueArgs',
+    'CommandParameterValueArgsDict',
+    'CommandParameterArgs',
+    'CommandParameterArgsDict',
+    'CommandPayloadArgs',
+    'CommandPayloadArgsDict',
     'DomainConfigurationAuthorizerConfigArgs',
     'DomainConfigurationAuthorizerConfigArgsDict',
     'DomainConfigurationClientCertificateConfigArgs',
@@ -809,6 +815,204 @@ class CaCertificateRegistrationConfigArgs:
     @template_name.setter
     def template_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "template_name", value)
+
+
+if not MYPY:
+    class CommandParameterValueArgsDict(TypedDict):
+        b: NotRequired[pulumi.Input[bool]]
+        bin: NotRequired[pulumi.Input[str]]
+        d: NotRequired[pulumi.Input[float]]
+        i: NotRequired[pulumi.Input[int]]
+        l: NotRequired[pulumi.Input[str]]
+        s: NotRequired[pulumi.Input[str]]
+        ul: NotRequired[pulumi.Input[str]]
+elif False:
+    CommandParameterValueArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CommandParameterValueArgs:
+    def __init__(__self__, *,
+                 b: Optional[pulumi.Input[bool]] = None,
+                 bin: Optional[pulumi.Input[str]] = None,
+                 d: Optional[pulumi.Input[float]] = None,
+                 i: Optional[pulumi.Input[int]] = None,
+                 l: Optional[pulumi.Input[str]] = None,
+                 s: Optional[pulumi.Input[str]] = None,
+                 ul: Optional[pulumi.Input[str]] = None):
+        if b is not None:
+            pulumi.set(__self__, "b", b)
+        if bin is not None:
+            pulumi.set(__self__, "bin", bin)
+        if d is not None:
+            pulumi.set(__self__, "d", d)
+        if i is not None:
+            pulumi.set(__self__, "i", i)
+        if l is not None:
+            pulumi.set(__self__, "l", l)
+        if s is not None:
+            pulumi.set(__self__, "s", s)
+        if ul is not None:
+            pulumi.set(__self__, "ul", ul)
+
+    @property
+    @pulumi.getter
+    def b(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "b")
+
+    @b.setter
+    def b(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "b", value)
+
+    @property
+    @pulumi.getter
+    def bin(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "bin")
+
+    @bin.setter
+    def bin(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "bin", value)
+
+    @property
+    @pulumi.getter
+    def d(self) -> Optional[pulumi.Input[float]]:
+        return pulumi.get(self, "d")
+
+    @d.setter
+    def d(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "d", value)
+
+    @property
+    @pulumi.getter
+    def i(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "i")
+
+    @i.setter
+    def i(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "i", value)
+
+    @property
+    @pulumi.getter
+    def l(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "l")
+
+    @l.setter
+    def l(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "l", value)
+
+    @property
+    @pulumi.getter
+    def s(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "s")
+
+    @s.setter
+    def s(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "s", value)
+
+    @property
+    @pulumi.getter
+    def ul(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "ul")
+
+    @ul.setter
+    def ul(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ul", value)
+
+
+if not MYPY:
+    class CommandParameterArgsDict(TypedDict):
+        name: pulumi.Input[str]
+        default_value: NotRequired[pulumi.Input['CommandParameterValueArgsDict']]
+        description: NotRequired[pulumi.Input[str]]
+        value: NotRequired[pulumi.Input['CommandParameterValueArgsDict']]
+elif False:
+    CommandParameterArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CommandParameterArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 default_value: Optional[pulumi.Input['CommandParameterValueArgs']] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input['CommandParameterValueArgs']] = None):
+        pulumi.set(__self__, "name", name)
+        if default_value is not None:
+            pulumi.set(__self__, "default_value", default_value)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="defaultValue")
+    def default_value(self) -> Optional[pulumi.Input['CommandParameterValueArgs']]:
+        return pulumi.get(self, "default_value")
+
+    @default_value.setter
+    def default_value(self, value: Optional[pulumi.Input['CommandParameterValueArgs']]):
+        pulumi.set(self, "default_value", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input['CommandParameterValueArgs']]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input['CommandParameterValueArgs']]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class CommandPayloadArgsDict(TypedDict):
+        content: NotRequired[pulumi.Input[str]]
+        content_type: NotRequired[pulumi.Input[str]]
+elif False:
+    CommandPayloadArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CommandPayloadArgs:
+    def __init__(__self__, *,
+                 content: Optional[pulumi.Input[str]] = None,
+                 content_type: Optional[pulumi.Input[str]] = None):
+        if content is not None:
+            pulumi.set(__self__, "content", content)
+        if content_type is not None:
+            pulumi.set(__self__, "content_type", content_type)
+
+    @property
+    @pulumi.getter
+    def content(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "content")
+
+    @content.setter
+    def content(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "content", value)
+
+    @property
+    @pulumi.getter(name="contentType")
+    def content_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "content_type")
+
+    @content_type.setter
+    def content_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "content_type", value)
 
 
 if not MYPY:

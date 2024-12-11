@@ -17,22 +17,22 @@ export function getUserPoolIdentityProvider(args: GetUserPoolIdentityProviderArg
 
 export interface GetUserPoolIdentityProviderArgs {
     /**
-     * The IdP name.
+     * The name that you want to assign to the IdP. You can pass the identity provider name in the `identity_provider` query parameter of requests to the [Authorize endpoint](https://docs.aws.amazon.com/cognito/latest/developerguide/authorization-endpoint.html) to silently redirect to sign-in with the associated IdP.
      */
     providerName: string;
     /**
-     * The user pool ID.
+     * The Id of the user pool where you want to create an IdP.
      */
     userPoolId: string;
 }
 
 export interface GetUserPoolIdentityProviderResult {
     /**
-     * A mapping of IdP attributes to standard and custom user pool attributes.
+     * A mapping of IdP attributes to standard and custom user pool attributes. Specify a user pool attribute as the key of the key-value pair, and the IdP attribute claim name as the value.
      */
     readonly attributeMapping?: {[key: string]: string};
     /**
-     * A list of IdP identifiers.
+     * An array of IdP identifiers, for example `"IdPIdentifiers": [ "MyIdP", "MyIdP2" ]` . Identifiers are friendly names that you can pass in the `idp_identifier` query parameter of requests to the [Authorize endpoint](https://docs.aws.amazon.com/cognito/latest/developerguide/authorization-endpoint.html) to silently redirect to sign-in with the associated IdP. Identifiers in a domain format also enable the use of [email-address matching with SAML providers](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managing-saml-idp-naming.html) .
      */
     readonly idpIdentifiers?: string[];
     /**
@@ -81,11 +81,11 @@ export function getUserPoolIdentityProviderOutput(args: GetUserPoolIdentityProvi
 
 export interface GetUserPoolIdentityProviderOutputArgs {
     /**
-     * The IdP name.
+     * The name that you want to assign to the IdP. You can pass the identity provider name in the `identity_provider` query parameter of requests to the [Authorize endpoint](https://docs.aws.amazon.com/cognito/latest/developerguide/authorization-endpoint.html) to silently redirect to sign-in with the associated IdP.
      */
     providerName: pulumi.Input<string>;
     /**
-     * The user pool ID.
+     * The Id of the user pool where you want to create an IdP.
      */
     userPoolId: pulumi.Input<string>;
 }

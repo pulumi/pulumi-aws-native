@@ -32,6 +32,7 @@ class TaskTemplateArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  fields: Optional[pulumi.Input[Sequence[pulumi.Input['TaskTemplateFieldArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 self_assign_contact_flow_arn: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input['TaskTemplateStatus']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
@@ -44,6 +45,7 @@ class TaskTemplateArgs:
         :param pulumi.Input[str] description: The description of the task template.
         :param pulumi.Input[Sequence[pulumi.Input['TaskTemplateFieldArgs']]] fields: The list of task template's fields
         :param pulumi.Input[str] name: The name of the task template.
+        :param pulumi.Input[str] self_assign_contact_flow_arn: The identifier of the contact flow.
         :param pulumi.Input['TaskTemplateStatus'] status: The status of the task template.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: One or more tags.
         """
@@ -62,6 +64,8 @@ class TaskTemplateArgs:
             pulumi.set(__self__, "fields", fields)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if self_assign_contact_flow_arn is not None:
+            pulumi.set(__self__, "self_assign_contact_flow_arn", self_assign_contact_flow_arn)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if tags is not None:
@@ -164,6 +168,18 @@ class TaskTemplateArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="selfAssignContactFlowArn")
+    def self_assign_contact_flow_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identifier of the contact flow.
+        """
+        return pulumi.get(self, "self_assign_contact_flow_arn")
+
+    @self_assign_contact_flow_arn.setter
+    def self_assign_contact_flow_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "self_assign_contact_flow_arn", value)
+
+    @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input['TaskTemplateStatus']]:
         """
@@ -201,6 +217,7 @@ class TaskTemplate(pulumi.CustomResource):
                  fields: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TaskTemplateFieldArgs', 'TaskTemplateFieldArgsDict']]]]] = None,
                  instance_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 self_assign_contact_flow_arn: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input['TaskTemplateStatus']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
@@ -217,6 +234,7 @@ class TaskTemplate(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['TaskTemplateFieldArgs', 'TaskTemplateFieldArgsDict']]]] fields: The list of task template's fields
         :param pulumi.Input[str] instance_arn: The identifier (arn) of the instance.
         :param pulumi.Input[str] name: The name of the task template.
+        :param pulumi.Input[str] self_assign_contact_flow_arn: The identifier of the contact flow.
         :param pulumi.Input['TaskTemplateStatus'] status: The status of the task template.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: One or more tags.
         """
@@ -252,6 +270,7 @@ class TaskTemplate(pulumi.CustomResource):
                  fields: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TaskTemplateFieldArgs', 'TaskTemplateFieldArgsDict']]]]] = None,
                  instance_arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 self_assign_contact_flow_arn: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input['TaskTemplateStatus']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
@@ -273,6 +292,7 @@ class TaskTemplate(pulumi.CustomResource):
                 raise TypeError("Missing required property 'instance_arn'")
             __props__.__dict__["instance_arn"] = instance_arn
             __props__.__dict__["name"] = name
+            __props__.__dict__["self_assign_contact_flow_arn"] = self_assign_contact_flow_arn
             __props__.__dict__["status"] = status
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
@@ -307,6 +327,7 @@ class TaskTemplate(pulumi.CustomResource):
         __props__.__dict__["fields"] = None
         __props__.__dict__["instance_arn"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["self_assign_contact_flow_arn"] = None
         __props__.__dict__["status"] = None
         __props__.__dict__["tags"] = None
         return TaskTemplate(resource_name, opts=opts, __props__=__props__)
@@ -382,6 +403,14 @@ class TaskTemplate(pulumi.CustomResource):
         The name of the task template.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="selfAssignContactFlowArn")
+    def self_assign_contact_flow_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The identifier of the contact flow.
+        """
+        return pulumi.get(self, "self_assign_contact_flow_arn")
 
     @property
     @pulumi.getter

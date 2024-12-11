@@ -46,12 +46,6 @@ namespace Pulumi.AwsNative.ApiGateway
         public Output<Outputs.DomainNameV2EndpointConfiguration?> EndpointConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::DomainNameV2` for more information about the expected schema for this property.
-        /// </summary>
-        [Output("managementPolicy")]
-        public Output<object?> ManagementPolicy { get; private set; } = null!;
-
-        /// <summary>
         /// A stringified JSON policy document that applies to the `execute-api` service for this DomainName regardless of the caller and Method configuration. You can use `Fn::ToJsonString` to enter your `policy` . For more information, see [Fn::ToJsonString](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ToJsonString.html) .
         /// 
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::DomainNameV2` for more information about the expected schema for this property.
@@ -139,12 +133,6 @@ namespace Pulumi.AwsNative.ApiGateway
         /// </summary>
         [Input("endpointConfiguration")]
         public Input<Inputs.DomainNameV2EndpointConfigurationArgs>? EndpointConfiguration { get; set; }
-
-        /// <summary>
-        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::DomainNameV2` for more information about the expected schema for this property.
-        /// </summary>
-        [Input("managementPolicy")]
-        public Input<object>? ManagementPolicy { get; set; }
 
         /// <summary>
         /// A stringified JSON policy document that applies to the `execute-api` service for this DomainName regardless of the caller and Method configuration. You can use `Fn::ToJsonString` to enter your `policy` . For more information, see [Fn::ToJsonString](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ToJsonString.html) .

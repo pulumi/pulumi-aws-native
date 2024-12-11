@@ -20,6 +20,8 @@ __all__ = [
     'NamespaceSnapshotCopyConfigurationArgsDict',
     'WorkgroupConfigParameterArgs',
     'WorkgroupConfigParameterArgsDict',
+    'WorkgroupPerformanceTargetArgs',
+    'WorkgroupPerformanceTargetArgsDict',
 ]
 
 MYPY = False
@@ -145,5 +147,41 @@ class WorkgroupConfigParameterArgs:
     @parameter_value.setter
     def parameter_value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "parameter_value", value)
+
+
+if not MYPY:
+    class WorkgroupPerformanceTargetArgsDict(TypedDict):
+        level: NotRequired[pulumi.Input[int]]
+        status: NotRequired[pulumi.Input['WorkgroupPerformanceTargetStatus']]
+elif False:
+    WorkgroupPerformanceTargetArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class WorkgroupPerformanceTargetArgs:
+    def __init__(__self__, *,
+                 level: Optional[pulumi.Input[int]] = None,
+                 status: Optional[pulumi.Input['WorkgroupPerformanceTargetStatus']] = None):
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "level", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input['WorkgroupPerformanceTargetStatus']]:
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input['WorkgroupPerformanceTargetStatus']]):
+        pulumi.set(self, "status", value)
 
 

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ApplicationAutoScaling.Inputs
 {
 
+    /// <summary>
+    /// The customized load metric specification.
+    /// </summary>
     public sealed class ScalingPolicyPredictiveScalingCustomizedLoadMetricArgs : global::Pulumi.ResourceArgs
     {
         [Input("metricDataQueries", required: true)]

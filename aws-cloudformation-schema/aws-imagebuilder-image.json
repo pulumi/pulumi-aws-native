@@ -196,7 +196,7 @@
       "permissions" : [ "imagebuilder:GetImage", "imagebuilder:DeleteImage", "imagebuilder:UnTagResource", "imagebuilder:CancelImageCreation" ]
     },
     "list" : {
-      "permissions" : [ "imagebuilder:ListImages" ],
+      "permissions" : [ "imagebuilder:ListImages", "imagebuilder:ListImageBuildVersions" ],
       "handlerSchema" : {
         "properties" : {
           "Arn" : {

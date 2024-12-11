@@ -24,6 +24,9 @@ __all__ = [
     'AccountAuditConfigurationAuditNotificationTargetConfigurations',
     'BillingGroupPropertiesProperties',
     'CaCertificateRegistrationConfig',
+    'CommandParameter',
+    'CommandParameterValue',
+    'CommandPayload',
     'DomainConfigurationAuthorizerConfig',
     'DomainConfigurationClientCertificateConfig',
     'DomainConfigurationServerCertificateConfig',
@@ -603,6 +606,158 @@ class CaCertificateRegistrationConfig(dict):
         The name of the provisioning template.
         """
         return pulumi.get(self, "template_name")
+
+
+@pulumi.output_type
+class CommandParameter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultValue":
+            suggest = "default_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CommandParameter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CommandParameter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CommandParameter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 default_value: Optional['outputs.CommandParameterValue'] = None,
+                 description: Optional[str] = None,
+                 value: Optional['outputs.CommandParameterValue'] = None):
+        pulumi.set(__self__, "name", name)
+        if default_value is not None:
+            pulumi.set(__self__, "default_value", default_value)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="defaultValue")
+    def default_value(self) -> Optional['outputs.CommandParameterValue']:
+        return pulumi.get(self, "default_value")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional['outputs.CommandParameterValue']:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class CommandParameterValue(dict):
+    def __init__(__self__, *,
+                 b: Optional[bool] = None,
+                 bin: Optional[str] = None,
+                 d: Optional[float] = None,
+                 i: Optional[int] = None,
+                 l: Optional[str] = None,
+                 s: Optional[str] = None,
+                 ul: Optional[str] = None):
+        if b is not None:
+            pulumi.set(__self__, "b", b)
+        if bin is not None:
+            pulumi.set(__self__, "bin", bin)
+        if d is not None:
+            pulumi.set(__self__, "d", d)
+        if i is not None:
+            pulumi.set(__self__, "i", i)
+        if l is not None:
+            pulumi.set(__self__, "l", l)
+        if s is not None:
+            pulumi.set(__self__, "s", s)
+        if ul is not None:
+            pulumi.set(__self__, "ul", ul)
+
+    @property
+    @pulumi.getter
+    def b(self) -> Optional[bool]:
+        return pulumi.get(self, "b")
+
+    @property
+    @pulumi.getter
+    def bin(self) -> Optional[str]:
+        return pulumi.get(self, "bin")
+
+    @property
+    @pulumi.getter
+    def d(self) -> Optional[float]:
+        return pulumi.get(self, "d")
+
+    @property
+    @pulumi.getter
+    def i(self) -> Optional[int]:
+        return pulumi.get(self, "i")
+
+    @property
+    @pulumi.getter
+    def l(self) -> Optional[str]:
+        return pulumi.get(self, "l")
+
+    @property
+    @pulumi.getter
+    def s(self) -> Optional[str]:
+        return pulumi.get(self, "s")
+
+    @property
+    @pulumi.getter
+    def ul(self) -> Optional[str]:
+        return pulumi.get(self, "ul")
+
+
+@pulumi.output_type
+class CommandPayload(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "contentType":
+            suggest = "content_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CommandPayload. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CommandPayload.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CommandPayload.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 content: Optional[str] = None,
+                 content_type: Optional[str] = None):
+        if content is not None:
+            pulumi.set(__self__, "content", content)
+        if content_type is not None:
+            pulumi.set(__self__, "content_type", content_type)
+
+    @property
+    @pulumi.getter
+    def content(self) -> Optional[str]:
+        return pulumi.get(self, "content")
+
+    @property
+    @pulumi.getter(name="contentType")
+    def content_type(self) -> Optional[str]:
+        return pulumi.get(self, "content_type")
 
 
 @pulumi.output_type

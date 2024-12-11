@@ -37,13 +37,37 @@ export class InvoiceUnit extends pulumi.CustomResource {
         return obj['__pulumiType'] === InvoiceUnit.__pulumiType;
     }
 
+    /**
+     * The assigned description for an invoice unit. This information can't be modified or deleted.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The account that receives invoices related to the invoice unit.
+     */
     public readonly invoiceReceiver!: pulumi.Output<string>;
+    /**
+     * The ARN to identify an invoice unit. This information can't be modified or deleted.
+     */
     public /*out*/ readonly invoiceUnitArn!: pulumi.Output<string>;
+    /**
+     * The last time the invoice unit was updated. This is important to determine the version of invoice unit configuration used to create the invoices. Any invoice created after this modified time will use this invoice unit configuration.
+     */
     public /*out*/ readonly lastModified!: pulumi.Output<number>;
+    /**
+     * A unique name that is distinctive within your AWS .
+     */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The tag structure that contains a tag key and value.
+     */
     public readonly resourceTags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * An `InvoiceUnitRule` object used the categorize invoice units.
+     */
     public readonly rule!: pulumi.Output<outputs.invoicing.InvoiceUnitRule>;
+    /**
+     * Whether the invoice unit based tax inheritance is/ should be enabled or disabled.
+     */
     public readonly taxInheritanceDisabled!: pulumi.Output<boolean | undefined>;
 
     /**
@@ -92,10 +116,28 @@ export class InvoiceUnit extends pulumi.CustomResource {
  * The set of arguments for constructing a InvoiceUnit resource.
  */
 export interface InvoiceUnitArgs {
+    /**
+     * The assigned description for an invoice unit. This information can't be modified or deleted.
+     */
     description?: pulumi.Input<string>;
+    /**
+     * The account that receives invoices related to the invoice unit.
+     */
     invoiceReceiver: pulumi.Input<string>;
+    /**
+     * A unique name that is distinctive within your AWS .
+     */
     name?: pulumi.Input<string>;
+    /**
+     * The tag structure that contains a tag key and value.
+     */
     resourceTags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * An `InvoiceUnitRule` object used the categorize invoice units.
+     */
     rule: pulumi.Input<inputs.invoicing.InvoiceUnitRuleArgs>;
+    /**
+     * Whether the invoice unit based tax inheritance is/ should be enabled or disabled.
+     */
     taxInheritanceDisabled?: pulumi.Input<boolean>;
 }

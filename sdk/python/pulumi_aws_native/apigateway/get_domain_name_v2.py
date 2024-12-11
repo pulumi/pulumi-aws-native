@@ -24,7 +24,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDomainNameV2Result:
-    def __init__(__self__, certificate_arn=None, domain_name_arn=None, domain_name_id=None, management_policy=None, policy=None, tags=None):
+    def __init__(__self__, certificate_arn=None, domain_name_arn=None, domain_name_id=None, policy=None, tags=None):
         if certificate_arn and not isinstance(certificate_arn, str):
             raise TypeError("Expected argument 'certificate_arn' to be a str")
         pulumi.set(__self__, "certificate_arn", certificate_arn)
@@ -34,9 +34,6 @@ class GetDomainNameV2Result:
         if domain_name_id and not isinstance(domain_name_id, str):
             raise TypeError("Expected argument 'domain_name_id' to be a str")
         pulumi.set(__self__, "domain_name_id", domain_name_id)
-        if management_policy and not isinstance(management_policy, dict):
-            raise TypeError("Expected argument 'management_policy' to be a dict")
-        pulumi.set(__self__, "management_policy", management_policy)
         if policy and not isinstance(policy, dict):
             raise TypeError("Expected argument 'policy' to be a dict")
         pulumi.set(__self__, "policy", policy)
@@ -69,14 +66,6 @@ class GetDomainNameV2Result:
         return pulumi.get(self, "domain_name_id")
 
     @property
-    @pulumi.getter(name="managementPolicy")
-    def management_policy(self) -> Optional[Any]:
-        """
-        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::DomainNameV2` for more information about the expected schema for this property.
-        """
-        return pulumi.get(self, "management_policy")
-
-    @property
     @pulumi.getter
     def policy(self) -> Optional[Any]:
         """
@@ -104,7 +93,6 @@ class AwaitableGetDomainNameV2Result(GetDomainNameV2Result):
             certificate_arn=self.certificate_arn,
             domain_name_arn=self.domain_name_arn,
             domain_name_id=self.domain_name_id,
-            management_policy=self.management_policy,
             policy=self.policy,
             tags=self.tags)
 
@@ -126,7 +114,6 @@ def get_domain_name_v2(domain_name_arn: Optional[str] = None,
         certificate_arn=pulumi.get(__ret__, 'certificate_arn'),
         domain_name_arn=pulumi.get(__ret__, 'domain_name_arn'),
         domain_name_id=pulumi.get(__ret__, 'domain_name_id'),
-        management_policy=pulumi.get(__ret__, 'management_policy'),
         policy=pulumi.get(__ret__, 'policy'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_domain_name_v2_output(domain_name_arn: Optional[pulumi.Input[str]] = None,
@@ -145,6 +132,5 @@ def get_domain_name_v2_output(domain_name_arn: Optional[pulumi.Input[str]] = Non
         certificate_arn=pulumi.get(__response__, 'certificate_arn'),
         domain_name_arn=pulumi.get(__response__, 'domain_name_arn'),
         domain_name_id=pulumi.get(__response__, 'domain_name_id'),
-        management_policy=pulumi.get(__response__, 'management_policy'),
         policy=pulumi.get(__response__, 'policy'),
         tags=pulumi.get(__response__, 'tags')))
