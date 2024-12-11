@@ -219,14 +219,13 @@ func previewOutputValue(
 			v := previewResourceOutputs(inputValue.ObjectValue(), types, t.Properties, readOnly)
 			return resource.NewObjectProperty(v)
 		}
-	case inputValue.IsObject() && prop.AdditionalProperties != nil && (prop.AdditionalProperties.Ref != "" || prop.AdditionalProperties.Items != nil):
-		return previewOutputValue(inputValue, types, prop.AdditionalProperties, readOnly)
-	case inputValue.IsObject() && prop.AdditionalProperties != nil && prop.AdditionalProperties.Ref == "":
+		// AdditionalProperties (map types)
+	case inputValue.IsObject() && prop.AdditionalProperties != nil:
 		inputObject := inputValue.ObjectValue()
 		result := resource.PropertyMap{}
 		for name, value := range inputObject {
 			p := value
-			result[name] = previewOutputValue(p, types, prop.AdditionalProperties, readOnly)
+			result[name] = previewOutputValue(p, types, prop.AdditionalProperties, []string{})
 		}
 		return resource.NewObjectProperty(result)
 	}
