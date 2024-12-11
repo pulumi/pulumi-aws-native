@@ -23,6 +23,10 @@ func TestToSdkName(t *testing.T) {
 			input:    "Foo/*/Bar/Baz",
 			expected: "foo/*/bar/baz",
 		},
+		"multiNestedArrayObject": {
+			input:    "Foo/*/Bar/*/Baz/Hello",
+			expected: "foo/*/bar/*/baz/hello",
+		},
 	}
 
 	for name, tc := range cases {

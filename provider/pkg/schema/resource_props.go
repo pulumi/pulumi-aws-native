@@ -18,8 +18,8 @@ type ResourceProperty string
 // e.g.
 //   - `Foo/Bar/Baz` => `foo/bar/baz`
 //   - `Foo/*/BarBaz` => `foo/*/barBaz`
-func (r *ResourceProperty) ToSdkName() string {
-	arrayProps := strings.Split(string(*r), "/*/")
+func (r ResourceProperty) ToSdkName() string {
+	arrayProps := strings.Split(string(r), "/*/")
 	for i, p := range arrayProps {
 		nested := strings.Split(p, "/")
 		for idx, n := range nested {
