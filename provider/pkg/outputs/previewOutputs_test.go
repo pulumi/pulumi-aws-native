@@ -1,4 +1,4 @@
-package provider
+package outputs
 
 import (
 	"testing"
@@ -10,6 +10,63 @@ import (
 )
 
 func TestPreviewOutputs(t *testing.T) {
+	t.Run("Without prior state", func(t *testing.T) {
+		result := PreviewOutputs(
+			resource.NewPropertyMapFromMap(map[string]interface{}{
+				"name": "my-resource",
+			}),
+			map[string]metadata.CloudAPIType{},
+			map[string]schema.PropertySpec{
+				"name": schema.PropertySpec{
+					TypeSpec: schema.TypeSpec{Type: "string"},
+				},
+				"arn": schema.PropertySpec{
+					TypeSpec: schema.TypeSpec{Type: "string"},
+				},
+			},
+			[]string{
+				"arn",
+			},
+			"AccessPoint",
+			nil,
+		)
+		assert.Equal(t, resource.PropertyMap{
+			"name": resource.NewStringProperty("my-resource"),
+			"arn":  resource.MakeComputed(resource.NewStringProperty("")),
+		}, result)
+	})
+
+	t.Run("With prior state", func(t *testing.T) {
+		priorOutputs := resource.NewPropertyMapFromMap(map[string]interface{}{
+			"arn": "arnvalue",
+		})
+		result := PreviewOutputs(
+			resource.NewPropertyMapFromMap(map[string]interface{}{
+				"name": "my-resource",
+			}),
+			map[string]metadata.CloudAPIType{},
+			map[string]schema.PropertySpec{
+				"name": schema.PropertySpec{
+					TypeSpec: schema.TypeSpec{Type: "string"},
+				},
+				"arn": schema.PropertySpec{
+					TypeSpec: schema.TypeSpec{Type: "string"},
+				},
+			},
+			[]string{
+				"arn",
+			},
+			"AccessPoint",
+			&priorOutputs,
+		)
+		assert.Equal(t, resource.PropertyMap{
+			"name": resource.NewStringProperty("my-resource"),
+			"arn":  resource.NewStringProperty("arnvalue"),
+		}, result)
+	})
+}
+
+func Test_previewResourceOutputs(t *testing.T) {
 	t.Run("Nested output value", func(t *testing.T) {
 		result := previewResourceOutputs(
 			resource.NewPropertyMapFromMap(map[string]interface{}{

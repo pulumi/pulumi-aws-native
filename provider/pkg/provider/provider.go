@@ -54,6 +54,7 @@ import (
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/default_tags"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/metadata"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/naming"
+	pOutputs "github.com/pulumi/pulumi-aws-native/provider/pkg/outputs"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/resources"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/schema"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/version"
@@ -858,7 +859,7 @@ func (p *cfnProvider) Create(ctx context.Context, req *pulumirpc.CreateRequest) 
 			if !hasSpec {
 				return nil, errors.Errorf("Resource type %s not found", resourceToken)
 			}
-			outputs = previewResourceOutputs(inputs, p.resourceMap.Types, spec.Outputs, spec.ReadOnly)
+			outputs = pOutputs.PreviewOutputs(inputs, p.resourceMap.Types, spec.Outputs, spec.ReadOnly, urn.Type().Name(), nil)
 		}
 
 		previewState, err := plugin.MarshalProperties(
@@ -1112,8 +1113,7 @@ func (p *cfnProvider) Update(ctx context.Context, req *pulumirpc.UpdateRequest) 
 				return nil, errors.Errorf("Resource type %s not found", resourceToken)
 			}
 			resourceTypeName := urn.Type().Name()
-			outputs = previewResourceOutputs(newInputs, p.resourceMap.Types, spec.Outputs, spec.ReadOnly)
-			outputs = populateStableOutputs(newInputs, oldState, spec.ReadOnly, resourceTypeName)
+			outputs = pOutputs.PreviewOutputs(newInputs, p.resourceMap.Types, spec.Outputs, spec.ReadOnly, resourceTypeName, &oldState)
 		}
 
 		previewState, err := plugin.MarshalProperties(

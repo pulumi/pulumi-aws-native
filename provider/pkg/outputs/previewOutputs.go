@@ -1,4 +1,4 @@
-package provider
+package outputs
 
 import (
 	"fmt"
@@ -12,6 +12,27 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
 )
+
+// PreviewOutputs calculates the outputs of a resource based on the inputs and the output
+// properties in the resource schema.
+//
+// During an update operation the `outputsFromPriorState` should also be provided
+// in order to populate stable outputs from the prior state
+func PreviewOutputs(
+	newInputs resource.PropertyMap,
+	types map[string]metadata.CloudAPIType,
+	outputTypes map[string]schema.PropertySpec,
+	readOnlyProperties []string,
+	resourceTypeName tokens.TypeName,
+	// will only be provided during an update operation
+	outputsFromPriorState *resource.PropertyMap,
+) resource.PropertyMap {
+	outputsFromInputs := previewResourceOutputs(newInputs, types, outputTypes, readOnlyProperties)
+	if outputsFromPriorState != nil {
+		return populateStableOutputs(outputsFromInputs, *outputsFromPriorState, readOnlyProperties, resourceTypeName)
+	}
+	return outputsFromInputs
+}
 
 // This calculates the outputs of a resource based on the inputs and the output
 // properties in the resource schema.
@@ -55,6 +76,9 @@ func previewResourceOutputs(
 // will have `name`, `id`, and `arn` properties, and sometimes they will have `resourceName`, `resourceId`,
 // and `resourceArn` properties.
 func populateStableOutputs(
+	// outputsFromInputs has to be the output of previewResourceOutputs
+	// so it will contain all possible output properties that we might want
+	// to update
 	outputsFromInputs resource.PropertyMap,
 	outputsFromPriorState resource.PropertyMap,
 	readOnly []string,
