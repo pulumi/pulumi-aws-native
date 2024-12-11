@@ -143,7 +143,7 @@
       "permissions" : [ "backup:CreateBackupSelection", "iam:GetRole", "iam:PassRole", "iam:CreateServiceLinkedRole" ]
     },
     "list" : {
-      "permissions" : [ "backup:ListBackupSelections" ]
+      "permissions" : [ "backup:ListBackupSelections", "backup:ListBackupPlans" ]
     }
   }
 }

@@ -92,13 +92,13 @@
   "primaryIdentifier" : [ "/properties/Arn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "oam:CreateLink", "oam:GetLink", "cloudwatch:Link", "logs:Link", "xray:Link", "applicationinsights:Link", "internetmonitor:Link" ]
+      "permissions" : [ "oam:CreateLink", "oam:GetLink", "oam:TagResource", "oam:ListTagsForResource", "cloudwatch:Link", "logs:Link", "xray:Link", "applicationinsights:Link", "internetmonitor:Link" ]
     },
     "read" : {
-      "permissions" : [ "oam:GetLink" ]
+      "permissions" : [ "oam:GetLink", "oam:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "oam:GetLink", "oam:UpdateLink", "cloudwatch:Link", "logs:Link", "xray:Link", "applicationinsights:Link", "internetmonitor:Link", "oam:TagResource", "oam:UntagResource" ]
+      "permissions" : [ "oam:GetLink", "oam:UpdateLink", "cloudwatch:Link", "logs:Link", "xray:Link", "applicationinsights:Link", "internetmonitor:Link", "oam:TagResource", "oam:UntagResource", "oam:ListTagsForResource" ]
     },
     "delete" : {
       "permissions" : [ "oam:DeleteLink", "oam:GetLink" ]

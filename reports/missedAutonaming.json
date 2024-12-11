@@ -336,10 +336,6 @@
         "$ref": "#/types/aws-native:apigateway:DomainNameV2EndpointConfiguration",
         "description": "The endpoint configuration to indicate the types of endpoints an API (RestApi) or its custom domain name (DomainName) has."
       },
-      "managementPolicy": {
-        "$ref": "pulumi.json#/Any",
-        "description": "Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::DomainNameV2` for more information about the expected schema for this property."
-      },
       "policy": {
         "$ref": "pulumi.json#/Any",
         "description": "A stringified JSON policy document that applies to the `execute-api` service for this DomainName regardless of the caller and Method configuration. You can use `Fn::ToJsonString` to enter your `policy` . For more information, see [Fn::ToJsonString](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/intrinsic-function-reference-ToJsonString.html) .\n\nSearch the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ApiGateway::DomainNameV2` for more information about the expected schema for this property."
@@ -2194,10 +2190,12 @@
         "description": "An array of image files that you want to apply to roles like backgrounds, logos, and icons. Each object must also indicate whether it is for dark mode, light mode, or browser-adaptive mode."
       },
       "clientId": {
-        "type": "string"
+        "type": "string",
+        "description": "The app client that's assigned to the branding style that you want more information about."
       },
       "returnMergedResources": {
-        "type": "boolean"
+        "type": "boolean",
+        "description": "When `true` , returns values for branding options that are unchanged from Amazon Cognito defaults. When `false` or when you omit this parameter, returns only values that you customized in your branding style."
       },
       "settings": {
         "$ref": "pulumi.json#/Any",
@@ -2205,7 +2203,7 @@
       },
       "useCognitoProvidedValues": {
         "type": "boolean",
-        "description": "When true, applies the default branding style options. This option reverts to a \"blank\" style that you can modify later in the branding designer."
+        "description": "When true, applies the default branding style options. This option reverts to default style options that are managed by Amazon Cognito. You can modify them later in the branding designer.\n\nWhen you specify `true` for this option, you must also omit values for `Settings` and `Assets` in the request."
       },
       "userPoolId": {
         "type": "string",
@@ -2272,7 +2270,7 @@
       },
       "userPoolId": {
         "type": "string",
-        "description": "The user pool ID for the user pool."
+        "description": "The ID of the user pool."
       }
     }
   },
@@ -2285,7 +2283,7 @@
       },
       "userPoolId": {
         "type": "string",
-        "description": "The user pool ID for the user pool."
+        "description": "The ID of the user pool that contains the group that you want to add the user to."
       },
       "username": {
         "type": "string",
@@ -6430,6 +6428,9 @@
         "type": "string",
         "description": "The number of ``cpu`` units used by the task. If you use the EC2 launch type, this field is optional. Any value can be used. If you use the Fargate launch type, this field is required. You must use one of the following values. The value that you choose determines your range of valid values for the ``memory`` parameter.\n If you use the EC2 launch type, this field is optional. Supported values are between ``128`` CPU units (``0.125`` vCPUs) and ``10240`` CPU units (``10`` vCPUs).\n The CPU units cannot be less than 1 vCPU when you use Windows containers on Fargate.\n  +  256 (.25 vCPU) - Available ``memory`` values: 512 (0.5 GB), 1024 (1 GB), 2048 (2 GB)\n  +  512 (.5 vCPU) - Available ``memory`` values: 1024 (1 GB), 2048 (2 GB), 3072 (3 GB), 4096 (4 GB)\n  +  1024 (1 vCPU) - Available ``memory`` values: 2048 (2 GB), 3072 (3 GB), 4096 (4 GB), 5120 (5 GB), 6144 (6 GB), 7168 (7 GB), 8192 (8 GB)\n  +  2048 (2 vCPU) - Available ``memory`` values: 4096 (4 GB) and 16384 (16 GB) in increments of 1024 (1 GB)\n  +  4096 (4 vCPU) - Available ``memory`` values: 8192 (8 GB) and 30720 (30 GB) in increments of 1024 (1 GB)\n  +  8192 (8 vCPU) - Available ``memory`` values: 16 GB and 60 GB in 4 GB increments\n This option requires Linux platform ``1.4.0`` or later.\n  +  16384 (16vCPU) - Available ``memory`` values: 32GB and 120 GB in 8 GB increments\n This option requires Linux platform ``1.4.0`` or later."
       },
+      "enableFaultInjection": {
+        "type": "boolean"
+      },
       "ephemeralStorage": {
         "$ref": "#/types/aws-native:ecs:TaskDefinitionEphemeralStorage",
         "description": "The ephemeral storage settings to use for tasks run with the task definition."
@@ -7926,6 +7927,65 @@
       "status": {
         "$ref": "#/types/aws-native:iot:CertificateStatus",
         "description": "The status of the certificate.\n\nValid values are ACTIVE, INACTIVE, REVOKED, PENDING_TRANSFER, and PENDING_ACTIVATION.\n\nThe status value REGISTER_INACTIVE is deprecated and should not be used."
+      }
+    }
+  },
+  "aws-native:iot:Command": {
+    "cfTypeName": "AWS::IoT::Command",
+    "properties": {
+      "commandId": {
+        "type": "string",
+        "description": "The unique identifier for the command."
+      },
+      "createdAt": {
+        "type": "string",
+        "description": "The date and time when the command was created."
+      },
+      "deprecated": {
+        "type": "boolean",
+        "description": "A flag indicating whether the command is deprecated."
+      },
+      "description": {
+        "type": "string",
+        "description": "The description of the command."
+      },
+      "displayName": {
+        "type": "string",
+        "description": "The display name for the command."
+      },
+      "lastUpdatedAt": {
+        "type": "string",
+        "description": "The date and time when the command was last updated."
+      },
+      "mandatoryParameters": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:iot:CommandParameter"
+        },
+        "description": "The list of mandatory parameters for the command."
+      },
+      "namespace": {
+        "$ref": "#/types/aws-native:iot:CommandNamespace",
+        "description": "The namespace to which the command belongs."
+      },
+      "payload": {
+        "$ref": "#/types/aws-native:iot:CommandPayload",
+        "description": "The payload associated with the command."
+      },
+      "pendingDeletion": {
+        "type": "boolean",
+        "description": "A flag indicating whether the command is pending deletion."
+      },
+      "roleArn": {
+        "type": "string",
+        "description": "The customer role associated with the command."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "The tags to be associated with the command."
       }
     }
   },
@@ -10215,7 +10275,8 @@
         "type": "array",
         "items": {
           "type": "string"
-        }
+        },
+        "description": "The OIDC client ID for a Amazon Q Business application."
       },
       "description": {
         "type": "string",
@@ -10615,11 +10676,11 @@
     "properties": {
       "databaseInstallationFilesS3BucketName": {
         "type": "string",
-        "description": "The name of an Amazon S3 bucket that contains database installation files for your CEV. For example, a valid bucket name is `my-custom-installation-files`."
+        "description": "The name of an Amazon S3 bucket that contains database installation files for your CEV. For example, a valid bucket name is ``my-custom-installation-files``."
       },
       "databaseInstallationFilesS3Prefix": {
         "type": "string",
-        "description": "The Amazon S3 directory that contains the database installation files for your CEV. For example, a valid bucket name is `123456789012/cev1`. If this setting isn't specified, no prefix is assumed."
+        "description": "The Amazon S3 directory that contains the database installation files for your CEV. For example, a valid bucket name is ``123456789012/cev1``. If this setting isn't specified, no prefix is assumed."
       },
       "description": {
         "type": "string",
@@ -10627,42 +10688,42 @@
       },
       "engine": {
         "type": "string",
-        "description": "The database engine to use for your custom engine version (CEV). The only supported value is `custom-oracle-ee`."
+        "description": "The database engine to use for your custom engine version (CEV).\n Valid values:\n  +   ``custom-oracle-ee`` \n  +   ``custom-oracle-ee-cdb``"
       },
       "engineVersion": {
         "type": "string",
-        "description": "The name of your CEV. The name format is 19.customized_string . For example, a valid name is 19.my_cev1. This setting is required for RDS Custom for Oracle, but optional for Amazon RDS. The combination of Engine and EngineVersion is unique per customer per Region."
+        "description": "The name of your CEV. The name format is ``major version.customized_string``. For example, a valid CEV name is ``19.my_cev1``. This setting is required for RDS Custom for Oracle, but optional for Amazon RDS. The combination of ``Engine`` and ``EngineVersion`` is unique per customer per Region.\n  *Constraints:* Minimum length is 1. Maximum length is 60.\n  *Pattern:* ``^[a-z0-9_.-]{1,60$``}"
       },
       "imageId": {
         "type": "string",
-        "description": "The identifier of Amazon Machine Image (AMI) used for CEV."
+        "description": "A value that indicates the ID of the AMI."
       },
       "kmsKeyId": {
         "type": "string",
-        "description": "The AWS KMS key identifier for an encrypted CEV. A symmetric KMS key is required for RDS Custom, but optional for Amazon RDS."
+        "description": "The AWS KMS key identifier for an encrypted CEV. A symmetric encryption KMS key is required for RDS Custom, but optional for Amazon RDS.\n If you have an existing symmetric encryption KMS key in your account, you can use it with RDS Custom. No further action is necessary. If you don't already have a symmetric encryption KMS key in your account, follow the instructions in [Creating a symmetric encryption KMS key](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html#create-symmetric-cmk) in the *Key Management Service Developer Guide*.\n You can choose the same symmetric encryption key when you create a CEV and a DB instance, or choose different keys."
       },
       "manifest": {
         "type": "string",
-        "description": "The CEV manifest, which is a JSON document that describes the installation .zip files stored in Amazon S3. Specify the name/value pairs in a file or a quoted string. RDS Custom applies the patches in the order in which they are listed."
+        "description": "The CEV manifest, which is a JSON document that describes the installation .zip files stored in Amazon S3. Specify the name/value pairs in a file or a quoted string. RDS Custom applies the patches in the order in which they are listed.\n The following JSON fields are valid:\n  + MediaImportTemplateVersion Version of the CEV manifest. The date is in the format YYYY-MM-DD. + databaseInstallationFileNames Ordered list of installation files for the CEV. + opatchFileNames Ordered list of OPatch installers used for the Oracle DB engine. + psuRuPatchFileNames The PSU and RU patches for this CEV. + OtherPatchFileNames The patches that are not in the list of PSU and RU patches. Amazon RDS applies these patches after applying the PSU and RU patches. \n For more information, see [Creating the CEV manifest](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.html#custom-cev.preparing.manifest) in the *Amazon RDS User Guide*."
       },
       "sourceCustomDbEngineVersionIdentifier": {
         "type": "string",
-        "description": "The identifier of the source custom engine version."
+        "description": "The ARN of a CEV to use as a source for creating a new CEV. You can specify a different Amazon Machine Imagine (AMI) by using either ``Source`` or ``UseAwsProvidedLatestImage``. You can't specify a different JSON manifest when you specify ``SourceCustomDbEngineVersionIdentifier``."
       },
       "status": {
         "$ref": "#/types/aws-native:rds:CustomDbEngineVersionStatus",
-        "description": "The availability status to be assigned to the CEV."
+        "description": "A value that indicates the status of a custom engine version (CEV)."
       },
       "tags": {
         "type": "array",
         "items": {
           "$ref": "#/types/aws-native:index:Tag"
         },
-        "description": "An array of key-value pairs to apply to this resource."
+        "description": "A list of tags. For more information, see [Tagging Amazon RDS Resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html) in the *Amazon RDS User Guide.*"
       },
       "useAwsProvidedLatestImage": {
         "type": "boolean",
-        "description": "A value that indicates whether AWS provided latest image is applied automatically to the Custom Engine Version. By default, AWS provided latest image is applied automatically. This value is only applied on create."
+        "description": "Specifies whether to use the latest service-provided Amazon Machine Image (AMI) for the CEV. If you specify ``UseAwsProvidedLatestImage``, you can't also specify ``ImageId``."
       }
     }
   },
@@ -12028,6 +12089,17 @@
       "subnetId": {
         "type": "string",
         "description": "The ID of the subnet in the selected VPC. The subnet must belong to the Outpost."
+      }
+    }
+  },
+  "aws-native:s3tables:TableBucketPolicy": {
+    "cfTypeName": "AWS::S3Tables::TableBucketPolicy",
+    "properties": {
+      "resourcePolicy": {
+        "$ref": "#/types/aws-native:s3tables:TableBucketPolicyResourcePolicy"
+      },
+      "tableBucketArn": {
+        "type": "string"
       }
     }
   },
