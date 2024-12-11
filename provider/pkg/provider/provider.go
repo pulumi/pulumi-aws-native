@@ -851,14 +851,14 @@ func (p *cfnProvider) Create(ctx context.Context, req *pulumirpc.CreateRequest) 
 
 	var outputs resource.PropertyMap
 	if req.GetPreview() {
-		if _, ok := p.customResources[resourceToken]; ok {
-			outputs = PreviewOutputs(inputs, nil, nil, nil)
+		if customResource, ok := p.customResources[resourceToken]; ok {
+			outputs = customResource.PreviewCustomResourceOutputs()
 		} else {
 			spec, hasSpec := p.resourceMap.Resources[resourceToken]
 			if !hasSpec {
 				return nil, errors.Errorf("Resource type %s not found", resourceToken)
 			}
-			outputs = PreviewOutputs(inputs, p.resourceMap.Types, spec.Outputs, spec.ReadOnly)
+			outputs = previewResourceOutputs(inputs, p.resourceMap.Types, spec.Outputs, spec.ReadOnly)
 		}
 
 		previewState, err := plugin.MarshalProperties(
@@ -1104,15 +1104,15 @@ func (p *cfnProvider) Update(ctx context.Context, req *pulumirpc.UpdateRequest) 
 	resourceToken := string(urn.Type())
 
 	if req.GetPreview() {
-		if _, ok := p.customResources[resourceToken]; ok {
-			outputs = PreviewOutputs(newInputs, nil, nil, nil)
+		if customResource, ok := p.customResources[resourceToken]; ok {
+			outputs = customResource.PreviewCustomResourceOutputs()
 		} else {
 			spec, hasSpec := p.resourceMap.Resources[resourceToken]
 			if !hasSpec {
 				return nil, errors.Errorf("Resource type %s not found", resourceToken)
 			}
 			resourceTypeName := urn.Type().Name()
-			outputs = PreviewOutputs(newInputs, p.resourceMap.Types, spec.Outputs, spec.ReadOnly)
+			outputs = previewResourceOutputs(newInputs, p.resourceMap.Types, spec.Outputs, spec.ReadOnly)
 			outputs = populateStableOutputs(newInputs, oldState, spec.ReadOnly, resourceTypeName)
 		}
 

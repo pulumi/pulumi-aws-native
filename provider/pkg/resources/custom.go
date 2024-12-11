@@ -21,4 +21,6 @@ type CustomResource interface {
 	Update(ctx context.Context, urn resource.URN, id string, inputs, oldInputs, state resource.PropertyMap, timeout time.Duration) (resource.PropertyMap, error)
 	// Delete removes the resource from the cloud provider.
 	Delete(ctx context.Context, urn resource.URN, id string, inputs, state resource.PropertyMap, timeout time.Duration) error
+	// PreviewCustomResourceOutputs returns the outputs of the resource based on the inputs and the output properties in the resource schema.
+	PreviewCustomResourceOutputs() resource.PropertyMap
 }

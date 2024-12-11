@@ -11,7 +11,7 @@ import (
 
 func TestPrevierOutputs(t *testing.T) {
 	t.Run("Nested output value", func(t *testing.T) {
-		result := PreviewOutputs(
+		result := previewResourceOutputs(
 			resource.NewPropertyMapFromMap(map[string]interface{}{
 				"name": "my-access-point",
 				"objectLambdaConfiguration": map[string]interface{}{
@@ -22,10 +22,10 @@ func TestPrevierOutputs(t *testing.T) {
 			map[string]metadata.CloudAPIType{
 				"aws-native:s3objectlambda:AccessPointAlias": {
 					Properties: map[string]schema.PropertySpec{
-						"Status": {
+						"status": {
 							TypeSpec: schema.TypeSpec{Type: "string"},
 						},
-						"Value": {
+						"value": {
 							TypeSpec: schema.TypeSpec{Type: "string"},
 						},
 					},
@@ -56,7 +56,7 @@ func TestPrevierOutputs(t *testing.T) {
 					},
 				},
 			},
-			[]string{"alias", "alias/Status", "alias/Value"},
+			[]string{"alias", "alias/status", "alias/value"},
 		)
 		assert.Equal(t, resource.PropertyMap{
 			"alias": resource.MakeComputed(resource.NewStringProperty("")),
@@ -68,7 +68,7 @@ func TestPrevierOutputs(t *testing.T) {
 	})
 
 	t.Run("Mixed input and output types", func(t *testing.T) {
-		result := PreviewOutputs(
+		result := previewResourceOutputs(
 			resource.NewPropertyMapFromMap(map[string]interface{}{
 				"name": "my-access-point",
 				"objectLambdaConfiguration": map[string]interface{}{
@@ -98,7 +98,124 @@ func TestPrevierOutputs(t *testing.T) {
 				},
 			},
 			[]string{
-				"objectLambdaConfiguration/CloudWatchMetricsEnabled",
+				"objectLambdaConfiguration/cloudWatchMetricsEnabled",
+			},
+		)
+		assert.Equal(t, resource.PropertyMap{
+			"objectLambdaConfiguration": resource.NewObjectProperty(resource.NewPropertyMapFromMap(map[string]interface{}{
+				"allowedFeatures":          []string{"GetObject-Range"},
+				"cloudWatchMetricsEnabled": resource.MakeComputed(resource.NewStringProperty("")),
+			})),
+		}, result)
+	})
+
+	t.Run("with additionalProperties", func(t *testing.T) {
+		result := previewResourceOutputs(
+			resource.NewPropertyMapFromMap(map[string]interface{}{
+				"name": "my-access-point",
+				"objectLambdaConfiguration": map[string]interface{}{
+					"allowedFeatures": "GetObject-Range",
+				},
+			}),
+			map[string]metadata.CloudAPIType{},
+			map[string]schema.PropertySpec{
+				"objectLambdaConfiguration": {
+					TypeSpec: schema.TypeSpec{
+						AdditionalProperties: &schema.TypeSpec{
+							Type: "string",
+						},
+					},
+				},
+			},
+			[]string{},
+		)
+		assert.Equal(t, resource.PropertyMap{
+			"objectLambdaConfiguration": resource.NewObjectProperty(resource.NewPropertyMapFromMap(map[string]interface{}{
+				"allowedFeatures": "GetObject-Range",
+			})),
+		}, result)
+	})
+
+	t.Run("with additionalProperties Ref", func(t *testing.T) {
+		result := previewResourceOutputs(
+			resource.NewPropertyMapFromMap(map[string]interface{}{
+				"name": "my-access-point",
+				"objectLambdaConfiguration": map[string]interface{}{
+					"allowedFeatures": []string{"GetObject-Range"},
+				},
+			}),
+			map[string]metadata.CloudAPIType{
+				"aws-native:s3objectlambda:AccessPointObjectLambdaConfiguration": {
+					Properties: map[string]schema.PropertySpec{
+						"cloudWatchMetricsEnabled": {
+							TypeSpec: schema.TypeSpec{Type: "boolean"},
+						},
+						"allowedFeatures": {
+							TypeSpec: schema.TypeSpec{
+								Type:  "array",
+								Items: &schema.TypeSpec{Type: "string"},
+							},
+						},
+					},
+				},
+			},
+			map[string]schema.PropertySpec{
+				"objectLambdaConfiguration": {
+					TypeSpec: schema.TypeSpec{
+						AdditionalProperties: &schema.TypeSpec{
+							Ref: "#/types/aws-native:s3objectlambda:AccessPointObjectLambdaConfiguration",
+						},
+					},
+				},
+			},
+			[]string{
+				"objectLambdaConfiguration/cloudWatchMetricsEnabled",
+			},
+		)
+		assert.Equal(t, resource.PropertyMap{
+			"objectLambdaConfiguration": resource.NewObjectProperty(resource.NewPropertyMapFromMap(map[string]interface{}{
+				"allowedFeatures":          []string{"GetObject-Range"},
+				"cloudWatchMetricsEnabled": resource.MakeComputed(resource.NewStringProperty("")),
+			})),
+		}, result)
+	})
+
+	t.Run("with additionalProperties Items", func(t *testing.T) {
+		result := previewResourceOutputs(
+			resource.NewPropertyMapFromMap(map[string]interface{}{
+				"name": "my-access-point",
+				"objectLambdaConfiguration": map[string]interface{}{
+					"allowedFeatures": []string{"GetObject-Range"},
+				},
+			}),
+			map[string]metadata.CloudAPIType{
+				"aws-native:s3objectlambda:AccessPointObjectLambdaConfiguration": {
+					Properties: map[string]schema.PropertySpec{
+						"cloudWatchMetricsEnabled": {
+							TypeSpec: schema.TypeSpec{Type: "boolean"},
+						},
+						"allowedFeatures": {
+							TypeSpec: schema.TypeSpec{
+								AdditionalProperties: &schema.TypeSpec{
+									Type:  "array",
+									Items: &schema.TypeSpec{Type: "string"},
+								},
+							},
+						},
+					},
+				},
+			},
+			map[string]schema.PropertySpec{
+				"objectLambdaConfiguration": {
+					TypeSpec: schema.TypeSpec{
+						AdditionalProperties: &schema.TypeSpec{
+							Ref: "#/types/aws-native:s3objectlambda:AccessPointObjectLambdaConfiguration",
+						},
+					},
+				},
+			},
+			[]string{
+				"objectLambdaConfiguration/cloudWatchMetricsEnabled",
 			},
 		)
 		assert.Equal(t, resource.PropertyMap{
@@ -110,7 +227,7 @@ func TestPrevierOutputs(t *testing.T) {
 	})
 
 	t.Run("Array with mixed input output types", func(t *testing.T) {
-		result := PreviewOutputs(
+		result := previewResourceOutputs(
 			resource.NewPropertyMapFromMap(map[string]interface{}{
 				"subscribers": []map[string]interface{}{
 					{
@@ -145,7 +262,7 @@ func TestPrevierOutputs(t *testing.T) {
 				},
 			},
 			[]string{
-				"subscribers/*/Status",
+				"subscribers/*/status",
 			},
 		)
 		assert.Equal(t, resource.PropertyMap{
@@ -158,22 +275,109 @@ func TestPrevierOutputs(t *testing.T) {
 		}, result)
 	})
 
-	t.Run("Custom resource", func(t *testing.T) {
-		result := PreviewOutputs(
-			resource.NewPropertyMapFromMap(map[string]interface{}{
-				"name": "my-access-point",
-				"objectLambdaConfiguration": map[string]interface{}{
-					"allowedFeatures":          []string{"GetObject-Range"},
-					"cloudWatchMetricsEnabled": true,
-					"supportingAccessPoint":    "arn:aws:s3:us-west-2:123456789012:accesspoint/my-supporting-ap",
+	t.Run("with secret values", func(t *testing.T) {
+		result := previewResourceOutputs(
+			resource.PropertyMap{
+				"subscribers": resource.NewSecretProperty(&resource.Secret{Element: resource.NewArrayProperty(
+					[]resource.PropertyValue{
+						resource.NewObjectProperty(resource.NewPropertyMapFromMap(map[string]interface{}{
+							"address": "address",
+						})),
+					},
+				)}),
+			},
+			map[string]metadata.CloudAPIType{
+				"aws-native:ce:AnomalySubscriptionSubscriber": {
+					Type: "object",
+					Properties: map[string]schema.PropertySpec{
+						"address": {
+							TypeSpec: schema.TypeSpec{Type: "string"},
+						},
+						"status": {
+							TypeSpec: schema.TypeSpec{Type: "string"},
+						},
+						"type": {
+							TypeSpec: schema.TypeSpec{Type: "string"},
+						},
+					},
 				},
-			}),
-			nil,
-			nil,
-			[]string{},
+			},
+			map[string]schema.PropertySpec{
+				"subscribers": {
+					TypeSpec: schema.TypeSpec{
+						Type: "array",
+						Items: &schema.TypeSpec{
+							Ref: "#/types/aws-native:ce:AnomalySubscriptionSubscriber",
+						},
+					},
+				},
+			},
+			[]string{
+				"subscribers/*/status",
+			},
 		)
 		assert.Equal(t, resource.PropertyMap{
-			"outputs": resource.MakeComputed(resource.NewStringProperty("")),
+			"subscribers": resource.NewSecretProperty(&resource.Secret{Element: resource.NewArrayProperty(
+				[]resource.PropertyValue{
+					resource.NewObjectProperty(resource.NewPropertyMapFromMap(map[string]interface{}{
+						"address": "address",
+						"status":  resource.MakeComputed(resource.NewStringProperty("")),
+					})),
+				},
+			)}),
+		}, result)
+	})
+
+	t.Run("with output values", func(t *testing.T) {
+		result := previewResourceOutputs(
+			resource.PropertyMap{
+				"subscribers": resource.NewOutputProperty(resource.Output{Element: resource.NewArrayProperty(
+					[]resource.PropertyValue{
+						resource.NewObjectProperty(resource.NewPropertyMapFromMap(map[string]interface{}{
+							"address": "address",
+						})),
+					},
+				)}),
+			},
+			map[string]metadata.CloudAPIType{
+				"aws-native:ce:AnomalySubscriptionSubscriber": {
+					Type: "object",
+					Properties: map[string]schema.PropertySpec{
+						"address": {
+							TypeSpec: schema.TypeSpec{Type: "string"},
+						},
+						"status": {
+							TypeSpec: schema.TypeSpec{Type: "string"},
+						},
+						"type": {
+							TypeSpec: schema.TypeSpec{Type: "string"},
+						},
+					},
+				},
+			},
+			map[string]schema.PropertySpec{
+				"subscribers": {
+					TypeSpec: schema.TypeSpec{
+						Type: "array",
+						Items: &schema.TypeSpec{
+							Ref: "#/types/aws-native:ce:AnomalySubscriptionSubscriber",
+						},
+					},
+				},
+			},
+			[]string{
+				"subscribers/*/status",
+			},
+		)
+		assert.Equal(t, resource.PropertyMap{
+			"subscribers": resource.NewOutputProperty(resource.Output{Element: resource.NewArrayProperty(
+				[]resource.PropertyValue{
+					resource.NewObjectProperty(resource.NewPropertyMapFromMap(map[string]interface{}{
+						"address": "address",
+						"status":  resource.MakeComputed(resource.NewStringProperty("")),
+					})),
+				},
+			)}),
 		}, result)
 	})
 }
@@ -190,7 +394,7 @@ func Test_updatePreviewWithOutputs(t *testing.T) {
 				"arn":   "arn:aws:s3-object-lambda:us-west-2:123456789012:accesspoint/my-access-point",
 			}),
 			[]string{
-				"Arn",
+				"arn",
 			},
 			"accesspoint",
 		)
@@ -221,9 +425,9 @@ func Test_updatePreviewWithOutputs(t *testing.T) {
 				},
 			}),
 			[]string{
-				"objectLambdaConfiguration/AccessPointArn",
+				"objectLambdaConfiguration/accessPointArn",
 				"alias",
-				"alias/Status",
+				"alias/status",
 			},
 			"AccessPoint",
 		)
@@ -251,7 +455,7 @@ func Test_updatePreviewWithOutputs(t *testing.T) {
 				},
 			}),
 			[]string{
-				"objectLambdaConfiguration/Arn",
+				"objectLambdaConfiguration/arn",
 			},
 			"AccessPoint",
 		)
@@ -275,7 +479,7 @@ func Test_updatePreviewWithOutputs(t *testing.T) {
 				},
 			}),
 			[]string{
-				"objectLambdaConfiguration/Id",
+				"objectLambdaConfiguration/id",
 			},
 			"AccessPoint",
 		)
@@ -299,7 +503,7 @@ func Test_updatePreviewWithOutputs(t *testing.T) {
 				},
 			}),
 			[]string{
-				"objectLambdaConfiguration/AccessPointId",
+				"objectLambdaConfiguration/accessPointId",
 			},
 			"AccessPoint",
 		)
@@ -323,7 +527,7 @@ func Test_updatePreviewWithOutputs(t *testing.T) {
 				},
 			}),
 			[]string{
-				"objectLambdaConfiguration/AccessPointName",
+				"objectLambdaConfiguration/accessPointName",
 			},
 			"AccessPoint",
 		)
@@ -347,7 +551,7 @@ func Test_updatePreviewWithOutputs(t *testing.T) {
 				},
 			}),
 			[]string{
-				"objectLambdaConfiguration/Name",
+				"objectLambdaConfiguration/name",
 			},
 			"AccessPoint",
 		)
@@ -397,7 +601,7 @@ func Test_updatePreviewWithOutputs(t *testing.T) {
 				},
 			}),
 			[]string{
-				"objectLambdaConfiguration/ArrayValue/*/Arn",
+				"objectLambdaConfiguration/arrayValue/*/arn",
 			},
 			"AccessPoint",
 		)

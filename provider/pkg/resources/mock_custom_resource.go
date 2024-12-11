@@ -88,6 +88,20 @@ func (mr *MockCustomResourceMockRecorder) Delete(ctx, urn, id, inputs, state, ti
 	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Delete", reflect.TypeOf((*MockCustomResource)(nil).Delete), ctx, urn, id, inputs, state, timeout)
 }
 
+// PreviewCustomResourceOutputs mocks base method.
+func (m *MockCustomResource) PreviewCustomResourceOutputs() resource.PropertyMap {
+	m.ctrl.T.Helper()
+	ret := m.ctrl.Call(m, "PreviewCustomResourceOutputs")
+	ret0, _ := ret[0].(resource.PropertyMap)
+	return ret0
+}
+
+// PreviewCustomResourceOutputs indicates an expected call of PreviewCustomResourceOutputs.
+func (mr *MockCustomResourceMockRecorder) PreviewCustomResourceOutputs() *gomock.Call {
+	mr.mock.ctrl.T.Helper()
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "PreviewCustomResourceOutputs", reflect.TypeOf((*MockCustomResource)(nil).PreviewCustomResourceOutputs))
+}
+
 // Read mocks base method.
 func (m *MockCustomResource) Read(ctx context.Context, urn resource.URN, id string, oldInputs, oldOutputs resource.PropertyMap) (resource.PropertyMap, resource.PropertyMap, bool, error) {
 	m.ctrl.T.Helper()

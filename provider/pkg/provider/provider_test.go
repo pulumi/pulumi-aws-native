@@ -151,6 +151,28 @@ func TestCreatePreview(t *testing.T) {
 		assert.Equal(t, "name", props["bucketName"].StringValue())
 		assert.True(t, props["arn"].IsComputed())
 	})
+
+	t.Run("Outputs are computed for custom resource", func(t *testing.T) {
+		req := &pulumirpc.CreateRequest{
+			Urn:        string(urn),
+			Preview:    true,
+			Properties: mustMarshalProperties(t, resource.PropertyMap{"bucketName": resource.NewStringProperty("name")}),
+			Timeout:    float64((5 * time.Minute).Seconds()),
+		}
+		req.Urn = string(resource.NewURN("stack", "project", "parent", "custom:resource", "name"))
+
+		mockCustomResource.EXPECT().PreviewCustomResourceOutputs().Return(
+			resource.PropertyMap{"outputs": resource.MakeComputed(resource.NewStringProperty(""))},
+		)
+
+		resp, err := provider.Create(ctx, req)
+		assert.NoError(t, err)
+		assert.Empty(t, resp.Id)
+		require.NotNil(t, resp.Properties)
+		props := mustUnmarshalProperties(t, resp.Properties)
+		require.True(t, props.HasValue("outputs"), "Expected 'outputs' property in response")
+		assert.True(t, props["outputs"].IsComputed())
+	})
 }
 
 func TestUpdatePreview(t *testing.T) {
@@ -204,6 +226,31 @@ func TestUpdatePreview(t *testing.T) {
 		require.True(t, props.HasValue("bucketName"), "Expected 'bucketName' property in response")
 		assert.Equal(t, "name", props["bucketName"].StringValue())
 		assert.Equal(t, "bucketArn", props["arn"].StringValue())
+	})
+
+	t.Run("custom resource", func(t *testing.T) {
+		req := &pulumirpc.UpdateRequest{
+			Urn:     string(urn),
+			Preview: true,
+			Olds: mustMarshalProperties(t, resource.PropertyMap{
+				"bucketName": resource.NewStringProperty("name"),
+				"arn":        resource.NewStringProperty("bucketArn"),
+			}),
+			News:    mustMarshalProperties(t, resource.PropertyMap{"bucketName": resource.NewStringProperty("name")}),
+			Timeout: float64((5 * time.Minute).Seconds()),
+		}
+		req.Urn = string(resource.NewURN("stack", "project", "parent", "custom:resource", "name"))
+
+		mockCustomResource.EXPECT().PreviewCustomResourceOutputs().Return(
+			resource.PropertyMap{"data": resource.MakeComputed(resource.NewStringProperty(""))},
+		)
+
+		resp, err := provider.Update(ctx, req)
+		assert.NoError(t, err)
+		require.NotNil(t, resp.Properties)
+		props := mustUnmarshalProperties(t, resp.Properties)
+		require.True(t, props.HasValue("data"), "Expected 'data' property in response")
+		assert.True(t, props["data"].IsComputed())
 	})
 }
 
