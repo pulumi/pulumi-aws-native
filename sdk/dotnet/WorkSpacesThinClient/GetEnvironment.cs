@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.WorkSpacesThinClient
         /// </summary>
         public static Output<GetEnvironmentResult> Invoke(GetEnvironmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEnvironmentResult>("aws-native:workspacesthinclient:getEnvironment", args ?? new GetEnvironmentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource type definition for AWS::WorkSpacesThinClient::Environment.
+        /// </summary>
+        public static Output<GetEnvironmentResult> Invoke(GetEnvironmentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEnvironmentResult>("aws-native:workspacesthinclient:getEnvironment", args ?? new GetEnvironmentInvokeArgs(), options.WithDefaults());
     }
 
 

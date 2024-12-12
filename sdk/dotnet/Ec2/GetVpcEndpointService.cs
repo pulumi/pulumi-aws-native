@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         public static Output<GetVpcEndpointServiceResult> Invoke(GetVpcEndpointServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpcEndpointServiceResult>("aws-native:ec2:getVpcEndpointService", args ?? new GetVpcEndpointServiceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::EC2::VPCEndpointService
+        /// </summary>
+        public static Output<GetVpcEndpointServiceResult> Invoke(GetVpcEndpointServiceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVpcEndpointServiceResult>("aws-native:ec2:getVpcEndpointService", args ?? new GetVpcEndpointServiceInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Evidently
         /// </summary>
         public static Output<GetLaunchResult> Invoke(GetLaunchInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLaunchResult>("aws-native:evidently:getLaunch", args ?? new GetLaunchInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::Evidently::Launch.
+        /// </summary>
+        public static Output<GetLaunchResult> Invoke(GetLaunchInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLaunchResult>("aws-native:evidently:getLaunch", args ?? new GetLaunchInvokeArgs(), options.WithDefaults());
     }
 
 

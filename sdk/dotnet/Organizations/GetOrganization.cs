@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Organizations
         /// </summary>
         public static Output<GetOrganizationResult> Invoke(GetOrganizationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOrganizationResult>("aws-native:organizations:getOrganization", args ?? new GetOrganizationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource schema for AWS::Organizations::Organization
+        /// </summary>
+        public static Output<GetOrganizationResult> Invoke(GetOrganizationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetOrganizationResult>("aws-native:organizations:getOrganization", args ?? new GetOrganizationInvokeArgs(), options.WithDefaults());
     }
 
 

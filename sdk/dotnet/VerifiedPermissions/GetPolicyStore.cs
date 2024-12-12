@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.VerifiedPermissions
         /// </summary>
         public static Output<GetPolicyStoreResult> Invoke(GetPolicyStoreInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPolicyStoreResult>("aws-native:verifiedpermissions:getPolicyStore", args ?? new GetPolicyStoreInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Represents a policy store that you can place schema, policies, and policy templates in to validate authorization requests
+        /// </summary>
+        public static Output<GetPolicyStoreResult> Invoke(GetPolicyStoreInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPolicyStoreResult>("aws-native:verifiedpermissions:getPolicyStore", args ?? new GetPolicyStoreInvokeArgs(), options.WithDefaults());
     }
 
 

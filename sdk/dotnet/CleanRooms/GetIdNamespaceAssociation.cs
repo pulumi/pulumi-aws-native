@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.CleanRooms
         /// </summary>
         public static Output<GetIdNamespaceAssociationResult> Invoke(GetIdNamespaceAssociationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIdNamespaceAssociationResult>("aws-native:cleanrooms:getIdNamespaceAssociation", args ?? new GetIdNamespaceAssociationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Represents an association between an ID namespace and a collaboration
+        /// </summary>
+        public static Output<GetIdNamespaceAssociationResult> Invoke(GetIdNamespaceAssociationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetIdNamespaceAssociationResult>("aws-native:cleanrooms:getIdNamespaceAssociation", args ?? new GetIdNamespaceAssociationInvokeArgs(), options.WithDefaults());
     }
 
 

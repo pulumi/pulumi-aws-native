@@ -47,21 +47,11 @@ type LookupRouteResponseResult struct {
 }
 
 func LookupRouteResponseOutput(ctx *pulumi.Context, args LookupRouteResponseOutputArgs, opts ...pulumi.InvokeOption) LookupRouteResponseResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupRouteResponseResultOutput, error) {
 			args := v.(LookupRouteResponseArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupRouteResponseResult
-			secret, err := ctx.InvokePackageRaw("aws-native:apigatewayv2:getRouteResponse", args, &rv, "", opts...)
-			if err != nil {
-				return LookupRouteResponseResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupRouteResponseResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupRouteResponseResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:apigatewayv2:getRouteResponse", args, LookupRouteResponseResultOutput{}, options).(LookupRouteResponseResultOutput), nil
 		}).(LookupRouteResponseResultOutput)
 }
 

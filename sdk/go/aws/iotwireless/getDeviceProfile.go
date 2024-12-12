@@ -38,21 +38,11 @@ type LookupDeviceProfileResult struct {
 }
 
 func LookupDeviceProfileOutput(ctx *pulumi.Context, args LookupDeviceProfileOutputArgs, opts ...pulumi.InvokeOption) LookupDeviceProfileResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupDeviceProfileResultOutput, error) {
 			args := v.(LookupDeviceProfileArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupDeviceProfileResult
-			secret, err := ctx.InvokePackageRaw("aws-native:iotwireless:getDeviceProfile", args, &rv, "", opts...)
-			if err != nil {
-				return LookupDeviceProfileResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupDeviceProfileResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupDeviceProfileResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:iotwireless:getDeviceProfile", args, LookupDeviceProfileResultOutput{}, options).(LookupDeviceProfileResultOutput), nil
 		}).(LookupDeviceProfileResultOutput)
 }
 

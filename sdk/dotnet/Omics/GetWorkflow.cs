@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Omics
         /// </summary>
         public static Output<GetWorkflowResult> Invoke(GetWorkflowInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkflowResult>("aws-native:omics:getWorkflow", args ?? new GetWorkflowInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::Omics::Workflow Resource Type
+        /// </summary>
+        public static Output<GetWorkflowResult> Invoke(GetWorkflowInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetWorkflowResult>("aws-native:omics:getWorkflow", args ?? new GetWorkflowInvokeArgs(), options.WithDefaults());
     }
 
 

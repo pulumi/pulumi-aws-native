@@ -52,21 +52,11 @@ type LookupFeatureResult struct {
 }
 
 func LookupFeatureOutput(ctx *pulumi.Context, args LookupFeatureOutputArgs, opts ...pulumi.InvokeOption) LookupFeatureResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupFeatureResultOutput, error) {
 			args := v.(LookupFeatureArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupFeatureResult
-			secret, err := ctx.InvokePackageRaw("aws-native:evidently:getFeature", args, &rv, "", opts...)
-			if err != nil {
-				return LookupFeatureResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupFeatureResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupFeatureResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:evidently:getFeature", args, LookupFeatureResultOutput{}, options).(LookupFeatureResultOutput), nil
 		}).(LookupFeatureResultOutput)
 }
 

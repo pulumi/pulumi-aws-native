@@ -50,21 +50,11 @@ type LookupBudgetsActionResult struct {
 }
 
 func LookupBudgetsActionOutput(ctx *pulumi.Context, args LookupBudgetsActionOutputArgs, opts ...pulumi.InvokeOption) LookupBudgetsActionResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupBudgetsActionResultOutput, error) {
 			args := v.(LookupBudgetsActionArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupBudgetsActionResult
-			secret, err := ctx.InvokePackageRaw("aws-native:budgets:getBudgetsAction", args, &rv, "", opts...)
-			if err != nil {
-				return LookupBudgetsActionResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupBudgetsActionResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupBudgetsActionResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:budgets:getBudgetsAction", args, LookupBudgetsActionResultOutput{}, options).(LookupBudgetsActionResultOutput), nil
 		}).(LookupBudgetsActionResultOutput)
 }
 

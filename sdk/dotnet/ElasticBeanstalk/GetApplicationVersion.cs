@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.ElasticBeanstalk
         /// </summary>
         public static Output<GetApplicationVersionResult> Invoke(GetApplicationVersionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationVersionResult>("aws-native:elasticbeanstalk:getApplicationVersion", args ?? new GetApplicationVersionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::ElasticBeanstalk::ApplicationVersion
+        /// </summary>
+        public static Output<GetApplicationVersionResult> Invoke(GetApplicationVersionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetApplicationVersionResult>("aws-native:elasticbeanstalk:getApplicationVersion", args ?? new GetApplicationVersionInvokeArgs(), options.WithDefaults());
     }
 
 

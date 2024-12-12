@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// </summary>
         public static Output<GetContainerRecipeResult> Invoke(GetContainerRecipeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetContainerRecipeResult>("aws-native:imagebuilder:getContainerRecipe", args ?? new GetContainerRecipeInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource schema for AWS::ImageBuilder::ContainerRecipe
+        /// </summary>
+        public static Output<GetContainerRecipeResult> Invoke(GetContainerRecipeInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetContainerRecipeResult>("aws-native:imagebuilder:getContainerRecipe", args ?? new GetContainerRecipeInvokeArgs(), options.WithDefaults());
     }
 
 

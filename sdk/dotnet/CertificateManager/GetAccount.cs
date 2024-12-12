@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.CertificateManager
         /// </summary>
         public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("aws-native:certificatemanager:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource schema for AWS::CertificateManager::Account.
+        /// </summary>
+        public static Output<GetAccountResult> Invoke(GetAccountInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAccountResult>("aws-native:certificatemanager:getAccount", args ?? new GetAccountInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Location
         /// </summary>
         public static Output<GetApiKeyResult> Invoke(GetApiKeyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApiKeyResult>("aws-native:location:getApiKey", args ?? new GetApiKeyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::Location::APIKey Resource Type
+        /// </summary>
+        public static Output<GetApiKeyResult> Invoke(GetApiKeyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetApiKeyResult>("aws-native:location:getApiKey", args ?? new GetApiKeyInvokeArgs(), options.WithDefaults());
     }
 
 

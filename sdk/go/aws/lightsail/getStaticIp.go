@@ -39,21 +39,11 @@ type LookupStaticIpResult struct {
 }
 
 func LookupStaticIpOutput(ctx *pulumi.Context, args LookupStaticIpOutputArgs, opts ...pulumi.InvokeOption) LookupStaticIpResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupStaticIpResultOutput, error) {
 			args := v.(LookupStaticIpArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupStaticIpResult
-			secret, err := ctx.InvokePackageRaw("aws-native:lightsail:getStaticIp", args, &rv, "", opts...)
-			if err != nil {
-				return LookupStaticIpResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupStaticIpResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupStaticIpResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:lightsail:getStaticIp", args, LookupStaticIpResultOutput{}, options).(LookupStaticIpResultOutput), nil
 		}).(LookupStaticIpResultOutput)
 }
 

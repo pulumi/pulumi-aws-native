@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Rds
         /// </summary>
         public static Output<GetGlobalClusterResult> Invoke(GetGlobalClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGlobalClusterResult>("aws-native:rds:getGlobalCluster", args ?? new GetGlobalClusterInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::RDS::GlobalCluster
+        /// </summary>
+        public static Output<GetGlobalClusterResult> Invoke(GetGlobalClusterInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetGlobalClusterResult>("aws-native:rds:getGlobalCluster", args ?? new GetGlobalClusterInvokeArgs(), options.WithDefaults());
     }
 
 

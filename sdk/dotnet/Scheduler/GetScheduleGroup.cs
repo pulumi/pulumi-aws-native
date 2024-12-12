@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Scheduler
         /// </summary>
         public static Output<GetScheduleGroupResult> Invoke(GetScheduleGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetScheduleGroupResult>("aws-native:scheduler:getScheduleGroup", args ?? new GetScheduleGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::Scheduler::ScheduleGroup Resource Type
+        /// </summary>
+        public static Output<GetScheduleGroupResult> Invoke(GetScheduleGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetScheduleGroupResult>("aws-native:scheduler:getScheduleGroup", args ?? new GetScheduleGroupInvokeArgs(), options.WithDefaults());
     }
 
 

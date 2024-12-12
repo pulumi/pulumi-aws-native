@@ -38,21 +38,11 @@ type LookupStreamKeyResult struct {
 }
 
 func LookupStreamKeyOutput(ctx *pulumi.Context, args LookupStreamKeyOutputArgs, opts ...pulumi.InvokeOption) LookupStreamKeyResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupStreamKeyResultOutput, error) {
 			args := v.(LookupStreamKeyArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupStreamKeyResult
-			secret, err := ctx.InvokePackageRaw("aws-native:ivs:getStreamKey", args, &rv, "", opts...)
-			if err != nil {
-				return LookupStreamKeyResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupStreamKeyResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupStreamKeyResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:ivs:getStreamKey", args, LookupStreamKeyResultOutput{}, options).(LookupStreamKeyResultOutput), nil
 		}).(LookupStreamKeyResultOutput)
 }
 

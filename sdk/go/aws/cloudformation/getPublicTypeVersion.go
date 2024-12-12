@@ -37,21 +37,11 @@ type LookupPublicTypeVersionResult struct {
 }
 
 func LookupPublicTypeVersionOutput(ctx *pulumi.Context, args LookupPublicTypeVersionOutputArgs, opts ...pulumi.InvokeOption) LookupPublicTypeVersionResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupPublicTypeVersionResultOutput, error) {
 			args := v.(LookupPublicTypeVersionArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupPublicTypeVersionResult
-			secret, err := ctx.InvokePackageRaw("aws-native:cloudformation:getPublicTypeVersion", args, &rv, "", opts...)
-			if err != nil {
-				return LookupPublicTypeVersionResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupPublicTypeVersionResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupPublicTypeVersionResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:cloudformation:getPublicTypeVersion", args, LookupPublicTypeVersionResultOutput{}, options).(LookupPublicTypeVersionResultOutput), nil
 		}).(LookupPublicTypeVersionResultOutput)
 }
 

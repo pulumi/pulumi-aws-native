@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.CleanRooms
         /// </summary>
         public static Output<GetMembershipResult> Invoke(GetMembershipInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMembershipResult>("aws-native:cleanrooms:getMembership", args ?? new GetMembershipInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Represents an AWS account that is a part of a collaboration
+        /// </summary>
+        public static Output<GetMembershipResult> Invoke(GetMembershipInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMembershipResult>("aws-native:cleanrooms:getMembership", args ?? new GetMembershipInvokeArgs(), options.WithDefaults());
     }
 
 

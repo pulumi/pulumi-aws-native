@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.DynamoDb
         /// </summary>
         public static Output<GetGlobalTableResult> Invoke(GetGlobalTableInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGlobalTableResult>("aws-native:dynamodb:getGlobalTable", args ?? new GetGlobalTableInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Version: None. Resource Type definition for AWS::DynamoDB::GlobalTable
+        /// </summary>
+        public static Output<GetGlobalTableResult> Invoke(GetGlobalTableInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetGlobalTableResult>("aws-native:dynamodb:getGlobalTable", args ?? new GetGlobalTableInvokeArgs(), options.WithDefaults());
     }
 
 

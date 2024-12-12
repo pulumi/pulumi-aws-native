@@ -31,21 +31,11 @@ type LookupBatchScramSecretResult struct {
 }
 
 func LookupBatchScramSecretOutput(ctx *pulumi.Context, args LookupBatchScramSecretOutputArgs, opts ...pulumi.InvokeOption) LookupBatchScramSecretResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupBatchScramSecretResultOutput, error) {
 			args := v.(LookupBatchScramSecretArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupBatchScramSecretResult
-			secret, err := ctx.InvokePackageRaw("aws-native:msk:getBatchScramSecret", args, &rv, "", opts...)
-			if err != nil {
-				return LookupBatchScramSecretResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupBatchScramSecretResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupBatchScramSecretResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:msk:getBatchScramSecret", args, LookupBatchScramSecretResultOutput{}, options).(LookupBatchScramSecretResultOutput), nil
 		}).(LookupBatchScramSecretResultOutput)
 }
 

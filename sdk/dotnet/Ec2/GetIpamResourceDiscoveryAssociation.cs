@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         public static Output<GetIpamResourceDiscoveryAssociationResult> Invoke(GetIpamResourceDiscoveryAssociationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIpamResourceDiscoveryAssociationResult>("aws-native:ec2:getIpamResourceDiscoveryAssociation", args ?? new GetIpamResourceDiscoveryAssociationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Schema of AWS::EC2::IPAMResourceDiscoveryAssociation Type
+        /// </summary>
+        public static Output<GetIpamResourceDiscoveryAssociationResult> Invoke(GetIpamResourceDiscoveryAssociationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetIpamResourceDiscoveryAssociationResult>("aws-native:ec2:getIpamResourceDiscoveryAssociation", args ?? new GetIpamResourceDiscoveryAssociationInvokeArgs(), options.WithDefaults());
     }
 
 

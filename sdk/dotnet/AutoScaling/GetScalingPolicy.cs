@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.AutoScaling
         /// </summary>
         public static Output<GetScalingPolicyResult> Invoke(GetScalingPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetScalingPolicyResult>("aws-native:autoscaling:getScalingPolicy", args ?? new GetScalingPolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The AWS::AutoScaling::ScalingPolicy resource specifies an Amazon EC2 Auto Scaling scaling policy so that the Auto Scaling group can scale the number of instances available for your application.
+        /// </summary>
+        public static Output<GetScalingPolicyResult> Invoke(GetScalingPolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetScalingPolicyResult>("aws-native:autoscaling:getScalingPolicy", args ?? new GetScalingPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

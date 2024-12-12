@@ -37,21 +37,11 @@ type LookupPublicKeyResult struct {
 }
 
 func LookupPublicKeyOutput(ctx *pulumi.Context, args LookupPublicKeyOutputArgs, opts ...pulumi.InvokeOption) LookupPublicKeyResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupPublicKeyResultOutput, error) {
 			args := v.(LookupPublicKeyArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupPublicKeyResult
-			secret, err := ctx.InvokePackageRaw("aws-native:cloudfront:getPublicKey", args, &rv, "", opts...)
-			if err != nil {
-				return LookupPublicKeyResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupPublicKeyResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupPublicKeyResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:cloudfront:getPublicKey", args, LookupPublicKeyResultOutput{}, options).(LookupPublicKeyResultOutput), nil
 		}).(LookupPublicKeyResultOutput)
 }
 

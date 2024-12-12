@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.RolesAnywhere
         /// </summary>
         public static Output<GetTrustAnchorResult> Invoke(GetTrustAnchorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTrustAnchorResult>("aws-native:rolesanywhere:getTrustAnchor", args ?? new GetTrustAnchorInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::RolesAnywhere::TrustAnchor Resource Type.
+        /// </summary>
+        public static Output<GetTrustAnchorResult> Invoke(GetTrustAnchorInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTrustAnchorResult>("aws-native:rolesanywhere:getTrustAnchor", args ?? new GetTrustAnchorInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -39,21 +39,11 @@ type LookupTopicPolicyResult struct {
 }
 
 func LookupTopicPolicyOutput(ctx *pulumi.Context, args LookupTopicPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupTopicPolicyResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupTopicPolicyResultOutput, error) {
 			args := v.(LookupTopicPolicyArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupTopicPolicyResult
-			secret, err := ctx.InvokePackageRaw("aws-native:sns:getTopicPolicy", args, &rv, "", opts...)
-			if err != nil {
-				return LookupTopicPolicyResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupTopicPolicyResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupTopicPolicyResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:sns:getTopicPolicy", args, LookupTopicPolicyResultOutput{}, options).(LookupTopicPolicyResultOutput), nil
 		}).(LookupTopicPolicyResultOutput)
 }
 

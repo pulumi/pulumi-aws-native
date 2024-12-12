@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Lambda
         /// </summary>
         public static Output<GetEventInvokeConfigResult> Invoke(GetEventInvokeConfigInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEventInvokeConfigResult>("aws-native:lambda:getEventInvokeConfig", args ?? new GetEventInvokeConfigInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The AWS::Lambda::EventInvokeConfig resource configures options for asynchronous invocation on a version or an alias.
+        /// </summary>
+        public static Output<GetEventInvokeConfigResult> Invoke(GetEventInvokeConfigInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEventInvokeConfigResult>("aws-native:lambda:getEventInvokeConfig", args ?? new GetEventInvokeConfigInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.MediaPackageV2
         /// </summary>
         public static Output<GetOriginEndpointPolicyResult> Invoke(GetOriginEndpointPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOriginEndpointPolicyResult>("aws-native:mediapackagev2:getOriginEndpointPolicy", args ?? new GetOriginEndpointPolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// &lt;p&gt;Represents a resource policy that allows or denies access to an origin endpoint.&lt;/p&gt;
+        /// </summary>
+        public static Output<GetOriginEndpointPolicyResult> Invoke(GetOriginEndpointPolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetOriginEndpointPolicyResult>("aws-native:mediapackagev2:getOriginEndpointPolicy", args ?? new GetOriginEndpointPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

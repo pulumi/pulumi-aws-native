@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.PcaConnectorAd
         /// </summary>
         public static Output<GetDirectoryRegistrationResult> Invoke(GetDirectoryRegistrationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDirectoryRegistrationResult>("aws-native:pcaconnectorad:getDirectoryRegistration", args ?? new GetDirectoryRegistrationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::PCAConnectorAD::DirectoryRegistration Resource Type
+        /// </summary>
+        public static Output<GetDirectoryRegistrationResult> Invoke(GetDirectoryRegistrationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDirectoryRegistrationResult>("aws-native:pcaconnectorad:getDirectoryRegistration", args ?? new GetDirectoryRegistrationInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Ses
         /// </summary>
         public static Output<GetMailManagerRelayResult> Invoke(GetMailManagerRelayInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMailManagerRelayResult>("aws-native:ses:getMailManagerRelay", args ?? new GetMailManagerRelayInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::SES::MailManagerRelay Resource Type
+        /// </summary>
+        public static Output<GetMailManagerRelayResult> Invoke(GetMailManagerRelayInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMailManagerRelayResult>("aws-native:ses:getMailManagerRelay", args ?? new GetMailManagerRelayInvokeArgs(), options.WithDefaults());
     }
 
 

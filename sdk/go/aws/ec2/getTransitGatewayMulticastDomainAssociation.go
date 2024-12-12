@@ -41,21 +41,11 @@ type LookupTransitGatewayMulticastDomainAssociationResult struct {
 }
 
 func LookupTransitGatewayMulticastDomainAssociationOutput(ctx *pulumi.Context, args LookupTransitGatewayMulticastDomainAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupTransitGatewayMulticastDomainAssociationResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupTransitGatewayMulticastDomainAssociationResultOutput, error) {
 			args := v.(LookupTransitGatewayMulticastDomainAssociationArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupTransitGatewayMulticastDomainAssociationResult
-			secret, err := ctx.InvokePackageRaw("aws-native:ec2:getTransitGatewayMulticastDomainAssociation", args, &rv, "", opts...)
-			if err != nil {
-				return LookupTransitGatewayMulticastDomainAssociationResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupTransitGatewayMulticastDomainAssociationResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupTransitGatewayMulticastDomainAssociationResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:ec2:getTransitGatewayMulticastDomainAssociation", args, LookupTransitGatewayMulticastDomainAssociationResultOutput{}, options).(LookupTransitGatewayMulticastDomainAssociationResultOutput), nil
 		}).(LookupTransitGatewayMulticastDomainAssociationResultOutput)
 }
 

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Redshift
         /// </summary>
         public static Output<GetEventSubscriptionResult> Invoke(GetEventSubscriptionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEventSubscriptionResult>("aws-native:redshift:getEventSubscription", args ?? new GetEventSubscriptionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The `AWS::Redshift::EventSubscription` resource creates an Amazon Redshift Event Subscription.
+        /// </summary>
+        public static Output<GetEventSubscriptionResult> Invoke(GetEventSubscriptionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEventSubscriptionResult>("aws-native:redshift:getEventSubscription", args ?? new GetEventSubscriptionInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative
 
         public static Output<GetPartitionResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPartitionResult>("aws-native:index:getPartition", InvokeArgs.Empty, options.WithDefaults());
+
+        public static Output<GetPartitionResult> Invoke(InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPartitionResult>("aws-native:index:getPartition", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

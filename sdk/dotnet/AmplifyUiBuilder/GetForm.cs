@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder
         /// </summary>
         public static Output<GetFormResult> Invoke(GetFormInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFormResult>("aws-native:amplifyuibuilder:getForm", args ?? new GetFormInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::AmplifyUIBuilder::Form Resource Type
+        /// </summary>
+        public static Output<GetFormResult> Invoke(GetFormInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFormResult>("aws-native:amplifyuibuilder:getForm", args ?? new GetFormInvokeArgs(), options.WithDefaults());
     }
 
 

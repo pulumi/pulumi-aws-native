@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.IoT
         /// </summary>
         public static Output<GetCaCertificateResult> Invoke(GetCaCertificateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCaCertificateResult>("aws-native:iot:getCaCertificate", args ?? new GetCaCertificateInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Registers a CA Certificate in IoT.
+        /// </summary>
+        public static Output<GetCaCertificateResult> Invoke(GetCaCertificateInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCaCertificateResult>("aws-native:iot:getCaCertificate", args ?? new GetCaCertificateInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.DataSync
         /// </summary>
         public static Output<GetLocationEfsResult> Invoke(GetLocationEfsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocationEfsResult>("aws-native:datasync:getLocationEfs", args ?? new GetLocationEfsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource schema for AWS::DataSync::LocationEFS.
+        /// </summary>
+        public static Output<GetLocationEfsResult> Invoke(GetLocationEfsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLocationEfsResult>("aws-native:datasync:getLocationEfs", args ?? new GetLocationEfsInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Logs
         /// </summary>
         public static Output<GetIntegrationResult> Invoke(GetIntegrationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIntegrationResult>("aws-native:logs:getIntegration", args ?? new GetIntegrationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Schema for Logs Integration Resource
+        /// </summary>
+        public static Output<GetIntegrationResult> Invoke(GetIntegrationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetIntegrationResult>("aws-native:logs:getIntegration", args ?? new GetIntegrationInvokeArgs(), options.WithDefaults());
     }
 
 

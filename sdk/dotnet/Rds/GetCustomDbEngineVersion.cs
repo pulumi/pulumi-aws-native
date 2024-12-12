@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Rds
         /// </summary>
         public static Output<GetCustomDbEngineVersionResult> Invoke(GetCustomDbEngineVersionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCustomDbEngineVersionResult>("aws-native:rds:getCustomDbEngineVersion", args ?? new GetCustomDbEngineVersionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Creates a custom DB engine version (CEV).
+        /// </summary>
+        public static Output<GetCustomDbEngineVersionResult> Invoke(GetCustomDbEngineVersionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCustomDbEngineVersionResult>("aws-native:rds:getCustomDbEngineVersion", args ?? new GetCustomDbEngineVersionInvokeArgs(), options.WithDefaults());
     }
 
 

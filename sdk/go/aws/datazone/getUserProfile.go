@@ -42,21 +42,11 @@ type LookupUserProfileResult struct {
 }
 
 func LookupUserProfileOutput(ctx *pulumi.Context, args LookupUserProfileOutputArgs, opts ...pulumi.InvokeOption) LookupUserProfileResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupUserProfileResultOutput, error) {
 			args := v.(LookupUserProfileArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupUserProfileResult
-			secret, err := ctx.InvokePackageRaw("aws-native:datazone:getUserProfile", args, &rv, "", opts...)
-			if err != nil {
-				return LookupUserProfileResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupUserProfileResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupUserProfileResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:datazone:getUserProfile", args, LookupUserProfileResultOutput{}, options).(LookupUserProfileResultOutput), nil
 		}).(LookupUserProfileResultOutput)
 }
 

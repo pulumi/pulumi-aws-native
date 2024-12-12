@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Inspector
         /// </summary>
         public static Output<GetAssessmentTemplateResult> Invoke(GetAssessmentTemplateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssessmentTemplateResult>("aws-native:inspector:getAssessmentTemplate", args ?? new GetAssessmentTemplateInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::Inspector::AssessmentTemplate
+        /// </summary>
+        public static Output<GetAssessmentTemplateResult> Invoke(GetAssessmentTemplateInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAssessmentTemplateResult>("aws-native:inspector:getAssessmentTemplate", args ?? new GetAssessmentTemplateInvokeArgs(), options.WithDefaults());
     }
 
 

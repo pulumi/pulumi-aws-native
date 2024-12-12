@@ -52,21 +52,11 @@ type LookupMessageTemplateResult struct {
 }
 
 func LookupMessageTemplateOutput(ctx *pulumi.Context, args LookupMessageTemplateOutputArgs, opts ...pulumi.InvokeOption) LookupMessageTemplateResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupMessageTemplateResultOutput, error) {
 			args := v.(LookupMessageTemplateArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupMessageTemplateResult
-			secret, err := ctx.InvokePackageRaw("aws-native:wisdom:getMessageTemplate", args, &rv, "", opts...)
-			if err != nil {
-				return LookupMessageTemplateResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupMessageTemplateResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupMessageTemplateResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:wisdom:getMessageTemplate", args, LookupMessageTemplateResultOutput{}, options).(LookupMessageTemplateResultOutput), nil
 		}).(LookupMessageTemplateResultOutput)
 }
 

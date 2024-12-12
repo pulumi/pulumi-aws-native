@@ -35,21 +35,11 @@ type LookupCertificateAuthorityActivationResult struct {
 }
 
 func LookupCertificateAuthorityActivationOutput(ctx *pulumi.Context, args LookupCertificateAuthorityActivationOutputArgs, opts ...pulumi.InvokeOption) LookupCertificateAuthorityActivationResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupCertificateAuthorityActivationResultOutput, error) {
 			args := v.(LookupCertificateAuthorityActivationArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupCertificateAuthorityActivationResult
-			secret, err := ctx.InvokePackageRaw("aws-native:acmpca:getCertificateAuthorityActivation", args, &rv, "", opts...)
-			if err != nil {
-				return LookupCertificateAuthorityActivationResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupCertificateAuthorityActivationResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupCertificateAuthorityActivationResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:acmpca:getCertificateAuthorityActivation", args, LookupCertificateAuthorityActivationResultOutput{}, options).(LookupCertificateAuthorityActivationResultOutput), nil
 		}).(LookupCertificateAuthorityActivationResultOutput)
 }
 

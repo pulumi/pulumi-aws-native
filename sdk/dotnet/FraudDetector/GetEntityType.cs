@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.FraudDetector
         /// </summary>
         public static Output<GetEntityTypeResult> Invoke(GetEntityTypeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEntityTypeResult>("aws-native:frauddetector:getEntityType", args ?? new GetEntityTypeInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// An entity type for fraud detector.
+        /// </summary>
+        public static Output<GetEntityTypeResult> Invoke(GetEntityTypeInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEntityTypeResult>("aws-native:frauddetector:getEntityType", args ?? new GetEntityTypeInvokeArgs(), options.WithDefaults());
     }
 
 

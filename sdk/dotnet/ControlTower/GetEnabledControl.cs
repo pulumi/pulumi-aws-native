@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.ControlTower
         /// </summary>
         public static Output<GetEnabledControlResult> Invoke(GetEnabledControlInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEnabledControlResult>("aws-native:controltower:getEnabledControl", args ?? new GetEnabledControlInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Enables a control on a specified target.
+        /// </summary>
+        public static Output<GetEnabledControlResult> Invoke(GetEnabledControlInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEnabledControlResult>("aws-native:controltower:getEnabledControl", args ?? new GetEnabledControlInvokeArgs(), options.WithDefaults());
     }
 
 

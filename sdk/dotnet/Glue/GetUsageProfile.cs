@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Glue
         /// </summary>
         public static Output<GetUsageProfileResult> Invoke(GetUsageProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUsageProfileResult>("aws-native:glue:getUsageProfile", args ?? new GetUsageProfileInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// This creates a Resource of UsageProfile type.
+        /// </summary>
+        public static Output<GetUsageProfileResult> Invoke(GetUsageProfileInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetUsageProfileResult>("aws-native:glue:getUsageProfile", args ?? new GetUsageProfileInvokeArgs(), options.WithDefaults());
     }
 
 

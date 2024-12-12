@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Proton
         /// </summary>
         public static Output<GetServiceTemplateResult> Invoke(GetServiceTemplateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceTemplateResult>("aws-native:proton:getServiceTemplate", args ?? new GetServiceTemplateInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::Proton::ServiceTemplate Resource Type
+        /// </summary>
+        public static Output<GetServiceTemplateResult> Invoke(GetServiceTemplateInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetServiceTemplateResult>("aws-native:proton:getServiceTemplate", args ?? new GetServiceTemplateInvokeArgs(), options.WithDefaults());
     }
 
 

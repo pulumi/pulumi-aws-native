@@ -37,21 +37,11 @@ type LookupIpamPoolCidrResult struct {
 }
 
 func LookupIpamPoolCidrOutput(ctx *pulumi.Context, args LookupIpamPoolCidrOutputArgs, opts ...pulumi.InvokeOption) LookupIpamPoolCidrResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupIpamPoolCidrResultOutput, error) {
 			args := v.(LookupIpamPoolCidrArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupIpamPoolCidrResult
-			secret, err := ctx.InvokePackageRaw("aws-native:ec2:getIpamPoolCidr", args, &rv, "", opts...)
-			if err != nil {
-				return LookupIpamPoolCidrResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupIpamPoolCidrResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupIpamPoolCidrResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:ec2:getIpamPoolCidr", args, LookupIpamPoolCidrResultOutput{}, options).(LookupIpamPoolCidrResultOutput), nil
 		}).(LookupIpamPoolCidrResultOutput)
 }
 

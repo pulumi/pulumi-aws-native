@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.GuardDuty
         /// </summary>
         public static Output<GetMemberResult> Invoke(GetMemberInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMemberResult>("aws-native:guardduty:getMember", args ?? new GetMemberInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::GuardDuty::Member
+        /// </summary>
+        public static Output<GetMemberResult> Invoke(GetMemberInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMemberResult>("aws-native:guardduty:getMember", args ?? new GetMemberInvokeArgs(), options.WithDefaults());
     }
 
 

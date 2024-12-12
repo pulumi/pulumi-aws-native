@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Athena
         /// </summary>
         public static Output<GetNamedQueryResult> Invoke(GetNamedQueryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNamedQueryResult>("aws-native:athena:getNamedQuery", args ?? new GetNamedQueryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource schema for AWS::Athena::NamedQuery
+        /// </summary>
+        public static Output<GetNamedQueryResult> Invoke(GetNamedQueryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetNamedQueryResult>("aws-native:athena:getNamedQuery", args ?? new GetNamedQueryInvokeArgs(), options.WithDefaults());
     }
 
 

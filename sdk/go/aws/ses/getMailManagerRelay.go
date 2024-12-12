@@ -46,21 +46,11 @@ type LookupMailManagerRelayResult struct {
 }
 
 func LookupMailManagerRelayOutput(ctx *pulumi.Context, args LookupMailManagerRelayOutputArgs, opts ...pulumi.InvokeOption) LookupMailManagerRelayResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupMailManagerRelayResultOutput, error) {
 			args := v.(LookupMailManagerRelayArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupMailManagerRelayResult
-			secret, err := ctx.InvokePackageRaw("aws-native:ses:getMailManagerRelay", args, &rv, "", opts...)
-			if err != nil {
-				return LookupMailManagerRelayResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupMailManagerRelayResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupMailManagerRelayResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:ses:getMailManagerRelay", args, LookupMailManagerRelayResultOutput{}, options).(LookupMailManagerRelayResultOutput), nil
 		}).(LookupMailManagerRelayResultOutput)
 }
 

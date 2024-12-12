@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Rbin
         /// </summary>
         public static Output<GetRuleResult> Invoke(GetRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRuleResult>("aws-native:rbin:getRule", args ?? new GetRuleInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::Rbin::Rule
+        /// </summary>
+        public static Output<GetRuleResult> Invoke(GetRuleInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRuleResult>("aws-native:rbin:getRule", args ?? new GetRuleInvokeArgs(), options.WithDefaults());
     }
 
 

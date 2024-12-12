@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Cognito
         /// </summary>
         public static Output<GetIdentityPoolPrincipalTagResult> Invoke(GetIdentityPoolPrincipalTagInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIdentityPoolPrincipalTagResult>("aws-native:cognito:getIdentityPoolPrincipalTag", args ?? new GetIdentityPoolPrincipalTagInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::Cognito::IdentityPoolPrincipalTag
+        /// </summary>
+        public static Output<GetIdentityPoolPrincipalTagResult> Invoke(GetIdentityPoolPrincipalTagInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetIdentityPoolPrincipalTagResult>("aws-native:cognito:getIdentityPoolPrincipalTag", args ?? new GetIdentityPoolPrincipalTagInvokeArgs(), options.WithDefaults());
     }
 
 

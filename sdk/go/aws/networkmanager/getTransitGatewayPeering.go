@@ -52,21 +52,11 @@ type LookupTransitGatewayPeeringResult struct {
 }
 
 func LookupTransitGatewayPeeringOutput(ctx *pulumi.Context, args LookupTransitGatewayPeeringOutputArgs, opts ...pulumi.InvokeOption) LookupTransitGatewayPeeringResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupTransitGatewayPeeringResultOutput, error) {
 			args := v.(LookupTransitGatewayPeeringArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupTransitGatewayPeeringResult
-			secret, err := ctx.InvokePackageRaw("aws-native:networkmanager:getTransitGatewayPeering", args, &rv, "", opts...)
-			if err != nil {
-				return LookupTransitGatewayPeeringResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupTransitGatewayPeeringResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupTransitGatewayPeeringResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:networkmanager:getTransitGatewayPeering", args, LookupTransitGatewayPeeringResultOutput{}, options).(LookupTransitGatewayPeeringResultOutput), nil
 		}).(LookupTransitGatewayPeeringResultOutput)
 }
 

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.IoT
         /// </summary>
         public static Output<GetCommandResult> Invoke(GetCommandInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCommandResult>("aws-native:iot:getCommand", args ?? new GetCommandInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Represents the resource definition of AWS IoT Command.
+        /// </summary>
+        public static Output<GetCommandResult> Invoke(GetCommandInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCommandResult>("aws-native:iot:getCommand", args ?? new GetCommandInvokeArgs(), options.WithDefaults());
     }
 
 

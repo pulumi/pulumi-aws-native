@@ -46,21 +46,11 @@ type LookupDataProtectionSettingsResult struct {
 }
 
 func LookupDataProtectionSettingsOutput(ctx *pulumi.Context, args LookupDataProtectionSettingsOutputArgs, opts ...pulumi.InvokeOption) LookupDataProtectionSettingsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupDataProtectionSettingsResultOutput, error) {
 			args := v.(LookupDataProtectionSettingsArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupDataProtectionSettingsResult
-			secret, err := ctx.InvokePackageRaw("aws-native:workspacesweb:getDataProtectionSettings", args, &rv, "", opts...)
-			if err != nil {
-				return LookupDataProtectionSettingsResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupDataProtectionSettingsResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupDataProtectionSettingsResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:workspacesweb:getDataProtectionSettings", args, LookupDataProtectionSettingsResultOutput{}, options).(LookupDataProtectionSettingsResultOutput), nil
 		}).(LookupDataProtectionSettingsResultOutput)
 }
 

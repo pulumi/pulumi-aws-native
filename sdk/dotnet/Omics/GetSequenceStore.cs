@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Omics
         /// </summary>
         public static Output<GetSequenceStoreResult> Invoke(GetSequenceStoreInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSequenceStoreResult>("aws-native:omics:getSequenceStore", args ?? new GetSequenceStoreInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::Omics::SequenceStore Resource Type
+        /// </summary>
+        public static Output<GetSequenceStoreResult> Invoke(GetSequenceStoreInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSequenceStoreResult>("aws-native:omics:getSequenceStore", args ?? new GetSequenceStoreInvokeArgs(), options.WithDefaults());
     }
 
 

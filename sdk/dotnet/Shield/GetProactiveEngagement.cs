@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Shield
         /// </summary>
         public static Output<GetProactiveEngagementResult> Invoke(GetProactiveEngagementInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProactiveEngagementResult>("aws-native:shield:getProactiveEngagement", args ?? new GetProactiveEngagementInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Authorizes the Shield Response Team (SRT) to use email and phone to notify contacts about escalations to the SRT and to initiate proactive customer support.
+        /// </summary>
+        public static Output<GetProactiveEngagementResult> Invoke(GetProactiveEngagementInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetProactiveEngagementResult>("aws-native:shield:getProactiveEngagement", args ?? new GetProactiveEngagementInvokeArgs(), options.WithDefaults());
     }
 
 

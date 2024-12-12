@@ -49,21 +49,11 @@ type LookupResourceVersionResult struct {
 }
 
 func LookupResourceVersionOutput(ctx *pulumi.Context, args LookupResourceVersionOutputArgs, opts ...pulumi.InvokeOption) LookupResourceVersionResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupResourceVersionResultOutput, error) {
 			args := v.(LookupResourceVersionArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupResourceVersionResult
-			secret, err := ctx.InvokePackageRaw("aws-native:cloudformation:getResourceVersion", args, &rv, "", opts...)
-			if err != nil {
-				return LookupResourceVersionResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupResourceVersionResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupResourceVersionResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:cloudformation:getResourceVersion", args, LookupResourceVersionResultOutput{}, options).(LookupResourceVersionResultOutput), nil
 		}).(LookupResourceVersionResultOutput)
 }
 

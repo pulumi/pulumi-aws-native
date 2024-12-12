@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.SsmIncidents
         /// </summary>
         public static Output<GetReplicationSetResult> Invoke(GetReplicationSetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReplicationSetResult>("aws-native:ssmincidents:getReplicationSet", args ?? new GetReplicationSetInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource type definition for AWS::SSMIncidents::ReplicationSet
+        /// </summary>
+        public static Output<GetReplicationSetResult> Invoke(GetReplicationSetInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetReplicationSetResult>("aws-native:ssmincidents:getReplicationSet", args ?? new GetReplicationSetInvokeArgs(), options.WithDefaults());
     }
 
 

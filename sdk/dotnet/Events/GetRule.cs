@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Events
         /// </summary>
         public static Output<GetRuleResult> Invoke(GetRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRuleResult>("aws-native:events:getRule", args ?? new GetRuleInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::Events::Rule
+        /// </summary>
+        public static Output<GetRuleResult> Invoke(GetRuleInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRuleResult>("aws-native:events:getRule", args ?? new GetRuleInvokeArgs(), options.WithDefaults());
     }
 
 

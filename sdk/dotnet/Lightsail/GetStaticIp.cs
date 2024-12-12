@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Lightsail
         /// </summary>
         public static Output<GetStaticIpResult> Invoke(GetStaticIpInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStaticIpResult>("aws-native:lightsail:getStaticIp", args ?? new GetStaticIpInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::Lightsail::StaticIp
+        /// </summary>
+        public static Output<GetStaticIpResult> Invoke(GetStaticIpInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetStaticIpResult>("aws-native:lightsail:getStaticIp", args ?? new GetStaticIpInvokeArgs(), options.WithDefaults());
     }
 
 

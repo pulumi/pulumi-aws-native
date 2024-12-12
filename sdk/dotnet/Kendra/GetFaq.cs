@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Kendra
         /// </summary>
         public static Output<GetFaqResult> Invoke(GetFaqInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFaqResult>("aws-native:kendra:getFaq", args ?? new GetFaqInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// A Kendra FAQ resource
+        /// </summary>
+        public static Output<GetFaqResult> Invoke(GetFaqInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFaqResult>("aws-native:kendra:getFaq", args ?? new GetFaqInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -41,21 +41,11 @@ type LookupFlowVpcInterfaceResult struct {
 }
 
 func LookupFlowVpcInterfaceOutput(ctx *pulumi.Context, args LookupFlowVpcInterfaceOutputArgs, opts ...pulumi.InvokeOption) LookupFlowVpcInterfaceResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupFlowVpcInterfaceResultOutput, error) {
 			args := v.(LookupFlowVpcInterfaceArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupFlowVpcInterfaceResult
-			secret, err := ctx.InvokePackageRaw("aws-native:mediaconnect:getFlowVpcInterface", args, &rv, "", opts...)
-			if err != nil {
-				return LookupFlowVpcInterfaceResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupFlowVpcInterfaceResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupFlowVpcInterfaceResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:mediaconnect:getFlowVpcInterface", args, LookupFlowVpcInterfaceResultOutput{}, options).(LookupFlowVpcInterfaceResultOutput), nil
 		}).(LookupFlowVpcInterfaceResultOutput)
 }
 

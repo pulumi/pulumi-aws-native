@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
         /// </summary>
         public static Output<GetDataProtectionSettingsResult> Invoke(GetDataProtectionSettingsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDataProtectionSettingsResult>("aws-native:workspacesweb:getDataProtectionSettings", args ?? new GetDataProtectionSettingsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::WorkSpacesWeb::DataProtectionSettings Resource Type
+        /// </summary>
+        public static Output<GetDataProtectionSettingsResult> Invoke(GetDataProtectionSettingsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDataProtectionSettingsResult>("aws-native:workspacesweb:getDataProtectionSettings", args ?? new GetDataProtectionSettingsInvokeArgs(), options.WithDefaults());
     }
 
 

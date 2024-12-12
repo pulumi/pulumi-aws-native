@@ -35,21 +35,11 @@ type LookupModelQualityJobDefinitionResult struct {
 }
 
 func LookupModelQualityJobDefinitionOutput(ctx *pulumi.Context, args LookupModelQualityJobDefinitionOutputArgs, opts ...pulumi.InvokeOption) LookupModelQualityJobDefinitionResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupModelQualityJobDefinitionResultOutput, error) {
 			args := v.(LookupModelQualityJobDefinitionArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupModelQualityJobDefinitionResult
-			secret, err := ctx.InvokePackageRaw("aws-native:sagemaker:getModelQualityJobDefinition", args, &rv, "", opts...)
-			if err != nil {
-				return LookupModelQualityJobDefinitionResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupModelQualityJobDefinitionResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupModelQualityJobDefinitionResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:sagemaker:getModelQualityJobDefinition", args, LookupModelQualityJobDefinitionResultOutput{}, options).(LookupModelQualityJobDefinitionResultOutput), nil
 		}).(LookupModelQualityJobDefinitionResultOutput)
 }
 

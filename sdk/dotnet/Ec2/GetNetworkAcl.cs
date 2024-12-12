@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         public static Output<GetNetworkAclResult> Invoke(GetNetworkAclInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkAclResult>("aws-native:ec2:getNetworkAcl", args ?? new GetNetworkAclInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Specifies a network ACL for your VPC.
+        /// </summary>
+        public static Output<GetNetworkAclResult> Invoke(GetNetworkAclInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetNetworkAclResult>("aws-native:ec2:getNetworkAcl", args ?? new GetNetworkAclInvokeArgs(), options.WithDefaults());
     }
 
 

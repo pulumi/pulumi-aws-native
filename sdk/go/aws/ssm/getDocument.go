@@ -46,21 +46,11 @@ type LookupDocumentResult struct {
 }
 
 func LookupDocumentOutput(ctx *pulumi.Context, args LookupDocumentOutputArgs, opts ...pulumi.InvokeOption) LookupDocumentResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupDocumentResultOutput, error) {
 			args := v.(LookupDocumentArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupDocumentResult
-			secret, err := ctx.InvokePackageRaw("aws-native:ssm:getDocument", args, &rv, "", opts...)
-			if err != nil {
-				return LookupDocumentResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupDocumentResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupDocumentResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:ssm:getDocument", args, LookupDocumentResultOutput{}, options).(LookupDocumentResultOutput), nil
 		}).(LookupDocumentResultOutput)
 }
 

@@ -48,21 +48,11 @@ type LookupUsagePlanResult struct {
 }
 
 func LookupUsagePlanOutput(ctx *pulumi.Context, args LookupUsagePlanOutputArgs, opts ...pulumi.InvokeOption) LookupUsagePlanResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupUsagePlanResultOutput, error) {
 			args := v.(LookupUsagePlanArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupUsagePlanResult
-			secret, err := ctx.InvokePackageRaw("aws-native:apigateway:getUsagePlan", args, &rv, "", opts...)
-			if err != nil {
-				return LookupUsagePlanResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupUsagePlanResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupUsagePlanResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:apigateway:getUsagePlan", args, LookupUsagePlanResultOutput{}, options).(LookupUsagePlanResultOutput), nil
 		}).(LookupUsagePlanResultOutput)
 }
 

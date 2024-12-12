@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.AutoScaling
         /// </summary>
         public static Output<GetWarmPoolResult> Invoke(GetWarmPoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWarmPoolResult>("aws-native:autoscaling:getWarmPool", args ?? new GetWarmPoolInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource schema for AWS::AutoScaling::WarmPool.
+        /// </summary>
+        public static Output<GetWarmPoolResult> Invoke(GetWarmPoolInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetWarmPoolResult>("aws-native:autoscaling:getWarmPool", args ?? new GetWarmPoolInvokeArgs(), options.WithDefaults());
     }
 
 

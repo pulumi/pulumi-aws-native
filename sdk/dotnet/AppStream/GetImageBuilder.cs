@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.AppStream
         /// </summary>
         public static Output<GetImageBuilderResult> Invoke(GetImageBuilderInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetImageBuilderResult>("aws-native:appstream:getImageBuilder", args ?? new GetImageBuilderInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::AppStream::ImageBuilder
+        /// </summary>
+        public static Output<GetImageBuilderResult> Invoke(GetImageBuilderInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetImageBuilderResult>("aws-native:appstream:getImageBuilder", args ?? new GetImageBuilderInvokeArgs(), options.WithDefaults());
     }
 
 

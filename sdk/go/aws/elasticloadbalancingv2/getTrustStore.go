@@ -40,21 +40,11 @@ type LookupTrustStoreResult struct {
 }
 
 func LookupTrustStoreOutput(ctx *pulumi.Context, args LookupTrustStoreOutputArgs, opts ...pulumi.InvokeOption) LookupTrustStoreResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupTrustStoreResultOutput, error) {
 			args := v.(LookupTrustStoreArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupTrustStoreResult
-			secret, err := ctx.InvokePackageRaw("aws-native:elasticloadbalancingv2:getTrustStore", args, &rv, "", opts...)
-			if err != nil {
-				return LookupTrustStoreResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupTrustStoreResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupTrustStoreResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:elasticloadbalancingv2:getTrustStore", args, LookupTrustStoreResultOutput{}, options).(LookupTrustStoreResultOutput), nil
 		}).(LookupTrustStoreResultOutput)
 }
 

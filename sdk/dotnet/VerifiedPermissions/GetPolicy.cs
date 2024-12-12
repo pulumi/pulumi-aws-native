@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.VerifiedPermissions
         /// </summary>
         public static Output<GetPolicyResult> Invoke(GetPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPolicyResult>("aws-native:verifiedpermissions:getPolicy", args ?? new GetPolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::VerifiedPermissions::Policy Resource Type
+        /// </summary>
+        public static Output<GetPolicyResult> Invoke(GetPolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPolicyResult>("aws-native:verifiedpermissions:getPolicy", args ?? new GetPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

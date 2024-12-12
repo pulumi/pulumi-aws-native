@@ -58,21 +58,11 @@ type LookupFuotaTaskResult struct {
 }
 
 func LookupFuotaTaskOutput(ctx *pulumi.Context, args LookupFuotaTaskOutputArgs, opts ...pulumi.InvokeOption) LookupFuotaTaskResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupFuotaTaskResultOutput, error) {
 			args := v.(LookupFuotaTaskArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupFuotaTaskResult
-			secret, err := ctx.InvokePackageRaw("aws-native:iotwireless:getFuotaTask", args, &rv, "", opts...)
-			if err != nil {
-				return LookupFuotaTaskResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupFuotaTaskResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupFuotaTaskResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:iotwireless:getFuotaTask", args, LookupFuotaTaskResultOutput{}, options).(LookupFuotaTaskResultOutput), nil
 		}).(LookupFuotaTaskResultOutput)
 }
 

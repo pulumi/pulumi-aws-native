@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// </summary>
         public static Output<GetImageResult> Invoke(GetImageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetImageResult>("aws-native:imagebuilder:getImage", args ?? new GetImageInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource schema for AWS::ImageBuilder::Image
+        /// </summary>
+        public static Output<GetImageResult> Invoke(GetImageInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetImageResult>("aws-native:imagebuilder:getImage", args ?? new GetImageInvokeArgs(), options.WithDefaults());
     }
 
 

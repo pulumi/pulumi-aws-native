@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.SsmContacts
         /// </summary>
         public static Output<GetPlanResult> Invoke(GetPlanInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPlanResult>("aws-native:ssmcontacts:getPlan", args ?? new GetPlanInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Engagement Plan for a SSM Incident Manager Contact.
+        /// </summary>
+        public static Output<GetPlanResult> Invoke(GetPlanInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPlanResult>("aws-native:ssmcontacts:getPlan", args ?? new GetPlanInvokeArgs(), options.WithDefaults());
     }
 
 

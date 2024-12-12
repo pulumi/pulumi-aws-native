@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Panorama
         /// </summary>
         public static Output<GetPackageResult> Invoke(GetPackageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPackageResult>("aws-native:panorama:getPackage", args ?? new GetPackageInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Creates a package and storage location in an Amazon S3 access point.
+        /// </summary>
+        public static Output<GetPackageResult> Invoke(GetPackageInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPackageResult>("aws-native:panorama:getPackage", args ?? new GetPackageInvokeArgs(), options.WithDefaults());
     }
 
 

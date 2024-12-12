@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Ses
         /// </summary>
         public static Output<GetTemplateResult> Invoke(GetTemplateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTemplateResult>("aws-native:ses:getTemplate", args ?? new GetTemplateInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::SES::Template
+        /// </summary>
+        public static Output<GetTemplateResult> Invoke(GetTemplateInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTemplateResult>("aws-native:ses:getTemplate", args ?? new GetTemplateInvokeArgs(), options.WithDefaults());
     }
 
 

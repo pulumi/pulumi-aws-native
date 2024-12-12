@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Aps
         /// </summary>
         public static Output<GetScraperResult> Invoke(GetScraperInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetScraperResult>("aws-native:aps:getScraper", args ?? new GetScraperInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::APS::Scraper
+        /// </summary>
+        public static Output<GetScraperResult> Invoke(GetScraperInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetScraperResult>("aws-native:aps:getScraper", args ?? new GetScraperInvokeArgs(), options.WithDefaults());
     }
 
 

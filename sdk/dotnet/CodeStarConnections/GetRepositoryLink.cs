@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.CodeStarConnections
         /// </summary>
         public static Output<GetRepositoryLinkResult> Invoke(GetRepositoryLinkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRepositoryLinkResult>("aws-native:codestarconnections:getRepositoryLink", args ?? new GetRepositoryLinkInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Schema for AWS::CodeStarConnections::RepositoryLink resource which is used to aggregate repository metadata relevant to synchronizing source provider content to AWS Resources.
+        /// </summary>
+        public static Output<GetRepositoryLinkResult> Invoke(GetRepositoryLinkInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRepositoryLinkResult>("aws-native:codestarconnections:getRepositoryLink", args ?? new GetRepositoryLinkInvokeArgs(), options.WithDefaults());
     }
 
 

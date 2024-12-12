@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Bedrock
         /// </summary>
         public static Output<GetFlowAliasResult> Invoke(GetFlowAliasInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFlowAliasResult>("aws-native:bedrock:getFlowAlias", args ?? new GetFlowAliasInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::Bedrock::FlowAlias Resource Type
+        /// </summary>
+        public static Output<GetFlowAliasResult> Invoke(GetFlowAliasInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFlowAliasResult>("aws-native:bedrock:getFlowAlias", args ?? new GetFlowAliasInvokeArgs(), options.WithDefaults());
     }
 
 

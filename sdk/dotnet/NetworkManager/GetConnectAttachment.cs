@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.NetworkManager
         /// </summary>
         public static Output<GetConnectAttachmentResult> Invoke(GetConnectAttachmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectAttachmentResult>("aws-native:networkmanager:getConnectAttachment", args ?? new GetConnectAttachmentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// AWS::NetworkManager::ConnectAttachment Resource Type Definition
+        /// </summary>
+        public static Output<GetConnectAttachmentResult> Invoke(GetConnectAttachmentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetConnectAttachmentResult>("aws-native:networkmanager:getConnectAttachment", args ?? new GetConnectAttachmentInvokeArgs(), options.WithDefaults());
     }
 
 

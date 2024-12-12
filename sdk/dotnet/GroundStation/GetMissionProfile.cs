@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.GroundStation
         /// </summary>
         public static Output<GetMissionProfileResult> Invoke(GetMissionProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMissionProfileResult>("aws-native:groundstation:getMissionProfile", args ?? new GetMissionProfileInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// AWS Ground Station Mission Profile resource type for CloudFormation.
+        /// </summary>
+        public static Output<GetMissionProfileResult> Invoke(GetMissionProfileInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMissionProfileResult>("aws-native:groundstation:getMissionProfile", args ?? new GetMissionProfileInvokeArgs(), options.WithDefaults());
     }
 
 

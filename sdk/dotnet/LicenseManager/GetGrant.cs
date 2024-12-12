@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.LicenseManager
         /// </summary>
         public static Output<GetGrantResult> Invoke(GetGrantInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGrantResult>("aws-native:licensemanager:getGrant", args ?? new GetGrantInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// An example resource schema demonstrating some basic constructs and validation rules.
+        /// </summary>
+        public static Output<GetGrantResult> Invoke(GetGrantInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetGrantResult>("aws-native:licensemanager:getGrant", args ?? new GetGrantInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.DataZone
         /// </summary>
         public static Output<GetEnvironmentResult> Invoke(GetEnvironmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEnvironmentResult>("aws-native:datazone:getEnvironment", args ?? new GetEnvironmentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::DataZone::Environment Resource Type
+        /// </summary>
+        public static Output<GetEnvironmentResult> Invoke(GetEnvironmentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEnvironmentResult>("aws-native:datazone:getEnvironment", args ?? new GetEnvironmentInvokeArgs(), options.WithDefaults());
     }
 
 

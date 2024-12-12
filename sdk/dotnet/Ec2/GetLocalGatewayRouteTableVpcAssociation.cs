@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         public static Output<GetLocalGatewayRouteTableVpcAssociationResult> Invoke(GetLocalGatewayRouteTableVpcAssociationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalGatewayRouteTableVpcAssociationResult>("aws-native:ec2:getLocalGatewayRouteTableVpcAssociation", args ?? new GetLocalGatewayRouteTableVpcAssociationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Describes an association between a local gateway route table and a VPC.
+        /// </summary>
+        public static Output<GetLocalGatewayRouteTableVpcAssociationResult> Invoke(GetLocalGatewayRouteTableVpcAssociationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLocalGatewayRouteTableVpcAssociationResult>("aws-native:ec2:getLocalGatewayRouteTableVpcAssociation", args ?? new GetLocalGatewayRouteTableVpcAssociationInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -37,21 +37,11 @@ type LookupRotationScheduleResult struct {
 }
 
 func LookupRotationScheduleOutput(ctx *pulumi.Context, args LookupRotationScheduleOutputArgs, opts ...pulumi.InvokeOption) LookupRotationScheduleResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupRotationScheduleResultOutput, error) {
 			args := v.(LookupRotationScheduleArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupRotationScheduleResult
-			secret, err := ctx.InvokePackageRaw("aws-native:secretsmanager:getRotationSchedule", args, &rv, "", opts...)
-			if err != nil {
-				return LookupRotationScheduleResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupRotationScheduleResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupRotationScheduleResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:secretsmanager:getRotationSchedule", args, LookupRotationScheduleResultOutput{}, options).(LookupRotationScheduleResultOutput), nil
 		}).(LookupRotationScheduleResultOutput)
 }
 

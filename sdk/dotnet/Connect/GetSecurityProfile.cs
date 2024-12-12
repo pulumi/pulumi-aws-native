@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Connect
         /// </summary>
         public static Output<GetSecurityProfileResult> Invoke(GetSecurityProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecurityProfileResult>("aws-native:connect:getSecurityProfile", args ?? new GetSecurityProfileInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::Connect::SecurityProfile
+        /// </summary>
+        public static Output<GetSecurityProfileResult> Invoke(GetSecurityProfileInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSecurityProfileResult>("aws-native:connect:getSecurityProfile", args ?? new GetSecurityProfileInvokeArgs(), options.WithDefaults());
     }
 
 

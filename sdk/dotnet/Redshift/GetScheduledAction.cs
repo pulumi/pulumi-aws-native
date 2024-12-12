@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Redshift
         /// </summary>
         public static Output<GetScheduledActionResult> Invoke(GetScheduledActionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetScheduledActionResult>("aws-native:redshift:getScheduledAction", args ?? new GetScheduledActionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The `AWS::Redshift::ScheduledAction` resource creates an Amazon Redshift Scheduled Action.
+        /// </summary>
+        public static Output<GetScheduledActionResult> Invoke(GetScheduledActionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetScheduledActionResult>("aws-native:redshift:getScheduledAction", args ?? new GetScheduledActionInvokeArgs(), options.WithDefaults());
     }
 
 

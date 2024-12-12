@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.RefactorSpaces
         /// </summary>
         public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceResult>("aws-native:refactorspaces:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::RefactorSpaces::Service Resource Type
+        /// </summary>
+        public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetServiceResult>("aws-native:refactorspaces:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());
     }
 
 

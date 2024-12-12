@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
         /// </summary>
         public static Output<GetIpAccessSettingsResult> Invoke(GetIpAccessSettingsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIpAccessSettingsResult>("aws-native:workspacesweb:getIpAccessSettings", args ?? new GetIpAccessSettingsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::WorkSpacesWeb::IpAccessSettings Resource Type
+        /// </summary>
+        public static Output<GetIpAccessSettingsResult> Invoke(GetIpAccessSettingsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetIpAccessSettingsResult>("aws-native:workspacesweb:getIpAccessSettings", args ?? new GetIpAccessSettingsInvokeArgs(), options.WithDefaults());
     }
 
 

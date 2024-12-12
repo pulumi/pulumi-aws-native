@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.MemoryDb
         /// </summary>
         public static Output<GetParameterGroupResult> Invoke(GetParameterGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetParameterGroupResult>("aws-native:memorydb:getParameterGroup", args ?? new GetParameterGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The AWS::MemoryDB::ParameterGroup resource creates an Amazon MemoryDB ParameterGroup.
+        /// </summary>
+        public static Output<GetParameterGroupResult> Invoke(GetParameterGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetParameterGroupResult>("aws-native:memorydb:getParameterGroup", args ?? new GetParameterGroupInvokeArgs(), options.WithDefaults());
     }
 
 

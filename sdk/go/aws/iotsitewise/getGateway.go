@@ -40,21 +40,11 @@ type LookupGatewayResult struct {
 }
 
 func LookupGatewayOutput(ctx *pulumi.Context, args LookupGatewayOutputArgs, opts ...pulumi.InvokeOption) LookupGatewayResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupGatewayResultOutput, error) {
 			args := v.(LookupGatewayArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupGatewayResult
-			secret, err := ctx.InvokePackageRaw("aws-native:iotsitewise:getGateway", args, &rv, "", opts...)
-			if err != nil {
-				return LookupGatewayResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupGatewayResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupGatewayResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:iotsitewise:getGateway", args, LookupGatewayResultOutput{}, options).(LookupGatewayResultOutput), nil
 		}).(LookupGatewayResultOutput)
 }
 

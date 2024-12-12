@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.IoTWireless
         /// </summary>
         public static Output<GetFuotaTaskResult> Invoke(GetFuotaTaskInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFuotaTaskResult>("aws-native:iotwireless:getFuotaTask", args ?? new GetFuotaTaskInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Create and manage FUOTA tasks.
+        /// </summary>
+        public static Output<GetFuotaTaskResult> Invoke(GetFuotaTaskInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFuotaTaskResult>("aws-native:iotwireless:getFuotaTask", args ?? new GetFuotaTaskInvokeArgs(), options.WithDefaults());
     }
 
 

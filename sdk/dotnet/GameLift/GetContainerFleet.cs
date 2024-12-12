@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.GameLift
         /// </summary>
         public static Output<GetContainerFleetResult> Invoke(GetContainerFleetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetContainerFleetResult>("aws-native:gamelift:getContainerFleet", args ?? new GetContainerFleetInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The AWS::GameLift::ContainerFleet resource creates an Amazon GameLift (GameLift) container fleet to host game servers.
+        /// </summary>
+        public static Output<GetContainerFleetResult> Invoke(GetContainerFleetInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetContainerFleetResult>("aws-native:gamelift:getContainerFleet", args ?? new GetContainerFleetInvokeArgs(), options.WithDefaults());
     }
 
 

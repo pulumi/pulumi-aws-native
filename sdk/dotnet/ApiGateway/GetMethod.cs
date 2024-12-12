@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.ApiGateway
         /// </summary>
         public static Output<GetMethodResult> Invoke(GetMethodInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMethodResult>("aws-native:apigateway:getMethod", args ?? new GetMethodInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The ``AWS::ApiGateway::Method`` resource creates API Gateway methods that define the parameters and body that clients must send in their requests.
+        /// </summary>
+        public static Output<GetMethodResult> Invoke(GetMethodInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMethodResult>("aws-native:apigateway:getMethod", args ?? new GetMethodInvokeArgs(), options.WithDefaults());
     }
 
 

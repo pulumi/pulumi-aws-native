@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Connect
         /// </summary>
         public static Output<GetPhoneNumberResult> Invoke(GetPhoneNumberInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPhoneNumberResult>("aws-native:connect:getPhoneNumber", args ?? new GetPhoneNumberInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::Connect::PhoneNumber
+        /// </summary>
+        public static Output<GetPhoneNumberResult> Invoke(GetPhoneNumberInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPhoneNumberResult>("aws-native:connect:getPhoneNumber", args ?? new GetPhoneNumberInvokeArgs(), options.WithDefaults());
     }
 
 

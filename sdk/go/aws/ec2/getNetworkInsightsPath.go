@@ -44,21 +44,11 @@ type LookupNetworkInsightsPathResult struct {
 }
 
 func LookupNetworkInsightsPathOutput(ctx *pulumi.Context, args LookupNetworkInsightsPathOutputArgs, opts ...pulumi.InvokeOption) LookupNetworkInsightsPathResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupNetworkInsightsPathResultOutput, error) {
 			args := v.(LookupNetworkInsightsPathArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupNetworkInsightsPathResult
-			secret, err := ctx.InvokePackageRaw("aws-native:ec2:getNetworkInsightsPath", args, &rv, "", opts...)
-			if err != nil {
-				return LookupNetworkInsightsPathResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupNetworkInsightsPathResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupNetworkInsightsPathResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:ec2:getNetworkInsightsPath", args, LookupNetworkInsightsPathResultOutput{}, options).(LookupNetworkInsightsPathResultOutput), nil
 		}).(LookupNetworkInsightsPathResultOutput)
 }
 

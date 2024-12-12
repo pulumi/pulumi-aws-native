@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.GameLift
         /// </summary>
         public static Output<GetLocationResult> Invoke(GetLocationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocationResult>("aws-native:gamelift:getLocation", args ?? new GetLocationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The AWS::GameLift::Location resource creates an Amazon GameLift (GameLift) custom location.
+        /// </summary>
+        public static Output<GetLocationResult> Invoke(GetLocationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLocationResult>("aws-native:gamelift:getLocation", args ?? new GetLocationInvokeArgs(), options.WithDefaults());
     }
 
 

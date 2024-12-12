@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.StepFunctions
         /// </summary>
         public static Output<GetStateMachineResult> Invoke(GetStateMachineInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStateMachineResult>("aws-native:stepfunctions:getStateMachine", args ?? new GetStateMachineInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource schema for StateMachine
+        /// </summary>
+        public static Output<GetStateMachineResult> Invoke(GetStateMachineInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetStateMachineResult>("aws-native:stepfunctions:getStateMachine", args ?? new GetStateMachineInvokeArgs(), options.WithDefaults());
     }
 
 

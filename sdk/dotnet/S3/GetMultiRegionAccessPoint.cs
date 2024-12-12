@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.S3
         /// </summary>
         public static Output<GetMultiRegionAccessPointResult> Invoke(GetMultiRegionAccessPointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMultiRegionAccessPointResult>("aws-native:s3:getMultiRegionAccessPoint", args ?? new GetMultiRegionAccessPointInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// AWS::S3::MultiRegionAccessPoint is an Amazon S3 resource type that dynamically routes S3 requests to easily satisfy geographic compliance requirements based on customer-defined routing policies.
+        /// </summary>
+        public static Output<GetMultiRegionAccessPointResult> Invoke(GetMultiRegionAccessPointInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMultiRegionAccessPointResult>("aws-native:s3:getMultiRegionAccessPoint", args ?? new GetMultiRegionAccessPointInvokeArgs(), options.WithDefaults());
     }
 
 

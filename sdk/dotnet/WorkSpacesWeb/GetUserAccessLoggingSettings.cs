@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
         /// </summary>
         public static Output<GetUserAccessLoggingSettingsResult> Invoke(GetUserAccessLoggingSettingsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserAccessLoggingSettingsResult>("aws-native:workspacesweb:getUserAccessLoggingSettings", args ?? new GetUserAccessLoggingSettingsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::WorkSpacesWeb::UserAccessLoggingSettings Resource Type
+        /// </summary>
+        public static Output<GetUserAccessLoggingSettingsResult> Invoke(GetUserAccessLoggingSettingsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetUserAccessLoggingSettingsResult>("aws-native:workspacesweb:getUserAccessLoggingSettings", args ?? new GetUserAccessLoggingSettingsInvokeArgs(), options.WithDefaults());
     }
 
 

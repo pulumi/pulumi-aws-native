@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.CloudFront
         /// </summary>
         public static Output<GetRealtimeLogConfigResult> Invoke(GetRealtimeLogConfigInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRealtimeLogConfigResult>("aws-native:cloudfront:getRealtimeLogConfig", args ?? new GetRealtimeLogConfigInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// A real-time log configuration.
+        /// </summary>
+        public static Output<GetRealtimeLogConfigResult> Invoke(GetRealtimeLogConfigInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRealtimeLogConfigResult>("aws-native:cloudfront:getRealtimeLogConfig", args ?? new GetRealtimeLogConfigInvokeArgs(), options.WithDefaults());
     }
 
 

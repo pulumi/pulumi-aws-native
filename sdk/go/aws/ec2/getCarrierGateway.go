@@ -40,21 +40,11 @@ type LookupCarrierGatewayResult struct {
 }
 
 func LookupCarrierGatewayOutput(ctx *pulumi.Context, args LookupCarrierGatewayOutputArgs, opts ...pulumi.InvokeOption) LookupCarrierGatewayResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupCarrierGatewayResultOutput, error) {
 			args := v.(LookupCarrierGatewayArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupCarrierGatewayResult
-			secret, err := ctx.InvokePackageRaw("aws-native:ec2:getCarrierGateway", args, &rv, "", opts...)
-			if err != nil {
-				return LookupCarrierGatewayResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupCarrierGatewayResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupCarrierGatewayResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:ec2:getCarrierGateway", args, LookupCarrierGatewayResultOutput{}, options).(LookupCarrierGatewayResultOutput), nil
 		}).(LookupCarrierGatewayResultOutput)
 }
 

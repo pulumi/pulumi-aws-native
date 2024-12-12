@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.ElasticBeanstalk
         /// </summary>
         public static Output<GetApplicationResult> Invoke(GetApplicationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationResult>("aws-native:elasticbeanstalk:getApplication", args ?? new GetApplicationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The AWS::ElasticBeanstalk::Application resource specifies an Elastic Beanstalk application.
+        /// </summary>
+        public static Output<GetApplicationResult> Invoke(GetApplicationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetApplicationResult>("aws-native:elasticbeanstalk:getApplication", args ?? new GetApplicationInvokeArgs(), options.WithDefaults());
     }
 
 

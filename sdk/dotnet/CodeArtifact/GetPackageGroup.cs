@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.CodeArtifact
         /// </summary>
         public static Output<GetPackageGroupResult> Invoke(GetPackageGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPackageGroupResult>("aws-native:codeartifact:getPackageGroup", args ?? new GetPackageGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The resource schema to create a CodeArtifact package group.
+        /// </summary>
+        public static Output<GetPackageGroupResult> Invoke(GetPackageGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPackageGroupResult>("aws-native:codeartifact:getPackageGroup", args ?? new GetPackageGroupInvokeArgs(), options.WithDefaults());
     }
 
 

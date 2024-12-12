@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.SecurityLake
         /// </summary>
         public static Output<GetAwsLogSourceResult> Invoke(GetAwsLogSourceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAwsLogSourceResult>("aws-native:securitylake:getAwsLogSource", args ?? new GetAwsLogSourceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::SecurityLake::AwsLogSource
+        /// </summary>
+        public static Output<GetAwsLogSourceResult> Invoke(GetAwsLogSourceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAwsLogSourceResult>("aws-native:securitylake:getAwsLogSource", args ?? new GetAwsLogSourceInvokeArgs(), options.WithDefaults());
     }
 
 

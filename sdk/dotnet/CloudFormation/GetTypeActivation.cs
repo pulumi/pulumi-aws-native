@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.CloudFormation
         /// </summary>
         public static Output<GetTypeActivationResult> Invoke(GetTypeActivationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTypeActivationResult>("aws-native:cloudformation:getTypeActivation", args ?? new GetTypeActivationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Enable a resource that has been published in the CloudFormation Registry.
+        /// </summary>
+        public static Output<GetTypeActivationResult> Invoke(GetTypeActivationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTypeActivationResult>("aws-native:cloudformation:getTypeActivation", args ?? new GetTypeActivationInvokeArgs(), options.WithDefaults());
     }
 
 

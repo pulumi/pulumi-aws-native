@@ -24,6 +24,13 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         public static Output<GetEipAssociationResult> Invoke(GetEipAssociationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEipAssociationResult>("aws-native:ec2:getEipAssociation", args ?? new GetEipAssociationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Associates an Elastic IP address with an instance or a network interface. Before you can use an Elastic IP address, you must allocate it to your account. For more information about working with Elastic IP addresses, see [Elastic IP address concepts and rules](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#vpc-eip-overview).
+        ///  You must specify ``AllocationId`` and either ``InstanceId``, ``NetworkInterfaceId``, or ``PrivateIpAddress``.
+        /// </summary>
+        public static Output<GetEipAssociationResult> Invoke(GetEipAssociationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEipAssociationResult>("aws-native:ec2:getEipAssociation", args ?? new GetEipAssociationInvokeArgs(), options.WithDefaults());
     }
 
 

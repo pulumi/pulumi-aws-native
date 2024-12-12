@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.CodeStarConnections
         /// </summary>
         public static Output<GetSyncConfigurationResult> Invoke(GetSyncConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSyncConfigurationResult>("aws-native:codestarconnections:getSyncConfiguration", args ?? new GetSyncConfigurationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Schema for AWS::CodeStarConnections::SyncConfiguration resource which is used to enables an AWS resource to be synchronized from a source-provider.
+        /// </summary>
+        public static Output<GetSyncConfigurationResult> Invoke(GetSyncConfigurationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSyncConfigurationResult>("aws-native:codestarconnections:getSyncConfiguration", args ?? new GetSyncConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

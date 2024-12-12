@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Bedrock
         /// </summary>
         public static Output<GetApplicationInferenceProfileResult> Invoke(GetApplicationInferenceProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationInferenceProfileResult>("aws-native:bedrock:getApplicationInferenceProfile", args ?? new GetApplicationInferenceProfileInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::Bedrock::ApplicationInferenceProfile Resource Type
+        /// </summary>
+        public static Output<GetApplicationInferenceProfileResult> Invoke(GetApplicationInferenceProfileInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetApplicationInferenceProfileResult>("aws-native:bedrock:getApplicationInferenceProfile", args ?? new GetApplicationInferenceProfileInvokeArgs(), options.WithDefaults());
     }
 
 

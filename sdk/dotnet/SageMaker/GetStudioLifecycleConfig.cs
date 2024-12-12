@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.SageMaker
         /// </summary>
         public static Output<GetStudioLifecycleConfigResult> Invoke(GetStudioLifecycleConfigInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStudioLifecycleConfigResult>("aws-native:sagemaker:getStudioLifecycleConfig", args ?? new GetStudioLifecycleConfigInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::SageMaker::StudioLifecycleConfig
+        /// </summary>
+        public static Output<GetStudioLifecycleConfigResult> Invoke(GetStudioLifecycleConfigInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetStudioLifecycleConfigResult>("aws-native:sagemaker:getStudioLifecycleConfig", args ?? new GetStudioLifecycleConfigInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -44,21 +44,11 @@ type LookupConfigResult struct {
 }
 
 func LookupConfigOutput(ctx *pulumi.Context, args LookupConfigOutputArgs, opts ...pulumi.InvokeOption) LookupConfigResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupConfigResultOutput, error) {
 			args := v.(LookupConfigArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupConfigResult
-			secret, err := ctx.InvokePackageRaw("aws-native:groundstation:getConfig", args, &rv, "", opts...)
-			if err != nil {
-				return LookupConfigResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupConfigResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupConfigResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:groundstation:getConfig", args, LookupConfigResultOutput{}, options).(LookupConfigResultOutput), nil
 		}).(LookupConfigResultOutput)
 }
 

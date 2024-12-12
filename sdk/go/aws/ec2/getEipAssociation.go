@@ -35,21 +35,11 @@ type LookupEipAssociationResult struct {
 }
 
 func LookupEipAssociationOutput(ctx *pulumi.Context, args LookupEipAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupEipAssociationResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupEipAssociationResultOutput, error) {
 			args := v.(LookupEipAssociationArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupEipAssociationResult
-			secret, err := ctx.InvokePackageRaw("aws-native:ec2:getEipAssociation", args, &rv, "", opts...)
-			if err != nil {
-				return LookupEipAssociationResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupEipAssociationResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupEipAssociationResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:ec2:getEipAssociation", args, LookupEipAssociationResultOutput{}, options).(LookupEipAssociationResultOutput), nil
 		}).(LookupEipAssociationResultOutput)
 }
 

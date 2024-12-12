@@ -35,21 +35,11 @@ type LookupVpcConnectorResult struct {
 }
 
 func LookupVpcConnectorOutput(ctx *pulumi.Context, args LookupVpcConnectorOutputArgs, opts ...pulumi.InvokeOption) LookupVpcConnectorResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupVpcConnectorResultOutput, error) {
 			args := v.(LookupVpcConnectorArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupVpcConnectorResult
-			secret, err := ctx.InvokePackageRaw("aws-native:apprunner:getVpcConnector", args, &rv, "", opts...)
-			if err != nil {
-				return LookupVpcConnectorResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupVpcConnectorResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupVpcConnectorResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:apprunner:getVpcConnector", args, LookupVpcConnectorResultOutput{}, options).(LookupVpcConnectorResultOutput), nil
 		}).(LookupVpcConnectorResultOutput)
 }
 

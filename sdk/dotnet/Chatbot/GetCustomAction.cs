@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Chatbot
         /// </summary>
         public static Output<GetCustomActionResult> Invoke(GetCustomActionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCustomActionResult>("aws-native:chatbot:getCustomAction", args ?? new GetCustomActionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::Chatbot::CustomAction Resource Type
+        /// </summary>
+        public static Output<GetCustomActionResult> Invoke(GetCustomActionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCustomActionResult>("aws-native:chatbot:getCustomAction", args ?? new GetCustomActionInvokeArgs(), options.WithDefaults());
     }
 
 

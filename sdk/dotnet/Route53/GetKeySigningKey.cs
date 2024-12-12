@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Route53
         /// </summary>
         public static Output<GetKeySigningKeyResult> Invoke(GetKeySigningKeyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetKeySigningKeyResult>("aws-native:route53:getKeySigningKey", args ?? new GetKeySigningKeyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Represents a key signing key (KSK) associated with a hosted zone. You can only have two KSKs per hosted zone.
+        /// </summary>
+        public static Output<GetKeySigningKeyResult> Invoke(GetKeySigningKeyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetKeySigningKeyResult>("aws-native:route53:getKeySigningKey", args ?? new GetKeySigningKeyInvokeArgs(), options.WithDefaults());
     }
 
 

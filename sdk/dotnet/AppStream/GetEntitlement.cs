@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.AppStream
         /// </summary>
         public static Output<GetEntitlementResult> Invoke(GetEntitlementInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEntitlementResult>("aws-native:appstream:getEntitlement", args ?? new GetEntitlementInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::AppStream::Entitlement
+        /// </summary>
+        public static Output<GetEntitlementResult> Invoke(GetEntitlementInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEntitlementResult>("aws-native:appstream:getEntitlement", args ?? new GetEntitlementInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.DataBrew
         /// </summary>
         public static Output<GetRulesetResult> Invoke(GetRulesetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRulesetResult>("aws-native:databrew:getRuleset", args ?? new GetRulesetInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource schema for AWS::DataBrew::Ruleset.
+        /// </summary>
+        public static Output<GetRulesetResult> Invoke(GetRulesetInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRulesetResult>("aws-native:databrew:getRuleset", args ?? new GetRulesetInvokeArgs(), options.WithDefaults());
     }
 
 

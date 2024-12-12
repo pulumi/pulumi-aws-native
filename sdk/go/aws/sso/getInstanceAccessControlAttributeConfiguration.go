@@ -35,21 +35,11 @@ type LookupInstanceAccessControlAttributeConfigurationResult struct {
 }
 
 func LookupInstanceAccessControlAttributeConfigurationOutput(ctx *pulumi.Context, args LookupInstanceAccessControlAttributeConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupInstanceAccessControlAttributeConfigurationResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupInstanceAccessControlAttributeConfigurationResultOutput, error) {
 			args := v.(LookupInstanceAccessControlAttributeConfigurationArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupInstanceAccessControlAttributeConfigurationResult
-			secret, err := ctx.InvokePackageRaw("aws-native:sso:getInstanceAccessControlAttributeConfiguration", args, &rv, "", opts...)
-			if err != nil {
-				return LookupInstanceAccessControlAttributeConfigurationResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupInstanceAccessControlAttributeConfigurationResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupInstanceAccessControlAttributeConfigurationResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:sso:getInstanceAccessControlAttributeConfiguration", args, LookupInstanceAccessControlAttributeConfigurationResultOutput{}, options).(LookupInstanceAccessControlAttributeConfigurationResultOutput), nil
 		}).(LookupInstanceAccessControlAttributeConfigurationResultOutput)
 }
 

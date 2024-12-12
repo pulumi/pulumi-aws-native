@@ -33,21 +33,11 @@ type LookupUsagePlanKeyResult struct {
 }
 
 func LookupUsagePlanKeyOutput(ctx *pulumi.Context, args LookupUsagePlanKeyOutputArgs, opts ...pulumi.InvokeOption) LookupUsagePlanKeyResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupUsagePlanKeyResultOutput, error) {
 			args := v.(LookupUsagePlanKeyArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupUsagePlanKeyResult
-			secret, err := ctx.InvokePackageRaw("aws-native:apigateway:getUsagePlanKey", args, &rv, "", opts...)
-			if err != nil {
-				return LookupUsagePlanKeyResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupUsagePlanKeyResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupUsagePlanKeyResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:apigateway:getUsagePlanKey", args, LookupUsagePlanKeyResultOutput{}, options).(LookupUsagePlanKeyResultOutput), nil
 		}).(LookupUsagePlanKeyResultOutput)
 }
 

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.M2
         /// </summary>
         public static Output<GetEnvironmentResult> Invoke(GetEnvironmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEnvironmentResult>("aws-native:m2:getEnvironment", args ?? new GetEnvironmentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Represents a runtime environment that can run migrated mainframe applications.
+        /// </summary>
+        public static Output<GetEnvironmentResult> Invoke(GetEnvironmentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEnvironmentResult>("aws-native:m2:getEnvironment", args ?? new GetEnvironmentInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.GameLift
         /// </summary>
         public static Output<GetGameSessionQueueResult> Invoke(GetGameSessionQueueInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGameSessionQueueResult>("aws-native:gamelift:getGameSessionQueue", args ?? new GetGameSessionQueueInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The AWS::GameLift::GameSessionQueue resource creates an Amazon GameLift (GameLift) game session queue.
+        /// </summary>
+        public static Output<GetGameSessionQueueResult> Invoke(GetGameSessionQueueInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetGameSessionQueueResult>("aws-native:gamelift:getGameSessionQueue", args ?? new GetGameSessionQueueInvokeArgs(), options.WithDefaults());
     }
 
 

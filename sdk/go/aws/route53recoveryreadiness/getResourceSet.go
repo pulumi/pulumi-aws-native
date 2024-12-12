@@ -38,21 +38,11 @@ type LookupResourceSetResult struct {
 }
 
 func LookupResourceSetOutput(ctx *pulumi.Context, args LookupResourceSetOutputArgs, opts ...pulumi.InvokeOption) LookupResourceSetResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupResourceSetResultOutput, error) {
 			args := v.(LookupResourceSetArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupResourceSetResult
-			secret, err := ctx.InvokePackageRaw("aws-native:route53recoveryreadiness:getResourceSet", args, &rv, "", opts...)
-			if err != nil {
-				return LookupResourceSetResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupResourceSetResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupResourceSetResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:route53recoveryreadiness:getResourceSet", args, LookupResourceSetResultOutput{}, options).(LookupResourceSetResultOutput), nil
 		}).(LookupResourceSetResultOutput)
 }
 

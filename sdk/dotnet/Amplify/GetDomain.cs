@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Amplify
         /// </summary>
         public static Output<GetDomainResult> Invoke(GetDomainInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDomainResult>("aws-native:amplify:getDomain", args ?? new GetDomainInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The AWS::Amplify::Domain resource allows you to connect a custom domain to your app.
+        /// </summary>
+        public static Output<GetDomainResult> Invoke(GetDomainInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDomainResult>("aws-native:amplify:getDomain", args ?? new GetDomainInvokeArgs(), options.WithDefaults());
     }
 
 

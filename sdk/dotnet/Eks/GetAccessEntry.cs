@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Eks
         /// </summary>
         public static Output<GetAccessEntryResult> Invoke(GetAccessEntryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccessEntryResult>("aws-native:eks:getAccessEntry", args ?? new GetAccessEntryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// An object representing an Amazon EKS AccessEntry.
+        /// </summary>
+        public static Output<GetAccessEntryResult> Invoke(GetAccessEntryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAccessEntryResult>("aws-native:eks:getAccessEntry", args ?? new GetAccessEntryInvokeArgs(), options.WithDefaults());
     }
 
 

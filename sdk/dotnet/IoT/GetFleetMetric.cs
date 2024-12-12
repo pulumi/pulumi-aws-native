@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.IoT
         /// </summary>
         public static Output<GetFleetMetricResult> Invoke(GetFleetMetricInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFleetMetricResult>("aws-native:iot:getFleetMetric", args ?? new GetFleetMetricInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// An aggregated metric of certain devices in your fleet
+        /// </summary>
+        public static Output<GetFleetMetricResult> Invoke(GetFleetMetricInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFleetMetricResult>("aws-native:iot:getFleetMetric", args ?? new GetFleetMetricInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Sns
         /// </summary>
         public static Output<GetTopicPolicyResult> Invoke(GetTopicPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTopicPolicyResult>("aws-native:sns:getTopicPolicy", args ?? new GetTopicPolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The ``AWS::SNS::TopicPolicy`` resource associates SNS topics with a policy. For an example snippet, see [Declaring an policy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/quickref-iam.html#scenario-sns-policy) in the *User Guide*.
+        /// </summary>
+        public static Output<GetTopicPolicyResult> Invoke(GetTopicPolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTopicPolicyResult>("aws-native:sns:getTopicPolicy", args ?? new GetTopicPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

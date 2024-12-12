@@ -47,21 +47,11 @@ type LookupLambdaHookResult struct {
 }
 
 func LookupLambdaHookOutput(ctx *pulumi.Context, args LookupLambdaHookOutputArgs, opts ...pulumi.InvokeOption) LookupLambdaHookResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupLambdaHookResultOutput, error) {
 			args := v.(LookupLambdaHookArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupLambdaHookResult
-			secret, err := ctx.InvokePackageRaw("aws-native:cloudformation:getLambdaHook", args, &rv, "", opts...)
-			if err != nil {
-				return LookupLambdaHookResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupLambdaHookResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupLambdaHookResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:cloudformation:getLambdaHook", args, LookupLambdaHookResultOutput{}, options).(LookupLambdaHookResultOutput), nil
 		}).(LookupLambdaHookResultOutput)
 }
 

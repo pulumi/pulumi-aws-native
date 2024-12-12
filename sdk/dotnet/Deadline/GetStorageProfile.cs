@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Deadline
         /// </summary>
         public static Output<GetStorageProfileResult> Invoke(GetStorageProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStorageProfileResult>("aws-native:deadline:getStorageProfile", args ?? new GetStorageProfileInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::Deadline::StorageProfile Resource Type
+        /// </summary>
+        public static Output<GetStorageProfileResult> Invoke(GetStorageProfileInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetStorageProfileResult>("aws-native:deadline:getStorageProfile", args ?? new GetStorageProfileInvokeArgs(), options.WithDefaults());
     }
 
 

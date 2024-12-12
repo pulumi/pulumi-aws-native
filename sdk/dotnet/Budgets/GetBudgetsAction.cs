@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Budgets
         /// </summary>
         public static Output<GetBudgetsActionResult> Invoke(GetBudgetsActionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBudgetsActionResult>("aws-native:budgets:getBudgetsAction", args ?? new GetBudgetsActionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// An example resource schema demonstrating some basic constructs and validation rules.
+        /// </summary>
+        public static Output<GetBudgetsActionResult> Invoke(GetBudgetsActionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetBudgetsActionResult>("aws-native:budgets:getBudgetsAction", args ?? new GetBudgetsActionInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Connect
         /// </summary>
         public static Output<GetTaskTemplateResult> Invoke(GetTaskTemplateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTaskTemplateResult>("aws-native:connect:getTaskTemplate", args ?? new GetTaskTemplateInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::Connect::TaskTemplate.
+        /// </summary>
+        public static Output<GetTaskTemplateResult> Invoke(GetTaskTemplateInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTaskTemplateResult>("aws-native:connect:getTaskTemplate", args ?? new GetTaskTemplateInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.ElastiCache
         /// </summary>
         public static Output<GetSubnetGroupResult> Invoke(GetSubnetGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSubnetGroupResult>("aws-native:elasticache:getSubnetGroup", args ?? new GetSubnetGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::ElastiCache::SubnetGroup
+        /// </summary>
+        public static Output<GetSubnetGroupResult> Invoke(GetSubnetGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSubnetGroupResult>("aws-native:elasticache:getSubnetGroup", args ?? new GetSubnetGroupInvokeArgs(), options.WithDefaults());
     }
 
 

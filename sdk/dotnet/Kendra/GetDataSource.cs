@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Kendra
         /// </summary>
         public static Output<GetDataSourceResult> Invoke(GetDataSourceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDataSourceResult>("aws-native:kendra:getDataSource", args ?? new GetDataSourceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Kendra DataSource
+        /// </summary>
+        public static Output<GetDataSourceResult> Invoke(GetDataSourceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDataSourceResult>("aws-native:kendra:getDataSource", args ?? new GetDataSourceInvokeArgs(), options.WithDefaults());
     }
 
 

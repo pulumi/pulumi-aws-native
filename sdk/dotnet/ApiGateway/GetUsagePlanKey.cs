@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.ApiGateway
         /// </summary>
         public static Output<GetUsagePlanKeyResult> Invoke(GetUsagePlanKeyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUsagePlanKeyResult>("aws-native:apigateway:getUsagePlanKey", args ?? new GetUsagePlanKeyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The ``AWS::ApiGateway::UsagePlanKey`` resource associates an API key with a usage plan. This association determines which users the usage plan is applied to.
+        /// </summary>
+        public static Output<GetUsagePlanKeyResult> Invoke(GetUsagePlanKeyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetUsagePlanKeyResult>("aws-native:apigateway:getUsagePlanKey", args ?? new GetUsagePlanKeyInvokeArgs(), options.WithDefaults());
     }
 
 

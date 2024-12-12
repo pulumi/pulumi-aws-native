@@ -41,21 +41,11 @@ type LookupApiMappingResult struct {
 }
 
 func LookupApiMappingOutput(ctx *pulumi.Context, args LookupApiMappingOutputArgs, opts ...pulumi.InvokeOption) LookupApiMappingResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupApiMappingResultOutput, error) {
 			args := v.(LookupApiMappingArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupApiMappingResult
-			secret, err := ctx.InvokePackageRaw("aws-native:apigatewayv2:getApiMapping", args, &rv, "", opts...)
-			if err != nil {
-				return LookupApiMappingResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupApiMappingResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupApiMappingResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:apigatewayv2:getApiMapping", args, LookupApiMappingResultOutput{}, options).(LookupApiMappingResultOutput), nil
 		}).(LookupApiMappingResultOutput)
 }
 

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.IoTSiteWise
         /// </summary>
         public static Output<GetProjectResult> Invoke(GetProjectInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProjectResult>("aws-native:iotsitewise:getProject", args ?? new GetProjectInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource schema for AWS::IoTSiteWise::Project
+        /// </summary>
+        public static Output<GetProjectResult> Invoke(GetProjectInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetProjectResult>("aws-native:iotsitewise:getProject", args ?? new GetProjectInvokeArgs(), options.WithDefaults());
     }
 
 

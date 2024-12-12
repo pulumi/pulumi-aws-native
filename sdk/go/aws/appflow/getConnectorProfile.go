@@ -37,21 +37,11 @@ type LookupConnectorProfileResult struct {
 }
 
 func LookupConnectorProfileOutput(ctx *pulumi.Context, args LookupConnectorProfileOutputArgs, opts ...pulumi.InvokeOption) LookupConnectorProfileResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupConnectorProfileResultOutput, error) {
 			args := v.(LookupConnectorProfileArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupConnectorProfileResult
-			secret, err := ctx.InvokePackageRaw("aws-native:appflow:getConnectorProfile", args, &rv, "", opts...)
-			if err != nil {
-				return LookupConnectorProfileResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupConnectorProfileResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupConnectorProfileResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:appflow:getConnectorProfile", args, LookupConnectorProfileResultOutput{}, options).(LookupConnectorProfileResultOutput), nil
 		}).(LookupConnectorProfileResultOutput)
 }
 

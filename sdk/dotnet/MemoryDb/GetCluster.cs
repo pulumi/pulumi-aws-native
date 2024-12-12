@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.MemoryDb
         /// </summary>
         public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("aws-native:memorydb:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The AWS::MemoryDB::Cluster resource creates an Amazon MemoryDB Cluster.
+        /// </summary>
+        public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("aws-native:memorydb:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());
     }
 
 

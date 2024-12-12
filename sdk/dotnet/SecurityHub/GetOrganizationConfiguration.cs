@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.SecurityHub
         /// </summary>
         public static Output<GetOrganizationConfigurationResult> Invoke(GetOrganizationConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOrganizationConfigurationResult>("aws-native:securityhub:getOrganizationConfiguration", args ?? new GetOrganizationConfigurationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The AWS::SecurityHub::OrganizationConfiguration resource represents the configuration of your organization in Security Hub. Only the Security Hub administrator account can create Organization Configuration resource in each region and can opt-in to Central Configuration only in the aggregation region of FindingAggregator.
+        /// </summary>
+        public static Output<GetOrganizationConfigurationResult> Invoke(GetOrganizationConfigurationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetOrganizationConfigurationResult>("aws-native:securityhub:getOrganizationConfiguration", args ?? new GetOrganizationConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.QBusiness
         /// </summary>
         public static Output<GetPluginResult> Invoke(GetPluginInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPluginResult>("aws-native:qbusiness:getPlugin", args ?? new GetPluginInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::QBusiness::Plugin Resource Type
+        /// </summary>
+        public static Output<GetPluginResult> Invoke(GetPluginInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPluginResult>("aws-native:qbusiness:getPlugin", args ?? new GetPluginInvokeArgs(), options.WithDefaults());
     }
 
 

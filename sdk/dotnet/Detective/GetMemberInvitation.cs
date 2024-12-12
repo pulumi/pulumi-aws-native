@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Detective
         /// </summary>
         public static Output<GetMemberInvitationResult> Invoke(GetMemberInvitationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMemberInvitationResult>("aws-native:detective:getMemberInvitation", args ?? new GetMemberInvitationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource schema for AWS::Detective::MemberInvitation
+        /// </summary>
+        public static Output<GetMemberInvitationResult> Invoke(GetMemberInvitationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMemberInvitationResult>("aws-native:detective:getMemberInvitation", args ?? new GetMemberInvitationInvokeArgs(), options.WithDefaults());
     }
 
 

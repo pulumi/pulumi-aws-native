@@ -38,21 +38,11 @@ type LookupEventIntegrationResult struct {
 }
 
 func LookupEventIntegrationOutput(ctx *pulumi.Context, args LookupEventIntegrationOutputArgs, opts ...pulumi.InvokeOption) LookupEventIntegrationResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupEventIntegrationResultOutput, error) {
 			args := v.(LookupEventIntegrationArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupEventIntegrationResult
-			secret, err := ctx.InvokePackageRaw("aws-native:appintegrations:getEventIntegration", args, &rv, "", opts...)
-			if err != nil {
-				return LookupEventIntegrationResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupEventIntegrationResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupEventIntegrationResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:appintegrations:getEventIntegration", args, LookupEventIntegrationResultOutput{}, options).(LookupEventIntegrationResultOutput), nil
 		}).(LookupEventIntegrationResultOutput)
 }
 

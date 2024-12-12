@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Location
         /// </summary>
         public static Output<GetTrackerResult> Invoke(GetTrackerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTrackerResult>("aws-native:location:getTracker", args ?? new GetTrackerInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::Location::Tracker Resource Type
+        /// </summary>
+        public static Output<GetTrackerResult> Invoke(GetTrackerInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTrackerResult>("aws-native:location:getTracker", args ?? new GetTrackerInvokeArgs(), options.WithDefaults());
     }
 
 

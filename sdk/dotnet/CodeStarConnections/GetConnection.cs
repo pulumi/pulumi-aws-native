@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.CodeStarConnections
         /// </summary>
         public static Output<GetConnectionResult> Invoke(GetConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectionResult>("aws-native:codestarconnections:getConnection", args ?? new GetConnectionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Schema for AWS::CodeStarConnections::Connection resource which can be used to connect external source providers with AWS CodePipeline
+        /// </summary>
+        public static Output<GetConnectionResult> Invoke(GetConnectionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetConnectionResult>("aws-native:codestarconnections:getConnection", args ?? new GetConnectionInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -39,21 +39,11 @@ type LookupDistributionConfigurationResult struct {
 }
 
 func LookupDistributionConfigurationOutput(ctx *pulumi.Context, args LookupDistributionConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupDistributionConfigurationResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupDistributionConfigurationResultOutput, error) {
 			args := v.(LookupDistributionConfigurationArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupDistributionConfigurationResult
-			secret, err := ctx.InvokePackageRaw("aws-native:imagebuilder:getDistributionConfiguration", args, &rv, "", opts...)
-			if err != nil {
-				return LookupDistributionConfigurationResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupDistributionConfigurationResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupDistributionConfigurationResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:imagebuilder:getDistributionConfiguration", args, LookupDistributionConfigurationResultOutput{}, options).(LookupDistributionConfigurationResultOutput), nil
 		}).(LookupDistributionConfigurationResultOutput)
 }
 

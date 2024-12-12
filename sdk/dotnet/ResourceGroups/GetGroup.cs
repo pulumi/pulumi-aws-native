@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.ResourceGroups
         /// </summary>
         public static Output<GetGroupResult> Invoke(GetGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGroupResult>("aws-native:resourcegroups:getGroup", args ?? new GetGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Schema for ResourceGroups::Group
+        /// </summary>
+        public static Output<GetGroupResult> Invoke(GetGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetGroupResult>("aws-native:resourcegroups:getGroup", args ?? new GetGroupInvokeArgs(), options.WithDefaults());
     }
 
 

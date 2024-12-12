@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Route53Resolver
         /// </summary>
         public static Output<GetFirewallRuleGroupAssociationResult> Invoke(GetFirewallRuleGroupAssociationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFirewallRuleGroupAssociationResult>("aws-native:route53resolver:getFirewallRuleGroupAssociation", args ?? new GetFirewallRuleGroupAssociationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource schema for AWS::Route53Resolver::FirewallRuleGroupAssociation.
+        /// </summary>
+        public static Output<GetFirewallRuleGroupAssociationResult> Invoke(GetFirewallRuleGroupAssociationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFirewallRuleGroupAssociationResult>("aws-native:route53resolver:getFirewallRuleGroupAssociation", args ?? new GetFirewallRuleGroupAssociationInvokeArgs(), options.WithDefaults());
     }
 
 

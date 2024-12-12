@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.ApiGateway
         /// </summary>
         public static Output<GetRequestValidatorResult> Invoke(GetRequestValidatorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRequestValidatorResult>("aws-native:apigateway:getRequestValidator", args ?? new GetRequestValidatorInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The ``AWS::ApiGateway::RequestValidator`` resource sets up basic validation rules for incoming requests to your API. For more information, see [Enable Basic Request Validation for an API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-method-request-validation.html) in the *API Gateway Developer Guide*.
+        /// </summary>
+        public static Output<GetRequestValidatorResult> Invoke(GetRequestValidatorInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRequestValidatorResult>("aws-native:apigateway:getRequestValidator", args ?? new GetRequestValidatorInvokeArgs(), options.WithDefaults());
     }
 
 

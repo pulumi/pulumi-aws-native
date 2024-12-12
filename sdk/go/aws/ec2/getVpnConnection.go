@@ -40,21 +40,11 @@ type LookupVpnConnectionResult struct {
 }
 
 func LookupVpnConnectionOutput(ctx *pulumi.Context, args LookupVpnConnectionOutputArgs, opts ...pulumi.InvokeOption) LookupVpnConnectionResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupVpnConnectionResultOutput, error) {
 			args := v.(LookupVpnConnectionArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupVpnConnectionResult
-			secret, err := ctx.InvokePackageRaw("aws-native:ec2:getVpnConnection", args, &rv, "", opts...)
-			if err != nil {
-				return LookupVpnConnectionResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupVpnConnectionResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupVpnConnectionResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:ec2:getVpnConnection", args, LookupVpnConnectionResultOutput{}, options).(LookupVpnConnectionResultOutput), nil
 		}).(LookupVpnConnectionResultOutput)
 }
 

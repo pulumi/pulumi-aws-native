@@ -41,21 +41,11 @@ type LookupApplicationResult struct {
 }
 
 func LookupApplicationOutput(ctx *pulumi.Context, args LookupApplicationOutputArgs, opts ...pulumi.InvokeOption) LookupApplicationResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupApplicationResultOutput, error) {
 			args := v.(LookupApplicationArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupApplicationResult
-			secret, err := ctx.InvokePackageRaw("aws-native:m2:getApplication", args, &rv, "", opts...)
-			if err != nil {
-				return LookupApplicationResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupApplicationResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupApplicationResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:m2:getApplication", args, LookupApplicationResultOutput{}, options).(LookupApplicationResultOutput), nil
 		}).(LookupApplicationResultOutput)
 }
 

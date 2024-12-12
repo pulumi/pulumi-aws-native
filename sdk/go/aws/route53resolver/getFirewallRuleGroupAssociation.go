@@ -56,21 +56,11 @@ type LookupFirewallRuleGroupAssociationResult struct {
 }
 
 func LookupFirewallRuleGroupAssociationOutput(ctx *pulumi.Context, args LookupFirewallRuleGroupAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupFirewallRuleGroupAssociationResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupFirewallRuleGroupAssociationResultOutput, error) {
 			args := v.(LookupFirewallRuleGroupAssociationArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupFirewallRuleGroupAssociationResult
-			secret, err := ctx.InvokePackageRaw("aws-native:route53resolver:getFirewallRuleGroupAssociation", args, &rv, "", opts...)
-			if err != nil {
-				return LookupFirewallRuleGroupAssociationResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupFirewallRuleGroupAssociationResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupFirewallRuleGroupAssociationResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:route53resolver:getFirewallRuleGroupAssociation", args, LookupFirewallRuleGroupAssociationResultOutput{}, options).(LookupFirewallRuleGroupAssociationResultOutput), nil
 		}).(LookupFirewallRuleGroupAssociationResultOutput)
 }
 

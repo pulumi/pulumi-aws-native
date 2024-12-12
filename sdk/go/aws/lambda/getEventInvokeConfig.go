@@ -47,21 +47,11 @@ type LookupEventInvokeConfigResult struct {
 }
 
 func LookupEventInvokeConfigOutput(ctx *pulumi.Context, args LookupEventInvokeConfigOutputArgs, opts ...pulumi.InvokeOption) LookupEventInvokeConfigResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupEventInvokeConfigResultOutput, error) {
 			args := v.(LookupEventInvokeConfigArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupEventInvokeConfigResult
-			secret, err := ctx.InvokePackageRaw("aws-native:lambda:getEventInvokeConfig", args, &rv, "", opts...)
-			if err != nil {
-				return LookupEventInvokeConfigResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupEventInvokeConfigResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupEventInvokeConfigResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:lambda:getEventInvokeConfig", args, LookupEventInvokeConfigResultOutput{}, options).(LookupEventInvokeConfigResultOutput), nil
 		}).(LookupEventInvokeConfigResultOutput)
 }
 

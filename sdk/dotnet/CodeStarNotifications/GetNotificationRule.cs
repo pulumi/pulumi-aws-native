@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.CodeStarNotifications
         /// </summary>
         public static Output<GetNotificationRuleResult> Invoke(GetNotificationRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNotificationRuleResult>("aws-native:codestarnotifications:getNotificationRule", args ?? new GetNotificationRuleInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::CodeStarNotifications::NotificationRule
+        /// </summary>
+        public static Output<GetNotificationRuleResult> Invoke(GetNotificationRuleInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetNotificationRuleResult>("aws-native:codestarnotifications:getNotificationRule", args ?? new GetNotificationRuleInvokeArgs(), options.WithDefaults());
     }
 
 

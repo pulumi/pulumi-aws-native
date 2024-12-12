@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.CleanRooms
         /// </summary>
         public static Output<GetCollaborationResult> Invoke(GetCollaborationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCollaborationResult>("aws-native:cleanrooms:getCollaboration", args ?? new GetCollaborationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Represents a collaboration between AWS accounts that allows for secure data collaboration
+        /// </summary>
+        public static Output<GetCollaborationResult> Invoke(GetCollaborationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCollaborationResult>("aws-native:cleanrooms:getCollaboration", args ?? new GetCollaborationInvokeArgs(), options.WithDefaults());
     }
 
 

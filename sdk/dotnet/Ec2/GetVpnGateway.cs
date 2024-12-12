@@ -24,6 +24,13 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         public static Output<GetVpnGatewayResult> Invoke(GetVpnGatewayInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpnGatewayResult>("aws-native:ec2:getVpnGateway", args ?? new GetVpnGatewayInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Specifies a virtual private gateway. A virtual private gateway is the endpoint on the VPC side of your VPN connection. You can create a virtual private gateway before creating the VPC itself.
+        ///  For more information, see [](https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html) in the *User Guide*.
+        /// </summary>
+        public static Output<GetVpnGatewayResult> Invoke(GetVpnGatewayInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVpnGatewayResult>("aws-native:ec2:getVpnGateway", args ?? new GetVpnGatewayInvokeArgs(), options.WithDefaults());
     }
 
 

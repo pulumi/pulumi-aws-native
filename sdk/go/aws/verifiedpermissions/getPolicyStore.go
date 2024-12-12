@@ -45,21 +45,11 @@ type LookupPolicyStoreResult struct {
 }
 
 func LookupPolicyStoreOutput(ctx *pulumi.Context, args LookupPolicyStoreOutputArgs, opts ...pulumi.InvokeOption) LookupPolicyStoreResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupPolicyStoreResultOutput, error) {
 			args := v.(LookupPolicyStoreArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupPolicyStoreResult
-			secret, err := ctx.InvokePackageRaw("aws-native:verifiedpermissions:getPolicyStore", args, &rv, "", opts...)
-			if err != nil {
-				return LookupPolicyStoreResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupPolicyStoreResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupPolicyStoreResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:verifiedpermissions:getPolicyStore", args, LookupPolicyStoreResultOutput{}, options).(LookupPolicyStoreResultOutput), nil
 		}).(LookupPolicyStoreResultOutput)
 }
 

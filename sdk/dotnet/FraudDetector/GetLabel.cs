@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.FraudDetector
         /// </summary>
         public static Output<GetLabelResult> Invoke(GetLabelInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLabelResult>("aws-native:frauddetector:getLabel", args ?? new GetLabelInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// An label for fraud detector.
+        /// </summary>
+        public static Output<GetLabelResult> Invoke(GetLabelInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLabelResult>("aws-native:frauddetector:getLabel", args ?? new GetLabelInvokeArgs(), options.WithDefaults());
     }
 
 

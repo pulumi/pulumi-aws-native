@@ -43,21 +43,11 @@ type LookupGlobalReplicationGroupResult struct {
 }
 
 func LookupGlobalReplicationGroupOutput(ctx *pulumi.Context, args LookupGlobalReplicationGroupOutputArgs, opts ...pulumi.InvokeOption) LookupGlobalReplicationGroupResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupGlobalReplicationGroupResultOutput, error) {
 			args := v.(LookupGlobalReplicationGroupArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupGlobalReplicationGroupResult
-			secret, err := ctx.InvokePackageRaw("aws-native:elasticache:getGlobalReplicationGroup", args, &rv, "", opts...)
-			if err != nil {
-				return LookupGlobalReplicationGroupResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupGlobalReplicationGroupResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupGlobalReplicationGroupResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:elasticache:getGlobalReplicationGroup", args, LookupGlobalReplicationGroupResultOutput{}, options).(LookupGlobalReplicationGroupResultOutput), nil
 		}).(LookupGlobalReplicationGroupResultOutput)
 }
 

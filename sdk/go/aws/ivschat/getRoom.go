@@ -48,21 +48,11 @@ type LookupRoomResult struct {
 }
 
 func LookupRoomOutput(ctx *pulumi.Context, args LookupRoomOutputArgs, opts ...pulumi.InvokeOption) LookupRoomResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupRoomResultOutput, error) {
 			args := v.(LookupRoomArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupRoomResult
-			secret, err := ctx.InvokePackageRaw("aws-native:ivschat:getRoom", args, &rv, "", opts...)
-			if err != nil {
-				return LookupRoomResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupRoomResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupRoomResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:ivschat:getRoom", args, LookupRoomResultOutput{}, options).(LookupRoomResultOutput), nil
 		}).(LookupRoomResultOutput)
 }
 

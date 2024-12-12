@@ -37,21 +37,11 @@ type LookupReferenceStoreResult struct {
 }
 
 func LookupReferenceStoreOutput(ctx *pulumi.Context, args LookupReferenceStoreOutputArgs, opts ...pulumi.InvokeOption) LookupReferenceStoreResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupReferenceStoreResultOutput, error) {
 			args := v.(LookupReferenceStoreArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupReferenceStoreResult
-			secret, err := ctx.InvokePackageRaw("aws-native:omics:getReferenceStore", args, &rv, "", opts...)
-			if err != nil {
-				return LookupReferenceStoreResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupReferenceStoreResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupReferenceStoreResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:omics:getReferenceStore", args, LookupReferenceStoreResultOutput{}, options).(LookupReferenceStoreResultOutput), nil
 		}).(LookupReferenceStoreResultOutput)
 }
 

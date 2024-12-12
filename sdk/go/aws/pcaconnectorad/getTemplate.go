@@ -37,21 +37,11 @@ type LookupTemplateResult struct {
 }
 
 func LookupTemplateOutput(ctx *pulumi.Context, args LookupTemplateOutputArgs, opts ...pulumi.InvokeOption) LookupTemplateResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupTemplateResultOutput, error) {
 			args := v.(LookupTemplateArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupTemplateResult
-			secret, err := ctx.InvokePackageRaw("aws-native:pcaconnectorad:getTemplate", args, &rv, "", opts...)
-			if err != nil {
-				return LookupTemplateResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupTemplateResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupTemplateResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:pcaconnectorad:getTemplate", args, LookupTemplateResultOutput{}, options).(LookupTemplateResultOutput), nil
 		}).(LookupTemplateResultOutput)
 }
 

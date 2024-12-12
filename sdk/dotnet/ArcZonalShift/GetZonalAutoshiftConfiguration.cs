@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.ArcZonalShift
         /// </summary>
         public static Output<GetZonalAutoshiftConfigurationResult> Invoke(GetZonalAutoshiftConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetZonalAutoshiftConfigurationResult>("aws-native:arczonalshift:getZonalAutoshiftConfiguration", args ?? new GetZonalAutoshiftConfigurationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::ARCZonalShift::ZonalAutoshiftConfiguration Resource Type
+        /// </summary>
+        public static Output<GetZonalAutoshiftConfigurationResult> Invoke(GetZonalAutoshiftConfigurationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetZonalAutoshiftConfigurationResult>("aws-native:arczonalshift:getZonalAutoshiftConfiguration", args ?? new GetZonalAutoshiftConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

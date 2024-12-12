@@ -55,21 +55,11 @@ type LookupFunctionConfigurationResult struct {
 }
 
 func LookupFunctionConfigurationOutput(ctx *pulumi.Context, args LookupFunctionConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupFunctionConfigurationResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupFunctionConfigurationResultOutput, error) {
 			args := v.(LookupFunctionConfigurationArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupFunctionConfigurationResult
-			secret, err := ctx.InvokePackageRaw("aws-native:appsync:getFunctionConfiguration", args, &rv, "", opts...)
-			if err != nil {
-				return LookupFunctionConfigurationResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupFunctionConfigurationResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupFunctionConfigurationResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:appsync:getFunctionConfiguration", args, LookupFunctionConfigurationResultOutput{}, options).(LookupFunctionConfigurationResultOutput), nil
 		}).(LookupFunctionConfigurationResultOutput)
 }
 

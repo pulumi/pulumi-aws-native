@@ -48,21 +48,11 @@ type LookupMlflowTrackingServerResult struct {
 }
 
 func LookupMlflowTrackingServerOutput(ctx *pulumi.Context, args LookupMlflowTrackingServerOutputArgs, opts ...pulumi.InvokeOption) LookupMlflowTrackingServerResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupMlflowTrackingServerResultOutput, error) {
 			args := v.(LookupMlflowTrackingServerArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupMlflowTrackingServerResult
-			secret, err := ctx.InvokePackageRaw("aws-native:sagemaker:getMlflowTrackingServer", args, &rv, "", opts...)
-			if err != nil {
-				return LookupMlflowTrackingServerResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupMlflowTrackingServerResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupMlflowTrackingServerResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:sagemaker:getMlflowTrackingServer", args, LookupMlflowTrackingServerResultOutput{}, options).(LookupMlflowTrackingServerResultOutput), nil
 		}).(LookupMlflowTrackingServerResultOutput)
 }
 

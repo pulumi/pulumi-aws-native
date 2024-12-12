@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Redshift
         /// </summary>
         public static Output<GetIntegrationResult> Invoke(GetIntegrationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIntegrationResult>("aws-native:redshift:getIntegration", args ?? new GetIntegrationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Integration from a source AWS service to a Redshift cluster
+        /// </summary>
+        public static Output<GetIntegrationResult> Invoke(GetIntegrationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetIntegrationResult>("aws-native:redshift:getIntegration", args ?? new GetIntegrationInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -39,21 +39,11 @@ type LookupPrivateGraphEndpointResult struct {
 }
 
 func LookupPrivateGraphEndpointOutput(ctx *pulumi.Context, args LookupPrivateGraphEndpointOutputArgs, opts ...pulumi.InvokeOption) LookupPrivateGraphEndpointResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupPrivateGraphEndpointResultOutput, error) {
 			args := v.(LookupPrivateGraphEndpointArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupPrivateGraphEndpointResult
-			secret, err := ctx.InvokePackageRaw("aws-native:neptunegraph:getPrivateGraphEndpoint", args, &rv, "", opts...)
-			if err != nil {
-				return LookupPrivateGraphEndpointResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupPrivateGraphEndpointResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupPrivateGraphEndpointResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:neptunegraph:getPrivateGraphEndpoint", args, LookupPrivateGraphEndpointResultOutput{}, options).(LookupPrivateGraphEndpointResultOutput), nil
 		}).(LookupPrivateGraphEndpointResultOutput)
 }
 

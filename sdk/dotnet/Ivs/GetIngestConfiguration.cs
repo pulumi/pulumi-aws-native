@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Ivs
         /// </summary>
         public static Output<GetIngestConfigurationResult> Invoke(GetIngestConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIngestConfigurationResult>("aws-native:ivs:getIngestConfiguration", args ?? new GetIngestConfigurationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::IVS::IngestConfiguration
+        /// </summary>
+        public static Output<GetIngestConfigurationResult> Invoke(GetIngestConfigurationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetIngestConfigurationResult>("aws-native:ivs:getIngestConfiguration", args ?? new GetIngestConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

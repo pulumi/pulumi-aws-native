@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.IoT
         /// </summary>
         public static Output<GetJobTemplateResult> Invoke(GetJobTemplateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetJobTemplateResult>("aws-native:iot:getJobTemplate", args ?? new GetJobTemplateInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Job templates enable you to preconfigure jobs so that you can deploy them to multiple sets of target devices.
+        /// </summary>
+        public static Output<GetJobTemplateResult> Invoke(GetJobTemplateInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetJobTemplateResult>("aws-native:iot:getJobTemplate", args ?? new GetJobTemplateInvokeArgs(), options.WithDefaults());
     }
 
 

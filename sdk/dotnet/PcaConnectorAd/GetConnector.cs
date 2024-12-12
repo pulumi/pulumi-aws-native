@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.PcaConnectorAd
         /// </summary>
         public static Output<GetConnectorResult> Invoke(GetConnectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectorResult>("aws-native:pcaconnectorad:getConnector", args ?? new GetConnectorInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::PCAConnectorAD::Connector Resource Type
+        /// </summary>
+        public static Output<GetConnectorResult> Invoke(GetConnectorInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetConnectorResult>("aws-native:pcaconnectorad:getConnector", args ?? new GetConnectorInvokeArgs(), options.WithDefaults());
     }
 
 

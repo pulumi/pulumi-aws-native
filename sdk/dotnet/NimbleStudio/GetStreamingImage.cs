@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.NimbleStudio
         /// </summary>
         public static Output<GetStreamingImageResult> Invoke(GetStreamingImageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStreamingImageResult>("aws-native:nimblestudio:getStreamingImage", args ?? new GetStreamingImageInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::NimbleStudio::StreamingImage
+        /// </summary>
+        public static Output<GetStreamingImageResult> Invoke(GetStreamingImageInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetStreamingImageResult>("aws-native:nimblestudio:getStreamingImage", args ?? new GetStreamingImageInvokeArgs(), options.WithDefaults());
     }
 
 

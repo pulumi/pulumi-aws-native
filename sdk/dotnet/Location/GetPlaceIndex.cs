@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Location
         /// </summary>
         public static Output<GetPlaceIndexResult> Invoke(GetPlaceIndexInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPlaceIndexResult>("aws-native:location:getPlaceIndex", args ?? new GetPlaceIndexInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::Location::PlaceIndex Resource Type
+        /// </summary>
+        public static Output<GetPlaceIndexResult> Invoke(GetPlaceIndexInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPlaceIndexResult>("aws-native:location:getPlaceIndex", args ?? new GetPlaceIndexInvokeArgs(), options.WithDefaults());
     }
 
 

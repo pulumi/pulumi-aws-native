@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Glue
         /// </summary>
         public static Output<GetSchemaResult> Invoke(GetSchemaInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSchemaResult>("aws-native:glue:getSchema", args ?? new GetSchemaInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// This resource represents a schema of Glue Schema Registry.
+        /// </summary>
+        public static Output<GetSchemaResult> Invoke(GetSchemaInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSchemaResult>("aws-native:glue:getSchema", args ?? new GetSchemaInvokeArgs(), options.WithDefaults());
     }
 
 

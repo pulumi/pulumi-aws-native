@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.DataSync
         /// </summary>
         public static Output<GetLocationFSxOntapResult> Invoke(GetLocationFSxOntapInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocationFSxOntapResult>("aws-native:datasync:getLocationFSxOntap", args ?? new GetLocationFSxOntapInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource schema for AWS::DataSync::LocationFSxONTAP.
+        /// </summary>
+        public static Output<GetLocationFSxOntapResult> Invoke(GetLocationFSxOntapInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLocationFSxOntapResult>("aws-native:datasync:getLocationFSxOntap", args ?? new GetLocationFSxOntapInvokeArgs(), options.WithDefaults());
     }
 
 

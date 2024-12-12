@@ -46,21 +46,11 @@ type LookupFaqResult struct {
 }
 
 func LookupFaqOutput(ctx *pulumi.Context, args LookupFaqOutputArgs, opts ...pulumi.InvokeOption) LookupFaqResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupFaqResultOutput, error) {
 			args := v.(LookupFaqArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupFaqResult
-			secret, err := ctx.InvokePackageRaw("aws-native:kendra:getFaq", args, &rv, "", opts...)
-			if err != nil {
-				return LookupFaqResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupFaqResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupFaqResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:kendra:getFaq", args, LookupFaqResultOutput{}, options).(LookupFaqResultOutput), nil
 		}).(LookupFaqResultOutput)
 }
 

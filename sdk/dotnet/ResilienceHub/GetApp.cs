@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.ResilienceHub
         /// </summary>
         public static Output<GetAppResult> Invoke(GetAppInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAppResult>("aws-native:resiliencehub:getApp", args ?? new GetAppInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type Definition for AWS::ResilienceHub::App.
+        /// </summary>
+        public static Output<GetAppResult> Invoke(GetAppInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAppResult>("aws-native:resiliencehub:getApp", args ?? new GetAppInvokeArgs(), options.WithDefaults());
     }
 
 

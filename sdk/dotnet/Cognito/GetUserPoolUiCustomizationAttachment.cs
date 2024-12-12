@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Cognito
         /// </summary>
         public static Output<GetUserPoolUiCustomizationAttachmentResult> Invoke(GetUserPoolUiCustomizationAttachmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserPoolUiCustomizationAttachmentResult>("aws-native:cognito:getUserPoolUiCustomizationAttachment", args ?? new GetUserPoolUiCustomizationAttachmentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::Cognito::UserPoolUICustomizationAttachment
+        /// </summary>
+        public static Output<GetUserPoolUiCustomizationAttachmentResult> Invoke(GetUserPoolUiCustomizationAttachmentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetUserPoolUiCustomizationAttachmentResult>("aws-native:cognito:getUserPoolUiCustomizationAttachment", args ?? new GetUserPoolUiCustomizationAttachmentInvokeArgs(), options.WithDefaults());
     }
 
 

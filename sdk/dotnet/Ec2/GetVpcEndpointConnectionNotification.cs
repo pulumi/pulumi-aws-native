@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         public static Output<GetVpcEndpointConnectionNotificationResult> Invoke(GetVpcEndpointConnectionNotificationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpcEndpointConnectionNotificationResult>("aws-native:ec2:getVpcEndpointConnectionNotification", args ?? new GetVpcEndpointConnectionNotificationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::EC2::VPCEndpointConnectionNotification
+        /// </summary>
+        public static Output<GetVpcEndpointConnectionNotificationResult> Invoke(GetVpcEndpointConnectionNotificationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVpcEndpointConnectionNotificationResult>("aws-native:ec2:getVpcEndpointConnectionNotification", args ?? new GetVpcEndpointConnectionNotificationInvokeArgs(), options.WithDefaults());
     }
 
 

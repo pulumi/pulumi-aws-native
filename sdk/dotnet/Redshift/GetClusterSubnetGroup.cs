@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Redshift
         /// </summary>
         public static Output<GetClusterSubnetGroupResult> Invoke(GetClusterSubnetGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterSubnetGroupResult>("aws-native:redshift:getClusterSubnetGroup", args ?? new GetClusterSubnetGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Specifies an Amazon Redshift subnet group.
+        /// </summary>
+        public static Output<GetClusterSubnetGroupResult> Invoke(GetClusterSubnetGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetClusterSubnetGroupResult>("aws-native:redshift:getClusterSubnetGroup", args ?? new GetClusterSubnetGroupInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -45,21 +45,11 @@ type LookupAttributeGroupResult struct {
 }
 
 func LookupAttributeGroupOutput(ctx *pulumi.Context, args LookupAttributeGroupOutputArgs, opts ...pulumi.InvokeOption) LookupAttributeGroupResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupAttributeGroupResultOutput, error) {
 			args := v.(LookupAttributeGroupArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupAttributeGroupResult
-			secret, err := ctx.InvokePackageRaw("aws-native:servicecatalogappregistry:getAttributeGroup", args, &rv, "", opts...)
-			if err != nil {
-				return LookupAttributeGroupResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupAttributeGroupResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupAttributeGroupResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:servicecatalogappregistry:getAttributeGroup", args, LookupAttributeGroupResultOutput{}, options).(LookupAttributeGroupResultOutput), nil
 		}).(LookupAttributeGroupResultOutput)
 }
 

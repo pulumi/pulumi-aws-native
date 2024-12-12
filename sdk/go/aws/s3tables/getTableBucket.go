@@ -32,21 +32,11 @@ type LookupTableBucketResult struct {
 }
 
 func LookupTableBucketOutput(ctx *pulumi.Context, args LookupTableBucketOutputArgs, opts ...pulumi.InvokeOption) LookupTableBucketResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupTableBucketResultOutput, error) {
 			args := v.(LookupTableBucketArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupTableBucketResult
-			secret, err := ctx.InvokePackageRaw("aws-native:s3tables:getTableBucket", args, &rv, "", opts...)
-			if err != nil {
-				return LookupTableBucketResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupTableBucketResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupTableBucketResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:s3tables:getTableBucket", args, LookupTableBucketResultOutput{}, options).(LookupTableBucketResultOutput), nil
 		}).(LookupTableBucketResultOutput)
 }
 

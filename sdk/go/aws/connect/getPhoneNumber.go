@@ -42,21 +42,11 @@ type LookupPhoneNumberResult struct {
 }
 
 func LookupPhoneNumberOutput(ctx *pulumi.Context, args LookupPhoneNumberOutputArgs, opts ...pulumi.InvokeOption) LookupPhoneNumberResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupPhoneNumberResultOutput, error) {
 			args := v.(LookupPhoneNumberArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupPhoneNumberResult
-			secret, err := ctx.InvokePackageRaw("aws-native:connect:getPhoneNumber", args, &rv, "", opts...)
-			if err != nil {
-				return LookupPhoneNumberResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupPhoneNumberResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupPhoneNumberResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:connect:getPhoneNumber", args, LookupPhoneNumberResultOutput{}, options).(LookupPhoneNumberResultOutput), nil
 		}).(LookupPhoneNumberResultOutput)
 }
 

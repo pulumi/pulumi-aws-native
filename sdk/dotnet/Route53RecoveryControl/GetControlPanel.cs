@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Route53RecoveryControl
         /// </summary>
         public static Output<GetControlPanelResult> Invoke(GetControlPanelInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetControlPanelResult>("aws-native:route53recoverycontrol:getControlPanel", args ?? new GetControlPanelInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// AWS Route53 Recovery Control Control Panel resource schema .
+        /// </summary>
+        public static Output<GetControlPanelResult> Invoke(GetControlPanelInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetControlPanelResult>("aws-native:route53recoverycontrol:getControlPanel", args ?? new GetControlPanelInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.SupportApp
         /// </summary>
         public static Output<GetSlackChannelConfigurationResult> Invoke(GetSlackChannelConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSlackChannelConfigurationResult>("aws-native:supportapp:getSlackChannelConfiguration", args ?? new GetSlackChannelConfigurationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// An AWS Support App resource that creates, updates, lists and deletes Slack channel configurations.
+        /// </summary>
+        public static Output<GetSlackChannelConfigurationResult> Invoke(GetSlackChannelConfigurationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSlackChannelConfigurationResult>("aws-native:supportapp:getSlackChannelConfiguration", args ?? new GetSlackChannelConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

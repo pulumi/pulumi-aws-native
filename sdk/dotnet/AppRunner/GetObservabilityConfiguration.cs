@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.AppRunner
         /// </summary>
         public static Output<GetObservabilityConfigurationResult> Invoke(GetObservabilityConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetObservabilityConfigurationResult>("aws-native:apprunner:getObservabilityConfiguration", args ?? new GetObservabilityConfigurationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The AWS::AppRunner::ObservabilityConfiguration resource  is an AWS App Runner resource type that specifies an App Runner observability configuration
+        /// </summary>
+        public static Output<GetObservabilityConfigurationResult> Invoke(GetObservabilityConfigurationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetObservabilityConfigurationResult>("aws-native:apprunner:getObservabilityConfiguration", args ?? new GetObservabilityConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

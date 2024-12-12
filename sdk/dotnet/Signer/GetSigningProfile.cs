@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Signer
         /// </summary>
         public static Output<GetSigningProfileResult> Invoke(GetSigningProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSigningProfileResult>("aws-native:signer:getSigningProfile", args ?? new GetSigningProfileInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// A signing profile is a signing template that can be used to carry out a pre-defined signing job.
+        /// </summary>
+        public static Output<GetSigningProfileResult> Invoke(GetSigningProfileInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSigningProfileResult>("aws-native:signer:getSigningProfile", args ?? new GetSigningProfileInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.QBusiness
         /// </summary>
         public static Output<GetWebExperienceResult> Invoke(GetWebExperienceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebExperienceResult>("aws-native:qbusiness:getWebExperience", args ?? new GetWebExperienceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::QBusiness::WebExperience Resource Type
+        /// </summary>
+        public static Output<GetWebExperienceResult> Invoke(GetWebExperienceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetWebExperienceResult>("aws-native:qbusiness:getWebExperience", args ?? new GetWebExperienceInvokeArgs(), options.WithDefaults());
     }
 
 

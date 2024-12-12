@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.M2
         /// </summary>
         public static Output<GetDeploymentResult> Invoke(GetDeploymentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDeploymentResult>("aws-native:m2:getDeployment", args ?? new GetDeploymentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Represents a deployment resource of an AWS Mainframe Modernization (M2) application to a specified environment
+        /// </summary>
+        public static Output<GetDeploymentResult> Invoke(GetDeploymentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDeploymentResult>("aws-native:m2:getDeployment", args ?? new GetDeploymentInvokeArgs(), options.WithDefaults());
     }
 
 

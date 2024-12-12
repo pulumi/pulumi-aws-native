@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.RolesAnywhere
         /// </summary>
         public static Output<GetProfileResult> Invoke(GetProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProfileResult>("aws-native:rolesanywhere:getProfile", args ?? new GetProfileInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::RolesAnywhere::Profile Resource Type
+        /// </summary>
+        public static Output<GetProfileResult> Invoke(GetProfileInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetProfileResult>("aws-native:rolesanywhere:getProfile", args ?? new GetProfileInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -36,21 +36,11 @@ type LookupEncoderConfigurationResult struct {
 }
 
 func LookupEncoderConfigurationOutput(ctx *pulumi.Context, args LookupEncoderConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupEncoderConfigurationResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupEncoderConfigurationResultOutput, error) {
 			args := v.(LookupEncoderConfigurationArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupEncoderConfigurationResult
-			secret, err := ctx.InvokePackageRaw("aws-native:ivs:getEncoderConfiguration", args, &rv, "", opts...)
-			if err != nil {
-				return LookupEncoderConfigurationResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupEncoderConfigurationResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupEncoderConfigurationResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:ivs:getEncoderConfiguration", args, LookupEncoderConfigurationResultOutput{}, options).(LookupEncoderConfigurationResultOutput), nil
 		}).(LookupEncoderConfigurationResultOutput)
 }
 

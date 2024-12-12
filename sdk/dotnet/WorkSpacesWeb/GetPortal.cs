@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
         /// </summary>
         public static Output<GetPortalResult> Invoke(GetPortalInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPortalResult>("aws-native:workspacesweb:getPortal", args ?? new GetPortalInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::WorkSpacesWeb::Portal Resource Type
+        /// </summary>
+        public static Output<GetPortalResult> Invoke(GetPortalInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPortalResult>("aws-native:workspacesweb:getPortal", args ?? new GetPortalInvokeArgs(), options.WithDefaults());
     }
 
 

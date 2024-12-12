@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.MediaPackageV2
         /// </summary>
         public static Output<GetChannelResult> Invoke(GetChannelInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetChannelResult>("aws-native:mediapackagev2:getChannel", args ?? new GetChannelInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// &lt;p&gt;Represents an entry point into AWS Elemental MediaPackage for an ABR video content stream sent from an upstream encoder such as AWS Elemental MediaLive. The channel continuously analyzes the content that it receives and prepares it to be distributed to consumers via one or more origin endpoints.&lt;/p&gt;
+        /// </summary>
+        public static Output<GetChannelResult> Invoke(GetChannelInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetChannelResult>("aws-native:mediapackagev2:getChannel", args ?? new GetChannelInvokeArgs(), options.WithDefaults());
     }
 
 

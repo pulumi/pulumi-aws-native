@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Acmpca
         /// </summary>
         public static Output<GetCertificateAuthorityActivationResult> Invoke(GetCertificateAuthorityActivationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCertificateAuthorityActivationResult>("aws-native:acmpca:getCertificateAuthorityActivation", args ?? new GetCertificateAuthorityActivationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Used to install the certificate authority certificate and update the certificate authority status.
+        /// </summary>
+        public static Output<GetCertificateAuthorityActivationResult> Invoke(GetCertificateAuthorityActivationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCertificateAuthorityActivationResult>("aws-native:acmpca:getCertificateAuthorityActivation", args ?? new GetCertificateAuthorityActivationInvokeArgs(), options.WithDefaults());
     }
 
 

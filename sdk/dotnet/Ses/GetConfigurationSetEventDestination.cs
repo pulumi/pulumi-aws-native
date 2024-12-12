@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Ses
         /// </summary>
         public static Output<GetConfigurationSetEventDestinationResult> Invoke(GetConfigurationSetEventDestinationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationSetEventDestinationResult>("aws-native:ses:getConfigurationSetEventDestination", args ?? new GetConfigurationSetEventDestinationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::SES::ConfigurationSetEventDestination
+        /// </summary>
+        public static Output<GetConfigurationSetEventDestinationResult> Invoke(GetConfigurationSetEventDestinationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationSetEventDestinationResult>("aws-native:ses:getConfigurationSetEventDestination", args ?? new GetConfigurationSetEventDestinationInvokeArgs(), options.WithDefaults());
     }
 
 

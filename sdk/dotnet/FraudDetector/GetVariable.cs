@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.FraudDetector
         /// </summary>
         public static Output<GetVariableResult> Invoke(GetVariableInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVariableResult>("aws-native:frauddetector:getVariable", args ?? new GetVariableInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// A resource schema for a Variable in Amazon Fraud Detector.
+        /// </summary>
+        public static Output<GetVariableResult> Invoke(GetVariableInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVariableResult>("aws-native:frauddetector:getVariable", args ?? new GetVariableInvokeArgs(), options.WithDefaults());
     }
 
 

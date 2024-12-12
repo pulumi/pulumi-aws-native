@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         public static Output<GetIpamPoolCidrResult> Invoke(GetIpamPoolCidrInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIpamPoolCidrResult>("aws-native:ec2:getIpamPoolCidr", args ?? new GetIpamPoolCidrInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Schema of AWS::EC2::IPAMPoolCidr Type
+        /// </summary>
+        public static Output<GetIpamPoolCidrResult> Invoke(GetIpamPoolCidrInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetIpamPoolCidrResult>("aws-native:ec2:getIpamPoolCidr", args ?? new GetIpamPoolCidrInvokeArgs(), options.WithDefaults());
     }
 
 

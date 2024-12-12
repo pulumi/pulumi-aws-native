@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Ses
         /// </summary>
         public static Output<GetMailManagerAddonInstanceResult> Invoke(GetMailManagerAddonInstanceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMailManagerAddonInstanceResult>("aws-native:ses:getMailManagerAddonInstance", args ?? new GetMailManagerAddonInstanceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::SES::MailManagerAddonInstance Resource Type
+        /// </summary>
+        public static Output<GetMailManagerAddonInstanceResult> Invoke(GetMailManagerAddonInstanceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMailManagerAddonInstanceResult>("aws-native:ses:getMailManagerAddonInstance", args ?? new GetMailManagerAddonInstanceInvokeArgs(), options.WithDefaults());
     }
 
 

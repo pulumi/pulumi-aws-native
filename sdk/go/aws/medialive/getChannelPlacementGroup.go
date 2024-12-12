@@ -47,21 +47,11 @@ type LookupChannelPlacementGroupResult struct {
 }
 
 func LookupChannelPlacementGroupOutput(ctx *pulumi.Context, args LookupChannelPlacementGroupOutputArgs, opts ...pulumi.InvokeOption) LookupChannelPlacementGroupResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupChannelPlacementGroupResultOutput, error) {
 			args := v.(LookupChannelPlacementGroupArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupChannelPlacementGroupResult
-			secret, err := ctx.InvokePackageRaw("aws-native:medialive:getChannelPlacementGroup", args, &rv, "", opts...)
-			if err != nil {
-				return LookupChannelPlacementGroupResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupChannelPlacementGroupResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupChannelPlacementGroupResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:medialive:getChannelPlacementGroup", args, LookupChannelPlacementGroupResultOutput{}, options).(LookupChannelPlacementGroupResultOutput), nil
 		}).(LookupChannelPlacementGroupResultOutput)
 }
 

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.CustomerProfiles
         /// </summary>
         public static Output<GetObjectTypeResult> Invoke(GetObjectTypeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetObjectTypeResult>("aws-native:customerprofiles:getObjectType", args ?? new GetObjectTypeInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// An ObjectType resource of Amazon Connect Customer Profiles
+        /// </summary>
+        public static Output<GetObjectTypeResult> Invoke(GetObjectTypeInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetObjectTypeResult>("aws-native:customerprofiles:getObjectType", args ?? new GetObjectTypeInvokeArgs(), options.WithDefaults());
     }
 
 

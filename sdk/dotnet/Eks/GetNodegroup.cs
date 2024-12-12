@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Eks
         /// </summary>
         public static Output<GetNodegroupResult> Invoke(GetNodegroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNodegroupResult>("aws-native:eks:getNodegroup", args ?? new GetNodegroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource schema for AWS::EKS::Nodegroup
+        /// </summary>
+        public static Output<GetNodegroupResult> Invoke(GetNodegroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetNodegroupResult>("aws-native:eks:getNodegroup", args ?? new GetNodegroupInvokeArgs(), options.WithDefaults());
     }
 
 

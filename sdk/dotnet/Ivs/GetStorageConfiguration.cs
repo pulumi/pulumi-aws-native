@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Ivs
         /// </summary>
         public static Output<GetStorageConfigurationResult> Invoke(GetStorageConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStorageConfigurationResult>("aws-native:ivs:getStorageConfiguration", args ?? new GetStorageConfigurationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::IVS::StorageConfiguration
+        /// </summary>
+        public static Output<GetStorageConfigurationResult> Invoke(GetStorageConfigurationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetStorageConfigurationResult>("aws-native:ivs:getStorageConfiguration", args ?? new GetStorageConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

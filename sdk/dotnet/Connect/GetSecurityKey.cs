@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Connect
         /// </summary>
         public static Output<GetSecurityKeyResult> Invoke(GetSecurityKeyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecurityKeyResult>("aws-native:connect:getSecurityKey", args ?? new GetSecurityKeyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::Connect::SecurityKey
+        /// </summary>
+        public static Output<GetSecurityKeyResult> Invoke(GetSecurityKeyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSecurityKeyResult>("aws-native:connect:getSecurityKey", args ?? new GetSecurityKeyInvokeArgs(), options.WithDefaults());
     }
 
 

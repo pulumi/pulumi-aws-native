@@ -39,21 +39,11 @@ type LookupVpcIngressConnectionResult struct {
 }
 
 func LookupVpcIngressConnectionOutput(ctx *pulumi.Context, args LookupVpcIngressConnectionOutputArgs, opts ...pulumi.InvokeOption) LookupVpcIngressConnectionResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupVpcIngressConnectionResultOutput, error) {
 			args := v.(LookupVpcIngressConnectionArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupVpcIngressConnectionResult
-			secret, err := ctx.InvokePackageRaw("aws-native:apprunner:getVpcIngressConnection", args, &rv, "", opts...)
-			if err != nil {
-				return LookupVpcIngressConnectionResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupVpcIngressConnectionResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupVpcIngressConnectionResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:apprunner:getVpcIngressConnection", args, LookupVpcIngressConnectionResultOutput{}, options).(LookupVpcIngressConnectionResultOutput), nil
 		}).(LookupVpcIngressConnectionResultOutput)
 }
 

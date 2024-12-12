@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.EventSchemas
         /// </summary>
         public static Output<GetDiscovererResult> Invoke(GetDiscovererInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDiscovererResult>("aws-native:eventschemas:getDiscoverer", args ?? new GetDiscovererInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::EventSchemas::Discoverer
+        /// </summary>
+        public static Output<GetDiscovererResult> Invoke(GetDiscovererInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDiscovererResult>("aws-native:eventschemas:getDiscoverer", args ?? new GetDiscovererInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Iam
         /// </summary>
         public static Output<GetServerCertificateResult> Invoke(GetServerCertificateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerCertificateResult>("aws-native:iam:getServerCertificate", args ?? new GetServerCertificateInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::IAM::ServerCertificate
+        /// </summary>
+        public static Output<GetServerCertificateResult> Invoke(GetServerCertificateInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetServerCertificateResult>("aws-native:iam:getServerCertificate", args ?? new GetServerCertificateInvokeArgs(), options.WithDefaults());
     }
 
 

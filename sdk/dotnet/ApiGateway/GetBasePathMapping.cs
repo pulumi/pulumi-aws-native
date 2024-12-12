@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.ApiGateway
         /// </summary>
         public static Output<GetBasePathMappingResult> Invoke(GetBasePathMappingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBasePathMappingResult>("aws-native:apigateway:getBasePathMapping", args ?? new GetBasePathMappingInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The ``AWS::ApiGateway::BasePathMapping`` resource creates a base path that clients who call your API must use in the invocation URL.
+        /// </summary>
+        public static Output<GetBasePathMappingResult> Invoke(GetBasePathMappingInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetBasePathMappingResult>("aws-native:apigateway:getBasePathMapping", args ?? new GetBasePathMappingInvokeArgs(), options.WithDefaults());
     }
 
 

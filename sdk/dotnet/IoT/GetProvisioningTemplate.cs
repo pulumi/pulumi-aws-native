@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.IoT
         /// </summary>
         public static Output<GetProvisioningTemplateResult> Invoke(GetProvisioningTemplateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProvisioningTemplateResult>("aws-native:iot:getProvisioningTemplate", args ?? new GetProvisioningTemplateInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Creates a fleet provisioning template.
+        /// </summary>
+        public static Output<GetProvisioningTemplateResult> Invoke(GetProvisioningTemplateInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetProvisioningTemplateResult>("aws-native:iot:getProvisioningTemplate", args ?? new GetProvisioningTemplateInvokeArgs(), options.WithDefaults());
     }
 
 

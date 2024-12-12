@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Chatbot
         /// </summary>
         public static Output<GetSlackChannelConfigurationResult> Invoke(GetSlackChannelConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSlackChannelConfigurationResult>("aws-native:chatbot:getSlackChannelConfiguration", args ?? new GetSlackChannelConfigurationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource schema for AWS::Chatbot::SlackChannelConfiguration.
+        /// </summary>
+        public static Output<GetSlackChannelConfigurationResult> Invoke(GetSlackChannelConfigurationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSlackChannelConfigurationResult>("aws-native:chatbot:getSlackChannelConfiguration", args ?? new GetSlackChannelConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

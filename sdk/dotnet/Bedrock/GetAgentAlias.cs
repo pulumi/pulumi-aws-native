@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Bedrock
         /// </summary>
         public static Output<GetAgentAliasResult> Invoke(GetAgentAliasInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAgentAliasResult>("aws-native:bedrock:getAgentAlias", args ?? new GetAgentAliasInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::Bedrock::AgentAlias Resource Type
+        /// </summary>
+        public static Output<GetAgentAliasResult> Invoke(GetAgentAliasInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAgentAliasResult>("aws-native:bedrock:getAgentAlias", args ?? new GetAgentAliasInvokeArgs(), options.WithDefaults());
     }
 
 

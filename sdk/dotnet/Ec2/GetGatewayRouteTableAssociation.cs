@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         public static Output<GetGatewayRouteTableAssociationResult> Invoke(GetGatewayRouteTableAssociationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGatewayRouteTableAssociationResult>("aws-native:ec2:getGatewayRouteTableAssociation", args ?? new GetGatewayRouteTableAssociationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Associates a gateway with a route table. The gateway and route table must be in the same VPC. This association causes the incoming traffic to the gateway to be routed according to the routes in the route table.
+        /// </summary>
+        public static Output<GetGatewayRouteTableAssociationResult> Invoke(GetGatewayRouteTableAssociationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetGatewayRouteTableAssociationResult>("aws-native:ec2:getGatewayRouteTableAssociation", args ?? new GetGatewayRouteTableAssociationInvokeArgs(), options.WithDefaults());
     }
 
 

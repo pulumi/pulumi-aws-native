@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.WaFv2
         /// </summary>
         public static Output<GetWebAclResult> Invoke(GetWebAclInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAclResult>("aws-native:wafv2:getWebAcl", args ?? new GetWebAclInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Contains the Rules that identify the requests that you want to allow, block, or count. In a WebACL, you also specify a default action (ALLOW or BLOCK), and the action for each Rule that you add to a WebACL, for example, block requests from specified IP addresses or block requests from specified referrers. You also associate the WebACL with a CloudFront distribution to identify the requests that you want AWS WAF to filter. If you add more than one Rule to a WebACL, a request needs to match only one of the specifications to be allowed, blocked, or counted.
+        /// </summary>
+        public static Output<GetWebAclResult> Invoke(GetWebAclInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetWebAclResult>("aws-native:wafv2:getWebAcl", args ?? new GetWebAclInvokeArgs(), options.WithDefaults());
     }
 
 

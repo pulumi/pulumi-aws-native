@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.CodeConnections
         /// </summary>
         public static Output<GetConnectionResult> Invoke(GetConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectionResult>("aws-native:codeconnections:getConnection", args ?? new GetConnectionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Schema for AWS::CodeConnections::Connection resource which can be used to connect external source providers with other AWS services (i.e. AWS CodePipeline)
+        /// </summary>
+        public static Output<GetConnectionResult> Invoke(GetConnectionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetConnectionResult>("aws-native:codeconnections:getConnection", args ?? new GetConnectionInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Rds
         /// </summary>
         public static Output<GetDbShardGroupResult> Invoke(GetDbShardGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDbShardGroupResult>("aws-native:rds:getDbShardGroup", args ?? new GetDbShardGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The AWS::RDS::DBShardGroup resource creates an Amazon Aurora Limitless DB Shard Group.
+        /// </summary>
+        public static Output<GetDbShardGroupResult> Invoke(GetDbShardGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDbShardGroupResult>("aws-native:rds:getDbShardGroup", args ?? new GetDbShardGroupInvokeArgs(), options.WithDefaults());
     }
 
 

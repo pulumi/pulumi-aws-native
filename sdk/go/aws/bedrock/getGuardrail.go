@@ -69,21 +69,11 @@ type LookupGuardrailResult struct {
 }
 
 func LookupGuardrailOutput(ctx *pulumi.Context, args LookupGuardrailOutputArgs, opts ...pulumi.InvokeOption) LookupGuardrailResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupGuardrailResultOutput, error) {
 			args := v.(LookupGuardrailArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupGuardrailResult
-			secret, err := ctx.InvokePackageRaw("aws-native:bedrock:getGuardrail", args, &rv, "", opts...)
-			if err != nil {
-				return LookupGuardrailResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupGuardrailResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupGuardrailResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:bedrock:getGuardrail", args, LookupGuardrailResultOutput{}, options).(LookupGuardrailResultOutput), nil
 		}).(LookupGuardrailResultOutput)
 }
 

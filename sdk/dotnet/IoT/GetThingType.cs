@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.IoT
         /// </summary>
         public static Output<GetThingTypeResult> Invoke(GetThingTypeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetThingTypeResult>("aws-native:iot:getThingType", args ?? new GetThingTypeInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::IoT::ThingType
+        /// </summary>
+        public static Output<GetThingTypeResult> Invoke(GetThingTypeInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetThingTypeResult>("aws-native:iot:getThingType", args ?? new GetThingTypeInvokeArgs(), options.WithDefaults());
     }
 
 

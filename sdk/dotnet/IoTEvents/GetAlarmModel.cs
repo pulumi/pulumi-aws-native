@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.IoTEvents
         /// </summary>
         public static Output<GetAlarmModelResult> Invoke(GetAlarmModelInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAlarmModelResult>("aws-native:iotevents:getAlarmModel", args ?? new GetAlarmModelInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Represents an alarm model to monitor an ITE input attribute. You can use the alarm to get notified when the value is outside a specified range. For more information, see [Create an alarm model](https://docs.aws.amazon.com/iotevents/latest/developerguide/create-alarms.html) in the *Developer Guide*.
+        /// </summary>
+        public static Output<GetAlarmModelResult> Invoke(GetAlarmModelInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAlarmModelResult>("aws-native:iotevents:getAlarmModel", args ?? new GetAlarmModelInvokeArgs(), options.WithDefaults());
     }
 
 

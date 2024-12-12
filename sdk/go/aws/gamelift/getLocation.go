@@ -36,21 +36,11 @@ type LookupLocationResult struct {
 }
 
 func LookupLocationOutput(ctx *pulumi.Context, args LookupLocationOutputArgs, opts ...pulumi.InvokeOption) LookupLocationResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupLocationResultOutput, error) {
 			args := v.(LookupLocationArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupLocationResult
-			secret, err := ctx.InvokePackageRaw("aws-native:gamelift:getLocation", args, &rv, "", opts...)
-			if err != nil {
-				return LookupLocationResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupLocationResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupLocationResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:gamelift:getLocation", args, LookupLocationResultOutput{}, options).(LookupLocationResultOutput), nil
 		}).(LookupLocationResultOutput)
 }
 

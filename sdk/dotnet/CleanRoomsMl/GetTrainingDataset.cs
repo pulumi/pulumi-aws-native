@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.CleanRoomsMl
         /// </summary>
         public static Output<GetTrainingDatasetResult> Invoke(GetTrainingDatasetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTrainingDatasetResult>("aws-native:cleanroomsml:getTrainingDataset", args ?? new GetTrainingDatasetInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::CleanRoomsML::TrainingDataset Resource Type
+        /// </summary>
+        public static Output<GetTrainingDatasetResult> Invoke(GetTrainingDatasetInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTrainingDatasetResult>("aws-native:cleanroomsml:getTrainingDataset", args ?? new GetTrainingDatasetInvokeArgs(), options.WithDefaults());
     }
 
 

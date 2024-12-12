@@ -42,21 +42,11 @@ type LookupPackageResult struct {
 }
 
 func LookupPackageOutput(ctx *pulumi.Context, args LookupPackageOutputArgs, opts ...pulumi.InvokeOption) LookupPackageResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupPackageResultOutput, error) {
 			args := v.(LookupPackageArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupPackageResult
-			secret, err := ctx.InvokePackageRaw("aws-native:panorama:getPackage", args, &rv, "", opts...)
-			if err != nil {
-				return LookupPackageResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupPackageResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupPackageResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:panorama:getPackage", args, LookupPackageResultOutput{}, options).(LookupPackageResultOutput), nil
 		}).(LookupPackageResultOutput)
 }
 

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.CloudFormation
         /// </summary>
         public static Output<GetPublisherResult> Invoke(GetPublisherInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPublisherResult>("aws-native:cloudformation:getPublisher", args ?? new GetPublisherInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Register as a publisher in the CloudFormation Registry.
+        /// </summary>
+        public static Output<GetPublisherResult> Invoke(GetPublisherInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPublisherResult>("aws-native:cloudformation:getPublisher", args ?? new GetPublisherInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.IoTCoreDeviceAdvisor
         /// </summary>
         public static Output<GetSuiteDefinitionResult> Invoke(GetSuiteDefinitionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSuiteDefinitionResult>("aws-native:iotcoredeviceadvisor:getSuiteDefinition", args ?? new GetSuiteDefinitionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// An example resource schema demonstrating some basic constructs and validation rules.
+        /// </summary>
+        public static Output<GetSuiteDefinitionResult> Invoke(GetSuiteDefinitionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSuiteDefinitionResult>("aws-native:iotcoredeviceadvisor:getSuiteDefinition", args ?? new GetSuiteDefinitionInvokeArgs(), options.WithDefaults());
     }
 
 

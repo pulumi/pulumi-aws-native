@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.ApiGateway
         /// </summary>
         public static Output<GetGatewayResponseResult> Invoke(GetGatewayResponseInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGatewayResponseResult>("aws-native:apigateway:getGatewayResponse", args ?? new GetGatewayResponseInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The ``AWS::ApiGateway::GatewayResponse`` resource creates a gateway response for your API. For more information, see [API Gateway Responses](https://docs.aws.amazon.com/apigateway/latest/developerguide/customize-gateway-responses.html#api-gateway-gatewayResponse-definition) in the *API Gateway Developer Guide*.
+        /// </summary>
+        public static Output<GetGatewayResponseResult> Invoke(GetGatewayResponseInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetGatewayResponseResult>("aws-native:apigateway:getGatewayResponse", args ?? new GetGatewayResponseInvokeArgs(), options.WithDefaults());
     }
 
 

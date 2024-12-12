@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         public static Output<GetTransitGatewayMulticastDomainResult> Invoke(GetTransitGatewayMulticastDomainInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTransitGatewayMulticastDomainResult>("aws-native:ec2:getTransitGatewayMulticastDomain", args ?? new GetTransitGatewayMulticastDomainInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The AWS::EC2::TransitGatewayMulticastDomain type
+        /// </summary>
+        public static Output<GetTransitGatewayMulticastDomainResult> Invoke(GetTransitGatewayMulticastDomainInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTransitGatewayMulticastDomainResult>("aws-native:ec2:getTransitGatewayMulticastDomain", args ?? new GetTransitGatewayMulticastDomainInvokeArgs(), options.WithDefaults());
     }
 
 

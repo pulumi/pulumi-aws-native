@@ -46,21 +46,11 @@ type LookupAccessLogSubscriptionResult struct {
 }
 
 func LookupAccessLogSubscriptionOutput(ctx *pulumi.Context, args LookupAccessLogSubscriptionOutputArgs, opts ...pulumi.InvokeOption) LookupAccessLogSubscriptionResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupAccessLogSubscriptionResultOutput, error) {
 			args := v.(LookupAccessLogSubscriptionArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupAccessLogSubscriptionResult
-			secret, err := ctx.InvokePackageRaw("aws-native:vpclattice:getAccessLogSubscription", args, &rv, "", opts...)
-			if err != nil {
-				return LookupAccessLogSubscriptionResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupAccessLogSubscriptionResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupAccessLogSubscriptionResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:vpclattice:getAccessLogSubscription", args, LookupAccessLogSubscriptionResultOutput{}, options).(LookupAccessLogSubscriptionResultOutput), nil
 		}).(LookupAccessLogSubscriptionResultOutput)
 }
 

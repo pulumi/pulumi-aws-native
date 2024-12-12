@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Omics
         /// </summary>
         public static Output<GetRunGroupResult> Invoke(GetRunGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRunGroupResult>("aws-native:omics:getRunGroup", args ?? new GetRunGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::Omics::RunGroup Resource Type
+        /// </summary>
+        public static Output<GetRunGroupResult> Invoke(GetRunGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRunGroupResult>("aws-native:omics:getRunGroup", args ?? new GetRunGroupInvokeArgs(), options.WithDefaults());
     }
 
 

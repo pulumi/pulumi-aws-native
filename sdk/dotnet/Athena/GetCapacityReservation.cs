@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Athena
         /// </summary>
         public static Output<GetCapacityReservationResult> Invoke(GetCapacityReservationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCapacityReservationResult>("aws-native:athena:getCapacityReservation", args ?? new GetCapacityReservationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource schema for AWS::Athena::CapacityReservation
+        /// </summary>
+        public static Output<GetCapacityReservationResult> Invoke(GetCapacityReservationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCapacityReservationResult>("aws-native:athena:getCapacityReservation", args ?? new GetCapacityReservationInvokeArgs(), options.WithDefaults());
     }
 
 

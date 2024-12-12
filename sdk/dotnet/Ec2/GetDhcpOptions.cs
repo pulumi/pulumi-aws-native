@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         public static Output<GetDhcpOptionsResult> Invoke(GetDhcpOptionsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDhcpOptionsResult>("aws-native:ec2:getDhcpOptions", args ?? new GetDhcpOptionsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::EC2::DHCPOptions
+        /// </summary>
+        public static Output<GetDhcpOptionsResult> Invoke(GetDhcpOptionsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDhcpOptionsResult>("aws-native:ec2:getDhcpOptions", args ?? new GetDhcpOptionsInvokeArgs(), options.WithDefaults());
     }
 
 

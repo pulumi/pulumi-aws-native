@@ -54,21 +54,11 @@ type LookupEnvironmentAccountConnectionResult struct {
 }
 
 func LookupEnvironmentAccountConnectionOutput(ctx *pulumi.Context, args LookupEnvironmentAccountConnectionOutputArgs, opts ...pulumi.InvokeOption) LookupEnvironmentAccountConnectionResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupEnvironmentAccountConnectionResultOutput, error) {
 			args := v.(LookupEnvironmentAccountConnectionArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupEnvironmentAccountConnectionResult
-			secret, err := ctx.InvokePackageRaw("aws-native:proton:getEnvironmentAccountConnection", args, &rv, "", opts...)
-			if err != nil {
-				return LookupEnvironmentAccountConnectionResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupEnvironmentAccountConnectionResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupEnvironmentAccountConnectionResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:proton:getEnvironmentAccountConnection", args, LookupEnvironmentAccountConnectionResultOutput{}, options).(LookupEnvironmentAccountConnectionResultOutput), nil
 		}).(LookupEnvironmentAccountConnectionResultOutput)
 }
 

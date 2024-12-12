@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Detective
         /// </summary>
         public static Output<GetOrganizationAdminResult> Invoke(GetOrganizationAdminInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOrganizationAdminResult>("aws-native:detective:getOrganizationAdmin", args ?? new GetOrganizationAdminInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource schema for AWS::Detective::OrganizationAdmin
+        /// </summary>
+        public static Output<GetOrganizationAdminResult> Invoke(GetOrganizationAdminInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetOrganizationAdminResult>("aws-native:detective:getOrganizationAdmin", args ?? new GetOrganizationAdminInvokeArgs(), options.WithDefaults());
     }
 
 

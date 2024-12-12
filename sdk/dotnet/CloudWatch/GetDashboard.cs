@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.CloudWatch
         /// </summary>
         public static Output<GetDashboardResult> Invoke(GetDashboardInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDashboardResult>("aws-native:cloudwatch:getDashboard", args ?? new GetDashboardInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::CloudWatch::Dashboard
+        /// </summary>
+        public static Output<GetDashboardResult> Invoke(GetDashboardInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDashboardResult>("aws-native:cloudwatch:getDashboard", args ?? new GetDashboardInvokeArgs(), options.WithDefaults());
     }
 
 

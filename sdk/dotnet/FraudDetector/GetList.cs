@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.FraudDetector
         /// </summary>
         public static Output<GetListResult> Invoke(GetListInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetListResult>("aws-native:frauddetector:getList", args ?? new GetListInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// A resource schema for a List in Amazon Fraud Detector.
+        /// </summary>
+        public static Output<GetListResult> Invoke(GetListInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetListResult>("aws-native:frauddetector:getList", args ?? new GetListInvokeArgs(), options.WithDefaults());
     }
 
 

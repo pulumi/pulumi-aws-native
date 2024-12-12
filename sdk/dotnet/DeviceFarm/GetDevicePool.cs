@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.DeviceFarm
         /// </summary>
         public static Output<GetDevicePoolResult> Invoke(GetDevicePoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDevicePoolResult>("aws-native:devicefarm:getDevicePool", args ?? new GetDevicePoolInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// AWS::DeviceFarm::DevicePool creates a new Device Pool for a given DF Project
+        /// </summary>
+        public static Output<GetDevicePoolResult> Invoke(GetDevicePoolInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDevicePoolResult>("aws-native:devicefarm:getDevicePool", args ?? new GetDevicePoolInvokeArgs(), options.WithDefaults());
     }
 
 

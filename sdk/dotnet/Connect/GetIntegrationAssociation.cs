@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Connect
         /// </summary>
         public static Output<GetIntegrationAssociationResult> Invoke(GetIntegrationAssociationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIntegrationAssociationResult>("aws-native:connect:getIntegrationAssociation", args ?? new GetIntegrationAssociationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::Connect::IntegrationAssociation
+        /// </summary>
+        public static Output<GetIntegrationAssociationResult> Invoke(GetIntegrationAssociationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetIntegrationAssociationResult>("aws-native:connect:getIntegrationAssociation", args ?? new GetIntegrationAssociationInvokeArgs(), options.WithDefaults());
     }
 
 

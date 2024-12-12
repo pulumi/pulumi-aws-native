@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Ivs
         /// </summary>
         public static Output<GetPublicKeyResult> Invoke(GetPublicKeyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPublicKeyResult>("aws-native:ivs:getPublicKey", args ?? new GetPublicKeyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::IVS::PublicKey
+        /// </summary>
+        public static Output<GetPublicKeyResult> Invoke(GetPublicKeyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPublicKeyResult>("aws-native:ivs:getPublicKey", args ?? new GetPublicKeyInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -66,21 +66,11 @@ type LookupVpcAttachmentResult struct {
 }
 
 func LookupVpcAttachmentOutput(ctx *pulumi.Context, args LookupVpcAttachmentOutputArgs, opts ...pulumi.InvokeOption) LookupVpcAttachmentResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupVpcAttachmentResultOutput, error) {
 			args := v.(LookupVpcAttachmentArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupVpcAttachmentResult
-			secret, err := ctx.InvokePackageRaw("aws-native:networkmanager:getVpcAttachment", args, &rv, "", opts...)
-			if err != nil {
-				return LookupVpcAttachmentResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupVpcAttachmentResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupVpcAttachmentResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:networkmanager:getVpcAttachment", args, LookupVpcAttachmentResultOutput{}, options).(LookupVpcAttachmentResultOutput), nil
 		}).(LookupVpcAttachmentResultOutput)
 }
 

@@ -35,21 +35,11 @@ type LookupVpcBlockPublicAccessOptionsResult struct {
 }
 
 func LookupVpcBlockPublicAccessOptionsOutput(ctx *pulumi.Context, args LookupVpcBlockPublicAccessOptionsOutputArgs, opts ...pulumi.InvokeOption) LookupVpcBlockPublicAccessOptionsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupVpcBlockPublicAccessOptionsResultOutput, error) {
 			args := v.(LookupVpcBlockPublicAccessOptionsArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupVpcBlockPublicAccessOptionsResult
-			secret, err := ctx.InvokePackageRaw("aws-native:ec2:getVpcBlockPublicAccessOptions", args, &rv, "", opts...)
-			if err != nil {
-				return LookupVpcBlockPublicAccessOptionsResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupVpcBlockPublicAccessOptionsResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupVpcBlockPublicAccessOptionsResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:ec2:getVpcBlockPublicAccessOptions", args, LookupVpcBlockPublicAccessOptionsResultOutput{}, options).(LookupVpcBlockPublicAccessOptionsResultOutput), nil
 		}).(LookupVpcBlockPublicAccessOptionsResultOutput)
 }
 

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Eks
         /// </summary>
         public static Output<GetIdentityProviderConfigResult> Invoke(GetIdentityProviderConfigInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIdentityProviderConfigResult>("aws-native:eks:getIdentityProviderConfig", args ?? new GetIdentityProviderConfigInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// An object representing an Amazon EKS IdentityProviderConfig.
+        /// </summary>
+        public static Output<GetIdentityProviderConfigResult> Invoke(GetIdentityProviderConfigInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetIdentityProviderConfigResult>("aws-native:eks:getIdentityProviderConfig", args ?? new GetIdentityProviderConfigInvokeArgs(), options.WithDefaults());
     }
 
 

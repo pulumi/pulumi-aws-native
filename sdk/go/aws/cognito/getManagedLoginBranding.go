@@ -45,21 +45,11 @@ type LookupManagedLoginBrandingResult struct {
 }
 
 func LookupManagedLoginBrandingOutput(ctx *pulumi.Context, args LookupManagedLoginBrandingOutputArgs, opts ...pulumi.InvokeOption) LookupManagedLoginBrandingResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupManagedLoginBrandingResultOutput, error) {
 			args := v.(LookupManagedLoginBrandingArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupManagedLoginBrandingResult
-			secret, err := ctx.InvokePackageRaw("aws-native:cognito:getManagedLoginBranding", args, &rv, "", opts...)
-			if err != nil {
-				return LookupManagedLoginBrandingResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupManagedLoginBrandingResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupManagedLoginBrandingResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:cognito:getManagedLoginBranding", args, LookupManagedLoginBrandingResultOutput{}, options).(LookupManagedLoginBrandingResultOutput), nil
 		}).(LookupManagedLoginBrandingResultOutput)
 }
 

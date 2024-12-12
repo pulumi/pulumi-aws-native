@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.QuickSight
         /// </summary>
         public static Output<GetVpcConnectionResult> Invoke(GetVpcConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpcConnectionResult>("aws-native:quicksight:getVpcConnection", args ?? new GetVpcConnectionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of the AWS::QuickSight::VPCConnection Resource Type.
+        /// </summary>
+        public static Output<GetVpcConnectionResult> Invoke(GetVpcConnectionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVpcConnectionResult>("aws-native:quicksight:getVpcConnection", args ?? new GetVpcConnectionInvokeArgs(), options.WithDefaults());
     }
 
 

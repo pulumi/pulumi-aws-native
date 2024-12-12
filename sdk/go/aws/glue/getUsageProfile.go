@@ -40,21 +40,11 @@ type LookupUsageProfileResult struct {
 }
 
 func LookupUsageProfileOutput(ctx *pulumi.Context, args LookupUsageProfileOutputArgs, opts ...pulumi.InvokeOption) LookupUsageProfileResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupUsageProfileResultOutput, error) {
 			args := v.(LookupUsageProfileArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupUsageProfileResult
-			secret, err := ctx.InvokePackageRaw("aws-native:glue:getUsageProfile", args, &rv, "", opts...)
-			if err != nil {
-				return LookupUsageProfileResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupUsageProfileResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupUsageProfileResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:glue:getUsageProfile", args, LookupUsageProfileResultOutput{}, options).(LookupUsageProfileResultOutput), nil
 		}).(LookupUsageProfileResultOutput)
 }
 

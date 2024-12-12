@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Msk
         /// </summary>
         public static Output<GetVpcConnectionResult> Invoke(GetVpcConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpcConnectionResult>("aws-native:msk:getVpcConnection", args ?? new GetVpcConnectionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::MSK::VpcConnection
+        /// </summary>
+        public static Output<GetVpcConnectionResult> Invoke(GetVpcConnectionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVpcConnectionResult>("aws-native:msk:getVpcConnection", args ?? new GetVpcConnectionInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.ResourceGroups
         /// </summary>
         public static Output<GetTagSyncTaskResult> Invoke(GetTagSyncTaskInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTagSyncTaskResult>("aws-native:resourcegroups:getTagSyncTask", args ?? new GetTagSyncTaskInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Schema for ResourceGroups::TagSyncTask
+        /// </summary>
+        public static Output<GetTagSyncTaskResult> Invoke(GetTagSyncTaskInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTagSyncTaskResult>("aws-native:resourcegroups:getTagSyncTask", args ?? new GetTagSyncTaskInvokeArgs(), options.WithDefaults());
     }
 
 

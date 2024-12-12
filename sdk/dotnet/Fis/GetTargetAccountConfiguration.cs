@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Fis
         /// </summary>
         public static Output<GetTargetAccountConfigurationResult> Invoke(GetTargetAccountConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTargetAccountConfigurationResult>("aws-native:fis:getTargetAccountConfiguration", args ?? new GetTargetAccountConfigurationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource schema for AWS::FIS::TargetAccountConfiguration
+        /// </summary>
+        public static Output<GetTargetAccountConfigurationResult> Invoke(GetTargetAccountConfigurationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTargetAccountConfigurationResult>("aws-native:fis:getTargetAccountConfiguration", args ?? new GetTargetAccountConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

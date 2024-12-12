@@ -37,21 +37,11 @@ type LookupClusterPolicyResult struct {
 }
 
 func LookupClusterPolicyOutput(ctx *pulumi.Context, args LookupClusterPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupClusterPolicyResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupClusterPolicyResultOutput, error) {
 			args := v.(LookupClusterPolicyArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupClusterPolicyResult
-			secret, err := ctx.InvokePackageRaw("aws-native:msk:getClusterPolicy", args, &rv, "", opts...)
-			if err != nil {
-				return LookupClusterPolicyResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupClusterPolicyResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupClusterPolicyResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:msk:getClusterPolicy", args, LookupClusterPolicyResultOutput{}, options).(LookupClusterPolicyResultOutput), nil
 		}).(LookupClusterPolicyResultOutput)
 }
 

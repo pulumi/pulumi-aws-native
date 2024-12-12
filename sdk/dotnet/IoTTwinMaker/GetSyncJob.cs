@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.IoTTwinMaker
         /// </summary>
         public static Output<GetSyncJobResult> Invoke(GetSyncJobInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSyncJobResult>("aws-native:iottwinmaker:getSyncJob", args ?? new GetSyncJobInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource schema for AWS::IoTTwinMaker::SyncJob
+        /// </summary>
+        public static Output<GetSyncJobResult> Invoke(GetSyncJobInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSyncJobResult>("aws-native:iottwinmaker:getSyncJob", args ?? new GetSyncJobInvokeArgs(), options.WithDefaults());
     }
 
 

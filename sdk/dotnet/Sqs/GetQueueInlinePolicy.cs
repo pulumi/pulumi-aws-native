@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Sqs
         /// </summary>
         public static Output<GetQueueInlinePolicyResult> Invoke(GetQueueInlinePolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetQueueInlinePolicyResult>("aws-native:sqs:getQueueInlinePolicy", args ?? new GetQueueInlinePolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Schema for SQS QueueInlinePolicy
+        /// </summary>
+        public static Output<GetQueueInlinePolicyResult> Invoke(GetQueueInlinePolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetQueueInlinePolicyResult>("aws-native:sqs:getQueueInlinePolicy", args ?? new GetQueueInlinePolicyInvokeArgs(), options.WithDefaults());
     }
 
 

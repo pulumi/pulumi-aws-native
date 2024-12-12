@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Macie
         /// </summary>
         public static Output<GetCustomDataIdentifierResult> Invoke(GetCustomDataIdentifierInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCustomDataIdentifierResult>("aws-native:macie:getCustomDataIdentifier", args ?? new GetCustomDataIdentifierInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Macie CustomDataIdentifier resource schema
+        /// </summary>
+        public static Output<GetCustomDataIdentifierResult> Invoke(GetCustomDataIdentifierInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCustomDataIdentifierResult>("aws-native:macie:getCustomDataIdentifier", args ?? new GetCustomDataIdentifierInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -47,21 +47,11 @@ type LookupConfigurationManagerResult struct {
 }
 
 func LookupConfigurationManagerOutput(ctx *pulumi.Context, args LookupConfigurationManagerOutputArgs, opts ...pulumi.InvokeOption) LookupConfigurationManagerResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupConfigurationManagerResultOutput, error) {
 			args := v.(LookupConfigurationManagerArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupConfigurationManagerResult
-			secret, err := ctx.InvokePackageRaw("aws-native:ssmquicksetup:getConfigurationManager", args, &rv, "", opts...)
-			if err != nil {
-				return LookupConfigurationManagerResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupConfigurationManagerResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupConfigurationManagerResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:ssmquicksetup:getConfigurationManager", args, LookupConfigurationManagerResultOutput{}, options).(LookupConfigurationManagerResultOutput), nil
 		}).(LookupConfigurationManagerResultOutput)
 }
 

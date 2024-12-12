@@ -54,21 +54,11 @@ type LookupIntegrationResponseResult struct {
 }
 
 func LookupIntegrationResponseOutput(ctx *pulumi.Context, args LookupIntegrationResponseOutputArgs, opts ...pulumi.InvokeOption) LookupIntegrationResponseResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupIntegrationResponseResultOutput, error) {
 			args := v.(LookupIntegrationResponseArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupIntegrationResponseResult
-			secret, err := ctx.InvokePackageRaw("aws-native:apigatewayv2:getIntegrationResponse", args, &rv, "", opts...)
-			if err != nil {
-				return LookupIntegrationResponseResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupIntegrationResponseResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupIntegrationResponseResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:apigatewayv2:getIntegrationResponse", args, LookupIntegrationResponseResultOutput{}, options).(LookupIntegrationResponseResultOutput), nil
 		}).(LookupIntegrationResponseResultOutput)
 }
 

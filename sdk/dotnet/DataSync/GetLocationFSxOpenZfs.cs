@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.DataSync
         /// </summary>
         public static Output<GetLocationFSxOpenZfsResult> Invoke(GetLocationFSxOpenZfsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocationFSxOpenZfsResult>("aws-native:datasync:getLocationFSxOpenZfs", args ?? new GetLocationFSxOpenZfsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource schema for AWS::DataSync::LocationFSxOpenZFS.
+        /// </summary>
+        public static Output<GetLocationFSxOpenZfsResult> Invoke(GetLocationFSxOpenZfsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLocationFSxOpenZfsResult>("aws-native:datasync:getLocationFSxOpenZfs", args ?? new GetLocationFSxOpenZfsInvokeArgs(), options.WithDefaults());
     }
 
 

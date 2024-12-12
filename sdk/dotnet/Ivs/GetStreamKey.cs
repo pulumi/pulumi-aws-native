@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Ivs
         /// </summary>
         public static Output<GetStreamKeyResult> Invoke(GetStreamKeyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStreamKeyResult>("aws-native:ivs:getStreamKey", args ?? new GetStreamKeyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::IVS::StreamKey
+        /// </summary>
+        public static Output<GetStreamKeyResult> Invoke(GetStreamKeyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetStreamKeyResult>("aws-native:ivs:getStreamKey", args ?? new GetStreamKeyInvokeArgs(), options.WithDefaults());
     }
 
 

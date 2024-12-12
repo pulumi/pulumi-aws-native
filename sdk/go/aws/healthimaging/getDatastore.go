@@ -41,21 +41,11 @@ type LookupDatastoreResult struct {
 }
 
 func LookupDatastoreOutput(ctx *pulumi.Context, args LookupDatastoreOutputArgs, opts ...pulumi.InvokeOption) LookupDatastoreResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupDatastoreResultOutput, error) {
 			args := v.(LookupDatastoreArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupDatastoreResult
-			secret, err := ctx.InvokePackageRaw("aws-native:healthimaging:getDatastore", args, &rv, "", opts...)
-			if err != nil {
-				return LookupDatastoreResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupDatastoreResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupDatastoreResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:healthimaging:getDatastore", args, LookupDatastoreResultOutput{}, options).(LookupDatastoreResultOutput), nil
 		}).(LookupDatastoreResultOutput)
 }
 

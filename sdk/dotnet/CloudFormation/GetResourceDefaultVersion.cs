@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.CloudFormation
         /// </summary>
         public static Output<GetResourceDefaultVersionResult> Invoke(GetResourceDefaultVersionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResourceDefaultVersionResult>("aws-native:cloudformation:getResourceDefaultVersion", args ?? new GetResourceDefaultVersionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The default version of a resource that has been registered in the CloudFormation Registry.
+        /// </summary>
+        public static Output<GetResourceDefaultVersionResult> Invoke(GetResourceDefaultVersionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetResourceDefaultVersionResult>("aws-native:cloudformation:getResourceDefaultVersion", args ?? new GetResourceDefaultVersionInvokeArgs(), options.WithDefaults());
     }
 
 

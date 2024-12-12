@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
         /// </summary>
         public static Output<GetNetworkSettingsResult> Invoke(GetNetworkSettingsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkSettingsResult>("aws-native:workspacesweb:getNetworkSettings", args ?? new GetNetworkSettingsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::WorkSpacesWeb::NetworkSettings Resource Type
+        /// </summary>
+        public static Output<GetNetworkSettingsResult> Invoke(GetNetworkSettingsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetNetworkSettingsResult>("aws-native:workspacesweb:getNetworkSettings", args ?? new GetNetworkSettingsInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.VpcLattice
         /// </summary>
         public static Output<GetListenerResult> Invoke(GetListenerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetListenerResult>("aws-native:vpclattice:getListener", args ?? new GetListenerInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Creates a listener for a service. Before you start using your Amazon VPC Lattice service, you must add one or more listeners. A listener is a process that checks for connection requests to your services.
+        /// </summary>
+        public static Output<GetListenerResult> Invoke(GetListenerInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetListenerResult>("aws-native:vpclattice:getListener", args ?? new GetListenerInvokeArgs(), options.WithDefaults());
     }
 
 

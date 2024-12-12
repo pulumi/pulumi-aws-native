@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.QBusiness
         /// </summary>
         public static Output<GetDataAccessorResult> Invoke(GetDataAccessorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDataAccessorResult>("aws-native:qbusiness:getDataAccessor", args ?? new GetDataAccessorInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::QBusiness::DataAccessor Resource Type
+        /// </summary>
+        public static Output<GetDataAccessorResult> Invoke(GetDataAccessorInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDataAccessorResult>("aws-native:qbusiness:getDataAccessor", args ?? new GetDataAccessorInvokeArgs(), options.WithDefaults());
     }
 
 

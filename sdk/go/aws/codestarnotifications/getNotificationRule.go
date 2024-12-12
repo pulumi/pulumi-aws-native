@@ -47,21 +47,11 @@ type LookupNotificationRuleResult struct {
 }
 
 func LookupNotificationRuleOutput(ctx *pulumi.Context, args LookupNotificationRuleOutputArgs, opts ...pulumi.InvokeOption) LookupNotificationRuleResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupNotificationRuleResultOutput, error) {
 			args := v.(LookupNotificationRuleArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupNotificationRuleResult
-			secret, err := ctx.InvokePackageRaw("aws-native:codestarnotifications:getNotificationRule", args, &rv, "", opts...)
-			if err != nil {
-				return LookupNotificationRuleResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupNotificationRuleResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupNotificationRuleResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:codestarnotifications:getNotificationRule", args, LookupNotificationRuleResultOutput{}, options).(LookupNotificationRuleResultOutput), nil
 		}).(LookupNotificationRuleResultOutput)
 }
 

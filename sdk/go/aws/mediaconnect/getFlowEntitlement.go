@@ -43,21 +43,11 @@ type LookupFlowEntitlementResult struct {
 }
 
 func LookupFlowEntitlementOutput(ctx *pulumi.Context, args LookupFlowEntitlementOutputArgs, opts ...pulumi.InvokeOption) LookupFlowEntitlementResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupFlowEntitlementResultOutput, error) {
 			args := v.(LookupFlowEntitlementArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupFlowEntitlementResult
-			secret, err := ctx.InvokePackageRaw("aws-native:mediaconnect:getFlowEntitlement", args, &rv, "", opts...)
-			if err != nil {
-				return LookupFlowEntitlementResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupFlowEntitlementResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupFlowEntitlementResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:mediaconnect:getFlowEntitlement", args, LookupFlowEntitlementResultOutput{}, options).(LookupFlowEntitlementResultOutput), nil
 		}).(LookupFlowEntitlementResultOutput)
 }
 

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.SecretsManager
         /// </summary>
         public static Output<GetSecretTargetAttachmentResult> Invoke(GetSecretTargetAttachmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecretTargetAttachmentResult>("aws-native:secretsmanager:getSecretTargetAttachment", args ?? new GetSecretTargetAttachmentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::SecretsManager::SecretTargetAttachment
+        /// </summary>
+        public static Output<GetSecretTargetAttachmentResult> Invoke(GetSecretTargetAttachmentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSecretTargetAttachmentResult>("aws-native:secretsmanager:getSecretTargetAttachment", args ?? new GetSecretTargetAttachmentInvokeArgs(), options.WithDefaults());
     }
 
 

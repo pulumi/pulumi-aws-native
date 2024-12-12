@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Shield
         /// </summary>
         public static Output<GetDrtAccessResult> Invoke(GetDrtAccessInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDrtAccessResult>("aws-native:shield:getDrtAccess", args ?? new GetDrtAccessInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Config the role and list of Amazon S3 log buckets used by the Shield Response Team (SRT) to access your AWS account while assisting with attack mitigation.
+        /// </summary>
+        public static Output<GetDrtAccessResult> Invoke(GetDrtAccessInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDrtAccessResult>("aws-native:shield:getDrtAccess", args ?? new GetDrtAccessInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -33,21 +33,11 @@ type LookupProductSubscriptionResult struct {
 }
 
 func LookupProductSubscriptionOutput(ctx *pulumi.Context, args LookupProductSubscriptionOutputArgs, opts ...pulumi.InvokeOption) LookupProductSubscriptionResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupProductSubscriptionResultOutput, error) {
 			args := v.(LookupProductSubscriptionArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupProductSubscriptionResult
-			secret, err := ctx.InvokePackageRaw("aws-native:securityhub:getProductSubscription", args, &rv, "", opts...)
-			if err != nil {
-				return LookupProductSubscriptionResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupProductSubscriptionResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupProductSubscriptionResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:securityhub:getProductSubscription", args, LookupProductSubscriptionResultOutput{}, options).(LookupProductSubscriptionResultOutput), nil
 		}).(LookupProductSubscriptionResultOutput)
 }
 

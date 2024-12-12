@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Location
         /// </summary>
         public static Output<GetGeofenceCollectionResult> Invoke(GetGeofenceCollectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGeofenceCollectionResult>("aws-native:location:getGeofenceCollection", args ?? new GetGeofenceCollectionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::Location::GeofenceCollection Resource Type
+        /// </summary>
+        public static Output<GetGeofenceCollectionResult> Invoke(GetGeofenceCollectionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetGeofenceCollectionResult>("aws-native:location:getGeofenceCollection", args ?? new GetGeofenceCollectionInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.ElastiCache
         /// </summary>
         public static Output<GetGlobalReplicationGroupResult> Invoke(GetGlobalReplicationGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGlobalReplicationGroupResult>("aws-native:elasticache:getGlobalReplicationGroup", args ?? new GetGlobalReplicationGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The AWS::ElastiCache::GlobalReplicationGroup resource creates an Amazon ElastiCache Global Replication Group.
+        /// </summary>
+        public static Output<GetGlobalReplicationGroupResult> Invoke(GetGlobalReplicationGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetGlobalReplicationGroupResult>("aws-native:elasticache:getGlobalReplicationGroup", args ?? new GetGlobalReplicationGroupInvokeArgs(), options.WithDefaults());
     }
 
 

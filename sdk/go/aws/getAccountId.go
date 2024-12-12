@@ -27,18 +27,8 @@ type GetAccountIdResult struct {
 
 func GetAccountIdOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetAccountIdResultOutput {
 	return pulumi.ToOutput(0).ApplyT(func(int) (GetAccountIdResultOutput, error) {
-		opts = internal.PkgInvokeDefaultOpts(opts)
-		var rv GetAccountIdResult
-		secret, err := ctx.InvokePackageRaw("aws-native:index:getAccountId", nil, &rv, "", opts...)
-		if err != nil {
-			return GetAccountIdResultOutput{}, err
-		}
-
-		output := pulumi.ToOutput(rv).(GetAccountIdResultOutput)
-		if secret {
-			return pulumi.ToSecret(output).(GetAccountIdResultOutput), nil
-		}
-		return output, nil
+		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+		return ctx.InvokeOutput("aws-native:index:getAccountId", nil, GetAccountIdResultOutput{}, options).(GetAccountIdResultOutput), nil
 	}).(GetAccountIdResultOutput)
 }
 

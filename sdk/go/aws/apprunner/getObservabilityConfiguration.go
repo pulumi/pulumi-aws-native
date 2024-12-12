@@ -37,21 +37,11 @@ type LookupObservabilityConfigurationResult struct {
 }
 
 func LookupObservabilityConfigurationOutput(ctx *pulumi.Context, args LookupObservabilityConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupObservabilityConfigurationResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupObservabilityConfigurationResultOutput, error) {
 			args := v.(LookupObservabilityConfigurationArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupObservabilityConfigurationResult
-			secret, err := ctx.InvokePackageRaw("aws-native:apprunner:getObservabilityConfiguration", args, &rv, "", opts...)
-			if err != nil {
-				return LookupObservabilityConfigurationResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupObservabilityConfigurationResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupObservabilityConfigurationResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:apprunner:getObservabilityConfiguration", args, LookupObservabilityConfigurationResultOutput{}, options).(LookupObservabilityConfigurationResultOutput), nil
 		}).(LookupObservabilityConfigurationResultOutput)
 }
 

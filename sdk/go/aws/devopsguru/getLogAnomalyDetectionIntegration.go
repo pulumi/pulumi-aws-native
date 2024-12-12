@@ -33,21 +33,11 @@ type LookupLogAnomalyDetectionIntegrationResult struct {
 }
 
 func LookupLogAnomalyDetectionIntegrationOutput(ctx *pulumi.Context, args LookupLogAnomalyDetectionIntegrationOutputArgs, opts ...pulumi.InvokeOption) LookupLogAnomalyDetectionIntegrationResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupLogAnomalyDetectionIntegrationResultOutput, error) {
 			args := v.(LookupLogAnomalyDetectionIntegrationArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupLogAnomalyDetectionIntegrationResult
-			secret, err := ctx.InvokePackageRaw("aws-native:devopsguru:getLogAnomalyDetectionIntegration", args, &rv, "", opts...)
-			if err != nil {
-				return LookupLogAnomalyDetectionIntegrationResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupLogAnomalyDetectionIntegrationResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupLogAnomalyDetectionIntegrationResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:devopsguru:getLogAnomalyDetectionIntegration", args, LookupLogAnomalyDetectionIntegrationResultOutput{}, options).(LookupLogAnomalyDetectionIntegrationResultOutput), nil
 		}).(LookupLogAnomalyDetectionIntegrationResultOutput)
 }
 

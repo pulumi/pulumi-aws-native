@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.S3
         /// </summary>
         public static Output<GetAccessGrantsInstanceResult> Invoke(GetAccessGrantsInstanceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccessGrantsInstanceResult>("aws-native:s3:getAccessGrantsInstance", args ?? new GetAccessGrantsInstanceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The AWS::S3::AccessGrantsInstance resource is an Amazon S3 resource type that hosts Access Grants and their associated locations
+        /// </summary>
+        public static Output<GetAccessGrantsInstanceResult> Invoke(GetAccessGrantsInstanceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAccessGrantsInstanceResult>("aws-native:s3:getAccessGrantsInstance", args ?? new GetAccessGrantsInstanceInvokeArgs(), options.WithDefaults());
     }
 
 

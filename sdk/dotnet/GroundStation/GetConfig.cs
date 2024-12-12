@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.GroundStation
         /// </summary>
         public static Output<GetConfigResult> Invoke(GetConfigInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigResult>("aws-native:groundstation:getConfig", args ?? new GetConfigInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// AWS Ground Station config resource type for CloudFormation.
+        /// </summary>
+        public static Output<GetConfigResult> Invoke(GetConfigInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetConfigResult>("aws-native:groundstation:getConfig", args ?? new GetConfigInvokeArgs(), options.WithDefaults());
     }
 
 

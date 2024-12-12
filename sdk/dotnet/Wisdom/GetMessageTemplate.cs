@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Wisdom
         /// </summary>
         public static Output<GetMessageTemplateResult> Invoke(GetMessageTemplateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMessageTemplateResult>("aws-native:wisdom:getMessageTemplate", args ?? new GetMessageTemplateInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::Wisdom::MessageTemplate Resource Type
+        /// </summary>
+        public static Output<GetMessageTemplateResult> Invoke(GetMessageTemplateInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMessageTemplateResult>("aws-native:wisdom:getMessageTemplate", args ?? new GetMessageTemplateInvokeArgs(), options.WithDefaults());
     }
 
 

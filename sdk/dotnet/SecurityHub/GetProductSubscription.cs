@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.SecurityHub
         /// </summary>
         public static Output<GetProductSubscriptionResult> Invoke(GetProductSubscriptionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProductSubscriptionResult>("aws-native:securityhub:getProductSubscription", args ?? new GetProductSubscriptionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The AWS::SecurityHub::ProductSubscription resource represents a subscription to a service that is allowed to generate findings for your Security Hub account. One product subscription resource is created for each product enabled.
+        /// </summary>
+        public static Output<GetProductSubscriptionResult> Invoke(GetProductSubscriptionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetProductSubscriptionResult>("aws-native:securityhub:getProductSubscription", args ?? new GetProductSubscriptionInvokeArgs(), options.WithDefaults());
     }
 
 

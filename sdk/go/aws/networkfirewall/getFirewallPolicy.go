@@ -44,21 +44,11 @@ type LookupFirewallPolicyResult struct {
 }
 
 func LookupFirewallPolicyOutput(ctx *pulumi.Context, args LookupFirewallPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupFirewallPolicyResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupFirewallPolicyResultOutput, error) {
 			args := v.(LookupFirewallPolicyArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupFirewallPolicyResult
-			secret, err := ctx.InvokePackageRaw("aws-native:networkfirewall:getFirewallPolicy", args, &rv, "", opts...)
-			if err != nil {
-				return LookupFirewallPolicyResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupFirewallPolicyResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupFirewallPolicyResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:networkfirewall:getFirewallPolicy", args, LookupFirewallPolicyResultOutput{}, options).(LookupFirewallPolicyResultOutput), nil
 		}).(LookupFirewallPolicyResultOutput)
 }
 

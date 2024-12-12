@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.CodeBuild
         /// </summary>
         public static Output<GetFleetResult> Invoke(GetFleetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFleetResult>("aws-native:codebuild:getFleet", args ?? new GetFleetInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::CodeBuild::Fleet
+        /// </summary>
+        public static Output<GetFleetResult> Invoke(GetFleetInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFleetResult>("aws-native:codebuild:getFleet", args ?? new GetFleetInvokeArgs(), options.WithDefaults());
     }
 
 

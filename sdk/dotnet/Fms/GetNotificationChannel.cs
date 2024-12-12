@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Fms
         /// </summary>
         public static Output<GetNotificationChannelResult> Invoke(GetNotificationChannelInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNotificationChannelResult>("aws-native:fms:getNotificationChannel", args ?? new GetNotificationChannelInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Designates the IAM role and Amazon Simple Notification Service (SNS) topic that AWS Firewall Manager uses to record SNS logs.
+        /// </summary>
+        public static Output<GetNotificationChannelResult> Invoke(GetNotificationChannelInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetNotificationChannelResult>("aws-native:fms:getNotificationChannel", args ?? new GetNotificationChannelInvokeArgs(), options.WithDefaults());
     }
 
 

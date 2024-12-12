@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.AppRunner
         /// </summary>
         public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceResult>("aws-native:apprunner:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The AWS::AppRunner::Service resource specifies an AppRunner Service.
+        /// </summary>
+        public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetServiceResult>("aws-native:apprunner:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Iam
         /// </summary>
         public static Output<GetOidcProviderResult> Invoke(GetOidcProviderInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOidcProviderResult>("aws-native:iam:getOidcProvider", args ?? new GetOidcProviderInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::IAM::OIDCProvider
+        /// </summary>
+        public static Output<GetOidcProviderResult> Invoke(GetOidcProviderInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetOidcProviderResult>("aws-native:iam:getOidcProvider", args ?? new GetOidcProviderInvokeArgs(), options.WithDefaults());
     }
 
 

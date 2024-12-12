@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         public static Output<GetVpcCidrBlockResult> Invoke(GetVpcCidrBlockInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpcCidrBlockResult>("aws-native:ec2:getVpcCidrBlock", args ?? new GetVpcCidrBlockInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::EC2::VPCCidrBlock
+        /// </summary>
+        public static Output<GetVpcCidrBlockResult> Invoke(GetVpcCidrBlockInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVpcCidrBlockResult>("aws-native:ec2:getVpcCidrBlock", args ?? new GetVpcCidrBlockInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Bedrock
         /// </summary>
         public static Output<GetGuardrailVersionResult> Invoke(GetGuardrailVersionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGuardrailVersionResult>("aws-native:bedrock:getGuardrailVersion", args ?? new GetGuardrailVersionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::Bedrock::GuardrailVersion Resource Type
+        /// </summary>
+        public static Output<GetGuardrailVersionResult> Invoke(GetGuardrailVersionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetGuardrailVersionResult>("aws-native:bedrock:getGuardrailVersion", args ?? new GetGuardrailVersionInvokeArgs(), options.WithDefaults());
     }
 
 

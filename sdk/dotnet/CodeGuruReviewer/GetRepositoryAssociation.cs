@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.CodeGuruReviewer
         /// </summary>
         public static Output<GetRepositoryAssociationResult> Invoke(GetRepositoryAssociationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRepositoryAssociationResult>("aws-native:codegurureviewer:getRepositoryAssociation", args ?? new GetRepositoryAssociationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// This resource schema represents the RepositoryAssociation resource in the Amazon CodeGuru Reviewer service.
+        /// </summary>
+        public static Output<GetRepositoryAssociationResult> Invoke(GetRepositoryAssociationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRepositoryAssociationResult>("aws-native:codegurureviewer:getRepositoryAssociation", args ?? new GetRepositoryAssociationInvokeArgs(), options.WithDefaults());
     }
 
 

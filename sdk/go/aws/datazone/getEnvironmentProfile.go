@@ -57,21 +57,11 @@ type LookupEnvironmentProfileResult struct {
 }
 
 func LookupEnvironmentProfileOutput(ctx *pulumi.Context, args LookupEnvironmentProfileOutputArgs, opts ...pulumi.InvokeOption) LookupEnvironmentProfileResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupEnvironmentProfileResultOutput, error) {
 			args := v.(LookupEnvironmentProfileArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupEnvironmentProfileResult
-			secret, err := ctx.InvokePackageRaw("aws-native:datazone:getEnvironmentProfile", args, &rv, "", opts...)
-			if err != nil {
-				return LookupEnvironmentProfileResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupEnvironmentProfileResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupEnvironmentProfileResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:datazone:getEnvironmentProfile", args, LookupEnvironmentProfileResultOutput{}, options).(LookupEnvironmentProfileResultOutput), nil
 		}).(LookupEnvironmentProfileResultOutput)
 }
 

@@ -44,21 +44,11 @@ type LookupLoggingConfigurationResult struct {
 }
 
 func LookupLoggingConfigurationOutput(ctx *pulumi.Context, args LookupLoggingConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupLoggingConfigurationResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupLoggingConfigurationResultOutput, error) {
 			args := v.(LookupLoggingConfigurationArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupLoggingConfigurationResult
-			secret, err := ctx.InvokePackageRaw("aws-native:ivschat:getLoggingConfiguration", args, &rv, "", opts...)
-			if err != nil {
-				return LookupLoggingConfigurationResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupLoggingConfigurationResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupLoggingConfigurationResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:ivschat:getLoggingConfiguration", args, LookupLoggingConfigurationResultOutput{}, options).(LookupLoggingConfigurationResultOutput), nil
 		}).(LookupLoggingConfigurationResultOutput)
 }
 

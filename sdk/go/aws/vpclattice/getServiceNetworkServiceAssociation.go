@@ -56,21 +56,11 @@ type LookupServiceNetworkServiceAssociationResult struct {
 }
 
 func LookupServiceNetworkServiceAssociationOutput(ctx *pulumi.Context, args LookupServiceNetworkServiceAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupServiceNetworkServiceAssociationResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupServiceNetworkServiceAssociationResultOutput, error) {
 			args := v.(LookupServiceNetworkServiceAssociationArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupServiceNetworkServiceAssociationResult
-			secret, err := ctx.InvokePackageRaw("aws-native:vpclattice:getServiceNetworkServiceAssociation", args, &rv, "", opts...)
-			if err != nil {
-				return LookupServiceNetworkServiceAssociationResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupServiceNetworkServiceAssociationResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupServiceNetworkServiceAssociationResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:vpclattice:getServiceNetworkServiceAssociation", args, LookupServiceNetworkServiceAssociationResultOutput{}, options).(LookupServiceNetworkServiceAssociationResultOutput), nil
 		}).(LookupServiceNetworkServiceAssociationResultOutput)
 }
 

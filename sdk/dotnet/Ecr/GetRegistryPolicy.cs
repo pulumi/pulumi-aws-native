@@ -24,6 +24,13 @@ namespace Pulumi.AwsNative.Ecr
         /// </summary>
         public static Output<GetRegistryPolicyResult> Invoke(GetRegistryPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRegistryPolicyResult>("aws-native:ecr:getRegistryPolicy", args ?? new GetRegistryPolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The ``AWS::ECR::RegistryPolicy`` resource creates or updates the permissions policy for a private registry.
+        ///  A private registry policy is used to specify permissions for another AWS-account and is used when configuring cross-account replication. For more information, see [Registry permissions](https://docs.aws.amazon.com/AmazonECR/latest/userguide/registry-permissions.html) in the *Amazon Elastic Container Registry User Guide*.
+        /// </summary>
+        public static Output<GetRegistryPolicyResult> Invoke(GetRegistryPolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRegistryPolicyResult>("aws-native:ecr:getRegistryPolicy", args ?? new GetRegistryPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

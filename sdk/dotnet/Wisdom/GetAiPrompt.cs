@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Wisdom
         /// </summary>
         public static Output<GetAiPromptResult> Invoke(GetAiPromptInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAiPromptResult>("aws-native:wisdom:getAiPrompt", args ?? new GetAiPromptInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::Wisdom::AIPrompt Resource Type
+        /// </summary>
+        public static Output<GetAiPromptResult> Invoke(GetAiPromptInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAiPromptResult>("aws-native:wisdom:getAiPrompt", args ?? new GetAiPromptInvokeArgs(), options.WithDefaults());
     }
 
 

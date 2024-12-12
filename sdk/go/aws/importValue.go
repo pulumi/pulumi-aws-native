@@ -30,21 +30,11 @@ type ImportValueResult struct {
 }
 
 func ImportValueOutput(ctx *pulumi.Context, args ImportValueOutputArgs, opts ...pulumi.InvokeOption) ImportValueResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (ImportValueResultOutput, error) {
 			args := v.(ImportValueArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv ImportValueResult
-			secret, err := ctx.InvokePackageRaw("aws-native:index:importValue", args, &rv, "", opts...)
-			if err != nil {
-				return ImportValueResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(ImportValueResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(ImportValueResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:index:importValue", args, ImportValueResultOutput{}, options).(ImportValueResultOutput), nil
 		}).(ImportValueResultOutput)
 }
 

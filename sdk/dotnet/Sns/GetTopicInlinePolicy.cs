@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Sns
         /// </summary>
         public static Output<GetTopicInlinePolicyResult> Invoke(GetTopicInlinePolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTopicInlinePolicyResult>("aws-native:sns:getTopicInlinePolicy", args ?? new GetTopicInlinePolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Schema for AWS::SNS::TopicInlinePolicy
+        /// </summary>
+        public static Output<GetTopicInlinePolicyResult> Invoke(GetTopicInlinePolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTopicInlinePolicyResult>("aws-native:sns:getTopicInlinePolicy", args ?? new GetTopicInlinePolicyInvokeArgs(), options.WithDefaults());
     }
 
 

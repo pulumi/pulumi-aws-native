@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Sso
         /// </summary>
         public static Output<GetPermissionSetResult> Invoke(GetPermissionSetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPermissionSetResult>("aws-native:sso:getPermissionSet", args ?? new GetPermissionSetInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for SSO PermissionSet
+        /// </summary>
+        public static Output<GetPermissionSetResult> Invoke(GetPermissionSetInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPermissionSetResult>("aws-native:sso:getPermissionSet", args ?? new GetPermissionSetInvokeArgs(), options.WithDefaults());
     }
 
 

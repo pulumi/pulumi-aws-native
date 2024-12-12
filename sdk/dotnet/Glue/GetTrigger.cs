@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Glue
         /// </summary>
         public static Output<GetTriggerResult> Invoke(GetTriggerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTriggerResult>("aws-native:glue:getTrigger", args ?? new GetTriggerInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::Glue::Trigger
+        /// </summary>
+        public static Output<GetTriggerResult> Invoke(GetTriggerInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTriggerResult>("aws-native:glue:getTrigger", args ?? new GetTriggerInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -36,21 +36,11 @@ type LookupNetworkAclResult struct {
 }
 
 func LookupNetworkAclOutput(ctx *pulumi.Context, args LookupNetworkAclOutputArgs, opts ...pulumi.InvokeOption) LookupNetworkAclResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupNetworkAclResultOutput, error) {
 			args := v.(LookupNetworkAclArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupNetworkAclResult
-			secret, err := ctx.InvokePackageRaw("aws-native:ec2:getNetworkAcl", args, &rv, "", opts...)
-			if err != nil {
-				return LookupNetworkAclResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupNetworkAclResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupNetworkAclResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:ec2:getNetworkAcl", args, LookupNetworkAclResultOutput{}, options).(LookupNetworkAclResultOutput), nil
 		}).(LookupNetworkAclResultOutput)
 }
 

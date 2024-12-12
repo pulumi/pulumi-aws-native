@@ -59,21 +59,11 @@ type LookupAutomationRuleResult struct {
 }
 
 func LookupAutomationRuleOutput(ctx *pulumi.Context, args LookupAutomationRuleOutputArgs, opts ...pulumi.InvokeOption) LookupAutomationRuleResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupAutomationRuleResultOutput, error) {
 			args := v.(LookupAutomationRuleArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupAutomationRuleResult
-			secret, err := ctx.InvokePackageRaw("aws-native:securityhub:getAutomationRule", args, &rv, "", opts...)
-			if err != nil {
-				return LookupAutomationRuleResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupAutomationRuleResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupAutomationRuleResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:securityhub:getAutomationRule", args, LookupAutomationRuleResultOutput{}, options).(LookupAutomationRuleResultOutput), nil
 		}).(LookupAutomationRuleResultOutput)
 }
 

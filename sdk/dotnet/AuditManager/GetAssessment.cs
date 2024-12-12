@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.AuditManager
         /// </summary>
         public static Output<GetAssessmentResult> Invoke(GetAssessmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssessmentResult>("aws-native:auditmanager:getAssessment", args ?? new GetAssessmentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// An entity that defines the scope of audit evidence collected by AWS Audit Manager.
+        /// </summary>
+        public static Output<GetAssessmentResult> Invoke(GetAssessmentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAssessmentResult>("aws-native:auditmanager:getAssessment", args ?? new GetAssessmentInvokeArgs(), options.WithDefaults());
     }
 
 

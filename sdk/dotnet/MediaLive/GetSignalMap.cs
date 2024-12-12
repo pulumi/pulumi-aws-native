@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.MediaLive
         /// </summary>
         public static Output<GetSignalMapResult> Invoke(GetSignalMapInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSignalMapResult>("aws-native:medialive:getSignalMap", args ?? new GetSignalMapInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::MediaLive::SignalMap Resource Type
+        /// </summary>
+        public static Output<GetSignalMapResult> Invoke(GetSignalMapInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSignalMapResult>("aws-native:medialive:getSignalMap", args ?? new GetSignalMapInvokeArgs(), options.WithDefaults());
     }
 
 

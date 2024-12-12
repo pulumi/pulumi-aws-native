@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.AppConfig
         /// </summary>
         public static Output<GetExtensionAssociationResult> Invoke(GetExtensionAssociationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExtensionAssociationResult>("aws-native:appconfig:getExtensionAssociation", args ?? new GetExtensionAssociationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// An example resource schema demonstrating some basic constructs and validation rules.
+        /// </summary>
+        public static Output<GetExtensionAssociationResult> Invoke(GetExtensionAssociationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetExtensionAssociationResult>("aws-native:appconfig:getExtensionAssociation", args ?? new GetExtensionAssociationInvokeArgs(), options.WithDefaults());
     }
 
 

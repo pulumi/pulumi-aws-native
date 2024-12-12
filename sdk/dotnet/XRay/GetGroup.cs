@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.XRay
         /// </summary>
         public static Output<GetGroupResult> Invoke(GetGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGroupResult>("aws-native:xray:getGroup", args ?? new GetGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// This schema provides construct and validation rules for AWS-XRay Group resource parameters.
+        /// </summary>
+        public static Output<GetGroupResult> Invoke(GetGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetGroupResult>("aws-native:xray:getGroup", args ?? new GetGroupInvokeArgs(), options.WithDefaults());
     }
 
 

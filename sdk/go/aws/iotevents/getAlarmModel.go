@@ -47,21 +47,11 @@ type LookupAlarmModelResult struct {
 }
 
 func LookupAlarmModelOutput(ctx *pulumi.Context, args LookupAlarmModelOutputArgs, opts ...pulumi.InvokeOption) LookupAlarmModelResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupAlarmModelResultOutput, error) {
 			args := v.(LookupAlarmModelArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupAlarmModelResult
-			secret, err := ctx.InvokePackageRaw("aws-native:iotevents:getAlarmModel", args, &rv, "", opts...)
-			if err != nil {
-				return LookupAlarmModelResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupAlarmModelResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupAlarmModelResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:iotevents:getAlarmModel", args, LookupAlarmModelResultOutput{}, options).(LookupAlarmModelResultOutput), nil
 		}).(LookupAlarmModelResultOutput)
 }
 

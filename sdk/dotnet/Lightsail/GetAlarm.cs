@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Lightsail
         /// </summary>
         public static Output<GetAlarmResult> Invoke(GetAlarmInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAlarmResult>("aws-native:lightsail:getAlarm", args ?? new GetAlarmInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::Lightsail::Alarm
+        /// </summary>
+        public static Output<GetAlarmResult> Invoke(GetAlarmInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAlarmResult>("aws-native:lightsail:getAlarm", args ?? new GetAlarmInvokeArgs(), options.WithDefaults());
     }
 
 

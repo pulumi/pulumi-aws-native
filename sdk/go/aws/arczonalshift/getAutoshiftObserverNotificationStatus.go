@@ -33,21 +33,11 @@ type LookupAutoshiftObserverNotificationStatusResult struct {
 }
 
 func LookupAutoshiftObserverNotificationStatusOutput(ctx *pulumi.Context, args LookupAutoshiftObserverNotificationStatusOutputArgs, opts ...pulumi.InvokeOption) LookupAutoshiftObserverNotificationStatusResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupAutoshiftObserverNotificationStatusResultOutput, error) {
 			args := v.(LookupAutoshiftObserverNotificationStatusArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupAutoshiftObserverNotificationStatusResult
-			secret, err := ctx.InvokePackageRaw("aws-native:arczonalshift:getAutoshiftObserverNotificationStatus", args, &rv, "", opts...)
-			if err != nil {
-				return LookupAutoshiftObserverNotificationStatusResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupAutoshiftObserverNotificationStatusResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupAutoshiftObserverNotificationStatusResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:arczonalshift:getAutoshiftObserverNotificationStatus", args, LookupAutoshiftObserverNotificationStatusResultOutput{}, options).(LookupAutoshiftObserverNotificationStatusResultOutput), nil
 		}).(LookupAutoshiftObserverNotificationStatusResultOutput)
 }
 

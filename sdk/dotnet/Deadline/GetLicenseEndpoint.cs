@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Deadline
         /// </summary>
         public static Output<GetLicenseEndpointResult> Invoke(GetLicenseEndpointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLicenseEndpointResult>("aws-native:deadline:getLicenseEndpoint", args ?? new GetLicenseEndpointInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::Deadline::LicenseEndpoint Resource Type
+        /// </summary>
+        public static Output<GetLicenseEndpointResult> Invoke(GetLicenseEndpointInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLicenseEndpointResult>("aws-native:deadline:getLicenseEndpoint", args ?? new GetLicenseEndpointInvokeArgs(), options.WithDefaults());
     }
 
 

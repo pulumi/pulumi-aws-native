@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Inspector
         /// </summary>
         public static Output<GetResourceGroupResult> Invoke(GetResourceGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResourceGroupResult>("aws-native:inspector:getResourceGroup", args ?? new GetResourceGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::Inspector::ResourceGroup
+        /// </summary>
+        public static Output<GetResourceGroupResult> Invoke(GetResourceGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetResourceGroupResult>("aws-native:inspector:getResourceGroup", args ?? new GetResourceGroupInvokeArgs(), options.WithDefaults());
     }
 
 

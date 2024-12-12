@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         public static Output<GetPlacementGroupResult> Invoke(GetPlacementGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPlacementGroupResult>("aws-native:ec2:getPlacementGroup", args ?? new GetPlacementGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::EC2::PlacementGroup
+        /// </summary>
+        public static Output<GetPlacementGroupResult> Invoke(GetPlacementGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPlacementGroupResult>("aws-native:ec2:getPlacementGroup", args ?? new GetPlacementGroupInvokeArgs(), options.WithDefaults());
     }
 
 

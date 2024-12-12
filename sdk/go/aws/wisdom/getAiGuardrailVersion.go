@@ -38,21 +38,11 @@ type LookupAiGuardrailVersionResult struct {
 }
 
 func LookupAiGuardrailVersionOutput(ctx *pulumi.Context, args LookupAiGuardrailVersionOutputArgs, opts ...pulumi.InvokeOption) LookupAiGuardrailVersionResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupAiGuardrailVersionResultOutput, error) {
 			args := v.(LookupAiGuardrailVersionArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupAiGuardrailVersionResult
-			secret, err := ctx.InvokePackageRaw("aws-native:wisdom:getAiGuardrailVersion", args, &rv, "", opts...)
-			if err != nil {
-				return LookupAiGuardrailVersionResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupAiGuardrailVersionResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupAiGuardrailVersionResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:wisdom:getAiGuardrailVersion", args, LookupAiGuardrailVersionResultOutput{}, options).(LookupAiGuardrailVersionResultOutput), nil
 		}).(LookupAiGuardrailVersionResultOutput)
 }
 

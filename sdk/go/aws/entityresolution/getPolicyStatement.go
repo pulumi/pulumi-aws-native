@@ -45,21 +45,11 @@ type LookupPolicyStatementResult struct {
 }
 
 func LookupPolicyStatementOutput(ctx *pulumi.Context, args LookupPolicyStatementOutputArgs, opts ...pulumi.InvokeOption) LookupPolicyStatementResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupPolicyStatementResultOutput, error) {
 			args := v.(LookupPolicyStatementArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupPolicyStatementResult
-			secret, err := ctx.InvokePackageRaw("aws-native:entityresolution:getPolicyStatement", args, &rv, "", opts...)
-			if err != nil {
-				return LookupPolicyStatementResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupPolicyStatementResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupPolicyStatementResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:entityresolution:getPolicyStatement", args, LookupPolicyStatementResultOutput{}, options).(LookupPolicyStatementResultOutput), nil
 		}).(LookupPolicyStatementResultOutput)
 }
 

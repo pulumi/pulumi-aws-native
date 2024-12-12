@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.MediaLive
         /// </summary>
         public static Output<GetEventBridgeRuleTemplateGroupResult> Invoke(GetEventBridgeRuleTemplateGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEventBridgeRuleTemplateGroupResult>("aws-native:medialive:getEventBridgeRuleTemplateGroup", args ?? new GetEventBridgeRuleTemplateGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::MediaLive::EventBridgeRuleTemplateGroup Resource Type
+        /// </summary>
+        public static Output<GetEventBridgeRuleTemplateGroupResult> Invoke(GetEventBridgeRuleTemplateGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEventBridgeRuleTemplateGroupResult>("aws-native:medialive:getEventBridgeRuleTemplateGroup", args ?? new GetEventBridgeRuleTemplateGroupInvokeArgs(), options.WithDefaults());
     }
 
 

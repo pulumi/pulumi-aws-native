@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.EntityResolution
         /// </summary>
         public static Output<GetIdMappingWorkflowResult> Invoke(GetIdMappingWorkflowInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIdMappingWorkflowResult>("aws-native:entityresolution:getIdMappingWorkflow", args ?? new GetIdMappingWorkflowInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// IdMappingWorkflow defined in AWS Entity Resolution service
+        /// </summary>
+        public static Output<GetIdMappingWorkflowResult> Invoke(GetIdMappingWorkflowInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetIdMappingWorkflowResult>("aws-native:entityresolution:getIdMappingWorkflow", args ?? new GetIdMappingWorkflowInvokeArgs(), options.WithDefaults());
     }
 
 

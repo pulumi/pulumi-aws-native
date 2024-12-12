@@ -49,21 +49,11 @@ type LookupMatchingWorkflowResult struct {
 }
 
 func LookupMatchingWorkflowOutput(ctx *pulumi.Context, args LookupMatchingWorkflowOutputArgs, opts ...pulumi.InvokeOption) LookupMatchingWorkflowResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupMatchingWorkflowResultOutput, error) {
 			args := v.(LookupMatchingWorkflowArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupMatchingWorkflowResult
-			secret, err := ctx.InvokePackageRaw("aws-native:entityresolution:getMatchingWorkflow", args, &rv, "", opts...)
-			if err != nil {
-				return LookupMatchingWorkflowResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupMatchingWorkflowResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupMatchingWorkflowResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:entityresolution:getMatchingWorkflow", args, LookupMatchingWorkflowResultOutput{}, options).(LookupMatchingWorkflowResultOutput), nil
 		}).(LookupMatchingWorkflowResultOutput)
 }
 

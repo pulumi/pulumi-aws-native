@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         public static Output<GetSecurityGroupVpcAssociationResult> Invoke(GetSecurityGroupVpcAssociationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecurityGroupVpcAssociationResult>("aws-native:ec2:getSecurityGroupVpcAssociation", args ?? new GetSecurityGroupVpcAssociationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource type definition for the AWS::EC2::SecurityGroupVpcAssociation resource
+        /// </summary>
+        public static Output<GetSecurityGroupVpcAssociationResult> Invoke(GetSecurityGroupVpcAssociationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSecurityGroupVpcAssociationResult>("aws-native:ec2:getSecurityGroupVpcAssociation", args ?? new GetSecurityGroupVpcAssociationInvokeArgs(), options.WithDefaults());
     }
 
 

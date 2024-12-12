@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Route53Profiles
         /// </summary>
         public static Output<GetProfileResult> Invoke(GetProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProfileResult>("aws-native:route53profiles:getProfile", args ?? new GetProfileInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::Route53Profiles::Profile
+        /// </summary>
+        public static Output<GetProfileResult> Invoke(GetProfileInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetProfileResult>("aws-native:route53profiles:getProfile", args ?? new GetProfileInvokeArgs(), options.WithDefaults());
     }
 
 

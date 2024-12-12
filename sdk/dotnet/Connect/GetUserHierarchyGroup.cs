@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Connect
         /// </summary>
         public static Output<GetUserHierarchyGroupResult> Invoke(GetUserHierarchyGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserHierarchyGroupResult>("aws-native:connect:getUserHierarchyGroup", args ?? new GetUserHierarchyGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::Connect::UserHierarchyGroup
+        /// </summary>
+        public static Output<GetUserHierarchyGroupResult> Invoke(GetUserHierarchyGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetUserHierarchyGroupResult>("aws-native:connect:getUserHierarchyGroup", args ?? new GetUserHierarchyGroupInvokeArgs(), options.WithDefaults());
     }
 
 

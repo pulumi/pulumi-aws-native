@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         public static Output<GetSnapshotBlockPublicAccessResult> Invoke(GetSnapshotBlockPublicAccessInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSnapshotBlockPublicAccessResult>("aws-native:ec2:getSnapshotBlockPublicAccess", args ?? new GetSnapshotBlockPublicAccessInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::EC2::SnapshotBlockPublicAccess
+        /// </summary>
+        public static Output<GetSnapshotBlockPublicAccessResult> Invoke(GetSnapshotBlockPublicAccessInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSnapshotBlockPublicAccessResult>("aws-native:ec2:getSnapshotBlockPublicAccess", args ?? new GetSnapshotBlockPublicAccessInvokeArgs(), options.WithDefaults());
     }
 
 

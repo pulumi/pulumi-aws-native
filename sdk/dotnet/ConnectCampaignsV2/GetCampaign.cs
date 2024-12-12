@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2
         /// </summary>
         public static Output<GetCampaignResult> Invoke(GetCampaignInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCampaignResult>("aws-native:connectcampaignsv2:getCampaign", args ?? new GetCampaignInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::ConnectCampaignsV2::Campaign Resource Type
+        /// </summary>
+        public static Output<GetCampaignResult> Invoke(GetCampaignInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCampaignResult>("aws-native:connectcampaignsv2:getCampaign", args ?? new GetCampaignInvokeArgs(), options.WithDefaults());
     }
 
 

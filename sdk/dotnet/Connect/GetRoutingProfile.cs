@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Connect
         /// </summary>
         public static Output<GetRoutingProfileResult> Invoke(GetRoutingProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRoutingProfileResult>("aws-native:connect:getRoutingProfile", args ?? new GetRoutingProfileInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::Connect::RoutingProfile
+        /// </summary>
+        public static Output<GetRoutingProfileResult> Invoke(GetRoutingProfileInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRoutingProfileResult>("aws-native:connect:getRoutingProfile", args ?? new GetRoutingProfileInvokeArgs(), options.WithDefaults());
     }
 
 

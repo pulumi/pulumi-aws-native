@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Personalize
         /// </summary>
         public static Output<GetSolutionResult> Invoke(GetSolutionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSolutionResult>("aws-native:personalize:getSolution", args ?? new GetSolutionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource schema for AWS::Personalize::Solution.
+        /// </summary>
+        public static Output<GetSolutionResult> Invoke(GetSolutionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSolutionResult>("aws-native:personalize:getSolution", args ?? new GetSolutionInvokeArgs(), options.WithDefaults());
     }
 
 

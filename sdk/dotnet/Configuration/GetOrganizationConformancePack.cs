@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Configuration
         /// </summary>
         public static Output<GetOrganizationConformancePackResult> Invoke(GetOrganizationConformancePackInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOrganizationConformancePackResult>("aws-native:configuration:getOrganizationConformancePack", args ?? new GetOrganizationConformancePackInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource schema for AWS::Config::OrganizationConformancePack.
+        /// </summary>
+        public static Output<GetOrganizationConformancePackResult> Invoke(GetOrganizationConformancePackInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetOrganizationConformancePackResult>("aws-native:configuration:getOrganizationConformancePack", args ?? new GetOrganizationConformancePackInvokeArgs(), options.WithDefaults());
     }
 
 

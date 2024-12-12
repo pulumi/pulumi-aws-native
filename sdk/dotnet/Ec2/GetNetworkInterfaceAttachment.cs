@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         public static Output<GetNetworkInterfaceAttachmentResult> Invoke(GetNetworkInterfaceAttachmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkInterfaceAttachmentResult>("aws-native:ec2:getNetworkInterfaceAttachment", args ?? new GetNetworkInterfaceAttachmentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Attaches an elastic network interface (ENI) to an Amazon EC2 instance. You can use this resource type to attach additional network interfaces to an instance without interruption.
+        /// </summary>
+        public static Output<GetNetworkInterfaceAttachmentResult> Invoke(GetNetworkInterfaceAttachmentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetNetworkInterfaceAttachmentResult>("aws-native:ec2:getNetworkInterfaceAttachment", args ?? new GetNetworkInterfaceAttachmentInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -51,21 +51,11 @@ type LookupEventBridgeRuleTemplateResult struct {
 }
 
 func LookupEventBridgeRuleTemplateOutput(ctx *pulumi.Context, args LookupEventBridgeRuleTemplateOutputArgs, opts ...pulumi.InvokeOption) LookupEventBridgeRuleTemplateResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupEventBridgeRuleTemplateResultOutput, error) {
 			args := v.(LookupEventBridgeRuleTemplateArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupEventBridgeRuleTemplateResult
-			secret, err := ctx.InvokePackageRaw("aws-native:medialive:getEventBridgeRuleTemplate", args, &rv, "", opts...)
-			if err != nil {
-				return LookupEventBridgeRuleTemplateResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupEventBridgeRuleTemplateResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupEventBridgeRuleTemplateResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:medialive:getEventBridgeRuleTemplate", args, LookupEventBridgeRuleTemplateResultOutput{}, options).(LookupEventBridgeRuleTemplateResultOutput), nil
 		}).(LookupEventBridgeRuleTemplateResultOutput)
 }
 

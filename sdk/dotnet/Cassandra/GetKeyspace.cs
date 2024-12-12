@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Cassandra
         /// </summary>
         public static Output<GetKeyspaceResult> Invoke(GetKeyspaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetKeyspaceResult>("aws-native:cassandra:getKeyspace", args ?? new GetKeyspaceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource schema for AWS::Cassandra::Keyspace
+        /// </summary>
+        public static Output<GetKeyspaceResult> Invoke(GetKeyspaceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetKeyspaceResult>("aws-native:cassandra:getKeyspace", args ?? new GetKeyspaceInvokeArgs(), options.WithDefaults());
     }
 
 

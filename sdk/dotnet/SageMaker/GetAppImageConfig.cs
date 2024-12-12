@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.SageMaker
         /// </summary>
         public static Output<GetAppImageConfigResult> Invoke(GetAppImageConfigInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAppImageConfigResult>("aws-native:sagemaker:getAppImageConfig", args ?? new GetAppImageConfigInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::SageMaker::AppImageConfig
+        /// </summary>
+        public static Output<GetAppImageConfigResult> Invoke(GetAppImageConfigInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAppImageConfigResult>("aws-native:sagemaker:getAppImageConfig", args ?? new GetAppImageConfigInvokeArgs(), options.WithDefaults());
     }
 
 

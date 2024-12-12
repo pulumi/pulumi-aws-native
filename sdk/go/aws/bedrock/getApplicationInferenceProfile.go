@@ -53,21 +53,11 @@ type LookupApplicationInferenceProfileResult struct {
 }
 
 func LookupApplicationInferenceProfileOutput(ctx *pulumi.Context, args LookupApplicationInferenceProfileOutputArgs, opts ...pulumi.InvokeOption) LookupApplicationInferenceProfileResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupApplicationInferenceProfileResultOutput, error) {
 			args := v.(LookupApplicationInferenceProfileArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupApplicationInferenceProfileResult
-			secret, err := ctx.InvokePackageRaw("aws-native:bedrock:getApplicationInferenceProfile", args, &rv, "", opts...)
-			if err != nil {
-				return LookupApplicationInferenceProfileResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupApplicationInferenceProfileResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupApplicationInferenceProfileResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:bedrock:getApplicationInferenceProfile", args, LookupApplicationInferenceProfileResultOutput{}, options).(LookupApplicationInferenceProfileResultOutput), nil
 		}).(LookupApplicationInferenceProfileResultOutput)
 }
 

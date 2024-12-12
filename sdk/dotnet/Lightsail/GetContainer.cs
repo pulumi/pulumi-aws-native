@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Lightsail
         /// </summary>
         public static Output<GetContainerResult> Invoke(GetContainerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetContainerResult>("aws-native:lightsail:getContainer", args ?? new GetContainerInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::Lightsail::Container
+        /// </summary>
+        public static Output<GetContainerResult> Invoke(GetContainerInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetContainerResult>("aws-native:lightsail:getContainer", args ?? new GetContainerInvokeArgs(), options.WithDefaults());
     }
 
 

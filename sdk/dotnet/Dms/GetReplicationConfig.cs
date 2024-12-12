@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Dms
         /// </summary>
         public static Output<GetReplicationConfigResult> Invoke(GetReplicationConfigInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReplicationConfigResult>("aws-native:dms:getReplicationConfig", args ?? new GetReplicationConfigInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// A replication configuration that you later provide to configure and start a AWS DMS Serverless replication
+        /// </summary>
+        public static Output<GetReplicationConfigResult> Invoke(GetReplicationConfigInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetReplicationConfigResult>("aws-native:dms:getReplicationConfig", args ?? new GetReplicationConfigInvokeArgs(), options.WithDefaults());
     }
 
 

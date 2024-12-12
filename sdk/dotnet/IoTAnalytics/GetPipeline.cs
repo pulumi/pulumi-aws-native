@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.IoTAnalytics
         /// </summary>
         public static Output<GetPipelineResult> Invoke(GetPipelineInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPipelineResult>("aws-native:iotanalytics:getPipeline", args ?? new GetPipelineInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::IoTAnalytics::Pipeline
+        /// </summary>
+        public static Output<GetPipelineResult> Invoke(GetPipelineInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPipelineResult>("aws-native:iotanalytics:getPipeline", args ?? new GetPipelineInvokeArgs(), options.WithDefaults());
     }
 
 

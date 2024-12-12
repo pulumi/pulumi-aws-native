@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         public static Output<GetTransitGatewayPeeringAttachmentResult> Invoke(GetTransitGatewayPeeringAttachmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTransitGatewayPeeringAttachmentResult>("aws-native:ec2:getTransitGatewayPeeringAttachment", args ?? new GetTransitGatewayPeeringAttachmentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The AWS::EC2::TransitGatewayPeeringAttachment type
+        /// </summary>
+        public static Output<GetTransitGatewayPeeringAttachmentResult> Invoke(GetTransitGatewayPeeringAttachmentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTransitGatewayPeeringAttachmentResult>("aws-native:ec2:getTransitGatewayPeeringAttachment", args ?? new GetTransitGatewayPeeringAttachmentInvokeArgs(), options.WithDefaults());
     }
 
 

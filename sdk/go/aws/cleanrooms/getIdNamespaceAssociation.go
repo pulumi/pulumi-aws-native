@@ -50,21 +50,11 @@ type LookupIdNamespaceAssociationResult struct {
 }
 
 func LookupIdNamespaceAssociationOutput(ctx *pulumi.Context, args LookupIdNamespaceAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupIdNamespaceAssociationResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupIdNamespaceAssociationResultOutput, error) {
 			args := v.(LookupIdNamespaceAssociationArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupIdNamespaceAssociationResult
-			secret, err := ctx.InvokePackageRaw("aws-native:cleanrooms:getIdNamespaceAssociation", args, &rv, "", opts...)
-			if err != nil {
-				return LookupIdNamespaceAssociationResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupIdNamespaceAssociationResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupIdNamespaceAssociationResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:cleanrooms:getIdNamespaceAssociation", args, LookupIdNamespaceAssociationResultOutput{}, options).(LookupIdNamespaceAssociationResultOutput), nil
 		}).(LookupIdNamespaceAssociationResultOutput)
 }
 

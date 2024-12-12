@@ -39,21 +39,11 @@ type LookupAccessGrantsLocationResult struct {
 }
 
 func LookupAccessGrantsLocationOutput(ctx *pulumi.Context, args LookupAccessGrantsLocationOutputArgs, opts ...pulumi.InvokeOption) LookupAccessGrantsLocationResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupAccessGrantsLocationResultOutput, error) {
 			args := v.(LookupAccessGrantsLocationArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupAccessGrantsLocationResult
-			secret, err := ctx.InvokePackageRaw("aws-native:s3:getAccessGrantsLocation", args, &rv, "", opts...)
-			if err != nil {
-				return LookupAccessGrantsLocationResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupAccessGrantsLocationResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupAccessGrantsLocationResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:s3:getAccessGrantsLocation", args, LookupAccessGrantsLocationResultOutput{}, options).(LookupAccessGrantsLocationResultOutput), nil
 		}).(LookupAccessGrantsLocationResultOutput)
 }
 

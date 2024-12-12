@@ -49,21 +49,11 @@ type LookupGuardHookResult struct {
 }
 
 func LookupGuardHookOutput(ctx *pulumi.Context, args LookupGuardHookOutputArgs, opts ...pulumi.InvokeOption) LookupGuardHookResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupGuardHookResultOutput, error) {
 			args := v.(LookupGuardHookArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupGuardHookResult
-			secret, err := ctx.InvokePackageRaw("aws-native:cloudformation:getGuardHook", args, &rv, "", opts...)
-			if err != nil {
-				return LookupGuardHookResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupGuardHookResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupGuardHookResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:cloudformation:getGuardHook", args, LookupGuardHookResultOutput{}, options).(LookupGuardHookResultOutput), nil
 		}).(LookupGuardHookResultOutput)
 }
 

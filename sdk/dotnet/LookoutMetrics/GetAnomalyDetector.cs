@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.LookoutMetrics
         /// </summary>
         public static Output<GetAnomalyDetectorResult> Invoke(GetAnomalyDetectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAnomalyDetectorResult>("aws-native:lookoutmetrics:getAnomalyDetector", args ?? new GetAnomalyDetectorInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// An Amazon Lookout for Metrics Detector
+        /// </summary>
+        public static Output<GetAnomalyDetectorResult> Invoke(GetAnomalyDetectorInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAnomalyDetectorResult>("aws-native:lookoutmetrics:getAnomalyDetector", args ?? new GetAnomalyDetectorInvokeArgs(), options.WithDefaults());
     }
 
 

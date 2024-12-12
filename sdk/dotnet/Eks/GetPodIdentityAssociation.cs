@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Eks
         /// </summary>
         public static Output<GetPodIdentityAssociationResult> Invoke(GetPodIdentityAssociationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPodIdentityAssociationResult>("aws-native:eks:getPodIdentityAssociation", args ?? new GetPodIdentityAssociationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// An object representing an Amazon EKS PodIdentityAssociation.
+        /// </summary>
+        public static Output<GetPodIdentityAssociationResult> Invoke(GetPodIdentityAssociationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPodIdentityAssociationResult>("aws-native:eks:getPodIdentityAssociation", args ?? new GetPodIdentityAssociationInvokeArgs(), options.WithDefaults());
     }
 
 

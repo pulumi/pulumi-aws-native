@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.OpenSearchServerless
         /// </summary>
         public static Output<GetLifecyclePolicyResult> Invoke(GetLifecyclePolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLifecyclePolicyResult>("aws-native:opensearchserverless:getLifecyclePolicy", args ?? new GetLifecyclePolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Amazon OpenSearchServerless lifecycle policy resource
+        /// </summary>
+        public static Output<GetLifecyclePolicyResult> Invoke(GetLifecyclePolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLifecyclePolicyResult>("aws-native:opensearchserverless:getLifecyclePolicy", args ?? new GetLifecyclePolicyInvokeArgs(), options.WithDefaults());
     }
 
 

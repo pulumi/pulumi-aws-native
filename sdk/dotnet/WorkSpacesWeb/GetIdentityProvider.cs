@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
         /// </summary>
         public static Output<GetIdentityProviderResult> Invoke(GetIdentityProviderInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIdentityProviderResult>("aws-native:workspacesweb:getIdentityProvider", args ?? new GetIdentityProviderInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::WorkSpacesWeb::IdentityProvider Resource Type
+        /// </summary>
+        public static Output<GetIdentityProviderResult> Invoke(GetIdentityProviderInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetIdentityProviderResult>("aws-native:workspacesweb:getIdentityProvider", args ?? new GetIdentityProviderInvokeArgs(), options.WithDefaults());
     }
 
 

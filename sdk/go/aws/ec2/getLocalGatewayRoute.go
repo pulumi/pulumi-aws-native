@@ -41,21 +41,11 @@ type LookupLocalGatewayRouteResult struct {
 }
 
 func LookupLocalGatewayRouteOutput(ctx *pulumi.Context, args LookupLocalGatewayRouteOutputArgs, opts ...pulumi.InvokeOption) LookupLocalGatewayRouteResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupLocalGatewayRouteResultOutput, error) {
 			args := v.(LookupLocalGatewayRouteArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupLocalGatewayRouteResult
-			secret, err := ctx.InvokePackageRaw("aws-native:ec2:getLocalGatewayRoute", args, &rv, "", opts...)
-			if err != nil {
-				return LookupLocalGatewayRouteResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupLocalGatewayRouteResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupLocalGatewayRouteResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:ec2:getLocalGatewayRoute", args, LookupLocalGatewayRouteResultOutput{}, options).(LookupLocalGatewayRouteResultOutput), nil
 		}).(LookupLocalGatewayRouteResultOutput)
 }
 

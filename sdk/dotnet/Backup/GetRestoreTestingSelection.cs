@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Backup
         /// </summary>
         public static Output<GetRestoreTestingSelectionResult> Invoke(GetRestoreTestingSelectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRestoreTestingSelectionResult>("aws-native:backup:getRestoreTestingSelection", args ?? new GetRestoreTestingSelectionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::Backup::RestoreTestingSelection
+        /// </summary>
+        public static Output<GetRestoreTestingSelectionResult> Invoke(GetRestoreTestingSelectionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRestoreTestingSelectionResult>("aws-native:backup:getRestoreTestingSelection", args ?? new GetRestoreTestingSelectionInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -33,21 +33,11 @@ type LookupMonitoringSubscriptionResult struct {
 }
 
 func LookupMonitoringSubscriptionOutput(ctx *pulumi.Context, args LookupMonitoringSubscriptionOutputArgs, opts ...pulumi.InvokeOption) LookupMonitoringSubscriptionResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupMonitoringSubscriptionResultOutput, error) {
 			args := v.(LookupMonitoringSubscriptionArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupMonitoringSubscriptionResult
-			secret, err := ctx.InvokePackageRaw("aws-native:cloudfront:getMonitoringSubscription", args, &rv, "", opts...)
-			if err != nil {
-				return LookupMonitoringSubscriptionResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupMonitoringSubscriptionResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupMonitoringSubscriptionResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:cloudfront:getMonitoringSubscription", args, LookupMonitoringSubscriptionResultOutput{}, options).(LookupMonitoringSubscriptionResultOutput), nil
 		}).(LookupMonitoringSubscriptionResultOutput)
 }
 

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.CloudTrail
         /// </summary>
         public static Output<GetChannelResult> Invoke(GetChannelInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetChannelResult>("aws-native:cloudtrail:getChannel", args ?? new GetChannelInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// A channel receives events from a specific source (such as an on-premises storage solution or application, or a partner event data source), and delivers the events to one or more event data stores. You use channels to ingest events into CloudTrail from sources outside AWS.
+        /// </summary>
+        public static Output<GetChannelResult> Invoke(GetChannelInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetChannelResult>("aws-native:cloudtrail:getChannel", args ?? new GetChannelInvokeArgs(), options.WithDefaults());
     }
 
 

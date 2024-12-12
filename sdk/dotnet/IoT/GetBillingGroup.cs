@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.IoT
         /// </summary>
         public static Output<GetBillingGroupResult> Invoke(GetBillingGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBillingGroupResult>("aws-native:iot:getBillingGroup", args ?? new GetBillingGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::IoT::BillingGroup
+        /// </summary>
+        public static Output<GetBillingGroupResult> Invoke(GetBillingGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetBillingGroupResult>("aws-native:iot:getBillingGroup", args ?? new GetBillingGroupInvokeArgs(), options.WithDefaults());
     }
 
 

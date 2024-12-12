@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.VpcLattice
         /// </summary>
         public static Output<GetServiceNetworkResourceAssociationResult> Invoke(GetServiceNetworkResourceAssociationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceNetworkResourceAssociationResult>("aws-native:vpclattice:getServiceNetworkResourceAssociation", args ?? new GetServiceNetworkResourceAssociationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// VpcLattice ServiceNetworkResourceAssociation CFN resource
+        /// </summary>
+        public static Output<GetServiceNetworkResourceAssociationResult> Invoke(GetServiceNetworkResourceAssociationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetServiceNetworkResourceAssociationResult>("aws-native:vpclattice:getServiceNetworkResourceAssociation", args ?? new GetServiceNetworkResourceAssociationInvokeArgs(), options.WithDefaults());
     }
 
 

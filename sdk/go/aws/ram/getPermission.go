@@ -45,21 +45,11 @@ type LookupPermissionResult struct {
 }
 
 func LookupPermissionOutput(ctx *pulumi.Context, args LookupPermissionOutputArgs, opts ...pulumi.InvokeOption) LookupPermissionResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupPermissionResultOutput, error) {
 			args := v.(LookupPermissionArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupPermissionResult
-			secret, err := ctx.InvokePackageRaw("aws-native:ram:getPermission", args, &rv, "", opts...)
-			if err != nil {
-				return LookupPermissionResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupPermissionResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupPermissionResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:ram:getPermission", args, LookupPermissionResultOutput{}, options).(LookupPermissionResultOutput), nil
 		}).(LookupPermissionResultOutput)
 }
 

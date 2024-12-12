@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Route53RecoveryControl
         /// </summary>
         public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("aws-native:route53recoverycontrol:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// AWS Route53 Recovery Control Cluster resource schema
+        /// </summary>
+        public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("aws-native:route53recoverycontrol:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());
     }
 
 

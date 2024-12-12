@@ -39,21 +39,11 @@ type LookupAppImageConfigResult struct {
 }
 
 func LookupAppImageConfigOutput(ctx *pulumi.Context, args LookupAppImageConfigOutputArgs, opts ...pulumi.InvokeOption) LookupAppImageConfigResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupAppImageConfigResultOutput, error) {
 			args := v.(LookupAppImageConfigArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupAppImageConfigResult
-			secret, err := ctx.InvokePackageRaw("aws-native:sagemaker:getAppImageConfig", args, &rv, "", opts...)
-			if err != nil {
-				return LookupAppImageConfigResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupAppImageConfigResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupAppImageConfigResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:sagemaker:getAppImageConfig", args, LookupAppImageConfigResultOutput{}, options).(LookupAppImageConfigResultOutput), nil
 		}).(LookupAppImageConfigResultOutput)
 }
 

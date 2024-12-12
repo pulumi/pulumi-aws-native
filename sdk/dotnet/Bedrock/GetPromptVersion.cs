@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Bedrock
         /// </summary>
         public static Output<GetPromptVersionResult> Invoke(GetPromptVersionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPromptVersionResult>("aws-native:bedrock:getPromptVersion", args ?? new GetPromptVersionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::Bedrock::PromptVersion Resource Type
+        /// </summary>
+        public static Output<GetPromptVersionResult> Invoke(GetPromptVersionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPromptVersionResult>("aws-native:bedrock:getPromptVersion", args ?? new GetPromptVersionInvokeArgs(), options.WithDefaults());
     }
 
 

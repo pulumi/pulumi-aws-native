@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Events
         /// </summary>
         public static Output<GetConnectionResult> Invoke(GetConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectionResult>("aws-native:events:getConnection", args ?? new GetConnectionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::Events::Connection.
+        /// </summary>
+        public static Output<GetConnectionResult> Invoke(GetConnectionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetConnectionResult>("aws-native:events:getConnection", args ?? new GetConnectionInvokeArgs(), options.WithDefaults());
     }
 
 

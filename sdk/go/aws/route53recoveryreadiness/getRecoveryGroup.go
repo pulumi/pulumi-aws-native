@@ -38,21 +38,11 @@ type LookupRecoveryGroupResult struct {
 }
 
 func LookupRecoveryGroupOutput(ctx *pulumi.Context, args LookupRecoveryGroupOutputArgs, opts ...pulumi.InvokeOption) LookupRecoveryGroupResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupRecoveryGroupResultOutput, error) {
 			args := v.(LookupRecoveryGroupArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupRecoveryGroupResult
-			secret, err := ctx.InvokePackageRaw("aws-native:route53recoveryreadiness:getRecoveryGroup", args, &rv, "", opts...)
-			if err != nil {
-				return LookupRecoveryGroupResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupRecoveryGroupResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupRecoveryGroupResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:route53recoveryreadiness:getRecoveryGroup", args, LookupRecoveryGroupResultOutput{}, options).(LookupRecoveryGroupResultOutput), nil
 		}).(LookupRecoveryGroupResultOutput)
 }
 

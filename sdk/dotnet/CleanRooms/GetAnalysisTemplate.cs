@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.CleanRooms
         /// </summary>
         public static Output<GetAnalysisTemplateResult> Invoke(GetAnalysisTemplateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAnalysisTemplateResult>("aws-native:cleanrooms:getAnalysisTemplate", args ?? new GetAnalysisTemplateInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Represents a stored analysis within a collaboration
+        /// </summary>
+        public static Output<GetAnalysisTemplateResult> Invoke(GetAnalysisTemplateInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAnalysisTemplateResult>("aws-native:cleanrooms:getAnalysisTemplate", args ?? new GetAnalysisTemplateInvokeArgs(), options.WithDefaults());
     }
 
 

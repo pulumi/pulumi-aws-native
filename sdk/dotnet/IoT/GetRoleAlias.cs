@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.IoT
         /// </summary>
         public static Output<GetRoleAliasResult> Invoke(GetRoleAliasInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRoleAliasResult>("aws-native:iot:getRoleAlias", args ?? new GetRoleAliasInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use the AWS::IoT::RoleAlias resource to declare an AWS IoT RoleAlias.
+        /// </summary>
+        public static Output<GetRoleAliasResult> Invoke(GetRoleAliasInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRoleAliasResult>("aws-native:iot:getRoleAlias", args ?? new GetRoleAliasInvokeArgs(), options.WithDefaults());
     }
 
 

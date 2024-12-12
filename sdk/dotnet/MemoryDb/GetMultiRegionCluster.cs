@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.MemoryDb
         /// </summary>
         public static Output<GetMultiRegionClusterResult> Invoke(GetMultiRegionClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMultiRegionClusterResult>("aws-native:memorydb:getMultiRegionCluster", args ?? new GetMultiRegionClusterInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The AWS::MemoryDB::Multi Region Cluster resource creates an Amazon MemoryDB Multi Region Cluster.
+        /// </summary>
+        public static Output<GetMultiRegionClusterResult> Invoke(GetMultiRegionClusterInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMultiRegionClusterResult>("aws-native:memorydb:getMultiRegionCluster", args ?? new GetMultiRegionClusterInvokeArgs(), options.WithDefaults());
     }
 
 

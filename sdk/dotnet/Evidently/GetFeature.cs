@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Evidently
         /// </summary>
         public static Output<GetFeatureResult> Invoke(GetFeatureInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFeatureResult>("aws-native:evidently:getFeature", args ?? new GetFeatureInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::Evidently::Feature.
+        /// </summary>
+        public static Output<GetFeatureResult> Invoke(GetFeatureInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFeatureResult>("aws-native:evidently:getFeature", args ?? new GetFeatureInvokeArgs(), options.WithDefaults());
     }
 
 

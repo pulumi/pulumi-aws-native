@@ -46,21 +46,11 @@ type LookupVerifiedAccessTrustProviderResult struct {
 }
 
 func LookupVerifiedAccessTrustProviderOutput(ctx *pulumi.Context, args LookupVerifiedAccessTrustProviderOutputArgs, opts ...pulumi.InvokeOption) LookupVerifiedAccessTrustProviderResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupVerifiedAccessTrustProviderResultOutput, error) {
 			args := v.(LookupVerifiedAccessTrustProviderArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupVerifiedAccessTrustProviderResult
-			secret, err := ctx.InvokePackageRaw("aws-native:ec2:getVerifiedAccessTrustProvider", args, &rv, "", opts...)
-			if err != nil {
-				return LookupVerifiedAccessTrustProviderResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupVerifiedAccessTrustProviderResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupVerifiedAccessTrustProviderResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:ec2:getVerifiedAccessTrustProvider", args, LookupVerifiedAccessTrustProviderResultOutput{}, options).(LookupVerifiedAccessTrustProviderResultOutput), nil
 		}).(LookupVerifiedAccessTrustProviderResultOutput)
 }
 

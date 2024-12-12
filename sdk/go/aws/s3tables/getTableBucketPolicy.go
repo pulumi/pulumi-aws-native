@@ -31,21 +31,11 @@ type LookupTableBucketPolicyResult struct {
 }
 
 func LookupTableBucketPolicyOutput(ctx *pulumi.Context, args LookupTableBucketPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupTableBucketPolicyResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupTableBucketPolicyResultOutput, error) {
 			args := v.(LookupTableBucketPolicyArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupTableBucketPolicyResult
-			secret, err := ctx.InvokePackageRaw("aws-native:s3tables:getTableBucketPolicy", args, &rv, "", opts...)
-			if err != nil {
-				return LookupTableBucketPolicyResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupTableBucketPolicyResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupTableBucketPolicyResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:s3tables:getTableBucketPolicy", args, LookupTableBucketPolicyResultOutput{}, options).(LookupTableBucketPolicyResultOutput), nil
 		}).(LookupTableBucketPolicyResultOutput)
 }
 

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Redshift
         /// </summary>
         public static Output<GetEndpointAuthorizationResult> Invoke(GetEndpointAuthorizationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEndpointAuthorizationResult>("aws-native:redshift:getEndpointAuthorization", args ?? new GetEndpointAuthorizationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Describes an endpoint authorization for authorizing Redshift-managed VPC endpoint access to a cluster across AWS accounts.
+        /// </summary>
+        public static Output<GetEndpointAuthorizationResult> Invoke(GetEndpointAuthorizationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEndpointAuthorizationResult>("aws-native:redshift:getEndpointAuthorization", args ?? new GetEndpointAuthorizationInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -48,21 +48,11 @@ type LookupMultiRegionClusterResult struct {
 }
 
 func LookupMultiRegionClusterOutput(ctx *pulumi.Context, args LookupMultiRegionClusterOutputArgs, opts ...pulumi.InvokeOption) LookupMultiRegionClusterResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupMultiRegionClusterResultOutput, error) {
 			args := v.(LookupMultiRegionClusterArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupMultiRegionClusterResult
-			secret, err := ctx.InvokePackageRaw("aws-native:memorydb:getMultiRegionCluster", args, &rv, "", opts...)
-			if err != nil {
-				return LookupMultiRegionClusterResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupMultiRegionClusterResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupMultiRegionClusterResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:memorydb:getMultiRegionCluster", args, LookupMultiRegionClusterResultOutput{}, options).(LookupMultiRegionClusterResultOutput), nil
 		}).(LookupMultiRegionClusterResultOutput)
 }
 

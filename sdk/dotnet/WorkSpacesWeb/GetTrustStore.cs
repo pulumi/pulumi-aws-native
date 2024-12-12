@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
         /// </summary>
         public static Output<GetTrustStoreResult> Invoke(GetTrustStoreInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTrustStoreResult>("aws-native:workspacesweb:getTrustStore", args ?? new GetTrustStoreInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::WorkSpacesWeb::TrustStore Resource Type
+        /// </summary>
+        public static Output<GetTrustStoreResult> Invoke(GetTrustStoreInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTrustStoreResult>("aws-native:workspacesweb:getTrustStore", args ?? new GetTrustStoreInvokeArgs(), options.WithDefaults());
     }
 
 

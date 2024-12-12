@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.EventSchemas
         /// </summary>
         public static Output<GetRegistryPolicyResult> Invoke(GetRegistryPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRegistryPolicyResult>("aws-native:eventschemas:getRegistryPolicy", args ?? new GetRegistryPolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::EventSchemas::RegistryPolicy
+        /// </summary>
+        public static Output<GetRegistryPolicyResult> Invoke(GetRegistryPolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRegistryPolicyResult>("aws-native:eventschemas:getRegistryPolicy", args ?? new GetRegistryPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

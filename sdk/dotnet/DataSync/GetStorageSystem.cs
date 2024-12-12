@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.DataSync
         /// </summary>
         public static Output<GetStorageSystemResult> Invoke(GetStorageSystemInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStorageSystemResult>("aws-native:datasync:getStorageSystem", args ?? new GetStorageSystemInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource schema for AWS::DataSync::StorageSystem.
+        /// </summary>
+        public static Output<GetStorageSystemResult> Invoke(GetStorageSystemInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetStorageSystemResult>("aws-native:datasync:getStorageSystem", args ?? new GetStorageSystemInvokeArgs(), options.WithDefaults());
     }
 
 

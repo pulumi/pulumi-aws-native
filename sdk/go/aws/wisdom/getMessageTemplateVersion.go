@@ -37,21 +37,11 @@ type LookupMessageTemplateVersionResult struct {
 }
 
 func LookupMessageTemplateVersionOutput(ctx *pulumi.Context, args LookupMessageTemplateVersionOutputArgs, opts ...pulumi.InvokeOption) LookupMessageTemplateVersionResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupMessageTemplateVersionResultOutput, error) {
 			args := v.(LookupMessageTemplateVersionArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupMessageTemplateVersionResult
-			secret, err := ctx.InvokePackageRaw("aws-native:wisdom:getMessageTemplateVersion", args, &rv, "", opts...)
-			if err != nil {
-				return LookupMessageTemplateVersionResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupMessageTemplateVersionResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupMessageTemplateVersionResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:wisdom:getMessageTemplateVersion", args, LookupMessageTemplateVersionResultOutput{}, options).(LookupMessageTemplateVersionResultOutput), nil
 		}).(LookupMessageTemplateVersionResultOutput)
 }
 

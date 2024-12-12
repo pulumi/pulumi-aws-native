@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.GlobalAccelerator
         /// </summary>
         public static Output<GetListenerResult> Invoke(GetListenerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetListenerResult>("aws-native:globalaccelerator:getListener", args ?? new GetListenerInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::GlobalAccelerator::Listener
+        /// </summary>
+        public static Output<GetListenerResult> Invoke(GetListenerInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetListenerResult>("aws-native:globalaccelerator:getListener", args ?? new GetListenerInvokeArgs(), options.WithDefaults());
     }
 
 

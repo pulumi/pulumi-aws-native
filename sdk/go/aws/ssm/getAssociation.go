@@ -73,21 +73,11 @@ type LookupAssociationResult struct {
 }
 
 func LookupAssociationOutput(ctx *pulumi.Context, args LookupAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupAssociationResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupAssociationResultOutput, error) {
 			args := v.(LookupAssociationArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupAssociationResult
-			secret, err := ctx.InvokePackageRaw("aws-native:ssm:getAssociation", args, &rv, "", opts...)
-			if err != nil {
-				return LookupAssociationResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupAssociationResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupAssociationResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:ssm:getAssociation", args, LookupAssociationResultOutput{}, options).(LookupAssociationResultOutput), nil
 		}).(LookupAssociationResultOutput)
 }
 

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.PcaConnectorScep
         /// </summary>
         public static Output<GetChallengeResult> Invoke(GetChallengeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetChallengeResult>("aws-native:pcaconnectorscep:getChallenge", args ?? new GetChallengeInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Represents a SCEP Challenge that is used for certificate enrollment
+        /// </summary>
+        public static Output<GetChallengeResult> Invoke(GetChallengeInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetChallengeResult>("aws-native:pcaconnectorscep:getChallenge", args ?? new GetChallengeInvokeArgs(), options.WithDefaults());
     }
 
 

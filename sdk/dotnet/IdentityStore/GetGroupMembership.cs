@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.IdentityStore
         /// </summary>
         public static Output<GetGroupMembershipResult> Invoke(GetGroupMembershipInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGroupMembershipResult>("aws-native:identitystore:getGroupMembership", args ?? new GetGroupMembershipInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type Definition for AWS:IdentityStore::GroupMembership
+        /// </summary>
+        public static Output<GetGroupMembershipResult> Invoke(GetGroupMembershipInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetGroupMembershipResult>("aws-native:identitystore:getGroupMembership", args ?? new GetGroupMembershipInvokeArgs(), options.WithDefaults());
     }
 
 

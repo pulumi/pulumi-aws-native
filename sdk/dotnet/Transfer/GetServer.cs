@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Transfer
         /// </summary>
         public static Output<GetServerResult> Invoke(GetServerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerResult>("aws-native:transfer:getServer", args ?? new GetServerInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::Transfer::Server Resource Type
+        /// </summary>
+        public static Output<GetServerResult> Invoke(GetServerInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetServerResult>("aws-native:transfer:getServer", args ?? new GetServerInvokeArgs(), options.WithDefaults());
     }
 
 

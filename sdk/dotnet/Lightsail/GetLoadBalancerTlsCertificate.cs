@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Lightsail
         /// </summary>
         public static Output<GetLoadBalancerTlsCertificateResult> Invoke(GetLoadBalancerTlsCertificateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLoadBalancerTlsCertificateResult>("aws-native:lightsail:getLoadBalancerTlsCertificate", args ?? new GetLoadBalancerTlsCertificateInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::Lightsail::LoadBalancerTlsCertificate
+        /// </summary>
+        public static Output<GetLoadBalancerTlsCertificateResult> Invoke(GetLoadBalancerTlsCertificateInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLoadBalancerTlsCertificateResult>("aws-native:lightsail:getLoadBalancerTlsCertificate", args ?? new GetLoadBalancerTlsCertificateInvokeArgs(), options.WithDefaults());
     }
 
 

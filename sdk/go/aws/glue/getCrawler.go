@@ -61,21 +61,11 @@ type LookupCrawlerResult struct {
 }
 
 func LookupCrawlerOutput(ctx *pulumi.Context, args LookupCrawlerOutputArgs, opts ...pulumi.InvokeOption) LookupCrawlerResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupCrawlerResultOutput, error) {
 			args := v.(LookupCrawlerArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupCrawlerResult
-			secret, err := ctx.InvokePackageRaw("aws-native:glue:getCrawler", args, &rv, "", opts...)
-			if err != nil {
-				return LookupCrawlerResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupCrawlerResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupCrawlerResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:glue:getCrawler", args, LookupCrawlerResultOutput{}, options).(LookupCrawlerResultOutput), nil
 		}).(LookupCrawlerResultOutput)
 }
 

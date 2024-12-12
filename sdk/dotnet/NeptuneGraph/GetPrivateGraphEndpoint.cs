@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.NeptuneGraph
         /// </summary>
         public static Output<GetPrivateGraphEndpointResult> Invoke(GetPrivateGraphEndpointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivateGraphEndpointResult>("aws-native:neptunegraph:getPrivateGraphEndpoint", args ?? new GetPrivateGraphEndpointInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The AWS::NeptuneGraph::PrivateGraphEndpoint resource creates an Amazon NeptuneGraph PrivateGraphEndpoint.
+        /// </summary>
+        public static Output<GetPrivateGraphEndpointResult> Invoke(GetPrivateGraphEndpointInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPrivateGraphEndpointResult>("aws-native:neptunegraph:getPrivateGraphEndpoint", args ?? new GetPrivateGraphEndpointInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.SageMaker
         /// </summary>
         public static Output<GetUserProfileResult> Invoke(GetUserProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserProfileResult>("aws-native:sagemaker:getUserProfile", args ?? new GetUserProfileInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::SageMaker::UserProfile
+        /// </summary>
+        public static Output<GetUserProfileResult> Invoke(GetUserProfileInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetUserProfileResult>("aws-native:sagemaker:getUserProfile", args ?? new GetUserProfileInvokeArgs(), options.WithDefaults());
     }
 
 

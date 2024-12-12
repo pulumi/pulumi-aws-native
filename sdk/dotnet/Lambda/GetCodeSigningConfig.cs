@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Lambda
         /// </summary>
         public static Output<GetCodeSigningConfigResult> Invoke(GetCodeSigningConfigInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCodeSigningConfigResult>("aws-native:lambda:getCodeSigningConfig", args ?? new GetCodeSigningConfigInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::Lambda::CodeSigningConfig.
+        /// </summary>
+        public static Output<GetCodeSigningConfigResult> Invoke(GetCodeSigningConfigInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCodeSigningConfigResult>("aws-native:lambda:getCodeSigningConfig", args ?? new GetCodeSigningConfigInvokeArgs(), options.WithDefaults());
     }
 
 

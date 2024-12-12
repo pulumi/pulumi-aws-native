@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.VpcLattice
         /// </summary>
         public static Output<GetResourceConfigurationResult> Invoke(GetResourceConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResourceConfigurationResult>("aws-native:vpclattice:getResourceConfiguration", args ?? new GetResourceConfigurationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// VpcLattice ResourceConfiguration CFN resource
+        /// </summary>
+        public static Output<GetResourceConfigurationResult> Invoke(GetResourceConfigurationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetResourceConfigurationResult>("aws-native:vpclattice:getResourceConfiguration", args ?? new GetResourceConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

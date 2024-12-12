@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Connect
         /// </summary>
         public static Output<GetTrafficDistributionGroupResult> Invoke(GetTrafficDistributionGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTrafficDistributionGroupResult>("aws-native:connect:getTrafficDistributionGroup", args ?? new GetTrafficDistributionGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::Connect::TrafficDistributionGroup
+        /// </summary>
+        public static Output<GetTrafficDistributionGroupResult> Invoke(GetTrafficDistributionGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTrafficDistributionGroupResult>("aws-native:connect:getTrafficDistributionGroup", args ?? new GetTrafficDistributionGroupInvokeArgs(), options.WithDefaults());
     }
 
 

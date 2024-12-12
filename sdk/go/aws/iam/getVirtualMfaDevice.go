@@ -40,21 +40,11 @@ type LookupVirtualMfaDeviceResult struct {
 }
 
 func LookupVirtualMfaDeviceOutput(ctx *pulumi.Context, args LookupVirtualMfaDeviceOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualMfaDeviceResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupVirtualMfaDeviceResultOutput, error) {
 			args := v.(LookupVirtualMfaDeviceArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupVirtualMfaDeviceResult
-			secret, err := ctx.InvokePackageRaw("aws-native:iam:getVirtualMfaDevice", args, &rv, "", opts...)
-			if err != nil {
-				return LookupVirtualMfaDeviceResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupVirtualMfaDeviceResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupVirtualMfaDeviceResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:iam:getVirtualMfaDevice", args, LookupVirtualMfaDeviceResultOutput{}, options).(LookupVirtualMfaDeviceResultOutput), nil
 		}).(LookupVirtualMfaDeviceResultOutput)
 }
 

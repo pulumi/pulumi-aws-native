@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Backup
         /// </summary>
         public static Output<GetReportPlanResult> Invoke(GetReportPlanInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReportPlanResult>("aws-native:backup:getReportPlan", args ?? new GetReportPlanInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Contains detailed information about a report plan in AWS Backup Audit Manager.
+        /// </summary>
+        public static Output<GetReportPlanResult> Invoke(GetReportPlanInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetReportPlanResult>("aws-native:backup:getReportPlan", args ?? new GetReportPlanInvokeArgs(), options.WithDefaults());
     }
 
 

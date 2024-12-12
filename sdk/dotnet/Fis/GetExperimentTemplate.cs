@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Fis
         /// </summary>
         public static Output<GetExperimentTemplateResult> Invoke(GetExperimentTemplateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExperimentTemplateResult>("aws-native:fis:getExperimentTemplate", args ?? new GetExperimentTemplateInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource schema for AWS::FIS::ExperimentTemplate
+        /// </summary>
+        public static Output<GetExperimentTemplateResult> Invoke(GetExperimentTemplateInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetExperimentTemplateResult>("aws-native:fis:getExperimentTemplate", args ?? new GetExperimentTemplateInvokeArgs(), options.WithDefaults());
     }
 
 

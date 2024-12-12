@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.XRay
         /// </summary>
         public static Output<GetSamplingRuleResult> Invoke(GetSamplingRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSamplingRuleResult>("aws-native:xray:getSamplingRule", args ?? new GetSamplingRuleInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// This schema provides construct and validation rules for AWS-XRay SamplingRule resource parameters.
+        /// </summary>
+        public static Output<GetSamplingRuleResult> Invoke(GetSamplingRuleInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSamplingRuleResult>("aws-native:xray:getSamplingRule", args ?? new GetSamplingRuleInvokeArgs(), options.WithDefaults());
     }
 
 

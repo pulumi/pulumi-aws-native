@@ -52,21 +52,11 @@ type LookupDataRepositoryAssociationResult struct {
 }
 
 func LookupDataRepositoryAssociationOutput(ctx *pulumi.Context, args LookupDataRepositoryAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupDataRepositoryAssociationResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupDataRepositoryAssociationResultOutput, error) {
 			args := v.(LookupDataRepositoryAssociationArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupDataRepositoryAssociationResult
-			secret, err := ctx.InvokePackageRaw("aws-native:fsx:getDataRepositoryAssociation", args, &rv, "", opts...)
-			if err != nil {
-				return LookupDataRepositoryAssociationResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupDataRepositoryAssociationResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupDataRepositoryAssociationResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:fsx:getDataRepositoryAssociation", args, LookupDataRepositoryAssociationResultOutput{}, options).(LookupDataRepositoryAssociationResultOutput), nil
 		}).(LookupDataRepositoryAssociationResultOutput)
 }
 

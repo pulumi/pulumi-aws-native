@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Iam
         /// </summary>
         public static Output<GetSamlProviderResult> Invoke(GetSamlProviderInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSamlProviderResult>("aws-native:iam:getSamlProvider", args ?? new GetSamlProviderInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::IAM::SAMLProvider
+        /// </summary>
+        public static Output<GetSamlProviderResult> Invoke(GetSamlProviderInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSamlProviderResult>("aws-native:iam:getSamlProvider", args ?? new GetSamlProviderInvokeArgs(), options.WithDefaults());
     }
 
 

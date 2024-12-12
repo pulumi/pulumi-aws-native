@@ -43,21 +43,11 @@ type LookupAiAgentResult struct {
 }
 
 func LookupAiAgentOutput(ctx *pulumi.Context, args LookupAiAgentOutputArgs, opts ...pulumi.InvokeOption) LookupAiAgentResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupAiAgentResultOutput, error) {
 			args := v.(LookupAiAgentArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupAiAgentResult
-			secret, err := ctx.InvokePackageRaw("aws-native:wisdom:getAiAgent", args, &rv, "", opts...)
-			if err != nil {
-				return LookupAiAgentResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupAiAgentResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupAiAgentResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:wisdom:getAiAgent", args, LookupAiAgentResultOutput{}, options).(LookupAiAgentResultOutput), nil
 		}).(LookupAiAgentResultOutput)
 }
 

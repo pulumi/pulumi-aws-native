@@ -58,21 +58,11 @@ type LookupReplicationConfigResult struct {
 }
 
 func LookupReplicationConfigOutput(ctx *pulumi.Context, args LookupReplicationConfigOutputArgs, opts ...pulumi.InvokeOption) LookupReplicationConfigResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupReplicationConfigResultOutput, error) {
 			args := v.(LookupReplicationConfigArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupReplicationConfigResult
-			secret, err := ctx.InvokePackageRaw("aws-native:dms:getReplicationConfig", args, &rv, "", opts...)
-			if err != nil {
-				return LookupReplicationConfigResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupReplicationConfigResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupReplicationConfigResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:dms:getReplicationConfig", args, LookupReplicationConfigResultOutput{}, options).(LookupReplicationConfigResultOutput), nil
 		}).(LookupReplicationConfigResultOutput)
 }
 

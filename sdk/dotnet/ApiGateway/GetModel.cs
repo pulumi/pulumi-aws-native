@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.ApiGateway
         /// </summary>
         public static Output<GetModelResult> Invoke(GetModelInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetModelResult>("aws-native:apigateway:getModel", args ?? new GetModelInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The ``AWS::ApiGateway::Model`` resource defines the structure of a request or response payload for an API method.
+        /// </summary>
+        public static Output<GetModelResult> Invoke(GetModelInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetModelResult>("aws-native:apigateway:getModel", args ?? new GetModelInvokeArgs(), options.WithDefaults());
     }
 
 

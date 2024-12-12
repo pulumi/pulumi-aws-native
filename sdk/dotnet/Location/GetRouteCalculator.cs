@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Location
         /// </summary>
         public static Output<GetRouteCalculatorResult> Invoke(GetRouteCalculatorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRouteCalculatorResult>("aws-native:location:getRouteCalculator", args ?? new GetRouteCalculatorInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::Location::RouteCalculator Resource Type
+        /// </summary>
+        public static Output<GetRouteCalculatorResult> Invoke(GetRouteCalculatorInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRouteCalculatorResult>("aws-native:location:getRouteCalculator", args ?? new GetRouteCalculatorInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.MediaTailor
         /// </summary>
         public static Output<GetLiveSourceResult> Invoke(GetLiveSourceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLiveSourceResult>("aws-native:mediatailor:getLiveSource", args ?? new GetLiveSourceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::MediaTailor::LiveSource Resource Type
+        /// </summary>
+        public static Output<GetLiveSourceResult> Invoke(GetLiveSourceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLiveSourceResult>("aws-native:mediatailor:getLiveSource", args ?? new GetLiveSourceInvokeArgs(), options.WithDefaults());
     }
 
 

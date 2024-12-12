@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.S3ObjectLambda
         /// </summary>
         public static Output<GetAccessPointResult> Invoke(GetAccessPointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccessPointResult>("aws-native:s3objectlambda:getAccessPoint", args ?? new GetAccessPointInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The AWS::S3ObjectLambda::AccessPoint resource is an Amazon S3ObjectLambda resource type that you can use to add computation to S3 actions
+        /// </summary>
+        public static Output<GetAccessPointResult> Invoke(GetAccessPointInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAccessPointResult>("aws-native:s3objectlambda:getAccessPoint", args ?? new GetAccessPointInvokeArgs(), options.WithDefaults());
     }
 
 

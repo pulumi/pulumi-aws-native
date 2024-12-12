@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Aps
         /// </summary>
         public static Output<GetRuleGroupsNamespaceResult> Invoke(GetRuleGroupsNamespaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRuleGroupsNamespaceResult>("aws-native:aps:getRuleGroupsNamespace", args ?? new GetRuleGroupsNamespaceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// RuleGroupsNamespace schema for cloudformation.
+        /// </summary>
+        public static Output<GetRuleGroupsNamespaceResult> Invoke(GetRuleGroupsNamespaceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRuleGroupsNamespaceResult>("aws-native:aps:getRuleGroupsNamespace", args ?? new GetRuleGroupsNamespaceInvokeArgs(), options.WithDefaults());
     }
 
 

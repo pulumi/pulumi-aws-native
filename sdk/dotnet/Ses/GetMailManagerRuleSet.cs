@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Ses
         /// </summary>
         public static Output<GetMailManagerRuleSetResult> Invoke(GetMailManagerRuleSetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMailManagerRuleSetResult>("aws-native:ses:getMailManagerRuleSet", args ?? new GetMailManagerRuleSetInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::SES::MailManagerRuleSet Resource Type
+        /// </summary>
+        public static Output<GetMailManagerRuleSetResult> Invoke(GetMailManagerRuleSetInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMailManagerRuleSetResult>("aws-native:ses:getMailManagerRuleSet", args ?? new GetMailManagerRuleSetInvokeArgs(), options.WithDefaults());
     }
 
 

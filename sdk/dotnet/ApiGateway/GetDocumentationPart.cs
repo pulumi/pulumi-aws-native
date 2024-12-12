@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.ApiGateway
         /// </summary>
         public static Output<GetDocumentationPartResult> Invoke(GetDocumentationPartInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDocumentationPartResult>("aws-native:apigateway:getDocumentationPart", args ?? new GetDocumentationPartInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The ``AWS::ApiGateway::DocumentationPart`` resource creates a documentation part for an API. For more information, see [Representation of API Documentation in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api-content-representation.html) in the *API Gateway Developer Guide*.
+        /// </summary>
+        public static Output<GetDocumentationPartResult> Invoke(GetDocumentationPartInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDocumentationPartResult>("aws-native:apigateway:getDocumentationPart", args ?? new GetDocumentationPartInvokeArgs(), options.WithDefaults());
     }
 
 

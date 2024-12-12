@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Deadline
         /// </summary>
         public static Output<GetQueueEnvironmentResult> Invoke(GetQueueEnvironmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetQueueEnvironmentResult>("aws-native:deadline:getQueueEnvironment", args ?? new GetQueueEnvironmentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::Deadline::QueueEnvironment Resource Type
+        /// </summary>
+        public static Output<GetQueueEnvironmentResult> Invoke(GetQueueEnvironmentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetQueueEnvironmentResult>("aws-native:deadline:getQueueEnvironment", args ?? new GetQueueEnvironmentInvokeArgs(), options.WithDefaults());
     }
 
 

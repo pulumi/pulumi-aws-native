@@ -38,21 +38,11 @@ type LookupLocationEfsResult struct {
 }
 
 func LookupLocationEfsOutput(ctx *pulumi.Context, args LookupLocationEfsOutputArgs, opts ...pulumi.InvokeOption) LookupLocationEfsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupLocationEfsResultOutput, error) {
 			args := v.(LookupLocationEfsArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupLocationEfsResult
-			secret, err := ctx.InvokePackageRaw("aws-native:datasync:getLocationEfs", args, &rv, "", opts...)
-			if err != nil {
-				return LookupLocationEfsResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupLocationEfsResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupLocationEfsResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:datasync:getLocationEfs", args, LookupLocationEfsResultOutput{}, options).(LookupLocationEfsResultOutput), nil
 		}).(LookupLocationEfsResultOutput)
 }
 

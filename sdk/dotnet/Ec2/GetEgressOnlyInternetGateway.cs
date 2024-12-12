@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         public static Output<GetEgressOnlyInternetGatewayResult> Invoke(GetEgressOnlyInternetGatewayInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEgressOnlyInternetGatewayResult>("aws-native:ec2:getEgressOnlyInternetGateway", args ?? new GetEgressOnlyInternetGatewayInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::EC2::EgressOnlyInternetGateway
+        /// </summary>
+        public static Output<GetEgressOnlyInternetGatewayResult> Invoke(GetEgressOnlyInternetGatewayInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEgressOnlyInternetGatewayResult>("aws-native:ec2:getEgressOnlyInternetGateway", args ?? new GetEgressOnlyInternetGatewayInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.ControlTower
         /// </summary>
         public static Output<GetLandingZoneResult> Invoke(GetLandingZoneInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLandingZoneResult>("aws-native:controltower:getLandingZone", args ?? new GetLandingZoneInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::ControlTower::LandingZone Resource Type
+        /// </summary>
+        public static Output<GetLandingZoneResult> Invoke(GetLandingZoneInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLandingZoneResult>("aws-native:controltower:getLandingZone", args ?? new GetLandingZoneInvokeArgs(), options.WithDefaults());
     }
 
 

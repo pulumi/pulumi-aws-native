@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.ApiGateway
         /// </summary>
         public static Output<GetDomainNameAccessAssociationResult> Invoke(GetDomainNameAccessAssociationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDomainNameAccessAssociationResult>("aws-native:apigateway:getDomainNameAccessAssociation", args ?? new GetDomainNameAccessAssociationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::ApiGateway::DomainNameAccessAssociation.
+        /// </summary>
+        public static Output<GetDomainNameAccessAssociationResult> Invoke(GetDomainNameAccessAssociationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDomainNameAccessAssociationResult>("aws-native:apigateway:getDomainNameAccessAssociation", args ?? new GetDomainNameAccessAssociationInvokeArgs(), options.WithDefaults());
     }
 
 

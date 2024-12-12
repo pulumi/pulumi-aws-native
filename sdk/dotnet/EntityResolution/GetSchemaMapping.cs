@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.EntityResolution
         /// </summary>
         public static Output<GetSchemaMappingResult> Invoke(GetSchemaMappingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSchemaMappingResult>("aws-native:entityresolution:getSchemaMapping", args ?? new GetSchemaMappingInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// SchemaMapping defined in AWS Entity Resolution service
+        /// </summary>
+        public static Output<GetSchemaMappingResult> Invoke(GetSchemaMappingInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSchemaMappingResult>("aws-native:entityresolution:getSchemaMapping", args ?? new GetSchemaMappingInvokeArgs(), options.WithDefaults());
     }
 
 

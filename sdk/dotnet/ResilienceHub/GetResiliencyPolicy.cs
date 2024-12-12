@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.ResilienceHub
         /// </summary>
         public static Output<GetResiliencyPolicyResult> Invoke(GetResiliencyPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResiliencyPolicyResult>("aws-native:resiliencehub:getResiliencyPolicy", args ?? new GetResiliencyPolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type Definition for Resiliency Policy.
+        /// </summary>
+        public static Output<GetResiliencyPolicyResult> Invoke(GetResiliencyPolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetResiliencyPolicyResult>("aws-native:resiliencehub:getResiliencyPolicy", args ?? new GetResiliencyPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

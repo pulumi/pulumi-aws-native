@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.MediaTailor
         /// </summary>
         public static Output<GetVodSourceResult> Invoke(GetVodSourceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVodSourceResult>("aws-native:mediatailor:getVodSource", args ?? new GetVodSourceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::MediaTailor::VodSource Resource Type
+        /// </summary>
+        public static Output<GetVodSourceResult> Invoke(GetVodSourceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVodSourceResult>("aws-native:mediatailor:getVodSource", args ?? new GetVodSourceInvokeArgs(), options.WithDefaults());
     }
 
 

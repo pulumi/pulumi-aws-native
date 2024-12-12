@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.MediaConnect
         /// </summary>
         public static Output<GetFlowEntitlementResult> Invoke(GetFlowEntitlementInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFlowEntitlementResult>("aws-native:mediaconnect:getFlowEntitlement", args ?? new GetFlowEntitlementInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource schema for AWS::MediaConnect::FlowEntitlement
+        /// </summary>
+        public static Output<GetFlowEntitlementResult> Invoke(GetFlowEntitlementInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFlowEntitlementResult>("aws-native:mediaconnect:getFlowEntitlement", args ?? new GetFlowEntitlementInvokeArgs(), options.WithDefaults());
     }
 
 

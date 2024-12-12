@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Invoicing
         /// </summary>
         public static Output<GetInvoiceUnitResult> Invoke(GetInvoiceUnitInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInvoiceUnitResult>("aws-native:invoicing:getInvoiceUnit", args ?? new GetInvoiceUnitInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// An invoice unit is a set of mutually exclusive accounts that correspond to your business entity. Invoice units allow you to separate AWS account costs and configures your invoice for each business entity.
+        /// </summary>
+        public static Output<GetInvoiceUnitResult> Invoke(GetInvoiceUnitInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetInvoiceUnitResult>("aws-native:invoicing:getInvoiceUnit", args ?? new GetInvoiceUnitInvokeArgs(), options.WithDefaults());
     }
 
 

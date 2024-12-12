@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.SecurityHub
         /// </summary>
         public static Output<GetPolicyAssociationResult> Invoke(GetPolicyAssociationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPolicyAssociationResult>("aws-native:securityhub:getPolicyAssociation", args ?? new GetPolicyAssociationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The AWS::SecurityHub::PolicyAssociation resource represents the AWS Security Hub Central Configuration Policy associations in your Target. Only the AWS Security Hub delegated administrator can create the resouce from the home region.
+        /// </summary>
+        public static Output<GetPolicyAssociationResult> Invoke(GetPolicyAssociationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPolicyAssociationResult>("aws-native:securityhub:getPolicyAssociation", args ?? new GetPolicyAssociationInvokeArgs(), options.WithDefaults());
     }
 
 

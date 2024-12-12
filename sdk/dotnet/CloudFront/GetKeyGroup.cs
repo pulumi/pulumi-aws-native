@@ -24,6 +24,13 @@ namespace Pulumi.AwsNative.CloudFront
         /// </summary>
         public static Output<GetKeyGroupResult> Invoke(GetKeyGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetKeyGroupResult>("aws-native:cloudfront:getKeyGroup", args ?? new GetKeyGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// A key group.
+        ///  A key group contains a list of public keys that you can use with [CloudFront signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html).
+        /// </summary>
+        public static Output<GetKeyGroupResult> Invoke(GetKeyGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetKeyGroupResult>("aws-native:cloudfront:getKeyGroup", args ?? new GetKeyGroupInvokeArgs(), options.WithDefaults());
     }
 
 

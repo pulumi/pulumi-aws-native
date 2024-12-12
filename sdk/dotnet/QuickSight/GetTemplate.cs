@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.QuickSight
         /// </summary>
         public static Output<GetTemplateResult> Invoke(GetTemplateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTemplateResult>("aws-native:quicksight:getTemplate", args ?? new GetTemplateInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of the AWS::QuickSight::Template Resource Type.
+        /// </summary>
+        public static Output<GetTemplateResult> Invoke(GetTemplateInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTemplateResult>("aws-native:quicksight:getTemplate", args ?? new GetTemplateInvokeArgs(), options.WithDefaults());
     }
 
 

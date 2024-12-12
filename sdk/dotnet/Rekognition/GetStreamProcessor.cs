@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Rekognition
         /// </summary>
         public static Output<GetStreamProcessorResult> Invoke(GetStreamProcessorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStreamProcessorResult>("aws-native:rekognition:getStreamProcessor", args ?? new GetStreamProcessorInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The AWS::Rekognition::StreamProcessor type is used to create an Amazon Rekognition StreamProcessor that you can use to analyze streaming videos.
+        /// </summary>
+        public static Output<GetStreamProcessorResult> Invoke(GetStreamProcessorInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetStreamProcessorResult>("aws-native:rekognition:getStreamProcessor", args ?? new GetStreamProcessorInvokeArgs(), options.WithDefaults());
     }
 
 

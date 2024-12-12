@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Bedrock
         /// </summary>
         public static Output<GetKnowledgeBaseResult> Invoke(GetKnowledgeBaseInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetKnowledgeBaseResult>("aws-native:bedrock:getKnowledgeBase", args ?? new GetKnowledgeBaseInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::Bedrock::KnowledgeBase Resource Type
+        /// </summary>
+        public static Output<GetKnowledgeBaseResult> Invoke(GetKnowledgeBaseInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetKnowledgeBaseResult>("aws-native:bedrock:getKnowledgeBase", args ?? new GetKnowledgeBaseInvokeArgs(), options.WithDefaults());
     }
 
 

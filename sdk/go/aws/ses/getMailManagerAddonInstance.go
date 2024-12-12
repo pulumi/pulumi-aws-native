@@ -40,21 +40,11 @@ type LookupMailManagerAddonInstanceResult struct {
 }
 
 func LookupMailManagerAddonInstanceOutput(ctx *pulumi.Context, args LookupMailManagerAddonInstanceOutputArgs, opts ...pulumi.InvokeOption) LookupMailManagerAddonInstanceResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupMailManagerAddonInstanceResultOutput, error) {
 			args := v.(LookupMailManagerAddonInstanceArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupMailManagerAddonInstanceResult
-			secret, err := ctx.InvokePackageRaw("aws-native:ses:getMailManagerAddonInstance", args, &rv, "", opts...)
-			if err != nil {
-				return LookupMailManagerAddonInstanceResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupMailManagerAddonInstanceResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupMailManagerAddonInstanceResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:ses:getMailManagerAddonInstance", args, LookupMailManagerAddonInstanceResultOutput{}, options).(LookupMailManagerAddonInstanceResultOutput), nil
 		}).(LookupMailManagerAddonInstanceResultOutput)
 }
 

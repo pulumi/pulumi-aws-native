@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.IoTSiteWise
         /// </summary>
         public static Output<GetDashboardResult> Invoke(GetDashboardInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDashboardResult>("aws-native:iotsitewise:getDashboard", args ?? new GetDashboardInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource schema for AWS::IoTSiteWise::Dashboard
+        /// </summary>
+        public static Output<GetDashboardResult> Invoke(GetDashboardInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDashboardResult>("aws-native:iotsitewise:getDashboard", args ?? new GetDashboardInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -58,21 +58,11 @@ type LookupDataSourceResult struct {
 }
 
 func LookupDataSourceOutput(ctx *pulumi.Context, args LookupDataSourceOutputArgs, opts ...pulumi.InvokeOption) LookupDataSourceResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupDataSourceResultOutput, error) {
 			args := v.(LookupDataSourceArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupDataSourceResult
-			secret, err := ctx.InvokePackageRaw("aws-native:bedrock:getDataSource", args, &rv, "", opts...)
-			if err != nil {
-				return LookupDataSourceResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupDataSourceResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupDataSourceResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:bedrock:getDataSource", args, LookupDataSourceResultOutput{}, options).(LookupDataSourceResultOutput), nil
 		}).(LookupDataSourceResultOutput)
 }
 

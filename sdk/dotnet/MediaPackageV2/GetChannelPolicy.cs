@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.MediaPackageV2
         /// </summary>
         public static Output<GetChannelPolicyResult> Invoke(GetChannelPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetChannelPolicyResult>("aws-native:mediapackagev2:getChannelPolicy", args ?? new GetChannelPolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// &lt;p&gt;Represents a resource-based policy that allows or denies access to a channel.&lt;/p&gt;
+        /// </summary>
+        public static Output<GetChannelPolicyResult> Invoke(GetChannelPolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetChannelPolicyResult>("aws-native:mediapackagev2:getChannelPolicy", args ?? new GetChannelPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

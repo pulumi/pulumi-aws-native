@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Lambda
         /// </summary>
         public static Output<GetLayerVersionPermissionResult> Invoke(GetLayerVersionPermissionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLayerVersionPermissionResult>("aws-native:lambda:getLayerVersionPermission", args ?? new GetLayerVersionPermissionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Schema for Lambda LayerVersionPermission
+        /// </summary>
+        public static Output<GetLayerVersionPermissionResult> Invoke(GetLayerVersionPermissionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLayerVersionPermissionResult>("aws-native:lambda:getLayerVersionPermission", args ?? new GetLayerVersionPermissionInvokeArgs(), options.WithDefaults());
     }
 
 

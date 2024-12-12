@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.SsmContacts
         /// </summary>
         public static Output<GetContactChannelResult> Invoke(GetContactChannelInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetContactChannelResult>("aws-native:ssmcontacts:getContactChannel", args ?? new GetContactChannelInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::SSMContacts::ContactChannel
+        /// </summary>
+        public static Output<GetContactChannelResult> Invoke(GetContactChannelInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetContactChannelResult>("aws-native:ssmcontacts:getContactChannel", args ?? new GetContactChannelInvokeArgs(), options.WithDefaults());
     }
 
 

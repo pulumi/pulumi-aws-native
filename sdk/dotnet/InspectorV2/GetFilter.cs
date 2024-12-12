@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.InspectorV2
         /// </summary>
         public static Output<GetFilterResult> Invoke(GetFilterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFilterResult>("aws-native:inspectorv2:getFilter", args ?? new GetFilterInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Inspector Filter resource schema
+        /// </summary>
+        public static Output<GetFilterResult> Invoke(GetFilterInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFilterResult>("aws-native:inspectorv2:getFilter", args ?? new GetFilterInvokeArgs(), options.WithDefaults());
     }
 
 

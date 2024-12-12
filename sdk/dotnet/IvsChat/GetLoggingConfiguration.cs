@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.IvsChat
         /// </summary>
         public static Output<GetLoggingConfigurationResult> Invoke(GetLoggingConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLoggingConfigurationResult>("aws-native:ivschat:getLoggingConfiguration", args ?? new GetLoggingConfigurationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource type definition for AWS::IVSChat::LoggingConfiguration.
+        /// </summary>
+        public static Output<GetLoggingConfigurationResult> Invoke(GetLoggingConfigurationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLoggingConfigurationResult>("aws-native:ivschat:getLoggingConfiguration", args ?? new GetLoggingConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

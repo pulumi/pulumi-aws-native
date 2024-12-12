@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.S3ObjectLambda
         /// </summary>
         public static Output<GetAccessPointPolicyResult> Invoke(GetAccessPointPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccessPointPolicyResult>("aws-native:s3objectlambda:getAccessPointPolicy", args ?? new GetAccessPointPolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// AWS::S3ObjectLambda::AccessPointPolicy resource is an Amazon S3ObjectLambda policy type that you can use to control permissions for your S3ObjectLambda
+        /// </summary>
+        public static Output<GetAccessPointPolicyResult> Invoke(GetAccessPointPolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAccessPointPolicyResult>("aws-native:s3objectlambda:getAccessPointPolicy", args ?? new GetAccessPointPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -52,21 +52,11 @@ type LookupContainerResult struct {
 }
 
 func LookupContainerOutput(ctx *pulumi.Context, args LookupContainerOutputArgs, opts ...pulumi.InvokeOption) LookupContainerResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupContainerResultOutput, error) {
 			args := v.(LookupContainerArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupContainerResult
-			secret, err := ctx.InvokePackageRaw("aws-native:lightsail:getContainer", args, &rv, "", opts...)
-			if err != nil {
-				return LookupContainerResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupContainerResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupContainerResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:lightsail:getContainer", args, LookupContainerResultOutput{}, options).(LookupContainerResultOutput), nil
 		}).(LookupContainerResultOutput)
 }
 

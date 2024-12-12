@@ -44,21 +44,11 @@ type LookupLocationNfsResult struct {
 }
 
 func LookupLocationNfsOutput(ctx *pulumi.Context, args LookupLocationNfsOutputArgs, opts ...pulumi.InvokeOption) LookupLocationNfsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupLocationNfsResultOutput, error) {
 			args := v.(LookupLocationNfsArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupLocationNfsResult
-			secret, err := ctx.InvokePackageRaw("aws-native:datasync:getLocationNfs", args, &rv, "", opts...)
-			if err != nil {
-				return LookupLocationNfsResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupLocationNfsResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupLocationNfsResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:datasync:getLocationNfs", args, LookupLocationNfsResultOutput{}, options).(LookupLocationNfsResultOutput), nil
 		}).(LookupLocationNfsResultOutput)
 }
 

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.DeviceFarm
         /// </summary>
         public static Output<GetProjectResult> Invoke(GetProjectInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProjectResult>("aws-native:devicefarm:getProject", args ?? new GetProjectInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// AWS::DeviceFarm::Project creates a new Device Farm Project
+        /// </summary>
+        public static Output<GetProjectResult> Invoke(GetProjectInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetProjectResult>("aws-native:devicefarm:getProject", args ?? new GetProjectInvokeArgs(), options.WithDefaults());
     }
 
 

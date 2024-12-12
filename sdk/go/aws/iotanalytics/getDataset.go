@@ -49,21 +49,11 @@ type LookupDatasetResult struct {
 }
 
 func LookupDatasetOutput(ctx *pulumi.Context, args LookupDatasetOutputArgs, opts ...pulumi.InvokeOption) LookupDatasetResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupDatasetResultOutput, error) {
 			args := v.(LookupDatasetArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupDatasetResult
-			secret, err := ctx.InvokePackageRaw("aws-native:iotanalytics:getDataset", args, &rv, "", opts...)
-			if err != nil {
-				return LookupDatasetResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupDatasetResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupDatasetResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:iotanalytics:getDataset", args, LookupDatasetResultOutput{}, options).(LookupDatasetResultOutput), nil
 		}).(LookupDatasetResultOutput)
 }
 

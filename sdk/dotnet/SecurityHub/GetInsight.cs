@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.SecurityHub
         /// </summary>
         public static Output<GetInsightResult> Invoke(GetInsightInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInsightResult>("aws-native:securityhub:getInsight", args ?? new GetInsightInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The AWS::SecurityHub::Insight resource represents the AWS Security Hub Insight in your account. An AWS Security Hub insight is a collection of related findings.
+        /// </summary>
+        public static Output<GetInsightResult> Invoke(GetInsightInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetInsightResult>("aws-native:securityhub:getInsight", args ?? new GetInsightInvokeArgs(), options.WithDefaults());
     }
 
 

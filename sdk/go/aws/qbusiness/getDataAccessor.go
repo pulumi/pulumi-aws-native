@@ -40,21 +40,11 @@ type LookupDataAccessorResult struct {
 }
 
 func LookupDataAccessorOutput(ctx *pulumi.Context, args LookupDataAccessorOutputArgs, opts ...pulumi.InvokeOption) LookupDataAccessorResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupDataAccessorResultOutput, error) {
 			args := v.(LookupDataAccessorArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupDataAccessorResult
-			secret, err := ctx.InvokePackageRaw("aws-native:qbusiness:getDataAccessor", args, &rv, "", opts...)
-			if err != nil {
-				return LookupDataAccessorResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupDataAccessorResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupDataAccessorResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:qbusiness:getDataAccessor", args, LookupDataAccessorResultOutput{}, options).(LookupDataAccessorResultOutput), nil
 		}).(LookupDataAccessorResultOutput)
 }
 

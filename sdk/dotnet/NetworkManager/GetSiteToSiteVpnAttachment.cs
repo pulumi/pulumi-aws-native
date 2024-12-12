@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.NetworkManager
         /// </summary>
         public static Output<GetSiteToSiteVpnAttachmentResult> Invoke(GetSiteToSiteVpnAttachmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSiteToSiteVpnAttachmentResult>("aws-native:networkmanager:getSiteToSiteVpnAttachment", args ?? new GetSiteToSiteVpnAttachmentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// AWS::NetworkManager::SiteToSiteVpnAttachment Resource Type definition.
+        /// </summary>
+        public static Output<GetSiteToSiteVpnAttachmentResult> Invoke(GetSiteToSiteVpnAttachmentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSiteToSiteVpnAttachmentResult>("aws-native:networkmanager:getSiteToSiteVpnAttachment", args ?? new GetSiteToSiteVpnAttachmentInvokeArgs(), options.WithDefaults());
     }
 
 

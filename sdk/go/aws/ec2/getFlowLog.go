@@ -36,21 +36,11 @@ type LookupFlowLogResult struct {
 }
 
 func LookupFlowLogOutput(ctx *pulumi.Context, args LookupFlowLogOutputArgs, opts ...pulumi.InvokeOption) LookupFlowLogResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupFlowLogResultOutput, error) {
 			args := v.(LookupFlowLogArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupFlowLogResult
-			secret, err := ctx.InvokePackageRaw("aws-native:ec2:getFlowLog", args, &rv, "", opts...)
-			if err != nil {
-				return LookupFlowLogResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupFlowLogResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupFlowLogResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:ec2:getFlowLog", args, LookupFlowLogResultOutput{}, options).(LookupFlowLogResultOutput), nil
 		}).(LookupFlowLogResultOutput)
 }
 

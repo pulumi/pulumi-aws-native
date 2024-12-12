@@ -42,21 +42,11 @@ type LookupStoredQueryResult struct {
 }
 
 func LookupStoredQueryOutput(ctx *pulumi.Context, args LookupStoredQueryOutputArgs, opts ...pulumi.InvokeOption) LookupStoredQueryResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupStoredQueryResultOutput, error) {
 			args := v.(LookupStoredQueryArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupStoredQueryResult
-			secret, err := ctx.InvokePackageRaw("aws-native:configuration:getStoredQuery", args, &rv, "", opts...)
-			if err != nil {
-				return LookupStoredQueryResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupStoredQueryResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupStoredQueryResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:configuration:getStoredQuery", args, LookupStoredQueryResultOutput{}, options).(LookupStoredQueryResultOutput), nil
 		}).(LookupStoredQueryResultOutput)
 }
 

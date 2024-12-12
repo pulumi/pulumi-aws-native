@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         public static Output<GetCustomerGatewayResult> Invoke(GetCustomerGatewayInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCustomerGatewayResult>("aws-native:ec2:getCustomerGateway", args ?? new GetCustomerGatewayInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Specifies a customer gateway.
+        /// </summary>
+        public static Output<GetCustomerGatewayResult> Invoke(GetCustomerGatewayInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCustomerGatewayResult>("aws-native:ec2:getCustomerGateway", args ?? new GetCustomerGatewayInvokeArgs(), options.WithDefaults());
     }
 
 

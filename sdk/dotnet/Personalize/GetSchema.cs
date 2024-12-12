@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Personalize
         /// </summary>
         public static Output<GetSchemaResult> Invoke(GetSchemaInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSchemaResult>("aws-native:personalize:getSchema", args ?? new GetSchemaInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource schema for AWS::Personalize::Schema.
+        /// </summary>
+        public static Output<GetSchemaResult> Invoke(GetSchemaInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSchemaResult>("aws-native:personalize:getSchema", args ?? new GetSchemaInvokeArgs(), options.WithDefaults());
     }
 
 

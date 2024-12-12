@@ -44,21 +44,11 @@ type LookupDeliverySourceResult struct {
 }
 
 func LookupDeliverySourceOutput(ctx *pulumi.Context, args LookupDeliverySourceOutputArgs, opts ...pulumi.InvokeOption) LookupDeliverySourceResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupDeliverySourceResultOutput, error) {
 			args := v.(LookupDeliverySourceArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupDeliverySourceResult
-			secret, err := ctx.InvokePackageRaw("aws-native:logs:getDeliverySource", args, &rv, "", opts...)
-			if err != nil {
-				return LookupDeliverySourceResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupDeliverySourceResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupDeliverySourceResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:logs:getDeliverySource", args, LookupDeliverySourceResultOutput{}, options).(LookupDeliverySourceResultOutput), nil
 		}).(LookupDeliverySourceResultOutput)
 }
 

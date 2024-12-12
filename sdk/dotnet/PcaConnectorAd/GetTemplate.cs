@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.PcaConnectorAd
         /// </summary>
         public static Output<GetTemplateResult> Invoke(GetTemplateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTemplateResult>("aws-native:pcaconnectorad:getTemplate", args ?? new GetTemplateInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Represents a template that defines certificate configurations, both for issuance and client handling
+        /// </summary>
+        public static Output<GetTemplateResult> Invoke(GetTemplateInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTemplateResult>("aws-native:pcaconnectorad:getTemplate", args ?? new GetTemplateInvokeArgs(), options.WithDefaults());
     }
 
 

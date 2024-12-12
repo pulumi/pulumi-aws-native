@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.GreengrassV2
         /// </summary>
         public static Output<GetDeploymentResult> Invoke(GetDeploymentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDeploymentResult>("aws-native:greengrassv2:getDeployment", args ?? new GetDeploymentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource for Greengrass V2 deployment.
+        /// </summary>
+        public static Output<GetDeploymentResult> Invoke(GetDeploymentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDeploymentResult>("aws-native:greengrassv2:getDeployment", args ?? new GetDeploymentInvokeArgs(), options.WithDefaults());
     }
 
 

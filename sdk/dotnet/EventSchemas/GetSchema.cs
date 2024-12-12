@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.EventSchemas
         /// </summary>
         public static Output<GetSchemaResult> Invoke(GetSchemaInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSchemaResult>("aws-native:eventschemas:getSchema", args ?? new GetSchemaInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::EventSchemas::Schema
+        /// </summary>
+        public static Output<GetSchemaResult> Invoke(GetSchemaInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSchemaResult>("aws-native:eventschemas:getSchema", args ?? new GetSchemaInvokeArgs(), options.WithDefaults());
     }
 
 

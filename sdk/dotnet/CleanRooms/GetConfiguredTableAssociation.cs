@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.CleanRooms
         /// </summary>
         public static Output<GetConfiguredTableAssociationResult> Invoke(GetConfiguredTableAssociationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfiguredTableAssociationResult>("aws-native:cleanrooms:getConfiguredTableAssociation", args ?? new GetConfiguredTableAssociationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Represents a table that can be queried within a collaboration
+        /// </summary>
+        public static Output<GetConfiguredTableAssociationResult> Invoke(GetConfiguredTableAssociationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetConfiguredTableAssociationResult>("aws-native:cleanrooms:getConfiguredTableAssociation", args ?? new GetConfiguredTableAssociationInvokeArgs(), options.WithDefaults());
     }
 
 

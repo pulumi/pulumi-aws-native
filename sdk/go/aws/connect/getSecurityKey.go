@@ -39,21 +39,11 @@ type LookupSecurityKeyResult struct {
 }
 
 func LookupSecurityKeyOutput(ctx *pulumi.Context, args LookupSecurityKeyOutputArgs, opts ...pulumi.InvokeOption) LookupSecurityKeyResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupSecurityKeyResultOutput, error) {
 			args := v.(LookupSecurityKeyArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupSecurityKeyResult
-			secret, err := ctx.InvokePackageRaw("aws-native:connect:getSecurityKey", args, &rv, "", opts...)
-			if err != nil {
-				return LookupSecurityKeyResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupSecurityKeyResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupSecurityKeyResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:connect:getSecurityKey", args, LookupSecurityKeyResultOutput{}, options).(LookupSecurityKeyResultOutput), nil
 		}).(LookupSecurityKeyResultOutput)
 }
 

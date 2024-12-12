@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.AppSync
         /// </summary>
         public static Output<GetDomainNameResult> Invoke(GetDomainNameInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDomainNameResult>("aws-native:appsync:getDomainName", args ?? new GetDomainNameInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::AppSync::DomainName
+        /// </summary>
+        public static Output<GetDomainNameResult> Invoke(GetDomainNameInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDomainNameResult>("aws-native:appsync:getDomainName", args ?? new GetDomainNameInvokeArgs(), options.WithDefaults());
     }
 
 

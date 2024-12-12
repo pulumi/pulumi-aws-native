@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Connect
         /// </summary>
         public static Output<GetViewVersionResult> Invoke(GetViewVersionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetViewVersionResult>("aws-native:connect:getViewVersion", args ?? new GetViewVersionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::Connect::ViewVersion
+        /// </summary>
+        public static Output<GetViewVersionResult> Invoke(GetViewVersionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetViewVersionResult>("aws-native:connect:getViewVersion", args ?? new GetViewVersionInvokeArgs(), options.WithDefaults());
     }
 
 

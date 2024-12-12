@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.ResourceExplorer2
         /// </summary>
         public static Output<GetViewResult> Invoke(GetViewInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetViewResult>("aws-native:resourceexplorer2:getView", args ?? new GetViewInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::ResourceExplorer2::View Resource Type
+        /// </summary>
+        public static Output<GetViewResult> Invoke(GetViewInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetViewResult>("aws-native:resourceexplorer2:getView", args ?? new GetViewInvokeArgs(), options.WithDefaults());
     }
 
 

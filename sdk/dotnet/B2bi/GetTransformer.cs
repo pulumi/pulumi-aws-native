@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.B2bi
         /// </summary>
         public static Output<GetTransformerResult> Invoke(GetTransformerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTransformerResult>("aws-native:b2bi:getTransformer", args ?? new GetTransformerInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::B2BI::Transformer Resource Type
+        /// </summary>
+        public static Output<GetTransformerResult> Invoke(GetTransformerInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTransformerResult>("aws-native:b2bi:getTransformer", args ?? new GetTransformerInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         public static Output<GetVerifiedAccessTrustProviderResult> Invoke(GetVerifiedAccessTrustProviderInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVerifiedAccessTrustProviderResult>("aws-native:ec2:getVerifiedAccessTrustProvider", args ?? new GetVerifiedAccessTrustProviderInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The AWS::EC2::VerifiedAccessTrustProvider type describes a verified access trust provider
+        /// </summary>
+        public static Output<GetVerifiedAccessTrustProviderResult> Invoke(GetVerifiedAccessTrustProviderInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVerifiedAccessTrustProviderResult>("aws-native:ec2:getVerifiedAccessTrustProvider", args ?? new GetVerifiedAccessTrustProviderInvokeArgs(), options.WithDefaults());
     }
 
 

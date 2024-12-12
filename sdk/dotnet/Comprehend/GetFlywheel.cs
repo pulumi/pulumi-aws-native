@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Comprehend
         /// </summary>
         public static Output<GetFlywheelResult> Invoke(GetFlywheelInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFlywheelResult>("aws-native:comprehend:getFlywheel", args ?? new GetFlywheelInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The AWS::Comprehend::Flywheel resource creates an Amazon Comprehend Flywheel that enables customer to train their model.
+        /// </summary>
+        public static Output<GetFlywheelResult> Invoke(GetFlywheelInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFlywheelResult>("aws-native:comprehend:getFlywheel", args ?? new GetFlywheelInvokeArgs(), options.WithDefaults());
     }
 
 

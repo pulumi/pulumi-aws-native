@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.AppConfig
         /// </summary>
         public static Output<GetHostedConfigurationVersionResult> Invoke(GetHostedConfigurationVersionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetHostedConfigurationVersionResult>("aws-native:appconfig:getHostedConfigurationVersion", args ?? new GetHostedConfigurationVersionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::AppConfig::HostedConfigurationVersion
+        /// </summary>
+        public static Output<GetHostedConfigurationVersionResult> Invoke(GetHostedConfigurationVersionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetHostedConfigurationVersionResult>("aws-native:appconfig:getHostedConfigurationVersion", args ?? new GetHostedConfigurationVersionInvokeArgs(), options.WithDefaults());
     }
 
 

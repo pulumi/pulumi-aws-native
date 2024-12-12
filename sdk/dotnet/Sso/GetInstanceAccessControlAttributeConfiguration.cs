@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Sso
         /// </summary>
         public static Output<GetInstanceAccessControlAttributeConfigurationResult> Invoke(GetInstanceAccessControlAttributeConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInstanceAccessControlAttributeConfigurationResult>("aws-native:sso:getInstanceAccessControlAttributeConfiguration", args ?? new GetInstanceAccessControlAttributeConfigurationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for SSO InstanceAccessControlAttributeConfiguration
+        /// </summary>
+        public static Output<GetInstanceAccessControlAttributeConfigurationResult> Invoke(GetInstanceAccessControlAttributeConfigurationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetInstanceAccessControlAttributeConfigurationResult>("aws-native:sso:getInstanceAccessControlAttributeConfiguration", args ?? new GetInstanceAccessControlAttributeConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

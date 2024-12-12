@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.CleanRooms
         /// </summary>
         public static Output<GetIdMappingTableResult> Invoke(GetIdMappingTableInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIdMappingTableResult>("aws-native:cleanrooms:getIdMappingTable", args ?? new GetIdMappingTableInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Represents an association between an ID mapping workflow and a collaboration
+        /// </summary>
+        public static Output<GetIdMappingTableResult> Invoke(GetIdMappingTableInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetIdMappingTableResult>("aws-native:cleanrooms:getIdMappingTable", args ?? new GetIdMappingTableInvokeArgs(), options.WithDefaults());
     }
 
 

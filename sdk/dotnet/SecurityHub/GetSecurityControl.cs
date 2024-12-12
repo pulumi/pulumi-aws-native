@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.SecurityHub
         /// </summary>
         public static Output<GetSecurityControlResult> Invoke(GetSecurityControlInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecurityControlResult>("aws-native:securityhub:getSecurityControl", args ?? new GetSecurityControlInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// A security control in Security Hub describes a security best practice related to a specific resource.
+        /// </summary>
+        public static Output<GetSecurityControlResult> Invoke(GetSecurityControlInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSecurityControlResult>("aws-native:securityhub:getSecurityControl", args ?? new GetSecurityControlInvokeArgs(), options.WithDefaults());
     }
 
 

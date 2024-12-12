@@ -41,21 +41,11 @@ type LookupZonalAutoshiftConfigurationResult struct {
 }
 
 func LookupZonalAutoshiftConfigurationOutput(ctx *pulumi.Context, args LookupZonalAutoshiftConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupZonalAutoshiftConfigurationResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupZonalAutoshiftConfigurationResultOutput, error) {
 			args := v.(LookupZonalAutoshiftConfigurationArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupZonalAutoshiftConfigurationResult
-			secret, err := ctx.InvokePackageRaw("aws-native:arczonalshift:getZonalAutoshiftConfiguration", args, &rv, "", opts...)
-			if err != nil {
-				return LookupZonalAutoshiftConfigurationResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupZonalAutoshiftConfigurationResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupZonalAutoshiftConfigurationResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:arczonalshift:getZonalAutoshiftConfiguration", args, LookupZonalAutoshiftConfigurationResultOutput{}, options).(LookupZonalAutoshiftConfigurationResultOutput), nil
 		}).(LookupZonalAutoshiftConfigurationResultOutput)
 }
 

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.GreengrassV2
         /// </summary>
         public static Output<GetComponentVersionResult> Invoke(GetComponentVersionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetComponentVersionResult>("aws-native:greengrassv2:getComponentVersion", args ?? new GetComponentVersionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource for Greengrass component version.
+        /// </summary>
+        public static Output<GetComponentVersionResult> Invoke(GetComponentVersionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetComponentVersionResult>("aws-native:greengrassv2:getComponentVersion", args ?? new GetComponentVersionInvokeArgs(), options.WithDefaults());
     }
 
 

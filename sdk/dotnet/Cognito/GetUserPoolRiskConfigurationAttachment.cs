@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Cognito
         /// </summary>
         public static Output<GetUserPoolRiskConfigurationAttachmentResult> Invoke(GetUserPoolRiskConfigurationAttachmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserPoolRiskConfigurationAttachmentResult>("aws-native:cognito:getUserPoolRiskConfigurationAttachment", args ?? new GetUserPoolRiskConfigurationAttachmentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::Cognito::UserPoolRiskConfigurationAttachment
+        /// </summary>
+        public static Output<GetUserPoolRiskConfigurationAttachmentResult> Invoke(GetUserPoolRiskConfigurationAttachmentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetUserPoolRiskConfigurationAttachmentResult>("aws-native:cognito:getUserPoolRiskConfigurationAttachment", args ?? new GetUserPoolRiskConfigurationAttachmentInvokeArgs(), options.WithDefaults());
     }
 
 

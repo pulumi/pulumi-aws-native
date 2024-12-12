@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Dms
         /// </summary>
         public static Output<GetMigrationProjectResult> Invoke(GetMigrationProjectInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMigrationProjectResult>("aws-native:dms:getMigrationProject", args ?? new GetMigrationProjectInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource schema for AWS::DMS::MigrationProject
+        /// </summary>
+        public static Output<GetMigrationProjectResult> Invoke(GetMigrationProjectInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMigrationProjectResult>("aws-native:dms:getMigrationProject", args ?? new GetMigrationProjectInvokeArgs(), options.WithDefaults());
     }
 
 

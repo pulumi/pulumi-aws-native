@@ -54,21 +54,11 @@ type LookupIdNamespaceResult struct {
 }
 
 func LookupIdNamespaceOutput(ctx *pulumi.Context, args LookupIdNamespaceOutputArgs, opts ...pulumi.InvokeOption) LookupIdNamespaceResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupIdNamespaceResultOutput, error) {
 			args := v.(LookupIdNamespaceArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupIdNamespaceResult
-			secret, err := ctx.InvokePackageRaw("aws-native:entityresolution:getIdNamespace", args, &rv, "", opts...)
-			if err != nil {
-				return LookupIdNamespaceResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupIdNamespaceResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupIdNamespaceResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:entityresolution:getIdNamespace", args, LookupIdNamespaceResultOutput{}, options).(LookupIdNamespaceResultOutput), nil
 		}).(LookupIdNamespaceResultOutput)
 }
 

@@ -33,21 +33,11 @@ type LookupConfigurationSetEventDestinationResult struct {
 }
 
 func LookupConfigurationSetEventDestinationOutput(ctx *pulumi.Context, args LookupConfigurationSetEventDestinationOutputArgs, opts ...pulumi.InvokeOption) LookupConfigurationSetEventDestinationResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupConfigurationSetEventDestinationResultOutput, error) {
 			args := v.(LookupConfigurationSetEventDestinationArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupConfigurationSetEventDestinationResult
-			secret, err := ctx.InvokePackageRaw("aws-native:ses:getConfigurationSetEventDestination", args, &rv, "", opts...)
-			if err != nil {
-				return LookupConfigurationSetEventDestinationResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupConfigurationSetEventDestinationResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupConfigurationSetEventDestinationResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:ses:getConfigurationSetEventDestination", args, LookupConfigurationSetEventDestinationResultOutput{}, options).(LookupConfigurationSetEventDestinationResultOutput), nil
 		}).(LookupConfigurationSetEventDestinationResultOutput)
 }
 

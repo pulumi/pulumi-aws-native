@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
         /// </summary>
         public static Output<GetBrowserSettingsResult> Invoke(GetBrowserSettingsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBrowserSettingsResult>("aws-native:workspacesweb:getBrowserSettings", args ?? new GetBrowserSettingsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::WorkSpacesWeb::BrowserSettings Resource Type
+        /// </summary>
+        public static Output<GetBrowserSettingsResult> Invoke(GetBrowserSettingsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetBrowserSettingsResult>("aws-native:workspacesweb:getBrowserSettings", args ?? new GetBrowserSettingsInvokeArgs(), options.WithDefaults());
     }
 
 

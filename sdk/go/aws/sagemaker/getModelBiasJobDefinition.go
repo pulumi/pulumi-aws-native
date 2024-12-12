@@ -35,21 +35,11 @@ type LookupModelBiasJobDefinitionResult struct {
 }
 
 func LookupModelBiasJobDefinitionOutput(ctx *pulumi.Context, args LookupModelBiasJobDefinitionOutputArgs, opts ...pulumi.InvokeOption) LookupModelBiasJobDefinitionResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupModelBiasJobDefinitionResultOutput, error) {
 			args := v.(LookupModelBiasJobDefinitionArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupModelBiasJobDefinitionResult
-			secret, err := ctx.InvokePackageRaw("aws-native:sagemaker:getModelBiasJobDefinition", args, &rv, "", opts...)
-			if err != nil {
-				return LookupModelBiasJobDefinitionResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupModelBiasJobDefinitionResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupModelBiasJobDefinitionResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:sagemaker:getModelBiasJobDefinition", args, LookupModelBiasJobDefinitionResultOutput{}, options).(LookupModelBiasJobDefinitionResultOutput), nil
 		}).(LookupModelBiasJobDefinitionResultOutput)
 }
 

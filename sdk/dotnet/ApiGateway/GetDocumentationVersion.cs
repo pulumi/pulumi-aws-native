@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.ApiGateway
         /// </summary>
         public static Output<GetDocumentationVersionResult> Invoke(GetDocumentationVersionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDocumentationVersionResult>("aws-native:apigateway:getDocumentationVersion", args ?? new GetDocumentationVersionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The ``AWS::ApiGateway::DocumentationVersion`` resource creates a snapshot of the documentation for an API. For more information, see [Representation of API Documentation in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-documenting-api-content-representation.html) in the *API Gateway Developer Guide*.
+        /// </summary>
+        public static Output<GetDocumentationVersionResult> Invoke(GetDocumentationVersionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDocumentationVersionResult>("aws-native:apigateway:getDocumentationVersion", args ?? new GetDocumentationVersionInvokeArgs(), options.WithDefaults());
     }
 
 

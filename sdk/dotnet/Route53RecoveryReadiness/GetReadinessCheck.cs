@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Route53RecoveryReadiness
         /// </summary>
         public static Output<GetReadinessCheckResult> Invoke(GetReadinessCheckInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReadinessCheckResult>("aws-native:route53recoveryreadiness:getReadinessCheck", args ?? new GetReadinessCheckInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Aws Route53 Recovery Readiness Check Schema and API specification.
+        /// </summary>
+        public static Output<GetReadinessCheckResult> Invoke(GetReadinessCheckInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetReadinessCheckResult>("aws-native:route53recoveryreadiness:getReadinessCheck", args ?? new GetReadinessCheckInvokeArgs(), options.WithDefaults());
     }
 
 

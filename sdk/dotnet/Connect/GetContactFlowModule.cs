@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Connect
         /// </summary>
         public static Output<GetContactFlowModuleResult> Invoke(GetContactFlowModuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetContactFlowModuleResult>("aws-native:connect:getContactFlowModule", args ?? new GetContactFlowModuleInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::Connect::ContactFlowModule.
+        /// </summary>
+        public static Output<GetContactFlowModuleResult> Invoke(GetContactFlowModuleInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetContactFlowModuleResult>("aws-native:connect:getContactFlowModule", args ?? new GetContactFlowModuleInvokeArgs(), options.WithDefaults());
     }
 
 

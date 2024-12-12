@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         public static Output<GetVpcBlockPublicAccessOptionsResult> Invoke(GetVpcBlockPublicAccessOptionsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpcBlockPublicAccessOptionsResult>("aws-native:ec2:getVpcBlockPublicAccessOptions", args ?? new GetVpcBlockPublicAccessOptionsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::EC2::VPCBlockPublicAccessOptions
+        /// </summary>
+        public static Output<GetVpcBlockPublicAccessOptionsResult> Invoke(GetVpcBlockPublicAccessOptionsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVpcBlockPublicAccessOptionsResult>("aws-native:ec2:getVpcBlockPublicAccessOptions", args ?? new GetVpcBlockPublicAccessOptionsInvokeArgs(), options.WithDefaults());
     }
 
 

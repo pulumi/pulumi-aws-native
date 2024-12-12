@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Ses
         /// </summary>
         public static Output<GetDedicatedIpPoolResult> Invoke(GetDedicatedIpPoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDedicatedIpPoolResult>("aws-native:ses:getDedicatedIpPool", args ?? new GetDedicatedIpPoolInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::SES::DedicatedIpPool
+        /// </summary>
+        public static Output<GetDedicatedIpPoolResult> Invoke(GetDedicatedIpPoolInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDedicatedIpPoolResult>("aws-native:ses:getDedicatedIpPool", args ?? new GetDedicatedIpPoolInvokeArgs(), options.WithDefaults());
     }
 
 

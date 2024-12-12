@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.OpenSearchService
         /// </summary>
         public static Output<GetApplicationResult> Invoke(GetApplicationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationResult>("aws-native:opensearchservice:getApplication", args ?? new GetApplicationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Amazon OpenSearchService application resource
+        /// </summary>
+        public static Output<GetApplicationResult> Invoke(GetApplicationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetApplicationResult>("aws-native:opensearchservice:getApplication", args ?? new GetApplicationInvokeArgs(), options.WithDefaults());
     }
 
 

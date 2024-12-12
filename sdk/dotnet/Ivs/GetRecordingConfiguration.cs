@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Ivs
         /// </summary>
         public static Output<GetRecordingConfigurationResult> Invoke(GetRecordingConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRecordingConfigurationResult>("aws-native:ivs:getRecordingConfiguration", args ?? new GetRecordingConfigurationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::IVS::RecordingConfiguration
+        /// </summary>
+        public static Output<GetRecordingConfigurationResult> Invoke(GetRecordingConfigurationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRecordingConfigurationResult>("aws-native:ivs:getRecordingConfiguration", args ?? new GetRecordingConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

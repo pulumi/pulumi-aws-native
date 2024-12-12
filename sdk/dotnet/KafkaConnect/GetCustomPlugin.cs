@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.KafkaConnect
         /// </summary>
         public static Output<GetCustomPluginResult> Invoke(GetCustomPluginInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCustomPluginResult>("aws-native:kafkaconnect:getCustomPlugin", args ?? new GetCustomPluginInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// An example resource schema demonstrating some basic constructs and validation rules.
+        /// </summary>
+        public static Output<GetCustomPluginResult> Invoke(GetCustomPluginInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCustomPluginResult>("aws-native:kafkaconnect:getCustomPlugin", args ?? new GetCustomPluginInvokeArgs(), options.WithDefaults());
     }
 
 

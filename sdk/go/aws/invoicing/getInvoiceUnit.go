@@ -44,21 +44,11 @@ type LookupInvoiceUnitResult struct {
 }
 
 func LookupInvoiceUnitOutput(ctx *pulumi.Context, args LookupInvoiceUnitOutputArgs, opts ...pulumi.InvokeOption) LookupInvoiceUnitResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupInvoiceUnitResultOutput, error) {
 			args := v.(LookupInvoiceUnitArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupInvoiceUnitResult
-			secret, err := ctx.InvokePackageRaw("aws-native:invoicing:getInvoiceUnit", args, &rv, "", opts...)
-			if err != nil {
-				return LookupInvoiceUnitResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupInvoiceUnitResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupInvoiceUnitResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:invoicing:getInvoiceUnit", args, LookupInvoiceUnitResultOutput{}, options).(LookupInvoiceUnitResultOutput), nil
 		}).(LookupInvoiceUnitResultOutput)
 }
 

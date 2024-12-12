@@ -35,21 +35,11 @@ type LookupChannelPolicyResult struct {
 }
 
 func LookupChannelPolicyOutput(ctx *pulumi.Context, args LookupChannelPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupChannelPolicyResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupChannelPolicyResultOutput, error) {
 			args := v.(LookupChannelPolicyArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupChannelPolicyResult
-			secret, err := ctx.InvokePackageRaw("aws-native:mediatailor:getChannelPolicy", args, &rv, "", opts...)
-			if err != nil {
-				return LookupChannelPolicyResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupChannelPolicyResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupChannelPolicyResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:mediatailor:getChannelPolicy", args, LookupChannelPolicyResultOutput{}, options).(LookupChannelPolicyResultOutput), nil
 		}).(LookupChannelPolicyResultOutput)
 }
 

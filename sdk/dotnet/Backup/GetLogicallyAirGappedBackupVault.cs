@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Backup
         /// </summary>
         public static Output<GetLogicallyAirGappedBackupVaultResult> Invoke(GetLogicallyAirGappedBackupVaultInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLogicallyAirGappedBackupVaultResult>("aws-native:backup:getLogicallyAirGappedBackupVault", args ?? new GetLogicallyAirGappedBackupVaultInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::Backup::LogicallyAirGappedBackupVault
+        /// </summary>
+        public static Output<GetLogicallyAirGappedBackupVaultResult> Invoke(GetLogicallyAirGappedBackupVaultInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLogicallyAirGappedBackupVaultResult>("aws-native:backup:getLogicallyAirGappedBackupVault", args ?? new GetLogicallyAirGappedBackupVaultInvokeArgs(), options.WithDefaults());
     }
 
 

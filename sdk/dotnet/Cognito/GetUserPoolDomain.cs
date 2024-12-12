@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Cognito
         /// </summary>
         public static Output<GetUserPoolDomainResult> Invoke(GetUserPoolDomainInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserPoolDomainResult>("aws-native:cognito:getUserPoolDomain", args ?? new GetUserPoolDomainInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::Cognito::UserPoolDomain
+        /// </summary>
+        public static Output<GetUserPoolDomainResult> Invoke(GetUserPoolDomainInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetUserPoolDomainResult>("aws-native:cognito:getUserPoolDomain", args ?? new GetUserPoolDomainInvokeArgs(), options.WithDefaults());
     }
 
 

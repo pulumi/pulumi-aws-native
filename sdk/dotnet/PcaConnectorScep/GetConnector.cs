@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.PcaConnectorScep
         /// </summary>
         public static Output<GetConnectorResult> Invoke(GetConnectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectorResult>("aws-native:pcaconnectorscep:getConnector", args ?? new GetConnectorInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Represents a Connector that allows certificate issuance through Simple Certificate Enrollment Protocol (SCEP)
+        /// </summary>
+        public static Output<GetConnectorResult> Invoke(GetConnectorInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetConnectorResult>("aws-native:pcaconnectorscep:getConnector", args ?? new GetConnectorInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -35,21 +35,11 @@ type LookupClusterCapacityProviderAssociationsResult struct {
 }
 
 func LookupClusterCapacityProviderAssociationsOutput(ctx *pulumi.Context, args LookupClusterCapacityProviderAssociationsOutputArgs, opts ...pulumi.InvokeOption) LookupClusterCapacityProviderAssociationsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupClusterCapacityProviderAssociationsResultOutput, error) {
 			args := v.(LookupClusterCapacityProviderAssociationsArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupClusterCapacityProviderAssociationsResult
-			secret, err := ctx.InvokePackageRaw("aws-native:ecs:getClusterCapacityProviderAssociations", args, &rv, "", opts...)
-			if err != nil {
-				return LookupClusterCapacityProviderAssociationsResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupClusterCapacityProviderAssociationsResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupClusterCapacityProviderAssociationsResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:ecs:getClusterCapacityProviderAssociations", args, LookupClusterCapacityProviderAssociationsResultOutput{}, options).(LookupClusterCapacityProviderAssociationsResultOutput), nil
 		}).(LookupClusterCapacityProviderAssociationsResultOutput)
 }
 

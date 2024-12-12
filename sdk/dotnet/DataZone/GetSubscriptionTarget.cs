@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.DataZone
         /// </summary>
         public static Output<GetSubscriptionTargetResult> Invoke(GetSubscriptionTargetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSubscriptionTargetResult>("aws-native:datazone:getSubscriptionTarget", args ?? new GetSubscriptionTargetInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Subscription targets enables one to access the data to which you have subscribed in your projects.
+        /// </summary>
+        public static Output<GetSubscriptionTargetResult> Invoke(GetSubscriptionTargetInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSubscriptionTargetResult>("aws-native:datazone:getSubscriptionTarget", args ?? new GetSubscriptionTargetInvokeArgs(), options.WithDefaults());
     }
 
 

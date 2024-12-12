@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Sso
         /// </summary>
         public static Output<GetInstanceResult> Invoke(GetInstanceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInstanceResult>("aws-native:sso:getInstance", args ?? new GetInstanceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for Identity Center (SSO) Instance
+        /// </summary>
+        public static Output<GetInstanceResult> Invoke(GetInstanceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetInstanceResult>("aws-native:sso:getInstance", args ?? new GetInstanceInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         public static Output<GetCarrierGatewayResult> Invoke(GetCarrierGatewayInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCarrierGatewayResult>("aws-native:ec2:getCarrierGateway", args ?? new GetCarrierGatewayInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// An example resource schema demonstrating some basic constructs and validation rules.
+        /// </summary>
+        public static Output<GetCarrierGatewayResult> Invoke(GetCarrierGatewayInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCarrierGatewayResult>("aws-native:ec2:getCarrierGateway", args ?? new GetCarrierGatewayInvokeArgs(), options.WithDefaults());
     }
 
 

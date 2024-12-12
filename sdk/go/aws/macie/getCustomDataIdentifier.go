@@ -38,21 +38,11 @@ type LookupCustomDataIdentifierResult struct {
 }
 
 func LookupCustomDataIdentifierOutput(ctx *pulumi.Context, args LookupCustomDataIdentifierOutputArgs, opts ...pulumi.InvokeOption) LookupCustomDataIdentifierResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupCustomDataIdentifierResultOutput, error) {
 			args := v.(LookupCustomDataIdentifierArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupCustomDataIdentifierResult
-			secret, err := ctx.InvokePackageRaw("aws-native:macie:getCustomDataIdentifier", args, &rv, "", opts...)
-			if err != nil {
-				return LookupCustomDataIdentifierResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupCustomDataIdentifierResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupCustomDataIdentifierResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:macie:getCustomDataIdentifier", args, LookupCustomDataIdentifierResultOutput{}, options).(LookupCustomDataIdentifierResultOutput), nil
 		}).(LookupCustomDataIdentifierResultOutput)
 }
 

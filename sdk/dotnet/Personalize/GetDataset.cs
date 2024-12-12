@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Personalize
         /// </summary>
         public static Output<GetDatasetResult> Invoke(GetDatasetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDatasetResult>("aws-native:personalize:getDataset", args ?? new GetDatasetInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource schema for AWS::Personalize::Dataset.
+        /// </summary>
+        public static Output<GetDatasetResult> Invoke(GetDatasetInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDatasetResult>("aws-native:personalize:getDataset", args ?? new GetDatasetInvokeArgs(), options.WithDefaults());
     }
 
 

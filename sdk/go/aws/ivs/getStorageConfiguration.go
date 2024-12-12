@@ -36,21 +36,11 @@ type LookupStorageConfigurationResult struct {
 }
 
 func LookupStorageConfigurationOutput(ctx *pulumi.Context, args LookupStorageConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupStorageConfigurationResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupStorageConfigurationResultOutput, error) {
 			args := v.(LookupStorageConfigurationArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupStorageConfigurationResult
-			secret, err := ctx.InvokePackageRaw("aws-native:ivs:getStorageConfiguration", args, &rv, "", opts...)
-			if err != nil {
-				return LookupStorageConfigurationResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupStorageConfigurationResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupStorageConfigurationResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:ivs:getStorageConfiguration", args, LookupStorageConfigurationResultOutput{}, options).(LookupStorageConfigurationResultOutput), nil
 		}).(LookupStorageConfigurationResultOutput)
 }
 

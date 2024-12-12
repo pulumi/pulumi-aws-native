@@ -24,6 +24,13 @@ namespace Pulumi.AwsNative.ApiGateway
         /// </summary>
         public static Output<GetRestApiResult> Invoke(GetRestApiInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRestApiResult>("aws-native:apigateway:getRestApi", args ?? new GetRestApiInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The ``AWS::ApiGateway::RestApi`` resource creates a REST API. For more information, see [restapi:create](https://docs.aws.amazon.com/apigateway/latest/api/API_CreateRestApi.html) in the *Amazon API Gateway REST API Reference*.
+        ///  On January 1, 2016, the Swagger Specification was donated to the [OpenAPI initiative](https://docs.aws.amazon.com/https://www.openapis.org/), becoming the foundation of the OpenAPI Specification.
+        /// </summary>
+        public static Output<GetRestApiResult> Invoke(GetRestApiInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRestApiResult>("aws-native:apigateway:getRestApi", args ?? new GetRestApiInvokeArgs(), options.WithDefaults());
     }
 
 

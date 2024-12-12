@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.S3Tables
         /// </summary>
         public static Output<GetTableBucketResult> Invoke(GetTableBucketInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTableBucketResult>("aws-native:s3tables:getTableBucket", args ?? new GetTableBucketInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Creates an Amazon S3 Tables table bucket in the same AWS Region where you create the AWS CloudFormation stack.
+        /// </summary>
+        public static Output<GetTableBucketResult> Invoke(GetTableBucketInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTableBucketResult>("aws-native:s3tables:getTableBucket", args ?? new GetTableBucketInvokeArgs(), options.WithDefaults());
     }
 
 

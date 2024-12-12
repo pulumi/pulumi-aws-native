@@ -48,21 +48,11 @@ type LookupFolderResult struct {
 }
 
 func LookupFolderOutput(ctx *pulumi.Context, args LookupFolderOutputArgs, opts ...pulumi.InvokeOption) LookupFolderResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupFolderResultOutput, error) {
 			args := v.(LookupFolderArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupFolderResult
-			secret, err := ctx.InvokePackageRaw("aws-native:quicksight:getFolder", args, &rv, "", opts...)
-			if err != nil {
-				return LookupFolderResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupFolderResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupFolderResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:quicksight:getFolder", args, LookupFolderResultOutput{}, options).(LookupFolderResultOutput), nil
 		}).(LookupFolderResultOutput)
 }
 

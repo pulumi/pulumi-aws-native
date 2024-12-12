@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Pipes
         /// </summary>
         public static Output<GetPipeResult> Invoke(GetPipeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPipeResult>("aws-native:pipes:getPipe", args ?? new GetPipeInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::Pipes::Pipe Resource Type
+        /// </summary>
+        public static Output<GetPipeResult> Invoke(GetPipeInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPipeResult>("aws-native:pipes:getPipe", args ?? new GetPipeInvokeArgs(), options.WithDefaults());
     }
 
 

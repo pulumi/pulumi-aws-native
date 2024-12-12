@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Qldb
         /// </summary>
         public static Output<GetStreamResult> Invoke(GetStreamInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStreamResult>("aws-native:qldb:getStream", args ?? new GetStreamInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource schema for AWS::QLDB::Stream.
+        /// </summary>
+        public static Output<GetStreamResult> Invoke(GetStreamInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetStreamResult>("aws-native:qldb:getStream", args ?? new GetStreamInvokeArgs(), options.WithDefaults());
     }
 
 

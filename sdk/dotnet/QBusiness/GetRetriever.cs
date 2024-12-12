@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.QBusiness
         /// </summary>
         public static Output<GetRetrieverResult> Invoke(GetRetrieverInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRetrieverResult>("aws-native:qbusiness:getRetriever", args ?? new GetRetrieverInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::QBusiness::Retriever Resource Type
+        /// </summary>
+        public static Output<GetRetrieverResult> Invoke(GetRetrieverInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRetrieverResult>("aws-native:qbusiness:getRetriever", args ?? new GetRetrieverInvokeArgs(), options.WithDefaults());
     }
 
 

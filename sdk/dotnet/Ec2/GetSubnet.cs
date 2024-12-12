@@ -26,6 +26,14 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         public static Output<GetSubnetResult> Invoke(GetSubnetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSubnetResult>("aws-native:ec2:getSubnet", args ?? new GetSubnetInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Specifies a subnet for the specified VPC.
+        ///  For an IPv4 only subnet, specify an IPv4 CIDR block. If the VPC has an IPv6 CIDR block, you can create an IPv6 only subnet or a dual stack subnet instead. For an IPv6 only subnet, specify an IPv6 CIDR block. For a dual stack subnet, specify both an IPv4 CIDR block and an IPv6 CIDR block.
+        ///  For more information, see [Subnets for your VPC](https://docs.aws.amazon.com/vpc/latest/userguide/configure-subnets.html) in the *Amazon VPC User Guide*.
+        /// </summary>
+        public static Output<GetSubnetResult> Invoke(GetSubnetInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSubnetResult>("aws-native:ec2:getSubnet", args ?? new GetSubnetInvokeArgs(), options.WithDefaults());
     }
 
 

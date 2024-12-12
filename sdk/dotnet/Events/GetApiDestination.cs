@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Events
         /// </summary>
         public static Output<GetApiDestinationResult> Invoke(GetApiDestinationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApiDestinationResult>("aws-native:events:getApiDestination", args ?? new GetApiDestinationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::Events::ApiDestination.
+        /// </summary>
+        public static Output<GetApiDestinationResult> Invoke(GetApiDestinationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetApiDestinationResult>("aws-native:events:getApiDestination", args ?? new GetApiDestinationInvokeArgs(), options.WithDefaults());
     }
 
 

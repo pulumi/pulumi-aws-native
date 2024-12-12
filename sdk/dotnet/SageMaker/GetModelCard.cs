@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.SageMaker
         /// </summary>
         public static Output<GetModelCardResult> Invoke(GetModelCardInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetModelCardResult>("aws-native:sagemaker:getModelCard", args ?? new GetModelCardInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::SageMaker::ModelCard.
+        /// </summary>
+        public static Output<GetModelCardResult> Invoke(GetModelCardInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetModelCardResult>("aws-native:sagemaker:getModelCard", args ?? new GetModelCardInvokeArgs(), options.WithDefaults());
     }
 
 

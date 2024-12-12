@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Emr
         /// </summary>
         public static Output<GetWalWorkspaceResult> Invoke(GetWalWorkspaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWalWorkspaceResult>("aws-native:emr:getWalWorkspace", args ?? new GetWalWorkspaceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource schema for AWS::EMR::WALWorkspace Type
+        /// </summary>
+        public static Output<GetWalWorkspaceResult> Invoke(GetWalWorkspaceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetWalWorkspaceResult>("aws-native:emr:getWalWorkspace", args ?? new GetWalWorkspaceInvokeArgs(), options.WithDefaults());
     }
 
 

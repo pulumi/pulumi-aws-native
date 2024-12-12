@@ -51,21 +51,11 @@ type LookupModuleVersionResult struct {
 }
 
 func LookupModuleVersionOutput(ctx *pulumi.Context, args LookupModuleVersionOutputArgs, opts ...pulumi.InvokeOption) LookupModuleVersionResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupModuleVersionResultOutput, error) {
 			args := v.(LookupModuleVersionArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupModuleVersionResult
-			secret, err := ctx.InvokePackageRaw("aws-native:cloudformation:getModuleVersion", args, &rv, "", opts...)
-			if err != nil {
-				return LookupModuleVersionResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupModuleVersionResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupModuleVersionResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:cloudformation:getModuleVersion", args, LookupModuleVersionResultOutput{}, options).(LookupModuleVersionResultOutput), nil
 		}).(LookupModuleVersionResultOutput)
 }
 

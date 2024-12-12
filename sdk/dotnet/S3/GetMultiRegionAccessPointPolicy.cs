@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.S3
         /// </summary>
         public static Output<GetMultiRegionAccessPointPolicyResult> Invoke(GetMultiRegionAccessPointPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMultiRegionAccessPointPolicyResult>("aws-native:s3:getMultiRegionAccessPointPolicy", args ?? new GetMultiRegionAccessPointPolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The policy to be attached to a Multi Region Access Point
+        /// </summary>
+        public static Output<GetMultiRegionAccessPointPolicyResult> Invoke(GetMultiRegionAccessPointPolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMultiRegionAccessPointPolicyResult>("aws-native:s3:getMultiRegionAccessPointPolicy", args ?? new GetMultiRegionAccessPointPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

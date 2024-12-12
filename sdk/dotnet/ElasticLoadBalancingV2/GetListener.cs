@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         /// </summary>
         public static Output<GetListenerResult> Invoke(GetListenerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetListenerResult>("aws-native:elasticloadbalancingv2:getListener", args ?? new GetListenerInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Specifies a listener for an Application Load Balancer, Network Load Balancer, or Gateway Load Balancer.
+        /// </summary>
+        public static Output<GetListenerResult> Invoke(GetListenerInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetListenerResult>("aws-native:elasticloadbalancingv2:getListener", args ?? new GetListenerInvokeArgs(), options.WithDefaults());
     }
 
 

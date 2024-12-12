@@ -33,21 +33,11 @@ type LookupDomainNameAccessAssociationResult struct {
 }
 
 func LookupDomainNameAccessAssociationOutput(ctx *pulumi.Context, args LookupDomainNameAccessAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupDomainNameAccessAssociationResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupDomainNameAccessAssociationResultOutput, error) {
 			args := v.(LookupDomainNameAccessAssociationArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupDomainNameAccessAssociationResult
-			secret, err := ctx.InvokePackageRaw("aws-native:apigateway:getDomainNameAccessAssociation", args, &rv, "", opts...)
-			if err != nil {
-				return LookupDomainNameAccessAssociationResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupDomainNameAccessAssociationResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupDomainNameAccessAssociationResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:apigateway:getDomainNameAccessAssociation", args, LookupDomainNameAccessAssociationResultOutput{}, options).(LookupDomainNameAccessAssociationResultOutput), nil
 		}).(LookupDomainNameAccessAssociationResultOutput)
 }
 

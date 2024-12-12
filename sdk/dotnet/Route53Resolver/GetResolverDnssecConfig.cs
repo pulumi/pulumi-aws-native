@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Route53Resolver
         /// </summary>
         public static Output<GetResolverDnssecConfigResult> Invoke(GetResolverDnssecConfigInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResolverDnssecConfigResult>("aws-native:route53resolver:getResolverDnssecConfig", args ?? new GetResolverDnssecConfigInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource schema for AWS::Route53Resolver::ResolverDNSSECConfig.
+        /// </summary>
+        public static Output<GetResolverDnssecConfigResult> Invoke(GetResolverDnssecConfigInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetResolverDnssecConfigResult>("aws-native:route53resolver:getResolverDnssecConfig", args ?? new GetResolverDnssecConfigInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Eks
         /// </summary>
         public static Output<GetFargateProfileResult> Invoke(GetFargateProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFargateProfileResult>("aws-native:eks:getFargateProfile", args ?? new GetFargateProfileInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Schema for AWS::EKS::FargateProfile
+        /// </summary>
+        public static Output<GetFargateProfileResult> Invoke(GetFargateProfileInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFargateProfileResult>("aws-native:eks:getFargateProfile", args ?? new GetFargateProfileInvokeArgs(), options.WithDefaults());
     }
 
 

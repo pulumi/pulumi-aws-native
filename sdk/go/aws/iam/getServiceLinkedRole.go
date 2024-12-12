@@ -35,21 +35,11 @@ type LookupServiceLinkedRoleResult struct {
 }
 
 func LookupServiceLinkedRoleOutput(ctx *pulumi.Context, args LookupServiceLinkedRoleOutputArgs, opts ...pulumi.InvokeOption) LookupServiceLinkedRoleResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupServiceLinkedRoleResultOutput, error) {
 			args := v.(LookupServiceLinkedRoleArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupServiceLinkedRoleResult
-			secret, err := ctx.InvokePackageRaw("aws-native:iam:getServiceLinkedRole", args, &rv, "", opts...)
-			if err != nil {
-				return LookupServiceLinkedRoleResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupServiceLinkedRoleResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupServiceLinkedRoleResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:iam:getServiceLinkedRole", args, LookupServiceLinkedRoleResultOutput{}, options).(LookupServiceLinkedRoleResultOutput), nil
 		}).(LookupServiceLinkedRoleResultOutput)
 }
 
