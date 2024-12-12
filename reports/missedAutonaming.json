@@ -9033,6 +9033,22 @@
       }
     }
   },
+  "aws-native:logs:Transformer": {
+    "cfTypeName": "AWS::Logs::Transformer",
+    "properties": {
+      "logGroupIdentifier": {
+        "type": "string",
+        "description": "Existing log group that you want to associate with this transformer."
+      },
+      "transformerConfig": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:logs:TransformerProcessor"
+        },
+        "description": "List of processors in a transformer"
+      }
+    }
+  },
   "aws-native:m2:Deployment": {
     "cfTypeName": "AWS::M2::Deployment",
     "properties": {
@@ -9762,6 +9778,41 @@
       }
     }
   },
+  "aws-native:networkmanager:DirectConnectGatewayAttachment": {
+    "cfTypeName": "AWS::NetworkManager::DirectConnectGatewayAttachment",
+    "properties": {
+      "coreNetworkId": {
+        "type": "string",
+        "description": "The ID of a core network for the Direct Connect Gateway attachment."
+      },
+      "directConnectGatewayArn": {
+        "type": "string",
+        "description": "The ARN of the Direct Connect Gateway."
+      },
+      "edgeLocations": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "The Regions where the edges are located."
+      },
+      "proposedNetworkFunctionGroupChange": {
+        "$ref": "#/types/aws-native:networkmanager:DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChange",
+        "description": "The attachment to move from one network function group to another."
+      },
+      "proposedSegmentChange": {
+        "$ref": "#/types/aws-native:networkmanager:DirectConnectGatewayAttachmentProposedSegmentChange",
+        "description": "The attachment to move from one segment to another."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "Tags for the attachment."
+      }
+    }
+  },
   "aws-native:networkmanager:GlobalNetwork": {
     "cfTypeName": "AWS::NetworkManager::GlobalNetwork",
     "properties": {
@@ -10311,7 +10362,8 @@
         "description": "Configuration information about Amazon Q Apps."
       },
       "quickSightConfiguration": {
-        "$ref": "#/types/aws-native:qbusiness:ApplicationQuickSightConfiguration"
+        "$ref": "#/types/aws-native:qbusiness:ApplicationQuickSightConfiguration",
+        "description": "The Amazon QuickSight configuration for an Amazon Q Business application that uses QuickSight as the identity provider."
       },
       "roleArn": {
         "type": "string",
@@ -10339,10 +10391,12 @@
         "type": "string"
       },
       "displayName": {
-        "type": "string"
+        "type": "string",
+        "description": "The friendly name of the data accessor."
       },
       "principal": {
-        "type": "string"
+        "type": "string",
+        "description": "The Amazon Resource Name (ARN) of the IAM role for the ISV associated with this data accessor."
       },
       "tags": {
         "type": "array",
@@ -10380,7 +10434,8 @@
         "description": "The identifier of the index the data source is attached to."
       },
       "mediaExtractionConfiguration": {
-        "$ref": "#/types/aws-native:qbusiness:DataSourceMediaExtractionConfiguration"
+        "$ref": "#/types/aws-native:qbusiness:DataSourceMediaExtractionConfiguration",
+        "description": "The configuration for extracting information from media in documents."
       },
       "roleArn": {
         "type": "string",
@@ -10455,7 +10510,8 @@
         "type": "string"
       },
       "principal": {
-        "type": "string"
+        "type": "string",
+        "description": "Provides user and group information used for filtering documents to use for generating Amazon Q Business conversation responses."
       },
       "statementId": {
         "type": "string"
@@ -10559,7 +10615,8 @@
         "description": "The identifier of the Amazon Q Business web experience."
       },
       "customizationConfiguration": {
-        "$ref": "#/types/aws-native:qbusiness:WebExperienceCustomizationConfiguration"
+        "$ref": "#/types/aws-native:qbusiness:WebExperienceCustomizationConfiguration",
+        "description": "Contains the configuration information to customize the logo, font, and color of an Amazon Q Business web experience with individual files for each property or a CSS file for them all."
       },
       "identityProviderConfiguration": {
         "oneOf": [
@@ -13475,10 +13532,12 @@
     "cfTypeName": "AWS::VpcLattice::ServiceNetworkResourceAssociation",
     "properties": {
       "resourceConfigurationId": {
-        "type": "string"
+        "type": "string",
+        "description": "The ID of the resource configuration associated with the service network."
       },
       "serviceNetworkId": {
-        "type": "string"
+        "type": "string",
+        "description": "The ID of the service network associated with the resource configuration."
       },
       "tags": {
         "type": "array",
@@ -13599,13 +13658,16 @@
     "cfTypeName": "AWS::Wisdom::AIGuardrailVersion",
     "properties": {
       "aiGuardrailId": {
-        "type": "string"
+        "type": "string",
+        "description": "The ID of the AI guardrail version."
       },
       "assistantId": {
-        "type": "string"
+        "type": "string",
+        "description": "The ID of the AI guardrail version assistant."
       },
       "modifiedTimeSeconds": {
-        "type": "number"
+        "type": "number",
+        "description": "The modified time of the AI guardrail version in seconds."
       }
     }
   },
