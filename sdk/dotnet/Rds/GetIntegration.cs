@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Rds
         /// </summary>
         public static Output<GetIntegrationResult> Invoke(GetIntegrationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIntegrationResult>("aws-native:rds:getIntegration", args ?? new GetIntegrationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// A zero-ETL integration with Amazon Redshift.
+        /// </summary>
+        public static Output<GetIntegrationResult> Invoke(GetIntegrationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetIntegrationResult>("aws-native:rds:getIntegration", args ?? new GetIntegrationInvokeArgs(), options.WithDefaults());
     }
 
 

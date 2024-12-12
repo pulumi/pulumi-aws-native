@@ -30,6 +30,16 @@ namespace Pulumi.AwsNative.Logs
         /// </summary>
         public static Output<GetDeliveryResult> Invoke(GetDeliveryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDeliveryResult>("aws-native:logs:getDelivery", args ?? new GetDeliveryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// This structure contains information about one delivery in your account.
+        /// 
+        /// A delivery is a connection between a logical delivery source and a logical delivery destination.
+        /// 
+        /// For more information, see [CreateDelivery](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CreateDelivery.html).
+        /// </summary>
+        public static Output<GetDeliveryResult> Invoke(GetDeliveryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDeliveryResult>("aws-native:logs:getDelivery", args ?? new GetDeliveryInvokeArgs(), options.WithDefaults());
     }
 
 

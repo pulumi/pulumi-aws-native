@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.PaymentCryptography
         /// </summary>
         public static Output<GetAliasResult> Invoke(GetAliasInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAliasResult>("aws-native:paymentcryptography:getAlias", args ?? new GetAliasInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::PaymentCryptography::Alias Resource Type
+        /// </summary>
+        public static Output<GetAliasResult> Invoke(GetAliasInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAliasResult>("aws-native:paymentcryptography:getAlias", args ?? new GetAliasInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.NetworkManager
         /// </summary>
         public static Output<GetTransitGatewayPeeringResult> Invoke(GetTransitGatewayPeeringInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTransitGatewayPeeringResult>("aws-native:networkmanager:getTransitGatewayPeering", args ?? new GetTransitGatewayPeeringInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// AWS::NetworkManager::TransitGatewayPeering Resoruce Type.
+        /// </summary>
+        public static Output<GetTransitGatewayPeeringResult> Invoke(GetTransitGatewayPeeringInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTransitGatewayPeeringResult>("aws-native:networkmanager:getTransitGatewayPeering", args ?? new GetTransitGatewayPeeringInvokeArgs(), options.WithDefaults());
     }
 
 

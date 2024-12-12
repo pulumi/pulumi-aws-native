@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.CloudTrail
         /// </summary>
         public static Output<GetResourcePolicyResult> Invoke(GetResourcePolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResourcePolicyResult>("aws-native:cloudtrail:getResourcePolicy", args ?? new GetResourcePolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::CloudTrail::ResourcePolicy
+        /// </summary>
+        public static Output<GetResourcePolicyResult> Invoke(GetResourcePolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetResourcePolicyResult>("aws-native:cloudtrail:getResourcePolicy", args ?? new GetResourcePolicyInvokeArgs(), options.WithDefaults());
     }
 
 

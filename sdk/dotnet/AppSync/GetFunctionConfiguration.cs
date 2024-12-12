@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.AppSync
         /// </summary>
         public static Output<GetFunctionConfigurationResult> Invoke(GetFunctionConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFunctionConfigurationResult>("aws-native:appsync:getFunctionConfiguration", args ?? new GetFunctionConfigurationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// An example resource schema demonstrating some basic constructs and validation rules.
+        /// </summary>
+        public static Output<GetFunctionConfigurationResult> Invoke(GetFunctionConfigurationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFunctionConfigurationResult>("aws-native:appsync:getFunctionConfiguration", args ?? new GetFunctionConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

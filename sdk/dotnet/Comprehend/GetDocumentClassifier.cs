@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Comprehend
         /// </summary>
         public static Output<GetDocumentClassifierResult> Invoke(GetDocumentClassifierInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDocumentClassifierResult>("aws-native:comprehend:getDocumentClassifier", args ?? new GetDocumentClassifierInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Document Classifier enables training document classifier models.
+        /// </summary>
+        public static Output<GetDocumentClassifierResult> Invoke(GetDocumentClassifierInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDocumentClassifierResult>("aws-native:comprehend:getDocumentClassifier", args ?? new GetDocumentClassifierInvokeArgs(), options.WithDefaults());
     }
 
 

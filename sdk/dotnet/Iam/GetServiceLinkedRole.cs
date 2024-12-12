@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Iam
         /// </summary>
         public static Output<GetServiceLinkedRoleResult> Invoke(GetServiceLinkedRoleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceLinkedRoleResult>("aws-native:iam:getServiceLinkedRole", args ?? new GetServiceLinkedRoleInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::IAM::ServiceLinkedRole
+        /// </summary>
+        public static Output<GetServiceLinkedRoleResult> Invoke(GetServiceLinkedRoleInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetServiceLinkedRoleResult>("aws-native:iam:getServiceLinkedRole", args ?? new GetServiceLinkedRoleInvokeArgs(), options.WithDefaults());
     }
 
 

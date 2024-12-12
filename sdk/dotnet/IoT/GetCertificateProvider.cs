@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.IoT
         /// </summary>
         public static Output<GetCertificateProviderResult> Invoke(GetCertificateProviderInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCertificateProviderResult>("aws-native:iot:getCertificateProvider", args ?? new GetCertificateProviderInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Use the AWS::IoT::CertificateProvider resource to declare an AWS IoT Certificate Provider.
+        /// </summary>
+        public static Output<GetCertificateProviderResult> Invoke(GetCertificateProviderInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCertificateProviderResult>("aws-native:iot:getCertificateProvider", args ?? new GetCertificateProviderInvokeArgs(), options.WithDefaults());
     }
 
 

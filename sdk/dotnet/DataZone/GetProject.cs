@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.DataZone
         /// </summary>
         public static Output<GetProjectResult> Invoke(GetProjectInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProjectResult>("aws-native:datazone:getProject", args ?? new GetProjectInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Amazon DataZone projects are business use case–based groupings of people, assets (data), and tools used to simplify access to the AWS analytics.
+        /// </summary>
+        public static Output<GetProjectResult> Invoke(GetProjectInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetProjectResult>("aws-native:datazone:getProject", args ?? new GetProjectInvokeArgs(), options.WithDefaults());
     }
 
 

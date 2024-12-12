@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Backup
         /// </summary>
         public static Output<GetFrameworkResult> Invoke(GetFrameworkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFrameworkResult>("aws-native:backup:getFramework", args ?? new GetFrameworkInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Contains detailed information about a framework. Frameworks contain controls, which evaluate and report on your backup events and resources. Frameworks generate daily compliance results.
+        /// </summary>
+        public static Output<GetFrameworkResult> Invoke(GetFrameworkInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFrameworkResult>("aws-native:backup:getFramework", args ?? new GetFrameworkInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.B2bi
         /// </summary>
         public static Output<GetPartnershipResult> Invoke(GetPartnershipInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPartnershipResult>("aws-native:b2bi:getPartnership", args ?? new GetPartnershipInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::B2BI::Partnership Resource Type
+        /// </summary>
+        public static Output<GetPartnershipResult> Invoke(GetPartnershipInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPartnershipResult>("aws-native:b2bi:getPartnership", args ?? new GetPartnershipInvokeArgs(), options.WithDefaults());
     }
 
 

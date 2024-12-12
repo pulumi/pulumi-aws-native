@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Connect
         /// </summary>
         public static Output<GetViewResult> Invoke(GetViewInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetViewResult>("aws-native:connect:getView", args ?? new GetViewInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::Connect::View
+        /// </summary>
+        public static Output<GetViewResult> Invoke(GetViewInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetViewResult>("aws-native:connect:getView", args ?? new GetViewInvokeArgs(), options.WithDefaults());
     }
 
 

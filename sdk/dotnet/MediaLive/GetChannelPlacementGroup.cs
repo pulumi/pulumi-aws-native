@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.MediaLive
         /// </summary>
         public static Output<GetChannelPlacementGroupResult> Invoke(GetChannelPlacementGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetChannelPlacementGroupResult>("aws-native:medialive:getChannelPlacementGroup", args ?? new GetChannelPlacementGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::MediaLive::ChannelPlacementGroup Resource Type
+        /// </summary>
+        public static Output<GetChannelPlacementGroupResult> Invoke(GetChannelPlacementGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetChannelPlacementGroupResult>("aws-native:medialive:getChannelPlacementGroup", args ?? new GetChannelPlacementGroupInvokeArgs(), options.WithDefaults());
     }
 
 

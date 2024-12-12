@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Forecast
         /// </summary>
         public static Output<GetDatasetGroupResult> Invoke(GetDatasetGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDatasetGroupResult>("aws-native:forecast:getDatasetGroup", args ?? new GetDatasetGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Represents a dataset group that holds a collection of related datasets
+        /// </summary>
+        public static Output<GetDatasetGroupResult> Invoke(GetDatasetGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDatasetGroupResult>("aws-native:forecast:getDatasetGroup", args ?? new GetDatasetGroupInvokeArgs(), options.WithDefaults());
     }
 
 

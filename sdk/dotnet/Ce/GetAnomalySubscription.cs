@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Ce
         /// </summary>
         public static Output<GetAnomalySubscriptionResult> Invoke(GetAnomalySubscriptionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAnomalySubscriptionResult>("aws-native:ce:getAnomalySubscription", args ?? new GetAnomalySubscriptionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// AWS Cost Anomaly Detection leverages advanced Machine Learning technologies to identify anomalous spend and root causes, so you can quickly take action. Create subscription to be notified
+        /// </summary>
+        public static Output<GetAnomalySubscriptionResult> Invoke(GetAnomalySubscriptionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAnomalySubscriptionResult>("aws-native:ce:getAnomalySubscription", args ?? new GetAnomalySubscriptionInvokeArgs(), options.WithDefaults());
     }
 
 

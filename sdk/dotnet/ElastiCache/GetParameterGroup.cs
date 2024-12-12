@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.ElastiCache
         /// </summary>
         public static Output<GetParameterGroupResult> Invoke(GetParameterGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetParameterGroupResult>("aws-native:elasticache:getParameterGroup", args ?? new GetParameterGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::ElastiCache::ParameterGroup
+        /// </summary>
+        public static Output<GetParameterGroupResult> Invoke(GetParameterGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetParameterGroupResult>("aws-native:elasticache:getParameterGroup", args ?? new GetParameterGroupInvokeArgs(), options.WithDefaults());
     }
 
 

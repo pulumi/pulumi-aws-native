@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         /// </summary>
         public static Output<GetTargetGroupResult> Invoke(GetTargetGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTargetGroupResult>("aws-native:elasticloadbalancingv2:getTargetGroup", args ?? new GetTargetGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::ElasticLoadBalancingV2::TargetGroup
+        /// </summary>
+        public static Output<GetTargetGroupResult> Invoke(GetTargetGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTargetGroupResult>("aws-native:elasticloadbalancingv2:getTargetGroup", args ?? new GetTargetGroupInvokeArgs(), options.WithDefaults());
     }
 
 

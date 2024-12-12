@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.CodePipeline
         /// </summary>
         public static Output<GetPipelineResult> Invoke(GetPipelineInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPipelineResult>("aws-native:codepipeline:getPipeline", args ?? new GetPipelineInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The AWS::CodePipeline::Pipeline resource creates a CodePipeline pipeline that describes how software changes go through a release process.
+        /// </summary>
+        public static Output<GetPipelineResult> Invoke(GetPipelineInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPipelineResult>("aws-native:codepipeline:getPipeline", args ?? new GetPipelineInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.RoboMaker
         /// </summary>
         public static Output<GetSimulationApplicationResult> Invoke(GetSimulationApplicationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSimulationApplicationResult>("aws-native:robomaker:getSimulationApplication", args ?? new GetSimulationApplicationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// This schema is for testing purpose only.
+        /// </summary>
+        public static Output<GetSimulationApplicationResult> Invoke(GetSimulationApplicationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSimulationApplicationResult>("aws-native:robomaker:getSimulationApplication", args ?? new GetSimulationApplicationInvokeArgs(), options.WithDefaults());
     }
 
 

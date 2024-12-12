@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Route53Resolver
         /// </summary>
         public static Output<GetOutpostResolverResult> Invoke(GetOutpostResolverInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOutpostResolverResult>("aws-native:route53resolver:getOutpostResolver", args ?? new GetOutpostResolverInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource schema for AWS::Route53Resolver::OutpostResolver.
+        /// </summary>
+        public static Output<GetOutpostResolverResult> Invoke(GetOutpostResolverInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetOutpostResolverResult>("aws-native:route53resolver:getOutpostResolver", args ?? new GetOutpostResolverInvokeArgs(), options.WithDefaults());
     }
 
 

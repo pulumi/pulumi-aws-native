@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Lightsail
         /// </summary>
         public static Output<GetDiskResult> Invoke(GetDiskInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDiskResult>("aws-native:lightsail:getDisk", args ?? new GetDiskInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::Lightsail::Disk
+        /// </summary>
+        public static Output<GetDiskResult> Invoke(GetDiskInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDiskResult>("aws-native:lightsail:getDisk", args ?? new GetDiskInvokeArgs(), options.WithDefaults());
     }
 
 

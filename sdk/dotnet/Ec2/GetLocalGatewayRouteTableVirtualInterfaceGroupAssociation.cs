@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         public static Output<GetLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult> Invoke(GetLocalGatewayRouteTableVirtualInterfaceGroupAssociationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult>("aws-native:ec2:getLocalGatewayRouteTableVirtualInterfaceGroupAssociation", args ?? new GetLocalGatewayRouteTableVirtualInterfaceGroupAssociationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Describes a local gateway route table virtual interface group association for a local gateway.
+        /// </summary>
+        public static Output<GetLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult> Invoke(GetLocalGatewayRouteTableVirtualInterfaceGroupAssociationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult>("aws-native:ec2:getLocalGatewayRouteTableVirtualInterfaceGroupAssociation", args ?? new GetLocalGatewayRouteTableVirtualInterfaceGroupAssociationInvokeArgs(), options.WithDefaults());
     }
 
 

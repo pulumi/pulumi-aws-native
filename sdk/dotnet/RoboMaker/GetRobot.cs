@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.RoboMaker
         /// </summary>
         public static Output<GetRobotResult> Invoke(GetRobotInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRobotResult>("aws-native:robomaker:getRobot", args ?? new GetRobotInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// AWS::RoboMaker::Robot resource creates an AWS RoboMaker Robot.
+        /// </summary>
+        public static Output<GetRobotResult> Invoke(GetRobotInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRobotResult>("aws-native:robomaker:getRobot", args ?? new GetRobotInvokeArgs(), options.WithDefaults());
     }
 
 

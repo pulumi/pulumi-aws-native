@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.IvsChat
         /// </summary>
         public static Output<GetRoomResult> Invoke(GetRoomInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRoomResult>("aws-native:ivschat:getRoom", args ?? new GetRoomInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource type definition for AWS::IVSChat::Room.
+        /// </summary>
+        public static Output<GetRoomResult> Invoke(GetRoomInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRoomResult>("aws-native:ivschat:getRoom", args ?? new GetRoomInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.IoTFleetHub
         /// </summary>
         public static Output<GetApplicationResult> Invoke(GetApplicationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationResult>("aws-native:iotfleethub:getApplication", args ?? new GetApplicationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource schema for AWS::IoTFleetHub::Application
+        /// </summary>
+        public static Output<GetApplicationResult> Invoke(GetApplicationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetApplicationResult>("aws-native:iotfleethub:getApplication", args ?? new GetApplicationInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Athena
         /// </summary>
         public static Output<GetDataCatalogResult> Invoke(GetDataCatalogInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDataCatalogResult>("aws-native:athena:getDataCatalog", args ?? new GetDataCatalogInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource schema for AWS::Athena::DataCatalog
+        /// </summary>
+        public static Output<GetDataCatalogResult> Invoke(GetDataCatalogInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDataCatalogResult>("aws-native:athena:getDataCatalog", args ?? new GetDataCatalogInvokeArgs(), options.WithDefaults());
     }
 
 

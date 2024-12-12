@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Bedrock
         /// </summary>
         public static Output<GetAgentResult> Invoke(GetAgentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAgentResult>("aws-native:bedrock:getAgent", args ?? new GetAgentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::Bedrock::Agent Resource Type
+        /// </summary>
+        public static Output<GetAgentResult> Invoke(GetAgentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAgentResult>("aws-native:bedrock:getAgent", args ?? new GetAgentInvokeArgs(), options.WithDefaults());
     }
 
 

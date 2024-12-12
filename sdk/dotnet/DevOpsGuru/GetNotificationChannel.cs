@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.DevOpsGuru
         /// </summary>
         public static Output<GetNotificationChannelResult> Invoke(GetNotificationChannelInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNotificationChannelResult>("aws-native:devopsguru:getNotificationChannel", args ?? new GetNotificationChannelInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// This resource schema represents the NotificationChannel resource in the Amazon DevOps Guru.
+        /// </summary>
+        public static Output<GetNotificationChannelResult> Invoke(GetNotificationChannelInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetNotificationChannelResult>("aws-native:devopsguru:getNotificationChannel", args ?? new GetNotificationChannelInvokeArgs(), options.WithDefaults());
     }
 
 

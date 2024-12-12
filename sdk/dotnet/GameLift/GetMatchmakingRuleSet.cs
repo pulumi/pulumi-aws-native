@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.GameLift
         /// </summary>
         public static Output<GetMatchmakingRuleSetResult> Invoke(GetMatchmakingRuleSetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMatchmakingRuleSetResult>("aws-native:gamelift:getMatchmakingRuleSet", args ?? new GetMatchmakingRuleSetInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The AWS::GameLift::MatchmakingRuleSet resource creates an Amazon GameLift (GameLift) matchmaking rule set.
+        /// </summary>
+        public static Output<GetMatchmakingRuleSetResult> Invoke(GetMatchmakingRuleSetInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMatchmakingRuleSetResult>("aws-native:gamelift:getMatchmakingRuleSet", args ?? new GetMatchmakingRuleSetInvokeArgs(), options.WithDefaults());
     }
 
 

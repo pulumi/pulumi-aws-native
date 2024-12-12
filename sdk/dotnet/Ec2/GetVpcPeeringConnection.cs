@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         public static Output<GetVpcPeeringConnectionResult> Invoke(GetVpcPeeringConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpcPeeringConnectionResult>("aws-native:ec2:getVpcPeeringConnection", args ?? new GetVpcPeeringConnectionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::EC2::VPCPeeringConnection
+        /// </summary>
+        public static Output<GetVpcPeeringConnectionResult> Invoke(GetVpcPeeringConnectionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVpcPeeringConnectionResult>("aws-native:ec2:getVpcPeeringConnection", args ?? new GetVpcPeeringConnectionInvokeArgs(), options.WithDefaults());
     }
 
 

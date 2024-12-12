@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.CloudFormation
         /// </summary>
         public static Output<GetPublicTypeVersionResult> Invoke(GetPublicTypeVersionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPublicTypeVersionResult>("aws-native:cloudformation:getPublicTypeVersion", args ?? new GetPublicTypeVersionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Test and Publish a resource that has been registered in the CloudFormation Registry.
+        /// </summary>
+        public static Output<GetPublicTypeVersionResult> Invoke(GetPublicTypeVersionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPublicTypeVersionResult>("aws-native:cloudformation:getPublicTypeVersion", args ?? new GetPublicTypeVersionInvokeArgs(), options.WithDefaults());
     }
 
 

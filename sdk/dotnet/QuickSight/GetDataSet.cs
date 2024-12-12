@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.QuickSight
         /// </summary>
         public static Output<GetDataSetResult> Invoke(GetDataSetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDataSetResult>("aws-native:quicksight:getDataSet", args ?? new GetDataSetInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of the AWS::QuickSight::DataSet Resource Type.
+        /// </summary>
+        public static Output<GetDataSetResult> Invoke(GetDataSetInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDataSetResult>("aws-native:quicksight:getDataSet", args ?? new GetDataSetInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.GameLift
         /// </summary>
         public static Output<GetContainerGroupDefinitionResult> Invoke(GetContainerGroupDefinitionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetContainerGroupDefinitionResult>("aws-native:gamelift:getContainerGroupDefinition", args ?? new GetContainerGroupDefinitionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The AWS::GameLift::ContainerGroupDefinition resource creates an Amazon GameLift container group definition.
+        /// </summary>
+        public static Output<GetContainerGroupDefinitionResult> Invoke(GetContainerGroupDefinitionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetContainerGroupDefinitionResult>("aws-native:gamelift:getContainerGroupDefinition", args ?? new GetContainerGroupDefinitionInvokeArgs(), options.WithDefaults());
     }
 
 

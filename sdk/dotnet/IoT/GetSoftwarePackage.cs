@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.IoT
         /// </summary>
         public static Output<GetSoftwarePackageResult> Invoke(GetSoftwarePackageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSoftwarePackageResult>("aws-native:iot:getSoftwarePackage", args ?? new GetSoftwarePackageInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// resource definition
+        /// </summary>
+        public static Output<GetSoftwarePackageResult> Invoke(GetSoftwarePackageInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSoftwarePackageResult>("aws-native:iot:getSoftwarePackage", args ?? new GetSoftwarePackageInvokeArgs(), options.WithDefaults());
     }
 
 

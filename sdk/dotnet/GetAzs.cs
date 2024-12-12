@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative
 
         public static Output<GetAzsResult> Invoke(GetAzsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAzsResult>("aws-native:index:getAzs", args ?? new GetAzsInvokeArgs(), options.WithDefaults());
+
+        public static Output<GetAzsResult> Invoke(GetAzsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAzsResult>("aws-native:index:getAzs", args ?? new GetAzsInvokeArgs(), options.WithDefaults());
     }
 
 

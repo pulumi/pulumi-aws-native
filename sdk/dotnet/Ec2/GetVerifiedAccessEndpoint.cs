@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         public static Output<GetVerifiedAccessEndpointResult> Invoke(GetVerifiedAccessEndpointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVerifiedAccessEndpointResult>("aws-native:ec2:getVerifiedAccessEndpoint", args ?? new GetVerifiedAccessEndpointInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The AWS::EC2::VerifiedAccessEndpoint resource creates an AWS EC2 Verified Access Endpoint.
+        /// </summary>
+        public static Output<GetVerifiedAccessEndpointResult> Invoke(GetVerifiedAccessEndpointInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVerifiedAccessEndpointResult>("aws-native:ec2:getVerifiedAccessEndpoint", args ?? new GetVerifiedAccessEndpointInvokeArgs(), options.WithDefaults());
     }
 
 

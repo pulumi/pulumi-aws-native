@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Route53
         /// </summary>
         public static Output<GetHealthCheckResult> Invoke(GetHealthCheckInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetHealthCheckResult>("aws-native:route53:getHealthCheck", args ?? new GetHealthCheckInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource schema for AWS::Route53::HealthCheck.
+        /// </summary>
+        public static Output<GetHealthCheckResult> Invoke(GetHealthCheckInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetHealthCheckResult>("aws-native:route53:getHealthCheck", args ?? new GetHealthCheckInvokeArgs(), options.WithDefaults());
     }
 
 

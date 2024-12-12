@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Forecast
         /// </summary>
         public static Output<GetDatasetResult> Invoke(GetDatasetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDatasetResult>("aws-native:forecast:getDataset", args ?? new GetDatasetInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type Definition for AWS::Forecast::Dataset
+        /// </summary>
+        public static Output<GetDatasetResult> Invoke(GetDatasetInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDatasetResult>("aws-native:forecast:getDataset", args ?? new GetDatasetInvokeArgs(), options.WithDefaults());
     }
 
 

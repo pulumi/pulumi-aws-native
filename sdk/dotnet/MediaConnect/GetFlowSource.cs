@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.MediaConnect
         /// </summary>
         public static Output<GetFlowSourceResult> Invoke(GetFlowSourceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFlowSourceResult>("aws-native:mediaconnect:getFlowSource", args ?? new GetFlowSourceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource schema for AWS::MediaConnect::FlowSource
+        /// </summary>
+        public static Output<GetFlowSourceResult> Invoke(GetFlowSourceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFlowSourceResult>("aws-native:mediaconnect:getFlowSource", args ?? new GetFlowSourceInvokeArgs(), options.WithDefaults());
     }
 
 

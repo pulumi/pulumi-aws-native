@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.SageMaker
         /// </summary>
         public static Output<GetPartnerAppResult> Invoke(GetPartnerAppInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPartnerAppResult>("aws-native:sagemaker:getPartnerApp", args ?? new GetPartnerAppInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::SageMaker::PartnerApp
+        /// </summary>
+        public static Output<GetPartnerAppResult> Invoke(GetPartnerAppInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPartnerAppResult>("aws-native:sagemaker:getPartnerApp", args ?? new GetPartnerAppInvokeArgs(), options.WithDefaults());
     }
 
 

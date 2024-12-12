@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Synthetics
         /// </summary>
         public static Output<GetGroupResult> Invoke(GetGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGroupResult>("aws-native:synthetics:getGroup", args ?? new GetGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::Synthetics::Group
+        /// </summary>
+        public static Output<GetGroupResult> Invoke(GetGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetGroupResult>("aws-native:synthetics:getGroup", args ?? new GetGroupInvokeArgs(), options.WithDefaults());
     }
 
 

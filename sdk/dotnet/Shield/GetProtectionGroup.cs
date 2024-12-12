@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Shield
         /// </summary>
         public static Output<GetProtectionGroupResult> Invoke(GetProtectionGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProtectionGroupResult>("aws-native:shield:getProtectionGroup", args ?? new GetProtectionGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// A grouping of protected resources so they can be handled as a collective. This resource grouping improves the accuracy of detection and reduces false positives.
+        /// </summary>
+        public static Output<GetProtectionGroupResult> Invoke(GetProtectionGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetProtectionGroupResult>("aws-native:shield:getProtectionGroup", args ?? new GetProtectionGroupInvokeArgs(), options.WithDefaults());
     }
 
 

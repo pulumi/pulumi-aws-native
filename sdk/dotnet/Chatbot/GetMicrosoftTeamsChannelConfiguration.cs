@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Chatbot
         /// </summary>
         public static Output<GetMicrosoftTeamsChannelConfigurationResult> Invoke(GetMicrosoftTeamsChannelConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMicrosoftTeamsChannelConfigurationResult>("aws-native:chatbot:getMicrosoftTeamsChannelConfiguration", args ?? new GetMicrosoftTeamsChannelConfigurationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource schema for AWS::Chatbot::MicrosoftTeamsChannelConfiguration.
+        /// </summary>
+        public static Output<GetMicrosoftTeamsChannelConfigurationResult> Invoke(GetMicrosoftTeamsChannelConfigurationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMicrosoftTeamsChannelConfigurationResult>("aws-native:chatbot:getMicrosoftTeamsChannelConfiguration", args ?? new GetMicrosoftTeamsChannelConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

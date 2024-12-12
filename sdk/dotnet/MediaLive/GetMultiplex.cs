@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.MediaLive
         /// </summary>
         public static Output<GetMultiplexResult> Invoke(GetMultiplexInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMultiplexResult>("aws-native:medialive:getMultiplex", args ?? new GetMultiplexInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource schema for AWS::MediaLive::Multiplex
+        /// </summary>
+        public static Output<GetMultiplexResult> Invoke(GetMultiplexInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMultiplexResult>("aws-native:medialive:getMultiplex", args ?? new GetMultiplexInvokeArgs(), options.WithDefaults());
     }
 
 

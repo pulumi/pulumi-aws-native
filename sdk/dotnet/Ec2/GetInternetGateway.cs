@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         public static Output<GetInternetGatewayResult> Invoke(GetInternetGatewayInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInternetGatewayResult>("aws-native:ec2:getInternetGateway", args ?? new GetInternetGatewayInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Allocates an internet gateway for use with a VPC. After creating the Internet gateway, you then attach it to a VPC.
+        /// </summary>
+        public static Output<GetInternetGatewayResult> Invoke(GetInternetGatewayInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetInternetGatewayResult>("aws-native:ec2:getInternetGateway", args ?? new GetInternetGatewayInvokeArgs(), options.WithDefaults());
     }
 
 

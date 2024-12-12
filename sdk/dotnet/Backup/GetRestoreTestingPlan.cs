@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Backup
         /// </summary>
         public static Output<GetRestoreTestingPlanResult> Invoke(GetRestoreTestingPlanInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRestoreTestingPlanResult>("aws-native:backup:getRestoreTestingPlan", args ?? new GetRestoreTestingPlanInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::Backup::RestoreTestingPlan Resource Type
+        /// </summary>
+        public static Output<GetRestoreTestingPlanResult> Invoke(GetRestoreTestingPlanInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRestoreTestingPlanResult>("aws-native:backup:getRestoreTestingPlan", args ?? new GetRestoreTestingPlanInvokeArgs(), options.WithDefaults());
     }
 
 

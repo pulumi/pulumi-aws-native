@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.EntityResolution
         /// </summary>
         public static Output<GetIdNamespaceResult> Invoke(GetIdNamespaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIdNamespaceResult>("aws-native:entityresolution:getIdNamespace", args ?? new GetIdNamespaceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// IdNamespace defined in AWS Entity Resolution service
+        /// </summary>
+        public static Output<GetIdNamespaceResult> Invoke(GetIdNamespaceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetIdNamespaceResult>("aws-native:entityresolution:getIdNamespace", args ?? new GetIdNamespaceInvokeArgs(), options.WithDefaults());
     }
 
 

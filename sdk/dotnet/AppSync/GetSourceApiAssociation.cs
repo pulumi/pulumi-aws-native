@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.AppSync
         /// </summary>
         public static Output<GetSourceApiAssociationResult> Invoke(GetSourceApiAssociationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSourceApiAssociationResult>("aws-native:appsync:getSourceApiAssociation", args ?? new GetSourceApiAssociationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::AppSync::SourceApiAssociation
+        /// </summary>
+        public static Output<GetSourceApiAssociationResult> Invoke(GetSourceApiAssociationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSourceApiAssociationResult>("aws-native:appsync:getSourceApiAssociation", args ?? new GetSourceApiAssociationInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.EmrContainers
         /// </summary>
         public static Output<GetVirtualClusterResult> Invoke(GetVirtualClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualClusterResult>("aws-native:emrcontainers:getVirtualCluster", args ?? new GetVirtualClusterInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Schema of AWS::EMRContainers::VirtualCluster Type
+        /// </summary>
+        public static Output<GetVirtualClusterResult> Invoke(GetVirtualClusterInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVirtualClusterResult>("aws-native:emrcontainers:getVirtualCluster", args ?? new GetVirtualClusterInvokeArgs(), options.WithDefaults());
     }
 
 

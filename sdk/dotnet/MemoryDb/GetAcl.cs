@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.MemoryDb
         /// </summary>
         public static Output<GetAclResult> Invoke(GetAclInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAclResult>("aws-native:memorydb:getAcl", args ?? new GetAclInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::MemoryDB::ACL
+        /// </summary>
+        public static Output<GetAclResult> Invoke(GetAclInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAclResult>("aws-native:memorydb:getAcl", args ?? new GetAclInvokeArgs(), options.WithDefaults());
     }
 
 

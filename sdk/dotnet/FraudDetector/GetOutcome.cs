@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.FraudDetector
         /// </summary>
         public static Output<GetOutcomeResult> Invoke(GetOutcomeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOutcomeResult>("aws-native:frauddetector:getOutcome", args ?? new GetOutcomeInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// An outcome for rule evaluation.
+        /// </summary>
+        public static Output<GetOutcomeResult> Invoke(GetOutcomeInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetOutcomeResult>("aws-native:frauddetector:getOutcome", args ?? new GetOutcomeInvokeArgs(), options.WithDefaults());
     }
 
 

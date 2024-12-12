@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.WorkSpaces
         /// </summary>
         public static Output<GetWorkspacesPoolResult> Invoke(GetWorkspacesPoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspacesPoolResult>("aws-native:workspaces:getWorkspacesPool", args ?? new GetWorkspacesPoolInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::WorkSpaces::WorkspacesPool
+        /// </summary>
+        public static Output<GetWorkspacesPoolResult> Invoke(GetWorkspacesPoolInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetWorkspacesPoolResult>("aws-native:workspaces:getWorkspacesPool", args ?? new GetWorkspacesPoolInvokeArgs(), options.WithDefaults());
     }
 
 

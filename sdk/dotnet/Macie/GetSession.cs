@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Macie
         /// </summary>
         public static Output<GetSessionResult> Invoke(GetSessionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSessionResult>("aws-native:macie:getSession", args ?? new GetSessionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The AWS::Macie::Session resource specifies a new Amazon Macie session. A session is an object that represents the Amazon Macie service. A session is required for Amazon Macie to become operational.
+        /// </summary>
+        public static Output<GetSessionResult> Invoke(GetSessionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSessionResult>("aws-native:macie:getSession", args ?? new GetSessionInvokeArgs(), options.WithDefaults());
     }
 
 

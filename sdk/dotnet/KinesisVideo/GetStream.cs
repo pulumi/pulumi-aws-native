@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.KinesisVideo
         /// </summary>
         public static Output<GetStreamResult> Invoke(GetStreamInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStreamResult>("aws-native:kinesisvideo:getStream", args ?? new GetStreamInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type Definition for AWS::KinesisVideo::Stream
+        /// </summary>
+        public static Output<GetStreamResult> Invoke(GetStreamInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetStreamResult>("aws-native:kinesisvideo:getStream", args ?? new GetStreamInvokeArgs(), options.WithDefaults());
     }
 
 

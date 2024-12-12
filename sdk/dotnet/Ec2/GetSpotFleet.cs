@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         public static Output<GetSpotFleetResult> Invoke(GetSpotFleetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSpotFleetResult>("aws-native:ec2:getSpotFleet", args ?? new GetSpotFleetInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::EC2::SpotFleet
+        /// </summary>
+        public static Output<GetSpotFleetResult> Invoke(GetSpotFleetInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSpotFleetResult>("aws-native:ec2:getSpotFleet", args ?? new GetSpotFleetInvokeArgs(), options.WithDefaults());
     }
 
 

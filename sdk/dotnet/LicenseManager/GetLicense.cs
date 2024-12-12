@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.LicenseManager
         /// </summary>
         public static Output<GetLicenseResult> Invoke(GetLicenseInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLicenseResult>("aws-native:licensemanager:getLicense", args ?? new GetLicenseInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::LicenseManager::License
+        /// </summary>
+        public static Output<GetLicenseResult> Invoke(GetLicenseInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLicenseResult>("aws-native:licensemanager:getLicense", args ?? new GetLicenseInvokeArgs(), options.WithDefaults());
     }
 
 

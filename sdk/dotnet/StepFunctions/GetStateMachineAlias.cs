@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.StepFunctions
         /// </summary>
         public static Output<GetStateMachineAliasResult> Invoke(GetStateMachineAliasInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStateMachineAliasResult>("aws-native:stepfunctions:getStateMachineAlias", args ?? new GetStateMachineAliasInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource schema for StateMachineAlias
+        /// </summary>
+        public static Output<GetStateMachineAliasResult> Invoke(GetStateMachineAliasInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetStateMachineAliasResult>("aws-native:stepfunctions:getStateMachineAlias", args ?? new GetStateMachineAliasInvokeArgs(), options.WithDefaults());
     }
 
 

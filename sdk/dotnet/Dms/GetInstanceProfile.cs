@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Dms
         /// </summary>
         public static Output<GetInstanceProfileResult> Invoke(GetInstanceProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInstanceProfileResult>("aws-native:dms:getInstanceProfile", args ?? new GetInstanceProfileInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource schema for AWS::DMS::InstanceProfile.
+        /// </summary>
+        public static Output<GetInstanceProfileResult> Invoke(GetInstanceProfileInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetInstanceProfileResult>("aws-native:dms:getInstanceProfile", args ?? new GetInstanceProfileInvokeArgs(), options.WithDefaults());
     }
 
 

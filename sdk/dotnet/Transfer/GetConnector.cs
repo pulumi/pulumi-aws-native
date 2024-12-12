@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Transfer
         /// </summary>
         public static Output<GetConnectorResult> Invoke(GetConnectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectorResult>("aws-native:transfer:getConnector", args ?? new GetConnectorInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::Transfer::Connector
+        /// </summary>
+        public static Output<GetConnectorResult> Invoke(GetConnectorInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetConnectorResult>("aws-native:transfer:getConnector", args ?? new GetConnectorInvokeArgs(), options.WithDefaults());
     }
 
 

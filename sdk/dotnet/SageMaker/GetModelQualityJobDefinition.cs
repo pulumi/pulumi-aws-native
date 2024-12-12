@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.SageMaker
         /// </summary>
         public static Output<GetModelQualityJobDefinitionResult> Invoke(GetModelQualityJobDefinitionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetModelQualityJobDefinitionResult>("aws-native:sagemaker:getModelQualityJobDefinition", args ?? new GetModelQualityJobDefinitionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::SageMaker::ModelQualityJobDefinition
+        /// </summary>
+        public static Output<GetModelQualityJobDefinitionResult> Invoke(GetModelQualityJobDefinitionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetModelQualityJobDefinitionResult>("aws-native:sagemaker:getModelQualityJobDefinition", args ?? new GetModelQualityJobDefinitionInvokeArgs(), options.WithDefaults());
     }
 
 

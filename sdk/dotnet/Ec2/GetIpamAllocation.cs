@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         public static Output<GetIpamAllocationResult> Invoke(GetIpamAllocationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIpamAllocationResult>("aws-native:ec2:getIpamAllocation", args ?? new GetIpamAllocationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Schema of AWS::EC2::IPAMAllocation Type
+        /// </summary>
+        public static Output<GetIpamAllocationResult> Invoke(GetIpamAllocationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetIpamAllocationResult>("aws-native:ec2:getIpamAllocation", args ?? new GetIpamAllocationInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Logs
         /// </summary>
         public static Output<GetAccountPolicyResult> Invoke(GetAccountPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountPolicyResult>("aws-native:logs:getAccountPolicy", args ?? new GetAccountPolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The AWS::Logs::AccountPolicy resource specifies a CloudWatch Logs AccountPolicy.
+        /// </summary>
+        public static Output<GetAccountPolicyResult> Invoke(GetAccountPolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAccountPolicyResult>("aws-native:logs:getAccountPolicy", args ?? new GetAccountPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.IoTTwinMaker
         /// </summary>
         public static Output<GetEntityResult> Invoke(GetEntityInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEntityResult>("aws-native:iottwinmaker:getEntity", args ?? new GetEntityInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource schema for AWS::IoTTwinMaker::Entity
+        /// </summary>
+        public static Output<GetEntityResult> Invoke(GetEntityInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEntityResult>("aws-native:iottwinmaker:getEntity", args ?? new GetEntityInvokeArgs(), options.WithDefaults());
     }
 
 

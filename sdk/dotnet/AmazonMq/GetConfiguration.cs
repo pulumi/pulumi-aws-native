@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.AmazonMq
         /// </summary>
         public static Output<GetConfigurationResult> Invoke(GetConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationResult>("aws-native:amazonmq:getConfiguration", args ?? new GetConfigurationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::AmazonMQ::Configuration
+        /// </summary>
+        public static Output<GetConfigurationResult> Invoke(GetConfigurationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationResult>("aws-native:amazonmq:getConfiguration", args ?? new GetConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

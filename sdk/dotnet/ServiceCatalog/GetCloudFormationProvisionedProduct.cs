@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.ServiceCatalog
         /// </summary>
         public static Output<GetCloudFormationProvisionedProductResult> Invoke(GetCloudFormationProvisionedProductInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCloudFormationProvisionedProductResult>("aws-native:servicecatalog:getCloudFormationProvisionedProduct", args ?? new GetCloudFormationProvisionedProductInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Schema for AWS::ServiceCatalog::CloudFormationProvisionedProduct
+        /// </summary>
+        public static Output<GetCloudFormationProvisionedProductResult> Invoke(GetCloudFormationProvisionedProductInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCloudFormationProvisionedProductResult>("aws-native:servicecatalog:getCloudFormationProvisionedProduct", args ?? new GetCloudFormationProvisionedProductInvokeArgs(), options.WithDefaults());
     }
 
 

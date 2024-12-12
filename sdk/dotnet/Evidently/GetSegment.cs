@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Evidently
         /// </summary>
         public static Output<GetSegmentResult> Invoke(GetSegmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSegmentResult>("aws-native:evidently:getSegment", args ?? new GetSegmentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::Evidently::Segment
+        /// </summary>
+        public static Output<GetSegmentResult> Invoke(GetSegmentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSegmentResult>("aws-native:evidently:getSegment", args ?? new GetSegmentInvokeArgs(), options.WithDefaults());
     }
 
 

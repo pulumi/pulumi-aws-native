@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         public static Output<GetEnclaveCertificateIamRoleAssociationResult> Invoke(GetEnclaveCertificateIamRoleAssociationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEnclaveCertificateIamRoleAssociationResult>("aws-native:ec2:getEnclaveCertificateIamRoleAssociation", args ?? new GetEnclaveCertificateIamRoleAssociationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Associates an AWS Identity and Access Management (IAM) role with an AWS Certificate Manager (ACM) certificate. This association is based on Amazon Resource Names and it enables the certificate to be used by the ACM for Nitro Enclaves application inside an enclave.
+        /// </summary>
+        public static Output<GetEnclaveCertificateIamRoleAssociationResult> Invoke(GetEnclaveCertificateIamRoleAssociationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEnclaveCertificateIamRoleAssociationResult>("aws-native:ec2:getEnclaveCertificateIamRoleAssociation", args ?? new GetEnclaveCertificateIamRoleAssociationInvokeArgs(), options.WithDefaults());
     }
 
 

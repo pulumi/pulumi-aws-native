@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.IoTSiteWise
         /// </summary>
         public static Output<GetAccessPolicyResult> Invoke(GetAccessPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccessPolicyResult>("aws-native:iotsitewise:getAccessPolicy", args ?? new GetAccessPolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource schema for AWS::IoTSiteWise::AccessPolicy
+        /// </summary>
+        public static Output<GetAccessPolicyResult> Invoke(GetAccessPolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAccessPolicyResult>("aws-native:iotsitewise:getAccessPolicy", args ?? new GetAccessPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

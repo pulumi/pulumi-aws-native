@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative
 
         public static Output<ImportValueResult> Invoke(ImportValueInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ImportValueResult>("aws-native:index:importValue", args ?? new ImportValueInvokeArgs(), options.WithDefaults());
+
+        public static Output<ImportValueResult> Invoke(ImportValueInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<ImportValueResult>("aws-native:index:importValue", args ?? new ImportValueInvokeArgs(), options.WithDefaults());
     }
 
 

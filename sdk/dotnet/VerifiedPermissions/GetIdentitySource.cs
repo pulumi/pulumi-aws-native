@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.VerifiedPermissions
         /// </summary>
         public static Output<GetIdentitySourceResult> Invoke(GetIdentitySourceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIdentitySourceResult>("aws-native:verifiedpermissions:getIdentitySource", args ?? new GetIdentitySourceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::VerifiedPermissions::IdentitySource Resource Type
+        /// </summary>
+        public static Output<GetIdentitySourceResult> Invoke(GetIdentitySourceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetIdentitySourceResult>("aws-native:verifiedpermissions:getIdentitySource", args ?? new GetIdentitySourceInvokeArgs(), options.WithDefaults());
     }
 
 

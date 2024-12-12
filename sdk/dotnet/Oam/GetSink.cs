@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Oam
         /// </summary>
         public static Output<GetSinkResult> Invoke(GetSinkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSinkResult>("aws-native:oam:getSink", args ?? new GetSinkInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::Oam::Sink
+        /// </summary>
+        public static Output<GetSinkResult> Invoke(GetSinkInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSinkResult>("aws-native:oam:getSink", args ?? new GetSinkInvokeArgs(), options.WithDefaults());
     }
 
 

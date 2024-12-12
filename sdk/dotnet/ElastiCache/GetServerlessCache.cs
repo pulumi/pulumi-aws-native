@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.ElastiCache
         /// </summary>
         public static Output<GetServerlessCacheResult> Invoke(GetServerlessCacheInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerlessCacheResult>("aws-native:elasticache:getServerlessCache", args ?? new GetServerlessCacheInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The AWS::ElastiCache::ServerlessCache resource creates an Amazon ElastiCache Serverless Cache.
+        /// </summary>
+        public static Output<GetServerlessCacheResult> Invoke(GetServerlessCacheInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetServerlessCacheResult>("aws-native:elasticache:getServerlessCache", args ?? new GetServerlessCacheInvokeArgs(), options.WithDefaults());
     }
 
 

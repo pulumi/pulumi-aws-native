@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.RolesAnywhere
         /// </summary>
         public static Output<GetCrlResult> Invoke(GetCrlInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCrlResult>("aws-native:rolesanywhere:getCrl", args ?? new GetCrlInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::RolesAnywhere::CRL Resource Type
+        /// </summary>
+        public static Output<GetCrlResult> Invoke(GetCrlInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCrlResult>("aws-native:rolesanywhere:getCrl", args ?? new GetCrlInvokeArgs(), options.WithDefaults());
     }
 
 

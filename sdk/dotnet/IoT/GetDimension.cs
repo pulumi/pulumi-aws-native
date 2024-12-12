@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.IoT
         /// </summary>
         public static Output<GetDimensionResult> Invoke(GetDimensionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDimensionResult>("aws-native:iot:getDimension", args ?? new GetDimensionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// A dimension can be used to limit the scope of a metric used in a security profile for AWS IoT Device Defender.
+        /// </summary>
+        public static Output<GetDimensionResult> Invoke(GetDimensionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDimensionResult>("aws-native:iot:getDimension", args ?? new GetDimensionInvokeArgs(), options.WithDefaults());
     }
 
 

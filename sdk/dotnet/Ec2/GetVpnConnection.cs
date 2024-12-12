@@ -28,6 +28,15 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         public static Output<GetVpnConnectionResult> Invoke(GetVpnConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpnConnectionResult>("aws-native:ec2:getVpnConnection", args ?? new GetVpnConnectionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Specifies a VPN connection between a virtual private gateway and a VPN customer gateway or a transit gateway and a VPN customer gateway.
+        ///  To specify a VPN connection between a transit gateway and customer gateway, use the ``TransitGatewayId`` and ``CustomerGatewayId`` properties.
+        ///  To specify a VPN connection between a virtual private gateway and customer gateway, use the ``VpnGatewayId`` and ``CustomerGatewayId`` properties.
+        ///  For more information, see [](https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html) in the *User Guide*.
+        /// </summary>
+        public static Output<GetVpnConnectionResult> Invoke(GetVpnConnectionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVpnConnectionResult>("aws-native:ec2:getVpnConnection", args ?? new GetVpnConnectionInvokeArgs(), options.WithDefaults());
     }
 
 

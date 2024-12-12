@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.OpenSearchServerless
         /// </summary>
         public static Output<GetCollectionResult> Invoke(GetCollectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCollectionResult>("aws-native:opensearchserverless:getCollection", args ?? new GetCollectionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Amazon OpenSearchServerless collection resource
+        /// </summary>
+        public static Output<GetCollectionResult> Invoke(GetCollectionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCollectionResult>("aws-native:opensearchserverless:getCollection", args ?? new GetCollectionInvokeArgs(), options.WithDefaults());
     }
 
 

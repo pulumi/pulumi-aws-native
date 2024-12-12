@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Connect
         /// </summary>
         public static Output<GetInstanceResult> Invoke(GetInstanceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInstanceResult>("aws-native:connect:getInstance", args ?? new GetInstanceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::Connect::Instance
+        /// </summary>
+        public static Output<GetInstanceResult> Invoke(GetInstanceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetInstanceResult>("aws-native:connect:getInstance", args ?? new GetInstanceInvokeArgs(), options.WithDefaults());
     }
 
 

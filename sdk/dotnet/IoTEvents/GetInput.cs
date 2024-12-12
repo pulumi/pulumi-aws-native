@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.IoTEvents
         /// </summary>
         public static Output<GetInputResult> Invoke(GetInputInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInputResult>("aws-native:iotevents:getInput", args ?? new GetInputInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The AWS::IoTEvents::Input resource creates an input. To monitor your devices and processes, they must have a way to get telemetry data into ITE. This is done by sending messages as *inputs* to ITE. For more information, see [How to Use](https://docs.aws.amazon.com/iotevents/latest/developerguide/how-to-use-iotevents.html) in the *Developer Guide*.
+        /// </summary>
+        public static Output<GetInputResult> Invoke(GetInputInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetInputResult>("aws-native:iotevents:getInput", args ?? new GetInputInvokeArgs(), options.WithDefaults());
     }
 
 

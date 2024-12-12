@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.MediaPackage
         /// </summary>
         public static Output<GetPackagingGroupResult> Invoke(GetPackagingGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPackagingGroupResult>("aws-native:mediapackage:getPackagingGroup", args ?? new GetPackagingGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource schema for AWS::MediaPackage::PackagingGroup
+        /// </summary>
+        public static Output<GetPackagingGroupResult> Invoke(GetPackagingGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPackagingGroupResult>("aws-native:mediapackage:getPackagingGroup", args ?? new GetPackagingGroupInvokeArgs(), options.WithDefaults());
     }
 
 

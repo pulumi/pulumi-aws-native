@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.ServiceCatalogAppRegistry
         /// </summary>
         public static Output<GetResourceAssociationResult> Invoke(GetResourceAssociationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResourceAssociationResult>("aws-native:servicecatalogappregistry:getResourceAssociation", args ?? new GetResourceAssociationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Schema for AWS::ServiceCatalogAppRegistry::ResourceAssociation
+        /// </summary>
+        public static Output<GetResourceAssociationResult> Invoke(GetResourceAssociationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetResourceAssociationResult>("aws-native:servicecatalogappregistry:getResourceAssociation", args ?? new GetResourceAssociationInvokeArgs(), options.WithDefaults());
     }
 
 

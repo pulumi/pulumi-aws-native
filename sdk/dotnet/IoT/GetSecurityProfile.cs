@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.IoT
         /// </summary>
         public static Output<GetSecurityProfileResult> Invoke(GetSecurityProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecurityProfileResult>("aws-native:iot:getSecurityProfile", args ?? new GetSecurityProfileInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// A security profile defines a set of expected behaviors for devices in your account.
+        /// </summary>
+        public static Output<GetSecurityProfileResult> Invoke(GetSecurityProfileInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSecurityProfileResult>("aws-native:iot:getSecurityProfile", args ?? new GetSecurityProfileInvokeArgs(), options.WithDefaults());
     }
 
 

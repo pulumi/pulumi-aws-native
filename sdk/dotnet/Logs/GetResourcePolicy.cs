@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Logs
         /// </summary>
         public static Output<GetResourcePolicyResult> Invoke(GetResourcePolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResourcePolicyResult>("aws-native:logs:getResourcePolicy", args ?? new GetResourcePolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The resource schema for AWSLogs ResourcePolicy
+        /// </summary>
+        public static Output<GetResourcePolicyResult> Invoke(GetResourcePolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetResourcePolicyResult>("aws-native:logs:getResourcePolicy", args ?? new GetResourcePolicyInvokeArgs(), options.WithDefaults());
     }
 
 

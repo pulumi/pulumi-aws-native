@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Bedrock
         /// </summary>
         public static Output<GetFlowResult> Invoke(GetFlowInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFlowResult>("aws-native:bedrock:getFlow", args ?? new GetFlowInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::Bedrock::Flow Resource Type
+        /// </summary>
+        public static Output<GetFlowResult> Invoke(GetFlowInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFlowResult>("aws-native:bedrock:getFlow", args ?? new GetFlowInvokeArgs(), options.WithDefaults());
     }
 
 

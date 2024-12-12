@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.SageMaker
         /// </summary>
         public static Output<GetDomainResult> Invoke(GetDomainInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDomainResult>("aws-native:sagemaker:getDomain", args ?? new GetDomainInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::SageMaker::Domain
+        /// </summary>
+        public static Output<GetDomainResult> Invoke(GetDomainInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDomainResult>("aws-native:sagemaker:getDomain", args ?? new GetDomainInvokeArgs(), options.WithDefaults());
     }
 
 

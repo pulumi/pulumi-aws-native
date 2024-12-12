@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.KendraRanking
         /// </summary>
         public static Output<GetExecutionPlanResult> Invoke(GetExecutionPlanInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExecutionPlanResult>("aws-native:kendraranking:getExecutionPlan", args ?? new GetExecutionPlanInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// A KendraRanking Rescore execution plan
+        /// </summary>
+        public static Output<GetExecutionPlanResult> Invoke(GetExecutionPlanInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetExecutionPlanResult>("aws-native:kendraranking:getExecutionPlan", args ?? new GetExecutionPlanInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Lambda
         /// </summary>
         public static Output<GetVersionResult> Invoke(GetVersionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVersionResult>("aws-native:lambda:getVersion", args ?? new GetVersionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::Lambda::Version
+        /// </summary>
+        public static Output<GetVersionResult> Invoke(GetVersionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVersionResult>("aws-native:lambda:getVersion", args ?? new GetVersionInvokeArgs(), options.WithDefaults());
     }
 
 

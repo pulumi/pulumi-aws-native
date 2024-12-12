@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.DataZone
         /// </summary>
         public static Output<GetEnvironmentProfileResult> Invoke(GetEnvironmentProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEnvironmentProfileResult>("aws-native:datazone:getEnvironmentProfile", args ?? new GetEnvironmentProfileInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// AWS Datazone Environment Profile is pre-configured set of resources and blueprints that provide reusable templates for creating environments.
+        /// </summary>
+        public static Output<GetEnvironmentProfileResult> Invoke(GetEnvironmentProfileInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEnvironmentProfileResult>("aws-native:datazone:getEnvironmentProfile", args ?? new GetEnvironmentProfileInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.NimbleStudio
         /// </summary>
         public static Output<GetStudioResult> Invoke(GetStudioInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStudioResult>("aws-native:nimblestudio:getStudio", args ?? new GetStudioInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::NimbleStudio::Studio
+        /// </summary>
+        public static Output<GetStudioResult> Invoke(GetStudioInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetStudioResult>("aws-native:nimblestudio:getStudio", args ?? new GetStudioInvokeArgs(), options.WithDefaults());
     }
 
 

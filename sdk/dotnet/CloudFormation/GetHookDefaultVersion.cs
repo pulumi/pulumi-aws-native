@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.CloudFormation
         /// </summary>
         public static Output<GetHookDefaultVersionResult> Invoke(GetHookDefaultVersionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetHookDefaultVersionResult>("aws-native:cloudformation:getHookDefaultVersion", args ?? new GetHookDefaultVersionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Set a version as default version for a hook in CloudFormation Registry.
+        /// </summary>
+        public static Output<GetHookDefaultVersionResult> Invoke(GetHookDefaultVersionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetHookDefaultVersionResult>("aws-native:cloudformation:getHookDefaultVersion", args ?? new GetHookDefaultVersionInvokeArgs(), options.WithDefaults());
     }
 
 

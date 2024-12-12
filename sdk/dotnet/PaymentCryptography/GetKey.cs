@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.PaymentCryptography
         /// </summary>
         public static Output<GetKeyResult> Invoke(GetKeyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetKeyResult>("aws-native:paymentcryptography:getKey", args ?? new GetKeyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::PaymentCryptography::Key Resource Type
+        /// </summary>
+        public static Output<GetKeyResult> Invoke(GetKeyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetKeyResult>("aws-native:paymentcryptography:getKey", args ?? new GetKeyInvokeArgs(), options.WithDefaults());
     }
 
 

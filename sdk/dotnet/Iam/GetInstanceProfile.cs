@@ -24,6 +24,13 @@ namespace Pulumi.AwsNative.Iam
         /// </summary>
         public static Output<GetInstanceProfileResult> Invoke(GetInstanceProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInstanceProfileResult>("aws-native:iam:getInstanceProfile", args ?? new GetInstanceProfileInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Creates a new instance profile. For information about instance profiles, see [Using instance profiles](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html).
+        ///   For information about the number of instance profiles you can create, see [object quotas](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_iam-quotas.html) in the *User Guide*.
+        /// </summary>
+        public static Output<GetInstanceProfileResult> Invoke(GetInstanceProfileInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetInstanceProfileResult>("aws-native:iam:getInstanceProfile", args ?? new GetInstanceProfileInvokeArgs(), options.WithDefaults());
     }
 
 

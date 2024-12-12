@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.CloudFront
         /// </summary>
         public static Output<GetMonitoringSubscriptionResult> Invoke(GetMonitoringSubscriptionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMonitoringSubscriptionResult>("aws-native:cloudfront:getMonitoringSubscription", args ?? new GetMonitoringSubscriptionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// A monitoring subscription. This structure contains information about whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
+        /// </summary>
+        public static Output<GetMonitoringSubscriptionResult> Invoke(GetMonitoringSubscriptionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMonitoringSubscriptionResult>("aws-native:cloudfront:getMonitoringSubscription", args ?? new GetMonitoringSubscriptionInvokeArgs(), options.WithDefaults());
     }
 
 

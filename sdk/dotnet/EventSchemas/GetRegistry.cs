@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.EventSchemas
         /// </summary>
         public static Output<GetRegistryResult> Invoke(GetRegistryInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRegistryResult>("aws-native:eventschemas:getRegistry", args ?? new GetRegistryInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::EventSchemas::Registry
+        /// </summary>
+        public static Output<GetRegistryResult> Invoke(GetRegistryInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRegistryResult>("aws-native:eventschemas:getRegistry", args ?? new GetRegistryInvokeArgs(), options.WithDefaults());
     }
 
 

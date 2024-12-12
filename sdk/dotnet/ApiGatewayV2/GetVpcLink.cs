@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         /// </summary>
         public static Output<GetVpcLinkResult> Invoke(GetVpcLinkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpcLinkResult>("aws-native:apigatewayv2:getVpcLink", args ?? new GetVpcLinkInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The ``AWS::ApiGatewayV2::VpcLink`` resource creates a VPC link. Supported only for HTTP APIs. The VPC link status must transition from ``PENDING`` to ``AVAILABLE`` to successfully create a VPC link, which can take up to 10 minutes. To learn more, see [Working with VPC Links for HTTP APIs](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-vpc-links.html) in the *API Gateway Developer Guide*.
+        /// </summary>
+        public static Output<GetVpcLinkResult> Invoke(GetVpcLinkInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVpcLinkResult>("aws-native:apigatewayv2:getVpcLink", args ?? new GetVpcLinkInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.NetworkManager
         /// </summary>
         public static Output<GetConnectPeerResult> Invoke(GetConnectPeerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectPeerResult>("aws-native:networkmanager:getConnectPeer", args ?? new GetConnectPeerInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// AWS::NetworkManager::ConnectPeer Resource Type Definition.
+        /// </summary>
+        public static Output<GetConnectPeerResult> Invoke(GetConnectPeerInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetConnectPeerResult>("aws-native:networkmanager:getConnectPeer", args ?? new GetConnectPeerInvokeArgs(), options.WithDefaults());
     }
 
 

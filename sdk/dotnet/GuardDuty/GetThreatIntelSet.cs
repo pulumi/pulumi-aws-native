@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.GuardDuty
         /// </summary>
         public static Output<GetThreatIntelSetResult> Invoke(GetThreatIntelSetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetThreatIntelSetResult>("aws-native:guardduty:getThreatIntelSet", args ?? new GetThreatIntelSetInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::GuardDuty::ThreatIntelSet
+        /// </summary>
+        public static Output<GetThreatIntelSetResult> Invoke(GetThreatIntelSetInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetThreatIntelSetResult>("aws-native:guardduty:getThreatIntelSet", args ?? new GetThreatIntelSetInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Fms
         /// </summary>
         public static Output<GetResourceSetResult> Invoke(GetResourceSetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResourceSetResult>("aws-native:fms:getResourceSet", args ?? new GetResourceSetInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Creates an AWS Firewall Manager resource set.
+        /// </summary>
+        public static Output<GetResourceSetResult> Invoke(GetResourceSetInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetResourceSetResult>("aws-native:fms:getResourceSet", args ?? new GetResourceSetInvokeArgs(), options.WithDefaults());
     }
 
 

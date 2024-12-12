@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.ArcZonalShift
         /// </summary>
         public static Output<GetAutoshiftObserverNotificationStatusResult> Invoke(GetAutoshiftObserverNotificationStatusInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAutoshiftObserverNotificationStatusResult>("aws-native:arczonalshift:getAutoshiftObserverNotificationStatus", args ?? new GetAutoshiftObserverNotificationStatusInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::ARCZonalShift::AutoshiftObserverNotificationStatus Resource Type
+        /// </summary>
+        public static Output<GetAutoshiftObserverNotificationStatusResult> Invoke(GetAutoshiftObserverNotificationStatusInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAutoshiftObserverNotificationStatusResult>("aws-native:arczonalshift:getAutoshiftObserverNotificationStatus", args ?? new GetAutoshiftObserverNotificationStatusInvokeArgs(), options.WithDefaults());
     }
 
 

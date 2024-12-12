@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Location
         /// </summary>
         public static Output<GetMapResult> Invoke(GetMapInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMapResult>("aws-native:location:getMap", args ?? new GetMapInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::Location::Map Resource Type
+        /// </summary>
+        public static Output<GetMapResult> Invoke(GetMapInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMapResult>("aws-native:location:getMap", args ?? new GetMapInvokeArgs(), options.WithDefaults());
     }
 
 

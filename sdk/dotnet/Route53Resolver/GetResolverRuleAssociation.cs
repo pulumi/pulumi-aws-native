@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Route53Resolver
         /// </summary>
         public static Output<GetResolverRuleAssociationResult> Invoke(GetResolverRuleAssociationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResolverRuleAssociationResult>("aws-native:route53resolver:getResolverRuleAssociation", args ?? new GetResolverRuleAssociationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// In the response to an [AssociateResolverRule](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_AssociateResolverRule.html), [DisassociateResolverRule](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_DisassociateResolverRule.html), or [ListResolverRuleAssociations](https://docs.aws.amazon.com/Route53/latest/APIReference/API_route53resolver_ListResolverRuleAssociations.html) request, provides information about an association between a resolver rule and a VPC. The association determines which DNS queries that originate in the VPC are forwarded to your network.
+        /// </summary>
+        public static Output<GetResolverRuleAssociationResult> Invoke(GetResolverRuleAssociationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetResolverRuleAssociationResult>("aws-native:route53resolver:getResolverRuleAssociation", args ?? new GetResolverRuleAssociationInvokeArgs(), options.WithDefaults());
     }
 
 

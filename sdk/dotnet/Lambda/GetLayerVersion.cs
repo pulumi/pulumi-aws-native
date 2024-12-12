@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Lambda
         /// </summary>
         public static Output<GetLayerVersionResult> Invoke(GetLayerVersionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLayerVersionResult>("aws-native:lambda:getLayerVersion", args ?? new GetLayerVersionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::Lambda::LayerVersion
+        /// </summary>
+        public static Output<GetLayerVersionResult> Invoke(GetLayerVersionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLayerVersionResult>("aws-native:lambda:getLayerVersion", args ?? new GetLayerVersionInvokeArgs(), options.WithDefaults());
     }
 
 

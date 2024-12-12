@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Organizations
         /// </summary>
         public static Output<GetResourcePolicyResult> Invoke(GetResourcePolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResourcePolicyResult>("aws-native:organizations:getResourcePolicy", args ?? new GetResourcePolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// You can use AWS::Organizations::ResourcePolicy to delegate policy management for AWS Organizations to specified member accounts to perform policy actions that are by default available only to the management account.
+        /// </summary>
+        public static Output<GetResourcePolicyResult> Invoke(GetResourcePolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetResourcePolicyResult>("aws-native:organizations:getResourcePolicy", args ?? new GetResourcePolicyInvokeArgs(), options.WithDefaults());
     }
 
 

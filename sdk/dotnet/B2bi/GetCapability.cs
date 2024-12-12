@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.B2bi
         /// </summary>
         public static Output<GetCapabilityResult> Invoke(GetCapabilityInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCapabilityResult>("aws-native:b2bi:getCapability", args ?? new GetCapabilityInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::B2BI::Capability Resource Type
+        /// </summary>
+        public static Output<GetCapabilityResult> Invoke(GetCapabilityInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCapabilityResult>("aws-native:b2bi:getCapability", args ?? new GetCapabilityInvokeArgs(), options.WithDefaults());
     }
 
 

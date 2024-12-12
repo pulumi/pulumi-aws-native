@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.QBusiness
         /// </summary>
         public static Output<GetApplicationResult> Invoke(GetApplicationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationResult>("aws-native:qbusiness:getApplication", args ?? new GetApplicationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::QBusiness::Application Resource Type
+        /// </summary>
+        public static Output<GetApplicationResult> Invoke(GetApplicationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetApplicationResult>("aws-native:qbusiness:getApplication", args ?? new GetApplicationInvokeArgs(), options.WithDefaults());
     }
 
 

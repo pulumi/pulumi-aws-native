@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Timestream
         /// </summary>
         public static Output<GetTableResult> Invoke(GetTableInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTableResult>("aws-native:timestream:getTable", args ?? new GetTableInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The AWS::Timestream::Table resource creates a Timestream Table.
+        /// </summary>
+        public static Output<GetTableResult> Invoke(GetTableInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTableResult>("aws-native:timestream:getTable", args ?? new GetTableInvokeArgs(), options.WithDefaults());
     }
 
 

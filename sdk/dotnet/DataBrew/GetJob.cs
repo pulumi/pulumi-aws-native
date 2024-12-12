@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.DataBrew
         /// </summary>
         public static Output<GetJobResult> Invoke(GetJobInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetJobResult>("aws-native:databrew:getJob", args ?? new GetJobInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource schema for AWS::DataBrew::Job.
+        /// </summary>
+        public static Output<GetJobResult> Invoke(GetJobInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetJobResult>("aws-native:databrew:getJob", args ?? new GetJobInvokeArgs(), options.WithDefaults());
     }
 
 

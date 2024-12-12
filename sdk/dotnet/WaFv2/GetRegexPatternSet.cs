@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.WaFv2
         /// </summary>
         public static Output<GetRegexPatternSetResult> Invoke(GetRegexPatternSetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRegexPatternSetResult>("aws-native:wafv2:getRegexPatternSet", args ?? new GetRegexPatternSetInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Contains a list of Regular expressions based on the provided inputs. RegexPatternSet can be used with other WAF entities with RegexPatternSetReferenceStatement to perform other actions .
+        /// </summary>
+        public static Output<GetRegexPatternSetResult> Invoke(GetRegexPatternSetInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRegexPatternSetResult>("aws-native:wafv2:getRegexPatternSet", args ?? new GetRegexPatternSetInvokeArgs(), options.WithDefaults());
     }
 
 

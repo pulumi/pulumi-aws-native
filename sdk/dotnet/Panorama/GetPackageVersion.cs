@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Panorama
         /// </summary>
         public static Output<GetPackageVersionResult> Invoke(GetPackageVersionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPackageVersionResult>("aws-native:panorama:getPackageVersion", args ?? new GetPackageVersionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Registers a package version.
+        /// </summary>
+        public static Output<GetPackageVersionResult> Invoke(GetPackageVersionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPackageVersionResult>("aws-native:panorama:getPackageVersion", args ?? new GetPackageVersionInvokeArgs(), options.WithDefaults());
     }
 
 

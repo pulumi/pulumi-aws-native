@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Dms
         /// </summary>
         public static Output<GetDataMigrationResult> Invoke(GetDataMigrationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDataMigrationResult>("aws-native:dms:getDataMigration", args ?? new GetDataMigrationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource schema for AWS::DMS::DataMigration.
+        /// </summary>
+        public static Output<GetDataMigrationResult> Invoke(GetDataMigrationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDataMigrationResult>("aws-native:dms:getDataMigration", args ?? new GetDataMigrationInvokeArgs(), options.WithDefaults());
     }
 
 

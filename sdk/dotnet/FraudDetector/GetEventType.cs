@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.FraudDetector
         /// </summary>
         public static Output<GetEventTypeResult> Invoke(GetEventTypeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEventTypeResult>("aws-native:frauddetector:getEventType", args ?? new GetEventTypeInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// A resource schema for an EventType in Amazon Fraud Detector.
+        /// </summary>
+        public static Output<GetEventTypeResult> Invoke(GetEventTypeInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEventTypeResult>("aws-native:frauddetector:getEventType", args ?? new GetEventTypeInvokeArgs(), options.WithDefaults());
     }
 
 

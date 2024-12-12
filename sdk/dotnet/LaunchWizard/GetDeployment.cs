@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.LaunchWizard
         /// </summary>
         public static Output<GetDeploymentResult> Invoke(GetDeploymentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDeploymentResult>("aws-native:launchwizard:getDeployment", args ?? new GetDeploymentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::LaunchWizard::Deployment Resource Type
+        /// </summary>
+        public static Output<GetDeploymentResult> Invoke(GetDeploymentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDeploymentResult>("aws-native:launchwizard:getDeployment", args ?? new GetDeploymentInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Shield
         /// </summary>
         public static Output<GetProtectionResult> Invoke(GetProtectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProtectionResult>("aws-native:shield:getProtection", args ?? new GetProtectionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Enables AWS Shield Advanced for a specific AWS resource. The resource can be an Amazon CloudFront distribution, Amazon Route 53 hosted zone, AWS Global Accelerator standard accelerator, Elastic IP Address, Application Load Balancer, or a Classic Load Balancer. You can protect Amazon EC2 instances and Network Load Balancers by association with protected Amazon EC2 Elastic IP addresses.
+        /// </summary>
+        public static Output<GetProtectionResult> Invoke(GetProtectionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetProtectionResult>("aws-native:shield:getProtection", args ?? new GetProtectionInvokeArgs(), options.WithDefaults());
     }
 
 

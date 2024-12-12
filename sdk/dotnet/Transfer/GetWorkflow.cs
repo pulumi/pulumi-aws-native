@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Transfer
         /// </summary>
         public static Output<GetWorkflowResult> Invoke(GetWorkflowInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkflowResult>("aws-native:transfer:getWorkflow", args ?? new GetWorkflowInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::Transfer::Workflow
+        /// </summary>
+        public static Output<GetWorkflowResult> Invoke(GetWorkflowInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetWorkflowResult>("aws-native:transfer:getWorkflow", args ?? new GetWorkflowInvokeArgs(), options.WithDefaults());
     }
 
 

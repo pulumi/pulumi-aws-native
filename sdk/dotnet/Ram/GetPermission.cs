@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Ram
         /// </summary>
         public static Output<GetPermissionResult> Invoke(GetPermissionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPermissionResult>("aws-native:ram:getPermission", args ?? new GetPermissionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource type definition for AWS::RAM::Permission
+        /// </summary>
+        public static Output<GetPermissionResult> Invoke(GetPermissionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPermissionResult>("aws-native:ram:getPermission", args ?? new GetPermissionInvokeArgs(), options.WithDefaults());
     }
 
 

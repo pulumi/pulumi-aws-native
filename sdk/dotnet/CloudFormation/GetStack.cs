@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.CloudFormation
         /// </summary>
         public static Output<GetStackResult> Invoke(GetStackInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStackResult>("aws-native:cloudformation:getStack", args ?? new GetStackInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The AWS::CloudFormation::Stack resource nests a stack as a resource in a top-level template.
+        /// </summary>
+        public static Output<GetStackResult> Invoke(GetStackInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetStackResult>("aws-native:cloudformation:getStack", args ?? new GetStackInvokeArgs(), options.WithDefaults());
     }
 
 

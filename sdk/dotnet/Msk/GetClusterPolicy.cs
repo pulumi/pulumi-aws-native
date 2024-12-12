@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Msk
         /// </summary>
         public static Output<GetClusterPolicyResult> Invoke(GetClusterPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterPolicyResult>("aws-native:msk:getClusterPolicy", args ?? new GetClusterPolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::MSK::ClusterPolicy
+        /// </summary>
+        public static Output<GetClusterPolicyResult> Invoke(GetClusterPolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetClusterPolicyResult>("aws-native:msk:getClusterPolicy", args ?? new GetClusterPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

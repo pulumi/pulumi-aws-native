@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Ses
         /// </summary>
         public static Output<GetEmailIdentityResult> Invoke(GetEmailIdentityInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEmailIdentityResult>("aws-native:ses:getEmailIdentity", args ?? new GetEmailIdentityInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::SES::EmailIdentity
+        /// </summary>
+        public static Output<GetEmailIdentityResult> Invoke(GetEmailIdentityInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEmailIdentityResult>("aws-native:ses:getEmailIdentity", args ?? new GetEmailIdentityInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.MediaPackage
         /// </summary>
         public static Output<GetChannelResult> Invoke(GetChannelInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetChannelResult>("aws-native:mediapackage:getChannel", args ?? new GetChannelInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource schema for AWS::MediaPackage::Channel
+        /// </summary>
+        public static Output<GetChannelResult> Invoke(GetChannelInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetChannelResult>("aws-native:mediapackage:getChannel", args ?? new GetChannelInvokeArgs(), options.WithDefaults());
     }
 
 

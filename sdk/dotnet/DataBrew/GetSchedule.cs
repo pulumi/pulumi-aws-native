@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.DataBrew
         /// </summary>
         public static Output<GetScheduleResult> Invoke(GetScheduleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetScheduleResult>("aws-native:databrew:getSchedule", args ?? new GetScheduleInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource schema for AWS::DataBrew::Schedule.
+        /// </summary>
+        public static Output<GetScheduleResult> Invoke(GetScheduleInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetScheduleResult>("aws-native:databrew:getSchedule", args ?? new GetScheduleInvokeArgs(), options.WithDefaults());
     }
 
 

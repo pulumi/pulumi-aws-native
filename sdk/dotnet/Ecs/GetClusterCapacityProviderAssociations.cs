@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Ecs
         /// </summary>
         public static Output<GetClusterCapacityProviderAssociationsResult> Invoke(GetClusterCapacityProviderAssociationsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterCapacityProviderAssociationsResult>("aws-native:ecs:getClusterCapacityProviderAssociations", args ?? new GetClusterCapacityProviderAssociationsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Associate a set of ECS Capacity Providers with a specified ECS Cluster
+        /// </summary>
+        public static Output<GetClusterCapacityProviderAssociationsResult> Invoke(GetClusterCapacityProviderAssociationsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetClusterCapacityProviderAssociationsResult>("aws-native:ecs:getClusterCapacityProviderAssociations", args ?? new GetClusterCapacityProviderAssociationsInvokeArgs(), options.WithDefaults());
     }
 
 

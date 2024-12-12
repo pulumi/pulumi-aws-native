@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative
 
         public static Output<GetRegionResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRegionResult>("aws-native:index:getRegion", InvokeArgs.Empty, options.WithDefaults());
+
+        public static Output<GetRegionResult> Invoke(InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRegionResult>("aws-native:index:getRegion", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

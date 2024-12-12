@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Timestream
         /// </summary>
         public static Output<GetInfluxDbInstanceResult> Invoke(GetInfluxDbInstanceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInfluxDbInstanceResult>("aws-native:timestream:getInfluxDbInstance", args ?? new GetInfluxDbInstanceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The AWS::Timestream::InfluxDBInstance resource creates an InfluxDB instance.
+        /// </summary>
+        public static Output<GetInfluxDbInstanceResult> Invoke(GetInfluxDbInstanceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetInfluxDbInstanceResult>("aws-native:timestream:getInfluxDbInstance", args ?? new GetInfluxDbInstanceInvokeArgs(), options.WithDefaults());
     }
 
 

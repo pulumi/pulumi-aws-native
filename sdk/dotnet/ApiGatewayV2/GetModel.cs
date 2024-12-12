@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         /// </summary>
         public static Output<GetModelResult> Invoke(GetModelInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetModelResult>("aws-native:apigatewayv2:getModel", args ?? new GetModelInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The ``AWS::ApiGatewayV2::Model`` resource updates data model for a WebSocket API. For more information, see [Model Selection Expressions](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-selection-expressions.html#apigateway-websocket-api-model-selection-expressions) in the *API Gateway Developer Guide*.
+        /// </summary>
+        public static Output<GetModelResult> Invoke(GetModelInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetModelResult>("aws-native:apigatewayv2:getModel", args ?? new GetModelInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Osis
         /// </summary>
         public static Output<GetPipelineResult> Invoke(GetPipelineInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPipelineResult>("aws-native:osis:getPipeline", args ?? new GetPipelineInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// An OpenSearch Ingestion Service Data Prepper pipeline running Data Prepper.
+        /// </summary>
+        public static Output<GetPipelineResult> Invoke(GetPipelineInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPipelineResult>("aws-native:osis:getPipeline", args ?? new GetPipelineInvokeArgs(), options.WithDefaults());
     }
 
 

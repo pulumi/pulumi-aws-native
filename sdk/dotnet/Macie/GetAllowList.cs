@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Macie
         /// </summary>
         public static Output<GetAllowListResult> Invoke(GetAllowListInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAllowListResult>("aws-native:macie:getAllowList", args ?? new GetAllowListInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Macie AllowList resource schema
+        /// </summary>
+        public static Output<GetAllowListResult> Invoke(GetAllowListInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAllowListResult>("aws-native:macie:getAllowList", args ?? new GetAllowListInvokeArgs(), options.WithDefaults());
     }
 
 

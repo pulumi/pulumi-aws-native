@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Ivs
         /// </summary>
         public static Output<GetEncoderConfigurationResult> Invoke(GetEncoderConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEncoderConfigurationResult>("aws-native:ivs:getEncoderConfiguration", args ?? new GetEncoderConfigurationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::IVS::EncoderConfiguration.
+        /// </summary>
+        public static Output<GetEncoderConfigurationResult> Invoke(GetEncoderConfigurationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEncoderConfigurationResult>("aws-native:ivs:getEncoderConfiguration", args ?? new GetEncoderConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

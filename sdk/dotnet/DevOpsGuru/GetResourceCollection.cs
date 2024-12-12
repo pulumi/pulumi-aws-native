@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.DevOpsGuru
         /// </summary>
         public static Output<GetResourceCollectionResult> Invoke(GetResourceCollectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResourceCollectionResult>("aws-native:devopsguru:getResourceCollection", args ?? new GetResourceCollectionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// This resource schema represents the ResourceCollection resource in the Amazon DevOps Guru.
+        /// </summary>
+        public static Output<GetResourceCollectionResult> Invoke(GetResourceCollectionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetResourceCollectionResult>("aws-native:devopsguru:getResourceCollection", args ?? new GetResourceCollectionInvokeArgs(), options.WithDefaults());
     }
 
 

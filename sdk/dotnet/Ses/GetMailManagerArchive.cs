@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Ses
         /// </summary>
         public static Output<GetMailManagerArchiveResult> Invoke(GetMailManagerArchiveInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMailManagerArchiveResult>("aws-native:ses:getMailManagerArchive", args ?? new GetMailManagerArchiveInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::SES::MailManagerArchive Resource Type
+        /// </summary>
+        public static Output<GetMailManagerArchiveResult> Invoke(GetMailManagerArchiveInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMailManagerArchiveResult>("aws-native:ses:getMailManagerArchive", args ?? new GetMailManagerArchiveInvokeArgs(), options.WithDefaults());
     }
 
 

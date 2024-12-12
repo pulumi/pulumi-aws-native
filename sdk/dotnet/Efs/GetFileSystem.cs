@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Efs
         /// </summary>
         public static Output<GetFileSystemResult> Invoke(GetFileSystemInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFileSystemResult>("aws-native:efs:getFileSystem", args ?? new GetFileSystemInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The ``AWS::EFS::FileSystem`` resource creates a new, empty file system in EFSlong (EFS). You must create a mount target ([AWS::EFS::MountTarget](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html)) to mount your EFS file system on an EC2 or other AWS cloud compute resource.
+        /// </summary>
+        public static Output<GetFileSystemResult> Invoke(GetFileSystemInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFileSystemResult>("aws-native:efs:getFileSystem", args ?? new GetFileSystemInvokeArgs(), options.WithDefaults());
     }
 
 

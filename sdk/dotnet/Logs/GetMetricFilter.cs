@@ -24,6 +24,13 @@ namespace Pulumi.AwsNative.Logs
         /// </summary>
         public static Output<GetMetricFilterResult> Invoke(GetMetricFilterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMetricFilterResult>("aws-native:logs:getMetricFilter", args ?? new GetMetricFilterInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The ``AWS::Logs::MetricFilter`` resource specifies a metric filter that describes how CWL extracts information from logs and transforms it into Amazon CloudWatch metrics. If you have multiple metric filters that are associated with a log group, all the filters are applied to the log streams in that group.
+        ///  The maximum number of metric filters that can be associated with a log group is 100.
+        /// </summary>
+        public static Output<GetMetricFilterResult> Invoke(GetMetricFilterInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMetricFilterResult>("aws-native:logs:getMetricFilter", args ?? new GetMetricFilterInvokeArgs(), options.WithDefaults());
     }
 
 

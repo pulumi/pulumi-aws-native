@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.ImageBuilder
         /// </summary>
         public static Output<GetInfrastructureConfigurationResult> Invoke(GetInfrastructureConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInfrastructureConfigurationResult>("aws-native:imagebuilder:getInfrastructureConfiguration", args ?? new GetInfrastructureConfigurationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource schema for AWS::ImageBuilder::InfrastructureConfiguration
+        /// </summary>
+        public static Output<GetInfrastructureConfigurationResult> Invoke(GetInfrastructureConfigurationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetInfrastructureConfigurationResult>("aws-native:imagebuilder:getInfrastructureConfiguration", args ?? new GetInfrastructureConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Wisdom
         /// </summary>
         public static Output<GetAiAgentVersionResult> Invoke(GetAiAgentVersionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAiAgentVersionResult>("aws-native:wisdom:getAiAgentVersion", args ?? new GetAiAgentVersionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::Wisdom::AIAgentVersion Resource Type
+        /// </summary>
+        public static Output<GetAiAgentVersionResult> Invoke(GetAiAgentVersionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAiAgentVersionResult>("aws-native:wisdom:getAiAgentVersion", args ?? new GetAiAgentVersionInvokeArgs(), options.WithDefaults());
     }
 
 

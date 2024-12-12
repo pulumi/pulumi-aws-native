@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.IoT
         /// </summary>
         public static Output<GetAccountAuditConfigurationResult> Invoke(GetAccountAuditConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountAuditConfigurationResult>("aws-native:iot:getAccountAuditConfiguration", args ?? new GetAccountAuditConfigurationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Configures the Device Defender audit settings for this account. Settings include how audit notifications are sent and which audit checks are enabled or disabled.
+        /// </summary>
+        public static Output<GetAccountAuditConfigurationResult> Invoke(GetAccountAuditConfigurationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAccountAuditConfigurationResult>("aws-native:iot:getAccountAuditConfiguration", args ?? new GetAccountAuditConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

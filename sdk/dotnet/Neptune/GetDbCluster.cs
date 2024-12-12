@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Neptune
         /// </summary>
         public static Output<GetDbClusterResult> Invoke(GetDbClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDbClusterResult>("aws-native:neptune:getDbCluster", args ?? new GetDbClusterInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The AWS::Neptune::DBCluster resource creates an Amazon Neptune DB cluster.
+        /// </summary>
+        public static Output<GetDbClusterResult> Invoke(GetDbClusterInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDbClusterResult>("aws-native:neptune:getDbCluster", args ?? new GetDbClusterInvokeArgs(), options.WithDefaults());
     }
 
 

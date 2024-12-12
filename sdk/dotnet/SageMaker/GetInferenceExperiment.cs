@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.SageMaker
         /// </summary>
         public static Output<GetInferenceExperimentResult> Invoke(GetInferenceExperimentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInferenceExperimentResult>("aws-native:sagemaker:getInferenceExperiment", args ?? new GetInferenceExperimentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::SageMaker::InferenceExperiment
+        /// </summary>
+        public static Output<GetInferenceExperimentResult> Invoke(GetInferenceExperimentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetInferenceExperimentResult>("aws-native:sagemaker:getInferenceExperiment", args ?? new GetInferenceExperimentInvokeArgs(), options.WithDefaults());
     }
 
 

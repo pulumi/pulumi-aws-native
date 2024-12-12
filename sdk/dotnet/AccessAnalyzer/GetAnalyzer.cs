@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.AccessAnalyzer
         /// </summary>
         public static Output<GetAnalyzerResult> Invoke(GetAnalyzerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAnalyzerResult>("aws-native:accessanalyzer:getAnalyzer", args ?? new GetAnalyzerInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The AWS::AccessAnalyzer::Analyzer type specifies an analyzer of the user's account
+        /// </summary>
+        public static Output<GetAnalyzerResult> Invoke(GetAnalyzerInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAnalyzerResult>("aws-native:accessanalyzer:getAnalyzer", args ?? new GetAnalyzerInvokeArgs(), options.WithDefaults());
     }
 
 

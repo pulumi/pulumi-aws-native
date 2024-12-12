@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.CodeDeploy
         /// </summary>
         public static Output<GetApplicationResult> Invoke(GetApplicationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationResult>("aws-native:codedeploy:getApplication", args ?? new GetApplicationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The AWS::CodeDeploy::Application resource creates an AWS CodeDeploy application
+        /// </summary>
+        public static Output<GetApplicationResult> Invoke(GetApplicationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetApplicationResult>("aws-native:codedeploy:getApplication", args ?? new GetApplicationInvokeArgs(), options.WithDefaults());
     }
 
 

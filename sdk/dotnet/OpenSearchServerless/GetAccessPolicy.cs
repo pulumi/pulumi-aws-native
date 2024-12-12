@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.OpenSearchServerless
         /// </summary>
         public static Output<GetAccessPolicyResult> Invoke(GetAccessPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccessPolicyResult>("aws-native:opensearchserverless:getAccessPolicy", args ?? new GetAccessPolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Amazon OpenSearchServerless access policy resource
+        /// </summary>
+        public static Output<GetAccessPolicyResult> Invoke(GetAccessPolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAccessPolicyResult>("aws-native:opensearchserverless:getAccessPolicy", args ?? new GetAccessPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

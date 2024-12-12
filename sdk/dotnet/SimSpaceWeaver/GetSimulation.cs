@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.SimSpaceWeaver
         /// </summary>
         public static Output<GetSimulationResult> Invoke(GetSimulationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSimulationResult>("aws-native:simspaceweaver:getSimulation", args ?? new GetSimulationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// AWS::SimSpaceWeaver::Simulation resource creates an AWS Simulation.
+        /// </summary>
+        public static Output<GetSimulationResult> Invoke(GetSimulationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSimulationResult>("aws-native:simspaceweaver:getSimulation", args ?? new GetSimulationInvokeArgs(), options.WithDefaults());
     }
 
 

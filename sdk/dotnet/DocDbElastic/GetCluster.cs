@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.DocDbElastic
         /// </summary>
         public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("aws-native:docdbelastic:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The AWS::DocDBElastic::Cluster Amazon DocumentDB (with MongoDB compatibility) Elastic Scale resource describes a Cluster
+        /// </summary>
+        public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetClusterResult>("aws-native:docdbelastic:getCluster", args ?? new GetClusterInvokeArgs(), options.WithDefaults());
     }
 
 

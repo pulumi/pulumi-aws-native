@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.GameLift
         /// </summary>
         public static Output<GetAliasResult> Invoke(GetAliasInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAliasResult>("aws-native:gamelift:getAlias", args ?? new GetAliasInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The AWS::GameLift::Alias resource creates an alias for an Amazon GameLift (GameLift) fleet destination.
+        /// </summary>
+        public static Output<GetAliasResult> Invoke(GetAliasInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAliasResult>("aws-native:gamelift:getAlias", args ?? new GetAliasInvokeArgs(), options.WithDefaults());
     }
 
 

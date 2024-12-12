@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.ApiGateway
         /// </summary>
         public static Output<GetBasePathMappingV2Result> Invoke(GetBasePathMappingV2InvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBasePathMappingV2Result>("aws-native:apigateway:getBasePathMappingV2", args ?? new GetBasePathMappingV2InvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::ApiGateway::BasePathMappingV2
+        /// </summary>
+        public static Output<GetBasePathMappingV2Result> Invoke(GetBasePathMappingV2InvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetBasePathMappingV2Result>("aws-native:apigateway:getBasePathMappingV2", args ?? new GetBasePathMappingV2InvokeArgs(), options.WithDefaults());
     }
 
 

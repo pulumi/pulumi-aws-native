@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Ssm
         /// </summary>
         public static Output<GetResourcePolicyResult> Invoke(GetResourcePolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResourcePolicyResult>("aws-native:ssm:getResourcePolicy", args ?? new GetResourcePolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::SSM::ResourcePolicy
+        /// </summary>
+        public static Output<GetResourcePolicyResult> Invoke(GetResourcePolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetResourcePolicyResult>("aws-native:ssm:getResourcePolicy", args ?? new GetResourcePolicyInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Transfer
         /// </summary>
         public static Output<GetCertificateResult> Invoke(GetCertificateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCertificateResult>("aws-native:transfer:getCertificate", args ?? new GetCertificateInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::Transfer::Certificate
+        /// </summary>
+        public static Output<GetCertificateResult> Invoke(GetCertificateInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCertificateResult>("aws-native:transfer:getCertificate", args ?? new GetCertificateInvokeArgs(), options.WithDefaults());
     }
 
 

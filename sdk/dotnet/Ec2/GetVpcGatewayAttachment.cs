@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         public static Output<GetVpcGatewayAttachmentResult> Invoke(GetVpcGatewayAttachmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpcGatewayAttachmentResult>("aws-native:ec2:getVpcGatewayAttachment", args ?? new GetVpcGatewayAttachmentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::EC2::VPCGatewayAttachment
+        /// </summary>
+        public static Output<GetVpcGatewayAttachmentResult> Invoke(GetVpcGatewayAttachmentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVpcGatewayAttachmentResult>("aws-native:ec2:getVpcGatewayAttachment", args ?? new GetVpcGatewayAttachmentInvokeArgs(), options.WithDefaults());
     }
 
 

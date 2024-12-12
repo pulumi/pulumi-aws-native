@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Batch
         /// </summary>
         public static Output<GetJobQueueResult> Invoke(GetJobQueueInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetJobQueueResult>("aws-native:batch:getJobQueue", args ?? new GetJobQueueInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::Batch::JobQueue
+        /// </summary>
+        public static Output<GetJobQueueResult> Invoke(GetJobQueueInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetJobQueueResult>("aws-native:batch:getJobQueue", args ?? new GetJobQueueInvokeArgs(), options.WithDefaults());
     }
 
 

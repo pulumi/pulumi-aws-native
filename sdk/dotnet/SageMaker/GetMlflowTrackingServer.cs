@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.SageMaker
         /// </summary>
         public static Output<GetMlflowTrackingServerResult> Invoke(GetMlflowTrackingServerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMlflowTrackingServerResult>("aws-native:sagemaker:getMlflowTrackingServer", args ?? new GetMlflowTrackingServerInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::SageMaker::MlflowTrackingServer
+        /// </summary>
+        public static Output<GetMlflowTrackingServerResult> Invoke(GetMlflowTrackingServerInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMlflowTrackingServerResult>("aws-native:sagemaker:getMlflowTrackingServer", args ?? new GetMlflowTrackingServerInvokeArgs(), options.WithDefaults());
     }
 
 

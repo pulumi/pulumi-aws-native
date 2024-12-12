@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.GameLift
         /// </summary>
         public static Output<GetMatchmakingConfigurationResult> Invoke(GetMatchmakingConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMatchmakingConfigurationResult>("aws-native:gamelift:getMatchmakingConfiguration", args ?? new GetMatchmakingConfigurationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The AWS::GameLift::MatchmakingConfiguration resource creates an Amazon GameLift (GameLift) matchmaking configuration.
+        /// </summary>
+        public static Output<GetMatchmakingConfigurationResult> Invoke(GetMatchmakingConfigurationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMatchmakingConfigurationResult>("aws-native:gamelift:getMatchmakingConfiguration", args ?? new GetMatchmakingConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

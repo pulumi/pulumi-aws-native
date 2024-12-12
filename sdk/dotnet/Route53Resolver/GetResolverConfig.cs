@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Route53Resolver
         /// </summary>
         public static Output<GetResolverConfigResult> Invoke(GetResolverConfigInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResolverConfigResult>("aws-native:route53resolver:getResolverConfig", args ?? new GetResolverConfigInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource schema for AWS::Route53Resolver::ResolverConfig.
+        /// </summary>
+        public static Output<GetResolverConfigResult> Invoke(GetResolverConfigInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetResolverConfigResult>("aws-native:route53resolver:getResolverConfig", args ?? new GetResolverConfigInvokeArgs(), options.WithDefaults());
     }
 
 

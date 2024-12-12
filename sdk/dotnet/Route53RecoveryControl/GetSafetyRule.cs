@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Route53RecoveryControl
         /// </summary>
         public static Output<GetSafetyRuleResult> Invoke(GetSafetyRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSafetyRuleResult>("aws-native:route53recoverycontrol:getSafetyRule", args ?? new GetSafetyRuleInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource schema for AWS Route53 Recovery Control basic constructs and validation rules.
+        /// </summary>
+        public static Output<GetSafetyRuleResult> Invoke(GetSafetyRuleInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSafetyRuleResult>("aws-native:route53recoverycontrol:getSafetyRule", args ?? new GetSafetyRuleInvokeArgs(), options.WithDefaults());
     }
 
 

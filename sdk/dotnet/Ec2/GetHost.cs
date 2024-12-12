@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         public static Output<GetHostResult> Invoke(GetHostInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetHostResult>("aws-native:ec2:getHost", args ?? new GetHostInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::EC2::Host
+        /// </summary>
+        public static Output<GetHostResult> Invoke(GetHostInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetHostResult>("aws-native:ec2:getHost", args ?? new GetHostInvokeArgs(), options.WithDefaults());
     }
 
 

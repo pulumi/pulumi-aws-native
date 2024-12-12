@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.NetworkManager
         /// </summary>
         public static Output<GetSiteResult> Invoke(GetSiteInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSiteResult>("aws-native:networkmanager:getSite", args ?? new GetSiteInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The AWS::NetworkManager::Site type describes a site.
+        /// </summary>
+        public static Output<GetSiteResult> Invoke(GetSiteInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSiteResult>("aws-native:networkmanager:getSite", args ?? new GetSiteInvokeArgs(), options.WithDefaults());
     }
 
 

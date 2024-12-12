@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         /// </summary>
         public static Output<GetRouteResult> Invoke(GetRouteInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRouteResult>("aws-native:apigatewayv2:getRoute", args ?? new GetRouteInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The ``AWS::ApiGatewayV2::Route`` resource creates a route for an API.
+        /// </summary>
+        public static Output<GetRouteResult> Invoke(GetRouteInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRouteResult>("aws-native:apigatewayv2:getRoute", args ?? new GetRouteInvokeArgs(), options.WithDefaults());
     }
 
 

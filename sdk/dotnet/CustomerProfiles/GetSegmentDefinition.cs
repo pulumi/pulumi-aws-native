@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.CustomerProfiles
         /// </summary>
         public static Output<GetSegmentDefinitionResult> Invoke(GetSegmentDefinitionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSegmentDefinitionResult>("aws-native:customerprofiles:getSegmentDefinition", args ?? new GetSegmentDefinitionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// A segment definition resource of Amazon Connect Customer Profiles
+        /// </summary>
+        public static Output<GetSegmentDefinitionResult> Invoke(GetSegmentDefinitionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSegmentDefinitionResult>("aws-native:customerprofiles:getSegmentDefinition", args ?? new GetSegmentDefinitionInvokeArgs(), options.WithDefaults());
     }
 
 

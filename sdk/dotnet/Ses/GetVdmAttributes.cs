@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Ses
         /// </summary>
         public static Output<GetVdmAttributesResult> Invoke(GetVdmAttributesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVdmAttributesResult>("aws-native:ses:getVdmAttributes", args ?? new GetVdmAttributesInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::SES::VdmAttributes
+        /// </summary>
+        public static Output<GetVdmAttributesResult> Invoke(GetVdmAttributesInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVdmAttributesResult>("aws-native:ses:getVdmAttributes", args ?? new GetVdmAttributesInvokeArgs(), options.WithDefaults());
     }
 
 

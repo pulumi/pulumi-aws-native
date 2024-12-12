@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.CloudFront
         /// </summary>
         public static Output<GetPublicKeyResult> Invoke(GetPublicKeyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPublicKeyResult>("aws-native:cloudfront:getPublicKey", args ?? new GetPublicKeyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// A public key that you can use with [signed URLs and signed cookies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html), or with [field-level encryption](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/field-level-encryption.html).
+        /// </summary>
+        public static Output<GetPublicKeyResult> Invoke(GetPublicKeyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPublicKeyResult>("aws-native:cloudfront:getPublicKey", args ?? new GetPublicKeyInvokeArgs(), options.WithDefaults());
     }
 
 

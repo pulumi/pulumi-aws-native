@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Ssm
         /// </summary>
         public static Output<GetAssociationResult> Invoke(GetAssociationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssociationResult>("aws-native:ssm:getAssociation", args ?? new GetAssociationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The AWS::SSM::Association resource associates an SSM document in AWS Systems Manager with EC2 instances that contain a configuration agent to process the document.
+        /// </summary>
+        public static Output<GetAssociationResult> Invoke(GetAssociationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAssociationResult>("aws-native:ssm:getAssociation", args ?? new GetAssociationInvokeArgs(), options.WithDefaults());
     }
 
 

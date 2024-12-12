@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Bedrock
         /// </summary>
         public static Output<GetPromptResult> Invoke(GetPromptInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPromptResult>("aws-native:bedrock:getPrompt", args ?? new GetPromptInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::Bedrock::Prompt Resource Type
+        /// </summary>
+        public static Output<GetPromptResult> Invoke(GetPromptInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPromptResult>("aws-native:bedrock:getPrompt", args ?? new GetPromptInvokeArgs(), options.WithDefaults());
     }
 
 

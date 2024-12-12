@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         public static Output<GetTransitGatewayAttachmentResult> Invoke(GetTransitGatewayAttachmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTransitGatewayAttachmentResult>("aws-native:ec2:getTransitGatewayAttachment", args ?? new GetTransitGatewayAttachmentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::EC2::TransitGatewayAttachment
+        /// </summary>
+        public static Output<GetTransitGatewayAttachmentResult> Invoke(GetTransitGatewayAttachmentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTransitGatewayAttachmentResult>("aws-native:ec2:getTransitGatewayAttachment", args ?? new GetTransitGatewayAttachmentInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.CloudFront
         /// </summary>
         public static Output<GetDistributionResult> Invoke(GetDistributionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDistributionResult>("aws-native:cloudfront:getDistribution", args ?? new GetDistributionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// A distribution tells CloudFront where you want content to be delivered from, and the details about how to track and manage content delivery.
+        /// </summary>
+        public static Output<GetDistributionResult> Invoke(GetDistributionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDistributionResult>("aws-native:cloudfront:getDistribution", args ?? new GetDistributionInvokeArgs(), options.WithDefaults());
     }
 
 

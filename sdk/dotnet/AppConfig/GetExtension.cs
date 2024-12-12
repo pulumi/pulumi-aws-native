@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.AppConfig
         /// </summary>
         public static Output<GetExtensionResult> Invoke(GetExtensionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExtensionResult>("aws-native:appconfig:getExtension", args ?? new GetExtensionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::AppConfig::Extension
+        /// </summary>
+        public static Output<GetExtensionResult> Invoke(GetExtensionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetExtensionResult>("aws-native:appconfig:getExtension", args ?? new GetExtensionInvokeArgs(), options.WithDefaults());
     }
 
 

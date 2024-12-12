@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.VpcLattice
         /// </summary>
         public static Output<GetServiceNetworkServiceAssociationResult> Invoke(GetServiceNetworkServiceAssociationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceNetworkServiceAssociationResult>("aws-native:vpclattice:getServiceNetworkServiceAssociation", args ?? new GetServiceNetworkServiceAssociationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Associates a service with a service network.
+        /// </summary>
+        public static Output<GetServiceNetworkServiceAssociationResult> Invoke(GetServiceNetworkServiceAssociationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetServiceNetworkServiceAssociationResult>("aws-native:vpclattice:getServiceNetworkServiceAssociation", args ?? new GetServiceNetworkServiceAssociationInvokeArgs(), options.WithDefaults());
     }
 
 

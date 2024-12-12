@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Wisdom
         /// </summary>
         public static Output<GetMessageTemplateVersionResult> Invoke(GetMessageTemplateVersionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMessageTemplateVersionResult>("aws-native:wisdom:getMessageTemplateVersion", args ?? new GetMessageTemplateVersionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// A version for the specified customer-managed message template within the specified knowledge base.
+        /// </summary>
+        public static Output<GetMessageTemplateVersionResult> Invoke(GetMessageTemplateVersionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMessageTemplateVersionResult>("aws-native:wisdom:getMessageTemplateVersion", args ?? new GetMessageTemplateVersionInvokeArgs(), options.WithDefaults());
     }
 
 

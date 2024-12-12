@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Connect
         /// </summary>
         public static Output<GetAgentStatusResult> Invoke(GetAgentStatusInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAgentStatusResult>("aws-native:connect:getAgentStatus", args ?? new GetAgentStatusInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::Connect::AgentStatus
+        /// </summary>
+        public static Output<GetAgentStatusResult> Invoke(GetAgentStatusInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAgentStatusResult>("aws-native:connect:getAgentStatus", args ?? new GetAgentStatusInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.NetworkFirewall
         /// </summary>
         public static Output<GetLoggingConfigurationResult> Invoke(GetLoggingConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLoggingConfigurationResult>("aws-native:networkfirewall:getLoggingConfiguration", args ?? new GetLoggingConfigurationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource type definition for AWS::NetworkFirewall::LoggingConfiguration
+        /// </summary>
+        public static Output<GetLoggingConfigurationResult> Invoke(GetLoggingConfigurationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLoggingConfigurationResult>("aws-native:networkfirewall:getLoggingConfiguration", args ?? new GetLoggingConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

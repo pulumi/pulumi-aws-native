@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.AppConfig
         /// </summary>
         public static Output<GetDeploymentStrategyResult> Invoke(GetDeploymentStrategyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDeploymentStrategyResult>("aws-native:appconfig:getDeploymentStrategy", args ?? new GetDeploymentStrategyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::AppConfig::DeploymentStrategy
+        /// </summary>
+        public static Output<GetDeploymentStrategyResult> Invoke(GetDeploymentStrategyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDeploymentStrategyResult>("aws-native:appconfig:getDeploymentStrategy", args ?? new GetDeploymentStrategyInvokeArgs(), options.WithDefaults());
     }
 
 

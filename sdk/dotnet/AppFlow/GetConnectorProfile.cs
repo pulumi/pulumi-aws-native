@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.AppFlow
         /// </summary>
         public static Output<GetConnectorProfileResult> Invoke(GetConnectorProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectorProfileResult>("aws-native:appflow:getConnectorProfile", args ?? new GetConnectorProfileInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::AppFlow::ConnectorProfile
+        /// </summary>
+        public static Output<GetConnectorProfileResult> Invoke(GetConnectorProfileInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetConnectorProfileResult>("aws-native:appflow:getConnectorProfile", args ?? new GetConnectorProfileInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Ssm
         /// </summary>
         public static Output<GetDocumentResult> Invoke(GetDocumentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDocumentResult>("aws-native:ssm:getDocument", args ?? new GetDocumentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The AWS::SSM::Document resource is an SSM document in AWS Systems Manager that defines the actions that Systems Manager performs, which can be used to set up and run commands on your instances.
+        /// </summary>
+        public static Output<GetDocumentResult> Invoke(GetDocumentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDocumentResult>("aws-native:ssm:getDocument", args ?? new GetDocumentInvokeArgs(), options.WithDefaults());
     }
 
 

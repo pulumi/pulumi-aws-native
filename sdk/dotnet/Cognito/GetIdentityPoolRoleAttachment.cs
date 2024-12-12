@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Cognito
         /// </summary>
         public static Output<GetIdentityPoolRoleAttachmentResult> Invoke(GetIdentityPoolRoleAttachmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIdentityPoolRoleAttachmentResult>("aws-native:cognito:getIdentityPoolRoleAttachment", args ?? new GetIdentityPoolRoleAttachmentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::Cognito::IdentityPoolRoleAttachment
+        /// </summary>
+        public static Output<GetIdentityPoolRoleAttachmentResult> Invoke(GetIdentityPoolRoleAttachmentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetIdentityPoolRoleAttachmentResult>("aws-native:cognito:getIdentityPoolRoleAttachment", args ?? new GetIdentityPoolRoleAttachmentInvokeArgs(), options.WithDefaults());
     }
 
 

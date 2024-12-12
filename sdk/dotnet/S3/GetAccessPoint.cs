@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.S3
         /// </summary>
         public static Output<GetAccessPointResult> Invoke(GetAccessPointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccessPointResult>("aws-native:s3:getAccessPoint", args ?? new GetAccessPointInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The AWS::S3::AccessPoint resource is an Amazon S3 resource type that you can use to access buckets.
+        /// </summary>
+        public static Output<GetAccessPointResult> Invoke(GetAccessPointInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAccessPointResult>("aws-native:s3:getAccessPoint", args ?? new GetAccessPointInvokeArgs(), options.WithDefaults());
     }
 
 

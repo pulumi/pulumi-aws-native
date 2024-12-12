@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.IoTAnalytics
         /// </summary>
         public static Output<GetDatasetResult> Invoke(GetDatasetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDatasetResult>("aws-native:iotanalytics:getDataset", args ?? new GetDatasetInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::IoTAnalytics::Dataset
+        /// </summary>
+        public static Output<GetDatasetResult> Invoke(GetDatasetInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDatasetResult>("aws-native:iotanalytics:getDataset", args ?? new GetDatasetInvokeArgs(), options.WithDefaults());
     }
 
 

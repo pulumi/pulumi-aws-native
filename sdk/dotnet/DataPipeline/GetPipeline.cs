@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.DataPipeline
         /// </summary>
         public static Output<GetPipelineResult> Invoke(GetPipelineInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPipelineResult>("aws-native:datapipeline:getPipeline", args ?? new GetPipelineInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// An example resource schema demonstrating some basic constructs and validation rules.
+        /// </summary>
+        public static Output<GetPipelineResult> Invoke(GetPipelineInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPipelineResult>("aws-native:datapipeline:getPipeline", args ?? new GetPipelineInvokeArgs(), options.WithDefaults());
     }
 
 

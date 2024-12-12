@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.EntityResolution
         /// </summary>
         public static Output<GetMatchingWorkflowResult> Invoke(GetMatchingWorkflowInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMatchingWorkflowResult>("aws-native:entityresolution:getMatchingWorkflow", args ?? new GetMatchingWorkflowInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// MatchingWorkflow defined in AWS Entity Resolution service
+        /// </summary>
+        public static Output<GetMatchingWorkflowResult> Invoke(GetMatchingWorkflowInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMatchingWorkflowResult>("aws-native:entityresolution:getMatchingWorkflow", args ?? new GetMatchingWorkflowInvokeArgs(), options.WithDefaults());
     }
 
 

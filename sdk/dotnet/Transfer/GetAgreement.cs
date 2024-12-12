@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Transfer
         /// </summary>
         public static Output<GetAgreementResult> Invoke(GetAgreementInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAgreementResult>("aws-native:transfer:getAgreement", args ?? new GetAgreementInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::Transfer::Agreement
+        /// </summary>
+        public static Output<GetAgreementResult> Invoke(GetAgreementInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAgreementResult>("aws-native:transfer:getAgreement", args ?? new GetAgreementInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Proton
         /// </summary>
         public static Output<GetEnvironmentTemplateResult> Invoke(GetEnvironmentTemplateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEnvironmentTemplateResult>("aws-native:proton:getEnvironmentTemplate", args ?? new GetEnvironmentTemplateInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::Proton::EnvironmentTemplate Resource Type
+        /// </summary>
+        public static Output<GetEnvironmentTemplateResult> Invoke(GetEnvironmentTemplateInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEnvironmentTemplateResult>("aws-native:proton:getEnvironmentTemplate", args ?? new GetEnvironmentTemplateInvokeArgs(), options.WithDefaults());
     }
 
 

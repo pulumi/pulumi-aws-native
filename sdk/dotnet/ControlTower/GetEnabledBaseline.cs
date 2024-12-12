@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.ControlTower
         /// </summary>
         public static Output<GetEnabledBaselineResult> Invoke(GetEnabledBaselineInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEnabledBaselineResult>("aws-native:controltower:getEnabledBaseline", args ?? new GetEnabledBaselineInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::ControlTower::EnabledBaseline Resource Type
+        /// </summary>
+        public static Output<GetEnabledBaselineResult> Invoke(GetEnabledBaselineInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEnabledBaselineResult>("aws-native:controltower:getEnabledBaseline", args ?? new GetEnabledBaselineInvokeArgs(), options.WithDefaults());
     }
 
 

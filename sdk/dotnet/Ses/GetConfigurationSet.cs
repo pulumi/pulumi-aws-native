@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Ses
         /// </summary>
         public static Output<GetConfigurationSetResult> Invoke(GetConfigurationSetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationSetResult>("aws-native:ses:getConfigurationSet", args ?? new GetConfigurationSetInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource schema for AWS::SES::ConfigurationSet.
+        /// </summary>
+        public static Output<GetConfigurationSetResult> Invoke(GetConfigurationSetInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationSetResult>("aws-native:ses:getConfigurationSet", args ?? new GetConfigurationSetInvokeArgs(), options.WithDefaults());
     }
 
 

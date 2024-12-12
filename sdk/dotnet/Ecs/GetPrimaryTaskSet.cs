@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Ecs
         /// </summary>
         public static Output<GetPrimaryTaskSetResult> Invoke(GetPrimaryTaskSetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrimaryTaskSetResult>("aws-native:ecs:getPrimaryTaskSet", args ?? new GetPrimaryTaskSetInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// A pseudo-resource that manages which of your ECS task sets is primary.
+        /// </summary>
+        public static Output<GetPrimaryTaskSetResult> Invoke(GetPrimaryTaskSetInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPrimaryTaskSetResult>("aws-native:ecs:getPrimaryTaskSet", args ?? new GetPrimaryTaskSetInvokeArgs(), options.WithDefaults());
     }
 
 

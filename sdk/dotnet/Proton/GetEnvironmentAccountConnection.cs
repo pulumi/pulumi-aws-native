@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Proton
         /// </summary>
         public static Output<GetEnvironmentAccountConnectionResult> Invoke(GetEnvironmentAccountConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEnvironmentAccountConnectionResult>("aws-native:proton:getEnvironmentAccountConnection", args ?? new GetEnvironmentAccountConnectionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Schema describing various properties for AWS Proton Environment Account Connections resources.
+        /// </summary>
+        public static Output<GetEnvironmentAccountConnectionResult> Invoke(GetEnvironmentAccountConnectionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEnvironmentAccountConnectionResult>("aws-native:proton:getEnvironmentAccountConnection", args ?? new GetEnvironmentAccountConnectionInvokeArgs(), options.WithDefaults());
     }
 
 

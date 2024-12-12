@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.QuickSight
         /// </summary>
         public static Output<GetAnalysisResult> Invoke(GetAnalysisInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAnalysisResult>("aws-native:quicksight:getAnalysis", args ?? new GetAnalysisInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of the AWS::QuickSight::Analysis Resource Type.
+        /// </summary>
+        public static Output<GetAnalysisResult> Invoke(GetAnalysisInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAnalysisResult>("aws-native:quicksight:getAnalysis", args ?? new GetAnalysisInvokeArgs(), options.WithDefaults());
     }
 
 

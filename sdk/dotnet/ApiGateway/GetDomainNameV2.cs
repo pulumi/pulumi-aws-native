@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.ApiGateway
         /// </summary>
         public static Output<GetDomainNameV2Result> Invoke(GetDomainNameV2InvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDomainNameV2Result>("aws-native:apigateway:getDomainNameV2", args ?? new GetDomainNameV2InvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::ApiGateway::DomainNameV2.
+        /// </summary>
+        public static Output<GetDomainNameV2Result> Invoke(GetDomainNameV2InvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDomainNameV2Result>("aws-native:apigateway:getDomainNameV2", args ?? new GetDomainNameV2InvokeArgs(), options.WithDefaults());
     }
 
 

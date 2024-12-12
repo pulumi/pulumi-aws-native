@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.ResourceExplorer2
         /// </summary>
         public static Output<GetIndexResult> Invoke(GetIndexInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIndexResult>("aws-native:resourceexplorer2:getIndex", args ?? new GetIndexInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::ResourceExplorer2::Index Resource Type
+        /// </summary>
+        public static Output<GetIndexResult> Invoke(GetIndexInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetIndexResult>("aws-native:resourceexplorer2:getIndex", args ?? new GetIndexInvokeArgs(), options.WithDefaults());
     }
 
 

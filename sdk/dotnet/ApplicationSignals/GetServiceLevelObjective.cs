@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.ApplicationSignals
         /// </summary>
         public static Output<GetServiceLevelObjectiveResult> Invoke(GetServiceLevelObjectiveInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceLevelObjectiveResult>("aws-native:applicationsignals:getServiceLevelObjective", args ?? new GetServiceLevelObjectiveInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::ApplicationSignals::ServiceLevelObjective
+        /// </summary>
+        public static Output<GetServiceLevelObjectiveResult> Invoke(GetServiceLevelObjectiveInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetServiceLevelObjectiveResult>("aws-native:applicationsignals:getServiceLevelObjective", args ?? new GetServiceLevelObjectiveInvokeArgs(), options.WithDefaults());
     }
 
 

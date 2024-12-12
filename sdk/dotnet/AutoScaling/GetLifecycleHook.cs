@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.AutoScaling
         /// </summary>
         public static Output<GetLifecycleHookResult> Invoke(GetLifecycleHookInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLifecycleHookResult>("aws-native:autoscaling:getLifecycleHook", args ?? new GetLifecycleHookInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::AutoScaling::LifecycleHook
+        /// </summary>
+        public static Output<GetLifecycleHookResult> Invoke(GetLifecycleHookInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLifecycleHookResult>("aws-native:autoscaling:getLifecycleHook", args ?? new GetLifecycleHookInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         public static Output<GetSecurityGroupIngressResult> Invoke(GetSecurityGroupIngressInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecurityGroupIngressResult>("aws-native:ec2:getSecurityGroupIngress", args ?? new GetSecurityGroupIngressInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::EC2::SecurityGroupIngress
+        /// </summary>
+        public static Output<GetSecurityGroupIngressResult> Invoke(GetSecurityGroupIngressInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSecurityGroupIngressResult>("aws-native:ec2:getSecurityGroupIngress", args ?? new GetSecurityGroupIngressInvokeArgs(), options.WithDefaults());
     }
 
 

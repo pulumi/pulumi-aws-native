@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Rds
         /// </summary>
         public static Output<GetOptionGroupResult> Invoke(GetOptionGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOptionGroupResult>("aws-native:rds:getOptionGroup", args ?? new GetOptionGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The ``AWS::RDS::OptionGroup`` resource creates or updates an option group, to enable and configure features that are specific to a particular DB engine.
+        /// </summary>
+        public static Output<GetOptionGroupResult> Invoke(GetOptionGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetOptionGroupResult>("aws-native:rds:getOptionGroup", args ?? new GetOptionGroupInvokeArgs(), options.WithDefaults());
     }
 
 

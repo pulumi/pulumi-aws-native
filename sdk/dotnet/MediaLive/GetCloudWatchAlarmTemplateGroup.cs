@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.MediaLive
         /// </summary>
         public static Output<GetCloudWatchAlarmTemplateGroupResult> Invoke(GetCloudWatchAlarmTemplateGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCloudWatchAlarmTemplateGroupResult>("aws-native:medialive:getCloudWatchAlarmTemplateGroup", args ?? new GetCloudWatchAlarmTemplateGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::MediaLive::CloudWatchAlarmTemplateGroup Resource Type
+        /// </summary>
+        public static Output<GetCloudWatchAlarmTemplateGroupResult> Invoke(GetCloudWatchAlarmTemplateGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCloudWatchAlarmTemplateGroupResult>("aws-native:medialive:getCloudWatchAlarmTemplateGroup", args ?? new GetCloudWatchAlarmTemplateGroupInvokeArgs(), options.WithDefaults());
     }
 
 

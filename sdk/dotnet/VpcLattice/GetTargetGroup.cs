@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.VpcLattice
         /// </summary>
         public static Output<GetTargetGroupResult> Invoke(GetTargetGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTargetGroupResult>("aws-native:vpclattice:getTargetGroup", args ?? new GetTargetGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// A target group is a collection of targets, or compute resources, that run your application or service. A target group can only be used by a single service.
+        /// </summary>
+        public static Output<GetTargetGroupResult> Invoke(GetTargetGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTargetGroupResult>("aws-native:vpclattice:getTargetGroup", args ?? new GetTargetGroupInvokeArgs(), options.WithDefaults());
     }
 
 

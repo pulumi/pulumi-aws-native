@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.CodeGuruProfiler
         /// </summary>
         public static Output<GetProfilingGroupResult> Invoke(GetProfilingGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProfilingGroupResult>("aws-native:codeguruprofiler:getProfilingGroup", args ?? new GetProfilingGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// This resource schema represents the Profiling Group resource in the Amazon CodeGuru Profiler service.
+        /// </summary>
+        public static Output<GetProfilingGroupResult> Invoke(GetProfilingGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetProfilingGroupResult>("aws-native:codeguruprofiler:getProfilingGroup", args ?? new GetProfilingGroupInvokeArgs(), options.WithDefaults());
     }
 
 

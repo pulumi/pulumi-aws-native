@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Dms
         /// </summary>
         public static Output<GetDataProviderResult> Invoke(GetDataProviderInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDataProviderResult>("aws-native:dms:getDataProvider", args ?? new GetDataProviderInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource schema for AWS::DMS::DataProvider
+        /// </summary>
+        public static Output<GetDataProviderResult> Invoke(GetDataProviderInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDataProviderResult>("aws-native:dms:getDataProvider", args ?? new GetDataProviderInvokeArgs(), options.WithDefaults());
     }
 
 

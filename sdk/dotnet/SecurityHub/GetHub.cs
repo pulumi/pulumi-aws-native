@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.SecurityHub
         /// </summary>
         public static Output<GetHubResult> Invoke(GetHubInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetHubResult>("aws-native:securityhub:getHub", args ?? new GetHubInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The AWS::SecurityHub::Hub resource represents the implementation of the AWS Security Hub service in your account. One hub resource is created for each Region in which you enable Security Hub.
+        /// </summary>
+        public static Output<GetHubResult> Invoke(GetHubInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetHubResult>("aws-native:securityhub:getHub", args ?? new GetHubInvokeArgs(), options.WithDefaults());
     }
 
 

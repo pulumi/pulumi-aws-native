@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.NetworkManager
         /// </summary>
         public static Output<GetCoreNetworkResult> Invoke(GetCoreNetworkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCoreNetworkResult>("aws-native:networkmanager:getCoreNetwork", args ?? new GetCoreNetworkInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// AWS::NetworkManager::CoreNetwork Resource Type Definition.
+        /// </summary>
+        public static Output<GetCoreNetworkResult> Invoke(GetCoreNetworkInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCoreNetworkResult>("aws-native:networkmanager:getCoreNetwork", args ?? new GetCoreNetworkInvokeArgs(), options.WithDefaults());
     }
 
 

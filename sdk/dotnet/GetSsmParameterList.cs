@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative
 
         public static Output<GetSsmParameterListResult> Invoke(GetSsmParameterListInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSsmParameterListResult>("aws-native:index:getSsmParameterList", args ?? new GetSsmParameterListInvokeArgs(), options.WithDefaults());
+
+        public static Output<GetSsmParameterListResult> Invoke(GetSsmParameterListInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSsmParameterListResult>("aws-native:index:getSsmParameterList", args ?? new GetSsmParameterListInvokeArgs(), options.WithDefaults());
     }
 
 

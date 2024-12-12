@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Acmpca
         /// </summary>
         public static Output<GetCertificateResult> Invoke(GetCertificateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCertificateResult>("aws-native:acmpca:getCertificate", args ?? new GetCertificateInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The ``AWS::ACMPCA::Certificate`` resource is used to issue a certificate using your private certificate authority. For more information, see the [IssueCertificate](https://docs.aws.amazon.com/privateca/latest/APIReference/API_IssueCertificate.html) action.
+        /// </summary>
+        public static Output<GetCertificateResult> Invoke(GetCertificateInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCertificateResult>("aws-native:acmpca:getCertificate", args ?? new GetCertificateInvokeArgs(), options.WithDefaults());
     }
 
 

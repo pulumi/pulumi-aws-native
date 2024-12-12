@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Cognito
         /// </summary>
         public static Output<GetUserPoolIdentityProviderResult> Invoke(GetUserPoolIdentityProviderInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserPoolIdentityProviderResult>("aws-native:cognito:getUserPoolIdentityProvider", args ?? new GetUserPoolIdentityProviderInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::Cognito::UserPoolIdentityProvider
+        /// </summary>
+        public static Output<GetUserPoolIdentityProviderResult> Invoke(GetUserPoolIdentityProviderInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetUserPoolIdentityProviderResult>("aws-native:cognito:getUserPoolIdentityProvider", args ?? new GetUserPoolIdentityProviderInvokeArgs(), options.WithDefaults());
     }
 
 

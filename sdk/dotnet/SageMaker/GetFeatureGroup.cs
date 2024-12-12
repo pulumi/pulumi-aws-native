@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.SageMaker
         /// </summary>
         public static Output<GetFeatureGroupResult> Invoke(GetFeatureGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFeatureGroupResult>("aws-native:sagemaker:getFeatureGroup", args ?? new GetFeatureGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::SageMaker::FeatureGroup
+        /// </summary>
+        public static Output<GetFeatureGroupResult> Invoke(GetFeatureGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFeatureGroupResult>("aws-native:sagemaker:getFeatureGroup", args ?? new GetFeatureGroupInvokeArgs(), options.WithDefaults());
     }
 
 

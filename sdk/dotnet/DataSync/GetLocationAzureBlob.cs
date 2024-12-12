@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.DataSync
         /// </summary>
         public static Output<GetLocationAzureBlobResult> Invoke(GetLocationAzureBlobInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLocationAzureBlobResult>("aws-native:datasync:getLocationAzureBlob", args ?? new GetLocationAzureBlobInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource schema for AWS::DataSync::LocationAzureBlob.
+        /// </summary>
+        public static Output<GetLocationAzureBlobResult> Invoke(GetLocationAzureBlobInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLocationAzureBlobResult>("aws-native:datasync:getLocationAzureBlob", args ?? new GetLocationAzureBlobInvokeArgs(), options.WithDefaults());
     }
 
 

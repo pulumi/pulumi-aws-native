@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.ApiGateway
         /// </summary>
         public static Output<GetAuthorizerResult> Invoke(GetAuthorizerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAuthorizerResult>("aws-native:apigateway:getAuthorizer", args ?? new GetAuthorizerInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The ``AWS::ApiGateway::Authorizer`` resource creates an authorization layer that API Gateway activates for methods that have authorization enabled. API Gateway activates the authorizer when a client calls those methods.
+        /// </summary>
+        public static Output<GetAuthorizerResult> Invoke(GetAuthorizerInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAuthorizerResult>("aws-native:apigateway:getAuthorizer", args ?? new GetAuthorizerInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.SecurityLake
         /// </summary>
         public static Output<GetDataLakeResult> Invoke(GetDataLakeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDataLakeResult>("aws-native:securitylake:getDataLake", args ?? new GetDataLakeInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::SecurityLake::DataLake
+        /// </summary>
+        public static Output<GetDataLakeResult> Invoke(GetDataLakeInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDataLakeResult>("aws-native:securitylake:getDataLake", args ?? new GetDataLakeInvokeArgs(), options.WithDefaults());
     }
 
 

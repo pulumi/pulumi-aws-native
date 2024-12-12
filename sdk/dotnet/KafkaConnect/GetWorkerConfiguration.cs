@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.KafkaConnect
         /// </summary>
         public static Output<GetWorkerConfigurationResult> Invoke(GetWorkerConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkerConfigurationResult>("aws-native:kafkaconnect:getWorkerConfiguration", args ?? new GetWorkerConfigurationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The configuration of the workers, which are the processes that run the connector logic.
+        /// </summary>
+        public static Output<GetWorkerConfigurationResult> Invoke(GetWorkerConfigurationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetWorkerConfigurationResult>("aws-native:kafkaconnect:getWorkerConfiguration", args ?? new GetWorkerConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.VpcLattice
         /// </summary>
         public static Output<GetResourceGatewayResult> Invoke(GetResourceGatewayInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResourceGatewayResult>("aws-native:vpclattice:getResourceGateway", args ?? new GetResourceGatewayInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Creates a resource gateway for a service. 
+        /// </summary>
+        public static Output<GetResourceGatewayResult> Invoke(GetResourceGatewayInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetResourceGatewayResult>("aws-native:vpclattice:getResourceGateway", args ?? new GetResourceGatewayInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.ApiGateway
         /// </summary>
         public static Output<GetApiKeyResult> Invoke(GetApiKeyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApiKeyResult>("aws-native:apigateway:getApiKey", args ?? new GetApiKeyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The ``AWS::ApiGateway::ApiKey`` resource creates a unique key that you can distribute to clients who are executing API Gateway ``Method`` resources that require an API key. To specify which API key clients must use, map the API key with the ``RestApi`` and ``Stage`` resources that include the methods that require a key.
+        /// </summary>
+        public static Output<GetApiKeyResult> Invoke(GetApiKeyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetApiKeyResult>("aws-native:apigateway:getApiKey", args ?? new GetApiKeyInvokeArgs(), options.WithDefaults());
     }
 
 

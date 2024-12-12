@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.MediaPackage
         /// </summary>
         public static Output<GetAssetResult> Invoke(GetAssetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAssetResult>("aws-native:mediapackage:getAsset", args ?? new GetAssetInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource schema for AWS::MediaPackage::Asset
+        /// </summary>
+        public static Output<GetAssetResult> Invoke(GetAssetInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAssetResult>("aws-native:mediapackage:getAsset", args ?? new GetAssetInvokeArgs(), options.WithDefaults());
     }
 
 

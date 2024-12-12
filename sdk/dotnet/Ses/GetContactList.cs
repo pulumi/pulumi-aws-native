@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Ses
         /// </summary>
         public static Output<GetContactListResult> Invoke(GetContactListInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetContactListResult>("aws-native:ses:getContactList", args ?? new GetContactListInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource schema for AWS::SES::ContactList.
+        /// </summary>
+        public static Output<GetContactListResult> Invoke(GetContactListInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetContactListResult>("aws-native:ses:getContactList", args ?? new GetContactListInvokeArgs(), options.WithDefaults());
     }
 
 

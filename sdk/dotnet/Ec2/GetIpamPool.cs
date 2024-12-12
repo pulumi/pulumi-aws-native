@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         public static Output<GetIpamPoolResult> Invoke(GetIpamPoolInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIpamPoolResult>("aws-native:ec2:getIpamPool", args ?? new GetIpamPoolInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Schema of AWS::EC2::IPAMPool Type
+        /// </summary>
+        public static Output<GetIpamPoolResult> Invoke(GetIpamPoolInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetIpamPoolResult>("aws-native:ec2:getIpamPool", args ?? new GetIpamPoolInvokeArgs(), options.WithDefaults());
     }
 
 

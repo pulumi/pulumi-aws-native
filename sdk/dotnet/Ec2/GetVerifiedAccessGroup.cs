@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         public static Output<GetVerifiedAccessGroupResult> Invoke(GetVerifiedAccessGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVerifiedAccessGroupResult>("aws-native:ec2:getVerifiedAccessGroup", args ?? new GetVerifiedAccessGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The AWS::EC2::VerifiedAccessGroup resource creates an AWS EC2 Verified Access Group.
+        /// </summary>
+        public static Output<GetVerifiedAccessGroupResult> Invoke(GetVerifiedAccessGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVerifiedAccessGroupResult>("aws-native:ec2:getVerifiedAccessGroup", args ?? new GetVerifiedAccessGroupInvokeArgs(), options.WithDefaults());
     }
 
 

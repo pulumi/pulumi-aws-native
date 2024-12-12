@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Emr
         /// </summary>
         public static Output<GetStudioSessionMappingResult> Invoke(GetStudioSessionMappingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStudioSessionMappingResult>("aws-native:emr:getStudioSessionMapping", args ?? new GetStudioSessionMappingInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// An example resource schema demonstrating some basic constructs and validation rules.
+        /// </summary>
+        public static Output<GetStudioSessionMappingResult> Invoke(GetStudioSessionMappingInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetStudioSessionMappingResult>("aws-native:emr:getStudioSessionMapping", args ?? new GetStudioSessionMappingInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.CloudTrail
         /// </summary>
         public static Output<GetDashboardResult> Invoke(GetDashboardInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDashboardResult>("aws-native:cloudtrail:getDashboard", args ?? new GetDashboardInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The Amazon CloudTrail dashboard resource allows customers to manage managed dashboards and create custom dashboards. You can manually refresh custom and managed dashboards. For custom dashboards, you can also set up an automatic refresh schedule and modify dashboard widgets.
+        /// </summary>
+        public static Output<GetDashboardResult> Invoke(GetDashboardInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDashboardResult>("aws-native:cloudtrail:getDashboard", args ?? new GetDashboardInvokeArgs(), options.WithDefaults());
     }
 
 

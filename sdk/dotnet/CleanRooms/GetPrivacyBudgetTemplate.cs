@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.CleanRooms
         /// </summary>
         public static Output<GetPrivacyBudgetTemplateResult> Invoke(GetPrivacyBudgetTemplateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPrivacyBudgetTemplateResult>("aws-native:cleanrooms:getPrivacyBudgetTemplate", args ?? new GetPrivacyBudgetTemplateInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Represents a privacy budget within a collaboration
+        /// </summary>
+        public static Output<GetPrivacyBudgetTemplateResult> Invoke(GetPrivacyBudgetTemplateInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPrivacyBudgetTemplateResult>("aws-native:cleanrooms:getPrivacyBudgetTemplate", args ?? new GetPrivacyBudgetTemplateInvokeArgs(), options.WithDefaults());
     }
 
 

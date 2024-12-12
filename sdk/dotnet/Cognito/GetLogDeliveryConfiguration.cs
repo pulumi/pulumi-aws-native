@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Cognito
         /// </summary>
         public static Output<GetLogDeliveryConfigurationResult> Invoke(GetLogDeliveryConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLogDeliveryConfigurationResult>("aws-native:cognito:getLogDeliveryConfiguration", args ?? new GetLogDeliveryConfigurationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::Cognito::LogDeliveryConfiguration
+        /// </summary>
+        public static Output<GetLogDeliveryConfigurationResult> Invoke(GetLogDeliveryConfigurationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLogDeliveryConfigurationResult>("aws-native:cognito:getLogDeliveryConfiguration", args ?? new GetLogDeliveryConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Wisdom
         /// </summary>
         public static Output<GetAiGuardrailVersionResult> Invoke(GetAiGuardrailVersionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAiGuardrailVersionResult>("aws-native:wisdom:getAiGuardrailVersion", args ?? new GetAiGuardrailVersionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::Wisdom::AIGuardrailVersion Resource Type
+        /// </summary>
+        public static Output<GetAiGuardrailVersionResult> Invoke(GetAiGuardrailVersionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAiGuardrailVersionResult>("aws-native:wisdom:getAiGuardrailVersion", args ?? new GetAiGuardrailVersionInvokeArgs(), options.WithDefaults());
     }
 
 

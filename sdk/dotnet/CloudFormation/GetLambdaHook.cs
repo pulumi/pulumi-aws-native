@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.CloudFormation
         /// </summary>
         public static Output<GetLambdaHookResult> Invoke(GetLambdaHookInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLambdaHookResult>("aws-native:cloudformation:getLambdaHook", args ?? new GetLambdaHookInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// This is a CloudFormation resource for the first-party AWS::Hooks::LambdaHook.
+        /// </summary>
+        public static Output<GetLambdaHookResult> Invoke(GetLambdaHookInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLambdaHookResult>("aws-native:cloudformation:getLambdaHook", args ?? new GetLambdaHookInvokeArgs(), options.WithDefaults());
     }
 
 

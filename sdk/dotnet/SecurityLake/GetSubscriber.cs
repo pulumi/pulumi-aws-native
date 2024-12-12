@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.SecurityLake
         /// </summary>
         public static Output<GetSubscriberResult> Invoke(GetSubscriberInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSubscriberResult>("aws-native:securitylake:getSubscriber", args ?? new GetSubscriberInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::SecurityLake::Subscriber
+        /// </summary>
+        public static Output<GetSubscriberResult> Invoke(GetSubscriberInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSubscriberResult>("aws-native:securitylake:getSubscriber", args ?? new GetSubscriberInvokeArgs(), options.WithDefaults());
     }
 
 

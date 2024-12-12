@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.S3
         /// </summary>
         public static Output<GetAccessGrantsLocationResult> Invoke(GetAccessGrantsLocationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccessGrantsLocationResult>("aws-native:s3:getAccessGrantsLocation", args ?? new GetAccessGrantsLocationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The AWS::S3::AccessGrantsLocation resource is an Amazon S3 resource type hosted in an access grants instance which can be the target of S3 access grants.
+        /// </summary>
+        public static Output<GetAccessGrantsLocationResult> Invoke(GetAccessGrantsLocationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAccessGrantsLocationResult>("aws-native:s3:getAccessGrantsLocation", args ?? new GetAccessGrantsLocationInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Ecr
         /// </summary>
         public static Output<GetRepositoryCreationTemplateResult> Invoke(GetRepositoryCreationTemplateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRepositoryCreationTemplateResult>("aws-native:ecr:getRepositoryCreationTemplate", args ?? new GetRepositoryCreationTemplateInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// AWS::ECR::RepositoryCreationTemplate is used to create repository with configuration from a pre-defined template.
+        /// </summary>
+        public static Output<GetRepositoryCreationTemplateResult> Invoke(GetRepositoryCreationTemplateInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRepositoryCreationTemplateResult>("aws-native:ecr:getRepositoryCreationTemplate", args ?? new GetRepositoryCreationTemplateInvokeArgs(), options.WithDefaults());
     }
 
 

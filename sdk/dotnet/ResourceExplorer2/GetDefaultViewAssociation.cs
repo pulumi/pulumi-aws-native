@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.ResourceExplorer2
         /// </summary>
         public static Output<GetDefaultViewAssociationResult> Invoke(GetDefaultViewAssociationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDefaultViewAssociationResult>("aws-native:resourceexplorer2:getDefaultViewAssociation", args ?? new GetDefaultViewAssociationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::ResourceExplorer2::DefaultViewAssociation Resource Type
+        /// </summary>
+        public static Output<GetDefaultViewAssociationResult> Invoke(GetDefaultViewAssociationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDefaultViewAssociationResult>("aws-native:resourceexplorer2:getDefaultViewAssociation", args ?? new GetDefaultViewAssociationInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.NimbleStudio
         /// </summary>
         public static Output<GetLaunchProfileResult> Invoke(GetLaunchProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLaunchProfileResult>("aws-native:nimblestudio:getLaunchProfile", args ?? new GetLaunchProfileInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::NimbleStudio::LaunchProfile
+        /// </summary>
+        public static Output<GetLaunchProfileResult> Invoke(GetLaunchProfileInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLaunchProfileResult>("aws-native:nimblestudio:getLaunchProfile", args ?? new GetLaunchProfileInvokeArgs(), options.WithDefaults());
     }
 
 

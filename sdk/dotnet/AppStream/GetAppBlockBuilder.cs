@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.AppStream
         /// </summary>
         public static Output<GetAppBlockBuilderResult> Invoke(GetAppBlockBuilderInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAppBlockBuilderResult>("aws-native:appstream:getAppBlockBuilder", args ?? new GetAppBlockBuilderInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::AppStream::AppBlockBuilder.
+        /// </summary>
+        public static Output<GetAppBlockBuilderResult> Invoke(GetAppBlockBuilderInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAppBlockBuilderResult>("aws-native:appstream:getAppBlockBuilder", args ?? new GetAppBlockBuilderInvokeArgs(), options.WithDefaults());
     }
 
 

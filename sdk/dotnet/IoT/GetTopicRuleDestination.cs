@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.IoT
         /// </summary>
         public static Output<GetTopicRuleDestinationResult> Invoke(GetTopicRuleDestinationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTopicRuleDestinationResult>("aws-native:iot:getTopicRuleDestination", args ?? new GetTopicRuleDestinationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::IoT::TopicRuleDestination
+        /// </summary>
+        public static Output<GetTopicRuleDestinationResult> Invoke(GetTopicRuleDestinationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTopicRuleDestinationResult>("aws-native:iot:getTopicRuleDestination", args ?? new GetTopicRuleDestinationInvokeArgs(), options.WithDefaults());
     }
 
 

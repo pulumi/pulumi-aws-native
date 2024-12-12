@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.AmplifyUiBuilder
         /// </summary>
         public static Output<GetThemeResult> Invoke(GetThemeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetThemeResult>("aws-native:amplifyuibuilder:getTheme", args ?? new GetThemeInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::AmplifyUIBuilder::Theme Resource Type
+        /// </summary>
+        public static Output<GetThemeResult> Invoke(GetThemeInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetThemeResult>("aws-native:amplifyuibuilder:getTheme", args ?? new GetThemeInvokeArgs(), options.WithDefaults());
     }
 
 

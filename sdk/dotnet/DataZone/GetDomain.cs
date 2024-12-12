@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.DataZone
         /// </summary>
         public static Output<GetDomainResult> Invoke(GetDomainInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDomainResult>("aws-native:datazone:getDomain", args ?? new GetDomainInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// A domain is an organizing entity for connecting together assets, users, and their projects
+        /// </summary>
+        public static Output<GetDomainResult> Invoke(GetDomainInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDomainResult>("aws-native:datazone:getDomain", args ?? new GetDomainInvokeArgs(), options.WithDefaults());
     }
 
 

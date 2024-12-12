@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Emr
         /// </summary>
         public static Output<GetStudioResult> Invoke(GetStudioInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStudioResult>("aws-native:emr:getStudio", args ?? new GetStudioInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource schema for AWS::EMR::Studio
+        /// </summary>
+        public static Output<GetStudioResult> Invoke(GetStudioInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetStudioResult>("aws-native:emr:getStudio", args ?? new GetStudioInvokeArgs(), options.WithDefaults());
     }
 
 

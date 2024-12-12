@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.WaFv2
         /// </summary>
         public static Output<GetIpSetResult> Invoke(GetIpSetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIpSetResult>("aws-native:wafv2:getIpSet", args ?? new GetIpSetInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Contains a list of IP addresses. This can be either IPV4 or IPV6. The list will be mutually
+        /// </summary>
+        public static Output<GetIpSetResult> Invoke(GetIpSetInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetIpSetResult>("aws-native:wafv2:getIpSet", args ?? new GetIpSetInvokeArgs(), options.WithDefaults());
     }
 
 

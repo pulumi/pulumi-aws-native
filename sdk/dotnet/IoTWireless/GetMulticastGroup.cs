@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.IoTWireless
         /// </summary>
         public static Output<GetMulticastGroupResult> Invoke(GetMulticastGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMulticastGroupResult>("aws-native:iotwireless:getMulticastGroup", args ?? new GetMulticastGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Create and manage Multicast groups.
+        /// </summary>
+        public static Output<GetMulticastGroupResult> Invoke(GetMulticastGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMulticastGroupResult>("aws-native:iotwireless:getMulticastGroup", args ?? new GetMulticastGroupInvokeArgs(), options.WithDefaults());
     }
 
 

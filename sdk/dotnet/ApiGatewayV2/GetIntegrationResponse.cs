@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         /// </summary>
         public static Output<GetIntegrationResponseResult> Invoke(GetIntegrationResponseInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIntegrationResponseResult>("aws-native:apigatewayv2:getIntegrationResponse", args ?? new GetIntegrationResponseInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The ``AWS::ApiGatewayV2::IntegrationResponse`` resource updates an integration response for an WebSocket API. For more information, see [Set up WebSocket API Integration Responses in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-integration-responses.html) in the *API Gateway Developer Guide*.
+        /// </summary>
+        public static Output<GetIntegrationResponseResult> Invoke(GetIntegrationResponseInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetIntegrationResponseResult>("aws-native:apigatewayv2:getIntegrationResponse", args ?? new GetIntegrationResponseInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.RefactorSpaces
         /// </summary>
         public static Output<GetRouteResult> Invoke(GetRouteInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRouteResult>("aws-native:refactorspaces:getRoute", args ?? new GetRouteInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::RefactorSpaces::Route Resource Type
+        /// </summary>
+        public static Output<GetRouteResult> Invoke(GetRouteInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRouteResult>("aws-native:refactorspaces:getRoute", args ?? new GetRouteInvokeArgs(), options.WithDefaults());
     }
 
 

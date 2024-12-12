@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.S3Tables
         /// </summary>
         public static Output<GetTableBucketPolicyResult> Invoke(GetTableBucketPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTableBucketPolicyResult>("aws-native:s3tables:getTableBucketPolicy", args ?? new GetTableBucketPolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Applies an IAM resource policy to a table bucket.
+        /// </summary>
+        public static Output<GetTableBucketPolicyResult> Invoke(GetTableBucketPolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTableBucketPolicyResult>("aws-native:s3tables:getTableBucketPolicy", args ?? new GetTableBucketPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

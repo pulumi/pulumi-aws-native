@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.AppConfig
         /// </summary>
         public static Output<GetConfigurationProfileResult> Invoke(GetConfigurationProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationProfileResult>("aws-native:appconfig:getConfigurationProfile", args ?? new GetConfigurationProfileInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// An example resource schema demonstrating some basic constructs and validation rules.
+        /// </summary>
+        public static Output<GetConfigurationProfileResult> Invoke(GetConfigurationProfileInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationProfileResult>("aws-native:appconfig:getConfigurationProfile", args ?? new GetConfigurationProfileInvokeArgs(), options.WithDefaults());
     }
 
 

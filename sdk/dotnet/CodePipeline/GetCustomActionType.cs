@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.CodePipeline
         /// </summary>
         public static Output<GetCustomActionTypeResult> Invoke(GetCustomActionTypeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCustomActionTypeResult>("aws-native:codepipeline:getCustomActionType", args ?? new GetCustomActionTypeInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The AWS::CodePipeline::CustomActionType resource creates a custom action for activities that aren't included in the CodePipeline default actions, such as running an internally developed build process or a test suite. You can use these custom actions in the stage of a pipeline.
+        /// </summary>
+        public static Output<GetCustomActionTypeResult> Invoke(GetCustomActionTypeInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCustomActionTypeResult>("aws-native:codepipeline:getCustomActionType", args ?? new GetCustomActionTypeInvokeArgs(), options.WithDefaults());
     }
 
 

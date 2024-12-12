@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.AppSync
         /// </summary>
         public static Output<GetChannelNamespaceResult> Invoke(GetChannelNamespaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetChannelNamespaceResult>("aws-native:appsync:getChannelNamespace", args ?? new GetChannelNamespaceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource schema for AppSync ChannelNamespace
+        /// </summary>
+        public static Output<GetChannelNamespaceResult> Invoke(GetChannelNamespaceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetChannelNamespaceResult>("aws-native:appsync:getChannelNamespace", args ?? new GetChannelNamespaceInvokeArgs(), options.WithDefaults());
     }
 
 

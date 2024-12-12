@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.AutoScaling
         /// </summary>
         public static Output<GetScheduledActionResult> Invoke(GetScheduledActionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetScheduledActionResult>("aws-native:autoscaling:getScheduledAction", args ?? new GetScheduledActionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The AWS::AutoScaling::ScheduledAction resource specifies an Amazon EC2 Auto Scaling scheduled action so that the Auto Scaling group can change the number of instances available for your application in response to predictable load changes.
+        /// </summary>
+        public static Output<GetScheduledActionResult> Invoke(GetScheduledActionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetScheduledActionResult>("aws-native:autoscaling:getScheduledAction", args ?? new GetScheduledActionInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -26,6 +26,14 @@ namespace Pulumi.AwsNative.S3
         /// </summary>
         public static Output<GetBucketResult> Invoke(GetBucketInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBucketResult>("aws-native:s3:getBucket", args ?? new GetBucketInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The ``AWS::S3::Bucket`` resource creates an Amazon S3 bucket in the same AWS Region where you create the AWS CloudFormation stack.
+        ///  To control how AWS CloudFormation handles the bucket when the stack is deleted, you can set a deletion policy for your bucket. You can choose to *retain* the bucket or to *delete* the bucket. For more information, see [DeletionPolicy Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html).
+        ///   You can only delete empty buckets. Deletion fails for buckets that have contents.
+        /// </summary>
+        public static Output<GetBucketResult> Invoke(GetBucketInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetBucketResult>("aws-native:s3:getBucket", args ?? new GetBucketInvokeArgs(), options.WithDefaults());
     }
 
 

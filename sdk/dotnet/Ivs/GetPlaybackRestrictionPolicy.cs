@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Ivs
         /// </summary>
         public static Output<GetPlaybackRestrictionPolicyResult> Invoke(GetPlaybackRestrictionPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPlaybackRestrictionPolicyResult>("aws-native:ivs:getPlaybackRestrictionPolicy", args ?? new GetPlaybackRestrictionPolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::IVS::PlaybackRestrictionPolicy.
+        /// </summary>
+        public static Output<GetPlaybackRestrictionPolicyResult> Invoke(GetPlaybackRestrictionPolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPlaybackRestrictionPolicyResult>("aws-native:ivs:getPlaybackRestrictionPolicy", args ?? new GetPlaybackRestrictionPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

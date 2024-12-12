@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.SageMaker
         /// </summary>
         public static Output<GetMonitoringScheduleResult> Invoke(GetMonitoringScheduleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMonitoringScheduleResult>("aws-native:sagemaker:getMonitoringSchedule", args ?? new GetMonitoringScheduleInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::SageMaker::MonitoringSchedule
+        /// </summary>
+        public static Output<GetMonitoringScheduleResult> Invoke(GetMonitoringScheduleInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMonitoringScheduleResult>("aws-native:sagemaker:getMonitoringSchedule", args ?? new GetMonitoringScheduleInvokeArgs(), options.WithDefaults());
     }
 
 

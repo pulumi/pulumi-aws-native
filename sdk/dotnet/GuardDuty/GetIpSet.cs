@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.GuardDuty
         /// </summary>
         public static Output<GetIpSetResult> Invoke(GetIpSetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIpSetResult>("aws-native:guardduty:getIpSet", args ?? new GetIpSetInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::GuardDuty::IPSet
+        /// </summary>
+        public static Output<GetIpSetResult> Invoke(GetIpSetInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetIpSetResult>("aws-native:guardduty:getIpSet", args ?? new GetIpSetInvokeArgs(), options.WithDefaults());
     }
 
 

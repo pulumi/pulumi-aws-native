@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Msk
         /// </summary>
         public static Output<GetReplicatorResult> Invoke(GetReplicatorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReplicatorResult>("aws-native:msk:getReplicator", args ?? new GetReplicatorInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::MSK::Replicator
+        /// </summary>
+        public static Output<GetReplicatorResult> Invoke(GetReplicatorInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetReplicatorResult>("aws-native:msk:getReplicator", args ?? new GetReplicatorInvokeArgs(), options.WithDefaults());
     }
 
 

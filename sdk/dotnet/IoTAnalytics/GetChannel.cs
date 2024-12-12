@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.IoTAnalytics
         /// </summary>
         public static Output<GetChannelResult> Invoke(GetChannelInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetChannelResult>("aws-native:iotanalytics:getChannel", args ?? new GetChannelInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::IoTAnalytics::Channel
+        /// </summary>
+        public static Output<GetChannelResult> Invoke(GetChannelInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetChannelResult>("aws-native:iotanalytics:getChannel", args ?? new GetChannelInvokeArgs(), options.WithDefaults());
     }
 
 

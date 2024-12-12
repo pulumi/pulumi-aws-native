@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Bedrock
         /// </summary>
         public static Output<GetDataSourceResult> Invoke(GetDataSourceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDataSourceResult>("aws-native:bedrock:getDataSource", args ?? new GetDataSourceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::Bedrock::DataSource Resource Type
+        /// </summary>
+        public static Output<GetDataSourceResult> Invoke(GetDataSourceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDataSourceResult>("aws-native:bedrock:getDataSource", args ?? new GetDataSourceInvokeArgs(), options.WithDefaults());
     }
 
 

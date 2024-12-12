@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.GlobalAccelerator
         /// </summary>
         public static Output<GetCrossAccountAttachmentResult> Invoke(GetCrossAccountAttachmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCrossAccountAttachmentResult>("aws-native:globalaccelerator:getCrossAccountAttachment", args ?? new GetCrossAccountAttachmentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::GlobalAccelerator::CrossAccountAttachment
+        /// </summary>
+        public static Output<GetCrossAccountAttachmentResult> Invoke(GetCrossAccountAttachmentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCrossAccountAttachmentResult>("aws-native:globalaccelerator:getCrossAccountAttachment", args ?? new GetCrossAccountAttachmentInvokeArgs(), options.WithDefaults());
     }
 
 

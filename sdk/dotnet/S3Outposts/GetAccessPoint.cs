@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.S3Outposts
         /// </summary>
         public static Output<GetAccessPointResult> Invoke(GetAccessPointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccessPointResult>("aws-native:s3outposts:getAccessPoint", args ?? new GetAccessPointInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type Definition for AWS::S3Outposts::AccessPoint
+        /// </summary>
+        public static Output<GetAccessPointResult> Invoke(GetAccessPointInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAccessPointResult>("aws-native:s3outposts:getAccessPoint", args ?? new GetAccessPointInvokeArgs(), options.WithDefaults());
     }
 
 

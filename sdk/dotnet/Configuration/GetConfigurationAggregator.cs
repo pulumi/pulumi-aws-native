@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Configuration
         /// </summary>
         public static Output<GetConfigurationAggregatorResult> Invoke(GetConfigurationAggregatorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationAggregatorResult>("aws-native:configuration:getConfigurationAggregator", args ?? new GetConfigurationAggregatorInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::Config::ConfigurationAggregator
+        /// </summary>
+        public static Output<GetConfigurationAggregatorResult> Invoke(GetConfigurationAggregatorInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationAggregatorResult>("aws-native:configuration:getConfigurationAggregator", args ?? new GetConfigurationAggregatorInvokeArgs(), options.WithDefaults());
     }
 
 

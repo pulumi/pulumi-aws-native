@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.S3
         /// </summary>
         public static Output<GetStorageLensGroupResult> Invoke(GetStorageLensGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStorageLensGroupResult>("aws-native:s3:getStorageLensGroup", args ?? new GetStorageLensGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The AWS::S3::StorageLensGroup resource is an Amazon S3 resource type that you can use to create Storage Lens Group.
+        /// </summary>
+        public static Output<GetStorageLensGroupResult> Invoke(GetStorageLensGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetStorageLensGroupResult>("aws-native:s3:getStorageLensGroup", args ?? new GetStorageLensGroupInvokeArgs(), options.WithDefaults());
     }
 
 

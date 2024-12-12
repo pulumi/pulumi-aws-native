@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.MediaTailor
         /// </summary>
         public static Output<GetSourceLocationResult> Invoke(GetSourceLocationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSourceLocationResult>("aws-native:mediatailor:getSourceLocation", args ?? new GetSourceLocationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::MediaTailor::SourceLocation Resource Type
+        /// </summary>
+        public static Output<GetSourceLocationResult> Invoke(GetSourceLocationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSourceLocationResult>("aws-native:mediatailor:getSourceLocation", args ?? new GetSourceLocationInvokeArgs(), options.WithDefaults());
     }
 
 

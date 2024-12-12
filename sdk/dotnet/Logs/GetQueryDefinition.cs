@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Logs
         /// </summary>
         public static Output<GetQueryDefinitionResult> Invoke(GetQueryDefinitionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetQueryDefinitionResult>("aws-native:logs:getQueryDefinition", args ?? new GetQueryDefinitionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The resource schema for AWSLogs QueryDefinition
+        /// </summary>
+        public static Output<GetQueryDefinitionResult> Invoke(GetQueryDefinitionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetQueryDefinitionResult>("aws-native:logs:getQueryDefinition", args ?? new GetQueryDefinitionInvokeArgs(), options.WithDefaults());
     }
 
 

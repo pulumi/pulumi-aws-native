@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Iam
         /// </summary>
         public static Output<GetVirtualMfaDeviceResult> Invoke(GetVirtualMfaDeviceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualMfaDeviceResult>("aws-native:iam:getVirtualMfaDevice", args ?? new GetVirtualMfaDeviceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::IAM::VirtualMFADevice
+        /// </summary>
+        public static Output<GetVirtualMfaDeviceResult> Invoke(GetVirtualMfaDeviceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVirtualMfaDeviceResult>("aws-native:iam:getVirtualMfaDevice", args ?? new GetVirtualMfaDeviceInvokeArgs(), options.WithDefaults());
     }
 
 

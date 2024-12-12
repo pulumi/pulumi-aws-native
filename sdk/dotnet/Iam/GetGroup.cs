@@ -24,6 +24,13 @@ namespace Pulumi.AwsNative.Iam
         /// </summary>
         public static Output<GetGroupResult> Invoke(GetGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGroupResult>("aws-native:iam:getGroup", args ?? new GetGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Creates a new group.
+        ///   For information about the number of groups you can create, see [Limitations on Entities](https://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html) in the *User Guide*.
+        /// </summary>
+        public static Output<GetGroupResult> Invoke(GetGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetGroupResult>("aws-native:iam:getGroup", args ?? new GetGroupInvokeArgs(), options.WithDefaults());
     }
 
 

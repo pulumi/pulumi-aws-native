@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Connect
         /// </summary>
         public static Output<GetPredefinedAttributeResult> Invoke(GetPredefinedAttributeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPredefinedAttributeResult>("aws-native:connect:getPredefinedAttribute", args ?? new GetPredefinedAttributeInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::Connect::PredefinedAttribute
+        /// </summary>
+        public static Output<GetPredefinedAttributeResult> Invoke(GetPredefinedAttributeInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPredefinedAttributeResult>("aws-native:connect:getPredefinedAttribute", args ?? new GetPredefinedAttributeInvokeArgs(), options.WithDefaults());
     }
 
 

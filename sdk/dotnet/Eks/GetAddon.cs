@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Eks
         /// </summary>
         public static Output<GetAddonResult> Invoke(GetAddonInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAddonResult>("aws-native:eks:getAddon", args ?? new GetAddonInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Schema for AWS::EKS::Addon
+        /// </summary>
+        public static Output<GetAddonResult> Invoke(GetAddonInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAddonResult>("aws-native:eks:getAddon", args ?? new GetAddonInvokeArgs(), options.WithDefaults());
     }
 
 

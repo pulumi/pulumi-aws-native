@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Logs
         /// </summary>
         public static Output<GetLogAnomalyDetectorResult> Invoke(GetLogAnomalyDetectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLogAnomalyDetectorResult>("aws-native:logs:getLogAnomalyDetector", args ?? new GetLogAnomalyDetectorInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The AWS::Logs::LogAnomalyDetector resource specifies a CloudWatch Logs LogAnomalyDetector.
+        /// </summary>
+        public static Output<GetLogAnomalyDetectorResult> Invoke(GetLogAnomalyDetectorInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLogAnomalyDetectorResult>("aws-native:logs:getLogAnomalyDetector", args ?? new GetLogAnomalyDetectorInvokeArgs(), options.WithDefaults());
     }
 
 

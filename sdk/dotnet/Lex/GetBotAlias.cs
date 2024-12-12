@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Lex
         /// </summary>
         public static Output<GetBotAliasResult> Invoke(GetBotAliasInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBotAliasResult>("aws-native:lex:getBotAlias", args ?? new GetBotAliasInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// A Bot Alias enables you to change the version of a bot without updating applications that use the bot
+        /// </summary>
+        public static Output<GetBotAliasResult> Invoke(GetBotAliasInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetBotAliasResult>("aws-native:lex:getBotAlias", args ?? new GetBotAliasInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.CustomerProfiles
         /// </summary>
         public static Output<GetCalculatedAttributeDefinitionResult> Invoke(GetCalculatedAttributeDefinitionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCalculatedAttributeDefinitionResult>("aws-native:customerprofiles:getCalculatedAttributeDefinition", args ?? new GetCalculatedAttributeDefinitionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// A calculated attribute definition for Customer Profiles
+        /// </summary>
+        public static Output<GetCalculatedAttributeDefinitionResult> Invoke(GetCalculatedAttributeDefinitionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCalculatedAttributeDefinitionResult>("aws-native:customerprofiles:getCalculatedAttributeDefinition", args ?? new GetCalculatedAttributeDefinitionInvokeArgs(), options.WithDefaults());
     }
 
 

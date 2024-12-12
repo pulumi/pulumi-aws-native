@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Ses
         /// </summary>
         public static Output<GetMailManagerIngressPointResult> Invoke(GetMailManagerIngressPointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMailManagerIngressPointResult>("aws-native:ses:getMailManagerIngressPoint", args ?? new GetMailManagerIngressPointInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::SES::MailManagerIngressPoint Resource Type
+        /// </summary>
+        public static Output<GetMailManagerIngressPointResult> Invoke(GetMailManagerIngressPointInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMailManagerIngressPointResult>("aws-native:ses:getMailManagerIngressPoint", args ?? new GetMailManagerIngressPointInvokeArgs(), options.WithDefaults());
     }
 
 

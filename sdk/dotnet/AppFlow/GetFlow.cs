@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.AppFlow
         /// </summary>
         public static Output<GetFlowResult> Invoke(GetFlowInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFlowResult>("aws-native:appflow:getFlow", args ?? new GetFlowInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource schema for AWS::AppFlow::Flow.
+        /// </summary>
+        public static Output<GetFlowResult> Invoke(GetFlowInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFlowResult>("aws-native:appflow:getFlow", args ?? new GetFlowInvokeArgs(), options.WithDefaults());
     }
 
 

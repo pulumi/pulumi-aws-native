@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.SsmContacts
         /// </summary>
         public static Output<GetRotationResult> Invoke(GetRotationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRotationResult>("aws-native:ssmcontacts:getRotation", args ?? new GetRotationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::SSMContacts::Rotation.
+        /// </summary>
+        public static Output<GetRotationResult> Invoke(GetRotationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRotationResult>("aws-native:ssmcontacts:getRotation", args ?? new GetRotationInvokeArgs(), options.WithDefaults());
     }
 
 

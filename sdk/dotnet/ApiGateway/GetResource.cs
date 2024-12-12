@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.ApiGateway
         /// </summary>
         public static Output<GetResourceResult> Invoke(GetResourceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResourceResult>("aws-native:apigateway:getResource", args ?? new GetResourceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The ``AWS::ApiGateway::Resource`` resource creates a resource in an API.
+        /// </summary>
+        public static Output<GetResourceResult> Invoke(GetResourceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetResourceResult>("aws-native:apigateway:getResource", args ?? new GetResourceInvokeArgs(), options.WithDefaults());
     }
 
 

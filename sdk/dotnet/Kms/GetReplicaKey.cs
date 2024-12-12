@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Kms
         /// </summary>
         public static Output<GetReplicaKeyResult> Invoke(GetReplicaKeyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReplicaKeyResult>("aws-native:kms:getReplicaKey", args ?? new GetReplicaKeyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The AWS::KMS::ReplicaKey resource specifies a multi-region replica AWS KMS key in AWS Key Management Service (AWS KMS).
+        /// </summary>
+        public static Output<GetReplicaKeyResult> Invoke(GetReplicaKeyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetReplicaKeyResult>("aws-native:kms:getReplicaKey", args ?? new GetReplicaKeyInvokeArgs(), options.WithDefaults());
     }
 
 

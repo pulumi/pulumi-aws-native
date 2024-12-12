@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.ApiGatewayV2
         /// </summary>
         public static Output<GetRouteResponseResult> Invoke(GetRouteResponseInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRouteResponseResult>("aws-native:apigatewayv2:getRouteResponse", args ?? new GetRouteResponseInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The ``AWS::ApiGatewayV2::RouteResponse`` resource creates a route response for a WebSocket API. For more information, see [Set up Route Responses for a WebSocket API in API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api-route-response.html) in the *API Gateway Developer Guide*.
+        /// </summary>
+        public static Output<GetRouteResponseResult> Invoke(GetRouteResponseInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRouteResponseResult>("aws-native:apigatewayv2:getRouteResponse", args ?? new GetRouteResponseInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Omics
         /// </summary>
         public static Output<GetVariantStoreResult> Invoke(GetVariantStoreInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVariantStoreResult>("aws-native:omics:getVariantStore", args ?? new GetVariantStoreInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::Omics::VariantStore Resource Type
+        /// </summary>
+        public static Output<GetVariantStoreResult> Invoke(GetVariantStoreInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVariantStoreResult>("aws-native:omics:getVariantStore", args ?? new GetVariantStoreInvokeArgs(), options.WithDefaults());
     }
 
 

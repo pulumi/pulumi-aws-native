@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Oam
         /// </summary>
         public static Output<GetLinkResult> Invoke(GetLinkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLinkResult>("aws-native:oam:getLink", args ?? new GetLinkInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::Oam::Link Resource Type
+        /// </summary>
+        public static Output<GetLinkResult> Invoke(GetLinkInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLinkResult>("aws-native:oam:getLink", args ?? new GetLinkInvokeArgs(), options.WithDefaults());
     }
 
 

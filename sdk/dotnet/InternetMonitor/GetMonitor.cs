@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.InternetMonitor
         /// </summary>
         public static Output<GetMonitorResult> Invoke(GetMonitorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMonitorResult>("aws-native:internetmonitor:getMonitor", args ?? new GetMonitorInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Represents a monitor, which defines the monitoring boundaries for measurements that Internet Monitor publishes information about for an application
+        /// </summary>
+        public static Output<GetMonitorResult> Invoke(GetMonitorInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMonitorResult>("aws-native:internetmonitor:getMonitor", args ?? new GetMonitorInvokeArgs(), options.WithDefaults());
     }
 
 

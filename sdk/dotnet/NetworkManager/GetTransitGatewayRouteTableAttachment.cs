@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.NetworkManager
         /// </summary>
         public static Output<GetTransitGatewayRouteTableAttachmentResult> Invoke(GetTransitGatewayRouteTableAttachmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTransitGatewayRouteTableAttachmentResult>("aws-native:networkmanager:getTransitGatewayRouteTableAttachment", args ?? new GetTransitGatewayRouteTableAttachmentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// AWS::NetworkManager::TransitGatewayRouteTableAttachment Resource Type definition.
+        /// </summary>
+        public static Output<GetTransitGatewayRouteTableAttachmentResult> Invoke(GetTransitGatewayRouteTableAttachmentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTransitGatewayRouteTableAttachmentResult>("aws-native:networkmanager:getTransitGatewayRouteTableAttachment", args ?? new GetTransitGatewayRouteTableAttachmentInvokeArgs(), options.WithDefaults());
     }
 
 

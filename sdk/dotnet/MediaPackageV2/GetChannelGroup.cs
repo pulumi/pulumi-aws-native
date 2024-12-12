@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.MediaPackageV2
         /// </summary>
         public static Output<GetChannelGroupResult> Invoke(GetChannelGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetChannelGroupResult>("aws-native:mediapackagev2:getChannelGroup", args ?? new GetChannelGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// &lt;p&gt;Represents a channel group that facilitates the grouping of multiple channels.&lt;/p&gt;
+        /// </summary>
+        public static Output<GetChannelGroupResult> Invoke(GetChannelGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetChannelGroupResult>("aws-native:mediapackagev2:getChannelGroup", args ?? new GetChannelGroupInvokeArgs(), options.WithDefaults());
     }
 
 

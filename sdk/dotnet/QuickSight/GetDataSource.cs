@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.QuickSight
         /// </summary>
         public static Output<GetDataSourceResult> Invoke(GetDataSourceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDataSourceResult>("aws-native:quicksight:getDataSource", args ?? new GetDataSourceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of the AWS::QuickSight::DataSource Resource Type.
+        /// </summary>
+        public static Output<GetDataSourceResult> Invoke(GetDataSourceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDataSourceResult>("aws-native:quicksight:getDataSource", args ?? new GetDataSourceInvokeArgs(), options.WithDefaults());
     }
 
 

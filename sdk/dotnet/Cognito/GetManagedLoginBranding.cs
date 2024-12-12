@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Cognito
         /// </summary>
         public static Output<GetManagedLoginBrandingResult> Invoke(GetManagedLoginBrandingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetManagedLoginBrandingResult>("aws-native:cognito:getManagedLoginBranding", args ?? new GetManagedLoginBrandingInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::Cognito::ManagedLoginBranding
+        /// </summary>
+        public static Output<GetManagedLoginBrandingResult> Invoke(GetManagedLoginBrandingInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetManagedLoginBrandingResult>("aws-native:cognito:getManagedLoginBranding", args ?? new GetManagedLoginBrandingInvokeArgs(), options.WithDefaults());
     }
 
 

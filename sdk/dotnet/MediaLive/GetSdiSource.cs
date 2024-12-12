@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.MediaLive
         /// </summary>
         public static Output<GetSdiSourceResult> Invoke(GetSdiSourceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSdiSourceResult>("aws-native:medialive:getSdiSource", args ?? new GetSdiSourceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::MediaLive::SdiSource Resource Type
+        /// </summary>
+        public static Output<GetSdiSourceResult> Invoke(GetSdiSourceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSdiSourceResult>("aws-native:medialive:getSdiSource", args ?? new GetSdiSourceInvokeArgs(), options.WithDefaults());
     }
 
 

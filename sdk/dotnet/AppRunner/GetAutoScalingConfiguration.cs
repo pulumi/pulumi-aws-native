@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.AppRunner
         /// </summary>
         public static Output<GetAutoScalingConfigurationResult> Invoke(GetAutoScalingConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAutoScalingConfigurationResult>("aws-native:apprunner:getAutoScalingConfiguration", args ?? new GetAutoScalingConfigurationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Describes an AWS App Runner automatic configuration resource that enables automatic scaling of instances used to process web requests. You can share an auto scaling configuration across multiple services.
+        /// </summary>
+        public static Output<GetAutoScalingConfigurationResult> Invoke(GetAutoScalingConfigurationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAutoScalingConfigurationResult>("aws-native:apprunner:getAutoScalingConfiguration", args ?? new GetAutoScalingConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

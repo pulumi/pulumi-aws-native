@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.InspectorV2
         /// </summary>
         public static Output<GetCisScanConfigurationResult> Invoke(GetCisScanConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCisScanConfigurationResult>("aws-native:inspectorv2:getCisScanConfiguration", args ?? new GetCisScanConfigurationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// CIS Scan Configuration resource schema
+        /// </summary>
+        public static Output<GetCisScanConfigurationResult> Invoke(GetCisScanConfigurationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCisScanConfigurationResult>("aws-native:inspectorv2:getCisScanConfiguration", args ?? new GetCisScanConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

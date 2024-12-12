@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         public static Output<GetTransitGatewayMulticastDomainAssociationResult> Invoke(GetTransitGatewayMulticastDomainAssociationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTransitGatewayMulticastDomainAssociationResult>("aws-native:ec2:getTransitGatewayMulticastDomainAssociation", args ?? new GetTransitGatewayMulticastDomainAssociationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The AWS::EC2::TransitGatewayMulticastDomainAssociation type
+        /// </summary>
+        public static Output<GetTransitGatewayMulticastDomainAssociationResult> Invoke(GetTransitGatewayMulticastDomainAssociationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTransitGatewayMulticastDomainAssociationResult>("aws-native:ec2:getTransitGatewayMulticastDomainAssociation", args ?? new GetTransitGatewayMulticastDomainAssociationInvokeArgs(), options.WithDefaults());
     }
 
 

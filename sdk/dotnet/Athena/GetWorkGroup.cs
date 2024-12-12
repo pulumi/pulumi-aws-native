@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Athena
         /// </summary>
         public static Output<GetWorkGroupResult> Invoke(GetWorkGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkGroupResult>("aws-native:athena:getWorkGroup", args ?? new GetWorkGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource schema for AWS::Athena::WorkGroup
+        /// </summary>
+        public static Output<GetWorkGroupResult> Invoke(GetWorkGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetWorkGroupResult>("aws-native:athena:getWorkGroup", args ?? new GetWorkGroupInvokeArgs(), options.WithDefaults());
     }
 
 

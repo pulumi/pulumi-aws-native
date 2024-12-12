@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.IoTTwinMaker
         /// </summary>
         public static Output<GetSceneResult> Invoke(GetSceneInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSceneResult>("aws-native:iottwinmaker:getScene", args ?? new GetSceneInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource schema for AWS::IoTTwinMaker::Scene
+        /// </summary>
+        public static Output<GetSceneResult> Invoke(GetSceneInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSceneResult>("aws-native:iottwinmaker:getScene", args ?? new GetSceneInvokeArgs(), options.WithDefaults());
     }
 
 

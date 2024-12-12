@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         public static Output<GetInstanceConnectEndpointResult> Invoke(GetInstanceConnectEndpointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInstanceConnectEndpointResult>("aws-native:ec2:getInstanceConnectEndpoint", args ?? new GetInstanceConnectEndpointInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::EC2::InstanceConnectEndpoint
+        /// </summary>
+        public static Output<GetInstanceConnectEndpointResult> Invoke(GetInstanceConnectEndpointInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetInstanceConnectEndpointResult>("aws-native:ec2:getInstanceConnectEndpoint", args ?? new GetInstanceConnectEndpointInvokeArgs(), options.WithDefaults());
     }
 
 

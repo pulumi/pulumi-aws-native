@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative
 
         public static Output<CidrResult> Invoke(CidrInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<CidrResult>("aws-native:index:cidr", args ?? new CidrInvokeArgs(), options.WithDefaults());
+
+        public static Output<CidrResult> Invoke(CidrInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<CidrResult>("aws-native:index:cidr", args ?? new CidrInvokeArgs(), options.WithDefaults());
     }
 
 

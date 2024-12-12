@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.MediaConnect
         /// </summary>
         public static Output<GetGatewayResult> Invoke(GetGatewayInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGatewayResult>("aws-native:mediaconnect:getGateway", args ?? new GetGatewayInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource schema for AWS::MediaConnect::Gateway
+        /// </summary>
+        public static Output<GetGatewayResult> Invoke(GetGatewayInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetGatewayResult>("aws-native:mediaconnect:getGateway", args ?? new GetGatewayInvokeArgs(), options.WithDefaults());
     }
 
 

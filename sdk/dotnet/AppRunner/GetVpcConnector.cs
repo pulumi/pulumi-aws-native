@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.AppRunner
         /// </summary>
         public static Output<GetVpcConnectorResult> Invoke(GetVpcConnectorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpcConnectorResult>("aws-native:apprunner:getVpcConnector", args ?? new GetVpcConnectorInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The AWS::AppRunner::VpcConnector resource specifies an App Runner VpcConnector.
+        /// </summary>
+        public static Output<GetVpcConnectorResult> Invoke(GetVpcConnectorInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVpcConnectorResult>("aws-native:apprunner:getVpcConnector", args ?? new GetVpcConnectorInvokeArgs(), options.WithDefaults());
     }
 
 

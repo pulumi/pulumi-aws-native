@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.IoTWireless
         /// </summary>
         public static Output<GetServiceProfileResult> Invoke(GetServiceProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceProfileResult>("aws-native:iotwireless:getServiceProfile", args ?? new GetServiceProfileInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// An example resource schema demonstrating some basic constructs and validation rules.
+        /// </summary>
+        public static Output<GetServiceProfileResult> Invoke(GetServiceProfileInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetServiceProfileResult>("aws-native:iotwireless:getServiceProfile", args ?? new GetServiceProfileInvokeArgs(), options.WithDefaults());
     }
 
 

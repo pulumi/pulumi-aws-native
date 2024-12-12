@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.QuickSight
         /// </summary>
         public static Output<GetFolderResult> Invoke(GetFolderInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFolderResult>("aws-native:quicksight:getFolder", args ?? new GetFolderInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of the AWS::QuickSight::Folder Resource Type.
+        /// </summary>
+        public static Output<GetFolderResult> Invoke(GetFolderInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFolderResult>("aws-native:quicksight:getFolder", args ?? new GetFolderInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.NetworkFirewall
         /// </summary>
         public static Output<GetRuleGroupResult> Invoke(GetRuleGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRuleGroupResult>("aws-native:networkfirewall:getRuleGroup", args ?? new GetRuleGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource type definition for AWS::NetworkFirewall::RuleGroup
+        /// </summary>
+        public static Output<GetRuleGroupResult> Invoke(GetRuleGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRuleGroupResult>("aws-native:networkfirewall:getRuleGroup", args ?? new GetRuleGroupInvokeArgs(), options.WithDefaults());
     }
 
 

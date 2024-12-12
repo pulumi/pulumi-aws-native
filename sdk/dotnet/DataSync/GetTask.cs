@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.DataSync
         /// </summary>
         public static Output<GetTaskResult> Invoke(GetTaskInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTaskResult>("aws-native:datasync:getTask", args ?? new GetTaskInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource schema for AWS::DataSync::Task.
+        /// </summary>
+        public static Output<GetTaskResult> Invoke(GetTaskInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTaskResult>("aws-native:datasync:getTask", args ?? new GetTaskInvokeArgs(), options.WithDefaults());
     }
 
 

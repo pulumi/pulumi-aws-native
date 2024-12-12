@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Omics
         /// </summary>
         public static Output<GetAnnotationStoreResult> Invoke(GetAnnotationStoreInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAnnotationStoreResult>("aws-native:omics:getAnnotationStore", args ?? new GetAnnotationStoreInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::Omics::AnnotationStore Resource Type
+        /// </summary>
+        public static Output<GetAnnotationStoreResult> Invoke(GetAnnotationStoreInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAnnotationStoreResult>("aws-native:omics:getAnnotationStore", args ?? new GetAnnotationStoreInvokeArgs(), options.WithDefaults());
     }
 
 

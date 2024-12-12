@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Omics
         /// </summary>
         public static Output<GetReferenceStoreResult> Invoke(GetReferenceStoreInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReferenceStoreResult>("aws-native:omics:getReferenceStore", args ?? new GetReferenceStoreInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::Omics::ReferenceStore Resource Type
+        /// </summary>
+        public static Output<GetReferenceStoreResult> Invoke(GetReferenceStoreInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetReferenceStoreResult>("aws-native:omics:getReferenceStore", args ?? new GetReferenceStoreInvokeArgs(), options.WithDefaults());
     }
 
 

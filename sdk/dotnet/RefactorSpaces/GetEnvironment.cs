@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.RefactorSpaces
         /// </summary>
         public static Output<GetEnvironmentResult> Invoke(GetEnvironmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEnvironmentResult>("aws-native:refactorspaces:getEnvironment", args ?? new GetEnvironmentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::RefactorSpaces::Environment Resource Type
+        /// </summary>
+        public static Output<GetEnvironmentResult> Invoke(GetEnvironmentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEnvironmentResult>("aws-native:refactorspaces:getEnvironment", args ?? new GetEnvironmentInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.SageMaker
         /// </summary>
         public static Output<GetModelPackageGroupResult> Invoke(GetModelPackageGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetModelPackageGroupResult>("aws-native:sagemaker:getModelPackageGroup", args ?? new GetModelPackageGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::SageMaker::ModelPackageGroup
+        /// </summary>
+        public static Output<GetModelPackageGroupResult> Invoke(GetModelPackageGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetModelPackageGroupResult>("aws-native:sagemaker:getModelPackageGroup", args ?? new GetModelPackageGroupInvokeArgs(), options.WithDefaults());
     }
 
 

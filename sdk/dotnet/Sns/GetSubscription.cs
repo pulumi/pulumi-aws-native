@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Sns
         /// </summary>
         public static Output<GetSubscriptionResult> Invoke(GetSubscriptionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSubscriptionResult>("aws-native:sns:getSubscription", args ?? new GetSubscriptionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::SNS::Subscription
+        /// </summary>
+        public static Output<GetSubscriptionResult> Invoke(GetSubscriptionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSubscriptionResult>("aws-native:sns:getSubscription", args ?? new GetSubscriptionInvokeArgs(), options.WithDefaults());
     }
 
 

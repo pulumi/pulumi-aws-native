@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.SecurityHub
         /// </summary>
         public static Output<GetAutomationRuleResult> Invoke(GetAutomationRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAutomationRuleResult>("aws-native:securityhub:getAutomationRule", args ?? new GetAutomationRuleInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The ``AWS::SecurityHub::AutomationRule`` resource specifies an automation rule based on input parameters. For more information, see [Automation rules](https://docs.aws.amazon.com/securityhub/latest/userguide/automation-rules.html) in the *User Guide*.
+        /// </summary>
+        public static Output<GetAutomationRuleResult> Invoke(GetAutomationRuleInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAutomationRuleResult>("aws-native:securityhub:getAutomationRule", args ?? new GetAutomationRuleInvokeArgs(), options.WithDefaults());
     }
 
 

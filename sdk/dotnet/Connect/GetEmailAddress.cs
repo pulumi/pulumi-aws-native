@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Connect
         /// </summary>
         public static Output<GetEmailAddressResult> Invoke(GetEmailAddressInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEmailAddressResult>("aws-native:connect:getEmailAddress", args ?? new GetEmailAddressInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::Connect::EmailAddress
+        /// </summary>
+        public static Output<GetEmailAddressResult> Invoke(GetEmailAddressInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEmailAddressResult>("aws-native:connect:getEmailAddress", args ?? new GetEmailAddressInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.OpenSearchServerless
         /// </summary>
         public static Output<GetSecurityConfigResult> Invoke(GetSecurityConfigInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecurityConfigResult>("aws-native:opensearchserverless:getSecurityConfig", args ?? new GetSecurityConfigInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Amazon OpenSearchServerless security config resource
+        /// </summary>
+        public static Output<GetSecurityConfigResult> Invoke(GetSecurityConfigInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSecurityConfigResult>("aws-native:opensearchserverless:getSecurityConfig", args ?? new GetSecurityConfigInvokeArgs(), options.WithDefaults());
     }
 
 

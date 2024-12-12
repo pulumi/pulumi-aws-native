@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2
         /// </summary>
         public static Output<GetTrustStoreResult> Invoke(GetTrustStoreInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTrustStoreResult>("aws-native:elasticloadbalancingv2:getTrustStore", args ?? new GetTrustStoreInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::ElasticLoadBalancingV2::TrustStore
+        /// </summary>
+        public static Output<GetTrustStoreResult> Invoke(GetTrustStoreInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTrustStoreResult>("aws-native:elasticloadbalancingv2:getTrustStore", args ?? new GetTrustStoreInvokeArgs(), options.WithDefaults());
     }
 
 

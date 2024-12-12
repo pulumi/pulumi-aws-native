@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.IoTWireless
         /// </summary>
         public static Output<GetWirelessDeviceResult> Invoke(GetWirelessDeviceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWirelessDeviceResult>("aws-native:iotwireless:getWirelessDevice", args ?? new GetWirelessDeviceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Create and manage wireless gateways, including LoRa gateways.
+        /// </summary>
+        public static Output<GetWirelessDeviceResult> Invoke(GetWirelessDeviceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetWirelessDeviceResult>("aws-native:iotwireless:getWirelessDevice", args ?? new GetWirelessDeviceInvokeArgs(), options.WithDefaults());
     }
 
 

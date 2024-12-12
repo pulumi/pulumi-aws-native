@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.EntityResolution
         /// </summary>
         public static Output<GetPolicyStatementResult> Invoke(GetPolicyStatementInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPolicyStatementResult>("aws-native:entityresolution:getPolicyStatement", args ?? new GetPolicyStatementInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Policy Statement defined in AWS Entity Resolution Service
+        /// </summary>
+        public static Output<GetPolicyStatementResult> Invoke(GetPolicyStatementInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPolicyStatementResult>("aws-native:entityresolution:getPolicyStatement", args ?? new GetPolicyStatementInvokeArgs(), options.WithDefaults());
     }
 
 

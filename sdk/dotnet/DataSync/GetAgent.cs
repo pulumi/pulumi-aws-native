@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.DataSync
         /// </summary>
         public static Output<GetAgentResult> Invoke(GetAgentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAgentResult>("aws-native:datasync:getAgent", args ?? new GetAgentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource schema for AWS::DataSync::Agent.
+        /// </summary>
+        public static Output<GetAgentResult> Invoke(GetAgentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetAgentResult>("aws-native:datasync:getAgent", args ?? new GetAgentInvokeArgs(), options.WithDefaults());
     }
 
 

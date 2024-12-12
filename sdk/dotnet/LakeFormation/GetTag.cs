@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.LakeFormation
         /// </summary>
         public static Output<GetTagResult> Invoke(GetTagInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTagResult>("aws-native:lakeformation:getTag", args ?? new GetTagInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// A resource schema representing a Lake Formation Tag.
+        /// </summary>
+        public static Output<GetTagResult> Invoke(GetTagInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTagResult>("aws-native:lakeformation:getTag", args ?? new GetTagInvokeArgs(), options.WithDefaults());
     }
 
 

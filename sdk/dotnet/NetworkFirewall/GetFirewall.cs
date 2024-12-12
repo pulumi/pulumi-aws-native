@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.NetworkFirewall
         /// </summary>
         public static Output<GetFirewallResult> Invoke(GetFirewallInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFirewallResult>("aws-native:networkfirewall:getFirewall", args ?? new GetFirewallInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource type definition for AWS::NetworkFirewall::Firewall
+        /// </summary>
+        public static Output<GetFirewallResult> Invoke(GetFirewallInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFirewallResult>("aws-native:networkfirewall:getFirewall", args ?? new GetFirewallInvokeArgs(), options.WithDefaults());
     }
 
 

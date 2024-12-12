@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.CustomerProfiles
         /// </summary>
         public static Output<GetEventStreamResult> Invoke(GetEventStreamInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEventStreamResult>("aws-native:customerprofiles:getEventStream", args ?? new GetEventStreamInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// An Event Stream resource of Amazon Connect Customer Profiles
+        /// </summary>
+        public static Output<GetEventStreamResult> Invoke(GetEventStreamInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEventStreamResult>("aws-native:customerprofiles:getEventStream", args ?? new GetEventStreamInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.CloudFront
         /// </summary>
         public static Output<GetKeyValueStoreResult> Invoke(GetKeyValueStoreInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetKeyValueStoreResult>("aws-native:cloudfront:getKeyValueStore", args ?? new GetKeyValueStoreInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The key value store. Use this to separate data from function code, allowing you to update data without having to publish a new version of a function. The key value store holds keys and their corresponding values.
+        /// </summary>
+        public static Output<GetKeyValueStoreResult> Invoke(GetKeyValueStoreInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetKeyValueStoreResult>("aws-native:cloudfront:getKeyValueStore", args ?? new GetKeyValueStoreInvokeArgs(), options.WithDefaults());
     }
 
 

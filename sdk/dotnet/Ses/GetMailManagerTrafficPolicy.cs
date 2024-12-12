@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Ses
         /// </summary>
         public static Output<GetMailManagerTrafficPolicyResult> Invoke(GetMailManagerTrafficPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMailManagerTrafficPolicyResult>("aws-native:ses:getMailManagerTrafficPolicy", args ?? new GetMailManagerTrafficPolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::SES::MailManagerTrafficPolicy Resource Type
+        /// </summary>
+        public static Output<GetMailManagerTrafficPolicyResult> Invoke(GetMailManagerTrafficPolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetMailManagerTrafficPolicyResult>("aws-native:ses:getMailManagerTrafficPolicy", args ?? new GetMailManagerTrafficPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

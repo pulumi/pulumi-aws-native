@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Lightsail
         /// </summary>
         public static Output<GetBucketResult> Invoke(GetBucketInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBucketResult>("aws-native:lightsail:getBucket", args ?? new GetBucketInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::Lightsail::Bucket
+        /// </summary>
+        public static Output<GetBucketResult> Invoke(GetBucketInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetBucketResult>("aws-native:lightsail:getBucket", args ?? new GetBucketInvokeArgs(), options.WithDefaults());
     }
 
 

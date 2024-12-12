@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.HealthImaging
         /// </summary>
         public static Output<GetDatastoreResult> Invoke(GetDatastoreInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDatastoreResult>("aws-native:healthimaging:getDatastore", args ?? new GetDatastoreInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::HealthImaging::Datastore Resource Type
+        /// </summary>
+        public static Output<GetDatastoreResult> Invoke(GetDatastoreInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDatastoreResult>("aws-native:healthimaging:getDatastore", args ?? new GetDatastoreInvokeArgs(), options.WithDefaults());
     }
 
 

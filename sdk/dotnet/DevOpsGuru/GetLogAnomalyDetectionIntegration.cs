@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.DevOpsGuru
         /// </summary>
         public static Output<GetLogAnomalyDetectionIntegrationResult> Invoke(GetLogAnomalyDetectionIntegrationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLogAnomalyDetectionIntegrationResult>("aws-native:devopsguru:getLogAnomalyDetectionIntegration", args ?? new GetLogAnomalyDetectionIntegrationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// This resource schema represents the LogAnomalyDetectionIntegration resource in the Amazon DevOps Guru.
+        /// </summary>
+        public static Output<GetLogAnomalyDetectionIntegrationResult> Invoke(GetLogAnomalyDetectionIntegrationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetLogAnomalyDetectionIntegrationResult>("aws-native:devopsguru:getLogAnomalyDetectionIntegration", args ?? new GetLogAnomalyDetectionIntegrationInvokeArgs(), options.WithDefaults());
     }
 
 

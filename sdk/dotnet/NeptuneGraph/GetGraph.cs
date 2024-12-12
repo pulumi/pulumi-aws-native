@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.NeptuneGraph
         /// </summary>
         public static Output<GetGraphResult> Invoke(GetGraphInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGraphResult>("aws-native:neptunegraph:getGraph", args ?? new GetGraphInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The AWS::NeptuneGraph::Graph resource creates an Amazon NeptuneGraph Graph.
+        /// </summary>
+        public static Output<GetGraphResult> Invoke(GetGraphInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetGraphResult>("aws-native:neptunegraph:getGraph", args ?? new GetGraphInvokeArgs(), options.WithDefaults());
     }
 
 

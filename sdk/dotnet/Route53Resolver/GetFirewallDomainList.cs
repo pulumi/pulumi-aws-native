@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Route53Resolver
         /// </summary>
         public static Output<GetFirewallDomainListResult> Invoke(GetFirewallDomainListInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFirewallDomainListResult>("aws-native:route53resolver:getFirewallDomainList", args ?? new GetFirewallDomainListInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource schema for AWS::Route53Resolver::FirewallDomainList.
+        /// </summary>
+        public static Output<GetFirewallDomainListResult> Invoke(GetFirewallDomainListInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFirewallDomainListResult>("aws-native:route53resolver:getFirewallDomainList", args ?? new GetFirewallDomainListInvokeArgs(), options.WithDefaults());
     }
 
 

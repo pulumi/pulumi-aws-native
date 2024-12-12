@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.RedshiftServerless
         /// </summary>
         public static Output<GetNamespaceResult> Invoke(GetNamespaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNamespaceResult>("aws-native:redshiftserverless:getNamespace", args ?? new GetNamespaceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::RedshiftServerless::Namespace Resource Type
+        /// </summary>
+        public static Output<GetNamespaceResult> Invoke(GetNamespaceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetNamespaceResult>("aws-native:redshiftserverless:getNamespace", args ?? new GetNamespaceInvokeArgs(), options.WithDefaults());
     }
 
 

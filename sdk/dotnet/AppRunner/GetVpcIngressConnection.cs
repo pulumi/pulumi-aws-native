@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.AppRunner
         /// </summary>
         public static Output<GetVpcIngressConnectionResult> Invoke(GetVpcIngressConnectionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpcIngressConnectionResult>("aws-native:apprunner:getVpcIngressConnection", args ?? new GetVpcIngressConnectionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The AWS::AppRunner::VpcIngressConnection resource is an App Runner resource that specifies an App Runner VpcIngressConnection.
+        /// </summary>
+        public static Output<GetVpcIngressConnectionResult> Invoke(GetVpcIngressConnectionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetVpcIngressConnectionResult>("aws-native:apprunner:getVpcIngressConnection", args ?? new GetVpcIngressConnectionInvokeArgs(), options.WithDefaults());
     }
 
 

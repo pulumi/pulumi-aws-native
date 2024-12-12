@@ -26,6 +26,14 @@ namespace Pulumi.AwsNative.Logs
         /// </summary>
         public static Output<GetDeliverySourceResult> Invoke(GetDeliverySourceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDeliverySourceResult>("aws-native:logs:getDeliverySource", args ?? new GetDeliverySourceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        ///  A delivery source is an AWS resource that sends logs to an AWS destination. The destination can be CloudWatch Logs, Amazon S3, or Kinesis Data Firehose.
+        /// 
+        /// Only some AWS services support being configured as a delivery source. These services are listed as Supported [V2 Permissions] in the table at [Enabling logging from AWS services](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/AWS-logs-and-resource-policy.html).
+        /// </summary>
+        public static Output<GetDeliverySourceResult> Invoke(GetDeliverySourceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDeliverySourceResult>("aws-native:logs:getDeliverySource", args ?? new GetDeliverySourceInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.QuickSight
         /// </summary>
         public static Output<GetTopicResult> Invoke(GetTopicInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTopicResult>("aws-native:quicksight:getTopic", args ?? new GetTopicInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of the AWS::QuickSight::Topic Resource Type.
+        /// </summary>
+        public static Output<GetTopicResult> Invoke(GetTopicInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTopicResult>("aws-native:quicksight:getTopic", args ?? new GetTopicInvokeArgs(), options.WithDefaults());
     }
 
 

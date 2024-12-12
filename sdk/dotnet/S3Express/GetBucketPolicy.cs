@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.S3Express
         /// </summary>
         public static Output<GetBucketPolicyResult> Invoke(GetBucketPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBucketPolicyResult>("aws-native:s3express:getBucketPolicy", args ?? new GetBucketPolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::S3Express::BucketPolicy.
+        /// </summary>
+        public static Output<GetBucketPolicyResult> Invoke(GetBucketPolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetBucketPolicyResult>("aws-native:s3express:getBucketPolicy", args ?? new GetBucketPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

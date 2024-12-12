@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.RoboMaker
         /// </summary>
         public static Output<GetRobotApplicationVersionResult> Invoke(GetRobotApplicationVersionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRobotApplicationVersionResult>("aws-native:robomaker:getRobotApplicationVersion", args ?? new GetRobotApplicationVersionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// AWS::RoboMaker::RobotApplicationVersion resource creates an AWS RoboMaker RobotApplicationVersion. This helps you control which code your robot uses.
+        /// </summary>
+        public static Output<GetRobotApplicationVersionResult> Invoke(GetRobotApplicationVersionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRobotApplicationVersionResult>("aws-native:robomaker:getRobotApplicationVersion", args ?? new GetRobotApplicationVersionInvokeArgs(), options.WithDefaults());
     }
 
 

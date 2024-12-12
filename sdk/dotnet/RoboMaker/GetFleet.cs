@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.RoboMaker
         /// </summary>
         public static Output<GetFleetResult> Invoke(GetFleetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFleetResult>("aws-native:robomaker:getFleet", args ?? new GetFleetInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// AWS::RoboMaker::Fleet resource creates an AWS RoboMaker fleet. Fleets contain robots and can receive deployments.
+        /// </summary>
+        public static Output<GetFleetResult> Invoke(GetFleetInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFleetResult>("aws-native:robomaker:getFleet", args ?? new GetFleetInvokeArgs(), options.WithDefaults());
     }
 
 

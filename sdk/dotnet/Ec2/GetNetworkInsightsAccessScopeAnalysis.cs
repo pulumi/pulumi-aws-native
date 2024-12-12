@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         public static Output<GetNetworkInsightsAccessScopeAnalysisResult> Invoke(GetNetworkInsightsAccessScopeAnalysisInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkInsightsAccessScopeAnalysisResult>("aws-native:ec2:getNetworkInsightsAccessScopeAnalysis", args ?? new GetNetworkInsightsAccessScopeAnalysisInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource schema for AWS::EC2::NetworkInsightsAccessScopeAnalysis
+        /// </summary>
+        public static Output<GetNetworkInsightsAccessScopeAnalysisResult> Invoke(GetNetworkInsightsAccessScopeAnalysisInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetNetworkInsightsAccessScopeAnalysisResult>("aws-native:ec2:getNetworkInsightsAccessScopeAnalysis", args ?? new GetNetworkInsightsAccessScopeAnalysisInvokeArgs(), options.WithDefaults());
     }
 
 

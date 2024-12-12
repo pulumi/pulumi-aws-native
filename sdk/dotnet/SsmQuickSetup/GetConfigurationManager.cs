@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.SsmQuickSetup
         /// </summary>
         public static Output<GetConfigurationManagerResult> Invoke(GetConfigurationManagerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationManagerResult>("aws-native:ssmquicksetup:getConfigurationManager", args ?? new GetConfigurationManagerInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::SSMQuickSetup::ConfigurationManager Resource Type
+        /// </summary>
+        public static Output<GetConfigurationManagerResult> Invoke(GetConfigurationManagerInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationManagerResult>("aws-native:ssmquicksetup:getConfigurationManager", args ?? new GetConfigurationManagerInvokeArgs(), options.WithDefaults());
     }
 
 

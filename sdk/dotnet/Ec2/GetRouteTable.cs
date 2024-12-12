@@ -24,6 +24,13 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         public static Output<GetRouteTableResult> Invoke(GetRouteTableInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRouteTableResult>("aws-native:ec2:getRouteTable", args ?? new GetRouteTableInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Specifies a route table for the specified VPC. After you create a route table, you can add routes and associate the table with a subnet.
+        ///  For more information, see [Route tables](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html) in the *Amazon VPC User Guide*.
+        /// </summary>
+        public static Output<GetRouteTableResult> Invoke(GetRouteTableInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetRouteTableResult>("aws-native:ec2:getRouteTable", args ?? new GetRouteTableInvokeArgs(), options.WithDefaults());
     }
 
 

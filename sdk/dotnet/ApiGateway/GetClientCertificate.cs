@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.ApiGateway
         /// </summary>
         public static Output<GetClientCertificateResult> Invoke(GetClientCertificateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClientCertificateResult>("aws-native:apigateway:getClientCertificate", args ?? new GetClientCertificateInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The ``AWS::ApiGateway::ClientCertificate`` resource creates a client certificate that API Gateway uses to configure client-side SSL authentication for sending requests to the integration endpoint.
+        /// </summary>
+        public static Output<GetClientCertificateResult> Invoke(GetClientCertificateInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetClientCertificateResult>("aws-native:apigateway:getClientCertificate", args ?? new GetClientCertificateInvokeArgs(), options.WithDefaults());
     }
 
 

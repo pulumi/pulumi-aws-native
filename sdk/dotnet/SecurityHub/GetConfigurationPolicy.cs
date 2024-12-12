@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.SecurityHub
         /// </summary>
         public static Output<GetConfigurationPolicyResult> Invoke(GetConfigurationPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationPolicyResult>("aws-native:securityhub:getConfigurationPolicy", args ?? new GetConfigurationPolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The AWS::SecurityHub::ConfigurationPolicy resource represents the Central Configuration Policy in your account.
+        /// </summary>
+        public static Output<GetConfigurationPolicyResult> Invoke(GetConfigurationPolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationPolicyResult>("aws-native:securityhub:getConfigurationPolicy", args ?? new GetConfigurationPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

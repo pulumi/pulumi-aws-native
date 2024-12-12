@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.WorkSpacesWeb
         /// </summary>
         public static Output<GetUserSettingsResult> Invoke(GetUserSettingsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserSettingsResult>("aws-native:workspacesweb:getUserSettings", args ?? new GetUserSettingsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::WorkSpacesWeb::UserSettings Resource Type
+        /// </summary>
+        public static Output<GetUserSettingsResult> Invoke(GetUserSettingsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetUserSettingsResult>("aws-native:workspacesweb:getUserSettings", args ?? new GetUserSettingsInvokeArgs(), options.WithDefaults());
     }
 
 

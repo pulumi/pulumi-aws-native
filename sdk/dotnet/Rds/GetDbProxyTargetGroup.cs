@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Rds
         /// </summary>
         public static Output<GetDbProxyTargetGroupResult> Invoke(GetDbProxyTargetGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDbProxyTargetGroupResult>("aws-native:rds:getDbProxyTargetGroup", args ?? new GetDbProxyTargetGroupInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource schema for AWS::RDS::DBProxyTargetGroup
+        /// </summary>
+        public static Output<GetDbProxyTargetGroupResult> Invoke(GetDbProxyTargetGroupInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDbProxyTargetGroupResult>("aws-native:rds:getDbProxyTargetGroup", args ?? new GetDbProxyTargetGroupInvokeArgs(), options.WithDefaults());
     }
 
 

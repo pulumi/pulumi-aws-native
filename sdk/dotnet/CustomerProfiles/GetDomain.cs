@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.CustomerProfiles
         /// </summary>
         public static Output<GetDomainResult> Invoke(GetDomainInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDomainResult>("aws-native:customerprofiles:getDomain", args ?? new GetDomainInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// A domain defined for 3rd party data source in Profile Service
+        /// </summary>
+        public static Output<GetDomainResult> Invoke(GetDomainInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDomainResult>("aws-native:customerprofiles:getDomain", args ?? new GetDomainInvokeArgs(), options.WithDefaults());
     }
 
 

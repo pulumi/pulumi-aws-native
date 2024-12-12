@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         public static Output<GetSubnetCidrBlockResult> Invoke(GetSubnetCidrBlockInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSubnetCidrBlockResult>("aws-native:ec2:getSubnetCidrBlock", args ?? new GetSubnetCidrBlockInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The AWS::EC2::SubnetCidrBlock resource creates association between subnet and IPv6 CIDR
+        /// </summary>
+        public static Output<GetSubnetCidrBlockResult> Invoke(GetSubnetCidrBlockInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSubnetCidrBlockResult>("aws-native:ec2:getSubnetCidrBlock", args ?? new GetSubnetCidrBlockInvokeArgs(), options.WithDefaults());
     }
 
 

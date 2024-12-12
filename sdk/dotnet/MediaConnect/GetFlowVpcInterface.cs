@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.MediaConnect
         /// </summary>
         public static Output<GetFlowVpcInterfaceResult> Invoke(GetFlowVpcInterfaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFlowVpcInterfaceResult>("aws-native:mediaconnect:getFlowVpcInterface", args ?? new GetFlowVpcInterfaceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource schema for AWS::MediaConnect::FlowVpcInterface
+        /// </summary>
+        public static Output<GetFlowVpcInterfaceResult> Invoke(GetFlowVpcInterfaceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFlowVpcInterfaceResult>("aws-native:mediaconnect:getFlowVpcInterface", args ?? new GetFlowVpcInterfaceInvokeArgs(), options.WithDefaults());
     }
 
 

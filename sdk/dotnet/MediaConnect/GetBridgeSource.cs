@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.MediaConnect
         /// </summary>
         public static Output<GetBridgeSourceResult> Invoke(GetBridgeSourceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBridgeSourceResult>("aws-native:mediaconnect:getBridgeSource", args ?? new GetBridgeSourceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource schema for AWS::MediaConnect::BridgeSource
+        /// </summary>
+        public static Output<GetBridgeSourceResult> Invoke(GetBridgeSourceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetBridgeSourceResult>("aws-native:mediaconnect:getBridgeSource", args ?? new GetBridgeSourceInvokeArgs(), options.WithDefaults());
     }
 
 

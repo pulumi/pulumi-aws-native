@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Organizations
         /// </summary>
         public static Output<GetPolicyResult> Invoke(GetPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPolicyResult>("aws-native:organizations:getPolicy", args ?? new GetPolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Policies in AWS Organizations enable you to manage different features of the AWS accounts in your organization.  You can use policies when all features are enabled in your organization.
+        /// </summary>
+        public static Output<GetPolicyResult> Invoke(GetPolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPolicyResult>("aws-native:organizations:getPolicy", args ?? new GetPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Macie
         /// </summary>
         public static Output<GetFindingsFilterResult> Invoke(GetFindingsFilterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFindingsFilterResult>("aws-native:macie:getFindingsFilter", args ?? new GetFindingsFilterInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Macie FindingsFilter resource schema.
+        /// </summary>
+        public static Output<GetFindingsFilterResult> Invoke(GetFindingsFilterInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFindingsFilterResult>("aws-native:macie:getFindingsFilter", args ?? new GetFindingsFilterInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.MediaTailor
         /// </summary>
         public static Output<GetChannelPolicyResult> Invoke(GetChannelPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetChannelPolicyResult>("aws-native:mediatailor:getChannelPolicy", args ?? new GetChannelPolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::MediaTailor::ChannelPolicy Resource Type
+        /// </summary>
+        public static Output<GetChannelPolicyResult> Invoke(GetChannelPolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetChannelPolicyResult>("aws-native:mediatailor:getChannelPolicy", args ?? new GetChannelPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

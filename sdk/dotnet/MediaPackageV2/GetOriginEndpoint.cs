@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.MediaPackageV2
         /// </summary>
         public static Output<GetOriginEndpointResult> Invoke(GetOriginEndpointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOriginEndpointResult>("aws-native:mediapackagev2:getOriginEndpoint", args ?? new GetOriginEndpointInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// &lt;p&gt;Represents an origin endpoint that is associated with a channel, offering a dynamically repackaged version of its content through various streaming media protocols. The content can be efficiently disseminated to end-users via a Content Delivery Network (CDN), like Amazon CloudFront.&lt;/p&gt;
+        /// </summary>
+        public static Output<GetOriginEndpointResult> Invoke(GetOriginEndpointInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetOriginEndpointResult>("aws-native:mediapackagev2:getOriginEndpoint", args ?? new GetOriginEndpointInvokeArgs(), options.WithDefaults());
     }
 
 

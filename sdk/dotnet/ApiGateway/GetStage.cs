@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.ApiGateway
         /// </summary>
         public static Output<GetStageResult> Invoke(GetStageInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStageResult>("aws-native:apigateway:getStage", args ?? new GetStageInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The ``AWS::ApiGateway::Stage`` resource creates a stage for a deployment.
+        /// </summary>
+        public static Output<GetStageResult> Invoke(GetStageInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetStageResult>("aws-native:apigateway:getStage", args ?? new GetStageInvokeArgs(), options.WithDefaults());
     }
 
 

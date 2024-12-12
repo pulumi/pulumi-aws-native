@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.AppConfig
         /// </summary>
         public static Output<GetEnvironmentResult> Invoke(GetEnvironmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEnvironmentResult>("aws-native:appconfig:getEnvironment", args ?? new GetEnvironmentInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::AppConfig::Environment
+        /// </summary>
+        public static Output<GetEnvironmentResult> Invoke(GetEnvironmentInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEnvironmentResult>("aws-native:appconfig:getEnvironment", args ?? new GetEnvironmentInvokeArgs(), options.WithDefaults());
     }
 
 

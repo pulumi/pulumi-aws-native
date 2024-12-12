@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.SageMaker
         /// </summary>
         public static Output<GetSpaceResult> Invoke(GetSpaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSpaceResult>("aws-native:sagemaker:getSpace", args ?? new GetSpaceInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::SageMaker::Space
+        /// </summary>
+        public static Output<GetSpaceResult> Invoke(GetSpaceInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSpaceResult>("aws-native:sagemaker:getSpace", args ?? new GetSpaceInvokeArgs(), options.WithDefaults());
     }
 
 

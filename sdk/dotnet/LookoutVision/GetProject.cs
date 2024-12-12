@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.LookoutVision
         /// </summary>
         public static Output<GetProjectResult> Invoke(GetProjectInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProjectResult>("aws-native:lookoutvision:getProject", args ?? new GetProjectInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The AWS::LookoutVision::Project type creates an Amazon Lookout for Vision project. A project is a grouping of the resources needed to create and manage a Lookout for Vision model.
+        /// </summary>
+        public static Output<GetProjectResult> Invoke(GetProjectInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetProjectResult>("aws-native:lookoutvision:getProject", args ?? new GetProjectInvokeArgs(), options.WithDefaults());
     }
 
 

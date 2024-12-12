@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.SageMaker
         /// </summary>
         public static Output<GetModelExplainabilityJobDefinitionResult> Invoke(GetModelExplainabilityJobDefinitionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetModelExplainabilityJobDefinitionResult>("aws-native:sagemaker:getModelExplainabilityJobDefinition", args ?? new GetModelExplainabilityJobDefinitionInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::SageMaker::ModelExplainabilityJobDefinition
+        /// </summary>
+        public static Output<GetModelExplainabilityJobDefinitionResult> Invoke(GetModelExplainabilityJobDefinitionInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetModelExplainabilityJobDefinitionResult>("aws-native:sagemaker:getModelExplainabilityJobDefinition", args ?? new GetModelExplainabilityJobDefinitionInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.DataZone
         /// </summary>
         public static Output<GetEnvironmentBlueprintConfigurationResult> Invoke(GetEnvironmentBlueprintConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEnvironmentBlueprintConfigurationResult>("aws-native:datazone:getEnvironmentBlueprintConfiguration", args ?? new GetEnvironmentBlueprintConfigurationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::DataZone::EnvironmentBlueprintConfiguration Resource Type
+        /// </summary>
+        public static Output<GetEnvironmentBlueprintConfigurationResult> Invoke(GetEnvironmentBlueprintConfigurationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEnvironmentBlueprintConfigurationResult>("aws-native:datazone:getEnvironmentBlueprintConfiguration", args ?? new GetEnvironmentBlueprintConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

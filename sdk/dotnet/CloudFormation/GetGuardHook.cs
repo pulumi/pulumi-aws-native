@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.CloudFormation
         /// </summary>
         public static Output<GetGuardHookResult> Invoke(GetGuardHookInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGuardHookResult>("aws-native:cloudformation:getGuardHook", args ?? new GetGuardHookInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// This is a CloudFormation resource for activating the first-party AWS::Hooks::GuardHook.
+        /// </summary>
+        public static Output<GetGuardHookResult> Invoke(GetGuardHookInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetGuardHookResult>("aws-native:cloudformation:getGuardHook", args ?? new GetGuardHookInvokeArgs(), options.WithDefaults());
     }
 
 

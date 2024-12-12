@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         public static Output<GetIpamScopeResult> Invoke(GetIpamScopeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIpamScopeResult>("aws-native:ec2:getIpamScope", args ?? new GetIpamScopeInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Schema of AWS::EC2::IPAMScope Type
+        /// </summary>
+        public static Output<GetIpamScopeResult> Invoke(GetIpamScopeInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetIpamScopeResult>("aws-native:ec2:getIpamScope", args ?? new GetIpamScopeInvokeArgs(), options.WithDefaults());
     }
 
 

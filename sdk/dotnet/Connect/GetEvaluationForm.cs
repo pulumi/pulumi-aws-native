@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Connect
         /// </summary>
         public static Output<GetEvaluationFormResult> Invoke(GetEvaluationFormInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEvaluationFormResult>("aws-native:connect:getEvaluationForm", args ?? new GetEvaluationFormInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Creates an evaluation form for the specified CON instance.
+        /// </summary>
+        public static Output<GetEvaluationFormResult> Invoke(GetEvaluationFormInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetEvaluationFormResult>("aws-native:connect:getEvaluationForm", args ?? new GetEvaluationFormInvokeArgs(), options.WithDefaults());
     }
 
 

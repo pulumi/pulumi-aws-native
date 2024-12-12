@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.S3Express
         /// </summary>
         public static Output<GetDirectoryBucketResult> Invoke(GetDirectoryBucketInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDirectoryBucketResult>("aws-native:s3express:getDirectoryBucket", args ?? new GetDirectoryBucketInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource Type definition for AWS::S3Express::DirectoryBucket.
+        /// </summary>
+        public static Output<GetDirectoryBucketResult> Invoke(GetDirectoryBucketInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDirectoryBucketResult>("aws-native:s3express:getDirectoryBucket", args ?? new GetDirectoryBucketInvokeArgs(), options.WithDefaults());
     }
 
 

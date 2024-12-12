@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.BackupGateway
         /// </summary>
         public static Output<GetHypervisorResult> Invoke(GetHypervisorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetHypervisorResult>("aws-native:backupgateway:getHypervisor", args ?? new GetHypervisorInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Definition of AWS::BackupGateway::Hypervisor Resource Type
+        /// </summary>
+        public static Output<GetHypervisorResult> Invoke(GetHypervisorInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetHypervisorResult>("aws-native:backupgateway:getHypervisor", args ?? new GetHypervisorInvokeArgs(), options.WithDefaults());
     }
 
 

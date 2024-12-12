@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.NetworkFirewall
         /// </summary>
         public static Output<GetTlsInspectionConfigurationResult> Invoke(GetTlsInspectionConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTlsInspectionConfigurationResult>("aws-native:networkfirewall:getTlsInspectionConfiguration", args ?? new GetTlsInspectionConfigurationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource type definition for AWS::NetworkFirewall::TLSInspectionConfiguration
+        /// </summary>
+        public static Output<GetTlsInspectionConfigurationResult> Invoke(GetTlsInspectionConfigurationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetTlsInspectionConfigurationResult>("aws-native:networkfirewall:getTlsInspectionConfiguration", args ?? new GetTlsInspectionConfigurationInvokeArgs(), options.WithDefaults());
     }
 
 

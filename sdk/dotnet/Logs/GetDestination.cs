@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Logs
         /// </summary>
         public static Output<GetDestinationResult> Invoke(GetDestinationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDestinationResult>("aws-native:logs:getDestination", args ?? new GetDestinationInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// The AWS::Logs::Destination resource specifies a CloudWatch Logs destination. A destination encapsulates a physical resource (such as an Amazon Kinesis data stream) and enables you to subscribe that resource to a stream of log events.
+        /// </summary>
+        public static Output<GetDestinationResult> Invoke(GetDestinationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDestinationResult>("aws-native:logs:getDestination", args ?? new GetDestinationInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Configuration
         /// </summary>
         public static Output<GetConformancePackResult> Invoke(GetConformancePackInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConformancePackResult>("aws-native:configuration:getConformancePack", args ?? new GetConformancePackInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// A conformance pack is a collection of AWS Config rules and remediation actions that can be easily deployed as a single entity in an account and a region or across an entire AWS Organization.
+        /// </summary>
+        public static Output<GetConformancePackResult> Invoke(GetConformancePackInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetConformancePackResult>("aws-native:configuration:getConformancePack", args ?? new GetConformancePackInvokeArgs(), options.WithDefaults());
     }
 
 

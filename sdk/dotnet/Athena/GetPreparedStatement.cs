@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Athena
         /// </summary>
         public static Output<GetPreparedStatementResult> Invoke(GetPreparedStatementInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPreparedStatementResult>("aws-native:athena:getPreparedStatement", args ?? new GetPreparedStatementInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// Resource schema for AWS::Athena::PreparedStatement
+        /// </summary>
+        public static Output<GetPreparedStatementResult> Invoke(GetPreparedStatementInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPreparedStatementResult>("aws-native:athena:getPreparedStatement", args ?? new GetPreparedStatementInvokeArgs(), options.WithDefaults());
     }
 
 
