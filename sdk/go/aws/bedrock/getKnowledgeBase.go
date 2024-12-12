@@ -54,21 +54,11 @@ type LookupKnowledgeBaseResult struct {
 }
 
 func LookupKnowledgeBaseOutput(ctx *pulumi.Context, args LookupKnowledgeBaseOutputArgs, opts ...pulumi.InvokeOption) LookupKnowledgeBaseResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupKnowledgeBaseResultOutput, error) {
 			args := v.(LookupKnowledgeBaseArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupKnowledgeBaseResult
-			secret, err := ctx.InvokePackageRaw("aws-native:bedrock:getKnowledgeBase", args, &rv, "", opts...)
-			if err != nil {
-				return LookupKnowledgeBaseResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupKnowledgeBaseResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupKnowledgeBaseResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:bedrock:getKnowledgeBase", args, LookupKnowledgeBaseResultOutput{}, options).(LookupKnowledgeBaseResultOutput), nil
 		}).(LookupKnowledgeBaseResultOutput)
 }
 

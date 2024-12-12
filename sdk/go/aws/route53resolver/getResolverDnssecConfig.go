@@ -37,21 +37,11 @@ type LookupResolverDnssecConfigResult struct {
 }
 
 func LookupResolverDnssecConfigOutput(ctx *pulumi.Context, args LookupResolverDnssecConfigOutputArgs, opts ...pulumi.InvokeOption) LookupResolverDnssecConfigResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupResolverDnssecConfigResultOutput, error) {
 			args := v.(LookupResolverDnssecConfigArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupResolverDnssecConfigResult
-			secret, err := ctx.InvokePackageRaw("aws-native:route53resolver:getResolverDnssecConfig", args, &rv, "", opts...)
-			if err != nil {
-				return LookupResolverDnssecConfigResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupResolverDnssecConfigResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupResolverDnssecConfigResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:route53resolver:getResolverDnssecConfig", args, LookupResolverDnssecConfigResultOutput{}, options).(LookupResolverDnssecConfigResultOutput), nil
 		}).(LookupResolverDnssecConfigResultOutput)
 }
 

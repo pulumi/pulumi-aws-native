@@ -44,21 +44,11 @@ type LookupModelPackageGroupResult struct {
 }
 
 func LookupModelPackageGroupOutput(ctx *pulumi.Context, args LookupModelPackageGroupOutputArgs, opts ...pulumi.InvokeOption) LookupModelPackageGroupResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupModelPackageGroupResultOutput, error) {
 			args := v.(LookupModelPackageGroupArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupModelPackageGroupResult
-			secret, err := ctx.InvokePackageRaw("aws-native:sagemaker:getModelPackageGroup", args, &rv, "", opts...)
-			if err != nil {
-				return LookupModelPackageGroupResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupModelPackageGroupResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupModelPackageGroupResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:sagemaker:getModelPackageGroup", args, LookupModelPackageGroupResultOutput{}, options).(LookupModelPackageGroupResultOutput), nil
 		}).(LookupModelPackageGroupResultOutput)
 }
 

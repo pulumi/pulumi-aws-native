@@ -46,21 +46,11 @@ type LookupRotationResult struct {
 }
 
 func LookupRotationOutput(ctx *pulumi.Context, args LookupRotationOutputArgs, opts ...pulumi.InvokeOption) LookupRotationResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupRotationResultOutput, error) {
 			args := v.(LookupRotationArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupRotationResult
-			secret, err := ctx.InvokePackageRaw("aws-native:ssmcontacts:getRotation", args, &rv, "", opts...)
-			if err != nil {
-				return LookupRotationResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupRotationResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupRotationResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:ssmcontacts:getRotation", args, LookupRotationResultOutput{}, options).(LookupRotationResultOutput), nil
 		}).(LookupRotationResultOutput)
 }
 

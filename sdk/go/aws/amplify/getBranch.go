@@ -70,21 +70,11 @@ type LookupBranchResult struct {
 }
 
 func LookupBranchOutput(ctx *pulumi.Context, args LookupBranchOutputArgs, opts ...pulumi.InvokeOption) LookupBranchResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupBranchResultOutput, error) {
 			args := v.(LookupBranchArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupBranchResult
-			secret, err := ctx.InvokePackageRaw("aws-native:amplify:getBranch", args, &rv, "", opts...)
-			if err != nil {
-				return LookupBranchResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupBranchResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupBranchResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:amplify:getBranch", args, LookupBranchResultOutput{}, options).(LookupBranchResultOutput), nil
 		}).(LookupBranchResultOutput)
 }
 

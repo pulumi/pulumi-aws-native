@@ -129,21 +129,11 @@ type LookupStackResult struct {
 }
 
 func LookupStackOutput(ctx *pulumi.Context, args LookupStackOutputArgs, opts ...pulumi.InvokeOption) LookupStackResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupStackResultOutput, error) {
 			args := v.(LookupStackArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupStackResult
-			secret, err := ctx.InvokePackageRaw("aws-native:cloudformation:getStack", args, &rv, "", opts...)
-			if err != nil {
-				return LookupStackResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupStackResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupStackResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:cloudformation:getStack", args, LookupStackResultOutput{}, options).(LookupStackResultOutput), nil
 		}).(LookupStackResultOutput)
 }
 

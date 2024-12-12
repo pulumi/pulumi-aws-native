@@ -37,21 +37,11 @@ type LookupBuildResult struct {
 }
 
 func LookupBuildOutput(ctx *pulumi.Context, args LookupBuildOutputArgs, opts ...pulumi.InvokeOption) LookupBuildResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupBuildResultOutput, error) {
 			args := v.(LookupBuildArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupBuildResult
-			secret, err := ctx.InvokePackageRaw("aws-native:gamelift:getBuild", args, &rv, "", opts...)
-			if err != nil {
-				return LookupBuildResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupBuildResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupBuildResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:gamelift:getBuild", args, LookupBuildResultOutput{}, options).(LookupBuildResultOutput), nil
 		}).(LookupBuildResultOutput)
 }
 

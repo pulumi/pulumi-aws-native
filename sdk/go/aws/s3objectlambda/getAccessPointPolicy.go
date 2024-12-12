@@ -35,21 +35,11 @@ type LookupAccessPointPolicyResult struct {
 }
 
 func LookupAccessPointPolicyOutput(ctx *pulumi.Context, args LookupAccessPointPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupAccessPointPolicyResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupAccessPointPolicyResultOutput, error) {
 			args := v.(LookupAccessPointPolicyArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupAccessPointPolicyResult
-			secret, err := ctx.InvokePackageRaw("aws-native:s3objectlambda:getAccessPointPolicy", args, &rv, "", opts...)
-			if err != nil {
-				return LookupAccessPointPolicyResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupAccessPointPolicyResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupAccessPointPolicyResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:s3objectlambda:getAccessPointPolicy", args, LookupAccessPointPolicyResultOutput{}, options).(LookupAccessPointPolicyResultOutput), nil
 		}).(LookupAccessPointPolicyResultOutput)
 }
 

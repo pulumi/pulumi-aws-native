@@ -37,21 +37,11 @@ type LookupHealthCheckResult struct {
 }
 
 func LookupHealthCheckOutput(ctx *pulumi.Context, args LookupHealthCheckOutputArgs, opts ...pulumi.InvokeOption) LookupHealthCheckResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupHealthCheckResultOutput, error) {
 			args := v.(LookupHealthCheckArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupHealthCheckResult
-			secret, err := ctx.InvokePackageRaw("aws-native:route53:getHealthCheck", args, &rv, "", opts...)
-			if err != nil {
-				return LookupHealthCheckResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupHealthCheckResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupHealthCheckResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:route53:getHealthCheck", args, LookupHealthCheckResultOutput{}, options).(LookupHealthCheckResultOutput), nil
 		}).(LookupHealthCheckResultOutput)
 }
 

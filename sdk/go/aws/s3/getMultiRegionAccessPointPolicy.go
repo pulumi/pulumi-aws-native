@@ -37,21 +37,11 @@ type LookupMultiRegionAccessPointPolicyResult struct {
 }
 
 func LookupMultiRegionAccessPointPolicyOutput(ctx *pulumi.Context, args LookupMultiRegionAccessPointPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupMultiRegionAccessPointPolicyResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupMultiRegionAccessPointPolicyResultOutput, error) {
 			args := v.(LookupMultiRegionAccessPointPolicyArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupMultiRegionAccessPointPolicyResult
-			secret, err := ctx.InvokePackageRaw("aws-native:s3:getMultiRegionAccessPointPolicy", args, &rv, "", opts...)
-			if err != nil {
-				return LookupMultiRegionAccessPointPolicyResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupMultiRegionAccessPointPolicyResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupMultiRegionAccessPointPolicyResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:s3:getMultiRegionAccessPointPolicy", args, LookupMultiRegionAccessPointPolicyResultOutput{}, options).(LookupMultiRegionAccessPointPolicyResultOutput), nil
 		}).(LookupMultiRegionAccessPointPolicyResultOutput)
 }
 

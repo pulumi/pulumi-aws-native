@@ -69,21 +69,11 @@ type LookupContainerFleetResult struct {
 }
 
 func LookupContainerFleetOutput(ctx *pulumi.Context, args LookupContainerFleetOutputArgs, opts ...pulumi.InvokeOption) LookupContainerFleetResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupContainerFleetResultOutput, error) {
 			args := v.(LookupContainerFleetArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupContainerFleetResult
-			secret, err := ctx.InvokePackageRaw("aws-native:gamelift:getContainerFleet", args, &rv, "", opts...)
-			if err != nil {
-				return LookupContainerFleetResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupContainerFleetResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupContainerFleetResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:gamelift:getContainerFleet", args, LookupContainerFleetResultOutput{}, options).(LookupContainerFleetResultOutput), nil
 		}).(LookupContainerFleetResultOutput)
 }
 

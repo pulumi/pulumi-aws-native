@@ -40,21 +40,11 @@ type LookupPodIdentityAssociationResult struct {
 }
 
 func LookupPodIdentityAssociationOutput(ctx *pulumi.Context, args LookupPodIdentityAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupPodIdentityAssociationResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupPodIdentityAssociationResultOutput, error) {
 			args := v.(LookupPodIdentityAssociationArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupPodIdentityAssociationResult
-			secret, err := ctx.InvokePackageRaw("aws-native:eks:getPodIdentityAssociation", args, &rv, "", opts...)
-			if err != nil {
-				return LookupPodIdentityAssociationResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupPodIdentityAssociationResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupPodIdentityAssociationResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:eks:getPodIdentityAssociation", args, LookupPodIdentityAssociationResultOutput{}, options).(LookupPodIdentityAssociationResultOutput), nil
 		}).(LookupPodIdentityAssociationResultOutput)
 }
 

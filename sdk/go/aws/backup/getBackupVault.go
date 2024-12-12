@@ -43,21 +43,11 @@ type LookupBackupVaultResult struct {
 }
 
 func LookupBackupVaultOutput(ctx *pulumi.Context, args LookupBackupVaultOutputArgs, opts ...pulumi.InvokeOption) LookupBackupVaultResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupBackupVaultResultOutput, error) {
 			args := v.(LookupBackupVaultArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupBackupVaultResult
-			secret, err := ctx.InvokePackageRaw("aws-native:backup:getBackupVault", args, &rv, "", opts...)
-			if err != nil {
-				return LookupBackupVaultResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupBackupVaultResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupBackupVaultResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:backup:getBackupVault", args, LookupBackupVaultResultOutput{}, options).(LookupBackupVaultResultOutput), nil
 		}).(LookupBackupVaultResultOutput)
 }
 

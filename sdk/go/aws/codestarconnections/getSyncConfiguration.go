@@ -51,21 +51,11 @@ type LookupSyncConfigurationResult struct {
 }
 
 func LookupSyncConfigurationOutput(ctx *pulumi.Context, args LookupSyncConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupSyncConfigurationResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupSyncConfigurationResultOutput, error) {
 			args := v.(LookupSyncConfigurationArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupSyncConfigurationResult
-			secret, err := ctx.InvokePackageRaw("aws-native:codestarconnections:getSyncConfiguration", args, &rv, "", opts...)
-			if err != nil {
-				return LookupSyncConfigurationResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupSyncConfigurationResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupSyncConfigurationResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:codestarconnections:getSyncConfiguration", args, LookupSyncConfigurationResultOutput{}, options).(LookupSyncConfigurationResultOutput), nil
 		}).(LookupSyncConfigurationResultOutput)
 }
 

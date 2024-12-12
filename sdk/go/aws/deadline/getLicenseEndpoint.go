@@ -44,21 +44,11 @@ type LookupLicenseEndpointResult struct {
 }
 
 func LookupLicenseEndpointOutput(ctx *pulumi.Context, args LookupLicenseEndpointOutputArgs, opts ...pulumi.InvokeOption) LookupLicenseEndpointResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupLicenseEndpointResultOutput, error) {
 			args := v.(LookupLicenseEndpointArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupLicenseEndpointResult
-			secret, err := ctx.InvokePackageRaw("aws-native:deadline:getLicenseEndpoint", args, &rv, "", opts...)
-			if err != nil {
-				return LookupLicenseEndpointResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupLicenseEndpointResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupLicenseEndpointResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:deadline:getLicenseEndpoint", args, LookupLicenseEndpointResultOutput{}, options).(LookupLicenseEndpointResultOutput), nil
 		}).(LookupLicenseEndpointResultOutput)
 }
 

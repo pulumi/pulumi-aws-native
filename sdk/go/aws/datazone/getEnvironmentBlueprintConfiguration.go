@@ -49,21 +49,11 @@ type LookupEnvironmentBlueprintConfigurationResult struct {
 }
 
 func LookupEnvironmentBlueprintConfigurationOutput(ctx *pulumi.Context, args LookupEnvironmentBlueprintConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupEnvironmentBlueprintConfigurationResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupEnvironmentBlueprintConfigurationResultOutput, error) {
 			args := v.(LookupEnvironmentBlueprintConfigurationArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupEnvironmentBlueprintConfigurationResult
-			secret, err := ctx.InvokePackageRaw("aws-native:datazone:getEnvironmentBlueprintConfiguration", args, &rv, "", opts...)
-			if err != nil {
-				return LookupEnvironmentBlueprintConfigurationResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupEnvironmentBlueprintConfigurationResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupEnvironmentBlueprintConfigurationResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:datazone:getEnvironmentBlueprintConfiguration", args, LookupEnvironmentBlueprintConfigurationResultOutput{}, options).(LookupEnvironmentBlueprintConfigurationResultOutput), nil
 		}).(LookupEnvironmentBlueprintConfigurationResultOutput)
 }
 

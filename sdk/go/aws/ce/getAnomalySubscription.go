@@ -47,21 +47,11 @@ type LookupAnomalySubscriptionResult struct {
 }
 
 func LookupAnomalySubscriptionOutput(ctx *pulumi.Context, args LookupAnomalySubscriptionOutputArgs, opts ...pulumi.InvokeOption) LookupAnomalySubscriptionResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupAnomalySubscriptionResultOutput, error) {
 			args := v.(LookupAnomalySubscriptionArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupAnomalySubscriptionResult
-			secret, err := ctx.InvokePackageRaw("aws-native:ce:getAnomalySubscription", args, &rv, "", opts...)
-			if err != nil {
-				return LookupAnomalySubscriptionResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupAnomalySubscriptionResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupAnomalySubscriptionResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:ce:getAnomalySubscription", args, LookupAnomalySubscriptionResultOutput{}, options).(LookupAnomalySubscriptionResultOutput), nil
 		}).(LookupAnomalySubscriptionResultOutput)
 }
 

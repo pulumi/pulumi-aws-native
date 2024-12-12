@@ -54,21 +54,11 @@ type LookupAssessmentResult struct {
 }
 
 func LookupAssessmentOutput(ctx *pulumi.Context, args LookupAssessmentOutputArgs, opts ...pulumi.InvokeOption) LookupAssessmentResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupAssessmentResultOutput, error) {
 			args := v.(LookupAssessmentArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupAssessmentResult
-			secret, err := ctx.InvokePackageRaw("aws-native:auditmanager:getAssessment", args, &rv, "", opts...)
-			if err != nil {
-				return LookupAssessmentResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupAssessmentResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupAssessmentResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:auditmanager:getAssessment", args, LookupAssessmentResultOutput{}, options).(LookupAssessmentResultOutput), nil
 		}).(LookupAssessmentResultOutput)
 }
 

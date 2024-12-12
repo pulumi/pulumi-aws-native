@@ -33,21 +33,11 @@ type LookupStudioLifecycleConfigResult struct {
 }
 
 func LookupStudioLifecycleConfigOutput(ctx *pulumi.Context, args LookupStudioLifecycleConfigOutputArgs, opts ...pulumi.InvokeOption) LookupStudioLifecycleConfigResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupStudioLifecycleConfigResultOutput, error) {
 			args := v.(LookupStudioLifecycleConfigArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupStudioLifecycleConfigResult
-			secret, err := ctx.InvokePackageRaw("aws-native:sagemaker:getStudioLifecycleConfig", args, &rv, "", opts...)
-			if err != nil {
-				return LookupStudioLifecycleConfigResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupStudioLifecycleConfigResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupStudioLifecycleConfigResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:sagemaker:getStudioLifecycleConfig", args, LookupStudioLifecycleConfigResultOutput{}, options).(LookupStudioLifecycleConfigResultOutput), nil
 		}).(LookupStudioLifecycleConfigResultOutput)
 }
 

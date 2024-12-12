@@ -31,21 +31,11 @@ type LookupServerlessClusterResult struct {
 }
 
 func LookupServerlessClusterOutput(ctx *pulumi.Context, args LookupServerlessClusterOutputArgs, opts ...pulumi.InvokeOption) LookupServerlessClusterResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupServerlessClusterResultOutput, error) {
 			args := v.(LookupServerlessClusterArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupServerlessClusterResult
-			secret, err := ctx.InvokePackageRaw("aws-native:msk:getServerlessCluster", args, &rv, "", opts...)
-			if err != nil {
-				return LookupServerlessClusterResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupServerlessClusterResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupServerlessClusterResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:msk:getServerlessCluster", args, LookupServerlessClusterResultOutput{}, options).(LookupServerlessClusterResultOutput), nil
 		}).(LookupServerlessClusterResultOutput)
 }
 

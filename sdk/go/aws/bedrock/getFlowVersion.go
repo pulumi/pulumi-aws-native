@@ -48,21 +48,11 @@ type LookupFlowVersionResult struct {
 }
 
 func LookupFlowVersionOutput(ctx *pulumi.Context, args LookupFlowVersionOutputArgs, opts ...pulumi.InvokeOption) LookupFlowVersionResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupFlowVersionResultOutput, error) {
 			args := v.(LookupFlowVersionArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupFlowVersionResult
-			secret, err := ctx.InvokePackageRaw("aws-native:bedrock:getFlowVersion", args, &rv, "", opts...)
-			if err != nil {
-				return LookupFlowVersionResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupFlowVersionResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupFlowVersionResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:bedrock:getFlowVersion", args, LookupFlowVersionResultOutput{}, options).(LookupFlowVersionResultOutput), nil
 		}).(LookupFlowVersionResultOutput)
 }
 

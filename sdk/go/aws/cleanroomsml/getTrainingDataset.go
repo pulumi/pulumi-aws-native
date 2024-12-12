@@ -38,21 +38,11 @@ type LookupTrainingDatasetResult struct {
 }
 
 func LookupTrainingDatasetOutput(ctx *pulumi.Context, args LookupTrainingDatasetOutputArgs, opts ...pulumi.InvokeOption) LookupTrainingDatasetResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupTrainingDatasetResultOutput, error) {
 			args := v.(LookupTrainingDatasetArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupTrainingDatasetResult
-			secret, err := ctx.InvokePackageRaw("aws-native:cleanroomsml:getTrainingDataset", args, &rv, "", opts...)
-			if err != nil {
-				return LookupTrainingDatasetResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupTrainingDatasetResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupTrainingDatasetResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:cleanroomsml:getTrainingDataset", args, LookupTrainingDatasetResultOutput{}, options).(LookupTrainingDatasetResultOutput), nil
 		}).(LookupTrainingDatasetResultOutput)
 }
 

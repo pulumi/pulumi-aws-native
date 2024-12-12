@@ -68,21 +68,11 @@ type LookupSuiteDefinitionResult struct {
 }
 
 func LookupSuiteDefinitionOutput(ctx *pulumi.Context, args LookupSuiteDefinitionOutputArgs, opts ...pulumi.InvokeOption) LookupSuiteDefinitionResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupSuiteDefinitionResultOutput, error) {
 			args := v.(LookupSuiteDefinitionArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupSuiteDefinitionResult
-			secret, err := ctx.InvokePackageRaw("aws-native:iotcoredeviceadvisor:getSuiteDefinition", args, &rv, "", opts...)
-			if err != nil {
-				return LookupSuiteDefinitionResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupSuiteDefinitionResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupSuiteDefinitionResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:iotcoredeviceadvisor:getSuiteDefinition", args, LookupSuiteDefinitionResultOutput{}, options).(LookupSuiteDefinitionResultOutput), nil
 		}).(LookupSuiteDefinitionResultOutput)
 }
 

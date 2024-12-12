@@ -41,21 +41,11 @@ type LookupExtensionAssociationResult struct {
 }
 
 func LookupExtensionAssociationOutput(ctx *pulumi.Context, args LookupExtensionAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupExtensionAssociationResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupExtensionAssociationResultOutput, error) {
 			args := v.(LookupExtensionAssociationArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupExtensionAssociationResult
-			secret, err := ctx.InvokePackageRaw("aws-native:appconfig:getExtensionAssociation", args, &rv, "", opts...)
-			if err != nil {
-				return LookupExtensionAssociationResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupExtensionAssociationResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupExtensionAssociationResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:appconfig:getExtensionAssociation", args, LookupExtensionAssociationResultOutput{}, options).(LookupExtensionAssociationResultOutput), nil
 		}).(LookupExtensionAssociationResultOutput)
 }
 

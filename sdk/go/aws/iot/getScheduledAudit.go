@@ -44,21 +44,11 @@ type LookupScheduledAuditResult struct {
 }
 
 func LookupScheduledAuditOutput(ctx *pulumi.Context, args LookupScheduledAuditOutputArgs, opts ...pulumi.InvokeOption) LookupScheduledAuditResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupScheduledAuditResultOutput, error) {
 			args := v.(LookupScheduledAuditArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupScheduledAuditResult
-			secret, err := ctx.InvokePackageRaw("aws-native:iot:getScheduledAudit", args, &rv, "", opts...)
-			if err != nil {
-				return LookupScheduledAuditResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupScheduledAuditResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupScheduledAuditResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:iot:getScheduledAudit", args, LookupScheduledAuditResultOutput{}, options).(LookupScheduledAuditResultOutput), nil
 		}).(LookupScheduledAuditResultOutput)
 }
 

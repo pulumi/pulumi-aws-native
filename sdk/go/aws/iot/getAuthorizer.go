@@ -54,21 +54,11 @@ type LookupAuthorizerResult struct {
 }
 
 func LookupAuthorizerOutput(ctx *pulumi.Context, args LookupAuthorizerOutputArgs, opts ...pulumi.InvokeOption) LookupAuthorizerResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupAuthorizerResultOutput, error) {
 			args := v.(LookupAuthorizerArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupAuthorizerResult
-			secret, err := ctx.InvokePackageRaw("aws-native:iot:getAuthorizer", args, &rv, "", opts...)
-			if err != nil {
-				return LookupAuthorizerResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupAuthorizerResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupAuthorizerResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:iot:getAuthorizer", args, LookupAuthorizerResultOutput{}, options).(LookupAuthorizerResultOutput), nil
 		}).(LookupAuthorizerResultOutput)
 }
 

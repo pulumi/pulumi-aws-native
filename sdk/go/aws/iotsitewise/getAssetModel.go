@@ -50,21 +50,11 @@ type LookupAssetModelResult struct {
 }
 
 func LookupAssetModelOutput(ctx *pulumi.Context, args LookupAssetModelOutputArgs, opts ...pulumi.InvokeOption) LookupAssetModelResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupAssetModelResultOutput, error) {
 			args := v.(LookupAssetModelArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupAssetModelResult
-			secret, err := ctx.InvokePackageRaw("aws-native:iotsitewise:getAssetModel", args, &rv, "", opts...)
-			if err != nil {
-				return LookupAssetModelResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupAssetModelResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupAssetModelResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:iotsitewise:getAssetModel", args, LookupAssetModelResultOutput{}, options).(LookupAssetModelResultOutput), nil
 		}).(LookupAssetModelResultOutput)
 }
 

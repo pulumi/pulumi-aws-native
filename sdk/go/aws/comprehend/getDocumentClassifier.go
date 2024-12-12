@@ -46,21 +46,11 @@ type LookupDocumentClassifierResult struct {
 }
 
 func LookupDocumentClassifierOutput(ctx *pulumi.Context, args LookupDocumentClassifierOutputArgs, opts ...pulumi.InvokeOption) LookupDocumentClassifierResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupDocumentClassifierResultOutput, error) {
 			args := v.(LookupDocumentClassifierArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupDocumentClassifierResult
-			secret, err := ctx.InvokePackageRaw("aws-native:comprehend:getDocumentClassifier", args, &rv, "", opts...)
-			if err != nil {
-				return LookupDocumentClassifierResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupDocumentClassifierResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupDocumentClassifierResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:comprehend:getDocumentClassifier", args, LookupDocumentClassifierResultOutput{}, options).(LookupDocumentClassifierResultOutput), nil
 		}).(LookupDocumentClassifierResultOutput)
 }
 

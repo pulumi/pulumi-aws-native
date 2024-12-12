@@ -35,21 +35,11 @@ type LookupSpotFleetResult struct {
 }
 
 func LookupSpotFleetOutput(ctx *pulumi.Context, args LookupSpotFleetOutputArgs, opts ...pulumi.InvokeOption) LookupSpotFleetResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupSpotFleetResultOutput, error) {
 			args := v.(LookupSpotFleetArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupSpotFleetResult
-			secret, err := ctx.InvokePackageRaw("aws-native:ec2:getSpotFleet", args, &rv, "", opts...)
-			if err != nil {
-				return LookupSpotFleetResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupSpotFleetResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupSpotFleetResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:ec2:getSpotFleet", args, LookupSpotFleetResultOutput{}, options).(LookupSpotFleetResultOutput), nil
 		}).(LookupSpotFleetResultOutput)
 }
 

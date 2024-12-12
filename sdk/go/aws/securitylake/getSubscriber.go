@@ -56,21 +56,11 @@ type LookupSubscriberResult struct {
 }
 
 func LookupSubscriberOutput(ctx *pulumi.Context, args LookupSubscriberOutputArgs, opts ...pulumi.InvokeOption) LookupSubscriberResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupSubscriberResultOutput, error) {
 			args := v.(LookupSubscriberArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupSubscriberResult
-			secret, err := ctx.InvokePackageRaw("aws-native:securitylake:getSubscriber", args, &rv, "", opts...)
-			if err != nil {
-				return LookupSubscriberResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupSubscriberResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupSubscriberResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:securitylake:getSubscriber", args, LookupSubscriberResultOutput{}, options).(LookupSubscriberResultOutput), nil
 		}).(LookupSubscriberResultOutput)
 }
 

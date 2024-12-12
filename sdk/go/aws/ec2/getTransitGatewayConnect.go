@@ -42,21 +42,11 @@ type LookupTransitGatewayConnectResult struct {
 }
 
 func LookupTransitGatewayConnectOutput(ctx *pulumi.Context, args LookupTransitGatewayConnectOutputArgs, opts ...pulumi.InvokeOption) LookupTransitGatewayConnectResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupTransitGatewayConnectResultOutput, error) {
 			args := v.(LookupTransitGatewayConnectArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupTransitGatewayConnectResult
-			secret, err := ctx.InvokePackageRaw("aws-native:ec2:getTransitGatewayConnect", args, &rv, "", opts...)
-			if err != nil {
-				return LookupTransitGatewayConnectResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupTransitGatewayConnectResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupTransitGatewayConnectResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:ec2:getTransitGatewayConnect", args, LookupTransitGatewayConnectResultOutput{}, options).(LookupTransitGatewayConnectResultOutput), nil
 		}).(LookupTransitGatewayConnectResultOutput)
 }
 

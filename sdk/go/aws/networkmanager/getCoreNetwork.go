@@ -56,21 +56,11 @@ type LookupCoreNetworkResult struct {
 }
 
 func LookupCoreNetworkOutput(ctx *pulumi.Context, args LookupCoreNetworkOutputArgs, opts ...pulumi.InvokeOption) LookupCoreNetworkResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupCoreNetworkResultOutput, error) {
 			args := v.(LookupCoreNetworkArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupCoreNetworkResult
-			secret, err := ctx.InvokePackageRaw("aws-native:networkmanager:getCoreNetwork", args, &rv, "", opts...)
-			if err != nil {
-				return LookupCoreNetworkResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupCoreNetworkResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupCoreNetworkResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:networkmanager:getCoreNetwork", args, LookupCoreNetworkResultOutput{}, options).(LookupCoreNetworkResultOutput), nil
 		}).(LookupCoreNetworkResultOutput)
 }
 

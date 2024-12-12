@@ -54,21 +54,11 @@ type LookupVerifiedAccessGroupResult struct {
 }
 
 func LookupVerifiedAccessGroupOutput(ctx *pulumi.Context, args LookupVerifiedAccessGroupOutputArgs, opts ...pulumi.InvokeOption) LookupVerifiedAccessGroupResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupVerifiedAccessGroupResultOutput, error) {
 			args := v.(LookupVerifiedAccessGroupArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupVerifiedAccessGroupResult
-			secret, err := ctx.InvokePackageRaw("aws-native:ec2:getVerifiedAccessGroup", args, &rv, "", opts...)
-			if err != nil {
-				return LookupVerifiedAccessGroupResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupVerifiedAccessGroupResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupVerifiedAccessGroupResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:ec2:getVerifiedAccessGroup", args, LookupVerifiedAccessGroupResultOutput{}, options).(LookupVerifiedAccessGroupResultOutput), nil
 		}).(LookupVerifiedAccessGroupResultOutput)
 }
 

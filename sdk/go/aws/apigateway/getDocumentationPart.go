@@ -37,21 +37,11 @@ type LookupDocumentationPartResult struct {
 }
 
 func LookupDocumentationPartOutput(ctx *pulumi.Context, args LookupDocumentationPartOutputArgs, opts ...pulumi.InvokeOption) LookupDocumentationPartResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupDocumentationPartResultOutput, error) {
 			args := v.(LookupDocumentationPartArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupDocumentationPartResult
-			secret, err := ctx.InvokePackageRaw("aws-native:apigateway:getDocumentationPart", args, &rv, "", opts...)
-			if err != nil {
-				return LookupDocumentationPartResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupDocumentationPartResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupDocumentationPartResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:apigateway:getDocumentationPart", args, LookupDocumentationPartResultOutput{}, options).(LookupDocumentationPartResultOutput), nil
 		}).(LookupDocumentationPartResultOutput)
 }
 

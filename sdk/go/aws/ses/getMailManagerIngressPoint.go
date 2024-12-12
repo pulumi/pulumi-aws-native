@@ -50,21 +50,11 @@ type LookupMailManagerIngressPointResult struct {
 }
 
 func LookupMailManagerIngressPointOutput(ctx *pulumi.Context, args LookupMailManagerIngressPointOutputArgs, opts ...pulumi.InvokeOption) LookupMailManagerIngressPointResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupMailManagerIngressPointResultOutput, error) {
 			args := v.(LookupMailManagerIngressPointArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupMailManagerIngressPointResult
-			secret, err := ctx.InvokePackageRaw("aws-native:ses:getMailManagerIngressPoint", args, &rv, "", opts...)
-			if err != nil {
-				return LookupMailManagerIngressPointResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupMailManagerIngressPointResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupMailManagerIngressPointResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:ses:getMailManagerIngressPoint", args, LookupMailManagerIngressPointResultOutput{}, options).(LookupMailManagerIngressPointResultOutput), nil
 		}).(LookupMailManagerIngressPointResultOutput)
 }
 

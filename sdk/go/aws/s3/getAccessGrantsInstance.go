@@ -37,21 +37,11 @@ type LookupAccessGrantsInstanceResult struct {
 }
 
 func LookupAccessGrantsInstanceOutput(ctx *pulumi.Context, args LookupAccessGrantsInstanceOutputArgs, opts ...pulumi.InvokeOption) LookupAccessGrantsInstanceResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupAccessGrantsInstanceResultOutput, error) {
 			args := v.(LookupAccessGrantsInstanceArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupAccessGrantsInstanceResult
-			secret, err := ctx.InvokePackageRaw("aws-native:s3:getAccessGrantsInstance", args, &rv, "", opts...)
-			if err != nil {
-				return LookupAccessGrantsInstanceResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupAccessGrantsInstanceResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupAccessGrantsInstanceResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:s3:getAccessGrantsInstance", args, LookupAccessGrantsInstanceResultOutput{}, options).(LookupAccessGrantsInstanceResultOutput), nil
 		}).(LookupAccessGrantsInstanceResultOutput)
 }
 

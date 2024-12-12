@@ -41,21 +41,11 @@ type LookupSamplingRuleResult struct {
 }
 
 func LookupSamplingRuleOutput(ctx *pulumi.Context, args LookupSamplingRuleOutputArgs, opts ...pulumi.InvokeOption) LookupSamplingRuleResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupSamplingRuleResultOutput, error) {
 			args := v.(LookupSamplingRuleArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupSamplingRuleResult
-			secret, err := ctx.InvokePackageRaw("aws-native:xray:getSamplingRule", args, &rv, "", opts...)
-			if err != nil {
-				return LookupSamplingRuleResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupSamplingRuleResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupSamplingRuleResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:xray:getSamplingRule", args, LookupSamplingRuleResultOutput{}, options).(LookupSamplingRuleResultOutput), nil
 		}).(LookupSamplingRuleResultOutput)
 }
 

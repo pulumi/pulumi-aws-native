@@ -38,21 +38,11 @@ type LookupClientCertificateResult struct {
 }
 
 func LookupClientCertificateOutput(ctx *pulumi.Context, args LookupClientCertificateOutputArgs, opts ...pulumi.InvokeOption) LookupClientCertificateResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupClientCertificateResultOutput, error) {
 			args := v.(LookupClientCertificateArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupClientCertificateResult
-			secret, err := ctx.InvokePackageRaw("aws-native:apigateway:getClientCertificate", args, &rv, "", opts...)
-			if err != nil {
-				return LookupClientCertificateResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupClientCertificateResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupClientCertificateResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:apigateway:getClientCertificate", args, LookupClientCertificateResultOutput{}, options).(LookupClientCertificateResultOutput), nil
 		}).(LookupClientCertificateResultOutput)
 }
 

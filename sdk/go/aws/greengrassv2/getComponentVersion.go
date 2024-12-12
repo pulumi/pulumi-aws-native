@@ -41,21 +41,11 @@ type LookupComponentVersionResult struct {
 }
 
 func LookupComponentVersionOutput(ctx *pulumi.Context, args LookupComponentVersionOutputArgs, opts ...pulumi.InvokeOption) LookupComponentVersionResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupComponentVersionResultOutput, error) {
 			args := v.(LookupComponentVersionArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupComponentVersionResult
-			secret, err := ctx.InvokePackageRaw("aws-native:greengrassv2:getComponentVersion", args, &rv, "", opts...)
-			if err != nil {
-				return LookupComponentVersionResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupComponentVersionResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupComponentVersionResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:greengrassv2:getComponentVersion", args, LookupComponentVersionResultOutput{}, options).(LookupComponentVersionResultOutput), nil
 		}).(LookupComponentVersionResultOutput)
 }
 

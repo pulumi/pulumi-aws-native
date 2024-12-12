@@ -35,21 +35,11 @@ type LookupUserPoolUiCustomizationAttachmentResult struct {
 }
 
 func LookupUserPoolUiCustomizationAttachmentOutput(ctx *pulumi.Context, args LookupUserPoolUiCustomizationAttachmentOutputArgs, opts ...pulumi.InvokeOption) LookupUserPoolUiCustomizationAttachmentResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupUserPoolUiCustomizationAttachmentResultOutput, error) {
 			args := v.(LookupUserPoolUiCustomizationAttachmentArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupUserPoolUiCustomizationAttachmentResult
-			secret, err := ctx.InvokePackageRaw("aws-native:cognito:getUserPoolUiCustomizationAttachment", args, &rv, "", opts...)
-			if err != nil {
-				return LookupUserPoolUiCustomizationAttachmentResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupUserPoolUiCustomizationAttachmentResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupUserPoolUiCustomizationAttachmentResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:cognito:getUserPoolUiCustomizationAttachment", args, LookupUserPoolUiCustomizationAttachmentResultOutput{}, options).(LookupUserPoolUiCustomizationAttachmentResultOutput), nil
 		}).(LookupUserPoolUiCustomizationAttachmentResultOutput)
 }
 

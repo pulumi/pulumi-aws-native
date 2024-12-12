@@ -44,21 +44,11 @@ type LookupEventStreamResult struct {
 }
 
 func LookupEventStreamOutput(ctx *pulumi.Context, args LookupEventStreamOutputArgs, opts ...pulumi.InvokeOption) LookupEventStreamResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupEventStreamResultOutput, error) {
 			args := v.(LookupEventStreamArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupEventStreamResult
-			secret, err := ctx.InvokePackageRaw("aws-native:customerprofiles:getEventStream", args, &rv, "", opts...)
-			if err != nil {
-				return LookupEventStreamResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupEventStreamResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupEventStreamResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:customerprofiles:getEventStream", args, LookupEventStreamResultOutput{}, options).(LookupEventStreamResultOutput), nil
 		}).(LookupEventStreamResultOutput)
 }
 

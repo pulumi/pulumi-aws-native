@@ -52,21 +52,11 @@ type LookupStudioResult struct {
 }
 
 func LookupStudioOutput(ctx *pulumi.Context, args LookupStudioOutputArgs, opts ...pulumi.InvokeOption) LookupStudioResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupStudioResultOutput, error) {
 			args := v.(LookupStudioArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupStudioResult
-			secret, err := ctx.InvokePackageRaw("aws-native:emr:getStudio", args, &rv, "", opts...)
-			if err != nil {
-				return LookupStudioResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupStudioResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupStudioResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:emr:getStudio", args, LookupStudioResultOutput{}, options).(LookupStudioResultOutput), nil
 		}).(LookupStudioResultOutput)
 }
 

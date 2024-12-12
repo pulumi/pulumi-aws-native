@@ -54,21 +54,11 @@ type LookupCompositeAlarmResult struct {
 }
 
 func LookupCompositeAlarmOutput(ctx *pulumi.Context, args LookupCompositeAlarmOutputArgs, opts ...pulumi.InvokeOption) LookupCompositeAlarmResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupCompositeAlarmResultOutput, error) {
 			args := v.(LookupCompositeAlarmArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupCompositeAlarmResult
-			secret, err := ctx.InvokePackageRaw("aws-native:cloudwatch:getCompositeAlarm", args, &rv, "", opts...)
-			if err != nil {
-				return LookupCompositeAlarmResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupCompositeAlarmResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupCompositeAlarmResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:cloudwatch:getCompositeAlarm", args, LookupCompositeAlarmResultOutput{}, options).(LookupCompositeAlarmResultOutput), nil
 		}).(LookupCompositeAlarmResultOutput)
 }
 

@@ -37,21 +37,11 @@ type LookupCloudFrontOriginAccessIdentityResult struct {
 }
 
 func LookupCloudFrontOriginAccessIdentityOutput(ctx *pulumi.Context, args LookupCloudFrontOriginAccessIdentityOutputArgs, opts ...pulumi.InvokeOption) LookupCloudFrontOriginAccessIdentityResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupCloudFrontOriginAccessIdentityResultOutput, error) {
 			args := v.(LookupCloudFrontOriginAccessIdentityArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupCloudFrontOriginAccessIdentityResult
-			secret, err := ctx.InvokePackageRaw("aws-native:cloudfront:getCloudFrontOriginAccessIdentity", args, &rv, "", opts...)
-			if err != nil {
-				return LookupCloudFrontOriginAccessIdentityResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupCloudFrontOriginAccessIdentityResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupCloudFrontOriginAccessIdentityResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:cloudfront:getCloudFrontOriginAccessIdentity", args, LookupCloudFrontOriginAccessIdentityResultOutput{}, options).(LookupCloudFrontOriginAccessIdentityResultOutput), nil
 		}).(LookupCloudFrontOriginAccessIdentityResultOutput)
 }
 

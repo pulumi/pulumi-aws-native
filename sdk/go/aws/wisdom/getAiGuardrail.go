@@ -55,21 +55,11 @@ type LookupAiGuardrailResult struct {
 }
 
 func LookupAiGuardrailOutput(ctx *pulumi.Context, args LookupAiGuardrailOutputArgs, opts ...pulumi.InvokeOption) LookupAiGuardrailResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupAiGuardrailResultOutput, error) {
 			args := v.(LookupAiGuardrailArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupAiGuardrailResult
-			secret, err := ctx.InvokePackageRaw("aws-native:wisdom:getAiGuardrail", args, &rv, "", opts...)
-			if err != nil {
-				return LookupAiGuardrailResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupAiGuardrailResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupAiGuardrailResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:wisdom:getAiGuardrail", args, LookupAiGuardrailResultOutput{}, options).(LookupAiGuardrailResultOutput), nil
 		}).(LookupAiGuardrailResultOutput)
 }
 

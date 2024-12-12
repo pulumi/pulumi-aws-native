@@ -40,21 +40,11 @@ type LookupDataCatalogResult struct {
 }
 
 func LookupDataCatalogOutput(ctx *pulumi.Context, args LookupDataCatalogOutputArgs, opts ...pulumi.InvokeOption) LookupDataCatalogResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupDataCatalogResultOutput, error) {
 			args := v.(LookupDataCatalogArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupDataCatalogResult
-			secret, err := ctx.InvokePackageRaw("aws-native:athena:getDataCatalog", args, &rv, "", opts...)
-			if err != nil {
-				return LookupDataCatalogResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupDataCatalogResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupDataCatalogResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:athena:getDataCatalog", args, LookupDataCatalogResultOutput{}, options).(LookupDataCatalogResultOutput), nil
 		}).(LookupDataCatalogResultOutput)
 }
 

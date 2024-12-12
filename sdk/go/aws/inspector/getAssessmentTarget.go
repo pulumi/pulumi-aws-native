@@ -35,21 +35,11 @@ type LookupAssessmentTargetResult struct {
 }
 
 func LookupAssessmentTargetOutput(ctx *pulumi.Context, args LookupAssessmentTargetOutputArgs, opts ...pulumi.InvokeOption) LookupAssessmentTargetResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupAssessmentTargetResultOutput, error) {
 			args := v.(LookupAssessmentTargetArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupAssessmentTargetResult
-			secret, err := ctx.InvokePackageRaw("aws-native:inspector:getAssessmentTarget", args, &rv, "", opts...)
-			if err != nil {
-				return LookupAssessmentTargetResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupAssessmentTargetResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupAssessmentTargetResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:inspector:getAssessmentTarget", args, LookupAssessmentTargetResultOutput{}, options).(LookupAssessmentTargetResultOutput), nil
 		}).(LookupAssessmentTargetResultOutput)
 }
 

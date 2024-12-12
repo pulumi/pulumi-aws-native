@@ -35,21 +35,11 @@ type LookupSubscriberNotificationResult struct {
 }
 
 func LookupSubscriberNotificationOutput(ctx *pulumi.Context, args LookupSubscriberNotificationOutputArgs, opts ...pulumi.InvokeOption) LookupSubscriberNotificationResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupSubscriberNotificationResultOutput, error) {
 			args := v.(LookupSubscriberNotificationArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupSubscriberNotificationResult
-			secret, err := ctx.InvokePackageRaw("aws-native:securitylake:getSubscriberNotification", args, &rv, "", opts...)
-			if err != nil {
-				return LookupSubscriberNotificationResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupSubscriberNotificationResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupSubscriberNotificationResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:securitylake:getSubscriberNotification", args, LookupSubscriberNotificationResultOutput{}, options).(LookupSubscriberNotificationResultOutput), nil
 		}).(LookupSubscriberNotificationResultOutput)
 }
 

@@ -35,21 +35,11 @@ type LookupApplicationVersionResult struct {
 }
 
 func LookupApplicationVersionOutput(ctx *pulumi.Context, args LookupApplicationVersionOutputArgs, opts ...pulumi.InvokeOption) LookupApplicationVersionResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupApplicationVersionResultOutput, error) {
 			args := v.(LookupApplicationVersionArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupApplicationVersionResult
-			secret, err := ctx.InvokePackageRaw("aws-native:elasticbeanstalk:getApplicationVersion", args, &rv, "", opts...)
-			if err != nil {
-				return LookupApplicationVersionResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupApplicationVersionResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupApplicationVersionResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:elasticbeanstalk:getApplicationVersion", args, LookupApplicationVersionResultOutput{}, options).(LookupApplicationVersionResultOutput), nil
 		}).(LookupApplicationVersionResultOutput)
 }
 

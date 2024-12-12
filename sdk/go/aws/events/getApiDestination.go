@@ -43,21 +43,11 @@ type LookupApiDestinationResult struct {
 }
 
 func LookupApiDestinationOutput(ctx *pulumi.Context, args LookupApiDestinationOutputArgs, opts ...pulumi.InvokeOption) LookupApiDestinationResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupApiDestinationResultOutput, error) {
 			args := v.(LookupApiDestinationArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupApiDestinationResult
-			secret, err := ctx.InvokePackageRaw("aws-native:events:getApiDestination", args, &rv, "", opts...)
-			if err != nil {
-				return LookupApiDestinationResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupApiDestinationResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupApiDestinationResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:events:getApiDestination", args, LookupApiDestinationResultOutput{}, options).(LookupApiDestinationResultOutput), nil
 		}).(LookupApiDestinationResultOutput)
 }
 

@@ -42,21 +42,11 @@ type LookupWorkGroupResult struct {
 }
 
 func LookupWorkGroupOutput(ctx *pulumi.Context, args LookupWorkGroupOutputArgs, opts ...pulumi.InvokeOption) LookupWorkGroupResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupWorkGroupResultOutput, error) {
 			args := v.(LookupWorkGroupArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupWorkGroupResult
-			secret, err := ctx.InvokePackageRaw("aws-native:athena:getWorkGroup", args, &rv, "", opts...)
-			if err != nil {
-				return LookupWorkGroupResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupWorkGroupResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupWorkGroupResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:athena:getWorkGroup", args, LookupWorkGroupResultOutput{}, options).(LookupWorkGroupResultOutput), nil
 		}).(LookupWorkGroupResultOutput)
 }
 

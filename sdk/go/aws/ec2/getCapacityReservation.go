@@ -65,21 +65,11 @@ type LookupCapacityReservationResult struct {
 }
 
 func LookupCapacityReservationOutput(ctx *pulumi.Context, args LookupCapacityReservationOutputArgs, opts ...pulumi.InvokeOption) LookupCapacityReservationResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupCapacityReservationResultOutput, error) {
 			args := v.(LookupCapacityReservationArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupCapacityReservationResult
-			secret, err := ctx.InvokePackageRaw("aws-native:ec2:getCapacityReservation", args, &rv, "", opts...)
-			if err != nil {
-				return LookupCapacityReservationResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupCapacityReservationResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupCapacityReservationResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:ec2:getCapacityReservation", args, LookupCapacityReservationResultOutput{}, options).(LookupCapacityReservationResultOutput), nil
 		}).(LookupCapacityReservationResultOutput)
 }
 

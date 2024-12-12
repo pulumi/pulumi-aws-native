@@ -52,21 +52,11 @@ type LookupScheduledQueryResult struct {
 }
 
 func LookupScheduledQueryOutput(ctx *pulumi.Context, args LookupScheduledQueryOutputArgs, opts ...pulumi.InvokeOption) LookupScheduledQueryResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupScheduledQueryResultOutput, error) {
 			args := v.(LookupScheduledQueryArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupScheduledQueryResult
-			secret, err := ctx.InvokePackageRaw("aws-native:timestream:getScheduledQuery", args, &rv, "", opts...)
-			if err != nil {
-				return LookupScheduledQueryResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupScheduledQueryResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupScheduledQueryResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:timestream:getScheduledQuery", args, LookupScheduledQueryResultOutput{}, options).(LookupScheduledQueryResultOutput), nil
 		}).(LookupScheduledQueryResultOutput)
 }
 

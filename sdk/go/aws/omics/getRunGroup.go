@@ -49,21 +49,11 @@ type LookupRunGroupResult struct {
 }
 
 func LookupRunGroupOutput(ctx *pulumi.Context, args LookupRunGroupOutputArgs, opts ...pulumi.InvokeOption) LookupRunGroupResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupRunGroupResultOutput, error) {
 			args := v.(LookupRunGroupArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupRunGroupResult
-			secret, err := ctx.InvokePackageRaw("aws-native:omics:getRunGroup", args, &rv, "", opts...)
-			if err != nil {
-				return LookupRunGroupResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupRunGroupResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupRunGroupResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:omics:getRunGroup", args, LookupRunGroupResultOutput{}, options).(LookupRunGroupResultOutput), nil
 		}).(LookupRunGroupResultOutput)
 }
 

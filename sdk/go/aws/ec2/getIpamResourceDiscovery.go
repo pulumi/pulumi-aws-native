@@ -50,21 +50,11 @@ type LookupIpamResourceDiscoveryResult struct {
 }
 
 func LookupIpamResourceDiscoveryOutput(ctx *pulumi.Context, args LookupIpamResourceDiscoveryOutputArgs, opts ...pulumi.InvokeOption) LookupIpamResourceDiscoveryResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupIpamResourceDiscoveryResultOutput, error) {
 			args := v.(LookupIpamResourceDiscoveryArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupIpamResourceDiscoveryResult
-			secret, err := ctx.InvokePackageRaw("aws-native:ec2:getIpamResourceDiscovery", args, &rv, "", opts...)
-			if err != nil {
-				return LookupIpamResourceDiscoveryResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupIpamResourceDiscoveryResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupIpamResourceDiscoveryResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:ec2:getIpamResourceDiscovery", args, LookupIpamResourceDiscoveryResultOutput{}, options).(LookupIpamResourceDiscoveryResultOutput), nil
 		}).(LookupIpamResourceDiscoveryResultOutput)
 }
 

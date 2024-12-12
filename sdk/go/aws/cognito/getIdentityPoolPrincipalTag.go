@@ -39,21 +39,11 @@ type LookupIdentityPoolPrincipalTagResult struct {
 }
 
 func LookupIdentityPoolPrincipalTagOutput(ctx *pulumi.Context, args LookupIdentityPoolPrincipalTagOutputArgs, opts ...pulumi.InvokeOption) LookupIdentityPoolPrincipalTagResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupIdentityPoolPrincipalTagResultOutput, error) {
 			args := v.(LookupIdentityPoolPrincipalTagArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupIdentityPoolPrincipalTagResult
-			secret, err := ctx.InvokePackageRaw("aws-native:cognito:getIdentityPoolPrincipalTag", args, &rv, "", opts...)
-			if err != nil {
-				return LookupIdentityPoolPrincipalTagResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupIdentityPoolPrincipalTagResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupIdentityPoolPrincipalTagResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:cognito:getIdentityPoolPrincipalTag", args, LookupIdentityPoolPrincipalTagResultOutput{}, options).(LookupIdentityPoolPrincipalTagResultOutput), nil
 		}).(LookupIdentityPoolPrincipalTagResultOutput)
 }
 

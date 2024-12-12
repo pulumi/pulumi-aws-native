@@ -48,21 +48,11 @@ type LookupFindingsFilterResult struct {
 }
 
 func LookupFindingsFilterOutput(ctx *pulumi.Context, args LookupFindingsFilterOutputArgs, opts ...pulumi.InvokeOption) LookupFindingsFilterResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupFindingsFilterResultOutput, error) {
 			args := v.(LookupFindingsFilterArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupFindingsFilterResult
-			secret, err := ctx.InvokePackageRaw("aws-native:macie:getFindingsFilter", args, &rv, "", opts...)
-			if err != nil {
-				return LookupFindingsFilterResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupFindingsFilterResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupFindingsFilterResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:macie:getFindingsFilter", args, LookupFindingsFilterResultOutput{}, options).(LookupFindingsFilterResultOutput), nil
 		}).(LookupFindingsFilterResultOutput)
 }
 

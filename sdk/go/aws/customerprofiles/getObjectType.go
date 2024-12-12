@@ -56,21 +56,11 @@ type LookupObjectTypeResult struct {
 }
 
 func LookupObjectTypeOutput(ctx *pulumi.Context, args LookupObjectTypeOutputArgs, opts ...pulumi.InvokeOption) LookupObjectTypeResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupObjectTypeResultOutput, error) {
 			args := v.(LookupObjectTypeArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupObjectTypeResult
-			secret, err := ctx.InvokePackageRaw("aws-native:customerprofiles:getObjectType", args, &rv, "", opts...)
-			if err != nil {
-				return LookupObjectTypeResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupObjectTypeResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupObjectTypeResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:customerprofiles:getObjectType", args, LookupObjectTypeResultOutput{}, options).(LookupObjectTypeResultOutput), nil
 		}).(LookupObjectTypeResultOutput)
 }
 

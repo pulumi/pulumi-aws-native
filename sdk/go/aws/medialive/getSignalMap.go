@@ -61,21 +61,11 @@ type LookupSignalMapResult struct {
 }
 
 func LookupSignalMapOutput(ctx *pulumi.Context, args LookupSignalMapOutputArgs, opts ...pulumi.InvokeOption) LookupSignalMapResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupSignalMapResultOutput, error) {
 			args := v.(LookupSignalMapArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupSignalMapResult
-			secret, err := ctx.InvokePackageRaw("aws-native:medialive:getSignalMap", args, &rv, "", opts...)
-			if err != nil {
-				return LookupSignalMapResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupSignalMapResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupSignalMapResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:medialive:getSignalMap", args, LookupSignalMapResultOutput{}, options).(LookupSignalMapResultOutput), nil
 		}).(LookupSignalMapResultOutput)
 }
 

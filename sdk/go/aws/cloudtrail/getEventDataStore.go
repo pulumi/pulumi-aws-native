@@ -68,21 +68,11 @@ type LookupEventDataStoreResult struct {
 }
 
 func LookupEventDataStoreOutput(ctx *pulumi.Context, args LookupEventDataStoreOutputArgs, opts ...pulumi.InvokeOption) LookupEventDataStoreResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupEventDataStoreResultOutput, error) {
 			args := v.(LookupEventDataStoreArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupEventDataStoreResult
-			secret, err := ctx.InvokePackageRaw("aws-native:cloudtrail:getEventDataStore", args, &rv, "", opts...)
-			if err != nil {
-				return LookupEventDataStoreResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupEventDataStoreResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupEventDataStoreResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:cloudtrail:getEventDataStore", args, LookupEventDataStoreResultOutput{}, options).(LookupEventDataStoreResultOutput), nil
 		}).(LookupEventDataStoreResultOutput)
 }
 

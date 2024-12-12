@@ -42,21 +42,11 @@ type LookupOidcProviderResult struct {
 }
 
 func LookupOidcProviderOutput(ctx *pulumi.Context, args LookupOidcProviderOutputArgs, opts ...pulumi.InvokeOption) LookupOidcProviderResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupOidcProviderResultOutput, error) {
 			args := v.(LookupOidcProviderArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupOidcProviderResult
-			secret, err := ctx.InvokePackageRaw("aws-native:iam:getOidcProvider", args, &rv, "", opts...)
-			if err != nil {
-				return LookupOidcProviderResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupOidcProviderResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupOidcProviderResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:iam:getOidcProvider", args, LookupOidcProviderResultOutput{}, options).(LookupOidcProviderResultOutput), nil
 		}).(LookupOidcProviderResultOutput)
 }
 

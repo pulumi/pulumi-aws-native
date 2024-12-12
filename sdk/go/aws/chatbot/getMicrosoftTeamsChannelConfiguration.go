@@ -50,21 +50,11 @@ type LookupMicrosoftTeamsChannelConfigurationResult struct {
 }
 
 func LookupMicrosoftTeamsChannelConfigurationOutput(ctx *pulumi.Context, args LookupMicrosoftTeamsChannelConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupMicrosoftTeamsChannelConfigurationResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupMicrosoftTeamsChannelConfigurationResultOutput, error) {
 			args := v.(LookupMicrosoftTeamsChannelConfigurationArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupMicrosoftTeamsChannelConfigurationResult
-			secret, err := ctx.InvokePackageRaw("aws-native:chatbot:getMicrosoftTeamsChannelConfiguration", args, &rv, "", opts...)
-			if err != nil {
-				return LookupMicrosoftTeamsChannelConfigurationResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupMicrosoftTeamsChannelConfigurationResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupMicrosoftTeamsChannelConfigurationResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:chatbot:getMicrosoftTeamsChannelConfiguration", args, LookupMicrosoftTeamsChannelConfigurationResultOutput{}, options).(LookupMicrosoftTeamsChannelConfigurationResultOutput), nil
 		}).(LookupMicrosoftTeamsChannelConfigurationResultOutput)
 }
 

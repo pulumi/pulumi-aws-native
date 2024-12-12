@@ -37,21 +37,11 @@ type LookupTargetAccountConfigurationResult struct {
 }
 
 func LookupTargetAccountConfigurationOutput(ctx *pulumi.Context, args LookupTargetAccountConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupTargetAccountConfigurationResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupTargetAccountConfigurationResultOutput, error) {
 			args := v.(LookupTargetAccountConfigurationArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupTargetAccountConfigurationResult
-			secret, err := ctx.InvokePackageRaw("aws-native:fis:getTargetAccountConfiguration", args, &rv, "", opts...)
-			if err != nil {
-				return LookupTargetAccountConfigurationResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupTargetAccountConfigurationResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupTargetAccountConfigurationResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:fis:getTargetAccountConfiguration", args, LookupTargetAccountConfigurationResultOutput{}, options).(LookupTargetAccountConfigurationResultOutput), nil
 		}).(LookupTargetAccountConfigurationResultOutput)
 }
 

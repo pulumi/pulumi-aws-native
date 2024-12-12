@@ -52,21 +52,11 @@ type LookupReplicaKeyResult struct {
 }
 
 func LookupReplicaKeyOutput(ctx *pulumi.Context, args LookupReplicaKeyOutputArgs, opts ...pulumi.InvokeOption) LookupReplicaKeyResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupReplicaKeyResultOutput, error) {
 			args := v.(LookupReplicaKeyArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupReplicaKeyResult
-			secret, err := ctx.InvokePackageRaw("aws-native:kms:getReplicaKey", args, &rv, "", opts...)
-			if err != nil {
-				return LookupReplicaKeyResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupReplicaKeyResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupReplicaKeyResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:kms:getReplicaKey", args, LookupReplicaKeyResultOutput{}, options).(LookupReplicaKeyResultOutput), nil
 		}).(LookupReplicaKeyResultOutput)
 }
 

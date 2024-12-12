@@ -42,21 +42,11 @@ type LookupEnvironmentTemplateResult struct {
 }
 
 func LookupEnvironmentTemplateOutput(ctx *pulumi.Context, args LookupEnvironmentTemplateOutputArgs, opts ...pulumi.InvokeOption) LookupEnvironmentTemplateResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupEnvironmentTemplateResultOutput, error) {
 			args := v.(LookupEnvironmentTemplateArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupEnvironmentTemplateResult
-			secret, err := ctx.InvokePackageRaw("aws-native:proton:getEnvironmentTemplate", args, &rv, "", opts...)
-			if err != nil {
-				return LookupEnvironmentTemplateResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupEnvironmentTemplateResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupEnvironmentTemplateResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:proton:getEnvironmentTemplate", args, LookupEnvironmentTemplateResultOutput{}, options).(LookupEnvironmentTemplateResultOutput), nil
 		}).(LookupEnvironmentTemplateResultOutput)
 }
 

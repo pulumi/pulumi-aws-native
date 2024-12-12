@@ -35,21 +35,11 @@ type LookupRulesetResult struct {
 }
 
 func LookupRulesetOutput(ctx *pulumi.Context, args LookupRulesetOutputArgs, opts ...pulumi.InvokeOption) LookupRulesetResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupRulesetResultOutput, error) {
 			args := v.(LookupRulesetArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupRulesetResult
-			secret, err := ctx.InvokePackageRaw("aws-native:databrew:getRuleset", args, &rv, "", opts...)
-			if err != nil {
-				return LookupRulesetResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupRulesetResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupRulesetResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:databrew:getRuleset", args, LookupRulesetResultOutput{}, options).(LookupRulesetResultOutput), nil
 		}).(LookupRulesetResultOutput)
 }
 

@@ -39,21 +39,11 @@ type LookupMeteredProductResult struct {
 }
 
 func LookupMeteredProductOutput(ctx *pulumi.Context, args LookupMeteredProductOutputArgs, opts ...pulumi.InvokeOption) LookupMeteredProductResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupMeteredProductResultOutput, error) {
 			args := v.(LookupMeteredProductArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupMeteredProductResult
-			secret, err := ctx.InvokePackageRaw("aws-native:deadline:getMeteredProduct", args, &rv, "", opts...)
-			if err != nil {
-				return LookupMeteredProductResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupMeteredProductResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupMeteredProductResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:deadline:getMeteredProduct", args, LookupMeteredProductResultOutput{}, options).(LookupMeteredProductResultOutput), nil
 		}).(LookupMeteredProductResultOutput)
 }
 

@@ -41,21 +41,11 @@ type LookupGrantResult struct {
 }
 
 func LookupGrantOutput(ctx *pulumi.Context, args LookupGrantOutputArgs, opts ...pulumi.InvokeOption) LookupGrantResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupGrantResultOutput, error) {
 			args := v.(LookupGrantArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupGrantResult
-			secret, err := ctx.InvokePackageRaw("aws-native:licensemanager:getGrant", args, &rv, "", opts...)
-			if err != nil {
-				return LookupGrantResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupGrantResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupGrantResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:licensemanager:getGrant", args, LookupGrantResultOutput{}, options).(LookupGrantResultOutput), nil
 		}).(LookupGrantResultOutput)
 }
 

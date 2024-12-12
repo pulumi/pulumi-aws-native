@@ -39,21 +39,11 @@ type LookupAiAgentVersionResult struct {
 }
 
 func LookupAiAgentVersionOutput(ctx *pulumi.Context, args LookupAiAgentVersionOutputArgs, opts ...pulumi.InvokeOption) LookupAiAgentVersionResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupAiAgentVersionResultOutput, error) {
 			args := v.(LookupAiAgentVersionArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupAiAgentVersionResult
-			secret, err := ctx.InvokePackageRaw("aws-native:wisdom:getAiAgentVersion", args, &rv, "", opts...)
-			if err != nil {
-				return LookupAiAgentVersionResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupAiAgentVersionResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupAiAgentVersionResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:wisdom:getAiAgentVersion", args, LookupAiAgentVersionResultOutput{}, options).(LookupAiAgentVersionResultOutput), nil
 		}).(LookupAiAgentVersionResultOutput)
 }
 

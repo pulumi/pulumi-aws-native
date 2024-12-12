@@ -62,21 +62,11 @@ type LookupAgentAliasResult struct {
 }
 
 func LookupAgentAliasOutput(ctx *pulumi.Context, args LookupAgentAliasOutputArgs, opts ...pulumi.InvokeOption) LookupAgentAliasResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupAgentAliasResultOutput, error) {
 			args := v.(LookupAgentAliasArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupAgentAliasResult
-			secret, err := ctx.InvokePackageRaw("aws-native:bedrock:getAgentAlias", args, &rv, "", opts...)
-			if err != nil {
-				return LookupAgentAliasResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupAgentAliasResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupAgentAliasResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:bedrock:getAgentAlias", args, LookupAgentAliasResultOutput{}, options).(LookupAgentAliasResultOutput), nil
 		}).(LookupAgentAliasResultOutput)
 }
 

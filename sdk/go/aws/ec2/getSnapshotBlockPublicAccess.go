@@ -35,21 +35,11 @@ type LookupSnapshotBlockPublicAccessResult struct {
 }
 
 func LookupSnapshotBlockPublicAccessOutput(ctx *pulumi.Context, args LookupSnapshotBlockPublicAccessOutputArgs, opts ...pulumi.InvokeOption) LookupSnapshotBlockPublicAccessResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupSnapshotBlockPublicAccessResultOutput, error) {
 			args := v.(LookupSnapshotBlockPublicAccessArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupSnapshotBlockPublicAccessResult
-			secret, err := ctx.InvokePackageRaw("aws-native:ec2:getSnapshotBlockPublicAccess", args, &rv, "", opts...)
-			if err != nil {
-				return LookupSnapshotBlockPublicAccessResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupSnapshotBlockPublicAccessResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupSnapshotBlockPublicAccessResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:ec2:getSnapshotBlockPublicAccess", args, LookupSnapshotBlockPublicAccessResultOutput{}, options).(LookupSnapshotBlockPublicAccessResultOutput), nil
 		}).(LookupSnapshotBlockPublicAccessResultOutput)
 }
 

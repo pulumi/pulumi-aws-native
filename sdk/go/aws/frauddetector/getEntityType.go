@@ -42,21 +42,11 @@ type LookupEntityTypeResult struct {
 }
 
 func LookupEntityTypeOutput(ctx *pulumi.Context, args LookupEntityTypeOutputArgs, opts ...pulumi.InvokeOption) LookupEntityTypeResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupEntityTypeResultOutput, error) {
 			args := v.(LookupEntityTypeArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupEntityTypeResult
-			secret, err := ctx.InvokePackageRaw("aws-native:frauddetector:getEntityType", args, &rv, "", opts...)
-			if err != nil {
-				return LookupEntityTypeResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupEntityTypeResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupEntityTypeResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:frauddetector:getEntityType", args, LookupEntityTypeResultOutput{}, options).(LookupEntityTypeResultOutput), nil
 		}).(LookupEntityTypeResultOutput)
 }
 

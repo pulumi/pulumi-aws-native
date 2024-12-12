@@ -44,21 +44,11 @@ type LookupIntegrationResult struct {
 }
 
 func LookupIntegrationOutput(ctx *pulumi.Context, args LookupIntegrationOutputArgs, opts ...pulumi.InvokeOption) LookupIntegrationResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupIntegrationResultOutput, error) {
 			args := v.(LookupIntegrationArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupIntegrationResult
-			secret, err := ctx.InvokePackageRaw("aws-native:rds:getIntegration", args, &rv, "", opts...)
-			if err != nil {
-				return LookupIntegrationResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupIntegrationResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupIntegrationResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:rds:getIntegration", args, LookupIntegrationResultOutput{}, options).(LookupIntegrationResultOutput), nil
 		}).(LookupIntegrationResultOutput)
 }
 

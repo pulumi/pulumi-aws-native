@@ -42,21 +42,11 @@ type LookupTlsInspectionConfigurationResult struct {
 }
 
 func LookupTlsInspectionConfigurationOutput(ctx *pulumi.Context, args LookupTlsInspectionConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupTlsInspectionConfigurationResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupTlsInspectionConfigurationResultOutput, error) {
 			args := v.(LookupTlsInspectionConfigurationArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupTlsInspectionConfigurationResult
-			secret, err := ctx.InvokePackageRaw("aws-native:networkfirewall:getTlsInspectionConfiguration", args, &rv, "", opts...)
-			if err != nil {
-				return LookupTlsInspectionConfigurationResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupTlsInspectionConfigurationResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupTlsInspectionConfigurationResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:networkfirewall:getTlsInspectionConfiguration", args, LookupTlsInspectionConfigurationResultOutput{}, options).(LookupTlsInspectionConfigurationResultOutput), nil
 		}).(LookupTlsInspectionConfigurationResultOutput)
 }
 

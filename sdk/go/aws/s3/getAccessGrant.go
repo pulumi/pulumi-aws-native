@@ -47,21 +47,11 @@ type LookupAccessGrantResult struct {
 }
 
 func LookupAccessGrantOutput(ctx *pulumi.Context, args LookupAccessGrantOutputArgs, opts ...pulumi.InvokeOption) LookupAccessGrantResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupAccessGrantResultOutput, error) {
 			args := v.(LookupAccessGrantArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupAccessGrantResult
-			secret, err := ctx.InvokePackageRaw("aws-native:s3:getAccessGrant", args, &rv, "", opts...)
-			if err != nil {
-				return LookupAccessGrantResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupAccessGrantResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupAccessGrantResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:s3:getAccessGrant", args, LookupAccessGrantResultOutput{}, options).(LookupAccessGrantResultOutput), nil
 		}).(LookupAccessGrantResultOutput)
 }
 

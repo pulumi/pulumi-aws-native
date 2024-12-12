@@ -82,21 +82,11 @@ type LookupGraphQlApiResult struct {
 }
 
 func LookupGraphQlApiOutput(ctx *pulumi.Context, args LookupGraphQlApiOutputArgs, opts ...pulumi.InvokeOption) LookupGraphQlApiResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupGraphQlApiResultOutput, error) {
 			args := v.(LookupGraphQlApiArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupGraphQlApiResult
-			secret, err := ctx.InvokePackageRaw("aws-native:appsync:getGraphQlApi", args, &rv, "", opts...)
-			if err != nil {
-				return LookupGraphQlApiResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupGraphQlApiResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupGraphQlApiResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:appsync:getGraphQlApi", args, LookupGraphQlApiResultOutput{}, options).(LookupGraphQlApiResultOutput), nil
 		}).(LookupGraphQlApiResultOutput)
 }
 

@@ -37,21 +37,11 @@ type LookupTagAssociationResult struct {
 }
 
 func LookupTagAssociationOutput(ctx *pulumi.Context, args LookupTagAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupTagAssociationResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupTagAssociationResultOutput, error) {
 			args := v.(LookupTagAssociationArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupTagAssociationResult
-			secret, err := ctx.InvokePackageRaw("aws-native:lakeformation:getTagAssociation", args, &rv, "", opts...)
-			if err != nil {
-				return LookupTagAssociationResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupTagAssociationResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupTagAssociationResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:lakeformation:getTagAssociation", args, LookupTagAssociationResultOutput{}, options).(LookupTagAssociationResultOutput), nil
 		}).(LookupTagAssociationResultOutput)
 }
 

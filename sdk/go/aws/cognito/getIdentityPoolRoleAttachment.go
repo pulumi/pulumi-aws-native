@@ -41,21 +41,11 @@ type LookupIdentityPoolRoleAttachmentResult struct {
 }
 
 func LookupIdentityPoolRoleAttachmentOutput(ctx *pulumi.Context, args LookupIdentityPoolRoleAttachmentOutputArgs, opts ...pulumi.InvokeOption) LookupIdentityPoolRoleAttachmentResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupIdentityPoolRoleAttachmentResultOutput, error) {
 			args := v.(LookupIdentityPoolRoleAttachmentArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupIdentityPoolRoleAttachmentResult
-			secret, err := ctx.InvokePackageRaw("aws-native:cognito:getIdentityPoolRoleAttachment", args, &rv, "", opts...)
-			if err != nil {
-				return LookupIdentityPoolRoleAttachmentResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupIdentityPoolRoleAttachmentResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupIdentityPoolRoleAttachmentResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:cognito:getIdentityPoolRoleAttachment", args, LookupIdentityPoolRoleAttachmentResultOutput{}, options).(LookupIdentityPoolRoleAttachmentResultOutput), nil
 		}).(LookupIdentityPoolRoleAttachmentResultOutput)
 }
 

@@ -33,21 +33,11 @@ type LookupAssessmentTemplateResult struct {
 }
 
 func LookupAssessmentTemplateOutput(ctx *pulumi.Context, args LookupAssessmentTemplateOutputArgs, opts ...pulumi.InvokeOption) LookupAssessmentTemplateResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupAssessmentTemplateResultOutput, error) {
 			args := v.(LookupAssessmentTemplateArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupAssessmentTemplateResult
-			secret, err := ctx.InvokePackageRaw("aws-native:inspector:getAssessmentTemplate", args, &rv, "", opts...)
-			if err != nil {
-				return LookupAssessmentTemplateResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupAssessmentTemplateResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupAssessmentTemplateResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:inspector:getAssessmentTemplate", args, LookupAssessmentTemplateResultOutput{}, options).(LookupAssessmentTemplateResultOutput), nil
 		}).(LookupAssessmentTemplateResultOutput)
 }
 

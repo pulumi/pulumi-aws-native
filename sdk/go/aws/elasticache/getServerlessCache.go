@@ -62,21 +62,11 @@ type LookupServerlessCacheResult struct {
 }
 
 func LookupServerlessCacheOutput(ctx *pulumi.Context, args LookupServerlessCacheOutputArgs, opts ...pulumi.InvokeOption) LookupServerlessCacheResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupServerlessCacheResultOutput, error) {
 			args := v.(LookupServerlessCacheArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupServerlessCacheResult
-			secret, err := ctx.InvokePackageRaw("aws-native:elasticache:getServerlessCache", args, &rv, "", opts...)
-			if err != nil {
-				return LookupServerlessCacheResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupServerlessCacheResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupServerlessCacheResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:elasticache:getServerlessCache", args, LookupServerlessCacheResultOutput{}, options).(LookupServerlessCacheResultOutput), nil
 		}).(LookupServerlessCacheResultOutput)
 }
 

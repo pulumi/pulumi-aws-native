@@ -44,21 +44,11 @@ type LookupApiKeyResult struct {
 }
 
 func LookupApiKeyOutput(ctx *pulumi.Context, args LookupApiKeyOutputArgs, opts ...pulumi.InvokeOption) LookupApiKeyResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupApiKeyResultOutput, error) {
 			args := v.(LookupApiKeyArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupApiKeyResult
-			secret, err := ctx.InvokePackageRaw("aws-native:apigateway:getApiKey", args, &rv, "", opts...)
-			if err != nil {
-				return LookupApiKeyResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupApiKeyResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupApiKeyResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:apigateway:getApiKey", args, LookupApiKeyResultOutput{}, options).(LookupApiKeyResultOutput), nil
 		}).(LookupApiKeyResultOutput)
 }
 

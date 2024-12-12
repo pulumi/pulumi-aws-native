@@ -37,21 +37,11 @@ type LookupDirectoryConfigResult struct {
 }
 
 func LookupDirectoryConfigOutput(ctx *pulumi.Context, args LookupDirectoryConfigOutputArgs, opts ...pulumi.InvokeOption) LookupDirectoryConfigResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupDirectoryConfigResultOutput, error) {
 			args := v.(LookupDirectoryConfigArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupDirectoryConfigResult
-			secret, err := ctx.InvokePackageRaw("aws-native:appstream:getDirectoryConfig", args, &rv, "", opts...)
-			if err != nil {
-				return LookupDirectoryConfigResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupDirectoryConfigResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupDirectoryConfigResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:appstream:getDirectoryConfig", args, LookupDirectoryConfigResultOutput{}, options).(LookupDirectoryConfigResultOutput), nil
 		}).(LookupDirectoryConfigResultOutput)
 }
 

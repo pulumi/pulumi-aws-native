@@ -39,21 +39,11 @@ type LookupOrganizationConformancePackResult struct {
 }
 
 func LookupOrganizationConformancePackOutput(ctx *pulumi.Context, args LookupOrganizationConformancePackOutputArgs, opts ...pulumi.InvokeOption) LookupOrganizationConformancePackResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupOrganizationConformancePackResultOutput, error) {
 			args := v.(LookupOrganizationConformancePackArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupOrganizationConformancePackResult
-			secret, err := ctx.InvokePackageRaw("aws-native:configuration:getOrganizationConformancePack", args, &rv, "", opts...)
-			if err != nil {
-				return LookupOrganizationConformancePackResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupOrganizationConformancePackResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupOrganizationConformancePackResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:configuration:getOrganizationConformancePack", args, LookupOrganizationConformancePackResultOutput{}, options).(LookupOrganizationConformancePackResultOutput), nil
 		}).(LookupOrganizationConformancePackResultOutput)
 }
 

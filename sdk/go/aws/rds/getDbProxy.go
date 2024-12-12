@@ -52,21 +52,11 @@ type LookupDbProxyResult struct {
 }
 
 func LookupDbProxyOutput(ctx *pulumi.Context, args LookupDbProxyOutputArgs, opts ...pulumi.InvokeOption) LookupDbProxyResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupDbProxyResultOutput, error) {
 			args := v.(LookupDbProxyArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupDbProxyResult
-			secret, err := ctx.InvokePackageRaw("aws-native:rds:getDbProxy", args, &rv, "", opts...)
-			if err != nil {
-				return LookupDbProxyResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupDbProxyResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupDbProxyResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:rds:getDbProxy", args, LookupDbProxyResultOutput{}, options).(LookupDbProxyResultOutput), nil
 		}).(LookupDbProxyResultOutput)
 }
 

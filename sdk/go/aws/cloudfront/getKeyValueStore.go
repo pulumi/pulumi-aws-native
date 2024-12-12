@@ -39,21 +39,11 @@ type LookupKeyValueStoreResult struct {
 }
 
 func LookupKeyValueStoreOutput(ctx *pulumi.Context, args LookupKeyValueStoreOutputArgs, opts ...pulumi.InvokeOption) LookupKeyValueStoreResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupKeyValueStoreResultOutput, error) {
 			args := v.(LookupKeyValueStoreArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupKeyValueStoreResult
-			secret, err := ctx.InvokePackageRaw("aws-native:cloudfront:getKeyValueStore", args, &rv, "", opts...)
-			if err != nil {
-				return LookupKeyValueStoreResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupKeyValueStoreResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupKeyValueStoreResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:cloudfront:getKeyValueStore", args, LookupKeyValueStoreResultOutput{}, options).(LookupKeyValueStoreResultOutput), nil
 		}).(LookupKeyValueStoreResultOutput)
 }
 

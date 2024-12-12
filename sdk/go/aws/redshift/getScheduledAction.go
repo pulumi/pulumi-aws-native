@@ -49,21 +49,11 @@ type LookupScheduledActionResult struct {
 }
 
 func LookupScheduledActionOutput(ctx *pulumi.Context, args LookupScheduledActionOutputArgs, opts ...pulumi.InvokeOption) LookupScheduledActionResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupScheduledActionResultOutput, error) {
 			args := v.(LookupScheduledActionArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupScheduledActionResult
-			secret, err := ctx.InvokePackageRaw("aws-native:redshift:getScheduledAction", args, &rv, "", opts...)
-			if err != nil {
-				return LookupScheduledActionResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupScheduledActionResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupScheduledActionResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:redshift:getScheduledAction", args, LookupScheduledActionResultOutput{}, options).(LookupScheduledActionResultOutput), nil
 		}).(LookupScheduledActionResultOutput)
 }
 

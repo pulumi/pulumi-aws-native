@@ -48,21 +48,11 @@ type LookupIdMappingTableResult struct {
 }
 
 func LookupIdMappingTableOutput(ctx *pulumi.Context, args LookupIdMappingTableOutputArgs, opts ...pulumi.InvokeOption) LookupIdMappingTableResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupIdMappingTableResultOutput, error) {
 			args := v.(LookupIdMappingTableArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupIdMappingTableResult
-			secret, err := ctx.InvokePackageRaw("aws-native:cleanrooms:getIdMappingTable", args, &rv, "", opts...)
-			if err != nil {
-				return LookupIdMappingTableResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupIdMappingTableResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupIdMappingTableResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:cleanrooms:getIdMappingTable", args, LookupIdMappingTableResultOutput{}, options).(LookupIdMappingTableResultOutput), nil
 		}).(LookupIdMappingTableResultOutput)
 }
 

@@ -47,21 +47,11 @@ type LookupResolverQueryLoggingConfigResult struct {
 }
 
 func LookupResolverQueryLoggingConfigOutput(ctx *pulumi.Context, args LookupResolverQueryLoggingConfigOutputArgs, opts ...pulumi.InvokeOption) LookupResolverQueryLoggingConfigResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupResolverQueryLoggingConfigResultOutput, error) {
 			args := v.(LookupResolverQueryLoggingConfigArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupResolverQueryLoggingConfigResult
-			secret, err := ctx.InvokePackageRaw("aws-native:route53resolver:getResolverQueryLoggingConfig", args, &rv, "", opts...)
-			if err != nil {
-				return LookupResolverQueryLoggingConfigResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupResolverQueryLoggingConfigResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupResolverQueryLoggingConfigResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:route53resolver:getResolverQueryLoggingConfig", args, LookupResolverQueryLoggingConfigResultOutput{}, options).(LookupResolverQueryLoggingConfigResultOutput), nil
 		}).(LookupResolverQueryLoggingConfigResultOutput)
 }
 

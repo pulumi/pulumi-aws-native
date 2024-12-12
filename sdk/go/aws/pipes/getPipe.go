@@ -65,21 +65,11 @@ type LookupPipeResult struct {
 }
 
 func LookupPipeOutput(ctx *pulumi.Context, args LookupPipeOutputArgs, opts ...pulumi.InvokeOption) LookupPipeResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupPipeResultOutput, error) {
 			args := v.(LookupPipeArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupPipeResult
-			secret, err := ctx.InvokePackageRaw("aws-native:pipes:getPipe", args, &rv, "", opts...)
-			if err != nil {
-				return LookupPipeResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupPipeResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupPipeResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:pipes:getPipe", args, LookupPipeResultOutput{}, options).(LookupPipeResultOutput), nil
 		}).(LookupPipeResultOutput)
 }
 

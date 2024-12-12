@@ -39,21 +39,11 @@ type LookupInsightResult struct {
 }
 
 func LookupInsightOutput(ctx *pulumi.Context, args LookupInsightOutputArgs, opts ...pulumi.InvokeOption) LookupInsightResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupInsightResultOutput, error) {
 			args := v.(LookupInsightArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupInsightResult
-			secret, err := ctx.InvokePackageRaw("aws-native:securityhub:getInsight", args, &rv, "", opts...)
-			if err != nil {
-				return LookupInsightResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupInsightResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupInsightResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:securityhub:getInsight", args, LookupInsightResultOutput{}, options).(LookupInsightResultOutput), nil
 		}).(LookupInsightResultOutput)
 }
 

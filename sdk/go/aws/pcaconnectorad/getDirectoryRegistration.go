@@ -35,21 +35,11 @@ type LookupDirectoryRegistrationResult struct {
 }
 
 func LookupDirectoryRegistrationOutput(ctx *pulumi.Context, args LookupDirectoryRegistrationOutputArgs, opts ...pulumi.InvokeOption) LookupDirectoryRegistrationResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupDirectoryRegistrationResultOutput, error) {
 			args := v.(LookupDirectoryRegistrationArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupDirectoryRegistrationResult
-			secret, err := ctx.InvokePackageRaw("aws-native:pcaconnectorad:getDirectoryRegistration", args, &rv, "", opts...)
-			if err != nil {
-				return LookupDirectoryRegistrationResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupDirectoryRegistrationResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupDirectoryRegistrationResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:pcaconnectorad:getDirectoryRegistration", args, LookupDirectoryRegistrationResultOutput{}, options).(LookupDirectoryRegistrationResultOutput), nil
 		}).(LookupDirectoryRegistrationResultOutput)
 }
 

@@ -45,21 +45,11 @@ type LookupLogicallyAirGappedBackupVaultResult struct {
 }
 
 func LookupLogicallyAirGappedBackupVaultOutput(ctx *pulumi.Context, args LookupLogicallyAirGappedBackupVaultOutputArgs, opts ...pulumi.InvokeOption) LookupLogicallyAirGappedBackupVaultResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupLogicallyAirGappedBackupVaultResultOutput, error) {
 			args := v.(LookupLogicallyAirGappedBackupVaultArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupLogicallyAirGappedBackupVaultResult
-			secret, err := ctx.InvokePackageRaw("aws-native:backup:getLogicallyAirGappedBackupVault", args, &rv, "", opts...)
-			if err != nil {
-				return LookupLogicallyAirGappedBackupVaultResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupLogicallyAirGappedBackupVaultResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupLogicallyAirGappedBackupVaultResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:backup:getLogicallyAirGappedBackupVault", args, LookupLogicallyAirGappedBackupVaultResultOutput{}, options).(LookupLogicallyAirGappedBackupVaultResultOutput), nil
 		}).(LookupLogicallyAirGappedBackupVaultResultOutput)
 }
 

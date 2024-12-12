@@ -44,21 +44,11 @@ type LookupRepositoryLinkResult struct {
 }
 
 func LookupRepositoryLinkOutput(ctx *pulumi.Context, args LookupRepositoryLinkOutputArgs, opts ...pulumi.InvokeOption) LookupRepositoryLinkResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupRepositoryLinkResultOutput, error) {
 			args := v.(LookupRepositoryLinkArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupRepositoryLinkResult
-			secret, err := ctx.InvokePackageRaw("aws-native:codestarconnections:getRepositoryLink", args, &rv, "", opts...)
-			if err != nil {
-				return LookupRepositoryLinkResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupRepositoryLinkResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupRepositoryLinkResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:codestarconnections:getRepositoryLink", args, LookupRepositoryLinkResultOutput{}, options).(LookupRepositoryLinkResultOutput), nil
 		}).(LookupRepositoryLinkResultOutput)
 }
 

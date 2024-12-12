@@ -56,21 +56,11 @@ type LookupLocationHdfsResult struct {
 }
 
 func LookupLocationHdfsOutput(ctx *pulumi.Context, args LookupLocationHdfsOutputArgs, opts ...pulumi.InvokeOption) LookupLocationHdfsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupLocationHdfsResultOutput, error) {
 			args := v.(LookupLocationHdfsArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupLocationHdfsResult
-			secret, err := ctx.InvokePackageRaw("aws-native:datasync:getLocationHdfs", args, &rv, "", opts...)
-			if err != nil {
-				return LookupLocationHdfsResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupLocationHdfsResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupLocationHdfsResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:datasync:getLocationHdfs", args, LookupLocationHdfsResultOutput{}, options).(LookupLocationHdfsResultOutput), nil
 		}).(LookupLocationHdfsResultOutput)
 }
 

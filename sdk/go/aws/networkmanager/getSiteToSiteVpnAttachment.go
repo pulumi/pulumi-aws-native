@@ -62,21 +62,11 @@ type LookupSiteToSiteVpnAttachmentResult struct {
 }
 
 func LookupSiteToSiteVpnAttachmentOutput(ctx *pulumi.Context, args LookupSiteToSiteVpnAttachmentOutputArgs, opts ...pulumi.InvokeOption) LookupSiteToSiteVpnAttachmentResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupSiteToSiteVpnAttachmentResultOutput, error) {
 			args := v.(LookupSiteToSiteVpnAttachmentArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupSiteToSiteVpnAttachmentResult
-			secret, err := ctx.InvokePackageRaw("aws-native:networkmanager:getSiteToSiteVpnAttachment", args, &rv, "", opts...)
-			if err != nil {
-				return LookupSiteToSiteVpnAttachmentResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupSiteToSiteVpnAttachmentResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupSiteToSiteVpnAttachmentResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:networkmanager:getSiteToSiteVpnAttachment", args, LookupSiteToSiteVpnAttachmentResultOutput{}, options).(LookupSiteToSiteVpnAttachmentResultOutput), nil
 		}).(LookupSiteToSiteVpnAttachmentResultOutput)
 }
 

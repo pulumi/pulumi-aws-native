@@ -61,21 +61,11 @@ type LookupAnalysisTemplateResult struct {
 }
 
 func LookupAnalysisTemplateOutput(ctx *pulumi.Context, args LookupAnalysisTemplateOutputArgs, opts ...pulumi.InvokeOption) LookupAnalysisTemplateResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupAnalysisTemplateResultOutput, error) {
 			args := v.(LookupAnalysisTemplateArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupAnalysisTemplateResult
-			secret, err := ctx.InvokePackageRaw("aws-native:cleanrooms:getAnalysisTemplate", args, &rv, "", opts...)
-			if err != nil {
-				return LookupAnalysisTemplateResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupAnalysisTemplateResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupAnalysisTemplateResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:cleanrooms:getAnalysisTemplate", args, LookupAnalysisTemplateResultOutput{}, options).(LookupAnalysisTemplateResultOutput), nil
 		}).(LookupAnalysisTemplateResultOutput)
 }
 

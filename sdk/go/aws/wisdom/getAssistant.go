@@ -35,21 +35,11 @@ type LookupAssistantResult struct {
 }
 
 func LookupAssistantOutput(ctx *pulumi.Context, args LookupAssistantOutputArgs, opts ...pulumi.InvokeOption) LookupAssistantResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupAssistantResultOutput, error) {
 			args := v.(LookupAssistantArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupAssistantResult
-			secret, err := ctx.InvokePackageRaw("aws-native:wisdom:getAssistant", args, &rv, "", opts...)
-			if err != nil {
-				return LookupAssistantResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupAssistantResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupAssistantResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:wisdom:getAssistant", args, LookupAssistantResultOutput{}, options).(LookupAssistantResultOutput), nil
 		}).(LookupAssistantResultOutput)
 }
 

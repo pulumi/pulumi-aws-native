@@ -40,21 +40,11 @@ type LookupDeviceFleetResult struct {
 }
 
 func LookupDeviceFleetOutput(ctx *pulumi.Context, args LookupDeviceFleetOutputArgs, opts ...pulumi.InvokeOption) LookupDeviceFleetResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupDeviceFleetResultOutput, error) {
 			args := v.(LookupDeviceFleetArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupDeviceFleetResult
-			secret, err := ctx.InvokePackageRaw("aws-native:sagemaker:getDeviceFleet", args, &rv, "", opts...)
-			if err != nil {
-				return LookupDeviceFleetResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupDeviceFleetResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupDeviceFleetResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:sagemaker:getDeviceFleet", args, LookupDeviceFleetResultOutput{}, options).(LookupDeviceFleetResultOutput), nil
 		}).(LookupDeviceFleetResultOutput)
 }
 

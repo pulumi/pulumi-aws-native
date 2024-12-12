@@ -38,21 +38,11 @@ type LookupLocationFSxOpenZfsResult struct {
 }
 
 func LookupLocationFSxOpenZfsOutput(ctx *pulumi.Context, args LookupLocationFSxOpenZfsOutputArgs, opts ...pulumi.InvokeOption) LookupLocationFSxOpenZfsResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupLocationFSxOpenZfsResultOutput, error) {
 			args := v.(LookupLocationFSxOpenZfsArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupLocationFSxOpenZfsResult
-			secret, err := ctx.InvokePackageRaw("aws-native:datasync:getLocationFSxOpenZfs", args, &rv, "", opts...)
-			if err != nil {
-				return LookupLocationFSxOpenZfsResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupLocationFSxOpenZfsResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupLocationFSxOpenZfsResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:datasync:getLocationFSxOpenZfs", args, LookupLocationFSxOpenZfsResultOutput{}, options).(LookupLocationFSxOpenZfsResultOutput), nil
 		}).(LookupLocationFSxOpenZfsResultOutput)
 }
 

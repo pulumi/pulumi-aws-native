@@ -44,21 +44,11 @@ type LookupAccessEntryResult struct {
 }
 
 func LookupAccessEntryOutput(ctx *pulumi.Context, args LookupAccessEntryOutputArgs, opts ...pulumi.InvokeOption) LookupAccessEntryResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupAccessEntryResultOutput, error) {
 			args := v.(LookupAccessEntryArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupAccessEntryResult
-			secret, err := ctx.InvokePackageRaw("aws-native:eks:getAccessEntry", args, &rv, "", opts...)
-			if err != nil {
-				return LookupAccessEntryResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupAccessEntryResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupAccessEntryResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:eks:getAccessEntry", args, LookupAccessEntryResultOutput{}, options).(LookupAccessEntryResultOutput), nil
 		}).(LookupAccessEntryResultOutput)
 }
 

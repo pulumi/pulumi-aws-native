@@ -35,21 +35,11 @@ type LookupRobotApplicationVersionResult struct {
 }
 
 func LookupRobotApplicationVersionOutput(ctx *pulumi.Context, args LookupRobotApplicationVersionOutputArgs, opts ...pulumi.InvokeOption) LookupRobotApplicationVersionResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupRobotApplicationVersionResultOutput, error) {
 			args := v.(LookupRobotApplicationVersionArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupRobotApplicationVersionResult
-			secret, err := ctx.InvokePackageRaw("aws-native:robomaker:getRobotApplicationVersion", args, &rv, "", opts...)
-			if err != nil {
-				return LookupRobotApplicationVersionResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupRobotApplicationVersionResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupRobotApplicationVersionResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:robomaker:getRobotApplicationVersion", args, LookupRobotApplicationVersionResultOutput{}, options).(LookupRobotApplicationVersionResultOutput), nil
 		}).(LookupRobotApplicationVersionResultOutput)
 }
 

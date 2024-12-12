@@ -56,21 +56,11 @@ type LookupPromptResult struct {
 }
 
 func LookupPromptOutput(ctx *pulumi.Context, args LookupPromptOutputArgs, opts ...pulumi.InvokeOption) LookupPromptResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupPromptResultOutput, error) {
 			args := v.(LookupPromptArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupPromptResult
-			secret, err := ctx.InvokePackageRaw("aws-native:bedrock:getPrompt", args, &rv, "", opts...)
-			if err != nil {
-				return LookupPromptResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupPromptResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupPromptResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:bedrock:getPrompt", args, LookupPromptResultOutput{}, options).(LookupPromptResultOutput), nil
 		}).(LookupPromptResultOutput)
 }
 

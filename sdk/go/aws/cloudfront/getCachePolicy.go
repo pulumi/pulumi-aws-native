@@ -43,21 +43,11 @@ type LookupCachePolicyResult struct {
 }
 
 func LookupCachePolicyOutput(ctx *pulumi.Context, args LookupCachePolicyOutputArgs, opts ...pulumi.InvokeOption) LookupCachePolicyResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupCachePolicyResultOutput, error) {
 			args := v.(LookupCachePolicyArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupCachePolicyResult
-			secret, err := ctx.InvokePackageRaw("aws-native:cloudfront:getCachePolicy", args, &rv, "", opts...)
-			if err != nil {
-				return LookupCachePolicyResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupCachePolicyResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupCachePolicyResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:cloudfront:getCachePolicy", args, LookupCachePolicyResultOutput{}, options).(LookupCachePolicyResultOutput), nil
 		}).(LookupCachePolicyResultOutput)
 }
 

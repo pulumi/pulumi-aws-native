@@ -37,21 +37,11 @@ type LookupAuthPolicyResult struct {
 }
 
 func LookupAuthPolicyOutput(ctx *pulumi.Context, args LookupAuthPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupAuthPolicyResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupAuthPolicyResultOutput, error) {
 			args := v.(LookupAuthPolicyArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupAuthPolicyResult
-			secret, err := ctx.InvokePackageRaw("aws-native:vpclattice:getAuthPolicy", args, &rv, "", opts...)
-			if err != nil {
-				return LookupAuthPolicyResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupAuthPolicyResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupAuthPolicyResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws-native:vpclattice:getAuthPolicy", args, LookupAuthPolicyResultOutput{}, options).(LookupAuthPolicyResultOutput), nil
 		}).(LookupAuthPolicyResultOutput)
 }
 
