@@ -30,9 +30,13 @@ import (
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/refdb"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/schema"
 	pschema "github.com/pulumi/pulumi/pkg/v3/codegen/schema"
-	"github.com/pulumi/pulumi/sdk/v3/go/common/tools"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 )
+
+// ensureDir ensures that a target directory exists (like `mkdir -p`), returning a non-nil error if any problem occurs.
+func ensureDir(dir string) error {
+	return os.MkdirAll(dir, 0o700)
+}
 
 type schemaUrls []string
 
@@ -481,7 +485,7 @@ func writeMetadata(metadata *metadata.CloudAPIMetadata, outDir string, includeUn
 // emitFile creates a file in a given directory and writes the byte contents to it.
 func emitFile(outDir, relPath string, contents []byte) error {
 	p := filepath.Join(outDir, relPath)
-	if err := tools.EnsureDir(filepath.Dir(p)); err != nil {
+	if err := ensureDir(filepath.Dir(p)); err != nil {
 		return errors.Wrap(err, "creating directory")
 	}
 
