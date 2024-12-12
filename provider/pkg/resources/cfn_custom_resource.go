@@ -685,3 +685,11 @@ func sanitizeCustomResourceResponse(event *cfn.Event, response *cfn.Response) *c
 
 	return response
 }
+
+// cfn custom resources have outputs returned in a "data" property
+// since it can be any arbitrary data, we mark the entire thing as computed
+func (c *cfnCustomResource) PreviewCustomResourceOutputs() resource.PropertyMap {
+	return resource.PropertyMap{
+		"data": resource.MakeComputed(resource.NewStringProperty("")),
+	}
+}

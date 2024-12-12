@@ -97,6 +97,28 @@ func TestRefreshChanges(t *testing.T) {
 	assert.Equal(t, 1, len(*updateSummary))
 }
 
+func TestPreviewStableProperties(t *testing.T) {
+	cwd := getCwd(t)
+	options := []opttest.Option{
+		opttest.LocalProviderPath("aws-native", filepath.Join(cwd, "..", "bin")),
+		opttest.YarnLink("@pulumi/aws-native"),
+	}
+	test := pulumitest.NewPulumiTest(t, filepath.Join(cwd, "stable-outputs-preview"), options...)
+	test.SetConfig(t, "lambdaDescription", "Lambda 1")
+	defer func() {
+		test.Destroy(t)
+	}()
+
+	upResult := test.Up(t)
+	t.Logf("#%v", upResult.Summary)
+
+	// updating a non-replaceOnChanges property to ensure
+	// that the downstream resources doesn't show a replacement
+	test.SetConfig(t, "lambdaDescription", "Lambda 2")
+	previewResult := test.Preview(t)
+	assertpreview.HasNoReplacements(t, previewResult)
+}
+
 func TestCustomResourceEmulator(t *testing.T) {
 	crossTest := func(t *testing.T, outputs auto.OutputMap) {
 		require.Contains(t, outputs, "cloudformationAmiId")

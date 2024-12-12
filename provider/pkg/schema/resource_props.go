@@ -29,3 +29,7 @@ func (r ResourceProperty) ToSdkName() string {
 	}
 	return strings.Join(arrayProps, "/*/")
 }
+
+func (r ResourceProperty) IsArrayProperty() bool {
+	return strings.Contains(string(r), "/*/")
+}

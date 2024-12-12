@@ -334,3 +334,11 @@ func (r *ExtensionResourceInputs) AddWriteOnlyProps(resourceState map[string]int
 	}
 	return appended
 }
+
+// extension resources have outputs returned in an "outputs" property
+// since the outputs can be arbitrary we just mark the entire thing as computed
+func (r *extensionResource) PreviewCustomResourceOutputs() resource.PropertyMap {
+	return resource.PropertyMap{
+		"outputs": resource.MakeComputed(resource.NewStringProperty("")),
+	}
+}
