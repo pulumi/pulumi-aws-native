@@ -305,7 +305,7 @@
   "primaryIdentifier" : [ "/properties/ReplicatorArn" ],
   "additionalIdentifiers" : [ [ "/properties/ReplicatorName" ] ],
   "readOnlyProperties" : [ "/properties/ReplicatorArn" ],
-  "createOnlyProperties" : [ "/properties/ReplicatorName", "/properties/Description", "/properties/KafkaClusters", "/properties/ServiceExecutionRoleArn" ],
+  "createOnlyProperties" : [ "/properties/ReplicatorName", "/properties/Description", "/properties/KafkaClusters", "/properties/ServiceExecutionRoleArn", "/properties/ReplicationInfoList/*/SourceKafkaClusterArn", "/properties/ReplicationInfoList/*/TargetKafkaClusterArn", "/properties/ReplicationInfoList/*/TargetCompressionType", "/properties/ReplicationInfoList/*/TopicReplication/StartingPosition", "/properties/ReplicationInfoList/*/TopicReplication/TopicNameConfiguration" ],
   "handlers" : {
     "create" : {
       "permissions" : [ "ec2:CreateNetworkInterface", "ec2:DescribeSecurityGroups", "ec2:DescribeSubnets", "ec2:DescribeVpcs", "iam:CreateServiceLinkedRole", "iam:PassRole", "kafka:CreateReplicator", "kafka:CreateReplicatorReference", "kafka:DescribeClusterV2", "kafka:DescribeReplicator", "kafka:GetBootstrapBrokers", "kafka:ListTagsForResource", "kafka:TagResource" ]
