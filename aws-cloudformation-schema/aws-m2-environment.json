@@ -56,6 +56,10 @@
       "required" : [ "DesiredCapacity" ],
       "additionalProperties" : false
     },
+    "NetworkType" : {
+      "type" : "string",
+      "enum" : [ "ipv4", "dual" ]
+    },
     "StorageConfiguration" : {
       "type" : "object",
       "description" : "Defines the storage configuration for an environment.",
@@ -135,6 +139,9 @@
       "description" : "The name of the environment.",
       "pattern" : "^[A-Za-z0-9][A-Za-z0-9_\\-]{1,59}$"
     },
+    "NetworkType" : {
+      "$ref" : "#/definitions/NetworkType"
+    },
     "PreferredMaintenanceWindow" : {
       "type" : "string",
       "description" : "Configures a desired maintenance window for the environment. If you do not provide a value, a random system-generated value will be assigned.",
@@ -183,7 +190,7 @@
   },
   "required" : [ "EngineType", "InstanceType", "Name" ],
   "readOnlyProperties" : [ "/properties/EnvironmentArn", "/properties/EnvironmentId" ],
-  "createOnlyProperties" : [ "/properties/Description", "/properties/EngineType", "/properties/KmsKeyId", "/properties/Name", "/properties/PubliclyAccessible", "/properties/SecurityGroupIds", "/properties/StorageConfigurations", "/properties/SubnetIds" ],
+  "createOnlyProperties" : [ "/properties/Description", "/properties/EngineType", "/properties/KmsKeyId", "/properties/Name", "/properties/NetworkType", "/properties/PubliclyAccessible", "/properties/SecurityGroupIds", "/properties/StorageConfigurations", "/properties/SubnetIds" ],
   "primaryIdentifier" : [ "/properties/EnvironmentArn" ],
   "handlers" : {
     "create" : {

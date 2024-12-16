@@ -143,7 +143,7 @@
       "permissions" : [ "medialive:UpdateCluster", "medialive:DescribeCluster", "medialive:CreateTags", "medialive:DeleteTags", "medialive:ListTagsForResource" ]
     },
     "delete" : {
-      "permissions" : [ "medialive:DeleteCluster", "medialive:DescribeCluster" ]
+      "permissions" : [ "medialive:DeleteCluster", "medialive:DescribeCluster", "ecs:DeleteService" ]
     },
     "list" : {
       "permissions" : [ "medialive:ListClusters" ]

@@ -36,10 +36,10 @@
       "permissions" : [ "ssm:GetResourcePolicies" ]
     },
     "update" : {
-      "permissions" : [ "ssm:PutResourcePolicy" ]
+      "permissions" : [ "ssm:GetResourcePolicies", "ssm:PutResourcePolicy" ]
     },
     "delete" : {
-      "permissions" : [ "ssm:DeleteResourcePolicy" ]
+      "permissions" : [ "ssm:GetResourcePolicies", "ssm:DeleteResourcePolicy" ]
     },
     "list" : {
       "permissions" : [ "ssm:GetResourcePolicies" ]
