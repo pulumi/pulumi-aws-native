@@ -215,6 +215,13 @@ class ListenerWeightedTargetGroup(dict):
 
 @pulumi.output_type
 class ResourceConfigurationDefinition0Properties(dict):
+    """
+    Identifies the resource configuration in one of the following ways:
+
+    - *Amazon Resource Name (ARN)* - Supported resource-types that are provisioned by AWS services, such as RDS databases, can be identified by their ARN.
+    - *Domain name* - Any domain name that is publicly resolvable.
+    - *IP address* - For IPv4 and IPv6, only IP addresses in the VPC are supported.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -234,6 +241,13 @@ class ResourceConfigurationDefinition0Properties(dict):
 
     def __init__(__self__, *,
                  ip_resource: str):
+        """
+        Identifies the resource configuration in one of the following ways:
+
+        - *Amazon Resource Name (ARN)* - Supported resource-types that are provisioned by AWS services, such as RDS databases, can be identified by their ARN.
+        - *Domain name* - Any domain name that is publicly resolvable.
+        - *IP address* - For IPv4 and IPv6, only IP addresses in the VPC are supported.
+        """
         pulumi.set(__self__, "ip_resource", ip_resource)
 
     @property
@@ -244,6 +258,13 @@ class ResourceConfigurationDefinition0Properties(dict):
 
 @pulumi.output_type
 class ResourceConfigurationDefinition1Properties(dict):
+    """
+    Identifies the resource configuration in one of the following ways:
+
+    - *Amazon Resource Name (ARN)* - Supported resource-types that are provisioned by AWS services, such as RDS databases, can be identified by their ARN.
+    - *Domain name* - Any domain name that is publicly resolvable.
+    - *IP address* - For IPv4 and IPv6, only IP addresses in the VPC are supported.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -263,6 +284,13 @@ class ResourceConfigurationDefinition1Properties(dict):
 
     def __init__(__self__, *,
                  arn_resource: str):
+        """
+        Identifies the resource configuration in one of the following ways:
+
+        - *Amazon Resource Name (ARN)* - Supported resource-types that are provisioned by AWS services, such as RDS databases, can be identified by their ARN.
+        - *Domain name* - Any domain name that is publicly resolvable.
+        - *IP address* - For IPv4 and IPv6, only IP addresses in the VPC are supported.
+        """
         pulumi.set(__self__, "arn_resource", arn_resource)
 
     @property
@@ -273,6 +301,13 @@ class ResourceConfigurationDefinition1Properties(dict):
 
 @pulumi.output_type
 class ResourceConfigurationDefinition2Properties(dict):
+    """
+    Identifies the resource configuration in one of the following ways:
+
+    - *Amazon Resource Name (ARN)* - Supported resource-types that are provisioned by AWS services, such as RDS databases, can be identified by their ARN.
+    - *Domain name* - Any domain name that is publicly resolvable.
+    - *IP address* - For IPv4 and IPv6, only IP addresses in the VPC are supported.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -292,6 +327,13 @@ class ResourceConfigurationDefinition2Properties(dict):
 
     def __init__(__self__, *,
                  dns_resource: 'outputs.ResourceConfigurationDnsResource'):
+        """
+        Identifies the resource configuration in one of the following ways:
+
+        - *Amazon Resource Name (ARN)* - Supported resource-types that are provisioned by AWS services, such as RDS databases, can be identified by their ARN.
+        - *Domain name* - Any domain name that is publicly resolvable.
+        - *IP address* - For IPv4 and IPv6, only IP addresses in the VPC are supported.
+        """
         pulumi.set(__self__, "dns_resource", dns_resource)
 
     @property
@@ -887,11 +929,17 @@ class ServiceNetworkServiceAssociationDnsEntry(dict):
 class ServiceNetworkSharingConfig(dict):
     def __init__(__self__, *,
                  enabled: bool):
+        """
+        :param bool enabled: Specify if the service network should be enabled for sharing.
+        """
         pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
+        """
+        Specify if the service network should be enabled for sharing.
+        """
         return pulumi.get(self, "enabled")
 
 

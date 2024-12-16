@@ -28,6 +28,7 @@ __all__ = [
     'TableReplicaSpecification',
     'TableScalingPolicy',
     'TableTargetTrackingScalingPolicyConfiguration',
+    'TypeField',
 ]
 
 @pulumi.output_type
@@ -707,5 +708,43 @@ class TableTargetTrackingScalingPolicyConfiguration(dict):
         A cooldown period in seconds between scaling activities that lets the table stabilize before another scaling activity starts.
         """
         return pulumi.get(self, "scale_out_cooldown")
+
+
+@pulumi.output_type
+class TypeField(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fieldName":
+            suggest = "field_name"
+        elif key == "fieldType":
+            suggest = "field_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TypeField. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TypeField.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TypeField.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 field_name: str,
+                 field_type: str):
+        pulumi.set(__self__, "field_name", field_name)
+        pulumi.set(__self__, "field_type", field_type)
+
+    @property
+    @pulumi.getter(name="fieldName")
+    def field_name(self) -> str:
+        return pulumi.get(self, "field_name")
+
+    @property
+    @pulumi.getter(name="fieldType")
+    def field_type(self) -> str:
+        return pulumi.get(self, "field_type")
 
 

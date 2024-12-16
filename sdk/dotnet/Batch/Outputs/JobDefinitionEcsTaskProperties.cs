@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.Batch.Outputs
         /// <summary>
         /// A list of volumes that are associated with the job.
         /// </summary>
-        public readonly ImmutableArray<Outputs.JobDefinitionVolumes> Volumes;
+        public readonly ImmutableArray<Outputs.JobDefinitionVolume> Volumes;
 
         [OutputConstructor]
         private JobDefinitionEcsTaskProperties(
@@ -90,7 +90,7 @@ namespace Pulumi.AwsNative.Batch.Outputs
 
             string? taskRoleArn,
 
-            ImmutableArray<Outputs.JobDefinitionVolumes> volumes)
+            ImmutableArray<Outputs.JobDefinitionVolume> volumes)
         {
             Containers = containers;
             EphemeralStorage = ephemeralStorage;

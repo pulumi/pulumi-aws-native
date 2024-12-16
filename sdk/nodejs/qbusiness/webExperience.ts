@@ -45,6 +45,9 @@ export class WebExperience extends pulumi.CustomResource {
      * The Unix timestamp when the Amazon Q Business application was last updated.
      */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    /**
+     * Contains the configuration information to customize the logo, font, and color of an Amazon Q Business web experience with individual files for each property or a CSS file for them all.
+     */
     public readonly customizationConfiguration!: pulumi.Output<outputs.qbusiness.WebExperienceCustomizationConfiguration | undefined>;
     /**
      * The endpoint URLs for your Amazon Q Business web experience. The URLs are unique and fully hosted by AWS .
@@ -166,6 +169,9 @@ export interface WebExperienceArgs {
      * The identifier of the Amazon Q Business web experience.
      */
     applicationId: pulumi.Input<string>;
+    /**
+     * Contains the configuration information to customize the logo, font, and color of an Amazon Q Business web experience with individual files for each property or a CSS file for them all.
+     */
     customizationConfiguration?: pulumi.Input<inputs.qbusiness.WebExperienceCustomizationConfigurationArgs>;
     /**
      * Provides information about the identity provider (IdP) used to authenticate end users of an Amazon Q Business web experience.

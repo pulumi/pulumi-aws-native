@@ -46,6 +46,10 @@ export class ConfigurationProfile extends pulumi.CustomResource {
      */
     public /*out*/ readonly configurationProfileId!: pulumi.Output<string>;
     /**
+     * On resource deletion this controls whether the Deletion Protection check should be applied, bypassed, or (the default) whether the behavior should be controlled by the account-level Deletion Protection setting. See https://docs.aws.amazon.com/appconfig/latest/userguide/deletion-protection.html
+     */
+    public readonly deletionProtectionCheck!: pulumi.Output<enums.appconfig.ConfigurationProfileDeletionProtectionCheck | undefined>;
+    /**
      * A description of the configuration profile.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -100,6 +104,7 @@ export class ConfigurationProfile extends pulumi.CustomResource {
                 throw new Error("Missing required property 'locationUri'");
             }
             resourceInputs["applicationId"] = args ? args.applicationId : undefined;
+            resourceInputs["deletionProtectionCheck"] = args ? args.deletionProtectionCheck : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["kmsKeyIdentifier"] = args ? args.kmsKeyIdentifier : undefined;
             resourceInputs["locationUri"] = args ? args.locationUri : undefined;
@@ -113,6 +118,7 @@ export class ConfigurationProfile extends pulumi.CustomResource {
         } else {
             resourceInputs["applicationId"] = undefined /*out*/;
             resourceInputs["configurationProfileId"] = undefined /*out*/;
+            resourceInputs["deletionProtectionCheck"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["kmsKeyArn"] = undefined /*out*/;
             resourceInputs["kmsKeyIdentifier"] = undefined /*out*/;
@@ -138,6 +144,10 @@ export interface ConfigurationProfileArgs {
      * The application ID.
      */
     applicationId: pulumi.Input<string>;
+    /**
+     * On resource deletion this controls whether the Deletion Protection check should be applied, bypassed, or (the default) whether the behavior should be controlled by the account-level Deletion Protection setting. See https://docs.aws.amazon.com/appconfig/latest/userguide/deletion-protection.html
+     */
+    deletionProtectionCheck?: pulumi.Input<enums.appconfig.ConfigurationProfileDeletionProtectionCheck>;
     /**
      * A description of the configuration profile.
      */

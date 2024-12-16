@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
     'GetQueryDefinitionResult',
@@ -23,7 +24,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetQueryDefinitionResult:
-    def __init__(__self__, log_group_names=None, name=None, query_definition_id=None, query_string=None):
+    def __init__(__self__, log_group_names=None, name=None, query_definition_id=None, query_language=None, query_string=None):
         if log_group_names and not isinstance(log_group_names, list):
             raise TypeError("Expected argument 'log_group_names' to be a list")
         pulumi.set(__self__, "log_group_names", log_group_names)
@@ -33,6 +34,9 @@ class GetQueryDefinitionResult:
         if query_definition_id and not isinstance(query_definition_id, str):
             raise TypeError("Expected argument 'query_definition_id' to be a str")
         pulumi.set(__self__, "query_definition_id", query_definition_id)
+        if query_language and not isinstance(query_language, str):
+            raise TypeError("Expected argument 'query_language' to be a str")
+        pulumi.set(__self__, "query_language", query_language)
         if query_string and not isinstance(query_string, str):
             raise TypeError("Expected argument 'query_string' to be a str")
         pulumi.set(__self__, "query_string", query_string)
@@ -62,6 +66,14 @@ class GetQueryDefinitionResult:
         return pulumi.get(self, "query_definition_id")
 
     @property
+    @pulumi.getter(name="queryLanguage")
+    def query_language(self) -> Optional['QueryDefinitionQueryLanguage']:
+        """
+        Query language of the query string. Possible values are CWLI, SQL, PPL, with CWLI being the default.
+        """
+        return pulumi.get(self, "query_language")
+
+    @property
     @pulumi.getter(name="queryString")
     def query_string(self) -> Optional[str]:
         """
@@ -79,6 +91,7 @@ class AwaitableGetQueryDefinitionResult(GetQueryDefinitionResult):
             log_group_names=self.log_group_names,
             name=self.name,
             query_definition_id=self.query_definition_id,
+            query_language=self.query_language,
             query_string=self.query_string)
 
 
@@ -99,6 +112,7 @@ def get_query_definition(query_definition_id: Optional[str] = None,
         log_group_names=pulumi.get(__ret__, 'log_group_names'),
         name=pulumi.get(__ret__, 'name'),
         query_definition_id=pulumi.get(__ret__, 'query_definition_id'),
+        query_language=pulumi.get(__ret__, 'query_language'),
         query_string=pulumi.get(__ret__, 'query_string'))
 def get_query_definition_output(query_definition_id: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetQueryDefinitionResult]:
@@ -116,4 +130,5 @@ def get_query_definition_output(query_definition_id: Optional[pulumi.Input[str]]
         log_group_names=pulumi.get(__response__, 'log_group_names'),
         name=pulumi.get(__response__, 'name'),
         query_definition_id=pulumi.get(__response__, 'query_definition_id'),
+        query_language=pulumi.get(__response__, 'query_language'),
         query_string=pulumi.get(__response__, 'query_string')))

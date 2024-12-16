@@ -60,6 +60,8 @@ __all__ = [
     'DistributionFunctionAssociationArgsDict',
     'DistributionGeoRestrictionArgs',
     'DistributionGeoRestrictionArgsDict',
+    'DistributionGrpcConfigArgs',
+    'DistributionGrpcConfigArgsDict',
     'DistributionLambdaFunctionAssociationArgs',
     'DistributionLambdaFunctionAssociationArgsDict',
     'DistributionLegacyCustomOriginArgs',
@@ -1233,6 +1235,10 @@ if not MYPY:
         """
         A list of CloudFront functions that are associated with this cache behavior. CloudFront functions must be published to the ``LIVE`` stage to associate them with a cache behavior.
         """
+        grpc_config: NotRequired[pulumi.Input['DistributionGrpcConfigArgsDict']]
+        """
+        The gRPC configuration for your cache behavior.
+        """
         lambda_function_associations: NotRequired[pulumi.Input[Sequence[pulumi.Input['DistributionLambdaFunctionAssociationArgsDict']]]]
         """
         A complex type that contains zero or more Lambda@Edge function associations for a cache behavior.
@@ -1292,6 +1298,7 @@ class DistributionCacheBehaviorArgs:
                  field_level_encryption_id: Optional[pulumi.Input[str]] = None,
                  forwarded_values: Optional[pulumi.Input['DistributionForwardedValuesArgs']] = None,
                  function_associations: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionFunctionAssociationArgs']]]] = None,
+                 grpc_config: Optional[pulumi.Input['DistributionGrpcConfigArgs']] = None,
                  lambda_function_associations: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionLambdaFunctionAssociationArgs']]]] = None,
                  max_ttl: Optional[pulumi.Input[float]] = None,
                  min_ttl: Optional[pulumi.Input[float]] = None,
@@ -1344,6 +1351,7 @@ class DistributionCacheBehaviorArgs:
                 A ``CacheBehavior`` must include either a ``CachePolicyId`` or ``ForwardedValues``. We recommend that you use a ``CachePolicyId``.
                 A complex type that specifies how CloudFront handles query strings, cookies, and HTTP headers.
         :param pulumi.Input[Sequence[pulumi.Input['DistributionFunctionAssociationArgs']]] function_associations: A list of CloudFront functions that are associated with this cache behavior. CloudFront functions must be published to the ``LIVE`` stage to associate them with a cache behavior.
+        :param pulumi.Input['DistributionGrpcConfigArgs'] grpc_config: The gRPC configuration for your cache behavior.
         :param pulumi.Input[Sequence[pulumi.Input['DistributionLambdaFunctionAssociationArgs']]] lambda_function_associations: A complex type that contains zero or more Lambda@Edge function associations for a cache behavior.
         :param pulumi.Input[float] max_ttl: This field is deprecated. We recommend that you use the ``MaxTTL`` field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
                 The maximum amount of time that you want objects to stay in CloudFront caches before CloudFront forwards another request to your origin to determine whether the object has been updated. The value that you specify applies only when your origin adds HTTP headers such as ``Cache-Control max-age``, ``Cache-Control s-maxage``, and ``Expires`` to objects. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide*.
@@ -1379,6 +1387,8 @@ class DistributionCacheBehaviorArgs:
             pulumi.set(__self__, "forwarded_values", forwarded_values)
         if function_associations is not None:
             pulumi.set(__self__, "function_associations", function_associations)
+        if grpc_config is not None:
+            pulumi.set(__self__, "grpc_config", grpc_config)
         if lambda_function_associations is not None:
             pulumi.set(__self__, "lambda_function_associations", lambda_function_associations)
         if max_ttl is not None:
@@ -1553,6 +1563,18 @@ class DistributionCacheBehaviorArgs:
     @function_associations.setter
     def function_associations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionFunctionAssociationArgs']]]]):
         pulumi.set(self, "function_associations", value)
+
+    @property
+    @pulumi.getter(name="grpcConfig")
+    def grpc_config(self) -> Optional[pulumi.Input['DistributionGrpcConfigArgs']]:
+        """
+        The gRPC configuration for your cache behavior.
+        """
+        return pulumi.get(self, "grpc_config")
+
+    @grpc_config.setter
+    def grpc_config(self, value: Optional[pulumi.Input['DistributionGrpcConfigArgs']]):
+        pulumi.set(self, "grpc_config", value)
 
     @property
     @pulumi.getter(name="lambdaFunctionAssociations")
@@ -2627,6 +2649,10 @@ if not MYPY:
         """
         A list of CloudFront functions that are associated with this cache behavior. Your functions must be published to the ``LIVE`` stage to associate them with a cache behavior.
         """
+        grpc_config: NotRequired[pulumi.Input['DistributionGrpcConfigArgsDict']]
+        """
+        The gRPC configuration for your cache behavior.
+        """
         lambda_function_associations: NotRequired[pulumi.Input[Sequence[pulumi.Input['DistributionLambdaFunctionAssociationArgsDict']]]]
         """
         A complex type that contains zero or more Lambda@Edge function associations for a cache behavior.
@@ -2685,6 +2711,7 @@ class DistributionDefaultCacheBehaviorArgs:
                  field_level_encryption_id: Optional[pulumi.Input[str]] = None,
                  forwarded_values: Optional[pulumi.Input['DistributionForwardedValuesArgs']] = None,
                  function_associations: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionFunctionAssociationArgs']]]] = None,
+                 grpc_config: Optional[pulumi.Input['DistributionGrpcConfigArgs']] = None,
                  lambda_function_associations: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionLambdaFunctionAssociationArgs']]]] = None,
                  max_ttl: Optional[pulumi.Input[float]] = None,
                  min_ttl: Optional[pulumi.Input[float]] = None,
@@ -2727,6 +2754,7 @@ class DistributionDefaultCacheBehaviorArgs:
                 A ``DefaultCacheBehavior`` must include either a ``CachePolicyId`` or ``ForwardedValues``. We recommend that you use a ``CachePolicyId``.
                 A complex type that specifies how CloudFront handles query strings, cookies, and HTTP headers.
         :param pulumi.Input[Sequence[pulumi.Input['DistributionFunctionAssociationArgs']]] function_associations: A list of CloudFront functions that are associated with this cache behavior. Your functions must be published to the ``LIVE`` stage to associate them with a cache behavior.
+        :param pulumi.Input['DistributionGrpcConfigArgs'] grpc_config: The gRPC configuration for your cache behavior.
         :param pulumi.Input[Sequence[pulumi.Input['DistributionLambdaFunctionAssociationArgs']]] lambda_function_associations: A complex type that contains zero or more Lambda@Edge function associations for a cache behavior.
         :param pulumi.Input[float] max_ttl: This field is deprecated. We recommend that you use the ``MaxTTL`` field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
                 The maximum amount of time that you want objects to stay in CloudFront caches before CloudFront forwards another request to your origin to determine whether the object has been updated. The value that you specify applies only when your origin adds HTTP headers such as ``Cache-Control max-age``, ``Cache-Control s-maxage``, and ``Expires`` to objects. For more information, see [Managing How Long Content Stays in an Edge Cache (Expiration)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html) in the *Amazon CloudFront Developer Guide*.
@@ -2761,6 +2789,8 @@ class DistributionDefaultCacheBehaviorArgs:
             pulumi.set(__self__, "forwarded_values", forwarded_values)
         if function_associations is not None:
             pulumi.set(__self__, "function_associations", function_associations)
+        if grpc_config is not None:
+            pulumi.set(__self__, "grpc_config", grpc_config)
         if lambda_function_associations is not None:
             pulumi.set(__self__, "lambda_function_associations", lambda_function_associations)
         if max_ttl is not None:
@@ -2920,6 +2950,18 @@ class DistributionDefaultCacheBehaviorArgs:
     @function_associations.setter
     def function_associations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionFunctionAssociationArgs']]]]):
         pulumi.set(self, "function_associations", value)
+
+    @property
+    @pulumi.getter(name="grpcConfig")
+    def grpc_config(self) -> Optional[pulumi.Input['DistributionGrpcConfigArgs']]:
+        """
+        The gRPC configuration for your cache behavior.
+        """
+        return pulumi.get(self, "grpc_config")
+
+    @grpc_config.setter
+    def grpc_config(self, value: Optional[pulumi.Input['DistributionGrpcConfigArgs']]):
+        pulumi.set(self, "grpc_config", value)
 
     @property
     @pulumi.getter(name="lambdaFunctionAssociations")
@@ -3315,6 +3357,37 @@ class DistributionGeoRestrictionArgs:
 
 
 if not MYPY:
+    class DistributionGrpcConfigArgsDict(TypedDict):
+        enabled: pulumi.Input[bool]
+        """
+        Enables your CloudFront distribution to receive gRPC requests and to proxy them directly to your origins.
+        """
+elif False:
+    DistributionGrpcConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DistributionGrpcConfigArgs:
+    def __init__(__self__, *,
+                 enabled: pulumi.Input[bool]):
+        """
+        :param pulumi.Input[bool] enabled: Enables your CloudFront distribution to receive gRPC requests and to proxy them directly to your origins.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> pulumi.Input[bool]:
+        """
+        Enables your CloudFront distribution to receive gRPC requests and to proxy them directly to your origins.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "enabled", value)
+
+
+if not MYPY:
     class DistributionLambdaFunctionAssociationArgsDict(TypedDict):
         """
         A complex type that contains a Lambda@Edge function association.
@@ -3588,7 +3661,7 @@ if not MYPY:
         """
         A complex type that controls whether access logs are written for the distribution.
         """
-        bucket: pulumi.Input[str]
+        bucket: NotRequired[pulumi.Input[str]]
         """
         The Amazon S3 bucket to store the access logs in, for example, ``myawslogbucket.s3.amazonaws.com``.
         """
@@ -3606,7 +3679,7 @@ elif False:
 @pulumi.input_type
 class DistributionLoggingArgs:
     def __init__(__self__, *,
-                 bucket: pulumi.Input[str],
+                 bucket: Optional[pulumi.Input[str]] = None,
                  include_cookies: Optional[pulumi.Input[bool]] = None,
                  prefix: Optional[pulumi.Input[str]] = None):
         """
@@ -3615,7 +3688,8 @@ class DistributionLoggingArgs:
         :param pulumi.Input[bool] include_cookies: Specifies whether you want CloudFront to include cookies in access logs, specify ``true`` for ``IncludeCookies``. If you choose to include cookies in logs, CloudFront logs all cookies regardless of how you configure the cache behaviors for this distribution. If you don't want to include cookies when you create a distribution or if you want to disable include cookies for an existing distribution, specify ``false`` for ``IncludeCookies``.
         :param pulumi.Input[str] prefix: An optional string that you want CloudFront to prefix to the access log ``filenames`` for this distribution, for example, ``myprefix/``. If you want to enable logging, but you don't want to specify a prefix, you still must include an empty ``Prefix`` element in the ``Logging`` element.
         """
-        pulumi.set(__self__, "bucket", bucket)
+        if bucket is not None:
+            pulumi.set(__self__, "bucket", bucket)
         if include_cookies is not None:
             pulumi.set(__self__, "include_cookies", include_cookies)
         if prefix is not None:
@@ -3623,14 +3697,14 @@ class DistributionLoggingArgs:
 
     @property
     @pulumi.getter
-    def bucket(self) -> pulumi.Input[str]:
+    def bucket(self) -> Optional[pulumi.Input[str]]:
         """
         The Amazon S3 bucket to store the access logs in, for example, ``myawslogbucket.s3.amazonaws.com``.
         """
         return pulumi.get(self, "bucket")
 
     @bucket.setter
-    def bucket(self, value: pulumi.Input[str]):
+    def bucket(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "bucket", value)
 
     @property
@@ -3908,6 +3982,10 @@ if not MYPY:
         """
         A complex type that contains information about the origins in an origin group.
         """
+        selection_criteria: NotRequired[pulumi.Input['DistributionOriginGroupSelectionCriteria']]
+        """
+        The selection criteria for the origin group. For more information, see [Create an origin group](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/high_availability_origin_failover.html#concept_origin_groups.creating) in the *Amazon CloudFront Developer Guide* .
+        """
 elif False:
     DistributionOriginGroupArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -3916,16 +3994,20 @@ class DistributionOriginGroupArgs:
     def __init__(__self__, *,
                  failover_criteria: pulumi.Input['DistributionOriginGroupFailoverCriteriaArgs'],
                  id: pulumi.Input[str],
-                 members: pulumi.Input['DistributionOriginGroupMembersArgs']):
+                 members: pulumi.Input['DistributionOriginGroupMembersArgs'],
+                 selection_criteria: Optional[pulumi.Input['DistributionOriginGroupSelectionCriteria']] = None):
         """
         An origin group includes two origins (a primary origin and a second origin to failover to) and a failover criteria that you specify. You create an origin group to support origin failover in CloudFront. When you create or update a distribution, you can specify the origin group instead of a single origin, and CloudFront will failover from the primary origin to the second origin under the failover conditions that you've chosen.
         :param pulumi.Input['DistributionOriginGroupFailoverCriteriaArgs'] failover_criteria: A complex type that contains information about the failover criteria for an origin group.
         :param pulumi.Input[str] id: The origin group's ID.
         :param pulumi.Input['DistributionOriginGroupMembersArgs'] members: A complex type that contains information about the origins in an origin group.
+        :param pulumi.Input['DistributionOriginGroupSelectionCriteria'] selection_criteria: The selection criteria for the origin group. For more information, see [Create an origin group](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/high_availability_origin_failover.html#concept_origin_groups.creating) in the *Amazon CloudFront Developer Guide* .
         """
         pulumi.set(__self__, "failover_criteria", failover_criteria)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "members", members)
+        if selection_criteria is not None:
+            pulumi.set(__self__, "selection_criteria", selection_criteria)
 
     @property
     @pulumi.getter(name="failoverCriteria")
@@ -3962,6 +4044,18 @@ class DistributionOriginGroupArgs:
     @members.setter
     def members(self, value: pulumi.Input['DistributionOriginGroupMembersArgs']):
         pulumi.set(self, "members", value)
+
+    @property
+    @pulumi.getter(name="selectionCriteria")
+    def selection_criteria(self) -> Optional[pulumi.Input['DistributionOriginGroupSelectionCriteria']]:
+        """
+        The selection criteria for the origin group. For more information, see [Create an origin group](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/high_availability_origin_failover.html#concept_origin_groups.creating) in the *Amazon CloudFront Developer Guide* .
+        """
+        return pulumi.get(self, "selection_criteria")
+
+    @selection_criteria.setter
+    def selection_criteria(self, value: Optional[pulumi.Input['DistributionOriginGroupSelectionCriteria']]):
+        pulumi.set(self, "selection_criteria", value)
 
 
 if not MYPY:

@@ -33,9 +33,15 @@ namespace Pulumi.AwsNative.Wisdom
 
     public sealed class GetAiGuardrailVersionArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the AI guardrail version.
+        /// </summary>
         [Input("aiGuardrailId", required: true)]
         public string AiGuardrailId { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the AI guardrail version assistant.
+        /// </summary>
         [Input("assistantId", required: true)]
         public string AssistantId { get; set; } = null!;
 
@@ -53,9 +59,15 @@ namespace Pulumi.AwsNative.Wisdom
 
     public sealed class GetAiGuardrailVersionInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the AI guardrail version.
+        /// </summary>
         [Input("aiGuardrailId", required: true)]
         public Input<string> AiGuardrailId { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the AI guardrail version assistant.
+        /// </summary>
         [Input("assistantId", required: true)]
         public Input<string> AssistantId { get; set; } = null!;
 
@@ -75,8 +87,17 @@ namespace Pulumi.AwsNative.Wisdom
     [OutputType]
     public sealed class GetAiGuardrailVersionResult
     {
+        /// <summary>
+        /// The ARN of the AI guardrail version.
+        /// </summary>
         public readonly string? AiGuardrailArn;
+        /// <summary>
+        /// The ID of the AI guardrail version.
+        /// </summary>
         public readonly string? AiGuardrailVersionId;
+        /// <summary>
+        /// The ARN of the AI guardrail version assistant.
+        /// </summary>
         public readonly string? AssistantArn;
         /// <summary>
         /// The version number for this AI Guardrail version.

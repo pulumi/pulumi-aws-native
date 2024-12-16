@@ -10,16 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Connect.Outputs
 {
 
-    /// <summary>
-    /// The definition for create case action.
-    /// </summary>
     [OutputType]
     public sealed class RuleCreateCaseAction
     {
         public readonly ImmutableArray<Outputs.RuleField> Fields;
-        /// <summary>
-        /// The Id of template.
-        /// </summary>
         public readonly string TemplateId;
 
         [OutputConstructor]

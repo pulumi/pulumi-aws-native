@@ -391,7 +391,8 @@ type Server struct {
 	// The service-assigned ID of the server that is created.
 	//
 	// An example `ServerId` is `s-01234567890abcdef` .
-	ServerId pulumi.StringOutput `pulumi:"serverId"`
+	ServerId pulumi.StringOutput   `pulumi:"serverId"`
+	State    ServerStateEnumOutput `pulumi:"state"`
 	// Specifies the log groups to which your server logs are sent.
 	//
 	// To specify a log group, you must provide the ARN for an existing log group. In this case, the format of the log group is as follows:
@@ -844,6 +845,10 @@ func (o ServerOutput) SecurityPolicyName() pulumi.StringPtrOutput {
 // An example `ServerId` is `s-01234567890abcdef` .
 func (o ServerOutput) ServerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Server) pulumi.StringOutput { return v.ServerId }).(pulumi.StringOutput)
+}
+
+func (o ServerOutput) State() ServerStateEnumOutput {
+	return o.ApplyT(func(v *Server) ServerStateEnumOutput { return v.State }).(ServerStateEnumOutput)
 }
 
 // Specifies the log groups to which your server logs are sent.

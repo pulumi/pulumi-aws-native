@@ -24,6 +24,9 @@ class AiGuardrailVersionArgs:
                  modified_time_seconds: Optional[pulumi.Input[float]] = None):
         """
         The set of arguments for constructing a AiGuardrailVersion resource.
+        :param pulumi.Input[str] ai_guardrail_id: The ID of the AI guardrail version.
+        :param pulumi.Input[str] assistant_id: The ID of the AI guardrail version assistant.
+        :param pulumi.Input[float] modified_time_seconds: The modified time of the AI guardrail version in seconds.
         """
         pulumi.set(__self__, "ai_guardrail_id", ai_guardrail_id)
         pulumi.set(__self__, "assistant_id", assistant_id)
@@ -33,6 +36,9 @@ class AiGuardrailVersionArgs:
     @property
     @pulumi.getter(name="aiGuardrailId")
     def ai_guardrail_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the AI guardrail version.
+        """
         return pulumi.get(self, "ai_guardrail_id")
 
     @ai_guardrail_id.setter
@@ -42,6 +48,9 @@ class AiGuardrailVersionArgs:
     @property
     @pulumi.getter(name="assistantId")
     def assistant_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the AI guardrail version assistant.
+        """
         return pulumi.get(self, "assistant_id")
 
     @assistant_id.setter
@@ -51,6 +60,9 @@ class AiGuardrailVersionArgs:
     @property
     @pulumi.getter(name="modifiedTimeSeconds")
     def modified_time_seconds(self) -> Optional[pulumi.Input[float]]:
+        """
+        The modified time of the AI guardrail version in seconds.
+        """
         return pulumi.get(self, "modified_time_seconds")
 
     @modified_time_seconds.setter
@@ -72,6 +84,9 @@ class AiGuardrailVersion(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] ai_guardrail_id: The ID of the AI guardrail version.
+        :param pulumi.Input[str] assistant_id: The ID of the AI guardrail version assistant.
+        :param pulumi.Input[float] modified_time_seconds: The modified time of the AI guardrail version in seconds.
         """
         ...
     @overload
@@ -156,31 +171,49 @@ class AiGuardrailVersion(pulumi.CustomResource):
     @property
     @pulumi.getter(name="aiGuardrailArn")
     def ai_guardrail_arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the AI guardrail version.
+        """
         return pulumi.get(self, "ai_guardrail_arn")
 
     @property
     @pulumi.getter(name="aiGuardrailId")
     def ai_guardrail_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the AI guardrail version.
+        """
         return pulumi.get(self, "ai_guardrail_id")
 
     @property
     @pulumi.getter(name="aiGuardrailVersionId")
     def ai_guardrail_version_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the AI guardrail version.
+        """
         return pulumi.get(self, "ai_guardrail_version_id")
 
     @property
     @pulumi.getter(name="assistantArn")
     def assistant_arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the AI guardrail version assistant.
+        """
         return pulumi.get(self, "assistant_arn")
 
     @property
     @pulumi.getter(name="assistantId")
     def assistant_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the AI guardrail version assistant.
+        """
         return pulumi.get(self, "assistant_id")
 
     @property
     @pulumi.getter(name="modifiedTimeSeconds")
     def modified_time_seconds(self) -> pulumi.Output[Optional[float]]:
+        """
+        The modified time of the AI guardrail version in seconds.
+        """
         return pulumi.get(self, "modified_time_seconds")
 
     @property

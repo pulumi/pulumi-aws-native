@@ -23,10 +23,12 @@ func LookupTableBucketPolicy(ctx *pulumi.Context, args *LookupTableBucketPolicyA
 }
 
 type LookupTableBucketPolicyArgs struct {
+	// The Amazon Resource Name (ARN) of the table bucket.
 	TableBucketArn string `pulumi:"tableBucketArn"`
 }
 
 type LookupTableBucketPolicyResult struct {
+	// The bucket policy JSON for the table bucket.
 	ResourcePolicy *TableBucketPolicyResourcePolicy `pulumi:"resourcePolicy"`
 }
 
@@ -40,6 +42,7 @@ func LookupTableBucketPolicyOutput(ctx *pulumi.Context, args LookupTableBucketPo
 }
 
 type LookupTableBucketPolicyOutputArgs struct {
+	// The Amazon Resource Name (ARN) of the table bucket.
 	TableBucketArn pulumi.StringInput `pulumi:"tableBucketArn"`
 }
 
@@ -61,6 +64,7 @@ func (o LookupTableBucketPolicyResultOutput) ToLookupTableBucketPolicyResultOutp
 	return o
 }
 
+// The bucket policy JSON for the table bucket.
 func (o LookupTableBucketPolicyResultOutput) ResourcePolicy() TableBucketPolicyResourcePolicyPtrOutput {
 	return o.ApplyT(func(v LookupTableBucketPolicyResult) *TableBucketPolicyResourcePolicy { return v.ResourcePolicy }).(TableBucketPolicyResourcePolicyPtrOutput)
 }

@@ -15,39 +15,84 @@ namespace Pulumi.AwsNative.VpcLattice
     [AwsNativeResourceType("aws-native:vpclattice:ResourceConfiguration")]
     public partial class ResourceConfiguration : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Specifies whether the resource configuration can be associated with a sharable service network.
+        /// </summary>
         [Output("allowAssociationToSharableServiceNetwork")]
         public Output<bool?> AllowAssociationToSharableServiceNetwork { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the resource configuration.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the resource configuration.
+        /// </summary>
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the resource configuration.
+        /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// (SINGLE, GROUP, CHILD) The TCP port ranges that a consumer can use to access a resource configuration (for example: 1-65535). You can separate port ranges using commas (for example: 1,2,22-30).
+        /// </summary>
         [Output("portRanges")]
         public Output<ImmutableArray<string>> PortRanges { get; private set; } = null!;
 
+        /// <summary>
+        /// (SINGLE, GROUP) The protocol accepted by the resource configuration.
+        /// </summary>
         [Output("protocolType")]
         public Output<Pulumi.AwsNative.VpcLattice.ResourceConfigurationProtocolType?> ProtocolType { get; private set; } = null!;
 
+        /// <summary>
+        /// The auth type for the resource configuration.
+        /// </summary>
         [Output("resourceConfigurationAuthType")]
         public Output<Pulumi.AwsNative.VpcLattice.ResourceConfigurationAuthType?> ResourceConfigurationAuthType { get; private set; } = null!;
 
+        /// <summary>
+        /// Identifies the resource configuration in one of the following ways:
+        /// 
+        /// - *Amazon Resource Name (ARN)* - Supported resource-types that are provisioned by AWS services, such as RDS databases, can be identified by their ARN.
+        /// - *Domain name* - Any domain name that is publicly resolvable.
+        /// - *IP address* - For IPv4 and IPv6, only IP addresses in the VPC are supported.
+        /// </summary>
         [Output("resourceConfigurationDefinition")]
         public Output<object?> ResourceConfigurationDefinition { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the group resource configuration.
+        /// </summary>
         [Output("resourceConfigurationGroupId")]
         public Output<string?> ResourceConfigurationGroupId { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of resource configuration. A resource configuration can be one of the following types:
+        /// 
+        /// - *SINGLE* - A single resource.
+        /// - *GROUP* - A group of resources. You must create a group resource configuration before you create a child resource configuration.
+        /// - *CHILD* - A single resource that is part of a group resource configuration.
+        /// - *ARN* - An AWS resource.
+        /// </summary>
         [Output("resourceConfigurationType")]
         public Output<Pulumi.AwsNative.VpcLattice.ResourceConfigurationType?> ResourceConfigurationType { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the resource gateway.
+        /// </summary>
         [Output("resourceGatewayId")]
         public Output<string?> ResourceGatewayId { get; private set; } = null!;
 
+        /// <summary>
+        /// The tags for the resource configuration.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -103,40 +148,81 @@ namespace Pulumi.AwsNative.VpcLattice
 
     public sealed class ResourceConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies whether the resource configuration can be associated with a sharable service network.
+        /// </summary>
         [Input("allowAssociationToSharableServiceNetwork")]
         public Input<bool>? AllowAssociationToSharableServiceNetwork { get; set; }
 
+        /// <summary>
+        /// The name of the resource configuration.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         [Input("portRanges")]
         private InputList<string>? _portRanges;
+
+        /// <summary>
+        /// (SINGLE, GROUP, CHILD) The TCP port ranges that a consumer can use to access a resource configuration (for example: 1-65535). You can separate port ranges using commas (for example: 1,2,22-30).
+        /// </summary>
         public InputList<string> PortRanges
         {
             get => _portRanges ?? (_portRanges = new InputList<string>());
             set => _portRanges = value;
         }
 
+        /// <summary>
+        /// (SINGLE, GROUP) The protocol accepted by the resource configuration.
+        /// </summary>
         [Input("protocolType")]
         public Input<Pulumi.AwsNative.VpcLattice.ResourceConfigurationProtocolType>? ProtocolType { get; set; }
 
+        /// <summary>
+        /// The auth type for the resource configuration.
+        /// </summary>
         [Input("resourceConfigurationAuthType")]
         public Input<Pulumi.AwsNative.VpcLattice.ResourceConfigurationAuthType>? ResourceConfigurationAuthType { get; set; }
 
+        /// <summary>
+        /// Identifies the resource configuration in one of the following ways:
+        /// 
+        /// - *Amazon Resource Name (ARN)* - Supported resource-types that are provisioned by AWS services, such as RDS databases, can be identified by their ARN.
+        /// - *Domain name* - Any domain name that is publicly resolvable.
+        /// - *IP address* - For IPv4 and IPv6, only IP addresses in the VPC are supported.
+        /// </summary>
         [Input("resourceConfigurationDefinition")]
         public object? ResourceConfigurationDefinition { get; set; }
 
+        /// <summary>
+        /// The ID of the group resource configuration.
+        /// </summary>
         [Input("resourceConfigurationGroupId")]
         public Input<string>? ResourceConfigurationGroupId { get; set; }
 
+        /// <summary>
+        /// The type of resource configuration. A resource configuration can be one of the following types:
+        /// 
+        /// - *SINGLE* - A single resource.
+        /// - *GROUP* - A group of resources. You must create a group resource configuration before you create a child resource configuration.
+        /// - *CHILD* - A single resource that is part of a group resource configuration.
+        /// - *ARN* - An AWS resource.
+        /// </summary>
         [Input("resourceConfigurationType")]
         public Input<Pulumi.AwsNative.VpcLattice.ResourceConfigurationType>? ResourceConfigurationType { get; set; }
 
+        /// <summary>
+        /// The ID of the resource gateway.
+        /// </summary>
         [Input("resourceGatewayId")]
         public Input<string>? ResourceGatewayId { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// The tags for the resource configuration.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

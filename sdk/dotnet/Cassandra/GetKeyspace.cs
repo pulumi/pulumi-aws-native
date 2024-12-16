@@ -64,6 +64,19 @@ namespace Pulumi.AwsNative.Cassandra
     public sealed class GetKeyspaceResult
     {
         /// <summary>
+        /// Indicates whether client-side timestamps are enabled (true) or disabled (false) for all tables in the keyspace. To add a Region to a single-Region keyspace with at least one table, the value must be set to true. After you enabled client-side timestamps for a table, you can’t disable it again.
+        /// </summary>
+        public readonly bool? ClientSideTimestampsEnabled;
+        /// <summary>
+        /// Specifies the `ReplicationStrategy` of a keyspace. The options are:
+        /// 
+        /// - `SINGLE_REGION` for a single Region keyspace (optional) or
+        /// - `MULTI_REGION` for a multi-Region keyspace
+        /// 
+        /// If no `ReplicationStrategy` is provided, the default is `SINGLE_REGION` . If you choose `MULTI_REGION` , you must also provide a `RegionList` with the AWS Regions that the keyspace is replicated in.
+        /// </summary>
+        public readonly Outputs.KeyspaceReplicationSpecification? ReplicationSpecification;
+        /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// 
         /// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
@@ -71,8 +84,15 @@ namespace Pulumi.AwsNative.Cassandra
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
-        private GetKeyspaceResult(ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
+        private GetKeyspaceResult(
+            bool? clientSideTimestampsEnabled,
+
+            Outputs.KeyspaceReplicationSpecification? replicationSpecification,
+
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
+            ClientSideTimestampsEnabled = clientSideTimestampsEnabled;
+            ReplicationSpecification = replicationSpecification;
             Tags = tags;
         }
     }

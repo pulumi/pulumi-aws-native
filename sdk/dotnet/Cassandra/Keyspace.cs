@@ -105,6 +105,12 @@ namespace Pulumi.AwsNative.Cassandra
     public partial class Keyspace : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Indicates whether client-side timestamps are enabled (true) or disabled (false) for all tables in the keyspace. To add a Region to a single-Region keyspace with at least one table, the value must be set to true. After you enabled client-side timestamps for a table, you can’t disable it again.
+        /// </summary>
+        [Output("clientSideTimestampsEnabled")]
+        public Output<bool?> ClientSideTimestampsEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// Name for Cassandra keyspace
         /// </summary>
         [Output("keyspaceName")]
@@ -155,7 +161,6 @@ namespace Pulumi.AwsNative.Cassandra
                 ReplaceOnChanges =
                 {
                     "keyspaceName",
-                    "replicationSpecification",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -179,6 +184,12 @@ namespace Pulumi.AwsNative.Cassandra
 
     public sealed class KeyspaceArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Indicates whether client-side timestamps are enabled (true) or disabled (false) for all tables in the keyspace. To add a Region to a single-Region keyspace with at least one table, the value must be set to true. After you enabled client-side timestamps for a table, you can’t disable it again.
+        /// </summary>
+        [Input("clientSideTimestampsEnabled")]
+        public Input<bool>? ClientSideTimestampsEnabled { get; set; }
+
         /// <summary>
         /// Name for Cassandra keyspace
         /// </summary>

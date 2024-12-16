@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.VpcLattice
 
     public sealed class GetResourceGatewayArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the resource gateway.
+        /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
@@ -44,6 +47,9 @@ namespace Pulumi.AwsNative.VpcLattice
 
     public sealed class GetResourceGatewayInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the resource gateway.
+        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
@@ -57,12 +63,21 @@ namespace Pulumi.AwsNative.VpcLattice
     [OutputType]
     public sealed class GetResourceGatewayResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the resource gateway.
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// The ID of the resource gateway.
+        /// </summary>
         public readonly string? Id;
         /// <summary>
         /// The ID of one or more security groups to associate with the endpoint network interface.
         /// </summary>
         public readonly ImmutableArray<string> SecurityGroupIds;
+        /// <summary>
+        /// The tags for the resource gateway.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

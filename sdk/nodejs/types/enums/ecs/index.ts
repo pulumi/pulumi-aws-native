@@ -65,8 +65,7 @@ export const ServiceAvailabilityZoneRebalancing = {
 
 /**
  * Indicates whether to use Availability Zone rebalancing for the service.
- *
- * For more information, see [Balancing an Amazon ECS service across Availability Zones](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-rebalancing.html) in the *Amazon Elastic Container Service Developer Guide* .
+ *  For more information, see [Balancing an Amazon ECS service across Availability Zones](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-rebalancing.html) in the *Amazon Elastic Container Service Developer Guide*.
  */
 export type ServiceAvailabilityZoneRebalancing = (typeof ServiceAvailabilityZoneRebalancing)[keyof typeof ServiceAvailabilityZoneRebalancing];
 
@@ -76,7 +75,7 @@ export const ServiceAwsVpcConfigurationAssignPublicIp = {
 } as const;
 
 /**
- * Whether the task's elastic network interface receives a public IP address. The default value is ``DISABLED``.
+ * Whether the task's elastic network interface receives a public IP address. The default value is ``ENABLED``.
  */
 export type ServiceAwsVpcConfigurationAssignPublicIp = (typeof ServiceAwsVpcConfigurationAssignPublicIp)[keyof typeof ServiceAwsVpcConfigurationAssignPublicIp];
 

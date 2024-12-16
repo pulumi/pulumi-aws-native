@@ -34,6 +34,8 @@ type LookupQueryDefinitionResult struct {
 	Name *string `pulumi:"name"`
 	// Unique identifier of a query definition
 	QueryDefinitionId *string `pulumi:"queryDefinitionId"`
+	// Query language of the query string. Possible values are CWLI, SQL, PPL, with CWLI being the default.
+	QueryLanguage *QueryDefinitionQueryLanguage `pulumi:"queryLanguage"`
 	// The query string to use for this definition
 	QueryString *string `pulumi:"queryString"`
 }
@@ -83,6 +85,11 @@ func (o LookupQueryDefinitionResultOutput) Name() pulumi.StringPtrOutput {
 // Unique identifier of a query definition
 func (o LookupQueryDefinitionResultOutput) QueryDefinitionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupQueryDefinitionResult) *string { return v.QueryDefinitionId }).(pulumi.StringPtrOutput)
+}
+
+// Query language of the query string. Possible values are CWLI, SQL, PPL, with CWLI being the default.
+func (o LookupQueryDefinitionResultOutput) QueryLanguage() QueryDefinitionQueryLanguagePtrOutput {
+	return o.ApplyT(func(v LookupQueryDefinitionResult) *QueryDefinitionQueryLanguage { return v.QueryLanguage }).(QueryDefinitionQueryLanguagePtrOutput)
 }
 
 // The query string to use for this definition

@@ -17,16 +17,26 @@ import (
 type DataAccessor struct {
 	pulumi.CustomResourceState
 
+	// A list of action configurations specifying the allowed actions and any associated filters.
 	ActionConfigurations DataAccessorActionConfigurationArrayOutput `pulumi:"actionConfigurations"`
-	ApplicationId        pulumi.StringPtrOutput                     `pulumi:"applicationId"`
-	CreatedAt            pulumi.StringOutput                        `pulumi:"createdAt"`
-	DataAccessorArn      pulumi.StringOutput                        `pulumi:"dataAccessorArn"`
-	DataAccessorId       pulumi.StringOutput                        `pulumi:"dataAccessorId"`
-	DisplayName          pulumi.StringOutput                        `pulumi:"displayName"`
-	IdcApplicationArn    pulumi.StringOutput                        `pulumi:"idcApplicationArn"`
-	Principal            pulumi.StringOutput                        `pulumi:"principal"`
-	Tags                 aws.TagArrayOutput                         `pulumi:"tags"`
-	UpdatedAt            pulumi.StringOutput                        `pulumi:"updatedAt"`
+	// The unique identifier of the Amazon Q Business application.
+	ApplicationId pulumi.StringPtrOutput `pulumi:"applicationId"`
+	// The timestamp when the data accessor was created.
+	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	// The Amazon Resource Name (ARN) of the data accessor.
+	DataAccessorArn pulumi.StringOutput `pulumi:"dataAccessorArn"`
+	// The unique identifier of the data accessor.
+	DataAccessorId pulumi.StringOutput `pulumi:"dataAccessorId"`
+	// The friendly name of the data accessor.
+	DisplayName pulumi.StringOutput `pulumi:"displayName"`
+	// The Amazon Resource Name (ARN) of the associated IAM Identity Center application.
+	IdcApplicationArn pulumi.StringOutput `pulumi:"idcApplicationArn"`
+	// The Amazon Resource Name (ARN) of the IAM role for the ISV associated with this data accessor.
+	Principal pulumi.StringOutput `pulumi:"principal"`
+	// The tags to associate with the data accessor.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// The timestamp when the data accessor was last updated.
+	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
 }
 
 // NewDataAccessor registers a new resource with the given unique name, arguments, and options.
@@ -83,20 +93,30 @@ func (DataAccessorState) ElementType() reflect.Type {
 }
 
 type dataAccessorArgs struct {
+	// A list of action configurations specifying the allowed actions and any associated filters.
 	ActionConfigurations []DataAccessorActionConfiguration `pulumi:"actionConfigurations"`
-	ApplicationId        *string                           `pulumi:"applicationId"`
-	DisplayName          string                            `pulumi:"displayName"`
-	Principal            string                            `pulumi:"principal"`
-	Tags                 []aws.Tag                         `pulumi:"tags"`
+	// The unique identifier of the Amazon Q Business application.
+	ApplicationId *string `pulumi:"applicationId"`
+	// The friendly name of the data accessor.
+	DisplayName string `pulumi:"displayName"`
+	// The Amazon Resource Name (ARN) of the IAM role for the ISV associated with this data accessor.
+	Principal string `pulumi:"principal"`
+	// The tags to associate with the data accessor.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DataAccessor resource.
 type DataAccessorArgs struct {
+	// A list of action configurations specifying the allowed actions and any associated filters.
 	ActionConfigurations DataAccessorActionConfigurationArrayInput
-	ApplicationId        pulumi.StringPtrInput
-	DisplayName          pulumi.StringInput
-	Principal            pulumi.StringInput
-	Tags                 aws.TagArrayInput
+	// The unique identifier of the Amazon Q Business application.
+	ApplicationId pulumi.StringPtrInput
+	// The friendly name of the data accessor.
+	DisplayName pulumi.StringInput
+	// The Amazon Resource Name (ARN) of the IAM role for the ISV associated with this data accessor.
+	Principal pulumi.StringInput
+	// The tags to associate with the data accessor.
+	Tags aws.TagArrayInput
 }
 
 func (DataAccessorArgs) ElementType() reflect.Type {
@@ -136,42 +156,52 @@ func (o DataAccessorOutput) ToDataAccessorOutputWithContext(ctx context.Context)
 	return o
 }
 
+// A list of action configurations specifying the allowed actions and any associated filters.
 func (o DataAccessorOutput) ActionConfigurations() DataAccessorActionConfigurationArrayOutput {
 	return o.ApplyT(func(v *DataAccessor) DataAccessorActionConfigurationArrayOutput { return v.ActionConfigurations }).(DataAccessorActionConfigurationArrayOutput)
 }
 
+// The unique identifier of the Amazon Q Business application.
 func (o DataAccessorOutput) ApplicationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataAccessor) pulumi.StringPtrOutput { return v.ApplicationId }).(pulumi.StringPtrOutput)
 }
 
+// The timestamp when the data accessor was created.
 func (o DataAccessorOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataAccessor) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) of the data accessor.
 func (o DataAccessorOutput) DataAccessorArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataAccessor) pulumi.StringOutput { return v.DataAccessorArn }).(pulumi.StringOutput)
 }
 
+// The unique identifier of the data accessor.
 func (o DataAccessorOutput) DataAccessorId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataAccessor) pulumi.StringOutput { return v.DataAccessorId }).(pulumi.StringOutput)
 }
 
+// The friendly name of the data accessor.
 func (o DataAccessorOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataAccessor) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) of the associated IAM Identity Center application.
 func (o DataAccessorOutput) IdcApplicationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataAccessor) pulumi.StringOutput { return v.IdcApplicationArn }).(pulumi.StringOutput)
 }
 
+// The Amazon Resource Name (ARN) of the IAM role for the ISV associated with this data accessor.
 func (o DataAccessorOutput) Principal() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataAccessor) pulumi.StringOutput { return v.Principal }).(pulumi.StringOutput)
 }
 
+// The tags to associate with the data accessor.
 func (o DataAccessorOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *DataAccessor) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The timestamp when the data accessor was last updated.
 func (o DataAccessorOutput) UpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataAccessor) pulumi.StringOutput { return v.UpdatedAt }).(pulumi.StringOutput)
 }

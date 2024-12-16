@@ -24,11 +24,13 @@ __all__ = ['KeyspaceArgs', 'Keyspace']
 @pulumi.input_type
 class KeyspaceArgs:
     def __init__(__self__, *,
+                 client_side_timestamps_enabled: Optional[pulumi.Input[bool]] = None,
                  keyspace_name: Optional[pulumi.Input[str]] = None,
                  replication_specification: Optional[pulumi.Input['KeyspaceReplicationSpecificationArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Keyspace resource.
+        :param pulumi.Input[bool] client_side_timestamps_enabled: Indicates whether client-side timestamps are enabled (true) or disabled (false) for all tables in the keyspace. To add a Region to a single-Region keyspace with at least one table, the value must be set to true. After you enabled client-side timestamps for a table, you can’t disable it again.
         :param pulumi.Input[str] keyspace_name: Name for Cassandra keyspace
         :param pulumi.Input['KeyspaceReplicationSpecificationArgs'] replication_specification: Specifies the `ReplicationStrategy` of a keyspace. The options are:
                
@@ -40,12 +42,26 @@ class KeyspaceArgs:
                
                For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         """
+        if client_side_timestamps_enabled is not None:
+            pulumi.set(__self__, "client_side_timestamps_enabled", client_side_timestamps_enabled)
         if keyspace_name is not None:
             pulumi.set(__self__, "keyspace_name", keyspace_name)
         if replication_specification is not None:
             pulumi.set(__self__, "replication_specification", replication_specification)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="clientSideTimestampsEnabled")
+    def client_side_timestamps_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether client-side timestamps are enabled (true) or disabled (false) for all tables in the keyspace. To add a Region to a single-Region keyspace with at least one table, the value must be set to true. After you enabled client-side timestamps for a table, you can’t disable it again.
+        """
+        return pulumi.get(self, "client_side_timestamps_enabled")
+
+    @client_side_timestamps_enabled.setter
+    def client_side_timestamps_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "client_side_timestamps_enabled", value)
 
     @property
     @pulumi.getter(name="keyspaceName")
@@ -96,6 +112,7 @@ class Keyspace(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 client_side_timestamps_enabled: Optional[pulumi.Input[bool]] = None,
                  keyspace_name: Optional[pulumi.Input[str]] = None,
                  replication_specification: Optional[pulumi.Input[Union['KeyspaceReplicationSpecificationArgs', 'KeyspaceReplicationSpecificationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
@@ -163,6 +180,7 @@ class Keyspace(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] client_side_timestamps_enabled: Indicates whether client-side timestamps are enabled (true) or disabled (false) for all tables in the keyspace. To add a Region to a single-Region keyspace with at least one table, the value must be set to true. After you enabled client-side timestamps for a table, you can’t disable it again.
         :param pulumi.Input[str] keyspace_name: Name for Cassandra keyspace
         :param pulumi.Input[Union['KeyspaceReplicationSpecificationArgs', 'KeyspaceReplicationSpecificationArgsDict']] replication_specification: Specifies the `ReplicationStrategy` of a keyspace. The options are:
                
@@ -256,6 +274,7 @@ class Keyspace(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 client_side_timestamps_enabled: Optional[pulumi.Input[bool]] = None,
                  keyspace_name: Optional[pulumi.Input[str]] = None,
                  replication_specification: Optional[pulumi.Input[Union['KeyspaceReplicationSpecificationArgs', 'KeyspaceReplicationSpecificationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
@@ -268,10 +287,11 @@ class Keyspace(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = KeyspaceArgs.__new__(KeyspaceArgs)
 
+            __props__.__dict__["client_side_timestamps_enabled"] = client_side_timestamps_enabled
             __props__.__dict__["keyspace_name"] = keyspace_name
             __props__.__dict__["replication_specification"] = replication_specification
             __props__.__dict__["tags"] = tags
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["keyspaceName", "replicationSpecification"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["keyspaceName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Keyspace, __self__).__init__(
             'aws-native:cassandra:Keyspace',
@@ -295,10 +315,19 @@ class Keyspace(pulumi.CustomResource):
 
         __props__ = KeyspaceArgs.__new__(KeyspaceArgs)
 
+        __props__.__dict__["client_side_timestamps_enabled"] = None
         __props__.__dict__["keyspace_name"] = None
         __props__.__dict__["replication_specification"] = None
         __props__.__dict__["tags"] = None
         return Keyspace(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="clientSideTimestampsEnabled")
+    def client_side_timestamps_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Indicates whether client-side timestamps are enabled (true) or disabled (false) for all tables in the keyspace. To add a Region to a single-Region keyspace with at least one table, the value must be set to true. After you enabled client-side timestamps for a table, you can’t disable it again.
+        """
+        return pulumi.get(self, "client_side_timestamps_enabled")
 
     @property
     @pulumi.getter(name="keyspaceName")

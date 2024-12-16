@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Connect.Outputs
 {
 
-    /// <summary>
-    /// The definition for update case action.
-    /// </summary>
     [OutputType]
     public sealed class RuleUpdateCaseAction
     {

@@ -5462,9 +5462,9 @@ func (o RuleRunCommandTargetArrayOutput) Index(i pulumi.IntInput) RuleRunCommand
 }
 
 type RuleSageMakerPipelineParameter struct {
-	// Name of parameter to start execution of a SageMaker Model Building Pipeline.
+	// Name of parameter to start execution of a SageMaker AI Model Building Pipeline.
 	Name string `pulumi:"name"`
-	// Value of parameter to start execution of a SageMaker Model Building Pipeline.
+	// Value of parameter to start execution of a SageMaker AI Model Building Pipeline.
 	Value string `pulumi:"value"`
 }
 
@@ -5480,9 +5480,9 @@ type RuleSageMakerPipelineParameterInput interface {
 }
 
 type RuleSageMakerPipelineParameterArgs struct {
-	// Name of parameter to start execution of a SageMaker Model Building Pipeline.
+	// Name of parameter to start execution of a SageMaker AI Model Building Pipeline.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Value of parameter to start execution of a SageMaker Model Building Pipeline.
+	// Value of parameter to start execution of a SageMaker AI Model Building Pipeline.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -5537,12 +5537,12 @@ func (o RuleSageMakerPipelineParameterOutput) ToRuleSageMakerPipelineParameterOu
 	return o
 }
 
-// Name of parameter to start execution of a SageMaker Model Building Pipeline.
+// Name of parameter to start execution of a SageMaker AI Model Building Pipeline.
 func (o RuleSageMakerPipelineParameterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleSageMakerPipelineParameter) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Value of parameter to start execution of a SageMaker Model Building Pipeline.
+// Value of parameter to start execution of a SageMaker AI Model Building Pipeline.
 func (o RuleSageMakerPipelineParameterOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleSageMakerPipelineParameter) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -5568,7 +5568,7 @@ func (o RuleSageMakerPipelineParameterArrayOutput) Index(i pulumi.IntInput) Rule
 }
 
 type RuleSageMakerPipelineParameters struct {
-	// List of Parameter names and values for SageMaker Model Building Pipeline execution.
+	// List of Parameter names and values for SageMaker AI Model Building Pipeline execution.
 	PipelineParameterList []RuleSageMakerPipelineParameter `pulumi:"pipelineParameterList"`
 }
 
@@ -5584,7 +5584,7 @@ type RuleSageMakerPipelineParametersInput interface {
 }
 
 type RuleSageMakerPipelineParametersArgs struct {
-	// List of Parameter names and values for SageMaker Model Building Pipeline execution.
+	// List of Parameter names and values for SageMaker AI Model Building Pipeline execution.
 	PipelineParameterList RuleSageMakerPipelineParameterArrayInput `pulumi:"pipelineParameterList"`
 }
 
@@ -5665,7 +5665,7 @@ func (o RuleSageMakerPipelineParametersOutput) ToRuleSageMakerPipelineParameters
 	}).(RuleSageMakerPipelineParametersPtrOutput)
 }
 
-// List of Parameter names and values for SageMaker Model Building Pipeline execution.
+// List of Parameter names and values for SageMaker AI Model Building Pipeline execution.
 func (o RuleSageMakerPipelineParametersOutput) PipelineParameterList() RuleSageMakerPipelineParameterArrayOutput {
 	return o.ApplyT(func(v RuleSageMakerPipelineParameters) []RuleSageMakerPipelineParameter {
 		return v.PipelineParameterList
@@ -5696,7 +5696,7 @@ func (o RuleSageMakerPipelineParametersPtrOutput) Elem() RuleSageMakerPipelinePa
 	}).(RuleSageMakerPipelineParametersOutput)
 }
 
-// List of Parameter names and values for SageMaker Model Building Pipeline execution.
+// List of Parameter names and values for SageMaker AI Model Building Pipeline execution.
 func (o RuleSageMakerPipelineParametersPtrOutput) PipelineParameterList() RuleSageMakerPipelineParameterArrayOutput {
 	return o.ApplyT(func(v *RuleSageMakerPipelineParameters) []RuleSageMakerPipelineParameter {
 		if v == nil {
@@ -5984,9 +5984,9 @@ type RuleTarget struct {
 	RoleArn *string `pulumi:"roleArn"`
 	// Parameters used when you are using the rule to invoke Amazon EC2 Run Command.
 	RunCommandParameters *RuleRunCommandParameters `pulumi:"runCommandParameters"`
-	// Contains the SageMaker Model Building Pipeline parameters to start execution of a SageMaker Model Building Pipeline.
+	// Contains the SageMaker AI Model Building Pipeline parameters to start execution of a SageMaker AI Model Building Pipeline.
 	//
-	// If you specify a SageMaker Model Building Pipeline as a target, you can use this to specify parameters to start a pipeline execution based on EventBridge events.
+	// If you specify a SageMaker AI Model Building Pipeline as a target, you can use this to specify parameters to start a pipeline execution based on EventBridge events.
 	SageMakerPipelineParameters *RuleSageMakerPipelineParameters `pulumi:"sageMakerPipelineParameters"`
 	// Contains the message group ID to use when the target is a FIFO queue.
 	//
@@ -6040,9 +6040,9 @@ type RuleTargetArgs struct {
 	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
 	// Parameters used when you are using the rule to invoke Amazon EC2 Run Command.
 	RunCommandParameters RuleRunCommandParametersPtrInput `pulumi:"runCommandParameters"`
-	// Contains the SageMaker Model Building Pipeline parameters to start execution of a SageMaker Model Building Pipeline.
+	// Contains the SageMaker AI Model Building Pipeline parameters to start execution of a SageMaker AI Model Building Pipeline.
 	//
-	// If you specify a SageMaker Model Building Pipeline as a target, you can use this to specify parameters to start a pipeline execution based on EventBridge events.
+	// If you specify a SageMaker AI Model Building Pipeline as a target, you can use this to specify parameters to start a pipeline execution based on EventBridge events.
 	SageMakerPipelineParameters RuleSageMakerPipelineParametersPtrInput `pulumi:"sageMakerPipelineParameters"`
 	// Contains the message group ID to use when the target is a FIFO queue.
 	//
@@ -6180,9 +6180,9 @@ func (o RuleTargetOutput) RunCommandParameters() RuleRunCommandParametersPtrOutp
 	return o.ApplyT(func(v RuleTarget) *RuleRunCommandParameters { return v.RunCommandParameters }).(RuleRunCommandParametersPtrOutput)
 }
 
-// Contains the SageMaker Model Building Pipeline parameters to start execution of a SageMaker Model Building Pipeline.
+// Contains the SageMaker AI Model Building Pipeline parameters to start execution of a SageMaker AI Model Building Pipeline.
 //
-// If you specify a SageMaker Model Building Pipeline as a target, you can use this to specify parameters to start a pipeline execution based on EventBridge events.
+// If you specify a SageMaker AI Model Building Pipeline as a target, you can use this to specify parameters to start a pipeline execution based on EventBridge events.
 func (o RuleTargetOutput) SageMakerPipelineParameters() RuleSageMakerPipelineParametersPtrOutput {
 	return o.ApplyT(func(v RuleTarget) *RuleSageMakerPipelineParameters { return v.SageMakerPipelineParameters }).(RuleSageMakerPipelineParametersPtrOutput)
 }

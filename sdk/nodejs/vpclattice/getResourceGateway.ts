@@ -18,16 +18,28 @@ export function getResourceGateway(args: GetResourceGatewayArgs, opts?: pulumi.I
 }
 
 export interface GetResourceGatewayArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the resource gateway.
+     */
     arn: string;
 }
 
 export interface GetResourceGatewayResult {
+    /**
+     * The Amazon Resource Name (ARN) of the resource gateway.
+     */
     readonly arn?: string;
+    /**
+     * The ID of the resource gateway.
+     */
     readonly id?: string;
     /**
      * The ID of one or more security groups to associate with the endpoint network interface.
      */
     readonly securityGroupIds?: string[];
+    /**
+     * The tags for the resource gateway.
+     */
     readonly tags?: outputs.Tag[];
 }
 /**
@@ -41,5 +53,8 @@ export function getResourceGatewayOutput(args: GetResourceGatewayOutputArgs, opt
 }
 
 export interface GetResourceGatewayOutputArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the resource gateway.
+     */
     arn: pulumi.Input<string>;
 }

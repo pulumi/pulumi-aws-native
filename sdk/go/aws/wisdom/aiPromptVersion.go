@@ -16,6 +16,7 @@ import (
 type AiPromptVersion struct {
 	pulumi.CustomResourceState
 
+	// The ARN of the AI prompt.
 	AiPromptArn pulumi.StringOutput `pulumi:"aiPromptArn"`
 	// The identifier of the Amazon Q in Connect AI prompt.
 	AiPromptId        pulumi.StringOutput `pulumi:"aiPromptId"`
@@ -136,6 +137,7 @@ func (o AiPromptVersionOutput) ToAiPromptVersionOutputWithContext(ctx context.Co
 	return o
 }
 
+// The ARN of the AI prompt.
 func (o AiPromptVersionOutput) AiPromptArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AiPromptVersion) pulumi.StringOutput { return v.AiPromptArn }).(pulumi.StringOutput)
 }

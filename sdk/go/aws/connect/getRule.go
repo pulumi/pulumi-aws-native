@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS:Connect::Rule
+// Creates a rule for the specified CON instance.
 func LookupRule(ctx *pulumi.Context, args *LookupRuleArgs, opts ...pulumi.InvokeOption) (*LookupRuleResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRuleResult
@@ -29,17 +29,18 @@ type LookupRuleArgs struct {
 }
 
 type LookupRuleResult struct {
-	// The list of actions that will be executed when a rule is triggered.
+	// A list of actions to be run when the rule is triggered.
 	Actions *RuleActions `pulumi:"actions"`
-	// The conditions of a rule.
+	// The conditions of the rule.
 	Function *string `pulumi:"function"`
 	// The name of the rule.
 	Name *string `pulumi:"name"`
-	// The publish status of a rule, either draft or published.
+	// The publish status of the rule.
+	//   *Allowed values*: ``DRAFT`` | ``PUBLISHED``
 	PublishStatus *RulePublishStatus `pulumi:"publishStatus"`
 	// The Amazon Resource Name (ARN) of the rule.
 	RuleArn *string `pulumi:"ruleArn"`
-	// One or more tags.
+	// The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -75,12 +76,12 @@ func (o LookupRuleResultOutput) ToLookupRuleResultOutputWithContext(ctx context.
 	return o
 }
 
-// The list of actions that will be executed when a rule is triggered.
+// A list of actions to be run when the rule is triggered.
 func (o LookupRuleResultOutput) Actions() RuleActionsPtrOutput {
 	return o.ApplyT(func(v LookupRuleResult) *RuleActions { return v.Actions }).(RuleActionsPtrOutput)
 }
 
-// The conditions of a rule.
+// The conditions of the rule.
 func (o LookupRuleResultOutput) Function() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRuleResult) *string { return v.Function }).(pulumi.StringPtrOutput)
 }
@@ -90,7 +91,9 @@ func (o LookupRuleResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRuleResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The publish status of a rule, either draft or published.
+// The publish status of the rule.
+//
+//	*Allowed values*: ``DRAFT`` | ``PUBLISHED``
 func (o LookupRuleResultOutput) PublishStatus() RulePublishStatusPtrOutput {
 	return o.ApplyT(func(v LookupRuleResult) *RulePublishStatus { return v.PublishStatus }).(RulePublishStatusPtrOutput)
 }
@@ -100,7 +103,7 @@ func (o LookupRuleResultOutput) RuleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRuleResult) *string { return v.RuleArn }).(pulumi.StringPtrOutput)
 }
 
-// One or more tags.
+// The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
 func (o LookupRuleResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupRuleResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

@@ -61,6 +61,8 @@ export class VpcEndpoint extends pulumi.CustomResource {
      * If you update the `PrivateDnsEnabled` or `SubnetIds` properties, the DNS entries in the list will change.
      */
     public /*out*/ readonly dnsEntries!: pulumi.Output<string[]>;
+    public readonly dnsOptions!: pulumi.Output<outputs.ec2.VpcEndpointDnsOptionsSpecification | undefined>;
+    public readonly ipAddressType!: pulumi.Output<enums.ec2.VpcEndpointIpAddressType | undefined>;
     /**
      * (Interface endpoints) The network interface IDs. If you update the `PrivateDnsEnabled` or `SubnetIds` properties, the items in this list might change.
      */
@@ -80,6 +82,7 @@ export class VpcEndpoint extends pulumi.CustomResource {
      *  Default: ``false``
      */
     public readonly privateDnsEnabled!: pulumi.Output<boolean | undefined>;
+    public readonly resourceConfigurationArn!: pulumi.Output<string | undefined>;
     /**
      * The IDs of the route tables. Routing is supported only for gateway endpoints.
      */
@@ -91,7 +94,8 @@ export class VpcEndpoint extends pulumi.CustomResource {
     /**
      * The name of the endpoint service.
      */
-    public readonly serviceName!: pulumi.Output<string>;
+    public readonly serviceName!: pulumi.Output<string | undefined>;
+    public readonly serviceNetworkArn!: pulumi.Output<string | undefined>;
     /**
      * The IDs of the subnets in which to create endpoint network interfaces. You must specify this property for an interface endpoint or a Gateway Load Balancer endpoint. You can't specify this property for a gateway endpoint. For a Gateway Load Balancer endpoint, you can specify only one subnet.
      */
@@ -117,17 +121,18 @@ export class VpcEndpoint extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.serviceName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'serviceName'");
-            }
             if ((!args || args.vpcId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
+            resourceInputs["dnsOptions"] = args ? args.dnsOptions : undefined;
+            resourceInputs["ipAddressType"] = args ? args.ipAddressType : undefined;
             resourceInputs["policyDocument"] = args ? args.policyDocument : undefined;
             resourceInputs["privateDnsEnabled"] = args ? args.privateDnsEnabled : undefined;
+            resourceInputs["resourceConfigurationArn"] = args ? args.resourceConfigurationArn : undefined;
             resourceInputs["routeTableIds"] = args ? args.routeTableIds : undefined;
             resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
             resourceInputs["serviceName"] = args ? args.serviceName : undefined;
+            resourceInputs["serviceNetworkArn"] = args ? args.serviceNetworkArn : undefined;
             resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
             resourceInputs["vpcEndpointType"] = args ? args.vpcEndpointType : undefined;
             resourceInputs["vpcId"] = args ? args.vpcId : undefined;
@@ -139,18 +144,22 @@ export class VpcEndpoint extends pulumi.CustomResource {
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["creationTimestamp"] = undefined /*out*/;
             resourceInputs["dnsEntries"] = undefined /*out*/;
+            resourceInputs["dnsOptions"] = undefined /*out*/;
+            resourceInputs["ipAddressType"] = undefined /*out*/;
             resourceInputs["networkInterfaceIds"] = undefined /*out*/;
             resourceInputs["policyDocument"] = undefined /*out*/;
             resourceInputs["privateDnsEnabled"] = undefined /*out*/;
+            resourceInputs["resourceConfigurationArn"] = undefined /*out*/;
             resourceInputs["routeTableIds"] = undefined /*out*/;
             resourceInputs["securityGroupIds"] = undefined /*out*/;
             resourceInputs["serviceName"] = undefined /*out*/;
+            resourceInputs["serviceNetworkArn"] = undefined /*out*/;
             resourceInputs["subnetIds"] = undefined /*out*/;
             resourceInputs["vpcEndpointType"] = undefined /*out*/;
             resourceInputs["vpcId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["serviceName", "vpcEndpointType", "vpcId"] };
+        const replaceOnChanges = { replaceOnChanges: ["resourceConfigurationArn", "serviceName", "serviceNetworkArn", "vpcEndpointType", "vpcId"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(VpcEndpoint.__pulumiType, name, resourceInputs, opts);
     }
@@ -160,6 +169,8 @@ export class VpcEndpoint extends pulumi.CustomResource {
  * The set of arguments for constructing a VpcEndpoint resource.
  */
 export interface VpcEndpointArgs {
+    dnsOptions?: pulumi.Input<inputs.ec2.VpcEndpointDnsOptionsSpecificationArgs>;
+    ipAddressType?: pulumi.Input<enums.ec2.VpcEndpointIpAddressType>;
     /**
      * An endpoint policy, which controls access to the service from the VPC. The default endpoint policy allows full access to the service. Endpoint policies are supported only for gateway and interface endpoints.
      *  For CloudFormation templates in YAML, you can provide the policy in JSON or YAML format. For example, if you have a JSON policy, you can convert it to YAML before including it in the YAML template, and CFNlong converts the policy to JSON format before calling the API actions for privatelink. Alternatively, you can include the JSON directly in the YAML, as shown in the following ``Properties`` section:
@@ -175,6 +186,7 @@ export interface VpcEndpointArgs {
      *  Default: ``false``
      */
     privateDnsEnabled?: pulumi.Input<boolean>;
+    resourceConfigurationArn?: pulumi.Input<string>;
     /**
      * The IDs of the route tables. Routing is supported only for gateway endpoints.
      */
@@ -186,7 +198,8 @@ export interface VpcEndpointArgs {
     /**
      * The name of the endpoint service.
      */
-    serviceName: pulumi.Input<string>;
+    serviceName?: pulumi.Input<string>;
+    serviceNetworkArn?: pulumi.Input<string>;
     /**
      * The IDs of the subnets in which to create endpoint network interfaces. You must specify this property for an interface endpoint or a Gateway Load Balancer endpoint. You can't specify this property for a gateway endpoint. For a Gateway Load Balancer endpoint, you can specify only one subnet.
      */

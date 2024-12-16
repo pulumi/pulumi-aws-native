@@ -29,7 +29,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         /// </summary>
         public readonly Outputs.MonitoringScheduleMonitoringAppSpecification MonitoringAppSpecification;
         /// <summary>
-        /// The array of inputs for the monitoring job. Currently we support monitoring an Amazon SageMaker Endpoint.
+        /// The array of inputs for the monitoring job. Currently we support monitoring an Amazon SageMaker AI Endpoint.
         /// </summary>
         public readonly ImmutableArray<Outputs.MonitoringScheduleMonitoringInput> MonitoringInputs;
         /// <summary>

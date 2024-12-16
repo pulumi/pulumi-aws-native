@@ -41,11 +41,17 @@ class GetResourceGatewayResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the resource gateway.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        The ID of the resource gateway.
+        """
         return pulumi.get(self, "id")
 
     @property
@@ -59,6 +65,9 @@ class GetResourceGatewayResult:
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        The tags for the resource gateway.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -78,6 +87,9 @@ def get_resource_gateway(arn: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResourceGatewayResult:
     """
     Creates a resource gateway for a service.
+
+
+    :param str arn: The Amazon Resource Name (ARN) of the resource gateway.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -93,6 +105,9 @@ def get_resource_gateway_output(arn: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourceGatewayResult]:
     """
     Creates a resource gateway for a service.
+
+
+    :param str arn: The Amazon Resource Name (ARN) of the resource gateway.
     """
     __args__ = dict()
     __args__['arn'] = arn

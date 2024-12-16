@@ -15,8 +15,11 @@ import (
 type TableBucket struct {
 	pulumi.CustomResourceState
 
-	TableBucketArn          pulumi.StringOutput                         `pulumi:"tableBucketArn"`
-	TableBucketName         pulumi.StringOutput                         `pulumi:"tableBucketName"`
+	// The Amazon Resource Name (ARN) of the table bucket.
+	TableBucketArn pulumi.StringOutput `pulumi:"tableBucketArn"`
+	// The name for the table bucket.
+	TableBucketName pulumi.StringOutput `pulumi:"tableBucketName"`
+	// The unreferenced file removal settings for your table bucket. Unreferenced file removal identifies and deletes all objects that are not referenced by any table snapshots. For more information, see the [*Amazon S3 User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-table-buckets-maintenance.html) .
 	UnreferencedFileRemoval TableBucketUnreferencedFileRemovalPtrOutput `pulumi:"unreferencedFileRemoval"`
 }
 
@@ -64,13 +67,17 @@ func (TableBucketState) ElementType() reflect.Type {
 }
 
 type tableBucketArgs struct {
-	TableBucketName         *string                             `pulumi:"tableBucketName"`
+	// The name for the table bucket.
+	TableBucketName *string `pulumi:"tableBucketName"`
+	// The unreferenced file removal settings for your table bucket. Unreferenced file removal identifies and deletes all objects that are not referenced by any table snapshots. For more information, see the [*Amazon S3 User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-table-buckets-maintenance.html) .
 	UnreferencedFileRemoval *TableBucketUnreferencedFileRemoval `pulumi:"unreferencedFileRemoval"`
 }
 
 // The set of arguments for constructing a TableBucket resource.
 type TableBucketArgs struct {
-	TableBucketName         pulumi.StringPtrInput
+	// The name for the table bucket.
+	TableBucketName pulumi.StringPtrInput
+	// The unreferenced file removal settings for your table bucket. Unreferenced file removal identifies and deletes all objects that are not referenced by any table snapshots. For more information, see the [*Amazon S3 User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-table-buckets-maintenance.html) .
 	UnreferencedFileRemoval TableBucketUnreferencedFileRemovalPtrInput
 }
 
@@ -111,14 +118,17 @@ func (o TableBucketOutput) ToTableBucketOutputWithContext(ctx context.Context) T
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the table bucket.
 func (o TableBucketOutput) TableBucketArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TableBucket) pulumi.StringOutput { return v.TableBucketArn }).(pulumi.StringOutput)
 }
 
+// The name for the table bucket.
 func (o TableBucketOutput) TableBucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v *TableBucket) pulumi.StringOutput { return v.TableBucketName }).(pulumi.StringOutput)
 }
 
+// The unreferenced file removal settings for your table bucket. Unreferenced file removal identifies and deletes all objects that are not referenced by any table snapshots. For more information, see the [*Amazon S3 User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-table-buckets-maintenance.html) .
 func (o TableBucketOutput) UnreferencedFileRemoval() TableBucketUnreferencedFileRemovalPtrOutput {
 	return o.ApplyT(func(v *TableBucket) TableBucketUnreferencedFileRemovalPtrOutput { return v.UnreferencedFileRemoval }).(TableBucketUnreferencedFileRemovalPtrOutput)
 }

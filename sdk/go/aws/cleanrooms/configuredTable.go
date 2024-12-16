@@ -36,7 +36,7 @@ type ConfiguredTable struct {
 	// A name for the configured table.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The table that this configured table represents.
-	TableReference ConfiguredTableTableReferenceOutput `pulumi:"tableReference"`
+	TableReference pulumi.AnyOutput `pulumi:"tableReference"`
 	// An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
@@ -107,7 +107,7 @@ type configuredTableArgs struct {
 	// A name for the configured table.
 	Name *string `pulumi:"name"`
 	// The table that this configured table represents.
-	TableReference ConfiguredTableTableReference `pulumi:"tableReference"`
+	TableReference interface{} `pulumi:"tableReference"`
 	// An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -125,7 +125,7 @@ type ConfiguredTableArgs struct {
 	// A name for the configured table.
 	Name pulumi.StringPtrInput
 	// The table that this configured table represents.
-	TableReference ConfiguredTableTableReferenceInput
+	TableReference pulumi.Input
 	// An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
 	Tags aws.TagArrayInput
 }
@@ -207,8 +207,8 @@ func (o ConfiguredTableOutput) Name() pulumi.StringOutput {
 }
 
 // The table that this configured table represents.
-func (o ConfiguredTableOutput) TableReference() ConfiguredTableTableReferenceOutput {
-	return o.ApplyT(func(v *ConfiguredTable) ConfiguredTableTableReferenceOutput { return v.TableReference }).(ConfiguredTableTableReferenceOutput)
+func (o ConfiguredTableOutput) TableReference() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ConfiguredTable) pulumi.AnyOutput { return v.TableReference }).(pulumi.AnyOutput)
 }
 
 // An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.

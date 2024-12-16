@@ -13,6 +13,8 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
+from ._enums import *
 
 __all__ = [
     'GetVpcEndpointResult',
@@ -23,16 +25,22 @@ __all__ = [
 
 @pulumi.output_type
 class GetVpcEndpointResult:
-    def __init__(__self__, creation_timestamp=None, dns_entries=None, id=None, network_interface_ids=None, policy_document=None, private_dns_enabled=None, route_table_ids=None, security_group_ids=None, subnet_ids=None):
+    def __init__(__self__, creation_timestamp=None, dns_entries=None, dns_options=None, id=None, ip_address_type=None, network_interface_ids=None, policy_document=None, private_dns_enabled=None, route_table_ids=None, security_group_ids=None, subnet_ids=None):
         if creation_timestamp and not isinstance(creation_timestamp, str):
             raise TypeError("Expected argument 'creation_timestamp' to be a str")
         pulumi.set(__self__, "creation_timestamp", creation_timestamp)
         if dns_entries and not isinstance(dns_entries, list):
             raise TypeError("Expected argument 'dns_entries' to be a list")
         pulumi.set(__self__, "dns_entries", dns_entries)
+        if dns_options and not isinstance(dns_options, dict):
+            raise TypeError("Expected argument 'dns_options' to be a dict")
+        pulumi.set(__self__, "dns_options", dns_options)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if ip_address_type and not isinstance(ip_address_type, str):
+            raise TypeError("Expected argument 'ip_address_type' to be a str")
+        pulumi.set(__self__, "ip_address_type", ip_address_type)
         if network_interface_ids and not isinstance(network_interface_ids, list):
             raise TypeError("Expected argument 'network_interface_ids' to be a list")
         pulumi.set(__self__, "network_interface_ids", network_interface_ids)
@@ -75,12 +83,22 @@ class GetVpcEndpointResult:
         return pulumi.get(self, "dns_entries")
 
     @property
+    @pulumi.getter(name="dnsOptions")
+    def dns_options(self) -> Optional['outputs.VpcEndpointDnsOptionsSpecification']:
+        return pulumi.get(self, "dns_options")
+
+    @property
     @pulumi.getter
     def id(self) -> Optional[str]:
         """
         The ID of the VPC endpoint.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="ipAddressType")
+    def ip_address_type(self) -> Optional['VpcEndpointIpAddressType']:
+        return pulumi.get(self, "ip_address_type")
 
     @property
     @pulumi.getter(name="networkInterfaceIds")
@@ -146,7 +164,9 @@ class AwaitableGetVpcEndpointResult(GetVpcEndpointResult):
         return GetVpcEndpointResult(
             creation_timestamp=self.creation_timestamp,
             dns_entries=self.dns_entries,
+            dns_options=self.dns_options,
             id=self.id,
+            ip_address_type=self.ip_address_type,
             network_interface_ids=self.network_interface_ids,
             policy_document=self.policy_document,
             private_dns_enabled=self.private_dns_enabled,
@@ -177,7 +197,9 @@ def get_vpc_endpoint(id: Optional[str] = None,
     return AwaitableGetVpcEndpointResult(
         creation_timestamp=pulumi.get(__ret__, 'creation_timestamp'),
         dns_entries=pulumi.get(__ret__, 'dns_entries'),
+        dns_options=pulumi.get(__ret__, 'dns_options'),
         id=pulumi.get(__ret__, 'id'),
+        ip_address_type=pulumi.get(__ret__, 'ip_address_type'),
         network_interface_ids=pulumi.get(__ret__, 'network_interface_ids'),
         policy_document=pulumi.get(__ret__, 'policy_document'),
         private_dns_enabled=pulumi.get(__ret__, 'private_dns_enabled'),
@@ -205,7 +227,9 @@ def get_vpc_endpoint_output(id: Optional[pulumi.Input[str]] = None,
     return __ret__.apply(lambda __response__: GetVpcEndpointResult(
         creation_timestamp=pulumi.get(__response__, 'creation_timestamp'),
         dns_entries=pulumi.get(__response__, 'dns_entries'),
+        dns_options=pulumi.get(__response__, 'dns_options'),
         id=pulumi.get(__response__, 'id'),
+        ip_address_type=pulumi.get(__response__, 'ip_address_type'),
         network_interface_ids=pulumi.get(__response__, 'network_interface_ids'),
         policy_document=pulumi.get(__response__, 'policy_document'),
         private_dns_enabled=pulumi.get(__response__, 'private_dns_enabled'),

@@ -10,14 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Connect.Inputs
 {
 
-    /// <summary>
-    /// The field of the case.
-    /// </summary>
     public sealed class RuleFieldArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Id of the field
-        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 

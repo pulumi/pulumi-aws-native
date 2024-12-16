@@ -37,6 +37,7 @@ class ApplicationArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  network_configuration: Optional[pulumi.Input['ApplicationNetworkConfigurationArgs']] = None,
                  runtime_configuration: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationConfigurationObjectArgs']]]] = None,
+                 scheduler_configuration: Optional[pulumi.Input['ApplicationSchedulerConfigurationArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  worker_type_specifications: Optional[pulumi.Input[Mapping[str, pulumi.Input['ApplicationWorkerTypeSpecificationInputArgs']]]] = None):
         """
@@ -54,6 +55,7 @@ class ApplicationArgs:
         :param pulumi.Input[str] name: User friendly Application name.
         :param pulumi.Input['ApplicationNetworkConfigurationArgs'] network_configuration: Network Configuration for customer VPC connectivity.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationConfigurationObjectArgs']]] runtime_configuration: The [Configuration](https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_Configuration.html) specifications of an application. Each configuration consists of a classification and properties. You use this parameter when creating or updating an application. To see the runtimeConfiguration object of an application, run the [GetApplication](https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_GetApplication.html) API operation.
+        :param pulumi.Input['ApplicationSchedulerConfigurationArgs'] scheduler_configuration: The scheduler configuration for batch and streaming jobs running on this application. Supported with release labels emr-7.0.0 and above.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Tag map with key and value
         :param pulumi.Input[Mapping[str, pulumi.Input['ApplicationWorkerTypeSpecificationInputArgs']]] worker_type_specifications: The key-value pairs that specify worker type to WorkerTypeSpecificationInput. This parameter must contain all valid worker types for a Spark or Hive application. Valid worker types include Driver and Executor for Spark applications and HiveDriver and TezTask for Hive applications. You can either set image details in this parameter for each worker type, or in imageConfiguration for all worker types.
         """
@@ -81,6 +83,8 @@ class ApplicationArgs:
             pulumi.set(__self__, "network_configuration", network_configuration)
         if runtime_configuration is not None:
             pulumi.set(__self__, "runtime_configuration", runtime_configuration)
+        if scheduler_configuration is not None:
+            pulumi.set(__self__, "scheduler_configuration", scheduler_configuration)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if worker_type_specifications is not None:
@@ -243,6 +247,18 @@ class ApplicationArgs:
         pulumi.set(self, "runtime_configuration", value)
 
     @property
+    @pulumi.getter(name="schedulerConfiguration")
+    def scheduler_configuration(self) -> Optional[pulumi.Input['ApplicationSchedulerConfigurationArgs']]:
+        """
+        The scheduler configuration for batch and streaming jobs running on this application. Supported with release labels emr-7.0.0 and above.
+        """
+        return pulumi.get(self, "scheduler_configuration")
+
+    @scheduler_configuration.setter
+    def scheduler_configuration(self, value: Optional[pulumi.Input['ApplicationSchedulerConfigurationArgs']]):
+        pulumi.set(self, "scheduler_configuration", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
@@ -284,6 +300,7 @@ class Application(pulumi.CustomResource):
                  network_configuration: Optional[pulumi.Input[Union['ApplicationNetworkConfigurationArgs', 'ApplicationNetworkConfigurationArgsDict']]] = None,
                  release_label: Optional[pulumi.Input[str]] = None,
                  runtime_configuration: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationConfigurationObjectArgs', 'ApplicationConfigurationObjectArgsDict']]]]] = None,
+                 scheduler_configuration: Optional[pulumi.Input[Union['ApplicationSchedulerConfigurationArgs', 'ApplicationSchedulerConfigurationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  worker_type_specifications: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['ApplicationWorkerTypeSpecificationInputArgs', 'ApplicationWorkerTypeSpecificationInputArgsDict']]]]] = None,
@@ -305,6 +322,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[Union['ApplicationNetworkConfigurationArgs', 'ApplicationNetworkConfigurationArgsDict']] network_configuration: Network Configuration for customer VPC connectivity.
         :param pulumi.Input[str] release_label: EMR release label.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationConfigurationObjectArgs', 'ApplicationConfigurationObjectArgsDict']]]] runtime_configuration: The [Configuration](https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_Configuration.html) specifications of an application. Each configuration consists of a classification and properties. You use this parameter when creating or updating an application. To see the runtimeConfiguration object of an application, run the [GetApplication](https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_GetApplication.html) API operation.
+        :param pulumi.Input[Union['ApplicationSchedulerConfigurationArgs', 'ApplicationSchedulerConfigurationArgsDict']] scheduler_configuration: The scheduler configuration for batch and streaming jobs running on this application. Supported with release labels emr-7.0.0 and above.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tag map with key and value
         :param pulumi.Input[str] type: The type of the application
         :param pulumi.Input[Mapping[str, pulumi.Input[Union['ApplicationWorkerTypeSpecificationInputArgs', 'ApplicationWorkerTypeSpecificationInputArgsDict']]]] worker_type_specifications: The key-value pairs that specify worker type to WorkerTypeSpecificationInput. This parameter must contain all valid worker types for a Spark or Hive application. Valid worker types include Driver and Executor for Spark applications and HiveDriver and TezTask for Hive applications. You can either set image details in this parameter for each worker type, or in imageConfiguration for all worker types.
@@ -345,6 +363,7 @@ class Application(pulumi.CustomResource):
                  network_configuration: Optional[pulumi.Input[Union['ApplicationNetworkConfigurationArgs', 'ApplicationNetworkConfigurationArgsDict']]] = None,
                  release_label: Optional[pulumi.Input[str]] = None,
                  runtime_configuration: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ApplicationConfigurationObjectArgs', 'ApplicationConfigurationObjectArgsDict']]]]] = None,
+                 scheduler_configuration: Optional[pulumi.Input[Union['ApplicationSchedulerConfigurationArgs', 'ApplicationSchedulerConfigurationArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  worker_type_specifications: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['ApplicationWorkerTypeSpecificationInputArgs', 'ApplicationWorkerTypeSpecificationInputArgsDict']]]]] = None,
@@ -371,6 +390,7 @@ class Application(pulumi.CustomResource):
                 raise TypeError("Missing required property 'release_label'")
             __props__.__dict__["release_label"] = release_label
             __props__.__dict__["runtime_configuration"] = runtime_configuration
+            __props__.__dict__["scheduler_configuration"] = scheduler_configuration
             __props__.__dict__["tags"] = tags
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
@@ -416,6 +436,7 @@ class Application(pulumi.CustomResource):
         __props__.__dict__["network_configuration"] = None
         __props__.__dict__["release_label"] = None
         __props__.__dict__["runtime_configuration"] = None
+        __props__.__dict__["scheduler_configuration"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["worker_type_specifications"] = None
@@ -532,6 +553,14 @@ class Application(pulumi.CustomResource):
         The [Configuration](https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_Configuration.html) specifications of an application. Each configuration consists of a classification and properties. You use this parameter when creating or updating an application. To see the runtimeConfiguration object of an application, run the [GetApplication](https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_GetApplication.html) API operation.
         """
         return pulumi.get(self, "runtime_configuration")
+
+    @property
+    @pulumi.getter(name="schedulerConfiguration")
+    def scheduler_configuration(self) -> pulumi.Output[Optional['outputs.ApplicationSchedulerConfiguration']]:
+        """
+        The scheduler configuration for batch and streaming jobs running on this application. Supported with release labels emr-7.0.0 and above.
+        """
+        return pulumi.get(self, "scheduler_configuration")
 
     @property
     @pulumi.getter

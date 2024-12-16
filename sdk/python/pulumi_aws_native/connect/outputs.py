@@ -45,6 +45,7 @@ __all__ = [
     'InstanceStorageConfigKinesisVideoStreamConfig',
     'InstanceStorageConfigS3Config',
     'QueueOutboundCallerConfig',
+    'QueueOutboundEmailConfig',
     'QuickConnectConfig',
     'QuickConnectPhoneNumberQuickConnectConfig',
     'QuickConnectQueueQuickConnectConfig',
@@ -1169,6 +1170,9 @@ class HoursOfOperationOverride(dict):
                  override_description: Optional[str] = None):
         """
         Overrides attached to the hours of operation.
+        :param str effective_from: The date from which the hours of operation override would be effective.
+        :param str effective_till: The date till which the hours of operation override would be effective.
+        :param str hours_of_operation_override_id: The identifier for the hours of operation override.
         """
         pulumi.set(__self__, "effective_from", effective_from)
         pulumi.set(__self__, "effective_till", effective_till)
@@ -1182,11 +1186,17 @@ class HoursOfOperationOverride(dict):
     @property
     @pulumi.getter(name="effectiveFrom")
     def effective_from(self) -> str:
+        """
+        The date from which the hours of operation override would be effective.
+        """
         return pulumi.get(self, "effective_from")
 
     @property
     @pulumi.getter(name="effectiveTill")
     def effective_till(self) -> str:
+        """
+        The date till which the hours of operation override would be effective.
+        """
         return pulumi.get(self, "effective_till")
 
     @property
@@ -1202,6 +1212,9 @@ class HoursOfOperationOverride(dict):
     @property
     @pulumi.getter(name="hoursOfOperationOverrideId")
     def hours_of_operation_override_id(self) -> Optional[str]:
+        """
+        The identifier for the hours of operation override.
+        """
         return pulumi.get(self, "hours_of_operation_override_id")
 
     @property
@@ -1751,6 +1764,46 @@ class QueueOutboundCallerConfig(dict):
 
 
 @pulumi.output_type
+class QueueOutboundEmailConfig(dict):
+    """
+    The outbound email address ID.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "outboundEmailAddressId":
+            suggest = "outbound_email_address_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in QueueOutboundEmailConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        QueueOutboundEmailConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        QueueOutboundEmailConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 outbound_email_address_id: Optional[str] = None):
+        """
+        The outbound email address ID.
+        :param str outbound_email_address_id: The identifier of the email address.
+        """
+        if outbound_email_address_id is not None:
+            pulumi.set(__self__, "outbound_email_address_id", outbound_email_address_id)
+
+    @property
+    @pulumi.getter(name="outboundEmailAddressId")
+    def outbound_email_address_id(self) -> Optional[str]:
+        """
+        The identifier of the email address.
+        """
+        return pulumi.get(self, "outbound_email_address_id")
+
+
+@pulumi.output_type
 class QuickConnectConfig(dict):
     """
     Configuration settings for the quick connect.
@@ -2201,7 +2254,7 @@ class RoutingProfileQueueReference(dict):
 @pulumi.output_type
 class RuleActions(dict):
     """
-    The list of actions that will be executed when a rule is triggered.
+    A list of actions to be run when the rule is triggered.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -2244,11 +2297,11 @@ class RuleActions(dict):
                  task_actions: Optional[Sequence['outputs.RuleTaskAction']] = None,
                  update_case_actions: Optional[Sequence['outputs.RuleUpdateCaseAction']] = None):
         """
-        The list of actions that will be executed when a rule is triggered.
-        :param Sequence['RuleAssignContactCategoryAction'] assign_contact_category_actions: Information about the contact category action. The syntax can be empty, for example, `{}` .
-        :param Sequence['RuleEventBridgeAction'] event_bridge_actions: Information about the EventBridge action.
+        A list of actions to be run when the rule is triggered.
+        :param Sequence['RuleAssignContactCategoryAction'] assign_contact_category_actions: Information about the contact category action. The syntax can be empty, for example, ``{}``.
+        :param Sequence['RuleEventBridgeAction'] event_bridge_actions: Information about the EV action.
         :param Sequence['RuleSendNotificationAction'] send_notification_actions: Information about the send notification action.
-        :param Sequence['RuleTaskAction'] task_actions: Information about the task action. This field is required if `TriggerEventSource` is one of the following values: `OnZendeskTicketCreate` | `OnZendeskTicketStatusUpdate` | `OnSalesforceCaseCreate`
+        :param Sequence['RuleTaskAction'] task_actions: Information about the task action. This field is required if ``TriggerEventSource`` is one of the following values: ``OnZendeskTicketCreate`` | ``OnZendeskTicketStatusUpdate`` | ``OnSalesforceCaseCreate``
         """
         if assign_contact_category_actions is not None:
             pulumi.set(__self__, "assign_contact_category_actions", assign_contact_category_actions)
@@ -2271,7 +2324,7 @@ class RuleActions(dict):
     @pulumi.getter(name="assignContactCategoryActions")
     def assign_contact_category_actions(self) -> Optional[Sequence['outputs.RuleAssignContactCategoryAction']]:
         """
-        Information about the contact category action. The syntax can be empty, for example, `{}` .
+        Information about the contact category action. The syntax can be empty, for example, ``{}``.
         """
         return pulumi.get(self, "assign_contact_category_actions")
 
@@ -2289,7 +2342,7 @@ class RuleActions(dict):
     @pulumi.getter(name="eventBridgeActions")
     def event_bridge_actions(self) -> Optional[Sequence['outputs.RuleEventBridgeAction']]:
         """
-        Information about the EventBridge action.
+        Information about the EV action.
         """
         return pulumi.get(self, "event_bridge_actions")
 
@@ -2310,7 +2363,7 @@ class RuleActions(dict):
     @pulumi.getter(name="taskActions")
     def task_actions(self) -> Optional[Sequence['outputs.RuleTaskAction']]:
         """
-        Information about the task action. This field is required if `TriggerEventSource` is one of the following values: `OnZendeskTicketCreate` | `OnZendeskTicketStatusUpdate` | `OnSalesforceCaseCreate`
+        Information about the task action. This field is required if ``TriggerEventSource`` is one of the following values: ``OnZendeskTicketCreate`` | ``OnZendeskTicketStatusUpdate`` | ``OnSalesforceCaseCreate``
         """
         return pulumi.get(self, "task_actions")
 
@@ -2334,9 +2387,6 @@ class RuleAssignContactCategoryAction(dict):
 
 @pulumi.output_type
 class RuleCreateCaseAction(dict):
-    """
-    The definition for create case action.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2357,10 +2407,6 @@ class RuleCreateCaseAction(dict):
     def __init__(__self__, *,
                  fields: Sequence['outputs.RuleField'],
                  template_id: str):
-        """
-        The definition for create case action.
-        :param str template_id: The Id of template.
-        """
         pulumi.set(__self__, "fields", fields)
         pulumi.set(__self__, "template_id", template_id)
 
@@ -2372,9 +2418,6 @@ class RuleCreateCaseAction(dict):
     @property
     @pulumi.getter(name="templateId")
     def template_id(self) -> str:
-        """
-        The Id of template.
-        """
         return pulumi.get(self, "template_id")
 
 
@@ -2393,13 +2436,13 @@ class RuleEndAssociatedTasksAction(dict):
 @pulumi.output_type
 class RuleEventBridgeAction(dict):
     """
-    The definition for event bridge action.
+    The EV action definition.
     """
     def __init__(__self__, *,
                  name: str):
         """
-        The definition for event bridge action.
-        :param str name: The name of the event bridge action.
+        The EV action definition.
+        :param str name: The name.
         """
         pulumi.set(__self__, "name", name)
 
@@ -2407,32 +2450,22 @@ class RuleEventBridgeAction(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the event bridge action.
+        The name.
         """
         return pulumi.get(self, "name")
 
 
 @pulumi.output_type
 class RuleField(dict):
-    """
-    The field of the case.
-    """
     def __init__(__self__, *,
                  id: str,
                  value: 'outputs.RuleFieldValue'):
-        """
-        The field of the case.
-        :param str id: The Id of the field
-        """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def id(self) -> str:
-        """
-        The Id of the field
-        """
         return pulumi.get(self, "id")
 
     @property
@@ -2444,7 +2477,7 @@ class RuleField(dict):
 @pulumi.output_type
 class RuleFieldValue(dict):
     """
-    The value of the field.
+    Object for case field values.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -2475,7 +2508,7 @@ class RuleFieldValue(dict):
                  empty_value: Optional[Any] = None,
                  string_value: Optional[str] = None):
         """
-        The value of the field.
+        Object for case field values.
         """
         if boolean_value is not None:
             pulumi.set(__self__, "boolean_value", boolean_value)
@@ -2536,8 +2569,8 @@ class RuleNotificationRecipientType(dict):
                  user_tags: Optional[Mapping[str, str]] = None):
         """
         The type of notification recipient.
-        :param Sequence[str] user_arns: The list of recipients by user arns.
-        :param Mapping[str, str] user_tags: The collection of recipients who are identified by user tags
+        :param Sequence[str] user_arns: The Amazon Resource Name (ARN) of the user account.
+        :param Mapping[str, str] user_tags: The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }. CON users with the specified tags will be notified.
         """
         if user_arns is not None:
             pulumi.set(__self__, "user_arns", user_arns)
@@ -2548,7 +2581,7 @@ class RuleNotificationRecipientType(dict):
     @pulumi.getter(name="userArns")
     def user_arns(self) -> Optional[Sequence[str]]:
         """
-        The list of recipients by user arns.
+        The Amazon Resource Name (ARN) of the user account.
         """
         return pulumi.get(self, "user_arns")
 
@@ -2556,7 +2589,7 @@ class RuleNotificationRecipientType(dict):
     @pulumi.getter(name="userTags")
     def user_tags(self) -> Optional[Mapping[str, str]]:
         """
-        The collection of recipients who are identified by user tags
+        The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }. CON users with the specified tags will be notified.
         """
         return pulumi.get(self, "user_tags")
 
@@ -2564,13 +2597,16 @@ class RuleNotificationRecipientType(dict):
 @pulumi.output_type
 class RuleReference(dict):
     """
-    A contact reference.
+    Information about the reference when the ``referenceType`` is ``URL``. Otherwise, null. (Supports variable injection in the ``Value`` field.)
     """
     def __init__(__self__, *,
                  type: 'RuleReferenceType',
                  value: str):
         """
-        A contact reference.
+        Information about the reference when the ``referenceType`` is ``URL``. Otherwise, null. (Supports variable injection in the ``Value`` field.)
+        :param 'RuleReferenceType' type: The type of the reference. ``DATE`` must be of type Epoch timestamp. 
+                 *Allowed values*: ``URL`` | ``ATTACHMENT`` | ``NUMBER`` | ``STRING`` | ``DATE`` | ``EMAIL``
+        :param str value: A valid value for the reference. For example, for a URL reference, a formatted URL that is displayed to an agent in the Contact Control Panel (CCP).
         """
         pulumi.set(__self__, "type", type)
         pulumi.set(__self__, "value", value)
@@ -2578,18 +2614,25 @@ class RuleReference(dict):
     @property
     @pulumi.getter
     def type(self) -> 'RuleReferenceType':
+        """
+        The type of the reference. ``DATE`` must be of type Epoch timestamp. 
+          *Allowed values*: ``URL`` | ``ATTACHMENT`` | ``NUMBER`` | ``STRING`` | ``DATE`` | ``EMAIL``
+        """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter
     def value(self) -> str:
+        """
+        A valid value for the reference. For example, for a URL reference, a formatted URL that is displayed to an agent in the Contact Control Panel (CCP).
+        """
         return pulumi.get(self, "value")
 
 
 @pulumi.output_type
 class RuleSendNotificationAction(dict):
     """
-    The definition for sending notification action.
+    Information about the send notification action.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -2617,11 +2660,14 @@ class RuleSendNotificationAction(dict):
                  recipient: 'outputs.RuleNotificationRecipientType',
                  subject: Optional[str] = None):
         """
-        The definition for sending notification action.
-        :param str content: The content of notification.
-        :param 'RuleSendNotificationActionContentType' content_type: The type of content.
-        :param 'RuleSendNotificationActionDeliveryMethod' delivery_method: The means of delivery.
-        :param str subject: The subject of notification.
+        Information about the send notification action.
+        :param str content: Notification content. Supports variable injection. For more information, see [JSONPath reference](https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-variable-injection.html) in the *Administrators Guide*.
+        :param 'RuleSendNotificationActionContentType' content_type: Content type format.
+                 *Allowed value*: ``PLAIN_TEXT``
+        :param 'RuleSendNotificationActionDeliveryMethod' delivery_method: Notification delivery method.
+                 *Allowed value*: ``EMAIL``
+        :param 'RuleNotificationRecipientType' recipient: Notification recipient.
+        :param str subject: The subject of the email if the delivery method is ``EMAIL``. Supports variable injection. For more information, see [JSONPath reference](https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-variable-injection.html) in the *Administrators Guide*.
         """
         pulumi.set(__self__, "content", content)
         pulumi.set(__self__, "content_type", content_type)
@@ -2634,7 +2680,7 @@ class RuleSendNotificationAction(dict):
     @pulumi.getter
     def content(self) -> str:
         """
-        The content of notification.
+        Notification content. Supports variable injection. For more information, see [JSONPath reference](https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-variable-injection.html) in the *Administrators Guide*.
         """
         return pulumi.get(self, "content")
 
@@ -2642,7 +2688,8 @@ class RuleSendNotificationAction(dict):
     @pulumi.getter(name="contentType")
     def content_type(self) -> 'RuleSendNotificationActionContentType':
         """
-        The type of content.
+        Content type format.
+          *Allowed value*: ``PLAIN_TEXT``
         """
         return pulumi.get(self, "content_type")
 
@@ -2650,29 +2697,30 @@ class RuleSendNotificationAction(dict):
     @pulumi.getter(name="deliveryMethod")
     def delivery_method(self) -> 'RuleSendNotificationActionDeliveryMethod':
         """
-        The means of delivery.
+        Notification delivery method.
+          *Allowed value*: ``EMAIL``
         """
         return pulumi.get(self, "delivery_method")
 
     @property
     @pulumi.getter
     def recipient(self) -> 'outputs.RuleNotificationRecipientType':
+        """
+        Notification recipient.
+        """
         return pulumi.get(self, "recipient")
 
     @property
     @pulumi.getter
     def subject(self) -> Optional[str]:
         """
-        The subject of notification.
+        The subject of the email if the delivery method is ``EMAIL``. Supports variable injection. For more information, see [JSONPath reference](https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-variable-injection.html) in the *Administrators Guide*.
         """
         return pulumi.get(self, "subject")
 
 
 @pulumi.output_type
 class RuleSubmitAutoEvaluationAction(dict):
-    """
-    The definition of submit auto evaluation action.
-    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -2692,25 +2740,18 @@ class RuleSubmitAutoEvaluationAction(dict):
 
     def __init__(__self__, *,
                  evaluation_form_arn: str):
-        """
-        The definition of submit auto evaluation action.
-        :param str evaluation_form_arn: The Amazon Resource Name (ARN) of the evaluation form.
-        """
         pulumi.set(__self__, "evaluation_form_arn", evaluation_form_arn)
 
     @property
     @pulumi.getter(name="evaluationFormArn")
     def evaluation_form_arn(self) -> str:
-        """
-        The Amazon Resource Name (ARN) of the evaluation form.
-        """
         return pulumi.get(self, "evaluation_form_arn")
 
 
 @pulumi.output_type
 class RuleTaskAction(dict):
     """
-    The definition of task action.
+    Information about the task action. This field is required if ``TriggerEventSource`` is one of the following values: ``OnZendeskTicketCreate`` | ``OnZendeskTicketStatusUpdate`` | ``OnSalesforceCaseCreate``
     """
     @staticmethod
     def __key_warning(key: str):
@@ -2735,11 +2776,11 @@ class RuleTaskAction(dict):
                  description: Optional[str] = None,
                  references: Optional[Mapping[str, 'outputs.RuleReference']] = None):
         """
-        The definition of task action.
-        :param str contact_flow_arn: The Amazon Resource Name (ARN) of the contact flow.
-        :param str name: The name which appears in the agent's Contact Control Panel (CCP).
-        :param str description: The description which appears in the agent's Contact Control Panel (CCP).
-        :param Mapping[str, 'RuleReference'] references: A formatted URL that is shown to an agent in the Contact Control Panel (CCP).
+        Information about the task action. This field is required if ``TriggerEventSource`` is one of the following values: ``OnZendeskTicketCreate`` | ``OnZendeskTicketStatusUpdate`` | ``OnSalesforceCaseCreate``
+        :param str contact_flow_arn: The Amazon Resource Name (ARN) of the flow.
+        :param str name: The name. Supports variable injection. For more information, see [JSONPath reference](https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-variable-injection.html) in the *Administrators Guide*.
+        :param str description: The description. Supports variable injection. For more information, see [JSONPath reference](https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-variable-injection.html) in the *Administrators Guide*.
+        :param Mapping[str, 'RuleReference'] references: Information about the reference when the ``referenceType`` is ``URL``. Otherwise, null. ``URL`` is the only accepted type. (Supports variable injection in the ``Value`` field.)
         """
         pulumi.set(__self__, "contact_flow_arn", contact_flow_arn)
         pulumi.set(__self__, "name", name)
@@ -2752,7 +2793,7 @@ class RuleTaskAction(dict):
     @pulumi.getter(name="contactFlowArn")
     def contact_flow_arn(self) -> str:
         """
-        The Amazon Resource Name (ARN) of the contact flow.
+        The Amazon Resource Name (ARN) of the flow.
         """
         return pulumi.get(self, "contact_flow_arn")
 
@@ -2760,7 +2801,7 @@ class RuleTaskAction(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name which appears in the agent's Contact Control Panel (CCP).
+        The name. Supports variable injection. For more information, see [JSONPath reference](https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-variable-injection.html) in the *Administrators Guide*.
         """
         return pulumi.get(self, "name")
 
@@ -2768,7 +2809,7 @@ class RuleTaskAction(dict):
     @pulumi.getter
     def description(self) -> Optional[str]:
         """
-        The description which appears in the agent's Contact Control Panel (CCP).
+        The description. Supports variable injection. For more information, see [JSONPath reference](https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-variable-injection.html) in the *Administrators Guide*.
         """
         return pulumi.get(self, "description")
 
@@ -2776,7 +2817,7 @@ class RuleTaskAction(dict):
     @pulumi.getter
     def references(self) -> Optional[Mapping[str, 'outputs.RuleReference']]:
         """
-        A formatted URL that is shown to an agent in the Contact Control Panel (CCP).
+        Information about the reference when the ``referenceType`` is ``URL``. Otherwise, null. ``URL`` is the only accepted type. (Supports variable injection in the ``Value`` field.)
         """
         return pulumi.get(self, "references")
 
@@ -2784,7 +2825,7 @@ class RuleTaskAction(dict):
 @pulumi.output_type
 class RuleTriggerEventSource(dict):
     """
-    The event source that will trigger the rule.
+    The name of the event source.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -2809,9 +2850,9 @@ class RuleTriggerEventSource(dict):
                  event_source_name: 'RuleTriggerEventSourceEventSourceName',
                  integration_association_arn: Optional[str] = None):
         """
-        The event source that will trigger the rule.
-        :param 'RuleTriggerEventSourceEventSourceName' event_source_name: The name of event source.
-        :param str integration_association_arn: The Amazon Resource Name (ARN) for the AppIntegration association.
+        The name of the event source.
+        :param 'RuleTriggerEventSourceEventSourceName' event_source_name: The name of the event source.
+        :param str integration_association_arn: The Amazon Resource Name (ARN) of the integration association. ``IntegrationAssociationArn`` is required if ``TriggerEventSource`` is one of the following values: ``OnZendeskTicketCreate`` | ``OnZendeskTicketStatusUpdate`` | ``OnSalesforceCaseCreate``
         """
         pulumi.set(__self__, "event_source_name", event_source_name)
         if integration_association_arn is not None:
@@ -2821,7 +2862,7 @@ class RuleTriggerEventSource(dict):
     @pulumi.getter(name="eventSourceName")
     def event_source_name(self) -> 'RuleTriggerEventSourceEventSourceName':
         """
-        The name of event source.
+        The name of the event source.
         """
         return pulumi.get(self, "event_source_name")
 
@@ -2829,21 +2870,15 @@ class RuleTriggerEventSource(dict):
     @pulumi.getter(name="integrationAssociationArn")
     def integration_association_arn(self) -> Optional[str]:
         """
-        The Amazon Resource Name (ARN) for the AppIntegration association.
+        The Amazon Resource Name (ARN) of the integration association. ``IntegrationAssociationArn`` is required if ``TriggerEventSource`` is one of the following values: ``OnZendeskTicketCreate`` | ``OnZendeskTicketStatusUpdate`` | ``OnSalesforceCaseCreate``
         """
         return pulumi.get(self, "integration_association_arn")
 
 
 @pulumi.output_type
 class RuleUpdateCaseAction(dict):
-    """
-    The definition for update case action.
-    """
     def __init__(__self__, *,
                  fields: Sequence['outputs.RuleField']):
-        """
-        The definition for update case action.
-        """
         pulumi.set(__self__, "fields", fields)
 
     @property
@@ -3583,8 +3618,8 @@ class UserIdentityInfo(dict):
         """
         Contains information about the identity of a user.
         :param str email: The email address. If you are using SAML for identity management and include this parameter, an error is returned.
-        :param str first_name: The first name. This is required if you are using Amazon Connect or SAML for identity management.
-        :param str last_name: The last name. This is required if you are using Amazon Connect or SAML for identity management.
+        :param str first_name: The first name. This is required if you are using Amazon Connect or SAML for identity management. Inputs must be in Unicode Normalization Form C (NFC). Text containing characters in a non-NFC form (for example, decomposed characters or combining marks) are not accepted.
+        :param str last_name: The last name. This is required if you are using Amazon Connect or SAML for identity management. Inputs must be in Unicode Normalization Form C (NFC). Text containing characters in a non-NFC form (for example, decomposed characters or combining marks) are not accepted.
         :param str mobile: The user's mobile number.
         :param str secondary_email: The user's secondary email address. If you provide a secondary email, the user receives email notifications -- other than password reset notifications -- to this email address instead of to their primary email address.
                
@@ -3613,7 +3648,7 @@ class UserIdentityInfo(dict):
     @pulumi.getter(name="firstName")
     def first_name(self) -> Optional[str]:
         """
-        The first name. This is required if you are using Amazon Connect or SAML for identity management.
+        The first name. This is required if you are using Amazon Connect or SAML for identity management. Inputs must be in Unicode Normalization Form C (NFC). Text containing characters in a non-NFC form (for example, decomposed characters or combining marks) are not accepted.
         """
         return pulumi.get(self, "first_name")
 
@@ -3621,7 +3656,7 @@ class UserIdentityInfo(dict):
     @pulumi.getter(name="lastName")
     def last_name(self) -> Optional[str]:
         """
-        The last name. This is required if you are using Amazon Connect or SAML for identity management.
+        The last name. This is required if you are using Amazon Connect or SAML for identity management. Inputs must be in Unicode Normalization Form C (NFC). Text containing characters in a non-NFC form (for example, decomposed characters or combining marks) are not accepted.
         """
         return pulumi.get(self, "last_name")
 

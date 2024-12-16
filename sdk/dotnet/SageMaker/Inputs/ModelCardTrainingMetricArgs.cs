@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     public sealed class ModelCardTrainingMetricArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the result from the SageMaker training job.
+        /// The name of the result from the SageMaker AI training job.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public Input<string>? Notes { get; set; }
 
         /// <summary>
-        /// The value of a result from the SageMaker training job.
+        /// The value of a result from the SageMaker AI training job.
         /// </summary>
         [Input("value", required: true)]
         public Input<double> Value { get; set; } = null!;

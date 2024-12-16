@@ -86,6 +86,7 @@ namespace Pulumi.AwsNative.Logs
         /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::LogGroup` for more information about the expected schema for this property.
         /// </summary>
         public readonly object? DataProtectionPolicy;
+        public readonly ImmutableArray<object> FieldIndexPolicies;
         /// <summary>
         /// The Amazon Resource Name (ARN) of the KMS key to use when encrypting log data.
         ///  To associate an KMS key with the log group, specify the ARN of that KMS key here. If you do so, ingested data is encrypted using this key. This association is stored as long as the data encrypted with the KMS key is still within CWL. This enables CWL to decrypt this data whenever it is requested.
@@ -118,6 +119,8 @@ namespace Pulumi.AwsNative.Logs
 
             object? dataProtectionPolicy,
 
+            ImmutableArray<object> fieldIndexPolicies,
+
             string? kmsKeyId,
 
             Pulumi.AwsNative.Logs.LogGroupClass? logGroupClass,
@@ -128,6 +131,7 @@ namespace Pulumi.AwsNative.Logs
         {
             Arn = arn;
             DataProtectionPolicy = dataProtectionPolicy;
+            FieldIndexPolicies = fieldIndexPolicies;
             KmsKeyId = kmsKeyId;
             LogGroupClass = logGroupClass;
             RetentionInDays = retentionInDays;

@@ -146,6 +146,9 @@ class GetDataSourceResult:
     @property
     @pulumi.getter(name="mediaExtractionConfiguration")
     def media_extraction_configuration(self) -> Optional['outputs.DataSourceMediaExtractionConfiguration']:
+        """
+        The configuration for extracting information from media in documents.
+        """
         return pulumi.get(self, "media_extraction_configuration")
 
     @property

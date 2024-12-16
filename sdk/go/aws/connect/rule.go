@@ -13,25 +13,26 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource Type definition for AWS:Connect::Rule
+// Creates a rule for the specified CON instance.
 type Rule struct {
 	pulumi.CustomResourceState
 
-	// The list of actions that will be executed when a rule is triggered.
+	// A list of actions to be run when the rule is triggered.
 	Actions RuleActionsOutput `pulumi:"actions"`
-	// The conditions of a rule.
+	// The conditions of the rule.
 	Function pulumi.StringOutput `pulumi:"function"`
 	// The Amazon Resource Name (ARN) of the instance.
 	InstanceArn pulumi.StringOutput `pulumi:"instanceArn"`
 	// The name of the rule.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The publish status of a rule, either draft or published.
+	// The publish status of the rule.
+	//   *Allowed values*: ``DRAFT`` | ``PUBLISHED``
 	PublishStatus RulePublishStatusOutput `pulumi:"publishStatus"`
 	// The Amazon Resource Name (ARN) of the rule.
 	RuleArn pulumi.StringOutput `pulumi:"ruleArn"`
-	// One or more tags.
+	// The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
-	// The event source that triggers the rule.
+	// The event source to trigger the rule.
 	TriggerEventSource RuleTriggerEventSourceOutput `pulumi:"triggerEventSource"`
 }
 
@@ -95,37 +96,39 @@ func (RuleState) ElementType() reflect.Type {
 }
 
 type ruleArgs struct {
-	// The list of actions that will be executed when a rule is triggered.
+	// A list of actions to be run when the rule is triggered.
 	Actions RuleActions `pulumi:"actions"`
-	// The conditions of a rule.
+	// The conditions of the rule.
 	Function string `pulumi:"function"`
 	// The Amazon Resource Name (ARN) of the instance.
 	InstanceArn string `pulumi:"instanceArn"`
 	// The name of the rule.
 	Name *string `pulumi:"name"`
-	// The publish status of a rule, either draft or published.
+	// The publish status of the rule.
+	//   *Allowed values*: ``DRAFT`` | ``PUBLISHED``
 	PublishStatus RulePublishStatus `pulumi:"publishStatus"`
-	// One or more tags.
+	// The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
 	Tags []aws.Tag `pulumi:"tags"`
-	// The event source that triggers the rule.
+	// The event source to trigger the rule.
 	TriggerEventSource RuleTriggerEventSource `pulumi:"triggerEventSource"`
 }
 
 // The set of arguments for constructing a Rule resource.
 type RuleArgs struct {
-	// The list of actions that will be executed when a rule is triggered.
+	// A list of actions to be run when the rule is triggered.
 	Actions RuleActionsInput
-	// The conditions of a rule.
+	// The conditions of the rule.
 	Function pulumi.StringInput
 	// The Amazon Resource Name (ARN) of the instance.
 	InstanceArn pulumi.StringInput
 	// The name of the rule.
 	Name pulumi.StringPtrInput
-	// The publish status of a rule, either draft or published.
+	// The publish status of the rule.
+	//   *Allowed values*: ``DRAFT`` | ``PUBLISHED``
 	PublishStatus RulePublishStatusInput
-	// One or more tags.
+	// The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
 	Tags aws.TagArrayInput
-	// The event source that triggers the rule.
+	// The event source to trigger the rule.
 	TriggerEventSource RuleTriggerEventSourceInput
 }
 
@@ -166,12 +169,12 @@ func (o RuleOutput) ToRuleOutputWithContext(ctx context.Context) RuleOutput {
 	return o
 }
 
-// The list of actions that will be executed when a rule is triggered.
+// A list of actions to be run when the rule is triggered.
 func (o RuleOutput) Actions() RuleActionsOutput {
 	return o.ApplyT(func(v *Rule) RuleActionsOutput { return v.Actions }).(RuleActionsOutput)
 }
 
-// The conditions of a rule.
+// The conditions of the rule.
 func (o RuleOutput) Function() pulumi.StringOutput {
 	return o.ApplyT(func(v *Rule) pulumi.StringOutput { return v.Function }).(pulumi.StringOutput)
 }
@@ -186,7 +189,9 @@ func (o RuleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Rule) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The publish status of a rule, either draft or published.
+// The publish status of the rule.
+//
+//	*Allowed values*: ``DRAFT`` | ``PUBLISHED``
 func (o RuleOutput) PublishStatus() RulePublishStatusOutput {
 	return o.ApplyT(func(v *Rule) RulePublishStatusOutput { return v.PublishStatus }).(RulePublishStatusOutput)
 }
@@ -196,12 +201,12 @@ func (o RuleOutput) RuleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Rule) pulumi.StringOutput { return v.RuleArn }).(pulumi.StringOutput)
 }
 
-// One or more tags.
+// The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
 func (o RuleOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *Rule) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
-// The event source that triggers the rule.
+// The event source to trigger the rule.
 func (o RuleOutput) TriggerEventSource() RuleTriggerEventSourceOutput {
 	return o.ApplyT(func(v *Rule) RuleTriggerEventSourceOutput { return v.TriggerEventSource }).(RuleTriggerEventSourceOutput)
 }

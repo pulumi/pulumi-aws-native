@@ -11,26 +11,31 @@ namespace Pulumi.AwsNative.Connect.Outputs
 {
 
     /// <summary>
-    /// The definition for sending notification action.
+    /// Information about the send notification action.
     /// </summary>
     [OutputType]
     public sealed class RuleSendNotificationAction
     {
         /// <summary>
-        /// The content of notification.
+        /// Notification content. Supports variable injection. For more information, see [JSONPath reference](https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-variable-injection.html) in the *Administrators Guide*.
         /// </summary>
         public readonly string Content;
         /// <summary>
-        /// The type of content.
+        /// Content type format.
+        ///   *Allowed value*: ``PLAIN_TEXT``
         /// </summary>
         public readonly Pulumi.AwsNative.Connect.RuleSendNotificationActionContentType ContentType;
         /// <summary>
-        /// The means of delivery.
+        /// Notification delivery method.
+        ///   *Allowed value*: ``EMAIL``
         /// </summary>
         public readonly Pulumi.AwsNative.Connect.RuleSendNotificationActionDeliveryMethod DeliveryMethod;
+        /// <summary>
+        /// Notification recipient.
+        /// </summary>
         public readonly Outputs.RuleNotificationRecipientType Recipient;
         /// <summary>
-        /// The subject of notification.
+        /// The subject of the email if the delivery method is ``EMAIL``. Supports variable injection. For more information, see [JSONPath reference](https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-variable-injection.html) in the *Administrators Guide*.
         /// </summary>
         public readonly string? Subject;
 

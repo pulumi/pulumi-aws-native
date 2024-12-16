@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Wisdom.Inputs
     /// </summary>
     public sealed class AiGuardrailGuardrailRegexConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The action of the guardrail regex configuration.
+        /// </summary>
         [Input("action", required: true)]
         public Input<Pulumi.AwsNative.Wisdom.AiGuardrailGuardrailSensitiveInformationAction> Action { get; set; } = null!;
 

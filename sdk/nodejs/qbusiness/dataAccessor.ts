@@ -37,15 +37,45 @@ export class DataAccessor extends pulumi.CustomResource {
         return obj['__pulumiType'] === DataAccessor.__pulumiType;
     }
 
+    /**
+     * A list of action configurations specifying the allowed actions and any associated filters.
+     */
     public readonly actionConfigurations!: pulumi.Output<outputs.qbusiness.DataAccessorActionConfiguration[]>;
+    /**
+     * The unique identifier of the Amazon Q Business application.
+     */
     public readonly applicationId!: pulumi.Output<string | undefined>;
+    /**
+     * The timestamp when the data accessor was created.
+     */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the data accessor.
+     */
     public /*out*/ readonly dataAccessorArn!: pulumi.Output<string>;
+    /**
+     * The unique identifier of the data accessor.
+     */
     public /*out*/ readonly dataAccessorId!: pulumi.Output<string>;
+    /**
+     * The friendly name of the data accessor.
+     */
     public readonly displayName!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the associated IAM Identity Center application.
+     */
     public /*out*/ readonly idcApplicationArn!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the IAM role for the ISV associated with this data accessor.
+     */
     public readonly principal!: pulumi.Output<string>;
+    /**
+     * The tags to associate with the data accessor.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * The timestamp when the data accessor was last updated.
+     */
     public /*out*/ readonly updatedAt!: pulumi.Output<string>;
 
     /**
@@ -101,9 +131,24 @@ export class DataAccessor extends pulumi.CustomResource {
  * The set of arguments for constructing a DataAccessor resource.
  */
 export interface DataAccessorArgs {
+    /**
+     * A list of action configurations specifying the allowed actions and any associated filters.
+     */
     actionConfigurations: pulumi.Input<pulumi.Input<inputs.qbusiness.DataAccessorActionConfigurationArgs>[]>;
+    /**
+     * The unique identifier of the Amazon Q Business application.
+     */
     applicationId?: pulumi.Input<string>;
+    /**
+     * The friendly name of the data accessor.
+     */
     displayName: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the IAM role for the ISV associated with this data accessor.
+     */
     principal: pulumi.Input<string>;
+    /**
+     * The tags to associate with the data accessor.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

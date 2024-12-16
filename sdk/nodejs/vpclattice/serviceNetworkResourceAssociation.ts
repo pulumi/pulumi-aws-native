@@ -37,10 +37,25 @@ export class ServiceNetworkResourceAssociation extends pulumi.CustomResource {
         return obj['__pulumiType'] === ServiceNetworkResourceAssociation.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the association.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The ID of the association between the service network and resource configuration.
+     */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
+     * The ID of the resource configuration associated with the service network.
+     */
     public readonly resourceConfigurationId!: pulumi.Output<string | undefined>;
+    /**
+     * The ID of the service network associated with the resource configuration.
+     */
     public readonly serviceNetworkId!: pulumi.Output<string | undefined>;
+    /**
+     * A key-value pair to associate with a resource.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
@@ -77,7 +92,16 @@ export class ServiceNetworkResourceAssociation extends pulumi.CustomResource {
  * The set of arguments for constructing a ServiceNetworkResourceAssociation resource.
  */
 export interface ServiceNetworkResourceAssociationArgs {
+    /**
+     * The ID of the resource configuration associated with the service network.
+     */
     resourceConfigurationId?: pulumi.Input<string>;
+    /**
+     * The ID of the service network associated with the resource configuration.
+     */
     serviceNetworkId?: pulumi.Input<string>;
+    /**
+     * A key-value pair to associate with a resource.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

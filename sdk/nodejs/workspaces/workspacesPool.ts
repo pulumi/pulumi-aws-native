@@ -73,9 +73,6 @@ export class WorkspacesPool extends pulumi.CustomResource {
      * The name of the pool.
      */
     public readonly poolName!: pulumi.Output<string>;
-    /**
-     * The tags for the pool.
-     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The amount of time that a pool session remains active after users disconnect. If they try to reconnect to the pool session after a disconnection or network interruption within this time interval, they are connected to their previous session. Otherwise, they are connected to a new session with a new pool instance.
@@ -161,9 +158,6 @@ export interface WorkspacesPoolArgs {
      * The name of the pool.
      */
     poolName?: pulumi.Input<string>;
-    /**
-     * The tags for the pool.
-     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The amount of time that a pool session remains active after users disconnect. If they try to reconnect to the pool session after a disconnection or network interruption within this time interval, they are connected to their previous session. Otherwise, they are connected to a new session with a new pool instance.

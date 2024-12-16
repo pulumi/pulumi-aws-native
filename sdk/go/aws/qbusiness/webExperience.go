@@ -20,7 +20,8 @@ type WebExperience struct {
 	// The identifier of the Amazon Q Business web experience.
 	ApplicationId pulumi.StringOutput `pulumi:"applicationId"`
 	// The Unix timestamp when the Amazon Q Business application was last updated.
-	CreatedAt                  pulumi.StringOutput                              `pulumi:"createdAt"`
+	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	// Contains the configuration information to customize the logo, font, and color of an Amazon Q Business web experience with individual files for each property or a CSS file for them all.
 	CustomizationConfiguration WebExperienceCustomizationConfigurationPtrOutput `pulumi:"customizationConfiguration"`
 	// The endpoint URLs for your Amazon Q Business web experience. The URLs are unique and fully hosted by AWS .
 	DefaultEndpoint pulumi.StringOutput `pulumi:"defaultEndpoint"`
@@ -102,7 +103,8 @@ func (WebExperienceState) ElementType() reflect.Type {
 
 type webExperienceArgs struct {
 	// The identifier of the Amazon Q Business web experience.
-	ApplicationId              string                                   `pulumi:"applicationId"`
+	ApplicationId string `pulumi:"applicationId"`
+	// Contains the configuration information to customize the logo, font, and color of an Amazon Q Business web experience with individual files for each property or a CSS file for them all.
 	CustomizationConfiguration *WebExperienceCustomizationConfiguration `pulumi:"customizationConfiguration"`
 	// Provides information about the identity provider (IdP) used to authenticate end users of an Amazon Q Business web experience.
 	IdentityProviderConfiguration interface{} `pulumi:"identityProviderConfiguration"`
@@ -129,7 +131,8 @@ type webExperienceArgs struct {
 // The set of arguments for constructing a WebExperience resource.
 type WebExperienceArgs struct {
 	// The identifier of the Amazon Q Business web experience.
-	ApplicationId              pulumi.StringInput
+	ApplicationId pulumi.StringInput
+	// Contains the configuration information to customize the logo, font, and color of an Amazon Q Business web experience with individual files for each property or a CSS file for them all.
 	CustomizationConfiguration WebExperienceCustomizationConfigurationPtrInput
 	// Provides information about the identity provider (IdP) used to authenticate end users of an Amazon Q Business web experience.
 	IdentityProviderConfiguration pulumi.Input
@@ -200,6 +203,7 @@ func (o WebExperienceOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *WebExperience) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
+// Contains the configuration information to customize the logo, font, and color of an Amazon Q Business web experience with individual files for each property or a CSS file for them all.
 func (o WebExperienceOutput) CustomizationConfiguration() WebExperienceCustomizationConfigurationPtrOutput {
 	return o.ApplyT(func(v *WebExperience) WebExperienceCustomizationConfigurationPtrOutput {
 		return v.CustomizationConfiguration

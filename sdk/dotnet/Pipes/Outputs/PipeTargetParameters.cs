@@ -52,7 +52,7 @@ namespace Pulumi.AwsNative.Pipes.Outputs
         /// </summary>
         public readonly Outputs.PipeTargetRedshiftDataParameters? RedshiftDataParameters;
         /// <summary>
-        /// The parameters for using a SageMaker pipeline as a target.
+        /// The parameters for using a SageMaker AI pipeline as a target.
         /// </summary>
         public readonly Outputs.PipeTargetSageMakerPipelineParameters? SageMakerPipelineParameters;
         /// <summary>

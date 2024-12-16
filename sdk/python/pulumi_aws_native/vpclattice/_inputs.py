@@ -243,6 +243,13 @@ class ListenerWeightedTargetGroupArgs:
 
 if not MYPY:
     class ResourceConfigurationDefinition0PropertiesArgsDict(TypedDict):
+        """
+        Identifies the resource configuration in one of the following ways:
+
+        - *Amazon Resource Name (ARN)* - Supported resource-types that are provisioned by AWS services, such as RDS databases, can be identified by their ARN.
+        - *Domain name* - Any domain name that is publicly resolvable.
+        - *IP address* - For IPv4 and IPv6, only IP addresses in the VPC are supported.
+        """
         ip_resource: pulumi.Input[str]
 elif False:
     ResourceConfigurationDefinition0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
@@ -251,6 +258,13 @@ elif False:
 class ResourceConfigurationDefinition0PropertiesArgs:
     def __init__(__self__, *,
                  ip_resource: pulumi.Input[str]):
+        """
+        Identifies the resource configuration in one of the following ways:
+
+        - *Amazon Resource Name (ARN)* - Supported resource-types that are provisioned by AWS services, such as RDS databases, can be identified by their ARN.
+        - *Domain name* - Any domain name that is publicly resolvable.
+        - *IP address* - For IPv4 and IPv6, only IP addresses in the VPC are supported.
+        """
         pulumi.set(__self__, "ip_resource", ip_resource)
 
     @property
@@ -265,6 +279,13 @@ class ResourceConfigurationDefinition0PropertiesArgs:
 
 if not MYPY:
     class ResourceConfigurationDefinition1PropertiesArgsDict(TypedDict):
+        """
+        Identifies the resource configuration in one of the following ways:
+
+        - *Amazon Resource Name (ARN)* - Supported resource-types that are provisioned by AWS services, such as RDS databases, can be identified by their ARN.
+        - *Domain name* - Any domain name that is publicly resolvable.
+        - *IP address* - For IPv4 and IPv6, only IP addresses in the VPC are supported.
+        """
         arn_resource: pulumi.Input[str]
 elif False:
     ResourceConfigurationDefinition1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
@@ -273,6 +294,13 @@ elif False:
 class ResourceConfigurationDefinition1PropertiesArgs:
     def __init__(__self__, *,
                  arn_resource: pulumi.Input[str]):
+        """
+        Identifies the resource configuration in one of the following ways:
+
+        - *Amazon Resource Name (ARN)* - Supported resource-types that are provisioned by AWS services, such as RDS databases, can be identified by their ARN.
+        - *Domain name* - Any domain name that is publicly resolvable.
+        - *IP address* - For IPv4 and IPv6, only IP addresses in the VPC are supported.
+        """
         pulumi.set(__self__, "arn_resource", arn_resource)
 
     @property
@@ -287,6 +315,13 @@ class ResourceConfigurationDefinition1PropertiesArgs:
 
 if not MYPY:
     class ResourceConfigurationDefinition2PropertiesArgsDict(TypedDict):
+        """
+        Identifies the resource configuration in one of the following ways:
+
+        - *Amazon Resource Name (ARN)* - Supported resource-types that are provisioned by AWS services, such as RDS databases, can be identified by their ARN.
+        - *Domain name* - Any domain name that is publicly resolvable.
+        - *IP address* - For IPv4 and IPv6, only IP addresses in the VPC are supported.
+        """
         dns_resource: pulumi.Input['ResourceConfigurationDnsResourceArgsDict']
 elif False:
     ResourceConfigurationDefinition2PropertiesArgsDict: TypeAlias = Mapping[str, Any]
@@ -295,6 +330,13 @@ elif False:
 class ResourceConfigurationDefinition2PropertiesArgs:
     def __init__(__self__, *,
                  dns_resource: pulumi.Input['ResourceConfigurationDnsResourceArgs']):
+        """
+        Identifies the resource configuration in one of the following ways:
+
+        - *Amazon Resource Name (ARN)* - Supported resource-types that are provisioned by AWS services, such as RDS databases, can be identified by their ARN.
+        - *Domain name* - Any domain name that is publicly resolvable.
+        - *IP address* - For IPv4 and IPv6, only IP addresses in the VPC are supported.
+        """
         pulumi.set(__self__, "dns_resource", dns_resource)
 
     @property
@@ -967,6 +1009,9 @@ class ServiceNetworkServiceAssociationDnsEntryArgs:
 if not MYPY:
     class ServiceNetworkSharingConfigArgsDict(TypedDict):
         enabled: pulumi.Input[bool]
+        """
+        Specify if the service network should be enabled for sharing.
+        """
 elif False:
     ServiceNetworkSharingConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -974,11 +1019,17 @@ elif False:
 class ServiceNetworkSharingConfigArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool]):
+        """
+        :param pulumi.Input[bool] enabled: Specify if the service network should be enabled for sharing.
+        """
         pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter
     def enabled(self) -> pulumi.Input[bool]:
+        """
+        Specify if the service network should be enabled for sharing.
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter

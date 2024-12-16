@@ -83,6 +83,9 @@ namespace Pulumi.AwsNative.QBusiness
         [Output("indexId")]
         public Output<string> IndexId { get; private set; } = null!;
 
+        /// <summary>
+        /// The configuration for extracting information from media in documents.
+        /// </summary>
         [Output("mediaExtractionConfiguration")]
         public Output<Outputs.DataSourceMediaExtractionConfiguration?> MediaExtractionConfiguration { get; private set; } = null!;
 
@@ -230,6 +233,9 @@ namespace Pulumi.AwsNative.QBusiness
         [Input("indexId", required: true)]
         public Input<string> IndexId { get; set; } = null!;
 
+        /// <summary>
+        /// The configuration for extracting information from media in documents.
+        /// </summary>
         [Input("mediaExtractionConfiguration")]
         public Input<Inputs.DataSourceMediaExtractionConfigurationArgs>? MediaExtractionConfiguration { get; set; }
 

@@ -334,6 +334,8 @@ __all__ = [
     'VerifiedAccessTrustProviderDeviceOptionsArgsDict',
     'VerifiedAccessTrustProviderOidcOptionsArgs',
     'VerifiedAccessTrustProviderOidcOptionsArgsDict',
+    'VpcEndpointDnsOptionsSpecificationArgs',
+    'VpcEndpointDnsOptionsSpecificationArgsDict',
     'VpnConnectionCloudwatchLogOptionsSpecificationArgs',
     'VpnConnectionCloudwatchLogOptionsSpecificationArgsDict',
     'VpnConnectionIkeVersionsRequestListValueArgs',
@@ -5574,6 +5576,9 @@ class LaunchTemplateCpuOptionsArgs:
 if not MYPY:
     class LaunchTemplateCpuArgsDict(TypedDict):
         references: NotRequired[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateReferenceArgsDict']]]]
+        """
+        The instance family to use as the baseline reference for CPU performance. All instance types that match your specified attributes are compared against the CPU performance of the referenced instance family, regardless of CPU manufacturer or architecture differences.
+        """
 elif False:
     LaunchTemplateCpuArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -5581,12 +5586,18 @@ elif False:
 class LaunchTemplateCpuArgs:
     def __init__(__self__, *,
                  references: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateReferenceArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['LaunchTemplateReferenceArgs']]] references: The instance family to use as the baseline reference for CPU performance. All instance types that match your specified attributes are compared against the CPU performance of the referenced instance family, regardless of CPU manufacturer or architecture differences.
+        """
         if references is not None:
             pulumi.set(__self__, "references", references)
 
     @property
     @pulumi.getter
     def references(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateReferenceArgs']]]]:
+        """
+        The instance family to use as the baseline reference for CPU performance. All instance types that match your specified attributes are compared against the CPU performance of the referenced instance family, regardless of CPU manufacturer or architecture differences.
+        """
         return pulumi.get(self, "references")
 
     @references.setter
@@ -5761,6 +5772,7 @@ if not MYPY:
         """
         The network interfaces for the instance.
         """
+        network_performance_options: NotRequired[Any]
         placement: NotRequired[pulumi.Input['LaunchTemplatePlacementArgsDict']]
         """
         The placement for the instance.
@@ -5825,6 +5837,7 @@ class LaunchTemplateDataArgs:
                  metadata_options: Optional[pulumi.Input['LaunchTemplateMetadataOptionsArgs']] = None,
                  monitoring: Optional[pulumi.Input['LaunchTemplateMonitoringArgs']] = None,
                  network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateNetworkInterfaceArgs']]]] = None,
+                 network_performance_options: Optional[Any] = None,
                  placement: Optional[pulumi.Input['LaunchTemplatePlacementArgs']] = None,
                  private_dns_name_options: Optional[pulumi.Input['LaunchTemplatePrivateDnsNameOptionsArgs']] = None,
                  ram_disk_id: Optional[pulumi.Input[str]] = None,
@@ -5945,6 +5958,8 @@ class LaunchTemplateDataArgs:
             pulumi.set(__self__, "monitoring", monitoring)
         if network_interfaces is not None:
             pulumi.set(__self__, "network_interfaces", network_interfaces)
+        if network_performance_options is not None:
+            pulumi.set(__self__, "network_performance_options", network_performance_options)
         if placement is not None:
             pulumi.set(__self__, "placement", placement)
         if private_dns_name_options is not None:
@@ -6271,6 +6286,15 @@ class LaunchTemplateDataArgs:
     @network_interfaces.setter
     def network_interfaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateNetworkInterfaceArgs']]]]):
         pulumi.set(self, "network_interfaces", value)
+
+    @property
+    @pulumi.getter(name="networkPerformanceOptions")
+    def network_performance_options(self) -> Optional[Any]:
+        return pulumi.get(self, "network_performance_options")
+
+    @network_performance_options.setter
+    def network_performance_options(self, value: Optional[Any]):
+        pulumi.set(self, "network_performance_options", value)
 
     @property
     @pulumi.getter
@@ -15995,6 +16019,42 @@ class VerifiedAccessTrustProviderOidcOptionsArgs:
     @user_info_endpoint.setter
     def user_info_endpoint(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "user_info_endpoint", value)
+
+
+if not MYPY:
+    class VpcEndpointDnsOptionsSpecificationArgsDict(TypedDict):
+        dns_record_ip_type: NotRequired[pulumi.Input['VpcEndpointDnsOptionsSpecificationDnsRecordIpType']]
+        private_dns_only_for_inbound_resolver_endpoint: NotRequired[pulumi.Input['VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint']]
+elif False:
+    VpcEndpointDnsOptionsSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class VpcEndpointDnsOptionsSpecificationArgs:
+    def __init__(__self__, *,
+                 dns_record_ip_type: Optional[pulumi.Input['VpcEndpointDnsOptionsSpecificationDnsRecordIpType']] = None,
+                 private_dns_only_for_inbound_resolver_endpoint: Optional[pulumi.Input['VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint']] = None):
+        if dns_record_ip_type is not None:
+            pulumi.set(__self__, "dns_record_ip_type", dns_record_ip_type)
+        if private_dns_only_for_inbound_resolver_endpoint is not None:
+            pulumi.set(__self__, "private_dns_only_for_inbound_resolver_endpoint", private_dns_only_for_inbound_resolver_endpoint)
+
+    @property
+    @pulumi.getter(name="dnsRecordIpType")
+    def dns_record_ip_type(self) -> Optional[pulumi.Input['VpcEndpointDnsOptionsSpecificationDnsRecordIpType']]:
+        return pulumi.get(self, "dns_record_ip_type")
+
+    @dns_record_ip_type.setter
+    def dns_record_ip_type(self, value: Optional[pulumi.Input['VpcEndpointDnsOptionsSpecificationDnsRecordIpType']]):
+        pulumi.set(self, "dns_record_ip_type", value)
+
+    @property
+    @pulumi.getter(name="privateDnsOnlyForInboundResolverEndpoint")
+    def private_dns_only_for_inbound_resolver_endpoint(self) -> Optional[pulumi.Input['VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint']]:
+        return pulumi.get(self, "private_dns_only_for_inbound_resolver_endpoint")
+
+    @private_dns_only_for_inbound_resolver_endpoint.setter
+    def private_dns_only_for_inbound_resolver_endpoint(self, value: Optional[pulumi.Input['VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint']]):
+        pulumi.set(self, "private_dns_only_for_inbound_resolver_endpoint", value)
 
 
 if not MYPY:

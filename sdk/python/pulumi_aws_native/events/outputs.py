@@ -1877,8 +1877,8 @@ class RuleSageMakerPipelineParameter(dict):
                  name: str,
                  value: str):
         """
-        :param str name: Name of parameter to start execution of a SageMaker Model Building Pipeline.
-        :param str value: Value of parameter to start execution of a SageMaker Model Building Pipeline.
+        :param str name: Name of parameter to start execution of a SageMaker AI Model Building Pipeline.
+        :param str value: Value of parameter to start execution of a SageMaker AI Model Building Pipeline.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
@@ -1887,7 +1887,7 @@ class RuleSageMakerPipelineParameter(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        Name of parameter to start execution of a SageMaker Model Building Pipeline.
+        Name of parameter to start execution of a SageMaker AI Model Building Pipeline.
         """
         return pulumi.get(self, "name")
 
@@ -1895,7 +1895,7 @@ class RuleSageMakerPipelineParameter(dict):
     @pulumi.getter
     def value(self) -> str:
         """
-        Value of parameter to start execution of a SageMaker Model Building Pipeline.
+        Value of parameter to start execution of a SageMaker AI Model Building Pipeline.
         """
         return pulumi.get(self, "value")
 
@@ -1922,7 +1922,7 @@ class RuleSageMakerPipelineParameters(dict):
     def __init__(__self__, *,
                  pipeline_parameter_list: Optional[Sequence['outputs.RuleSageMakerPipelineParameter']] = None):
         """
-        :param Sequence['RuleSageMakerPipelineParameter'] pipeline_parameter_list: List of Parameter names and values for SageMaker Model Building Pipeline execution.
+        :param Sequence['RuleSageMakerPipelineParameter'] pipeline_parameter_list: List of Parameter names and values for SageMaker AI Model Building Pipeline execution.
         """
         if pipeline_parameter_list is not None:
             pulumi.set(__self__, "pipeline_parameter_list", pipeline_parameter_list)
@@ -1931,7 +1931,7 @@ class RuleSageMakerPipelineParameters(dict):
     @pulumi.getter(name="pipelineParameterList")
     def pipeline_parameter_list(self) -> Optional[Sequence['outputs.RuleSageMakerPipelineParameter']]:
         """
-        List of Parameter names and values for SageMaker Model Building Pipeline execution.
+        List of Parameter names and values for SageMaker AI Model Building Pipeline execution.
         """
         return pulumi.get(self, "pipeline_parameter_list")
 
@@ -2085,9 +2085,9 @@ class RuleTarget(dict):
         :param 'RuleRetryPolicy' retry_policy: The retry policy configuration to use for the dead-letter queue.
         :param str role_arn: The Amazon Resource Name (ARN) of the IAM role to be used for this target when the rule is triggered. If one rule triggers multiple targets, you can use a different IAM role for each target.
         :param 'RuleRunCommandParameters' run_command_parameters: Parameters used when you are using the rule to invoke Amazon EC2 Run Command.
-        :param 'RuleSageMakerPipelineParameters' sage_maker_pipeline_parameters: Contains the SageMaker Model Building Pipeline parameters to start execution of a SageMaker Model Building Pipeline.
+        :param 'RuleSageMakerPipelineParameters' sage_maker_pipeline_parameters: Contains the SageMaker AI Model Building Pipeline parameters to start execution of a SageMaker AI Model Building Pipeline.
                
-               If you specify a SageMaker Model Building Pipeline as a target, you can use this to specify parameters to start a pipeline execution based on EventBridge events.
+               If you specify a SageMaker AI Model Building Pipeline as a target, you can use this to specify parameters to start a pipeline execution based on EventBridge events.
         :param 'RuleSqsParameters' sqs_parameters: Contains the message group ID to use when the target is a FIFO queue.
                
                If you specify an SQS FIFO queue as a target, the queue must have content-based deduplication enabled.
@@ -2253,9 +2253,9 @@ class RuleTarget(dict):
     @pulumi.getter(name="sageMakerPipelineParameters")
     def sage_maker_pipeline_parameters(self) -> Optional['outputs.RuleSageMakerPipelineParameters']:
         """
-        Contains the SageMaker Model Building Pipeline parameters to start execution of a SageMaker Model Building Pipeline.
+        Contains the SageMaker AI Model Building Pipeline parameters to start execution of a SageMaker AI Model Building Pipeline.
 
-        If you specify a SageMaker Model Building Pipeline as a target, you can use this to specify parameters to start a pipeline execution based on EventBridge events.
+        If you specify a SageMaker AI Model Building Pipeline as a target, you can use this to specify parameters to start a pipeline execution based on EventBridge events.
         """
         return pulumi.get(self, "sage_maker_pipeline_parameters")
 

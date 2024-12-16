@@ -24,19 +24,29 @@ func LookupDataAccessor(ctx *pulumi.Context, args *LookupDataAccessorArgs, opts 
 }
 
 type LookupDataAccessorArgs struct {
-	ApplicationId  string `pulumi:"applicationId"`
+	// The unique identifier of the Amazon Q Business application.
+	ApplicationId string `pulumi:"applicationId"`
+	// The unique identifier of the data accessor.
 	DataAccessorId string `pulumi:"dataAccessorId"`
 }
 
 type LookupDataAccessorResult struct {
+	// A list of action configurations specifying the allowed actions and any associated filters.
 	ActionConfigurations []DataAccessorActionConfiguration `pulumi:"actionConfigurations"`
-	CreatedAt            *string                           `pulumi:"createdAt"`
-	DataAccessorArn      *string                           `pulumi:"dataAccessorArn"`
-	DataAccessorId       *string                           `pulumi:"dataAccessorId"`
-	DisplayName          *string                           `pulumi:"displayName"`
-	IdcApplicationArn    *string                           `pulumi:"idcApplicationArn"`
-	Tags                 []aws.Tag                         `pulumi:"tags"`
-	UpdatedAt            *string                           `pulumi:"updatedAt"`
+	// The timestamp when the data accessor was created.
+	CreatedAt *string `pulumi:"createdAt"`
+	// The Amazon Resource Name (ARN) of the data accessor.
+	DataAccessorArn *string `pulumi:"dataAccessorArn"`
+	// The unique identifier of the data accessor.
+	DataAccessorId *string `pulumi:"dataAccessorId"`
+	// The friendly name of the data accessor.
+	DisplayName *string `pulumi:"displayName"`
+	// The Amazon Resource Name (ARN) of the associated IAM Identity Center application.
+	IdcApplicationArn *string `pulumi:"idcApplicationArn"`
+	// The tags to associate with the data accessor.
+	Tags []aws.Tag `pulumi:"tags"`
+	// The timestamp when the data accessor was last updated.
+	UpdatedAt *string `pulumi:"updatedAt"`
 }
 
 func LookupDataAccessorOutput(ctx *pulumi.Context, args LookupDataAccessorOutputArgs, opts ...pulumi.InvokeOption) LookupDataAccessorResultOutput {
@@ -49,7 +59,9 @@ func LookupDataAccessorOutput(ctx *pulumi.Context, args LookupDataAccessorOutput
 }
 
 type LookupDataAccessorOutputArgs struct {
-	ApplicationId  pulumi.StringInput `pulumi:"applicationId"`
+	// The unique identifier of the Amazon Q Business application.
+	ApplicationId pulumi.StringInput `pulumi:"applicationId"`
+	// The unique identifier of the data accessor.
 	DataAccessorId pulumi.StringInput `pulumi:"dataAccessorId"`
 }
 
@@ -71,34 +83,42 @@ func (o LookupDataAccessorResultOutput) ToLookupDataAccessorResultOutputWithCont
 	return o
 }
 
+// A list of action configurations specifying the allowed actions and any associated filters.
 func (o LookupDataAccessorResultOutput) ActionConfigurations() DataAccessorActionConfigurationArrayOutput {
 	return o.ApplyT(func(v LookupDataAccessorResult) []DataAccessorActionConfiguration { return v.ActionConfigurations }).(DataAccessorActionConfigurationArrayOutput)
 }
 
+// The timestamp when the data accessor was created.
 func (o LookupDataAccessorResultOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDataAccessorResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the data accessor.
 func (o LookupDataAccessorResultOutput) DataAccessorArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDataAccessorResult) *string { return v.DataAccessorArn }).(pulumi.StringPtrOutput)
 }
 
+// The unique identifier of the data accessor.
 func (o LookupDataAccessorResultOutput) DataAccessorId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDataAccessorResult) *string { return v.DataAccessorId }).(pulumi.StringPtrOutput)
 }
 
+// The friendly name of the data accessor.
 func (o LookupDataAccessorResultOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDataAccessorResult) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the associated IAM Identity Center application.
 func (o LookupDataAccessorResultOutput) IdcApplicationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDataAccessorResult) *string { return v.IdcApplicationArn }).(pulumi.StringPtrOutput)
 }
 
+// The tags to associate with the data accessor.
 func (o LookupDataAccessorResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupDataAccessorResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The timestamp when the data accessor was last updated.
 func (o LookupDataAccessorResultOutput) UpdatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDataAccessorResult) *string { return v.UpdatedAt }).(pulumi.StringPtrOutput)
 }

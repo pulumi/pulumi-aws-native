@@ -62,7 +62,7 @@ namespace Pulumi.AwsNative.Batch.Outputs
         /// 
         /// Windows containers can mount whole directories on the same drive as `$env:ProgramData` . Windows containers can't mount directories on a different drive, and mount point can't be across drives.
         /// </summary>
-        public readonly ImmutableArray<Outputs.JobDefinitionMountPoints> MountPoints;
+        public readonly ImmutableArray<Outputs.JobDefinitionMountPoint> MountPoints;
         /// <summary>
         /// The name of a container. The name can be used as a unique identifier to target your `dependsOn` and `Overrides` objects.
         /// </summary>
@@ -135,7 +135,7 @@ namespace Pulumi.AwsNative.Batch.Outputs
 
             Outputs.JobDefinitionLogConfiguration? logConfiguration,
 
-            ImmutableArray<Outputs.JobDefinitionMountPoints> mountPoints,
+            ImmutableArray<Outputs.JobDefinitionMountPoint> mountPoints,
 
             string? name,
 

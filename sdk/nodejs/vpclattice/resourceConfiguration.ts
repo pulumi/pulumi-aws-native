@@ -37,17 +37,62 @@ export class ResourceConfiguration extends pulumi.CustomResource {
         return obj['__pulumiType'] === ResourceConfiguration.__pulumiType;
     }
 
+    /**
+     * Specifies whether the resource configuration can be associated with a sharable service network.
+     */
     public readonly allowAssociationToSharableServiceNetwork!: pulumi.Output<boolean | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) of the resource configuration.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The ID of the resource configuration.
+     */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
+     * The name of the resource configuration.
+     */
     public readonly name!: pulumi.Output<string | undefined>;
+    /**
+     * (SINGLE, GROUP, CHILD) The TCP port ranges that a consumer can use to access a resource configuration (for example: 1-65535). You can separate port ranges using commas (for example: 1,2,22-30).
+     */
     public readonly portRanges!: pulumi.Output<string[] | undefined>;
+    /**
+     * (SINGLE, GROUP) The protocol accepted by the resource configuration.
+     */
     public readonly protocolType!: pulumi.Output<enums.vpclattice.ResourceConfigurationProtocolType | undefined>;
+    /**
+     * The auth type for the resource configuration.
+     */
     public readonly resourceConfigurationAuthType!: pulumi.Output<enums.vpclattice.ResourceConfigurationAuthType | undefined>;
+    /**
+     * Identifies the resource configuration in one of the following ways:
+     *
+     * - *Amazon Resource Name (ARN)* - Supported resource-types that are provisioned by AWS services, such as RDS databases, can be identified by their ARN.
+     * - *Domain name* - Any domain name that is publicly resolvable.
+     * - *IP address* - For IPv4 and IPv6, only IP addresses in the VPC are supported.
+     */
     public readonly resourceConfigurationDefinition!: pulumi.Output<outputs.vpclattice.ResourceConfigurationDefinition0Properties | outputs.vpclattice.ResourceConfigurationDefinition1Properties | outputs.vpclattice.ResourceConfigurationDefinition2Properties | undefined>;
+    /**
+     * The ID of the group resource configuration.
+     */
     public readonly resourceConfigurationGroupId!: pulumi.Output<string | undefined>;
+    /**
+     * The type of resource configuration. A resource configuration can be one of the following types:
+     *
+     * - *SINGLE* - A single resource.
+     * - *GROUP* - A group of resources. You must create a group resource configuration before you create a child resource configuration.
+     * - *CHILD* - A single resource that is part of a group resource configuration.
+     * - *ARN* - An AWS resource.
+     */
     public readonly resourceConfigurationType!: pulumi.Output<enums.vpclattice.ResourceConfigurationType | undefined>;
+    /**
+     * The ID of the resource gateway.
+     */
     public readonly resourceGatewayId!: pulumi.Output<string | undefined>;
+    /**
+     * The tags for the resource configuration.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
@@ -98,14 +143,53 @@ export class ResourceConfiguration extends pulumi.CustomResource {
  * The set of arguments for constructing a ResourceConfiguration resource.
  */
 export interface ResourceConfigurationArgs {
+    /**
+     * Specifies whether the resource configuration can be associated with a sharable service network.
+     */
     allowAssociationToSharableServiceNetwork?: pulumi.Input<boolean>;
+    /**
+     * The name of the resource configuration.
+     */
     name?: pulumi.Input<string>;
+    /**
+     * (SINGLE, GROUP, CHILD) The TCP port ranges that a consumer can use to access a resource configuration (for example: 1-65535). You can separate port ranges using commas (for example: 1,2,22-30).
+     */
     portRanges?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * (SINGLE, GROUP) The protocol accepted by the resource configuration.
+     */
     protocolType?: pulumi.Input<enums.vpclattice.ResourceConfigurationProtocolType>;
+    /**
+     * The auth type for the resource configuration.
+     */
     resourceConfigurationAuthType?: pulumi.Input<enums.vpclattice.ResourceConfigurationAuthType>;
+    /**
+     * Identifies the resource configuration in one of the following ways:
+     *
+     * - *Amazon Resource Name (ARN)* - Supported resource-types that are provisioned by AWS services, such as RDS databases, can be identified by their ARN.
+     * - *Domain name* - Any domain name that is publicly resolvable.
+     * - *IP address* - For IPv4 and IPv6, only IP addresses in the VPC are supported.
+     */
     resourceConfigurationDefinition?: pulumi.Input<inputs.vpclattice.ResourceConfigurationDefinition0PropertiesArgs | inputs.vpclattice.ResourceConfigurationDefinition1PropertiesArgs | inputs.vpclattice.ResourceConfigurationDefinition2PropertiesArgs>;
+    /**
+     * The ID of the group resource configuration.
+     */
     resourceConfigurationGroupId?: pulumi.Input<string>;
+    /**
+     * The type of resource configuration. A resource configuration can be one of the following types:
+     *
+     * - *SINGLE* - A single resource.
+     * - *GROUP* - A group of resources. You must create a group resource configuration before you create a child resource configuration.
+     * - *CHILD* - A single resource that is part of a group resource configuration.
+     * - *ARN* - An AWS resource.
+     */
     resourceConfigurationType?: pulumi.Input<enums.vpclattice.ResourceConfigurationType>;
+    /**
+     * The ID of the resource gateway.
+     */
     resourceGatewayId?: pulumi.Input<string>;
+    /**
+     * The tags for the resource configuration.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

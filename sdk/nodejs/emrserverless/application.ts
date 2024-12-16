@@ -94,6 +94,10 @@ export class Application extends pulumi.CustomResource {
      */
     public readonly runtimeConfiguration!: pulumi.Output<outputs.emrserverless.ApplicationConfigurationObject[] | undefined>;
     /**
+     * The scheduler configuration for batch and streaming jobs running on this application. Supported with release labels emr-7.0.0 and above.
+     */
+    public readonly schedulerConfiguration!: pulumi.Output<outputs.emrserverless.ApplicationSchedulerConfiguration | undefined>;
+    /**
      * Tag map with key and value
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
@@ -135,6 +139,7 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["networkConfiguration"] = args ? args.networkConfiguration : undefined;
             resourceInputs["releaseLabel"] = args ? args.releaseLabel : undefined;
             resourceInputs["runtimeConfiguration"] = args ? args.runtimeConfiguration : undefined;
+            resourceInputs["schedulerConfiguration"] = args ? args.schedulerConfiguration : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["workerTypeSpecifications"] = args ? args.workerTypeSpecifications : undefined;
@@ -155,6 +160,7 @@ export class Application extends pulumi.CustomResource {
             resourceInputs["networkConfiguration"] = undefined /*out*/;
             resourceInputs["releaseLabel"] = undefined /*out*/;
             resourceInputs["runtimeConfiguration"] = undefined /*out*/;
+            resourceInputs["schedulerConfiguration"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["workerTypeSpecifications"] = undefined /*out*/;
@@ -218,6 +224,10 @@ export interface ApplicationArgs {
      * The [Configuration](https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_Configuration.html) specifications of an application. Each configuration consists of a classification and properties. You use this parameter when creating or updating an application. To see the runtimeConfiguration object of an application, run the [GetApplication](https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_GetApplication.html) API operation.
      */
     runtimeConfiguration?: pulumi.Input<pulumi.Input<inputs.emrserverless.ApplicationConfigurationObjectArgs>[]>;
+    /**
+     * The scheduler configuration for batch and streaming jobs running on this application. Supported with release labels emr-7.0.0 and above.
+     */
+    schedulerConfiguration?: pulumi.Input<inputs.emrserverless.ApplicationSchedulerConfigurationArgs>;
     /**
      * Tag map with key and value
      */

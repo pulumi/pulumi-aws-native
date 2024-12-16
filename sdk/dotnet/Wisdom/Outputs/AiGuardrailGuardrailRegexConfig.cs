@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Wisdom.Outputs
     [OutputType]
     public sealed class AiGuardrailGuardrailRegexConfig
     {
+        /// <summary>
+        /// The action of the guardrail regex configuration.
+        /// </summary>
         public readonly Pulumi.AwsNative.Wisdom.AiGuardrailGuardrailSensitiveInformationAction Action;
         /// <summary>
         /// The regex description.

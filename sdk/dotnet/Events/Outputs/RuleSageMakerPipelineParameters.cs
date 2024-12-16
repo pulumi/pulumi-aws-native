@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Events.Outputs
     public sealed class RuleSageMakerPipelineParameters
     {
         /// <summary>
-        /// List of Parameter names and values for SageMaker Model Building Pipeline execution.
+        /// List of Parameter names and values for SageMaker AI Model Building Pipeline execution.
         /// </summary>
         public readonly ImmutableArray<Outputs.RuleSageMakerPipelineParameter> PipelineParameterList;
 

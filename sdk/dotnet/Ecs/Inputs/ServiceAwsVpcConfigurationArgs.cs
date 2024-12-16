@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.Ecs.Inputs
     public sealed class ServiceAwsVpcConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Whether the task's elastic network interface receives a public IP address. The default value is ``DISABLED``.
+        /// Whether the task's elastic network interface receives a public IP address. The default value is ``ENABLED``.
         /// </summary>
         [Input("assignPublicIp")]
         public Input<Pulumi.AwsNative.Ecs.ServiceAwsVpcConfigurationAssignPublicIp>? AssignPublicIp { get; set; }

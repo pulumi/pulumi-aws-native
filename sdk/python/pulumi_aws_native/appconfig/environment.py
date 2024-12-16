@@ -16,6 +16,7 @@ from .. import _utilities
 from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['EnvironmentArgs', 'Environment']
@@ -24,6 +25,7 @@ __all__ = ['EnvironmentArgs', 'Environment']
 class EnvironmentArgs:
     def __init__(__self__, *,
                  application_id: pulumi.Input[str],
+                 deletion_protection_check: Optional[pulumi.Input['EnvironmentDeletionProtectionCheck']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  monitors: Optional[pulumi.Input[Sequence[pulumi.Input['EnvironmentMonitorArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -31,12 +33,15 @@ class EnvironmentArgs:
         """
         The set of arguments for constructing a Environment resource.
         :param pulumi.Input[str] application_id: The application ID.
+        :param pulumi.Input['EnvironmentDeletionProtectionCheck'] deletion_protection_check: On resource deletion this controls whether the Deletion Protection check should be applied, bypassed, or (the default) whether the behavior should be controlled by the account-level Deletion Protection setting. See https://docs.aws.amazon.com/appconfig/latest/userguide/deletion-protection.html
         :param pulumi.Input[str] description: A description of the environment.
         :param pulumi.Input[Sequence[pulumi.Input['EnvironmentMonitorArgs']]] monitors: Amazon CloudWatch alarms to monitor during the deployment process.
         :param pulumi.Input[str] name: A name for the environment.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Metadata to assign to the environment. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
         """
         pulumi.set(__self__, "application_id", application_id)
+        if deletion_protection_check is not None:
+            pulumi.set(__self__, "deletion_protection_check", deletion_protection_check)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if monitors is not None:
@@ -57,6 +62,18 @@ class EnvironmentArgs:
     @application_id.setter
     def application_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "application_id", value)
+
+    @property
+    @pulumi.getter(name="deletionProtectionCheck")
+    def deletion_protection_check(self) -> Optional[pulumi.Input['EnvironmentDeletionProtectionCheck']]:
+        """
+        On resource deletion this controls whether the Deletion Protection check should be applied, bypassed, or (the default) whether the behavior should be controlled by the account-level Deletion Protection setting. See https://docs.aws.amazon.com/appconfig/latest/userguide/deletion-protection.html
+        """
+        return pulumi.get(self, "deletion_protection_check")
+
+    @deletion_protection_check.setter
+    def deletion_protection_check(self, value: Optional[pulumi.Input['EnvironmentDeletionProtectionCheck']]):
+        pulumi.set(self, "deletion_protection_check", value)
 
     @property
     @pulumi.getter
@@ -113,6 +130,7 @@ class Environment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_id: Optional[pulumi.Input[str]] = None,
+                 deletion_protection_check: Optional[pulumi.Input['EnvironmentDeletionProtectionCheck']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  monitors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentMonitorArgs', 'EnvironmentMonitorArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -124,6 +142,7 @@ class Environment(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_id: The application ID.
+        :param pulumi.Input['EnvironmentDeletionProtectionCheck'] deletion_protection_check: On resource deletion this controls whether the Deletion Protection check should be applied, bypassed, or (the default) whether the behavior should be controlled by the account-level Deletion Protection setting. See https://docs.aws.amazon.com/appconfig/latest/userguide/deletion-protection.html
         :param pulumi.Input[str] description: A description of the environment.
         :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentMonitorArgs', 'EnvironmentMonitorArgsDict']]]] monitors: Amazon CloudWatch alarms to monitor during the deployment process.
         :param pulumi.Input[str] name: A name for the environment.
@@ -154,6 +173,7 @@ class Environment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_id: Optional[pulumi.Input[str]] = None,
+                 deletion_protection_check: Optional[pulumi.Input['EnvironmentDeletionProtectionCheck']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  monitors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentMonitorArgs', 'EnvironmentMonitorArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -170,6 +190,7 @@ class Environment(pulumi.CustomResource):
             if application_id is None and not opts.urn:
                 raise TypeError("Missing required property 'application_id'")
             __props__.__dict__["application_id"] = application_id
+            __props__.__dict__["deletion_protection_check"] = deletion_protection_check
             __props__.__dict__["description"] = description
             __props__.__dict__["monitors"] = monitors
             __props__.__dict__["name"] = name
@@ -200,6 +221,7 @@ class Environment(pulumi.CustomResource):
         __props__ = EnvironmentArgs.__new__(EnvironmentArgs)
 
         __props__.__dict__["application_id"] = None
+        __props__.__dict__["deletion_protection_check"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["environment_id"] = None
         __props__.__dict__["monitors"] = None
@@ -214,6 +236,14 @@ class Environment(pulumi.CustomResource):
         The application ID.
         """
         return pulumi.get(self, "application_id")
+
+    @property
+    @pulumi.getter(name="deletionProtectionCheck")
+    def deletion_protection_check(self) -> pulumi.Output[Optional['EnvironmentDeletionProtectionCheck']]:
+        """
+        On resource deletion this controls whether the Deletion Protection check should be applied, bypassed, or (the default) whether the behavior should be controlled by the account-level Deletion Protection setting. See https://docs.aws.amazon.com/appconfig/latest/userguide/deletion-protection.html
+        """
+        return pulumi.get(self, "deletion_protection_check")
 
     @property
     @pulumi.getter

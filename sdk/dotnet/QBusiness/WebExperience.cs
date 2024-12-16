@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.QBusiness
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// Contains the configuration information to customize the logo, font, and color of an Amazon Q Business web experience with individual files for each property or a CSS file for them all.
+        /// </summary>
         [Output("customizationConfiguration")]
         public Output<Outputs.WebExperienceCustomizationConfiguration?> CustomizationConfiguration { get; private set; } = null!;
 
@@ -167,6 +170,9 @@ namespace Pulumi.AwsNative.QBusiness
         [Input("applicationId", required: true)]
         public Input<string> ApplicationId { get; set; } = null!;
 
+        /// <summary>
+        /// Contains the configuration information to customize the logo, font, and color of an Amazon Q Business web experience with individual files for each property or a CSS file for them all.
+        /// </summary>
         [Input("customizationConfiguration")]
         public Input<Inputs.WebExperienceCustomizationConfigurationArgs>? CustomizationConfiguration { get; set; }
 

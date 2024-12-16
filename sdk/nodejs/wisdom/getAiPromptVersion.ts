@@ -32,6 +32,9 @@ export interface GetAiPromptVersionArgs {
 }
 
 export interface GetAiPromptVersionResult {
+    /**
+     * The ARN of the AI prompt.
+     */
     readonly aiPromptArn?: string;
     readonly aiPromptVersionId?: string;
     readonly assistantArn?: string;

@@ -30,6 +30,7 @@ class QueueArgs:
                  max_contacts: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  outbound_caller_config: Optional[pulumi.Input['QueueOutboundCallerConfigArgs']] = None,
+                 outbound_email_config: Optional[pulumi.Input['QueueOutboundEmailConfigArgs']] = None,
                  quick_connect_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  status: Optional[pulumi.Input['QueueStatus']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
@@ -41,6 +42,7 @@ class QueueArgs:
         :param pulumi.Input[int] max_contacts: The maximum number of contacts that can be in the queue before it is considered full.
         :param pulumi.Input[str] name: The name of the queue.
         :param pulumi.Input['QueueOutboundCallerConfigArgs'] outbound_caller_config: The outbound caller ID name, number, and outbound whisper flow.
+        :param pulumi.Input['QueueOutboundEmailConfigArgs'] outbound_email_config: The outbound email address ID.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] quick_connect_arns: The quick connects available to agents who are working the queue.
         :param pulumi.Input['QueueStatus'] status: The status of the queue.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
@@ -55,6 +57,8 @@ class QueueArgs:
             pulumi.set(__self__, "name", name)
         if outbound_caller_config is not None:
             pulumi.set(__self__, "outbound_caller_config", outbound_caller_config)
+        if outbound_email_config is not None:
+            pulumi.set(__self__, "outbound_email_config", outbound_email_config)
         if quick_connect_arns is not None:
             pulumi.set(__self__, "quick_connect_arns", quick_connect_arns)
         if status is not None:
@@ -135,6 +139,18 @@ class QueueArgs:
         pulumi.set(self, "outbound_caller_config", value)
 
     @property
+    @pulumi.getter(name="outboundEmailConfig")
+    def outbound_email_config(self) -> Optional[pulumi.Input['QueueOutboundEmailConfigArgs']]:
+        """
+        The outbound email address ID.
+        """
+        return pulumi.get(self, "outbound_email_config")
+
+    @outbound_email_config.setter
+    def outbound_email_config(self, value: Optional[pulumi.Input['QueueOutboundEmailConfigArgs']]):
+        pulumi.set(self, "outbound_email_config", value)
+
+    @property
     @pulumi.getter(name="quickConnectArns")
     def quick_connect_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -182,6 +198,7 @@ class Queue(pulumi.CustomResource):
                  max_contacts: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  outbound_caller_config: Optional[pulumi.Input[Union['QueueOutboundCallerConfigArgs', 'QueueOutboundCallerConfigArgsDict']]] = None,
+                 outbound_email_config: Optional[pulumi.Input[Union['QueueOutboundEmailConfigArgs', 'QueueOutboundEmailConfigArgsDict']]] = None,
                  quick_connect_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  status: Optional[pulumi.Input['QueueStatus']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
@@ -197,6 +214,7 @@ class Queue(pulumi.CustomResource):
         :param pulumi.Input[int] max_contacts: The maximum number of contacts that can be in the queue before it is considered full.
         :param pulumi.Input[str] name: The name of the queue.
         :param pulumi.Input[Union['QueueOutboundCallerConfigArgs', 'QueueOutboundCallerConfigArgsDict']] outbound_caller_config: The outbound caller ID name, number, and outbound whisper flow.
+        :param pulumi.Input[Union['QueueOutboundEmailConfigArgs', 'QueueOutboundEmailConfigArgsDict']] outbound_email_config: The outbound email address ID.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] quick_connect_arns: The quick connects available to agents who are working the queue.
         :param pulumi.Input['QueueStatus'] status: The status of the queue.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
@@ -231,6 +249,7 @@ class Queue(pulumi.CustomResource):
                  max_contacts: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  outbound_caller_config: Optional[pulumi.Input[Union['QueueOutboundCallerConfigArgs', 'QueueOutboundCallerConfigArgsDict']]] = None,
+                 outbound_email_config: Optional[pulumi.Input[Union['QueueOutboundEmailConfigArgs', 'QueueOutboundEmailConfigArgsDict']]] = None,
                  quick_connect_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  status: Optional[pulumi.Input['QueueStatus']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
@@ -253,6 +272,7 @@ class Queue(pulumi.CustomResource):
             __props__.__dict__["max_contacts"] = max_contacts
             __props__.__dict__["name"] = name
             __props__.__dict__["outbound_caller_config"] = outbound_caller_config
+            __props__.__dict__["outbound_email_config"] = outbound_email_config
             __props__.__dict__["quick_connect_arns"] = quick_connect_arns
             __props__.__dict__["status"] = status
             __props__.__dict__["tags"] = tags
@@ -286,6 +306,7 @@ class Queue(pulumi.CustomResource):
         __props__.__dict__["max_contacts"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["outbound_caller_config"] = None
+        __props__.__dict__["outbound_email_config"] = None
         __props__.__dict__["queue_arn"] = None
         __props__.__dict__["quick_connect_arns"] = None
         __props__.__dict__["status"] = None
@@ -340,6 +361,14 @@ class Queue(pulumi.CustomResource):
         The outbound caller ID name, number, and outbound whisper flow.
         """
         return pulumi.get(self, "outbound_caller_config")
+
+    @property
+    @pulumi.getter(name="outboundEmailConfig")
+    def outbound_email_config(self) -> pulumi.Output[Optional['outputs.QueueOutboundEmailConfig']]:
+        """
+        The outbound email address ID.
+        """
+        return pulumi.get(self, "outbound_email_config")
 
     @property
     @pulumi.getter(name="queueArn")

@@ -28,6 +28,7 @@ __all__ = [
     'CampaignEmailChannelSubtypeConfig',
     'CampaignEmailOutboundConfig',
     'CampaignEmailOutboundMode',
+    'CampaignEventTrigger',
     'CampaignLocalTimeZoneConfig',
     'CampaignOpenHours',
     'CampaignPredictiveConfig',
@@ -560,6 +561,46 @@ class CampaignEmailOutboundMode(dict):
 
 
 @pulumi.output_type
+class CampaignEventTrigger(dict):
+    """
+    The event trigger of the campaign
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customerProfilesDomainArn":
+            suggest = "customer_profiles_domain_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CampaignEventTrigger. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CampaignEventTrigger.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CampaignEventTrigger.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 customer_profiles_domain_arn: Optional[str] = None):
+        """
+        The event trigger of the campaign
+        :param str customer_profiles_domain_arn: The Amazon Resource Name (ARN) of the Customer Profiles domain.
+        """
+        if customer_profiles_domain_arn is not None:
+            pulumi.set(__self__, "customer_profiles_domain_arn", customer_profiles_domain_arn)
+
+    @property
+    @pulumi.getter(name="customerProfilesDomainArn")
+    def customer_profiles_domain_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the Customer Profiles domain.
+        """
+        return pulumi.get(self, "customer_profiles_domain_arn")
+
+
+@pulumi.output_type
 class CampaignLocalTimeZoneConfig(dict):
     """
     Local time zone config
@@ -1051,13 +1092,15 @@ class CampaignSmsOutboundMode(dict):
 @pulumi.output_type
 class CampaignSource(dict):
     """
-    The possible types of channel config parameters
+    The possible source of the campaign
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
         if key == "customerProfilesSegmentArn":
             suggest = "customer_profiles_segment_arn"
+        elif key == "eventTrigger":
+            suggest = "event_trigger"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in CampaignSource. Access the value via the '{suggest}' property getter instead.")
@@ -1071,13 +1114,17 @@ class CampaignSource(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 customer_profiles_segment_arn: Optional[str] = None):
+                 customer_profiles_segment_arn: Optional[str] = None,
+                 event_trigger: Optional['outputs.CampaignEventTrigger'] = None):
         """
-        The possible types of channel config parameters
+        The possible source of the campaign
         :param str customer_profiles_segment_arn: The Amazon Resource Name (ARN) of the Customer Profiles segment.
+        :param 'CampaignEventTrigger' event_trigger: The event trigger of the campaign.
         """
         if customer_profiles_segment_arn is not None:
             pulumi.set(__self__, "customer_profiles_segment_arn", customer_profiles_segment_arn)
+        if event_trigger is not None:
+            pulumi.set(__self__, "event_trigger", event_trigger)
 
     @property
     @pulumi.getter(name="customerProfilesSegmentArn")
@@ -1086,6 +1133,14 @@ class CampaignSource(dict):
         The Amazon Resource Name (ARN) of the Customer Profiles segment.
         """
         return pulumi.get(self, "customer_profiles_segment_arn")
+
+    @property
+    @pulumi.getter(name="eventTrigger")
+    def event_trigger(self) -> Optional['outputs.CampaignEventTrigger']:
+        """
+        The event trigger of the campaign.
+        """
+        return pulumi.get(self, "event_trigger")
 
 
 @pulumi.output_type

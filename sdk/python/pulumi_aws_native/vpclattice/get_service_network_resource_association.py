@@ -38,16 +38,25 @@ class GetServiceNetworkResourceAssociationResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the association.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        The ID of the association between the service network and resource configuration.
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        A key-value pair to associate with a resource.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -66,6 +75,9 @@ def get_service_network_resource_association(arn: Optional[str] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceNetworkResourceAssociationResult:
     """
     VpcLattice ServiceNetworkResourceAssociation CFN resource
+
+
+    :param str arn: The Amazon Resource Name (ARN) of the association.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -80,6 +92,9 @@ def get_service_network_resource_association_output(arn: Optional[pulumi.Input[s
                                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceNetworkResourceAssociationResult]:
     """
     VpcLattice ServiceNetworkResourceAssociation CFN resource
+
+
+    :param str arn: The Amazon Resource Name (ARN) of the association.
     """
     __args__ = dict()
     __args__['arn'] = arn

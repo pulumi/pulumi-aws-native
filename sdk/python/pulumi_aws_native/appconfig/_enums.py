@@ -5,9 +5,20 @@
 from enum import Enum
 
 __all__ = [
+    'ConfigurationProfileDeletionProtectionCheck',
     'DeploymentStrategyGrowthType',
     'DeploymentStrategyReplicateTo',
+    'EnvironmentDeletionProtectionCheck',
 ]
+
+
+class ConfigurationProfileDeletionProtectionCheck(str, Enum):
+    """
+    On resource deletion this controls whether the Deletion Protection check should be applied, bypassed, or (the default) whether the behavior should be controlled by the account-level Deletion Protection setting. See https://docs.aws.amazon.com/appconfig/latest/userguide/deletion-protection.html
+    """
+    ACCOUNT_DEFAULT = "ACCOUNT_DEFAULT"
+    APPLY = "APPLY"
+    BYPASS = "BYPASS"
 
 
 class DeploymentStrategyGrowthType(str, Enum):
@@ -36,3 +47,12 @@ class DeploymentStrategyReplicateTo(str, Enum):
     """
     NONE = "NONE"
     SSM_DOCUMENT = "SSM_DOCUMENT"
+
+
+class EnvironmentDeletionProtectionCheck(str, Enum):
+    """
+    On resource deletion this controls whether the Deletion Protection check should be applied, bypassed, or (the default) whether the behavior should be controlled by the account-level Deletion Protection setting. See https://docs.aws.amazon.com/appconfig/latest/userguide/deletion-protection.html
+    """
+    ACCOUNT_DEFAULT = "ACCOUNT_DEFAULT"
+    APPLY = "APPLY"
+    BYPASS = "BYPASS"

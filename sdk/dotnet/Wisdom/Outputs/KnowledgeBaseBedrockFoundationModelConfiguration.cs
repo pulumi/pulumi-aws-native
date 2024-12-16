@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Wisdom.Outputs
     [OutputType]
     public sealed class KnowledgeBaseBedrockFoundationModelConfiguration
     {
+        /// <summary>
+        /// The model ARN of the Bedrock foundation model.
+        /// </summary>
         public readonly string ModelArn;
+        /// <summary>
+        /// The parsing prompt of the Bedrock foundation model configuration.
+        /// </summary>
         public readonly Outputs.KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptProperties? ParsingPrompt;
 
         [OutputConstructor]

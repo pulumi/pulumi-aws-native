@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.RedshiftServerless.Inputs
 
     public sealed class WorkgroupPerformanceTargetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The target price performance level for the workgroup. Valid values include 1, 25, 50, 75, and 100. These correspond to the price performance levels LOW_COST, ECONOMICAL, BALANCED, RESOURCEFUL, and HIGH_PERFORMANCE.
+        /// </summary>
         [Input("level")]
         public Input<int>? Level { get; set; }
 
+        /// <summary>
+        /// Whether the price performance target is enabled for the workgroup.
+        /// </summary>
         [Input("status")]
         public Input<Pulumi.AwsNative.RedshiftServerless.WorkgroupPerformanceTargetStatus>? Status { get; set; }
 

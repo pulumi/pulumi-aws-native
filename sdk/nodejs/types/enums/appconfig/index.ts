@@ -2,6 +2,17 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const ConfigurationProfileDeletionProtectionCheck = {
+    AccountDefault: "ACCOUNT_DEFAULT",
+    Apply: "APPLY",
+    Bypass: "BYPASS",
+} as const;
+
+/**
+ * On resource deletion this controls whether the Deletion Protection check should be applied, bypassed, or (the default) whether the behavior should be controlled by the account-level Deletion Protection setting. See https://docs.aws.amazon.com/appconfig/latest/userguide/deletion-protection.html
+ */
+export type ConfigurationProfileDeletionProtectionCheck = (typeof ConfigurationProfileDeletionProtectionCheck)[keyof typeof ConfigurationProfileDeletionProtectionCheck];
+
 export const DeploymentStrategyGrowthType = {
     Exponential: "EXPONENTIAL",
     Linear: "LINEAR",
@@ -33,3 +44,14 @@ export const DeploymentStrategyReplicateTo = {
  * Save the deployment strategy to a Systems Manager (SSM) document.
  */
 export type DeploymentStrategyReplicateTo = (typeof DeploymentStrategyReplicateTo)[keyof typeof DeploymentStrategyReplicateTo];
+
+export const EnvironmentDeletionProtectionCheck = {
+    AccountDefault: "ACCOUNT_DEFAULT",
+    Apply: "APPLY",
+    Bypass: "BYPASS",
+} as const;
+
+/**
+ * On resource deletion this controls whether the Deletion Protection check should be applied, bypassed, or (the default) whether the behavior should be controlled by the account-level Deletion Protection setting. See https://docs.aws.amazon.com/appconfig/latest/userguide/deletion-protection.html
+ */
+export type EnvironmentDeletionProtectionCheck = (typeof EnvironmentDeletionProtectionCheck)[keyof typeof EnvironmentDeletionProtectionCheck];

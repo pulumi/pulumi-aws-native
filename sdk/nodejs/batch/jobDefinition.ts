@@ -37,7 +37,6 @@ export class JobDefinition extends pulumi.CustomResource {
         return obj['__pulumiType'] === JobDefinition.__pulumiType;
     }
 
-    public /*out*/ readonly awsId!: pulumi.Output<string>;
     /**
      * An object with properties specific to Amazon ECS-based jobs. When `containerProperties` is used in the job definition, it can't be used in addition to `eksProperties` , `ecsProperties` , or `nodeProperties` .
      */
@@ -62,10 +61,8 @@ export class JobDefinition extends pulumi.CustomResource {
     public readonly nodeProperties!: pulumi.Output<outputs.batch.JobDefinitionNodeProperties | undefined>;
     /**
      * Default parameters or parameter substitution placeholders that are set in the job definition. Parameters are specified as a key-value pair mapping. Parameters in a `SubmitJob` request override any corresponding parameter defaults from the job definition. For more information about specifying parameters, see [Job definition parameters](https://docs.aws.amazon.com/batch/latest/userguide/job_definition_parameters.html) in the *AWS Batch User Guide* .
-     *
-     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Batch::JobDefinition` for more information about the expected schema for this property.
      */
-    public readonly parameters!: pulumi.Output<any | undefined>;
+    public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The platform capabilities required by the job definition. If no value is specified, it defaults to `EC2` . Jobs run on Fargate resources specify `FARGATE` .
      */
@@ -83,15 +80,13 @@ export class JobDefinition extends pulumi.CustomResource {
      */
     public readonly schedulingPriority!: pulumi.Output<number | undefined>;
     /**
-     * The tags that are applied to the job definition.
-     *
-     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Batch::JobDefinition` for more information about the expected schema for this property.
+     * A key-value pair to associate with a resource.
      */
-    public readonly tags!: pulumi.Output<any | undefined>;
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The timeout time for jobs that are submitted with this job definition. After the amount of time you specify passes, AWS Batch terminates your jobs if they aren't finished.
      */
-    public readonly timeout!: pulumi.Output<outputs.batch.JobDefinitionTimeout | undefined>;
+    public readonly timeout!: pulumi.Output<outputs.batch.JobDefinitionJobTimeout | undefined>;
     /**
      * The type of job definition. For more information about multi-node parallel jobs, see [Creating a multi-node parallel job definition](https://docs.aws.amazon.com/batch/latest/userguide/multi-node-job-def.html) in the *AWS Batch User Guide* .
      *
@@ -129,9 +124,7 @@ export class JobDefinition extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["timeout"] = args ? args.timeout : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["awsId"] = undefined /*out*/;
         } else {
-            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["containerProperties"] = undefined /*out*/;
             resourceInputs["ecsProperties"] = undefined /*out*/;
             resourceInputs["eksProperties"] = undefined /*out*/;
@@ -181,10 +174,8 @@ export interface JobDefinitionArgs {
     nodeProperties?: pulumi.Input<inputs.batch.JobDefinitionNodePropertiesArgs>;
     /**
      * Default parameters or parameter substitution placeholders that are set in the job definition. Parameters are specified as a key-value pair mapping. Parameters in a `SubmitJob` request override any corresponding parameter defaults from the job definition. For more information about specifying parameters, see [Job definition parameters](https://docs.aws.amazon.com/batch/latest/userguide/job_definition_parameters.html) in the *AWS Batch User Guide* .
-     *
-     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Batch::JobDefinition` for more information about the expected schema for this property.
      */
-    parameters?: any;
+    parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The platform capabilities required by the job definition. If no value is specified, it defaults to `EC2` . Jobs run on Fargate resources specify `FARGATE` .
      */
@@ -202,15 +193,13 @@ export interface JobDefinitionArgs {
      */
     schedulingPriority?: pulumi.Input<number>;
     /**
-     * The tags that are applied to the job definition.
-     *
-     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Batch::JobDefinition` for more information about the expected schema for this property.
+     * A key-value pair to associate with a resource.
      */
-    tags?: any;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The timeout time for jobs that are submitted with this job definition. After the amount of time you specify passes, AWS Batch terminates your jobs if they aren't finished.
      */
-    timeout?: pulumi.Input<inputs.batch.JobDefinitionTimeoutArgs>;
+    timeout?: pulumi.Input<inputs.batch.JobDefinitionJobTimeoutArgs>;
     /**
      * The type of job definition. For more information about multi-node parallel jobs, see [Creating a multi-node parallel job definition](https://docs.aws.amazon.com/batch/latest/userguide/multi-node-job-def.html) in the *AWS Batch User Guide* .
      *

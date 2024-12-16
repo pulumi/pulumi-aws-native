@@ -30,8 +30,12 @@ class ResourceGatewayArgs:
                  vpc_identifier: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ResourceGateway resource.
+        :param pulumi.Input['ResourceGatewayIpAddressType'] ip_address_type: The type of IP address used by the resource gateway.
+        :param pulumi.Input[str] name: The name of the resource gateway.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: The ID of one or more security groups to associate with the endpoint network interface.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The ID of one or more subnets in which to create an endpoint network interface.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags for the resource gateway.
+        :param pulumi.Input[str] vpc_identifier: The ID of the VPC for the resource gateway.
         """
         if ip_address_type is not None:
             pulumi.set(__self__, "ip_address_type", ip_address_type)
@@ -49,6 +53,9 @@ class ResourceGatewayArgs:
     @property
     @pulumi.getter(name="ipAddressType")
     def ip_address_type(self) -> Optional[pulumi.Input['ResourceGatewayIpAddressType']]:
+        """
+        The type of IP address used by the resource gateway.
+        """
         return pulumi.get(self, "ip_address_type")
 
     @ip_address_type.setter
@@ -58,6 +65,9 @@ class ResourceGatewayArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the resource gateway.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -91,6 +101,9 @@ class ResourceGatewayArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        The tags for the resource gateway.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -100,6 +113,9 @@ class ResourceGatewayArgs:
     @property
     @pulumi.getter(name="vpcIdentifier")
     def vpc_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the VPC for the resource gateway.
+        """
         return pulumi.get(self, "vpc_identifier")
 
     @vpc_identifier.setter
@@ -124,8 +140,12 @@ class ResourceGateway(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input['ResourceGatewayIpAddressType'] ip_address_type: The type of IP address used by the resource gateway.
+        :param pulumi.Input[str] name: The name of the resource gateway.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: The ID of one or more security groups to associate with the endpoint network interface.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The ID of one or more subnets in which to create an endpoint network interface.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags for the resource gateway.
+        :param pulumi.Input[str] vpc_identifier: The ID of the VPC for the resource gateway.
         """
         ...
     @overload
@@ -211,21 +231,33 @@ class ResourceGateway(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the resource gateway.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="awsId")
     def aws_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the resource gateway.
+        """
         return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="ipAddressType")
     def ip_address_type(self) -> pulumi.Output[Optional['ResourceGatewayIpAddressType']]:
+        """
+        The type of IP address used by the resource gateway.
+        """
         return pulumi.get(self, "ip_address_type")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the resource gateway.
+        """
         return pulumi.get(self, "name")
 
     @property
@@ -247,10 +279,16 @@ class ResourceGateway(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        The tags for the resource gateway.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="vpcIdentifier")
     def vpc_identifier(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of the VPC for the resource gateway.
+        """
         return pulumi.get(self, "vpc_identifier")
 

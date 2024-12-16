@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.Ecs.Inputs
 {
 
     /// <summary>
-    /// The deployment controller to use for the service. For more information, see [Amazon ECS deployment types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html) in the *Amazon Elastic Container Service Developer Guide*.
+    /// The deployment controller to use for the service.
     /// </summary>
     public sealed class ServiceDeploymentControllerArgs : global::Pulumi.ResourceArgs
     {

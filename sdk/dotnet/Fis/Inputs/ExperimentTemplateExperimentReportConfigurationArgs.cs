@@ -15,8 +15,8 @@ namespace Pulumi.AwsNative.Fis.Inputs
         /// <summary>
         /// The data sources for the experiment report.
         /// </summary>
-        [Input("dataSources", required: true)]
-        public Input<Inputs.ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesArgs> DataSources { get; set; } = null!;
+        [Input("dataSources")]
+        public Input<Inputs.ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesArgs>? DataSources { get; set; }
 
         /// <summary>
         /// The output destinations of the experiment report.

@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.S3Tables
 
     public sealed class GetTableBucketPolicyArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the table bucket.
+        /// </summary>
         [Input("tableBucketArn", required: true)]
         public string TableBucketArn { get; set; } = null!;
 
@@ -44,6 +47,9 @@ namespace Pulumi.AwsNative.S3Tables
 
     public sealed class GetTableBucketPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the table bucket.
+        /// </summary>
         [Input("tableBucketArn", required: true)]
         public Input<string> TableBucketArn { get; set; } = null!;
 
@@ -57,6 +63,9 @@ namespace Pulumi.AwsNative.S3Tables
     [OutputType]
     public sealed class GetTableBucketPolicyResult
     {
+        /// <summary>
+        /// The bucket policy JSON for the table bucket.
+        /// </summary>
         public readonly Outputs.TableBucketPolicyResourcePolicy? ResourcePolicy;
 
         [OutputConstructor]

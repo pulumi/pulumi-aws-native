@@ -23,6 +23,7 @@ from .get_metric_filter import *
 from .get_query_definition import *
 from .get_resource_policy import *
 from .get_subscription_filter import *
+from .get_transformer import *
 from .integration import *
 from .log_anomaly_detector import *
 from .log_group import *
@@ -31,5 +32,6 @@ from .metric_filter import *
 from .query_definition import *
 from .resource_policy import *
 from .subscription_filter import *
+from .transformer import *
 from ._inputs import *
 from . import outputs

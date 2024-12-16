@@ -69,6 +69,34 @@ namespace Pulumi.AwsNative.CloudFront
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct DistributionOriginGroupSelectionCriteria : IEquatable<DistributionOriginGroupSelectionCriteria>
+    {
+        private readonly string _value;
+
+        private DistributionOriginGroupSelectionCriteria(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DistributionOriginGroupSelectionCriteria Default { get; } = new DistributionOriginGroupSelectionCriteria("default");
+        public static DistributionOriginGroupSelectionCriteria MediaQualityBased { get; } = new DistributionOriginGroupSelectionCriteria("media-quality-based");
+
+        public static bool operator ==(DistributionOriginGroupSelectionCriteria left, DistributionOriginGroupSelectionCriteria right) => left.Equals(right);
+        public static bool operator !=(DistributionOriginGroupSelectionCriteria left, DistributionOriginGroupSelectionCriteria right) => !left.Equals(right);
+
+        public static explicit operator string(DistributionOriginGroupSelectionCriteria value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DistributionOriginGroupSelectionCriteria other && Equals(other);
+        public bool Equals(DistributionOriginGroupSelectionCriteria other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// A flag that indicates whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
     /// </summary>

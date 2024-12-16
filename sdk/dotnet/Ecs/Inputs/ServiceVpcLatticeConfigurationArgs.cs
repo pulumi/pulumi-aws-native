@@ -10,16 +10,20 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Ecs.Inputs
 {
 
+    /// <summary>
+    /// The VPC Lattice configuration for your service that holds the information for the target group(s) Amazon ECS tasks will be registered to.
+    /// </summary>
     public sealed class ServiceVpcLatticeConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the port mapping to register in the VPC Lattice target group. This is the name of the `portMapping` you defined in your task definition.
+        /// The name of the port mapping to register in the VPC Lattice target group. This is the name of the ``portMapping`` you defined in your task definition.
         /// </summary>
         [Input("portName", required: true)]
         public Input<string> PortName { get; set; } = null!;
 
         /// <summary>
-        /// The ARN of the IAM role to associate with this VPC Lattice configuration. This is the Amazon ECS infrastructure IAM role that is used to manage your VPC Lattice infrastructure.
+        /// The ARN of the IAM role to associate with this VPC Lattice configuration. This is the Amazon ECS
+        ///  infrastructure IAM role that is used to manage your VPC Lattice infrastructure.
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;

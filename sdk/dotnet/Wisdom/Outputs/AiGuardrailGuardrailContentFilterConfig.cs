@@ -16,8 +16,17 @@ namespace Pulumi.AwsNative.Wisdom.Outputs
     [OutputType]
     public sealed class AiGuardrailGuardrailContentFilterConfig
     {
+        /// <summary>
+        /// The strength of the input for the guardrail content filter.
+        /// </summary>
         public readonly Pulumi.AwsNative.Wisdom.AiGuardrailGuardrailFilterStrength InputStrength;
+        /// <summary>
+        /// The output strength of the guardrail content filter.
+        /// </summary>
         public readonly Pulumi.AwsNative.Wisdom.AiGuardrailGuardrailFilterStrength OutputStrength;
+        /// <summary>
+        /// The type of the guardrail content filter.
+        /// </summary>
         public readonly Pulumi.AwsNative.Wisdom.AiGuardrailGuardrailContentFilterType Type;
 
         [OutputConstructor]

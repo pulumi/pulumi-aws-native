@@ -33,6 +33,12 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         [Input("members", required: true)]
         public Input<Inputs.DistributionOriginGroupMembersArgs> Members { get; set; } = null!;
 
+        /// <summary>
+        /// The selection criteria for the origin group. For more information, see [Create an origin group](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/high_availability_origin_failover.html#concept_origin_groups.creating) in the *Amazon CloudFront Developer Guide* .
+        /// </summary>
+        [Input("selectionCriteria")]
+        public Input<Pulumi.AwsNative.CloudFront.DistributionOriginGroupSelectionCriteria>? SelectionCriteria { get; set; }
+
         public DistributionOriginGroupArgs()
         {
         }

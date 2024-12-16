@@ -16,13 +16,13 @@ namespace Pulumi.AwsNative.Batch.Inputs
         /// The container details for the node range.
         /// </summary>
         [Input("container")]
-        public Input<Inputs.JobDefinitionContainerPropertiesArgs>? Container { get; set; }
+        public Input<Inputs.JobDefinitionMultiNodeContainerPropertiesArgs>? Container { get; set; }
 
         /// <summary>
         /// This is an object that represents the properties of the node range for a multi-node parallel job.
         /// </summary>
         [Input("ecsProperties")]
-        public Input<Inputs.JobDefinitionEcsPropertiesArgs>? EcsProperties { get; set; }
+        public Input<Inputs.JobDefinitionMultiNodeEcsPropertiesArgs>? EcsProperties { get; set; }
 
         /// <summary>
         /// This is an object that represents the properties of the node range for a multi-node parallel job.

@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.VpcLattice
 
     public sealed class GetServiceNetworkResourceAssociationArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the association.
+        /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
 
@@ -44,6 +47,9 @@ namespace Pulumi.AwsNative.VpcLattice
 
     public sealed class GetServiceNetworkResourceAssociationInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the association.
+        /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
 
@@ -57,8 +63,17 @@ namespace Pulumi.AwsNative.VpcLattice
     [OutputType]
     public sealed class GetServiceNetworkResourceAssociationResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the association.
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// The ID of the association between the service network and resource configuration.
+        /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// A key-value pair to associate with a resource.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

@@ -95,6 +95,7 @@ namespace Pulumi.AwsNative.WorkSpaces
         /// The identifier of the pool.
         /// </summary>
         public readonly string? PoolId;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// The amount of time that a pool session remains active after users disconnect. If they try to reconnect to the pool session after a disconnection or network interruption within this time interval, they are connected to their previous session. Otherwise, they are connected to a new session with a new pool instance.
         /// </summary>
@@ -118,6 +119,8 @@ namespace Pulumi.AwsNative.WorkSpaces
 
             string? poolId,
 
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
+
             Outputs.WorkspacesPoolTimeoutSettings? timeoutSettings)
         {
             ApplicationSettings = applicationSettings;
@@ -128,6 +131,7 @@ namespace Pulumi.AwsNative.WorkSpaces
             DirectoryId = directoryId;
             PoolArn = poolArn;
             PoolId = poolId;
+            Tags = tags;
             TimeoutSettings = timeoutSettings;
         }
     }

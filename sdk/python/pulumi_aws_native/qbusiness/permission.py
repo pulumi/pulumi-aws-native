@@ -25,6 +25,10 @@ class PermissionArgs:
                  statement_id: pulumi.Input[str]):
         """
         The set of arguments for constructing a Permission resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] actions: The list of Amazon Q Business actions that the ISV is allowed to perform.
+        :param pulumi.Input[str] application_id: The unique identifier of the Amazon Q Business application.
+        :param pulumi.Input[str] principal: Provides user and group information used for filtering documents to use for generating Amazon Q Business conversation responses.
+        :param pulumi.Input[str] statement_id: A unique identifier for the policy statement.
         """
         pulumi.set(__self__, "actions", actions)
         pulumi.set(__self__, "application_id", application_id)
@@ -34,6 +38,9 @@ class PermissionArgs:
     @property
     @pulumi.getter
     def actions(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The list of Amazon Q Business actions that the ISV is allowed to perform.
+        """
         return pulumi.get(self, "actions")
 
     @actions.setter
@@ -43,6 +50,9 @@ class PermissionArgs:
     @property
     @pulumi.getter(name="applicationId")
     def application_id(self) -> pulumi.Input[str]:
+        """
+        The unique identifier of the Amazon Q Business application.
+        """
         return pulumi.get(self, "application_id")
 
     @application_id.setter
@@ -52,6 +62,9 @@ class PermissionArgs:
     @property
     @pulumi.getter
     def principal(self) -> pulumi.Input[str]:
+        """
+        Provides user and group information used for filtering documents to use for generating Amazon Q Business conversation responses.
+        """
         return pulumi.get(self, "principal")
 
     @principal.setter
@@ -61,6 +74,9 @@ class PermissionArgs:
     @property
     @pulumi.getter(name="statementId")
     def statement_id(self) -> pulumi.Input[str]:
+        """
+        A unique identifier for the policy statement.
+        """
         return pulumi.get(self, "statement_id")
 
     @statement_id.setter
@@ -83,6 +99,10 @@ class Permission(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] actions: The list of Amazon Q Business actions that the ISV is allowed to perform.
+        :param pulumi.Input[str] application_id: The unique identifier of the Amazon Q Business application.
+        :param pulumi.Input[str] principal: Provides user and group information used for filtering documents to use for generating Amazon Q Business conversation responses.
+        :param pulumi.Input[str] statement_id: A unique identifier for the policy statement.
         """
         ...
     @overload
@@ -166,20 +186,32 @@ class Permission(pulumi.CustomResource):
     @property
     @pulumi.getter
     def actions(self) -> pulumi.Output[Sequence[str]]:
+        """
+        The list of Amazon Q Business actions that the ISV is allowed to perform.
+        """
         return pulumi.get(self, "actions")
 
     @property
     @pulumi.getter(name="applicationId")
     def application_id(self) -> pulumi.Output[str]:
+        """
+        The unique identifier of the Amazon Q Business application.
+        """
         return pulumi.get(self, "application_id")
 
     @property
     @pulumi.getter
     def principal(self) -> pulumi.Output[str]:
+        """
+        Provides user and group information used for filtering documents to use for generating Amazon Q Business conversation responses.
+        """
         return pulumi.get(self, "principal")
 
     @property
     @pulumi.getter(name="statementId")
     def statement_id(self) -> pulumi.Output[str]:
+        """
+        A unique identifier for the policy statement.
+        """
         return pulumi.get(self, "statement_id")
 

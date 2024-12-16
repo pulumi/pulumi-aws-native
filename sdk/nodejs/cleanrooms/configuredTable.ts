@@ -72,7 +72,7 @@ export class ConfiguredTable extends pulumi.CustomResource {
     /**
      * The table that this configured table represents.
      */
-    public readonly tableReference!: pulumi.Output<outputs.cleanrooms.ConfiguredTableTableReference>;
+    public readonly tableReference!: pulumi.Output<outputs.cleanrooms.ConfiguredTableTableReference0Properties | outputs.cleanrooms.ConfiguredTableTableReference1Properties | outputs.cleanrooms.ConfiguredTableTableReference2Properties>;
     /**
      * An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
      */
@@ -152,7 +152,7 @@ export interface ConfiguredTableArgs {
     /**
      * The table that this configured table represents.
      */
-    tableReference: pulumi.Input<inputs.cleanrooms.ConfiguredTableTableReferenceArgs>;
+    tableReference: pulumi.Input<inputs.cleanrooms.ConfiguredTableTableReference0PropertiesArgs | inputs.cleanrooms.ConfiguredTableTableReference1PropertiesArgs | inputs.cleanrooms.ConfiguredTableTableReference2PropertiesArgs>;
     /**
      * An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
      */

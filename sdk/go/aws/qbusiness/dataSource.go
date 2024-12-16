@@ -48,7 +48,8 @@ type DataSource struct {
 	// For more information, see [Custom document enrichment](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/custom-document-enrichment.html) .
 	DocumentEnrichmentConfiguration DataSourceDocumentEnrichmentConfigurationPtrOutput `pulumi:"documentEnrichmentConfiguration"`
 	// The identifier of the index the data source is attached to.
-	IndexId                      pulumi.StringOutput                             `pulumi:"indexId"`
+	IndexId pulumi.StringOutput `pulumi:"indexId"`
+	// The configuration for extracting information from media in documents.
 	MediaExtractionConfiguration DataSourceMediaExtractionConfigurationPtrOutput `pulumi:"mediaExtractionConfiguration"`
 	// The Amazon Resource Name (ARN) of an IAM role with permission to access the data source and required resources.
 	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
@@ -150,7 +151,8 @@ type dataSourceArgs struct {
 	// For more information, see [Custom document enrichment](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/custom-document-enrichment.html) .
 	DocumentEnrichmentConfiguration *DataSourceDocumentEnrichmentConfiguration `pulumi:"documentEnrichmentConfiguration"`
 	// The identifier of the index the data source is attached to.
-	IndexId                      string                                  `pulumi:"indexId"`
+	IndexId string `pulumi:"indexId"`
+	// The configuration for extracting information from media in documents.
 	MediaExtractionConfiguration *DataSourceMediaExtractionConfiguration `pulumi:"mediaExtractionConfiguration"`
 	// The Amazon Resource Name (ARN) of an IAM role with permission to access the data source and required resources.
 	RoleArn *string `pulumi:"roleArn"`
@@ -191,7 +193,8 @@ type DataSourceArgs struct {
 	// For more information, see [Custom document enrichment](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/custom-document-enrichment.html) .
 	DocumentEnrichmentConfiguration DataSourceDocumentEnrichmentConfigurationPtrInput
 	// The identifier of the index the data source is attached to.
-	IndexId                      pulumi.StringInput
+	IndexId pulumi.StringInput
+	// The configuration for extracting information from media in documents.
 	MediaExtractionConfiguration DataSourceMediaExtractionConfigurationPtrInput
 	// The Amazon Resource Name (ARN) of an IAM role with permission to access the data source and required resources.
 	RoleArn pulumi.StringPtrInput
@@ -303,6 +306,7 @@ func (o DataSourceOutput) IndexId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.IndexId }).(pulumi.StringOutput)
 }
 
+// The configuration for extracting information from media in documents.
 func (o DataSourceOutput) MediaExtractionConfiguration() DataSourceMediaExtractionConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSource) DataSourceMediaExtractionConfigurationPtrOutput {
 		return v.MediaExtractionConfiguration

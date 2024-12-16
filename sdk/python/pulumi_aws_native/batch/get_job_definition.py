@@ -24,7 +24,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetJobDefinitionResult:
-    def __init__(__self__, container_properties=None, ecs_properties=None, eks_properties=None, id=None, node_properties=None, parameters=None, platform_capabilities=None, propagate_tags=None, retry_strategy=None, scheduling_priority=None, tags=None, timeout=None, type=None):
+    def __init__(__self__, container_properties=None, ecs_properties=None, eks_properties=None, node_properties=None, parameters=None, platform_capabilities=None, propagate_tags=None, retry_strategy=None, scheduling_priority=None, tags=None, timeout=None, type=None):
         if container_properties and not isinstance(container_properties, dict):
             raise TypeError("Expected argument 'container_properties' to be a dict")
         pulumi.set(__self__, "container_properties", container_properties)
@@ -34,9 +34,6 @@ class GetJobDefinitionResult:
         if eks_properties and not isinstance(eks_properties, dict):
             raise TypeError("Expected argument 'eks_properties' to be a dict")
         pulumi.set(__self__, "eks_properties", eks_properties)
-        if id and not isinstance(id, str):
-            raise TypeError("Expected argument 'id' to be a str")
-        pulumi.set(__self__, "id", id)
         if node_properties and not isinstance(node_properties, dict):
             raise TypeError("Expected argument 'node_properties' to be a dict")
         pulumi.set(__self__, "node_properties", node_properties)
@@ -90,11 +87,6 @@ class GetJobDefinitionResult:
         return pulumi.get(self, "eks_properties")
 
     @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        return pulumi.get(self, "id")
-
-    @property
     @pulumi.getter(name="nodeProperties")
     def node_properties(self) -> Optional['outputs.JobDefinitionNodeProperties']:
         """
@@ -106,11 +98,9 @@ class GetJobDefinitionResult:
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[Any]:
+    def parameters(self) -> Optional[Mapping[str, str]]:
         """
         Default parameters or parameter substitution placeholders that are set in the job definition. Parameters are specified as a key-value pair mapping. Parameters in a `SubmitJob` request override any corresponding parameter defaults from the job definition. For more information about specifying parameters, see [Job definition parameters](https://docs.aws.amazon.com/batch/latest/userguide/job_definition_parameters.html) in the *AWS Batch User Guide* .
-
-        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Batch::JobDefinition` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "parameters")
 
@@ -148,17 +138,15 @@ class GetJobDefinitionResult:
 
     @property
     @pulumi.getter
-    def tags(self) -> Optional[Any]:
+    def tags(self) -> Optional[Mapping[str, str]]:
         """
-        The tags that are applied to the job definition.
-
-        Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Batch::JobDefinition` for more information about the expected schema for this property.
+        A key-value pair to associate with a resource.
         """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter
-    def timeout(self) -> Optional['outputs.JobDefinitionTimeout']:
+    def timeout(self) -> Optional['outputs.JobDefinitionJobTimeout']:
         """
         The timeout time for jobs that are submitted with this job definition. After the amount of time you specify passes, AWS Batch terminates your jobs if they aren't finished.
         """
@@ -187,7 +175,6 @@ class AwaitableGetJobDefinitionResult(GetJobDefinitionResult):
             container_properties=self.container_properties,
             ecs_properties=self.ecs_properties,
             eks_properties=self.eks_properties,
-            id=self.id,
             node_properties=self.node_properties,
             parameters=self.parameters,
             platform_capabilities=self.platform_capabilities,
@@ -199,13 +186,16 @@ class AwaitableGetJobDefinitionResult(GetJobDefinitionResult):
             type=self.type)
 
 
-def get_job_definition(id: Optional[str] = None,
+def get_job_definition(job_definition_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetJobDefinitionResult:
     """
     Resource Type definition for AWS::Batch::JobDefinition
+
+
+    :param str job_definition_name: The name of the job definition.
     """
     __args__ = dict()
-    __args__['id'] = id
+    __args__['jobDefinitionName'] = job_definition_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:batch:getJobDefinition', __args__, opts=opts, typ=GetJobDefinitionResult).value
 
@@ -213,7 +203,6 @@ def get_job_definition(id: Optional[str] = None,
         container_properties=pulumi.get(__ret__, 'container_properties'),
         ecs_properties=pulumi.get(__ret__, 'ecs_properties'),
         eks_properties=pulumi.get(__ret__, 'eks_properties'),
-        id=pulumi.get(__ret__, 'id'),
         node_properties=pulumi.get(__ret__, 'node_properties'),
         parameters=pulumi.get(__ret__, 'parameters'),
         platform_capabilities=pulumi.get(__ret__, 'platform_capabilities'),
@@ -223,20 +212,22 @@ def get_job_definition(id: Optional[str] = None,
         tags=pulumi.get(__ret__, 'tags'),
         timeout=pulumi.get(__ret__, 'timeout'),
         type=pulumi.get(__ret__, 'type'))
-def get_job_definition_output(id: Optional[pulumi.Input[str]] = None,
+def get_job_definition_output(job_definition_name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetJobDefinitionResult]:
     """
     Resource Type definition for AWS::Batch::JobDefinition
+
+
+    :param str job_definition_name: The name of the job definition.
     """
     __args__ = dict()
-    __args__['id'] = id
+    __args__['jobDefinitionName'] = job_definition_name
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:batch:getJobDefinition', __args__, opts=opts, typ=GetJobDefinitionResult)
     return __ret__.apply(lambda __response__: GetJobDefinitionResult(
         container_properties=pulumi.get(__response__, 'container_properties'),
         ecs_properties=pulumi.get(__response__, 'ecs_properties'),
         eks_properties=pulumi.get(__response__, 'eks_properties'),
-        id=pulumi.get(__response__, 'id'),
         node_properties=pulumi.get(__response__, 'node_properties'),
         parameters=pulumi.get(__response__, 'parameters'),
         platform_capabilities=pulumi.get(__response__, 'platform_capabilities'),

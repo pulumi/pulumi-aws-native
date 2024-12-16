@@ -15,6 +15,11 @@ export const getTable: typeof import("./getTable").getTable = null as any;
 export const getTableOutput: typeof import("./getTable").getTableOutput = null as any;
 utilities.lazyLoad(exports, ["getTable","getTableOutput"], () => require("./getTable"));
 
+export { GetTypeArgs, GetTypeResult, GetTypeOutputArgs } from "./getType";
+export const getType: typeof import("./getType").getType = null as any;
+export const getTypeOutput: typeof import("./getType").getTypeOutput = null as any;
+utilities.lazyLoad(exports, ["getType","getTypeOutput"], () => require("./getType"));
+
 export { KeyspaceArgs } from "./keyspace";
 export type Keyspace = import("./keyspace").Keyspace;
 export const Keyspace: typeof import("./keyspace").Keyspace = null as any;
@@ -24,6 +29,11 @@ export { TableArgs } from "./table";
 export type Table = import("./table").Table;
 export const Table: typeof import("./table").Table = null as any;
 utilities.lazyLoad(exports, ["Table"], () => require("./table"));
+
+export { TypeArgs } from "./type";
+export type Type = import("./type").Type;
+export const Type: typeof import("./type").Type = null as any;
+utilities.lazyLoad(exports, ["Type"], () => require("./type"));
 
 
 // Export enums:
@@ -37,6 +47,8 @@ const _module = {
                 return new Keyspace(name, <any>undefined, { urn })
             case "aws-native:cassandra:Table":
                 return new Table(name, <any>undefined, { urn })
+            case "aws-native:cassandra:Type":
+                return new Type(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

@@ -42,6 +42,10 @@ export class Environment extends pulumi.CustomResource {
      */
     public readonly applicationId!: pulumi.Output<string>;
     /**
+     * On resource deletion this controls whether the Deletion Protection check should be applied, bypassed, or (the default) whether the behavior should be controlled by the account-level Deletion Protection setting. See https://docs.aws.amazon.com/appconfig/latest/userguide/deletion-protection.html
+     */
+    public readonly deletionProtectionCheck!: pulumi.Output<enums.appconfig.EnvironmentDeletionProtectionCheck | undefined>;
+    /**
      * A description of the environment.
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -77,6 +81,7 @@ export class Environment extends pulumi.CustomResource {
                 throw new Error("Missing required property 'applicationId'");
             }
             resourceInputs["applicationId"] = args ? args.applicationId : undefined;
+            resourceInputs["deletionProtectionCheck"] = args ? args.deletionProtectionCheck : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["monitors"] = args ? args.monitors : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -84,6 +89,7 @@ export class Environment extends pulumi.CustomResource {
             resourceInputs["environmentId"] = undefined /*out*/;
         } else {
             resourceInputs["applicationId"] = undefined /*out*/;
+            resourceInputs["deletionProtectionCheck"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["environmentId"] = undefined /*out*/;
             resourceInputs["monitors"] = undefined /*out*/;
@@ -105,6 +111,10 @@ export interface EnvironmentArgs {
      * The application ID.
      */
     applicationId: pulumi.Input<string>;
+    /**
+     * On resource deletion this controls whether the Deletion Protection check should be applied, bypassed, or (the default) whether the behavior should be controlled by the account-level Deletion Protection setting. See https://docs.aws.amazon.com/appconfig/latest/userguide/deletion-protection.html
+     */
+    deletionProtectionCheck?: pulumi.Input<enums.appconfig.EnvironmentDeletionProtectionCheck>;
     /**
      * A description of the environment.
      */

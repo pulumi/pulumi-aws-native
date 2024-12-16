@@ -18,11 +18,20 @@ export function getTableBucket(args: GetTableBucketArgs, opts?: pulumi.InvokeOpt
 }
 
 export interface GetTableBucketArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the table bucket.
+     */
     tableBucketArn: string;
 }
 
 export interface GetTableBucketResult {
+    /**
+     * The Amazon Resource Name (ARN) of the table bucket.
+     */
     readonly tableBucketArn?: string;
+    /**
+     * The unreferenced file removal settings for your table bucket. Unreferenced file removal identifies and deletes all objects that are not referenced by any table snapshots. For more information, see the [*Amazon S3 User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-table-buckets-maintenance.html) .
+     */
     readonly unreferencedFileRemoval?: outputs.s3tables.TableBucketUnreferencedFileRemoval;
 }
 /**
@@ -36,5 +45,8 @@ export function getTableBucketOutput(args: GetTableBucketOutputArgs, opts?: pulu
 }
 
 export interface GetTableBucketOutputArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the table bucket.
+     */
     tableBucketArn: pulumi.Input<string>;
 }

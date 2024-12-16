@@ -114,7 +114,8 @@ type LookupServerResult struct {
 	// The service-assigned ID of the server that is created.
 	//
 	// An example `ServerId` is `s-01234567890abcdef` .
-	ServerId *string `pulumi:"serverId"`
+	ServerId *string          `pulumi:"serverId"`
+	State    *ServerStateEnum `pulumi:"state"`
 	// Specifies the log groups to which your server logs are sent.
 	//
 	// To specify a log group, you must provide the ARN for an existing log group. In this case, the format of the log group is as follows:
@@ -293,6 +294,10 @@ func (o LookupServerResultOutput) SecurityPolicyName() pulumi.StringPtrOutput {
 // An example `ServerId` is `s-01234567890abcdef` .
 func (o LookupServerResultOutput) ServerId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupServerResult) *string { return v.ServerId }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupServerResultOutput) State() ServerStateEnumPtrOutput {
+	return o.ApplyT(func(v LookupServerResult) *ServerStateEnum { return v.State }).(ServerStateEnumPtrOutput)
 }
 
 // Specifies the log groups to which your server logs are sent.

@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import outputs as _root_outputs
 from ._enums import *
 
 __all__ = [
@@ -25,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetWorkspacesPoolResult:
-    def __init__(__self__, application_settings=None, bundle_id=None, capacity=None, created_at=None, description=None, directory_id=None, pool_arn=None, pool_id=None, timeout_settings=None):
+    def __init__(__self__, application_settings=None, bundle_id=None, capacity=None, created_at=None, description=None, directory_id=None, pool_arn=None, pool_id=None, tags=None, timeout_settings=None):
         if application_settings and not isinstance(application_settings, dict):
             raise TypeError("Expected argument 'application_settings' to be a dict")
         pulumi.set(__self__, "application_settings", application_settings)
@@ -50,6 +51,9 @@ class GetWorkspacesPoolResult:
         if pool_id and not isinstance(pool_id, str):
             raise TypeError("Expected argument 'pool_id' to be a str")
         pulumi.set(__self__, "pool_id", pool_id)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
         if timeout_settings and not isinstance(timeout_settings, dict):
             raise TypeError("Expected argument 'timeout_settings' to be a dict")
         pulumi.set(__self__, "timeout_settings", timeout_settings)
@@ -119,6 +123,11 @@ class GetWorkspacesPoolResult:
         return pulumi.get(self, "pool_id")
 
     @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        return pulumi.get(self, "tags")
+
+    @property
     @pulumi.getter(name="timeoutSettings")
     def timeout_settings(self) -> Optional['outputs.WorkspacesPoolTimeoutSettings']:
         """
@@ -141,6 +150,7 @@ class AwaitableGetWorkspacesPoolResult(GetWorkspacesPoolResult):
             directory_id=self.directory_id,
             pool_arn=self.pool_arn,
             pool_id=self.pool_id,
+            tags=self.tags,
             timeout_settings=self.timeout_settings)
 
 
@@ -166,6 +176,7 @@ def get_workspaces_pool(pool_id: Optional[str] = None,
         directory_id=pulumi.get(__ret__, 'directory_id'),
         pool_arn=pulumi.get(__ret__, 'pool_arn'),
         pool_id=pulumi.get(__ret__, 'pool_id'),
+        tags=pulumi.get(__ret__, 'tags'),
         timeout_settings=pulumi.get(__ret__, 'timeout_settings'))
 def get_workspaces_pool_output(pool_id: Optional[pulumi.Input[str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetWorkspacesPoolResult]:
@@ -188,4 +199,5 @@ def get_workspaces_pool_output(pool_id: Optional[pulumi.Input[str]] = None,
         directory_id=pulumi.get(__response__, 'directory_id'),
         pool_arn=pulumi.get(__response__, 'pool_arn'),
         pool_id=pulumi.get(__response__, 'pool_id'),
+        tags=pulumi.get(__response__, 'tags'),
         timeout_settings=pulumi.get(__response__, 'timeout_settings')))

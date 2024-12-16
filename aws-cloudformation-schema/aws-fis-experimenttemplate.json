@@ -295,7 +295,7 @@
     "ExperimentTemplateExperimentReportConfiguration" : {
       "type" : "object",
       "additionalProperties" : false,
-      "required" : [ "Outputs", "DataSources" ],
+      "required" : [ "Outputs" ],
       "properties" : {
         "Outputs" : {
           "type" : "object",

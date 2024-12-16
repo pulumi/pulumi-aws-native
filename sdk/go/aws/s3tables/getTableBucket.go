@@ -23,11 +23,14 @@ func LookupTableBucket(ctx *pulumi.Context, args *LookupTableBucketArgs, opts ..
 }
 
 type LookupTableBucketArgs struct {
+	// The Amazon Resource Name (ARN) of the table bucket.
 	TableBucketArn string `pulumi:"tableBucketArn"`
 }
 
 type LookupTableBucketResult struct {
-	TableBucketArn          *string                             `pulumi:"tableBucketArn"`
+	// The Amazon Resource Name (ARN) of the table bucket.
+	TableBucketArn *string `pulumi:"tableBucketArn"`
+	// The unreferenced file removal settings for your table bucket. Unreferenced file removal identifies and deletes all objects that are not referenced by any table snapshots. For more information, see the [*Amazon S3 User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-table-buckets-maintenance.html) .
 	UnreferencedFileRemoval *TableBucketUnreferencedFileRemoval `pulumi:"unreferencedFileRemoval"`
 }
 
@@ -41,6 +44,7 @@ func LookupTableBucketOutput(ctx *pulumi.Context, args LookupTableBucketOutputAr
 }
 
 type LookupTableBucketOutputArgs struct {
+	// The Amazon Resource Name (ARN) of the table bucket.
 	TableBucketArn pulumi.StringInput `pulumi:"tableBucketArn"`
 }
 
@@ -62,10 +66,12 @@ func (o LookupTableBucketResultOutput) ToLookupTableBucketResultOutputWithContex
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the table bucket.
 func (o LookupTableBucketResultOutput) TableBucketArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTableBucketResult) *string { return v.TableBucketArn }).(pulumi.StringPtrOutput)
 }
 
+// The unreferenced file removal settings for your table bucket. Unreferenced file removal identifies and deletes all objects that are not referenced by any table snapshots. For more information, see the [*Amazon S3 User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-table-buckets-maintenance.html) .
 func (o LookupTableBucketResultOutput) UnreferencedFileRemoval() TableBucketUnreferencedFileRemovalPtrOutput {
 	return o.ApplyT(func(v LookupTableBucketResult) *TableBucketUnreferencedFileRemoval { return v.UnreferencedFileRemoval }).(TableBucketUnreferencedFileRemovalPtrOutput)
 }

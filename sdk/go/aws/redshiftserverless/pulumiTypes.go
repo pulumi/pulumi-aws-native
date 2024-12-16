@@ -411,7 +411,8 @@ type WorkgroupType struct {
 	// The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries. The max capacity is specified in RPUs.
 	MaxCapacity *int `pulumi:"maxCapacity"`
 	// The namespace the workgroup is associated with.
-	NamespaceName          *string                     `pulumi:"namespaceName"`
+	NamespaceName *string `pulumi:"namespaceName"`
+	// An object that represents the price performance target settings for the workgroup.
 	PricePerformanceTarget *WorkgroupPerformanceTarget `pulumi:"pricePerformanceTarget"`
 	// A value that specifies whether the workgroup can be accessible from a public network.
 	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
@@ -478,6 +479,7 @@ func (o WorkgroupTypeOutput) NamespaceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkgroupType) *string { return v.NamespaceName }).(pulumi.StringPtrOutput)
 }
 
+// An object that represents the price performance target settings for the workgroup.
 func (o WorkgroupTypeOutput) PricePerformanceTarget() WorkgroupPerformanceTargetPtrOutput {
 	return o.ApplyT(func(v WorkgroupType) *WorkgroupPerformanceTarget { return v.PricePerformanceTarget }).(WorkgroupPerformanceTargetPtrOutput)
 }
@@ -611,6 +613,7 @@ func (o WorkgroupTypePtrOutput) NamespaceName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// An object that represents the price performance target settings for the workgroup.
 func (o WorkgroupTypePtrOutput) PricePerformanceTarget() WorkgroupPerformanceTargetPtrOutput {
 	return o.ApplyT(func(v *WorkgroupType) *WorkgroupPerformanceTarget {
 		if v == nil {
@@ -954,7 +957,9 @@ func (o WorkgroupNetworkInterfaceArrayOutput) Index(i pulumi.IntInput) Workgroup
 }
 
 type WorkgroupPerformanceTarget struct {
-	Level  *int                              `pulumi:"level"`
+	// The target price performance level for the workgroup. Valid values include 1, 25, 50, 75, and 100. These correspond to the price performance levels LOW_COST, ECONOMICAL, BALANCED, RESOURCEFUL, and HIGH_PERFORMANCE.
+	Level *int `pulumi:"level"`
+	// Whether the price performance target is enabled for the workgroup.
 	Status *WorkgroupPerformanceTargetStatus `pulumi:"status"`
 }
 
@@ -970,7 +975,9 @@ type WorkgroupPerformanceTargetInput interface {
 }
 
 type WorkgroupPerformanceTargetArgs struct {
-	Level  pulumi.IntPtrInput                       `pulumi:"level"`
+	// The target price performance level for the workgroup. Valid values include 1, 25, 50, 75, and 100. These correspond to the price performance levels LOW_COST, ECONOMICAL, BALANCED, RESOURCEFUL, and HIGH_PERFORMANCE.
+	Level pulumi.IntPtrInput `pulumi:"level"`
+	// Whether the price performance target is enabled for the workgroup.
 	Status WorkgroupPerformanceTargetStatusPtrInput `pulumi:"status"`
 }
 
@@ -1051,10 +1058,12 @@ func (o WorkgroupPerformanceTargetOutput) ToWorkgroupPerformanceTargetPtrOutputW
 	}).(WorkgroupPerformanceTargetPtrOutput)
 }
 
+// The target price performance level for the workgroup. Valid values include 1, 25, 50, 75, and 100. These correspond to the price performance levels LOW_COST, ECONOMICAL, BALANCED, RESOURCEFUL, and HIGH_PERFORMANCE.
 func (o WorkgroupPerformanceTargetOutput) Level() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v WorkgroupPerformanceTarget) *int { return v.Level }).(pulumi.IntPtrOutput)
 }
 
+// Whether the price performance target is enabled for the workgroup.
 func (o WorkgroupPerformanceTargetOutput) Status() WorkgroupPerformanceTargetStatusPtrOutput {
 	return o.ApplyT(func(v WorkgroupPerformanceTarget) *WorkgroupPerformanceTargetStatus { return v.Status }).(WorkgroupPerformanceTargetStatusPtrOutput)
 }
@@ -1083,6 +1092,7 @@ func (o WorkgroupPerformanceTargetPtrOutput) Elem() WorkgroupPerformanceTargetOu
 	}).(WorkgroupPerformanceTargetOutput)
 }
 
+// The target price performance level for the workgroup. Valid values include 1, 25, 50, 75, and 100. These correspond to the price performance levels LOW_COST, ECONOMICAL, BALANCED, RESOURCEFUL, and HIGH_PERFORMANCE.
 func (o WorkgroupPerformanceTargetPtrOutput) Level() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *WorkgroupPerformanceTarget) *int {
 		if v == nil {
@@ -1092,6 +1102,7 @@ func (o WorkgroupPerformanceTargetPtrOutput) Level() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// Whether the price performance target is enabled for the workgroup.
 func (o WorkgroupPerformanceTargetPtrOutput) Status() WorkgroupPerformanceTargetStatusPtrOutput {
 	return o.ApplyT(func(v *WorkgroupPerformanceTarget) *WorkgroupPerformanceTargetStatus {
 		if v == nil {

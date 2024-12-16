@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.Batch.Outputs
         /// <summary>
         /// The platform configuration for jobs that are running on Fargate resources. Jobs that are running on Amazon EC2 resources must not specify this parameter.
         /// </summary>
-        public readonly Outputs.JobDefinitionFargatePlatformConfiguration? FargatePlatformConfiguration;
+        public readonly Outputs.JobDefinitionContainerPropertiesFargatePlatformConfigurationProperties? FargatePlatformConfiguration;
         /// <summary>
         /// Required. The image used to start a container. This string is passed directly to the Docker daemon. Images in the Docker Hub registry are available by default. Other repositories are specified with `*repository-url* / *image* : *tag*` . It can be 255 characters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), underscores (_), colons (:), periods (.), forward slashes (/), and number signs (#). This parameter maps to `Image` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `IMAGE` parameter of [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) .
         /// 
@@ -47,12 +47,6 @@ namespace Pulumi.AwsNative.Batch.Outputs
         /// - Images in other online repositories are qualified further by a domain name (for example, `quay.io/assemblyline/ubuntu` ).
         /// </summary>
         public readonly string Image;
-        /// <summary>
-        /// The instance type to use for a multi-node parallel job. All node groups in a multi-node parallel job must use the same instance type.
-        /// 
-        /// &gt; This parameter isn't applicable to single-node container jobs or jobs that run on Fargate resources, and shouldn't be provided.
-        /// </summary>
-        public readonly string? InstanceType;
         /// <summary>
         /// The Amazon Resource Name (ARN) of the IAM role that the container can assume for AWS permissions. For more information, see [IAM roles for tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html) in the *Amazon Elastic Container Service Developer Guide* .
         /// </summary>
@@ -80,7 +74,7 @@ namespace Pulumi.AwsNative.Batch.Outputs
         /// <summary>
         /// The mount points for data volumes in your container. This parameter maps to `Volumes` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `--volume` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) .
         /// </summary>
-        public readonly ImmutableArray<Outputs.JobDefinitionMountPoints> MountPoints;
+        public readonly ImmutableArray<Outputs.JobDefinitionMountPoint> MountPoints;
         /// <summary>
         /// The network configuration for jobs that are running on Fargate resources. Jobs that are running on Amazon EC2 resources must not specify this parameter.
         /// </summary>
@@ -130,7 +124,7 @@ namespace Pulumi.AwsNative.Batch.Outputs
         /// <summary>
         /// A list of data volumes used in a job.
         /// </summary>
-        public readonly ImmutableArray<Outputs.JobDefinitionVolumes> Volumes;
+        public readonly ImmutableArray<Outputs.JobDefinitionVolume> Volumes;
 
         [OutputConstructor]
         private JobDefinitionContainerProperties(
@@ -142,11 +136,9 @@ namespace Pulumi.AwsNative.Batch.Outputs
 
             string? executionRoleArn,
 
-            Outputs.JobDefinitionFargatePlatformConfiguration? fargatePlatformConfiguration,
+            Outputs.JobDefinitionContainerPropertiesFargatePlatformConfigurationProperties? fargatePlatformConfiguration,
 
             string image,
-
-            string? instanceType,
 
             string? jobRoleArn,
 
@@ -156,7 +148,7 @@ namespace Pulumi.AwsNative.Batch.Outputs
 
             int? memory,
 
-            ImmutableArray<Outputs.JobDefinitionMountPoints> mountPoints,
+            ImmutableArray<Outputs.JobDefinitionMountPoint> mountPoints,
 
             Outputs.JobDefinitionNetworkConfiguration? networkConfiguration,
 
@@ -178,7 +170,7 @@ namespace Pulumi.AwsNative.Batch.Outputs
 
             int? vcpus,
 
-            ImmutableArray<Outputs.JobDefinitionVolumes> volumes)
+            ImmutableArray<Outputs.JobDefinitionVolume> volumes)
         {
             Command = command;
             Environment = environment;
@@ -186,7 +178,6 @@ namespace Pulumi.AwsNative.Batch.Outputs
             ExecutionRoleArn = executionRoleArn;
             FargatePlatformConfiguration = fargatePlatformConfiguration;
             Image = image;
-            InstanceType = instanceType;
             JobRoleArn = jobRoleArn;
             LinuxParameters = linuxParameters;
             LogConfiguration = logConfiguration;

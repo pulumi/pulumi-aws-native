@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     public sealed class DomainDefaultSpaceSettings
     {
         /// <summary>
-        /// The settings for assigning a custom file system to a domain. Permitted users can access this file system in Amazon SageMaker Studio.
+        /// The settings for assigning a custom file system to a domain. Permitted users can access this file system in Amazon SageMaker AI Studio.
         /// </summary>
         public readonly ImmutableArray<Outputs.DomainCustomFileSystemConfig> CustomFileSystemConfigs;
         /// <summary>

@@ -45,6 +45,8 @@ type Application struct {
 	ReleaseLabel pulumi.StringOutput `pulumi:"releaseLabel"`
 	// The [Configuration](https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_Configuration.html) specifications of an application. Each configuration consists of a classification and properties. You use this parameter when creating or updating an application. To see the runtimeConfiguration object of an application, run the [GetApplication](https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_GetApplication.html) API operation.
 	RuntimeConfiguration ApplicationConfigurationObjectArrayOutput `pulumi:"runtimeConfiguration"`
+	// The scheduler configuration for batch and streaming jobs running on this application. Supported with release labels emr-7.0.0 and above.
+	SchedulerConfiguration ApplicationSchedulerConfigurationPtrOutput `pulumi:"schedulerConfiguration"`
 	// Tag map with key and value
 	Tags aws.TagArrayOutput `pulumi:"tags"`
 	// The type of the application
@@ -128,6 +130,8 @@ type applicationArgs struct {
 	ReleaseLabel string `pulumi:"releaseLabel"`
 	// The [Configuration](https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_Configuration.html) specifications of an application. Each configuration consists of a classification and properties. You use this parameter when creating or updating an application. To see the runtimeConfiguration object of an application, run the [GetApplication](https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_GetApplication.html) API operation.
 	RuntimeConfiguration []ApplicationConfigurationObject `pulumi:"runtimeConfiguration"`
+	// The scheduler configuration for batch and streaming jobs running on this application. Supported with release labels emr-7.0.0 and above.
+	SchedulerConfiguration *ApplicationSchedulerConfiguration `pulumi:"schedulerConfiguration"`
 	// Tag map with key and value
 	Tags []aws.Tag `pulumi:"tags"`
 	// The type of the application
@@ -162,6 +166,8 @@ type ApplicationArgs struct {
 	ReleaseLabel pulumi.StringInput
 	// The [Configuration](https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_Configuration.html) specifications of an application. Each configuration consists of a classification and properties. You use this parameter when creating or updating an application. To see the runtimeConfiguration object of an application, run the [GetApplication](https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_GetApplication.html) API operation.
 	RuntimeConfiguration ApplicationConfigurationObjectArrayInput
+	// The scheduler configuration for batch and streaming jobs running on this application. Supported with release labels emr-7.0.0 and above.
+	SchedulerConfiguration ApplicationSchedulerConfigurationPtrInput
 	// Tag map with key and value
 	Tags aws.TagArrayInput
 	// The type of the application
@@ -275,6 +281,11 @@ func (o ApplicationOutput) ReleaseLabel() pulumi.StringOutput {
 // The [Configuration](https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_Configuration.html) specifications of an application. Each configuration consists of a classification and properties. You use this parameter when creating or updating an application. To see the runtimeConfiguration object of an application, run the [GetApplication](https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_GetApplication.html) API operation.
 func (o ApplicationOutput) RuntimeConfiguration() ApplicationConfigurationObjectArrayOutput {
 	return o.ApplyT(func(v *Application) ApplicationConfigurationObjectArrayOutput { return v.RuntimeConfiguration }).(ApplicationConfigurationObjectArrayOutput)
+}
+
+// The scheduler configuration for batch and streaming jobs running on this application. Supported with release labels emr-7.0.0 and above.
+func (o ApplicationOutput) SchedulerConfiguration() ApplicationSchedulerConfigurationPtrOutput {
+	return o.ApplyT(func(v *Application) ApplicationSchedulerConfigurationPtrOutput { return v.SchedulerConfiguration }).(ApplicationSchedulerConfigurationPtrOutput)
 }
 
 // Tag map with key and value

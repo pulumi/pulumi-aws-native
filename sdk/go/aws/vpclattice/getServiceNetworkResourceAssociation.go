@@ -24,12 +24,16 @@ func LookupServiceNetworkResourceAssociation(ctx *pulumi.Context, args *LookupSe
 }
 
 type LookupServiceNetworkResourceAssociationArgs struct {
+	// The Amazon Resource Name (ARN) of the association.
 	Arn string `pulumi:"arn"`
 }
 
 type LookupServiceNetworkResourceAssociationResult struct {
-	Arn  *string   `pulumi:"arn"`
-	Id   *string   `pulumi:"id"`
+	// The Amazon Resource Name (ARN) of the association.
+	Arn *string `pulumi:"arn"`
+	// The ID of the association between the service network and resource configuration.
+	Id *string `pulumi:"id"`
+	// A key-value pair to associate with a resource.
 	Tags []aws.Tag `pulumi:"tags"`
 }
 
@@ -43,6 +47,7 @@ func LookupServiceNetworkResourceAssociationOutput(ctx *pulumi.Context, args Loo
 }
 
 type LookupServiceNetworkResourceAssociationOutputArgs struct {
+	// The Amazon Resource Name (ARN) of the association.
 	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
@@ -64,14 +69,17 @@ func (o LookupServiceNetworkResourceAssociationResultOutput) ToLookupServiceNetw
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the association.
 func (o LookupServiceNetworkResourceAssociationResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupServiceNetworkResourceAssociationResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the association between the service network and resource configuration.
 func (o LookupServiceNetworkResourceAssociationResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupServiceNetworkResourceAssociationResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// A key-value pair to associate with a resource.
 func (o LookupServiceNetworkResourceAssociationResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupServiceNetworkResourceAssociationResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

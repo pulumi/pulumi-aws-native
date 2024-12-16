@@ -113,6 +113,7 @@ export class DataSet extends pulumi.CustomResource {
      *             analyses, and dashboards.</p>
      */
     public /*out*/ readonly outputColumns!: pulumi.Output<outputs.quicksight.DataSetOutputColumn[]>;
+    public readonly performanceConfiguration!: pulumi.Output<outputs.quicksight.DataSetPerformanceConfiguration | undefined>;
     /**
      * <p>A list of resource permissions on the dataset.</p>
      */
@@ -158,6 +159,7 @@ export class DataSet extends pulumi.CustomResource {
             resourceInputs["ingestionWaitPolicy"] = args ? args.ingestionWaitPolicy : undefined;
             resourceInputs["logicalTableMap"] = args ? args.logicalTableMap : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["performanceConfiguration"] = args ? args.performanceConfiguration : undefined;
             resourceInputs["permissions"] = args ? args.permissions : undefined;
             resourceInputs["physicalTableMap"] = args ? args.physicalTableMap : undefined;
             resourceInputs["rowLevelPermissionDataSet"] = args ? args.rowLevelPermissionDataSet : undefined;
@@ -187,6 +189,7 @@ export class DataSet extends pulumi.CustomResource {
             resourceInputs["logicalTableMap"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["outputColumns"] = undefined /*out*/;
+            resourceInputs["performanceConfiguration"] = undefined /*out*/;
             resourceInputs["permissions"] = undefined /*out*/;
             resourceInputs["physicalTableMap"] = undefined /*out*/;
             resourceInputs["rowLevelPermissionDataSet"] = undefined /*out*/;
@@ -258,6 +261,7 @@ export interface DataSetArgs {
      * <p>The display name for the dataset.</p>
      */
     name?: pulumi.Input<string>;
+    performanceConfiguration?: pulumi.Input<inputs.quicksight.DataSetPerformanceConfigurationArgs>;
     /**
      * <p>A list of resource permissions on the dataset.</p>
      */

@@ -36,6 +36,25 @@ class ResourceConfigurationArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ResourceConfiguration resource.
+        :param pulumi.Input[bool] allow_association_to_sharable_service_network: Specifies whether the resource configuration can be associated with a sharable service network.
+        :param pulumi.Input[str] name: The name of the resource configuration.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] port_ranges: (SINGLE, GROUP, CHILD) The TCP port ranges that a consumer can use to access a resource configuration (for example: 1-65535). You can separate port ranges using commas (for example: 1,2,22-30).
+        :param pulumi.Input['ResourceConfigurationProtocolType'] protocol_type: (SINGLE, GROUP) The protocol accepted by the resource configuration.
+        :param pulumi.Input['ResourceConfigurationAuthType'] resource_configuration_auth_type: The auth type for the resource configuration.
+        :param pulumi.Input[Union['ResourceConfigurationDefinition0PropertiesArgs', 'ResourceConfigurationDefinition1PropertiesArgs', 'ResourceConfigurationDefinition2PropertiesArgs']] resource_configuration_definition: Identifies the resource configuration in one of the following ways:
+               
+               - *Amazon Resource Name (ARN)* - Supported resource-types that are provisioned by AWS services, such as RDS databases, can be identified by their ARN.
+               - *Domain name* - Any domain name that is publicly resolvable.
+               - *IP address* - For IPv4 and IPv6, only IP addresses in the VPC are supported.
+        :param pulumi.Input[str] resource_configuration_group_id: The ID of the group resource configuration.
+        :param pulumi.Input['ResourceConfigurationType'] resource_configuration_type: The type of resource configuration. A resource configuration can be one of the following types:
+               
+               - *SINGLE* - A single resource.
+               - *GROUP* - A group of resources. You must create a group resource configuration before you create a child resource configuration.
+               - *CHILD* - A single resource that is part of a group resource configuration.
+               - *ARN* - An AWS resource.
+        :param pulumi.Input[str] resource_gateway_id: The ID of the resource gateway.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags for the resource configuration.
         """
         if allow_association_to_sharable_service_network is not None:
             pulumi.set(__self__, "allow_association_to_sharable_service_network", allow_association_to_sharable_service_network)
@@ -61,6 +80,9 @@ class ResourceConfigurationArgs:
     @property
     @pulumi.getter(name="allowAssociationToSharableServiceNetwork")
     def allow_association_to_sharable_service_network(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether the resource configuration can be associated with a sharable service network.
+        """
         return pulumi.get(self, "allow_association_to_sharable_service_network")
 
     @allow_association_to_sharable_service_network.setter
@@ -70,6 +92,9 @@ class ResourceConfigurationArgs:
     @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the resource configuration.
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -79,6 +104,9 @@ class ResourceConfigurationArgs:
     @property
     @pulumi.getter(name="portRanges")
     def port_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        (SINGLE, GROUP, CHILD) The TCP port ranges that a consumer can use to access a resource configuration (for example: 1-65535). You can separate port ranges using commas (for example: 1,2,22-30).
+        """
         return pulumi.get(self, "port_ranges")
 
     @port_ranges.setter
@@ -88,6 +116,9 @@ class ResourceConfigurationArgs:
     @property
     @pulumi.getter(name="protocolType")
     def protocol_type(self) -> Optional[pulumi.Input['ResourceConfigurationProtocolType']]:
+        """
+        (SINGLE, GROUP) The protocol accepted by the resource configuration.
+        """
         return pulumi.get(self, "protocol_type")
 
     @protocol_type.setter
@@ -97,6 +128,9 @@ class ResourceConfigurationArgs:
     @property
     @pulumi.getter(name="resourceConfigurationAuthType")
     def resource_configuration_auth_type(self) -> Optional[pulumi.Input['ResourceConfigurationAuthType']]:
+        """
+        The auth type for the resource configuration.
+        """
         return pulumi.get(self, "resource_configuration_auth_type")
 
     @resource_configuration_auth_type.setter
@@ -106,6 +140,13 @@ class ResourceConfigurationArgs:
     @property
     @pulumi.getter(name="resourceConfigurationDefinition")
     def resource_configuration_definition(self) -> Optional[pulumi.Input[Union['ResourceConfigurationDefinition0PropertiesArgs', 'ResourceConfigurationDefinition1PropertiesArgs', 'ResourceConfigurationDefinition2PropertiesArgs']]]:
+        """
+        Identifies the resource configuration in one of the following ways:
+
+        - *Amazon Resource Name (ARN)* - Supported resource-types that are provisioned by AWS services, such as RDS databases, can be identified by their ARN.
+        - *Domain name* - Any domain name that is publicly resolvable.
+        - *IP address* - For IPv4 and IPv6, only IP addresses in the VPC are supported.
+        """
         return pulumi.get(self, "resource_configuration_definition")
 
     @resource_configuration_definition.setter
@@ -115,6 +156,9 @@ class ResourceConfigurationArgs:
     @property
     @pulumi.getter(name="resourceConfigurationGroupId")
     def resource_configuration_group_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the group resource configuration.
+        """
         return pulumi.get(self, "resource_configuration_group_id")
 
     @resource_configuration_group_id.setter
@@ -124,6 +168,14 @@ class ResourceConfigurationArgs:
     @property
     @pulumi.getter(name="resourceConfigurationType")
     def resource_configuration_type(self) -> Optional[pulumi.Input['ResourceConfigurationType']]:
+        """
+        The type of resource configuration. A resource configuration can be one of the following types:
+
+        - *SINGLE* - A single resource.
+        - *GROUP* - A group of resources. You must create a group resource configuration before you create a child resource configuration.
+        - *CHILD* - A single resource that is part of a group resource configuration.
+        - *ARN* - An AWS resource.
+        """
         return pulumi.get(self, "resource_configuration_type")
 
     @resource_configuration_type.setter
@@ -133,6 +185,9 @@ class ResourceConfigurationArgs:
     @property
     @pulumi.getter(name="resourceGatewayId")
     def resource_gateway_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the resource gateway.
+        """
         return pulumi.get(self, "resource_gateway_id")
 
     @resource_gateway_id.setter
@@ -142,6 +197,9 @@ class ResourceConfigurationArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        The tags for the resource configuration.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -170,6 +228,25 @@ class ResourceConfiguration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] allow_association_to_sharable_service_network: Specifies whether the resource configuration can be associated with a sharable service network.
+        :param pulumi.Input[str] name: The name of the resource configuration.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] port_ranges: (SINGLE, GROUP, CHILD) The TCP port ranges that a consumer can use to access a resource configuration (for example: 1-65535). You can separate port ranges using commas (for example: 1,2,22-30).
+        :param pulumi.Input['ResourceConfigurationProtocolType'] protocol_type: (SINGLE, GROUP) The protocol accepted by the resource configuration.
+        :param pulumi.Input['ResourceConfigurationAuthType'] resource_configuration_auth_type: The auth type for the resource configuration.
+        :param pulumi.Input[Union[Union['ResourceConfigurationDefinition0PropertiesArgs', 'ResourceConfigurationDefinition0PropertiesArgsDict'], Union['ResourceConfigurationDefinition1PropertiesArgs', 'ResourceConfigurationDefinition1PropertiesArgsDict'], Union['ResourceConfigurationDefinition2PropertiesArgs', 'ResourceConfigurationDefinition2PropertiesArgsDict']]] resource_configuration_definition: Identifies the resource configuration in one of the following ways:
+               
+               - *Amazon Resource Name (ARN)* - Supported resource-types that are provisioned by AWS services, such as RDS databases, can be identified by their ARN.
+               - *Domain name* - Any domain name that is publicly resolvable.
+               - *IP address* - For IPv4 and IPv6, only IP addresses in the VPC are supported.
+        :param pulumi.Input[str] resource_configuration_group_id: The ID of the group resource configuration.
+        :param pulumi.Input['ResourceConfigurationType'] resource_configuration_type: The type of resource configuration. A resource configuration can be one of the following types:
+               
+               - *SINGLE* - A single resource.
+               - *GROUP* - A group of resources. You must create a group resource configuration before you create a child resource configuration.
+               - *CHILD* - A single resource that is part of a group resource configuration.
+               - *ARN* - An AWS resource.
+        :param pulumi.Input[str] resource_gateway_id: The ID of the resource gateway.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags for the resource configuration.
         """
         ...
     @overload
@@ -267,60 +344,105 @@ class ResourceConfiguration(pulumi.CustomResource):
     @property
     @pulumi.getter(name="allowAssociationToSharableServiceNetwork")
     def allow_association_to_sharable_service_network(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies whether the resource configuration can be associated with a sharable service network.
+        """
         return pulumi.get(self, "allow_association_to_sharable_service_network")
 
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the resource configuration.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="awsId")
     def aws_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the resource configuration.
+        """
         return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the resource configuration.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="portRanges")
     def port_ranges(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        (SINGLE, GROUP, CHILD) The TCP port ranges that a consumer can use to access a resource configuration (for example: 1-65535). You can separate port ranges using commas (for example: 1,2,22-30).
+        """
         return pulumi.get(self, "port_ranges")
 
     @property
     @pulumi.getter(name="protocolType")
     def protocol_type(self) -> pulumi.Output[Optional['ResourceConfigurationProtocolType']]:
+        """
+        (SINGLE, GROUP) The protocol accepted by the resource configuration.
+        """
         return pulumi.get(self, "protocol_type")
 
     @property
     @pulumi.getter(name="resourceConfigurationAuthType")
     def resource_configuration_auth_type(self) -> pulumi.Output[Optional['ResourceConfigurationAuthType']]:
+        """
+        The auth type for the resource configuration.
+        """
         return pulumi.get(self, "resource_configuration_auth_type")
 
     @property
     @pulumi.getter(name="resourceConfigurationDefinition")
     def resource_configuration_definition(self) -> pulumi.Output[Optional[Any]]:
+        """
+        Identifies the resource configuration in one of the following ways:
+
+        - *Amazon Resource Name (ARN)* - Supported resource-types that are provisioned by AWS services, such as RDS databases, can be identified by their ARN.
+        - *Domain name* - Any domain name that is publicly resolvable.
+        - *IP address* - For IPv4 and IPv6, only IP addresses in the VPC are supported.
+        """
         return pulumi.get(self, "resource_configuration_definition")
 
     @property
     @pulumi.getter(name="resourceConfigurationGroupId")
     def resource_configuration_group_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of the group resource configuration.
+        """
         return pulumi.get(self, "resource_configuration_group_id")
 
     @property
     @pulumi.getter(name="resourceConfigurationType")
     def resource_configuration_type(self) -> pulumi.Output[Optional['ResourceConfigurationType']]:
+        """
+        The type of resource configuration. A resource configuration can be one of the following types:
+
+        - *SINGLE* - A single resource.
+        - *GROUP* - A group of resources. You must create a group resource configuration before you create a child resource configuration.
+        - *CHILD* - A single resource that is part of a group resource configuration.
+        - *ARN* - An AWS resource.
+        """
         return pulumi.get(self, "resource_configuration_type")
 
     @property
     @pulumi.getter(name="resourceGatewayId")
     def resource_gateway_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of the resource gateway.
+        """
         return pulumi.get(self, "resource_gateway_id")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        The tags for the resource configuration.
+        """
         return pulumi.get(self, "tags")
 

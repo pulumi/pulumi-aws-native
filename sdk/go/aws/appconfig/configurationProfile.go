@@ -21,6 +21,8 @@ type ConfigurationProfile struct {
 	ApplicationId pulumi.StringOutput `pulumi:"applicationId"`
 	// The configuration profile ID
 	ConfigurationProfileId pulumi.StringOutput `pulumi:"configurationProfileId"`
+	// On resource deletion this controls whether the Deletion Protection check should be applied, bypassed, or (the default) whether the behavior should be controlled by the account-level Deletion Protection setting. See https://docs.aws.amazon.com/appconfig/latest/userguide/deletion-protection.html
+	DeletionProtectionCheck ConfigurationProfileDeletionProtectionCheckPtrOutput `pulumi:"deletionProtectionCheck"`
 	// A description of the configuration profile.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The Amazon Resource Name of the AWS Key Management Service key to encrypt new configuration data versions in the AWS AppConfig hosted configuration store. This attribute is only used for hosted configuration types. To encrypt data managed in other configuration stores, see the documentation for how to specify an AWS KMS key for that particular service.
@@ -95,6 +97,8 @@ func (ConfigurationProfileState) ElementType() reflect.Type {
 type configurationProfileArgs struct {
 	// The application ID.
 	ApplicationId string `pulumi:"applicationId"`
+	// On resource deletion this controls whether the Deletion Protection check should be applied, bypassed, or (the default) whether the behavior should be controlled by the account-level Deletion Protection setting. See https://docs.aws.amazon.com/appconfig/latest/userguide/deletion-protection.html
+	DeletionProtectionCheck *ConfigurationProfileDeletionProtectionCheck `pulumi:"deletionProtectionCheck"`
 	// A description of the configuration profile.
 	Description *string `pulumi:"description"`
 	// The AWS Key Management Service key identifier (key ID, key alias, or key ARN) provided when the resource was created or updated.
@@ -117,6 +121,8 @@ type configurationProfileArgs struct {
 type ConfigurationProfileArgs struct {
 	// The application ID.
 	ApplicationId pulumi.StringInput
+	// On resource deletion this controls whether the Deletion Protection check should be applied, bypassed, or (the default) whether the behavior should be controlled by the account-level Deletion Protection setting. See https://docs.aws.amazon.com/appconfig/latest/userguide/deletion-protection.html
+	DeletionProtectionCheck ConfigurationProfileDeletionProtectionCheckPtrInput
 	// A description of the configuration profile.
 	Description pulumi.StringPtrInput
 	// The AWS Key Management Service key identifier (key ID, key alias, or key ARN) provided when the resource was created or updated.
@@ -180,6 +186,13 @@ func (o ConfigurationProfileOutput) ApplicationId() pulumi.StringOutput {
 // The configuration profile ID
 func (o ConfigurationProfileOutput) ConfigurationProfileId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ConfigurationProfile) pulumi.StringOutput { return v.ConfigurationProfileId }).(pulumi.StringOutput)
+}
+
+// On resource deletion this controls whether the Deletion Protection check should be applied, bypassed, or (the default) whether the behavior should be controlled by the account-level Deletion Protection setting. See https://docs.aws.amazon.com/appconfig/latest/userguide/deletion-protection.html
+func (o ConfigurationProfileOutput) DeletionProtectionCheck() ConfigurationProfileDeletionProtectionCheckPtrOutput {
+	return o.ApplyT(func(v *ConfigurationProfile) ConfigurationProfileDeletionProtectionCheckPtrOutput {
+		return v.DeletionProtectionCheck
+	}).(ConfigurationProfileDeletionProtectionCheckPtrOutput)
 }
 
 // A description of the configuration profile.

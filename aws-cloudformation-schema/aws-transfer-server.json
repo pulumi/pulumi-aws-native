@@ -141,6 +141,10 @@
       "type" : "string",
       "enum" : [ "PASSWORD", "PUBLIC_KEY", "PUBLIC_KEY_OR_PASSWORD", "PUBLIC_KEY_AND_PASSWORD" ]
     },
+    "State" : {
+      "type" : "string",
+      "enum" : [ "OFFLINE", "ONLINE", "STARTING", "STOPPING", "START_FAILED", "STOP_FAILED" ]
+    },
     "Tag" : {
       "type" : "object",
       "properties" : {
@@ -287,6 +291,9 @@
       "minLength" : 19,
       "pattern" : "^s-([0-9a-f]{17})$"
     },
+    "State" : {
+      "$ref" : "#/definitions/State"
+    },
     "StructuredLogDestinations" : {
       "type" : "array",
       "insertionOrder" : false,
@@ -312,7 +319,7 @@
       "$ref" : "#/definitions/WorkflowDetails"
     }
   },
-  "readOnlyProperties" : [ "/properties/Arn", "/properties/As2ServiceManagedEgressIpAddresses", "/properties/ServerId" ],
+  "readOnlyProperties" : [ "/properties/Arn", "/properties/As2ServiceManagedEgressIpAddresses", "/properties/ServerId", "/properties/State" ],
   "writeOnlyProperties" : [ "/properties/IdentityProviderType" ],
   "createOnlyProperties" : [ "/properties/Domain", "/properties/IdentityProviderType" ],
   "primaryIdentifier" : [ "/properties/Arn" ],

@@ -33,9 +33,15 @@ namespace Pulumi.AwsNative.QBusiness
 
     public sealed class GetDataAccessorArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The unique identifier of the Amazon Q Business application.
+        /// </summary>
         [Input("applicationId", required: true)]
         public string ApplicationId { get; set; } = null!;
 
+        /// <summary>
+        /// The unique identifier of the data accessor.
+        /// </summary>
         [Input("dataAccessorId", required: true)]
         public string DataAccessorId { get; set; } = null!;
 
@@ -47,9 +53,15 @@ namespace Pulumi.AwsNative.QBusiness
 
     public sealed class GetDataAccessorInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The unique identifier of the Amazon Q Business application.
+        /// </summary>
         [Input("applicationId", required: true)]
         public Input<string> ApplicationId { get; set; } = null!;
 
+        /// <summary>
+        /// The unique identifier of the data accessor.
+        /// </summary>
         [Input("dataAccessorId", required: true)]
         public Input<string> DataAccessorId { get; set; } = null!;
 
@@ -63,13 +75,37 @@ namespace Pulumi.AwsNative.QBusiness
     [OutputType]
     public sealed class GetDataAccessorResult
     {
+        /// <summary>
+        /// A list of action configurations specifying the allowed actions and any associated filters.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DataAccessorActionConfiguration> ActionConfigurations;
+        /// <summary>
+        /// The timestamp when the data accessor was created.
+        /// </summary>
         public readonly string? CreatedAt;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the data accessor.
+        /// </summary>
         public readonly string? DataAccessorArn;
+        /// <summary>
+        /// The unique identifier of the data accessor.
+        /// </summary>
         public readonly string? DataAccessorId;
+        /// <summary>
+        /// The friendly name of the data accessor.
+        /// </summary>
         public readonly string? DisplayName;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the associated IAM Identity Center application.
+        /// </summary>
         public readonly string? IdcApplicationArn;
+        /// <summary>
+        /// The tags to associate with the data accessor.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
+        /// The timestamp when the data accessor was last updated.
+        /// </summary>
         public readonly string? UpdatedAt;
 
         [OutputConstructor]

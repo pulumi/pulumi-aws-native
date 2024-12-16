@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QBusiness.Outputs
     [OutputType]
     public sealed class DataSourceImageExtractionConfiguration
     {
+        /// <summary>
+        /// Specify whether to extract semantic meaning from images and visuals from documents.
+        /// </summary>
         public readonly Pulumi.AwsNative.QBusiness.DataSourceImageExtractionStatus ImageExtractionStatus;
 
         [OutputConstructor]

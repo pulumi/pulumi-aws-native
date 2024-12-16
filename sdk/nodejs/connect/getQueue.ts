@@ -50,6 +50,10 @@ export interface GetQueueResult {
      */
     readonly outboundCallerConfig?: outputs.connect.QueueOutboundCallerConfig;
     /**
+     * The outbound email address ID.
+     */
+    readonly outboundEmailConfig?: outputs.connect.QueueOutboundEmailConfig;
+    /**
      * The Amazon Resource Name (ARN) for the queue.
      */
     readonly queueArn?: string;

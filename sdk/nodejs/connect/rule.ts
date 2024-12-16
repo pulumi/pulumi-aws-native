@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS:Connect::Rule
+ * Creates a rule for the specified CON instance.
  */
 export class Rule extends pulumi.CustomResource {
     /**
@@ -38,11 +38,11 @@ export class Rule extends pulumi.CustomResource {
     }
 
     /**
-     * The list of actions that will be executed when a rule is triggered.
+     * A list of actions to be run when the rule is triggered.
      */
     public readonly actions!: pulumi.Output<outputs.connect.RuleActions>;
     /**
-     * The conditions of a rule.
+     * The conditions of the rule.
      */
     public readonly function!: pulumi.Output<string>;
     /**
@@ -54,7 +54,8 @@ export class Rule extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The publish status of a rule, either draft or published.
+     * The publish status of the rule.
+     *   *Allowed values*: ``DRAFT`` | ``PUBLISHED``
      */
     public readonly publishStatus!: pulumi.Output<enums.connect.RulePublishStatus>;
     /**
@@ -62,11 +63,11 @@ export class Rule extends pulumi.CustomResource {
      */
     public /*out*/ readonly ruleArn!: pulumi.Output<string>;
     /**
-     * One or more tags.
+     * The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
      */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
-     * The event source that triggers the rule.
+     * The event source to trigger the rule.
      */
     public readonly triggerEventSource!: pulumi.Output<outputs.connect.RuleTriggerEventSource>;
 
@@ -126,11 +127,11 @@ export class Rule extends pulumi.CustomResource {
  */
 export interface RuleArgs {
     /**
-     * The list of actions that will be executed when a rule is triggered.
+     * A list of actions to be run when the rule is triggered.
      */
     actions: pulumi.Input<inputs.connect.RuleActionsArgs>;
     /**
-     * The conditions of a rule.
+     * The conditions of the rule.
      */
     function: pulumi.Input<string>;
     /**
@@ -142,15 +143,16 @@ export interface RuleArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The publish status of a rule, either draft or published.
+     * The publish status of the rule.
+     *   *Allowed values*: ``DRAFT`` | ``PUBLISHED``
      */
     publishStatus: pulumi.Input<enums.connect.RulePublishStatus>;
     /**
-     * One or more tags.
+     * The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
-     * The event source that triggers the rule.
+     * The event source to trigger the rule.
      */
     triggerEventSource: pulumi.Input<inputs.connect.RuleTriggerEventSourceArgs>;
 }

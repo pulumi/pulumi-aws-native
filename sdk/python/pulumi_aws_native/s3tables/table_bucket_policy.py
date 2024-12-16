@@ -25,6 +25,8 @@ class TableBucketPolicyArgs:
                  table_bucket_arn: pulumi.Input[str]):
         """
         The set of arguments for constructing a TableBucketPolicy resource.
+        :param pulumi.Input['TableBucketPolicyResourcePolicyArgs'] resource_policy: The bucket policy JSON for the table bucket.
+        :param pulumi.Input[str] table_bucket_arn: The Amazon Resource Name (ARN) of the table bucket.
         """
         pulumi.set(__self__, "resource_policy", resource_policy)
         pulumi.set(__self__, "table_bucket_arn", table_bucket_arn)
@@ -32,6 +34,9 @@ class TableBucketPolicyArgs:
     @property
     @pulumi.getter(name="resourcePolicy")
     def resource_policy(self) -> pulumi.Input['TableBucketPolicyResourcePolicyArgs']:
+        """
+        The bucket policy JSON for the table bucket.
+        """
         return pulumi.get(self, "resource_policy")
 
     @resource_policy.setter
@@ -41,6 +46,9 @@ class TableBucketPolicyArgs:
     @property
     @pulumi.getter(name="tableBucketArn")
     def table_bucket_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the table bucket.
+        """
         return pulumi.get(self, "table_bucket_arn")
 
     @table_bucket_arn.setter
@@ -61,6 +69,8 @@ class TableBucketPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['TableBucketPolicyResourcePolicyArgs', 'TableBucketPolicyResourcePolicyArgsDict']] resource_policy: The bucket policy JSON for the table bucket.
+        :param pulumi.Input[str] table_bucket_arn: The Amazon Resource Name (ARN) of the table bucket.
         """
         ...
     @overload
@@ -134,10 +144,16 @@ class TableBucketPolicy(pulumi.CustomResource):
     @property
     @pulumi.getter(name="resourcePolicy")
     def resource_policy(self) -> pulumi.Output['outputs.TableBucketPolicyResourcePolicy']:
+        """
+        The bucket policy JSON for the table bucket.
+        """
         return pulumi.get(self, "resource_policy")
 
     @property
     @pulumi.getter(name="tableBucketArn")
     def table_bucket_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the table bucket.
+        """
         return pulumi.get(self, "table_bucket_arn")
 

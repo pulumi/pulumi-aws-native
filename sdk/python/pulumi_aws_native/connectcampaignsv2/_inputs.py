@@ -38,6 +38,8 @@ __all__ = [
     'CampaignEmailOutboundConfigArgsDict',
     'CampaignEmailOutboundModeArgs',
     'CampaignEmailOutboundModeArgsDict',
+    'CampaignEventTriggerArgs',
+    'CampaignEventTriggerArgsDict',
     'CampaignLocalTimeZoneConfigArgs',
     'CampaignLocalTimeZoneConfigArgsDict',
     'CampaignOpenHoursArgs',
@@ -669,6 +671,42 @@ class CampaignEmailOutboundModeArgs:
 
 
 if not MYPY:
+    class CampaignEventTriggerArgsDict(TypedDict):
+        """
+        The event trigger of the campaign
+        """
+        customer_profiles_domain_arn: NotRequired[pulumi.Input[str]]
+        """
+        The Amazon Resource Name (ARN) of the Customer Profiles domain.
+        """
+elif False:
+    CampaignEventTriggerArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CampaignEventTriggerArgs:
+    def __init__(__self__, *,
+                 customer_profiles_domain_arn: Optional[pulumi.Input[str]] = None):
+        """
+        The event trigger of the campaign
+        :param pulumi.Input[str] customer_profiles_domain_arn: The Amazon Resource Name (ARN) of the Customer Profiles domain.
+        """
+        if customer_profiles_domain_arn is not None:
+            pulumi.set(__self__, "customer_profiles_domain_arn", customer_profiles_domain_arn)
+
+    @property
+    @pulumi.getter(name="customerProfilesDomainArn")
+    def customer_profiles_domain_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the Customer Profiles domain.
+        """
+        return pulumi.get(self, "customer_profiles_domain_arn")
+
+    @customer_profiles_domain_arn.setter
+    def customer_profiles_domain_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "customer_profiles_domain_arn", value)
+
+
+if not MYPY:
     class CampaignLocalTimeZoneConfigArgsDict(TypedDict):
         """
         Local time zone config
@@ -1166,11 +1204,15 @@ class CampaignSmsOutboundModeArgs:
 if not MYPY:
     class CampaignSourceArgsDict(TypedDict):
         """
-        The possible types of channel config parameters
+        The possible source of the campaign
         """
         customer_profiles_segment_arn: NotRequired[pulumi.Input[str]]
         """
         The Amazon Resource Name (ARN) of the Customer Profiles segment.
+        """
+        event_trigger: NotRequired[pulumi.Input['CampaignEventTriggerArgsDict']]
+        """
+        The event trigger of the campaign.
         """
 elif False:
     CampaignSourceArgsDict: TypeAlias = Mapping[str, Any]
@@ -1178,13 +1220,17 @@ elif False:
 @pulumi.input_type
 class CampaignSourceArgs:
     def __init__(__self__, *,
-                 customer_profiles_segment_arn: Optional[pulumi.Input[str]] = None):
+                 customer_profiles_segment_arn: Optional[pulumi.Input[str]] = None,
+                 event_trigger: Optional[pulumi.Input['CampaignEventTriggerArgs']] = None):
         """
-        The possible types of channel config parameters
+        The possible source of the campaign
         :param pulumi.Input[str] customer_profiles_segment_arn: The Amazon Resource Name (ARN) of the Customer Profiles segment.
+        :param pulumi.Input['CampaignEventTriggerArgs'] event_trigger: The event trigger of the campaign.
         """
         if customer_profiles_segment_arn is not None:
             pulumi.set(__self__, "customer_profiles_segment_arn", customer_profiles_segment_arn)
+        if event_trigger is not None:
+            pulumi.set(__self__, "event_trigger", event_trigger)
 
     @property
     @pulumi.getter(name="customerProfilesSegmentArn")
@@ -1197,6 +1243,18 @@ class CampaignSourceArgs:
     @customer_profiles_segment_arn.setter
     def customer_profiles_segment_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "customer_profiles_segment_arn", value)
+
+    @property
+    @pulumi.getter(name="eventTrigger")
+    def event_trigger(self) -> Optional[pulumi.Input['CampaignEventTriggerArgs']]:
+        """
+        The event trigger of the campaign.
+        """
+        return pulumi.get(self, "event_trigger")
+
+    @event_trigger.setter
+    def event_trigger(self, value: Optional[pulumi.Input['CampaignEventTriggerArgs']]):
+        pulumi.set(self, "event_trigger", value)
 
 
 if not MYPY:

@@ -32,6 +32,9 @@ class GetTableBucketPolicyResult:
     @property
     @pulumi.getter(name="resourcePolicy")
     def resource_policy(self) -> Optional['outputs.TableBucketPolicyResourcePolicy']:
+        """
+        The bucket policy JSON for the table bucket.
+        """
         return pulumi.get(self, "resource_policy")
 
 
@@ -48,6 +51,9 @@ def get_table_bucket_policy(table_bucket_arn: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTableBucketPolicyResult:
     """
     Applies an IAM resource policy to a table bucket.
+
+
+    :param str table_bucket_arn: The Amazon Resource Name (ARN) of the table bucket.
     """
     __args__ = dict()
     __args__['tableBucketArn'] = table_bucket_arn
@@ -60,6 +66,9 @@ def get_table_bucket_policy_output(table_bucket_arn: Optional[pulumi.Input[str]]
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTableBucketPolicyResult]:
     """
     Applies an IAM resource policy to a table bucket.
+
+
+    :param str table_bucket_arn: The Amazon Resource Name (ARN) of the table bucket.
     """
     __args__ = dict()
     __args__['tableBucketArn'] = table_bucket_arn

@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.Batch.Inputs
         /// The properties for the Kubernetes pod resources of a job.
         /// </summary>
         [Input("podProperties")]
-        public Input<Inputs.JobDefinitionPodPropertiesArgs>? PodProperties { get; set; }
+        public Input<Inputs.JobDefinitionEksPodPropertiesArgs>? PodProperties { get; set; }
 
         public JobDefinitionEksPropertiesArgs()
         {

@@ -38,6 +38,9 @@ export const ResourceConfigurationAuthType = {
     AwsIam: "AWS_IAM",
 } as const;
 
+/**
+ * The auth type for the resource configuration.
+ */
 export type ResourceConfigurationAuthType = (typeof ResourceConfigurationAuthType)[keyof typeof ResourceConfigurationAuthType];
 
 export const ResourceConfigurationDnsResourceIpAddressType = {
@@ -52,6 +55,9 @@ export const ResourceConfigurationProtocolType = {
     Tcp: "TCP",
 } as const;
 
+/**
+ * (SINGLE, GROUP) The protocol accepted by the resource configuration.
+ */
 export type ResourceConfigurationProtocolType = (typeof ResourceConfigurationProtocolType)[keyof typeof ResourceConfigurationProtocolType];
 
 export const ResourceConfigurationType = {
@@ -61,6 +67,14 @@ export const ResourceConfigurationType = {
     Arn: "ARN",
 } as const;
 
+/**
+ * The type of resource configuration. A resource configuration can be one of the following types:
+ *
+ * - *SINGLE* - A single resource.
+ * - *GROUP* - A group of resources. You must create a group resource configuration before you create a child resource configuration.
+ * - *CHILD* - A single resource that is part of a group resource configuration.
+ * - *ARN* - An AWS resource.
+ */
 export type ResourceConfigurationType = (typeof ResourceConfigurationType)[keyof typeof ResourceConfigurationType];
 
 export const ResourceGatewayIpAddressType = {
@@ -69,6 +83,9 @@ export const ResourceGatewayIpAddressType = {
     Dualstack: "DUALSTACK",
 } as const;
 
+/**
+ * The type of IP address used by the resource gateway.
+ */
 export type ResourceGatewayIpAddressType = (typeof ResourceGatewayIpAddressType)[keyof typeof ResourceGatewayIpAddressType];
 
 export const RuleHttpMatchMethod = {

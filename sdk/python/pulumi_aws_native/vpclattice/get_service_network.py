@@ -95,6 +95,9 @@ class GetServiceNetworkResult:
     @property
     @pulumi.getter(name="sharingConfig")
     def sharing_config(self) -> Optional['outputs.ServiceNetworkSharingConfig']:
+        """
+        Specify if the service network should be enabled for sharing.
+        """
         return pulumi.get(self, "sharing_config")
 
     @property

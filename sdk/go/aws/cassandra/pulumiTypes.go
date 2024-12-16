@@ -1802,6 +1802,106 @@ func (o TableTargetTrackingScalingPolicyConfigurationPtrOutput) TargetValue() pu
 	}).(pulumi.IntPtrOutput)
 }
 
+type TypeField struct {
+	FieldName string `pulumi:"fieldName"`
+	FieldType string `pulumi:"fieldType"`
+}
+
+// TypeFieldInput is an input type that accepts TypeFieldArgs and TypeFieldOutput values.
+// You can construct a concrete instance of `TypeFieldInput` via:
+//
+//	TypeFieldArgs{...}
+type TypeFieldInput interface {
+	pulumi.Input
+
+	ToTypeFieldOutput() TypeFieldOutput
+	ToTypeFieldOutputWithContext(context.Context) TypeFieldOutput
+}
+
+type TypeFieldArgs struct {
+	FieldName pulumi.StringInput `pulumi:"fieldName"`
+	FieldType pulumi.StringInput `pulumi:"fieldType"`
+}
+
+func (TypeFieldArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TypeField)(nil)).Elem()
+}
+
+func (i TypeFieldArgs) ToTypeFieldOutput() TypeFieldOutput {
+	return i.ToTypeFieldOutputWithContext(context.Background())
+}
+
+func (i TypeFieldArgs) ToTypeFieldOutputWithContext(ctx context.Context) TypeFieldOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TypeFieldOutput)
+}
+
+// TypeFieldArrayInput is an input type that accepts TypeFieldArray and TypeFieldArrayOutput values.
+// You can construct a concrete instance of `TypeFieldArrayInput` via:
+//
+//	TypeFieldArray{ TypeFieldArgs{...} }
+type TypeFieldArrayInput interface {
+	pulumi.Input
+
+	ToTypeFieldArrayOutput() TypeFieldArrayOutput
+	ToTypeFieldArrayOutputWithContext(context.Context) TypeFieldArrayOutput
+}
+
+type TypeFieldArray []TypeFieldInput
+
+func (TypeFieldArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TypeField)(nil)).Elem()
+}
+
+func (i TypeFieldArray) ToTypeFieldArrayOutput() TypeFieldArrayOutput {
+	return i.ToTypeFieldArrayOutputWithContext(context.Background())
+}
+
+func (i TypeFieldArray) ToTypeFieldArrayOutputWithContext(ctx context.Context) TypeFieldArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TypeFieldArrayOutput)
+}
+
+type TypeFieldOutput struct{ *pulumi.OutputState }
+
+func (TypeFieldOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TypeField)(nil)).Elem()
+}
+
+func (o TypeFieldOutput) ToTypeFieldOutput() TypeFieldOutput {
+	return o
+}
+
+func (o TypeFieldOutput) ToTypeFieldOutputWithContext(ctx context.Context) TypeFieldOutput {
+	return o
+}
+
+func (o TypeFieldOutput) FieldName() pulumi.StringOutput {
+	return o.ApplyT(func(v TypeField) string { return v.FieldName }).(pulumi.StringOutput)
+}
+
+func (o TypeFieldOutput) FieldType() pulumi.StringOutput {
+	return o.ApplyT(func(v TypeField) string { return v.FieldType }).(pulumi.StringOutput)
+}
+
+type TypeFieldArrayOutput struct{ *pulumi.OutputState }
+
+func (TypeFieldArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TypeField)(nil)).Elem()
+}
+
+func (o TypeFieldArrayOutput) ToTypeFieldArrayOutput() TypeFieldArrayOutput {
+	return o
+}
+
+func (o TypeFieldArrayOutput) ToTypeFieldArrayOutputWithContext(ctx context.Context) TypeFieldArrayOutput {
+	return o
+}
+
+func (o TypeFieldArrayOutput) Index(i pulumi.IntInput) TypeFieldOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TypeField {
+		return vs[0].([]TypeField)[vs[1].(int)]
+	}).(TypeFieldOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KeyspaceReplicationSpecificationInput)(nil)).Elem(), KeyspaceReplicationSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KeyspaceReplicationSpecificationPtrInput)(nil)).Elem(), KeyspaceReplicationSpecificationArgs{})
@@ -1825,6 +1925,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TableScalingPolicyPtrInput)(nil)).Elem(), TableScalingPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableTargetTrackingScalingPolicyConfigurationInput)(nil)).Elem(), TableTargetTrackingScalingPolicyConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableTargetTrackingScalingPolicyConfigurationPtrInput)(nil)).Elem(), TableTargetTrackingScalingPolicyConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TypeFieldInput)(nil)).Elem(), TypeFieldArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TypeFieldArrayInput)(nil)).Elem(), TypeFieldArray{})
 	pulumi.RegisterOutputType(KeyspaceReplicationSpecificationOutput{})
 	pulumi.RegisterOutputType(KeyspaceReplicationSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(TableAutoScalingSettingOutput{})
@@ -1847,4 +1949,6 @@ func init() {
 	pulumi.RegisterOutputType(TableScalingPolicyPtrOutput{})
 	pulumi.RegisterOutputType(TableTargetTrackingScalingPolicyConfigurationOutput{})
 	pulumi.RegisterOutputType(TableTargetTrackingScalingPolicyConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(TypeFieldOutput{})
+	pulumi.RegisterOutputType(TypeFieldArrayOutput{})
 }

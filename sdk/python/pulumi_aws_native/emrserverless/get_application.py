@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetApplicationResult:
-    def __init__(__self__, application_id=None, architecture=None, arn=None, auto_start_configuration=None, auto_stop_configuration=None, image_configuration=None, initial_capacity=None, interactive_configuration=None, maximum_capacity=None, monitoring_configuration=None, network_configuration=None, release_label=None, runtime_configuration=None, tags=None, worker_type_specifications=None):
+    def __init__(__self__, application_id=None, architecture=None, arn=None, auto_start_configuration=None, auto_stop_configuration=None, image_configuration=None, initial_capacity=None, interactive_configuration=None, maximum_capacity=None, monitoring_configuration=None, network_configuration=None, release_label=None, runtime_configuration=None, scheduler_configuration=None, tags=None, worker_type_specifications=None):
         if application_id and not isinstance(application_id, str):
             raise TypeError("Expected argument 'application_id' to be a str")
         pulumi.set(__self__, "application_id", application_id)
@@ -66,6 +66,9 @@ class GetApplicationResult:
         if runtime_configuration and not isinstance(runtime_configuration, list):
             raise TypeError("Expected argument 'runtime_configuration' to be a list")
         pulumi.set(__self__, "runtime_configuration", runtime_configuration)
+        if scheduler_configuration and not isinstance(scheduler_configuration, dict):
+            raise TypeError("Expected argument 'scheduler_configuration' to be a dict")
+        pulumi.set(__self__, "scheduler_configuration", scheduler_configuration)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -178,6 +181,14 @@ class GetApplicationResult:
         return pulumi.get(self, "runtime_configuration")
 
     @property
+    @pulumi.getter(name="schedulerConfiguration")
+    def scheduler_configuration(self) -> Optional['outputs.ApplicationSchedulerConfiguration']:
+        """
+        The scheduler configuration for batch and streaming jobs running on this application. Supported with release labels emr-7.0.0 and above.
+        """
+        return pulumi.get(self, "scheduler_configuration")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
@@ -213,6 +224,7 @@ class AwaitableGetApplicationResult(GetApplicationResult):
             network_configuration=self.network_configuration,
             release_label=self.release_label,
             runtime_configuration=self.runtime_configuration,
+            scheduler_configuration=self.scheduler_configuration,
             tags=self.tags,
             worker_type_specifications=self.worker_type_specifications)
 
@@ -244,6 +256,7 @@ def get_application(application_id: Optional[str] = None,
         network_configuration=pulumi.get(__ret__, 'network_configuration'),
         release_label=pulumi.get(__ret__, 'release_label'),
         runtime_configuration=pulumi.get(__ret__, 'runtime_configuration'),
+        scheduler_configuration=pulumi.get(__ret__, 'scheduler_configuration'),
         tags=pulumi.get(__ret__, 'tags'),
         worker_type_specifications=pulumi.get(__ret__, 'worker_type_specifications'))
 def get_application_output(application_id: Optional[pulumi.Input[str]] = None,
@@ -272,5 +285,6 @@ def get_application_output(application_id: Optional[pulumi.Input[str]] = None,
         network_configuration=pulumi.get(__response__, 'network_configuration'),
         release_label=pulumi.get(__response__, 'release_label'),
         runtime_configuration=pulumi.get(__response__, 'runtime_configuration'),
+        scheduler_configuration=pulumi.get(__response__, 'scheduler_configuration'),
         tags=pulumi.get(__response__, 'tags'),
         worker_type_specifications=pulumi.get(__response__, 'worker_type_specifications')))

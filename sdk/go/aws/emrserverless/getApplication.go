@@ -55,6 +55,8 @@ type LookupApplicationResult struct {
 	ReleaseLabel *string `pulumi:"releaseLabel"`
 	// The [Configuration](https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_Configuration.html) specifications of an application. Each configuration consists of a classification and properties. You use this parameter when creating or updating an application. To see the runtimeConfiguration object of an application, run the [GetApplication](https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_GetApplication.html) API operation.
 	RuntimeConfiguration []ApplicationConfigurationObject `pulumi:"runtimeConfiguration"`
+	// The scheduler configuration for batch and streaming jobs running on this application. Supported with release labels emr-7.0.0 and above.
+	SchedulerConfiguration *ApplicationSchedulerConfiguration `pulumi:"schedulerConfiguration"`
 	// Tag map with key and value
 	Tags []aws.Tag `pulumi:"tags"`
 	// The key-value pairs that specify worker type to WorkerTypeSpecificationInput. This parameter must contain all valid worker types for a Spark or Hive application. Valid worker types include Driver and Executor for Spark applications and HiveDriver and TezTask for Hive applications. You can either set image details in this parameter for each worker type, or in imageConfiguration for all worker types.
@@ -160,6 +162,11 @@ func (o LookupApplicationResultOutput) ReleaseLabel() pulumi.StringPtrOutput {
 // The [Configuration](https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_Configuration.html) specifications of an application. Each configuration consists of a classification and properties. You use this parameter when creating or updating an application. To see the runtimeConfiguration object of an application, run the [GetApplication](https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_GetApplication.html) API operation.
 func (o LookupApplicationResultOutput) RuntimeConfiguration() ApplicationConfigurationObjectArrayOutput {
 	return o.ApplyT(func(v LookupApplicationResult) []ApplicationConfigurationObject { return v.RuntimeConfiguration }).(ApplicationConfigurationObjectArrayOutput)
+}
+
+// The scheduler configuration for batch and streaming jobs running on this application. Supported with release labels emr-7.0.0 and above.
+func (o LookupApplicationResultOutput) SchedulerConfiguration() ApplicationSchedulerConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupApplicationResult) *ApplicationSchedulerConfiguration { return v.SchedulerConfiguration }).(ApplicationSchedulerConfigurationPtrOutput)
 }
 
 // Tag map with key and value

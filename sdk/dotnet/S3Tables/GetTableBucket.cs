@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.S3Tables
 
     public sealed class GetTableBucketArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the table bucket.
+        /// </summary>
         [Input("tableBucketArn", required: true)]
         public string TableBucketArn { get; set; } = null!;
 
@@ -44,6 +47,9 @@ namespace Pulumi.AwsNative.S3Tables
 
     public sealed class GetTableBucketInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the table bucket.
+        /// </summary>
         [Input("tableBucketArn", required: true)]
         public Input<string> TableBucketArn { get; set; } = null!;
 
@@ -57,7 +63,13 @@ namespace Pulumi.AwsNative.S3Tables
     [OutputType]
     public sealed class GetTableBucketResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the table bucket.
+        /// </summary>
         public readonly string? TableBucketArn;
+        /// <summary>
+        /// The unreferenced file removal settings for your table bucket. Unreferenced file removal identifies and deletes all objects that are not referenced by any table snapshots. For more information, see the [*Amazon S3 User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-table-buckets-maintenance.html) .
+        /// </summary>
         public readonly Outputs.TableBucketUnreferencedFileRemoval? UnreferencedFileRemoval;
 
         [OutputConstructor]

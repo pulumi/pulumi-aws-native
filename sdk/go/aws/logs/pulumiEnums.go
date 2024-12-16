@@ -1156,6 +1156,174 @@ func (in *metricFilterMetricTransformationUnitPtr) ToMetricFilterMetricTransform
 	return pulumi.ToOutputWithContext(ctx, in).(MetricFilterMetricTransformationUnitPtrOutput)
 }
 
+// Query language of the query string. Possible values are CWLI, SQL, PPL, with CWLI being the default.
+type QueryDefinitionQueryLanguage string
+
+const (
+	QueryDefinitionQueryLanguageCwli = QueryDefinitionQueryLanguage("CWLI")
+	QueryDefinitionQueryLanguageSql  = QueryDefinitionQueryLanguage("SQL")
+	QueryDefinitionQueryLanguagePpl  = QueryDefinitionQueryLanguage("PPL")
+)
+
+func (QueryDefinitionQueryLanguage) ElementType() reflect.Type {
+	return reflect.TypeOf((*QueryDefinitionQueryLanguage)(nil)).Elem()
+}
+
+func (e QueryDefinitionQueryLanguage) ToQueryDefinitionQueryLanguageOutput() QueryDefinitionQueryLanguageOutput {
+	return pulumi.ToOutput(e).(QueryDefinitionQueryLanguageOutput)
+}
+
+func (e QueryDefinitionQueryLanguage) ToQueryDefinitionQueryLanguageOutputWithContext(ctx context.Context) QueryDefinitionQueryLanguageOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(QueryDefinitionQueryLanguageOutput)
+}
+
+func (e QueryDefinitionQueryLanguage) ToQueryDefinitionQueryLanguagePtrOutput() QueryDefinitionQueryLanguagePtrOutput {
+	return e.ToQueryDefinitionQueryLanguagePtrOutputWithContext(context.Background())
+}
+
+func (e QueryDefinitionQueryLanguage) ToQueryDefinitionQueryLanguagePtrOutputWithContext(ctx context.Context) QueryDefinitionQueryLanguagePtrOutput {
+	return QueryDefinitionQueryLanguage(e).ToQueryDefinitionQueryLanguageOutputWithContext(ctx).ToQueryDefinitionQueryLanguagePtrOutputWithContext(ctx)
+}
+
+func (e QueryDefinitionQueryLanguage) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e QueryDefinitionQueryLanguage) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e QueryDefinitionQueryLanguage) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e QueryDefinitionQueryLanguage) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type QueryDefinitionQueryLanguageOutput struct{ *pulumi.OutputState }
+
+func (QueryDefinitionQueryLanguageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*QueryDefinitionQueryLanguage)(nil)).Elem()
+}
+
+func (o QueryDefinitionQueryLanguageOutput) ToQueryDefinitionQueryLanguageOutput() QueryDefinitionQueryLanguageOutput {
+	return o
+}
+
+func (o QueryDefinitionQueryLanguageOutput) ToQueryDefinitionQueryLanguageOutputWithContext(ctx context.Context) QueryDefinitionQueryLanguageOutput {
+	return o
+}
+
+func (o QueryDefinitionQueryLanguageOutput) ToQueryDefinitionQueryLanguagePtrOutput() QueryDefinitionQueryLanguagePtrOutput {
+	return o.ToQueryDefinitionQueryLanguagePtrOutputWithContext(context.Background())
+}
+
+func (o QueryDefinitionQueryLanguageOutput) ToQueryDefinitionQueryLanguagePtrOutputWithContext(ctx context.Context) QueryDefinitionQueryLanguagePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v QueryDefinitionQueryLanguage) *QueryDefinitionQueryLanguage {
+		return &v
+	}).(QueryDefinitionQueryLanguagePtrOutput)
+}
+
+func (o QueryDefinitionQueryLanguageOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o QueryDefinitionQueryLanguageOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e QueryDefinitionQueryLanguage) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o QueryDefinitionQueryLanguageOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o QueryDefinitionQueryLanguageOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e QueryDefinitionQueryLanguage) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type QueryDefinitionQueryLanguagePtrOutput struct{ *pulumi.OutputState }
+
+func (QueryDefinitionQueryLanguagePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**QueryDefinitionQueryLanguage)(nil)).Elem()
+}
+
+func (o QueryDefinitionQueryLanguagePtrOutput) ToQueryDefinitionQueryLanguagePtrOutput() QueryDefinitionQueryLanguagePtrOutput {
+	return o
+}
+
+func (o QueryDefinitionQueryLanguagePtrOutput) ToQueryDefinitionQueryLanguagePtrOutputWithContext(ctx context.Context) QueryDefinitionQueryLanguagePtrOutput {
+	return o
+}
+
+func (o QueryDefinitionQueryLanguagePtrOutput) Elem() QueryDefinitionQueryLanguageOutput {
+	return o.ApplyT(func(v *QueryDefinitionQueryLanguage) QueryDefinitionQueryLanguage {
+		if v != nil {
+			return *v
+		}
+		var ret QueryDefinitionQueryLanguage
+		return ret
+	}).(QueryDefinitionQueryLanguageOutput)
+}
+
+func (o QueryDefinitionQueryLanguagePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o QueryDefinitionQueryLanguagePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *QueryDefinitionQueryLanguage) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// QueryDefinitionQueryLanguageInput is an input type that accepts values of the QueryDefinitionQueryLanguage enum
+// A concrete instance of `QueryDefinitionQueryLanguageInput` can be one of the following:
+//
+//	QueryDefinitionQueryLanguageCwli
+//	QueryDefinitionQueryLanguageSql
+//	QueryDefinitionQueryLanguagePpl
+type QueryDefinitionQueryLanguageInput interface {
+	pulumi.Input
+
+	ToQueryDefinitionQueryLanguageOutput() QueryDefinitionQueryLanguageOutput
+	ToQueryDefinitionQueryLanguageOutputWithContext(context.Context) QueryDefinitionQueryLanguageOutput
+}
+
+var queryDefinitionQueryLanguagePtrType = reflect.TypeOf((**QueryDefinitionQueryLanguage)(nil)).Elem()
+
+type QueryDefinitionQueryLanguagePtrInput interface {
+	pulumi.Input
+
+	ToQueryDefinitionQueryLanguagePtrOutput() QueryDefinitionQueryLanguagePtrOutput
+	ToQueryDefinitionQueryLanguagePtrOutputWithContext(context.Context) QueryDefinitionQueryLanguagePtrOutput
+}
+
+type queryDefinitionQueryLanguagePtr string
+
+func QueryDefinitionQueryLanguagePtr(v string) QueryDefinitionQueryLanguagePtrInput {
+	return (*queryDefinitionQueryLanguagePtr)(&v)
+}
+
+func (*queryDefinitionQueryLanguagePtr) ElementType() reflect.Type {
+	return queryDefinitionQueryLanguagePtrType
+}
+
+func (in *queryDefinitionQueryLanguagePtr) ToQueryDefinitionQueryLanguagePtrOutput() QueryDefinitionQueryLanguagePtrOutput {
+	return pulumi.ToOutput(in).(QueryDefinitionQueryLanguagePtrOutput)
+}
+
+func (in *queryDefinitionQueryLanguagePtr) ToQueryDefinitionQueryLanguagePtrOutputWithContext(ctx context.Context) QueryDefinitionQueryLanguagePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(QueryDefinitionQueryLanguagePtrOutput)
+}
+
 // The method used to distribute log data to the destination, which can be either random or grouped by log stream.
 type SubscriptionFilterDistribution string
 
@@ -1322,6 +1490,340 @@ func (in *subscriptionFilterDistributionPtr) ToSubscriptionFilterDistributionPtr
 	return pulumi.ToOutputWithContext(ctx, in).(SubscriptionFilterDistributionPtrOutput)
 }
 
+type TransformerProcessorListToMapPropertiesFlattenedElement string
+
+const (
+	TransformerProcessorListToMapPropertiesFlattenedElementFirst = TransformerProcessorListToMapPropertiesFlattenedElement("first")
+	TransformerProcessorListToMapPropertiesFlattenedElementLast  = TransformerProcessorListToMapPropertiesFlattenedElement("last")
+)
+
+func (TransformerProcessorListToMapPropertiesFlattenedElement) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformerProcessorListToMapPropertiesFlattenedElement)(nil)).Elem()
+}
+
+func (e TransformerProcessorListToMapPropertiesFlattenedElement) ToTransformerProcessorListToMapPropertiesFlattenedElementOutput() TransformerProcessorListToMapPropertiesFlattenedElementOutput {
+	return pulumi.ToOutput(e).(TransformerProcessorListToMapPropertiesFlattenedElementOutput)
+}
+
+func (e TransformerProcessorListToMapPropertiesFlattenedElement) ToTransformerProcessorListToMapPropertiesFlattenedElementOutputWithContext(ctx context.Context) TransformerProcessorListToMapPropertiesFlattenedElementOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TransformerProcessorListToMapPropertiesFlattenedElementOutput)
+}
+
+func (e TransformerProcessorListToMapPropertiesFlattenedElement) ToTransformerProcessorListToMapPropertiesFlattenedElementPtrOutput() TransformerProcessorListToMapPropertiesFlattenedElementPtrOutput {
+	return e.ToTransformerProcessorListToMapPropertiesFlattenedElementPtrOutputWithContext(context.Background())
+}
+
+func (e TransformerProcessorListToMapPropertiesFlattenedElement) ToTransformerProcessorListToMapPropertiesFlattenedElementPtrOutputWithContext(ctx context.Context) TransformerProcessorListToMapPropertiesFlattenedElementPtrOutput {
+	return TransformerProcessorListToMapPropertiesFlattenedElement(e).ToTransformerProcessorListToMapPropertiesFlattenedElementOutputWithContext(ctx).ToTransformerProcessorListToMapPropertiesFlattenedElementPtrOutputWithContext(ctx)
+}
+
+func (e TransformerProcessorListToMapPropertiesFlattenedElement) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TransformerProcessorListToMapPropertiesFlattenedElement) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TransformerProcessorListToMapPropertiesFlattenedElement) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TransformerProcessorListToMapPropertiesFlattenedElement) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TransformerProcessorListToMapPropertiesFlattenedElementOutput struct{ *pulumi.OutputState }
+
+func (TransformerProcessorListToMapPropertiesFlattenedElementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformerProcessorListToMapPropertiesFlattenedElement)(nil)).Elem()
+}
+
+func (o TransformerProcessorListToMapPropertiesFlattenedElementOutput) ToTransformerProcessorListToMapPropertiesFlattenedElementOutput() TransformerProcessorListToMapPropertiesFlattenedElementOutput {
+	return o
+}
+
+func (o TransformerProcessorListToMapPropertiesFlattenedElementOutput) ToTransformerProcessorListToMapPropertiesFlattenedElementOutputWithContext(ctx context.Context) TransformerProcessorListToMapPropertiesFlattenedElementOutput {
+	return o
+}
+
+func (o TransformerProcessorListToMapPropertiesFlattenedElementOutput) ToTransformerProcessorListToMapPropertiesFlattenedElementPtrOutput() TransformerProcessorListToMapPropertiesFlattenedElementPtrOutput {
+	return o.ToTransformerProcessorListToMapPropertiesFlattenedElementPtrOutputWithContext(context.Background())
+}
+
+func (o TransformerProcessorListToMapPropertiesFlattenedElementOutput) ToTransformerProcessorListToMapPropertiesFlattenedElementPtrOutputWithContext(ctx context.Context) TransformerProcessorListToMapPropertiesFlattenedElementPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransformerProcessorListToMapPropertiesFlattenedElement) *TransformerProcessorListToMapPropertiesFlattenedElement {
+		return &v
+	}).(TransformerProcessorListToMapPropertiesFlattenedElementPtrOutput)
+}
+
+func (o TransformerProcessorListToMapPropertiesFlattenedElementOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TransformerProcessorListToMapPropertiesFlattenedElementOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TransformerProcessorListToMapPropertiesFlattenedElement) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TransformerProcessorListToMapPropertiesFlattenedElementOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TransformerProcessorListToMapPropertiesFlattenedElementOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TransformerProcessorListToMapPropertiesFlattenedElement) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TransformerProcessorListToMapPropertiesFlattenedElementPtrOutput struct{ *pulumi.OutputState }
+
+func (TransformerProcessorListToMapPropertiesFlattenedElementPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransformerProcessorListToMapPropertiesFlattenedElement)(nil)).Elem()
+}
+
+func (o TransformerProcessorListToMapPropertiesFlattenedElementPtrOutput) ToTransformerProcessorListToMapPropertiesFlattenedElementPtrOutput() TransformerProcessorListToMapPropertiesFlattenedElementPtrOutput {
+	return o
+}
+
+func (o TransformerProcessorListToMapPropertiesFlattenedElementPtrOutput) ToTransformerProcessorListToMapPropertiesFlattenedElementPtrOutputWithContext(ctx context.Context) TransformerProcessorListToMapPropertiesFlattenedElementPtrOutput {
+	return o
+}
+
+func (o TransformerProcessorListToMapPropertiesFlattenedElementPtrOutput) Elem() TransformerProcessorListToMapPropertiesFlattenedElementOutput {
+	return o.ApplyT(func(v *TransformerProcessorListToMapPropertiesFlattenedElement) TransformerProcessorListToMapPropertiesFlattenedElement {
+		if v != nil {
+			return *v
+		}
+		var ret TransformerProcessorListToMapPropertiesFlattenedElement
+		return ret
+	}).(TransformerProcessorListToMapPropertiesFlattenedElementOutput)
+}
+
+func (o TransformerProcessorListToMapPropertiesFlattenedElementPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TransformerProcessorListToMapPropertiesFlattenedElementPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TransformerProcessorListToMapPropertiesFlattenedElement) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TransformerProcessorListToMapPropertiesFlattenedElementInput is an input type that accepts values of the TransformerProcessorListToMapPropertiesFlattenedElement enum
+// A concrete instance of `TransformerProcessorListToMapPropertiesFlattenedElementInput` can be one of the following:
+//
+//	TransformerProcessorListToMapPropertiesFlattenedElementFirst
+//	TransformerProcessorListToMapPropertiesFlattenedElementLast
+type TransformerProcessorListToMapPropertiesFlattenedElementInput interface {
+	pulumi.Input
+
+	ToTransformerProcessorListToMapPropertiesFlattenedElementOutput() TransformerProcessorListToMapPropertiesFlattenedElementOutput
+	ToTransformerProcessorListToMapPropertiesFlattenedElementOutputWithContext(context.Context) TransformerProcessorListToMapPropertiesFlattenedElementOutput
+}
+
+var transformerProcessorListToMapPropertiesFlattenedElementPtrType = reflect.TypeOf((**TransformerProcessorListToMapPropertiesFlattenedElement)(nil)).Elem()
+
+type TransformerProcessorListToMapPropertiesFlattenedElementPtrInput interface {
+	pulumi.Input
+
+	ToTransformerProcessorListToMapPropertiesFlattenedElementPtrOutput() TransformerProcessorListToMapPropertiesFlattenedElementPtrOutput
+	ToTransformerProcessorListToMapPropertiesFlattenedElementPtrOutputWithContext(context.Context) TransformerProcessorListToMapPropertiesFlattenedElementPtrOutput
+}
+
+type transformerProcessorListToMapPropertiesFlattenedElementPtr string
+
+func TransformerProcessorListToMapPropertiesFlattenedElementPtr(v string) TransformerProcessorListToMapPropertiesFlattenedElementPtrInput {
+	return (*transformerProcessorListToMapPropertiesFlattenedElementPtr)(&v)
+}
+
+func (*transformerProcessorListToMapPropertiesFlattenedElementPtr) ElementType() reflect.Type {
+	return transformerProcessorListToMapPropertiesFlattenedElementPtrType
+}
+
+func (in *transformerProcessorListToMapPropertiesFlattenedElementPtr) ToTransformerProcessorListToMapPropertiesFlattenedElementPtrOutput() TransformerProcessorListToMapPropertiesFlattenedElementPtrOutput {
+	return pulumi.ToOutput(in).(TransformerProcessorListToMapPropertiesFlattenedElementPtrOutput)
+}
+
+func (in *transformerProcessorListToMapPropertiesFlattenedElementPtr) ToTransformerProcessorListToMapPropertiesFlattenedElementPtrOutputWithContext(ctx context.Context) TransformerProcessorListToMapPropertiesFlattenedElementPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TransformerProcessorListToMapPropertiesFlattenedElementPtrOutput)
+}
+
+type TransformerTypeConverterEntryType string
+
+const (
+	TransformerTypeConverterEntryTypeBoolean = TransformerTypeConverterEntryType("boolean")
+	TransformerTypeConverterEntryTypeInteger = TransformerTypeConverterEntryType("integer")
+	TransformerTypeConverterEntryTypeDouble  = TransformerTypeConverterEntryType("double")
+	TransformerTypeConverterEntryTypeString  = TransformerTypeConverterEntryType("string")
+)
+
+func (TransformerTypeConverterEntryType) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformerTypeConverterEntryType)(nil)).Elem()
+}
+
+func (e TransformerTypeConverterEntryType) ToTransformerTypeConverterEntryTypeOutput() TransformerTypeConverterEntryTypeOutput {
+	return pulumi.ToOutput(e).(TransformerTypeConverterEntryTypeOutput)
+}
+
+func (e TransformerTypeConverterEntryType) ToTransformerTypeConverterEntryTypeOutputWithContext(ctx context.Context) TransformerTypeConverterEntryTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TransformerTypeConverterEntryTypeOutput)
+}
+
+func (e TransformerTypeConverterEntryType) ToTransformerTypeConverterEntryTypePtrOutput() TransformerTypeConverterEntryTypePtrOutput {
+	return e.ToTransformerTypeConverterEntryTypePtrOutputWithContext(context.Background())
+}
+
+func (e TransformerTypeConverterEntryType) ToTransformerTypeConverterEntryTypePtrOutputWithContext(ctx context.Context) TransformerTypeConverterEntryTypePtrOutput {
+	return TransformerTypeConverterEntryType(e).ToTransformerTypeConverterEntryTypeOutputWithContext(ctx).ToTransformerTypeConverterEntryTypePtrOutputWithContext(ctx)
+}
+
+func (e TransformerTypeConverterEntryType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TransformerTypeConverterEntryType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TransformerTypeConverterEntryType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TransformerTypeConverterEntryType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TransformerTypeConverterEntryTypeOutput struct{ *pulumi.OutputState }
+
+func (TransformerTypeConverterEntryTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TransformerTypeConverterEntryType)(nil)).Elem()
+}
+
+func (o TransformerTypeConverterEntryTypeOutput) ToTransformerTypeConverterEntryTypeOutput() TransformerTypeConverterEntryTypeOutput {
+	return o
+}
+
+func (o TransformerTypeConverterEntryTypeOutput) ToTransformerTypeConverterEntryTypeOutputWithContext(ctx context.Context) TransformerTypeConverterEntryTypeOutput {
+	return o
+}
+
+func (o TransformerTypeConverterEntryTypeOutput) ToTransformerTypeConverterEntryTypePtrOutput() TransformerTypeConverterEntryTypePtrOutput {
+	return o.ToTransformerTypeConverterEntryTypePtrOutputWithContext(context.Background())
+}
+
+func (o TransformerTypeConverterEntryTypeOutput) ToTransformerTypeConverterEntryTypePtrOutputWithContext(ctx context.Context) TransformerTypeConverterEntryTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransformerTypeConverterEntryType) *TransformerTypeConverterEntryType {
+		return &v
+	}).(TransformerTypeConverterEntryTypePtrOutput)
+}
+
+func (o TransformerTypeConverterEntryTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TransformerTypeConverterEntryTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TransformerTypeConverterEntryType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TransformerTypeConverterEntryTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TransformerTypeConverterEntryTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TransformerTypeConverterEntryType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TransformerTypeConverterEntryTypePtrOutput struct{ *pulumi.OutputState }
+
+func (TransformerTypeConverterEntryTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TransformerTypeConverterEntryType)(nil)).Elem()
+}
+
+func (o TransformerTypeConverterEntryTypePtrOutput) ToTransformerTypeConverterEntryTypePtrOutput() TransformerTypeConverterEntryTypePtrOutput {
+	return o
+}
+
+func (o TransformerTypeConverterEntryTypePtrOutput) ToTransformerTypeConverterEntryTypePtrOutputWithContext(ctx context.Context) TransformerTypeConverterEntryTypePtrOutput {
+	return o
+}
+
+func (o TransformerTypeConverterEntryTypePtrOutput) Elem() TransformerTypeConverterEntryTypeOutput {
+	return o.ApplyT(func(v *TransformerTypeConverterEntryType) TransformerTypeConverterEntryType {
+		if v != nil {
+			return *v
+		}
+		var ret TransformerTypeConverterEntryType
+		return ret
+	}).(TransformerTypeConverterEntryTypeOutput)
+}
+
+func (o TransformerTypeConverterEntryTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TransformerTypeConverterEntryTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TransformerTypeConverterEntryType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TransformerTypeConverterEntryTypeInput is an input type that accepts values of the TransformerTypeConverterEntryType enum
+// A concrete instance of `TransformerTypeConverterEntryTypeInput` can be one of the following:
+//
+//	TransformerTypeConverterEntryTypeBoolean
+//	TransformerTypeConverterEntryTypeInteger
+//	TransformerTypeConverterEntryTypeDouble
+//	TransformerTypeConverterEntryTypeString
+type TransformerTypeConverterEntryTypeInput interface {
+	pulumi.Input
+
+	ToTransformerTypeConverterEntryTypeOutput() TransformerTypeConverterEntryTypeOutput
+	ToTransformerTypeConverterEntryTypeOutputWithContext(context.Context) TransformerTypeConverterEntryTypeOutput
+}
+
+var transformerTypeConverterEntryTypePtrType = reflect.TypeOf((**TransformerTypeConverterEntryType)(nil)).Elem()
+
+type TransformerTypeConverterEntryTypePtrInput interface {
+	pulumi.Input
+
+	ToTransformerTypeConverterEntryTypePtrOutput() TransformerTypeConverterEntryTypePtrOutput
+	ToTransformerTypeConverterEntryTypePtrOutputWithContext(context.Context) TransformerTypeConverterEntryTypePtrOutput
+}
+
+type transformerTypeConverterEntryTypePtr string
+
+func TransformerTypeConverterEntryTypePtr(v string) TransformerTypeConverterEntryTypePtrInput {
+	return (*transformerTypeConverterEntryTypePtr)(&v)
+}
+
+func (*transformerTypeConverterEntryTypePtr) ElementType() reflect.Type {
+	return transformerTypeConverterEntryTypePtrType
+}
+
+func (in *transformerTypeConverterEntryTypePtr) ToTransformerTypeConverterEntryTypePtrOutput() TransformerTypeConverterEntryTypePtrOutput {
+	return pulumi.ToOutput(in).(TransformerTypeConverterEntryTypePtrOutput)
+}
+
+func (in *transformerTypeConverterEntryTypePtr) ToTransformerTypeConverterEntryTypePtrOutputWithContext(ctx context.Context) TransformerTypeConverterEntryTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TransformerTypeConverterEntryTypePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountPolicyPolicyTypeInput)(nil)).Elem(), AccountPolicyPolicyType("DATA_PROTECTION_POLICY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountPolicyPolicyTypePtrInput)(nil)).Elem(), AccountPolicyPolicyType("DATA_PROTECTION_POLICY"))
@@ -1335,8 +1837,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LogGroupClassPtrInput)(nil)).Elem(), LogGroupClass("STANDARD"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricFilterMetricTransformationUnitInput)(nil)).Elem(), MetricFilterMetricTransformationUnit("Seconds"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricFilterMetricTransformationUnitPtrInput)(nil)).Elem(), MetricFilterMetricTransformationUnit("Seconds"))
+	pulumi.RegisterInputType(reflect.TypeOf((*QueryDefinitionQueryLanguageInput)(nil)).Elem(), QueryDefinitionQueryLanguage("CWLI"))
+	pulumi.RegisterInputType(reflect.TypeOf((*QueryDefinitionQueryLanguagePtrInput)(nil)).Elem(), QueryDefinitionQueryLanguage("CWLI"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionFilterDistributionInput)(nil)).Elem(), SubscriptionFilterDistribution("Random"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SubscriptionFilterDistributionPtrInput)(nil)).Elem(), SubscriptionFilterDistribution("Random"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformerProcessorListToMapPropertiesFlattenedElementInput)(nil)).Elem(), TransformerProcessorListToMapPropertiesFlattenedElement("first"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformerProcessorListToMapPropertiesFlattenedElementPtrInput)(nil)).Elem(), TransformerProcessorListToMapPropertiesFlattenedElement("first"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformerTypeConverterEntryTypeInput)(nil)).Elem(), TransformerTypeConverterEntryType("boolean"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TransformerTypeConverterEntryTypePtrInput)(nil)).Elem(), TransformerTypeConverterEntryType("boolean"))
 	pulumi.RegisterOutputType(AccountPolicyPolicyTypeOutput{})
 	pulumi.RegisterOutputType(AccountPolicyPolicyTypePtrOutput{})
 	pulumi.RegisterOutputType(AccountPolicyScopeOutput{})
@@ -1351,6 +1859,12 @@ func init() {
 	pulumi.RegisterOutputType(LogGroupClassPtrOutput{})
 	pulumi.RegisterOutputType(MetricFilterMetricTransformationUnitOutput{})
 	pulumi.RegisterOutputType(MetricFilterMetricTransformationUnitPtrOutput{})
+	pulumi.RegisterOutputType(QueryDefinitionQueryLanguageOutput{})
+	pulumi.RegisterOutputType(QueryDefinitionQueryLanguagePtrOutput{})
 	pulumi.RegisterOutputType(SubscriptionFilterDistributionOutput{})
 	pulumi.RegisterOutputType(SubscriptionFilterDistributionPtrOutput{})
+	pulumi.RegisterOutputType(TransformerProcessorListToMapPropertiesFlattenedElementOutput{})
+	pulumi.RegisterOutputType(TransformerProcessorListToMapPropertiesFlattenedElementPtrOutput{})
+	pulumi.RegisterOutputType(TransformerTypeConverterEntryTypeOutput{})
+	pulumi.RegisterOutputType(TransformerTypeConverterEntryTypePtrOutput{})
 }

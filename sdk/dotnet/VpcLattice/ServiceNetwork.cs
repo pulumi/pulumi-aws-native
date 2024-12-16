@@ -56,6 +56,9 @@ namespace Pulumi.AwsNative.VpcLattice
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Specify if the service network should be enabled for sharing.
+        /// </summary>
         [Output("sharingConfig")]
         public Output<Outputs.ServiceNetworkSharingConfig?> SharingConfig { get; private set; } = null!;
 
@@ -131,6 +134,9 @@ namespace Pulumi.AwsNative.VpcLattice
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Specify if the service network should be enabled for sharing.
+        /// </summary>
         [Input("sharingConfig")]
         public Input<Inputs.ServiceNetworkSharingConfigArgs>? SharingConfig { get; set; }
 

@@ -2127,6 +2127,73 @@ type ConfiguredTableAssociationTag struct {
 	Value string `pulumi:"value"`
 }
 
+type ConfiguredTableAthenaTableReference struct {
+	DatabaseName   string  `pulumi:"databaseName"`
+	OutputLocation *string `pulumi:"outputLocation"`
+	TableName      string  `pulumi:"tableName"`
+	WorkGroup      string  `pulumi:"workGroup"`
+}
+
+// ConfiguredTableAthenaTableReferenceInput is an input type that accepts ConfiguredTableAthenaTableReferenceArgs and ConfiguredTableAthenaTableReferenceOutput values.
+// You can construct a concrete instance of `ConfiguredTableAthenaTableReferenceInput` via:
+//
+//	ConfiguredTableAthenaTableReferenceArgs{...}
+type ConfiguredTableAthenaTableReferenceInput interface {
+	pulumi.Input
+
+	ToConfiguredTableAthenaTableReferenceOutput() ConfiguredTableAthenaTableReferenceOutput
+	ToConfiguredTableAthenaTableReferenceOutputWithContext(context.Context) ConfiguredTableAthenaTableReferenceOutput
+}
+
+type ConfiguredTableAthenaTableReferenceArgs struct {
+	DatabaseName   pulumi.StringInput    `pulumi:"databaseName"`
+	OutputLocation pulumi.StringPtrInput `pulumi:"outputLocation"`
+	TableName      pulumi.StringInput    `pulumi:"tableName"`
+	WorkGroup      pulumi.StringInput    `pulumi:"workGroup"`
+}
+
+func (ConfiguredTableAthenaTableReferenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableAthenaTableReference)(nil)).Elem()
+}
+
+func (i ConfiguredTableAthenaTableReferenceArgs) ToConfiguredTableAthenaTableReferenceOutput() ConfiguredTableAthenaTableReferenceOutput {
+	return i.ToConfiguredTableAthenaTableReferenceOutputWithContext(context.Background())
+}
+
+func (i ConfiguredTableAthenaTableReferenceArgs) ToConfiguredTableAthenaTableReferenceOutputWithContext(ctx context.Context) ConfiguredTableAthenaTableReferenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredTableAthenaTableReferenceOutput)
+}
+
+type ConfiguredTableAthenaTableReferenceOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredTableAthenaTableReferenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableAthenaTableReference)(nil)).Elem()
+}
+
+func (o ConfiguredTableAthenaTableReferenceOutput) ToConfiguredTableAthenaTableReferenceOutput() ConfiguredTableAthenaTableReferenceOutput {
+	return o
+}
+
+func (o ConfiguredTableAthenaTableReferenceOutput) ToConfiguredTableAthenaTableReferenceOutputWithContext(ctx context.Context) ConfiguredTableAthenaTableReferenceOutput {
+	return o
+}
+
+func (o ConfiguredTableAthenaTableReferenceOutput) DatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfiguredTableAthenaTableReference) string { return v.DatabaseName }).(pulumi.StringOutput)
+}
+
+func (o ConfiguredTableAthenaTableReferenceOutput) OutputLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfiguredTableAthenaTableReference) *string { return v.OutputLocation }).(pulumi.StringPtrOutput)
+}
+
+func (o ConfiguredTableAthenaTableReferenceOutput) TableName() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfiguredTableAthenaTableReference) string { return v.TableName }).(pulumi.StringOutput)
+}
+
+func (o ConfiguredTableAthenaTableReferenceOutput) WorkGroup() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfiguredTableAthenaTableReference) string { return v.WorkGroup }).(pulumi.StringOutput)
+}
+
 type ConfiguredTableDifferentialPrivacy struct {
 	Columns []ConfiguredTableDifferentialPrivacyColumn `pulumi:"columns"`
 }
@@ -2357,10 +2424,8 @@ func (o ConfiguredTableDifferentialPrivacyColumnArrayOutput) Index(i pulumi.IntI
 }
 
 type ConfiguredTableGlueTableReference struct {
-	// The name of the database the AWS Glue table belongs to.
 	DatabaseName string `pulumi:"databaseName"`
-	// The name of the AWS Glue table.
-	TableName string `pulumi:"tableName"`
+	TableName    string `pulumi:"tableName"`
 }
 
 // ConfiguredTableGlueTableReferenceInput is an input type that accepts ConfiguredTableGlueTableReferenceArgs and ConfiguredTableGlueTableReferenceOutput values.
@@ -2375,10 +2440,8 @@ type ConfiguredTableGlueTableReferenceInput interface {
 }
 
 type ConfiguredTableGlueTableReferenceArgs struct {
-	// The name of the database the AWS Glue table belongs to.
 	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
-	// The name of the AWS Glue table.
-	TableName pulumi.StringInput `pulumi:"tableName"`
+	TableName    pulumi.StringInput `pulumi:"tableName"`
 }
 
 func (ConfiguredTableGlueTableReferenceArgs) ElementType() reflect.Type {
@@ -2407,66 +2470,397 @@ func (o ConfiguredTableGlueTableReferenceOutput) ToConfiguredTableGlueTableRefer
 	return o
 }
 
-// The name of the database the AWS Glue table belongs to.
 func (o ConfiguredTableGlueTableReferenceOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v ConfiguredTableGlueTableReference) string { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
-// The name of the AWS Glue table.
 func (o ConfiguredTableGlueTableReferenceOutput) TableName() pulumi.StringOutput {
 	return o.ApplyT(func(v ConfiguredTableGlueTableReference) string { return v.TableName }).(pulumi.StringOutput)
 }
 
-type ConfiguredTableTableReference struct {
-	// If present, a reference to the AWS Glue table referred to by this table reference.
+type ConfiguredTableSnowflakeTableReference struct {
+	AccountIdentifier string                                        `pulumi:"accountIdentifier"`
+	DatabaseName      string                                        `pulumi:"databaseName"`
+	SchemaName        string                                        `pulumi:"schemaName"`
+	SecretArn         string                                        `pulumi:"secretArn"`
+	TableName         string                                        `pulumi:"tableName"`
+	TableSchema       ConfiguredTableSnowflakeTableSchemaProperties `pulumi:"tableSchema"`
+}
+
+// ConfiguredTableSnowflakeTableReferenceInput is an input type that accepts ConfiguredTableSnowflakeTableReferenceArgs and ConfiguredTableSnowflakeTableReferenceOutput values.
+// You can construct a concrete instance of `ConfiguredTableSnowflakeTableReferenceInput` via:
+//
+//	ConfiguredTableSnowflakeTableReferenceArgs{...}
+type ConfiguredTableSnowflakeTableReferenceInput interface {
+	pulumi.Input
+
+	ToConfiguredTableSnowflakeTableReferenceOutput() ConfiguredTableSnowflakeTableReferenceOutput
+	ToConfiguredTableSnowflakeTableReferenceOutputWithContext(context.Context) ConfiguredTableSnowflakeTableReferenceOutput
+}
+
+type ConfiguredTableSnowflakeTableReferenceArgs struct {
+	AccountIdentifier pulumi.StringInput                                 `pulumi:"accountIdentifier"`
+	DatabaseName      pulumi.StringInput                                 `pulumi:"databaseName"`
+	SchemaName        pulumi.StringInput                                 `pulumi:"schemaName"`
+	SecretArn         pulumi.StringInput                                 `pulumi:"secretArn"`
+	TableName         pulumi.StringInput                                 `pulumi:"tableName"`
+	TableSchema       ConfiguredTableSnowflakeTableSchemaPropertiesInput `pulumi:"tableSchema"`
+}
+
+func (ConfiguredTableSnowflakeTableReferenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableSnowflakeTableReference)(nil)).Elem()
+}
+
+func (i ConfiguredTableSnowflakeTableReferenceArgs) ToConfiguredTableSnowflakeTableReferenceOutput() ConfiguredTableSnowflakeTableReferenceOutput {
+	return i.ToConfiguredTableSnowflakeTableReferenceOutputWithContext(context.Background())
+}
+
+func (i ConfiguredTableSnowflakeTableReferenceArgs) ToConfiguredTableSnowflakeTableReferenceOutputWithContext(ctx context.Context) ConfiguredTableSnowflakeTableReferenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredTableSnowflakeTableReferenceOutput)
+}
+
+type ConfiguredTableSnowflakeTableReferenceOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredTableSnowflakeTableReferenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableSnowflakeTableReference)(nil)).Elem()
+}
+
+func (o ConfiguredTableSnowflakeTableReferenceOutput) ToConfiguredTableSnowflakeTableReferenceOutput() ConfiguredTableSnowflakeTableReferenceOutput {
+	return o
+}
+
+func (o ConfiguredTableSnowflakeTableReferenceOutput) ToConfiguredTableSnowflakeTableReferenceOutputWithContext(ctx context.Context) ConfiguredTableSnowflakeTableReferenceOutput {
+	return o
+}
+
+func (o ConfiguredTableSnowflakeTableReferenceOutput) AccountIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfiguredTableSnowflakeTableReference) string { return v.AccountIdentifier }).(pulumi.StringOutput)
+}
+
+func (o ConfiguredTableSnowflakeTableReferenceOutput) DatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfiguredTableSnowflakeTableReference) string { return v.DatabaseName }).(pulumi.StringOutput)
+}
+
+func (o ConfiguredTableSnowflakeTableReferenceOutput) SchemaName() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfiguredTableSnowflakeTableReference) string { return v.SchemaName }).(pulumi.StringOutput)
+}
+
+func (o ConfiguredTableSnowflakeTableReferenceOutput) SecretArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfiguredTableSnowflakeTableReference) string { return v.SecretArn }).(pulumi.StringOutput)
+}
+
+func (o ConfiguredTableSnowflakeTableReferenceOutput) TableName() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfiguredTableSnowflakeTableReference) string { return v.TableName }).(pulumi.StringOutput)
+}
+
+func (o ConfiguredTableSnowflakeTableReferenceOutput) TableSchema() ConfiguredTableSnowflakeTableSchemaPropertiesOutput {
+	return o.ApplyT(func(v ConfiguredTableSnowflakeTableReference) ConfiguredTableSnowflakeTableSchemaProperties {
+		return v.TableSchema
+	}).(ConfiguredTableSnowflakeTableSchemaPropertiesOutput)
+}
+
+type ConfiguredTableSnowflakeTableSchema0Properties struct {
+	V1 []ConfiguredTableSnowflakeTableSchemaV1 `pulumi:"v1"`
+}
+
+type ConfiguredTableSnowflakeTableSchemaProperties struct {
+	V1 []ConfiguredTableSnowflakeTableSchemaV1 `pulumi:"v1"`
+}
+
+// ConfiguredTableSnowflakeTableSchemaPropertiesInput is an input type that accepts ConfiguredTableSnowflakeTableSchemaPropertiesArgs and ConfiguredTableSnowflakeTableSchemaPropertiesOutput values.
+// You can construct a concrete instance of `ConfiguredTableSnowflakeTableSchemaPropertiesInput` via:
+//
+//	ConfiguredTableSnowflakeTableSchemaPropertiesArgs{...}
+type ConfiguredTableSnowflakeTableSchemaPropertiesInput interface {
+	pulumi.Input
+
+	ToConfiguredTableSnowflakeTableSchemaPropertiesOutput() ConfiguredTableSnowflakeTableSchemaPropertiesOutput
+	ToConfiguredTableSnowflakeTableSchemaPropertiesOutputWithContext(context.Context) ConfiguredTableSnowflakeTableSchemaPropertiesOutput
+}
+
+type ConfiguredTableSnowflakeTableSchemaPropertiesArgs struct {
+	V1 ConfiguredTableSnowflakeTableSchemaV1ArrayInput `pulumi:"v1"`
+}
+
+func (ConfiguredTableSnowflakeTableSchemaPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableSnowflakeTableSchemaProperties)(nil)).Elem()
+}
+
+func (i ConfiguredTableSnowflakeTableSchemaPropertiesArgs) ToConfiguredTableSnowflakeTableSchemaPropertiesOutput() ConfiguredTableSnowflakeTableSchemaPropertiesOutput {
+	return i.ToConfiguredTableSnowflakeTableSchemaPropertiesOutputWithContext(context.Background())
+}
+
+func (i ConfiguredTableSnowflakeTableSchemaPropertiesArgs) ToConfiguredTableSnowflakeTableSchemaPropertiesOutputWithContext(ctx context.Context) ConfiguredTableSnowflakeTableSchemaPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredTableSnowflakeTableSchemaPropertiesOutput)
+}
+
+type ConfiguredTableSnowflakeTableSchemaPropertiesOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredTableSnowflakeTableSchemaPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableSnowflakeTableSchemaProperties)(nil)).Elem()
+}
+
+func (o ConfiguredTableSnowflakeTableSchemaPropertiesOutput) ToConfiguredTableSnowflakeTableSchemaPropertiesOutput() ConfiguredTableSnowflakeTableSchemaPropertiesOutput {
+	return o
+}
+
+func (o ConfiguredTableSnowflakeTableSchemaPropertiesOutput) ToConfiguredTableSnowflakeTableSchemaPropertiesOutputWithContext(ctx context.Context) ConfiguredTableSnowflakeTableSchemaPropertiesOutput {
+	return o
+}
+
+func (o ConfiguredTableSnowflakeTableSchemaPropertiesOutput) V1() ConfiguredTableSnowflakeTableSchemaV1ArrayOutput {
+	return o.ApplyT(func(v ConfiguredTableSnowflakeTableSchemaProperties) []ConfiguredTableSnowflakeTableSchemaV1 {
+		return v.V1
+	}).(ConfiguredTableSnowflakeTableSchemaV1ArrayOutput)
+}
+
+type ConfiguredTableSnowflakeTableSchemaV1 struct {
+	ColumnName string `pulumi:"columnName"`
+	ColumnType string `pulumi:"columnType"`
+}
+
+// ConfiguredTableSnowflakeTableSchemaV1Input is an input type that accepts ConfiguredTableSnowflakeTableSchemaV1Args and ConfiguredTableSnowflakeTableSchemaV1Output values.
+// You can construct a concrete instance of `ConfiguredTableSnowflakeTableSchemaV1Input` via:
+//
+//	ConfiguredTableSnowflakeTableSchemaV1Args{...}
+type ConfiguredTableSnowflakeTableSchemaV1Input interface {
+	pulumi.Input
+
+	ToConfiguredTableSnowflakeTableSchemaV1Output() ConfiguredTableSnowflakeTableSchemaV1Output
+	ToConfiguredTableSnowflakeTableSchemaV1OutputWithContext(context.Context) ConfiguredTableSnowflakeTableSchemaV1Output
+}
+
+type ConfiguredTableSnowflakeTableSchemaV1Args struct {
+	ColumnName pulumi.StringInput `pulumi:"columnName"`
+	ColumnType pulumi.StringInput `pulumi:"columnType"`
+}
+
+func (ConfiguredTableSnowflakeTableSchemaV1Args) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableSnowflakeTableSchemaV1)(nil)).Elem()
+}
+
+func (i ConfiguredTableSnowflakeTableSchemaV1Args) ToConfiguredTableSnowflakeTableSchemaV1Output() ConfiguredTableSnowflakeTableSchemaV1Output {
+	return i.ToConfiguredTableSnowflakeTableSchemaV1OutputWithContext(context.Background())
+}
+
+func (i ConfiguredTableSnowflakeTableSchemaV1Args) ToConfiguredTableSnowflakeTableSchemaV1OutputWithContext(ctx context.Context) ConfiguredTableSnowflakeTableSchemaV1Output {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredTableSnowflakeTableSchemaV1Output)
+}
+
+// ConfiguredTableSnowflakeTableSchemaV1ArrayInput is an input type that accepts ConfiguredTableSnowflakeTableSchemaV1Array and ConfiguredTableSnowflakeTableSchemaV1ArrayOutput values.
+// You can construct a concrete instance of `ConfiguredTableSnowflakeTableSchemaV1ArrayInput` via:
+//
+//	ConfiguredTableSnowflakeTableSchemaV1Array{ ConfiguredTableSnowflakeTableSchemaV1Args{...} }
+type ConfiguredTableSnowflakeTableSchemaV1ArrayInput interface {
+	pulumi.Input
+
+	ToConfiguredTableSnowflakeTableSchemaV1ArrayOutput() ConfiguredTableSnowflakeTableSchemaV1ArrayOutput
+	ToConfiguredTableSnowflakeTableSchemaV1ArrayOutputWithContext(context.Context) ConfiguredTableSnowflakeTableSchemaV1ArrayOutput
+}
+
+type ConfiguredTableSnowflakeTableSchemaV1Array []ConfiguredTableSnowflakeTableSchemaV1Input
+
+func (ConfiguredTableSnowflakeTableSchemaV1Array) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConfiguredTableSnowflakeTableSchemaV1)(nil)).Elem()
+}
+
+func (i ConfiguredTableSnowflakeTableSchemaV1Array) ToConfiguredTableSnowflakeTableSchemaV1ArrayOutput() ConfiguredTableSnowflakeTableSchemaV1ArrayOutput {
+	return i.ToConfiguredTableSnowflakeTableSchemaV1ArrayOutputWithContext(context.Background())
+}
+
+func (i ConfiguredTableSnowflakeTableSchemaV1Array) ToConfiguredTableSnowflakeTableSchemaV1ArrayOutputWithContext(ctx context.Context) ConfiguredTableSnowflakeTableSchemaV1ArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredTableSnowflakeTableSchemaV1ArrayOutput)
+}
+
+type ConfiguredTableSnowflakeTableSchemaV1Output struct{ *pulumi.OutputState }
+
+func (ConfiguredTableSnowflakeTableSchemaV1Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableSnowflakeTableSchemaV1)(nil)).Elem()
+}
+
+func (o ConfiguredTableSnowflakeTableSchemaV1Output) ToConfiguredTableSnowflakeTableSchemaV1Output() ConfiguredTableSnowflakeTableSchemaV1Output {
+	return o
+}
+
+func (o ConfiguredTableSnowflakeTableSchemaV1Output) ToConfiguredTableSnowflakeTableSchemaV1OutputWithContext(ctx context.Context) ConfiguredTableSnowflakeTableSchemaV1Output {
+	return o
+}
+
+func (o ConfiguredTableSnowflakeTableSchemaV1Output) ColumnName() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfiguredTableSnowflakeTableSchemaV1) string { return v.ColumnName }).(pulumi.StringOutput)
+}
+
+func (o ConfiguredTableSnowflakeTableSchemaV1Output) ColumnType() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfiguredTableSnowflakeTableSchemaV1) string { return v.ColumnType }).(pulumi.StringOutput)
+}
+
+type ConfiguredTableSnowflakeTableSchemaV1ArrayOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredTableSnowflakeTableSchemaV1ArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConfiguredTableSnowflakeTableSchemaV1)(nil)).Elem()
+}
+
+func (o ConfiguredTableSnowflakeTableSchemaV1ArrayOutput) ToConfiguredTableSnowflakeTableSchemaV1ArrayOutput() ConfiguredTableSnowflakeTableSchemaV1ArrayOutput {
+	return o
+}
+
+func (o ConfiguredTableSnowflakeTableSchemaV1ArrayOutput) ToConfiguredTableSnowflakeTableSchemaV1ArrayOutputWithContext(ctx context.Context) ConfiguredTableSnowflakeTableSchemaV1ArrayOutput {
+	return o
+}
+
+func (o ConfiguredTableSnowflakeTableSchemaV1ArrayOutput) Index(i pulumi.IntInput) ConfiguredTableSnowflakeTableSchemaV1Output {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConfiguredTableSnowflakeTableSchemaV1 {
+		return vs[0].([]ConfiguredTableSnowflakeTableSchemaV1)[vs[1].(int)]
+	}).(ConfiguredTableSnowflakeTableSchemaV1Output)
+}
+
+type ConfiguredTableTableReference0Properties struct {
 	Glue ConfiguredTableGlueTableReference `pulumi:"glue"`
 }
 
-// ConfiguredTableTableReferenceInput is an input type that accepts ConfiguredTableTableReferenceArgs and ConfiguredTableTableReferenceOutput values.
-// You can construct a concrete instance of `ConfiguredTableTableReferenceInput` via:
+// ConfiguredTableTableReference0PropertiesInput is an input type that accepts ConfiguredTableTableReference0PropertiesArgs and ConfiguredTableTableReference0PropertiesOutput values.
+// You can construct a concrete instance of `ConfiguredTableTableReference0PropertiesInput` via:
 //
-//	ConfiguredTableTableReferenceArgs{...}
-type ConfiguredTableTableReferenceInput interface {
+//	ConfiguredTableTableReference0PropertiesArgs{...}
+type ConfiguredTableTableReference0PropertiesInput interface {
 	pulumi.Input
 
-	ToConfiguredTableTableReferenceOutput() ConfiguredTableTableReferenceOutput
-	ToConfiguredTableTableReferenceOutputWithContext(context.Context) ConfiguredTableTableReferenceOutput
+	ToConfiguredTableTableReference0PropertiesOutput() ConfiguredTableTableReference0PropertiesOutput
+	ToConfiguredTableTableReference0PropertiesOutputWithContext(context.Context) ConfiguredTableTableReference0PropertiesOutput
 }
 
-type ConfiguredTableTableReferenceArgs struct {
-	// If present, a reference to the AWS Glue table referred to by this table reference.
+type ConfiguredTableTableReference0PropertiesArgs struct {
 	Glue ConfiguredTableGlueTableReferenceInput `pulumi:"glue"`
 }
 
-func (ConfiguredTableTableReferenceArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfiguredTableTableReference)(nil)).Elem()
+func (ConfiguredTableTableReference0PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableTableReference0Properties)(nil)).Elem()
 }
 
-func (i ConfiguredTableTableReferenceArgs) ToConfiguredTableTableReferenceOutput() ConfiguredTableTableReferenceOutput {
-	return i.ToConfiguredTableTableReferenceOutputWithContext(context.Background())
+func (i ConfiguredTableTableReference0PropertiesArgs) ToConfiguredTableTableReference0PropertiesOutput() ConfiguredTableTableReference0PropertiesOutput {
+	return i.ToConfiguredTableTableReference0PropertiesOutputWithContext(context.Background())
 }
 
-func (i ConfiguredTableTableReferenceArgs) ToConfiguredTableTableReferenceOutputWithContext(ctx context.Context) ConfiguredTableTableReferenceOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredTableTableReferenceOutput)
+func (i ConfiguredTableTableReference0PropertiesArgs) ToConfiguredTableTableReference0PropertiesOutputWithContext(ctx context.Context) ConfiguredTableTableReference0PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredTableTableReference0PropertiesOutput)
 }
 
-type ConfiguredTableTableReferenceOutput struct{ *pulumi.OutputState }
+type ConfiguredTableTableReference0PropertiesOutput struct{ *pulumi.OutputState }
 
-func (ConfiguredTableTableReferenceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfiguredTableTableReference)(nil)).Elem()
+func (ConfiguredTableTableReference0PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableTableReference0Properties)(nil)).Elem()
 }
 
-func (o ConfiguredTableTableReferenceOutput) ToConfiguredTableTableReferenceOutput() ConfiguredTableTableReferenceOutput {
+func (o ConfiguredTableTableReference0PropertiesOutput) ToConfiguredTableTableReference0PropertiesOutput() ConfiguredTableTableReference0PropertiesOutput {
 	return o
 }
 
-func (o ConfiguredTableTableReferenceOutput) ToConfiguredTableTableReferenceOutputWithContext(ctx context.Context) ConfiguredTableTableReferenceOutput {
+func (o ConfiguredTableTableReference0PropertiesOutput) ToConfiguredTableTableReference0PropertiesOutputWithContext(ctx context.Context) ConfiguredTableTableReference0PropertiesOutput {
 	return o
 }
 
-// If present, a reference to the AWS Glue table referred to by this table reference.
-func (o ConfiguredTableTableReferenceOutput) Glue() ConfiguredTableGlueTableReferenceOutput {
-	return o.ApplyT(func(v ConfiguredTableTableReference) ConfiguredTableGlueTableReference { return v.Glue }).(ConfiguredTableGlueTableReferenceOutput)
+func (o ConfiguredTableTableReference0PropertiesOutput) Glue() ConfiguredTableGlueTableReferenceOutput {
+	return o.ApplyT(func(v ConfiguredTableTableReference0Properties) ConfiguredTableGlueTableReference { return v.Glue }).(ConfiguredTableGlueTableReferenceOutput)
+}
+
+type ConfiguredTableTableReference1Properties struct {
+	Snowflake ConfiguredTableSnowflakeTableReference `pulumi:"snowflake"`
+}
+
+// ConfiguredTableTableReference1PropertiesInput is an input type that accepts ConfiguredTableTableReference1PropertiesArgs and ConfiguredTableTableReference1PropertiesOutput values.
+// You can construct a concrete instance of `ConfiguredTableTableReference1PropertiesInput` via:
+//
+//	ConfiguredTableTableReference1PropertiesArgs{...}
+type ConfiguredTableTableReference1PropertiesInput interface {
+	pulumi.Input
+
+	ToConfiguredTableTableReference1PropertiesOutput() ConfiguredTableTableReference1PropertiesOutput
+	ToConfiguredTableTableReference1PropertiesOutputWithContext(context.Context) ConfiguredTableTableReference1PropertiesOutput
+}
+
+type ConfiguredTableTableReference1PropertiesArgs struct {
+	Snowflake ConfiguredTableSnowflakeTableReferenceInput `pulumi:"snowflake"`
+}
+
+func (ConfiguredTableTableReference1PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableTableReference1Properties)(nil)).Elem()
+}
+
+func (i ConfiguredTableTableReference1PropertiesArgs) ToConfiguredTableTableReference1PropertiesOutput() ConfiguredTableTableReference1PropertiesOutput {
+	return i.ToConfiguredTableTableReference1PropertiesOutputWithContext(context.Background())
+}
+
+func (i ConfiguredTableTableReference1PropertiesArgs) ToConfiguredTableTableReference1PropertiesOutputWithContext(ctx context.Context) ConfiguredTableTableReference1PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredTableTableReference1PropertiesOutput)
+}
+
+type ConfiguredTableTableReference1PropertiesOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredTableTableReference1PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableTableReference1Properties)(nil)).Elem()
+}
+
+func (o ConfiguredTableTableReference1PropertiesOutput) ToConfiguredTableTableReference1PropertiesOutput() ConfiguredTableTableReference1PropertiesOutput {
+	return o
+}
+
+func (o ConfiguredTableTableReference1PropertiesOutput) ToConfiguredTableTableReference1PropertiesOutputWithContext(ctx context.Context) ConfiguredTableTableReference1PropertiesOutput {
+	return o
+}
+
+func (o ConfiguredTableTableReference1PropertiesOutput) Snowflake() ConfiguredTableSnowflakeTableReferenceOutput {
+	return o.ApplyT(func(v ConfiguredTableTableReference1Properties) ConfiguredTableSnowflakeTableReference {
+		return v.Snowflake
+	}).(ConfiguredTableSnowflakeTableReferenceOutput)
+}
+
+type ConfiguredTableTableReference2Properties struct {
+	Athena ConfiguredTableAthenaTableReference `pulumi:"athena"`
+}
+
+// ConfiguredTableTableReference2PropertiesInput is an input type that accepts ConfiguredTableTableReference2PropertiesArgs and ConfiguredTableTableReference2PropertiesOutput values.
+// You can construct a concrete instance of `ConfiguredTableTableReference2PropertiesInput` via:
+//
+//	ConfiguredTableTableReference2PropertiesArgs{...}
+type ConfiguredTableTableReference2PropertiesInput interface {
+	pulumi.Input
+
+	ToConfiguredTableTableReference2PropertiesOutput() ConfiguredTableTableReference2PropertiesOutput
+	ToConfiguredTableTableReference2PropertiesOutputWithContext(context.Context) ConfiguredTableTableReference2PropertiesOutput
+}
+
+type ConfiguredTableTableReference2PropertiesArgs struct {
+	Athena ConfiguredTableAthenaTableReferenceInput `pulumi:"athena"`
+}
+
+func (ConfiguredTableTableReference2PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableTableReference2Properties)(nil)).Elem()
+}
+
+func (i ConfiguredTableTableReference2PropertiesArgs) ToConfiguredTableTableReference2PropertiesOutput() ConfiguredTableTableReference2PropertiesOutput {
+	return i.ToConfiguredTableTableReference2PropertiesOutputWithContext(context.Background())
+}
+
+func (i ConfiguredTableTableReference2PropertiesArgs) ToConfiguredTableTableReference2PropertiesOutputWithContext(ctx context.Context) ConfiguredTableTableReference2PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredTableTableReference2PropertiesOutput)
+}
+
+type ConfiguredTableTableReference2PropertiesOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredTableTableReference2PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableTableReference2Properties)(nil)).Elem()
+}
+
+func (o ConfiguredTableTableReference2PropertiesOutput) ToConfiguredTableTableReference2PropertiesOutput() ConfiguredTableTableReference2PropertiesOutput {
+	return o
+}
+
+func (o ConfiguredTableTableReference2PropertiesOutput) ToConfiguredTableTableReference2PropertiesOutputWithContext(ctx context.Context) ConfiguredTableTableReference2PropertiesOutput {
+	return o
+}
+
+func (o ConfiguredTableTableReference2PropertiesOutput) Athena() ConfiguredTableAthenaTableReferenceOutput {
+	return o.ApplyT(func(v ConfiguredTableTableReference2Properties) ConfiguredTableAthenaTableReference { return v.Athena }).(ConfiguredTableAthenaTableReferenceOutput)
 }
 
 type ConfiguredTableTag struct {
@@ -3949,12 +4343,19 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAssociationAnalysisRulePolicyV10PropertiesInput)(nil)).Elem(), ConfiguredTableAssociationAnalysisRulePolicyV10PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAssociationAnalysisRulePolicyV11PropertiesInput)(nil)).Elem(), ConfiguredTableAssociationAnalysisRulePolicyV11PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAssociationAnalysisRulePolicyV12PropertiesInput)(nil)).Elem(), ConfiguredTableAssociationAnalysisRulePolicyV12PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAthenaTableReferenceInput)(nil)).Elem(), ConfiguredTableAthenaTableReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableDifferentialPrivacyInput)(nil)).Elem(), ConfiguredTableDifferentialPrivacyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableDifferentialPrivacyPtrInput)(nil)).Elem(), ConfiguredTableDifferentialPrivacyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableDifferentialPrivacyColumnInput)(nil)).Elem(), ConfiguredTableDifferentialPrivacyColumnArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableDifferentialPrivacyColumnArrayInput)(nil)).Elem(), ConfiguredTableDifferentialPrivacyColumnArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableGlueTableReferenceInput)(nil)).Elem(), ConfiguredTableGlueTableReferenceArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableTableReferenceInput)(nil)).Elem(), ConfiguredTableTableReferenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableSnowflakeTableReferenceInput)(nil)).Elem(), ConfiguredTableSnowflakeTableReferenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableSnowflakeTableSchemaPropertiesInput)(nil)).Elem(), ConfiguredTableSnowflakeTableSchemaPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableSnowflakeTableSchemaV1Input)(nil)).Elem(), ConfiguredTableSnowflakeTableSchemaV1Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableSnowflakeTableSchemaV1ArrayInput)(nil)).Elem(), ConfiguredTableSnowflakeTableSchemaV1Array{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableTableReference0PropertiesInput)(nil)).Elem(), ConfiguredTableTableReference0PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableTableReference1PropertiesInput)(nil)).Elem(), ConfiguredTableTableReference1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableTableReference2PropertiesInput)(nil)).Elem(), ConfiguredTableTableReference2PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdMappingTableInputReferenceConfigInput)(nil)).Elem(), IdMappingTableInputReferenceConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdNamespaceAssociationIdMappingConfigInput)(nil)).Elem(), IdNamespaceAssociationIdMappingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdNamespaceAssociationIdMappingConfigPtrInput)(nil)).Elem(), IdNamespaceAssociationIdMappingConfigArgs{})
@@ -4005,12 +4406,19 @@ func init() {
 	pulumi.RegisterOutputType(ConfiguredTableAssociationAnalysisRulePolicyV10PropertiesOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableAssociationAnalysisRulePolicyV11PropertiesOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableAssociationAnalysisRulePolicyV12PropertiesOutput{})
+	pulumi.RegisterOutputType(ConfiguredTableAthenaTableReferenceOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableDifferentialPrivacyOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableDifferentialPrivacyPtrOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableDifferentialPrivacyColumnOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableDifferentialPrivacyColumnArrayOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableGlueTableReferenceOutput{})
-	pulumi.RegisterOutputType(ConfiguredTableTableReferenceOutput{})
+	pulumi.RegisterOutputType(ConfiguredTableSnowflakeTableReferenceOutput{})
+	pulumi.RegisterOutputType(ConfiguredTableSnowflakeTableSchemaPropertiesOutput{})
+	pulumi.RegisterOutputType(ConfiguredTableSnowflakeTableSchemaV1Output{})
+	pulumi.RegisterOutputType(ConfiguredTableSnowflakeTableSchemaV1ArrayOutput{})
+	pulumi.RegisterOutputType(ConfiguredTableTableReference0PropertiesOutput{})
+	pulumi.RegisterOutputType(ConfiguredTableTableReference1PropertiesOutput{})
+	pulumi.RegisterOutputType(ConfiguredTableTableReference2PropertiesOutput{})
 	pulumi.RegisterOutputType(IdMappingTableInputReferenceConfigOutput{})
 	pulumi.RegisterOutputType(IdMappingTableInputReferencePropertiesOutput{})
 	pulumi.RegisterOutputType(IdMappingTableInputReferencePropertiesPtrOutput{})

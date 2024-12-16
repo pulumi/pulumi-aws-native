@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Connect.Inputs
 {
 
-    /// <summary>
-    /// The definition for update case action.
-    /// </summary>
     public sealed class RuleUpdateCaseActionArgs : global::Pulumi.ResourceArgs
     {
         [Input("fields", required: true)]

@@ -89,14 +89,14 @@ namespace Pulumi.AwsNative.Batch.Inputs
         public Input<string>? TaskRoleArn { get; set; }
 
         [Input("volumes")]
-        private InputList<Inputs.JobDefinitionVolumesArgs>? _volumes;
+        private InputList<Inputs.JobDefinitionVolumeArgs>? _volumes;
 
         /// <summary>
         /// A list of volumes that are associated with the job.
         /// </summary>
-        public InputList<Inputs.JobDefinitionVolumesArgs> Volumes
+        public InputList<Inputs.JobDefinitionVolumeArgs> Volumes
         {
-            get => _volumes ?? (_volumes = new InputList<Inputs.JobDefinitionVolumesArgs>());
+            get => _volumes ?? (_volumes = new InputList<Inputs.JobDefinitionVolumeArgs>());
             set => _volumes = value;
         }
 

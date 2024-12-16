@@ -69,6 +69,9 @@ namespace Pulumi.AwsNative.M2
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        [Output("networkType")]
+        public Output<Pulumi.AwsNative.M2.EnvironmentNetworkType?> NetworkType { get; private set; } = null!;
+
         /// <summary>
         /// Configures a desired maintenance window for the environment. If you do not provide a value, a random system-generated value will be assigned.
         /// </summary>
@@ -134,6 +137,7 @@ namespace Pulumi.AwsNative.M2
                     "engineType",
                     "kmsKeyId",
                     "name",
+                    "networkType",
                     "publiclyAccessible",
                     "securityGroupIds[*]",
                     "storageConfigurations[*]",
@@ -202,6 +206,9 @@ namespace Pulumi.AwsNative.M2
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("networkType")]
+        public Input<Pulumi.AwsNative.M2.EnvironmentNetworkType>? NetworkType { get; set; }
 
         /// <summary>
         /// Configures a desired maintenance window for the environment. If you do not provide a value, a random system-generated value will be assigned.

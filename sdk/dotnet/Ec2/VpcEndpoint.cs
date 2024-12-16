@@ -45,6 +45,12 @@ namespace Pulumi.AwsNative.Ec2
         [Output("dnsEntries")]
         public Output<ImmutableArray<string>> DnsEntries { get; private set; } = null!;
 
+        [Output("dnsOptions")]
+        public Output<Outputs.VpcEndpointDnsOptionsSpecification?> DnsOptions { get; private set; } = null!;
+
+        [Output("ipAddressType")]
+        public Output<Pulumi.AwsNative.Ec2.VpcEndpointIpAddressType?> IpAddressType { get; private set; } = null!;
+
         /// <summary>
         /// (Interface endpoints) The network interface IDs. If you update the `PrivateDnsEnabled` or `SubnetIds` properties, the items in this list might change.
         /// </summary>
@@ -70,6 +76,9 @@ namespace Pulumi.AwsNative.Ec2
         [Output("privateDnsEnabled")]
         public Output<bool?> PrivateDnsEnabled { get; private set; } = null!;
 
+        [Output("resourceConfigurationArn")]
+        public Output<string?> ResourceConfigurationArn { get; private set; } = null!;
+
         /// <summary>
         /// The IDs of the route tables. Routing is supported only for gateway endpoints.
         /// </summary>
@@ -86,7 +95,10 @@ namespace Pulumi.AwsNative.Ec2
         /// The name of the endpoint service.
         /// </summary>
         [Output("serviceName")]
-        public Output<string> ServiceName { get; private set; } = null!;
+        public Output<string?> ServiceName { get; private set; } = null!;
+
+        [Output("serviceNetworkArn")]
+        public Output<string?> ServiceNetworkArn { get; private set; } = null!;
 
         /// <summary>
         /// The IDs of the subnets in which to create endpoint network interfaces. You must specify this property for an interface endpoint or a Gateway Load Balancer endpoint. You can't specify this property for a gateway endpoint. For a Gateway Load Balancer endpoint, you can specify only one subnet.
@@ -132,7 +144,9 @@ namespace Pulumi.AwsNative.Ec2
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
+                    "resourceConfigurationArn",
                     "serviceName",
+                    "serviceNetworkArn",
                     "vpcEndpointType",
                     "vpcId",
                 },
@@ -158,6 +172,12 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class VpcEndpointArgs : global::Pulumi.ResourceArgs
     {
+        [Input("dnsOptions")]
+        public Input<Inputs.VpcEndpointDnsOptionsSpecificationArgs>? DnsOptions { get; set; }
+
+        [Input("ipAddressType")]
+        public Input<Pulumi.AwsNative.Ec2.VpcEndpointIpAddressType>? IpAddressType { get; set; }
+
         /// <summary>
         /// An endpoint policy, which controls access to the service from the VPC. The default endpoint policy allows full access to the service. Endpoint policies are supported only for gateway and interface endpoints.
         ///  For CloudFormation templates in YAML, you can provide the policy in JSON or YAML format. For example, if you have a JSON policy, you can convert it to YAML before including it in the YAML template, and CFNlong converts the policy to JSON format before calling the API actions for privatelink. Alternatively, you can include the JSON directly in the YAML, as shown in the following ``Properties`` section:
@@ -176,6 +196,9 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         [Input("privateDnsEnabled")]
         public Input<bool>? PrivateDnsEnabled { get; set; }
+
+        [Input("resourceConfigurationArn")]
+        public Input<string>? ResourceConfigurationArn { get; set; }
 
         [Input("routeTableIds")]
         private InputList<string>? _routeTableIds;
@@ -204,8 +227,11 @@ namespace Pulumi.AwsNative.Ec2
         /// <summary>
         /// The name of the endpoint service.
         /// </summary>
-        [Input("serviceName", required: true)]
-        public Input<string> ServiceName { get; set; } = null!;
+        [Input("serviceName")]
+        public Input<string>? ServiceName { get; set; }
+
+        [Input("serviceNetworkArn")]
+        public Input<string>? ServiceNetworkArn { get; set; }
 
         [Input("subnetIds")]
         private InputList<string>? _subnetIds;

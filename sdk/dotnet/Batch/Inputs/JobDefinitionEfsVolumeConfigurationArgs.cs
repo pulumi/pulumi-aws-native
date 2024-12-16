@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.Batch.Inputs
         /// The authorization configuration details for the Amazon EFS file system.
         /// </summary>
         [Input("authorizationConfig")]
-        public Input<Inputs.JobDefinitionAuthorizationConfigArgs>? AuthorizationConfig { get; set; }
+        public Input<Inputs.JobDefinitionEfsAuthorizationConfigArgs>? AuthorizationConfig { get; set; }
 
         /// <summary>
         /// The Amazon EFS file system ID to use.

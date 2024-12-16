@@ -29,6 +29,8 @@ type Queue struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The outbound caller ID name, number, and outbound whisper flow.
 	OutboundCallerConfig QueueOutboundCallerConfigPtrOutput `pulumi:"outboundCallerConfig"`
+	// The outbound email address ID.
+	OutboundEmailConfig QueueOutboundEmailConfigPtrOutput `pulumi:"outboundEmailConfig"`
 	// The Amazon Resource Name (ARN) for the queue.
 	QueueArn pulumi.StringOutput `pulumi:"queueArn"`
 	// The quick connects available to agents who are working the queue.
@@ -99,6 +101,8 @@ type queueArgs struct {
 	Name *string `pulumi:"name"`
 	// The outbound caller ID name, number, and outbound whisper flow.
 	OutboundCallerConfig *QueueOutboundCallerConfig `pulumi:"outboundCallerConfig"`
+	// The outbound email address ID.
+	OutboundEmailConfig *QueueOutboundEmailConfig `pulumi:"outboundEmailConfig"`
 	// The quick connects available to agents who are working the queue.
 	QuickConnectArns []string `pulumi:"quickConnectArns"`
 	// The status of the queue.
@@ -121,6 +125,8 @@ type QueueArgs struct {
 	Name pulumi.StringPtrInput
 	// The outbound caller ID name, number, and outbound whisper flow.
 	OutboundCallerConfig QueueOutboundCallerConfigPtrInput
+	// The outbound email address ID.
+	OutboundEmailConfig QueueOutboundEmailConfigPtrInput
 	// The quick connects available to agents who are working the queue.
 	QuickConnectArns pulumi.StringArrayInput
 	// The status of the queue.
@@ -194,6 +200,11 @@ func (o QueueOutput) Name() pulumi.StringOutput {
 // The outbound caller ID name, number, and outbound whisper flow.
 func (o QueueOutput) OutboundCallerConfig() QueueOutboundCallerConfigPtrOutput {
 	return o.ApplyT(func(v *Queue) QueueOutboundCallerConfigPtrOutput { return v.OutboundCallerConfig }).(QueueOutboundCallerConfigPtrOutput)
+}
+
+// The outbound email address ID.
+func (o QueueOutput) OutboundEmailConfig() QueueOutboundEmailConfigPtrOutput {
+	return o.ApplyT(func(v *Queue) QueueOutboundEmailConfigPtrOutput { return v.OutboundEmailConfig }).(QueueOutboundEmailConfigPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) for the queue.

@@ -40,6 +40,7 @@ export interface GetLogGroupResult {
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::LogGroup` for more information about the expected schema for this property.
      */
     readonly dataProtectionPolicy?: any;
+    readonly fieldIndexPolicies?: any[];
     /**
      * The Amazon Resource Name (ARN) of the KMS key to use when encrypting log data.
      *  To associate an KMS key with the log group, specify the ARN of that KMS key here. If you do so, ingested data is encrypted using this key. This association is stored as long as the data encrypted with the KMS key is still within CWL. This enables CWL to decrypt this data whenever it is requested.

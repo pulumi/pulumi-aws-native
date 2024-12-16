@@ -34,6 +34,12 @@ namespace Pulumi.AwsNative.Logs
         public Output<string> QueryDefinitionId { get; private set; } = null!;
 
         /// <summary>
+        /// Query language of the query string. Possible values are CWLI, SQL, PPL, with CWLI being the default.
+        /// </summary>
+        [Output("queryLanguage")]
+        public Output<Pulumi.AwsNative.Logs.QueryDefinitionQueryLanguage?> QueryLanguage { get; private set; } = null!;
+
+        /// <summary>
         /// The query string to use for this definition
         /// </summary>
         [Output("queryString")]
@@ -101,6 +107,12 @@ namespace Pulumi.AwsNative.Logs
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Query language of the query string. Possible values are CWLI, SQL, PPL, with CWLI being the default.
+        /// </summary>
+        [Input("queryLanguage")]
+        public Input<Pulumi.AwsNative.Logs.QueryDefinitionQueryLanguage>? QueryLanguage { get; set; }
 
         /// <summary>
         /// The query string to use for this definition

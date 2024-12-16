@@ -28,6 +28,9 @@ namespace Pulumi.AwsNative.Wisdom.Outputs
         /// Name of topic in topic policy
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Type of topic in a policy.
+        /// </summary>
         public readonly Pulumi.AwsNative.Wisdom.AiGuardrailGuardrailTopicType Type;
 
         [OutputConstructor]

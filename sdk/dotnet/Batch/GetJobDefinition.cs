@@ -33,8 +33,11 @@ namespace Pulumi.AwsNative.Batch
 
     public sealed class GetJobDefinitionArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public string Id { get; set; } = null!;
+        /// <summary>
+        /// The name of the job definition.
+        /// </summary>
+        [Input("jobDefinitionName", required: true)]
+        public string JobDefinitionName { get; set; } = null!;
 
         public GetJobDefinitionArgs()
         {
@@ -44,8 +47,11 @@ namespace Pulumi.AwsNative.Batch
 
     public sealed class GetJobDefinitionInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("id", required: true)]
-        public Input<string> Id { get; set; } = null!;
+        /// <summary>
+        /// The name of the job definition.
+        /// </summary>
+        [Input("jobDefinitionName", required: true)]
+        public Input<string> JobDefinitionName { get; set; } = null!;
 
         public GetJobDefinitionInvokeArgs()
         {
@@ -69,7 +75,6 @@ namespace Pulumi.AwsNative.Batch
         /// An object with properties that are specific to Amazon EKS-based jobs. When `eksProperties` is used in the job definition, it can't be used in addition to `containerProperties` , `ecsProperties` , or `nodeProperties` .
         /// </summary>
         public readonly Outputs.JobDefinitionEksProperties? EksProperties;
-        public readonly string? Id;
         /// <summary>
         /// An object with properties that are specific to multi-node parallel jobs. When `nodeProperties` is used in the job definition, it can't be used in addition to `containerProperties` , `ecsProperties` , or `eksProperties` .
         /// 
@@ -78,10 +83,8 @@ namespace Pulumi.AwsNative.Batch
         public readonly Outputs.JobDefinitionNodeProperties? NodeProperties;
         /// <summary>
         /// Default parameters or parameter substitution placeholders that are set in the job definition. Parameters are specified as a key-value pair mapping. Parameters in a `SubmitJob` request override any corresponding parameter defaults from the job definition. For more information about specifying parameters, see [Job definition parameters](https://docs.aws.amazon.com/batch/latest/userguide/job_definition_parameters.html) in the *AWS Batch User Guide* .
-        /// 
-        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Batch::JobDefinition` for more information about the expected schema for this property.
         /// </summary>
-        public readonly object? Parameters;
+        public readonly ImmutableDictionary<string, string>? Parameters;
         /// <summary>
         /// The platform capabilities required by the job definition. If no value is specified, it defaults to `EC2` . Jobs run on Fargate resources specify `FARGATE` .
         /// </summary>
@@ -99,15 +102,13 @@ namespace Pulumi.AwsNative.Batch
         /// </summary>
         public readonly int? SchedulingPriority;
         /// <summary>
-        /// The tags that are applied to the job definition.
-        /// 
-        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Batch::JobDefinition` for more information about the expected schema for this property.
+        /// A key-value pair to associate with a resource.
         /// </summary>
-        public readonly object? Tags;
+        public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
         /// The timeout time for jobs that are submitted with this job definition. After the amount of time you specify passes, AWS Batch terminates your jobs if they aren't finished.
         /// </summary>
-        public readonly Outputs.JobDefinitionTimeout? Timeout;
+        public readonly Outputs.JobDefinitionJobTimeout? Timeout;
         /// <summary>
         /// The type of job definition. For more information about multi-node parallel jobs, see [Creating a multi-node parallel job definition](https://docs.aws.amazon.com/batch/latest/userguide/multi-node-job-def.html) in the *AWS Batch User Guide* .
         /// 
@@ -126,11 +127,9 @@ namespace Pulumi.AwsNative.Batch
 
             Outputs.JobDefinitionEksProperties? eksProperties,
 
-            string? id,
-
             Outputs.JobDefinitionNodeProperties? nodeProperties,
 
-            object? parameters,
+            ImmutableDictionary<string, string>? parameters,
 
             ImmutableArray<string> platformCapabilities,
 
@@ -140,16 +139,15 @@ namespace Pulumi.AwsNative.Batch
 
             int? schedulingPriority,
 
-            object? tags,
+            ImmutableDictionary<string, string>? tags,
 
-            Outputs.JobDefinitionTimeout? timeout,
+            Outputs.JobDefinitionJobTimeout? timeout,
 
             string? type)
         {
             ContainerProperties = containerProperties;
             EcsProperties = ecsProperties;
             EksProperties = eksProperties;
-            Id = id;
             NodeProperties = nodeProperties;
             Parameters = parameters;
             PlatformCapabilities = platformCapabilities;

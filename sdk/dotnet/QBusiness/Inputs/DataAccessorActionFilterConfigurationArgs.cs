@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QBusiness.Inputs
 
     public sealed class DataAccessorActionFilterConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Enables filtering of responses based on document attributes or metadata fields.
+        /// </summary>
         [Input("documentAttributeFilter", required: true)]
         public Input<Inputs.DataAccessorAttributeFilterArgs> DocumentAttributeFilter { get; set; } = null!;
 

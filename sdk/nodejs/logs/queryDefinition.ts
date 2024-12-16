@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -47,6 +50,10 @@ export class QueryDefinition extends pulumi.CustomResource {
      */
     public /*out*/ readonly queryDefinitionId!: pulumi.Output<string>;
     /**
+     * Query language of the query string. Possible values are CWLI, SQL, PPL, with CWLI being the default.
+     */
+    public readonly queryLanguage!: pulumi.Output<enums.logs.QueryDefinitionQueryLanguage | undefined>;
+    /**
      * The query string to use for this definition
      */
     public readonly queryString!: pulumi.Output<string>;
@@ -67,12 +74,14 @@ export class QueryDefinition extends pulumi.CustomResource {
             }
             resourceInputs["logGroupNames"] = args ? args.logGroupNames : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["queryLanguage"] = args ? args.queryLanguage : undefined;
             resourceInputs["queryString"] = args ? args.queryString : undefined;
             resourceInputs["queryDefinitionId"] = undefined /*out*/;
         } else {
             resourceInputs["logGroupNames"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["queryDefinitionId"] = undefined /*out*/;
+            resourceInputs["queryLanguage"] = undefined /*out*/;
             resourceInputs["queryString"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -92,6 +101,10 @@ export interface QueryDefinitionArgs {
      * A name for the saved query definition
      */
     name?: pulumi.Input<string>;
+    /**
+     * Query language of the query string. Possible values are CWLI, SQL, PPL, with CWLI being the default.
+     */
+    queryLanguage?: pulumi.Input<enums.logs.QueryDefinitionQueryLanguage>;
     /**
      * The query string to use for this definition
      */

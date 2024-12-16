@@ -17,11 +17,11 @@ namespace Pulumi.AwsNative.Connect.Outputs
     public sealed class RuleNotificationRecipientType
     {
         /// <summary>
-        /// The list of recipients by user arns.
+        /// The Amazon Resource Name (ARN) of the user account.
         /// </summary>
         public readonly ImmutableArray<string> UserArns;
         /// <summary>
-        /// The collection of recipients who are identified by user tags
+        /// The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }. CON users with the specified tags will be notified.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? UserTags;
 

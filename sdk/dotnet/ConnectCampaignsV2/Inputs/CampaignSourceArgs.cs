@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2.Inputs
 {
 
     /// <summary>
-    /// The possible types of channel config parameters
+    /// The possible source of the campaign
     /// </summary>
     public sealed class CampaignSourceArgs : global::Pulumi.ResourceArgs
     {
@@ -20,6 +20,12 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2.Inputs
         /// </summary>
         [Input("customerProfilesSegmentArn")]
         public Input<string>? CustomerProfilesSegmentArn { get; set; }
+
+        /// <summary>
+        /// The event trigger of the campaign.
+        /// </summary>
+        [Input("eventTrigger")]
+        public Input<Inputs.CampaignEventTriggerArgs>? EventTrigger { get; set; }
 
         public CampaignSourceArgs()
         {

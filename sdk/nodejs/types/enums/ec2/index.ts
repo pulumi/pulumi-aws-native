@@ -833,10 +833,39 @@ export const VpcBlockPublicAccessOptionsInternetGatewayBlockMode = {
  */
 export type VpcBlockPublicAccessOptionsInternetGatewayBlockMode = (typeof VpcBlockPublicAccessOptionsInternetGatewayBlockMode)[keyof typeof VpcBlockPublicAccessOptionsInternetGatewayBlockMode];
 
+export const VpcEndpointDnsOptionsSpecificationDnsRecordIpType = {
+    Ipv4: "ipv4",
+    Ipv6: "ipv6",
+    Dualstack: "dualstack",
+    ServiceDefined: "service-defined",
+    NotSpecified: "not-specified",
+} as const;
+
+export type VpcEndpointDnsOptionsSpecificationDnsRecordIpType = (typeof VpcEndpointDnsOptionsSpecificationDnsRecordIpType)[keyof typeof VpcEndpointDnsOptionsSpecificationDnsRecordIpType];
+
+export const VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint = {
+    OnlyInboundResolver: "OnlyInboundResolver",
+    AllResolvers: "AllResolvers",
+    NotSpecified: "NotSpecified",
+} as const;
+
+export type VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint = (typeof VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint)[keyof typeof VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint];
+
+export const VpcEndpointIpAddressType = {
+    Ipv4: "ipv4",
+    Ipv6: "ipv6",
+    Dualstack: "dualstack",
+    NotSpecified: "not-specified",
+} as const;
+
+export type VpcEndpointIpAddressType = (typeof VpcEndpointIpAddressType)[keyof typeof VpcEndpointIpAddressType];
+
 export const VpcEndpointType = {
     Interface: "Interface",
     Gateway: "Gateway",
     GatewayLoadBalancer: "GatewayLoadBalancer",
+    ServiceNetwork: "ServiceNetwork",
+    Resource: "Resource",
 } as const;
 
 /**

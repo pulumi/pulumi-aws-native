@@ -1680,162 +1680,6 @@ func (o ComputeEnvironmentUpdatePolicyPtrOutput) TerminateJobsOnUpdate() pulumi.
 	}).(pulumi.BoolPtrOutput)
 }
 
-type JobDefinitionAuthorizationConfig struct {
-	// The Amazon EFS access point ID to use. If an access point is specified, the root directory value specified in the `EFSVolumeConfiguration` must either be omitted or set to `/` which enforces the path set on the EFS access point. If an access point is used, transit encryption must be enabled in the `EFSVolumeConfiguration` . For more information, see [Working with Amazon EFS access points](https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html) in the *Amazon Elastic File System User Guide* .
-	AccessPointId *string `pulumi:"accessPointId"`
-	// Whether or not to use the AWS Batch job IAM role defined in a job definition when mounting the Amazon EFS file system. If enabled, transit encryption must be enabled in the `EFSVolumeConfiguration` . If this parameter is omitted, the default value of `DISABLED` is used. For more information, see [Using Amazon EFS access points](https://docs.aws.amazon.com/batch/latest/userguide/efs-volumes.html#efs-volume-accesspoints) in the *AWS Batch User Guide* . EFS IAM authorization requires that `TransitEncryption` be `ENABLED` and that a `JobRoleArn` is specified.
-	Iam *string `pulumi:"iam"`
-}
-
-// JobDefinitionAuthorizationConfigInput is an input type that accepts JobDefinitionAuthorizationConfigArgs and JobDefinitionAuthorizationConfigOutput values.
-// You can construct a concrete instance of `JobDefinitionAuthorizationConfigInput` via:
-//
-//	JobDefinitionAuthorizationConfigArgs{...}
-type JobDefinitionAuthorizationConfigInput interface {
-	pulumi.Input
-
-	ToJobDefinitionAuthorizationConfigOutput() JobDefinitionAuthorizationConfigOutput
-	ToJobDefinitionAuthorizationConfigOutputWithContext(context.Context) JobDefinitionAuthorizationConfigOutput
-}
-
-type JobDefinitionAuthorizationConfigArgs struct {
-	// The Amazon EFS access point ID to use. If an access point is specified, the root directory value specified in the `EFSVolumeConfiguration` must either be omitted or set to `/` which enforces the path set on the EFS access point. If an access point is used, transit encryption must be enabled in the `EFSVolumeConfiguration` . For more information, see [Working with Amazon EFS access points](https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html) in the *Amazon Elastic File System User Guide* .
-	AccessPointId pulumi.StringPtrInput `pulumi:"accessPointId"`
-	// Whether or not to use the AWS Batch job IAM role defined in a job definition when mounting the Amazon EFS file system. If enabled, transit encryption must be enabled in the `EFSVolumeConfiguration` . If this parameter is omitted, the default value of `DISABLED` is used. For more information, see [Using Amazon EFS access points](https://docs.aws.amazon.com/batch/latest/userguide/efs-volumes.html#efs-volume-accesspoints) in the *AWS Batch User Guide* . EFS IAM authorization requires that `TransitEncryption` be `ENABLED` and that a `JobRoleArn` is specified.
-	Iam pulumi.StringPtrInput `pulumi:"iam"`
-}
-
-func (JobDefinitionAuthorizationConfigArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobDefinitionAuthorizationConfig)(nil)).Elem()
-}
-
-func (i JobDefinitionAuthorizationConfigArgs) ToJobDefinitionAuthorizationConfigOutput() JobDefinitionAuthorizationConfigOutput {
-	return i.ToJobDefinitionAuthorizationConfigOutputWithContext(context.Background())
-}
-
-func (i JobDefinitionAuthorizationConfigArgs) ToJobDefinitionAuthorizationConfigOutputWithContext(ctx context.Context) JobDefinitionAuthorizationConfigOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionAuthorizationConfigOutput)
-}
-
-func (i JobDefinitionAuthorizationConfigArgs) ToJobDefinitionAuthorizationConfigPtrOutput() JobDefinitionAuthorizationConfigPtrOutput {
-	return i.ToJobDefinitionAuthorizationConfigPtrOutputWithContext(context.Background())
-}
-
-func (i JobDefinitionAuthorizationConfigArgs) ToJobDefinitionAuthorizationConfigPtrOutputWithContext(ctx context.Context) JobDefinitionAuthorizationConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionAuthorizationConfigOutput).ToJobDefinitionAuthorizationConfigPtrOutputWithContext(ctx)
-}
-
-// JobDefinitionAuthorizationConfigPtrInput is an input type that accepts JobDefinitionAuthorizationConfigArgs, JobDefinitionAuthorizationConfigPtr and JobDefinitionAuthorizationConfigPtrOutput values.
-// You can construct a concrete instance of `JobDefinitionAuthorizationConfigPtrInput` via:
-//
-//	        JobDefinitionAuthorizationConfigArgs{...}
-//
-//	or:
-//
-//	        nil
-type JobDefinitionAuthorizationConfigPtrInput interface {
-	pulumi.Input
-
-	ToJobDefinitionAuthorizationConfigPtrOutput() JobDefinitionAuthorizationConfigPtrOutput
-	ToJobDefinitionAuthorizationConfigPtrOutputWithContext(context.Context) JobDefinitionAuthorizationConfigPtrOutput
-}
-
-type jobDefinitionAuthorizationConfigPtrType JobDefinitionAuthorizationConfigArgs
-
-func JobDefinitionAuthorizationConfigPtr(v *JobDefinitionAuthorizationConfigArgs) JobDefinitionAuthorizationConfigPtrInput {
-	return (*jobDefinitionAuthorizationConfigPtrType)(v)
-}
-
-func (*jobDefinitionAuthorizationConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**JobDefinitionAuthorizationConfig)(nil)).Elem()
-}
-
-func (i *jobDefinitionAuthorizationConfigPtrType) ToJobDefinitionAuthorizationConfigPtrOutput() JobDefinitionAuthorizationConfigPtrOutput {
-	return i.ToJobDefinitionAuthorizationConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *jobDefinitionAuthorizationConfigPtrType) ToJobDefinitionAuthorizationConfigPtrOutputWithContext(ctx context.Context) JobDefinitionAuthorizationConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionAuthorizationConfigPtrOutput)
-}
-
-type JobDefinitionAuthorizationConfigOutput struct{ *pulumi.OutputState }
-
-func (JobDefinitionAuthorizationConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobDefinitionAuthorizationConfig)(nil)).Elem()
-}
-
-func (o JobDefinitionAuthorizationConfigOutput) ToJobDefinitionAuthorizationConfigOutput() JobDefinitionAuthorizationConfigOutput {
-	return o
-}
-
-func (o JobDefinitionAuthorizationConfigOutput) ToJobDefinitionAuthorizationConfigOutputWithContext(ctx context.Context) JobDefinitionAuthorizationConfigOutput {
-	return o
-}
-
-func (o JobDefinitionAuthorizationConfigOutput) ToJobDefinitionAuthorizationConfigPtrOutput() JobDefinitionAuthorizationConfigPtrOutput {
-	return o.ToJobDefinitionAuthorizationConfigPtrOutputWithContext(context.Background())
-}
-
-func (o JobDefinitionAuthorizationConfigOutput) ToJobDefinitionAuthorizationConfigPtrOutputWithContext(ctx context.Context) JobDefinitionAuthorizationConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobDefinitionAuthorizationConfig) *JobDefinitionAuthorizationConfig {
-		return &v
-	}).(JobDefinitionAuthorizationConfigPtrOutput)
-}
-
-// The Amazon EFS access point ID to use. If an access point is specified, the root directory value specified in the `EFSVolumeConfiguration` must either be omitted or set to `/` which enforces the path set on the EFS access point. If an access point is used, transit encryption must be enabled in the `EFSVolumeConfiguration` . For more information, see [Working with Amazon EFS access points](https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html) in the *Amazon Elastic File System User Guide* .
-func (o JobDefinitionAuthorizationConfigOutput) AccessPointId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v JobDefinitionAuthorizationConfig) *string { return v.AccessPointId }).(pulumi.StringPtrOutput)
-}
-
-// Whether or not to use the AWS Batch job IAM role defined in a job definition when mounting the Amazon EFS file system. If enabled, transit encryption must be enabled in the `EFSVolumeConfiguration` . If this parameter is omitted, the default value of `DISABLED` is used. For more information, see [Using Amazon EFS access points](https://docs.aws.amazon.com/batch/latest/userguide/efs-volumes.html#efs-volume-accesspoints) in the *AWS Batch User Guide* . EFS IAM authorization requires that `TransitEncryption` be `ENABLED` and that a `JobRoleArn` is specified.
-func (o JobDefinitionAuthorizationConfigOutput) Iam() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v JobDefinitionAuthorizationConfig) *string { return v.Iam }).(pulumi.StringPtrOutput)
-}
-
-type JobDefinitionAuthorizationConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (JobDefinitionAuthorizationConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**JobDefinitionAuthorizationConfig)(nil)).Elem()
-}
-
-func (o JobDefinitionAuthorizationConfigPtrOutput) ToJobDefinitionAuthorizationConfigPtrOutput() JobDefinitionAuthorizationConfigPtrOutput {
-	return o
-}
-
-func (o JobDefinitionAuthorizationConfigPtrOutput) ToJobDefinitionAuthorizationConfigPtrOutputWithContext(ctx context.Context) JobDefinitionAuthorizationConfigPtrOutput {
-	return o
-}
-
-func (o JobDefinitionAuthorizationConfigPtrOutput) Elem() JobDefinitionAuthorizationConfigOutput {
-	return o.ApplyT(func(v *JobDefinitionAuthorizationConfig) JobDefinitionAuthorizationConfig {
-		if v != nil {
-			return *v
-		}
-		var ret JobDefinitionAuthorizationConfig
-		return ret
-	}).(JobDefinitionAuthorizationConfigOutput)
-}
-
-// The Amazon EFS access point ID to use. If an access point is specified, the root directory value specified in the `EFSVolumeConfiguration` must either be omitted or set to `/` which enforces the path set on the EFS access point. If an access point is used, transit encryption must be enabled in the `EFSVolumeConfiguration` . For more information, see [Working with Amazon EFS access points](https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html) in the *Amazon Elastic File System User Guide* .
-func (o JobDefinitionAuthorizationConfigPtrOutput) AccessPointId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *JobDefinitionAuthorizationConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AccessPointId
-	}).(pulumi.StringPtrOutput)
-}
-
-// Whether or not to use the AWS Batch job IAM role defined in a job definition when mounting the Amazon EFS file system. If enabled, transit encryption must be enabled in the `EFSVolumeConfiguration` . If this parameter is omitted, the default value of `DISABLED` is used. For more information, see [Using Amazon EFS access points](https://docs.aws.amazon.com/batch/latest/userguide/efs-volumes.html#efs-volume-accesspoints) in the *AWS Batch User Guide* . EFS IAM authorization requires that `TransitEncryption` be `ENABLED` and that a `JobRoleArn` is specified.
-func (o JobDefinitionAuthorizationConfigPtrOutput) Iam() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *JobDefinitionAuthorizationConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Iam
-	}).(pulumi.StringPtrOutput)
-}
-
 type JobDefinitionContainerProperties struct {
 	// The command that's passed to the container. This parameter maps to `Cmd` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `COMMAND` parameter to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) . For more information, see [https://docs.docker.com/engine/reference/builder/#cmd](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/builder/#cmd) .
 	Command []string `pulumi:"command"`
@@ -1848,7 +1692,7 @@ type JobDefinitionContainerProperties struct {
 	// The Amazon Resource Name (ARN) of the execution role that AWS Batch can assume. For jobs that run on Fargate resources, you must provide an execution role. For more information, see [AWS Batch execution IAM role](https://docs.aws.amazon.com/batch/latest/userguide/execution-IAM-role.html) in the *AWS Batch User Guide* .
 	ExecutionRoleArn *string `pulumi:"executionRoleArn"`
 	// The platform configuration for jobs that are running on Fargate resources. Jobs that are running on Amazon EC2 resources must not specify this parameter.
-	FargatePlatformConfiguration *JobDefinitionFargatePlatformConfiguration `pulumi:"fargatePlatformConfiguration"`
+	FargatePlatformConfiguration *JobDefinitionContainerPropertiesFargatePlatformConfigurationProperties `pulumi:"fargatePlatformConfiguration"`
 	// Required. The image used to start a container. This string is passed directly to the Docker daemon. Images in the Docker Hub registry are available by default. Other repositories are specified with `*repository-url* / *image* : *tag*` . It can be 255 characters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), underscores (_), colons (:), periods (.), forward slashes (/), and number signs (#). This parameter maps to `Image` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `IMAGE` parameter of [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) .
 	//
 	// > Docker image architecture must match the processor architecture of the compute resources that they're scheduled on. For example, ARM-based Docker images can only run on ARM-based compute resources.
@@ -1859,10 +1703,6 @@ type JobDefinitionContainerProperties struct {
 	// - Images in other repositories on Docker Hub are qualified with an organization name (for example, `amazon/amazon-ecs-agent` ).
 	// - Images in other online repositories are qualified further by a domain name (for example, `quay.io/assemblyline/ubuntu` ).
 	Image string `pulumi:"image"`
-	// The instance type to use for a multi-node parallel job. All node groups in a multi-node parallel job must use the same instance type.
-	//
-	// > This parameter isn't applicable to single-node container jobs or jobs that run on Fargate resources, and shouldn't be provided.
-	InstanceType *string `pulumi:"instanceType"`
 	// The Amazon Resource Name (ARN) of the IAM role that the container can assume for AWS permissions. For more information, see [IAM roles for tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html) in the *Amazon Elastic Container Service Developer Guide* .
 	JobRoleArn *string `pulumi:"jobRoleArn"`
 	// Linux-specific modifications that are applied to the container, such as details for device mappings.
@@ -1880,7 +1720,7 @@ type JobDefinitionContainerProperties struct {
 	// This parameter is deprecated, use `resourceRequirements` to specify the memory requirements for the job definition. It's not supported for jobs running on Fargate resources. For jobs that run on Amazon EC2 resources, it specifies the memory hard limit (in MiB) for a container. If your container attempts to exceed the specified number, it's terminated. You must specify at least 4 MiB of memory for a job using this parameter. The memory hard limit can be specified in several places. It must be specified for each node at least once.
 	Memory *int `pulumi:"memory"`
 	// The mount points for data volumes in your container. This parameter maps to `Volumes` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `--volume` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) .
-	MountPoints []JobDefinitionMountPoints `pulumi:"mountPoints"`
+	MountPoints []JobDefinitionMountPoint `pulumi:"mountPoints"`
 	// The network configuration for jobs that are running on Fargate resources. Jobs that are running on Amazon EC2 resources must not specify this parameter.
 	NetworkConfiguration *JobDefinitionNetworkConfiguration `pulumi:"networkConfiguration"`
 	// When this parameter is true, the container is given elevated permissions on the host container instance (similar to the `root` user). This parameter maps to `Privileged` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `--privileged` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) . The default value is false.
@@ -1908,7 +1748,7 @@ type JobDefinitionContainerProperties struct {
 	// Each vCPU is equivalent to 1,024 CPU shares. This parameter maps to `CpuShares` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `--cpu-shares` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) . The number of vCPUs must be specified but can be specified in several places. You must specify it at least once for each node.
 	Vcpus *int `pulumi:"vcpus"`
 	// A list of data volumes used in a job.
-	Volumes []JobDefinitionVolumes `pulumi:"volumes"`
+	Volumes []JobDefinitionVolume `pulumi:"volumes"`
 }
 
 // JobDefinitionContainerPropertiesInput is an input type that accepts JobDefinitionContainerPropertiesArgs and JobDefinitionContainerPropertiesOutput values.
@@ -1934,7 +1774,7 @@ type JobDefinitionContainerPropertiesArgs struct {
 	// The Amazon Resource Name (ARN) of the execution role that AWS Batch can assume. For jobs that run on Fargate resources, you must provide an execution role. For more information, see [AWS Batch execution IAM role](https://docs.aws.amazon.com/batch/latest/userguide/execution-IAM-role.html) in the *AWS Batch User Guide* .
 	ExecutionRoleArn pulumi.StringPtrInput `pulumi:"executionRoleArn"`
 	// The platform configuration for jobs that are running on Fargate resources. Jobs that are running on Amazon EC2 resources must not specify this parameter.
-	FargatePlatformConfiguration JobDefinitionFargatePlatformConfigurationPtrInput `pulumi:"fargatePlatformConfiguration"`
+	FargatePlatformConfiguration JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesPtrInput `pulumi:"fargatePlatformConfiguration"`
 	// Required. The image used to start a container. This string is passed directly to the Docker daemon. Images in the Docker Hub registry are available by default. Other repositories are specified with `*repository-url* / *image* : *tag*` . It can be 255 characters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), underscores (_), colons (:), periods (.), forward slashes (/), and number signs (#). This parameter maps to `Image` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `IMAGE` parameter of [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) .
 	//
 	// > Docker image architecture must match the processor architecture of the compute resources that they're scheduled on. For example, ARM-based Docker images can only run on ARM-based compute resources.
@@ -1945,10 +1785,6 @@ type JobDefinitionContainerPropertiesArgs struct {
 	// - Images in other repositories on Docker Hub are qualified with an organization name (for example, `amazon/amazon-ecs-agent` ).
 	// - Images in other online repositories are qualified further by a domain name (for example, `quay.io/assemblyline/ubuntu` ).
 	Image pulumi.StringInput `pulumi:"image"`
-	// The instance type to use for a multi-node parallel job. All node groups in a multi-node parallel job must use the same instance type.
-	//
-	// > This parameter isn't applicable to single-node container jobs or jobs that run on Fargate resources, and shouldn't be provided.
-	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
 	// The Amazon Resource Name (ARN) of the IAM role that the container can assume for AWS permissions. For more information, see [IAM roles for tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html) in the *Amazon Elastic Container Service Developer Guide* .
 	JobRoleArn pulumi.StringPtrInput `pulumi:"jobRoleArn"`
 	// Linux-specific modifications that are applied to the container, such as details for device mappings.
@@ -1966,7 +1802,7 @@ type JobDefinitionContainerPropertiesArgs struct {
 	// This parameter is deprecated, use `resourceRequirements` to specify the memory requirements for the job definition. It's not supported for jobs running on Fargate resources. For jobs that run on Amazon EC2 resources, it specifies the memory hard limit (in MiB) for a container. If your container attempts to exceed the specified number, it's terminated. You must specify at least 4 MiB of memory for a job using this parameter. The memory hard limit can be specified in several places. It must be specified for each node at least once.
 	Memory pulumi.IntPtrInput `pulumi:"memory"`
 	// The mount points for data volumes in your container. This parameter maps to `Volumes` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `--volume` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) .
-	MountPoints JobDefinitionMountPointsArrayInput `pulumi:"mountPoints"`
+	MountPoints JobDefinitionMountPointArrayInput `pulumi:"mountPoints"`
 	// The network configuration for jobs that are running on Fargate resources. Jobs that are running on Amazon EC2 resources must not specify this parameter.
 	NetworkConfiguration JobDefinitionNetworkConfigurationPtrInput `pulumi:"networkConfiguration"`
 	// When this parameter is true, the container is given elevated permissions on the host container instance (similar to the `root` user). This parameter maps to `Privileged` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `--privileged` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) . The default value is false.
@@ -1994,7 +1830,7 @@ type JobDefinitionContainerPropertiesArgs struct {
 	// Each vCPU is equivalent to 1,024 CPU shares. This parameter maps to `CpuShares` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `--cpu-shares` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) . The number of vCPUs must be specified but can be specified in several places. You must specify it at least once for each node.
 	Vcpus pulumi.IntPtrInput `pulumi:"vcpus"`
 	// A list of data volumes used in a job.
-	Volumes JobDefinitionVolumesArrayInput `pulumi:"volumes"`
+	Volumes JobDefinitionVolumeArrayInput `pulumi:"volumes"`
 }
 
 func (JobDefinitionContainerPropertiesArgs) ElementType() reflect.Type {
@@ -2097,10 +1933,10 @@ func (o JobDefinitionContainerPropertiesOutput) ExecutionRoleArn() pulumi.String
 }
 
 // The platform configuration for jobs that are running on Fargate resources. Jobs that are running on Amazon EC2 resources must not specify this parameter.
-func (o JobDefinitionContainerPropertiesOutput) FargatePlatformConfiguration() JobDefinitionFargatePlatformConfigurationPtrOutput {
-	return o.ApplyT(func(v JobDefinitionContainerProperties) *JobDefinitionFargatePlatformConfiguration {
+func (o JobDefinitionContainerPropertiesOutput) FargatePlatformConfiguration() JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesPtrOutput {
+	return o.ApplyT(func(v JobDefinitionContainerProperties) *JobDefinitionContainerPropertiesFargatePlatformConfigurationProperties {
 		return v.FargatePlatformConfiguration
-	}).(JobDefinitionFargatePlatformConfigurationPtrOutput)
+	}).(JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesPtrOutput)
 }
 
 // Required. The image used to start a container. This string is passed directly to the Docker daemon. Images in the Docker Hub registry are available by default. Other repositories are specified with `*repository-url* / *image* : *tag*` . It can be 255 characters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), underscores (_), colons (:), periods (.), forward slashes (/), and number signs (#). This parameter maps to `Image` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `IMAGE` parameter of [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) .
@@ -2114,13 +1950,6 @@ func (o JobDefinitionContainerPropertiesOutput) FargatePlatformConfiguration() J
 // - Images in other online repositories are qualified further by a domain name (for example, `quay.io/assemblyline/ubuntu` ).
 func (o JobDefinitionContainerPropertiesOutput) Image() pulumi.StringOutput {
 	return o.ApplyT(func(v JobDefinitionContainerProperties) string { return v.Image }).(pulumi.StringOutput)
-}
-
-// The instance type to use for a multi-node parallel job. All node groups in a multi-node parallel job must use the same instance type.
-//
-// > This parameter isn't applicable to single-node container jobs or jobs that run on Fargate resources, and shouldn't be provided.
-func (o JobDefinitionContainerPropertiesOutput) InstanceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v JobDefinitionContainerProperties) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the IAM role that the container can assume for AWS permissions. For more information, see [IAM roles for tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html) in the *Amazon Elastic Container Service Developer Guide* .
@@ -2152,8 +1981,8 @@ func (o JobDefinitionContainerPropertiesOutput) Memory() pulumi.IntPtrOutput {
 }
 
 // The mount points for data volumes in your container. This parameter maps to `Volumes` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `--volume` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) .
-func (o JobDefinitionContainerPropertiesOutput) MountPoints() JobDefinitionMountPointsArrayOutput {
-	return o.ApplyT(func(v JobDefinitionContainerProperties) []JobDefinitionMountPoints { return v.MountPoints }).(JobDefinitionMountPointsArrayOutput)
+func (o JobDefinitionContainerPropertiesOutput) MountPoints() JobDefinitionMountPointArrayOutput {
+	return o.ApplyT(func(v JobDefinitionContainerProperties) []JobDefinitionMountPoint { return v.MountPoints }).(JobDefinitionMountPointArrayOutput)
 }
 
 // The network configuration for jobs that are running on Fargate resources. Jobs that are running on Amazon EC2 resources must not specify this parameter.
@@ -2219,8 +2048,8 @@ func (o JobDefinitionContainerPropertiesOutput) Vcpus() pulumi.IntPtrOutput {
 }
 
 // A list of data volumes used in a job.
-func (o JobDefinitionContainerPropertiesOutput) Volumes() JobDefinitionVolumesArrayOutput {
-	return o.ApplyT(func(v JobDefinitionContainerProperties) []JobDefinitionVolumes { return v.Volumes }).(JobDefinitionVolumesArrayOutput)
+func (o JobDefinitionContainerPropertiesOutput) Volumes() JobDefinitionVolumeArrayOutput {
+	return o.ApplyT(func(v JobDefinitionContainerProperties) []JobDefinitionVolume { return v.Volumes }).(JobDefinitionVolumeArrayOutput)
 }
 
 type JobDefinitionContainerPropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -2290,13 +2119,13 @@ func (o JobDefinitionContainerPropertiesPtrOutput) ExecutionRoleArn() pulumi.Str
 }
 
 // The platform configuration for jobs that are running on Fargate resources. Jobs that are running on Amazon EC2 resources must not specify this parameter.
-func (o JobDefinitionContainerPropertiesPtrOutput) FargatePlatformConfiguration() JobDefinitionFargatePlatformConfigurationPtrOutput {
-	return o.ApplyT(func(v *JobDefinitionContainerProperties) *JobDefinitionFargatePlatformConfiguration {
+func (o JobDefinitionContainerPropertiesPtrOutput) FargatePlatformConfiguration() JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesPtrOutput {
+	return o.ApplyT(func(v *JobDefinitionContainerProperties) *JobDefinitionContainerPropertiesFargatePlatformConfigurationProperties {
 		if v == nil {
 			return nil
 		}
 		return v.FargatePlatformConfiguration
-	}).(JobDefinitionFargatePlatformConfigurationPtrOutput)
+	}).(JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesPtrOutput)
 }
 
 // Required. The image used to start a container. This string is passed directly to the Docker daemon. Images in the Docker Hub registry are available by default. Other repositories are specified with `*repository-url* / *image* : *tag*` . It can be 255 characters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), underscores (_), colons (:), periods (.), forward slashes (/), and number signs (#). This parameter maps to `Image` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `IMAGE` parameter of [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) .
@@ -2314,18 +2143,6 @@ func (o JobDefinitionContainerPropertiesPtrOutput) Image() pulumi.StringPtrOutpu
 			return nil
 		}
 		return &v.Image
-	}).(pulumi.StringPtrOutput)
-}
-
-// The instance type to use for a multi-node parallel job. All node groups in a multi-node parallel job must use the same instance type.
-//
-// > This parameter isn't applicable to single-node container jobs or jobs that run on Fargate resources, and shouldn't be provided.
-func (o JobDefinitionContainerPropertiesPtrOutput) InstanceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *JobDefinitionContainerProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.InstanceType
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -2378,13 +2195,13 @@ func (o JobDefinitionContainerPropertiesPtrOutput) Memory() pulumi.IntPtrOutput 
 }
 
 // The mount points for data volumes in your container. This parameter maps to `Volumes` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `--volume` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) .
-func (o JobDefinitionContainerPropertiesPtrOutput) MountPoints() JobDefinitionMountPointsArrayOutput {
-	return o.ApplyT(func(v *JobDefinitionContainerProperties) []JobDefinitionMountPoints {
+func (o JobDefinitionContainerPropertiesPtrOutput) MountPoints() JobDefinitionMountPointArrayOutput {
+	return o.ApplyT(func(v *JobDefinitionContainerProperties) []JobDefinitionMountPoint {
 		if v == nil {
 			return nil
 		}
 		return v.MountPoints
-	}).(JobDefinitionMountPointsArrayOutput)
+	}).(JobDefinitionMountPointArrayOutput)
 }
 
 // The network configuration for jobs that are running on Fargate resources. Jobs that are running on Amazon EC2 resources must not specify this parameter.
@@ -2494,13 +2311,151 @@ func (o JobDefinitionContainerPropertiesPtrOutput) Vcpus() pulumi.IntPtrOutput {
 }
 
 // A list of data volumes used in a job.
-func (o JobDefinitionContainerPropertiesPtrOutput) Volumes() JobDefinitionVolumesArrayOutput {
-	return o.ApplyT(func(v *JobDefinitionContainerProperties) []JobDefinitionVolumes {
+func (o JobDefinitionContainerPropertiesPtrOutput) Volumes() JobDefinitionVolumeArrayOutput {
+	return o.ApplyT(func(v *JobDefinitionContainerProperties) []JobDefinitionVolume {
 		if v == nil {
 			return nil
 		}
 		return v.Volumes
-	}).(JobDefinitionVolumesArrayOutput)
+	}).(JobDefinitionVolumeArrayOutput)
+}
+
+// The platform configuration for jobs that are running on Fargate resources. Jobs that are running on Amazon EC2 resources must not specify this parameter.
+type JobDefinitionContainerPropertiesFargatePlatformConfigurationProperties struct {
+	PlatformVersion *string `pulumi:"platformVersion"`
+}
+
+// JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesInput is an input type that accepts JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesArgs and JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesOutput values.
+// You can construct a concrete instance of `JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesInput` via:
+//
+//	JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesArgs{...}
+type JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesInput interface {
+	pulumi.Input
+
+	ToJobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesOutput() JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesOutput
+	ToJobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesOutputWithContext(context.Context) JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesOutput
+}
+
+// The platform configuration for jobs that are running on Fargate resources. Jobs that are running on Amazon EC2 resources must not specify this parameter.
+type JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesArgs struct {
+	PlatformVersion pulumi.StringPtrInput `pulumi:"platformVersion"`
+}
+
+func (JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionContainerPropertiesFargatePlatformConfigurationProperties)(nil)).Elem()
+}
+
+func (i JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesArgs) ToJobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesOutput() JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesOutput {
+	return i.ToJobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesOutputWithContext(context.Background())
+}
+
+func (i JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesArgs) ToJobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesOutputWithContext(ctx context.Context) JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesOutput)
+}
+
+func (i JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesArgs) ToJobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesPtrOutput() JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesPtrOutput {
+	return i.ToJobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesArgs) ToJobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesPtrOutputWithContext(ctx context.Context) JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesOutput).ToJobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesPtrOutputWithContext(ctx)
+}
+
+// JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesPtrInput is an input type that accepts JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesArgs, JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesPtr and JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesPtrOutput values.
+// You can construct a concrete instance of `JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesPtrInput` via:
+//
+//	        JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToJobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesPtrOutput() JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesPtrOutput
+	ToJobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesPtrOutputWithContext(context.Context) JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesPtrOutput
+}
+
+type jobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesPtrType JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesArgs
+
+func JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesPtr(v *JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesArgs) JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesPtrInput {
+	return (*jobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesPtrType)(v)
+}
+
+func (*jobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobDefinitionContainerPropertiesFargatePlatformConfigurationProperties)(nil)).Elem()
+}
+
+func (i *jobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesPtrType) ToJobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesPtrOutput() JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesPtrOutput {
+	return i.ToJobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *jobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesPtrType) ToJobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesPtrOutputWithContext(ctx context.Context) JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesPtrOutput)
+}
+
+// The platform configuration for jobs that are running on Fargate resources. Jobs that are running on Amazon EC2 resources must not specify this parameter.
+type JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesOutput struct{ *pulumi.OutputState }
+
+func (JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionContainerPropertiesFargatePlatformConfigurationProperties)(nil)).Elem()
+}
+
+func (o JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesOutput) ToJobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesOutput() JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesOutput {
+	return o
+}
+
+func (o JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesOutput) ToJobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesOutputWithContext(ctx context.Context) JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesOutput {
+	return o
+}
+
+func (o JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesOutput) ToJobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesPtrOutput() JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesPtrOutput {
+	return o.ToJobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesOutput) ToJobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesPtrOutputWithContext(ctx context.Context) JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobDefinitionContainerPropertiesFargatePlatformConfigurationProperties) *JobDefinitionContainerPropertiesFargatePlatformConfigurationProperties {
+		return &v
+	}).(JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesPtrOutput)
+}
+
+func (o JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesOutput) PlatformVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobDefinitionContainerPropertiesFargatePlatformConfigurationProperties) *string {
+		return v.PlatformVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+type JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobDefinitionContainerPropertiesFargatePlatformConfigurationProperties)(nil)).Elem()
+}
+
+func (o JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesPtrOutput) ToJobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesPtrOutput() JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesPtrOutput) ToJobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesPtrOutputWithContext(ctx context.Context) JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesPtrOutput {
+	return o
+}
+
+func (o JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesPtrOutput) Elem() JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesOutput {
+	return o.ApplyT(func(v *JobDefinitionContainerPropertiesFargatePlatformConfigurationProperties) JobDefinitionContainerPropertiesFargatePlatformConfigurationProperties {
+		if v != nil {
+			return *v
+		}
+		var ret JobDefinitionContainerPropertiesFargatePlatformConfigurationProperties
+		return ret
+	}).(JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesOutput)
+}
+
+func (o JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesPtrOutput) PlatformVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobDefinitionContainerPropertiesFargatePlatformConfigurationProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PlatformVersion
+	}).(pulumi.StringPtrOutput)
 }
 
 type JobDefinitionDevice struct {
@@ -2799,7 +2754,7 @@ type JobDefinitionEcsTaskProperties struct {
 	// > This is object is comparable to [ContainerProperties:jobRoleArn](https://docs.aws.amazon.com/batch/latest/APIReference/API_ContainerProperties.html) .
 	TaskRoleArn *string `pulumi:"taskRoleArn"`
 	// A list of volumes that are associated with the job.
-	Volumes []JobDefinitionVolumes `pulumi:"volumes"`
+	Volumes []JobDefinitionVolume `pulumi:"volumes"`
 }
 
 // JobDefinitionEcsTaskPropertiesInput is an input type that accepts JobDefinitionEcsTaskPropertiesArgs and JobDefinitionEcsTaskPropertiesOutput values.
@@ -2849,7 +2804,7 @@ type JobDefinitionEcsTaskPropertiesArgs struct {
 	// > This is object is comparable to [ContainerProperties:jobRoleArn](https://docs.aws.amazon.com/batch/latest/APIReference/API_ContainerProperties.html) .
 	TaskRoleArn pulumi.StringPtrInput `pulumi:"taskRoleArn"`
 	// A list of volumes that are associated with the job.
-	Volumes JobDefinitionVolumesArrayInput `pulumi:"volumes"`
+	Volumes JobDefinitionVolumeArrayInput `pulumi:"volumes"`
 }
 
 func (JobDefinitionEcsTaskPropertiesArgs) ElementType() reflect.Type {
@@ -2967,8 +2922,8 @@ func (o JobDefinitionEcsTaskPropertiesOutput) TaskRoleArn() pulumi.StringPtrOutp
 }
 
 // A list of volumes that are associated with the job.
-func (o JobDefinitionEcsTaskPropertiesOutput) Volumes() JobDefinitionVolumesArrayOutput {
-	return o.ApplyT(func(v JobDefinitionEcsTaskProperties) []JobDefinitionVolumes { return v.Volumes }).(JobDefinitionVolumesArrayOutput)
+func (o JobDefinitionEcsTaskPropertiesOutput) Volumes() JobDefinitionVolumeArrayOutput {
+	return o.ApplyT(func(v JobDefinitionEcsTaskProperties) []JobDefinitionVolume { return v.Volumes }).(JobDefinitionVolumeArrayOutput)
 }
 
 type JobDefinitionEcsTaskPropertiesArrayOutput struct{ *pulumi.OutputState }
@@ -2991,9 +2946,165 @@ func (o JobDefinitionEcsTaskPropertiesArrayOutput) Index(i pulumi.IntInput) JobD
 	}).(JobDefinitionEcsTaskPropertiesOutput)
 }
 
+type JobDefinitionEfsAuthorizationConfig struct {
+	// The Amazon EFS access point ID to use. If an access point is specified, the root directory value specified in the `EFSVolumeConfiguration` must either be omitted or set to `/` which enforces the path set on the EFS access point. If an access point is used, transit encryption must be enabled in the `EFSVolumeConfiguration` . For more information, see [Working with Amazon EFS access points](https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html) in the *Amazon Elastic File System User Guide* .
+	AccessPointId *string `pulumi:"accessPointId"`
+	// Whether or not to use the AWS Batch job IAM role defined in a job definition when mounting the Amazon EFS file system. If enabled, transit encryption must be enabled in the `EFSVolumeConfiguration` . If this parameter is omitted, the default value of `DISABLED` is used. For more information, see [Using Amazon EFS access points](https://docs.aws.amazon.com/batch/latest/userguide/efs-volumes.html#efs-volume-accesspoints) in the *AWS Batch User Guide* . EFS IAM authorization requires that `TransitEncryption` be `ENABLED` and that a `JobRoleArn` is specified.
+	Iam *string `pulumi:"iam"`
+}
+
+// JobDefinitionEfsAuthorizationConfigInput is an input type that accepts JobDefinitionEfsAuthorizationConfigArgs and JobDefinitionEfsAuthorizationConfigOutput values.
+// You can construct a concrete instance of `JobDefinitionEfsAuthorizationConfigInput` via:
+//
+//	JobDefinitionEfsAuthorizationConfigArgs{...}
+type JobDefinitionEfsAuthorizationConfigInput interface {
+	pulumi.Input
+
+	ToJobDefinitionEfsAuthorizationConfigOutput() JobDefinitionEfsAuthorizationConfigOutput
+	ToJobDefinitionEfsAuthorizationConfigOutputWithContext(context.Context) JobDefinitionEfsAuthorizationConfigOutput
+}
+
+type JobDefinitionEfsAuthorizationConfigArgs struct {
+	// The Amazon EFS access point ID to use. If an access point is specified, the root directory value specified in the `EFSVolumeConfiguration` must either be omitted or set to `/` which enforces the path set on the EFS access point. If an access point is used, transit encryption must be enabled in the `EFSVolumeConfiguration` . For more information, see [Working with Amazon EFS access points](https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html) in the *Amazon Elastic File System User Guide* .
+	AccessPointId pulumi.StringPtrInput `pulumi:"accessPointId"`
+	// Whether or not to use the AWS Batch job IAM role defined in a job definition when mounting the Amazon EFS file system. If enabled, transit encryption must be enabled in the `EFSVolumeConfiguration` . If this parameter is omitted, the default value of `DISABLED` is used. For more information, see [Using Amazon EFS access points](https://docs.aws.amazon.com/batch/latest/userguide/efs-volumes.html#efs-volume-accesspoints) in the *AWS Batch User Guide* . EFS IAM authorization requires that `TransitEncryption` be `ENABLED` and that a `JobRoleArn` is specified.
+	Iam pulumi.StringPtrInput `pulumi:"iam"`
+}
+
+func (JobDefinitionEfsAuthorizationConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionEfsAuthorizationConfig)(nil)).Elem()
+}
+
+func (i JobDefinitionEfsAuthorizationConfigArgs) ToJobDefinitionEfsAuthorizationConfigOutput() JobDefinitionEfsAuthorizationConfigOutput {
+	return i.ToJobDefinitionEfsAuthorizationConfigOutputWithContext(context.Background())
+}
+
+func (i JobDefinitionEfsAuthorizationConfigArgs) ToJobDefinitionEfsAuthorizationConfigOutputWithContext(ctx context.Context) JobDefinitionEfsAuthorizationConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEfsAuthorizationConfigOutput)
+}
+
+func (i JobDefinitionEfsAuthorizationConfigArgs) ToJobDefinitionEfsAuthorizationConfigPtrOutput() JobDefinitionEfsAuthorizationConfigPtrOutput {
+	return i.ToJobDefinitionEfsAuthorizationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i JobDefinitionEfsAuthorizationConfigArgs) ToJobDefinitionEfsAuthorizationConfigPtrOutputWithContext(ctx context.Context) JobDefinitionEfsAuthorizationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEfsAuthorizationConfigOutput).ToJobDefinitionEfsAuthorizationConfigPtrOutputWithContext(ctx)
+}
+
+// JobDefinitionEfsAuthorizationConfigPtrInput is an input type that accepts JobDefinitionEfsAuthorizationConfigArgs, JobDefinitionEfsAuthorizationConfigPtr and JobDefinitionEfsAuthorizationConfigPtrOutput values.
+// You can construct a concrete instance of `JobDefinitionEfsAuthorizationConfigPtrInput` via:
+//
+//	        JobDefinitionEfsAuthorizationConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type JobDefinitionEfsAuthorizationConfigPtrInput interface {
+	pulumi.Input
+
+	ToJobDefinitionEfsAuthorizationConfigPtrOutput() JobDefinitionEfsAuthorizationConfigPtrOutput
+	ToJobDefinitionEfsAuthorizationConfigPtrOutputWithContext(context.Context) JobDefinitionEfsAuthorizationConfigPtrOutput
+}
+
+type jobDefinitionEfsAuthorizationConfigPtrType JobDefinitionEfsAuthorizationConfigArgs
+
+func JobDefinitionEfsAuthorizationConfigPtr(v *JobDefinitionEfsAuthorizationConfigArgs) JobDefinitionEfsAuthorizationConfigPtrInput {
+	return (*jobDefinitionEfsAuthorizationConfigPtrType)(v)
+}
+
+func (*jobDefinitionEfsAuthorizationConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobDefinitionEfsAuthorizationConfig)(nil)).Elem()
+}
+
+func (i *jobDefinitionEfsAuthorizationConfigPtrType) ToJobDefinitionEfsAuthorizationConfigPtrOutput() JobDefinitionEfsAuthorizationConfigPtrOutput {
+	return i.ToJobDefinitionEfsAuthorizationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *jobDefinitionEfsAuthorizationConfigPtrType) ToJobDefinitionEfsAuthorizationConfigPtrOutputWithContext(ctx context.Context) JobDefinitionEfsAuthorizationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEfsAuthorizationConfigPtrOutput)
+}
+
+type JobDefinitionEfsAuthorizationConfigOutput struct{ *pulumi.OutputState }
+
+func (JobDefinitionEfsAuthorizationConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionEfsAuthorizationConfig)(nil)).Elem()
+}
+
+func (o JobDefinitionEfsAuthorizationConfigOutput) ToJobDefinitionEfsAuthorizationConfigOutput() JobDefinitionEfsAuthorizationConfigOutput {
+	return o
+}
+
+func (o JobDefinitionEfsAuthorizationConfigOutput) ToJobDefinitionEfsAuthorizationConfigOutputWithContext(ctx context.Context) JobDefinitionEfsAuthorizationConfigOutput {
+	return o
+}
+
+func (o JobDefinitionEfsAuthorizationConfigOutput) ToJobDefinitionEfsAuthorizationConfigPtrOutput() JobDefinitionEfsAuthorizationConfigPtrOutput {
+	return o.ToJobDefinitionEfsAuthorizationConfigPtrOutputWithContext(context.Background())
+}
+
+func (o JobDefinitionEfsAuthorizationConfigOutput) ToJobDefinitionEfsAuthorizationConfigPtrOutputWithContext(ctx context.Context) JobDefinitionEfsAuthorizationConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobDefinitionEfsAuthorizationConfig) *JobDefinitionEfsAuthorizationConfig {
+		return &v
+	}).(JobDefinitionEfsAuthorizationConfigPtrOutput)
+}
+
+// The Amazon EFS access point ID to use. If an access point is specified, the root directory value specified in the `EFSVolumeConfiguration` must either be omitted or set to `/` which enforces the path set on the EFS access point. If an access point is used, transit encryption must be enabled in the `EFSVolumeConfiguration` . For more information, see [Working with Amazon EFS access points](https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html) in the *Amazon Elastic File System User Guide* .
+func (o JobDefinitionEfsAuthorizationConfigOutput) AccessPointId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobDefinitionEfsAuthorizationConfig) *string { return v.AccessPointId }).(pulumi.StringPtrOutput)
+}
+
+// Whether or not to use the AWS Batch job IAM role defined in a job definition when mounting the Amazon EFS file system. If enabled, transit encryption must be enabled in the `EFSVolumeConfiguration` . If this parameter is omitted, the default value of `DISABLED` is used. For more information, see [Using Amazon EFS access points](https://docs.aws.amazon.com/batch/latest/userguide/efs-volumes.html#efs-volume-accesspoints) in the *AWS Batch User Guide* . EFS IAM authorization requires that `TransitEncryption` be `ENABLED` and that a `JobRoleArn` is specified.
+func (o JobDefinitionEfsAuthorizationConfigOutput) Iam() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobDefinitionEfsAuthorizationConfig) *string { return v.Iam }).(pulumi.StringPtrOutput)
+}
+
+type JobDefinitionEfsAuthorizationConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (JobDefinitionEfsAuthorizationConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobDefinitionEfsAuthorizationConfig)(nil)).Elem()
+}
+
+func (o JobDefinitionEfsAuthorizationConfigPtrOutput) ToJobDefinitionEfsAuthorizationConfigPtrOutput() JobDefinitionEfsAuthorizationConfigPtrOutput {
+	return o
+}
+
+func (o JobDefinitionEfsAuthorizationConfigPtrOutput) ToJobDefinitionEfsAuthorizationConfigPtrOutputWithContext(ctx context.Context) JobDefinitionEfsAuthorizationConfigPtrOutput {
+	return o
+}
+
+func (o JobDefinitionEfsAuthorizationConfigPtrOutput) Elem() JobDefinitionEfsAuthorizationConfigOutput {
+	return o.ApplyT(func(v *JobDefinitionEfsAuthorizationConfig) JobDefinitionEfsAuthorizationConfig {
+		if v != nil {
+			return *v
+		}
+		var ret JobDefinitionEfsAuthorizationConfig
+		return ret
+	}).(JobDefinitionEfsAuthorizationConfigOutput)
+}
+
+// The Amazon EFS access point ID to use. If an access point is specified, the root directory value specified in the `EFSVolumeConfiguration` must either be omitted or set to `/` which enforces the path set on the EFS access point. If an access point is used, transit encryption must be enabled in the `EFSVolumeConfiguration` . For more information, see [Working with Amazon EFS access points](https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html) in the *Amazon Elastic File System User Guide* .
+func (o JobDefinitionEfsAuthorizationConfigPtrOutput) AccessPointId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobDefinitionEfsAuthorizationConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AccessPointId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether or not to use the AWS Batch job IAM role defined in a job definition when mounting the Amazon EFS file system. If enabled, transit encryption must be enabled in the `EFSVolumeConfiguration` . If this parameter is omitted, the default value of `DISABLED` is used. For more information, see [Using Amazon EFS access points](https://docs.aws.amazon.com/batch/latest/userguide/efs-volumes.html#efs-volume-accesspoints) in the *AWS Batch User Guide* . EFS IAM authorization requires that `TransitEncryption` be `ENABLED` and that a `JobRoleArn` is specified.
+func (o JobDefinitionEfsAuthorizationConfigPtrOutput) Iam() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobDefinitionEfsAuthorizationConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Iam
+	}).(pulumi.StringPtrOutput)
+}
+
 type JobDefinitionEfsVolumeConfiguration struct {
 	// The authorization configuration details for the Amazon EFS file system.
-	AuthorizationConfig *JobDefinitionAuthorizationConfig `pulumi:"authorizationConfig"`
+	AuthorizationConfig *JobDefinitionEfsAuthorizationConfig `pulumi:"authorizationConfig"`
 	// The Amazon EFS file system ID to use.
 	FileSystemId string `pulumi:"fileSystemId"`
 	// The directory within the Amazon EFS file system to mount as the root directory inside the host. If this parameter is omitted, the root of the Amazon EFS volume is used instead. Specifying `/` has the same effect as omitting this parameter. The maximum length is 4,096 characters.
@@ -3019,7 +3130,7 @@ type JobDefinitionEfsVolumeConfigurationInput interface {
 
 type JobDefinitionEfsVolumeConfigurationArgs struct {
 	// The authorization configuration details for the Amazon EFS file system.
-	AuthorizationConfig JobDefinitionAuthorizationConfigPtrInput `pulumi:"authorizationConfig"`
+	AuthorizationConfig JobDefinitionEfsAuthorizationConfigPtrInput `pulumi:"authorizationConfig"`
 	// The Amazon EFS file system ID to use.
 	FileSystemId pulumi.StringInput `pulumi:"fileSystemId"`
 	// The directory within the Amazon EFS file system to mount as the root directory inside the host. If this parameter is omitted, the root of the Amazon EFS volume is used instead. Specifying `/` has the same effect as omitting this parameter. The maximum length is 4,096 characters.
@@ -3110,10 +3221,10 @@ func (o JobDefinitionEfsVolumeConfigurationOutput) ToJobDefinitionEfsVolumeConfi
 }
 
 // The authorization configuration details for the Amazon EFS file system.
-func (o JobDefinitionEfsVolumeConfigurationOutput) AuthorizationConfig() JobDefinitionAuthorizationConfigPtrOutput {
-	return o.ApplyT(func(v JobDefinitionEfsVolumeConfiguration) *JobDefinitionAuthorizationConfig {
+func (o JobDefinitionEfsVolumeConfigurationOutput) AuthorizationConfig() JobDefinitionEfsAuthorizationConfigPtrOutput {
+	return o.ApplyT(func(v JobDefinitionEfsVolumeConfiguration) *JobDefinitionEfsAuthorizationConfig {
 		return v.AuthorizationConfig
-	}).(JobDefinitionAuthorizationConfigPtrOutput)
+	}).(JobDefinitionEfsAuthorizationConfigPtrOutput)
 }
 
 // The Amazon EFS file system ID to use.
@@ -3163,13 +3274,13 @@ func (o JobDefinitionEfsVolumeConfigurationPtrOutput) Elem() JobDefinitionEfsVol
 }
 
 // The authorization configuration details for the Amazon EFS file system.
-func (o JobDefinitionEfsVolumeConfigurationPtrOutput) AuthorizationConfig() JobDefinitionAuthorizationConfigPtrOutput {
-	return o.ApplyT(func(v *JobDefinitionEfsVolumeConfiguration) *JobDefinitionAuthorizationConfig {
+func (o JobDefinitionEfsVolumeConfigurationPtrOutput) AuthorizationConfig() JobDefinitionEfsAuthorizationConfigPtrOutput {
+	return o.ApplyT(func(v *JobDefinitionEfsVolumeConfiguration) *JobDefinitionEfsAuthorizationConfig {
 		if v == nil {
 			return nil
 		}
 		return v.AuthorizationConfig
-	}).(JobDefinitionAuthorizationConfigPtrOutput)
+	}).(JobDefinitionEfsAuthorizationConfigPtrOutput)
 }
 
 // The Amazon EFS file system ID to use.
@@ -3515,7 +3626,7 @@ type JobDefinitionEksContainerResourceRequirements struct {
 	// > To maximize your resource utilization, provide your jobs with as much memory as possible for the specific instance type that you are using. To learn how, see [Memory management](https://docs.aws.amazon.com/batch/latest/userguide/memory-management.html) in the *AWS Batch User Guide* .
 	// - **cpu** - The number of CPUs that's reserved for the container. Values must be an even multiple of `0.25` . `cpu` can be specified in `limits` , `requests` , or both. If `cpu` is specified in both places, then the value that's specified in `limits` must be at least as large as the value that's specified in `requests` .
 	// - **nvidia.com/gpu** - The number of GPUs that's reserved for the container. Values must be a whole integer. `memory` can be specified in `limits` , `requests` , or both. If `memory` is specified in both places, then the value that's specified in `limits` must be equal to the value that's specified in `requests` .
-	Limits interface{} `pulumi:"limits"`
+	Limits map[string]string `pulumi:"limits"`
 	// The type and quantity of the resources to request for the container. The values vary based on the `name` that's specified. Resources can be requested by using either the `limits` or the `requests` objects.
 	//
 	// - **memory** - The memory hard limit (in MiB) for the container, using whole integers, with a "Mi" suffix. If your container attempts to exceed the memory specified, the container is terminated. You must specify at least 4 MiB of memory for a job. `memory` can be specified in `limits` , `requests` , or both. If `memory` is specified in both, then the value that's specified in `limits` must be equal to the value that's specified in `requests` .
@@ -3523,7 +3634,7 @@ type JobDefinitionEksContainerResourceRequirements struct {
 	// > If you're trying to maximize your resource utilization by providing your jobs as much memory as possible for a particular instance type, see [Memory management](https://docs.aws.amazon.com/batch/latest/userguide/memory-management.html) in the *AWS Batch User Guide* .
 	// - **cpu** - The number of CPUs that are reserved for the container. Values must be an even multiple of `0.25` . `cpu` can be specified in `limits` , `requests` , or both. If `cpu` is specified in both, then the value that's specified in `limits` must be at least as large as the value that's specified in `requests` .
 	// - **nvidia.com/gpu** - The number of GPUs that are reserved for the container. Values must be a whole integer. `nvidia.com/gpu` can be specified in `limits` , `requests` , or both. If `nvidia.com/gpu` is specified in both, then the value that's specified in `limits` must be equal to the value that's specified in `requests` .
-	Requests interface{} `pulumi:"requests"`
+	Requests map[string]string `pulumi:"requests"`
 }
 
 // JobDefinitionEksContainerResourceRequirementsInput is an input type that accepts JobDefinitionEksContainerResourceRequirementsArgs and JobDefinitionEksContainerResourceRequirementsOutput values.
@@ -3545,7 +3656,7 @@ type JobDefinitionEksContainerResourceRequirementsArgs struct {
 	// > To maximize your resource utilization, provide your jobs with as much memory as possible for the specific instance type that you are using. To learn how, see [Memory management](https://docs.aws.amazon.com/batch/latest/userguide/memory-management.html) in the *AWS Batch User Guide* .
 	// - **cpu** - The number of CPUs that's reserved for the container. Values must be an even multiple of `0.25` . `cpu` can be specified in `limits` , `requests` , or both. If `cpu` is specified in both places, then the value that's specified in `limits` must be at least as large as the value that's specified in `requests` .
 	// - **nvidia.com/gpu** - The number of GPUs that's reserved for the container. Values must be a whole integer. `memory` can be specified in `limits` , `requests` , or both. If `memory` is specified in both places, then the value that's specified in `limits` must be equal to the value that's specified in `requests` .
-	Limits pulumi.Input `pulumi:"limits"`
+	Limits pulumi.StringMapInput `pulumi:"limits"`
 	// The type and quantity of the resources to request for the container. The values vary based on the `name` that's specified. Resources can be requested by using either the `limits` or the `requests` objects.
 	//
 	// - **memory** - The memory hard limit (in MiB) for the container, using whole integers, with a "Mi" suffix. If your container attempts to exceed the memory specified, the container is terminated. You must specify at least 4 MiB of memory for a job. `memory` can be specified in `limits` , `requests` , or both. If `memory` is specified in both, then the value that's specified in `limits` must be equal to the value that's specified in `requests` .
@@ -3553,7 +3664,7 @@ type JobDefinitionEksContainerResourceRequirementsArgs struct {
 	// > If you're trying to maximize your resource utilization by providing your jobs as much memory as possible for a particular instance type, see [Memory management](https://docs.aws.amazon.com/batch/latest/userguide/memory-management.html) in the *AWS Batch User Guide* .
 	// - **cpu** - The number of CPUs that are reserved for the container. Values must be an even multiple of `0.25` . `cpu` can be specified in `limits` , `requests` , or both. If `cpu` is specified in both, then the value that's specified in `limits` must be at least as large as the value that's specified in `requests` .
 	// - **nvidia.com/gpu** - The number of GPUs that are reserved for the container. Values must be a whole integer. `nvidia.com/gpu` can be specified in `limits` , `requests` , or both. If `nvidia.com/gpu` is specified in both, then the value that's specified in `limits` must be equal to the value that's specified in `requests` .
-	Requests pulumi.Input `pulumi:"requests"`
+	Requests pulumi.StringMapInput `pulumi:"requests"`
 }
 
 func (JobDefinitionEksContainerResourceRequirementsArgs) ElementType() reflect.Type {
@@ -3640,8 +3751,8 @@ func (o JobDefinitionEksContainerResourceRequirementsOutput) ToJobDefinitionEksC
 // > To maximize your resource utilization, provide your jobs with as much memory as possible for the specific instance type that you are using. To learn how, see [Memory management](https://docs.aws.amazon.com/batch/latest/userguide/memory-management.html) in the *AWS Batch User Guide* .
 // - **cpu** - The number of CPUs that's reserved for the container. Values must be an even multiple of `0.25` . `cpu` can be specified in `limits` , `requests` , or both. If `cpu` is specified in both places, then the value that's specified in `limits` must be at least as large as the value that's specified in `requests` .
 // - **nvidia.com/gpu** - The number of GPUs that's reserved for the container. Values must be a whole integer. `memory` can be specified in `limits` , `requests` , or both. If `memory` is specified in both places, then the value that's specified in `limits` must be equal to the value that's specified in `requests` .
-func (o JobDefinitionEksContainerResourceRequirementsOutput) Limits() pulumi.AnyOutput {
-	return o.ApplyT(func(v JobDefinitionEksContainerResourceRequirements) interface{} { return v.Limits }).(pulumi.AnyOutput)
+func (o JobDefinitionEksContainerResourceRequirementsOutput) Limits() pulumi.StringMapOutput {
+	return o.ApplyT(func(v JobDefinitionEksContainerResourceRequirements) map[string]string { return v.Limits }).(pulumi.StringMapOutput)
 }
 
 // The type and quantity of the resources to request for the container. The values vary based on the `name` that's specified. Resources can be requested by using either the `limits` or the `requests` objects.
@@ -3651,8 +3762,8 @@ func (o JobDefinitionEksContainerResourceRequirementsOutput) Limits() pulumi.Any
 // > If you're trying to maximize your resource utilization by providing your jobs as much memory as possible for a particular instance type, see [Memory management](https://docs.aws.amazon.com/batch/latest/userguide/memory-management.html) in the *AWS Batch User Guide* .
 // - **cpu** - The number of CPUs that are reserved for the container. Values must be an even multiple of `0.25` . `cpu` can be specified in `limits` , `requests` , or both. If `cpu` is specified in both, then the value that's specified in `limits` must be at least as large as the value that's specified in `requests` .
 // - **nvidia.com/gpu** - The number of GPUs that are reserved for the container. Values must be a whole integer. `nvidia.com/gpu` can be specified in `limits` , `requests` , or both. If `nvidia.com/gpu` is specified in both, then the value that's specified in `limits` must be equal to the value that's specified in `requests` .
-func (o JobDefinitionEksContainerResourceRequirementsOutput) Requests() pulumi.AnyOutput {
-	return o.ApplyT(func(v JobDefinitionEksContainerResourceRequirements) interface{} { return v.Requests }).(pulumi.AnyOutput)
+func (o JobDefinitionEksContainerResourceRequirementsOutput) Requests() pulumi.StringMapOutput {
+	return o.ApplyT(func(v JobDefinitionEksContainerResourceRequirements) map[string]string { return v.Requests }).(pulumi.StringMapOutput)
 }
 
 type JobDefinitionEksContainerResourceRequirementsPtrOutput struct{ *pulumi.OutputState }
@@ -3686,13 +3797,13 @@ func (o JobDefinitionEksContainerResourceRequirementsPtrOutput) Elem() JobDefini
 // > To maximize your resource utilization, provide your jobs with as much memory as possible for the specific instance type that you are using. To learn how, see [Memory management](https://docs.aws.amazon.com/batch/latest/userguide/memory-management.html) in the *AWS Batch User Guide* .
 // - **cpu** - The number of CPUs that's reserved for the container. Values must be an even multiple of `0.25` . `cpu` can be specified in `limits` , `requests` , or both. If `cpu` is specified in both places, then the value that's specified in `limits` must be at least as large as the value that's specified in `requests` .
 // - **nvidia.com/gpu** - The number of GPUs that's reserved for the container. Values must be a whole integer. `memory` can be specified in `limits` , `requests` , or both. If `memory` is specified in both places, then the value that's specified in `limits` must be equal to the value that's specified in `requests` .
-func (o JobDefinitionEksContainerResourceRequirementsPtrOutput) Limits() pulumi.AnyOutput {
-	return o.ApplyT(func(v *JobDefinitionEksContainerResourceRequirements) interface{} {
+func (o JobDefinitionEksContainerResourceRequirementsPtrOutput) Limits() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *JobDefinitionEksContainerResourceRequirements) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.Limits
-	}).(pulumi.AnyOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 // The type and quantity of the resources to request for the container. The values vary based on the `name` that's specified. Resources can be requested by using either the `limits` or the `requests` objects.
@@ -3702,13 +3813,13 @@ func (o JobDefinitionEksContainerResourceRequirementsPtrOutput) Limits() pulumi.
 // > If you're trying to maximize your resource utilization by providing your jobs as much memory as possible for a particular instance type, see [Memory management](https://docs.aws.amazon.com/batch/latest/userguide/memory-management.html) in the *AWS Batch User Guide* .
 // - **cpu** - The number of CPUs that are reserved for the container. Values must be an even multiple of `0.25` . `cpu` can be specified in `limits` , `requests` , or both. If `cpu` is specified in both, then the value that's specified in `limits` must be at least as large as the value that's specified in `requests` .
 // - **nvidia.com/gpu** - The number of GPUs that are reserved for the container. Values must be a whole integer. `nvidia.com/gpu` can be specified in `limits` , `requests` , or both. If `nvidia.com/gpu` is specified in both, then the value that's specified in `limits` must be equal to the value that's specified in `requests` .
-func (o JobDefinitionEksContainerResourceRequirementsPtrOutput) Requests() pulumi.AnyOutput {
-	return o.ApplyT(func(v *JobDefinitionEksContainerResourceRequirements) interface{} {
+func (o JobDefinitionEksContainerResourceRequirementsPtrOutput) Requests() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *JobDefinitionEksContainerResourceRequirements) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.Requests
-	}).(pulumi.AnyOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 type JobDefinitionEksContainerSecurityContext struct {
@@ -4363,9 +4474,467 @@ func (o JobDefinitionEksHostPathPtrOutput) Path() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type JobDefinitionEksMetadata struct {
+	// Key-value pairs used to identify, sort, and organize cube resources. Can contain up to 63 uppercase letters, lowercase letters, numbers, hyphens (-), and underscores (_). Labels can be added or modified at any time. Each resource can have multiple labels, but each key must be unique for a given object.
+	Labels map[string]string `pulumi:"labels"`
+}
+
+// JobDefinitionEksMetadataInput is an input type that accepts JobDefinitionEksMetadataArgs and JobDefinitionEksMetadataOutput values.
+// You can construct a concrete instance of `JobDefinitionEksMetadataInput` via:
+//
+//	JobDefinitionEksMetadataArgs{...}
+type JobDefinitionEksMetadataInput interface {
+	pulumi.Input
+
+	ToJobDefinitionEksMetadataOutput() JobDefinitionEksMetadataOutput
+	ToJobDefinitionEksMetadataOutputWithContext(context.Context) JobDefinitionEksMetadataOutput
+}
+
+type JobDefinitionEksMetadataArgs struct {
+	// Key-value pairs used to identify, sort, and organize cube resources. Can contain up to 63 uppercase letters, lowercase letters, numbers, hyphens (-), and underscores (_). Labels can be added or modified at any time. Each resource can have multiple labels, but each key must be unique for a given object.
+	Labels pulumi.StringMapInput `pulumi:"labels"`
+}
+
+func (JobDefinitionEksMetadataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionEksMetadata)(nil)).Elem()
+}
+
+func (i JobDefinitionEksMetadataArgs) ToJobDefinitionEksMetadataOutput() JobDefinitionEksMetadataOutput {
+	return i.ToJobDefinitionEksMetadataOutputWithContext(context.Background())
+}
+
+func (i JobDefinitionEksMetadataArgs) ToJobDefinitionEksMetadataOutputWithContext(ctx context.Context) JobDefinitionEksMetadataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEksMetadataOutput)
+}
+
+func (i JobDefinitionEksMetadataArgs) ToJobDefinitionEksMetadataPtrOutput() JobDefinitionEksMetadataPtrOutput {
+	return i.ToJobDefinitionEksMetadataPtrOutputWithContext(context.Background())
+}
+
+func (i JobDefinitionEksMetadataArgs) ToJobDefinitionEksMetadataPtrOutputWithContext(ctx context.Context) JobDefinitionEksMetadataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEksMetadataOutput).ToJobDefinitionEksMetadataPtrOutputWithContext(ctx)
+}
+
+// JobDefinitionEksMetadataPtrInput is an input type that accepts JobDefinitionEksMetadataArgs, JobDefinitionEksMetadataPtr and JobDefinitionEksMetadataPtrOutput values.
+// You can construct a concrete instance of `JobDefinitionEksMetadataPtrInput` via:
+//
+//	        JobDefinitionEksMetadataArgs{...}
+//
+//	or:
+//
+//	        nil
+type JobDefinitionEksMetadataPtrInput interface {
+	pulumi.Input
+
+	ToJobDefinitionEksMetadataPtrOutput() JobDefinitionEksMetadataPtrOutput
+	ToJobDefinitionEksMetadataPtrOutputWithContext(context.Context) JobDefinitionEksMetadataPtrOutput
+}
+
+type jobDefinitionEksMetadataPtrType JobDefinitionEksMetadataArgs
+
+func JobDefinitionEksMetadataPtr(v *JobDefinitionEksMetadataArgs) JobDefinitionEksMetadataPtrInput {
+	return (*jobDefinitionEksMetadataPtrType)(v)
+}
+
+func (*jobDefinitionEksMetadataPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobDefinitionEksMetadata)(nil)).Elem()
+}
+
+func (i *jobDefinitionEksMetadataPtrType) ToJobDefinitionEksMetadataPtrOutput() JobDefinitionEksMetadataPtrOutput {
+	return i.ToJobDefinitionEksMetadataPtrOutputWithContext(context.Background())
+}
+
+func (i *jobDefinitionEksMetadataPtrType) ToJobDefinitionEksMetadataPtrOutputWithContext(ctx context.Context) JobDefinitionEksMetadataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEksMetadataPtrOutput)
+}
+
+type JobDefinitionEksMetadataOutput struct{ *pulumi.OutputState }
+
+func (JobDefinitionEksMetadataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionEksMetadata)(nil)).Elem()
+}
+
+func (o JobDefinitionEksMetadataOutput) ToJobDefinitionEksMetadataOutput() JobDefinitionEksMetadataOutput {
+	return o
+}
+
+func (o JobDefinitionEksMetadataOutput) ToJobDefinitionEksMetadataOutputWithContext(ctx context.Context) JobDefinitionEksMetadataOutput {
+	return o
+}
+
+func (o JobDefinitionEksMetadataOutput) ToJobDefinitionEksMetadataPtrOutput() JobDefinitionEksMetadataPtrOutput {
+	return o.ToJobDefinitionEksMetadataPtrOutputWithContext(context.Background())
+}
+
+func (o JobDefinitionEksMetadataOutput) ToJobDefinitionEksMetadataPtrOutputWithContext(ctx context.Context) JobDefinitionEksMetadataPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobDefinitionEksMetadata) *JobDefinitionEksMetadata {
+		return &v
+	}).(JobDefinitionEksMetadataPtrOutput)
+}
+
+// Key-value pairs used to identify, sort, and organize cube resources. Can contain up to 63 uppercase letters, lowercase letters, numbers, hyphens (-), and underscores (_). Labels can be added or modified at any time. Each resource can have multiple labels, but each key must be unique for a given object.
+func (o JobDefinitionEksMetadataOutput) Labels() pulumi.StringMapOutput {
+	return o.ApplyT(func(v JobDefinitionEksMetadata) map[string]string { return v.Labels }).(pulumi.StringMapOutput)
+}
+
+type JobDefinitionEksMetadataPtrOutput struct{ *pulumi.OutputState }
+
+func (JobDefinitionEksMetadataPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobDefinitionEksMetadata)(nil)).Elem()
+}
+
+func (o JobDefinitionEksMetadataPtrOutput) ToJobDefinitionEksMetadataPtrOutput() JobDefinitionEksMetadataPtrOutput {
+	return o
+}
+
+func (o JobDefinitionEksMetadataPtrOutput) ToJobDefinitionEksMetadataPtrOutputWithContext(ctx context.Context) JobDefinitionEksMetadataPtrOutput {
+	return o
+}
+
+func (o JobDefinitionEksMetadataPtrOutput) Elem() JobDefinitionEksMetadataOutput {
+	return o.ApplyT(func(v *JobDefinitionEksMetadata) JobDefinitionEksMetadata {
+		if v != nil {
+			return *v
+		}
+		var ret JobDefinitionEksMetadata
+		return ret
+	}).(JobDefinitionEksMetadataOutput)
+}
+
+// Key-value pairs used to identify, sort, and organize cube resources. Can contain up to 63 uppercase letters, lowercase letters, numbers, hyphens (-), and underscores (_). Labels can be added or modified at any time. Each resource can have multiple labels, but each key must be unique for a given object.
+func (o JobDefinitionEksMetadataPtrOutput) Labels() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *JobDefinitionEksMetadata) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Labels
+	}).(pulumi.StringMapOutput)
+}
+
+type JobDefinitionEksPodProperties struct {
+	// The properties of the container that's used on the Amazon EKS pod.
+	//
+	// > This object is limited to 10 elements.
+	Containers []JobDefinitionEksContainer `pulumi:"containers"`
+	// The DNS policy for the pod. The default value is `ClusterFirst` . If the `hostNetwork` parameter is not specified, the default is `ClusterFirstWithHostNet` . `ClusterFirst` indicates that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver inherited from the node. For more information, see [Pod's DNS policy](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy) in the *Kubernetes documentation* .
+	//
+	// Valid values: `Default` | `ClusterFirst` | `ClusterFirstWithHostNet`
+	DnsPolicy *string `pulumi:"dnsPolicy"`
+	// Indicates if the pod uses the hosts' network IP address. The default value is `true` . Setting this to `false` enables the Kubernetes pod networking model. Most AWS Batch workloads are egress-only and don't require the overhead of IP allocation for each pod for incoming connections. For more information, see [Host namespaces](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/security/pod-security-policy/#host-namespaces) and [Pod networking](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/workloads/pods/#pod-networking) in the *Kubernetes documentation* .
+	HostNetwork *bool `pulumi:"hostNetwork"`
+	// References a Kubernetes secret resource. It holds a list of secrets. These secrets help to gain access to pull an images from a private registry.
+	//
+	// `ImagePullSecret$name` is required when this object is used.
+	ImagePullSecrets []JobDefinitionImagePullSecret `pulumi:"imagePullSecrets"`
+	// These containers run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. For more information, see [Init Containers](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/workloads/pods/init-containers/) in the *Kubernetes documentation* .
+	//
+	// > This object is limited to 10 elements.
+	InitContainers []JobDefinitionEksContainer `pulumi:"initContainers"`
+	// Metadata about the Kubernetes pod. For more information, see [Understanding Kubernetes Objects](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/overview/working-with-objects/kubernetes-objects/) in the *Kubernetes documentation* .
+	Metadata *JobDefinitionEksMetadata `pulumi:"metadata"`
+	// The name of the service account that's used to run the pod. For more information, see [Kubernetes service accounts](https://docs.aws.amazon.com/eks/latest/userguide/service-accounts.html) and [Configure a Kubernetes service account to assume an IAM role](https://docs.aws.amazon.com/eks/latest/userguide/associate-service-account-role.html) in the *Amazon EKS User Guide* and [Configure service accounts for pods](https://docs.aws.amazon.com/https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/) in the *Kubernetes documentation* .
+	ServiceAccountName *string `pulumi:"serviceAccountName"`
+	// Indicates if the processes in a container are shared, or visible, to other containers in the same pod. For more information, see [Share Process Namespace between Containers in a Pod](https://docs.aws.amazon.com/https://kubernetes.io/docs/tasks/configure-pod-container/share-process-namespace/) .
+	ShareProcessNamespace *bool `pulumi:"shareProcessNamespace"`
+	// Specifies the volumes for a job definition that uses Amazon EKS resources.
+	Volumes []JobDefinitionEksVolume `pulumi:"volumes"`
+}
+
+// JobDefinitionEksPodPropertiesInput is an input type that accepts JobDefinitionEksPodPropertiesArgs and JobDefinitionEksPodPropertiesOutput values.
+// You can construct a concrete instance of `JobDefinitionEksPodPropertiesInput` via:
+//
+//	JobDefinitionEksPodPropertiesArgs{...}
+type JobDefinitionEksPodPropertiesInput interface {
+	pulumi.Input
+
+	ToJobDefinitionEksPodPropertiesOutput() JobDefinitionEksPodPropertiesOutput
+	ToJobDefinitionEksPodPropertiesOutputWithContext(context.Context) JobDefinitionEksPodPropertiesOutput
+}
+
+type JobDefinitionEksPodPropertiesArgs struct {
+	// The properties of the container that's used on the Amazon EKS pod.
+	//
+	// > This object is limited to 10 elements.
+	Containers JobDefinitionEksContainerArrayInput `pulumi:"containers"`
+	// The DNS policy for the pod. The default value is `ClusterFirst` . If the `hostNetwork` parameter is not specified, the default is `ClusterFirstWithHostNet` . `ClusterFirst` indicates that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver inherited from the node. For more information, see [Pod's DNS policy](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy) in the *Kubernetes documentation* .
+	//
+	// Valid values: `Default` | `ClusterFirst` | `ClusterFirstWithHostNet`
+	DnsPolicy pulumi.StringPtrInput `pulumi:"dnsPolicy"`
+	// Indicates if the pod uses the hosts' network IP address. The default value is `true` . Setting this to `false` enables the Kubernetes pod networking model. Most AWS Batch workloads are egress-only and don't require the overhead of IP allocation for each pod for incoming connections. For more information, see [Host namespaces](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/security/pod-security-policy/#host-namespaces) and [Pod networking](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/workloads/pods/#pod-networking) in the *Kubernetes documentation* .
+	HostNetwork pulumi.BoolPtrInput `pulumi:"hostNetwork"`
+	// References a Kubernetes secret resource. It holds a list of secrets. These secrets help to gain access to pull an images from a private registry.
+	//
+	// `ImagePullSecret$name` is required when this object is used.
+	ImagePullSecrets JobDefinitionImagePullSecretArrayInput `pulumi:"imagePullSecrets"`
+	// These containers run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. For more information, see [Init Containers](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/workloads/pods/init-containers/) in the *Kubernetes documentation* .
+	//
+	// > This object is limited to 10 elements.
+	InitContainers JobDefinitionEksContainerArrayInput `pulumi:"initContainers"`
+	// Metadata about the Kubernetes pod. For more information, see [Understanding Kubernetes Objects](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/overview/working-with-objects/kubernetes-objects/) in the *Kubernetes documentation* .
+	Metadata JobDefinitionEksMetadataPtrInput `pulumi:"metadata"`
+	// The name of the service account that's used to run the pod. For more information, see [Kubernetes service accounts](https://docs.aws.amazon.com/eks/latest/userguide/service-accounts.html) and [Configure a Kubernetes service account to assume an IAM role](https://docs.aws.amazon.com/eks/latest/userguide/associate-service-account-role.html) in the *Amazon EKS User Guide* and [Configure service accounts for pods](https://docs.aws.amazon.com/https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/) in the *Kubernetes documentation* .
+	ServiceAccountName pulumi.StringPtrInput `pulumi:"serviceAccountName"`
+	// Indicates if the processes in a container are shared, or visible, to other containers in the same pod. For more information, see [Share Process Namespace between Containers in a Pod](https://docs.aws.amazon.com/https://kubernetes.io/docs/tasks/configure-pod-container/share-process-namespace/) .
+	ShareProcessNamespace pulumi.BoolPtrInput `pulumi:"shareProcessNamespace"`
+	// Specifies the volumes for a job definition that uses Amazon EKS resources.
+	Volumes JobDefinitionEksVolumeArrayInput `pulumi:"volumes"`
+}
+
+func (JobDefinitionEksPodPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionEksPodProperties)(nil)).Elem()
+}
+
+func (i JobDefinitionEksPodPropertiesArgs) ToJobDefinitionEksPodPropertiesOutput() JobDefinitionEksPodPropertiesOutput {
+	return i.ToJobDefinitionEksPodPropertiesOutputWithContext(context.Background())
+}
+
+func (i JobDefinitionEksPodPropertiesArgs) ToJobDefinitionEksPodPropertiesOutputWithContext(ctx context.Context) JobDefinitionEksPodPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEksPodPropertiesOutput)
+}
+
+func (i JobDefinitionEksPodPropertiesArgs) ToJobDefinitionEksPodPropertiesPtrOutput() JobDefinitionEksPodPropertiesPtrOutput {
+	return i.ToJobDefinitionEksPodPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i JobDefinitionEksPodPropertiesArgs) ToJobDefinitionEksPodPropertiesPtrOutputWithContext(ctx context.Context) JobDefinitionEksPodPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEksPodPropertiesOutput).ToJobDefinitionEksPodPropertiesPtrOutputWithContext(ctx)
+}
+
+// JobDefinitionEksPodPropertiesPtrInput is an input type that accepts JobDefinitionEksPodPropertiesArgs, JobDefinitionEksPodPropertiesPtr and JobDefinitionEksPodPropertiesPtrOutput values.
+// You can construct a concrete instance of `JobDefinitionEksPodPropertiesPtrInput` via:
+//
+//	        JobDefinitionEksPodPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type JobDefinitionEksPodPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToJobDefinitionEksPodPropertiesPtrOutput() JobDefinitionEksPodPropertiesPtrOutput
+	ToJobDefinitionEksPodPropertiesPtrOutputWithContext(context.Context) JobDefinitionEksPodPropertiesPtrOutput
+}
+
+type jobDefinitionEksPodPropertiesPtrType JobDefinitionEksPodPropertiesArgs
+
+func JobDefinitionEksPodPropertiesPtr(v *JobDefinitionEksPodPropertiesArgs) JobDefinitionEksPodPropertiesPtrInput {
+	return (*jobDefinitionEksPodPropertiesPtrType)(v)
+}
+
+func (*jobDefinitionEksPodPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobDefinitionEksPodProperties)(nil)).Elem()
+}
+
+func (i *jobDefinitionEksPodPropertiesPtrType) ToJobDefinitionEksPodPropertiesPtrOutput() JobDefinitionEksPodPropertiesPtrOutput {
+	return i.ToJobDefinitionEksPodPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *jobDefinitionEksPodPropertiesPtrType) ToJobDefinitionEksPodPropertiesPtrOutputWithContext(ctx context.Context) JobDefinitionEksPodPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionEksPodPropertiesPtrOutput)
+}
+
+type JobDefinitionEksPodPropertiesOutput struct{ *pulumi.OutputState }
+
+func (JobDefinitionEksPodPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionEksPodProperties)(nil)).Elem()
+}
+
+func (o JobDefinitionEksPodPropertiesOutput) ToJobDefinitionEksPodPropertiesOutput() JobDefinitionEksPodPropertiesOutput {
+	return o
+}
+
+func (o JobDefinitionEksPodPropertiesOutput) ToJobDefinitionEksPodPropertiesOutputWithContext(ctx context.Context) JobDefinitionEksPodPropertiesOutput {
+	return o
+}
+
+func (o JobDefinitionEksPodPropertiesOutput) ToJobDefinitionEksPodPropertiesPtrOutput() JobDefinitionEksPodPropertiesPtrOutput {
+	return o.ToJobDefinitionEksPodPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o JobDefinitionEksPodPropertiesOutput) ToJobDefinitionEksPodPropertiesPtrOutputWithContext(ctx context.Context) JobDefinitionEksPodPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobDefinitionEksPodProperties) *JobDefinitionEksPodProperties {
+		return &v
+	}).(JobDefinitionEksPodPropertiesPtrOutput)
+}
+
+// The properties of the container that's used on the Amazon EKS pod.
+//
+// > This object is limited to 10 elements.
+func (o JobDefinitionEksPodPropertiesOutput) Containers() JobDefinitionEksContainerArrayOutput {
+	return o.ApplyT(func(v JobDefinitionEksPodProperties) []JobDefinitionEksContainer { return v.Containers }).(JobDefinitionEksContainerArrayOutput)
+}
+
+// The DNS policy for the pod. The default value is `ClusterFirst` . If the `hostNetwork` parameter is not specified, the default is `ClusterFirstWithHostNet` . `ClusterFirst` indicates that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver inherited from the node. For more information, see [Pod's DNS policy](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy) in the *Kubernetes documentation* .
+//
+// Valid values: `Default` | `ClusterFirst` | `ClusterFirstWithHostNet`
+func (o JobDefinitionEksPodPropertiesOutput) DnsPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobDefinitionEksPodProperties) *string { return v.DnsPolicy }).(pulumi.StringPtrOutput)
+}
+
+// Indicates if the pod uses the hosts' network IP address. The default value is `true` . Setting this to `false` enables the Kubernetes pod networking model. Most AWS Batch workloads are egress-only and don't require the overhead of IP allocation for each pod for incoming connections. For more information, see [Host namespaces](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/security/pod-security-policy/#host-namespaces) and [Pod networking](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/workloads/pods/#pod-networking) in the *Kubernetes documentation* .
+func (o JobDefinitionEksPodPropertiesOutput) HostNetwork() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v JobDefinitionEksPodProperties) *bool { return v.HostNetwork }).(pulumi.BoolPtrOutput)
+}
+
+// References a Kubernetes secret resource. It holds a list of secrets. These secrets help to gain access to pull an images from a private registry.
+//
+// `ImagePullSecret$name` is required when this object is used.
+func (o JobDefinitionEksPodPropertiesOutput) ImagePullSecrets() JobDefinitionImagePullSecretArrayOutput {
+	return o.ApplyT(func(v JobDefinitionEksPodProperties) []JobDefinitionImagePullSecret { return v.ImagePullSecrets }).(JobDefinitionImagePullSecretArrayOutput)
+}
+
+// These containers run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. For more information, see [Init Containers](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/workloads/pods/init-containers/) in the *Kubernetes documentation* .
+//
+// > This object is limited to 10 elements.
+func (o JobDefinitionEksPodPropertiesOutput) InitContainers() JobDefinitionEksContainerArrayOutput {
+	return o.ApplyT(func(v JobDefinitionEksPodProperties) []JobDefinitionEksContainer { return v.InitContainers }).(JobDefinitionEksContainerArrayOutput)
+}
+
+// Metadata about the Kubernetes pod. For more information, see [Understanding Kubernetes Objects](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/overview/working-with-objects/kubernetes-objects/) in the *Kubernetes documentation* .
+func (o JobDefinitionEksPodPropertiesOutput) Metadata() JobDefinitionEksMetadataPtrOutput {
+	return o.ApplyT(func(v JobDefinitionEksPodProperties) *JobDefinitionEksMetadata { return v.Metadata }).(JobDefinitionEksMetadataPtrOutput)
+}
+
+// The name of the service account that's used to run the pod. For more information, see [Kubernetes service accounts](https://docs.aws.amazon.com/eks/latest/userguide/service-accounts.html) and [Configure a Kubernetes service account to assume an IAM role](https://docs.aws.amazon.com/eks/latest/userguide/associate-service-account-role.html) in the *Amazon EKS User Guide* and [Configure service accounts for pods](https://docs.aws.amazon.com/https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/) in the *Kubernetes documentation* .
+func (o JobDefinitionEksPodPropertiesOutput) ServiceAccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobDefinitionEksPodProperties) *string { return v.ServiceAccountName }).(pulumi.StringPtrOutput)
+}
+
+// Indicates if the processes in a container are shared, or visible, to other containers in the same pod. For more information, see [Share Process Namespace between Containers in a Pod](https://docs.aws.amazon.com/https://kubernetes.io/docs/tasks/configure-pod-container/share-process-namespace/) .
+func (o JobDefinitionEksPodPropertiesOutput) ShareProcessNamespace() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v JobDefinitionEksPodProperties) *bool { return v.ShareProcessNamespace }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the volumes for a job definition that uses Amazon EKS resources.
+func (o JobDefinitionEksPodPropertiesOutput) Volumes() JobDefinitionEksVolumeArrayOutput {
+	return o.ApplyT(func(v JobDefinitionEksPodProperties) []JobDefinitionEksVolume { return v.Volumes }).(JobDefinitionEksVolumeArrayOutput)
+}
+
+type JobDefinitionEksPodPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (JobDefinitionEksPodPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobDefinitionEksPodProperties)(nil)).Elem()
+}
+
+func (o JobDefinitionEksPodPropertiesPtrOutput) ToJobDefinitionEksPodPropertiesPtrOutput() JobDefinitionEksPodPropertiesPtrOutput {
+	return o
+}
+
+func (o JobDefinitionEksPodPropertiesPtrOutput) ToJobDefinitionEksPodPropertiesPtrOutputWithContext(ctx context.Context) JobDefinitionEksPodPropertiesPtrOutput {
+	return o
+}
+
+func (o JobDefinitionEksPodPropertiesPtrOutput) Elem() JobDefinitionEksPodPropertiesOutput {
+	return o.ApplyT(func(v *JobDefinitionEksPodProperties) JobDefinitionEksPodProperties {
+		if v != nil {
+			return *v
+		}
+		var ret JobDefinitionEksPodProperties
+		return ret
+	}).(JobDefinitionEksPodPropertiesOutput)
+}
+
+// The properties of the container that's used on the Amazon EKS pod.
+//
+// > This object is limited to 10 elements.
+func (o JobDefinitionEksPodPropertiesPtrOutput) Containers() JobDefinitionEksContainerArrayOutput {
+	return o.ApplyT(func(v *JobDefinitionEksPodProperties) []JobDefinitionEksContainer {
+		if v == nil {
+			return nil
+		}
+		return v.Containers
+	}).(JobDefinitionEksContainerArrayOutput)
+}
+
+// The DNS policy for the pod. The default value is `ClusterFirst` . If the `hostNetwork` parameter is not specified, the default is `ClusterFirstWithHostNet` . `ClusterFirst` indicates that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver inherited from the node. For more information, see [Pod's DNS policy](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy) in the *Kubernetes documentation* .
+//
+// Valid values: `Default` | `ClusterFirst` | `ClusterFirstWithHostNet`
+func (o JobDefinitionEksPodPropertiesPtrOutput) DnsPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobDefinitionEksPodProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DnsPolicy
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates if the pod uses the hosts' network IP address. The default value is `true` . Setting this to `false` enables the Kubernetes pod networking model. Most AWS Batch workloads are egress-only and don't require the overhead of IP allocation for each pod for incoming connections. For more information, see [Host namespaces](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/security/pod-security-policy/#host-namespaces) and [Pod networking](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/workloads/pods/#pod-networking) in the *Kubernetes documentation* .
+func (o JobDefinitionEksPodPropertiesPtrOutput) HostNetwork() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *JobDefinitionEksPodProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.HostNetwork
+	}).(pulumi.BoolPtrOutput)
+}
+
+// References a Kubernetes secret resource. It holds a list of secrets. These secrets help to gain access to pull an images from a private registry.
+//
+// `ImagePullSecret$name` is required when this object is used.
+func (o JobDefinitionEksPodPropertiesPtrOutput) ImagePullSecrets() JobDefinitionImagePullSecretArrayOutput {
+	return o.ApplyT(func(v *JobDefinitionEksPodProperties) []JobDefinitionImagePullSecret {
+		if v == nil {
+			return nil
+		}
+		return v.ImagePullSecrets
+	}).(JobDefinitionImagePullSecretArrayOutput)
+}
+
+// These containers run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. For more information, see [Init Containers](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/workloads/pods/init-containers/) in the *Kubernetes documentation* .
+//
+// > This object is limited to 10 elements.
+func (o JobDefinitionEksPodPropertiesPtrOutput) InitContainers() JobDefinitionEksContainerArrayOutput {
+	return o.ApplyT(func(v *JobDefinitionEksPodProperties) []JobDefinitionEksContainer {
+		if v == nil {
+			return nil
+		}
+		return v.InitContainers
+	}).(JobDefinitionEksContainerArrayOutput)
+}
+
+// Metadata about the Kubernetes pod. For more information, see [Understanding Kubernetes Objects](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/overview/working-with-objects/kubernetes-objects/) in the *Kubernetes documentation* .
+func (o JobDefinitionEksPodPropertiesPtrOutput) Metadata() JobDefinitionEksMetadataPtrOutput {
+	return o.ApplyT(func(v *JobDefinitionEksPodProperties) *JobDefinitionEksMetadata {
+		if v == nil {
+			return nil
+		}
+		return v.Metadata
+	}).(JobDefinitionEksMetadataPtrOutput)
+}
+
+// The name of the service account that's used to run the pod. For more information, see [Kubernetes service accounts](https://docs.aws.amazon.com/eks/latest/userguide/service-accounts.html) and [Configure a Kubernetes service account to assume an IAM role](https://docs.aws.amazon.com/eks/latest/userguide/associate-service-account-role.html) in the *Amazon EKS User Guide* and [Configure service accounts for pods](https://docs.aws.amazon.com/https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/) in the *Kubernetes documentation* .
+func (o JobDefinitionEksPodPropertiesPtrOutput) ServiceAccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobDefinitionEksPodProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ServiceAccountName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates if the processes in a container are shared, or visible, to other containers in the same pod. For more information, see [Share Process Namespace between Containers in a Pod](https://docs.aws.amazon.com/https://kubernetes.io/docs/tasks/configure-pod-container/share-process-namespace/) .
+func (o JobDefinitionEksPodPropertiesPtrOutput) ShareProcessNamespace() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *JobDefinitionEksPodProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ShareProcessNamespace
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the volumes for a job definition that uses Amazon EKS resources.
+func (o JobDefinitionEksPodPropertiesPtrOutput) Volumes() JobDefinitionEksVolumeArrayOutput {
+	return o.ApplyT(func(v *JobDefinitionEksPodProperties) []JobDefinitionEksVolume {
+		if v == nil {
+			return nil
+		}
+		return v.Volumes
+	}).(JobDefinitionEksVolumeArrayOutput)
+}
+
 type JobDefinitionEksProperties struct {
 	// The properties for the Kubernetes pod resources of a job.
-	PodProperties *JobDefinitionPodProperties `pulumi:"podProperties"`
+	PodProperties *JobDefinitionEksPodProperties `pulumi:"podProperties"`
 }
 
 // JobDefinitionEksPropertiesInput is an input type that accepts JobDefinitionEksPropertiesArgs and JobDefinitionEksPropertiesOutput values.
@@ -4381,7 +4950,7 @@ type JobDefinitionEksPropertiesInput interface {
 
 type JobDefinitionEksPropertiesArgs struct {
 	// The properties for the Kubernetes pod resources of a job.
-	PodProperties JobDefinitionPodPropertiesPtrInput `pulumi:"podProperties"`
+	PodProperties JobDefinitionEksPodPropertiesPtrInput `pulumi:"podProperties"`
 }
 
 func (JobDefinitionEksPropertiesArgs) ElementType() reflect.Type {
@@ -4462,8 +5031,8 @@ func (o JobDefinitionEksPropertiesOutput) ToJobDefinitionEksPropertiesPtrOutputW
 }
 
 // The properties for the Kubernetes pod resources of a job.
-func (o JobDefinitionEksPropertiesOutput) PodProperties() JobDefinitionPodPropertiesPtrOutput {
-	return o.ApplyT(func(v JobDefinitionEksProperties) *JobDefinitionPodProperties { return v.PodProperties }).(JobDefinitionPodPropertiesPtrOutput)
+func (o JobDefinitionEksPropertiesOutput) PodProperties() JobDefinitionEksPodPropertiesPtrOutput {
+	return o.ApplyT(func(v JobDefinitionEksProperties) *JobDefinitionEksPodProperties { return v.PodProperties }).(JobDefinitionEksPodPropertiesPtrOutput)
 }
 
 type JobDefinitionEksPropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -4491,13 +5060,13 @@ func (o JobDefinitionEksPropertiesPtrOutput) Elem() JobDefinitionEksPropertiesOu
 }
 
 // The properties for the Kubernetes pod resources of a job.
-func (o JobDefinitionEksPropertiesPtrOutput) PodProperties() JobDefinitionPodPropertiesPtrOutput {
-	return o.ApplyT(func(v *JobDefinitionEksProperties) *JobDefinitionPodProperties {
+func (o JobDefinitionEksPropertiesPtrOutput) PodProperties() JobDefinitionEksPodPropertiesPtrOutput {
+	return o.ApplyT(func(v *JobDefinitionEksProperties) *JobDefinitionEksPodProperties {
 		if v == nil {
 			return nil
 		}
 		return v.PodProperties
-	}).(JobDefinitionPodPropertiesPtrOutput)
+	}).(JobDefinitionEksPodPropertiesPtrOutput)
 }
 
 type JobDefinitionEksSecret struct {
@@ -5153,146 +5722,154 @@ func (o JobDefinitionEvaluateOnExitArrayOutput) Index(i pulumi.IntInput) JobDefi
 	}).(JobDefinitionEvaluateOnExitOutput)
 }
 
-type JobDefinitionFargatePlatformConfiguration struct {
-	// The AWS Fargate platform version where the jobs are running. A platform version is specified only for jobs that are running on Fargate resources. If one isn't specified, the `LATEST` platform version is used by default. This uses a recent, approved version of the AWS Fargate platform for compute resources. For more information, see [AWS Fargate platform versions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html) in the *Amazon Elastic Container Service Developer Guide* .
-	PlatformVersion *string `pulumi:"platformVersion"`
+type JobDefinitionHost struct {
+	// The path on the host container instance that's presented to the container. If this parameter is empty, then the Docker daemon has assigned a host path for you. If this parameter contains a file location, then the data volume persists at the specified location on the host container instance until you delete it manually. If the source path location doesn't exist on the host container instance, the Docker daemon creates it. If the location does exist, the contents of the source path folder are exported.
+	//
+	// > This parameter isn't applicable to jobs that run on Fargate resources. Don't provide this for these jobs.
+	SourcePath *string `pulumi:"sourcePath"`
 }
 
-// JobDefinitionFargatePlatformConfigurationInput is an input type that accepts JobDefinitionFargatePlatformConfigurationArgs and JobDefinitionFargatePlatformConfigurationOutput values.
-// You can construct a concrete instance of `JobDefinitionFargatePlatformConfigurationInput` via:
+// JobDefinitionHostInput is an input type that accepts JobDefinitionHostArgs and JobDefinitionHostOutput values.
+// You can construct a concrete instance of `JobDefinitionHostInput` via:
 //
-//	JobDefinitionFargatePlatformConfigurationArgs{...}
-type JobDefinitionFargatePlatformConfigurationInput interface {
+//	JobDefinitionHostArgs{...}
+type JobDefinitionHostInput interface {
 	pulumi.Input
 
-	ToJobDefinitionFargatePlatformConfigurationOutput() JobDefinitionFargatePlatformConfigurationOutput
-	ToJobDefinitionFargatePlatformConfigurationOutputWithContext(context.Context) JobDefinitionFargatePlatformConfigurationOutput
+	ToJobDefinitionHostOutput() JobDefinitionHostOutput
+	ToJobDefinitionHostOutputWithContext(context.Context) JobDefinitionHostOutput
 }
 
-type JobDefinitionFargatePlatformConfigurationArgs struct {
-	// The AWS Fargate platform version where the jobs are running. A platform version is specified only for jobs that are running on Fargate resources. If one isn't specified, the `LATEST` platform version is used by default. This uses a recent, approved version of the AWS Fargate platform for compute resources. For more information, see [AWS Fargate platform versions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html) in the *Amazon Elastic Container Service Developer Guide* .
-	PlatformVersion pulumi.StringPtrInput `pulumi:"platformVersion"`
+type JobDefinitionHostArgs struct {
+	// The path on the host container instance that's presented to the container. If this parameter is empty, then the Docker daemon has assigned a host path for you. If this parameter contains a file location, then the data volume persists at the specified location on the host container instance until you delete it manually. If the source path location doesn't exist on the host container instance, the Docker daemon creates it. If the location does exist, the contents of the source path folder are exported.
+	//
+	// > This parameter isn't applicable to jobs that run on Fargate resources. Don't provide this for these jobs.
+	SourcePath pulumi.StringPtrInput `pulumi:"sourcePath"`
 }
 
-func (JobDefinitionFargatePlatformConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobDefinitionFargatePlatformConfiguration)(nil)).Elem()
+func (JobDefinitionHostArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionHost)(nil)).Elem()
 }
 
-func (i JobDefinitionFargatePlatformConfigurationArgs) ToJobDefinitionFargatePlatformConfigurationOutput() JobDefinitionFargatePlatformConfigurationOutput {
-	return i.ToJobDefinitionFargatePlatformConfigurationOutputWithContext(context.Background())
+func (i JobDefinitionHostArgs) ToJobDefinitionHostOutput() JobDefinitionHostOutput {
+	return i.ToJobDefinitionHostOutputWithContext(context.Background())
 }
 
-func (i JobDefinitionFargatePlatformConfigurationArgs) ToJobDefinitionFargatePlatformConfigurationOutputWithContext(ctx context.Context) JobDefinitionFargatePlatformConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionFargatePlatformConfigurationOutput)
+func (i JobDefinitionHostArgs) ToJobDefinitionHostOutputWithContext(ctx context.Context) JobDefinitionHostOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionHostOutput)
 }
 
-func (i JobDefinitionFargatePlatformConfigurationArgs) ToJobDefinitionFargatePlatformConfigurationPtrOutput() JobDefinitionFargatePlatformConfigurationPtrOutput {
-	return i.ToJobDefinitionFargatePlatformConfigurationPtrOutputWithContext(context.Background())
+func (i JobDefinitionHostArgs) ToJobDefinitionHostPtrOutput() JobDefinitionHostPtrOutput {
+	return i.ToJobDefinitionHostPtrOutputWithContext(context.Background())
 }
 
-func (i JobDefinitionFargatePlatformConfigurationArgs) ToJobDefinitionFargatePlatformConfigurationPtrOutputWithContext(ctx context.Context) JobDefinitionFargatePlatformConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionFargatePlatformConfigurationOutput).ToJobDefinitionFargatePlatformConfigurationPtrOutputWithContext(ctx)
+func (i JobDefinitionHostArgs) ToJobDefinitionHostPtrOutputWithContext(ctx context.Context) JobDefinitionHostPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionHostOutput).ToJobDefinitionHostPtrOutputWithContext(ctx)
 }
 
-// JobDefinitionFargatePlatformConfigurationPtrInput is an input type that accepts JobDefinitionFargatePlatformConfigurationArgs, JobDefinitionFargatePlatformConfigurationPtr and JobDefinitionFargatePlatformConfigurationPtrOutput values.
-// You can construct a concrete instance of `JobDefinitionFargatePlatformConfigurationPtrInput` via:
+// JobDefinitionHostPtrInput is an input type that accepts JobDefinitionHostArgs, JobDefinitionHostPtr and JobDefinitionHostPtrOutput values.
+// You can construct a concrete instance of `JobDefinitionHostPtrInput` via:
 //
-//	        JobDefinitionFargatePlatformConfigurationArgs{...}
+//	        JobDefinitionHostArgs{...}
 //
 //	or:
 //
 //	        nil
-type JobDefinitionFargatePlatformConfigurationPtrInput interface {
+type JobDefinitionHostPtrInput interface {
 	pulumi.Input
 
-	ToJobDefinitionFargatePlatformConfigurationPtrOutput() JobDefinitionFargatePlatformConfigurationPtrOutput
-	ToJobDefinitionFargatePlatformConfigurationPtrOutputWithContext(context.Context) JobDefinitionFargatePlatformConfigurationPtrOutput
+	ToJobDefinitionHostPtrOutput() JobDefinitionHostPtrOutput
+	ToJobDefinitionHostPtrOutputWithContext(context.Context) JobDefinitionHostPtrOutput
 }
 
-type jobDefinitionFargatePlatformConfigurationPtrType JobDefinitionFargatePlatformConfigurationArgs
+type jobDefinitionHostPtrType JobDefinitionHostArgs
 
-func JobDefinitionFargatePlatformConfigurationPtr(v *JobDefinitionFargatePlatformConfigurationArgs) JobDefinitionFargatePlatformConfigurationPtrInput {
-	return (*jobDefinitionFargatePlatformConfigurationPtrType)(v)
+func JobDefinitionHostPtr(v *JobDefinitionHostArgs) JobDefinitionHostPtrInput {
+	return (*jobDefinitionHostPtrType)(v)
 }
 
-func (*jobDefinitionFargatePlatformConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**JobDefinitionFargatePlatformConfiguration)(nil)).Elem()
+func (*jobDefinitionHostPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobDefinitionHost)(nil)).Elem()
 }
 
-func (i *jobDefinitionFargatePlatformConfigurationPtrType) ToJobDefinitionFargatePlatformConfigurationPtrOutput() JobDefinitionFargatePlatformConfigurationPtrOutput {
-	return i.ToJobDefinitionFargatePlatformConfigurationPtrOutputWithContext(context.Background())
+func (i *jobDefinitionHostPtrType) ToJobDefinitionHostPtrOutput() JobDefinitionHostPtrOutput {
+	return i.ToJobDefinitionHostPtrOutputWithContext(context.Background())
 }
 
-func (i *jobDefinitionFargatePlatformConfigurationPtrType) ToJobDefinitionFargatePlatformConfigurationPtrOutputWithContext(ctx context.Context) JobDefinitionFargatePlatformConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionFargatePlatformConfigurationPtrOutput)
+func (i *jobDefinitionHostPtrType) ToJobDefinitionHostPtrOutputWithContext(ctx context.Context) JobDefinitionHostPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionHostPtrOutput)
 }
 
-type JobDefinitionFargatePlatformConfigurationOutput struct{ *pulumi.OutputState }
+type JobDefinitionHostOutput struct{ *pulumi.OutputState }
 
-func (JobDefinitionFargatePlatformConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobDefinitionFargatePlatformConfiguration)(nil)).Elem()
+func (JobDefinitionHostOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionHost)(nil)).Elem()
 }
 
-func (o JobDefinitionFargatePlatformConfigurationOutput) ToJobDefinitionFargatePlatformConfigurationOutput() JobDefinitionFargatePlatformConfigurationOutput {
+func (o JobDefinitionHostOutput) ToJobDefinitionHostOutput() JobDefinitionHostOutput {
 	return o
 }
 
-func (o JobDefinitionFargatePlatformConfigurationOutput) ToJobDefinitionFargatePlatformConfigurationOutputWithContext(ctx context.Context) JobDefinitionFargatePlatformConfigurationOutput {
+func (o JobDefinitionHostOutput) ToJobDefinitionHostOutputWithContext(ctx context.Context) JobDefinitionHostOutput {
 	return o
 }
 
-func (o JobDefinitionFargatePlatformConfigurationOutput) ToJobDefinitionFargatePlatformConfigurationPtrOutput() JobDefinitionFargatePlatformConfigurationPtrOutput {
-	return o.ToJobDefinitionFargatePlatformConfigurationPtrOutputWithContext(context.Background())
+func (o JobDefinitionHostOutput) ToJobDefinitionHostPtrOutput() JobDefinitionHostPtrOutput {
+	return o.ToJobDefinitionHostPtrOutputWithContext(context.Background())
 }
 
-func (o JobDefinitionFargatePlatformConfigurationOutput) ToJobDefinitionFargatePlatformConfigurationPtrOutputWithContext(ctx context.Context) JobDefinitionFargatePlatformConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobDefinitionFargatePlatformConfiguration) *JobDefinitionFargatePlatformConfiguration {
+func (o JobDefinitionHostOutput) ToJobDefinitionHostPtrOutputWithContext(ctx context.Context) JobDefinitionHostPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobDefinitionHost) *JobDefinitionHost {
 		return &v
-	}).(JobDefinitionFargatePlatformConfigurationPtrOutput)
+	}).(JobDefinitionHostPtrOutput)
 }
 
-// The AWS Fargate platform version where the jobs are running. A platform version is specified only for jobs that are running on Fargate resources. If one isn't specified, the `LATEST` platform version is used by default. This uses a recent, approved version of the AWS Fargate platform for compute resources. For more information, see [AWS Fargate platform versions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html) in the *Amazon Elastic Container Service Developer Guide* .
-func (o JobDefinitionFargatePlatformConfigurationOutput) PlatformVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v JobDefinitionFargatePlatformConfiguration) *string { return v.PlatformVersion }).(pulumi.StringPtrOutput)
+// The path on the host container instance that's presented to the container. If this parameter is empty, then the Docker daemon has assigned a host path for you. If this parameter contains a file location, then the data volume persists at the specified location on the host container instance until you delete it manually. If the source path location doesn't exist on the host container instance, the Docker daemon creates it. If the location does exist, the contents of the source path folder are exported.
+//
+// > This parameter isn't applicable to jobs that run on Fargate resources. Don't provide this for these jobs.
+func (o JobDefinitionHostOutput) SourcePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobDefinitionHost) *string { return v.SourcePath }).(pulumi.StringPtrOutput)
 }
 
-type JobDefinitionFargatePlatformConfigurationPtrOutput struct{ *pulumi.OutputState }
+type JobDefinitionHostPtrOutput struct{ *pulumi.OutputState }
 
-func (JobDefinitionFargatePlatformConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**JobDefinitionFargatePlatformConfiguration)(nil)).Elem()
+func (JobDefinitionHostPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobDefinitionHost)(nil)).Elem()
 }
 
-func (o JobDefinitionFargatePlatformConfigurationPtrOutput) ToJobDefinitionFargatePlatformConfigurationPtrOutput() JobDefinitionFargatePlatformConfigurationPtrOutput {
+func (o JobDefinitionHostPtrOutput) ToJobDefinitionHostPtrOutput() JobDefinitionHostPtrOutput {
 	return o
 }
 
-func (o JobDefinitionFargatePlatformConfigurationPtrOutput) ToJobDefinitionFargatePlatformConfigurationPtrOutputWithContext(ctx context.Context) JobDefinitionFargatePlatformConfigurationPtrOutput {
+func (o JobDefinitionHostPtrOutput) ToJobDefinitionHostPtrOutputWithContext(ctx context.Context) JobDefinitionHostPtrOutput {
 	return o
 }
 
-func (o JobDefinitionFargatePlatformConfigurationPtrOutput) Elem() JobDefinitionFargatePlatformConfigurationOutput {
-	return o.ApplyT(func(v *JobDefinitionFargatePlatformConfiguration) JobDefinitionFargatePlatformConfiguration {
+func (o JobDefinitionHostPtrOutput) Elem() JobDefinitionHostOutput {
+	return o.ApplyT(func(v *JobDefinitionHost) JobDefinitionHost {
 		if v != nil {
 			return *v
 		}
-		var ret JobDefinitionFargatePlatformConfiguration
+		var ret JobDefinitionHost
 		return ret
-	}).(JobDefinitionFargatePlatformConfigurationOutput)
+	}).(JobDefinitionHostOutput)
 }
 
-// The AWS Fargate platform version where the jobs are running. A platform version is specified only for jobs that are running on Fargate resources. If one isn't specified, the `LATEST` platform version is used by default. This uses a recent, approved version of the AWS Fargate platform for compute resources. For more information, see [AWS Fargate platform versions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html) in the *Amazon Elastic Container Service Developer Guide* .
-func (o JobDefinitionFargatePlatformConfigurationPtrOutput) PlatformVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *JobDefinitionFargatePlatformConfiguration) *string {
+// The path on the host container instance that's presented to the container. If this parameter is empty, then the Docker daemon has assigned a host path for you. If this parameter contains a file location, then the data volume persists at the specified location on the host container instance until you delete it manually. If the source path location doesn't exist on the host container instance, the Docker daemon creates it. If the location does exist, the contents of the source path folder are exported.
+//
+// > This parameter isn't applicable to jobs that run on Fargate resources. Don't provide this for these jobs.
+func (o JobDefinitionHostPtrOutput) SourcePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobDefinitionHost) *string {
 		if v == nil {
 			return nil
 		}
-		return v.PlatformVersion
+		return v.SourcePath
 	}).(pulumi.StringPtrOutput)
 }
 
 type JobDefinitionImagePullSecret struct {
 	// Provides a unique identifier for the `ImagePullSecret` . This object is required when `EksPodProperties$imagePullSecrets` is used.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 }
 
 // JobDefinitionImagePullSecretInput is an input type that accepts JobDefinitionImagePullSecretArgs and JobDefinitionImagePullSecretOutput values.
@@ -5308,7 +5885,7 @@ type JobDefinitionImagePullSecretInput interface {
 
 type JobDefinitionImagePullSecretArgs struct {
 	// Provides a unique identifier for the `ImagePullSecret` . This object is required when `EksPodProperties$imagePullSecrets` is used.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
 func (JobDefinitionImagePullSecretArgs) ElementType() reflect.Type {
@@ -5363,8 +5940,8 @@ func (o JobDefinitionImagePullSecretOutput) ToJobDefinitionImagePullSecretOutput
 }
 
 // Provides a unique identifier for the `ImagePullSecret` . This object is required when `EksPodProperties$imagePullSecrets` is used.
-func (o JobDefinitionImagePullSecretOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v JobDefinitionImagePullSecret) string { return v.Name }).(pulumi.StringOutput)
+func (o JobDefinitionImagePullSecretOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobDefinitionImagePullSecret) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 type JobDefinitionImagePullSecretArrayOutput struct{ *pulumi.OutputState }
@@ -5385,6 +5962,159 @@ func (o JobDefinitionImagePullSecretArrayOutput) Index(i pulumi.IntInput) JobDef
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobDefinitionImagePullSecret {
 		return vs[0].([]JobDefinitionImagePullSecret)[vs[1].(int)]
 	}).(JobDefinitionImagePullSecretOutput)
+}
+
+type JobDefinitionJobTimeout struct {
+	// The job timeout time (in seconds) that's measured from the job attempt's `startedAt` timestamp. After this time passes, AWS Batch terminates your jobs if they aren't finished. The minimum value for the timeout is 60 seconds.
+	//
+	// For array jobs, the timeout applies to the child jobs, not to the parent array job.
+	//
+	// For multi-node parallel (MNP) jobs, the timeout applies to the whole job, not to the individual nodes.
+	AttemptDurationSeconds *int `pulumi:"attemptDurationSeconds"`
+}
+
+// JobDefinitionJobTimeoutInput is an input type that accepts JobDefinitionJobTimeoutArgs and JobDefinitionJobTimeoutOutput values.
+// You can construct a concrete instance of `JobDefinitionJobTimeoutInput` via:
+//
+//	JobDefinitionJobTimeoutArgs{...}
+type JobDefinitionJobTimeoutInput interface {
+	pulumi.Input
+
+	ToJobDefinitionJobTimeoutOutput() JobDefinitionJobTimeoutOutput
+	ToJobDefinitionJobTimeoutOutputWithContext(context.Context) JobDefinitionJobTimeoutOutput
+}
+
+type JobDefinitionJobTimeoutArgs struct {
+	// The job timeout time (in seconds) that's measured from the job attempt's `startedAt` timestamp. After this time passes, AWS Batch terminates your jobs if they aren't finished. The minimum value for the timeout is 60 seconds.
+	//
+	// For array jobs, the timeout applies to the child jobs, not to the parent array job.
+	//
+	// For multi-node parallel (MNP) jobs, the timeout applies to the whole job, not to the individual nodes.
+	AttemptDurationSeconds pulumi.IntPtrInput `pulumi:"attemptDurationSeconds"`
+}
+
+func (JobDefinitionJobTimeoutArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionJobTimeout)(nil)).Elem()
+}
+
+func (i JobDefinitionJobTimeoutArgs) ToJobDefinitionJobTimeoutOutput() JobDefinitionJobTimeoutOutput {
+	return i.ToJobDefinitionJobTimeoutOutputWithContext(context.Background())
+}
+
+func (i JobDefinitionJobTimeoutArgs) ToJobDefinitionJobTimeoutOutputWithContext(ctx context.Context) JobDefinitionJobTimeoutOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionJobTimeoutOutput)
+}
+
+func (i JobDefinitionJobTimeoutArgs) ToJobDefinitionJobTimeoutPtrOutput() JobDefinitionJobTimeoutPtrOutput {
+	return i.ToJobDefinitionJobTimeoutPtrOutputWithContext(context.Background())
+}
+
+func (i JobDefinitionJobTimeoutArgs) ToJobDefinitionJobTimeoutPtrOutputWithContext(ctx context.Context) JobDefinitionJobTimeoutPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionJobTimeoutOutput).ToJobDefinitionJobTimeoutPtrOutputWithContext(ctx)
+}
+
+// JobDefinitionJobTimeoutPtrInput is an input type that accepts JobDefinitionJobTimeoutArgs, JobDefinitionJobTimeoutPtr and JobDefinitionJobTimeoutPtrOutput values.
+// You can construct a concrete instance of `JobDefinitionJobTimeoutPtrInput` via:
+//
+//	        JobDefinitionJobTimeoutArgs{...}
+//
+//	or:
+//
+//	        nil
+type JobDefinitionJobTimeoutPtrInput interface {
+	pulumi.Input
+
+	ToJobDefinitionJobTimeoutPtrOutput() JobDefinitionJobTimeoutPtrOutput
+	ToJobDefinitionJobTimeoutPtrOutputWithContext(context.Context) JobDefinitionJobTimeoutPtrOutput
+}
+
+type jobDefinitionJobTimeoutPtrType JobDefinitionJobTimeoutArgs
+
+func JobDefinitionJobTimeoutPtr(v *JobDefinitionJobTimeoutArgs) JobDefinitionJobTimeoutPtrInput {
+	return (*jobDefinitionJobTimeoutPtrType)(v)
+}
+
+func (*jobDefinitionJobTimeoutPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobDefinitionJobTimeout)(nil)).Elem()
+}
+
+func (i *jobDefinitionJobTimeoutPtrType) ToJobDefinitionJobTimeoutPtrOutput() JobDefinitionJobTimeoutPtrOutput {
+	return i.ToJobDefinitionJobTimeoutPtrOutputWithContext(context.Background())
+}
+
+func (i *jobDefinitionJobTimeoutPtrType) ToJobDefinitionJobTimeoutPtrOutputWithContext(ctx context.Context) JobDefinitionJobTimeoutPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionJobTimeoutPtrOutput)
+}
+
+type JobDefinitionJobTimeoutOutput struct{ *pulumi.OutputState }
+
+func (JobDefinitionJobTimeoutOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionJobTimeout)(nil)).Elem()
+}
+
+func (o JobDefinitionJobTimeoutOutput) ToJobDefinitionJobTimeoutOutput() JobDefinitionJobTimeoutOutput {
+	return o
+}
+
+func (o JobDefinitionJobTimeoutOutput) ToJobDefinitionJobTimeoutOutputWithContext(ctx context.Context) JobDefinitionJobTimeoutOutput {
+	return o
+}
+
+func (o JobDefinitionJobTimeoutOutput) ToJobDefinitionJobTimeoutPtrOutput() JobDefinitionJobTimeoutPtrOutput {
+	return o.ToJobDefinitionJobTimeoutPtrOutputWithContext(context.Background())
+}
+
+func (o JobDefinitionJobTimeoutOutput) ToJobDefinitionJobTimeoutPtrOutputWithContext(ctx context.Context) JobDefinitionJobTimeoutPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobDefinitionJobTimeout) *JobDefinitionJobTimeout {
+		return &v
+	}).(JobDefinitionJobTimeoutPtrOutput)
+}
+
+// The job timeout time (in seconds) that's measured from the job attempt's `startedAt` timestamp. After this time passes, AWS Batch terminates your jobs if they aren't finished. The minimum value for the timeout is 60 seconds.
+//
+// For array jobs, the timeout applies to the child jobs, not to the parent array job.
+//
+// For multi-node parallel (MNP) jobs, the timeout applies to the whole job, not to the individual nodes.
+func (o JobDefinitionJobTimeoutOutput) AttemptDurationSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobDefinitionJobTimeout) *int { return v.AttemptDurationSeconds }).(pulumi.IntPtrOutput)
+}
+
+type JobDefinitionJobTimeoutPtrOutput struct{ *pulumi.OutputState }
+
+func (JobDefinitionJobTimeoutPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobDefinitionJobTimeout)(nil)).Elem()
+}
+
+func (o JobDefinitionJobTimeoutPtrOutput) ToJobDefinitionJobTimeoutPtrOutput() JobDefinitionJobTimeoutPtrOutput {
+	return o
+}
+
+func (o JobDefinitionJobTimeoutPtrOutput) ToJobDefinitionJobTimeoutPtrOutputWithContext(ctx context.Context) JobDefinitionJobTimeoutPtrOutput {
+	return o
+}
+
+func (o JobDefinitionJobTimeoutPtrOutput) Elem() JobDefinitionJobTimeoutOutput {
+	return o.ApplyT(func(v *JobDefinitionJobTimeout) JobDefinitionJobTimeout {
+		if v != nil {
+			return *v
+		}
+		var ret JobDefinitionJobTimeout
+		return ret
+	}).(JobDefinitionJobTimeoutOutput)
+}
+
+// The job timeout time (in seconds) that's measured from the job attempt's `startedAt` timestamp. After this time passes, AWS Batch terminates your jobs if they aren't finished. The minimum value for the timeout is 60 seconds.
+//
+// For array jobs, the timeout applies to the child jobs, not to the parent array job.
+//
+// For multi-node parallel (MNP) jobs, the timeout applies to the whole job, not to the individual nodes.
+func (o JobDefinitionJobTimeoutPtrOutput) AttemptDurationSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *JobDefinitionJobTimeout) *int {
+		if v == nil {
+			return nil
+		}
+		return v.AttemptDurationSeconds
+	}).(pulumi.IntPtrOutput)
 }
 
 type JobDefinitionLinuxParameters struct {
@@ -5719,7 +6449,7 @@ type JobDefinitionLogConfiguration struct {
 	// This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: `sudo docker version | grep "Server API version"`
 	LogDriver string `pulumi:"logDriver"`
 	// The configuration options to send to the log driver. This parameter requires version 1.19 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: `sudo docker version | grep "Server API version"`
-	Options interface{} `pulumi:"options"`
+	Options map[string]string `pulumi:"options"`
 	// The secrets to pass to the log configuration. For more information, see [Specifying sensitive data](https://docs.aws.amazon.com/batch/latest/userguide/specifying-sensitive-data.html) in the *AWS Batch User Guide* .
 	SecretOptions []JobDefinitionSecret `pulumi:"secretOptions"`
 }
@@ -5755,7 +6485,7 @@ type JobDefinitionLogConfigurationArgs struct {
 	// This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: `sudo docker version | grep "Server API version"`
 	LogDriver pulumi.StringInput `pulumi:"logDriver"`
 	// The configuration options to send to the log driver. This parameter requires version 1.19 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: `sudo docker version | grep "Server API version"`
-	Options pulumi.Input `pulumi:"options"`
+	Options pulumi.StringMapInput `pulumi:"options"`
 	// The secrets to pass to the log configuration. For more information, see [Specifying sensitive data](https://docs.aws.amazon.com/batch/latest/userguide/specifying-sensitive-data.html) in the *AWS Batch User Guide* .
 	SecretOptions JobDefinitionSecretArrayInput `pulumi:"secretOptions"`
 }
@@ -5859,8 +6589,8 @@ func (o JobDefinitionLogConfigurationOutput) LogDriver() pulumi.StringOutput {
 }
 
 // The configuration options to send to the log driver. This parameter requires version 1.19 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: `sudo docker version | grep "Server API version"`
-func (o JobDefinitionLogConfigurationOutput) Options() pulumi.AnyOutput {
-	return o.ApplyT(func(v JobDefinitionLogConfiguration) interface{} { return v.Options }).(pulumi.AnyOutput)
+func (o JobDefinitionLogConfigurationOutput) Options() pulumi.StringMapOutput {
+	return o.ApplyT(func(v JobDefinitionLogConfiguration) map[string]string { return v.Options }).(pulumi.StringMapOutput)
 }
 
 // The secrets to pass to the log configuration. For more information, see [Specifying sensitive data](https://docs.aws.amazon.com/batch/latest/userguide/specifying-sensitive-data.html) in the *AWS Batch User Guide* .
@@ -5919,13 +6649,13 @@ func (o JobDefinitionLogConfigurationPtrOutput) LogDriver() pulumi.StringPtrOutp
 }
 
 // The configuration options to send to the log driver. This parameter requires version 1.19 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: `sudo docker version | grep "Server API version"`
-func (o JobDefinitionLogConfigurationPtrOutput) Options() pulumi.AnyOutput {
-	return o.ApplyT(func(v *JobDefinitionLogConfiguration) interface{} {
+func (o JobDefinitionLogConfigurationPtrOutput) Options() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *JobDefinitionLogConfiguration) map[string]string {
 		if v == nil {
 			return nil
 		}
 		return v.Options
-	}).(pulumi.AnyOutput)
+	}).(pulumi.StringMapOutput)
 }
 
 // The secrets to pass to the log configuration. For more information, see [Specifying sensitive data](https://docs.aws.amazon.com/batch/latest/userguide/specifying-sensitive-data.html) in the *AWS Batch User Guide* .
@@ -5938,144 +6668,7 @@ func (o JobDefinitionLogConfigurationPtrOutput) SecretOptions() JobDefinitionSec
 	}).(JobDefinitionSecretArrayOutput)
 }
 
-type JobDefinitionMetadata struct {
-	// Key-value pairs used to identify, sort, and organize cube resources. Can contain up to 63 uppercase letters, lowercase letters, numbers, hyphens (-), and underscores (_). Labels can be added or modified at any time. Each resource can have multiple labels, but each key must be unique for a given object.
-	Labels interface{} `pulumi:"labels"`
-}
-
-// JobDefinitionMetadataInput is an input type that accepts JobDefinitionMetadataArgs and JobDefinitionMetadataOutput values.
-// You can construct a concrete instance of `JobDefinitionMetadataInput` via:
-//
-//	JobDefinitionMetadataArgs{...}
-type JobDefinitionMetadataInput interface {
-	pulumi.Input
-
-	ToJobDefinitionMetadataOutput() JobDefinitionMetadataOutput
-	ToJobDefinitionMetadataOutputWithContext(context.Context) JobDefinitionMetadataOutput
-}
-
-type JobDefinitionMetadataArgs struct {
-	// Key-value pairs used to identify, sort, and organize cube resources. Can contain up to 63 uppercase letters, lowercase letters, numbers, hyphens (-), and underscores (_). Labels can be added or modified at any time. Each resource can have multiple labels, but each key must be unique for a given object.
-	Labels pulumi.Input `pulumi:"labels"`
-}
-
-func (JobDefinitionMetadataArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobDefinitionMetadata)(nil)).Elem()
-}
-
-func (i JobDefinitionMetadataArgs) ToJobDefinitionMetadataOutput() JobDefinitionMetadataOutput {
-	return i.ToJobDefinitionMetadataOutputWithContext(context.Background())
-}
-
-func (i JobDefinitionMetadataArgs) ToJobDefinitionMetadataOutputWithContext(ctx context.Context) JobDefinitionMetadataOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionMetadataOutput)
-}
-
-func (i JobDefinitionMetadataArgs) ToJobDefinitionMetadataPtrOutput() JobDefinitionMetadataPtrOutput {
-	return i.ToJobDefinitionMetadataPtrOutputWithContext(context.Background())
-}
-
-func (i JobDefinitionMetadataArgs) ToJobDefinitionMetadataPtrOutputWithContext(ctx context.Context) JobDefinitionMetadataPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionMetadataOutput).ToJobDefinitionMetadataPtrOutputWithContext(ctx)
-}
-
-// JobDefinitionMetadataPtrInput is an input type that accepts JobDefinitionMetadataArgs, JobDefinitionMetadataPtr and JobDefinitionMetadataPtrOutput values.
-// You can construct a concrete instance of `JobDefinitionMetadataPtrInput` via:
-//
-//	        JobDefinitionMetadataArgs{...}
-//
-//	or:
-//
-//	        nil
-type JobDefinitionMetadataPtrInput interface {
-	pulumi.Input
-
-	ToJobDefinitionMetadataPtrOutput() JobDefinitionMetadataPtrOutput
-	ToJobDefinitionMetadataPtrOutputWithContext(context.Context) JobDefinitionMetadataPtrOutput
-}
-
-type jobDefinitionMetadataPtrType JobDefinitionMetadataArgs
-
-func JobDefinitionMetadataPtr(v *JobDefinitionMetadataArgs) JobDefinitionMetadataPtrInput {
-	return (*jobDefinitionMetadataPtrType)(v)
-}
-
-func (*jobDefinitionMetadataPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**JobDefinitionMetadata)(nil)).Elem()
-}
-
-func (i *jobDefinitionMetadataPtrType) ToJobDefinitionMetadataPtrOutput() JobDefinitionMetadataPtrOutput {
-	return i.ToJobDefinitionMetadataPtrOutputWithContext(context.Background())
-}
-
-func (i *jobDefinitionMetadataPtrType) ToJobDefinitionMetadataPtrOutputWithContext(ctx context.Context) JobDefinitionMetadataPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionMetadataPtrOutput)
-}
-
-type JobDefinitionMetadataOutput struct{ *pulumi.OutputState }
-
-func (JobDefinitionMetadataOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobDefinitionMetadata)(nil)).Elem()
-}
-
-func (o JobDefinitionMetadataOutput) ToJobDefinitionMetadataOutput() JobDefinitionMetadataOutput {
-	return o
-}
-
-func (o JobDefinitionMetadataOutput) ToJobDefinitionMetadataOutputWithContext(ctx context.Context) JobDefinitionMetadataOutput {
-	return o
-}
-
-func (o JobDefinitionMetadataOutput) ToJobDefinitionMetadataPtrOutput() JobDefinitionMetadataPtrOutput {
-	return o.ToJobDefinitionMetadataPtrOutputWithContext(context.Background())
-}
-
-func (o JobDefinitionMetadataOutput) ToJobDefinitionMetadataPtrOutputWithContext(ctx context.Context) JobDefinitionMetadataPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobDefinitionMetadata) *JobDefinitionMetadata {
-		return &v
-	}).(JobDefinitionMetadataPtrOutput)
-}
-
-// Key-value pairs used to identify, sort, and organize cube resources. Can contain up to 63 uppercase letters, lowercase letters, numbers, hyphens (-), and underscores (_). Labels can be added or modified at any time. Each resource can have multiple labels, but each key must be unique for a given object.
-func (o JobDefinitionMetadataOutput) Labels() pulumi.AnyOutput {
-	return o.ApplyT(func(v JobDefinitionMetadata) interface{} { return v.Labels }).(pulumi.AnyOutput)
-}
-
-type JobDefinitionMetadataPtrOutput struct{ *pulumi.OutputState }
-
-func (JobDefinitionMetadataPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**JobDefinitionMetadata)(nil)).Elem()
-}
-
-func (o JobDefinitionMetadataPtrOutput) ToJobDefinitionMetadataPtrOutput() JobDefinitionMetadataPtrOutput {
-	return o
-}
-
-func (o JobDefinitionMetadataPtrOutput) ToJobDefinitionMetadataPtrOutputWithContext(ctx context.Context) JobDefinitionMetadataPtrOutput {
-	return o
-}
-
-func (o JobDefinitionMetadataPtrOutput) Elem() JobDefinitionMetadataOutput {
-	return o.ApplyT(func(v *JobDefinitionMetadata) JobDefinitionMetadata {
-		if v != nil {
-			return *v
-		}
-		var ret JobDefinitionMetadata
-		return ret
-	}).(JobDefinitionMetadataOutput)
-}
-
-// Key-value pairs used to identify, sort, and organize cube resources. Can contain up to 63 uppercase letters, lowercase letters, numbers, hyphens (-), and underscores (_). Labels can be added or modified at any time. Each resource can have multiple labels, but each key must be unique for a given object.
-func (o JobDefinitionMetadataPtrOutput) Labels() pulumi.AnyOutput {
-	return o.ApplyT(func(v *JobDefinitionMetadata) interface{} {
-		if v == nil {
-			return nil
-		}
-		return v.Labels
-	}).(pulumi.AnyOutput)
-}
-
-type JobDefinitionMountPoints struct {
+type JobDefinitionMountPoint struct {
 	// The path on the container where the host volume is mounted.
 	ContainerPath *string `pulumi:"containerPath"`
 	// If this value is `true` , the container has read-only access to the volume. Otherwise, the container can write to the volume. The default value is `false` .
@@ -6084,18 +6677,18 @@ type JobDefinitionMountPoints struct {
 	SourceVolume *string `pulumi:"sourceVolume"`
 }
 
-// JobDefinitionMountPointsInput is an input type that accepts JobDefinitionMountPointsArgs and JobDefinitionMountPointsOutput values.
-// You can construct a concrete instance of `JobDefinitionMountPointsInput` via:
+// JobDefinitionMountPointInput is an input type that accepts JobDefinitionMountPointArgs and JobDefinitionMountPointOutput values.
+// You can construct a concrete instance of `JobDefinitionMountPointInput` via:
 //
-//	JobDefinitionMountPointsArgs{...}
-type JobDefinitionMountPointsInput interface {
+//	JobDefinitionMountPointArgs{...}
+type JobDefinitionMountPointInput interface {
 	pulumi.Input
 
-	ToJobDefinitionMountPointsOutput() JobDefinitionMountPointsOutput
-	ToJobDefinitionMountPointsOutputWithContext(context.Context) JobDefinitionMountPointsOutput
+	ToJobDefinitionMountPointOutput() JobDefinitionMountPointOutput
+	ToJobDefinitionMountPointOutputWithContext(context.Context) JobDefinitionMountPointOutput
 }
 
-type JobDefinitionMountPointsArgs struct {
+type JobDefinitionMountPointArgs struct {
 	// The path on the container where the host volume is mounted.
 	ContainerPath pulumi.StringPtrInput `pulumi:"containerPath"`
 	// If this value is `true` , the container has read-only access to the volume. Otherwise, the container can write to the volume. The default value is `false` .
@@ -6104,90 +6697,796 @@ type JobDefinitionMountPointsArgs struct {
 	SourceVolume pulumi.StringPtrInput `pulumi:"sourceVolume"`
 }
 
-func (JobDefinitionMountPointsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobDefinitionMountPoints)(nil)).Elem()
+func (JobDefinitionMountPointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionMountPoint)(nil)).Elem()
 }
 
-func (i JobDefinitionMountPointsArgs) ToJobDefinitionMountPointsOutput() JobDefinitionMountPointsOutput {
-	return i.ToJobDefinitionMountPointsOutputWithContext(context.Background())
+func (i JobDefinitionMountPointArgs) ToJobDefinitionMountPointOutput() JobDefinitionMountPointOutput {
+	return i.ToJobDefinitionMountPointOutputWithContext(context.Background())
 }
 
-func (i JobDefinitionMountPointsArgs) ToJobDefinitionMountPointsOutputWithContext(ctx context.Context) JobDefinitionMountPointsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionMountPointsOutput)
+func (i JobDefinitionMountPointArgs) ToJobDefinitionMountPointOutputWithContext(ctx context.Context) JobDefinitionMountPointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionMountPointOutput)
 }
 
-// JobDefinitionMountPointsArrayInput is an input type that accepts JobDefinitionMountPointsArray and JobDefinitionMountPointsArrayOutput values.
-// You can construct a concrete instance of `JobDefinitionMountPointsArrayInput` via:
+// JobDefinitionMountPointArrayInput is an input type that accepts JobDefinitionMountPointArray and JobDefinitionMountPointArrayOutput values.
+// You can construct a concrete instance of `JobDefinitionMountPointArrayInput` via:
 //
-//	JobDefinitionMountPointsArray{ JobDefinitionMountPointsArgs{...} }
-type JobDefinitionMountPointsArrayInput interface {
+//	JobDefinitionMountPointArray{ JobDefinitionMountPointArgs{...} }
+type JobDefinitionMountPointArrayInput interface {
 	pulumi.Input
 
-	ToJobDefinitionMountPointsArrayOutput() JobDefinitionMountPointsArrayOutput
-	ToJobDefinitionMountPointsArrayOutputWithContext(context.Context) JobDefinitionMountPointsArrayOutput
+	ToJobDefinitionMountPointArrayOutput() JobDefinitionMountPointArrayOutput
+	ToJobDefinitionMountPointArrayOutputWithContext(context.Context) JobDefinitionMountPointArrayOutput
 }
 
-type JobDefinitionMountPointsArray []JobDefinitionMountPointsInput
+type JobDefinitionMountPointArray []JobDefinitionMountPointInput
 
-func (JobDefinitionMountPointsArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]JobDefinitionMountPoints)(nil)).Elem()
+func (JobDefinitionMountPointArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobDefinitionMountPoint)(nil)).Elem()
 }
 
-func (i JobDefinitionMountPointsArray) ToJobDefinitionMountPointsArrayOutput() JobDefinitionMountPointsArrayOutput {
-	return i.ToJobDefinitionMountPointsArrayOutputWithContext(context.Background())
+func (i JobDefinitionMountPointArray) ToJobDefinitionMountPointArrayOutput() JobDefinitionMountPointArrayOutput {
+	return i.ToJobDefinitionMountPointArrayOutputWithContext(context.Background())
 }
 
-func (i JobDefinitionMountPointsArray) ToJobDefinitionMountPointsArrayOutputWithContext(ctx context.Context) JobDefinitionMountPointsArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionMountPointsArrayOutput)
+func (i JobDefinitionMountPointArray) ToJobDefinitionMountPointArrayOutputWithContext(ctx context.Context) JobDefinitionMountPointArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionMountPointArrayOutput)
 }
 
-type JobDefinitionMountPointsOutput struct{ *pulumi.OutputState }
+type JobDefinitionMountPointOutput struct{ *pulumi.OutputState }
 
-func (JobDefinitionMountPointsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobDefinitionMountPoints)(nil)).Elem()
+func (JobDefinitionMountPointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionMountPoint)(nil)).Elem()
 }
 
-func (o JobDefinitionMountPointsOutput) ToJobDefinitionMountPointsOutput() JobDefinitionMountPointsOutput {
+func (o JobDefinitionMountPointOutput) ToJobDefinitionMountPointOutput() JobDefinitionMountPointOutput {
 	return o
 }
 
-func (o JobDefinitionMountPointsOutput) ToJobDefinitionMountPointsOutputWithContext(ctx context.Context) JobDefinitionMountPointsOutput {
+func (o JobDefinitionMountPointOutput) ToJobDefinitionMountPointOutputWithContext(ctx context.Context) JobDefinitionMountPointOutput {
 	return o
 }
 
 // The path on the container where the host volume is mounted.
-func (o JobDefinitionMountPointsOutput) ContainerPath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v JobDefinitionMountPoints) *string { return v.ContainerPath }).(pulumi.StringPtrOutput)
+func (o JobDefinitionMountPointOutput) ContainerPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobDefinitionMountPoint) *string { return v.ContainerPath }).(pulumi.StringPtrOutput)
 }
 
 // If this value is `true` , the container has read-only access to the volume. Otherwise, the container can write to the volume. The default value is `false` .
-func (o JobDefinitionMountPointsOutput) ReadOnly() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v JobDefinitionMountPoints) *bool { return v.ReadOnly }).(pulumi.BoolPtrOutput)
+func (o JobDefinitionMountPointOutput) ReadOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v JobDefinitionMountPoint) *bool { return v.ReadOnly }).(pulumi.BoolPtrOutput)
 }
 
 // The name of the volume to mount.
-func (o JobDefinitionMountPointsOutput) SourceVolume() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v JobDefinitionMountPoints) *string { return v.SourceVolume }).(pulumi.StringPtrOutput)
+func (o JobDefinitionMountPointOutput) SourceVolume() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobDefinitionMountPoint) *string { return v.SourceVolume }).(pulumi.StringPtrOutput)
 }
 
-type JobDefinitionMountPointsArrayOutput struct{ *pulumi.OutputState }
+type JobDefinitionMountPointArrayOutput struct{ *pulumi.OutputState }
 
-func (JobDefinitionMountPointsArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]JobDefinitionMountPoints)(nil)).Elem()
+func (JobDefinitionMountPointArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobDefinitionMountPoint)(nil)).Elem()
 }
 
-func (o JobDefinitionMountPointsArrayOutput) ToJobDefinitionMountPointsArrayOutput() JobDefinitionMountPointsArrayOutput {
+func (o JobDefinitionMountPointArrayOutput) ToJobDefinitionMountPointArrayOutput() JobDefinitionMountPointArrayOutput {
 	return o
 }
 
-func (o JobDefinitionMountPointsArrayOutput) ToJobDefinitionMountPointsArrayOutputWithContext(ctx context.Context) JobDefinitionMountPointsArrayOutput {
+func (o JobDefinitionMountPointArrayOutput) ToJobDefinitionMountPointArrayOutputWithContext(ctx context.Context) JobDefinitionMountPointArrayOutput {
 	return o
 }
 
-func (o JobDefinitionMountPointsArrayOutput) Index(i pulumi.IntInput) JobDefinitionMountPointsOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobDefinitionMountPoints {
-		return vs[0].([]JobDefinitionMountPoints)[vs[1].(int)]
-	}).(JobDefinitionMountPointsOutput)
+func (o JobDefinitionMountPointArrayOutput) Index(i pulumi.IntInput) JobDefinitionMountPointOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobDefinitionMountPoint {
+		return vs[0].([]JobDefinitionMountPoint)[vs[1].(int)]
+	}).(JobDefinitionMountPointOutput)
+}
+
+type JobDefinitionMultiNodeContainerProperties struct {
+	Command                []string                            `pulumi:"command"`
+	Environment            []JobDefinitionEnvironment          `pulumi:"environment"`
+	EphemeralStorage       *JobDefinitionEphemeralStorage      `pulumi:"ephemeralStorage"`
+	ExecutionRoleArn       *string                             `pulumi:"executionRoleArn"`
+	Image                  string                              `pulumi:"image"`
+	InstanceType           *string                             `pulumi:"instanceType"`
+	JobRoleArn             *string                             `pulumi:"jobRoleArn"`
+	LinuxParameters        *JobDefinitionLinuxParameters       `pulumi:"linuxParameters"`
+	LogConfiguration       *JobDefinitionLogConfiguration      `pulumi:"logConfiguration"`
+	Memory                 *int                                `pulumi:"memory"`
+	MountPoints            []JobDefinitionMountPoint           `pulumi:"mountPoints"`
+	Privileged             *bool                               `pulumi:"privileged"`
+	ReadonlyRootFilesystem *bool                               `pulumi:"readonlyRootFilesystem"`
+	RepositoryCredentials  *JobDefinitionRepositoryCredentials `pulumi:"repositoryCredentials"`
+	ResourceRequirements   []JobDefinitionResourceRequirement  `pulumi:"resourceRequirements"`
+	RuntimePlatform        *JobDefinitionRuntimePlatform       `pulumi:"runtimePlatform"`
+	Secrets                []JobDefinitionSecret               `pulumi:"secrets"`
+	Ulimits                []JobDefinitionUlimit               `pulumi:"ulimits"`
+	User                   *string                             `pulumi:"user"`
+	Vcpus                  *int                                `pulumi:"vcpus"`
+	Volumes                []JobDefinitionVolume               `pulumi:"volumes"`
+}
+
+// JobDefinitionMultiNodeContainerPropertiesInput is an input type that accepts JobDefinitionMultiNodeContainerPropertiesArgs and JobDefinitionMultiNodeContainerPropertiesOutput values.
+// You can construct a concrete instance of `JobDefinitionMultiNodeContainerPropertiesInput` via:
+//
+//	JobDefinitionMultiNodeContainerPropertiesArgs{...}
+type JobDefinitionMultiNodeContainerPropertiesInput interface {
+	pulumi.Input
+
+	ToJobDefinitionMultiNodeContainerPropertiesOutput() JobDefinitionMultiNodeContainerPropertiesOutput
+	ToJobDefinitionMultiNodeContainerPropertiesOutputWithContext(context.Context) JobDefinitionMultiNodeContainerPropertiesOutput
+}
+
+type JobDefinitionMultiNodeContainerPropertiesArgs struct {
+	Command                pulumi.StringArrayInput                    `pulumi:"command"`
+	Environment            JobDefinitionEnvironmentArrayInput         `pulumi:"environment"`
+	EphemeralStorage       JobDefinitionEphemeralStoragePtrInput      `pulumi:"ephemeralStorage"`
+	ExecutionRoleArn       pulumi.StringPtrInput                      `pulumi:"executionRoleArn"`
+	Image                  pulumi.StringInput                         `pulumi:"image"`
+	InstanceType           pulumi.StringPtrInput                      `pulumi:"instanceType"`
+	JobRoleArn             pulumi.StringPtrInput                      `pulumi:"jobRoleArn"`
+	LinuxParameters        JobDefinitionLinuxParametersPtrInput       `pulumi:"linuxParameters"`
+	LogConfiguration       JobDefinitionLogConfigurationPtrInput      `pulumi:"logConfiguration"`
+	Memory                 pulumi.IntPtrInput                         `pulumi:"memory"`
+	MountPoints            JobDefinitionMountPointArrayInput          `pulumi:"mountPoints"`
+	Privileged             pulumi.BoolPtrInput                        `pulumi:"privileged"`
+	ReadonlyRootFilesystem pulumi.BoolPtrInput                        `pulumi:"readonlyRootFilesystem"`
+	RepositoryCredentials  JobDefinitionRepositoryCredentialsPtrInput `pulumi:"repositoryCredentials"`
+	ResourceRequirements   JobDefinitionResourceRequirementArrayInput `pulumi:"resourceRequirements"`
+	RuntimePlatform        JobDefinitionRuntimePlatformPtrInput       `pulumi:"runtimePlatform"`
+	Secrets                JobDefinitionSecretArrayInput              `pulumi:"secrets"`
+	Ulimits                JobDefinitionUlimitArrayInput              `pulumi:"ulimits"`
+	User                   pulumi.StringPtrInput                      `pulumi:"user"`
+	Vcpus                  pulumi.IntPtrInput                         `pulumi:"vcpus"`
+	Volumes                JobDefinitionVolumeArrayInput              `pulumi:"volumes"`
+}
+
+func (JobDefinitionMultiNodeContainerPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionMultiNodeContainerProperties)(nil)).Elem()
+}
+
+func (i JobDefinitionMultiNodeContainerPropertiesArgs) ToJobDefinitionMultiNodeContainerPropertiesOutput() JobDefinitionMultiNodeContainerPropertiesOutput {
+	return i.ToJobDefinitionMultiNodeContainerPropertiesOutputWithContext(context.Background())
+}
+
+func (i JobDefinitionMultiNodeContainerPropertiesArgs) ToJobDefinitionMultiNodeContainerPropertiesOutputWithContext(ctx context.Context) JobDefinitionMultiNodeContainerPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionMultiNodeContainerPropertiesOutput)
+}
+
+func (i JobDefinitionMultiNodeContainerPropertiesArgs) ToJobDefinitionMultiNodeContainerPropertiesPtrOutput() JobDefinitionMultiNodeContainerPropertiesPtrOutput {
+	return i.ToJobDefinitionMultiNodeContainerPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i JobDefinitionMultiNodeContainerPropertiesArgs) ToJobDefinitionMultiNodeContainerPropertiesPtrOutputWithContext(ctx context.Context) JobDefinitionMultiNodeContainerPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionMultiNodeContainerPropertiesOutput).ToJobDefinitionMultiNodeContainerPropertiesPtrOutputWithContext(ctx)
+}
+
+// JobDefinitionMultiNodeContainerPropertiesPtrInput is an input type that accepts JobDefinitionMultiNodeContainerPropertiesArgs, JobDefinitionMultiNodeContainerPropertiesPtr and JobDefinitionMultiNodeContainerPropertiesPtrOutput values.
+// You can construct a concrete instance of `JobDefinitionMultiNodeContainerPropertiesPtrInput` via:
+//
+//	        JobDefinitionMultiNodeContainerPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type JobDefinitionMultiNodeContainerPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToJobDefinitionMultiNodeContainerPropertiesPtrOutput() JobDefinitionMultiNodeContainerPropertiesPtrOutput
+	ToJobDefinitionMultiNodeContainerPropertiesPtrOutputWithContext(context.Context) JobDefinitionMultiNodeContainerPropertiesPtrOutput
+}
+
+type jobDefinitionMultiNodeContainerPropertiesPtrType JobDefinitionMultiNodeContainerPropertiesArgs
+
+func JobDefinitionMultiNodeContainerPropertiesPtr(v *JobDefinitionMultiNodeContainerPropertiesArgs) JobDefinitionMultiNodeContainerPropertiesPtrInput {
+	return (*jobDefinitionMultiNodeContainerPropertiesPtrType)(v)
+}
+
+func (*jobDefinitionMultiNodeContainerPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobDefinitionMultiNodeContainerProperties)(nil)).Elem()
+}
+
+func (i *jobDefinitionMultiNodeContainerPropertiesPtrType) ToJobDefinitionMultiNodeContainerPropertiesPtrOutput() JobDefinitionMultiNodeContainerPropertiesPtrOutput {
+	return i.ToJobDefinitionMultiNodeContainerPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *jobDefinitionMultiNodeContainerPropertiesPtrType) ToJobDefinitionMultiNodeContainerPropertiesPtrOutputWithContext(ctx context.Context) JobDefinitionMultiNodeContainerPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionMultiNodeContainerPropertiesPtrOutput)
+}
+
+type JobDefinitionMultiNodeContainerPropertiesOutput struct{ *pulumi.OutputState }
+
+func (JobDefinitionMultiNodeContainerPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionMultiNodeContainerProperties)(nil)).Elem()
+}
+
+func (o JobDefinitionMultiNodeContainerPropertiesOutput) ToJobDefinitionMultiNodeContainerPropertiesOutput() JobDefinitionMultiNodeContainerPropertiesOutput {
+	return o
+}
+
+func (o JobDefinitionMultiNodeContainerPropertiesOutput) ToJobDefinitionMultiNodeContainerPropertiesOutputWithContext(ctx context.Context) JobDefinitionMultiNodeContainerPropertiesOutput {
+	return o
+}
+
+func (o JobDefinitionMultiNodeContainerPropertiesOutput) ToJobDefinitionMultiNodeContainerPropertiesPtrOutput() JobDefinitionMultiNodeContainerPropertiesPtrOutput {
+	return o.ToJobDefinitionMultiNodeContainerPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o JobDefinitionMultiNodeContainerPropertiesOutput) ToJobDefinitionMultiNodeContainerPropertiesPtrOutputWithContext(ctx context.Context) JobDefinitionMultiNodeContainerPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobDefinitionMultiNodeContainerProperties) *JobDefinitionMultiNodeContainerProperties {
+		return &v
+	}).(JobDefinitionMultiNodeContainerPropertiesPtrOutput)
+}
+
+func (o JobDefinitionMultiNodeContainerPropertiesOutput) Command() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v JobDefinitionMultiNodeContainerProperties) []string { return v.Command }).(pulumi.StringArrayOutput)
+}
+
+func (o JobDefinitionMultiNodeContainerPropertiesOutput) Environment() JobDefinitionEnvironmentArrayOutput {
+	return o.ApplyT(func(v JobDefinitionMultiNodeContainerProperties) []JobDefinitionEnvironment { return v.Environment }).(JobDefinitionEnvironmentArrayOutput)
+}
+
+func (o JobDefinitionMultiNodeContainerPropertiesOutput) EphemeralStorage() JobDefinitionEphemeralStoragePtrOutput {
+	return o.ApplyT(func(v JobDefinitionMultiNodeContainerProperties) *JobDefinitionEphemeralStorage {
+		return v.EphemeralStorage
+	}).(JobDefinitionEphemeralStoragePtrOutput)
+}
+
+func (o JobDefinitionMultiNodeContainerPropertiesOutput) ExecutionRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobDefinitionMultiNodeContainerProperties) *string { return v.ExecutionRoleArn }).(pulumi.StringPtrOutput)
+}
+
+func (o JobDefinitionMultiNodeContainerPropertiesOutput) Image() pulumi.StringOutput {
+	return o.ApplyT(func(v JobDefinitionMultiNodeContainerProperties) string { return v.Image }).(pulumi.StringOutput)
+}
+
+func (o JobDefinitionMultiNodeContainerPropertiesOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobDefinitionMultiNodeContainerProperties) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
+}
+
+func (o JobDefinitionMultiNodeContainerPropertiesOutput) JobRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobDefinitionMultiNodeContainerProperties) *string { return v.JobRoleArn }).(pulumi.StringPtrOutput)
+}
+
+func (o JobDefinitionMultiNodeContainerPropertiesOutput) LinuxParameters() JobDefinitionLinuxParametersPtrOutput {
+	return o.ApplyT(func(v JobDefinitionMultiNodeContainerProperties) *JobDefinitionLinuxParameters {
+		return v.LinuxParameters
+	}).(JobDefinitionLinuxParametersPtrOutput)
+}
+
+func (o JobDefinitionMultiNodeContainerPropertiesOutput) LogConfiguration() JobDefinitionLogConfigurationPtrOutput {
+	return o.ApplyT(func(v JobDefinitionMultiNodeContainerProperties) *JobDefinitionLogConfiguration {
+		return v.LogConfiguration
+	}).(JobDefinitionLogConfigurationPtrOutput)
+}
+
+func (o JobDefinitionMultiNodeContainerPropertiesOutput) Memory() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobDefinitionMultiNodeContainerProperties) *int { return v.Memory }).(pulumi.IntPtrOutput)
+}
+
+func (o JobDefinitionMultiNodeContainerPropertiesOutput) MountPoints() JobDefinitionMountPointArrayOutput {
+	return o.ApplyT(func(v JobDefinitionMultiNodeContainerProperties) []JobDefinitionMountPoint { return v.MountPoints }).(JobDefinitionMountPointArrayOutput)
+}
+
+func (o JobDefinitionMultiNodeContainerPropertiesOutput) Privileged() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v JobDefinitionMultiNodeContainerProperties) *bool { return v.Privileged }).(pulumi.BoolPtrOutput)
+}
+
+func (o JobDefinitionMultiNodeContainerPropertiesOutput) ReadonlyRootFilesystem() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v JobDefinitionMultiNodeContainerProperties) *bool { return v.ReadonlyRootFilesystem }).(pulumi.BoolPtrOutput)
+}
+
+func (o JobDefinitionMultiNodeContainerPropertiesOutput) RepositoryCredentials() JobDefinitionRepositoryCredentialsPtrOutput {
+	return o.ApplyT(func(v JobDefinitionMultiNodeContainerProperties) *JobDefinitionRepositoryCredentials {
+		return v.RepositoryCredentials
+	}).(JobDefinitionRepositoryCredentialsPtrOutput)
+}
+
+func (o JobDefinitionMultiNodeContainerPropertiesOutput) ResourceRequirements() JobDefinitionResourceRequirementArrayOutput {
+	return o.ApplyT(func(v JobDefinitionMultiNodeContainerProperties) []JobDefinitionResourceRequirement {
+		return v.ResourceRequirements
+	}).(JobDefinitionResourceRequirementArrayOutput)
+}
+
+func (o JobDefinitionMultiNodeContainerPropertiesOutput) RuntimePlatform() JobDefinitionRuntimePlatformPtrOutput {
+	return o.ApplyT(func(v JobDefinitionMultiNodeContainerProperties) *JobDefinitionRuntimePlatform {
+		return v.RuntimePlatform
+	}).(JobDefinitionRuntimePlatformPtrOutput)
+}
+
+func (o JobDefinitionMultiNodeContainerPropertiesOutput) Secrets() JobDefinitionSecretArrayOutput {
+	return o.ApplyT(func(v JobDefinitionMultiNodeContainerProperties) []JobDefinitionSecret { return v.Secrets }).(JobDefinitionSecretArrayOutput)
+}
+
+func (o JobDefinitionMultiNodeContainerPropertiesOutput) Ulimits() JobDefinitionUlimitArrayOutput {
+	return o.ApplyT(func(v JobDefinitionMultiNodeContainerProperties) []JobDefinitionUlimit { return v.Ulimits }).(JobDefinitionUlimitArrayOutput)
+}
+
+func (o JobDefinitionMultiNodeContainerPropertiesOutput) User() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobDefinitionMultiNodeContainerProperties) *string { return v.User }).(pulumi.StringPtrOutput)
+}
+
+func (o JobDefinitionMultiNodeContainerPropertiesOutput) Vcpus() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobDefinitionMultiNodeContainerProperties) *int { return v.Vcpus }).(pulumi.IntPtrOutput)
+}
+
+func (o JobDefinitionMultiNodeContainerPropertiesOutput) Volumes() JobDefinitionVolumeArrayOutput {
+	return o.ApplyT(func(v JobDefinitionMultiNodeContainerProperties) []JobDefinitionVolume { return v.Volumes }).(JobDefinitionVolumeArrayOutput)
+}
+
+type JobDefinitionMultiNodeContainerPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (JobDefinitionMultiNodeContainerPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobDefinitionMultiNodeContainerProperties)(nil)).Elem()
+}
+
+func (o JobDefinitionMultiNodeContainerPropertiesPtrOutput) ToJobDefinitionMultiNodeContainerPropertiesPtrOutput() JobDefinitionMultiNodeContainerPropertiesPtrOutput {
+	return o
+}
+
+func (o JobDefinitionMultiNodeContainerPropertiesPtrOutput) ToJobDefinitionMultiNodeContainerPropertiesPtrOutputWithContext(ctx context.Context) JobDefinitionMultiNodeContainerPropertiesPtrOutput {
+	return o
+}
+
+func (o JobDefinitionMultiNodeContainerPropertiesPtrOutput) Elem() JobDefinitionMultiNodeContainerPropertiesOutput {
+	return o.ApplyT(func(v *JobDefinitionMultiNodeContainerProperties) JobDefinitionMultiNodeContainerProperties {
+		if v != nil {
+			return *v
+		}
+		var ret JobDefinitionMultiNodeContainerProperties
+		return ret
+	}).(JobDefinitionMultiNodeContainerPropertiesOutput)
+}
+
+func (o JobDefinitionMultiNodeContainerPropertiesPtrOutput) Command() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *JobDefinitionMultiNodeContainerProperties) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Command
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o JobDefinitionMultiNodeContainerPropertiesPtrOutput) Environment() JobDefinitionEnvironmentArrayOutput {
+	return o.ApplyT(func(v *JobDefinitionMultiNodeContainerProperties) []JobDefinitionEnvironment {
+		if v == nil {
+			return nil
+		}
+		return v.Environment
+	}).(JobDefinitionEnvironmentArrayOutput)
+}
+
+func (o JobDefinitionMultiNodeContainerPropertiesPtrOutput) EphemeralStorage() JobDefinitionEphemeralStoragePtrOutput {
+	return o.ApplyT(func(v *JobDefinitionMultiNodeContainerProperties) *JobDefinitionEphemeralStorage {
+		if v == nil {
+			return nil
+		}
+		return v.EphemeralStorage
+	}).(JobDefinitionEphemeralStoragePtrOutput)
+}
+
+func (o JobDefinitionMultiNodeContainerPropertiesPtrOutput) ExecutionRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobDefinitionMultiNodeContainerProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExecutionRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o JobDefinitionMultiNodeContainerPropertiesPtrOutput) Image() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobDefinitionMultiNodeContainerProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Image
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o JobDefinitionMultiNodeContainerPropertiesPtrOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobDefinitionMultiNodeContainerProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InstanceType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o JobDefinitionMultiNodeContainerPropertiesPtrOutput) JobRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobDefinitionMultiNodeContainerProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.JobRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o JobDefinitionMultiNodeContainerPropertiesPtrOutput) LinuxParameters() JobDefinitionLinuxParametersPtrOutput {
+	return o.ApplyT(func(v *JobDefinitionMultiNodeContainerProperties) *JobDefinitionLinuxParameters {
+		if v == nil {
+			return nil
+		}
+		return v.LinuxParameters
+	}).(JobDefinitionLinuxParametersPtrOutput)
+}
+
+func (o JobDefinitionMultiNodeContainerPropertiesPtrOutput) LogConfiguration() JobDefinitionLogConfigurationPtrOutput {
+	return o.ApplyT(func(v *JobDefinitionMultiNodeContainerProperties) *JobDefinitionLogConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.LogConfiguration
+	}).(JobDefinitionLogConfigurationPtrOutput)
+}
+
+func (o JobDefinitionMultiNodeContainerPropertiesPtrOutput) Memory() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *JobDefinitionMultiNodeContainerProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Memory
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o JobDefinitionMultiNodeContainerPropertiesPtrOutput) MountPoints() JobDefinitionMountPointArrayOutput {
+	return o.ApplyT(func(v *JobDefinitionMultiNodeContainerProperties) []JobDefinitionMountPoint {
+		if v == nil {
+			return nil
+		}
+		return v.MountPoints
+	}).(JobDefinitionMountPointArrayOutput)
+}
+
+func (o JobDefinitionMultiNodeContainerPropertiesPtrOutput) Privileged() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *JobDefinitionMultiNodeContainerProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Privileged
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o JobDefinitionMultiNodeContainerPropertiesPtrOutput) ReadonlyRootFilesystem() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *JobDefinitionMultiNodeContainerProperties) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ReadonlyRootFilesystem
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o JobDefinitionMultiNodeContainerPropertiesPtrOutput) RepositoryCredentials() JobDefinitionRepositoryCredentialsPtrOutput {
+	return o.ApplyT(func(v *JobDefinitionMultiNodeContainerProperties) *JobDefinitionRepositoryCredentials {
+		if v == nil {
+			return nil
+		}
+		return v.RepositoryCredentials
+	}).(JobDefinitionRepositoryCredentialsPtrOutput)
+}
+
+func (o JobDefinitionMultiNodeContainerPropertiesPtrOutput) ResourceRequirements() JobDefinitionResourceRequirementArrayOutput {
+	return o.ApplyT(func(v *JobDefinitionMultiNodeContainerProperties) []JobDefinitionResourceRequirement {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceRequirements
+	}).(JobDefinitionResourceRequirementArrayOutput)
+}
+
+func (o JobDefinitionMultiNodeContainerPropertiesPtrOutput) RuntimePlatform() JobDefinitionRuntimePlatformPtrOutput {
+	return o.ApplyT(func(v *JobDefinitionMultiNodeContainerProperties) *JobDefinitionRuntimePlatform {
+		if v == nil {
+			return nil
+		}
+		return v.RuntimePlatform
+	}).(JobDefinitionRuntimePlatformPtrOutput)
+}
+
+func (o JobDefinitionMultiNodeContainerPropertiesPtrOutput) Secrets() JobDefinitionSecretArrayOutput {
+	return o.ApplyT(func(v *JobDefinitionMultiNodeContainerProperties) []JobDefinitionSecret {
+		if v == nil {
+			return nil
+		}
+		return v.Secrets
+	}).(JobDefinitionSecretArrayOutput)
+}
+
+func (o JobDefinitionMultiNodeContainerPropertiesPtrOutput) Ulimits() JobDefinitionUlimitArrayOutput {
+	return o.ApplyT(func(v *JobDefinitionMultiNodeContainerProperties) []JobDefinitionUlimit {
+		if v == nil {
+			return nil
+		}
+		return v.Ulimits
+	}).(JobDefinitionUlimitArrayOutput)
+}
+
+func (o JobDefinitionMultiNodeContainerPropertiesPtrOutput) User() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobDefinitionMultiNodeContainerProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.User
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o JobDefinitionMultiNodeContainerPropertiesPtrOutput) Vcpus() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *JobDefinitionMultiNodeContainerProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Vcpus
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o JobDefinitionMultiNodeContainerPropertiesPtrOutput) Volumes() JobDefinitionVolumeArrayOutput {
+	return o.ApplyT(func(v *JobDefinitionMultiNodeContainerProperties) []JobDefinitionVolume {
+		if v == nil {
+			return nil
+		}
+		return v.Volumes
+	}).(JobDefinitionVolumeArrayOutput)
+}
+
+type JobDefinitionMultiNodeEcsProperties struct {
+	TaskProperties []JobDefinitionMultiNodeEcsTaskProperties `pulumi:"taskProperties"`
+}
+
+// JobDefinitionMultiNodeEcsPropertiesInput is an input type that accepts JobDefinitionMultiNodeEcsPropertiesArgs and JobDefinitionMultiNodeEcsPropertiesOutput values.
+// You can construct a concrete instance of `JobDefinitionMultiNodeEcsPropertiesInput` via:
+//
+//	JobDefinitionMultiNodeEcsPropertiesArgs{...}
+type JobDefinitionMultiNodeEcsPropertiesInput interface {
+	pulumi.Input
+
+	ToJobDefinitionMultiNodeEcsPropertiesOutput() JobDefinitionMultiNodeEcsPropertiesOutput
+	ToJobDefinitionMultiNodeEcsPropertiesOutputWithContext(context.Context) JobDefinitionMultiNodeEcsPropertiesOutput
+}
+
+type JobDefinitionMultiNodeEcsPropertiesArgs struct {
+	TaskProperties JobDefinitionMultiNodeEcsTaskPropertiesArrayInput `pulumi:"taskProperties"`
+}
+
+func (JobDefinitionMultiNodeEcsPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionMultiNodeEcsProperties)(nil)).Elem()
+}
+
+func (i JobDefinitionMultiNodeEcsPropertiesArgs) ToJobDefinitionMultiNodeEcsPropertiesOutput() JobDefinitionMultiNodeEcsPropertiesOutput {
+	return i.ToJobDefinitionMultiNodeEcsPropertiesOutputWithContext(context.Background())
+}
+
+func (i JobDefinitionMultiNodeEcsPropertiesArgs) ToJobDefinitionMultiNodeEcsPropertiesOutputWithContext(ctx context.Context) JobDefinitionMultiNodeEcsPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionMultiNodeEcsPropertiesOutput)
+}
+
+func (i JobDefinitionMultiNodeEcsPropertiesArgs) ToJobDefinitionMultiNodeEcsPropertiesPtrOutput() JobDefinitionMultiNodeEcsPropertiesPtrOutput {
+	return i.ToJobDefinitionMultiNodeEcsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i JobDefinitionMultiNodeEcsPropertiesArgs) ToJobDefinitionMultiNodeEcsPropertiesPtrOutputWithContext(ctx context.Context) JobDefinitionMultiNodeEcsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionMultiNodeEcsPropertiesOutput).ToJobDefinitionMultiNodeEcsPropertiesPtrOutputWithContext(ctx)
+}
+
+// JobDefinitionMultiNodeEcsPropertiesPtrInput is an input type that accepts JobDefinitionMultiNodeEcsPropertiesArgs, JobDefinitionMultiNodeEcsPropertiesPtr and JobDefinitionMultiNodeEcsPropertiesPtrOutput values.
+// You can construct a concrete instance of `JobDefinitionMultiNodeEcsPropertiesPtrInput` via:
+//
+//	        JobDefinitionMultiNodeEcsPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type JobDefinitionMultiNodeEcsPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToJobDefinitionMultiNodeEcsPropertiesPtrOutput() JobDefinitionMultiNodeEcsPropertiesPtrOutput
+	ToJobDefinitionMultiNodeEcsPropertiesPtrOutputWithContext(context.Context) JobDefinitionMultiNodeEcsPropertiesPtrOutput
+}
+
+type jobDefinitionMultiNodeEcsPropertiesPtrType JobDefinitionMultiNodeEcsPropertiesArgs
+
+func JobDefinitionMultiNodeEcsPropertiesPtr(v *JobDefinitionMultiNodeEcsPropertiesArgs) JobDefinitionMultiNodeEcsPropertiesPtrInput {
+	return (*jobDefinitionMultiNodeEcsPropertiesPtrType)(v)
+}
+
+func (*jobDefinitionMultiNodeEcsPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobDefinitionMultiNodeEcsProperties)(nil)).Elem()
+}
+
+func (i *jobDefinitionMultiNodeEcsPropertiesPtrType) ToJobDefinitionMultiNodeEcsPropertiesPtrOutput() JobDefinitionMultiNodeEcsPropertiesPtrOutput {
+	return i.ToJobDefinitionMultiNodeEcsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *jobDefinitionMultiNodeEcsPropertiesPtrType) ToJobDefinitionMultiNodeEcsPropertiesPtrOutputWithContext(ctx context.Context) JobDefinitionMultiNodeEcsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionMultiNodeEcsPropertiesPtrOutput)
+}
+
+type JobDefinitionMultiNodeEcsPropertiesOutput struct{ *pulumi.OutputState }
+
+func (JobDefinitionMultiNodeEcsPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionMultiNodeEcsProperties)(nil)).Elem()
+}
+
+func (o JobDefinitionMultiNodeEcsPropertiesOutput) ToJobDefinitionMultiNodeEcsPropertiesOutput() JobDefinitionMultiNodeEcsPropertiesOutput {
+	return o
+}
+
+func (o JobDefinitionMultiNodeEcsPropertiesOutput) ToJobDefinitionMultiNodeEcsPropertiesOutputWithContext(ctx context.Context) JobDefinitionMultiNodeEcsPropertiesOutput {
+	return o
+}
+
+func (o JobDefinitionMultiNodeEcsPropertiesOutput) ToJobDefinitionMultiNodeEcsPropertiesPtrOutput() JobDefinitionMultiNodeEcsPropertiesPtrOutput {
+	return o.ToJobDefinitionMultiNodeEcsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o JobDefinitionMultiNodeEcsPropertiesOutput) ToJobDefinitionMultiNodeEcsPropertiesPtrOutputWithContext(ctx context.Context) JobDefinitionMultiNodeEcsPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobDefinitionMultiNodeEcsProperties) *JobDefinitionMultiNodeEcsProperties {
+		return &v
+	}).(JobDefinitionMultiNodeEcsPropertiesPtrOutput)
+}
+
+func (o JobDefinitionMultiNodeEcsPropertiesOutput) TaskProperties() JobDefinitionMultiNodeEcsTaskPropertiesArrayOutput {
+	return o.ApplyT(func(v JobDefinitionMultiNodeEcsProperties) []JobDefinitionMultiNodeEcsTaskProperties {
+		return v.TaskProperties
+	}).(JobDefinitionMultiNodeEcsTaskPropertiesArrayOutput)
+}
+
+type JobDefinitionMultiNodeEcsPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (JobDefinitionMultiNodeEcsPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobDefinitionMultiNodeEcsProperties)(nil)).Elem()
+}
+
+func (o JobDefinitionMultiNodeEcsPropertiesPtrOutput) ToJobDefinitionMultiNodeEcsPropertiesPtrOutput() JobDefinitionMultiNodeEcsPropertiesPtrOutput {
+	return o
+}
+
+func (o JobDefinitionMultiNodeEcsPropertiesPtrOutput) ToJobDefinitionMultiNodeEcsPropertiesPtrOutputWithContext(ctx context.Context) JobDefinitionMultiNodeEcsPropertiesPtrOutput {
+	return o
+}
+
+func (o JobDefinitionMultiNodeEcsPropertiesPtrOutput) Elem() JobDefinitionMultiNodeEcsPropertiesOutput {
+	return o.ApplyT(func(v *JobDefinitionMultiNodeEcsProperties) JobDefinitionMultiNodeEcsProperties {
+		if v != nil {
+			return *v
+		}
+		var ret JobDefinitionMultiNodeEcsProperties
+		return ret
+	}).(JobDefinitionMultiNodeEcsPropertiesOutput)
+}
+
+func (o JobDefinitionMultiNodeEcsPropertiesPtrOutput) TaskProperties() JobDefinitionMultiNodeEcsTaskPropertiesArrayOutput {
+	return o.ApplyT(func(v *JobDefinitionMultiNodeEcsProperties) []JobDefinitionMultiNodeEcsTaskProperties {
+		if v == nil {
+			return nil
+		}
+		return v.TaskProperties
+	}).(JobDefinitionMultiNodeEcsTaskPropertiesArrayOutput)
+}
+
+type JobDefinitionMultiNodeEcsTaskProperties struct {
+	Containers       []JobDefinitionTaskContainerProperties `pulumi:"containers"`
+	ExecutionRoleArn *string                                `pulumi:"executionRoleArn"`
+	IpcMode          *string                                `pulumi:"ipcMode"`
+	PidMode          *string                                `pulumi:"pidMode"`
+	TaskRoleArn      *string                                `pulumi:"taskRoleArn"`
+	Volumes          []JobDefinitionVolume                  `pulumi:"volumes"`
+}
+
+// JobDefinitionMultiNodeEcsTaskPropertiesInput is an input type that accepts JobDefinitionMultiNodeEcsTaskPropertiesArgs and JobDefinitionMultiNodeEcsTaskPropertiesOutput values.
+// You can construct a concrete instance of `JobDefinitionMultiNodeEcsTaskPropertiesInput` via:
+//
+//	JobDefinitionMultiNodeEcsTaskPropertiesArgs{...}
+type JobDefinitionMultiNodeEcsTaskPropertiesInput interface {
+	pulumi.Input
+
+	ToJobDefinitionMultiNodeEcsTaskPropertiesOutput() JobDefinitionMultiNodeEcsTaskPropertiesOutput
+	ToJobDefinitionMultiNodeEcsTaskPropertiesOutputWithContext(context.Context) JobDefinitionMultiNodeEcsTaskPropertiesOutput
+}
+
+type JobDefinitionMultiNodeEcsTaskPropertiesArgs struct {
+	Containers       JobDefinitionTaskContainerPropertiesArrayInput `pulumi:"containers"`
+	ExecutionRoleArn pulumi.StringPtrInput                          `pulumi:"executionRoleArn"`
+	IpcMode          pulumi.StringPtrInput                          `pulumi:"ipcMode"`
+	PidMode          pulumi.StringPtrInput                          `pulumi:"pidMode"`
+	TaskRoleArn      pulumi.StringPtrInput                          `pulumi:"taskRoleArn"`
+	Volumes          JobDefinitionVolumeArrayInput                  `pulumi:"volumes"`
+}
+
+func (JobDefinitionMultiNodeEcsTaskPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionMultiNodeEcsTaskProperties)(nil)).Elem()
+}
+
+func (i JobDefinitionMultiNodeEcsTaskPropertiesArgs) ToJobDefinitionMultiNodeEcsTaskPropertiesOutput() JobDefinitionMultiNodeEcsTaskPropertiesOutput {
+	return i.ToJobDefinitionMultiNodeEcsTaskPropertiesOutputWithContext(context.Background())
+}
+
+func (i JobDefinitionMultiNodeEcsTaskPropertiesArgs) ToJobDefinitionMultiNodeEcsTaskPropertiesOutputWithContext(ctx context.Context) JobDefinitionMultiNodeEcsTaskPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionMultiNodeEcsTaskPropertiesOutput)
+}
+
+// JobDefinitionMultiNodeEcsTaskPropertiesArrayInput is an input type that accepts JobDefinitionMultiNodeEcsTaskPropertiesArray and JobDefinitionMultiNodeEcsTaskPropertiesArrayOutput values.
+// You can construct a concrete instance of `JobDefinitionMultiNodeEcsTaskPropertiesArrayInput` via:
+//
+//	JobDefinitionMultiNodeEcsTaskPropertiesArray{ JobDefinitionMultiNodeEcsTaskPropertiesArgs{...} }
+type JobDefinitionMultiNodeEcsTaskPropertiesArrayInput interface {
+	pulumi.Input
+
+	ToJobDefinitionMultiNodeEcsTaskPropertiesArrayOutput() JobDefinitionMultiNodeEcsTaskPropertiesArrayOutput
+	ToJobDefinitionMultiNodeEcsTaskPropertiesArrayOutputWithContext(context.Context) JobDefinitionMultiNodeEcsTaskPropertiesArrayOutput
+}
+
+type JobDefinitionMultiNodeEcsTaskPropertiesArray []JobDefinitionMultiNodeEcsTaskPropertiesInput
+
+func (JobDefinitionMultiNodeEcsTaskPropertiesArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobDefinitionMultiNodeEcsTaskProperties)(nil)).Elem()
+}
+
+func (i JobDefinitionMultiNodeEcsTaskPropertiesArray) ToJobDefinitionMultiNodeEcsTaskPropertiesArrayOutput() JobDefinitionMultiNodeEcsTaskPropertiesArrayOutput {
+	return i.ToJobDefinitionMultiNodeEcsTaskPropertiesArrayOutputWithContext(context.Background())
+}
+
+func (i JobDefinitionMultiNodeEcsTaskPropertiesArray) ToJobDefinitionMultiNodeEcsTaskPropertiesArrayOutputWithContext(ctx context.Context) JobDefinitionMultiNodeEcsTaskPropertiesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionMultiNodeEcsTaskPropertiesArrayOutput)
+}
+
+type JobDefinitionMultiNodeEcsTaskPropertiesOutput struct{ *pulumi.OutputState }
+
+func (JobDefinitionMultiNodeEcsTaskPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionMultiNodeEcsTaskProperties)(nil)).Elem()
+}
+
+func (o JobDefinitionMultiNodeEcsTaskPropertiesOutput) ToJobDefinitionMultiNodeEcsTaskPropertiesOutput() JobDefinitionMultiNodeEcsTaskPropertiesOutput {
+	return o
+}
+
+func (o JobDefinitionMultiNodeEcsTaskPropertiesOutput) ToJobDefinitionMultiNodeEcsTaskPropertiesOutputWithContext(ctx context.Context) JobDefinitionMultiNodeEcsTaskPropertiesOutput {
+	return o
+}
+
+func (o JobDefinitionMultiNodeEcsTaskPropertiesOutput) Containers() JobDefinitionTaskContainerPropertiesArrayOutput {
+	return o.ApplyT(func(v JobDefinitionMultiNodeEcsTaskProperties) []JobDefinitionTaskContainerProperties {
+		return v.Containers
+	}).(JobDefinitionTaskContainerPropertiesArrayOutput)
+}
+
+func (o JobDefinitionMultiNodeEcsTaskPropertiesOutput) ExecutionRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobDefinitionMultiNodeEcsTaskProperties) *string { return v.ExecutionRoleArn }).(pulumi.StringPtrOutput)
+}
+
+func (o JobDefinitionMultiNodeEcsTaskPropertiesOutput) IpcMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobDefinitionMultiNodeEcsTaskProperties) *string { return v.IpcMode }).(pulumi.StringPtrOutput)
+}
+
+func (o JobDefinitionMultiNodeEcsTaskPropertiesOutput) PidMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobDefinitionMultiNodeEcsTaskProperties) *string { return v.PidMode }).(pulumi.StringPtrOutput)
+}
+
+func (o JobDefinitionMultiNodeEcsTaskPropertiesOutput) TaskRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobDefinitionMultiNodeEcsTaskProperties) *string { return v.TaskRoleArn }).(pulumi.StringPtrOutput)
+}
+
+func (o JobDefinitionMultiNodeEcsTaskPropertiesOutput) Volumes() JobDefinitionVolumeArrayOutput {
+	return o.ApplyT(func(v JobDefinitionMultiNodeEcsTaskProperties) []JobDefinitionVolume { return v.Volumes }).(JobDefinitionVolumeArrayOutput)
+}
+
+type JobDefinitionMultiNodeEcsTaskPropertiesArrayOutput struct{ *pulumi.OutputState }
+
+func (JobDefinitionMultiNodeEcsTaskPropertiesArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobDefinitionMultiNodeEcsTaskProperties)(nil)).Elem()
+}
+
+func (o JobDefinitionMultiNodeEcsTaskPropertiesArrayOutput) ToJobDefinitionMultiNodeEcsTaskPropertiesArrayOutput() JobDefinitionMultiNodeEcsTaskPropertiesArrayOutput {
+	return o
+}
+
+func (o JobDefinitionMultiNodeEcsTaskPropertiesArrayOutput) ToJobDefinitionMultiNodeEcsTaskPropertiesArrayOutputWithContext(ctx context.Context) JobDefinitionMultiNodeEcsTaskPropertiesArrayOutput {
+	return o
+}
+
+func (o JobDefinitionMultiNodeEcsTaskPropertiesArrayOutput) Index(i pulumi.IntInput) JobDefinitionMultiNodeEcsTaskPropertiesOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobDefinitionMultiNodeEcsTaskProperties {
+		return vs[0].([]JobDefinitionMultiNodeEcsTaskProperties)[vs[1].(int)]
+	}).(JobDefinitionMultiNodeEcsTaskPropertiesOutput)
 }
 
 type JobDefinitionNetworkConfiguration struct {
@@ -6504,9 +7803,9 @@ func (o JobDefinitionNodePropertiesPtrOutput) NumNodes() pulumi.IntPtrOutput {
 
 type JobDefinitionNodeRangeProperty struct {
 	// The container details for the node range.
-	Container *JobDefinitionContainerProperties `pulumi:"container"`
+	Container *JobDefinitionMultiNodeContainerProperties `pulumi:"container"`
 	// This is an object that represents the properties of the node range for a multi-node parallel job.
-	EcsProperties *JobDefinitionEcsProperties `pulumi:"ecsProperties"`
+	EcsProperties *JobDefinitionMultiNodeEcsProperties `pulumi:"ecsProperties"`
 	// This is an object that represents the properties of the node range for a multi-node parallel job.
 	EksProperties *JobDefinitionEksProperties `pulumi:"eksProperties"`
 	// The instance types of the underlying host infrastructure of a multi-node parallel job.
@@ -6532,9 +7831,9 @@ type JobDefinitionNodeRangePropertyInput interface {
 
 type JobDefinitionNodeRangePropertyArgs struct {
 	// The container details for the node range.
-	Container JobDefinitionContainerPropertiesPtrInput `pulumi:"container"`
+	Container JobDefinitionMultiNodeContainerPropertiesPtrInput `pulumi:"container"`
 	// This is an object that represents the properties of the node range for a multi-node parallel job.
-	EcsProperties JobDefinitionEcsPropertiesPtrInput `pulumi:"ecsProperties"`
+	EcsProperties JobDefinitionMultiNodeEcsPropertiesPtrInput `pulumi:"ecsProperties"`
 	// This is an object that represents the properties of the node range for a multi-node parallel job.
 	EksProperties JobDefinitionEksPropertiesPtrInput `pulumi:"eksProperties"`
 	// The instance types of the underlying host infrastructure of a multi-node parallel job.
@@ -6599,13 +7898,13 @@ func (o JobDefinitionNodeRangePropertyOutput) ToJobDefinitionNodeRangePropertyOu
 }
 
 // The container details for the node range.
-func (o JobDefinitionNodeRangePropertyOutput) Container() JobDefinitionContainerPropertiesPtrOutput {
-	return o.ApplyT(func(v JobDefinitionNodeRangeProperty) *JobDefinitionContainerProperties { return v.Container }).(JobDefinitionContainerPropertiesPtrOutput)
+func (o JobDefinitionNodeRangePropertyOutput) Container() JobDefinitionMultiNodeContainerPropertiesPtrOutput {
+	return o.ApplyT(func(v JobDefinitionNodeRangeProperty) *JobDefinitionMultiNodeContainerProperties { return v.Container }).(JobDefinitionMultiNodeContainerPropertiesPtrOutput)
 }
 
 // This is an object that represents the properties of the node range for a multi-node parallel job.
-func (o JobDefinitionNodeRangePropertyOutput) EcsProperties() JobDefinitionEcsPropertiesPtrOutput {
-	return o.ApplyT(func(v JobDefinitionNodeRangeProperty) *JobDefinitionEcsProperties { return v.EcsProperties }).(JobDefinitionEcsPropertiesPtrOutput)
+func (o JobDefinitionNodeRangePropertyOutput) EcsProperties() JobDefinitionMultiNodeEcsPropertiesPtrOutput {
+	return o.ApplyT(func(v JobDefinitionNodeRangeProperty) *JobDefinitionMultiNodeEcsProperties { return v.EcsProperties }).(JobDefinitionMultiNodeEcsPropertiesPtrOutput)
 }
 
 // This is an object that represents the properties of the node range for a multi-node parallel job.
@@ -6645,315 +7944,6 @@ func (o JobDefinitionNodeRangePropertyArrayOutput) Index(i pulumi.IntInput) JobD
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobDefinitionNodeRangeProperty {
 		return vs[0].([]JobDefinitionNodeRangeProperty)[vs[1].(int)]
 	}).(JobDefinitionNodeRangePropertyOutput)
-}
-
-type JobDefinitionPodProperties struct {
-	// The properties of the container that's used on the Amazon EKS pod.
-	//
-	// > This object is limited to 10 elements.
-	Containers []JobDefinitionEksContainer `pulumi:"containers"`
-	// The DNS policy for the pod. The default value is `ClusterFirst` . If the `hostNetwork` parameter is not specified, the default is `ClusterFirstWithHostNet` . `ClusterFirst` indicates that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver inherited from the node. For more information, see [Pod's DNS policy](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy) in the *Kubernetes documentation* .
-	//
-	// Valid values: `Default` | `ClusterFirst` | `ClusterFirstWithHostNet`
-	DnsPolicy *string `pulumi:"dnsPolicy"`
-	// Indicates if the pod uses the hosts' network IP address. The default value is `true` . Setting this to `false` enables the Kubernetes pod networking model. Most AWS Batch workloads are egress-only and don't require the overhead of IP allocation for each pod for incoming connections. For more information, see [Host namespaces](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/security/pod-security-policy/#host-namespaces) and [Pod networking](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/workloads/pods/#pod-networking) in the *Kubernetes documentation* .
-	HostNetwork      *bool                          `pulumi:"hostNetwork"`
-	ImagePullSecrets []JobDefinitionImagePullSecret `pulumi:"imagePullSecrets"`
-	// These containers run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. For more information, see [Init Containers](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/workloads/pods/init-containers/) in the *Kubernetes documentation* .
-	//
-	// > This object is limited to 10 elements.
-	InitContainers []JobDefinitionEksContainer `pulumi:"initContainers"`
-	// Metadata about the Kubernetes pod. For more information, see [Understanding Kubernetes Objects](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/overview/working-with-objects/kubernetes-objects/) in the *Kubernetes documentation* .
-	Metadata *JobDefinitionMetadata `pulumi:"metadata"`
-	// The name of the service account that's used to run the pod. For more information, see [Kubernetes service accounts](https://docs.aws.amazon.com/eks/latest/userguide/service-accounts.html) and [Configure a Kubernetes service account to assume an IAM role](https://docs.aws.amazon.com/eks/latest/userguide/associate-service-account-role.html) in the *Amazon EKS User Guide* and [Configure service accounts for pods](https://docs.aws.amazon.com/https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/) in the *Kubernetes documentation* .
-	ServiceAccountName *string `pulumi:"serviceAccountName"`
-	// Indicates if the processes in a container are shared, or visible, to other containers in the same pod. For more information, see [Share Process Namespace between Containers in a Pod](https://docs.aws.amazon.com/https://kubernetes.io/docs/tasks/configure-pod-container/share-process-namespace/) .
-	ShareProcessNamespace *bool `pulumi:"shareProcessNamespace"`
-	// Specifies the volumes for a job definition that uses Amazon EKS resources.
-	Volumes []JobDefinitionEksVolume `pulumi:"volumes"`
-}
-
-// JobDefinitionPodPropertiesInput is an input type that accepts JobDefinitionPodPropertiesArgs and JobDefinitionPodPropertiesOutput values.
-// You can construct a concrete instance of `JobDefinitionPodPropertiesInput` via:
-//
-//	JobDefinitionPodPropertiesArgs{...}
-type JobDefinitionPodPropertiesInput interface {
-	pulumi.Input
-
-	ToJobDefinitionPodPropertiesOutput() JobDefinitionPodPropertiesOutput
-	ToJobDefinitionPodPropertiesOutputWithContext(context.Context) JobDefinitionPodPropertiesOutput
-}
-
-type JobDefinitionPodPropertiesArgs struct {
-	// The properties of the container that's used on the Amazon EKS pod.
-	//
-	// > This object is limited to 10 elements.
-	Containers JobDefinitionEksContainerArrayInput `pulumi:"containers"`
-	// The DNS policy for the pod. The default value is `ClusterFirst` . If the `hostNetwork` parameter is not specified, the default is `ClusterFirstWithHostNet` . `ClusterFirst` indicates that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver inherited from the node. For more information, see [Pod's DNS policy](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy) in the *Kubernetes documentation* .
-	//
-	// Valid values: `Default` | `ClusterFirst` | `ClusterFirstWithHostNet`
-	DnsPolicy pulumi.StringPtrInput `pulumi:"dnsPolicy"`
-	// Indicates if the pod uses the hosts' network IP address. The default value is `true` . Setting this to `false` enables the Kubernetes pod networking model. Most AWS Batch workloads are egress-only and don't require the overhead of IP allocation for each pod for incoming connections. For more information, see [Host namespaces](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/security/pod-security-policy/#host-namespaces) and [Pod networking](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/workloads/pods/#pod-networking) in the *Kubernetes documentation* .
-	HostNetwork      pulumi.BoolPtrInput                    `pulumi:"hostNetwork"`
-	ImagePullSecrets JobDefinitionImagePullSecretArrayInput `pulumi:"imagePullSecrets"`
-	// These containers run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. For more information, see [Init Containers](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/workloads/pods/init-containers/) in the *Kubernetes documentation* .
-	//
-	// > This object is limited to 10 elements.
-	InitContainers JobDefinitionEksContainerArrayInput `pulumi:"initContainers"`
-	// Metadata about the Kubernetes pod. For more information, see [Understanding Kubernetes Objects](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/overview/working-with-objects/kubernetes-objects/) in the *Kubernetes documentation* .
-	Metadata JobDefinitionMetadataPtrInput `pulumi:"metadata"`
-	// The name of the service account that's used to run the pod. For more information, see [Kubernetes service accounts](https://docs.aws.amazon.com/eks/latest/userguide/service-accounts.html) and [Configure a Kubernetes service account to assume an IAM role](https://docs.aws.amazon.com/eks/latest/userguide/associate-service-account-role.html) in the *Amazon EKS User Guide* and [Configure service accounts for pods](https://docs.aws.amazon.com/https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/) in the *Kubernetes documentation* .
-	ServiceAccountName pulumi.StringPtrInput `pulumi:"serviceAccountName"`
-	// Indicates if the processes in a container are shared, or visible, to other containers in the same pod. For more information, see [Share Process Namespace between Containers in a Pod](https://docs.aws.amazon.com/https://kubernetes.io/docs/tasks/configure-pod-container/share-process-namespace/) .
-	ShareProcessNamespace pulumi.BoolPtrInput `pulumi:"shareProcessNamespace"`
-	// Specifies the volumes for a job definition that uses Amazon EKS resources.
-	Volumes JobDefinitionEksVolumeArrayInput `pulumi:"volumes"`
-}
-
-func (JobDefinitionPodPropertiesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobDefinitionPodProperties)(nil)).Elem()
-}
-
-func (i JobDefinitionPodPropertiesArgs) ToJobDefinitionPodPropertiesOutput() JobDefinitionPodPropertiesOutput {
-	return i.ToJobDefinitionPodPropertiesOutputWithContext(context.Background())
-}
-
-func (i JobDefinitionPodPropertiesArgs) ToJobDefinitionPodPropertiesOutputWithContext(ctx context.Context) JobDefinitionPodPropertiesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionPodPropertiesOutput)
-}
-
-func (i JobDefinitionPodPropertiesArgs) ToJobDefinitionPodPropertiesPtrOutput() JobDefinitionPodPropertiesPtrOutput {
-	return i.ToJobDefinitionPodPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i JobDefinitionPodPropertiesArgs) ToJobDefinitionPodPropertiesPtrOutputWithContext(ctx context.Context) JobDefinitionPodPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionPodPropertiesOutput).ToJobDefinitionPodPropertiesPtrOutputWithContext(ctx)
-}
-
-// JobDefinitionPodPropertiesPtrInput is an input type that accepts JobDefinitionPodPropertiesArgs, JobDefinitionPodPropertiesPtr and JobDefinitionPodPropertiesPtrOutput values.
-// You can construct a concrete instance of `JobDefinitionPodPropertiesPtrInput` via:
-//
-//	        JobDefinitionPodPropertiesArgs{...}
-//
-//	or:
-//
-//	        nil
-type JobDefinitionPodPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToJobDefinitionPodPropertiesPtrOutput() JobDefinitionPodPropertiesPtrOutput
-	ToJobDefinitionPodPropertiesPtrOutputWithContext(context.Context) JobDefinitionPodPropertiesPtrOutput
-}
-
-type jobDefinitionPodPropertiesPtrType JobDefinitionPodPropertiesArgs
-
-func JobDefinitionPodPropertiesPtr(v *JobDefinitionPodPropertiesArgs) JobDefinitionPodPropertiesPtrInput {
-	return (*jobDefinitionPodPropertiesPtrType)(v)
-}
-
-func (*jobDefinitionPodPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**JobDefinitionPodProperties)(nil)).Elem()
-}
-
-func (i *jobDefinitionPodPropertiesPtrType) ToJobDefinitionPodPropertiesPtrOutput() JobDefinitionPodPropertiesPtrOutput {
-	return i.ToJobDefinitionPodPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *jobDefinitionPodPropertiesPtrType) ToJobDefinitionPodPropertiesPtrOutputWithContext(ctx context.Context) JobDefinitionPodPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionPodPropertiesPtrOutput)
-}
-
-type JobDefinitionPodPropertiesOutput struct{ *pulumi.OutputState }
-
-func (JobDefinitionPodPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobDefinitionPodProperties)(nil)).Elem()
-}
-
-func (o JobDefinitionPodPropertiesOutput) ToJobDefinitionPodPropertiesOutput() JobDefinitionPodPropertiesOutput {
-	return o
-}
-
-func (o JobDefinitionPodPropertiesOutput) ToJobDefinitionPodPropertiesOutputWithContext(ctx context.Context) JobDefinitionPodPropertiesOutput {
-	return o
-}
-
-func (o JobDefinitionPodPropertiesOutput) ToJobDefinitionPodPropertiesPtrOutput() JobDefinitionPodPropertiesPtrOutput {
-	return o.ToJobDefinitionPodPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o JobDefinitionPodPropertiesOutput) ToJobDefinitionPodPropertiesPtrOutputWithContext(ctx context.Context) JobDefinitionPodPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobDefinitionPodProperties) *JobDefinitionPodProperties {
-		return &v
-	}).(JobDefinitionPodPropertiesPtrOutput)
-}
-
-// The properties of the container that's used on the Amazon EKS pod.
-//
-// > This object is limited to 10 elements.
-func (o JobDefinitionPodPropertiesOutput) Containers() JobDefinitionEksContainerArrayOutput {
-	return o.ApplyT(func(v JobDefinitionPodProperties) []JobDefinitionEksContainer { return v.Containers }).(JobDefinitionEksContainerArrayOutput)
-}
-
-// The DNS policy for the pod. The default value is `ClusterFirst` . If the `hostNetwork` parameter is not specified, the default is `ClusterFirstWithHostNet` . `ClusterFirst` indicates that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver inherited from the node. For more information, see [Pod's DNS policy](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy) in the *Kubernetes documentation* .
-//
-// Valid values: `Default` | `ClusterFirst` | `ClusterFirstWithHostNet`
-func (o JobDefinitionPodPropertiesOutput) DnsPolicy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v JobDefinitionPodProperties) *string { return v.DnsPolicy }).(pulumi.StringPtrOutput)
-}
-
-// Indicates if the pod uses the hosts' network IP address. The default value is `true` . Setting this to `false` enables the Kubernetes pod networking model. Most AWS Batch workloads are egress-only and don't require the overhead of IP allocation for each pod for incoming connections. For more information, see [Host namespaces](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/security/pod-security-policy/#host-namespaces) and [Pod networking](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/workloads/pods/#pod-networking) in the *Kubernetes documentation* .
-func (o JobDefinitionPodPropertiesOutput) HostNetwork() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v JobDefinitionPodProperties) *bool { return v.HostNetwork }).(pulumi.BoolPtrOutput)
-}
-
-func (o JobDefinitionPodPropertiesOutput) ImagePullSecrets() JobDefinitionImagePullSecretArrayOutput {
-	return o.ApplyT(func(v JobDefinitionPodProperties) []JobDefinitionImagePullSecret { return v.ImagePullSecrets }).(JobDefinitionImagePullSecretArrayOutput)
-}
-
-// These containers run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. For more information, see [Init Containers](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/workloads/pods/init-containers/) in the *Kubernetes documentation* .
-//
-// > This object is limited to 10 elements.
-func (o JobDefinitionPodPropertiesOutput) InitContainers() JobDefinitionEksContainerArrayOutput {
-	return o.ApplyT(func(v JobDefinitionPodProperties) []JobDefinitionEksContainer { return v.InitContainers }).(JobDefinitionEksContainerArrayOutput)
-}
-
-// Metadata about the Kubernetes pod. For more information, see [Understanding Kubernetes Objects](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/overview/working-with-objects/kubernetes-objects/) in the *Kubernetes documentation* .
-func (o JobDefinitionPodPropertiesOutput) Metadata() JobDefinitionMetadataPtrOutput {
-	return o.ApplyT(func(v JobDefinitionPodProperties) *JobDefinitionMetadata { return v.Metadata }).(JobDefinitionMetadataPtrOutput)
-}
-
-// The name of the service account that's used to run the pod. For more information, see [Kubernetes service accounts](https://docs.aws.amazon.com/eks/latest/userguide/service-accounts.html) and [Configure a Kubernetes service account to assume an IAM role](https://docs.aws.amazon.com/eks/latest/userguide/associate-service-account-role.html) in the *Amazon EKS User Guide* and [Configure service accounts for pods](https://docs.aws.amazon.com/https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/) in the *Kubernetes documentation* .
-func (o JobDefinitionPodPropertiesOutput) ServiceAccountName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v JobDefinitionPodProperties) *string { return v.ServiceAccountName }).(pulumi.StringPtrOutput)
-}
-
-// Indicates if the processes in a container are shared, or visible, to other containers in the same pod. For more information, see [Share Process Namespace between Containers in a Pod](https://docs.aws.amazon.com/https://kubernetes.io/docs/tasks/configure-pod-container/share-process-namespace/) .
-func (o JobDefinitionPodPropertiesOutput) ShareProcessNamespace() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v JobDefinitionPodProperties) *bool { return v.ShareProcessNamespace }).(pulumi.BoolPtrOutput)
-}
-
-// Specifies the volumes for a job definition that uses Amazon EKS resources.
-func (o JobDefinitionPodPropertiesOutput) Volumes() JobDefinitionEksVolumeArrayOutput {
-	return o.ApplyT(func(v JobDefinitionPodProperties) []JobDefinitionEksVolume { return v.Volumes }).(JobDefinitionEksVolumeArrayOutput)
-}
-
-type JobDefinitionPodPropertiesPtrOutput struct{ *pulumi.OutputState }
-
-func (JobDefinitionPodPropertiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**JobDefinitionPodProperties)(nil)).Elem()
-}
-
-func (o JobDefinitionPodPropertiesPtrOutput) ToJobDefinitionPodPropertiesPtrOutput() JobDefinitionPodPropertiesPtrOutput {
-	return o
-}
-
-func (o JobDefinitionPodPropertiesPtrOutput) ToJobDefinitionPodPropertiesPtrOutputWithContext(ctx context.Context) JobDefinitionPodPropertiesPtrOutput {
-	return o
-}
-
-func (o JobDefinitionPodPropertiesPtrOutput) Elem() JobDefinitionPodPropertiesOutput {
-	return o.ApplyT(func(v *JobDefinitionPodProperties) JobDefinitionPodProperties {
-		if v != nil {
-			return *v
-		}
-		var ret JobDefinitionPodProperties
-		return ret
-	}).(JobDefinitionPodPropertiesOutput)
-}
-
-// The properties of the container that's used on the Amazon EKS pod.
-//
-// > This object is limited to 10 elements.
-func (o JobDefinitionPodPropertiesPtrOutput) Containers() JobDefinitionEksContainerArrayOutput {
-	return o.ApplyT(func(v *JobDefinitionPodProperties) []JobDefinitionEksContainer {
-		if v == nil {
-			return nil
-		}
-		return v.Containers
-	}).(JobDefinitionEksContainerArrayOutput)
-}
-
-// The DNS policy for the pod. The default value is `ClusterFirst` . If the `hostNetwork` parameter is not specified, the default is `ClusterFirstWithHostNet` . `ClusterFirst` indicates that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver inherited from the node. For more information, see [Pod's DNS policy](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy) in the *Kubernetes documentation* .
-//
-// Valid values: `Default` | `ClusterFirst` | `ClusterFirstWithHostNet`
-func (o JobDefinitionPodPropertiesPtrOutput) DnsPolicy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *JobDefinitionPodProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DnsPolicy
-	}).(pulumi.StringPtrOutput)
-}
-
-// Indicates if the pod uses the hosts' network IP address. The default value is `true` . Setting this to `false` enables the Kubernetes pod networking model. Most AWS Batch workloads are egress-only and don't require the overhead of IP allocation for each pod for incoming connections. For more information, see [Host namespaces](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/security/pod-security-policy/#host-namespaces) and [Pod networking](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/workloads/pods/#pod-networking) in the *Kubernetes documentation* .
-func (o JobDefinitionPodPropertiesPtrOutput) HostNetwork() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *JobDefinitionPodProperties) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.HostNetwork
-	}).(pulumi.BoolPtrOutput)
-}
-
-func (o JobDefinitionPodPropertiesPtrOutput) ImagePullSecrets() JobDefinitionImagePullSecretArrayOutput {
-	return o.ApplyT(func(v *JobDefinitionPodProperties) []JobDefinitionImagePullSecret {
-		if v == nil {
-			return nil
-		}
-		return v.ImagePullSecrets
-	}).(JobDefinitionImagePullSecretArrayOutput)
-}
-
-// These containers run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. For more information, see [Init Containers](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/workloads/pods/init-containers/) in the *Kubernetes documentation* .
-//
-// > This object is limited to 10 elements.
-func (o JobDefinitionPodPropertiesPtrOutput) InitContainers() JobDefinitionEksContainerArrayOutput {
-	return o.ApplyT(func(v *JobDefinitionPodProperties) []JobDefinitionEksContainer {
-		if v == nil {
-			return nil
-		}
-		return v.InitContainers
-	}).(JobDefinitionEksContainerArrayOutput)
-}
-
-// Metadata about the Kubernetes pod. For more information, see [Understanding Kubernetes Objects](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/overview/working-with-objects/kubernetes-objects/) in the *Kubernetes documentation* .
-func (o JobDefinitionPodPropertiesPtrOutput) Metadata() JobDefinitionMetadataPtrOutput {
-	return o.ApplyT(func(v *JobDefinitionPodProperties) *JobDefinitionMetadata {
-		if v == nil {
-			return nil
-		}
-		return v.Metadata
-	}).(JobDefinitionMetadataPtrOutput)
-}
-
-// The name of the service account that's used to run the pod. For more information, see [Kubernetes service accounts](https://docs.aws.amazon.com/eks/latest/userguide/service-accounts.html) and [Configure a Kubernetes service account to assume an IAM role](https://docs.aws.amazon.com/eks/latest/userguide/associate-service-account-role.html) in the *Amazon EKS User Guide* and [Configure service accounts for pods](https://docs.aws.amazon.com/https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/) in the *Kubernetes documentation* .
-func (o JobDefinitionPodPropertiesPtrOutput) ServiceAccountName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *JobDefinitionPodProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ServiceAccountName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Indicates if the processes in a container are shared, or visible, to other containers in the same pod. For more information, see [Share Process Namespace between Containers in a Pod](https://docs.aws.amazon.com/https://kubernetes.io/docs/tasks/configure-pod-container/share-process-namespace/) .
-func (o JobDefinitionPodPropertiesPtrOutput) ShareProcessNamespace() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *JobDefinitionPodProperties) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.ShareProcessNamespace
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Specifies the volumes for a job definition that uses Amazon EKS resources.
-func (o JobDefinitionPodPropertiesPtrOutput) Volumes() JobDefinitionEksVolumeArrayOutput {
-	return o.ApplyT(func(v *JobDefinitionPodProperties) []JobDefinitionEksVolume {
-		if v == nil {
-			return nil
-		}
-		return v.Volumes
-	}).(JobDefinitionEksVolumeArrayOutput)
 }
 
 type JobDefinitionRepositoryCredentials struct {
@@ -7902,7 +8892,7 @@ type JobDefinitionTaskContainerProperties struct {
 	// This parameter maps to `Volumes` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the [--volume](https://docs.aws.amazon.com/) option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration) .
 	//
 	// Windows containers can mount whole directories on the same drive as `$env:ProgramData` . Windows containers can't mount directories on a different drive, and mount point can't be across drives.
-	MountPoints []JobDefinitionMountPoints `pulumi:"mountPoints"`
+	MountPoints []JobDefinitionMountPoint `pulumi:"mountPoints"`
 	// The name of a container. The name can be used as a unique identifier to target your `dependsOn` and `Overrides` objects.
 	Name *string `pulumi:"name"`
 	// When this parameter is `true` , the container is given elevated privileges on the host container instance (similar to the `root` user). This parameter maps to `Privileged` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the `--privileged` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration) .
@@ -7989,7 +8979,7 @@ type JobDefinitionTaskContainerPropertiesArgs struct {
 	// This parameter maps to `Volumes` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the [--volume](https://docs.aws.amazon.com/) option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration) .
 	//
 	// Windows containers can mount whole directories on the same drive as `$env:ProgramData` . Windows containers can't mount directories on a different drive, and mount point can't be across drives.
-	MountPoints JobDefinitionMountPointsArrayInput `pulumi:"mountPoints"`
+	MountPoints JobDefinitionMountPointArrayInput `pulumi:"mountPoints"`
 	// The name of a container. The name can be used as a unique identifier to target your `dependsOn` and `Overrides` objects.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// When this parameter is `true` , the container is given elevated privileges on the host container instance (similar to the `root` user). This parameter maps to `Privileged` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the `--privileged` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration) .
@@ -8138,8 +9128,8 @@ func (o JobDefinitionTaskContainerPropertiesOutput) LogConfiguration() JobDefini
 // This parameter maps to `Volumes` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the [--volume](https://docs.aws.amazon.com/) option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration) .
 //
 // Windows containers can mount whole directories on the same drive as `$env:ProgramData` . Windows containers can't mount directories on a different drive, and mount point can't be across drives.
-func (o JobDefinitionTaskContainerPropertiesOutput) MountPoints() JobDefinitionMountPointsArrayOutput {
-	return o.ApplyT(func(v JobDefinitionTaskContainerProperties) []JobDefinitionMountPoints { return v.MountPoints }).(JobDefinitionMountPointsArrayOutput)
+func (o JobDefinitionTaskContainerPropertiesOutput) MountPoints() JobDefinitionMountPointArrayOutput {
+	return o.ApplyT(func(v JobDefinitionTaskContainerProperties) []JobDefinitionMountPoint { return v.MountPoints }).(JobDefinitionMountPointArrayOutput)
 }
 
 // The name of a container. The name can be used as a unique identifier to target your `dependsOn` and `Overrides` objects.
@@ -8227,159 +9217,6 @@ func (o JobDefinitionTaskContainerPropertiesArrayOutput) Index(i pulumi.IntInput
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobDefinitionTaskContainerProperties {
 		return vs[0].([]JobDefinitionTaskContainerProperties)[vs[1].(int)]
 	}).(JobDefinitionTaskContainerPropertiesOutput)
-}
-
-type JobDefinitionTimeout struct {
-	// The job timeout time (in seconds) that's measured from the job attempt's `startedAt` timestamp. After this time passes, AWS Batch terminates your jobs if they aren't finished. The minimum value for the timeout is 60 seconds.
-	//
-	// For array jobs, the timeout applies to the child jobs, not to the parent array job.
-	//
-	// For multi-node parallel (MNP) jobs, the timeout applies to the whole job, not to the individual nodes.
-	AttemptDurationSeconds *int `pulumi:"attemptDurationSeconds"`
-}
-
-// JobDefinitionTimeoutInput is an input type that accepts JobDefinitionTimeoutArgs and JobDefinitionTimeoutOutput values.
-// You can construct a concrete instance of `JobDefinitionTimeoutInput` via:
-//
-//	JobDefinitionTimeoutArgs{...}
-type JobDefinitionTimeoutInput interface {
-	pulumi.Input
-
-	ToJobDefinitionTimeoutOutput() JobDefinitionTimeoutOutput
-	ToJobDefinitionTimeoutOutputWithContext(context.Context) JobDefinitionTimeoutOutput
-}
-
-type JobDefinitionTimeoutArgs struct {
-	// The job timeout time (in seconds) that's measured from the job attempt's `startedAt` timestamp. After this time passes, AWS Batch terminates your jobs if they aren't finished. The minimum value for the timeout is 60 seconds.
-	//
-	// For array jobs, the timeout applies to the child jobs, not to the parent array job.
-	//
-	// For multi-node parallel (MNP) jobs, the timeout applies to the whole job, not to the individual nodes.
-	AttemptDurationSeconds pulumi.IntPtrInput `pulumi:"attemptDurationSeconds"`
-}
-
-func (JobDefinitionTimeoutArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobDefinitionTimeout)(nil)).Elem()
-}
-
-func (i JobDefinitionTimeoutArgs) ToJobDefinitionTimeoutOutput() JobDefinitionTimeoutOutput {
-	return i.ToJobDefinitionTimeoutOutputWithContext(context.Background())
-}
-
-func (i JobDefinitionTimeoutArgs) ToJobDefinitionTimeoutOutputWithContext(ctx context.Context) JobDefinitionTimeoutOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionTimeoutOutput)
-}
-
-func (i JobDefinitionTimeoutArgs) ToJobDefinitionTimeoutPtrOutput() JobDefinitionTimeoutPtrOutput {
-	return i.ToJobDefinitionTimeoutPtrOutputWithContext(context.Background())
-}
-
-func (i JobDefinitionTimeoutArgs) ToJobDefinitionTimeoutPtrOutputWithContext(ctx context.Context) JobDefinitionTimeoutPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionTimeoutOutput).ToJobDefinitionTimeoutPtrOutputWithContext(ctx)
-}
-
-// JobDefinitionTimeoutPtrInput is an input type that accepts JobDefinitionTimeoutArgs, JobDefinitionTimeoutPtr and JobDefinitionTimeoutPtrOutput values.
-// You can construct a concrete instance of `JobDefinitionTimeoutPtrInput` via:
-//
-//	        JobDefinitionTimeoutArgs{...}
-//
-//	or:
-//
-//	        nil
-type JobDefinitionTimeoutPtrInput interface {
-	pulumi.Input
-
-	ToJobDefinitionTimeoutPtrOutput() JobDefinitionTimeoutPtrOutput
-	ToJobDefinitionTimeoutPtrOutputWithContext(context.Context) JobDefinitionTimeoutPtrOutput
-}
-
-type jobDefinitionTimeoutPtrType JobDefinitionTimeoutArgs
-
-func JobDefinitionTimeoutPtr(v *JobDefinitionTimeoutArgs) JobDefinitionTimeoutPtrInput {
-	return (*jobDefinitionTimeoutPtrType)(v)
-}
-
-func (*jobDefinitionTimeoutPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**JobDefinitionTimeout)(nil)).Elem()
-}
-
-func (i *jobDefinitionTimeoutPtrType) ToJobDefinitionTimeoutPtrOutput() JobDefinitionTimeoutPtrOutput {
-	return i.ToJobDefinitionTimeoutPtrOutputWithContext(context.Background())
-}
-
-func (i *jobDefinitionTimeoutPtrType) ToJobDefinitionTimeoutPtrOutputWithContext(ctx context.Context) JobDefinitionTimeoutPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionTimeoutPtrOutput)
-}
-
-type JobDefinitionTimeoutOutput struct{ *pulumi.OutputState }
-
-func (JobDefinitionTimeoutOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobDefinitionTimeout)(nil)).Elem()
-}
-
-func (o JobDefinitionTimeoutOutput) ToJobDefinitionTimeoutOutput() JobDefinitionTimeoutOutput {
-	return o
-}
-
-func (o JobDefinitionTimeoutOutput) ToJobDefinitionTimeoutOutputWithContext(ctx context.Context) JobDefinitionTimeoutOutput {
-	return o
-}
-
-func (o JobDefinitionTimeoutOutput) ToJobDefinitionTimeoutPtrOutput() JobDefinitionTimeoutPtrOutput {
-	return o.ToJobDefinitionTimeoutPtrOutputWithContext(context.Background())
-}
-
-func (o JobDefinitionTimeoutOutput) ToJobDefinitionTimeoutPtrOutputWithContext(ctx context.Context) JobDefinitionTimeoutPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobDefinitionTimeout) *JobDefinitionTimeout {
-		return &v
-	}).(JobDefinitionTimeoutPtrOutput)
-}
-
-// The job timeout time (in seconds) that's measured from the job attempt's `startedAt` timestamp. After this time passes, AWS Batch terminates your jobs if they aren't finished. The minimum value for the timeout is 60 seconds.
-//
-// For array jobs, the timeout applies to the child jobs, not to the parent array job.
-//
-// For multi-node parallel (MNP) jobs, the timeout applies to the whole job, not to the individual nodes.
-func (o JobDefinitionTimeoutOutput) AttemptDurationSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v JobDefinitionTimeout) *int { return v.AttemptDurationSeconds }).(pulumi.IntPtrOutput)
-}
-
-type JobDefinitionTimeoutPtrOutput struct{ *pulumi.OutputState }
-
-func (JobDefinitionTimeoutPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**JobDefinitionTimeout)(nil)).Elem()
-}
-
-func (o JobDefinitionTimeoutPtrOutput) ToJobDefinitionTimeoutPtrOutput() JobDefinitionTimeoutPtrOutput {
-	return o
-}
-
-func (o JobDefinitionTimeoutPtrOutput) ToJobDefinitionTimeoutPtrOutputWithContext(ctx context.Context) JobDefinitionTimeoutPtrOutput {
-	return o
-}
-
-func (o JobDefinitionTimeoutPtrOutput) Elem() JobDefinitionTimeoutOutput {
-	return o.ApplyT(func(v *JobDefinitionTimeout) JobDefinitionTimeout {
-		if v != nil {
-			return *v
-		}
-		var ret JobDefinitionTimeout
-		return ret
-	}).(JobDefinitionTimeoutOutput)
-}
-
-// The job timeout time (in seconds) that's measured from the job attempt's `startedAt` timestamp. After this time passes, AWS Batch terminates your jobs if they aren't finished. The minimum value for the timeout is 60 seconds.
-//
-// For array jobs, the timeout applies to the child jobs, not to the parent array job.
-//
-// For multi-node parallel (MNP) jobs, the timeout applies to the whole job, not to the individual nodes.
-func (o JobDefinitionTimeoutPtrOutput) AttemptDurationSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *JobDefinitionTimeout) *int {
-		if v == nil {
-			return nil
-		}
-		return v.AttemptDurationSeconds
-	}).(pulumi.IntPtrOutput)
 }
 
 type JobDefinitionTmpfs struct {
@@ -8618,270 +9455,125 @@ func (o JobDefinitionUlimitArrayOutput) Index(i pulumi.IntInput) JobDefinitionUl
 	}).(JobDefinitionUlimitOutput)
 }
 
-type JobDefinitionVolumes struct {
-	// This is used when you're using an Amazon Elastic File System file system for job storage. For more information, see [Amazon EFS Volumes](https://docs.aws.amazon.com/batch/latest/userguide/efs-volumes.html) in the *AWS Batch User Guide* .
+type JobDefinitionVolume struct {
+	// This parameter is specified when you're using an Amazon Elastic File System file system for job storage. Jobs that are running on Fargate resources must specify a `platformVersion` of at least `1.4.0` .
 	EfsVolumeConfiguration *JobDefinitionEfsVolumeConfiguration `pulumi:"efsVolumeConfiguration"`
 	// The contents of the `host` parameter determine whether your data volume persists on the host container instance and where it's stored. If the host parameter is empty, then the Docker daemon assigns a host path for your data volume. However, the data isn't guaranteed to persist after the containers that are associated with it stop running.
 	//
 	// > This parameter isn't applicable to jobs that are running on Fargate resources and shouldn't be provided.
-	Host *JobDefinitionVolumesHost `pulumi:"host"`
+	Host *JobDefinitionHost `pulumi:"host"`
 	// The name of the volume. It can be up to 255 characters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_). This name is referenced in the `sourceVolume` parameter of container definition `mountPoints` .
 	Name *string `pulumi:"name"`
 }
 
-// JobDefinitionVolumesInput is an input type that accepts JobDefinitionVolumesArgs and JobDefinitionVolumesOutput values.
-// You can construct a concrete instance of `JobDefinitionVolumesInput` via:
+// JobDefinitionVolumeInput is an input type that accepts JobDefinitionVolumeArgs and JobDefinitionVolumeOutput values.
+// You can construct a concrete instance of `JobDefinitionVolumeInput` via:
 //
-//	JobDefinitionVolumesArgs{...}
-type JobDefinitionVolumesInput interface {
+//	JobDefinitionVolumeArgs{...}
+type JobDefinitionVolumeInput interface {
 	pulumi.Input
 
-	ToJobDefinitionVolumesOutput() JobDefinitionVolumesOutput
-	ToJobDefinitionVolumesOutputWithContext(context.Context) JobDefinitionVolumesOutput
+	ToJobDefinitionVolumeOutput() JobDefinitionVolumeOutput
+	ToJobDefinitionVolumeOutputWithContext(context.Context) JobDefinitionVolumeOutput
 }
 
-type JobDefinitionVolumesArgs struct {
-	// This is used when you're using an Amazon Elastic File System file system for job storage. For more information, see [Amazon EFS Volumes](https://docs.aws.amazon.com/batch/latest/userguide/efs-volumes.html) in the *AWS Batch User Guide* .
+type JobDefinitionVolumeArgs struct {
+	// This parameter is specified when you're using an Amazon Elastic File System file system for job storage. Jobs that are running on Fargate resources must specify a `platformVersion` of at least `1.4.0` .
 	EfsVolumeConfiguration JobDefinitionEfsVolumeConfigurationPtrInput `pulumi:"efsVolumeConfiguration"`
 	// The contents of the `host` parameter determine whether your data volume persists on the host container instance and where it's stored. If the host parameter is empty, then the Docker daemon assigns a host path for your data volume. However, the data isn't guaranteed to persist after the containers that are associated with it stop running.
 	//
 	// > This parameter isn't applicable to jobs that are running on Fargate resources and shouldn't be provided.
-	Host JobDefinitionVolumesHostPtrInput `pulumi:"host"`
+	Host JobDefinitionHostPtrInput `pulumi:"host"`
 	// The name of the volume. It can be up to 255 characters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_). This name is referenced in the `sourceVolume` parameter of container definition `mountPoints` .
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
 
-func (JobDefinitionVolumesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobDefinitionVolumes)(nil)).Elem()
+func (JobDefinitionVolumeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionVolume)(nil)).Elem()
 }
 
-func (i JobDefinitionVolumesArgs) ToJobDefinitionVolumesOutput() JobDefinitionVolumesOutput {
-	return i.ToJobDefinitionVolumesOutputWithContext(context.Background())
+func (i JobDefinitionVolumeArgs) ToJobDefinitionVolumeOutput() JobDefinitionVolumeOutput {
+	return i.ToJobDefinitionVolumeOutputWithContext(context.Background())
 }
 
-func (i JobDefinitionVolumesArgs) ToJobDefinitionVolumesOutputWithContext(ctx context.Context) JobDefinitionVolumesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionVolumesOutput)
+func (i JobDefinitionVolumeArgs) ToJobDefinitionVolumeOutputWithContext(ctx context.Context) JobDefinitionVolumeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionVolumeOutput)
 }
 
-// JobDefinitionVolumesArrayInput is an input type that accepts JobDefinitionVolumesArray and JobDefinitionVolumesArrayOutput values.
-// You can construct a concrete instance of `JobDefinitionVolumesArrayInput` via:
+// JobDefinitionVolumeArrayInput is an input type that accepts JobDefinitionVolumeArray and JobDefinitionVolumeArrayOutput values.
+// You can construct a concrete instance of `JobDefinitionVolumeArrayInput` via:
 //
-//	JobDefinitionVolumesArray{ JobDefinitionVolumesArgs{...} }
-type JobDefinitionVolumesArrayInput interface {
+//	JobDefinitionVolumeArray{ JobDefinitionVolumeArgs{...} }
+type JobDefinitionVolumeArrayInput interface {
 	pulumi.Input
 
-	ToJobDefinitionVolumesArrayOutput() JobDefinitionVolumesArrayOutput
-	ToJobDefinitionVolumesArrayOutputWithContext(context.Context) JobDefinitionVolumesArrayOutput
+	ToJobDefinitionVolumeArrayOutput() JobDefinitionVolumeArrayOutput
+	ToJobDefinitionVolumeArrayOutputWithContext(context.Context) JobDefinitionVolumeArrayOutput
 }
 
-type JobDefinitionVolumesArray []JobDefinitionVolumesInput
+type JobDefinitionVolumeArray []JobDefinitionVolumeInput
 
-func (JobDefinitionVolumesArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]JobDefinitionVolumes)(nil)).Elem()
+func (JobDefinitionVolumeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobDefinitionVolume)(nil)).Elem()
 }
 
-func (i JobDefinitionVolumesArray) ToJobDefinitionVolumesArrayOutput() JobDefinitionVolumesArrayOutput {
-	return i.ToJobDefinitionVolumesArrayOutputWithContext(context.Background())
+func (i JobDefinitionVolumeArray) ToJobDefinitionVolumeArrayOutput() JobDefinitionVolumeArrayOutput {
+	return i.ToJobDefinitionVolumeArrayOutputWithContext(context.Background())
 }
 
-func (i JobDefinitionVolumesArray) ToJobDefinitionVolumesArrayOutputWithContext(ctx context.Context) JobDefinitionVolumesArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionVolumesArrayOutput)
+func (i JobDefinitionVolumeArray) ToJobDefinitionVolumeArrayOutputWithContext(ctx context.Context) JobDefinitionVolumeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionVolumeArrayOutput)
 }
 
-type JobDefinitionVolumesOutput struct{ *pulumi.OutputState }
+type JobDefinitionVolumeOutput struct{ *pulumi.OutputState }
 
-func (JobDefinitionVolumesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobDefinitionVolumes)(nil)).Elem()
+func (JobDefinitionVolumeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobDefinitionVolume)(nil)).Elem()
 }
 
-func (o JobDefinitionVolumesOutput) ToJobDefinitionVolumesOutput() JobDefinitionVolumesOutput {
+func (o JobDefinitionVolumeOutput) ToJobDefinitionVolumeOutput() JobDefinitionVolumeOutput {
 	return o
 }
 
-func (o JobDefinitionVolumesOutput) ToJobDefinitionVolumesOutputWithContext(ctx context.Context) JobDefinitionVolumesOutput {
+func (o JobDefinitionVolumeOutput) ToJobDefinitionVolumeOutputWithContext(ctx context.Context) JobDefinitionVolumeOutput {
 	return o
 }
 
-// This is used when you're using an Amazon Elastic File System file system for job storage. For more information, see [Amazon EFS Volumes](https://docs.aws.amazon.com/batch/latest/userguide/efs-volumes.html) in the *AWS Batch User Guide* .
-func (o JobDefinitionVolumesOutput) EfsVolumeConfiguration() JobDefinitionEfsVolumeConfigurationPtrOutput {
-	return o.ApplyT(func(v JobDefinitionVolumes) *JobDefinitionEfsVolumeConfiguration { return v.EfsVolumeConfiguration }).(JobDefinitionEfsVolumeConfigurationPtrOutput)
+// This parameter is specified when you're using an Amazon Elastic File System file system for job storage. Jobs that are running on Fargate resources must specify a `platformVersion` of at least `1.4.0` .
+func (o JobDefinitionVolumeOutput) EfsVolumeConfiguration() JobDefinitionEfsVolumeConfigurationPtrOutput {
+	return o.ApplyT(func(v JobDefinitionVolume) *JobDefinitionEfsVolumeConfiguration { return v.EfsVolumeConfiguration }).(JobDefinitionEfsVolumeConfigurationPtrOutput)
 }
 
 // The contents of the `host` parameter determine whether your data volume persists on the host container instance and where it's stored. If the host parameter is empty, then the Docker daemon assigns a host path for your data volume. However, the data isn't guaranteed to persist after the containers that are associated with it stop running.
 //
 // > This parameter isn't applicable to jobs that are running on Fargate resources and shouldn't be provided.
-func (o JobDefinitionVolumesOutput) Host() JobDefinitionVolumesHostPtrOutput {
-	return o.ApplyT(func(v JobDefinitionVolumes) *JobDefinitionVolumesHost { return v.Host }).(JobDefinitionVolumesHostPtrOutput)
+func (o JobDefinitionVolumeOutput) Host() JobDefinitionHostPtrOutput {
+	return o.ApplyT(func(v JobDefinitionVolume) *JobDefinitionHost { return v.Host }).(JobDefinitionHostPtrOutput)
 }
 
 // The name of the volume. It can be up to 255 characters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_). This name is referenced in the `sourceVolume` parameter of container definition `mountPoints` .
-func (o JobDefinitionVolumesOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v JobDefinitionVolumes) *string { return v.Name }).(pulumi.StringPtrOutput)
+func (o JobDefinitionVolumeOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobDefinitionVolume) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-type JobDefinitionVolumesArrayOutput struct{ *pulumi.OutputState }
+type JobDefinitionVolumeArrayOutput struct{ *pulumi.OutputState }
 
-func (JobDefinitionVolumesArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]JobDefinitionVolumes)(nil)).Elem()
+func (JobDefinitionVolumeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobDefinitionVolume)(nil)).Elem()
 }
 
-func (o JobDefinitionVolumesArrayOutput) ToJobDefinitionVolumesArrayOutput() JobDefinitionVolumesArrayOutput {
+func (o JobDefinitionVolumeArrayOutput) ToJobDefinitionVolumeArrayOutput() JobDefinitionVolumeArrayOutput {
 	return o
 }
 
-func (o JobDefinitionVolumesArrayOutput) ToJobDefinitionVolumesArrayOutputWithContext(ctx context.Context) JobDefinitionVolumesArrayOutput {
+func (o JobDefinitionVolumeArrayOutput) ToJobDefinitionVolumeArrayOutputWithContext(ctx context.Context) JobDefinitionVolumeArrayOutput {
 	return o
 }
 
-func (o JobDefinitionVolumesArrayOutput) Index(i pulumi.IntInput) JobDefinitionVolumesOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobDefinitionVolumes {
-		return vs[0].([]JobDefinitionVolumes)[vs[1].(int)]
-	}).(JobDefinitionVolumesOutput)
-}
-
-type JobDefinitionVolumesHost struct {
-	// The path on the host container instance that's presented to the container. If this parameter is empty, then the Docker daemon has assigned a host path for you. If this parameter contains a file location, then the data volume persists at the specified location on the host container instance until you delete it manually. If the source path location doesn't exist on the host container instance, the Docker daemon creates it. If the location does exist, the contents of the source path folder are exported.
-	//
-	// > This parameter isn't applicable to jobs that run on Fargate resources. Don't provide this for these jobs.
-	SourcePath *string `pulumi:"sourcePath"`
-}
-
-// JobDefinitionVolumesHostInput is an input type that accepts JobDefinitionVolumesHostArgs and JobDefinitionVolumesHostOutput values.
-// You can construct a concrete instance of `JobDefinitionVolumesHostInput` via:
-//
-//	JobDefinitionVolumesHostArgs{...}
-type JobDefinitionVolumesHostInput interface {
-	pulumi.Input
-
-	ToJobDefinitionVolumesHostOutput() JobDefinitionVolumesHostOutput
-	ToJobDefinitionVolumesHostOutputWithContext(context.Context) JobDefinitionVolumesHostOutput
-}
-
-type JobDefinitionVolumesHostArgs struct {
-	// The path on the host container instance that's presented to the container. If this parameter is empty, then the Docker daemon has assigned a host path for you. If this parameter contains a file location, then the data volume persists at the specified location on the host container instance until you delete it manually. If the source path location doesn't exist on the host container instance, the Docker daemon creates it. If the location does exist, the contents of the source path folder are exported.
-	//
-	// > This parameter isn't applicable to jobs that run on Fargate resources. Don't provide this for these jobs.
-	SourcePath pulumi.StringPtrInput `pulumi:"sourcePath"`
-}
-
-func (JobDefinitionVolumesHostArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobDefinitionVolumesHost)(nil)).Elem()
-}
-
-func (i JobDefinitionVolumesHostArgs) ToJobDefinitionVolumesHostOutput() JobDefinitionVolumesHostOutput {
-	return i.ToJobDefinitionVolumesHostOutputWithContext(context.Background())
-}
-
-func (i JobDefinitionVolumesHostArgs) ToJobDefinitionVolumesHostOutputWithContext(ctx context.Context) JobDefinitionVolumesHostOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionVolumesHostOutput)
-}
-
-func (i JobDefinitionVolumesHostArgs) ToJobDefinitionVolumesHostPtrOutput() JobDefinitionVolumesHostPtrOutput {
-	return i.ToJobDefinitionVolumesHostPtrOutputWithContext(context.Background())
-}
-
-func (i JobDefinitionVolumesHostArgs) ToJobDefinitionVolumesHostPtrOutputWithContext(ctx context.Context) JobDefinitionVolumesHostPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionVolumesHostOutput).ToJobDefinitionVolumesHostPtrOutputWithContext(ctx)
-}
-
-// JobDefinitionVolumesHostPtrInput is an input type that accepts JobDefinitionVolumesHostArgs, JobDefinitionVolumesHostPtr and JobDefinitionVolumesHostPtrOutput values.
-// You can construct a concrete instance of `JobDefinitionVolumesHostPtrInput` via:
-//
-//	        JobDefinitionVolumesHostArgs{...}
-//
-//	or:
-//
-//	        nil
-type JobDefinitionVolumesHostPtrInput interface {
-	pulumi.Input
-
-	ToJobDefinitionVolumesHostPtrOutput() JobDefinitionVolumesHostPtrOutput
-	ToJobDefinitionVolumesHostPtrOutputWithContext(context.Context) JobDefinitionVolumesHostPtrOutput
-}
-
-type jobDefinitionVolumesHostPtrType JobDefinitionVolumesHostArgs
-
-func JobDefinitionVolumesHostPtr(v *JobDefinitionVolumesHostArgs) JobDefinitionVolumesHostPtrInput {
-	return (*jobDefinitionVolumesHostPtrType)(v)
-}
-
-func (*jobDefinitionVolumesHostPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**JobDefinitionVolumesHost)(nil)).Elem()
-}
-
-func (i *jobDefinitionVolumesHostPtrType) ToJobDefinitionVolumesHostPtrOutput() JobDefinitionVolumesHostPtrOutput {
-	return i.ToJobDefinitionVolumesHostPtrOutputWithContext(context.Background())
-}
-
-func (i *jobDefinitionVolumesHostPtrType) ToJobDefinitionVolumesHostPtrOutputWithContext(ctx context.Context) JobDefinitionVolumesHostPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobDefinitionVolumesHostPtrOutput)
-}
-
-type JobDefinitionVolumesHostOutput struct{ *pulumi.OutputState }
-
-func (JobDefinitionVolumesHostOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*JobDefinitionVolumesHost)(nil)).Elem()
-}
-
-func (o JobDefinitionVolumesHostOutput) ToJobDefinitionVolumesHostOutput() JobDefinitionVolumesHostOutput {
-	return o
-}
-
-func (o JobDefinitionVolumesHostOutput) ToJobDefinitionVolumesHostOutputWithContext(ctx context.Context) JobDefinitionVolumesHostOutput {
-	return o
-}
-
-func (o JobDefinitionVolumesHostOutput) ToJobDefinitionVolumesHostPtrOutput() JobDefinitionVolumesHostPtrOutput {
-	return o.ToJobDefinitionVolumesHostPtrOutputWithContext(context.Background())
-}
-
-func (o JobDefinitionVolumesHostOutput) ToJobDefinitionVolumesHostPtrOutputWithContext(ctx context.Context) JobDefinitionVolumesHostPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobDefinitionVolumesHost) *JobDefinitionVolumesHost {
-		return &v
-	}).(JobDefinitionVolumesHostPtrOutput)
-}
-
-// The path on the host container instance that's presented to the container. If this parameter is empty, then the Docker daemon has assigned a host path for you. If this parameter contains a file location, then the data volume persists at the specified location on the host container instance until you delete it manually. If the source path location doesn't exist on the host container instance, the Docker daemon creates it. If the location does exist, the contents of the source path folder are exported.
-//
-// > This parameter isn't applicable to jobs that run on Fargate resources. Don't provide this for these jobs.
-func (o JobDefinitionVolumesHostOutput) SourcePath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v JobDefinitionVolumesHost) *string { return v.SourcePath }).(pulumi.StringPtrOutput)
-}
-
-type JobDefinitionVolumesHostPtrOutput struct{ *pulumi.OutputState }
-
-func (JobDefinitionVolumesHostPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**JobDefinitionVolumesHost)(nil)).Elem()
-}
-
-func (o JobDefinitionVolumesHostPtrOutput) ToJobDefinitionVolumesHostPtrOutput() JobDefinitionVolumesHostPtrOutput {
-	return o
-}
-
-func (o JobDefinitionVolumesHostPtrOutput) ToJobDefinitionVolumesHostPtrOutputWithContext(ctx context.Context) JobDefinitionVolumesHostPtrOutput {
-	return o
-}
-
-func (o JobDefinitionVolumesHostPtrOutput) Elem() JobDefinitionVolumesHostOutput {
-	return o.ApplyT(func(v *JobDefinitionVolumesHost) JobDefinitionVolumesHost {
-		if v != nil {
-			return *v
-		}
-		var ret JobDefinitionVolumesHost
-		return ret
-	}).(JobDefinitionVolumesHostOutput)
-}
-
-// The path on the host container instance that's presented to the container. If this parameter is empty, then the Docker daemon has assigned a host path for you. If this parameter contains a file location, then the data volume persists at the specified location on the host container instance until you delete it manually. If the source path location doesn't exist on the host container instance, the Docker daemon creates it. If the location does exist, the contents of the source path folder are exported.
-//
-// > This parameter isn't applicable to jobs that run on Fargate resources. Don't provide this for these jobs.
-func (o JobDefinitionVolumesHostPtrOutput) SourcePath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *JobDefinitionVolumesHost) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SourcePath
-	}).(pulumi.StringPtrOutput)
+func (o JobDefinitionVolumeArrayOutput) Index(i pulumi.IntInput) JobDefinitionVolumeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobDefinitionVolume {
+		return vs[0].([]JobDefinitionVolume)[vs[1].(int)]
+	}).(JobDefinitionVolumeOutput)
 }
 
 type JobQueueComputeEnvironmentOrder struct {
@@ -9453,16 +10145,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentLaunchTemplateSpecificationOverrideArrayInput)(nil)).Elem(), ComputeEnvironmentLaunchTemplateSpecificationOverrideArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentUpdatePolicyInput)(nil)).Elem(), ComputeEnvironmentUpdatePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentUpdatePolicyPtrInput)(nil)).Elem(), ComputeEnvironmentUpdatePolicyArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionAuthorizationConfigInput)(nil)).Elem(), JobDefinitionAuthorizationConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionAuthorizationConfigPtrInput)(nil)).Elem(), JobDefinitionAuthorizationConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionContainerPropertiesInput)(nil)).Elem(), JobDefinitionContainerPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionContainerPropertiesPtrInput)(nil)).Elem(), JobDefinitionContainerPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesInput)(nil)).Elem(), JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesPtrInput)(nil)).Elem(), JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionDeviceInput)(nil)).Elem(), JobDefinitionDeviceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionDeviceArrayInput)(nil)).Elem(), JobDefinitionDeviceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEcsPropertiesInput)(nil)).Elem(), JobDefinitionEcsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEcsPropertiesPtrInput)(nil)).Elem(), JobDefinitionEcsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEcsTaskPropertiesInput)(nil)).Elem(), JobDefinitionEcsTaskPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEcsTaskPropertiesArrayInput)(nil)).Elem(), JobDefinitionEcsTaskPropertiesArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEfsAuthorizationConfigInput)(nil)).Elem(), JobDefinitionEfsAuthorizationConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEfsAuthorizationConfigPtrInput)(nil)).Elem(), JobDefinitionEfsAuthorizationConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEfsVolumeConfigurationInput)(nil)).Elem(), JobDefinitionEfsVolumeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEfsVolumeConfigurationPtrInput)(nil)).Elem(), JobDefinitionEfsVolumeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEksContainerInput)(nil)).Elem(), JobDefinitionEksContainerArgs{})
@@ -9479,6 +10173,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEksEmptyDirPtrInput)(nil)).Elem(), JobDefinitionEksEmptyDirArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEksHostPathInput)(nil)).Elem(), JobDefinitionEksHostPathArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEksHostPathPtrInput)(nil)).Elem(), JobDefinitionEksHostPathArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEksMetadataInput)(nil)).Elem(), JobDefinitionEksMetadataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEksMetadataPtrInput)(nil)).Elem(), JobDefinitionEksMetadataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEksPodPropertiesInput)(nil)).Elem(), JobDefinitionEksPodPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEksPodPropertiesPtrInput)(nil)).Elem(), JobDefinitionEksPodPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEksPropertiesInput)(nil)).Elem(), JobDefinitionEksPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEksPropertiesPtrInput)(nil)).Elem(), JobDefinitionEksPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEksSecretInput)(nil)).Elem(), JobDefinitionEksSecretArgs{})
@@ -9491,26 +10189,30 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEphemeralStoragePtrInput)(nil)).Elem(), JobDefinitionEphemeralStorageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEvaluateOnExitInput)(nil)).Elem(), JobDefinitionEvaluateOnExitArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionEvaluateOnExitArrayInput)(nil)).Elem(), JobDefinitionEvaluateOnExitArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionFargatePlatformConfigurationInput)(nil)).Elem(), JobDefinitionFargatePlatformConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionFargatePlatformConfigurationPtrInput)(nil)).Elem(), JobDefinitionFargatePlatformConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionHostInput)(nil)).Elem(), JobDefinitionHostArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionHostPtrInput)(nil)).Elem(), JobDefinitionHostArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionImagePullSecretInput)(nil)).Elem(), JobDefinitionImagePullSecretArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionImagePullSecretArrayInput)(nil)).Elem(), JobDefinitionImagePullSecretArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionJobTimeoutInput)(nil)).Elem(), JobDefinitionJobTimeoutArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionJobTimeoutPtrInput)(nil)).Elem(), JobDefinitionJobTimeoutArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionLinuxParametersInput)(nil)).Elem(), JobDefinitionLinuxParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionLinuxParametersPtrInput)(nil)).Elem(), JobDefinitionLinuxParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionLogConfigurationInput)(nil)).Elem(), JobDefinitionLogConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionLogConfigurationPtrInput)(nil)).Elem(), JobDefinitionLogConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionMetadataInput)(nil)).Elem(), JobDefinitionMetadataArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionMetadataPtrInput)(nil)).Elem(), JobDefinitionMetadataArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionMountPointsInput)(nil)).Elem(), JobDefinitionMountPointsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionMountPointsArrayInput)(nil)).Elem(), JobDefinitionMountPointsArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionMountPointInput)(nil)).Elem(), JobDefinitionMountPointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionMountPointArrayInput)(nil)).Elem(), JobDefinitionMountPointArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionMultiNodeContainerPropertiesInput)(nil)).Elem(), JobDefinitionMultiNodeContainerPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionMultiNodeContainerPropertiesPtrInput)(nil)).Elem(), JobDefinitionMultiNodeContainerPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionMultiNodeEcsPropertiesInput)(nil)).Elem(), JobDefinitionMultiNodeEcsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionMultiNodeEcsPropertiesPtrInput)(nil)).Elem(), JobDefinitionMultiNodeEcsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionMultiNodeEcsTaskPropertiesInput)(nil)).Elem(), JobDefinitionMultiNodeEcsTaskPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionMultiNodeEcsTaskPropertiesArrayInput)(nil)).Elem(), JobDefinitionMultiNodeEcsTaskPropertiesArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionNetworkConfigurationInput)(nil)).Elem(), JobDefinitionNetworkConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionNetworkConfigurationPtrInput)(nil)).Elem(), JobDefinitionNetworkConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionNodePropertiesInput)(nil)).Elem(), JobDefinitionNodePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionNodePropertiesPtrInput)(nil)).Elem(), JobDefinitionNodePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionNodeRangePropertyInput)(nil)).Elem(), JobDefinitionNodeRangePropertyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionNodeRangePropertyArrayInput)(nil)).Elem(), JobDefinitionNodeRangePropertyArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionPodPropertiesInput)(nil)).Elem(), JobDefinitionPodPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionPodPropertiesPtrInput)(nil)).Elem(), JobDefinitionPodPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionRepositoryCredentialsInput)(nil)).Elem(), JobDefinitionRepositoryCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionRepositoryCredentialsPtrInput)(nil)).Elem(), JobDefinitionRepositoryCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionResourceRequirementInput)(nil)).Elem(), JobDefinitionResourceRequirementArgs{})
@@ -9525,16 +10227,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionTaskContainerDependencyArrayInput)(nil)).Elem(), JobDefinitionTaskContainerDependencyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionTaskContainerPropertiesInput)(nil)).Elem(), JobDefinitionTaskContainerPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionTaskContainerPropertiesArrayInput)(nil)).Elem(), JobDefinitionTaskContainerPropertiesArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionTimeoutInput)(nil)).Elem(), JobDefinitionTimeoutArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionTimeoutPtrInput)(nil)).Elem(), JobDefinitionTimeoutArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionTmpfsInput)(nil)).Elem(), JobDefinitionTmpfsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionTmpfsArrayInput)(nil)).Elem(), JobDefinitionTmpfsArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionUlimitInput)(nil)).Elem(), JobDefinitionUlimitArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionUlimitArrayInput)(nil)).Elem(), JobDefinitionUlimitArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionVolumesInput)(nil)).Elem(), JobDefinitionVolumesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionVolumesArrayInput)(nil)).Elem(), JobDefinitionVolumesArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionVolumesHostInput)(nil)).Elem(), JobDefinitionVolumesHostArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionVolumesHostPtrInput)(nil)).Elem(), JobDefinitionVolumesHostArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionVolumeInput)(nil)).Elem(), JobDefinitionVolumeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionVolumeArrayInput)(nil)).Elem(), JobDefinitionVolumeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobQueueComputeEnvironmentOrderInput)(nil)).Elem(), JobQueueComputeEnvironmentOrderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobQueueComputeEnvironmentOrderArrayInput)(nil)).Elem(), JobQueueComputeEnvironmentOrderArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobQueueJobStateTimeLimitActionInput)(nil)).Elem(), JobQueueJobStateTimeLimitActionArgs{})
@@ -9555,16 +10253,18 @@ func init() {
 	pulumi.RegisterOutputType(ComputeEnvironmentLaunchTemplateSpecificationOverrideArrayOutput{})
 	pulumi.RegisterOutputType(ComputeEnvironmentUpdatePolicyOutput{})
 	pulumi.RegisterOutputType(ComputeEnvironmentUpdatePolicyPtrOutput{})
-	pulumi.RegisterOutputType(JobDefinitionAuthorizationConfigOutput{})
-	pulumi.RegisterOutputType(JobDefinitionAuthorizationConfigPtrOutput{})
 	pulumi.RegisterOutputType(JobDefinitionContainerPropertiesOutput{})
 	pulumi.RegisterOutputType(JobDefinitionContainerPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesOutput{})
+	pulumi.RegisterOutputType(JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(JobDefinitionDeviceOutput{})
 	pulumi.RegisterOutputType(JobDefinitionDeviceArrayOutput{})
 	pulumi.RegisterOutputType(JobDefinitionEcsPropertiesOutput{})
 	pulumi.RegisterOutputType(JobDefinitionEcsPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(JobDefinitionEcsTaskPropertiesOutput{})
 	pulumi.RegisterOutputType(JobDefinitionEcsTaskPropertiesArrayOutput{})
+	pulumi.RegisterOutputType(JobDefinitionEfsAuthorizationConfigOutput{})
+	pulumi.RegisterOutputType(JobDefinitionEfsAuthorizationConfigPtrOutput{})
 	pulumi.RegisterOutputType(JobDefinitionEfsVolumeConfigurationOutput{})
 	pulumi.RegisterOutputType(JobDefinitionEfsVolumeConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(JobDefinitionEksContainerOutput{})
@@ -9581,6 +10281,10 @@ func init() {
 	pulumi.RegisterOutputType(JobDefinitionEksEmptyDirPtrOutput{})
 	pulumi.RegisterOutputType(JobDefinitionEksHostPathOutput{})
 	pulumi.RegisterOutputType(JobDefinitionEksHostPathPtrOutput{})
+	pulumi.RegisterOutputType(JobDefinitionEksMetadataOutput{})
+	pulumi.RegisterOutputType(JobDefinitionEksMetadataPtrOutput{})
+	pulumi.RegisterOutputType(JobDefinitionEksPodPropertiesOutput{})
+	pulumi.RegisterOutputType(JobDefinitionEksPodPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(JobDefinitionEksPropertiesOutput{})
 	pulumi.RegisterOutputType(JobDefinitionEksPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(JobDefinitionEksSecretOutput{})
@@ -9593,26 +10297,30 @@ func init() {
 	pulumi.RegisterOutputType(JobDefinitionEphemeralStoragePtrOutput{})
 	pulumi.RegisterOutputType(JobDefinitionEvaluateOnExitOutput{})
 	pulumi.RegisterOutputType(JobDefinitionEvaluateOnExitArrayOutput{})
-	pulumi.RegisterOutputType(JobDefinitionFargatePlatformConfigurationOutput{})
-	pulumi.RegisterOutputType(JobDefinitionFargatePlatformConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(JobDefinitionHostOutput{})
+	pulumi.RegisterOutputType(JobDefinitionHostPtrOutput{})
 	pulumi.RegisterOutputType(JobDefinitionImagePullSecretOutput{})
 	pulumi.RegisterOutputType(JobDefinitionImagePullSecretArrayOutput{})
+	pulumi.RegisterOutputType(JobDefinitionJobTimeoutOutput{})
+	pulumi.RegisterOutputType(JobDefinitionJobTimeoutPtrOutput{})
 	pulumi.RegisterOutputType(JobDefinitionLinuxParametersOutput{})
 	pulumi.RegisterOutputType(JobDefinitionLinuxParametersPtrOutput{})
 	pulumi.RegisterOutputType(JobDefinitionLogConfigurationOutput{})
 	pulumi.RegisterOutputType(JobDefinitionLogConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(JobDefinitionMetadataOutput{})
-	pulumi.RegisterOutputType(JobDefinitionMetadataPtrOutput{})
-	pulumi.RegisterOutputType(JobDefinitionMountPointsOutput{})
-	pulumi.RegisterOutputType(JobDefinitionMountPointsArrayOutput{})
+	pulumi.RegisterOutputType(JobDefinitionMountPointOutput{})
+	pulumi.RegisterOutputType(JobDefinitionMountPointArrayOutput{})
+	pulumi.RegisterOutputType(JobDefinitionMultiNodeContainerPropertiesOutput{})
+	pulumi.RegisterOutputType(JobDefinitionMultiNodeContainerPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(JobDefinitionMultiNodeEcsPropertiesOutput{})
+	pulumi.RegisterOutputType(JobDefinitionMultiNodeEcsPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(JobDefinitionMultiNodeEcsTaskPropertiesOutput{})
+	pulumi.RegisterOutputType(JobDefinitionMultiNodeEcsTaskPropertiesArrayOutput{})
 	pulumi.RegisterOutputType(JobDefinitionNetworkConfigurationOutput{})
 	pulumi.RegisterOutputType(JobDefinitionNetworkConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(JobDefinitionNodePropertiesOutput{})
 	pulumi.RegisterOutputType(JobDefinitionNodePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(JobDefinitionNodeRangePropertyOutput{})
 	pulumi.RegisterOutputType(JobDefinitionNodeRangePropertyArrayOutput{})
-	pulumi.RegisterOutputType(JobDefinitionPodPropertiesOutput{})
-	pulumi.RegisterOutputType(JobDefinitionPodPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(JobDefinitionRepositoryCredentialsOutput{})
 	pulumi.RegisterOutputType(JobDefinitionRepositoryCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(JobDefinitionResourceRequirementOutput{})
@@ -9627,16 +10335,12 @@ func init() {
 	pulumi.RegisterOutputType(JobDefinitionTaskContainerDependencyArrayOutput{})
 	pulumi.RegisterOutputType(JobDefinitionTaskContainerPropertiesOutput{})
 	pulumi.RegisterOutputType(JobDefinitionTaskContainerPropertiesArrayOutput{})
-	pulumi.RegisterOutputType(JobDefinitionTimeoutOutput{})
-	pulumi.RegisterOutputType(JobDefinitionTimeoutPtrOutput{})
 	pulumi.RegisterOutputType(JobDefinitionTmpfsOutput{})
 	pulumi.RegisterOutputType(JobDefinitionTmpfsArrayOutput{})
 	pulumi.RegisterOutputType(JobDefinitionUlimitOutput{})
 	pulumi.RegisterOutputType(JobDefinitionUlimitArrayOutput{})
-	pulumi.RegisterOutputType(JobDefinitionVolumesOutput{})
-	pulumi.RegisterOutputType(JobDefinitionVolumesArrayOutput{})
-	pulumi.RegisterOutputType(JobDefinitionVolumesHostOutput{})
-	pulumi.RegisterOutputType(JobDefinitionVolumesHostPtrOutput{})
+	pulumi.RegisterOutputType(JobDefinitionVolumeOutput{})
+	pulumi.RegisterOutputType(JobDefinitionVolumeArrayOutput{})
 	pulumi.RegisterOutputType(JobQueueComputeEnvironmentOrderOutput{})
 	pulumi.RegisterOutputType(JobQueueComputeEnvironmentOrderArrayOutput{})
 	pulumi.RegisterOutputType(JobQueueJobStateTimeLimitActionOutput{})

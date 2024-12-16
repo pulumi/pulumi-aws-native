@@ -279,11 +279,17 @@ class ApplicationQuickSightConfiguration(dict):
 
     def __init__(__self__, *,
                  client_namespace: str):
+        """
+        :param str client_namespace: The Amazon QuickSight namespace that is used as the identity provider. For more information about QuickSight namespaces, see [Namespace operations](https://docs.aws.amazon.com/quicksight/latest/developerguide/namespace-operations.html) .
+        """
         pulumi.set(__self__, "client_namespace", client_namespace)
 
     @property
     @pulumi.getter(name="clientNamespace")
     def client_namespace(self) -> str:
+        """
+        The Amazon QuickSight namespace that is used as the identity provider. For more information about QuickSight namespaces, see [Namespace operations](https://docs.aws.amazon.com/quicksight/latest/developerguide/namespace-operations.html) .
+        """
         return pulumi.get(self, "client_namespace")
 
 
@@ -309,6 +315,10 @@ class DataAccessorActionConfiguration(dict):
     def __init__(__self__, *,
                  action: str,
                  filter_configuration: Optional['outputs.DataAccessorActionFilterConfiguration'] = None):
+        """
+        :param str action: The Amazon Q Business action that is allowed.
+        :param 'DataAccessorActionFilterConfiguration' filter_configuration: The filter configuration for the action, if any.
+        """
         pulumi.set(__self__, "action", action)
         if filter_configuration is not None:
             pulumi.set(__self__, "filter_configuration", filter_configuration)
@@ -316,11 +326,17 @@ class DataAccessorActionConfiguration(dict):
     @property
     @pulumi.getter
     def action(self) -> str:
+        """
+        The Amazon Q Business action that is allowed.
+        """
         return pulumi.get(self, "action")
 
     @property
     @pulumi.getter(name="filterConfiguration")
     def filter_configuration(self) -> Optional['outputs.DataAccessorActionFilterConfiguration']:
+        """
+        The filter configuration for the action, if any.
+        """
         return pulumi.get(self, "filter_configuration")
 
 
@@ -345,11 +361,17 @@ class DataAccessorActionFilterConfiguration(dict):
 
     def __init__(__self__, *,
                  document_attribute_filter: 'outputs.DataAccessorAttributeFilter'):
+        """
+        :param 'DataAccessorAttributeFilter' document_attribute_filter: Enables filtering of responses based on document attributes or metadata fields.
+        """
         pulumi.set(__self__, "document_attribute_filter", document_attribute_filter)
 
     @property
     @pulumi.getter(name="documentAttributeFilter")
     def document_attribute_filter(self) -> 'outputs.DataAccessorAttributeFilter':
+        """
+        Enables filtering of responses based on document attributes or metadata fields.
+        """
         return pulumi.get(self, "document_attribute_filter")
 
 
@@ -401,6 +423,18 @@ class DataAccessorAttributeFilter(dict):
                  less_than_or_equals: Optional['outputs.DataAccessorDocumentAttribute'] = None,
                  not_filter: Optional['outputs.DataAccessorAttributeFilter'] = None,
                  or_all_filters: Optional[Sequence['outputs.DataAccessorAttributeFilter']] = None):
+        """
+        :param Sequence['DataAccessorAttributeFilter'] and_all_filters: Performs a logical `AND` operation on all supplied filters.
+        :param 'DataAccessorDocumentAttribute' contains_all: Returns `true` when a document contains all the specified document attributes or metadata fields. Supported for the following [document attribute value types](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html) : `stringListValue` .
+        :param 'DataAccessorDocumentAttribute' contains_any: Returns `true` when a document contains any of the specified document attributes or metadata fields. Supported for the following [document attribute value types](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html) : `stringListValue` .
+        :param 'DataAccessorDocumentAttribute' equals_to: Performs an equals operation on two document attributes or metadata fields. Supported for the following [document attribute value types](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html) : `dateValue` , `longValue` , `stringListValue` and `stringValue` .
+        :param 'DataAccessorDocumentAttribute' greater_than: Performs a greater than operation on two document attributes or metadata fields. Supported for the following [document attribute value types](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html) : `dateValue` and `longValue` .
+        :param 'DataAccessorDocumentAttribute' greater_than_or_equals: Performs a greater or equals than operation on two document attributes or metadata fields. Supported for the following [document attribute value types](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html) : `dateValue` and `longValue` .
+        :param 'DataAccessorDocumentAttribute' less_than: Performs a less than operation on two document attributes or metadata fields. Supported for the following [document attribute value types](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html) : `dateValue` and `longValue` .
+        :param 'DataAccessorDocumentAttribute' less_than_or_equals: Performs a less than or equals operation on two document attributes or metadata fields.Supported for the following [document attribute value type](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html) : `dateValue` and `longValue` .
+        :param 'DataAccessorAttributeFilter' not_filter: Performs a logical `NOT` operation on all supplied filters.
+        :param Sequence['DataAccessorAttributeFilter'] or_all_filters: Performs a logical `OR` operation on all supplied filters.
+        """
         if and_all_filters is not None:
             pulumi.set(__self__, "and_all_filters", and_all_filters)
         if contains_all is not None:
@@ -425,51 +459,81 @@ class DataAccessorAttributeFilter(dict):
     @property
     @pulumi.getter(name="andAllFilters")
     def and_all_filters(self) -> Optional[Sequence['outputs.DataAccessorAttributeFilter']]:
+        """
+        Performs a logical `AND` operation on all supplied filters.
+        """
         return pulumi.get(self, "and_all_filters")
 
     @property
     @pulumi.getter(name="containsAll")
     def contains_all(self) -> Optional['outputs.DataAccessorDocumentAttribute']:
+        """
+        Returns `true` when a document contains all the specified document attributes or metadata fields. Supported for the following [document attribute value types](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html) : `stringListValue` .
+        """
         return pulumi.get(self, "contains_all")
 
     @property
     @pulumi.getter(name="containsAny")
     def contains_any(self) -> Optional['outputs.DataAccessorDocumentAttribute']:
+        """
+        Returns `true` when a document contains any of the specified document attributes or metadata fields. Supported for the following [document attribute value types](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html) : `stringListValue` .
+        """
         return pulumi.get(self, "contains_any")
 
     @property
     @pulumi.getter(name="equalsTo")
     def equals_to(self) -> Optional['outputs.DataAccessorDocumentAttribute']:
+        """
+        Performs an equals operation on two document attributes or metadata fields. Supported for the following [document attribute value types](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html) : `dateValue` , `longValue` , `stringListValue` and `stringValue` .
+        """
         return pulumi.get(self, "equals_to")
 
     @property
     @pulumi.getter(name="greaterThan")
     def greater_than(self) -> Optional['outputs.DataAccessorDocumentAttribute']:
+        """
+        Performs a greater than operation on two document attributes or metadata fields. Supported for the following [document attribute value types](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html) : `dateValue` and `longValue` .
+        """
         return pulumi.get(self, "greater_than")
 
     @property
     @pulumi.getter(name="greaterThanOrEquals")
     def greater_than_or_equals(self) -> Optional['outputs.DataAccessorDocumentAttribute']:
+        """
+        Performs a greater or equals than operation on two document attributes or metadata fields. Supported for the following [document attribute value types](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html) : `dateValue` and `longValue` .
+        """
         return pulumi.get(self, "greater_than_or_equals")
 
     @property
     @pulumi.getter(name="lessThan")
     def less_than(self) -> Optional['outputs.DataAccessorDocumentAttribute']:
+        """
+        Performs a less than operation on two document attributes or metadata fields. Supported for the following [document attribute value types](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html) : `dateValue` and `longValue` .
+        """
         return pulumi.get(self, "less_than")
 
     @property
     @pulumi.getter(name="lessThanOrEquals")
     def less_than_or_equals(self) -> Optional['outputs.DataAccessorDocumentAttribute']:
+        """
+        Performs a less than or equals operation on two document attributes or metadata fields.Supported for the following [document attribute value type](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html) : `dateValue` and `longValue` .
+        """
         return pulumi.get(self, "less_than_or_equals")
 
     @property
     @pulumi.getter(name="notFilter")
     def not_filter(self) -> Optional['outputs.DataAccessorAttributeFilter']:
+        """
+        Performs a logical `NOT` operation on all supplied filters.
+        """
         return pulumi.get(self, "not_filter")
 
     @property
     @pulumi.getter(name="orAllFilters")
     def or_all_filters(self) -> Optional[Sequence['outputs.DataAccessorAttributeFilter']]:
+        """
+        Performs a logical `OR` operation on all supplied filters.
+        """
         return pulumi.get(self, "or_all_filters")
 
 
@@ -478,17 +542,27 @@ class DataAccessorDocumentAttribute(dict):
     def __init__(__self__, *,
                  name: str,
                  value: Any):
+        """
+        :param str name: The identifier for the attribute.
+        :param Union['DataAccessorDocumentAttributeValue0Properties', 'DataAccessorDocumentAttributeValue1Properties', 'DataAccessorDocumentAttributeValue2Properties', 'DataAccessorDocumentAttributeValue3Properties'] value: The value of the attribute.
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        The identifier for the attribute.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def value(self) -> Any:
+        """
+        The value of the attribute.
+        """
         return pulumi.get(self, "value")
 
 
@@ -1007,11 +1081,17 @@ class DataSourceImageExtractionConfiguration(dict):
 
     def __init__(__self__, *,
                  image_extraction_status: 'DataSourceImageExtractionStatus'):
+        """
+        :param 'DataSourceImageExtractionStatus' image_extraction_status: Specify whether to extract semantic meaning from images and visuals from documents.
+        """
         pulumi.set(__self__, "image_extraction_status", image_extraction_status)
 
     @property
     @pulumi.getter(name="imageExtractionStatus")
     def image_extraction_status(self) -> 'DataSourceImageExtractionStatus':
+        """
+        Specify whether to extract semantic meaning from images and visuals from documents.
+        """
         return pulumi.get(self, "image_extraction_status")
 
 
@@ -1096,12 +1176,18 @@ class DataSourceMediaExtractionConfiguration(dict):
 
     def __init__(__self__, *,
                  image_extraction_configuration: Optional['outputs.DataSourceImageExtractionConfiguration'] = None):
+        """
+        :param 'DataSourceImageExtractionConfiguration' image_extraction_configuration: The configuration for extracting semantic meaning from images in documents. For more information, see [Extracting semantic meaning from images and visuals](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/extracting-meaning-from-images.html) .
+        """
         if image_extraction_configuration is not None:
             pulumi.set(__self__, "image_extraction_configuration", image_extraction_configuration)
 
     @property
     @pulumi.getter(name="imageExtractionConfiguration")
     def image_extraction_configuration(self) -> Optional['outputs.DataSourceImageExtractionConfiguration']:
+        """
+        The configuration for extracting semantic meaning from images in documents. For more information, see [Extracting semantic meaning from images and visuals](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/extracting-meaning-from-images.html) .
+        """
         return pulumi.get(self, "image_extraction_configuration")
 
 
@@ -1738,6 +1824,12 @@ class WebExperienceCustomizationConfiguration(dict):
                  favicon_url: Optional[str] = None,
                  font_url: Optional[str] = None,
                  logo_url: Optional[str] = None):
+        """
+        :param str custom_css_url: Provides the URL where the custom CSS file is hosted for an Amazon Q web experience.
+        :param str favicon_url: Provides the URL where the custom favicon file is hosted for an Amazon Q web experience.
+        :param str font_url: Provides the URL where the custom font file is hosted for an Amazon Q web experience.
+        :param str logo_url: Provides the URL where the custom logo file is hosted for an Amazon Q web experience.
+        """
         if custom_css_url is not None:
             pulumi.set(__self__, "custom_css_url", custom_css_url)
         if favicon_url is not None:
@@ -1750,21 +1842,33 @@ class WebExperienceCustomizationConfiguration(dict):
     @property
     @pulumi.getter(name="customCssUrl")
     def custom_css_url(self) -> Optional[str]:
+        """
+        Provides the URL where the custom CSS file is hosted for an Amazon Q web experience.
+        """
         return pulumi.get(self, "custom_css_url")
 
     @property
     @pulumi.getter(name="faviconUrl")
     def favicon_url(self) -> Optional[str]:
+        """
+        Provides the URL where the custom favicon file is hosted for an Amazon Q web experience.
+        """
         return pulumi.get(self, "favicon_url")
 
     @property
     @pulumi.getter(name="fontUrl")
     def font_url(self) -> Optional[str]:
+        """
+        Provides the URL where the custom font file is hosted for an Amazon Q web experience.
+        """
         return pulumi.get(self, "font_url")
 
     @property
     @pulumi.getter(name="logoUrl")
     def logo_url(self) -> Optional[str]:
+        """
+        Provides the URL where the custom logo file is hosted for an Amazon Q web experience.
+        """
         return pulumi.get(self, "logo_url")
 
 

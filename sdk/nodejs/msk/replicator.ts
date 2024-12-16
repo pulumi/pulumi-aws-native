@@ -109,7 +109,7 @@ export class Replicator extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["description", "kafkaClusters[*]", "replicatorName", "serviceExecutionRoleArn"] };
+        const replaceOnChanges = { replaceOnChanges: ["description", "kafkaClusters[*]", "replicationInfoList[*].sourceKafkaClusterArn", "replicationInfoList[*].targetCompressionType", "replicationInfoList[*].targetKafkaClusterArn", "replicationInfoList[*].topicReplication.startingPosition", "replicationInfoList[*].topicReplication.topicNameConfiguration", "replicatorName", "serviceExecutionRoleArn"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Replicator.__pulumiType, name, resourceInputs, opts);
     }

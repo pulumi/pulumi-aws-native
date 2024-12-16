@@ -18,8 +18,8 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         /// <summary>
         /// The Amazon S3 bucket to store the access logs in, for example, ``myawslogbucket.s3.amazonaws.com``.
         /// </summary>
-        [Input("bucket", required: true)]
-        public Input<string> Bucket { get; set; } = null!;
+        [Input("bucket")]
+        public Input<string>? Bucket { get; set; }
 
         /// <summary>
         /// Specifies whether you want CloudFront to include cookies in access logs, specify ``true`` for ``IncludeCookies``. If you choose to include cookies in logs, CloudFront logs all cookies regardless of how you configure the cache behaviors for this distribution. If you don't want to include cookies when you create a distribution or if you want to disable include cookies for an existing distribution, specify ``false`` for ``IncludeCookies``.

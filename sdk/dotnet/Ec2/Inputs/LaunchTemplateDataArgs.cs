@@ -214,6 +214,9 @@ namespace Pulumi.AwsNative.Ec2.Inputs
             set => _networkInterfaces = value;
         }
 
+        [Input("networkPerformanceOptions")]
+        public Input<object>? NetworkPerformanceOptions { get; set; }
+
         /// <summary>
         /// The placement for the instance.
         /// </summary>

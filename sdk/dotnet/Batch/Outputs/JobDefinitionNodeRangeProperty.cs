@@ -16,11 +16,11 @@ namespace Pulumi.AwsNative.Batch.Outputs
         /// <summary>
         /// The container details for the node range.
         /// </summary>
-        public readonly Outputs.JobDefinitionContainerProperties? Container;
+        public readonly Outputs.JobDefinitionMultiNodeContainerProperties? Container;
         /// <summary>
         /// This is an object that represents the properties of the node range for a multi-node parallel job.
         /// </summary>
-        public readonly Outputs.JobDefinitionEcsProperties? EcsProperties;
+        public readonly Outputs.JobDefinitionMultiNodeEcsProperties? EcsProperties;
         /// <summary>
         /// This is an object that represents the properties of the node range for a multi-node parallel job.
         /// </summary>
@@ -40,9 +40,9 @@ namespace Pulumi.AwsNative.Batch.Outputs
 
         [OutputConstructor]
         private JobDefinitionNodeRangeProperty(
-            Outputs.JobDefinitionContainerProperties? container,
+            Outputs.JobDefinitionMultiNodeContainerProperties? container,
 
-            Outputs.JobDefinitionEcsProperties? ecsProperties,
+            Outputs.JobDefinitionMultiNodeEcsProperties? ecsProperties,
 
             Outputs.JobDefinitionEksProperties? eksProperties,
 

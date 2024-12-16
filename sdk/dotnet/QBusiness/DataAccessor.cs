@@ -15,33 +15,63 @@ namespace Pulumi.AwsNative.QBusiness
     [AwsNativeResourceType("aws-native:qbusiness:DataAccessor")]
     public partial class DataAccessor : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// A list of action configurations specifying the allowed actions and any associated filters.
+        /// </summary>
         [Output("actionConfigurations")]
         public Output<ImmutableArray<Outputs.DataAccessorActionConfiguration>> ActionConfigurations { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique identifier of the Amazon Q Business application.
+        /// </summary>
         [Output("applicationId")]
         public Output<string?> ApplicationId { get; private set; } = null!;
 
+        /// <summary>
+        /// The timestamp when the data accessor was created.
+        /// </summary>
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the data accessor.
+        /// </summary>
         [Output("dataAccessorArn")]
         public Output<string> DataAccessorArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique identifier of the data accessor.
+        /// </summary>
         [Output("dataAccessorId")]
         public Output<string> DataAccessorId { get; private set; } = null!;
 
+        /// <summary>
+        /// The friendly name of the data accessor.
+        /// </summary>
         [Output("displayName")]
         public Output<string> DisplayName { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the associated IAM Identity Center application.
+        /// </summary>
         [Output("idcApplicationArn")]
         public Output<string> IdcApplicationArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the IAM role for the ISV associated with this data accessor.
+        /// </summary>
         [Output("principal")]
         public Output<string> Principal { get; private set; } = null!;
 
+        /// <summary>
+        /// The tags to associate with the data accessor.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The timestamp when the data accessor was last updated.
+        /// </summary>
         [Output("updatedAt")]
         public Output<string> UpdatedAt { get; private set; } = null!;
 
@@ -97,23 +127,40 @@ namespace Pulumi.AwsNative.QBusiness
     {
         [Input("actionConfigurations", required: true)]
         private InputList<Inputs.DataAccessorActionConfigurationArgs>? _actionConfigurations;
+
+        /// <summary>
+        /// A list of action configurations specifying the allowed actions and any associated filters.
+        /// </summary>
         public InputList<Inputs.DataAccessorActionConfigurationArgs> ActionConfigurations
         {
             get => _actionConfigurations ?? (_actionConfigurations = new InputList<Inputs.DataAccessorActionConfigurationArgs>());
             set => _actionConfigurations = value;
         }
 
+        /// <summary>
+        /// The unique identifier of the Amazon Q Business application.
+        /// </summary>
         [Input("applicationId")]
         public Input<string>? ApplicationId { get; set; }
 
+        /// <summary>
+        /// The friendly name of the data accessor.
+        /// </summary>
         [Input("displayName", required: true)]
         public Input<string> DisplayName { get; set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the IAM role for the ISV associated with this data accessor.
+        /// </summary>
         [Input("principal", required: true)]
         public Input<string> Principal { get; set; } = null!;
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// The tags to associate with the data accessor.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

@@ -15,12 +15,21 @@ namespace Pulumi.AwsNative.Wisdom.Inputs
     /// </summary>
     public sealed class AiGuardrailGuardrailContentFilterConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The strength of the input for the guardrail content filter.
+        /// </summary>
         [Input("inputStrength", required: true)]
         public Input<Pulumi.AwsNative.Wisdom.AiGuardrailGuardrailFilterStrength> InputStrength { get; set; } = null!;
 
+        /// <summary>
+        /// The output strength of the guardrail content filter.
+        /// </summary>
         [Input("outputStrength", required: true)]
         public Input<Pulumi.AwsNative.Wisdom.AiGuardrailGuardrailFilterStrength> OutputStrength { get; set; } = null!;
 
+        /// <summary>
+        /// The type of the guardrail content filter.
+        /// </summary>
         [Input("type", required: true)]
         public Input<Pulumi.AwsNative.Wisdom.AiGuardrailGuardrailContentFilterType> Type { get; set; } = null!;
 

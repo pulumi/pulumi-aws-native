@@ -520,6 +520,11 @@ func (o ListenerWeightedTargetGroupArrayOutput) Index(i pulumi.IntInput) Listene
 	}).(ListenerWeightedTargetGroupOutput)
 }
 
+// Identifies the resource configuration in one of the following ways:
+//
+// - *Amazon Resource Name (ARN)* - Supported resource-types that are provisioned by AWS services, such as RDS databases, can be identified by their ARN.
+// - *Domain name* - Any domain name that is publicly resolvable.
+// - *IP address* - For IPv4 and IPv6, only IP addresses in the VPC are supported.
 type ResourceConfigurationDefinition0Properties struct {
 	IpResource string `pulumi:"ipResource"`
 }
@@ -535,6 +540,11 @@ type ResourceConfigurationDefinition0PropertiesInput interface {
 	ToResourceConfigurationDefinition0PropertiesOutputWithContext(context.Context) ResourceConfigurationDefinition0PropertiesOutput
 }
 
+// Identifies the resource configuration in one of the following ways:
+//
+// - *Amazon Resource Name (ARN)* - Supported resource-types that are provisioned by AWS services, such as RDS databases, can be identified by their ARN.
+// - *Domain name* - Any domain name that is publicly resolvable.
+// - *IP address* - For IPv4 and IPv6, only IP addresses in the VPC are supported.
 type ResourceConfigurationDefinition0PropertiesArgs struct {
 	IpResource pulumi.StringInput `pulumi:"ipResource"`
 }
@@ -592,6 +602,11 @@ func (i *resourceConfigurationDefinition0PropertiesPtrType) ToResourceConfigurat
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceConfigurationDefinition0PropertiesPtrOutput)
 }
 
+// Identifies the resource configuration in one of the following ways:
+//
+// - *Amazon Resource Name (ARN)* - Supported resource-types that are provisioned by AWS services, such as RDS databases, can be identified by their ARN.
+// - *Domain name* - Any domain name that is publicly resolvable.
+// - *IP address* - For IPv4 and IPv6, only IP addresses in the VPC are supported.
 type ResourceConfigurationDefinition0PropertiesOutput struct{ *pulumi.OutputState }
 
 func (ResourceConfigurationDefinition0PropertiesOutput) ElementType() reflect.Type {
@@ -653,6 +668,11 @@ func (o ResourceConfigurationDefinition0PropertiesPtrOutput) IpResource() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
+// Identifies the resource configuration in one of the following ways:
+//
+// - *Amazon Resource Name (ARN)* - Supported resource-types that are provisioned by AWS services, such as RDS databases, can be identified by their ARN.
+// - *Domain name* - Any domain name that is publicly resolvable.
+// - *IP address* - For IPv4 and IPv6, only IP addresses in the VPC are supported.
 type ResourceConfigurationDefinition1Properties struct {
 	ArnResource string `pulumi:"arnResource"`
 }
@@ -668,6 +688,11 @@ type ResourceConfigurationDefinition1PropertiesInput interface {
 	ToResourceConfigurationDefinition1PropertiesOutputWithContext(context.Context) ResourceConfigurationDefinition1PropertiesOutput
 }
 
+// Identifies the resource configuration in one of the following ways:
+//
+// - *Amazon Resource Name (ARN)* - Supported resource-types that are provisioned by AWS services, such as RDS databases, can be identified by their ARN.
+// - *Domain name* - Any domain name that is publicly resolvable.
+// - *IP address* - For IPv4 and IPv6, only IP addresses in the VPC are supported.
 type ResourceConfigurationDefinition1PropertiesArgs struct {
 	ArnResource pulumi.StringInput `pulumi:"arnResource"`
 }
@@ -725,6 +750,11 @@ func (i *resourceConfigurationDefinition1PropertiesPtrType) ToResourceConfigurat
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceConfigurationDefinition1PropertiesPtrOutput)
 }
 
+// Identifies the resource configuration in one of the following ways:
+//
+// - *Amazon Resource Name (ARN)* - Supported resource-types that are provisioned by AWS services, such as RDS databases, can be identified by their ARN.
+// - *Domain name* - Any domain name that is publicly resolvable.
+// - *IP address* - For IPv4 and IPv6, only IP addresses in the VPC are supported.
 type ResourceConfigurationDefinition1PropertiesOutput struct{ *pulumi.OutputState }
 
 func (ResourceConfigurationDefinition1PropertiesOutput) ElementType() reflect.Type {
@@ -786,6 +816,11 @@ func (o ResourceConfigurationDefinition1PropertiesPtrOutput) ArnResource() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
+// Identifies the resource configuration in one of the following ways:
+//
+// - *Amazon Resource Name (ARN)* - Supported resource-types that are provisioned by AWS services, such as RDS databases, can be identified by their ARN.
+// - *Domain name* - Any domain name that is publicly resolvable.
+// - *IP address* - For IPv4 and IPv6, only IP addresses in the VPC are supported.
 type ResourceConfigurationDefinition2Properties struct {
 	DnsResource ResourceConfigurationDnsResource `pulumi:"dnsResource"`
 }
@@ -801,6 +836,11 @@ type ResourceConfigurationDefinition2PropertiesInput interface {
 	ToResourceConfigurationDefinition2PropertiesOutputWithContext(context.Context) ResourceConfigurationDefinition2PropertiesOutput
 }
 
+// Identifies the resource configuration in one of the following ways:
+//
+// - *Amazon Resource Name (ARN)* - Supported resource-types that are provisioned by AWS services, such as RDS databases, can be identified by their ARN.
+// - *Domain name* - Any domain name that is publicly resolvable.
+// - *IP address* - For IPv4 and IPv6, only IP addresses in the VPC are supported.
 type ResourceConfigurationDefinition2PropertiesArgs struct {
 	DnsResource ResourceConfigurationDnsResourceInput `pulumi:"dnsResource"`
 }
@@ -858,6 +898,11 @@ func (i *resourceConfigurationDefinition2PropertiesPtrType) ToResourceConfigurat
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceConfigurationDefinition2PropertiesPtrOutput)
 }
 
+// Identifies the resource configuration in one of the following ways:
+//
+// - *Amazon Resource Name (ARN)* - Supported resource-types that are provisioned by AWS services, such as RDS databases, can be identified by their ARN.
+// - *Domain name* - Any domain name that is publicly resolvable.
+// - *IP address* - For IPv4 and IPv6, only IP addresses in the VPC are supported.
 type ResourceConfigurationDefinition2PropertiesOutput struct{ *pulumi.OutputState }
 
 func (ResourceConfigurationDefinition2PropertiesOutput) ElementType() reflect.Type {
@@ -1072,12 +1117,16 @@ func (o ResourceConfigurationDnsResourcePtrOutput) IpAddressType() ResourceConfi
 }
 
 type ResourceConfigurationTag struct {
-	Key   string  `pulumi:"key"`
+	// The tag key.
+	Key string `pulumi:"key"`
+	// The tag value.
 	Value *string `pulumi:"value"`
 }
 
 type ResourceGatewayTag struct {
-	Key   string  `pulumi:"key"`
+	// The tag key.
+	Key string `pulumi:"key"`
+	// The tag value.
 	Value *string `pulumi:"value"`
 }
 
@@ -2446,7 +2495,9 @@ func (o ServiceDnsEntryPtrOutput) HostedZoneId() pulumi.StringPtrOutput {
 
 // A key-value pair to associate with a resource.
 type ServiceNetworkResourceAssociationTag struct {
-	Key   string `pulumi:"key"`
+	// The tag key.
+	Key string `pulumi:"key"`
+	// A tag value.
 	Value string `pulumi:"value"`
 }
 
@@ -2614,6 +2665,7 @@ type ServiceNetworkServiceAssociationTag struct {
 }
 
 type ServiceNetworkSharingConfig struct {
+	// Specify if the service network should be enabled for sharing.
 	Enabled bool `pulumi:"enabled"`
 }
 
@@ -2629,6 +2681,7 @@ type ServiceNetworkSharingConfigInput interface {
 }
 
 type ServiceNetworkSharingConfigArgs struct {
+	// Specify if the service network should be enabled for sharing.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 }
 
@@ -2709,6 +2762,7 @@ func (o ServiceNetworkSharingConfigOutput) ToServiceNetworkSharingConfigPtrOutpu
 	}).(ServiceNetworkSharingConfigPtrOutput)
 }
 
+// Specify if the service network should be enabled for sharing.
 func (o ServiceNetworkSharingConfigOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v ServiceNetworkSharingConfig) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -2737,6 +2791,7 @@ func (o ServiceNetworkSharingConfigPtrOutput) Elem() ServiceNetworkSharingConfig
 	}).(ServiceNetworkSharingConfigOutput)
 }
 
+// Specify if the service network should be enabled for sharing.
 func (o ServiceNetworkSharingConfigPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServiceNetworkSharingConfig) *bool {
 		if v == nil {

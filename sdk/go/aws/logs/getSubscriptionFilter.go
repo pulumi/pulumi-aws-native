@@ -40,6 +40,10 @@ type LookupSubscriptionFilterArgs struct {
 }
 
 type LookupSubscriptionFilterResult struct {
+	// This parameter is valid only for log groups that have an active log transformer. For more information about log transformers, see [PutTransformer](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutTransformer.html) .
+	//
+	// If this value is `true` , the subscription filter is applied on the transformed version of the log events instead of the original ingested log events.
+	ApplyOnTransformedLogs *bool `pulumi:"applyOnTransformedLogs"`
 	// The Amazon Resource Name (ARN) of the destination.
 	DestinationArn *string `pulumi:"destinationArn"`
 	// The method used to distribute log data to the destination, which can be either random or grouped by log stream.
@@ -82,6 +86,13 @@ func (o LookupSubscriptionFilterResultOutput) ToLookupSubscriptionFilterResultOu
 
 func (o LookupSubscriptionFilterResultOutput) ToLookupSubscriptionFilterResultOutputWithContext(ctx context.Context) LookupSubscriptionFilterResultOutput {
 	return o
+}
+
+// This parameter is valid only for log groups that have an active log transformer. For more information about log transformers, see [PutTransformer](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutTransformer.html) .
+//
+// If this value is `true` , the subscription filter is applied on the transformed version of the log events instead of the original ingested log events.
+func (o LookupSubscriptionFilterResultOutput) ApplyOnTransformedLogs() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupSubscriptionFilterResult) *bool { return v.ApplyOnTransformedLogs }).(pulumi.BoolPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the destination.

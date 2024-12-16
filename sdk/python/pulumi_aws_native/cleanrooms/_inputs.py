@@ -64,14 +64,26 @@ __all__ = [
     'ConfiguredTableAssociationAnalysisRulePolicyArgsDict',
     'ConfiguredTableAssociationAnalysisRuleArgs',
     'ConfiguredTableAssociationAnalysisRuleArgsDict',
+    'ConfiguredTableAthenaTableReferenceArgs',
+    'ConfiguredTableAthenaTableReferenceArgsDict',
     'ConfiguredTableDifferentialPrivacyColumnArgs',
     'ConfiguredTableDifferentialPrivacyColumnArgsDict',
     'ConfiguredTableDifferentialPrivacyArgs',
     'ConfiguredTableDifferentialPrivacyArgsDict',
     'ConfiguredTableGlueTableReferenceArgs',
     'ConfiguredTableGlueTableReferenceArgsDict',
-    'ConfiguredTableTableReferenceArgs',
-    'ConfiguredTableTableReferenceArgsDict',
+    'ConfiguredTableSnowflakeTableReferenceArgs',
+    'ConfiguredTableSnowflakeTableReferenceArgsDict',
+    'ConfiguredTableSnowflakeTableSchemaPropertiesArgs',
+    'ConfiguredTableSnowflakeTableSchemaPropertiesArgsDict',
+    'ConfiguredTableSnowflakeTableSchemaV1Args',
+    'ConfiguredTableSnowflakeTableSchemaV1ArgsDict',
+    'ConfiguredTableTableReference0PropertiesArgs',
+    'ConfiguredTableTableReference0PropertiesArgsDict',
+    'ConfiguredTableTableReference1PropertiesArgs',
+    'ConfiguredTableTableReference1PropertiesArgsDict',
+    'ConfiguredTableTableReference2PropertiesArgs',
+    'ConfiguredTableTableReference2PropertiesArgsDict',
     'IdMappingTableInputReferenceConfigArgs',
     'IdMappingTableInputReferenceConfigArgsDict',
     'IdNamespaceAssociationIdMappingConfigArgs',
@@ -1184,6 +1196,65 @@ class ConfiguredTableAssociationAnalysisRuleArgs:
 
 
 if not MYPY:
+    class ConfiguredTableAthenaTableReferenceArgsDict(TypedDict):
+        database_name: pulumi.Input[str]
+        table_name: pulumi.Input[str]
+        work_group: pulumi.Input[str]
+        output_location: NotRequired[pulumi.Input[str]]
+elif False:
+    ConfiguredTableAthenaTableReferenceArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ConfiguredTableAthenaTableReferenceArgs:
+    def __init__(__self__, *,
+                 database_name: pulumi.Input[str],
+                 table_name: pulumi.Input[str],
+                 work_group: pulumi.Input[str],
+                 output_location: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "table_name", table_name)
+        pulumi.set(__self__, "work_group", work_group)
+        if output_location is not None:
+            pulumi.set(__self__, "output_location", output_location)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "database_name", value)
+
+    @property
+    @pulumi.getter(name="tableName")
+    def table_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "table_name")
+
+    @table_name.setter
+    def table_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "table_name", value)
+
+    @property
+    @pulumi.getter(name="workGroup")
+    def work_group(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "work_group")
+
+    @work_group.setter
+    def work_group(self, value: pulumi.Input[str]):
+        pulumi.set(self, "work_group", value)
+
+    @property
+    @pulumi.getter(name="outputLocation")
+    def output_location(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "output_location")
+
+    @output_location.setter
+    def output_location(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "output_location", value)
+
+
+if not MYPY:
     class ConfiguredTableDifferentialPrivacyColumnArgsDict(TypedDict):
         name: pulumi.Input[str]
 elif False:
@@ -1230,13 +1301,7 @@ class ConfiguredTableDifferentialPrivacyArgs:
 if not MYPY:
     class ConfiguredTableGlueTableReferenceArgsDict(TypedDict):
         database_name: pulumi.Input[str]
-        """
-        The name of the database the AWS Glue table belongs to.
-        """
         table_name: pulumi.Input[str]
-        """
-        The name of the AWS Glue table.
-        """
 elif False:
     ConfiguredTableGlueTableReferenceArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1245,19 +1310,12 @@ class ConfiguredTableGlueTableReferenceArgs:
     def __init__(__self__, *,
                  database_name: pulumi.Input[str],
                  table_name: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] database_name: The name of the database the AWS Glue table belongs to.
-        :param pulumi.Input[str] table_name: The name of the AWS Glue table.
-        """
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "table_name", table_name)
 
     @property
     @pulumi.getter(name="databaseName")
     def database_name(self) -> pulumi.Input[str]:
-        """
-        The name of the database the AWS Glue table belongs to.
-        """
         return pulumi.get(self, "database_name")
 
     @database_name.setter
@@ -1267,9 +1325,6 @@ class ConfiguredTableGlueTableReferenceArgs:
     @property
     @pulumi.getter(name="tableName")
     def table_name(self) -> pulumi.Input[str]:
-        """
-        The name of the AWS Glue table.
-        """
         return pulumi.get(self, "table_name")
 
     @table_name.setter
@@ -1278,34 +1333,207 @@ class ConfiguredTableGlueTableReferenceArgs:
 
 
 if not MYPY:
-    class ConfiguredTableTableReferenceArgsDict(TypedDict):
-        glue: pulumi.Input['ConfiguredTableGlueTableReferenceArgsDict']
-        """
-        If present, a reference to the AWS Glue table referred to by this table reference.
-        """
+    class ConfiguredTableSnowflakeTableReferenceArgsDict(TypedDict):
+        account_identifier: pulumi.Input[str]
+        database_name: pulumi.Input[str]
+        schema_name: pulumi.Input[str]
+        secret_arn: pulumi.Input[str]
+        table_name: pulumi.Input[str]
+        table_schema: pulumi.Input['ConfiguredTableSnowflakeTableSchemaPropertiesArgsDict']
 elif False:
-    ConfiguredTableTableReferenceArgsDict: TypeAlias = Mapping[str, Any]
+    ConfiguredTableSnowflakeTableReferenceArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
-class ConfiguredTableTableReferenceArgs:
+class ConfiguredTableSnowflakeTableReferenceArgs:
+    def __init__(__self__, *,
+                 account_identifier: pulumi.Input[str],
+                 database_name: pulumi.Input[str],
+                 schema_name: pulumi.Input[str],
+                 secret_arn: pulumi.Input[str],
+                 table_name: pulumi.Input[str],
+                 table_schema: pulumi.Input['ConfiguredTableSnowflakeTableSchemaPropertiesArgs']):
+        pulumi.set(__self__, "account_identifier", account_identifier)
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "schema_name", schema_name)
+        pulumi.set(__self__, "secret_arn", secret_arn)
+        pulumi.set(__self__, "table_name", table_name)
+        pulumi.set(__self__, "table_schema", table_schema)
+
+    @property
+    @pulumi.getter(name="accountIdentifier")
+    def account_identifier(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "account_identifier")
+
+    @account_identifier.setter
+    def account_identifier(self, value: pulumi.Input[str]):
+        pulumi.set(self, "account_identifier", value)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "database_name", value)
+
+    @property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "schema_name")
+
+    @schema_name.setter
+    def schema_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "schema_name", value)
+
+    @property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "secret_arn")
+
+    @secret_arn.setter
+    def secret_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "secret_arn", value)
+
+    @property
+    @pulumi.getter(name="tableName")
+    def table_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "table_name")
+
+    @table_name.setter
+    def table_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "table_name", value)
+
+    @property
+    @pulumi.getter(name="tableSchema")
+    def table_schema(self) -> pulumi.Input['ConfiguredTableSnowflakeTableSchemaPropertiesArgs']:
+        return pulumi.get(self, "table_schema")
+
+    @table_schema.setter
+    def table_schema(self, value: pulumi.Input['ConfiguredTableSnowflakeTableSchemaPropertiesArgs']):
+        pulumi.set(self, "table_schema", value)
+
+
+if not MYPY:
+    class ConfiguredTableSnowflakeTableSchemaPropertiesArgsDict(TypedDict):
+        v1: pulumi.Input[Sequence[pulumi.Input['ConfiguredTableSnowflakeTableSchemaV1ArgsDict']]]
+elif False:
+    ConfiguredTableSnowflakeTableSchemaPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ConfiguredTableSnowflakeTableSchemaPropertiesArgs:
+    def __init__(__self__, *,
+                 v1: pulumi.Input[Sequence[pulumi.Input['ConfiguredTableSnowflakeTableSchemaV1Args']]]):
+        pulumi.set(__self__, "v1", v1)
+
+    @property
+    @pulumi.getter
+    def v1(self) -> pulumi.Input[Sequence[pulumi.Input['ConfiguredTableSnowflakeTableSchemaV1Args']]]:
+        return pulumi.get(self, "v1")
+
+    @v1.setter
+    def v1(self, value: pulumi.Input[Sequence[pulumi.Input['ConfiguredTableSnowflakeTableSchemaV1Args']]]):
+        pulumi.set(self, "v1", value)
+
+
+if not MYPY:
+    class ConfiguredTableSnowflakeTableSchemaV1ArgsDict(TypedDict):
+        column_name: pulumi.Input[str]
+        column_type: pulumi.Input[str]
+elif False:
+    ConfiguredTableSnowflakeTableSchemaV1ArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ConfiguredTableSnowflakeTableSchemaV1Args:
+    def __init__(__self__, *,
+                 column_name: pulumi.Input[str],
+                 column_type: pulumi.Input[str]):
+        pulumi.set(__self__, "column_name", column_name)
+        pulumi.set(__self__, "column_type", column_type)
+
+    @property
+    @pulumi.getter(name="columnName")
+    def column_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "column_name")
+
+    @column_name.setter
+    def column_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "column_name", value)
+
+    @property
+    @pulumi.getter(name="columnType")
+    def column_type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "column_type")
+
+    @column_type.setter
+    def column_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "column_type", value)
+
+
+if not MYPY:
+    class ConfiguredTableTableReference0PropertiesArgsDict(TypedDict):
+        glue: pulumi.Input['ConfiguredTableGlueTableReferenceArgsDict']
+elif False:
+    ConfiguredTableTableReference0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ConfiguredTableTableReference0PropertiesArgs:
     def __init__(__self__, *,
                  glue: pulumi.Input['ConfiguredTableGlueTableReferenceArgs']):
-        """
-        :param pulumi.Input['ConfiguredTableGlueTableReferenceArgs'] glue: If present, a reference to the AWS Glue table referred to by this table reference.
-        """
         pulumi.set(__self__, "glue", glue)
 
     @property
     @pulumi.getter
     def glue(self) -> pulumi.Input['ConfiguredTableGlueTableReferenceArgs']:
-        """
-        If present, a reference to the AWS Glue table referred to by this table reference.
-        """
         return pulumi.get(self, "glue")
 
     @glue.setter
     def glue(self, value: pulumi.Input['ConfiguredTableGlueTableReferenceArgs']):
         pulumi.set(self, "glue", value)
+
+
+if not MYPY:
+    class ConfiguredTableTableReference1PropertiesArgsDict(TypedDict):
+        snowflake: pulumi.Input['ConfiguredTableSnowflakeTableReferenceArgsDict']
+elif False:
+    ConfiguredTableTableReference1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ConfiguredTableTableReference1PropertiesArgs:
+    def __init__(__self__, *,
+                 snowflake: pulumi.Input['ConfiguredTableSnowflakeTableReferenceArgs']):
+        pulumi.set(__self__, "snowflake", snowflake)
+
+    @property
+    @pulumi.getter
+    def snowflake(self) -> pulumi.Input['ConfiguredTableSnowflakeTableReferenceArgs']:
+        return pulumi.get(self, "snowflake")
+
+    @snowflake.setter
+    def snowflake(self, value: pulumi.Input['ConfiguredTableSnowflakeTableReferenceArgs']):
+        pulumi.set(self, "snowflake", value)
+
+
+if not MYPY:
+    class ConfiguredTableTableReference2PropertiesArgsDict(TypedDict):
+        athena: pulumi.Input['ConfiguredTableAthenaTableReferenceArgsDict']
+elif False:
+    ConfiguredTableTableReference2PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ConfiguredTableTableReference2PropertiesArgs:
+    def __init__(__self__, *,
+                 athena: pulumi.Input['ConfiguredTableAthenaTableReferenceArgs']):
+        pulumi.set(__self__, "athena", athena)
+
+    @property
+    @pulumi.getter
+    def athena(self) -> pulumi.Input['ConfiguredTableAthenaTableReferenceArgs']:
+        return pulumi.get(self, "athena")
+
+    @athena.setter
+    def athena(self, value: pulumi.Input['ConfiguredTableAthenaTableReferenceArgs']):
+        pulumi.set(self, "athena", value)
 
 
 if not MYPY:

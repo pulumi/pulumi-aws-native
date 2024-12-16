@@ -33,7 +33,9 @@ type VpcEndpoint struct {
 	// ["Z1HUB23UULQXV:vpce-01abc23456de78f9g-12abccd3.ec2.us-east-1.vpce.amazonaws.com", "Z1HUB23UULQXV:vpce-01abc23456de78f9g-12abccd3-us-east-1a.ec2.us-east-1.vpce.amazonaws.com", "Z1C12344VYDITB0:ec2.us-east-1.amazonaws.com"]
 	//
 	// If you update the `PrivateDnsEnabled` or `SubnetIds` properties, the DNS entries in the list will change.
-	DnsEntries pulumi.StringArrayOutput `pulumi:"dnsEntries"`
+	DnsEntries    pulumi.StringArrayOutput                    `pulumi:"dnsEntries"`
+	DnsOptions    VpcEndpointDnsOptionsSpecificationPtrOutput `pulumi:"dnsOptions"`
+	IpAddressType VpcEndpointIpAddressTypePtrOutput           `pulumi:"ipAddressType"`
 	// (Interface endpoints) The network interface IDs. If you update the `PrivateDnsEnabled` or `SubnetIds` properties, the items in this list might change.
 	NetworkInterfaceIds pulumi.StringArrayOutput `pulumi:"networkInterfaceIds"`
 	// An endpoint policy, which controls access to the service from the VPC. The default endpoint policy allows full access to the service. Endpoint policies are supported only for gateway and interface endpoints.
@@ -46,13 +48,15 @@ type VpcEndpoint struct {
 	//  To use a private hosted zone, you must set the following VPC attributes to ``true``: ``enableDnsHostnames`` and ``enableDnsSupport``.
 	//  This property is supported only for interface endpoints.
 	//  Default: ``false``
-	PrivateDnsEnabled pulumi.BoolPtrOutput `pulumi:"privateDnsEnabled"`
+	PrivateDnsEnabled        pulumi.BoolPtrOutput   `pulumi:"privateDnsEnabled"`
+	ResourceConfigurationArn pulumi.StringPtrOutput `pulumi:"resourceConfigurationArn"`
 	// The IDs of the route tables. Routing is supported only for gateway endpoints.
 	RouteTableIds pulumi.StringArrayOutput `pulumi:"routeTableIds"`
 	// The IDs of the security groups to associate with the endpoint network interfaces. If this parameter is not specified, we use the default security group for the VPC. Security groups are supported only for interface endpoints.
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
 	// The name of the endpoint service.
-	ServiceName pulumi.StringOutput `pulumi:"serviceName"`
+	ServiceName       pulumi.StringPtrOutput `pulumi:"serviceName"`
+	ServiceNetworkArn pulumi.StringPtrOutput `pulumi:"serviceNetworkArn"`
 	// The IDs of the subnets in which to create endpoint network interfaces. You must specify this property for an interface endpoint or a Gateway Load Balancer endpoint. You can't specify this property for a gateway endpoint. For a Gateway Load Balancer endpoint, you can specify only one subnet.
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
 	// The type of endpoint.
@@ -69,14 +73,13 @@ func NewVpcEndpoint(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ServiceName == nil {
-		return nil, errors.New("invalid value for required argument 'ServiceName'")
-	}
 	if args.VpcId == nil {
 		return nil, errors.New("invalid value for required argument 'VpcId'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"resourceConfigurationArn",
 		"serviceName",
+		"serviceNetworkArn",
 		"vpcEndpointType",
 		"vpcId",
 	})
@@ -114,6 +117,8 @@ func (VpcEndpointState) ElementType() reflect.Type {
 }
 
 type vpcEndpointArgs struct {
+	DnsOptions    *VpcEndpointDnsOptionsSpecification `pulumi:"dnsOptions"`
+	IpAddressType *VpcEndpointIpAddressType           `pulumi:"ipAddressType"`
 	// An endpoint policy, which controls access to the service from the VPC. The default endpoint policy allows full access to the service. Endpoint policies are supported only for gateway and interface endpoints.
 	//  For CloudFormation templates in YAML, you can provide the policy in JSON or YAML format. For example, if you have a JSON policy, you can convert it to YAML before including it in the YAML template, and CFNlong converts the policy to JSON format before calling the API actions for privatelink. Alternatively, you can include the JSON directly in the YAML, as shown in the following ``Properties`` section:
 	//  ``Properties: VpcEndpointType: 'Interface' ServiceName: !Sub 'com.amazonaws.${AWS::Region}.logs' PolicyDocument: '{ "Version":"2012-10-17", "Statement": [{ "Effect":"Allow", "Principal":"*", "Action":["logs:Describe*","logs:Get*","logs:List*","logs:FilterLogEvents"], "Resource":"*" }] }'``
@@ -124,13 +129,15 @@ type vpcEndpointArgs struct {
 	//  To use a private hosted zone, you must set the following VPC attributes to ``true``: ``enableDnsHostnames`` and ``enableDnsSupport``.
 	//  This property is supported only for interface endpoints.
 	//  Default: ``false``
-	PrivateDnsEnabled *bool `pulumi:"privateDnsEnabled"`
+	PrivateDnsEnabled        *bool   `pulumi:"privateDnsEnabled"`
+	ResourceConfigurationArn *string `pulumi:"resourceConfigurationArn"`
 	// The IDs of the route tables. Routing is supported only for gateway endpoints.
 	RouteTableIds []string `pulumi:"routeTableIds"`
 	// The IDs of the security groups to associate with the endpoint network interfaces. If this parameter is not specified, we use the default security group for the VPC. Security groups are supported only for interface endpoints.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// The name of the endpoint service.
-	ServiceName string `pulumi:"serviceName"`
+	ServiceName       *string `pulumi:"serviceName"`
+	ServiceNetworkArn *string `pulumi:"serviceNetworkArn"`
 	// The IDs of the subnets in which to create endpoint network interfaces. You must specify this property for an interface endpoint or a Gateway Load Balancer endpoint. You can't specify this property for a gateway endpoint. For a Gateway Load Balancer endpoint, you can specify only one subnet.
 	SubnetIds []string `pulumi:"subnetIds"`
 	// The type of endpoint.
@@ -142,6 +149,8 @@ type vpcEndpointArgs struct {
 
 // The set of arguments for constructing a VpcEndpoint resource.
 type VpcEndpointArgs struct {
+	DnsOptions    VpcEndpointDnsOptionsSpecificationPtrInput
+	IpAddressType VpcEndpointIpAddressTypePtrInput
 	// An endpoint policy, which controls access to the service from the VPC. The default endpoint policy allows full access to the service. Endpoint policies are supported only for gateway and interface endpoints.
 	//  For CloudFormation templates in YAML, you can provide the policy in JSON or YAML format. For example, if you have a JSON policy, you can convert it to YAML before including it in the YAML template, and CFNlong converts the policy to JSON format before calling the API actions for privatelink. Alternatively, you can include the JSON directly in the YAML, as shown in the following ``Properties`` section:
 	//  ``Properties: VpcEndpointType: 'Interface' ServiceName: !Sub 'com.amazonaws.${AWS::Region}.logs' PolicyDocument: '{ "Version":"2012-10-17", "Statement": [{ "Effect":"Allow", "Principal":"*", "Action":["logs:Describe*","logs:Get*","logs:List*","logs:FilterLogEvents"], "Resource":"*" }] }'``
@@ -152,13 +161,15 @@ type VpcEndpointArgs struct {
 	//  To use a private hosted zone, you must set the following VPC attributes to ``true``: ``enableDnsHostnames`` and ``enableDnsSupport``.
 	//  This property is supported only for interface endpoints.
 	//  Default: ``false``
-	PrivateDnsEnabled pulumi.BoolPtrInput
+	PrivateDnsEnabled        pulumi.BoolPtrInput
+	ResourceConfigurationArn pulumi.StringPtrInput
 	// The IDs of the route tables. Routing is supported only for gateway endpoints.
 	RouteTableIds pulumi.StringArrayInput
 	// The IDs of the security groups to associate with the endpoint network interfaces. If this parameter is not specified, we use the default security group for the VPC. Security groups are supported only for interface endpoints.
 	SecurityGroupIds pulumi.StringArrayInput
 	// The name of the endpoint service.
-	ServiceName pulumi.StringInput
+	ServiceName       pulumi.StringPtrInput
+	ServiceNetworkArn pulumi.StringPtrInput
 	// The IDs of the subnets in which to create endpoint network interfaces. You must specify this property for an interface endpoint or a Gateway Load Balancer endpoint. You can't specify this property for a gateway endpoint. For a Gateway Load Balancer endpoint, you can specify only one subnet.
 	SubnetIds pulumi.StringArrayInput
 	// The type of endpoint.
@@ -226,6 +237,14 @@ func (o VpcEndpointOutput) DnsEntries() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VpcEndpoint) pulumi.StringArrayOutput { return v.DnsEntries }).(pulumi.StringArrayOutput)
 }
 
+func (o VpcEndpointOutput) DnsOptions() VpcEndpointDnsOptionsSpecificationPtrOutput {
+	return o.ApplyT(func(v *VpcEndpoint) VpcEndpointDnsOptionsSpecificationPtrOutput { return v.DnsOptions }).(VpcEndpointDnsOptionsSpecificationPtrOutput)
+}
+
+func (o VpcEndpointOutput) IpAddressType() VpcEndpointIpAddressTypePtrOutput {
+	return o.ApplyT(func(v *VpcEndpoint) VpcEndpointIpAddressTypePtrOutput { return v.IpAddressType }).(VpcEndpointIpAddressTypePtrOutput)
+}
+
 // (Interface endpoints) The network interface IDs. If you update the `PrivateDnsEnabled` or `SubnetIds` properties, the items in this list might change.
 func (o VpcEndpointOutput) NetworkInterfaceIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VpcEndpoint) pulumi.StringArrayOutput { return v.NetworkInterfaceIds }).(pulumi.StringArrayOutput)
@@ -250,6 +269,10 @@ func (o VpcEndpointOutput) PrivateDnsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VpcEndpoint) pulumi.BoolPtrOutput { return v.PrivateDnsEnabled }).(pulumi.BoolPtrOutput)
 }
 
+func (o VpcEndpointOutput) ResourceConfigurationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcEndpoint) pulumi.StringPtrOutput { return v.ResourceConfigurationArn }).(pulumi.StringPtrOutput)
+}
+
 // The IDs of the route tables. Routing is supported only for gateway endpoints.
 func (o VpcEndpointOutput) RouteTableIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VpcEndpoint) pulumi.StringArrayOutput { return v.RouteTableIds }).(pulumi.StringArrayOutput)
@@ -261,8 +284,12 @@ func (o VpcEndpointOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 }
 
 // The name of the endpoint service.
-func (o VpcEndpointOutput) ServiceName() pulumi.StringOutput {
-	return o.ApplyT(func(v *VpcEndpoint) pulumi.StringOutput { return v.ServiceName }).(pulumi.StringOutput)
+func (o VpcEndpointOutput) ServiceName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcEndpoint) pulumi.StringPtrOutput { return v.ServiceName }).(pulumi.StringPtrOutput)
+}
+
+func (o VpcEndpointOutput) ServiceNetworkArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcEndpoint) pulumi.StringPtrOutput { return v.ServiceNetworkArn }).(pulumi.StringPtrOutput)
 }
 
 // The IDs of the subnets in which to create endpoint network interfaces. You must specify this property for an interface endpoint or a Gateway Load Balancer endpoint. You can't specify this property for a gateway endpoint. For a Gateway Load Balancer endpoint, you can specify only one subnet.

@@ -26,6 +26,8 @@ class TableBucketArgs:
                  unreferenced_file_removal: Optional[pulumi.Input['TableBucketUnreferencedFileRemovalArgs']] = None):
         """
         The set of arguments for constructing a TableBucket resource.
+        :param pulumi.Input[str] table_bucket_name: The name for the table bucket.
+        :param pulumi.Input['TableBucketUnreferencedFileRemovalArgs'] unreferenced_file_removal: The unreferenced file removal settings for your table bucket. Unreferenced file removal identifies and deletes all objects that are not referenced by any table snapshots. For more information, see the [*Amazon S3 User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-table-buckets-maintenance.html) .
         """
         if table_bucket_name is not None:
             pulumi.set(__self__, "table_bucket_name", table_bucket_name)
@@ -35,6 +37,9 @@ class TableBucketArgs:
     @property
     @pulumi.getter(name="tableBucketName")
     def table_bucket_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name for the table bucket.
+        """
         return pulumi.get(self, "table_bucket_name")
 
     @table_bucket_name.setter
@@ -44,6 +49,9 @@ class TableBucketArgs:
     @property
     @pulumi.getter(name="unreferencedFileRemoval")
     def unreferenced_file_removal(self) -> Optional[pulumi.Input['TableBucketUnreferencedFileRemovalArgs']]:
+        """
+        The unreferenced file removal settings for your table bucket. Unreferenced file removal identifies and deletes all objects that are not referenced by any table snapshots. For more information, see the [*Amazon S3 User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-table-buckets-maintenance.html) .
+        """
         return pulumi.get(self, "unreferenced_file_removal")
 
     @unreferenced_file_removal.setter
@@ -64,6 +72,8 @@ class TableBucket(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] table_bucket_name: The name for the table bucket.
+        :param pulumi.Input[Union['TableBucketUnreferencedFileRemovalArgs', 'TableBucketUnreferencedFileRemovalArgsDict']] unreferenced_file_removal: The unreferenced file removal settings for your table bucket. Unreferenced file removal identifies and deletes all objects that are not referenced by any table snapshots. For more information, see the [*Amazon S3 User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-table-buckets-maintenance.html) .
         """
         ...
     @overload
@@ -135,15 +145,24 @@ class TableBucket(pulumi.CustomResource):
     @property
     @pulumi.getter(name="tableBucketArn")
     def table_bucket_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the table bucket.
+        """
         return pulumi.get(self, "table_bucket_arn")
 
     @property
     @pulumi.getter(name="tableBucketName")
     def table_bucket_name(self) -> pulumi.Output[str]:
+        """
+        The name for the table bucket.
+        """
         return pulumi.get(self, "table_bucket_name")
 
     @property
     @pulumi.getter(name="unreferencedFileRemoval")
     def unreferenced_file_removal(self) -> pulumi.Output[Optional['outputs.TableBucketUnreferencedFileRemoval']]:
+        """
+        The unreferenced file removal settings for your table bucket. Unreferenced file removal identifies and deletes all objects that are not referenced by any table snapshots. For more information, see the [*Amazon S3 User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-table-buckets-maintenance.html) .
+        """
         return pulumi.get(self, "unreferenced_file_removal")
 

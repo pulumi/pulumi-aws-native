@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Wisdom.Inputs
     /// </summary>
     public sealed class AiGuardrailGuardrailManagedWordsConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The type of guardrail managed words.
+        /// </summary>
         [Input("type", required: true)]
         public Input<Pulumi.AwsNative.Wisdom.AiGuardrailGuardrailManagedWordsType> Type { get; set; } = null!;
 

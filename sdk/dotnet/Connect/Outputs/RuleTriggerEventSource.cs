@@ -11,17 +11,17 @@ namespace Pulumi.AwsNative.Connect.Outputs
 {
 
     /// <summary>
-    /// The event source that will trigger the rule.
+    /// The name of the event source.
     /// </summary>
     [OutputType]
     public sealed class RuleTriggerEventSource
     {
         /// <summary>
-        /// The name of event source.
+        /// The name of the event source.
         /// </summary>
         public readonly Pulumi.AwsNative.Connect.RuleTriggerEventSourceEventSourceName EventSourceName;
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the AppIntegration association.
+        /// The Amazon Resource Name (ARN) of the integration association. ``IntegrationAssociationArn`` is required if ``TriggerEventSource`` is one of the following values: ``OnZendeskTicketCreate`` | ``OnZendeskTicketStatusUpdate`` | ``OnSalesforceCaseCreate``
         /// </summary>
         public readonly string? IntegrationAssociationArn;
 

@@ -65,4 +65,32 @@ namespace Pulumi.AwsNative.M2
 
         public override string ToString() => _value;
     }
+
+    [EnumType]
+    public readonly struct EnvironmentNetworkType : IEquatable<EnvironmentNetworkType>
+    {
+        private readonly string _value;
+
+        private EnvironmentNetworkType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EnvironmentNetworkType Ipv4 { get; } = new EnvironmentNetworkType("ipv4");
+        public static EnvironmentNetworkType Dual { get; } = new EnvironmentNetworkType("dual");
+
+        public static bool operator ==(EnvironmentNetworkType left, EnvironmentNetworkType right) => left.Equals(right);
+        public static bool operator !=(EnvironmentNetworkType left, EnvironmentNetworkType right) => !left.Equals(right);
+
+        public static explicit operator string(EnvironmentNetworkType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EnvironmentNetworkType other && Equals(other);
+        public bool Equals(EnvironmentNetworkType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

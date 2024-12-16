@@ -18,6 +18,10 @@ import (
 type MetricFilter struct {
 	pulumi.CustomResourceState
 
+	// This parameter is valid only for log groups that have an active log transformer. For more information about log transformers, see [PutTransformer](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutTransformer.html) .
+	//
+	// If this value is `true` , the metric filter is applied on the transformed version of the log events instead of the original ingested log events.
+	ApplyOnTransformedLogs pulumi.BoolPtrOutput `pulumi:"applyOnTransformedLogs"`
 	// The name of the metric filter.
 	FilterName pulumi.StringPtrOutput `pulumi:"filterName"`
 	// A filter pattern for extracting metric data out of ingested log events. For more information, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
@@ -82,6 +86,10 @@ func (MetricFilterState) ElementType() reflect.Type {
 }
 
 type metricFilterArgs struct {
+	// This parameter is valid only for log groups that have an active log transformer. For more information about log transformers, see [PutTransformer](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutTransformer.html) .
+	//
+	// If this value is `true` , the metric filter is applied on the transformed version of the log events instead of the original ingested log events.
+	ApplyOnTransformedLogs *bool `pulumi:"applyOnTransformedLogs"`
 	// The name of the metric filter.
 	FilterName *string `pulumi:"filterName"`
 	// A filter pattern for extracting metric data out of ingested log events. For more information, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
@@ -94,6 +102,10 @@ type metricFilterArgs struct {
 
 // The set of arguments for constructing a MetricFilter resource.
 type MetricFilterArgs struct {
+	// This parameter is valid only for log groups that have an active log transformer. For more information about log transformers, see [PutTransformer](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutTransformer.html) .
+	//
+	// If this value is `true` , the metric filter is applied on the transformed version of the log events instead of the original ingested log events.
+	ApplyOnTransformedLogs pulumi.BoolPtrInput
 	// The name of the metric filter.
 	FilterName pulumi.StringPtrInput
 	// A filter pattern for extracting metric data out of ingested log events. For more information, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
@@ -139,6 +151,13 @@ func (o MetricFilterOutput) ToMetricFilterOutput() MetricFilterOutput {
 
 func (o MetricFilterOutput) ToMetricFilterOutputWithContext(ctx context.Context) MetricFilterOutput {
 	return o
+}
+
+// This parameter is valid only for log groups that have an active log transformer. For more information about log transformers, see [PutTransformer](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutTransformer.html) .
+//
+// If this value is `true` , the metric filter is applied on the transformed version of the log events instead of the original ingested log events.
+func (o MetricFilterOutput) ApplyOnTransformedLogs() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MetricFilter) pulumi.BoolPtrOutput { return v.ApplyOnTransformedLogs }).(pulumi.BoolPtrOutput)
 }
 
 // The name of the metric filter.

@@ -54,41 +54,65 @@ class GetDataAccessorResult:
     @property
     @pulumi.getter(name="actionConfigurations")
     def action_configurations(self) -> Optional[Sequence['outputs.DataAccessorActionConfiguration']]:
+        """
+        A list of action configurations specifying the allowed actions and any associated filters.
+        """
         return pulumi.get(self, "action_configurations")
 
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[str]:
+        """
+        The timestamp when the data accessor was created.
+        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter(name="dataAccessorArn")
     def data_accessor_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the data accessor.
+        """
         return pulumi.get(self, "data_accessor_arn")
 
     @property
     @pulumi.getter(name="dataAccessorId")
     def data_accessor_id(self) -> Optional[str]:
+        """
+        The unique identifier of the data accessor.
+        """
         return pulumi.get(self, "data_accessor_id")
 
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[str]:
+        """
+        The friendly name of the data accessor.
+        """
         return pulumi.get(self, "display_name")
 
     @property
     @pulumi.getter(name="idcApplicationArn")
     def idc_application_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the associated IAM Identity Center application.
+        """
         return pulumi.get(self, "idc_application_arn")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        The tags to associate with the data accessor.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> Optional[str]:
+        """
+        The timestamp when the data accessor was last updated.
+        """
         return pulumi.get(self, "updated_at")
 
 
@@ -113,6 +137,10 @@ def get_data_accessor(application_id: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDataAccessorResult:
     """
     Definition of AWS::QBusiness::DataAccessor Resource Type
+
+
+    :param str application_id: The unique identifier of the Amazon Q Business application.
+    :param str data_accessor_id: The unique identifier of the data accessor.
     """
     __args__ = dict()
     __args__['applicationId'] = application_id
@@ -134,6 +162,10 @@ def get_data_accessor_output(application_id: Optional[pulumi.Input[str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDataAccessorResult]:
     """
     Definition of AWS::QBusiness::DataAccessor Resource Type
+
+
+    :param str application_id: The unique identifier of the Amazon Q Business application.
+    :param str data_accessor_id: The unique identifier of the data accessor.
     """
     __args__ = dict()
     __args__['applicationId'] = application_id

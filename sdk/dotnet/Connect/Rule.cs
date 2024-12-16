@@ -10,19 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Connect
 {
     /// <summary>
-    /// Resource Type definition for AWS:Connect::Rule
+    /// Creates a rule for the specified CON instance.
     /// </summary>
     [AwsNativeResourceType("aws-native:connect:Rule")]
     public partial class Rule : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The list of actions that will be executed when a rule is triggered.
+        /// A list of actions to be run when the rule is triggered.
         /// </summary>
         [Output("actions")]
         public Output<Outputs.RuleActions> Actions { get; private set; } = null!;
 
         /// <summary>
-        /// The conditions of a rule.
+        /// The conditions of the rule.
         /// </summary>
         [Output("function")]
         public Output<string> Function { get; private set; } = null!;
@@ -40,7 +40,8 @@ namespace Pulumi.AwsNative.Connect
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The publish status of a rule, either draft or published.
+        /// The publish status of the rule.
+        ///   *Allowed values*: ``DRAFT`` | ``PUBLISHED``
         /// </summary>
         [Output("publishStatus")]
         public Output<Pulumi.AwsNative.Connect.RulePublishStatus> PublishStatus { get; private set; } = null!;
@@ -52,13 +53,13 @@ namespace Pulumi.AwsNative.Connect
         public Output<string> RuleArn { get; private set; } = null!;
 
         /// <summary>
-        /// One or more tags.
+        /// The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// The event source that triggers the rule.
+        /// The event source to trigger the rule.
         /// </summary>
         [Output("triggerEventSource")]
         public Output<Outputs.RuleTriggerEventSource> TriggerEventSource { get; private set; } = null!;
@@ -114,13 +115,13 @@ namespace Pulumi.AwsNative.Connect
     public sealed class RuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The list of actions that will be executed when a rule is triggered.
+        /// A list of actions to be run when the rule is triggered.
         /// </summary>
         [Input("actions", required: true)]
         public Input<Inputs.RuleActionsArgs> Actions { get; set; } = null!;
 
         /// <summary>
-        /// The conditions of a rule.
+        /// The conditions of the rule.
         /// </summary>
         [Input("function", required: true)]
         public Input<string> Function { get; set; } = null!;
@@ -138,7 +139,8 @@ namespace Pulumi.AwsNative.Connect
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The publish status of a rule, either draft or published.
+        /// The publish status of the rule.
+        ///   *Allowed values*: ``DRAFT`` | ``PUBLISHED``
         /// </summary>
         [Input("publishStatus", required: true)]
         public Input<Pulumi.AwsNative.Connect.RulePublishStatus> PublishStatus { get; set; } = null!;
@@ -147,7 +149,7 @@ namespace Pulumi.AwsNative.Connect
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
-        /// One or more tags.
+        /// The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
@@ -156,7 +158,7 @@ namespace Pulumi.AwsNative.Connect
         }
 
         /// <summary>
-        /// The event source that triggers the rule.
+        /// The event source to trigger the rule.
         /// </summary>
         [Input("triggerEventSource", required: true)]
         public Input<Inputs.RuleTriggerEventSourceArgs> TriggerEventSource { get; set; } = null!;

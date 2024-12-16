@@ -342,6 +342,171 @@ func (in *continuousDeploymentPolicyTrafficConfigTypePtr) ToContinuousDeployment
 	return pulumi.ToOutputWithContext(ctx, in).(ContinuousDeploymentPolicyTrafficConfigTypePtrOutput)
 }
 
+type DistributionOriginGroupSelectionCriteria string
+
+const (
+	DistributionOriginGroupSelectionCriteriaDefault           = DistributionOriginGroupSelectionCriteria("default")
+	DistributionOriginGroupSelectionCriteriaMediaQualityBased = DistributionOriginGroupSelectionCriteria("media-quality-based")
+)
+
+func (DistributionOriginGroupSelectionCriteria) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionOriginGroupSelectionCriteria)(nil)).Elem()
+}
+
+func (e DistributionOriginGroupSelectionCriteria) ToDistributionOriginGroupSelectionCriteriaOutput() DistributionOriginGroupSelectionCriteriaOutput {
+	return pulumi.ToOutput(e).(DistributionOriginGroupSelectionCriteriaOutput)
+}
+
+func (e DistributionOriginGroupSelectionCriteria) ToDistributionOriginGroupSelectionCriteriaOutputWithContext(ctx context.Context) DistributionOriginGroupSelectionCriteriaOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DistributionOriginGroupSelectionCriteriaOutput)
+}
+
+func (e DistributionOriginGroupSelectionCriteria) ToDistributionOriginGroupSelectionCriteriaPtrOutput() DistributionOriginGroupSelectionCriteriaPtrOutput {
+	return e.ToDistributionOriginGroupSelectionCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (e DistributionOriginGroupSelectionCriteria) ToDistributionOriginGroupSelectionCriteriaPtrOutputWithContext(ctx context.Context) DistributionOriginGroupSelectionCriteriaPtrOutput {
+	return DistributionOriginGroupSelectionCriteria(e).ToDistributionOriginGroupSelectionCriteriaOutputWithContext(ctx).ToDistributionOriginGroupSelectionCriteriaPtrOutputWithContext(ctx)
+}
+
+func (e DistributionOriginGroupSelectionCriteria) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DistributionOriginGroupSelectionCriteria) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DistributionOriginGroupSelectionCriteria) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DistributionOriginGroupSelectionCriteria) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DistributionOriginGroupSelectionCriteriaOutput struct{ *pulumi.OutputState }
+
+func (DistributionOriginGroupSelectionCriteriaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionOriginGroupSelectionCriteria)(nil)).Elem()
+}
+
+func (o DistributionOriginGroupSelectionCriteriaOutput) ToDistributionOriginGroupSelectionCriteriaOutput() DistributionOriginGroupSelectionCriteriaOutput {
+	return o
+}
+
+func (o DistributionOriginGroupSelectionCriteriaOutput) ToDistributionOriginGroupSelectionCriteriaOutputWithContext(ctx context.Context) DistributionOriginGroupSelectionCriteriaOutput {
+	return o
+}
+
+func (o DistributionOriginGroupSelectionCriteriaOutput) ToDistributionOriginGroupSelectionCriteriaPtrOutput() DistributionOriginGroupSelectionCriteriaPtrOutput {
+	return o.ToDistributionOriginGroupSelectionCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (o DistributionOriginGroupSelectionCriteriaOutput) ToDistributionOriginGroupSelectionCriteriaPtrOutputWithContext(ctx context.Context) DistributionOriginGroupSelectionCriteriaPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionOriginGroupSelectionCriteria) *DistributionOriginGroupSelectionCriteria {
+		return &v
+	}).(DistributionOriginGroupSelectionCriteriaPtrOutput)
+}
+
+func (o DistributionOriginGroupSelectionCriteriaOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DistributionOriginGroupSelectionCriteriaOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DistributionOriginGroupSelectionCriteria) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DistributionOriginGroupSelectionCriteriaOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DistributionOriginGroupSelectionCriteriaOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DistributionOriginGroupSelectionCriteria) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DistributionOriginGroupSelectionCriteriaPtrOutput struct{ *pulumi.OutputState }
+
+func (DistributionOriginGroupSelectionCriteriaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionOriginGroupSelectionCriteria)(nil)).Elem()
+}
+
+func (o DistributionOriginGroupSelectionCriteriaPtrOutput) ToDistributionOriginGroupSelectionCriteriaPtrOutput() DistributionOriginGroupSelectionCriteriaPtrOutput {
+	return o
+}
+
+func (o DistributionOriginGroupSelectionCriteriaPtrOutput) ToDistributionOriginGroupSelectionCriteriaPtrOutputWithContext(ctx context.Context) DistributionOriginGroupSelectionCriteriaPtrOutput {
+	return o
+}
+
+func (o DistributionOriginGroupSelectionCriteriaPtrOutput) Elem() DistributionOriginGroupSelectionCriteriaOutput {
+	return o.ApplyT(func(v *DistributionOriginGroupSelectionCriteria) DistributionOriginGroupSelectionCriteria {
+		if v != nil {
+			return *v
+		}
+		var ret DistributionOriginGroupSelectionCriteria
+		return ret
+	}).(DistributionOriginGroupSelectionCriteriaOutput)
+}
+
+func (o DistributionOriginGroupSelectionCriteriaPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DistributionOriginGroupSelectionCriteriaPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DistributionOriginGroupSelectionCriteria) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DistributionOriginGroupSelectionCriteriaInput is an input type that accepts values of the DistributionOriginGroupSelectionCriteria enum
+// A concrete instance of `DistributionOriginGroupSelectionCriteriaInput` can be one of the following:
+//
+//	DistributionOriginGroupSelectionCriteriaDefault
+//	DistributionOriginGroupSelectionCriteriaMediaQualityBased
+type DistributionOriginGroupSelectionCriteriaInput interface {
+	pulumi.Input
+
+	ToDistributionOriginGroupSelectionCriteriaOutput() DistributionOriginGroupSelectionCriteriaOutput
+	ToDistributionOriginGroupSelectionCriteriaOutputWithContext(context.Context) DistributionOriginGroupSelectionCriteriaOutput
+}
+
+var distributionOriginGroupSelectionCriteriaPtrType = reflect.TypeOf((**DistributionOriginGroupSelectionCriteria)(nil)).Elem()
+
+type DistributionOriginGroupSelectionCriteriaPtrInput interface {
+	pulumi.Input
+
+	ToDistributionOriginGroupSelectionCriteriaPtrOutput() DistributionOriginGroupSelectionCriteriaPtrOutput
+	ToDistributionOriginGroupSelectionCriteriaPtrOutputWithContext(context.Context) DistributionOriginGroupSelectionCriteriaPtrOutput
+}
+
+type distributionOriginGroupSelectionCriteriaPtr string
+
+func DistributionOriginGroupSelectionCriteriaPtr(v string) DistributionOriginGroupSelectionCriteriaPtrInput {
+	return (*distributionOriginGroupSelectionCriteriaPtr)(&v)
+}
+
+func (*distributionOriginGroupSelectionCriteriaPtr) ElementType() reflect.Type {
+	return distributionOriginGroupSelectionCriteriaPtrType
+}
+
+func (in *distributionOriginGroupSelectionCriteriaPtr) ToDistributionOriginGroupSelectionCriteriaPtrOutput() DistributionOriginGroupSelectionCriteriaPtrOutput {
+	return pulumi.ToOutput(in).(DistributionOriginGroupSelectionCriteriaPtrOutput)
+}
+
+func (in *distributionOriginGroupSelectionCriteriaPtr) ToDistributionOriginGroupSelectionCriteriaPtrOutputWithContext(ctx context.Context) DistributionOriginGroupSelectionCriteriaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DistributionOriginGroupSelectionCriteriaPtrOutput)
+}
+
 // A flag that indicates whether additional CloudWatch metrics are enabled for a given CloudFront distribution.
 type MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus string
 
@@ -513,12 +678,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ContinuousDeploymentPolicyConfigTypePtrInput)(nil)).Elem(), ContinuousDeploymentPolicyConfigType("SingleWeight"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ContinuousDeploymentPolicyTrafficConfigTypeInput)(nil)).Elem(), ContinuousDeploymentPolicyTrafficConfigType("SingleWeight"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ContinuousDeploymentPolicyTrafficConfigTypePtrInput)(nil)).Elem(), ContinuousDeploymentPolicyTrafficConfigType("SingleWeight"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionOriginGroupSelectionCriteriaInput)(nil)).Elem(), DistributionOriginGroupSelectionCriteria("default"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionOriginGroupSelectionCriteriaPtrInput)(nil)).Elem(), DistributionOriginGroupSelectionCriteria("default"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatusInput)(nil)).Elem(), MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus("Enabled"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatusPtrInput)(nil)).Elem(), MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus("Enabled"))
 	pulumi.RegisterOutputType(ContinuousDeploymentPolicyConfigTypeOutput{})
 	pulumi.RegisterOutputType(ContinuousDeploymentPolicyConfigTypePtrOutput{})
 	pulumi.RegisterOutputType(ContinuousDeploymentPolicyTrafficConfigTypeOutput{})
 	pulumi.RegisterOutputType(ContinuousDeploymentPolicyTrafficConfigTypePtrOutput{})
+	pulumi.RegisterOutputType(DistributionOriginGroupSelectionCriteriaOutput{})
+	pulumi.RegisterOutputType(DistributionOriginGroupSelectionCriteriaPtrOutput{})
 	pulumi.RegisterOutputType(MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatusOutput{})
 	pulumi.RegisterOutputType(MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatusPtrOutput{})
 }

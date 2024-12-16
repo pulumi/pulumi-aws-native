@@ -32,7 +32,8 @@ type LookupWebExperienceArgs struct {
 
 type LookupWebExperienceResult struct {
 	// The Unix timestamp when the Amazon Q Business application was last updated.
-	CreatedAt                  *string                                  `pulumi:"createdAt"`
+	CreatedAt *string `pulumi:"createdAt"`
+	// Contains the configuration information to customize the logo, font, and color of an Amazon Q Business web experience with individual files for each property or a CSS file for them all.
 	CustomizationConfiguration *WebExperienceCustomizationConfiguration `pulumi:"customizationConfiguration"`
 	// The endpoint URLs for your Amazon Q Business web experience. The URLs are unique and fully hosted by AWS .
 	DefaultEndpoint *string `pulumi:"defaultEndpoint"`
@@ -105,6 +106,7 @@ func (o LookupWebExperienceResultOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupWebExperienceResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
+// Contains the configuration information to customize the logo, font, and color of an Amazon Q Business web experience with individual files for each property or a CSS file for them all.
 func (o LookupWebExperienceResultOutput) CustomizationConfiguration() WebExperienceCustomizationConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupWebExperienceResult) *WebExperienceCustomizationConfiguration {
 		return v.CustomizationConfiguration

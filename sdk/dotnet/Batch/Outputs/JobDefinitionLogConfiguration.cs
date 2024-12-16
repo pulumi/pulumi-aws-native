@@ -36,7 +36,7 @@ namespace Pulumi.AwsNative.Batch.Outputs
         /// <summary>
         /// The configuration options to send to the log driver. This parameter requires version 1.19 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: `sudo docker version | grep "Server API version"`
         /// </summary>
-        public readonly object? Options;
+        public readonly ImmutableDictionary<string, string>? Options;
         /// <summary>
         /// The secrets to pass to the log configuration. For more information, see [Specifying sensitive data](https://docs.aws.amazon.com/batch/latest/userguide/specifying-sensitive-data.html) in the *AWS Batch User Guide* .
         /// </summary>
@@ -46,7 +46,7 @@ namespace Pulumi.AwsNative.Batch.Outputs
         private JobDefinitionLogConfiguration(
             string logDriver,
 
-            object? options,
+            ImmutableDictionary<string, string>? options,
 
             ImmutableArray<Outputs.JobDefinitionSecret> secretOptions)
         {

@@ -10,15 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Connect.Outputs
 {
 
-    /// <summary>
-    /// The field of the case.
-    /// </summary>
     [OutputType]
     public sealed class RuleField
     {
-        /// <summary>
-        /// The Id of the field
-        /// </summary>
         public readonly string Id;
         public readonly Outputs.RuleFieldValue Value;
 

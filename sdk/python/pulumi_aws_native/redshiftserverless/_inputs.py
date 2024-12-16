@@ -152,7 +152,13 @@ class WorkgroupConfigParameterArgs:
 if not MYPY:
     class WorkgroupPerformanceTargetArgsDict(TypedDict):
         level: NotRequired[pulumi.Input[int]]
+        """
+        The target price performance level for the workgroup. Valid values include 1, 25, 50, 75, and 100. These correspond to the price performance levels LOW_COST, ECONOMICAL, BALANCED, RESOURCEFUL, and HIGH_PERFORMANCE.
+        """
         status: NotRequired[pulumi.Input['WorkgroupPerformanceTargetStatus']]
+        """
+        Whether the price performance target is enabled for the workgroup.
+        """
 elif False:
     WorkgroupPerformanceTargetArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -161,6 +167,10 @@ class WorkgroupPerformanceTargetArgs:
     def __init__(__self__, *,
                  level: Optional[pulumi.Input[int]] = None,
                  status: Optional[pulumi.Input['WorkgroupPerformanceTargetStatus']] = None):
+        """
+        :param pulumi.Input[int] level: The target price performance level for the workgroup. Valid values include 1, 25, 50, 75, and 100. These correspond to the price performance levels LOW_COST, ECONOMICAL, BALANCED, RESOURCEFUL, and HIGH_PERFORMANCE.
+        :param pulumi.Input['WorkgroupPerformanceTargetStatus'] status: Whether the price performance target is enabled for the workgroup.
+        """
         if level is not None:
             pulumi.set(__self__, "level", level)
         if status is not None:
@@ -169,6 +179,9 @@ class WorkgroupPerformanceTargetArgs:
     @property
     @pulumi.getter
     def level(self) -> Optional[pulumi.Input[int]]:
+        """
+        The target price performance level for the workgroup. Valid values include 1, 25, 50, 75, and 100. These correspond to the price performance levels LOW_COST, ECONOMICAL, BALANCED, RESOURCEFUL, and HIGH_PERFORMANCE.
+        """
         return pulumi.get(self, "level")
 
     @level.setter
@@ -178,6 +191,9 @@ class WorkgroupPerformanceTargetArgs:
     @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input['WorkgroupPerformanceTargetStatus']]:
+        """
+        Whether the price performance target is enabled for the workgroup.
+        """
         return pulumi.get(self, "status")
 
     @status.setter

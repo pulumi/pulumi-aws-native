@@ -44,6 +44,12 @@ export class SubscriptionFilter extends pulumi.CustomResource {
     }
 
     /**
+     * This parameter is valid only for log groups that have an active log transformer. For more information about log transformers, see [PutTransformer](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutTransformer.html) .
+     *
+     * If this value is `true` , the subscription filter is applied on the transformed version of the log events instead of the original ingested log events.
+     */
+    public readonly applyOnTransformedLogs!: pulumi.Output<boolean | undefined>;
+    /**
      * The Amazon Resource Name (ARN) of the destination.
      */
     public readonly destinationArn!: pulumi.Output<string>;
@@ -88,6 +94,7 @@ export class SubscriptionFilter extends pulumi.CustomResource {
             if ((!args || args.logGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'logGroupName'");
             }
+            resourceInputs["applyOnTransformedLogs"] = args ? args.applyOnTransformedLogs : undefined;
             resourceInputs["destinationArn"] = args ? args.destinationArn : undefined;
             resourceInputs["distribution"] = args ? args.distribution : undefined;
             resourceInputs["filterName"] = args ? args.filterName : undefined;
@@ -95,6 +102,7 @@ export class SubscriptionFilter extends pulumi.CustomResource {
             resourceInputs["logGroupName"] = args ? args.logGroupName : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
         } else {
+            resourceInputs["applyOnTransformedLogs"] = undefined /*out*/;
             resourceInputs["destinationArn"] = undefined /*out*/;
             resourceInputs["distribution"] = undefined /*out*/;
             resourceInputs["filterName"] = undefined /*out*/;
@@ -113,6 +121,12 @@ export class SubscriptionFilter extends pulumi.CustomResource {
  * The set of arguments for constructing a SubscriptionFilter resource.
  */
 export interface SubscriptionFilterArgs {
+    /**
+     * This parameter is valid only for log groups that have an active log transformer. For more information about log transformers, see [PutTransformer](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutTransformer.html) .
+     *
+     * If this value is `true` , the subscription filter is applied on the transformed version of the log events instead of the original ingested log events.
+     */
+    applyOnTransformedLogs?: pulumi.Input<boolean>;
     /**
      * The Amazon Resource Name (ARN) of the destination.
      */

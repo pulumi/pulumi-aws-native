@@ -84,6 +84,9 @@ class GetWebExperienceResult:
     @property
     @pulumi.getter(name="customizationConfiguration")
     def customization_configuration(self) -> Optional['outputs.WebExperienceCustomizationConfiguration']:
+        """
+        Contains the configuration information to customize the logo, font, and color of an Amazon Q Business web experience with individual files for each property or a CSS file for them all.
+        """
         return pulumi.get(self, "customization_configuration")
 
     @property

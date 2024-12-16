@@ -66,6 +66,9 @@ export class ServiceNetwork extends pulumi.CustomResource {
      * If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
      */
     public readonly name!: pulumi.Output<string | undefined>;
+    /**
+     * Specify if the service network should be enabled for sharing.
+     */
     public readonly sharingConfig!: pulumi.Output<outputs.vpclattice.ServiceNetworkSharingConfig | undefined>;
     /**
      * The tags for the service network.
@@ -125,6 +128,9 @@ export interface ServiceNetworkArgs {
      * If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Specify if the service network should be enabled for sharing.
+     */
     sharingConfig?: pulumi.Input<inputs.vpclattice.ServiceNetworkSharingConfigArgs>;
     /**
      * The tags for the service network.

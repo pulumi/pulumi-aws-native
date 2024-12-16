@@ -131,6 +131,7 @@ namespace Pulumi.AwsNative.QuickSight
         ///             analyses, and dashboards.&lt;/p&gt;
         /// </summary>
         public readonly ImmutableArray<Outputs.DataSetOutputColumn> OutputColumns;
+        public readonly Outputs.DataSetPerformanceConfiguration? PerformanceConfiguration;
         /// <summary>
         /// &lt;p&gt;A list of resource permissions on the dataset.&lt;/p&gt;
         /// </summary>
@@ -180,6 +181,8 @@ namespace Pulumi.AwsNative.QuickSight
 
             ImmutableArray<Outputs.DataSetOutputColumn> outputColumns,
 
+            Outputs.DataSetPerformanceConfiguration? performanceConfiguration,
+
             ImmutableArray<Outputs.DataSetResourcePermission> permissions,
 
             ImmutableDictionary<string, Outputs.DataSetPhysicalTable>? physicalTableMap,
@@ -203,6 +206,7 @@ namespace Pulumi.AwsNative.QuickSight
             LogicalTableMap = logicalTableMap;
             Name = name;
             OutputColumns = outputColumns;
+            PerformanceConfiguration = performanceConfiguration;
             Permissions = permissions;
             PhysicalTableMap = physicalTableMap;
             RowLevelPermissionDataSet = rowLevelPermissionDataSet;

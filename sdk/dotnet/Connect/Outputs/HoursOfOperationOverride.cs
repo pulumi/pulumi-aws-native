@@ -16,8 +16,17 @@ namespace Pulumi.AwsNative.Connect.Outputs
     [OutputType]
     public sealed class HoursOfOperationOverride
     {
+        /// <summary>
+        /// The date from which the hours of operation override would be effective.
+        /// </summary>
         public readonly string EffectiveFrom;
+        /// <summary>
+        /// The date till which the hours of operation override would be effective.
+        /// </summary>
         public readonly string EffectiveTill;
+        /// <summary>
+        /// The identifier for the hours of operation override.
+        /// </summary>
         public readonly string? HoursOfOperationOverrideId;
         public readonly ImmutableArray<Outputs.HoursOfOperationOverrideConfig> OverrideConfig;
         public readonly string? OverrideDescription;

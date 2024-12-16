@@ -34,6 +34,9 @@ namespace Pulumi.AwsNative.Logs
         [Output("dataProtectionPolicy")]
         public Output<object?> DataProtectionPolicy { get; private set; } = null!;
 
+        [Output("fieldIndexPolicies")]
+        public Output<ImmutableArray<object>> FieldIndexPolicies { get; private set; } = null!;
+
         /// <summary>
         /// The Amazon Resource Name (ARN) of the KMS key to use when encrypting log data.
         ///  To associate an KMS key with the log group, specify the ARN of that KMS key here. If you do so, ingested data is encrypted using this key. This association is stored as long as the data encrypted with the KMS key is still within CWL. This enables CWL to decrypt this data whenever it is requested.
@@ -130,6 +133,14 @@ namespace Pulumi.AwsNative.Logs
         /// </summary>
         [Input("dataProtectionPolicy")]
         public Input<object>? DataProtectionPolicy { get; set; }
+
+        [Input("fieldIndexPolicies")]
+        private InputList<object>? _fieldIndexPolicies;
+        public InputList<object> FieldIndexPolicies
+        {
+            get => _fieldIndexPolicies ?? (_fieldIndexPolicies = new InputList<object>());
+            set => _fieldIndexPolicies = value;
+        }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the KMS key to use when encrypting log data.

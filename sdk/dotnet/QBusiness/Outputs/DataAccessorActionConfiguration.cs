@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QBusiness.Outputs
     [OutputType]
     public sealed class DataAccessorActionConfiguration
     {
+        /// <summary>
+        /// The Amazon Q Business action that is allowed.
+        /// </summary>
         public readonly string Action;
+        /// <summary>
+        /// The filter configuration for the action, if any.
+        /// </summary>
         public readonly Outputs.DataAccessorActionFilterConfiguration? FilterConfiguration;
 
         [OutputConstructor]

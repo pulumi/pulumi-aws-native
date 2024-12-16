@@ -11,25 +11,25 @@ namespace Pulumi.AwsNative.Connect.Outputs
 {
 
     /// <summary>
-    /// The definition of task action.
+    /// Information about the task action. This field is required if ``TriggerEventSource`` is one of the following values: ``OnZendeskTicketCreate`` | ``OnZendeskTicketStatusUpdate`` | ``OnSalesforceCaseCreate``
     /// </summary>
     [OutputType]
     public sealed class RuleTaskAction
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the contact flow.
+        /// The Amazon Resource Name (ARN) of the flow.
         /// </summary>
         public readonly string ContactFlowArn;
         /// <summary>
-        /// The description which appears in the agent's Contact Control Panel (CCP).
+        /// The description. Supports variable injection. For more information, see [JSONPath reference](https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-variable-injection.html) in the *Administrators Guide*.
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// The name which appears in the agent's Contact Control Panel (CCP).
+        /// The name. Supports variable injection. For more information, see [JSONPath reference](https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-variable-injection.html) in the *Administrators Guide*.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// A formatted URL that is shown to an agent in the Contact Control Panel (CCP).
+        /// Information about the reference when the ``referenceType`` is ``URL``. Otherwise, null. ``URL`` is the only accepted type. (Supports variable injection in the ``Value`` field.)
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.RuleReference>? References;
 

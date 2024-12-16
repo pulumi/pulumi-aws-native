@@ -11,13 +11,13 @@ namespace Pulumi.AwsNative.Connect.Outputs
 {
 
     /// <summary>
-    /// The definition for event bridge action.
+    /// The EV action definition.
     /// </summary>
     [OutputType]
     public sealed class RuleEventBridgeAction
     {
         /// <summary>
-        /// The name of the event bridge action.
+        /// The name.
         /// </summary>
         public readonly string Name;
 

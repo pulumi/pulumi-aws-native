@@ -15,18 +15,33 @@ namespace Pulumi.AwsNative.VpcLattice
     [AwsNativeResourceType("aws-native:vpclattice:ServiceNetworkResourceAssociation")]
     public partial class ServiceNetworkResourceAssociation : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the association.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the association between the service network and resource configuration.
+        /// </summary>
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the resource configuration associated with the service network.
+        /// </summary>
         [Output("resourceConfigurationId")]
         public Output<string?> ResourceConfigurationId { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the service network associated with the resource configuration.
+        /// </summary>
         [Output("serviceNetworkId")]
         public Output<string?> ServiceNetworkId { get; private set; } = null!;
 
+        /// <summary>
+        /// A key-value pair to associate with a resource.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -80,14 +95,24 @@ namespace Pulumi.AwsNative.VpcLattice
 
     public sealed class ServiceNetworkResourceAssociationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ID of the resource configuration associated with the service network.
+        /// </summary>
         [Input("resourceConfigurationId")]
         public Input<string>? ResourceConfigurationId { get; set; }
 
+        /// <summary>
+        /// The ID of the service network associated with the resource configuration.
+        /// </summary>
         [Input("serviceNetworkId")]
         public Input<string>? ServiceNetworkId { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// A key-value pair to associate with a resource.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Batch.Inputs
 
     public sealed class JobDefinitionEksContainerResourceRequirementsArgs : global::Pulumi.ResourceArgs
     {
+        [Input("limits")]
+        private InputMap<string>? _limits;
+
         /// <summary>
         /// The type and quantity of the resources to reserve for the container. The values vary based on the `name` that's specified. Resources can be requested using either the `limits` or the `requests` objects.
         /// 
@@ -21,8 +24,14 @@ namespace Pulumi.AwsNative.Batch.Inputs
         /// - **cpu** - The number of CPUs that's reserved for the container. Values must be an even multiple of `0.25` . `cpu` can be specified in `limits` , `requests` , or both. If `cpu` is specified in both places, then the value that's specified in `limits` must be at least as large as the value that's specified in `requests` .
         /// - **nvidia.com/gpu** - The number of GPUs that's reserved for the container. Values must be a whole integer. `memory` can be specified in `limits` , `requests` , or both. If `memory` is specified in both places, then the value that's specified in `limits` must be equal to the value that's specified in `requests` .
         /// </summary>
-        [Input("limits")]
-        public Input<object>? Limits { get; set; }
+        public InputMap<string> Limits
+        {
+            get => _limits ?? (_limits = new InputMap<string>());
+            set => _limits = value;
+        }
+
+        [Input("requests")]
+        private InputMap<string>? _requests;
 
         /// <summary>
         /// The type and quantity of the resources to request for the container. The values vary based on the `name` that's specified. Resources can be requested by using either the `limits` or the `requests` objects.
@@ -33,8 +42,11 @@ namespace Pulumi.AwsNative.Batch.Inputs
         /// - **cpu** - The number of CPUs that are reserved for the container. Values must be an even multiple of `0.25` . `cpu` can be specified in `limits` , `requests` , or both. If `cpu` is specified in both, then the value that's specified in `limits` must be at least as large as the value that's specified in `requests` .
         /// - **nvidia.com/gpu** - The number of GPUs that are reserved for the container. Values must be a whole integer. `nvidia.com/gpu` can be specified in `limits` , `requests` , or both. If `nvidia.com/gpu` is specified in both, then the value that's specified in `limits` must be equal to the value that's specified in `requests` .
         /// </summary>
-        [Input("requests")]
-        public Input<object>? Requests { get; set; }
+        public InputMap<string> Requests
+        {
+            get => _requests ?? (_requests = new InputMap<string>());
+            set => _requests = value;
+        }
 
         public JobDefinitionEksContainerResourceRequirementsArgs()
         {

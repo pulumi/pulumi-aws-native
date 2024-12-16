@@ -30,6 +30,11 @@ class DataAccessorArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DataAccessor resource.
+        :param pulumi.Input[Sequence[pulumi.Input['DataAccessorActionConfigurationArgs']]] action_configurations: A list of action configurations specifying the allowed actions and any associated filters.
+        :param pulumi.Input[str] display_name: The friendly name of the data accessor.
+        :param pulumi.Input[str] principal: The Amazon Resource Name (ARN) of the IAM role for the ISV associated with this data accessor.
+        :param pulumi.Input[str] application_id: The unique identifier of the Amazon Q Business application.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags to associate with the data accessor.
         """
         pulumi.set(__self__, "action_configurations", action_configurations)
         pulumi.set(__self__, "display_name", display_name)
@@ -42,6 +47,9 @@ class DataAccessorArgs:
     @property
     @pulumi.getter(name="actionConfigurations")
     def action_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['DataAccessorActionConfigurationArgs']]]:
+        """
+        A list of action configurations specifying the allowed actions and any associated filters.
+        """
         return pulumi.get(self, "action_configurations")
 
     @action_configurations.setter
@@ -51,6 +59,9 @@ class DataAccessorArgs:
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Input[str]:
+        """
+        The friendly name of the data accessor.
+        """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
@@ -60,6 +71,9 @@ class DataAccessorArgs:
     @property
     @pulumi.getter
     def principal(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the IAM role for the ISV associated with this data accessor.
+        """
         return pulumi.get(self, "principal")
 
     @principal.setter
@@ -69,6 +83,9 @@ class DataAccessorArgs:
     @property
     @pulumi.getter(name="applicationId")
     def application_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The unique identifier of the Amazon Q Business application.
+        """
         return pulumi.get(self, "application_id")
 
     @application_id.setter
@@ -78,6 +95,9 @@ class DataAccessorArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        The tags to associate with the data accessor.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -101,6 +121,11 @@ class DataAccessor(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DataAccessorActionConfigurationArgs', 'DataAccessorActionConfigurationArgsDict']]]] action_configurations: A list of action configurations specifying the allowed actions and any associated filters.
+        :param pulumi.Input[str] application_id: The unique identifier of the Amazon Q Business application.
+        :param pulumi.Input[str] display_name: The friendly name of the data accessor.
+        :param pulumi.Input[str] principal: The Amazon Resource Name (ARN) of the IAM role for the ISV associated with this data accessor.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags to associate with the data accessor.
         """
         ...
     @overload
@@ -195,50 +220,80 @@ class DataAccessor(pulumi.CustomResource):
     @property
     @pulumi.getter(name="actionConfigurations")
     def action_configurations(self) -> pulumi.Output[Sequence['outputs.DataAccessorActionConfiguration']]:
+        """
+        A list of action configurations specifying the allowed actions and any associated filters.
+        """
         return pulumi.get(self, "action_configurations")
 
     @property
     @pulumi.getter(name="applicationId")
     def application_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The unique identifier of the Amazon Q Business application.
+        """
         return pulumi.get(self, "application_id")
 
     @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[str]:
+        """
+        The timestamp when the data accessor was created.
+        """
         return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter(name="dataAccessorArn")
     def data_accessor_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the data accessor.
+        """
         return pulumi.get(self, "data_accessor_arn")
 
     @property
     @pulumi.getter(name="dataAccessorId")
     def data_accessor_id(self) -> pulumi.Output[str]:
+        """
+        The unique identifier of the data accessor.
+        """
         return pulumi.get(self, "data_accessor_id")
 
     @property
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Output[str]:
+        """
+        The friendly name of the data accessor.
+        """
         return pulumi.get(self, "display_name")
 
     @property
     @pulumi.getter(name="idcApplicationArn")
     def idc_application_arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the associated IAM Identity Center application.
+        """
         return pulumi.get(self, "idc_application_arn")
 
     @property
     @pulumi.getter
     def principal(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the IAM role for the ISV associated with this data accessor.
+        """
         return pulumi.get(self, "principal")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        The tags to associate with the data accessor.
+        """
         return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> pulumi.Output[str]:
+        """
+        The timestamp when the data accessor was last updated.
+        """
         return pulumi.get(self, "updated_at")
 

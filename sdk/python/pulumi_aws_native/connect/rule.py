@@ -33,13 +33,14 @@ class RuleArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Rule resource.
-        :param pulumi.Input['RuleActionsArgs'] actions: The list of actions that will be executed when a rule is triggered.
-        :param pulumi.Input[str] function: The conditions of a rule.
+        :param pulumi.Input['RuleActionsArgs'] actions: A list of actions to be run when the rule is triggered.
+        :param pulumi.Input[str] function: The conditions of the rule.
         :param pulumi.Input[str] instance_arn: The Amazon Resource Name (ARN) of the instance.
-        :param pulumi.Input['RulePublishStatus'] publish_status: The publish status of a rule, either draft or published.
-        :param pulumi.Input['RuleTriggerEventSourceArgs'] trigger_event_source: The event source that triggers the rule.
+        :param pulumi.Input['RulePublishStatus'] publish_status: The publish status of the rule.
+                 *Allowed values*: ``DRAFT`` | ``PUBLISHED``
+        :param pulumi.Input['RuleTriggerEventSourceArgs'] trigger_event_source: The event source to trigger the rule.
         :param pulumi.Input[str] name: The name of the rule.
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: One or more tags.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
         """
         pulumi.set(__self__, "actions", actions)
         pulumi.set(__self__, "function", function)
@@ -55,7 +56,7 @@ class RuleArgs:
     @pulumi.getter
     def actions(self) -> pulumi.Input['RuleActionsArgs']:
         """
-        The list of actions that will be executed when a rule is triggered.
+        A list of actions to be run when the rule is triggered.
         """
         return pulumi.get(self, "actions")
 
@@ -67,7 +68,7 @@ class RuleArgs:
     @pulumi.getter
     def function(self) -> pulumi.Input[str]:
         """
-        The conditions of a rule.
+        The conditions of the rule.
         """
         return pulumi.get(self, "function")
 
@@ -91,7 +92,8 @@ class RuleArgs:
     @pulumi.getter(name="publishStatus")
     def publish_status(self) -> pulumi.Input['RulePublishStatus']:
         """
-        The publish status of a rule, either draft or published.
+        The publish status of the rule.
+          *Allowed values*: ``DRAFT`` | ``PUBLISHED``
         """
         return pulumi.get(self, "publish_status")
 
@@ -103,7 +105,7 @@ class RuleArgs:
     @pulumi.getter(name="triggerEventSource")
     def trigger_event_source(self) -> pulumi.Input['RuleTriggerEventSourceArgs']:
         """
-        The event source that triggers the rule.
+        The event source to trigger the rule.
         """
         return pulumi.get(self, "trigger_event_source")
 
@@ -127,7 +129,7 @@ class RuleArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
-        One or more tags.
+        The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
         """
         return pulumi.get(self, "tags")
 
@@ -150,17 +152,18 @@ class Rule(pulumi.CustomResource):
                  trigger_event_source: Optional[pulumi.Input[Union['RuleTriggerEventSourceArgs', 'RuleTriggerEventSourceArgsDict']]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS:Connect::Rule
+        Creates a rule for the specified CON instance.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['RuleActionsArgs', 'RuleActionsArgsDict']] actions: The list of actions that will be executed when a rule is triggered.
-        :param pulumi.Input[str] function: The conditions of a rule.
+        :param pulumi.Input[Union['RuleActionsArgs', 'RuleActionsArgsDict']] actions: A list of actions to be run when the rule is triggered.
+        :param pulumi.Input[str] function: The conditions of the rule.
         :param pulumi.Input[str] instance_arn: The Amazon Resource Name (ARN) of the instance.
         :param pulumi.Input[str] name: The name of the rule.
-        :param pulumi.Input['RulePublishStatus'] publish_status: The publish status of a rule, either draft or published.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: One or more tags.
-        :param pulumi.Input[Union['RuleTriggerEventSourceArgs', 'RuleTriggerEventSourceArgsDict']] trigger_event_source: The event source that triggers the rule.
+        :param pulumi.Input['RulePublishStatus'] publish_status: The publish status of the rule.
+                 *Allowed values*: ``DRAFT`` | ``PUBLISHED``
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
+        :param pulumi.Input[Union['RuleTriggerEventSourceArgs', 'RuleTriggerEventSourceArgsDict']] trigger_event_source: The event source to trigger the rule.
         """
         ...
     @overload
@@ -169,7 +172,7 @@ class Rule(pulumi.CustomResource):
                  args: RuleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS:Connect::Rule
+        Creates a rule for the specified CON instance.
 
         :param str resource_name: The name of the resource.
         :param RuleArgs args: The arguments to use to populate this resource's properties.
@@ -258,7 +261,7 @@ class Rule(pulumi.CustomResource):
     @pulumi.getter
     def actions(self) -> pulumi.Output['outputs.RuleActions']:
         """
-        The list of actions that will be executed when a rule is triggered.
+        A list of actions to be run when the rule is triggered.
         """
         return pulumi.get(self, "actions")
 
@@ -266,7 +269,7 @@ class Rule(pulumi.CustomResource):
     @pulumi.getter
     def function(self) -> pulumi.Output[str]:
         """
-        The conditions of a rule.
+        The conditions of the rule.
         """
         return pulumi.get(self, "function")
 
@@ -290,7 +293,8 @@ class Rule(pulumi.CustomResource):
     @pulumi.getter(name="publishStatus")
     def publish_status(self) -> pulumi.Output['RulePublishStatus']:
         """
-        The publish status of a rule, either draft or published.
+        The publish status of the rule.
+          *Allowed values*: ``DRAFT`` | ``PUBLISHED``
         """
         return pulumi.get(self, "publish_status")
 
@@ -306,7 +310,7 @@ class Rule(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
-        One or more tags.
+        The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
         """
         return pulumi.get(self, "tags")
 
@@ -314,7 +318,7 @@ class Rule(pulumi.CustomResource):
     @pulumi.getter(name="triggerEventSource")
     def trigger_event_source(self) -> pulumi.Output['outputs.RuleTriggerEventSource']:
         """
-        The event source that triggers the rule.
+        The event source to trigger the rule.
         """
         return pulumi.get(self, "trigger_event_source")
 

@@ -77,6 +77,9 @@ export interface GetDataSourceResult {
      * For more information, see [Custom document enrichment](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/custom-document-enrichment.html) .
      */
     readonly documentEnrichmentConfiguration?: outputs.qbusiness.DataSourceDocumentEnrichmentConfiguration;
+    /**
+     * The configuration for extracting information from media in documents.
+     */
     readonly mediaExtractionConfiguration?: outputs.qbusiness.DataSourceMediaExtractionConfiguration;
     /**
      * The Amazon Resource Name (ARN) of an IAM role with permission to access the data source and required resources.

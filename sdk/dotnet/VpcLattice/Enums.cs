@@ -101,6 +101,9 @@ namespace Pulumi.AwsNative.VpcLattice
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The auth type for the resource configuration.
+    /// </summary>
     [EnumType]
     public readonly struct ResourceConfigurationAuthType : IEquatable<ResourceConfigurationAuthType>
     {
@@ -158,6 +161,9 @@ namespace Pulumi.AwsNative.VpcLattice
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// (SINGLE, GROUP) The protocol accepted by the resource configuration.
+    /// </summary>
     [EnumType]
     public readonly struct ResourceConfigurationProtocolType : IEquatable<ResourceConfigurationProtocolType>
     {
@@ -185,6 +191,14 @@ namespace Pulumi.AwsNative.VpcLattice
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The type of resource configuration. A resource configuration can be one of the following types:
+    /// 
+    /// - *SINGLE* - A single resource.
+    /// - *GROUP* - A group of resources. You must create a group resource configuration before you create a child resource configuration.
+    /// - *CHILD* - A single resource that is part of a group resource configuration.
+    /// - *ARN* - An AWS resource.
+    /// </summary>
     [EnumType]
     public readonly struct ResourceConfigurationType : IEquatable<ResourceConfigurationType>
     {
@@ -215,6 +229,9 @@ namespace Pulumi.AwsNative.VpcLattice
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The type of IP address used by the resource gateway.
+    /// </summary>
     [EnumType]
     public readonly struct ResourceGatewayIpAddressType : IEquatable<ResourceGatewayIpAddressType>
     {

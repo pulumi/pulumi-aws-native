@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.QBusiness.Outputs
     [OutputType]
     public sealed class WebExperienceCustomizationConfiguration
     {
+        /// <summary>
+        /// Provides the URL where the custom CSS file is hosted for an Amazon Q web experience.
+        /// </summary>
         public readonly string? CustomCssUrl;
+        /// <summary>
+        /// Provides the URL where the custom favicon file is hosted for an Amazon Q web experience.
+        /// </summary>
         public readonly string? FaviconUrl;
+        /// <summary>
+        /// Provides the URL where the custom font file is hosted for an Amazon Q web experience.
+        /// </summary>
         public readonly string? FontUrl;
+        /// <summary>
+        /// Provides the URL where the custom logo file is hosted for an Amazon Q web experience.
+        /// </summary>
         public readonly string? LogoUrl;
 
         [OutputConstructor]

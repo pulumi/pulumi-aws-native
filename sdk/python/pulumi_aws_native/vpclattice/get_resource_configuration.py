@@ -52,36 +52,61 @@ class GetResourceConfigurationResult:
     @property
     @pulumi.getter(name="allowAssociationToSharableServiceNetwork")
     def allow_association_to_sharable_service_network(self) -> Optional[bool]:
+        """
+        Specifies whether the resource configuration can be associated with a sharable service network.
+        """
         return pulumi.get(self, "allow_association_to_sharable_service_network")
 
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the resource configuration.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def id(self) -> Optional[str]:
+        """
+        The ID of the resource configuration.
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
+        """
+        The name of the resource configuration.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="portRanges")
     def port_ranges(self) -> Optional[Sequence[str]]:
+        """
+        (SINGLE, GROUP, CHILD) The TCP port ranges that a consumer can use to access a resource configuration (for example: 1-65535). You can separate port ranges using commas (for example: 1,2,22-30).
+        """
         return pulumi.get(self, "port_ranges")
 
     @property
     @pulumi.getter(name="resourceConfigurationDefinition")
     def resource_configuration_definition(self) -> Optional[Any]:
+        """
+        Identifies the resource configuration in one of the following ways:
+
+        - *Amazon Resource Name (ARN)* - Supported resource-types that are provisioned by AWS services, such as RDS databases, can be identified by their ARN.
+        - *Domain name* - Any domain name that is publicly resolvable.
+        - *IP address* - For IPv4 and IPv6, only IP addresses in the VPC are supported.
+        """
         return pulumi.get(self, "resource_configuration_definition")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        The tags for the resource configuration.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -104,6 +129,9 @@ def get_resource_configuration(arn: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResourceConfigurationResult:
     """
     VpcLattice ResourceConfiguration CFN resource
+
+
+    :param str arn: The Amazon Resource Name (ARN) of the resource configuration.
     """
     __args__ = dict()
     __args__['arn'] = arn
@@ -122,6 +150,9 @@ def get_resource_configuration_output(arn: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourceConfigurationResult]:
     """
     VpcLattice ResourceConfiguration CFN resource
+
+
+    :param str arn: The Amazon Resource Name (ARN) of the resource configuration.
     """
     __args__ = dict()
     __args__['arn'] = arn

@@ -1474,6 +1474,479 @@ type DeviceTag struct {
 	Value string `pulumi:"value"`
 }
 
+// The attachment to move from one network function group to another.
+type DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChange struct {
+	// The rule number in the policy document that applies to this change.
+	AttachmentPolicyRuleNumber *int `pulumi:"attachmentPolicyRuleNumber"`
+	// The name of the network function group to change.
+	NetworkFunctionGroupName *string `pulumi:"networkFunctionGroupName"`
+	// The key-value tags that changed for the network function group.
+	Tags []DirectConnectGatewayAttachmentTag `pulumi:"tags"`
+}
+
+// DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeInput is an input type that accepts DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeArgs and DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeOutput values.
+// You can construct a concrete instance of `DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeInput` via:
+//
+//	DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeArgs{...}
+type DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeInput interface {
+	pulumi.Input
+
+	ToDirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeOutput() DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeOutput
+	ToDirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeOutputWithContext(context.Context) DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeOutput
+}
+
+// The attachment to move from one network function group to another.
+type DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeArgs struct {
+	// The rule number in the policy document that applies to this change.
+	AttachmentPolicyRuleNumber pulumi.IntPtrInput `pulumi:"attachmentPolicyRuleNumber"`
+	// The name of the network function group to change.
+	NetworkFunctionGroupName pulumi.StringPtrInput `pulumi:"networkFunctionGroupName"`
+	// The key-value tags that changed for the network function group.
+	Tags DirectConnectGatewayAttachmentTagArrayInput `pulumi:"tags"`
+}
+
+func (DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChange)(nil)).Elem()
+}
+
+func (i DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeArgs) ToDirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeOutput() DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeOutput {
+	return i.ToDirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeOutputWithContext(context.Background())
+}
+
+func (i DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeArgs) ToDirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeOutputWithContext(ctx context.Context) DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeOutput)
+}
+
+func (i DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeArgs) ToDirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtrOutput() DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtrOutput {
+	return i.ToDirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtrOutputWithContext(context.Background())
+}
+
+func (i DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeArgs) ToDirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtrOutputWithContext(ctx context.Context) DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeOutput).ToDirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtrOutputWithContext(ctx)
+}
+
+// DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtrInput is an input type that accepts DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeArgs, DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtr and DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtrOutput values.
+// You can construct a concrete instance of `DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtrInput` via:
+//
+//	        DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeArgs{...}
+//
+//	or:
+//
+//	        nil
+type DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtrInput interface {
+	pulumi.Input
+
+	ToDirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtrOutput() DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtrOutput
+	ToDirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtrOutputWithContext(context.Context) DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtrOutput
+}
+
+type directConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtrType DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeArgs
+
+func DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtr(v *DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeArgs) DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtrInput {
+	return (*directConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtrType)(v)
+}
+
+func (*directConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChange)(nil)).Elem()
+}
+
+func (i *directConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtrType) ToDirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtrOutput() DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtrOutput {
+	return i.ToDirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtrOutputWithContext(context.Background())
+}
+
+func (i *directConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtrType) ToDirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtrOutputWithContext(ctx context.Context) DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtrOutput)
+}
+
+// The attachment to move from one network function group to another.
+type DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeOutput struct{ *pulumi.OutputState }
+
+func (DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChange)(nil)).Elem()
+}
+
+func (o DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeOutput) ToDirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeOutput() DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeOutput {
+	return o
+}
+
+func (o DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeOutput) ToDirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeOutputWithContext(ctx context.Context) DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeOutput {
+	return o
+}
+
+func (o DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeOutput) ToDirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtrOutput() DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtrOutput {
+	return o.ToDirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtrOutputWithContext(context.Background())
+}
+
+func (o DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeOutput) ToDirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtrOutputWithContext(ctx context.Context) DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChange) *DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChange {
+		return &v
+	}).(DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtrOutput)
+}
+
+// The rule number in the policy document that applies to this change.
+func (o DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeOutput) AttachmentPolicyRuleNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChange) *int {
+		return v.AttachmentPolicyRuleNumber
+	}).(pulumi.IntPtrOutput)
+}
+
+// The name of the network function group to change.
+func (o DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeOutput) NetworkFunctionGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChange) *string {
+		return v.NetworkFunctionGroupName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The key-value tags that changed for the network function group.
+func (o DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeOutput) Tags() DirectConnectGatewayAttachmentTagArrayOutput {
+	return o.ApplyT(func(v DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChange) []DirectConnectGatewayAttachmentTag {
+		return v.Tags
+	}).(DirectConnectGatewayAttachmentTagArrayOutput)
+}
+
+type DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtrOutput struct{ *pulumi.OutputState }
+
+func (DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChange)(nil)).Elem()
+}
+
+func (o DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtrOutput) ToDirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtrOutput() DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtrOutput {
+	return o
+}
+
+func (o DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtrOutput) ToDirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtrOutputWithContext(ctx context.Context) DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtrOutput {
+	return o
+}
+
+func (o DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtrOutput) Elem() DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeOutput {
+	return o.ApplyT(func(v *DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChange) DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChange {
+		if v != nil {
+			return *v
+		}
+		var ret DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChange
+		return ret
+	}).(DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeOutput)
+}
+
+// The rule number in the policy document that applies to this change.
+func (o DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtrOutput) AttachmentPolicyRuleNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChange) *int {
+		if v == nil {
+			return nil
+		}
+		return v.AttachmentPolicyRuleNumber
+	}).(pulumi.IntPtrOutput)
+}
+
+// The name of the network function group to change.
+func (o DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtrOutput) NetworkFunctionGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChange) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NetworkFunctionGroupName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The key-value tags that changed for the network function group.
+func (o DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtrOutput) Tags() DirectConnectGatewayAttachmentTagArrayOutput {
+	return o.ApplyT(func(v *DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChange) []DirectConnectGatewayAttachmentTag {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(DirectConnectGatewayAttachmentTagArrayOutput)
+}
+
+// The attachment to move from one segment to another.
+type DirectConnectGatewayAttachmentProposedSegmentChange struct {
+	// The rule number in the policy document that applies to this change.
+	AttachmentPolicyRuleNumber *int `pulumi:"attachmentPolicyRuleNumber"`
+	// The name of the segment to change.
+	SegmentName *string `pulumi:"segmentName"`
+	// The key-value tags that changed for the segment.
+	Tags []DirectConnectGatewayAttachmentTag `pulumi:"tags"`
+}
+
+// DirectConnectGatewayAttachmentProposedSegmentChangeInput is an input type that accepts DirectConnectGatewayAttachmentProposedSegmentChangeArgs and DirectConnectGatewayAttachmentProposedSegmentChangeOutput values.
+// You can construct a concrete instance of `DirectConnectGatewayAttachmentProposedSegmentChangeInput` via:
+//
+//	DirectConnectGatewayAttachmentProposedSegmentChangeArgs{...}
+type DirectConnectGatewayAttachmentProposedSegmentChangeInput interface {
+	pulumi.Input
+
+	ToDirectConnectGatewayAttachmentProposedSegmentChangeOutput() DirectConnectGatewayAttachmentProposedSegmentChangeOutput
+	ToDirectConnectGatewayAttachmentProposedSegmentChangeOutputWithContext(context.Context) DirectConnectGatewayAttachmentProposedSegmentChangeOutput
+}
+
+// The attachment to move from one segment to another.
+type DirectConnectGatewayAttachmentProposedSegmentChangeArgs struct {
+	// The rule number in the policy document that applies to this change.
+	AttachmentPolicyRuleNumber pulumi.IntPtrInput `pulumi:"attachmentPolicyRuleNumber"`
+	// The name of the segment to change.
+	SegmentName pulumi.StringPtrInput `pulumi:"segmentName"`
+	// The key-value tags that changed for the segment.
+	Tags DirectConnectGatewayAttachmentTagArrayInput `pulumi:"tags"`
+}
+
+func (DirectConnectGatewayAttachmentProposedSegmentChangeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectConnectGatewayAttachmentProposedSegmentChange)(nil)).Elem()
+}
+
+func (i DirectConnectGatewayAttachmentProposedSegmentChangeArgs) ToDirectConnectGatewayAttachmentProposedSegmentChangeOutput() DirectConnectGatewayAttachmentProposedSegmentChangeOutput {
+	return i.ToDirectConnectGatewayAttachmentProposedSegmentChangeOutputWithContext(context.Background())
+}
+
+func (i DirectConnectGatewayAttachmentProposedSegmentChangeArgs) ToDirectConnectGatewayAttachmentProposedSegmentChangeOutputWithContext(ctx context.Context) DirectConnectGatewayAttachmentProposedSegmentChangeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectConnectGatewayAttachmentProposedSegmentChangeOutput)
+}
+
+func (i DirectConnectGatewayAttachmentProposedSegmentChangeArgs) ToDirectConnectGatewayAttachmentProposedSegmentChangePtrOutput() DirectConnectGatewayAttachmentProposedSegmentChangePtrOutput {
+	return i.ToDirectConnectGatewayAttachmentProposedSegmentChangePtrOutputWithContext(context.Background())
+}
+
+func (i DirectConnectGatewayAttachmentProposedSegmentChangeArgs) ToDirectConnectGatewayAttachmentProposedSegmentChangePtrOutputWithContext(ctx context.Context) DirectConnectGatewayAttachmentProposedSegmentChangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectConnectGatewayAttachmentProposedSegmentChangeOutput).ToDirectConnectGatewayAttachmentProposedSegmentChangePtrOutputWithContext(ctx)
+}
+
+// DirectConnectGatewayAttachmentProposedSegmentChangePtrInput is an input type that accepts DirectConnectGatewayAttachmentProposedSegmentChangeArgs, DirectConnectGatewayAttachmentProposedSegmentChangePtr and DirectConnectGatewayAttachmentProposedSegmentChangePtrOutput values.
+// You can construct a concrete instance of `DirectConnectGatewayAttachmentProposedSegmentChangePtrInput` via:
+//
+//	        DirectConnectGatewayAttachmentProposedSegmentChangeArgs{...}
+//
+//	or:
+//
+//	        nil
+type DirectConnectGatewayAttachmentProposedSegmentChangePtrInput interface {
+	pulumi.Input
+
+	ToDirectConnectGatewayAttachmentProposedSegmentChangePtrOutput() DirectConnectGatewayAttachmentProposedSegmentChangePtrOutput
+	ToDirectConnectGatewayAttachmentProposedSegmentChangePtrOutputWithContext(context.Context) DirectConnectGatewayAttachmentProposedSegmentChangePtrOutput
+}
+
+type directConnectGatewayAttachmentProposedSegmentChangePtrType DirectConnectGatewayAttachmentProposedSegmentChangeArgs
+
+func DirectConnectGatewayAttachmentProposedSegmentChangePtr(v *DirectConnectGatewayAttachmentProposedSegmentChangeArgs) DirectConnectGatewayAttachmentProposedSegmentChangePtrInput {
+	return (*directConnectGatewayAttachmentProposedSegmentChangePtrType)(v)
+}
+
+func (*directConnectGatewayAttachmentProposedSegmentChangePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectConnectGatewayAttachmentProposedSegmentChange)(nil)).Elem()
+}
+
+func (i *directConnectGatewayAttachmentProposedSegmentChangePtrType) ToDirectConnectGatewayAttachmentProposedSegmentChangePtrOutput() DirectConnectGatewayAttachmentProposedSegmentChangePtrOutput {
+	return i.ToDirectConnectGatewayAttachmentProposedSegmentChangePtrOutputWithContext(context.Background())
+}
+
+func (i *directConnectGatewayAttachmentProposedSegmentChangePtrType) ToDirectConnectGatewayAttachmentProposedSegmentChangePtrOutputWithContext(ctx context.Context) DirectConnectGatewayAttachmentProposedSegmentChangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectConnectGatewayAttachmentProposedSegmentChangePtrOutput)
+}
+
+// The attachment to move from one segment to another.
+type DirectConnectGatewayAttachmentProposedSegmentChangeOutput struct{ *pulumi.OutputState }
+
+func (DirectConnectGatewayAttachmentProposedSegmentChangeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectConnectGatewayAttachmentProposedSegmentChange)(nil)).Elem()
+}
+
+func (o DirectConnectGatewayAttachmentProposedSegmentChangeOutput) ToDirectConnectGatewayAttachmentProposedSegmentChangeOutput() DirectConnectGatewayAttachmentProposedSegmentChangeOutput {
+	return o
+}
+
+func (o DirectConnectGatewayAttachmentProposedSegmentChangeOutput) ToDirectConnectGatewayAttachmentProposedSegmentChangeOutputWithContext(ctx context.Context) DirectConnectGatewayAttachmentProposedSegmentChangeOutput {
+	return o
+}
+
+func (o DirectConnectGatewayAttachmentProposedSegmentChangeOutput) ToDirectConnectGatewayAttachmentProposedSegmentChangePtrOutput() DirectConnectGatewayAttachmentProposedSegmentChangePtrOutput {
+	return o.ToDirectConnectGatewayAttachmentProposedSegmentChangePtrOutputWithContext(context.Background())
+}
+
+func (o DirectConnectGatewayAttachmentProposedSegmentChangeOutput) ToDirectConnectGatewayAttachmentProposedSegmentChangePtrOutputWithContext(ctx context.Context) DirectConnectGatewayAttachmentProposedSegmentChangePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DirectConnectGatewayAttachmentProposedSegmentChange) *DirectConnectGatewayAttachmentProposedSegmentChange {
+		return &v
+	}).(DirectConnectGatewayAttachmentProposedSegmentChangePtrOutput)
+}
+
+// The rule number in the policy document that applies to this change.
+func (o DirectConnectGatewayAttachmentProposedSegmentChangeOutput) AttachmentPolicyRuleNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DirectConnectGatewayAttachmentProposedSegmentChange) *int { return v.AttachmentPolicyRuleNumber }).(pulumi.IntPtrOutput)
+}
+
+// The name of the segment to change.
+func (o DirectConnectGatewayAttachmentProposedSegmentChangeOutput) SegmentName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DirectConnectGatewayAttachmentProposedSegmentChange) *string { return v.SegmentName }).(pulumi.StringPtrOutput)
+}
+
+// The key-value tags that changed for the segment.
+func (o DirectConnectGatewayAttachmentProposedSegmentChangeOutput) Tags() DirectConnectGatewayAttachmentTagArrayOutput {
+	return o.ApplyT(func(v DirectConnectGatewayAttachmentProposedSegmentChange) []DirectConnectGatewayAttachmentTag {
+		return v.Tags
+	}).(DirectConnectGatewayAttachmentTagArrayOutput)
+}
+
+type DirectConnectGatewayAttachmentProposedSegmentChangePtrOutput struct{ *pulumi.OutputState }
+
+func (DirectConnectGatewayAttachmentProposedSegmentChangePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectConnectGatewayAttachmentProposedSegmentChange)(nil)).Elem()
+}
+
+func (o DirectConnectGatewayAttachmentProposedSegmentChangePtrOutput) ToDirectConnectGatewayAttachmentProposedSegmentChangePtrOutput() DirectConnectGatewayAttachmentProposedSegmentChangePtrOutput {
+	return o
+}
+
+func (o DirectConnectGatewayAttachmentProposedSegmentChangePtrOutput) ToDirectConnectGatewayAttachmentProposedSegmentChangePtrOutputWithContext(ctx context.Context) DirectConnectGatewayAttachmentProposedSegmentChangePtrOutput {
+	return o
+}
+
+func (o DirectConnectGatewayAttachmentProposedSegmentChangePtrOutput) Elem() DirectConnectGatewayAttachmentProposedSegmentChangeOutput {
+	return o.ApplyT(func(v *DirectConnectGatewayAttachmentProposedSegmentChange) DirectConnectGatewayAttachmentProposedSegmentChange {
+		if v != nil {
+			return *v
+		}
+		var ret DirectConnectGatewayAttachmentProposedSegmentChange
+		return ret
+	}).(DirectConnectGatewayAttachmentProposedSegmentChangeOutput)
+}
+
+// The rule number in the policy document that applies to this change.
+func (o DirectConnectGatewayAttachmentProposedSegmentChangePtrOutput) AttachmentPolicyRuleNumber() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DirectConnectGatewayAttachmentProposedSegmentChange) *int {
+		if v == nil {
+			return nil
+		}
+		return v.AttachmentPolicyRuleNumber
+	}).(pulumi.IntPtrOutput)
+}
+
+// The name of the segment to change.
+func (o DirectConnectGatewayAttachmentProposedSegmentChangePtrOutput) SegmentName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DirectConnectGatewayAttachmentProposedSegmentChange) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SegmentName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The key-value tags that changed for the segment.
+func (o DirectConnectGatewayAttachmentProposedSegmentChangePtrOutput) Tags() DirectConnectGatewayAttachmentTagArrayOutput {
+	return o.ApplyT(func(v *DirectConnectGatewayAttachmentProposedSegmentChange) []DirectConnectGatewayAttachmentTag {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(DirectConnectGatewayAttachmentTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type DirectConnectGatewayAttachmentTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+// DirectConnectGatewayAttachmentTagInput is an input type that accepts DirectConnectGatewayAttachmentTagArgs and DirectConnectGatewayAttachmentTagOutput values.
+// You can construct a concrete instance of `DirectConnectGatewayAttachmentTagInput` via:
+//
+//	DirectConnectGatewayAttachmentTagArgs{...}
+type DirectConnectGatewayAttachmentTagInput interface {
+	pulumi.Input
+
+	ToDirectConnectGatewayAttachmentTagOutput() DirectConnectGatewayAttachmentTagOutput
+	ToDirectConnectGatewayAttachmentTagOutputWithContext(context.Context) DirectConnectGatewayAttachmentTagOutput
+}
+
+// A key-value pair to associate with a resource.
+type DirectConnectGatewayAttachmentTagArgs struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (DirectConnectGatewayAttachmentTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectConnectGatewayAttachmentTag)(nil)).Elem()
+}
+
+func (i DirectConnectGatewayAttachmentTagArgs) ToDirectConnectGatewayAttachmentTagOutput() DirectConnectGatewayAttachmentTagOutput {
+	return i.ToDirectConnectGatewayAttachmentTagOutputWithContext(context.Background())
+}
+
+func (i DirectConnectGatewayAttachmentTagArgs) ToDirectConnectGatewayAttachmentTagOutputWithContext(ctx context.Context) DirectConnectGatewayAttachmentTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectConnectGatewayAttachmentTagOutput)
+}
+
+// DirectConnectGatewayAttachmentTagArrayInput is an input type that accepts DirectConnectGatewayAttachmentTagArray and DirectConnectGatewayAttachmentTagArrayOutput values.
+// You can construct a concrete instance of `DirectConnectGatewayAttachmentTagArrayInput` via:
+//
+//	DirectConnectGatewayAttachmentTagArray{ DirectConnectGatewayAttachmentTagArgs{...} }
+type DirectConnectGatewayAttachmentTagArrayInput interface {
+	pulumi.Input
+
+	ToDirectConnectGatewayAttachmentTagArrayOutput() DirectConnectGatewayAttachmentTagArrayOutput
+	ToDirectConnectGatewayAttachmentTagArrayOutputWithContext(context.Context) DirectConnectGatewayAttachmentTagArrayOutput
+}
+
+type DirectConnectGatewayAttachmentTagArray []DirectConnectGatewayAttachmentTagInput
+
+func (DirectConnectGatewayAttachmentTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DirectConnectGatewayAttachmentTag)(nil)).Elem()
+}
+
+func (i DirectConnectGatewayAttachmentTagArray) ToDirectConnectGatewayAttachmentTagArrayOutput() DirectConnectGatewayAttachmentTagArrayOutput {
+	return i.ToDirectConnectGatewayAttachmentTagArrayOutputWithContext(context.Background())
+}
+
+func (i DirectConnectGatewayAttachmentTagArray) ToDirectConnectGatewayAttachmentTagArrayOutputWithContext(ctx context.Context) DirectConnectGatewayAttachmentTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectConnectGatewayAttachmentTagArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type DirectConnectGatewayAttachmentTagOutput struct{ *pulumi.OutputState }
+
+func (DirectConnectGatewayAttachmentTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectConnectGatewayAttachmentTag)(nil)).Elem()
+}
+
+func (o DirectConnectGatewayAttachmentTagOutput) ToDirectConnectGatewayAttachmentTagOutput() DirectConnectGatewayAttachmentTagOutput {
+	return o
+}
+
+func (o DirectConnectGatewayAttachmentTagOutput) ToDirectConnectGatewayAttachmentTagOutputWithContext(ctx context.Context) DirectConnectGatewayAttachmentTagOutput {
+	return o
+}
+
+// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o DirectConnectGatewayAttachmentTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v DirectConnectGatewayAttachmentTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+func (o DirectConnectGatewayAttachmentTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v DirectConnectGatewayAttachmentTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type DirectConnectGatewayAttachmentTagArrayOutput struct{ *pulumi.OutputState }
+
+func (DirectConnectGatewayAttachmentTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DirectConnectGatewayAttachmentTag)(nil)).Elem()
+}
+
+func (o DirectConnectGatewayAttachmentTagArrayOutput) ToDirectConnectGatewayAttachmentTagArrayOutput() DirectConnectGatewayAttachmentTagArrayOutput {
+	return o
+}
+
+func (o DirectConnectGatewayAttachmentTagArrayOutput) ToDirectConnectGatewayAttachmentTagArrayOutputWithContext(ctx context.Context) DirectConnectGatewayAttachmentTagArrayOutput {
+	return o
+}
+
+func (o DirectConnectGatewayAttachmentTagArrayOutput) Index(i pulumi.IntInput) DirectConnectGatewayAttachmentTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DirectConnectGatewayAttachmentTag {
+		return vs[0].([]DirectConnectGatewayAttachmentTag)[vs[1].(int)]
+	}).(DirectConnectGatewayAttachmentTagOutput)
+}
+
 // A key-value pair to associate with a global network resource.
 type GlobalNetworkTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -3376,6 +3849,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DeviceAwsLocationPtrInput)(nil)).Elem(), DeviceAwsLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeviceLocationInput)(nil)).Elem(), DeviceLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeviceLocationPtrInput)(nil)).Elem(), DeviceLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeInput)(nil)).Elem(), DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtrInput)(nil)).Elem(), DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectConnectGatewayAttachmentProposedSegmentChangeInput)(nil)).Elem(), DirectConnectGatewayAttachmentProposedSegmentChangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectConnectGatewayAttachmentProposedSegmentChangePtrInput)(nil)).Elem(), DirectConnectGatewayAttachmentProposedSegmentChangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectConnectGatewayAttachmentTagInput)(nil)).Elem(), DirectConnectGatewayAttachmentTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectConnectGatewayAttachmentTagArrayInput)(nil)).Elem(), DirectConnectGatewayAttachmentTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkBandwidthInput)(nil)).Elem(), LinkBandwidthArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SiteLocationInput)(nil)).Elem(), SiteLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SiteLocationPtrInput)(nil)).Elem(), SiteLocationArgs{})
@@ -3424,6 +3903,12 @@ func init() {
 	pulumi.RegisterOutputType(DeviceAwsLocationPtrOutput{})
 	pulumi.RegisterOutputType(DeviceLocationOutput{})
 	pulumi.RegisterOutputType(DeviceLocationPtrOutput{})
+	pulumi.RegisterOutputType(DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeOutput{})
+	pulumi.RegisterOutputType(DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtrOutput{})
+	pulumi.RegisterOutputType(DirectConnectGatewayAttachmentProposedSegmentChangeOutput{})
+	pulumi.RegisterOutputType(DirectConnectGatewayAttachmentProposedSegmentChangePtrOutput{})
+	pulumi.RegisterOutputType(DirectConnectGatewayAttachmentTagOutput{})
+	pulumi.RegisterOutputType(DirectConnectGatewayAttachmentTagArrayOutput{})
 	pulumi.RegisterOutputType(LinkBandwidthOutput{})
 	pulumi.RegisterOutputType(LinkBandwidthPtrOutput{})
 	pulumi.RegisterOutputType(SiteLocationOutput{})

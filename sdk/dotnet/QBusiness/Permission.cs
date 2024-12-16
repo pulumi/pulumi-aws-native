@@ -15,15 +15,27 @@ namespace Pulumi.AwsNative.QBusiness
     [AwsNativeResourceType("aws-native:qbusiness:Permission")]
     public partial class Permission : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The list of Amazon Q Business actions that the ISV is allowed to perform.
+        /// </summary>
         [Output("actions")]
         public Output<ImmutableArray<string>> Actions { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique identifier of the Amazon Q Business application.
+        /// </summary>
         [Output("applicationId")]
         public Output<string> ApplicationId { get; private set; } = null!;
 
+        /// <summary>
+        /// Provides user and group information used for filtering documents to use for generating Amazon Q Business conversation responses.
+        /// </summary>
         [Output("principal")]
         public Output<string> Principal { get; private set; } = null!;
 
+        /// <summary>
+        /// A unique identifier for the policy statement.
+        /// </summary>
         [Output("statementId")]
         public Output<string> StatementId { get; private set; } = null!;
 
@@ -81,18 +93,31 @@ namespace Pulumi.AwsNative.QBusiness
     {
         [Input("actions", required: true)]
         private InputList<string>? _actions;
+
+        /// <summary>
+        /// The list of Amazon Q Business actions that the ISV is allowed to perform.
+        /// </summary>
         public InputList<string> Actions
         {
             get => _actions ?? (_actions = new InputList<string>());
             set => _actions = value;
         }
 
+        /// <summary>
+        /// The unique identifier of the Amazon Q Business application.
+        /// </summary>
         [Input("applicationId", required: true)]
         public Input<string> ApplicationId { get; set; } = null!;
 
+        /// <summary>
+        /// Provides user and group information used for filtering documents to use for generating Amazon Q Business conversation responses.
+        /// </summary>
         [Input("principal", required: true)]
         public Input<string> Principal { get; set; } = null!;
 
+        /// <summary>
+        /// A unique identifier for the policy statement.
+        /// </summary>
         [Input("statementId", required: true)]
         public Input<string> StatementId { get; set; } = null!;
 

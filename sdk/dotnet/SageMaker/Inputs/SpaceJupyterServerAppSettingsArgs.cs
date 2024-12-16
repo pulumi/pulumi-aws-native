@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     public sealed class SpaceJupyterServerAppSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the JupyterServer app. If you use the `LifecycleConfigArns` parameter, then this parameter is also required.
+        /// The default instance type and the Amazon Resource Name (ARN) of the default SageMaker AI image used by the JupyterServer app. If you use the `LifecycleConfigArns` parameter, then this parameter is also required.
         /// </summary>
         [Input("defaultResourceSpec")]
         public Input<Inputs.SpaceResourceSpecArgs>? DefaultResourceSpec { get; set; }

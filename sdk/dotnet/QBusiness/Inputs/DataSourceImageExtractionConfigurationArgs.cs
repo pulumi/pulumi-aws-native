@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QBusiness.Inputs
 
     public sealed class DataSourceImageExtractionConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specify whether to extract semantic meaning from images and visuals from documents.
+        /// </summary>
         [Input("imageExtractionStatus", required: true)]
         public Input<Pulumi.AwsNative.QBusiness.DataSourceImageExtractionStatus> ImageExtractionStatus { get; set; } = null!;
 

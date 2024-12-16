@@ -13,15 +13,45 @@ namespace Pulumi.AwsNative.QBusiness.Outputs
     [OutputType]
     public sealed class DataAccessorAttributeFilter
     {
+        /// <summary>
+        /// Performs a logical `AND` operation on all supplied filters.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DataAccessorAttributeFilter> AndAllFilters;
+        /// <summary>
+        /// Returns `true` when a document contains all the specified document attributes or metadata fields. Supported for the following [document attribute value types](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html) : `stringListValue` .
+        /// </summary>
         public readonly Outputs.DataAccessorDocumentAttribute? ContainsAll;
+        /// <summary>
+        /// Returns `true` when a document contains any of the specified document attributes or metadata fields. Supported for the following [document attribute value types](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html) : `stringListValue` .
+        /// </summary>
         public readonly Outputs.DataAccessorDocumentAttribute? ContainsAny;
+        /// <summary>
+        /// Performs an equals operation on two document attributes or metadata fields. Supported for the following [document attribute value types](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html) : `dateValue` , `longValue` , `stringListValue` and `stringValue` .
+        /// </summary>
         public readonly Outputs.DataAccessorDocumentAttribute? EqualsTo;
+        /// <summary>
+        /// Performs a greater than operation on two document attributes or metadata fields. Supported for the following [document attribute value types](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html) : `dateValue` and `longValue` .
+        /// </summary>
         public readonly Outputs.DataAccessorDocumentAttribute? GreaterThan;
+        /// <summary>
+        /// Performs a greater or equals than operation on two document attributes or metadata fields. Supported for the following [document attribute value types](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html) : `dateValue` and `longValue` .
+        /// </summary>
         public readonly Outputs.DataAccessorDocumentAttribute? GreaterThanOrEquals;
+        /// <summary>
+        /// Performs a less than operation on two document attributes or metadata fields. Supported for the following [document attribute value types](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html) : `dateValue` and `longValue` .
+        /// </summary>
         public readonly Outputs.DataAccessorDocumentAttribute? LessThan;
+        /// <summary>
+        /// Performs a less than or equals operation on two document attributes or metadata fields.Supported for the following [document attribute value type](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html) : `dateValue` and `longValue` .
+        /// </summary>
         public readonly Outputs.DataAccessorDocumentAttribute? LessThanOrEquals;
+        /// <summary>
+        /// Performs a logical `NOT` operation on all supplied filters.
+        /// </summary>
         public readonly Outputs.DataAccessorAttributeFilter? NotFilter;
+        /// <summary>
+        /// Performs a logical `OR` operation on all supplied filters.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DataAccessorAttributeFilter> OrAllFilters;
 
         [OutputConstructor]

@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QBusiness.Outputs
     [OutputType]
     public sealed class DataAccessorDocumentAttribute
     {
+        /// <summary>
+        /// The identifier for the attribute.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The value of the attribute.
+        /// </summary>
         public readonly object Value;
 
         [OutputConstructor]

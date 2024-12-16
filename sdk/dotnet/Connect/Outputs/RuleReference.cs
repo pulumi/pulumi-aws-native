@@ -11,12 +11,19 @@ namespace Pulumi.AwsNative.Connect.Outputs
 {
 
     /// <summary>
-    /// A contact reference.
+    /// Information about the reference when the ``referenceType`` is ``URL``. Otherwise, null. (Supports variable injection in the ``Value`` field.)
     /// </summary>
     [OutputType]
     public sealed class RuleReference
     {
+        /// <summary>
+        /// The type of the reference. ``DATE`` must be of type Epoch timestamp. 
+        ///   *Allowed values*: ``URL`` | ``ATTACHMENT`` | ``NUMBER`` | ``STRING`` | ``DATE`` | ``EMAIL``
+        /// </summary>
         public readonly Pulumi.AwsNative.Connect.RuleReferenceType Type;
+        /// <summary>
+        /// A valid value for the reference. For example, for a URL reference, a formatted URL that is displayed to an agent in the Contact Control Panel (CCP).
+        /// </summary>
         public readonly string Value;
 
         [OutputConstructor]

@@ -43,9 +43,11 @@ type LookupVpcEndpointResult struct {
 	// ["Z1HUB23UULQXV:vpce-01abc23456de78f9g-12abccd3.ec2.us-east-1.vpce.amazonaws.com", "Z1HUB23UULQXV:vpce-01abc23456de78f9g-12abccd3-us-east-1a.ec2.us-east-1.vpce.amazonaws.com", "Z1C12344VYDITB0:ec2.us-east-1.amazonaws.com"]
 	//
 	// If you update the `PrivateDnsEnabled` or `SubnetIds` properties, the DNS entries in the list will change.
-	DnsEntries []string `pulumi:"dnsEntries"`
+	DnsEntries []string                            `pulumi:"dnsEntries"`
+	DnsOptions *VpcEndpointDnsOptionsSpecification `pulumi:"dnsOptions"`
 	// The ID of the VPC endpoint.
-	Id *string `pulumi:"id"`
+	Id            *string                   `pulumi:"id"`
+	IpAddressType *VpcEndpointIpAddressType `pulumi:"ipAddressType"`
 	// (Interface endpoints) The network interface IDs. If you update the `PrivateDnsEnabled` or `SubnetIds` properties, the items in this list might change.
 	NetworkInterfaceIds []string `pulumi:"networkInterfaceIds"`
 	// An endpoint policy, which controls access to the service from the VPC. The default endpoint policy allows full access to the service. Endpoint policies are supported only for gateway and interface endpoints.
@@ -115,9 +117,17 @@ func (o LookupVpcEndpointResultOutput) DnsEntries() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupVpcEndpointResult) []string { return v.DnsEntries }).(pulumi.StringArrayOutput)
 }
 
+func (o LookupVpcEndpointResultOutput) DnsOptions() VpcEndpointDnsOptionsSpecificationPtrOutput {
+	return o.ApplyT(func(v LookupVpcEndpointResult) *VpcEndpointDnsOptionsSpecification { return v.DnsOptions }).(VpcEndpointDnsOptionsSpecificationPtrOutput)
+}
+
 // The ID of the VPC endpoint.
 func (o LookupVpcEndpointResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVpcEndpointResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupVpcEndpointResultOutput) IpAddressType() VpcEndpointIpAddressTypePtrOutput {
+	return o.ApplyT(func(v LookupVpcEndpointResult) *VpcEndpointIpAddressType { return v.IpAddressType }).(VpcEndpointIpAddressTypePtrOutput)
 }
 
 // (Interface endpoints) The network interface IDs. If you update the `PrivateDnsEnabled` or `SubnetIds` properties, the items in this list might change.

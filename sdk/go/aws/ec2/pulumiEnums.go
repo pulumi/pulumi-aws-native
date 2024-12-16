@@ -10907,6 +10907,513 @@ func (in *vpcBlockPublicAccessOptionsInternetGatewayBlockModePtr) ToVpcBlockPubl
 	return pulumi.ToOutputWithContext(ctx, in).(VpcBlockPublicAccessOptionsInternetGatewayBlockModePtrOutput)
 }
 
+type VpcEndpointDnsOptionsSpecificationDnsRecordIpType string
+
+const (
+	VpcEndpointDnsOptionsSpecificationDnsRecordIpTypeIpv4           = VpcEndpointDnsOptionsSpecificationDnsRecordIpType("ipv4")
+	VpcEndpointDnsOptionsSpecificationDnsRecordIpTypeIpv6           = VpcEndpointDnsOptionsSpecificationDnsRecordIpType("ipv6")
+	VpcEndpointDnsOptionsSpecificationDnsRecordIpTypeDualstack      = VpcEndpointDnsOptionsSpecificationDnsRecordIpType("dualstack")
+	VpcEndpointDnsOptionsSpecificationDnsRecordIpTypeServiceDefined = VpcEndpointDnsOptionsSpecificationDnsRecordIpType("service-defined")
+	VpcEndpointDnsOptionsSpecificationDnsRecordIpTypeNotSpecified   = VpcEndpointDnsOptionsSpecificationDnsRecordIpType("not-specified")
+)
+
+func (VpcEndpointDnsOptionsSpecificationDnsRecordIpType) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcEndpointDnsOptionsSpecificationDnsRecordIpType)(nil)).Elem()
+}
+
+func (e VpcEndpointDnsOptionsSpecificationDnsRecordIpType) ToVpcEndpointDnsOptionsSpecificationDnsRecordIpTypeOutput() VpcEndpointDnsOptionsSpecificationDnsRecordIpTypeOutput {
+	return pulumi.ToOutput(e).(VpcEndpointDnsOptionsSpecificationDnsRecordIpTypeOutput)
+}
+
+func (e VpcEndpointDnsOptionsSpecificationDnsRecordIpType) ToVpcEndpointDnsOptionsSpecificationDnsRecordIpTypeOutputWithContext(ctx context.Context) VpcEndpointDnsOptionsSpecificationDnsRecordIpTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(VpcEndpointDnsOptionsSpecificationDnsRecordIpTypeOutput)
+}
+
+func (e VpcEndpointDnsOptionsSpecificationDnsRecordIpType) ToVpcEndpointDnsOptionsSpecificationDnsRecordIpTypePtrOutput() VpcEndpointDnsOptionsSpecificationDnsRecordIpTypePtrOutput {
+	return e.ToVpcEndpointDnsOptionsSpecificationDnsRecordIpTypePtrOutputWithContext(context.Background())
+}
+
+func (e VpcEndpointDnsOptionsSpecificationDnsRecordIpType) ToVpcEndpointDnsOptionsSpecificationDnsRecordIpTypePtrOutputWithContext(ctx context.Context) VpcEndpointDnsOptionsSpecificationDnsRecordIpTypePtrOutput {
+	return VpcEndpointDnsOptionsSpecificationDnsRecordIpType(e).ToVpcEndpointDnsOptionsSpecificationDnsRecordIpTypeOutputWithContext(ctx).ToVpcEndpointDnsOptionsSpecificationDnsRecordIpTypePtrOutputWithContext(ctx)
+}
+
+func (e VpcEndpointDnsOptionsSpecificationDnsRecordIpType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VpcEndpointDnsOptionsSpecificationDnsRecordIpType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VpcEndpointDnsOptionsSpecificationDnsRecordIpType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e VpcEndpointDnsOptionsSpecificationDnsRecordIpType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type VpcEndpointDnsOptionsSpecificationDnsRecordIpTypeOutput struct{ *pulumi.OutputState }
+
+func (VpcEndpointDnsOptionsSpecificationDnsRecordIpTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcEndpointDnsOptionsSpecificationDnsRecordIpType)(nil)).Elem()
+}
+
+func (o VpcEndpointDnsOptionsSpecificationDnsRecordIpTypeOutput) ToVpcEndpointDnsOptionsSpecificationDnsRecordIpTypeOutput() VpcEndpointDnsOptionsSpecificationDnsRecordIpTypeOutput {
+	return o
+}
+
+func (o VpcEndpointDnsOptionsSpecificationDnsRecordIpTypeOutput) ToVpcEndpointDnsOptionsSpecificationDnsRecordIpTypeOutputWithContext(ctx context.Context) VpcEndpointDnsOptionsSpecificationDnsRecordIpTypeOutput {
+	return o
+}
+
+func (o VpcEndpointDnsOptionsSpecificationDnsRecordIpTypeOutput) ToVpcEndpointDnsOptionsSpecificationDnsRecordIpTypePtrOutput() VpcEndpointDnsOptionsSpecificationDnsRecordIpTypePtrOutput {
+	return o.ToVpcEndpointDnsOptionsSpecificationDnsRecordIpTypePtrOutputWithContext(context.Background())
+}
+
+func (o VpcEndpointDnsOptionsSpecificationDnsRecordIpTypeOutput) ToVpcEndpointDnsOptionsSpecificationDnsRecordIpTypePtrOutputWithContext(ctx context.Context) VpcEndpointDnsOptionsSpecificationDnsRecordIpTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpcEndpointDnsOptionsSpecificationDnsRecordIpType) *VpcEndpointDnsOptionsSpecificationDnsRecordIpType {
+		return &v
+	}).(VpcEndpointDnsOptionsSpecificationDnsRecordIpTypePtrOutput)
+}
+
+func (o VpcEndpointDnsOptionsSpecificationDnsRecordIpTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o VpcEndpointDnsOptionsSpecificationDnsRecordIpTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VpcEndpointDnsOptionsSpecificationDnsRecordIpType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o VpcEndpointDnsOptionsSpecificationDnsRecordIpTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VpcEndpointDnsOptionsSpecificationDnsRecordIpTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VpcEndpointDnsOptionsSpecificationDnsRecordIpType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type VpcEndpointDnsOptionsSpecificationDnsRecordIpTypePtrOutput struct{ *pulumi.OutputState }
+
+func (VpcEndpointDnsOptionsSpecificationDnsRecordIpTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpcEndpointDnsOptionsSpecificationDnsRecordIpType)(nil)).Elem()
+}
+
+func (o VpcEndpointDnsOptionsSpecificationDnsRecordIpTypePtrOutput) ToVpcEndpointDnsOptionsSpecificationDnsRecordIpTypePtrOutput() VpcEndpointDnsOptionsSpecificationDnsRecordIpTypePtrOutput {
+	return o
+}
+
+func (o VpcEndpointDnsOptionsSpecificationDnsRecordIpTypePtrOutput) ToVpcEndpointDnsOptionsSpecificationDnsRecordIpTypePtrOutputWithContext(ctx context.Context) VpcEndpointDnsOptionsSpecificationDnsRecordIpTypePtrOutput {
+	return o
+}
+
+func (o VpcEndpointDnsOptionsSpecificationDnsRecordIpTypePtrOutput) Elem() VpcEndpointDnsOptionsSpecificationDnsRecordIpTypeOutput {
+	return o.ApplyT(func(v *VpcEndpointDnsOptionsSpecificationDnsRecordIpType) VpcEndpointDnsOptionsSpecificationDnsRecordIpType {
+		if v != nil {
+			return *v
+		}
+		var ret VpcEndpointDnsOptionsSpecificationDnsRecordIpType
+		return ret
+	}).(VpcEndpointDnsOptionsSpecificationDnsRecordIpTypeOutput)
+}
+
+func (o VpcEndpointDnsOptionsSpecificationDnsRecordIpTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VpcEndpointDnsOptionsSpecificationDnsRecordIpTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *VpcEndpointDnsOptionsSpecificationDnsRecordIpType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// VpcEndpointDnsOptionsSpecificationDnsRecordIpTypeInput is an input type that accepts values of the VpcEndpointDnsOptionsSpecificationDnsRecordIpType enum
+// A concrete instance of `VpcEndpointDnsOptionsSpecificationDnsRecordIpTypeInput` can be one of the following:
+//
+//	VpcEndpointDnsOptionsSpecificationDnsRecordIpTypeIpv4
+//	VpcEndpointDnsOptionsSpecificationDnsRecordIpTypeIpv6
+//	VpcEndpointDnsOptionsSpecificationDnsRecordIpTypeDualstack
+//	VpcEndpointDnsOptionsSpecificationDnsRecordIpTypeServiceDefined
+//	VpcEndpointDnsOptionsSpecificationDnsRecordIpTypeNotSpecified
+type VpcEndpointDnsOptionsSpecificationDnsRecordIpTypeInput interface {
+	pulumi.Input
+
+	ToVpcEndpointDnsOptionsSpecificationDnsRecordIpTypeOutput() VpcEndpointDnsOptionsSpecificationDnsRecordIpTypeOutput
+	ToVpcEndpointDnsOptionsSpecificationDnsRecordIpTypeOutputWithContext(context.Context) VpcEndpointDnsOptionsSpecificationDnsRecordIpTypeOutput
+}
+
+var vpcEndpointDnsOptionsSpecificationDnsRecordIpTypePtrType = reflect.TypeOf((**VpcEndpointDnsOptionsSpecificationDnsRecordIpType)(nil)).Elem()
+
+type VpcEndpointDnsOptionsSpecificationDnsRecordIpTypePtrInput interface {
+	pulumi.Input
+
+	ToVpcEndpointDnsOptionsSpecificationDnsRecordIpTypePtrOutput() VpcEndpointDnsOptionsSpecificationDnsRecordIpTypePtrOutput
+	ToVpcEndpointDnsOptionsSpecificationDnsRecordIpTypePtrOutputWithContext(context.Context) VpcEndpointDnsOptionsSpecificationDnsRecordIpTypePtrOutput
+}
+
+type vpcEndpointDnsOptionsSpecificationDnsRecordIpTypePtr string
+
+func VpcEndpointDnsOptionsSpecificationDnsRecordIpTypePtr(v string) VpcEndpointDnsOptionsSpecificationDnsRecordIpTypePtrInput {
+	return (*vpcEndpointDnsOptionsSpecificationDnsRecordIpTypePtr)(&v)
+}
+
+func (*vpcEndpointDnsOptionsSpecificationDnsRecordIpTypePtr) ElementType() reflect.Type {
+	return vpcEndpointDnsOptionsSpecificationDnsRecordIpTypePtrType
+}
+
+func (in *vpcEndpointDnsOptionsSpecificationDnsRecordIpTypePtr) ToVpcEndpointDnsOptionsSpecificationDnsRecordIpTypePtrOutput() VpcEndpointDnsOptionsSpecificationDnsRecordIpTypePtrOutput {
+	return pulumi.ToOutput(in).(VpcEndpointDnsOptionsSpecificationDnsRecordIpTypePtrOutput)
+}
+
+func (in *vpcEndpointDnsOptionsSpecificationDnsRecordIpTypePtr) ToVpcEndpointDnsOptionsSpecificationDnsRecordIpTypePtrOutputWithContext(ctx context.Context) VpcEndpointDnsOptionsSpecificationDnsRecordIpTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(VpcEndpointDnsOptionsSpecificationDnsRecordIpTypePtrOutput)
+}
+
+type VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint string
+
+const (
+	VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointOnlyInboundResolver = VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint("OnlyInboundResolver")
+	VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointAllResolvers        = VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint("AllResolvers")
+	VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointNotSpecified        = VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint("NotSpecified")
+)
+
+func (VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint)(nil)).Elem()
+}
+
+func (e VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint) ToVpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointOutput() VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointOutput {
+	return pulumi.ToOutput(e).(VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointOutput)
+}
+
+func (e VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint) ToVpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointOutputWithContext(ctx context.Context) VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointOutput)
+}
+
+func (e VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint) ToVpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointPtrOutput() VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointPtrOutput {
+	return e.ToVpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointPtrOutputWithContext(context.Background())
+}
+
+func (e VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint) ToVpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointPtrOutputWithContext(ctx context.Context) VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointPtrOutput {
+	return VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint(e).ToVpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointOutputWithContext(ctx).ToVpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointPtrOutputWithContext(ctx)
+}
+
+func (e VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointOutput struct{ *pulumi.OutputState }
+
+func (VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint)(nil)).Elem()
+}
+
+func (o VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointOutput) ToVpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointOutput() VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointOutput {
+	return o
+}
+
+func (o VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointOutput) ToVpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointOutputWithContext(ctx context.Context) VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointOutput {
+	return o
+}
+
+func (o VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointOutput) ToVpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointPtrOutput() VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointPtrOutput {
+	return o.ToVpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointPtrOutputWithContext(context.Background())
+}
+
+func (o VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointOutput) ToVpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointPtrOutputWithContext(ctx context.Context) VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint) *VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint {
+		return &v
+	}).(VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointPtrOutput)
+}
+
+func (o VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointPtrOutput struct{ *pulumi.OutputState }
+
+func (VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint)(nil)).Elem()
+}
+
+func (o VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointPtrOutput) ToVpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointPtrOutput() VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointPtrOutput {
+	return o
+}
+
+func (o VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointPtrOutput) ToVpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointPtrOutputWithContext(ctx context.Context) VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointPtrOutput {
+	return o
+}
+
+func (o VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointPtrOutput) Elem() VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointOutput {
+	return o.ApplyT(func(v *VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint) VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint {
+		if v != nil {
+			return *v
+		}
+		var ret VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint
+		return ret
+	}).(VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointOutput)
+}
+
+func (o VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointInput is an input type that accepts values of the VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint enum
+// A concrete instance of `VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointInput` can be one of the following:
+//
+//	VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointOnlyInboundResolver
+//	VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointAllResolvers
+//	VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointNotSpecified
+type VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointInput interface {
+	pulumi.Input
+
+	ToVpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointOutput() VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointOutput
+	ToVpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointOutputWithContext(context.Context) VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointOutput
+}
+
+var vpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointPtrType = reflect.TypeOf((**VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint)(nil)).Elem()
+
+type VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointPtrInput interface {
+	pulumi.Input
+
+	ToVpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointPtrOutput() VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointPtrOutput
+	ToVpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointPtrOutputWithContext(context.Context) VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointPtrOutput
+}
+
+type vpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointPtr string
+
+func VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointPtr(v string) VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointPtrInput {
+	return (*vpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointPtr)(&v)
+}
+
+func (*vpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointPtr) ElementType() reflect.Type {
+	return vpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointPtrType
+}
+
+func (in *vpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointPtr) ToVpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointPtrOutput() VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointPtrOutput {
+	return pulumi.ToOutput(in).(VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointPtrOutput)
+}
+
+func (in *vpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointPtr) ToVpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointPtrOutputWithContext(ctx context.Context) VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointPtrOutput)
+}
+
+type VpcEndpointIpAddressType string
+
+const (
+	VpcEndpointIpAddressTypeIpv4         = VpcEndpointIpAddressType("ipv4")
+	VpcEndpointIpAddressTypeIpv6         = VpcEndpointIpAddressType("ipv6")
+	VpcEndpointIpAddressTypeDualstack    = VpcEndpointIpAddressType("dualstack")
+	VpcEndpointIpAddressTypeNotSpecified = VpcEndpointIpAddressType("not-specified")
+)
+
+func (VpcEndpointIpAddressType) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcEndpointIpAddressType)(nil)).Elem()
+}
+
+func (e VpcEndpointIpAddressType) ToVpcEndpointIpAddressTypeOutput() VpcEndpointIpAddressTypeOutput {
+	return pulumi.ToOutput(e).(VpcEndpointIpAddressTypeOutput)
+}
+
+func (e VpcEndpointIpAddressType) ToVpcEndpointIpAddressTypeOutputWithContext(ctx context.Context) VpcEndpointIpAddressTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(VpcEndpointIpAddressTypeOutput)
+}
+
+func (e VpcEndpointIpAddressType) ToVpcEndpointIpAddressTypePtrOutput() VpcEndpointIpAddressTypePtrOutput {
+	return e.ToVpcEndpointIpAddressTypePtrOutputWithContext(context.Background())
+}
+
+func (e VpcEndpointIpAddressType) ToVpcEndpointIpAddressTypePtrOutputWithContext(ctx context.Context) VpcEndpointIpAddressTypePtrOutput {
+	return VpcEndpointIpAddressType(e).ToVpcEndpointIpAddressTypeOutputWithContext(ctx).ToVpcEndpointIpAddressTypePtrOutputWithContext(ctx)
+}
+
+func (e VpcEndpointIpAddressType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VpcEndpointIpAddressType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e VpcEndpointIpAddressType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e VpcEndpointIpAddressType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type VpcEndpointIpAddressTypeOutput struct{ *pulumi.OutputState }
+
+func (VpcEndpointIpAddressTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcEndpointIpAddressType)(nil)).Elem()
+}
+
+func (o VpcEndpointIpAddressTypeOutput) ToVpcEndpointIpAddressTypeOutput() VpcEndpointIpAddressTypeOutput {
+	return o
+}
+
+func (o VpcEndpointIpAddressTypeOutput) ToVpcEndpointIpAddressTypeOutputWithContext(ctx context.Context) VpcEndpointIpAddressTypeOutput {
+	return o
+}
+
+func (o VpcEndpointIpAddressTypeOutput) ToVpcEndpointIpAddressTypePtrOutput() VpcEndpointIpAddressTypePtrOutput {
+	return o.ToVpcEndpointIpAddressTypePtrOutputWithContext(context.Background())
+}
+
+func (o VpcEndpointIpAddressTypeOutput) ToVpcEndpointIpAddressTypePtrOutputWithContext(ctx context.Context) VpcEndpointIpAddressTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpcEndpointIpAddressType) *VpcEndpointIpAddressType {
+		return &v
+	}).(VpcEndpointIpAddressTypePtrOutput)
+}
+
+func (o VpcEndpointIpAddressTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o VpcEndpointIpAddressTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VpcEndpointIpAddressType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o VpcEndpointIpAddressTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VpcEndpointIpAddressTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e VpcEndpointIpAddressType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type VpcEndpointIpAddressTypePtrOutput struct{ *pulumi.OutputState }
+
+func (VpcEndpointIpAddressTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpcEndpointIpAddressType)(nil)).Elem()
+}
+
+func (o VpcEndpointIpAddressTypePtrOutput) ToVpcEndpointIpAddressTypePtrOutput() VpcEndpointIpAddressTypePtrOutput {
+	return o
+}
+
+func (o VpcEndpointIpAddressTypePtrOutput) ToVpcEndpointIpAddressTypePtrOutputWithContext(ctx context.Context) VpcEndpointIpAddressTypePtrOutput {
+	return o
+}
+
+func (o VpcEndpointIpAddressTypePtrOutput) Elem() VpcEndpointIpAddressTypeOutput {
+	return o.ApplyT(func(v *VpcEndpointIpAddressType) VpcEndpointIpAddressType {
+		if v != nil {
+			return *v
+		}
+		var ret VpcEndpointIpAddressType
+		return ret
+	}).(VpcEndpointIpAddressTypeOutput)
+}
+
+func (o VpcEndpointIpAddressTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o VpcEndpointIpAddressTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *VpcEndpointIpAddressType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// VpcEndpointIpAddressTypeInput is an input type that accepts values of the VpcEndpointIpAddressType enum
+// A concrete instance of `VpcEndpointIpAddressTypeInput` can be one of the following:
+//
+//	VpcEndpointIpAddressTypeIpv4
+//	VpcEndpointIpAddressTypeIpv6
+//	VpcEndpointIpAddressTypeDualstack
+//	VpcEndpointIpAddressTypeNotSpecified
+type VpcEndpointIpAddressTypeInput interface {
+	pulumi.Input
+
+	ToVpcEndpointIpAddressTypeOutput() VpcEndpointIpAddressTypeOutput
+	ToVpcEndpointIpAddressTypeOutputWithContext(context.Context) VpcEndpointIpAddressTypeOutput
+}
+
+var vpcEndpointIpAddressTypePtrType = reflect.TypeOf((**VpcEndpointIpAddressType)(nil)).Elem()
+
+type VpcEndpointIpAddressTypePtrInput interface {
+	pulumi.Input
+
+	ToVpcEndpointIpAddressTypePtrOutput() VpcEndpointIpAddressTypePtrOutput
+	ToVpcEndpointIpAddressTypePtrOutputWithContext(context.Context) VpcEndpointIpAddressTypePtrOutput
+}
+
+type vpcEndpointIpAddressTypePtr string
+
+func VpcEndpointIpAddressTypePtr(v string) VpcEndpointIpAddressTypePtrInput {
+	return (*vpcEndpointIpAddressTypePtr)(&v)
+}
+
+func (*vpcEndpointIpAddressTypePtr) ElementType() reflect.Type {
+	return vpcEndpointIpAddressTypePtrType
+}
+
+func (in *vpcEndpointIpAddressTypePtr) ToVpcEndpointIpAddressTypePtrOutput() VpcEndpointIpAddressTypePtrOutput {
+	return pulumi.ToOutput(in).(VpcEndpointIpAddressTypePtrOutput)
+}
+
+func (in *vpcEndpointIpAddressTypePtr) ToVpcEndpointIpAddressTypePtrOutputWithContext(ctx context.Context) VpcEndpointIpAddressTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(VpcEndpointIpAddressTypePtrOutput)
+}
+
 // The type of endpoint.
 //
 //	Default: Gateway
@@ -10916,6 +11423,8 @@ const (
 	VpcEndpointTypeInterface           = VpcEndpointType("Interface")
 	VpcEndpointTypeGateway             = VpcEndpointType("Gateway")
 	VpcEndpointTypeGatewayLoadBalancer = VpcEndpointType("GatewayLoadBalancer")
+	VpcEndpointTypeServiceNetwork      = VpcEndpointType("ServiceNetwork")
+	VpcEndpointTypeResource            = VpcEndpointType("Resource")
 )
 
 func (VpcEndpointType) ElementType() reflect.Type {
@@ -11043,6 +11552,8 @@ func (o VpcEndpointTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Conte
 //	VpcEndpointTypeInterface
 //	VpcEndpointTypeGateway
 //	VpcEndpointTypeGatewayLoadBalancer
+//	VpcEndpointTypeServiceNetwork
+//	VpcEndpointTypeResource
 type VpcEndpointTypeInput interface {
 	pulumi.Input
 
@@ -12557,6 +13068,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcBlockPublicAccessExclusionInternetGatewayExclusionModePtrInput)(nil)).Elem(), VpcBlockPublicAccessExclusionInternetGatewayExclusionMode("allow-bidirectional"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcBlockPublicAccessOptionsInternetGatewayBlockModeInput)(nil)).Elem(), VpcBlockPublicAccessOptionsInternetGatewayBlockMode("block-bidirectional"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcBlockPublicAccessOptionsInternetGatewayBlockModePtrInput)(nil)).Elem(), VpcBlockPublicAccessOptionsInternetGatewayBlockMode("block-bidirectional"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointDnsOptionsSpecificationDnsRecordIpTypeInput)(nil)).Elem(), VpcEndpointDnsOptionsSpecificationDnsRecordIpType("ipv4"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointDnsOptionsSpecificationDnsRecordIpTypePtrInput)(nil)).Elem(), VpcEndpointDnsOptionsSpecificationDnsRecordIpType("ipv4"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointInput)(nil)).Elem(), VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint("OnlyInboundResolver"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointPtrInput)(nil)).Elem(), VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint("OnlyInboundResolver"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointIpAddressTypeInput)(nil)).Elem(), VpcEndpointIpAddressType("ipv4"))
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointIpAddressTypePtrInput)(nil)).Elem(), VpcEndpointIpAddressType("ipv4"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointTypeInput)(nil)).Elem(), VpcEndpointType("Interface"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointTypePtrInput)(nil)).Elem(), VpcEndpointType("Interface"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatInput)(nil)).Elem(), VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat("json"))
@@ -12714,6 +13231,12 @@ func init() {
 	pulumi.RegisterOutputType(VpcBlockPublicAccessExclusionInternetGatewayExclusionModePtrOutput{})
 	pulumi.RegisterOutputType(VpcBlockPublicAccessOptionsInternetGatewayBlockModeOutput{})
 	pulumi.RegisterOutputType(VpcBlockPublicAccessOptionsInternetGatewayBlockModePtrOutput{})
+	pulumi.RegisterOutputType(VpcEndpointDnsOptionsSpecificationDnsRecordIpTypeOutput{})
+	pulumi.RegisterOutputType(VpcEndpointDnsOptionsSpecificationDnsRecordIpTypePtrOutput{})
+	pulumi.RegisterOutputType(VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointOutput{})
+	pulumi.RegisterOutputType(VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointPtrOutput{})
+	pulumi.RegisterOutputType(VpcEndpointIpAddressTypeOutput{})
+	pulumi.RegisterOutputType(VpcEndpointIpAddressTypePtrOutput{})
 	pulumi.RegisterOutputType(VpcEndpointTypeOutput{})
 	pulumi.RegisterOutputType(VpcEndpointTypePtrOutput{})
 	pulumi.RegisterOutputType(VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormatOutput{})

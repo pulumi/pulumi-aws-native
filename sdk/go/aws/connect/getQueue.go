@@ -41,6 +41,8 @@ type LookupQueueResult struct {
 	Name *string `pulumi:"name"`
 	// The outbound caller ID name, number, and outbound whisper flow.
 	OutboundCallerConfig *QueueOutboundCallerConfig `pulumi:"outboundCallerConfig"`
+	// The outbound email address ID.
+	OutboundEmailConfig *QueueOutboundEmailConfig `pulumi:"outboundEmailConfig"`
 	// The Amazon Resource Name (ARN) for the queue.
 	QueueArn *string `pulumi:"queueArn"`
 	// The quick connects available to agents who are working the queue.
@@ -113,6 +115,11 @@ func (o LookupQueueResultOutput) Name() pulumi.StringPtrOutput {
 // The outbound caller ID name, number, and outbound whisper flow.
 func (o LookupQueueResultOutput) OutboundCallerConfig() QueueOutboundCallerConfigPtrOutput {
 	return o.ApplyT(func(v LookupQueueResult) *QueueOutboundCallerConfig { return v.OutboundCallerConfig }).(QueueOutboundCallerConfigPtrOutput)
+}
+
+// The outbound email address ID.
+func (o LookupQueueResultOutput) OutboundEmailConfig() QueueOutboundEmailConfigPtrOutput {
+	return o.ApplyT(func(v LookupQueueResult) *QueueOutboundEmailConfig { return v.OutboundEmailConfig }).(QueueOutboundEmailConfigPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) for the queue.

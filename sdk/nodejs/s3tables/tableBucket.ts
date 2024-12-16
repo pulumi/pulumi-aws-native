@@ -37,8 +37,17 @@ export class TableBucket extends pulumi.CustomResource {
         return obj['__pulumiType'] === TableBucket.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the table bucket.
+     */
     public /*out*/ readonly tableBucketArn!: pulumi.Output<string>;
+    /**
+     * The name for the table bucket.
+     */
     public readonly tableBucketName!: pulumi.Output<string>;
+    /**
+     * The unreferenced file removal settings for your table bucket. Unreferenced file removal identifies and deletes all objects that are not referenced by any table snapshots. For more information, see the [*Amazon S3 User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-table-buckets-maintenance.html) .
+     */
     public readonly unreferencedFileRemoval!: pulumi.Output<outputs.s3tables.TableBucketUnreferencedFileRemoval | undefined>;
 
     /**
@@ -71,6 +80,12 @@ export class TableBucket extends pulumi.CustomResource {
  * The set of arguments for constructing a TableBucket resource.
  */
 export interface TableBucketArgs {
+    /**
+     * The name for the table bucket.
+     */
     tableBucketName?: pulumi.Input<string>;
+    /**
+     * The unreferenced file removal settings for your table bucket. Unreferenced file removal identifies and deletes all objects that are not referenced by any table snapshots. For more information, see the [*Amazon S3 User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-table-buckets-maintenance.html) .
+     */
     unreferencedFileRemoval?: pulumi.Input<inputs.s3tables.TableBucketUnreferencedFileRemovalArgs>;
 }

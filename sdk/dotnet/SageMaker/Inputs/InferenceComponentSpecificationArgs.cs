@@ -42,7 +42,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public Input<Inputs.InferenceComponentContainerSpecificationArgs>? Container { get; set; }
 
         /// <summary>
-        /// The name of an existing SageMaker model object in your account that you want to deploy with the inference component.
+        /// The name of an existing SageMaker AI model object in your account that you want to deploy with the inference component.
         /// </summary>
         [Input("modelName")]
         public Input<string>? ModelName { get; set; }

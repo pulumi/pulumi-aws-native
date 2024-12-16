@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.Fis.Outputs
         /// <summary>
         /// The data sources for the experiment report.
         /// </summary>
-        public readonly Outputs.ExperimentTemplateExperimentReportConfigurationDataSourcesProperties DataSources;
+        public readonly Outputs.ExperimentTemplateExperimentReportConfigurationDataSourcesProperties? DataSources;
         /// <summary>
         /// The output destinations of the experiment report.
         /// </summary>
@@ -32,7 +32,7 @@ namespace Pulumi.AwsNative.Fis.Outputs
 
         [OutputConstructor]
         private ExperimentTemplateExperimentReportConfiguration(
-            Outputs.ExperimentTemplateExperimentReportConfigurationDataSourcesProperties dataSources,
+            Outputs.ExperimentTemplateExperimentReportConfigurationDataSourcesProperties? dataSources,
 
             Outputs.ExperimentTemplateExperimentReportConfigurationOutputsProperties outputs,
 

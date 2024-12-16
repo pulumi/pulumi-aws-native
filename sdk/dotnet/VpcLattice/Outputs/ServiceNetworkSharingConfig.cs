@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.VpcLattice.Outputs
     [OutputType]
     public sealed class ServiceNetworkSharingConfig
     {
+        /// <summary>
+        /// Specify if the service network should be enabled for sharing.
+        /// </summary>
         public readonly bool Enabled;
 
         [OutputConstructor]

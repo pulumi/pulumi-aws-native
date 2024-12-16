@@ -34,11 +34,29 @@ export class AiGuardrailVersion extends pulumi.CustomResource {
         return obj['__pulumiType'] === AiGuardrailVersion.__pulumiType;
     }
 
+    /**
+     * The ARN of the AI guardrail version.
+     */
     public /*out*/ readonly aiGuardrailArn!: pulumi.Output<string>;
+    /**
+     * The ID of the AI guardrail version.
+     */
     public readonly aiGuardrailId!: pulumi.Output<string>;
+    /**
+     * The ID of the AI guardrail version.
+     */
     public /*out*/ readonly aiGuardrailVersionId!: pulumi.Output<string>;
+    /**
+     * The ARN of the AI guardrail version assistant.
+     */
     public /*out*/ readonly assistantArn!: pulumi.Output<string>;
+    /**
+     * The ID of the AI guardrail version assistant.
+     */
     public readonly assistantId!: pulumi.Output<string>;
+    /**
+     * The modified time of the AI guardrail version in seconds.
+     */
     public readonly modifiedTimeSeconds!: pulumi.Output<number | undefined>;
     /**
      * The version number for this AI Guardrail version.
@@ -89,7 +107,16 @@ export class AiGuardrailVersion extends pulumi.CustomResource {
  * The set of arguments for constructing a AiGuardrailVersion resource.
  */
 export interface AiGuardrailVersionArgs {
+    /**
+     * The ID of the AI guardrail version.
+     */
     aiGuardrailId: pulumi.Input<string>;
+    /**
+     * The ID of the AI guardrail version assistant.
+     */
     assistantId: pulumi.Input<string>;
+    /**
+     * The modified time of the AI guardrail version in seconds.
+     */
     modifiedTimeSeconds?: pulumi.Input<number>;
 }

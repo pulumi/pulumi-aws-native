@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QBusiness.Outputs
     [OutputType]
     public sealed class DataAccessorActionFilterConfiguration
     {
+        /// <summary>
+        /// Enables filtering of responses based on document attributes or metadata fields.
+        /// </summary>
         public readonly Outputs.DataAccessorAttributeFilter DocumentAttributeFilter;
 
         [OutputConstructor]

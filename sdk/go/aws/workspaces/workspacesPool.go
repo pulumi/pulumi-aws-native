@@ -35,8 +35,7 @@ type WorkspacesPool struct {
 	PoolId pulumi.StringOutput `pulumi:"poolId"`
 	// The name of the pool.
 	PoolName pulumi.StringOutput `pulumi:"poolName"`
-	// The tags for the pool.
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	Tags     aws.TagArrayOutput  `pulumi:"tags"`
 	// The amount of time that a pool session remains active after users disconnect. If they try to reconnect to the pool session after a disconnection or network interruption within this time interval, they are connected to their previous session. Otherwise, they are connected to a new session with a new pool instance.
 	TimeoutSettings WorkspacesPoolTimeoutSettingsPtrOutput `pulumi:"timeoutSettings"`
 }
@@ -105,9 +104,8 @@ type workspacesPoolArgs struct {
 	// The identifier of the directory used by the pool.
 	DirectoryId string `pulumi:"directoryId"`
 	// The name of the pool.
-	PoolName *string `pulumi:"poolName"`
-	// The tags for the pool.
-	Tags []aws.Tag `pulumi:"tags"`
+	PoolName *string   `pulumi:"poolName"`
+	Tags     []aws.Tag `pulumi:"tags"`
 	// The amount of time that a pool session remains active after users disconnect. If they try to reconnect to the pool session after a disconnection or network interruption within this time interval, they are connected to their previous session. Otherwise, they are connected to a new session with a new pool instance.
 	TimeoutSettings *WorkspacesPoolTimeoutSettings `pulumi:"timeoutSettings"`
 }
@@ -126,8 +124,7 @@ type WorkspacesPoolArgs struct {
 	DirectoryId pulumi.StringInput
 	// The name of the pool.
 	PoolName pulumi.StringPtrInput
-	// The tags for the pool.
-	Tags aws.TagArrayInput
+	Tags     aws.TagArrayInput
 	// The amount of time that a pool session remains active after users disconnect. If they try to reconnect to the pool session after a disconnection or network interruption within this time interval, they are connected to their previous session. Otherwise, they are connected to a new session with a new pool instance.
 	TimeoutSettings WorkspacesPoolTimeoutSettingsPtrInput
 }
@@ -214,7 +211,6 @@ func (o WorkspacesPoolOutput) PoolName() pulumi.StringOutput {
 	return o.ApplyT(func(v *WorkspacesPool) pulumi.StringOutput { return v.PoolName }).(pulumi.StringOutput)
 }
 
-// The tags for the pool.
 func (o WorkspacesPoolOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *WorkspacesPool) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.Connect.Inputs
 {
 
     /// <summary>
-    /// The list of actions that will be executed when a rule is triggered.
+    /// A list of actions to be run when the rule is triggered.
     /// </summary>
     public sealed class RuleActionsArgs : global::Pulumi.ResourceArgs
     {
@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.Connect.Inputs
         private InputList<Inputs.RuleAssignContactCategoryActionArgs>? _assignContactCategoryActions;
 
         /// <summary>
-        /// Information about the contact category action. The syntax can be empty, for example, `{}` .
+        /// Information about the contact category action. The syntax can be empty, for example, ``{}``.
         /// </summary>
         public InputList<Inputs.RuleAssignContactCategoryActionArgs> AssignContactCategoryActions
         {
@@ -47,7 +47,7 @@ namespace Pulumi.AwsNative.Connect.Inputs
         private InputList<Inputs.RuleEventBridgeActionArgs>? _eventBridgeActions;
 
         /// <summary>
-        /// Information about the EventBridge action.
+        /// Information about the EV action.
         /// </summary>
         public InputList<Inputs.RuleEventBridgeActionArgs> EventBridgeActions
         {
@@ -79,7 +79,7 @@ namespace Pulumi.AwsNative.Connect.Inputs
         private InputList<Inputs.RuleTaskActionArgs>? _taskActions;
 
         /// <summary>
-        /// Information about the task action. This field is required if `TriggerEventSource` is one of the following values: `OnZendeskTicketCreate` | `OnZendeskTicketStatusUpdate` | `OnSalesforceCaseCreate`
+        /// Information about the task action. This field is required if ``TriggerEventSource`` is one of the following values: ``OnZendeskTicketCreate`` | ``OnZendeskTicketStatusUpdate`` | ``OnSalesforceCaseCreate``
         /// </summary>
         public InputList<Inputs.RuleTaskActionArgs> TaskActions
         {

@@ -18,12 +18,24 @@ export function getServiceNetworkResourceAssociation(args: GetServiceNetworkReso
 }
 
 export interface GetServiceNetworkResourceAssociationArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the association.
+     */
     arn: string;
 }
 
 export interface GetServiceNetworkResourceAssociationResult {
+    /**
+     * The Amazon Resource Name (ARN) of the association.
+     */
     readonly arn?: string;
+    /**
+     * The ID of the association between the service network and resource configuration.
+     */
     readonly id?: string;
+    /**
+     * A key-value pair to associate with a resource.
+     */
     readonly tags?: outputs.Tag[];
 }
 /**
@@ -37,5 +49,8 @@ export function getServiceNetworkResourceAssociationOutput(args: GetServiceNetwo
 }
 
 export interface GetServiceNetworkResourceAssociationOutputArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the association.
+     */
     arn: pulumi.Input<string>;
 }

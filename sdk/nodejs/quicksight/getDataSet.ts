@@ -86,6 +86,7 @@ export interface GetDataSetResult {
      *             analyses, and dashboards.</p>
      */
     readonly outputColumns?: outputs.quicksight.DataSetOutputColumn[];
+    readonly performanceConfiguration?: outputs.quicksight.DataSetPerformanceConfiguration;
     /**
      * <p>A list of resource permissions on the dataset.</p>
      */

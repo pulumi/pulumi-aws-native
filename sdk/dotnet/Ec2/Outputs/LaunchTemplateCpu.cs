@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.Ec2.Outputs
     [OutputType]
     public sealed class LaunchTemplateCpu
     {
+        /// <summary>
+        /// The instance family to use as the baseline reference for CPU performance. All instance types that match your specified attributes are compared against the CPU performance of the referenced instance family, regardless of CPU manufacturer or architecture differences.
+        /// </summary>
         public readonly ImmutableArray<Outputs.LaunchTemplateReference> References;
 
         [OutputConstructor]

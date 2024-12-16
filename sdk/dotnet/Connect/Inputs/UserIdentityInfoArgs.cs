@@ -22,13 +22,13 @@ namespace Pulumi.AwsNative.Connect.Inputs
         public Input<string>? Email { get; set; }
 
         /// <summary>
-        /// The first name. This is required if you are using Amazon Connect or SAML for identity management.
+        /// The first name. This is required if you are using Amazon Connect or SAML for identity management. Inputs must be in Unicode Normalization Form C (NFC). Text containing characters in a non-NFC form (for example, decomposed characters or combining marks) are not accepted.
         /// </summary>
         [Input("firstName")]
         public Input<string>? FirstName { get; set; }
 
         /// <summary>
-        /// The last name. This is required if you are using Amazon Connect or SAML for identity management.
+        /// The last name. This is required if you are using Amazon Connect or SAML for identity management. Inputs must be in Unicode Normalization Form C (NFC). Text containing characters in a non-NFC form (for example, decomposed characters or combining marks) are not accepted.
         /// </summary>
         [Input("lastName")]
         public Input<string>? LastName { get; set; }

@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from ._enums import *
 
 __all__ = ['QueryDefinitionArgs', 'QueryDefinition']
 
@@ -21,18 +22,22 @@ class QueryDefinitionArgs:
     def __init__(__self__, *,
                  query_string: pulumi.Input[str],
                  log_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 name: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[str]] = None,
+                 query_language: Optional[pulumi.Input['QueryDefinitionQueryLanguage']] = None):
         """
         The set of arguments for constructing a QueryDefinition resource.
         :param pulumi.Input[str] query_string: The query string to use for this definition
         :param pulumi.Input[Sequence[pulumi.Input[str]]] log_group_names: Optionally define specific log groups as part of your query definition
         :param pulumi.Input[str] name: A name for the saved query definition
+        :param pulumi.Input['QueryDefinitionQueryLanguage'] query_language: Query language of the query string. Possible values are CWLI, SQL, PPL, with CWLI being the default.
         """
         pulumi.set(__self__, "query_string", query_string)
         if log_group_names is not None:
             pulumi.set(__self__, "log_group_names", log_group_names)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if query_language is not None:
+            pulumi.set(__self__, "query_language", query_language)
 
     @property
     @pulumi.getter(name="queryString")
@@ -70,6 +75,18 @@ class QueryDefinitionArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter(name="queryLanguage")
+    def query_language(self) -> Optional[pulumi.Input['QueryDefinitionQueryLanguage']]:
+        """
+        Query language of the query string. Possible values are CWLI, SQL, PPL, with CWLI being the default.
+        """
+        return pulumi.get(self, "query_language")
+
+    @query_language.setter
+    def query_language(self, value: Optional[pulumi.Input['QueryDefinitionQueryLanguage']]):
+        pulumi.set(self, "query_language", value)
+
 
 class QueryDefinition(pulumi.CustomResource):
     @overload
@@ -78,6 +95,7 @@ class QueryDefinition(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  log_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 query_language: Optional[pulumi.Input['QueryDefinitionQueryLanguage']] = None,
                  query_string: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -87,6 +105,7 @@ class QueryDefinition(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] log_group_names: Optionally define specific log groups as part of your query definition
         :param pulumi.Input[str] name: A name for the saved query definition
+        :param pulumi.Input['QueryDefinitionQueryLanguage'] query_language: Query language of the query string. Possible values are CWLI, SQL, PPL, with CWLI being the default.
         :param pulumi.Input[str] query_string: The query string to use for this definition
         """
         ...
@@ -115,6 +134,7 @@ class QueryDefinition(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  log_group_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 query_language: Optional[pulumi.Input['QueryDefinitionQueryLanguage']] = None,
                  query_string: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -127,6 +147,7 @@ class QueryDefinition(pulumi.CustomResource):
 
             __props__.__dict__["log_group_names"] = log_group_names
             __props__.__dict__["name"] = name
+            __props__.__dict__["query_language"] = query_language
             if query_string is None and not opts.urn:
                 raise TypeError("Missing required property 'query_string'")
             __props__.__dict__["query_string"] = query_string
@@ -156,6 +177,7 @@ class QueryDefinition(pulumi.CustomResource):
         __props__.__dict__["log_group_names"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["query_definition_id"] = None
+        __props__.__dict__["query_language"] = None
         __props__.__dict__["query_string"] = None
         return QueryDefinition(resource_name, opts=opts, __props__=__props__)
 
@@ -182,6 +204,14 @@ class QueryDefinition(pulumi.CustomResource):
         Unique identifier of a query definition
         """
         return pulumi.get(self, "query_definition_id")
+
+    @property
+    @pulumi.getter(name="queryLanguage")
+    def query_language(self) -> pulumi.Output[Optional['QueryDefinitionQueryLanguage']]:
+        """
+        Query language of the query string. Possible values are CWLI, SQL, PPL, with CWLI being the default.
+        """
+        return pulumi.get(self, "query_language")
 
     @property
     @pulumi.getter(name="queryString")

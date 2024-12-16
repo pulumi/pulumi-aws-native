@@ -11,12 +11,12 @@ namespace Pulumi.AwsNative.Connect.Inputs
 {
 
     /// <summary>
-    /// The definition for event bridge action.
+    /// The EV action definition.
     /// </summary>
     public sealed class RuleEventBridgeActionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the event bridge action.
+        /// The name.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

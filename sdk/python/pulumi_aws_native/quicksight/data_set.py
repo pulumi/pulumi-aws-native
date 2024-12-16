@@ -37,6 +37,7 @@ class DataSetArgs:
                  ingestion_wait_policy: Optional[pulumi.Input['DataSetIngestionWaitPolicyArgs']] = None,
                  logical_table_map: Optional[pulumi.Input[Mapping[str, pulumi.Input['DataSetLogicalTableArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 performance_configuration: Optional[pulumi.Input['DataSetPerformanceConfigurationArgs']] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input['DataSetResourcePermissionArgs']]]] = None,
                  physical_table_map: Optional[pulumi.Input[Mapping[str, pulumi.Input['DataSetPhysicalTableArgs']]]] = None,
                  row_level_permission_data_set: Optional[pulumi.Input['DataSetRowLevelPermissionDataSetArgs']] = None,
@@ -91,6 +92,8 @@ class DataSetArgs:
             pulumi.set(__self__, "logical_table_map", logical_table_map)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if performance_configuration is not None:
+            pulumi.set(__self__, "performance_configuration", performance_configuration)
         if permissions is not None:
             pulumi.set(__self__, "permissions", permissions)
         if physical_table_map is not None:
@@ -261,6 +264,15 @@ class DataSetArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="performanceConfiguration")
+    def performance_configuration(self) -> Optional[pulumi.Input['DataSetPerformanceConfigurationArgs']]:
+        return pulumi.get(self, "performance_configuration")
+
+    @performance_configuration.setter
+    def performance_configuration(self, value: Optional[pulumi.Input['DataSetPerformanceConfigurationArgs']]):
+        pulumi.set(self, "performance_configuration", value)
+
+    @property
     @pulumi.getter
     def permissions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DataSetResourcePermissionArgs']]]]:
         """
@@ -339,6 +351,7 @@ class DataSet(pulumi.CustomResource):
                  ingestion_wait_policy: Optional[pulumi.Input[Union['DataSetIngestionWaitPolicyArgs', 'DataSetIngestionWaitPolicyArgsDict']]] = None,
                  logical_table_map: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['DataSetLogicalTableArgs', 'DataSetLogicalTableArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 performance_configuration: Optional[pulumi.Input[Union['DataSetPerformanceConfigurationArgs', 'DataSetPerformanceConfigurationArgsDict']]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataSetResourcePermissionArgs', 'DataSetResourcePermissionArgsDict']]]]] = None,
                  physical_table_map: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['DataSetPhysicalTableArgs', 'DataSetPhysicalTableArgsDict']]]]] = None,
                  row_level_permission_data_set: Optional[pulumi.Input[Union['DataSetRowLevelPermissionDataSetArgs', 'DataSetRowLevelPermissionDataSetArgsDict']]] = None,
@@ -408,6 +421,7 @@ class DataSet(pulumi.CustomResource):
                  ingestion_wait_policy: Optional[pulumi.Input[Union['DataSetIngestionWaitPolicyArgs', 'DataSetIngestionWaitPolicyArgsDict']]] = None,
                  logical_table_map: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['DataSetLogicalTableArgs', 'DataSetLogicalTableArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 performance_configuration: Optional[pulumi.Input[Union['DataSetPerformanceConfigurationArgs', 'DataSetPerformanceConfigurationArgsDict']]] = None,
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataSetResourcePermissionArgs', 'DataSetResourcePermissionArgsDict']]]]] = None,
                  physical_table_map: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['DataSetPhysicalTableArgs', 'DataSetPhysicalTableArgsDict']]]]] = None,
                  row_level_permission_data_set: Optional[pulumi.Input[Union['DataSetRowLevelPermissionDataSetArgs', 'DataSetRowLevelPermissionDataSetArgsDict']]] = None,
@@ -435,6 +449,7 @@ class DataSet(pulumi.CustomResource):
             __props__.__dict__["ingestion_wait_policy"] = ingestion_wait_policy
             __props__.__dict__["logical_table_map"] = logical_table_map
             __props__.__dict__["name"] = name
+            __props__.__dict__["performance_configuration"] = performance_configuration
             __props__.__dict__["permissions"] = permissions
             __props__.__dict__["physical_table_map"] = physical_table_map
             __props__.__dict__["row_level_permission_data_set"] = row_level_permission_data_set
@@ -487,6 +502,7 @@ class DataSet(pulumi.CustomResource):
         __props__.__dict__["logical_table_map"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["output_columns"] = None
+        __props__.__dict__["performance_configuration"] = None
         __props__.__dict__["permissions"] = None
         __props__.__dict__["physical_table_map"] = None
         __props__.__dict__["row_level_permission_data_set"] = None
@@ -641,6 +657,11 @@ class DataSet(pulumi.CustomResource):
                     analyses, and dashboards.</p>
         """
         return pulumi.get(self, "output_columns")
+
+    @property
+    @pulumi.getter(name="performanceConfiguration")
+    def performance_configuration(self) -> pulumi.Output[Optional['outputs.DataSetPerformanceConfiguration']]:
+        return pulumi.get(self, "performance_configuration")
 
     @property
     @pulumi.getter

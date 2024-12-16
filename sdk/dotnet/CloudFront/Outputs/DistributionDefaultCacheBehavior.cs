@@ -64,6 +64,10 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.DistributionFunctionAssociation> FunctionAssociations;
         /// <summary>
+        /// The gRPC configuration for your cache behavior.
+        /// </summary>
+        public readonly Outputs.DistributionGrpcConfig? GrpcConfig;
+        /// <summary>
         /// A complex type that contains zero or more Lambda@Edge function associations for a cache behavior.
         /// </summary>
         public readonly ImmutableArray<Outputs.DistributionLambdaFunctionAssociation> LambdaFunctionAssociations;
@@ -138,6 +142,8 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
 
             ImmutableArray<Outputs.DistributionFunctionAssociation> functionAssociations,
 
+            Outputs.DistributionGrpcConfig? grpcConfig,
+
             ImmutableArray<Outputs.DistributionLambdaFunctionAssociation> lambdaFunctionAssociations,
 
             double? maxTtl,
@@ -168,6 +174,7 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
             FieldLevelEncryptionId = fieldLevelEncryptionId;
             ForwardedValues = forwardedValues;
             FunctionAssociations = functionAssociations;
+            GrpcConfig = grpcConfig;
             LambdaFunctionAssociations = lambdaFunctionAssociations;
             MaxTtl = maxTtl;
             MinTtl = minTtl;

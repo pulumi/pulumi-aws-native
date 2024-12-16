@@ -2966,6 +2966,100 @@ func (in *serverSftpAuthenticationMethodsPtr) ToServerSftpAuthenticationMethodsP
 	return pulumi.ToOutputWithContext(ctx, in).(ServerSftpAuthenticationMethodsPtrOutput)
 }
 
+type ServerStateEnum string
+
+const (
+	ServerStateEnumOffline     = ServerStateEnum("OFFLINE")
+	ServerStateEnumOnline      = ServerStateEnum("ONLINE")
+	ServerStateEnumStarting    = ServerStateEnum("STARTING")
+	ServerStateEnumStopping    = ServerStateEnum("STOPPING")
+	ServerStateEnumStartFailed = ServerStateEnum("START_FAILED")
+	ServerStateEnumStopFailed  = ServerStateEnum("STOP_FAILED")
+)
+
+type ServerStateEnumOutput struct{ *pulumi.OutputState }
+
+func (ServerStateEnumOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServerStateEnum)(nil)).Elem()
+}
+
+func (o ServerStateEnumOutput) ToServerStateEnumOutput() ServerStateEnumOutput {
+	return o
+}
+
+func (o ServerStateEnumOutput) ToServerStateEnumOutputWithContext(ctx context.Context) ServerStateEnumOutput {
+	return o
+}
+
+func (o ServerStateEnumOutput) ToServerStateEnumPtrOutput() ServerStateEnumPtrOutput {
+	return o.ToServerStateEnumPtrOutputWithContext(context.Background())
+}
+
+func (o ServerStateEnumOutput) ToServerStateEnumPtrOutputWithContext(ctx context.Context) ServerStateEnumPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServerStateEnum) *ServerStateEnum {
+		return &v
+	}).(ServerStateEnumPtrOutput)
+}
+
+func (o ServerStateEnumOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ServerStateEnumOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServerStateEnum) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ServerStateEnumOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServerStateEnumOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServerStateEnum) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServerStateEnumPtrOutput struct{ *pulumi.OutputState }
+
+func (ServerStateEnumPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServerStateEnum)(nil)).Elem()
+}
+
+func (o ServerStateEnumPtrOutput) ToServerStateEnumPtrOutput() ServerStateEnumPtrOutput {
+	return o
+}
+
+func (o ServerStateEnumPtrOutput) ToServerStateEnumPtrOutputWithContext(ctx context.Context) ServerStateEnumPtrOutput {
+	return o
+}
+
+func (o ServerStateEnumPtrOutput) Elem() ServerStateEnumOutput {
+	return o.ApplyT(func(v *ServerStateEnum) ServerStateEnum {
+		if v != nil {
+			return *v
+		}
+		var ret ServerStateEnum
+		return ret
+	}).(ServerStateEnumOutput)
+}
+
+func (o ServerStateEnumPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServerStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ServerStateEnum) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 type ServerTlsSessionResumptionMode string
 
 const (
@@ -4217,6 +4311,8 @@ func init() {
 	pulumi.RegisterOutputType(ServerSetStatOptionPtrOutput{})
 	pulumi.RegisterOutputType(ServerSftpAuthenticationMethodsOutput{})
 	pulumi.RegisterOutputType(ServerSftpAuthenticationMethodsPtrOutput{})
+	pulumi.RegisterOutputType(ServerStateEnumOutput{})
+	pulumi.RegisterOutputType(ServerStateEnumPtrOutput{})
 	pulumi.RegisterOutputType(ServerTlsSessionResumptionModeOutput{})
 	pulumi.RegisterOutputType(ServerTlsSessionResumptionModePtrOutput{})
 	pulumi.RegisterOutputType(UserHomeDirectoryTypeOutput{})

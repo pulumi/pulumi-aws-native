@@ -10140,6 +10140,7 @@ func (o LaunchTemplateConnectionTrackingSpecificationPtrOutput) UdpTimeout() pul
 }
 
 type LaunchTemplateCpu struct {
+	// The instance family to use as the baseline reference for CPU performance. All instance types that match your specified attributes are compared against the CPU performance of the referenced instance family, regardless of CPU manufacturer or architecture differences.
 	References []LaunchTemplateReference `pulumi:"references"`
 }
 
@@ -10155,6 +10156,7 @@ type LaunchTemplateCpuInput interface {
 }
 
 type LaunchTemplateCpuArgs struct {
+	// The instance family to use as the baseline reference for CPU performance. All instance types that match your specified attributes are compared against the CPU performance of the referenced instance family, regardless of CPU manufacturer or architecture differences.
 	References LaunchTemplateReferenceArrayInput `pulumi:"references"`
 }
 
@@ -10235,6 +10237,7 @@ func (o LaunchTemplateCpuOutput) ToLaunchTemplateCpuPtrOutputWithContext(ctx con
 	}).(LaunchTemplateCpuPtrOutput)
 }
 
+// The instance family to use as the baseline reference for CPU performance. All instance types that match your specified attributes are compared against the CPU performance of the referenced instance family, regardless of CPU manufacturer or architecture differences.
 func (o LaunchTemplateCpuOutput) References() LaunchTemplateReferenceArrayOutput {
 	return o.ApplyT(func(v LaunchTemplateCpu) []LaunchTemplateReference { return v.References }).(LaunchTemplateReferenceArrayOutput)
 }
@@ -10263,6 +10266,7 @@ func (o LaunchTemplateCpuPtrOutput) Elem() LaunchTemplateCpuOutput {
 	}).(LaunchTemplateCpuOutput)
 }
 
+// The instance family to use as the baseline reference for CPU performance. All instance types that match your specified attributes are compared against the CPU performance of the referenced instance family, regardless of CPU manufacturer or architecture differences.
 func (o LaunchTemplateCpuPtrOutput) References() LaunchTemplateReferenceArrayOutput {
 	return o.ApplyT(func(v *LaunchTemplateCpu) []LaunchTemplateReference {
 		if v == nil {
@@ -10683,7 +10687,8 @@ type LaunchTemplateData struct {
 	// The monitoring for the instance.
 	Monitoring *LaunchTemplateMonitoring `pulumi:"monitoring"`
 	// The network interfaces for the instance.
-	NetworkInterfaces []LaunchTemplateNetworkInterface `pulumi:"networkInterfaces"`
+	NetworkInterfaces         []LaunchTemplateNetworkInterface `pulumi:"networkInterfaces"`
+	NetworkPerformanceOptions interface{}                      `pulumi:"networkPerformanceOptions"`
 	// The placement for the instance.
 	Placement *LaunchTemplatePlacement `pulumi:"placement"`
 	// The hostname type for EC2 instances launched into this subnet and how DNS A and AAAA record queries should be handled. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *User Guide*.
@@ -10792,7 +10797,8 @@ type LaunchTemplateDataArgs struct {
 	// The monitoring for the instance.
 	Monitoring LaunchTemplateMonitoringPtrInput `pulumi:"monitoring"`
 	// The network interfaces for the instance.
-	NetworkInterfaces LaunchTemplateNetworkInterfaceArrayInput `pulumi:"networkInterfaces"`
+	NetworkInterfaces         LaunchTemplateNetworkInterfaceArrayInput `pulumi:"networkInterfaces"`
+	NetworkPerformanceOptions pulumi.Input                             `pulumi:"networkPerformanceOptions"`
 	// The placement for the instance.
 	Placement LaunchTemplatePlacementPtrInput `pulumi:"placement"`
 	// The hostname type for EC2 instances launched into this subnet and how DNS A and AAAA record queries should be handled. For more information, see [Amazon EC2 instance hostname types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-naming.html) in the *User Guide*.
@@ -10999,6 +11005,10 @@ func (o LaunchTemplateDataOutput) Monitoring() LaunchTemplateMonitoringPtrOutput
 // The network interfaces for the instance.
 func (o LaunchTemplateDataOutput) NetworkInterfaces() LaunchTemplateNetworkInterfaceArrayOutput {
 	return o.ApplyT(func(v LaunchTemplateData) []LaunchTemplateNetworkInterface { return v.NetworkInterfaces }).(LaunchTemplateNetworkInterfaceArrayOutput)
+}
+
+func (o LaunchTemplateDataOutput) NetworkPerformanceOptions() pulumi.AnyOutput {
+	return o.ApplyT(func(v LaunchTemplateData) interface{} { return v.NetworkPerformanceOptions }).(pulumi.AnyOutput)
 }
 
 // The placement for the instance.
@@ -31109,6 +31119,158 @@ type VpcBlockPublicAccessExclusionTag struct {
 	Value string `pulumi:"value"`
 }
 
+type VpcEndpointDnsOptionsSpecification struct {
+	DnsRecordIpType                          *VpcEndpointDnsOptionsSpecificationDnsRecordIpType                          `pulumi:"dnsRecordIpType"`
+	PrivateDnsOnlyForInboundResolverEndpoint *VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint `pulumi:"privateDnsOnlyForInboundResolverEndpoint"`
+}
+
+// VpcEndpointDnsOptionsSpecificationInput is an input type that accepts VpcEndpointDnsOptionsSpecificationArgs and VpcEndpointDnsOptionsSpecificationOutput values.
+// You can construct a concrete instance of `VpcEndpointDnsOptionsSpecificationInput` via:
+//
+//	VpcEndpointDnsOptionsSpecificationArgs{...}
+type VpcEndpointDnsOptionsSpecificationInput interface {
+	pulumi.Input
+
+	ToVpcEndpointDnsOptionsSpecificationOutput() VpcEndpointDnsOptionsSpecificationOutput
+	ToVpcEndpointDnsOptionsSpecificationOutputWithContext(context.Context) VpcEndpointDnsOptionsSpecificationOutput
+}
+
+type VpcEndpointDnsOptionsSpecificationArgs struct {
+	DnsRecordIpType                          VpcEndpointDnsOptionsSpecificationDnsRecordIpTypePtrInput                          `pulumi:"dnsRecordIpType"`
+	PrivateDnsOnlyForInboundResolverEndpoint VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointPtrInput `pulumi:"privateDnsOnlyForInboundResolverEndpoint"`
+}
+
+func (VpcEndpointDnsOptionsSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcEndpointDnsOptionsSpecification)(nil)).Elem()
+}
+
+func (i VpcEndpointDnsOptionsSpecificationArgs) ToVpcEndpointDnsOptionsSpecificationOutput() VpcEndpointDnsOptionsSpecificationOutput {
+	return i.ToVpcEndpointDnsOptionsSpecificationOutputWithContext(context.Background())
+}
+
+func (i VpcEndpointDnsOptionsSpecificationArgs) ToVpcEndpointDnsOptionsSpecificationOutputWithContext(ctx context.Context) VpcEndpointDnsOptionsSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointDnsOptionsSpecificationOutput)
+}
+
+func (i VpcEndpointDnsOptionsSpecificationArgs) ToVpcEndpointDnsOptionsSpecificationPtrOutput() VpcEndpointDnsOptionsSpecificationPtrOutput {
+	return i.ToVpcEndpointDnsOptionsSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i VpcEndpointDnsOptionsSpecificationArgs) ToVpcEndpointDnsOptionsSpecificationPtrOutputWithContext(ctx context.Context) VpcEndpointDnsOptionsSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointDnsOptionsSpecificationOutput).ToVpcEndpointDnsOptionsSpecificationPtrOutputWithContext(ctx)
+}
+
+// VpcEndpointDnsOptionsSpecificationPtrInput is an input type that accepts VpcEndpointDnsOptionsSpecificationArgs, VpcEndpointDnsOptionsSpecificationPtr and VpcEndpointDnsOptionsSpecificationPtrOutput values.
+// You can construct a concrete instance of `VpcEndpointDnsOptionsSpecificationPtrInput` via:
+//
+//	        VpcEndpointDnsOptionsSpecificationArgs{...}
+//
+//	or:
+//
+//	        nil
+type VpcEndpointDnsOptionsSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToVpcEndpointDnsOptionsSpecificationPtrOutput() VpcEndpointDnsOptionsSpecificationPtrOutput
+	ToVpcEndpointDnsOptionsSpecificationPtrOutputWithContext(context.Context) VpcEndpointDnsOptionsSpecificationPtrOutput
+}
+
+type vpcEndpointDnsOptionsSpecificationPtrType VpcEndpointDnsOptionsSpecificationArgs
+
+func VpcEndpointDnsOptionsSpecificationPtr(v *VpcEndpointDnsOptionsSpecificationArgs) VpcEndpointDnsOptionsSpecificationPtrInput {
+	return (*vpcEndpointDnsOptionsSpecificationPtrType)(v)
+}
+
+func (*vpcEndpointDnsOptionsSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpcEndpointDnsOptionsSpecification)(nil)).Elem()
+}
+
+func (i *vpcEndpointDnsOptionsSpecificationPtrType) ToVpcEndpointDnsOptionsSpecificationPtrOutput() VpcEndpointDnsOptionsSpecificationPtrOutput {
+	return i.ToVpcEndpointDnsOptionsSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *vpcEndpointDnsOptionsSpecificationPtrType) ToVpcEndpointDnsOptionsSpecificationPtrOutputWithContext(ctx context.Context) VpcEndpointDnsOptionsSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointDnsOptionsSpecificationPtrOutput)
+}
+
+type VpcEndpointDnsOptionsSpecificationOutput struct{ *pulumi.OutputState }
+
+func (VpcEndpointDnsOptionsSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcEndpointDnsOptionsSpecification)(nil)).Elem()
+}
+
+func (o VpcEndpointDnsOptionsSpecificationOutput) ToVpcEndpointDnsOptionsSpecificationOutput() VpcEndpointDnsOptionsSpecificationOutput {
+	return o
+}
+
+func (o VpcEndpointDnsOptionsSpecificationOutput) ToVpcEndpointDnsOptionsSpecificationOutputWithContext(ctx context.Context) VpcEndpointDnsOptionsSpecificationOutput {
+	return o
+}
+
+func (o VpcEndpointDnsOptionsSpecificationOutput) ToVpcEndpointDnsOptionsSpecificationPtrOutput() VpcEndpointDnsOptionsSpecificationPtrOutput {
+	return o.ToVpcEndpointDnsOptionsSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o VpcEndpointDnsOptionsSpecificationOutput) ToVpcEndpointDnsOptionsSpecificationPtrOutputWithContext(ctx context.Context) VpcEndpointDnsOptionsSpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpcEndpointDnsOptionsSpecification) *VpcEndpointDnsOptionsSpecification {
+		return &v
+	}).(VpcEndpointDnsOptionsSpecificationPtrOutput)
+}
+
+func (o VpcEndpointDnsOptionsSpecificationOutput) DnsRecordIpType() VpcEndpointDnsOptionsSpecificationDnsRecordIpTypePtrOutput {
+	return o.ApplyT(func(v VpcEndpointDnsOptionsSpecification) *VpcEndpointDnsOptionsSpecificationDnsRecordIpType {
+		return v.DnsRecordIpType
+	}).(VpcEndpointDnsOptionsSpecificationDnsRecordIpTypePtrOutput)
+}
+
+func (o VpcEndpointDnsOptionsSpecificationOutput) PrivateDnsOnlyForInboundResolverEndpoint() VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointPtrOutput {
+	return o.ApplyT(func(v VpcEndpointDnsOptionsSpecification) *VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint {
+		return v.PrivateDnsOnlyForInboundResolverEndpoint
+	}).(VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointPtrOutput)
+}
+
+type VpcEndpointDnsOptionsSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (VpcEndpointDnsOptionsSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpcEndpointDnsOptionsSpecification)(nil)).Elem()
+}
+
+func (o VpcEndpointDnsOptionsSpecificationPtrOutput) ToVpcEndpointDnsOptionsSpecificationPtrOutput() VpcEndpointDnsOptionsSpecificationPtrOutput {
+	return o
+}
+
+func (o VpcEndpointDnsOptionsSpecificationPtrOutput) ToVpcEndpointDnsOptionsSpecificationPtrOutputWithContext(ctx context.Context) VpcEndpointDnsOptionsSpecificationPtrOutput {
+	return o
+}
+
+func (o VpcEndpointDnsOptionsSpecificationPtrOutput) Elem() VpcEndpointDnsOptionsSpecificationOutput {
+	return o.ApplyT(func(v *VpcEndpointDnsOptionsSpecification) VpcEndpointDnsOptionsSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret VpcEndpointDnsOptionsSpecification
+		return ret
+	}).(VpcEndpointDnsOptionsSpecificationOutput)
+}
+
+func (o VpcEndpointDnsOptionsSpecificationPtrOutput) DnsRecordIpType() VpcEndpointDnsOptionsSpecificationDnsRecordIpTypePtrOutput {
+	return o.ApplyT(func(v *VpcEndpointDnsOptionsSpecification) *VpcEndpointDnsOptionsSpecificationDnsRecordIpType {
+		if v == nil {
+			return nil
+		}
+		return v.DnsRecordIpType
+	}).(VpcEndpointDnsOptionsSpecificationDnsRecordIpTypePtrOutput)
+}
+
+func (o VpcEndpointDnsOptionsSpecificationPtrOutput) PrivateDnsOnlyForInboundResolverEndpoint() VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointPtrOutput {
+	return o.ApplyT(func(v *VpcEndpointDnsOptionsSpecification) *VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint {
+		if v == nil {
+			return nil
+		}
+		return v.PrivateDnsOnlyForInboundResolverEndpoint
+	}).(VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointPtrOutput)
+}
+
 // A key-value pair to associate with a resource.
 type VpcPeeringConnectionTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -32908,6 +33070,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VerifiedAccessTrustProviderDeviceOptionsPtrInput)(nil)).Elem(), VerifiedAccessTrustProviderDeviceOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VerifiedAccessTrustProviderOidcOptionsInput)(nil)).Elem(), VerifiedAccessTrustProviderOidcOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VerifiedAccessTrustProviderOidcOptionsPtrInput)(nil)).Elem(), VerifiedAccessTrustProviderOidcOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointDnsOptionsSpecificationInput)(nil)).Elem(), VpcEndpointDnsOptionsSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointDnsOptionsSpecificationPtrInput)(nil)).Elem(), VpcEndpointDnsOptionsSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionCloudwatchLogOptionsSpecificationInput)(nil)).Elem(), VpnConnectionCloudwatchLogOptionsSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionCloudwatchLogOptionsSpecificationPtrInput)(nil)).Elem(), VpnConnectionCloudwatchLogOptionsSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionIkeVersionsRequestListValueInput)(nil)).Elem(), VpnConnectionIkeVersionsRequestListValueArgs{})
@@ -33276,6 +33440,8 @@ func init() {
 	pulumi.RegisterOutputType(VerifiedAccessTrustProviderDeviceOptionsPtrOutput{})
 	pulumi.RegisterOutputType(VerifiedAccessTrustProviderOidcOptionsOutput{})
 	pulumi.RegisterOutputType(VerifiedAccessTrustProviderOidcOptionsPtrOutput{})
+	pulumi.RegisterOutputType(VpcEndpointDnsOptionsSpecificationOutput{})
+	pulumi.RegisterOutputType(VpcEndpointDnsOptionsSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(VpnConnectionCloudwatchLogOptionsSpecificationOutput{})
 	pulumi.RegisterOutputType(VpnConnectionCloudwatchLogOptionsSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(VpnConnectionIkeVersionsRequestListValueOutput{})

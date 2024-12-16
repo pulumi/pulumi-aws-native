@@ -87,6 +87,9 @@ namespace Pulumi.AwsNative.Wisdom
     [OutputType]
     public sealed class GetAiPromptVersionResult
     {
+        /// <summary>
+        /// The ARN of the AI prompt.
+        /// </summary>
         public readonly string? AiPromptArn;
         public readonly string? AiPromptVersionId;
         public readonly string? AssistantArn;

@@ -1016,7 +1016,8 @@ _utilities.register(
   "fqn": "pulumi_aws_native.cassandra",
   "classes": {
    "aws-native:cassandra:Keyspace": "Keyspace",
-   "aws-native:cassandra:Table": "Table"
+   "aws-native:cassandra:Table": "Table",
+   "aws-native:cassandra:Type": "Type"
   }
  },
  {
@@ -2292,7 +2293,8 @@ _utilities.register(
    "aws-native:logs:MetricFilter": "MetricFilter",
    "aws-native:logs:QueryDefinition": "QueryDefinition",
    "aws-native:logs:ResourcePolicy": "ResourcePolicy",
-   "aws-native:logs:SubscriptionFilter": "SubscriptionFilter"
+   "aws-native:logs:SubscriptionFilter": "SubscriptionFilter",
+   "aws-native:logs:Transformer": "Transformer"
   }
  },
  {
@@ -2478,6 +2480,7 @@ _utilities.register(
    "aws-native:networkmanager:CoreNetwork": "CoreNetwork",
    "aws-native:networkmanager:CustomerGatewayAssociation": "CustomerGatewayAssociation",
    "aws-native:networkmanager:Device": "Device",
+   "aws-native:networkmanager:DirectConnectGatewayAttachment": "DirectConnectGatewayAttachment",
    "aws-native:networkmanager:GlobalNetwork": "GlobalNetwork",
    "aws-native:networkmanager:Link": "Link",
    "aws-native:networkmanager:LinkAssociation": "LinkAssociation",

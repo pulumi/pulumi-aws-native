@@ -16,12 +16,18 @@ import (
 type AiGuardrailVersion struct {
 	pulumi.CustomResourceState
 
-	AiGuardrailArn       pulumi.StringOutput     `pulumi:"aiGuardrailArn"`
-	AiGuardrailId        pulumi.StringOutput     `pulumi:"aiGuardrailId"`
-	AiGuardrailVersionId pulumi.StringOutput     `pulumi:"aiGuardrailVersionId"`
-	AssistantArn         pulumi.StringOutput     `pulumi:"assistantArn"`
-	AssistantId          pulumi.StringOutput     `pulumi:"assistantId"`
-	ModifiedTimeSeconds  pulumi.Float64PtrOutput `pulumi:"modifiedTimeSeconds"`
+	// The ARN of the AI guardrail version.
+	AiGuardrailArn pulumi.StringOutput `pulumi:"aiGuardrailArn"`
+	// The ID of the AI guardrail version.
+	AiGuardrailId pulumi.StringOutput `pulumi:"aiGuardrailId"`
+	// The ID of the AI guardrail version.
+	AiGuardrailVersionId pulumi.StringOutput `pulumi:"aiGuardrailVersionId"`
+	// The ARN of the AI guardrail version assistant.
+	AssistantArn pulumi.StringOutput `pulumi:"assistantArn"`
+	// The ID of the AI guardrail version assistant.
+	AssistantId pulumi.StringOutput `pulumi:"assistantId"`
+	// The modified time of the AI guardrail version in seconds.
+	ModifiedTimeSeconds pulumi.Float64PtrOutput `pulumi:"modifiedTimeSeconds"`
 	// The version number for this AI Guardrail version.
 	VersionNumber pulumi.Float64Output `pulumi:"versionNumber"`
 }
@@ -78,15 +84,21 @@ func (AiGuardrailVersionState) ElementType() reflect.Type {
 }
 
 type aiGuardrailVersionArgs struct {
-	AiGuardrailId       string   `pulumi:"aiGuardrailId"`
-	AssistantId         string   `pulumi:"assistantId"`
+	// The ID of the AI guardrail version.
+	AiGuardrailId string `pulumi:"aiGuardrailId"`
+	// The ID of the AI guardrail version assistant.
+	AssistantId string `pulumi:"assistantId"`
+	// The modified time of the AI guardrail version in seconds.
 	ModifiedTimeSeconds *float64 `pulumi:"modifiedTimeSeconds"`
 }
 
 // The set of arguments for constructing a AiGuardrailVersion resource.
 type AiGuardrailVersionArgs struct {
-	AiGuardrailId       pulumi.StringInput
-	AssistantId         pulumi.StringInput
+	// The ID of the AI guardrail version.
+	AiGuardrailId pulumi.StringInput
+	// The ID of the AI guardrail version assistant.
+	AssistantId pulumi.StringInput
+	// The modified time of the AI guardrail version in seconds.
 	ModifiedTimeSeconds pulumi.Float64PtrInput
 }
 
@@ -127,26 +139,32 @@ func (o AiGuardrailVersionOutput) ToAiGuardrailVersionOutputWithContext(ctx cont
 	return o
 }
 
+// The ARN of the AI guardrail version.
 func (o AiGuardrailVersionOutput) AiGuardrailArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AiGuardrailVersion) pulumi.StringOutput { return v.AiGuardrailArn }).(pulumi.StringOutput)
 }
 
+// The ID of the AI guardrail version.
 func (o AiGuardrailVersionOutput) AiGuardrailId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AiGuardrailVersion) pulumi.StringOutput { return v.AiGuardrailId }).(pulumi.StringOutput)
 }
 
+// The ID of the AI guardrail version.
 func (o AiGuardrailVersionOutput) AiGuardrailVersionId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AiGuardrailVersion) pulumi.StringOutput { return v.AiGuardrailVersionId }).(pulumi.StringOutput)
 }
 
+// The ARN of the AI guardrail version assistant.
 func (o AiGuardrailVersionOutput) AssistantArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AiGuardrailVersion) pulumi.StringOutput { return v.AssistantArn }).(pulumi.StringOutput)
 }
 
+// The ID of the AI guardrail version assistant.
 func (o AiGuardrailVersionOutput) AssistantId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AiGuardrailVersion) pulumi.StringOutput { return v.AssistantId }).(pulumi.StringOutput)
 }
 
+// The modified time of the AI guardrail version in seconds.
 func (o AiGuardrailVersionOutput) ModifiedTimeSeconds() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *AiGuardrailVersion) pulumi.Float64PtrOutput { return v.ModifiedTimeSeconds }).(pulumi.Float64PtrOutput)
 }

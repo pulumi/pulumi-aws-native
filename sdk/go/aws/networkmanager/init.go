@@ -31,6 +31,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &CustomerGatewayAssociation{}
 	case "aws-native:networkmanager:Device":
 		r = &Device{}
+	case "aws-native:networkmanager:DirectConnectGatewayAttachment":
+		r = &DirectConnectGatewayAttachment{}
 	case "aws-native:networkmanager:GlobalNetwork":
 		r = &GlobalNetwork{}
 	case "aws-native:networkmanager:Link":

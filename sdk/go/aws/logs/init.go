@@ -47,6 +47,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ResourcePolicy{}
 	case "aws-native:logs:SubscriptionFilter":
 		r = &SubscriptionFilter{}
+	case "aws-native:logs:Transformer":
+		r = &Transformer{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

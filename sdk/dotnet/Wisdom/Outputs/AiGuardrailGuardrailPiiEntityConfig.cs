@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Wisdom.Outputs
     [OutputType]
     public sealed class AiGuardrailGuardrailPiiEntityConfig
     {
+        /// <summary>
+        /// The action of guardrail PII entity configuration.
+        /// </summary>
         public readonly Pulumi.AwsNative.Wisdom.AiGuardrailGuardrailSensitiveInformationAction Action;
         public readonly Pulumi.AwsNative.Wisdom.AiGuardrailGuardrailPiiEntityType Type;
 

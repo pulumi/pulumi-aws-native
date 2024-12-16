@@ -301,7 +301,8 @@ export const RulePublishStatus = {
 } as const;
 
 /**
- * The publish status of a rule, either draft or published.
+ * The publish status of the rule.
+ *   *Allowed values*: ``DRAFT`` | ``PUBLISHED``
  */
 export type RulePublishStatus = (typeof RulePublishStatus)[keyof typeof RulePublishStatus];
 
@@ -314,6 +315,10 @@ export const RuleReferenceType = {
     Email: "EMAIL",
 } as const;
 
+/**
+ * The type of the reference. ``DATE`` must be of type Epoch timestamp. 
+ *   *Allowed values*: ``URL`` | ``ATTACHMENT`` | ``NUMBER`` | ``STRING`` | ``DATE`` | ``EMAIL``
+ */
 export type RuleReferenceType = (typeof RuleReferenceType)[keyof typeof RuleReferenceType];
 
 export const RuleSendNotificationActionContentType = {
@@ -321,7 +326,8 @@ export const RuleSendNotificationActionContentType = {
 } as const;
 
 /**
- * The type of content.
+ * Content type format.
+ *   *Allowed value*: ``PLAIN_TEXT``
  */
 export type RuleSendNotificationActionContentType = (typeof RuleSendNotificationActionContentType)[keyof typeof RuleSendNotificationActionContentType];
 
@@ -330,7 +336,8 @@ export const RuleSendNotificationActionDeliveryMethod = {
 } as const;
 
 /**
- * The means of delivery.
+ * Notification delivery method.
+ *   *Allowed value*: ``EMAIL``
  */
 export type RuleSendNotificationActionDeliveryMethod = (typeof RuleSendNotificationActionDeliveryMethod)[keyof typeof RuleSendNotificationActionDeliveryMethod];
 
@@ -349,7 +356,7 @@ export const RuleTriggerEventSourceEventSourceName = {
 } as const;
 
 /**
- * The name of event source.
+ * The name of the event source.
  */
 export type RuleTriggerEventSourceEventSourceName = (typeof RuleTriggerEventSourceEventSourceName)[keyof typeof RuleTriggerEventSourceEventSourceName];
 

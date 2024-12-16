@@ -7,6 +7,7 @@ from enum import Enum
 __all__ = [
     'ApplicationEngineType',
     'EnvironmentEngineType',
+    'EnvironmentNetworkType',
 ]
 
 
@@ -21,3 +22,8 @@ class EnvironmentEngineType(str, Enum):
     """
     MICROFOCUS = "microfocus"
     BLUAGE = "bluage"
+
+
+class EnvironmentNetworkType(str, Enum):
+    IPV4 = "ipv4"
+    DUAL = "dual"

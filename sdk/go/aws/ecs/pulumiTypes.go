@@ -1741,7 +1741,7 @@ type ClusterTag struct {
 
 // An object representing the networking details for a task or service. For example “awsVpcConfiguration={subnets=["subnet-12344321"],securityGroups=["sg-12344321"]}“.
 type ServiceAwsVpcConfiguration struct {
-	// Whether the task's elastic network interface receives a public IP address. The default value is ``DISABLED``.
+	// Whether the task's elastic network interface receives a public IP address. The default value is ``ENABLED``.
 	AssignPublicIp *ServiceAwsVpcConfigurationAssignPublicIp `pulumi:"assignPublicIp"`
 	// The IDs of the security groups associated with the task or service. If you don't specify a security group, the default security group for the VPC is used. There's a limit of 5 security groups that can be specified per ``awsvpcConfiguration``.
 	//   All specified security groups must be from the same VPC.
@@ -1764,7 +1764,7 @@ type ServiceAwsVpcConfigurationInput interface {
 
 // An object representing the networking details for a task or service. For example “awsVpcConfiguration={subnets=["subnet-12344321"],securityGroups=["sg-12344321"]}“.
 type ServiceAwsVpcConfigurationArgs struct {
-	// Whether the task's elastic network interface receives a public IP address. The default value is ``DISABLED``.
+	// Whether the task's elastic network interface receives a public IP address. The default value is ``ENABLED``.
 	AssignPublicIp ServiceAwsVpcConfigurationAssignPublicIpPtrInput `pulumi:"assignPublicIp"`
 	// The IDs of the security groups associated with the task or service. If you don't specify a security group, the default security group for the VPC is used. There's a limit of 5 security groups that can be specified per ``awsvpcConfiguration``.
 	//   All specified security groups must be from the same VPC.
@@ -1852,7 +1852,7 @@ func (o ServiceAwsVpcConfigurationOutput) ToServiceAwsVpcConfigurationPtrOutputW
 	}).(ServiceAwsVpcConfigurationPtrOutput)
 }
 
-// Whether the task's elastic network interface receives a public IP address. The default value is “DISABLED“.
+// Whether the task's elastic network interface receives a public IP address. The default value is “ENABLED“.
 func (o ServiceAwsVpcConfigurationOutput) AssignPublicIp() ServiceAwsVpcConfigurationAssignPublicIpPtrOutput {
 	return o.ApplyT(func(v ServiceAwsVpcConfiguration) *ServiceAwsVpcConfigurationAssignPublicIp { return v.AssignPublicIp }).(ServiceAwsVpcConfigurationAssignPublicIpPtrOutput)
 }
@@ -1895,7 +1895,7 @@ func (o ServiceAwsVpcConfigurationPtrOutput) Elem() ServiceAwsVpcConfigurationOu
 	}).(ServiceAwsVpcConfigurationOutput)
 }
 
-// Whether the task's elastic network interface receives a public IP address. The default value is “DISABLED“.
+// Whether the task's elastic network interface receives a public IP address. The default value is “ENABLED“.
 func (o ServiceAwsVpcConfigurationPtrOutput) AssignPublicIp() ServiceAwsVpcConfigurationAssignPublicIpPtrOutput {
 	return o.ApplyT(func(v *ServiceAwsVpcConfiguration) *ServiceAwsVpcConfigurationAssignPublicIp {
 		if v == nil {
@@ -3563,7 +3563,7 @@ func (o ServiceDeploymentConfigurationPtrOutput) MinimumHealthyPercent() pulumi.
 	}).(pulumi.IntPtrOutput)
 }
 
-// The deployment controller to use for the service. For more information, see [Amazon ECS deployment types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html) in the *Amazon Elastic Container Service Developer Guide*.
+// The deployment controller to use for the service.
 type ServiceDeploymentController struct {
 	// The deployment controller type to use. There are three deployment controller types available:
 	//   + ECS The rolling update (ECS) deployment type involves replacing the current running version of the container with the latest version. The number of containers Amazon ECS adds or removes from the service during a rolling update is controlled by adjusting the minimum and maximum number of healthy tasks allowed during a service deployment, as specified in the DeploymentConfiguration. + CODE_DEPLOY The blue/green (CODE_DEPLOY) deployment type uses the blue/green deployment model powered by , which allows you to verify a new deployment of a service before sending production traffic to it. + EXTERNAL The external (EXTERNAL) deployment type enables you to use any third-party deployment controller for full control over the deployment process for an Amazon ECS service.
@@ -3581,7 +3581,7 @@ type ServiceDeploymentControllerInput interface {
 	ToServiceDeploymentControllerOutputWithContext(context.Context) ServiceDeploymentControllerOutput
 }
 
-// The deployment controller to use for the service. For more information, see [Amazon ECS deployment types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html) in the *Amazon Elastic Container Service Developer Guide*.
+// The deployment controller to use for the service.
 type ServiceDeploymentControllerArgs struct {
 	// The deployment controller type to use. There are three deployment controller types available:
 	//   + ECS The rolling update (ECS) deployment type involves replacing the current running version of the container with the latest version. The number of containers Amazon ECS adds or removes from the service during a rolling update is controlled by adjusting the minimum and maximum number of healthy tasks allowed during a service deployment, as specified in the DeploymentConfiguration. + CODE_DEPLOY The blue/green (CODE_DEPLOY) deployment type uses the blue/green deployment model powered by , which allows you to verify a new deployment of a service before sending production traffic to it. + EXTERNAL The external (EXTERNAL) deployment type enables you to use any third-party deployment controller for full control over the deployment process for an Amazon ECS service.
@@ -3641,7 +3641,7 @@ func (i *serviceDeploymentControllerPtrType) ToServiceDeploymentControllerPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceDeploymentControllerPtrOutput)
 }
 
-// The deployment controller to use for the service. For more information, see [Amazon ECS deployment types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html) in the *Amazon Elastic Container Service Developer Guide*.
+// The deployment controller to use for the service.
 type ServiceDeploymentControllerOutput struct{ *pulumi.OutputState }
 
 func (ServiceDeploymentControllerOutput) ElementType() reflect.Type {
@@ -5741,10 +5741,12 @@ func (o ServiceVolumeConfigurationArrayOutput) Index(i pulumi.IntInput) ServiceV
 	}).(ServiceVolumeConfigurationOutput)
 }
 
+// The VPC Lattice configuration for your service that holds the information for the target group(s) Amazon ECS tasks will be registered to.
 type ServiceVpcLatticeConfiguration struct {
-	// The name of the port mapping to register in the VPC Lattice target group. This is the name of the `portMapping` you defined in your task definition.
+	// The name of the port mapping to register in the VPC Lattice target group. This is the name of the ``portMapping`` you defined in your task definition.
 	PortName string `pulumi:"portName"`
-	// The ARN of the IAM role to associate with this VPC Lattice configuration. This is the Amazon ECS infrastructure IAM role that is used to manage your VPC Lattice infrastructure.
+	// The ARN of the IAM role to associate with this VPC Lattice configuration. This is the Amazon ECS
+	//  infrastructure IAM role that is used to manage your VPC Lattice infrastructure.
 	RoleArn string `pulumi:"roleArn"`
 	// The full Amazon Resource Name (ARN) of the target group or groups associated with the VPC Lattice configuration that the Amazon ECS tasks will be registered to.
 	TargetGroupArn string `pulumi:"targetGroupArn"`
@@ -5761,10 +5763,12 @@ type ServiceVpcLatticeConfigurationInput interface {
 	ToServiceVpcLatticeConfigurationOutputWithContext(context.Context) ServiceVpcLatticeConfigurationOutput
 }
 
+// The VPC Lattice configuration for your service that holds the information for the target group(s) Amazon ECS tasks will be registered to.
 type ServiceVpcLatticeConfigurationArgs struct {
-	// The name of the port mapping to register in the VPC Lattice target group. This is the name of the `portMapping` you defined in your task definition.
+	// The name of the port mapping to register in the VPC Lattice target group. This is the name of the ``portMapping`` you defined in your task definition.
 	PortName pulumi.StringInput `pulumi:"portName"`
-	// The ARN of the IAM role to associate with this VPC Lattice configuration. This is the Amazon ECS infrastructure IAM role that is used to manage your VPC Lattice infrastructure.
+	// The ARN of the IAM role to associate with this VPC Lattice configuration. This is the Amazon ECS
+	//  infrastructure IAM role that is used to manage your VPC Lattice infrastructure.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 	// The full Amazon Resource Name (ARN) of the target group or groups associated with the VPC Lattice configuration that the Amazon ECS tasks will be registered to.
 	TargetGroupArn pulumi.StringInput `pulumi:"targetGroupArn"`
@@ -5807,6 +5811,7 @@ func (i ServiceVpcLatticeConfigurationArray) ToServiceVpcLatticeConfigurationArr
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceVpcLatticeConfigurationArrayOutput)
 }
 
+// The VPC Lattice configuration for your service that holds the information for the target group(s) Amazon ECS tasks will be registered to.
 type ServiceVpcLatticeConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ServiceVpcLatticeConfigurationOutput) ElementType() reflect.Type {
@@ -5821,12 +5826,14 @@ func (o ServiceVpcLatticeConfigurationOutput) ToServiceVpcLatticeConfigurationOu
 	return o
 }
 
-// The name of the port mapping to register in the VPC Lattice target group. This is the name of the `portMapping` you defined in your task definition.
+// The name of the port mapping to register in the VPC Lattice target group. This is the name of the “portMapping“ you defined in your task definition.
 func (o ServiceVpcLatticeConfigurationOutput) PortName() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceVpcLatticeConfiguration) string { return v.PortName }).(pulumi.StringOutput)
 }
 
-// The ARN of the IAM role to associate with this VPC Lattice configuration. This is the Amazon ECS infrastructure IAM role that is used to manage your VPC Lattice infrastructure.
+// The ARN of the IAM role to associate with this VPC Lattice configuration. This is the Amazon ECS
+//
+//	infrastructure IAM role that is used to manage your VPC Lattice infrastructure.
 func (o ServiceVpcLatticeConfigurationOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceVpcLatticeConfiguration) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -7623,7 +7630,7 @@ func (o TaskDefinitionEnvironmentFileArrayOutput) Index(i pulumi.IntInput) TaskD
 //	+  Linux platform version ``1.4.0`` or later.
 //	+  Windows platform version ``1.0.0`` or later.
 type TaskDefinitionEphemeralStorage struct {
-	// The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is ``20`` GiB and the maximum supported value is ``200`` GiB.
+	// The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is ``21`` GiB and the maximum supported value is ``200`` GiB.
 	SizeInGiB *int `pulumi:"sizeInGiB"`
 }
 
@@ -7644,7 +7651,7 @@ type TaskDefinitionEphemeralStorageInput interface {
 //	+  Linux platform version ``1.4.0`` or later.
 //	+  Windows platform version ``1.0.0`` or later.
 type TaskDefinitionEphemeralStorageArgs struct {
-	// The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is ``20`` GiB and the maximum supported value is ``200`` GiB.
+	// The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is ``21`` GiB and the maximum supported value is ``200`` GiB.
 	SizeInGiB pulumi.IntPtrInput `pulumi:"sizeInGiB"`
 }
 
@@ -7730,7 +7737,7 @@ func (o TaskDefinitionEphemeralStorageOutput) ToTaskDefinitionEphemeralStoragePt
 	}).(TaskDefinitionEphemeralStoragePtrOutput)
 }
 
-// The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is “20“ GiB and the maximum supported value is “200“ GiB.
+// The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is “21“ GiB and the maximum supported value is “200“ GiB.
 func (o TaskDefinitionEphemeralStorageOutput) SizeInGiB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionEphemeralStorage) *int { return v.SizeInGiB }).(pulumi.IntPtrOutput)
 }
@@ -7759,7 +7766,7 @@ func (o TaskDefinitionEphemeralStoragePtrOutput) Elem() TaskDefinitionEphemeralS
 	}).(TaskDefinitionEphemeralStorageOutput)
 }
 
-// The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is “20“ GiB and the maximum supported value is “200“ GiB.
+// The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is “21“ GiB and the maximum supported value is “200“ GiB.
 func (o TaskDefinitionEphemeralStoragePtrOutput) SizeInGiB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TaskDefinitionEphemeralStorage) *int {
 		if v == nil {

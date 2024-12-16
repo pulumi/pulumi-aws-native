@@ -59,7 +59,8 @@
       "pattern" : "^[a-zA-Z0-9-_.]+$"
     },
     "PackageVersionArn" : {
-      "type" : "string"
+      "type" : "string",
+      "pattern" : "^arn:[!-~]+$"
     },
     "Status" : {
       "$ref" : "#/definitions/PackageVersionStatus"
@@ -86,7 +87,8 @@
     "tagOnCreate" : true,
     "tagUpdatable" : true,
     "cloudFormationSystemTags" : true,
-    "tagProperty" : "/properties/Tags"
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "iot:TagResource", "iot:UntagResource", "iot:ListTagsForResource" ]
   },
   "required" : [ "PackageName" ],
   "readOnlyProperties" : [ "/properties/ErrorReason", "/properties/PackageVersionArn", "/properties/Status" ],

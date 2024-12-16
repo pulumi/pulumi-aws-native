@@ -10,10 +10,12 @@ from .connect_peer import *
 from .core_network import *
 from .customer_gateway_association import *
 from .device import *
+from .direct_connect_gateway_attachment import *
 from .get_connect_attachment import *
 from .get_connect_peer import *
 from .get_core_network import *
 from .get_device import *
+from .get_direct_connect_gateway_attachment import *
 from .get_global_network import *
 from .get_link import *
 from .get_site import *

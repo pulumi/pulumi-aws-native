@@ -16,10 +16,14 @@ import (
 type Permission struct {
 	pulumi.CustomResourceState
 
-	Actions       pulumi.StringArrayOutput `pulumi:"actions"`
-	ApplicationId pulumi.StringOutput      `pulumi:"applicationId"`
-	Principal     pulumi.StringOutput      `pulumi:"principal"`
-	StatementId   pulumi.StringOutput      `pulumi:"statementId"`
+	// The list of Amazon Q Business actions that the ISV is allowed to perform.
+	Actions pulumi.StringArrayOutput `pulumi:"actions"`
+	// The unique identifier of the Amazon Q Business application.
+	ApplicationId pulumi.StringOutput `pulumi:"applicationId"`
+	// Provides user and group information used for filtering documents to use for generating Amazon Q Business conversation responses.
+	Principal pulumi.StringOutput `pulumi:"principal"`
+	// A unique identifier for the policy statement.
+	StatementId pulumi.StringOutput `pulumi:"statementId"`
 }
 
 // NewPermission registers a new resource with the given unique name, arguments, and options.
@@ -81,18 +85,26 @@ func (PermissionState) ElementType() reflect.Type {
 }
 
 type permissionArgs struct {
-	Actions       []string `pulumi:"actions"`
-	ApplicationId string   `pulumi:"applicationId"`
-	Principal     string   `pulumi:"principal"`
-	StatementId   string   `pulumi:"statementId"`
+	// The list of Amazon Q Business actions that the ISV is allowed to perform.
+	Actions []string `pulumi:"actions"`
+	// The unique identifier of the Amazon Q Business application.
+	ApplicationId string `pulumi:"applicationId"`
+	// Provides user and group information used for filtering documents to use for generating Amazon Q Business conversation responses.
+	Principal string `pulumi:"principal"`
+	// A unique identifier for the policy statement.
+	StatementId string `pulumi:"statementId"`
 }
 
 // The set of arguments for constructing a Permission resource.
 type PermissionArgs struct {
-	Actions       pulumi.StringArrayInput
+	// The list of Amazon Q Business actions that the ISV is allowed to perform.
+	Actions pulumi.StringArrayInput
+	// The unique identifier of the Amazon Q Business application.
 	ApplicationId pulumi.StringInput
-	Principal     pulumi.StringInput
-	StatementId   pulumi.StringInput
+	// Provides user and group information used for filtering documents to use for generating Amazon Q Business conversation responses.
+	Principal pulumi.StringInput
+	// A unique identifier for the policy statement.
+	StatementId pulumi.StringInput
 }
 
 func (PermissionArgs) ElementType() reflect.Type {
@@ -132,18 +144,22 @@ func (o PermissionOutput) ToPermissionOutputWithContext(ctx context.Context) Per
 	return o
 }
 
+// The list of Amazon Q Business actions that the ISV is allowed to perform.
 func (o PermissionOutput) Actions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Permission) pulumi.StringArrayOutput { return v.Actions }).(pulumi.StringArrayOutput)
 }
 
+// The unique identifier of the Amazon Q Business application.
 func (o PermissionOutput) ApplicationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Permission) pulumi.StringOutput { return v.ApplicationId }).(pulumi.StringOutput)
 }
 
+// Provides user and group information used for filtering documents to use for generating Amazon Q Business conversation responses.
 func (o PermissionOutput) Principal() pulumi.StringOutput {
 	return o.ApplyT(func(v *Permission) pulumi.StringOutput { return v.Principal }).(pulumi.StringOutput)
 }
 
+// A unique identifier for the policy statement.
 func (o PermissionOutput) StatementId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Permission) pulumi.StringOutput { return v.StatementId }).(pulumi.StringOutput)
 }

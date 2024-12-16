@@ -16,6 +16,7 @@ from .. import _utilities
 from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['ConfigurationProfileArgs', 'ConfigurationProfile']
@@ -25,6 +26,7 @@ class ConfigurationProfileArgs:
     def __init__(__self__, *,
                  application_id: pulumi.Input[str],
                  location_uri: pulumi.Input[str],
+                 deletion_protection_check: Optional[pulumi.Input['ConfigurationProfileDeletionProtectionCheck']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  kms_key_identifier: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -36,6 +38,7 @@ class ConfigurationProfileArgs:
         The set of arguments for constructing a ConfigurationProfile resource.
         :param pulumi.Input[str] application_id: The application ID.
         :param pulumi.Input[str] location_uri: A URI to locate the configuration. You can specify the AWS AppConfig hosted configuration store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3 object.
+        :param pulumi.Input['ConfigurationProfileDeletionProtectionCheck'] deletion_protection_check: On resource deletion this controls whether the Deletion Protection check should be applied, bypassed, or (the default) whether the behavior should be controlled by the account-level Deletion Protection setting. See https://docs.aws.amazon.com/appconfig/latest/userguide/deletion-protection.html
         :param pulumi.Input[str] description: A description of the configuration profile.
         :param pulumi.Input[str] kms_key_identifier: The AWS Key Management Service key identifier (key ID, key alias, or key ARN) provided when the resource was created or updated.
         :param pulumi.Input[str] name: A name for the configuration profile.
@@ -46,6 +49,8 @@ class ConfigurationProfileArgs:
         """
         pulumi.set(__self__, "application_id", application_id)
         pulumi.set(__self__, "location_uri", location_uri)
+        if deletion_protection_check is not None:
+            pulumi.set(__self__, "deletion_protection_check", deletion_protection_check)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if kms_key_identifier is not None:
@@ -84,6 +89,18 @@ class ConfigurationProfileArgs:
     @location_uri.setter
     def location_uri(self, value: pulumi.Input[str]):
         pulumi.set(self, "location_uri", value)
+
+    @property
+    @pulumi.getter(name="deletionProtectionCheck")
+    def deletion_protection_check(self) -> Optional[pulumi.Input['ConfigurationProfileDeletionProtectionCheck']]:
+        """
+        On resource deletion this controls whether the Deletion Protection check should be applied, bypassed, or (the default) whether the behavior should be controlled by the account-level Deletion Protection setting. See https://docs.aws.amazon.com/appconfig/latest/userguide/deletion-protection.html
+        """
+        return pulumi.get(self, "deletion_protection_check")
+
+    @deletion_protection_check.setter
+    def deletion_protection_check(self, value: Optional[pulumi.Input['ConfigurationProfileDeletionProtectionCheck']]):
+        pulumi.set(self, "deletion_protection_check", value)
 
     @property
     @pulumi.getter
@@ -176,6 +193,7 @@ class ConfigurationProfile(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_id: Optional[pulumi.Input[str]] = None,
+                 deletion_protection_check: Optional[pulumi.Input['ConfigurationProfileDeletionProtectionCheck']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  kms_key_identifier: Optional[pulumi.Input[str]] = None,
                  location_uri: Optional[pulumi.Input[str]] = None,
@@ -191,6 +209,7 @@ class ConfigurationProfile(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_id: The application ID.
+        :param pulumi.Input['ConfigurationProfileDeletionProtectionCheck'] deletion_protection_check: On resource deletion this controls whether the Deletion Protection check should be applied, bypassed, or (the default) whether the behavior should be controlled by the account-level Deletion Protection setting. See https://docs.aws.amazon.com/appconfig/latest/userguide/deletion-protection.html
         :param pulumi.Input[str] description: A description of the configuration profile.
         :param pulumi.Input[str] kms_key_identifier: The AWS Key Management Service key identifier (key ID, key alias, or key ARN) provided when the resource was created or updated.
         :param pulumi.Input[str] location_uri: A URI to locate the configuration. You can specify the AWS AppConfig hosted configuration store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3 object.
@@ -225,6 +244,7 @@ class ConfigurationProfile(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_id: Optional[pulumi.Input[str]] = None,
+                 deletion_protection_check: Optional[pulumi.Input['ConfigurationProfileDeletionProtectionCheck']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  kms_key_identifier: Optional[pulumi.Input[str]] = None,
                  location_uri: Optional[pulumi.Input[str]] = None,
@@ -245,6 +265,7 @@ class ConfigurationProfile(pulumi.CustomResource):
             if application_id is None and not opts.urn:
                 raise TypeError("Missing required property 'application_id'")
             __props__.__dict__["application_id"] = application_id
+            __props__.__dict__["deletion_protection_check"] = deletion_protection_check
             __props__.__dict__["description"] = description
             __props__.__dict__["kms_key_identifier"] = kms_key_identifier
             if location_uri is None and not opts.urn:
@@ -283,6 +304,7 @@ class ConfigurationProfile(pulumi.CustomResource):
 
         __props__.__dict__["application_id"] = None
         __props__.__dict__["configuration_profile_id"] = None
+        __props__.__dict__["deletion_protection_check"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["kms_key_arn"] = None
         __props__.__dict__["kms_key_identifier"] = None
@@ -309,6 +331,14 @@ class ConfigurationProfile(pulumi.CustomResource):
         The configuration profile ID
         """
         return pulumi.get(self, "configuration_profile_id")
+
+    @property
+    @pulumi.getter(name="deletionProtectionCheck")
+    def deletion_protection_check(self) -> pulumi.Output[Optional['ConfigurationProfileDeletionProtectionCheck']]:
+        """
+        On resource deletion this controls whether the Deletion Protection check should be applied, bypassed, or (the default) whether the behavior should be controlled by the account-level Deletion Protection setting. See https://docs.aws.amazon.com/appconfig/latest/userguide/deletion-protection.html
+        """
+        return pulumi.get(self, "deletion_protection_check")
 
     @property
     @pulumi.getter

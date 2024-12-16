@@ -8,7 +8,9 @@ import typing
 from ._enums import *
 from .get_keyspace import *
 from .get_table import *
+from .get_type import *
 from .keyspace import *
 from .table import *
+from .type import *
 from ._inputs import *
 from . import outputs

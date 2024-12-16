@@ -26,6 +26,19 @@ export interface GetKeyspaceArgs {
 
 export interface GetKeyspaceResult {
     /**
+     * Indicates whether client-side timestamps are enabled (true) or disabled (false) for all tables in the keyspace. To add a Region to a single-Region keyspace with at least one table, the value must be set to true. After you enabled client-side timestamps for a table, you can’t disable it again.
+     */
+    readonly clientSideTimestampsEnabled?: boolean;
+    /**
+     * Specifies the `ReplicationStrategy` of a keyspace. The options are:
+     *
+     * - `SINGLE_REGION` for a single Region keyspace (optional) or
+     * - `MULTI_REGION` for a multi-Region keyspace
+     *
+     * If no `ReplicationStrategy` is provided, the default is `SINGLE_REGION` . If you choose `MULTI_REGION` , you must also provide a `RegionList` with the AWS Regions that the keyspace is replicated in.
+     */
+    readonly replicationSpecification?: outputs.cassandra.KeyspaceReplicationSpecification;
+    /**
      * An array of key-value pairs to apply to this resource.
      *
      * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .

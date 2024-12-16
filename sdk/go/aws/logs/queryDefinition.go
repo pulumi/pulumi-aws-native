@@ -22,6 +22,8 @@ type QueryDefinition struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Unique identifier of a query definition
 	QueryDefinitionId pulumi.StringOutput `pulumi:"queryDefinitionId"`
+	// Query language of the query string. Possible values are CWLI, SQL, PPL, with CWLI being the default.
+	QueryLanguage QueryDefinitionQueryLanguagePtrOutput `pulumi:"queryLanguage"`
 	// The query string to use for this definition
 	QueryString pulumi.StringOutput `pulumi:"queryString"`
 }
@@ -73,6 +75,8 @@ type queryDefinitionArgs struct {
 	LogGroupNames []string `pulumi:"logGroupNames"`
 	// A name for the saved query definition
 	Name *string `pulumi:"name"`
+	// Query language of the query string. Possible values are CWLI, SQL, PPL, with CWLI being the default.
+	QueryLanguage *QueryDefinitionQueryLanguage `pulumi:"queryLanguage"`
 	// The query string to use for this definition
 	QueryString string `pulumi:"queryString"`
 }
@@ -83,6 +87,8 @@ type QueryDefinitionArgs struct {
 	LogGroupNames pulumi.StringArrayInput
 	// A name for the saved query definition
 	Name pulumi.StringPtrInput
+	// Query language of the query string. Possible values are CWLI, SQL, PPL, with CWLI being the default.
+	QueryLanguage QueryDefinitionQueryLanguagePtrInput
 	// The query string to use for this definition
 	QueryString pulumi.StringInput
 }
@@ -137,6 +143,11 @@ func (o QueryDefinitionOutput) Name() pulumi.StringOutput {
 // Unique identifier of a query definition
 func (o QueryDefinitionOutput) QueryDefinitionId() pulumi.StringOutput {
 	return o.ApplyT(func(v *QueryDefinition) pulumi.StringOutput { return v.QueryDefinitionId }).(pulumi.StringOutput)
+}
+
+// Query language of the query string. Possible values are CWLI, SQL, PPL, with CWLI being the default.
+func (o QueryDefinitionOutput) QueryLanguage() QueryDefinitionQueryLanguagePtrOutput {
+	return o.ApplyT(func(v *QueryDefinition) QueryDefinitionQueryLanguagePtrOutput { return v.QueryLanguage }).(QueryDefinitionQueryLanguagePtrOutput)
 }
 
 // The query string to use for this definition

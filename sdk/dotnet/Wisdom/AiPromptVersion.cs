@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Wisdom
     [AwsNativeResourceType("aws-native:wisdom:AiPromptVersion")]
     public partial class AiPromptVersion : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ARN of the AI prompt.
+        /// </summary>
         [Output("aiPromptArn")]
         public Output<string> AiPromptArn { get; private set; } = null!;
 

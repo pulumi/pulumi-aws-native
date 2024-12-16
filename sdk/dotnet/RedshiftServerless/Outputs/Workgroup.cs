@@ -41,6 +41,9 @@ namespace Pulumi.AwsNative.RedshiftServerless.Outputs
         /// The namespace the workgroup is associated with.
         /// </summary>
         public readonly string? NamespaceName;
+        /// <summary>
+        /// An object that represents the price performance target settings for the workgroup.
+        /// </summary>
         public readonly Outputs.WorkgroupPerformanceTarget? PricePerformanceTarget;
         /// <summary>
         /// A value that specifies whether the workgroup can be accessible from a public network.

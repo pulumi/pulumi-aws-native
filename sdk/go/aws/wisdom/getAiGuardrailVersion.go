@@ -23,16 +23,21 @@ func LookupAiGuardrailVersion(ctx *pulumi.Context, args *LookupAiGuardrailVersio
 }
 
 type LookupAiGuardrailVersionArgs struct {
+	// The ID of the AI guardrail version.
 	AiGuardrailId string `pulumi:"aiGuardrailId"`
-	AssistantId   string `pulumi:"assistantId"`
+	// The ID of the AI guardrail version assistant.
+	AssistantId string `pulumi:"assistantId"`
 	// The version number for this AI Guardrail version.
 	VersionNumber float64 `pulumi:"versionNumber"`
 }
 
 type LookupAiGuardrailVersionResult struct {
-	AiGuardrailArn       *string `pulumi:"aiGuardrailArn"`
+	// The ARN of the AI guardrail version.
+	AiGuardrailArn *string `pulumi:"aiGuardrailArn"`
+	// The ID of the AI guardrail version.
 	AiGuardrailVersionId *string `pulumi:"aiGuardrailVersionId"`
-	AssistantArn         *string `pulumi:"assistantArn"`
+	// The ARN of the AI guardrail version assistant.
+	AssistantArn *string `pulumi:"assistantArn"`
 	// The version number for this AI Guardrail version.
 	VersionNumber *float64 `pulumi:"versionNumber"`
 }
@@ -47,8 +52,10 @@ func LookupAiGuardrailVersionOutput(ctx *pulumi.Context, args LookupAiGuardrailV
 }
 
 type LookupAiGuardrailVersionOutputArgs struct {
+	// The ID of the AI guardrail version.
 	AiGuardrailId pulumi.StringInput `pulumi:"aiGuardrailId"`
-	AssistantId   pulumi.StringInput `pulumi:"assistantId"`
+	// The ID of the AI guardrail version assistant.
+	AssistantId pulumi.StringInput `pulumi:"assistantId"`
 	// The version number for this AI Guardrail version.
 	VersionNumber pulumi.Float64Input `pulumi:"versionNumber"`
 }
@@ -71,14 +78,17 @@ func (o LookupAiGuardrailVersionResultOutput) ToLookupAiGuardrailVersionResultOu
 	return o
 }
 
+// The ARN of the AI guardrail version.
 func (o LookupAiGuardrailVersionResultOutput) AiGuardrailArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAiGuardrailVersionResult) *string { return v.AiGuardrailArn }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the AI guardrail version.
 func (o LookupAiGuardrailVersionResultOutput) AiGuardrailVersionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAiGuardrailVersionResult) *string { return v.AiGuardrailVersionId }).(pulumi.StringPtrOutput)
 }
 
+// The ARN of the AI guardrail version assistant.
 func (o LookupAiGuardrailVersionResultOutput) AssistantArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAiGuardrailVersionResult) *string { return v.AssistantArn }).(pulumi.StringPtrOutput)
 }

@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QBusiness.Inputs
 
     public sealed class DataAccessorActionConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Amazon Q Business action that is allowed.
+        /// </summary>
         [Input("action", required: true)]
         public Input<string> Action { get; set; } = null!;
 
+        /// <summary>
+        /// The filter configuration for the action, if any.
+        /// </summary>
         [Input("filterConfiguration")]
         public Input<Inputs.DataAccessorActionFilterConfigurationArgs>? FilterConfiguration { get; set; }
 

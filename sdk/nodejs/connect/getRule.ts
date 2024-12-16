@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS:Connect::Rule
+ * Creates a rule for the specified CON instance.
  */
 export function getRule(args: GetRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -26,11 +26,11 @@ export interface GetRuleArgs {
 
 export interface GetRuleResult {
     /**
-     * The list of actions that will be executed when a rule is triggered.
+     * A list of actions to be run when the rule is triggered.
      */
     readonly actions?: outputs.connect.RuleActions;
     /**
-     * The conditions of a rule.
+     * The conditions of the rule.
      */
     readonly function?: string;
     /**
@@ -38,7 +38,8 @@ export interface GetRuleResult {
      */
     readonly name?: string;
     /**
-     * The publish status of a rule, either draft or published.
+     * The publish status of the rule.
+     *   *Allowed values*: ``DRAFT`` | ``PUBLISHED``
      */
     readonly publishStatus?: enums.connect.RulePublishStatus;
     /**
@@ -46,12 +47,12 @@ export interface GetRuleResult {
      */
     readonly ruleArn?: string;
     /**
-     * One or more tags.
+     * The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
      */
     readonly tags?: outputs.Tag[];
 }
 /**
- * Resource Type definition for AWS:Connect::Rule
+ * Creates a rule for the specified CON instance.
  */
 export function getRuleOutput(args: GetRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

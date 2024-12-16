@@ -78,6 +78,10 @@ export interface GetApplicationResult {
      */
     readonly runtimeConfiguration?: outputs.emrserverless.ApplicationConfigurationObject[];
     /**
+     * The scheduler configuration for batch and streaming jobs running on this application. Supported with release labels emr-7.0.0 and above.
+     */
+    readonly schedulerConfiguration?: outputs.emrserverless.ApplicationSchedulerConfiguration;
+    /**
      * Tag map with key and value
      */
     readonly tags?: outputs.Tag[];

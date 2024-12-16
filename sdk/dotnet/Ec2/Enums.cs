@@ -2161,6 +2161,96 @@ namespace Pulumi.AwsNative.Ec2
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct VpcEndpointDnsOptionsSpecificationDnsRecordIpType : IEquatable<VpcEndpointDnsOptionsSpecificationDnsRecordIpType>
+    {
+        private readonly string _value;
+
+        private VpcEndpointDnsOptionsSpecificationDnsRecordIpType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VpcEndpointDnsOptionsSpecificationDnsRecordIpType Ipv4 { get; } = new VpcEndpointDnsOptionsSpecificationDnsRecordIpType("ipv4");
+        public static VpcEndpointDnsOptionsSpecificationDnsRecordIpType Ipv6 { get; } = new VpcEndpointDnsOptionsSpecificationDnsRecordIpType("ipv6");
+        public static VpcEndpointDnsOptionsSpecificationDnsRecordIpType Dualstack { get; } = new VpcEndpointDnsOptionsSpecificationDnsRecordIpType("dualstack");
+        public static VpcEndpointDnsOptionsSpecificationDnsRecordIpType ServiceDefined { get; } = new VpcEndpointDnsOptionsSpecificationDnsRecordIpType("service-defined");
+        public static VpcEndpointDnsOptionsSpecificationDnsRecordIpType NotSpecified { get; } = new VpcEndpointDnsOptionsSpecificationDnsRecordIpType("not-specified");
+
+        public static bool operator ==(VpcEndpointDnsOptionsSpecificationDnsRecordIpType left, VpcEndpointDnsOptionsSpecificationDnsRecordIpType right) => left.Equals(right);
+        public static bool operator !=(VpcEndpointDnsOptionsSpecificationDnsRecordIpType left, VpcEndpointDnsOptionsSpecificationDnsRecordIpType right) => !left.Equals(right);
+
+        public static explicit operator string(VpcEndpointDnsOptionsSpecificationDnsRecordIpType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VpcEndpointDnsOptionsSpecificationDnsRecordIpType other && Equals(other);
+        public bool Equals(VpcEndpointDnsOptionsSpecificationDnsRecordIpType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint : IEquatable<VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint>
+    {
+        private readonly string _value;
+
+        private VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint OnlyInboundResolver { get; } = new VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint("OnlyInboundResolver");
+        public static VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint AllResolvers { get; } = new VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint("AllResolvers");
+        public static VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint NotSpecified { get; } = new VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint("NotSpecified");
+
+        public static bool operator ==(VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint left, VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint right) => left.Equals(right);
+        public static bool operator !=(VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint left, VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint right) => !left.Equals(right);
+
+        public static explicit operator string(VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint other && Equals(other);
+        public bool Equals(VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct VpcEndpointIpAddressType : IEquatable<VpcEndpointIpAddressType>
+    {
+        private readonly string _value;
+
+        private VpcEndpointIpAddressType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static VpcEndpointIpAddressType Ipv4 { get; } = new VpcEndpointIpAddressType("ipv4");
+        public static VpcEndpointIpAddressType Ipv6 { get; } = new VpcEndpointIpAddressType("ipv6");
+        public static VpcEndpointIpAddressType Dualstack { get; } = new VpcEndpointIpAddressType("dualstack");
+        public static VpcEndpointIpAddressType NotSpecified { get; } = new VpcEndpointIpAddressType("not-specified");
+
+        public static bool operator ==(VpcEndpointIpAddressType left, VpcEndpointIpAddressType right) => left.Equals(right);
+        public static bool operator !=(VpcEndpointIpAddressType left, VpcEndpointIpAddressType right) => !left.Equals(right);
+
+        public static explicit operator string(VpcEndpointIpAddressType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is VpcEndpointIpAddressType other && Equals(other);
+        public bool Equals(VpcEndpointIpAddressType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// The type of endpoint.
     ///  Default: Gateway
@@ -2178,6 +2268,8 @@ namespace Pulumi.AwsNative.Ec2
         public static VpcEndpointType Interface { get; } = new VpcEndpointType("Interface");
         public static VpcEndpointType Gateway { get; } = new VpcEndpointType("Gateway");
         public static VpcEndpointType GatewayLoadBalancer { get; } = new VpcEndpointType("GatewayLoadBalancer");
+        public static VpcEndpointType ServiceNetwork { get; } = new VpcEndpointType("ServiceNetwork");
+        public static VpcEndpointType Resource { get; } = new VpcEndpointType("Resource");
 
         public static bool operator ==(VpcEndpointType left, VpcEndpointType right) => left.Equals(right);
         public static bool operator !=(VpcEndpointType left, VpcEndpointType right) => !left.Equals(right);

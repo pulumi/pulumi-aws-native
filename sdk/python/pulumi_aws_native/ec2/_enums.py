@@ -68,6 +68,9 @@ __all__ = [
     'SpotFleetTagSpecificationResourceType',
     'VpcBlockPublicAccessExclusionInternetGatewayExclusionMode',
     'VpcBlockPublicAccessOptionsInternetGatewayBlockMode',
+    'VpcEndpointDnsOptionsSpecificationDnsRecordIpType',
+    'VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint',
+    'VpcEndpointIpAddressType',
     'VpcEndpointType',
     'VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat',
     'VpnConnectionIkeVersionsRequestListValueValue',
@@ -785,6 +788,27 @@ class VpcBlockPublicAccessOptionsInternetGatewayBlockMode(str, Enum):
     BLOCK_INGRESS = "block-ingress"
 
 
+class VpcEndpointDnsOptionsSpecificationDnsRecordIpType(str, Enum):
+    IPV4 = "ipv4"
+    IPV6 = "ipv6"
+    DUALSTACK = "dualstack"
+    SERVICE_DEFINED = "service-defined"
+    NOT_SPECIFIED = "not-specified"
+
+
+class VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint(str, Enum):
+    ONLY_INBOUND_RESOLVER = "OnlyInboundResolver"
+    ALL_RESOLVERS = "AllResolvers"
+    NOT_SPECIFIED = "NotSpecified"
+
+
+class VpcEndpointIpAddressType(str, Enum):
+    IPV4 = "ipv4"
+    IPV6 = "ipv6"
+    DUALSTACK = "dualstack"
+    NOT_SPECIFIED = "not-specified"
+
+
 class VpcEndpointType(str, Enum):
     """
     The type of endpoint.
@@ -793,6 +817,8 @@ class VpcEndpointType(str, Enum):
     INTERFACE = "Interface"
     GATEWAY = "Gateway"
     GATEWAY_LOAD_BALANCER = "GatewayLoadBalancer"
+    SERVICE_NETWORK = "ServiceNetwork"
+    RESOURCE = "Resource"
 
 
 class VpnConnectionCloudwatchLogOptionsSpecificationLogOutputFormat(str, Enum):

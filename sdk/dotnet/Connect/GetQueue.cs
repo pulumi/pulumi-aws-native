@@ -88,6 +88,10 @@ namespace Pulumi.AwsNative.Connect
         /// </summary>
         public readonly Outputs.QueueOutboundCallerConfig? OutboundCallerConfig;
         /// <summary>
+        /// The outbound email address ID.
+        /// </summary>
+        public readonly Outputs.QueueOutboundEmailConfig? OutboundEmailConfig;
+        /// <summary>
         /// The Amazon Resource Name (ARN) for the queue.
         /// </summary>
         public readonly string? QueueArn;
@@ -122,6 +126,8 @@ namespace Pulumi.AwsNative.Connect
 
             Outputs.QueueOutboundCallerConfig? outboundCallerConfig,
 
+            Outputs.QueueOutboundEmailConfig? outboundEmailConfig,
+
             string? queueArn,
 
             ImmutableArray<string> quickConnectArns,
@@ -138,6 +144,7 @@ namespace Pulumi.AwsNative.Connect
             MaxContacts = maxContacts;
             Name = name;
             OutboundCallerConfig = outboundCallerConfig;
+            OutboundEmailConfig = outboundEmailConfig;
             QueueArn = queueArn;
             QuickConnectArns = quickConnectArns;
             Status = status;

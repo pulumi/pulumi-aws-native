@@ -983,6 +983,7 @@ class Server(pulumi.CustomResource):
             __props__.__dict__["arn"] = None
             __props__.__dict__["as2_service_managed_egress_ip_addresses"] = None
             __props__.__dict__["server_id"] = None
+            __props__.__dict__["state"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["domain", "identityProviderType"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Server, __self__).__init__(
@@ -1023,6 +1024,7 @@ class Server(pulumi.CustomResource):
         __props__.__dict__["s3_storage_options"] = None
         __props__.__dict__["security_policy_name"] = None
         __props__.__dict__["server_id"] = None
+        __props__.__dict__["state"] = None
         __props__.__dict__["structured_log_destinations"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["workflow_details"] = None
@@ -1217,6 +1219,11 @@ class Server(pulumi.CustomResource):
         An example `ServerId` is `s-01234567890abcdef` .
         """
         return pulumi.get(self, "server_id")
+
+    @property
+    @pulumi.getter
+    def state(self) -> pulumi.Output['ServerState']:
+        return pulumi.get(self, "state")
 
     @property
     @pulumi.getter(name="structuredLogDestinations")

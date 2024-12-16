@@ -54,6 +54,11 @@ func NewReplicator(ctx *pulumi.Context,
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"description",
 		"kafkaClusters[*]",
+		"replicationInfoList[*].sourceKafkaClusterArn",
+		"replicationInfoList[*].targetCompressionType",
+		"replicationInfoList[*].targetKafkaClusterArn",
+		"replicationInfoList[*].topicReplication.startingPosition",
+		"replicationInfoList[*].topicReplication.topicNameConfiguration",
 		"replicatorName",
 		"serviceExecutionRoleArn",
 	})

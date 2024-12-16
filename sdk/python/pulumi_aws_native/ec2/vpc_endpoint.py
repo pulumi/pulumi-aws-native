@@ -13,24 +13,29 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from ._enums import *
+from ._inputs import *
 
 __all__ = ['VpcEndpointArgs', 'VpcEndpoint']
 
 @pulumi.input_type
 class VpcEndpointArgs:
     def __init__(__self__, *,
-                 service_name: pulumi.Input[str],
                  vpc_id: pulumi.Input[str],
+                 dns_options: Optional[pulumi.Input['VpcEndpointDnsOptionsSpecificationArgs']] = None,
+                 ip_address_type: Optional[pulumi.Input['VpcEndpointIpAddressType']] = None,
                  policy_document: Optional[Any] = None,
                  private_dns_enabled: Optional[pulumi.Input[bool]] = None,
+                 resource_configuration_arn: Optional[pulumi.Input[str]] = None,
                  route_table_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 service_name: Optional[pulumi.Input[str]] = None,
+                 service_network_arn: Optional[pulumi.Input[str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  vpc_endpoint_type: Optional[pulumi.Input['VpcEndpointType']] = None):
         """
         The set of arguments for constructing a VpcEndpoint resource.
-        :param pulumi.Input[str] service_name: The name of the endpoint service.
         :param pulumi.Input[str] vpc_id: The ID of the VPC.
         :param Any policy_document: An endpoint policy, which controls access to the service from the VPC. The default endpoint policy allows full access to the service. Endpoint policies are supported only for gateway and interface endpoints.
                 For CloudFormation templates in YAML, you can provide the policy in JSON or YAML format. For example, if you have a JSON policy, you can convert it to YAML before including it in the YAML template, and CFNlong converts the policy to JSON format before calling the API actions for privatelink. Alternatively, you can include the JSON directly in the YAML, as shown in the following ``Properties`` section:
@@ -43,36 +48,34 @@ class VpcEndpointArgs:
                 Default: ``false``
         :param pulumi.Input[Sequence[pulumi.Input[str]]] route_table_ids: The IDs of the route tables. Routing is supported only for gateway endpoints.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: The IDs of the security groups to associate with the endpoint network interfaces. If this parameter is not specified, we use the default security group for the VPC. Security groups are supported only for interface endpoints.
+        :param pulumi.Input[str] service_name: The name of the endpoint service.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The IDs of the subnets in which to create endpoint network interfaces. You must specify this property for an interface endpoint or a Gateway Load Balancer endpoint. You can't specify this property for a gateway endpoint. For a Gateway Load Balancer endpoint, you can specify only one subnet.
         :param pulumi.Input['VpcEndpointType'] vpc_endpoint_type: The type of endpoint.
                 Default: Gateway
         """
-        pulumi.set(__self__, "service_name", service_name)
         pulumi.set(__self__, "vpc_id", vpc_id)
+        if dns_options is not None:
+            pulumi.set(__self__, "dns_options", dns_options)
+        if ip_address_type is not None:
+            pulumi.set(__self__, "ip_address_type", ip_address_type)
         if policy_document is not None:
             pulumi.set(__self__, "policy_document", policy_document)
         if private_dns_enabled is not None:
             pulumi.set(__self__, "private_dns_enabled", private_dns_enabled)
+        if resource_configuration_arn is not None:
+            pulumi.set(__self__, "resource_configuration_arn", resource_configuration_arn)
         if route_table_ids is not None:
             pulumi.set(__self__, "route_table_ids", route_table_ids)
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
+        if service_name is not None:
+            pulumi.set(__self__, "service_name", service_name)
+        if service_network_arn is not None:
+            pulumi.set(__self__, "service_network_arn", service_network_arn)
         if subnet_ids is not None:
             pulumi.set(__self__, "subnet_ids", subnet_ids)
         if vpc_endpoint_type is not None:
             pulumi.set(__self__, "vpc_endpoint_type", vpc_endpoint_type)
-
-    @property
-    @pulumi.getter(name="serviceName")
-    def service_name(self) -> pulumi.Input[str]:
-        """
-        The name of the endpoint service.
-        """
-        return pulumi.get(self, "service_name")
-
-    @service_name.setter
-    def service_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "service_name", value)
 
     @property
     @pulumi.getter(name="vpcId")
@@ -85,6 +88,24 @@ class VpcEndpointArgs:
     @vpc_id.setter
     def vpc_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "vpc_id", value)
+
+    @property
+    @pulumi.getter(name="dnsOptions")
+    def dns_options(self) -> Optional[pulumi.Input['VpcEndpointDnsOptionsSpecificationArgs']]:
+        return pulumi.get(self, "dns_options")
+
+    @dns_options.setter
+    def dns_options(self, value: Optional[pulumi.Input['VpcEndpointDnsOptionsSpecificationArgs']]):
+        pulumi.set(self, "dns_options", value)
+
+    @property
+    @pulumi.getter(name="ipAddressType")
+    def ip_address_type(self) -> Optional[pulumi.Input['VpcEndpointIpAddressType']]:
+        return pulumi.get(self, "ip_address_type")
+
+    @ip_address_type.setter
+    def ip_address_type(self, value: Optional[pulumi.Input['VpcEndpointIpAddressType']]):
+        pulumi.set(self, "ip_address_type", value)
 
     @property
     @pulumi.getter(name="policyDocument")
@@ -118,6 +139,15 @@ class VpcEndpointArgs:
         pulumi.set(self, "private_dns_enabled", value)
 
     @property
+    @pulumi.getter(name="resourceConfigurationArn")
+    def resource_configuration_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "resource_configuration_arn")
+
+    @resource_configuration_arn.setter
+    def resource_configuration_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_configuration_arn", value)
+
+    @property
     @pulumi.getter(name="routeTableIds")
     def route_table_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
@@ -140,6 +170,27 @@ class VpcEndpointArgs:
     @security_group_ids.setter
     def security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "security_group_ids", value)
+
+    @property
+    @pulumi.getter(name="serviceName")
+    def service_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the endpoint service.
+        """
+        return pulumi.get(self, "service_name")
+
+    @service_name.setter
+    def service_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_name", value)
+
+    @property
+    @pulumi.getter(name="serviceNetworkArn")
+    def service_network_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "service_network_arn")
+
+    @service_network_arn.setter
+    def service_network_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_network_arn", value)
 
     @property
     @pulumi.getter(name="subnetIds")
@@ -172,11 +223,15 @@ class VpcEndpoint(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 dns_options: Optional[pulumi.Input[Union['VpcEndpointDnsOptionsSpecificationArgs', 'VpcEndpointDnsOptionsSpecificationArgsDict']]] = None,
+                 ip_address_type: Optional[pulumi.Input['VpcEndpointIpAddressType']] = None,
                  policy_document: Optional[Any] = None,
                  private_dns_enabled: Optional[pulumi.Input[bool]] = None,
+                 resource_configuration_arn: Optional[pulumi.Input[str]] = None,
                  route_table_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
+                 service_network_arn: Optional[pulumi.Input[str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  vpc_endpoint_type: Optional[pulumi.Input['VpcEndpointType']] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
@@ -239,11 +294,15 @@ class VpcEndpoint(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 dns_options: Optional[pulumi.Input[Union['VpcEndpointDnsOptionsSpecificationArgs', 'VpcEndpointDnsOptionsSpecificationArgsDict']]] = None,
+                 ip_address_type: Optional[pulumi.Input['VpcEndpointIpAddressType']] = None,
                  policy_document: Optional[Any] = None,
                  private_dns_enabled: Optional[pulumi.Input[bool]] = None,
+                 resource_configuration_arn: Optional[pulumi.Input[str]] = None,
                  route_table_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  service_name: Optional[pulumi.Input[str]] = None,
+                 service_network_arn: Optional[pulumi.Input[str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  vpc_endpoint_type: Optional[pulumi.Input['VpcEndpointType']] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
@@ -256,13 +315,15 @@ class VpcEndpoint(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = VpcEndpointArgs.__new__(VpcEndpointArgs)
 
+            __props__.__dict__["dns_options"] = dns_options
+            __props__.__dict__["ip_address_type"] = ip_address_type
             __props__.__dict__["policy_document"] = policy_document
             __props__.__dict__["private_dns_enabled"] = private_dns_enabled
+            __props__.__dict__["resource_configuration_arn"] = resource_configuration_arn
             __props__.__dict__["route_table_ids"] = route_table_ids
             __props__.__dict__["security_group_ids"] = security_group_ids
-            if service_name is None and not opts.urn:
-                raise TypeError("Missing required property 'service_name'")
             __props__.__dict__["service_name"] = service_name
+            __props__.__dict__["service_network_arn"] = service_network_arn
             __props__.__dict__["subnet_ids"] = subnet_ids
             __props__.__dict__["vpc_endpoint_type"] = vpc_endpoint_type
             if vpc_id is None and not opts.urn:
@@ -272,7 +333,7 @@ class VpcEndpoint(pulumi.CustomResource):
             __props__.__dict__["creation_timestamp"] = None
             __props__.__dict__["dns_entries"] = None
             __props__.__dict__["network_interface_ids"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["serviceName", "vpcEndpointType", "vpcId"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["resourceConfigurationArn", "serviceName", "serviceNetworkArn", "vpcEndpointType", "vpcId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(VpcEndpoint, __self__).__init__(
             'aws-native:ec2:VpcEndpoint',
@@ -299,12 +360,16 @@ class VpcEndpoint(pulumi.CustomResource):
         __props__.__dict__["aws_id"] = None
         __props__.__dict__["creation_timestamp"] = None
         __props__.__dict__["dns_entries"] = None
+        __props__.__dict__["dns_options"] = None
+        __props__.__dict__["ip_address_type"] = None
         __props__.__dict__["network_interface_ids"] = None
         __props__.__dict__["policy_document"] = None
         __props__.__dict__["private_dns_enabled"] = None
+        __props__.__dict__["resource_configuration_arn"] = None
         __props__.__dict__["route_table_ids"] = None
         __props__.__dict__["security_group_ids"] = None
         __props__.__dict__["service_name"] = None
+        __props__.__dict__["service_network_arn"] = None
         __props__.__dict__["subnet_ids"] = None
         __props__.__dict__["vpc_endpoint_type"] = None
         __props__.__dict__["vpc_id"] = None
@@ -341,6 +406,16 @@ class VpcEndpoint(pulumi.CustomResource):
         return pulumi.get(self, "dns_entries")
 
     @property
+    @pulumi.getter(name="dnsOptions")
+    def dns_options(self) -> pulumi.Output[Optional['outputs.VpcEndpointDnsOptionsSpecification']]:
+        return pulumi.get(self, "dns_options")
+
+    @property
+    @pulumi.getter(name="ipAddressType")
+    def ip_address_type(self) -> pulumi.Output[Optional['VpcEndpointIpAddressType']]:
+        return pulumi.get(self, "ip_address_type")
+
+    @property
     @pulumi.getter(name="networkInterfaceIds")
     def network_interface_ids(self) -> pulumi.Output[Sequence[str]]:
         """
@@ -372,6 +447,11 @@ class VpcEndpoint(pulumi.CustomResource):
         return pulumi.get(self, "private_dns_enabled")
 
     @property
+    @pulumi.getter(name="resourceConfigurationArn")
+    def resource_configuration_arn(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "resource_configuration_arn")
+
+    @property
     @pulumi.getter(name="routeTableIds")
     def route_table_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
@@ -389,11 +469,16 @@ class VpcEndpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serviceName")
-    def service_name(self) -> pulumi.Output[str]:
+    def service_name(self) -> pulumi.Output[Optional[str]]:
         """
         The name of the endpoint service.
         """
         return pulumi.get(self, "service_name")
+
+    @property
+    @pulumi.getter(name="serviceNetworkArn")
+    def service_network_arn(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "service_network_arn")
 
     @property
     @pulumi.getter(name="subnetIds")

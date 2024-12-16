@@ -24,15 +24,19 @@ func LookupResourceGateway(ctx *pulumi.Context, args *LookupResourceGatewayArgs,
 }
 
 type LookupResourceGatewayArgs struct {
+	// The Amazon Resource Name (ARN) of the resource gateway.
 	Arn string `pulumi:"arn"`
 }
 
 type LookupResourceGatewayResult struct {
+	// The Amazon Resource Name (ARN) of the resource gateway.
 	Arn *string `pulumi:"arn"`
-	Id  *string `pulumi:"id"`
+	// The ID of the resource gateway.
+	Id *string `pulumi:"id"`
 	// The ID of one or more security groups to associate with the endpoint network interface.
-	SecurityGroupIds []string  `pulumi:"securityGroupIds"`
-	Tags             []aws.Tag `pulumi:"tags"`
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// The tags for the resource gateway.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupResourceGatewayOutput(ctx *pulumi.Context, args LookupResourceGatewayOutputArgs, opts ...pulumi.InvokeOption) LookupResourceGatewayResultOutput {
@@ -45,6 +49,7 @@ func LookupResourceGatewayOutput(ctx *pulumi.Context, args LookupResourceGateway
 }
 
 type LookupResourceGatewayOutputArgs struct {
+	// The Amazon Resource Name (ARN) of the resource gateway.
 	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
@@ -66,10 +71,12 @@ func (o LookupResourceGatewayResultOutput) ToLookupResourceGatewayResultOutputWi
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the resource gateway.
 func (o LookupResourceGatewayResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupResourceGatewayResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the resource gateway.
 func (o LookupResourceGatewayResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupResourceGatewayResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
@@ -79,6 +86,7 @@ func (o LookupResourceGatewayResultOutput) SecurityGroupIds() pulumi.StringArray
 	return o.ApplyT(func(v LookupResourceGatewayResult) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
+// The tags for the resource gateway.
 func (o LookupResourceGatewayResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupResourceGatewayResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

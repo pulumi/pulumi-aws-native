@@ -15,15 +15,27 @@ namespace Pulumi.AwsNative.VpcLattice
     [AwsNativeResourceType("aws-native:vpclattice:ResourceGateway")]
     public partial class ResourceGateway : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the resource gateway.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the resource gateway.
+        /// </summary>
         [Output("awsId")]
         public Output<string> AwsId { get; private set; } = null!;
 
+        /// <summary>
+        /// The type of IP address used by the resource gateway.
+        /// </summary>
         [Output("ipAddressType")]
         public Output<Pulumi.AwsNative.VpcLattice.ResourceGatewayIpAddressType?> IpAddressType { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the resource gateway.
+        /// </summary>
         [Output("name")]
         public Output<string?> Name { get; private set; } = null!;
 
@@ -39,9 +51,15 @@ namespace Pulumi.AwsNative.VpcLattice
         [Output("subnetIds")]
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
 
+        /// <summary>
+        /// The tags for the resource gateway.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the VPC for the resource gateway.
+        /// </summary>
         [Output("vpcIdentifier")]
         public Output<string?> VpcIdentifier { get; private set; } = null!;
 
@@ -97,9 +115,15 @@ namespace Pulumi.AwsNative.VpcLattice
 
     public sealed class ResourceGatewayArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The type of IP address used by the resource gateway.
+        /// </summary>
         [Input("ipAddressType")]
         public Input<Pulumi.AwsNative.VpcLattice.ResourceGatewayIpAddressType>? IpAddressType { get; set; }
 
+        /// <summary>
+        /// The name of the resource gateway.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -129,12 +153,19 @@ namespace Pulumi.AwsNative.VpcLattice
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// The tags for the resource gateway.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
             set => _tags = value;
         }
 
+        /// <summary>
+        /// The ID of the VPC for the resource gateway.
+        /// </summary>
         [Input("vpcIdentifier")]
         public Input<string>? VpcIdentifier { get; set; }
 

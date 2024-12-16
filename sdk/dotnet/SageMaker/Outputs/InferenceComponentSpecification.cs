@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         /// </summary>
         public readonly Outputs.InferenceComponentContainerSpecification? Container;
         /// <summary>
-        /// The name of an existing SageMaker model object in your account that you want to deploy with the inference component.
+        /// The name of an existing SageMaker AI model object in your account that you want to deploy with the inference component.
         /// </summary>
         public readonly string? ModelName;
         /// <summary>

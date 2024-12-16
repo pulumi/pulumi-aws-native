@@ -826,7 +826,8 @@ namespace Pulumi.AwsNative.Connect
     }
 
     /// <summary>
-    /// The publish status of a rule, either draft or published.
+    /// The publish status of the rule.
+    ///   *Allowed values*: ``DRAFT`` | ``PUBLISHED``
     /// </summary>
     [EnumType]
     public readonly struct RulePublishStatus : IEquatable<RulePublishStatus>
@@ -856,6 +857,10 @@ namespace Pulumi.AwsNative.Connect
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The type of the reference. ``DATE`` must be of type Epoch timestamp. 
+    ///   *Allowed values*: ``URL`` | ``ATTACHMENT`` | ``NUMBER`` | ``STRING`` | ``DATE`` | ``EMAIL``
+    /// </summary>
     [EnumType]
     public readonly struct RuleReferenceType : IEquatable<RuleReferenceType>
     {
@@ -889,7 +894,8 @@ namespace Pulumi.AwsNative.Connect
     }
 
     /// <summary>
-    /// The type of content.
+    /// Content type format.
+    ///   *Allowed value*: ``PLAIN_TEXT``
     /// </summary>
     [EnumType]
     public readonly struct RuleSendNotificationActionContentType : IEquatable<RuleSendNotificationActionContentType>
@@ -919,7 +925,8 @@ namespace Pulumi.AwsNative.Connect
     }
 
     /// <summary>
-    /// The means of delivery.
+    /// Notification delivery method.
+    ///   *Allowed value*: ``EMAIL``
     /// </summary>
     [EnumType]
     public readonly struct RuleSendNotificationActionDeliveryMethod : IEquatable<RuleSendNotificationActionDeliveryMethod>
@@ -949,7 +956,7 @@ namespace Pulumi.AwsNative.Connect
     }
 
     /// <summary>
-    /// The name of event source.
+    /// The name of the event source.
     /// </summary>
     [EnumType]
     public readonly struct RuleTriggerEventSourceEventSourceName : IEquatable<RuleTriggerEventSourceEventSourceName>

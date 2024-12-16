@@ -28,8 +28,8 @@ __all__ = [
     'ComputeEnvironmentLaunchTemplateSpecificationArgsDict',
     'ComputeEnvironmentUpdatePolicyArgs',
     'ComputeEnvironmentUpdatePolicyArgsDict',
-    'JobDefinitionAuthorizationConfigArgs',
-    'JobDefinitionAuthorizationConfigArgsDict',
+    'JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesArgs',
+    'JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesArgsDict',
     'JobDefinitionContainerPropertiesArgs',
     'JobDefinitionContainerPropertiesArgsDict',
     'JobDefinitionDeviceArgs',
@@ -38,6 +38,8 @@ __all__ = [
     'JobDefinitionEcsPropertiesArgsDict',
     'JobDefinitionEcsTaskPropertiesArgs',
     'JobDefinitionEcsTaskPropertiesArgsDict',
+    'JobDefinitionEfsAuthorizationConfigArgs',
+    'JobDefinitionEfsAuthorizationConfigArgsDict',
     'JobDefinitionEfsVolumeConfigurationArgs',
     'JobDefinitionEfsVolumeConfigurationArgsDict',
     'JobDefinitionEksContainerEnvironmentVariableArgs',
@@ -54,6 +56,10 @@ __all__ = [
     'JobDefinitionEksEmptyDirArgsDict',
     'JobDefinitionEksHostPathArgs',
     'JobDefinitionEksHostPathArgsDict',
+    'JobDefinitionEksMetadataArgs',
+    'JobDefinitionEksMetadataArgsDict',
+    'JobDefinitionEksPodPropertiesArgs',
+    'JobDefinitionEksPodPropertiesArgsDict',
     'JobDefinitionEksPropertiesArgs',
     'JobDefinitionEksPropertiesArgsDict',
     'JobDefinitionEksSecretArgs',
@@ -66,26 +72,30 @@ __all__ = [
     'JobDefinitionEphemeralStorageArgsDict',
     'JobDefinitionEvaluateOnExitArgs',
     'JobDefinitionEvaluateOnExitArgsDict',
-    'JobDefinitionFargatePlatformConfigurationArgs',
-    'JobDefinitionFargatePlatformConfigurationArgsDict',
+    'JobDefinitionHostArgs',
+    'JobDefinitionHostArgsDict',
     'JobDefinitionImagePullSecretArgs',
     'JobDefinitionImagePullSecretArgsDict',
+    'JobDefinitionJobTimeoutArgs',
+    'JobDefinitionJobTimeoutArgsDict',
     'JobDefinitionLinuxParametersArgs',
     'JobDefinitionLinuxParametersArgsDict',
     'JobDefinitionLogConfigurationArgs',
     'JobDefinitionLogConfigurationArgsDict',
-    'JobDefinitionMetadataArgs',
-    'JobDefinitionMetadataArgsDict',
-    'JobDefinitionMountPointsArgs',
-    'JobDefinitionMountPointsArgsDict',
+    'JobDefinitionMountPointArgs',
+    'JobDefinitionMountPointArgsDict',
+    'JobDefinitionMultiNodeContainerPropertiesArgs',
+    'JobDefinitionMultiNodeContainerPropertiesArgsDict',
+    'JobDefinitionMultiNodeEcsPropertiesArgs',
+    'JobDefinitionMultiNodeEcsPropertiesArgsDict',
+    'JobDefinitionMultiNodeEcsTaskPropertiesArgs',
+    'JobDefinitionMultiNodeEcsTaskPropertiesArgsDict',
     'JobDefinitionNetworkConfigurationArgs',
     'JobDefinitionNetworkConfigurationArgsDict',
     'JobDefinitionNodePropertiesArgs',
     'JobDefinitionNodePropertiesArgsDict',
     'JobDefinitionNodeRangePropertyArgs',
     'JobDefinitionNodeRangePropertyArgsDict',
-    'JobDefinitionPodPropertiesArgs',
-    'JobDefinitionPodPropertiesArgsDict',
     'JobDefinitionRepositoryCredentialsArgs',
     'JobDefinitionRepositoryCredentialsArgsDict',
     'JobDefinitionResourceRequirementArgs',
@@ -100,16 +110,12 @@ __all__ = [
     'JobDefinitionTaskContainerDependencyArgsDict',
     'JobDefinitionTaskContainerPropertiesArgs',
     'JobDefinitionTaskContainerPropertiesArgsDict',
-    'JobDefinitionTimeoutArgs',
-    'JobDefinitionTimeoutArgsDict',
     'JobDefinitionTmpfsArgs',
     'JobDefinitionTmpfsArgsDict',
     'JobDefinitionUlimitArgs',
     'JobDefinitionUlimitArgsDict',
-    'JobDefinitionVolumesHostArgs',
-    'JobDefinitionVolumesHostArgsDict',
-    'JobDefinitionVolumesArgs',
-    'JobDefinitionVolumesArgsDict',
+    'JobDefinitionVolumeArgs',
+    'JobDefinitionVolumeArgsDict',
     'JobQueueComputeEnvironmentOrderArgs',
     'JobQueueComputeEnvironmentOrderArgsDict',
     'JobQueueJobStateTimeLimitActionArgs',
@@ -1218,55 +1224,32 @@ class ComputeEnvironmentUpdatePolicyArgs:
 
 
 if not MYPY:
-    class JobDefinitionAuthorizationConfigArgsDict(TypedDict):
-        access_point_id: NotRequired[pulumi.Input[str]]
+    class JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesArgsDict(TypedDict):
         """
-        The Amazon EFS access point ID to use. If an access point is specified, the root directory value specified in the `EFSVolumeConfiguration` must either be omitted or set to `/` which enforces the path set on the EFS access point. If an access point is used, transit encryption must be enabled in the `EFSVolumeConfiguration` . For more information, see [Working with Amazon EFS access points](https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html) in the *Amazon Elastic File System User Guide* .
+        The platform configuration for jobs that are running on Fargate resources. Jobs that are running on Amazon EC2 resources must not specify this parameter.
         """
-        iam: NotRequired[pulumi.Input[str]]
-        """
-        Whether or not to use the AWS Batch job IAM role defined in a job definition when mounting the Amazon EFS file system. If enabled, transit encryption must be enabled in the `EFSVolumeConfiguration` . If this parameter is omitted, the default value of `DISABLED` is used. For more information, see [Using Amazon EFS access points](https://docs.aws.amazon.com/batch/latest/userguide/efs-volumes.html#efs-volume-accesspoints) in the *AWS Batch User Guide* . EFS IAM authorization requires that `TransitEncryption` be `ENABLED` and that a `JobRoleArn` is specified.
-        """
+        platform_version: NotRequired[pulumi.Input[str]]
 elif False:
-    JobDefinitionAuthorizationConfigArgsDict: TypeAlias = Mapping[str, Any]
+    JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
-class JobDefinitionAuthorizationConfigArgs:
+class JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesArgs:
     def __init__(__self__, *,
-                 access_point_id: Optional[pulumi.Input[str]] = None,
-                 iam: Optional[pulumi.Input[str]] = None):
+                 platform_version: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] access_point_id: The Amazon EFS access point ID to use. If an access point is specified, the root directory value specified in the `EFSVolumeConfiguration` must either be omitted or set to `/` which enforces the path set on the EFS access point. If an access point is used, transit encryption must be enabled in the `EFSVolumeConfiguration` . For more information, see [Working with Amazon EFS access points](https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html) in the *Amazon Elastic File System User Guide* .
-        :param pulumi.Input[str] iam: Whether or not to use the AWS Batch job IAM role defined in a job definition when mounting the Amazon EFS file system. If enabled, transit encryption must be enabled in the `EFSVolumeConfiguration` . If this parameter is omitted, the default value of `DISABLED` is used. For more information, see [Using Amazon EFS access points](https://docs.aws.amazon.com/batch/latest/userguide/efs-volumes.html#efs-volume-accesspoints) in the *AWS Batch User Guide* . EFS IAM authorization requires that `TransitEncryption` be `ENABLED` and that a `JobRoleArn` is specified.
+        The platform configuration for jobs that are running on Fargate resources. Jobs that are running on Amazon EC2 resources must not specify this parameter.
         """
-        if access_point_id is not None:
-            pulumi.set(__self__, "access_point_id", access_point_id)
-        if iam is not None:
-            pulumi.set(__self__, "iam", iam)
+        if platform_version is not None:
+            pulumi.set(__self__, "platform_version", platform_version)
 
     @property
-    @pulumi.getter(name="accessPointId")
-    def access_point_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Amazon EFS access point ID to use. If an access point is specified, the root directory value specified in the `EFSVolumeConfiguration` must either be omitted or set to `/` which enforces the path set on the EFS access point. If an access point is used, transit encryption must be enabled in the `EFSVolumeConfiguration` . For more information, see [Working with Amazon EFS access points](https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html) in the *Amazon Elastic File System User Guide* .
-        """
-        return pulumi.get(self, "access_point_id")
+    @pulumi.getter(name="platformVersion")
+    def platform_version(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "platform_version")
 
-    @access_point_id.setter
-    def access_point_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "access_point_id", value)
-
-    @property
-    @pulumi.getter
-    def iam(self) -> Optional[pulumi.Input[str]]:
-        """
-        Whether or not to use the AWS Batch job IAM role defined in a job definition when mounting the Amazon EFS file system. If enabled, transit encryption must be enabled in the `EFSVolumeConfiguration` . If this parameter is omitted, the default value of `DISABLED` is used. For more information, see [Using Amazon EFS access points](https://docs.aws.amazon.com/batch/latest/userguide/efs-volumes.html#efs-volume-accesspoints) in the *AWS Batch User Guide* . EFS IAM authorization requires that `TransitEncryption` be `ENABLED` and that a `JobRoleArn` is specified.
-        """
-        return pulumi.get(self, "iam")
-
-    @iam.setter
-    def iam(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "iam", value)
+    @platform_version.setter
+    def platform_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "platform_version", value)
 
 
 if not MYPY:
@@ -1301,15 +1284,9 @@ if not MYPY:
         """
         The Amazon Resource Name (ARN) of the execution role that AWS Batch can assume. For jobs that run on Fargate resources, you must provide an execution role. For more information, see [AWS Batch execution IAM role](https://docs.aws.amazon.com/batch/latest/userguide/execution-IAM-role.html) in the *AWS Batch User Guide* .
         """
-        fargate_platform_configuration: NotRequired[pulumi.Input['JobDefinitionFargatePlatformConfigurationArgsDict']]
+        fargate_platform_configuration: NotRequired[pulumi.Input['JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesArgsDict']]
         """
         The platform configuration for jobs that are running on Fargate resources. Jobs that are running on Amazon EC2 resources must not specify this parameter.
-        """
-        instance_type: NotRequired[pulumi.Input[str]]
-        """
-        The instance type to use for a multi-node parallel job. All node groups in a multi-node parallel job must use the same instance type.
-
-        > This parameter isn't applicable to single-node container jobs or jobs that run on Fargate resources, and shouldn't be provided.
         """
         job_role_arn: NotRequired[pulumi.Input[str]]
         """
@@ -1335,7 +1312,7 @@ if not MYPY:
         """
         This parameter is deprecated, use `resourceRequirements` to specify the memory requirements for the job definition. It's not supported for jobs running on Fargate resources. For jobs that run on Amazon EC2 resources, it specifies the memory hard limit (in MiB) for a container. If your container attempts to exceed the specified number, it's terminated. You must specify at least 4 MiB of memory for a job using this parameter. The memory hard limit can be specified in several places. It must be specified for each node at least once.
         """
-        mount_points: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobDefinitionMountPointsArgsDict']]]]
+        mount_points: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobDefinitionMountPointArgsDict']]]]
         """
         The mount points for data volumes in your container. This parameter maps to `Volumes` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `--volume` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) .
         """
@@ -1385,7 +1362,7 @@ if not MYPY:
 
         Each vCPU is equivalent to 1,024 CPU shares. This parameter maps to `CpuShares` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `--cpu-shares` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) . The number of vCPUs must be specified but can be specified in several places. You must specify it at least once for each node.
         """
-        volumes: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobDefinitionVolumesArgsDict']]]]
+        volumes: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobDefinitionVolumeArgsDict']]]]
         """
         A list of data volumes used in a job.
         """
@@ -1400,13 +1377,12 @@ class JobDefinitionContainerPropertiesArgs:
                  environment: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionEnvironmentArgs']]]] = None,
                  ephemeral_storage: Optional[pulumi.Input['JobDefinitionEphemeralStorageArgs']] = None,
                  execution_role_arn: Optional[pulumi.Input[str]] = None,
-                 fargate_platform_configuration: Optional[pulumi.Input['JobDefinitionFargatePlatformConfigurationArgs']] = None,
-                 instance_type: Optional[pulumi.Input[str]] = None,
+                 fargate_platform_configuration: Optional[pulumi.Input['JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesArgs']] = None,
                  job_role_arn: Optional[pulumi.Input[str]] = None,
                  linux_parameters: Optional[pulumi.Input['JobDefinitionLinuxParametersArgs']] = None,
                  log_configuration: Optional[pulumi.Input['JobDefinitionLogConfigurationArgs']] = None,
                  memory: Optional[pulumi.Input[int]] = None,
-                 mount_points: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionMountPointsArgs']]]] = None,
+                 mount_points: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionMountPointArgs']]]] = None,
                  network_configuration: Optional[pulumi.Input['JobDefinitionNetworkConfigurationArgs']] = None,
                  privileged: Optional[pulumi.Input[bool]] = None,
                  readonly_root_filesystem: Optional[pulumi.Input[bool]] = None,
@@ -1417,7 +1393,7 @@ class JobDefinitionContainerPropertiesArgs:
                  ulimits: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionUlimitArgs']]]] = None,
                  user: Optional[pulumi.Input[str]] = None,
                  vcpus: Optional[pulumi.Input[int]] = None,
-                 volumes: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionVolumesArgs']]]] = None):
+                 volumes: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionVolumeArgs']]]] = None):
         """
         :param pulumi.Input[str] image: Required. The image used to start a container. This string is passed directly to the Docker daemon. Images in the Docker Hub registry are available by default. Other repositories are specified with `*repository-url* / *image* : *tag*` . It can be 255 characters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), underscores (_), colons (:), periods (.), forward slashes (/), and number signs (#). This parameter maps to `Image` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `IMAGE` parameter of [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) .
                
@@ -1434,10 +1410,7 @@ class JobDefinitionContainerPropertiesArgs:
                > We don't recommend using plaintext environment variables for sensitive information, such as credential data. > Environment variables cannot start with " `AWS_BATCH` ". This naming convention is reserved for variables that AWS Batch sets.
         :param pulumi.Input['JobDefinitionEphemeralStorageArgs'] ephemeral_storage: The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate .
         :param pulumi.Input[str] execution_role_arn: The Amazon Resource Name (ARN) of the execution role that AWS Batch can assume. For jobs that run on Fargate resources, you must provide an execution role. For more information, see [AWS Batch execution IAM role](https://docs.aws.amazon.com/batch/latest/userguide/execution-IAM-role.html) in the *AWS Batch User Guide* .
-        :param pulumi.Input['JobDefinitionFargatePlatformConfigurationArgs'] fargate_platform_configuration: The platform configuration for jobs that are running on Fargate resources. Jobs that are running on Amazon EC2 resources must not specify this parameter.
-        :param pulumi.Input[str] instance_type: The instance type to use for a multi-node parallel job. All node groups in a multi-node parallel job must use the same instance type.
-               
-               > This parameter isn't applicable to single-node container jobs or jobs that run on Fargate resources, and shouldn't be provided.
+        :param pulumi.Input['JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesArgs'] fargate_platform_configuration: The platform configuration for jobs that are running on Fargate resources. Jobs that are running on Amazon EC2 resources must not specify this parameter.
         :param pulumi.Input[str] job_role_arn: The Amazon Resource Name (ARN) of the IAM role that the container can assume for AWS permissions. For more information, see [IAM roles for tasks](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-iam-roles.html) in the *Amazon Elastic Container Service Developer Guide* .
         :param pulumi.Input['JobDefinitionLinuxParametersArgs'] linux_parameters: Linux-specific modifications that are applied to the container, such as details for device mappings.
         :param pulumi.Input['JobDefinitionLogConfigurationArgs'] log_configuration: The log configuration specification for the container.
@@ -1450,7 +1423,7 @@ class JobDefinitionContainerPropertiesArgs:
                
                > The Amazon ECS container agent running on a container instance must register the logging drivers available on that instance with the `ECS_AVAILABLE_LOGGING_DRIVERS` environment variable before containers placed on that instance can use these log configuration options. For more information, see [Amazon ECS container agent configuration](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html) in the *Amazon Elastic Container Service Developer Guide* .
         :param pulumi.Input[int] memory: This parameter is deprecated, use `resourceRequirements` to specify the memory requirements for the job definition. It's not supported for jobs running on Fargate resources. For jobs that run on Amazon EC2 resources, it specifies the memory hard limit (in MiB) for a container. If your container attempts to exceed the specified number, it's terminated. You must specify at least 4 MiB of memory for a job using this parameter. The memory hard limit can be specified in several places. It must be specified for each node at least once.
-        :param pulumi.Input[Sequence[pulumi.Input['JobDefinitionMountPointsArgs']]] mount_points: The mount points for data volumes in your container. This parameter maps to `Volumes` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `--volume` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) .
+        :param pulumi.Input[Sequence[pulumi.Input['JobDefinitionMountPointArgs']]] mount_points: The mount points for data volumes in your container. This parameter maps to `Volumes` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `--volume` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) .
         :param pulumi.Input['JobDefinitionNetworkConfigurationArgs'] network_configuration: The network configuration for jobs that are running on Fargate resources. Jobs that are running on Amazon EC2 resources must not specify this parameter.
         :param pulumi.Input[bool] privileged: When this parameter is true, the container is given elevated permissions on the host container instance (similar to the `root` user). This parameter maps to `Privileged` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `--privileged` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) . The default value is false.
                
@@ -1467,7 +1440,7 @@ class JobDefinitionContainerPropertiesArgs:
         :param pulumi.Input[int] vcpus: This parameter is deprecated, use `resourceRequirements` to specify the vCPU requirements for the job definition. It's not supported for jobs running on Fargate resources. For jobs running on Amazon EC2 resources, it specifies the number of vCPUs reserved for the job.
                
                Each vCPU is equivalent to 1,024 CPU shares. This parameter maps to `CpuShares` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `--cpu-shares` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) . The number of vCPUs must be specified but can be specified in several places. You must specify it at least once for each node.
-        :param pulumi.Input[Sequence[pulumi.Input['JobDefinitionVolumesArgs']]] volumes: A list of data volumes used in a job.
+        :param pulumi.Input[Sequence[pulumi.Input['JobDefinitionVolumeArgs']]] volumes: A list of data volumes used in a job.
         """
         pulumi.set(__self__, "image", image)
         if command is not None:
@@ -1480,8 +1453,6 @@ class JobDefinitionContainerPropertiesArgs:
             pulumi.set(__self__, "execution_role_arn", execution_role_arn)
         if fargate_platform_configuration is not None:
             pulumi.set(__self__, "fargate_platform_configuration", fargate_platform_configuration)
-        if instance_type is not None:
-            pulumi.set(__self__, "instance_type", instance_type)
         if job_role_arn is not None:
             pulumi.set(__self__, "job_role_arn", job_role_arn)
         if linux_parameters is not None:
@@ -1587,29 +1558,15 @@ class JobDefinitionContainerPropertiesArgs:
 
     @property
     @pulumi.getter(name="fargatePlatformConfiguration")
-    def fargate_platform_configuration(self) -> Optional[pulumi.Input['JobDefinitionFargatePlatformConfigurationArgs']]:
+    def fargate_platform_configuration(self) -> Optional[pulumi.Input['JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesArgs']]:
         """
         The platform configuration for jobs that are running on Fargate resources. Jobs that are running on Amazon EC2 resources must not specify this parameter.
         """
         return pulumi.get(self, "fargate_platform_configuration")
 
     @fargate_platform_configuration.setter
-    def fargate_platform_configuration(self, value: Optional[pulumi.Input['JobDefinitionFargatePlatformConfigurationArgs']]):
+    def fargate_platform_configuration(self, value: Optional[pulumi.Input['JobDefinitionContainerPropertiesFargatePlatformConfigurationPropertiesArgs']]):
         pulumi.set(self, "fargate_platform_configuration", value)
-
-    @property
-    @pulumi.getter(name="instanceType")
-    def instance_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        The instance type to use for a multi-node parallel job. All node groups in a multi-node parallel job must use the same instance type.
-
-        > This parameter isn't applicable to single-node container jobs or jobs that run on Fargate resources, and shouldn't be provided.
-        """
-        return pulumi.get(self, "instance_type")
-
-    @instance_type.setter
-    def instance_type(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "instance_type", value)
 
     @property
     @pulumi.getter(name="jobRoleArn")
@@ -1669,14 +1626,14 @@ class JobDefinitionContainerPropertiesArgs:
 
     @property
     @pulumi.getter(name="mountPoints")
-    def mount_points(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionMountPointsArgs']]]]:
+    def mount_points(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionMountPointArgs']]]]:
         """
         The mount points for data volumes in your container. This parameter maps to `Volumes` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `--volume` option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) .
         """
         return pulumi.get(self, "mount_points")
 
     @mount_points.setter
-    def mount_points(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionMountPointsArgs']]]]):
+    def mount_points(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionMountPointArgs']]]]):
         pulumi.set(self, "mount_points", value)
 
     @property
@@ -1807,14 +1764,14 @@ class JobDefinitionContainerPropertiesArgs:
 
     @property
     @pulumi.getter
-    def volumes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionVolumesArgs']]]]:
+    def volumes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionVolumeArgs']]]]:
         """
         A list of data volumes used in a job.
         """
         return pulumi.get(self, "volumes")
 
     @volumes.setter
-    def volumes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionVolumesArgs']]]]):
+    def volumes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionVolumeArgs']]]]):
         pulumi.set(self, "volumes", value)
 
 
@@ -1981,7 +1938,7 @@ if not MYPY:
 
         > This is object is comparable to [ContainerProperties:jobRoleArn](https://docs.aws.amazon.com/batch/latest/APIReference/API_ContainerProperties.html) .
         """
-        volumes: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobDefinitionVolumesArgsDict']]]]
+        volumes: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobDefinitionVolumeArgsDict']]]]
         """
         A list of volumes that are associated with the job.
         """
@@ -2000,7 +1957,7 @@ class JobDefinitionEcsTaskPropertiesArgs:
                  platform_version: Optional[pulumi.Input[str]] = None,
                  runtime_platform: Optional[pulumi.Input['JobDefinitionRuntimePlatformArgs']] = None,
                  task_role_arn: Optional[pulumi.Input[str]] = None,
-                 volumes: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionVolumesArgs']]]] = None):
+                 volumes: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionVolumeArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['JobDefinitionTaskContainerPropertiesArgs']]] containers: This object is a list of containers.
         :param pulumi.Input['JobDefinitionEphemeralStorageArgs'] ephemeral_storage: The amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate .
@@ -2027,7 +1984,7 @@ class JobDefinitionEcsTaskPropertiesArgs:
         :param pulumi.Input[str] task_role_arn: The Amazon Resource Name (ARN) that's associated with the Amazon ECS task.
                
                > This is object is comparable to [ContainerProperties:jobRoleArn](https://docs.aws.amazon.com/batch/latest/APIReference/API_ContainerProperties.html) .
-        :param pulumi.Input[Sequence[pulumi.Input['JobDefinitionVolumesArgs']]] volumes: A list of volumes that are associated with the job.
+        :param pulumi.Input[Sequence[pulumi.Input['JobDefinitionVolumeArgs']]] volumes: A list of volumes that are associated with the job.
         """
         if containers is not None:
             pulumi.set(__self__, "containers", containers)
@@ -2176,15 +2133,67 @@ class JobDefinitionEcsTaskPropertiesArgs:
 
     @property
     @pulumi.getter
-    def volumes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionVolumesArgs']]]]:
+    def volumes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionVolumeArgs']]]]:
         """
         A list of volumes that are associated with the job.
         """
         return pulumi.get(self, "volumes")
 
     @volumes.setter
-    def volumes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionVolumesArgs']]]]):
+    def volumes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionVolumeArgs']]]]):
         pulumi.set(self, "volumes", value)
+
+
+if not MYPY:
+    class JobDefinitionEfsAuthorizationConfigArgsDict(TypedDict):
+        access_point_id: NotRequired[pulumi.Input[str]]
+        """
+        The Amazon EFS access point ID to use. If an access point is specified, the root directory value specified in the `EFSVolumeConfiguration` must either be omitted or set to `/` which enforces the path set on the EFS access point. If an access point is used, transit encryption must be enabled in the `EFSVolumeConfiguration` . For more information, see [Working with Amazon EFS access points](https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html) in the *Amazon Elastic File System User Guide* .
+        """
+        iam: NotRequired[pulumi.Input[str]]
+        """
+        Whether or not to use the AWS Batch job IAM role defined in a job definition when mounting the Amazon EFS file system. If enabled, transit encryption must be enabled in the `EFSVolumeConfiguration` . If this parameter is omitted, the default value of `DISABLED` is used. For more information, see [Using Amazon EFS access points](https://docs.aws.amazon.com/batch/latest/userguide/efs-volumes.html#efs-volume-accesspoints) in the *AWS Batch User Guide* . EFS IAM authorization requires that `TransitEncryption` be `ENABLED` and that a `JobRoleArn` is specified.
+        """
+elif False:
+    JobDefinitionEfsAuthorizationConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class JobDefinitionEfsAuthorizationConfigArgs:
+    def __init__(__self__, *,
+                 access_point_id: Optional[pulumi.Input[str]] = None,
+                 iam: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] access_point_id: The Amazon EFS access point ID to use. If an access point is specified, the root directory value specified in the `EFSVolumeConfiguration` must either be omitted or set to `/` which enforces the path set on the EFS access point. If an access point is used, transit encryption must be enabled in the `EFSVolumeConfiguration` . For more information, see [Working with Amazon EFS access points](https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html) in the *Amazon Elastic File System User Guide* .
+        :param pulumi.Input[str] iam: Whether or not to use the AWS Batch job IAM role defined in a job definition when mounting the Amazon EFS file system. If enabled, transit encryption must be enabled in the `EFSVolumeConfiguration` . If this parameter is omitted, the default value of `DISABLED` is used. For more information, see [Using Amazon EFS access points](https://docs.aws.amazon.com/batch/latest/userguide/efs-volumes.html#efs-volume-accesspoints) in the *AWS Batch User Guide* . EFS IAM authorization requires that `TransitEncryption` be `ENABLED` and that a `JobRoleArn` is specified.
+        """
+        if access_point_id is not None:
+            pulumi.set(__self__, "access_point_id", access_point_id)
+        if iam is not None:
+            pulumi.set(__self__, "iam", iam)
+
+    @property
+    @pulumi.getter(name="accessPointId")
+    def access_point_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon EFS access point ID to use. If an access point is specified, the root directory value specified in the `EFSVolumeConfiguration` must either be omitted or set to `/` which enforces the path set on the EFS access point. If an access point is used, transit encryption must be enabled in the `EFSVolumeConfiguration` . For more information, see [Working with Amazon EFS access points](https://docs.aws.amazon.com/efs/latest/ug/efs-access-points.html) in the *Amazon Elastic File System User Guide* .
+        """
+        return pulumi.get(self, "access_point_id")
+
+    @access_point_id.setter
+    def access_point_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "access_point_id", value)
+
+    @property
+    @pulumi.getter
+    def iam(self) -> Optional[pulumi.Input[str]]:
+        """
+        Whether or not to use the AWS Batch job IAM role defined in a job definition when mounting the Amazon EFS file system. If enabled, transit encryption must be enabled in the `EFSVolumeConfiguration` . If this parameter is omitted, the default value of `DISABLED` is used. For more information, see [Using Amazon EFS access points](https://docs.aws.amazon.com/batch/latest/userguide/efs-volumes.html#efs-volume-accesspoints) in the *AWS Batch User Guide* . EFS IAM authorization requires that `TransitEncryption` be `ENABLED` and that a `JobRoleArn` is specified.
+        """
+        return pulumi.get(self, "iam")
+
+    @iam.setter
+    def iam(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "iam", value)
 
 
 if not MYPY:
@@ -2193,7 +2202,7 @@ if not MYPY:
         """
         The Amazon EFS file system ID to use.
         """
-        authorization_config: NotRequired[pulumi.Input['JobDefinitionAuthorizationConfigArgsDict']]
+        authorization_config: NotRequired[pulumi.Input['JobDefinitionEfsAuthorizationConfigArgsDict']]
         """
         The authorization configuration details for the Amazon EFS file system.
         """
@@ -2218,13 +2227,13 @@ elif False:
 class JobDefinitionEfsVolumeConfigurationArgs:
     def __init__(__self__, *,
                  file_system_id: pulumi.Input[str],
-                 authorization_config: Optional[pulumi.Input['JobDefinitionAuthorizationConfigArgs']] = None,
+                 authorization_config: Optional[pulumi.Input['JobDefinitionEfsAuthorizationConfigArgs']] = None,
                  root_directory: Optional[pulumi.Input[str]] = None,
                  transit_encryption: Optional[pulumi.Input[str]] = None,
                  transit_encryption_port: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] file_system_id: The Amazon EFS file system ID to use.
-        :param pulumi.Input['JobDefinitionAuthorizationConfigArgs'] authorization_config: The authorization configuration details for the Amazon EFS file system.
+        :param pulumi.Input['JobDefinitionEfsAuthorizationConfigArgs'] authorization_config: The authorization configuration details for the Amazon EFS file system.
         :param pulumi.Input[str] root_directory: The directory within the Amazon EFS file system to mount as the root directory inside the host. If this parameter is omitted, the root of the Amazon EFS volume is used instead. Specifying `/` has the same effect as omitting this parameter. The maximum length is 4,096 characters.
                
                > If an EFS access point is specified in the `authorizationConfig` , the root directory parameter must either be omitted or set to `/` , which enforces the path set on the Amazon EFS access point.
@@ -2255,14 +2264,14 @@ class JobDefinitionEfsVolumeConfigurationArgs:
 
     @property
     @pulumi.getter(name="authorizationConfig")
-    def authorization_config(self) -> Optional[pulumi.Input['JobDefinitionAuthorizationConfigArgs']]:
+    def authorization_config(self) -> Optional[pulumi.Input['JobDefinitionEfsAuthorizationConfigArgs']]:
         """
         The authorization configuration details for the Amazon EFS file system.
         """
         return pulumi.get(self, "authorization_config")
 
     @authorization_config.setter
-    def authorization_config(self, value: Optional[pulumi.Input['JobDefinitionAuthorizationConfigArgs']]):
+    def authorization_config(self, value: Optional[pulumi.Input['JobDefinitionEfsAuthorizationConfigArgs']]):
         pulumi.set(self, "authorization_config", value)
 
     @property
@@ -2357,7 +2366,7 @@ class JobDefinitionEksContainerEnvironmentVariableArgs:
 
 if not MYPY:
     class JobDefinitionEksContainerResourceRequirementsArgsDict(TypedDict):
-        limits: NotRequired[Any]
+        limits: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
         """
         The type and quantity of the resources to reserve for the container. The values vary based on the `name` that's specified. Resources can be requested using either the `limits` or the `requests` objects.
 
@@ -2367,7 +2376,7 @@ if not MYPY:
         - **cpu** - The number of CPUs that's reserved for the container. Values must be an even multiple of `0.25` . `cpu` can be specified in `limits` , `requests` , or both. If `cpu` is specified in both places, then the value that's specified in `limits` must be at least as large as the value that's specified in `requests` .
         - **nvidia.com/gpu** - The number of GPUs that's reserved for the container. Values must be a whole integer. `memory` can be specified in `limits` , `requests` , or both. If `memory` is specified in both places, then the value that's specified in `limits` must be equal to the value that's specified in `requests` .
         """
-        requests: NotRequired[Any]
+        requests: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
         """
         The type and quantity of the resources to request for the container. The values vary based on the `name` that's specified. Resources can be requested by using either the `limits` or the `requests` objects.
 
@@ -2383,17 +2392,17 @@ elif False:
 @pulumi.input_type
 class JobDefinitionEksContainerResourceRequirementsArgs:
     def __init__(__self__, *,
-                 limits: Optional[Any] = None,
-                 requests: Optional[Any] = None):
+                 limits: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 requests: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
-        :param Any limits: The type and quantity of the resources to reserve for the container. The values vary based on the `name` that's specified. Resources can be requested using either the `limits` or the `requests` objects.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] limits: The type and quantity of the resources to reserve for the container. The values vary based on the `name` that's specified. Resources can be requested using either the `limits` or the `requests` objects.
                
                - **memory** - The memory hard limit (in MiB) for the container, using whole integers, with a "Mi" suffix. If your container attempts to exceed the memory specified, the container is terminated. You must specify at least 4 MiB of memory for a job. `memory` can be specified in `limits` , `requests` , or both. If `memory` is specified in both places, then the value that's specified in `limits` must be equal to the value that's specified in `requests` .
                
                > To maximize your resource utilization, provide your jobs with as much memory as possible for the specific instance type that you are using. To learn how, see [Memory management](https://docs.aws.amazon.com/batch/latest/userguide/memory-management.html) in the *AWS Batch User Guide* .
                - **cpu** - The number of CPUs that's reserved for the container. Values must be an even multiple of `0.25` . `cpu` can be specified in `limits` , `requests` , or both. If `cpu` is specified in both places, then the value that's specified in `limits` must be at least as large as the value that's specified in `requests` .
                - **nvidia.com/gpu** - The number of GPUs that's reserved for the container. Values must be a whole integer. `memory` can be specified in `limits` , `requests` , or both. If `memory` is specified in both places, then the value that's specified in `limits` must be equal to the value that's specified in `requests` .
-        :param Any requests: The type and quantity of the resources to request for the container. The values vary based on the `name` that's specified. Resources can be requested by using either the `limits` or the `requests` objects.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] requests: The type and quantity of the resources to request for the container. The values vary based on the `name` that's specified. Resources can be requested by using either the `limits` or the `requests` objects.
                
                - **memory** - The memory hard limit (in MiB) for the container, using whole integers, with a "Mi" suffix. If your container attempts to exceed the memory specified, the container is terminated. You must specify at least 4 MiB of memory for a job. `memory` can be specified in `limits` , `requests` , or both. If `memory` is specified in both, then the value that's specified in `limits` must be equal to the value that's specified in `requests` .
                
@@ -2408,7 +2417,7 @@ class JobDefinitionEksContainerResourceRequirementsArgs:
 
     @property
     @pulumi.getter
-    def limits(self) -> Optional[Any]:
+    def limits(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         The type and quantity of the resources to reserve for the container. The values vary based on the `name` that's specified. Resources can be requested using either the `limits` or the `requests` objects.
 
@@ -2421,12 +2430,12 @@ class JobDefinitionEksContainerResourceRequirementsArgs:
         return pulumi.get(self, "limits")
 
     @limits.setter
-    def limits(self, value: Optional[Any]):
+    def limits(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "limits", value)
 
     @property
     @pulumi.getter
-    def requests(self) -> Optional[Any]:
+    def requests(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         The type and quantity of the resources to request for the container. The values vary based on the `name` that's specified. Resources can be requested by using either the `limits` or the `requests` objects.
 
@@ -2439,7 +2448,7 @@ class JobDefinitionEksContainerResourceRequirementsArgs:
         return pulumi.get(self, "requests")
 
     @requests.setter
-    def requests(self, value: Optional[Any]):
+    def requests(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "requests", value)
 
 
@@ -2950,8 +2959,256 @@ class JobDefinitionEksHostPathArgs:
 
 
 if not MYPY:
+    class JobDefinitionEksMetadataArgsDict(TypedDict):
+        labels: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
+        """
+        Key-value pairs used to identify, sort, and organize cube resources. Can contain up to 63 uppercase letters, lowercase letters, numbers, hyphens (-), and underscores (_). Labels can be added or modified at any time. Each resource can have multiple labels, but each key must be unique for a given object.
+        """
+elif False:
+    JobDefinitionEksMetadataArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class JobDefinitionEksMetadataArgs:
+    def __init__(__self__, *,
+                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] labels: Key-value pairs used to identify, sort, and organize cube resources. Can contain up to 63 uppercase letters, lowercase letters, numbers, hyphens (-), and underscores (_). Labels can be added or modified at any time. Each resource can have multiple labels, but each key must be unique for a given object.
+        """
+        if labels is not None:
+            pulumi.set(__self__, "labels", labels)
+
+    @property
+    @pulumi.getter
+    def labels(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value pairs used to identify, sort, and organize cube resources. Can contain up to 63 uppercase letters, lowercase letters, numbers, hyphens (-), and underscores (_). Labels can be added or modified at any time. Each resource can have multiple labels, but each key must be unique for a given object.
+        """
+        return pulumi.get(self, "labels")
+
+    @labels.setter
+    def labels(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "labels", value)
+
+
+if not MYPY:
+    class JobDefinitionEksPodPropertiesArgsDict(TypedDict):
+        containers: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobDefinitionEksContainerArgsDict']]]]
+        """
+        The properties of the container that's used on the Amazon EKS pod.
+
+        > This object is limited to 10 elements.
+        """
+        dns_policy: NotRequired[pulumi.Input[str]]
+        """
+        The DNS policy for the pod. The default value is `ClusterFirst` . If the `hostNetwork` parameter is not specified, the default is `ClusterFirstWithHostNet` . `ClusterFirst` indicates that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver inherited from the node. For more information, see [Pod's DNS policy](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy) in the *Kubernetes documentation* .
+
+        Valid values: `Default` | `ClusterFirst` | `ClusterFirstWithHostNet`
+        """
+        host_network: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates if the pod uses the hosts' network IP address. The default value is `true` . Setting this to `false` enables the Kubernetes pod networking model. Most AWS Batch workloads are egress-only and don't require the overhead of IP allocation for each pod for incoming connections. For more information, see [Host namespaces](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/security/pod-security-policy/#host-namespaces) and [Pod networking](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/workloads/pods/#pod-networking) in the *Kubernetes documentation* .
+        """
+        image_pull_secrets: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobDefinitionImagePullSecretArgsDict']]]]
+        """
+        References a Kubernetes secret resource. It holds a list of secrets. These secrets help to gain access to pull an images from a private registry.
+
+        `ImagePullSecret$name` is required when this object is used.
+        """
+        init_containers: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobDefinitionEksContainerArgsDict']]]]
+        """
+        These containers run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. For more information, see [Init Containers](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/workloads/pods/init-containers/) in the *Kubernetes documentation* .
+
+        > This object is limited to 10 elements.
+        """
+        metadata: NotRequired[pulumi.Input['JobDefinitionEksMetadataArgsDict']]
+        """
+        Metadata about the Kubernetes pod. For more information, see [Understanding Kubernetes Objects](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/overview/working-with-objects/kubernetes-objects/) in the *Kubernetes documentation* .
+        """
+        service_account_name: NotRequired[pulumi.Input[str]]
+        """
+        The name of the service account that's used to run the pod. For more information, see [Kubernetes service accounts](https://docs.aws.amazon.com/eks/latest/userguide/service-accounts.html) and [Configure a Kubernetes service account to assume an IAM role](https://docs.aws.amazon.com/eks/latest/userguide/associate-service-account-role.html) in the *Amazon EKS User Guide* and [Configure service accounts for pods](https://docs.aws.amazon.com/https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/) in the *Kubernetes documentation* .
+        """
+        share_process_namespace: NotRequired[pulumi.Input[bool]]
+        """
+        Indicates if the processes in a container are shared, or visible, to other containers in the same pod. For more information, see [Share Process Namespace between Containers in a Pod](https://docs.aws.amazon.com/https://kubernetes.io/docs/tasks/configure-pod-container/share-process-namespace/) .
+        """
+        volumes: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobDefinitionEksVolumeArgsDict']]]]
+        """
+        Specifies the volumes for a job definition that uses Amazon EKS resources.
+        """
+elif False:
+    JobDefinitionEksPodPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class JobDefinitionEksPodPropertiesArgs:
+    def __init__(__self__, *,
+                 containers: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionEksContainerArgs']]]] = None,
+                 dns_policy: Optional[pulumi.Input[str]] = None,
+                 host_network: Optional[pulumi.Input[bool]] = None,
+                 image_pull_secrets: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionImagePullSecretArgs']]]] = None,
+                 init_containers: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionEksContainerArgs']]]] = None,
+                 metadata: Optional[pulumi.Input['JobDefinitionEksMetadataArgs']] = None,
+                 service_account_name: Optional[pulumi.Input[str]] = None,
+                 share_process_namespace: Optional[pulumi.Input[bool]] = None,
+                 volumes: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionEksVolumeArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['JobDefinitionEksContainerArgs']]] containers: The properties of the container that's used on the Amazon EKS pod.
+               
+               > This object is limited to 10 elements.
+        :param pulumi.Input[str] dns_policy: The DNS policy for the pod. The default value is `ClusterFirst` . If the `hostNetwork` parameter is not specified, the default is `ClusterFirstWithHostNet` . `ClusterFirst` indicates that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver inherited from the node. For more information, see [Pod's DNS policy](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy) in the *Kubernetes documentation* .
+               
+               Valid values: `Default` | `ClusterFirst` | `ClusterFirstWithHostNet`
+        :param pulumi.Input[bool] host_network: Indicates if the pod uses the hosts' network IP address. The default value is `true` . Setting this to `false` enables the Kubernetes pod networking model. Most AWS Batch workloads are egress-only and don't require the overhead of IP allocation for each pod for incoming connections. For more information, see [Host namespaces](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/security/pod-security-policy/#host-namespaces) and [Pod networking](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/workloads/pods/#pod-networking) in the *Kubernetes documentation* .
+        :param pulumi.Input[Sequence[pulumi.Input['JobDefinitionImagePullSecretArgs']]] image_pull_secrets: References a Kubernetes secret resource. It holds a list of secrets. These secrets help to gain access to pull an images from a private registry.
+               
+               `ImagePullSecret$name` is required when this object is used.
+        :param pulumi.Input[Sequence[pulumi.Input['JobDefinitionEksContainerArgs']]] init_containers: These containers run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. For more information, see [Init Containers](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/workloads/pods/init-containers/) in the *Kubernetes documentation* .
+               
+               > This object is limited to 10 elements.
+        :param pulumi.Input['JobDefinitionEksMetadataArgs'] metadata: Metadata about the Kubernetes pod. For more information, see [Understanding Kubernetes Objects](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/overview/working-with-objects/kubernetes-objects/) in the *Kubernetes documentation* .
+        :param pulumi.Input[str] service_account_name: The name of the service account that's used to run the pod. For more information, see [Kubernetes service accounts](https://docs.aws.amazon.com/eks/latest/userguide/service-accounts.html) and [Configure a Kubernetes service account to assume an IAM role](https://docs.aws.amazon.com/eks/latest/userguide/associate-service-account-role.html) in the *Amazon EKS User Guide* and [Configure service accounts for pods](https://docs.aws.amazon.com/https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/) in the *Kubernetes documentation* .
+        :param pulumi.Input[bool] share_process_namespace: Indicates if the processes in a container are shared, or visible, to other containers in the same pod. For more information, see [Share Process Namespace between Containers in a Pod](https://docs.aws.amazon.com/https://kubernetes.io/docs/tasks/configure-pod-container/share-process-namespace/) .
+        :param pulumi.Input[Sequence[pulumi.Input['JobDefinitionEksVolumeArgs']]] volumes: Specifies the volumes for a job definition that uses Amazon EKS resources.
+        """
+        if containers is not None:
+            pulumi.set(__self__, "containers", containers)
+        if dns_policy is not None:
+            pulumi.set(__self__, "dns_policy", dns_policy)
+        if host_network is not None:
+            pulumi.set(__self__, "host_network", host_network)
+        if image_pull_secrets is not None:
+            pulumi.set(__self__, "image_pull_secrets", image_pull_secrets)
+        if init_containers is not None:
+            pulumi.set(__self__, "init_containers", init_containers)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+        if service_account_name is not None:
+            pulumi.set(__self__, "service_account_name", service_account_name)
+        if share_process_namespace is not None:
+            pulumi.set(__self__, "share_process_namespace", share_process_namespace)
+        if volumes is not None:
+            pulumi.set(__self__, "volumes", volumes)
+
+    @property
+    @pulumi.getter
+    def containers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionEksContainerArgs']]]]:
+        """
+        The properties of the container that's used on the Amazon EKS pod.
+
+        > This object is limited to 10 elements.
+        """
+        return pulumi.get(self, "containers")
+
+    @containers.setter
+    def containers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionEksContainerArgs']]]]):
+        pulumi.set(self, "containers", value)
+
+    @property
+    @pulumi.getter(name="dnsPolicy")
+    def dns_policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        The DNS policy for the pod. The default value is `ClusterFirst` . If the `hostNetwork` parameter is not specified, the default is `ClusterFirstWithHostNet` . `ClusterFirst` indicates that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver inherited from the node. For more information, see [Pod's DNS policy](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy) in the *Kubernetes documentation* .
+
+        Valid values: `Default` | `ClusterFirst` | `ClusterFirstWithHostNet`
+        """
+        return pulumi.get(self, "dns_policy")
+
+    @dns_policy.setter
+    def dns_policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dns_policy", value)
+
+    @property
+    @pulumi.getter(name="hostNetwork")
+    def host_network(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates if the pod uses the hosts' network IP address. The default value is `true` . Setting this to `false` enables the Kubernetes pod networking model. Most AWS Batch workloads are egress-only and don't require the overhead of IP allocation for each pod for incoming connections. For more information, see [Host namespaces](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/security/pod-security-policy/#host-namespaces) and [Pod networking](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/workloads/pods/#pod-networking) in the *Kubernetes documentation* .
+        """
+        return pulumi.get(self, "host_network")
+
+    @host_network.setter
+    def host_network(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "host_network", value)
+
+    @property
+    @pulumi.getter(name="imagePullSecrets")
+    def image_pull_secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionImagePullSecretArgs']]]]:
+        """
+        References a Kubernetes secret resource. It holds a list of secrets. These secrets help to gain access to pull an images from a private registry.
+
+        `ImagePullSecret$name` is required when this object is used.
+        """
+        return pulumi.get(self, "image_pull_secrets")
+
+    @image_pull_secrets.setter
+    def image_pull_secrets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionImagePullSecretArgs']]]]):
+        pulumi.set(self, "image_pull_secrets", value)
+
+    @property
+    @pulumi.getter(name="initContainers")
+    def init_containers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionEksContainerArgs']]]]:
+        """
+        These containers run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. For more information, see [Init Containers](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/workloads/pods/init-containers/) in the *Kubernetes documentation* .
+
+        > This object is limited to 10 elements.
+        """
+        return pulumi.get(self, "init_containers")
+
+    @init_containers.setter
+    def init_containers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionEksContainerArgs']]]]):
+        pulumi.set(self, "init_containers", value)
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[pulumi.Input['JobDefinitionEksMetadataArgs']]:
+        """
+        Metadata about the Kubernetes pod. For more information, see [Understanding Kubernetes Objects](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/overview/working-with-objects/kubernetes-objects/) in the *Kubernetes documentation* .
+        """
+        return pulumi.get(self, "metadata")
+
+    @metadata.setter
+    def metadata(self, value: Optional[pulumi.Input['JobDefinitionEksMetadataArgs']]):
+        pulumi.set(self, "metadata", value)
+
+    @property
+    @pulumi.getter(name="serviceAccountName")
+    def service_account_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the service account that's used to run the pod. For more information, see [Kubernetes service accounts](https://docs.aws.amazon.com/eks/latest/userguide/service-accounts.html) and [Configure a Kubernetes service account to assume an IAM role](https://docs.aws.amazon.com/eks/latest/userguide/associate-service-account-role.html) in the *Amazon EKS User Guide* and [Configure service accounts for pods](https://docs.aws.amazon.com/https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/) in the *Kubernetes documentation* .
+        """
+        return pulumi.get(self, "service_account_name")
+
+    @service_account_name.setter
+    def service_account_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_account_name", value)
+
+    @property
+    @pulumi.getter(name="shareProcessNamespace")
+    def share_process_namespace(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates if the processes in a container are shared, or visible, to other containers in the same pod. For more information, see [Share Process Namespace between Containers in a Pod](https://docs.aws.amazon.com/https://kubernetes.io/docs/tasks/configure-pod-container/share-process-namespace/) .
+        """
+        return pulumi.get(self, "share_process_namespace")
+
+    @share_process_namespace.setter
+    def share_process_namespace(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "share_process_namespace", value)
+
+    @property
+    @pulumi.getter
+    def volumes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionEksVolumeArgs']]]]:
+        """
+        Specifies the volumes for a job definition that uses Amazon EKS resources.
+        """
+        return pulumi.get(self, "volumes")
+
+    @volumes.setter
+    def volumes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionEksVolumeArgs']]]]):
+        pulumi.set(self, "volumes", value)
+
+
+if not MYPY:
     class JobDefinitionEksPropertiesArgsDict(TypedDict):
-        pod_properties: NotRequired[pulumi.Input['JobDefinitionPodPropertiesArgsDict']]
+        pod_properties: NotRequired[pulumi.Input['JobDefinitionEksPodPropertiesArgsDict']]
         """
         The properties for the Kubernetes pod resources of a job.
         """
@@ -2961,23 +3218,23 @@ elif False:
 @pulumi.input_type
 class JobDefinitionEksPropertiesArgs:
     def __init__(__self__, *,
-                 pod_properties: Optional[pulumi.Input['JobDefinitionPodPropertiesArgs']] = None):
+                 pod_properties: Optional[pulumi.Input['JobDefinitionEksPodPropertiesArgs']] = None):
         """
-        :param pulumi.Input['JobDefinitionPodPropertiesArgs'] pod_properties: The properties for the Kubernetes pod resources of a job.
+        :param pulumi.Input['JobDefinitionEksPodPropertiesArgs'] pod_properties: The properties for the Kubernetes pod resources of a job.
         """
         if pod_properties is not None:
             pulumi.set(__self__, "pod_properties", pod_properties)
 
     @property
     @pulumi.getter(name="podProperties")
-    def pod_properties(self) -> Optional[pulumi.Input['JobDefinitionPodPropertiesArgs']]:
+    def pod_properties(self) -> Optional[pulumi.Input['JobDefinitionEksPodPropertiesArgs']]:
         """
         The properties for the Kubernetes pod resources of a job.
         """
         return pulumi.get(self, "pod_properties")
 
     @pod_properties.setter
-    def pod_properties(self, value: Optional[pulumi.Input['JobDefinitionPodPropertiesArgs']]):
+    def pod_properties(self, value: Optional[pulumi.Input['JobDefinitionEksPodPropertiesArgs']]):
         pulumi.set(self, "pod_properties", value)
 
 
@@ -3304,40 +3561,46 @@ class JobDefinitionEvaluateOnExitArgs:
 
 
 if not MYPY:
-    class JobDefinitionFargatePlatformConfigurationArgsDict(TypedDict):
-        platform_version: NotRequired[pulumi.Input[str]]
+    class JobDefinitionHostArgsDict(TypedDict):
+        source_path: NotRequired[pulumi.Input[str]]
         """
-        The AWS Fargate platform version where the jobs are running. A platform version is specified only for jobs that are running on Fargate resources. If one isn't specified, the `LATEST` platform version is used by default. This uses a recent, approved version of the AWS Fargate platform for compute resources. For more information, see [AWS Fargate platform versions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html) in the *Amazon Elastic Container Service Developer Guide* .
+        The path on the host container instance that's presented to the container. If this parameter is empty, then the Docker daemon has assigned a host path for you. If this parameter contains a file location, then the data volume persists at the specified location on the host container instance until you delete it manually. If the source path location doesn't exist on the host container instance, the Docker daemon creates it. If the location does exist, the contents of the source path folder are exported.
+
+        > This parameter isn't applicable to jobs that run on Fargate resources. Don't provide this for these jobs.
         """
 elif False:
-    JobDefinitionFargatePlatformConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+    JobDefinitionHostArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
-class JobDefinitionFargatePlatformConfigurationArgs:
+class JobDefinitionHostArgs:
     def __init__(__self__, *,
-                 platform_version: Optional[pulumi.Input[str]] = None):
+                 source_path: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] platform_version: The AWS Fargate platform version where the jobs are running. A platform version is specified only for jobs that are running on Fargate resources. If one isn't specified, the `LATEST` platform version is used by default. This uses a recent, approved version of the AWS Fargate platform for compute resources. For more information, see [AWS Fargate platform versions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html) in the *Amazon Elastic Container Service Developer Guide* .
+        :param pulumi.Input[str] source_path: The path on the host container instance that's presented to the container. If this parameter is empty, then the Docker daemon has assigned a host path for you. If this parameter contains a file location, then the data volume persists at the specified location on the host container instance until you delete it manually. If the source path location doesn't exist on the host container instance, the Docker daemon creates it. If the location does exist, the contents of the source path folder are exported.
+               
+               > This parameter isn't applicable to jobs that run on Fargate resources. Don't provide this for these jobs.
         """
-        if platform_version is not None:
-            pulumi.set(__self__, "platform_version", platform_version)
+        if source_path is not None:
+            pulumi.set(__self__, "source_path", source_path)
 
     @property
-    @pulumi.getter(name="platformVersion")
-    def platform_version(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="sourcePath")
+    def source_path(self) -> Optional[pulumi.Input[str]]:
         """
-        The AWS Fargate platform version where the jobs are running. A platform version is specified only for jobs that are running on Fargate resources. If one isn't specified, the `LATEST` platform version is used by default. This uses a recent, approved version of the AWS Fargate platform for compute resources. For more information, see [AWS Fargate platform versions](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html) in the *Amazon Elastic Container Service Developer Guide* .
-        """
-        return pulumi.get(self, "platform_version")
+        The path on the host container instance that's presented to the container. If this parameter is empty, then the Docker daemon has assigned a host path for you. If this parameter contains a file location, then the data volume persists at the specified location on the host container instance until you delete it manually. If the source path location doesn't exist on the host container instance, the Docker daemon creates it. If the location does exist, the contents of the source path folder are exported.
 
-    @platform_version.setter
-    def platform_version(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "platform_version", value)
+        > This parameter isn't applicable to jobs that run on Fargate resources. Don't provide this for these jobs.
+        """
+        return pulumi.get(self, "source_path")
+
+    @source_path.setter
+    def source_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_path", value)
 
 
 if not MYPY:
     class JobDefinitionImagePullSecretArgsDict(TypedDict):
-        name: pulumi.Input[str]
+        name: NotRequired[pulumi.Input[str]]
         """
         Provides a unique identifier for the `ImagePullSecret` . This object is required when `EksPodProperties$imagePullSecrets` is used.
         """
@@ -3347,23 +3610,68 @@ elif False:
 @pulumi.input_type
 class JobDefinitionImagePullSecretArgs:
     def __init__(__self__, *,
-                 name: pulumi.Input[str]):
+                 name: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] name: Provides a unique identifier for the `ImagePullSecret` . This object is required when `EksPodProperties$imagePullSecrets` is used.
         """
-        pulumi.set(__self__, "name", name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Input[str]:
+    def name(self) -> Optional[pulumi.Input[str]]:
         """
         Provides a unique identifier for the `ImagePullSecret` . This object is required when `EksPodProperties$imagePullSecrets` is used.
         """
         return pulumi.get(self, "name")
 
     @name.setter
-    def name(self, value: pulumi.Input[str]):
+    def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+
+if not MYPY:
+    class JobDefinitionJobTimeoutArgsDict(TypedDict):
+        attempt_duration_seconds: NotRequired[pulumi.Input[int]]
+        """
+        The job timeout time (in seconds) that's measured from the job attempt's `startedAt` timestamp. After this time passes, AWS Batch terminates your jobs if they aren't finished. The minimum value for the timeout is 60 seconds.
+
+        For array jobs, the timeout applies to the child jobs, not to the parent array job.
+
+        For multi-node parallel (MNP) jobs, the timeout applies to the whole job, not to the individual nodes.
+        """
+elif False:
+    JobDefinitionJobTimeoutArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class JobDefinitionJobTimeoutArgs:
+    def __init__(__self__, *,
+                 attempt_duration_seconds: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] attempt_duration_seconds: The job timeout time (in seconds) that's measured from the job attempt's `startedAt` timestamp. After this time passes, AWS Batch terminates your jobs if they aren't finished. The minimum value for the timeout is 60 seconds.
+               
+               For array jobs, the timeout applies to the child jobs, not to the parent array job.
+               
+               For multi-node parallel (MNP) jobs, the timeout applies to the whole job, not to the individual nodes.
+        """
+        if attempt_duration_seconds is not None:
+            pulumi.set(__self__, "attempt_duration_seconds", attempt_duration_seconds)
+
+    @property
+    @pulumi.getter(name="attemptDurationSeconds")
+    def attempt_duration_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        The job timeout time (in seconds) that's measured from the job attempt's `startedAt` timestamp. After this time passes, AWS Batch terminates your jobs if they aren't finished. The minimum value for the timeout is 60 seconds.
+
+        For array jobs, the timeout applies to the child jobs, not to the parent array job.
+
+        For multi-node parallel (MNP) jobs, the timeout applies to the whole job, not to the individual nodes.
+        """
+        return pulumi.get(self, "attempt_duration_seconds")
+
+    @attempt_duration_seconds.setter
+    def attempt_duration_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "attempt_duration_seconds", value)
 
 
 if not MYPY:
@@ -3580,7 +3888,7 @@ if not MYPY:
 
         This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: `sudo docker version | grep "Server API version"`
         """
-        options: NotRequired[Any]
+        options: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[str]]]]
         """
         The configuration options to send to the log driver. This parameter requires version 1.19 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: `sudo docker version | grep "Server API version"`
         """
@@ -3595,7 +3903,7 @@ elif False:
 class JobDefinitionLogConfigurationArgs:
     def __init__(__self__, *,
                  log_driver: pulumi.Input[str],
-                 options: Optional[Any] = None,
+                 options: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  secret_options: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionSecretArgs']]]] = None):
         """
         :param pulumi.Input[str] log_driver: The log driver to use for the container. The valid values that are listed for this parameter are log drivers that the Amazon ECS container agent can communicate with by default.
@@ -3615,7 +3923,7 @@ class JobDefinitionLogConfigurationArgs:
                > If you have a custom driver that's not listed earlier that you want to work with the Amazon ECS container agent, you can fork the Amazon ECS container agent project that's [available on GitHub](https://docs.aws.amazon.com/https://github.com/aws/amazon-ecs-agent) and customize it to work with that driver. We encourage you to submit pull requests for changes that you want to have included. However, Amazon Web Services doesn't currently support running modified copies of this software. 
                
                This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: `sudo docker version | grep "Server API version"`
-        :param Any options: The configuration options to send to the log driver. This parameter requires version 1.19 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: `sudo docker version | grep "Server API version"`
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] options: The configuration options to send to the log driver. This parameter requires version 1.19 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: `sudo docker version | grep "Server API version"`
         :param pulumi.Input[Sequence[pulumi.Input['JobDefinitionSecretArgs']]] secret_options: The secrets to pass to the log configuration. For more information, see [Specifying sensitive data](https://docs.aws.amazon.com/batch/latest/userguide/specifying-sensitive-data.html) in the *AWS Batch User Guide* .
         """
         pulumi.set(__self__, "log_driver", log_driver)
@@ -3654,14 +3962,14 @@ class JobDefinitionLogConfigurationArgs:
 
     @property
     @pulumi.getter
-    def options(self) -> Optional[Any]:
+    def options(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         The configuration options to send to the log driver. This parameter requires version 1.19 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: `sudo docker version | grep "Server API version"`
         """
         return pulumi.get(self, "options")
 
     @options.setter
-    def options(self, value: Optional[Any]):
+    def options(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "options", value)
 
     @property
@@ -3678,39 +3986,7 @@ class JobDefinitionLogConfigurationArgs:
 
 
 if not MYPY:
-    class JobDefinitionMetadataArgsDict(TypedDict):
-        labels: NotRequired[Any]
-        """
-        Key-value pairs used to identify, sort, and organize cube resources. Can contain up to 63 uppercase letters, lowercase letters, numbers, hyphens (-), and underscores (_). Labels can be added or modified at any time. Each resource can have multiple labels, but each key must be unique for a given object.
-        """
-elif False:
-    JobDefinitionMetadataArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class JobDefinitionMetadataArgs:
-    def __init__(__self__, *,
-                 labels: Optional[Any] = None):
-        """
-        :param Any labels: Key-value pairs used to identify, sort, and organize cube resources. Can contain up to 63 uppercase letters, lowercase letters, numbers, hyphens (-), and underscores (_). Labels can be added or modified at any time. Each resource can have multiple labels, but each key must be unique for a given object.
-        """
-        if labels is not None:
-            pulumi.set(__self__, "labels", labels)
-
-    @property
-    @pulumi.getter
-    def labels(self) -> Optional[Any]:
-        """
-        Key-value pairs used to identify, sort, and organize cube resources. Can contain up to 63 uppercase letters, lowercase letters, numbers, hyphens (-), and underscores (_). Labels can be added or modified at any time. Each resource can have multiple labels, but each key must be unique for a given object.
-        """
-        return pulumi.get(self, "labels")
-
-    @labels.setter
-    def labels(self, value: Optional[Any]):
-        pulumi.set(self, "labels", value)
-
-
-if not MYPY:
-    class JobDefinitionMountPointsArgsDict(TypedDict):
+    class JobDefinitionMountPointArgsDict(TypedDict):
         container_path: NotRequired[pulumi.Input[str]]
         """
         The path on the container where the host volume is mounted.
@@ -3724,10 +4000,10 @@ if not MYPY:
         The name of the volume to mount.
         """
 elif False:
-    JobDefinitionMountPointsArgsDict: TypeAlias = Mapping[str, Any]
+    JobDefinitionMountPointArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
-class JobDefinitionMountPointsArgs:
+class JobDefinitionMountPointArgs:
     def __init__(__self__, *,
                  container_path: Optional[pulumi.Input[str]] = None,
                  read_only: Optional[pulumi.Input[bool]] = None,
@@ -3779,6 +4055,398 @@ class JobDefinitionMountPointsArgs:
     @source_volume.setter
     def source_volume(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "source_volume", value)
+
+
+if not MYPY:
+    class JobDefinitionMultiNodeContainerPropertiesArgsDict(TypedDict):
+        image: pulumi.Input[str]
+        command: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
+        environment: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobDefinitionEnvironmentArgsDict']]]]
+        ephemeral_storage: NotRequired[pulumi.Input['JobDefinitionEphemeralStorageArgsDict']]
+        execution_role_arn: NotRequired[pulumi.Input[str]]
+        instance_type: NotRequired[pulumi.Input[str]]
+        job_role_arn: NotRequired[pulumi.Input[str]]
+        linux_parameters: NotRequired[pulumi.Input['JobDefinitionLinuxParametersArgsDict']]
+        log_configuration: NotRequired[pulumi.Input['JobDefinitionLogConfigurationArgsDict']]
+        memory: NotRequired[pulumi.Input[int]]
+        mount_points: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobDefinitionMountPointArgsDict']]]]
+        privileged: NotRequired[pulumi.Input[bool]]
+        readonly_root_filesystem: NotRequired[pulumi.Input[bool]]
+        repository_credentials: NotRequired[pulumi.Input['JobDefinitionRepositoryCredentialsArgsDict']]
+        resource_requirements: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobDefinitionResourceRequirementArgsDict']]]]
+        runtime_platform: NotRequired[pulumi.Input['JobDefinitionRuntimePlatformArgsDict']]
+        secrets: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobDefinitionSecretArgsDict']]]]
+        ulimits: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobDefinitionUlimitArgsDict']]]]
+        user: NotRequired[pulumi.Input[str]]
+        vcpus: NotRequired[pulumi.Input[int]]
+        volumes: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobDefinitionVolumeArgsDict']]]]
+elif False:
+    JobDefinitionMultiNodeContainerPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class JobDefinitionMultiNodeContainerPropertiesArgs:
+    def __init__(__self__, *,
+                 image: pulumi.Input[str],
+                 command: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 environment: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionEnvironmentArgs']]]] = None,
+                 ephemeral_storage: Optional[pulumi.Input['JobDefinitionEphemeralStorageArgs']] = None,
+                 execution_role_arn: Optional[pulumi.Input[str]] = None,
+                 instance_type: Optional[pulumi.Input[str]] = None,
+                 job_role_arn: Optional[pulumi.Input[str]] = None,
+                 linux_parameters: Optional[pulumi.Input['JobDefinitionLinuxParametersArgs']] = None,
+                 log_configuration: Optional[pulumi.Input['JobDefinitionLogConfigurationArgs']] = None,
+                 memory: Optional[pulumi.Input[int]] = None,
+                 mount_points: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionMountPointArgs']]]] = None,
+                 privileged: Optional[pulumi.Input[bool]] = None,
+                 readonly_root_filesystem: Optional[pulumi.Input[bool]] = None,
+                 repository_credentials: Optional[pulumi.Input['JobDefinitionRepositoryCredentialsArgs']] = None,
+                 resource_requirements: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionResourceRequirementArgs']]]] = None,
+                 runtime_platform: Optional[pulumi.Input['JobDefinitionRuntimePlatformArgs']] = None,
+                 secrets: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionSecretArgs']]]] = None,
+                 ulimits: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionUlimitArgs']]]] = None,
+                 user: Optional[pulumi.Input[str]] = None,
+                 vcpus: Optional[pulumi.Input[int]] = None,
+                 volumes: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionVolumeArgs']]]] = None):
+        pulumi.set(__self__, "image", image)
+        if command is not None:
+            pulumi.set(__self__, "command", command)
+        if environment is not None:
+            pulumi.set(__self__, "environment", environment)
+        if ephemeral_storage is not None:
+            pulumi.set(__self__, "ephemeral_storage", ephemeral_storage)
+        if execution_role_arn is not None:
+            pulumi.set(__self__, "execution_role_arn", execution_role_arn)
+        if instance_type is not None:
+            pulumi.set(__self__, "instance_type", instance_type)
+        if job_role_arn is not None:
+            pulumi.set(__self__, "job_role_arn", job_role_arn)
+        if linux_parameters is not None:
+            pulumi.set(__self__, "linux_parameters", linux_parameters)
+        if log_configuration is not None:
+            pulumi.set(__self__, "log_configuration", log_configuration)
+        if memory is not None:
+            pulumi.set(__self__, "memory", memory)
+        if mount_points is not None:
+            pulumi.set(__self__, "mount_points", mount_points)
+        if privileged is not None:
+            pulumi.set(__self__, "privileged", privileged)
+        if readonly_root_filesystem is not None:
+            pulumi.set(__self__, "readonly_root_filesystem", readonly_root_filesystem)
+        if repository_credentials is not None:
+            pulumi.set(__self__, "repository_credentials", repository_credentials)
+        if resource_requirements is not None:
+            pulumi.set(__self__, "resource_requirements", resource_requirements)
+        if runtime_platform is not None:
+            pulumi.set(__self__, "runtime_platform", runtime_platform)
+        if secrets is not None:
+            pulumi.set(__self__, "secrets", secrets)
+        if ulimits is not None:
+            pulumi.set(__self__, "ulimits", ulimits)
+        if user is not None:
+            pulumi.set(__self__, "user", user)
+        if vcpus is not None:
+            pulumi.set(__self__, "vcpus", vcpus)
+        if volumes is not None:
+            pulumi.set(__self__, "volumes", volumes)
+
+    @property
+    @pulumi.getter
+    def image(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "image")
+
+    @image.setter
+    def image(self, value: pulumi.Input[str]):
+        pulumi.set(self, "image", value)
+
+    @property
+    @pulumi.getter
+    def command(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "command")
+
+    @command.setter
+    def command(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "command", value)
+
+    @property
+    @pulumi.getter
+    def environment(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionEnvironmentArgs']]]]:
+        return pulumi.get(self, "environment")
+
+    @environment.setter
+    def environment(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionEnvironmentArgs']]]]):
+        pulumi.set(self, "environment", value)
+
+    @property
+    @pulumi.getter(name="ephemeralStorage")
+    def ephemeral_storage(self) -> Optional[pulumi.Input['JobDefinitionEphemeralStorageArgs']]:
+        return pulumi.get(self, "ephemeral_storage")
+
+    @ephemeral_storage.setter
+    def ephemeral_storage(self, value: Optional[pulumi.Input['JobDefinitionEphemeralStorageArgs']]):
+        pulumi.set(self, "ephemeral_storage", value)
+
+    @property
+    @pulumi.getter(name="executionRoleArn")
+    def execution_role_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "execution_role_arn")
+
+    @execution_role_arn.setter
+    def execution_role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "execution_role_arn", value)
+
+    @property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "instance_type")
+
+    @instance_type.setter
+    def instance_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "instance_type", value)
+
+    @property
+    @pulumi.getter(name="jobRoleArn")
+    def job_role_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "job_role_arn")
+
+    @job_role_arn.setter
+    def job_role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "job_role_arn", value)
+
+    @property
+    @pulumi.getter(name="linuxParameters")
+    def linux_parameters(self) -> Optional[pulumi.Input['JobDefinitionLinuxParametersArgs']]:
+        return pulumi.get(self, "linux_parameters")
+
+    @linux_parameters.setter
+    def linux_parameters(self, value: Optional[pulumi.Input['JobDefinitionLinuxParametersArgs']]):
+        pulumi.set(self, "linux_parameters", value)
+
+    @property
+    @pulumi.getter(name="logConfiguration")
+    def log_configuration(self) -> Optional[pulumi.Input['JobDefinitionLogConfigurationArgs']]:
+        return pulumi.get(self, "log_configuration")
+
+    @log_configuration.setter
+    def log_configuration(self, value: Optional[pulumi.Input['JobDefinitionLogConfigurationArgs']]):
+        pulumi.set(self, "log_configuration", value)
+
+    @property
+    @pulumi.getter
+    def memory(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "memory")
+
+    @memory.setter
+    def memory(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "memory", value)
+
+    @property
+    @pulumi.getter(name="mountPoints")
+    def mount_points(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionMountPointArgs']]]]:
+        return pulumi.get(self, "mount_points")
+
+    @mount_points.setter
+    def mount_points(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionMountPointArgs']]]]):
+        pulumi.set(self, "mount_points", value)
+
+    @property
+    @pulumi.getter
+    def privileged(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "privileged")
+
+    @privileged.setter
+    def privileged(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "privileged", value)
+
+    @property
+    @pulumi.getter(name="readonlyRootFilesystem")
+    def readonly_root_filesystem(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "readonly_root_filesystem")
+
+    @readonly_root_filesystem.setter
+    def readonly_root_filesystem(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "readonly_root_filesystem", value)
+
+    @property
+    @pulumi.getter(name="repositoryCredentials")
+    def repository_credentials(self) -> Optional[pulumi.Input['JobDefinitionRepositoryCredentialsArgs']]:
+        return pulumi.get(self, "repository_credentials")
+
+    @repository_credentials.setter
+    def repository_credentials(self, value: Optional[pulumi.Input['JobDefinitionRepositoryCredentialsArgs']]):
+        pulumi.set(self, "repository_credentials", value)
+
+    @property
+    @pulumi.getter(name="resourceRequirements")
+    def resource_requirements(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionResourceRequirementArgs']]]]:
+        return pulumi.get(self, "resource_requirements")
+
+    @resource_requirements.setter
+    def resource_requirements(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionResourceRequirementArgs']]]]):
+        pulumi.set(self, "resource_requirements", value)
+
+    @property
+    @pulumi.getter(name="runtimePlatform")
+    def runtime_platform(self) -> Optional[pulumi.Input['JobDefinitionRuntimePlatformArgs']]:
+        return pulumi.get(self, "runtime_platform")
+
+    @runtime_platform.setter
+    def runtime_platform(self, value: Optional[pulumi.Input['JobDefinitionRuntimePlatformArgs']]):
+        pulumi.set(self, "runtime_platform", value)
+
+    @property
+    @pulumi.getter
+    def secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionSecretArgs']]]]:
+        return pulumi.get(self, "secrets")
+
+    @secrets.setter
+    def secrets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionSecretArgs']]]]):
+        pulumi.set(self, "secrets", value)
+
+    @property
+    @pulumi.getter
+    def ulimits(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionUlimitArgs']]]]:
+        return pulumi.get(self, "ulimits")
+
+    @ulimits.setter
+    def ulimits(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionUlimitArgs']]]]):
+        pulumi.set(self, "ulimits", value)
+
+    @property
+    @pulumi.getter
+    def user(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "user")
+
+    @user.setter
+    def user(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user", value)
+
+    @property
+    @pulumi.getter
+    def vcpus(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "vcpus")
+
+    @vcpus.setter
+    def vcpus(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "vcpus", value)
+
+    @property
+    @pulumi.getter
+    def volumes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionVolumeArgs']]]]:
+        return pulumi.get(self, "volumes")
+
+    @volumes.setter
+    def volumes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionVolumeArgs']]]]):
+        pulumi.set(self, "volumes", value)
+
+
+if not MYPY:
+    class JobDefinitionMultiNodeEcsPropertiesArgsDict(TypedDict):
+        task_properties: pulumi.Input[Sequence[pulumi.Input['JobDefinitionMultiNodeEcsTaskPropertiesArgsDict']]]
+elif False:
+    JobDefinitionMultiNodeEcsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class JobDefinitionMultiNodeEcsPropertiesArgs:
+    def __init__(__self__, *,
+                 task_properties: pulumi.Input[Sequence[pulumi.Input['JobDefinitionMultiNodeEcsTaskPropertiesArgs']]]):
+        pulumi.set(__self__, "task_properties", task_properties)
+
+    @property
+    @pulumi.getter(name="taskProperties")
+    def task_properties(self) -> pulumi.Input[Sequence[pulumi.Input['JobDefinitionMultiNodeEcsTaskPropertiesArgs']]]:
+        return pulumi.get(self, "task_properties")
+
+    @task_properties.setter
+    def task_properties(self, value: pulumi.Input[Sequence[pulumi.Input['JobDefinitionMultiNodeEcsTaskPropertiesArgs']]]):
+        pulumi.set(self, "task_properties", value)
+
+
+if not MYPY:
+    class JobDefinitionMultiNodeEcsTaskPropertiesArgsDict(TypedDict):
+        containers: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobDefinitionTaskContainerPropertiesArgsDict']]]]
+        execution_role_arn: NotRequired[pulumi.Input[str]]
+        ipc_mode: NotRequired[pulumi.Input[str]]
+        pid_mode: NotRequired[pulumi.Input[str]]
+        task_role_arn: NotRequired[pulumi.Input[str]]
+        volumes: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobDefinitionVolumeArgsDict']]]]
+elif False:
+    JobDefinitionMultiNodeEcsTaskPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class JobDefinitionMultiNodeEcsTaskPropertiesArgs:
+    def __init__(__self__, *,
+                 containers: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionTaskContainerPropertiesArgs']]]] = None,
+                 execution_role_arn: Optional[pulumi.Input[str]] = None,
+                 ipc_mode: Optional[pulumi.Input[str]] = None,
+                 pid_mode: Optional[pulumi.Input[str]] = None,
+                 task_role_arn: Optional[pulumi.Input[str]] = None,
+                 volumes: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionVolumeArgs']]]] = None):
+        if containers is not None:
+            pulumi.set(__self__, "containers", containers)
+        if execution_role_arn is not None:
+            pulumi.set(__self__, "execution_role_arn", execution_role_arn)
+        if ipc_mode is not None:
+            pulumi.set(__self__, "ipc_mode", ipc_mode)
+        if pid_mode is not None:
+            pulumi.set(__self__, "pid_mode", pid_mode)
+        if task_role_arn is not None:
+            pulumi.set(__self__, "task_role_arn", task_role_arn)
+        if volumes is not None:
+            pulumi.set(__self__, "volumes", volumes)
+
+    @property
+    @pulumi.getter
+    def containers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionTaskContainerPropertiesArgs']]]]:
+        return pulumi.get(self, "containers")
+
+    @containers.setter
+    def containers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionTaskContainerPropertiesArgs']]]]):
+        pulumi.set(self, "containers", value)
+
+    @property
+    @pulumi.getter(name="executionRoleArn")
+    def execution_role_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "execution_role_arn")
+
+    @execution_role_arn.setter
+    def execution_role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "execution_role_arn", value)
+
+    @property
+    @pulumi.getter(name="ipcMode")
+    def ipc_mode(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "ipc_mode")
+
+    @ipc_mode.setter
+    def ipc_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ipc_mode", value)
+
+    @property
+    @pulumi.getter(name="pidMode")
+    def pid_mode(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "pid_mode")
+
+    @pid_mode.setter
+    def pid_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "pid_mode", value)
+
+    @property
+    @pulumi.getter(name="taskRoleArn")
+    def task_role_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "task_role_arn")
+
+    @task_role_arn.setter
+    def task_role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "task_role_arn", value)
+
+    @property
+    @pulumi.getter
+    def volumes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionVolumeArgs']]]]:
+        return pulumi.get(self, "volumes")
+
+    @volumes.setter
+    def volumes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionVolumeArgs']]]]):
+        pulumi.set(self, "volumes", value)
 
 
 if not MYPY:
@@ -3888,11 +4556,11 @@ if not MYPY:
         """
         The range of nodes, using node index values. A range of `0:3` indicates nodes with index values of `0` through `3` . If the starting range value is omitted ( `:n` ), then `0` is used to start the range. If the ending range value is omitted ( `n:` ), then the highest possible node index is used to end the range. Your accumulative node ranges must account for all nodes ( `0:n` ). You can nest node ranges (for example, `0:10` and `4:5` ). In this case, the `4:5` range properties override the `0:10` properties.
         """
-        container: NotRequired[pulumi.Input['JobDefinitionContainerPropertiesArgsDict']]
+        container: NotRequired[pulumi.Input['JobDefinitionMultiNodeContainerPropertiesArgsDict']]
         """
         The container details for the node range.
         """
-        ecs_properties: NotRequired[pulumi.Input['JobDefinitionEcsPropertiesArgsDict']]
+        ecs_properties: NotRequired[pulumi.Input['JobDefinitionMultiNodeEcsPropertiesArgsDict']]
         """
         This is an object that represents the properties of the node range for a multi-node parallel job.
         """
@@ -3915,14 +4583,14 @@ elif False:
 class JobDefinitionNodeRangePropertyArgs:
     def __init__(__self__, *,
                  target_nodes: pulumi.Input[str],
-                 container: Optional[pulumi.Input['JobDefinitionContainerPropertiesArgs']] = None,
-                 ecs_properties: Optional[pulumi.Input['JobDefinitionEcsPropertiesArgs']] = None,
+                 container: Optional[pulumi.Input['JobDefinitionMultiNodeContainerPropertiesArgs']] = None,
+                 ecs_properties: Optional[pulumi.Input['JobDefinitionMultiNodeEcsPropertiesArgs']] = None,
                  eks_properties: Optional[pulumi.Input['JobDefinitionEksPropertiesArgs']] = None,
                  instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[str] target_nodes: The range of nodes, using node index values. A range of `0:3` indicates nodes with index values of `0` through `3` . If the starting range value is omitted ( `:n` ), then `0` is used to start the range. If the ending range value is omitted ( `n:` ), then the highest possible node index is used to end the range. Your accumulative node ranges must account for all nodes ( `0:n` ). You can nest node ranges (for example, `0:10` and `4:5` ). In this case, the `4:5` range properties override the `0:10` properties.
-        :param pulumi.Input['JobDefinitionContainerPropertiesArgs'] container: The container details for the node range.
-        :param pulumi.Input['JobDefinitionEcsPropertiesArgs'] ecs_properties: This is an object that represents the properties of the node range for a multi-node parallel job.
+        :param pulumi.Input['JobDefinitionMultiNodeContainerPropertiesArgs'] container: The container details for the node range.
+        :param pulumi.Input['JobDefinitionMultiNodeEcsPropertiesArgs'] ecs_properties: This is an object that represents the properties of the node range for a multi-node parallel job.
         :param pulumi.Input['JobDefinitionEksPropertiesArgs'] eks_properties: This is an object that represents the properties of the node range for a multi-node parallel job.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] instance_types: The instance types of the underlying host infrastructure of a multi-node parallel job.
                
@@ -3954,26 +4622,26 @@ class JobDefinitionNodeRangePropertyArgs:
 
     @property
     @pulumi.getter
-    def container(self) -> Optional[pulumi.Input['JobDefinitionContainerPropertiesArgs']]:
+    def container(self) -> Optional[pulumi.Input['JobDefinitionMultiNodeContainerPropertiesArgs']]:
         """
         The container details for the node range.
         """
         return pulumi.get(self, "container")
 
     @container.setter
-    def container(self, value: Optional[pulumi.Input['JobDefinitionContainerPropertiesArgs']]):
+    def container(self, value: Optional[pulumi.Input['JobDefinitionMultiNodeContainerPropertiesArgs']]):
         pulumi.set(self, "container", value)
 
     @property
     @pulumi.getter(name="ecsProperties")
-    def ecs_properties(self) -> Optional[pulumi.Input['JobDefinitionEcsPropertiesArgs']]:
+    def ecs_properties(self) -> Optional[pulumi.Input['JobDefinitionMultiNodeEcsPropertiesArgs']]:
         """
         This is an object that represents the properties of the node range for a multi-node parallel job.
         """
         return pulumi.get(self, "ecs_properties")
 
     @ecs_properties.setter
-    def ecs_properties(self, value: Optional[pulumi.Input['JobDefinitionEcsPropertiesArgs']]):
+    def ecs_properties(self, value: Optional[pulumi.Input['JobDefinitionMultiNodeEcsPropertiesArgs']]):
         pulumi.set(self, "ecs_properties", value)
 
     @property
@@ -4003,209 +4671,6 @@ class JobDefinitionNodeRangePropertyArgs:
     @instance_types.setter
     def instance_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "instance_types", value)
-
-
-if not MYPY:
-    class JobDefinitionPodPropertiesArgsDict(TypedDict):
-        containers: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobDefinitionEksContainerArgsDict']]]]
-        """
-        The properties of the container that's used on the Amazon EKS pod.
-
-        > This object is limited to 10 elements.
-        """
-        dns_policy: NotRequired[pulumi.Input[str]]
-        """
-        The DNS policy for the pod. The default value is `ClusterFirst` . If the `hostNetwork` parameter is not specified, the default is `ClusterFirstWithHostNet` . `ClusterFirst` indicates that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver inherited from the node. For more information, see [Pod's DNS policy](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy) in the *Kubernetes documentation* .
-
-        Valid values: `Default` | `ClusterFirst` | `ClusterFirstWithHostNet`
-        """
-        host_network: NotRequired[pulumi.Input[bool]]
-        """
-        Indicates if the pod uses the hosts' network IP address. The default value is `true` . Setting this to `false` enables the Kubernetes pod networking model. Most AWS Batch workloads are egress-only and don't require the overhead of IP allocation for each pod for incoming connections. For more information, see [Host namespaces](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/security/pod-security-policy/#host-namespaces) and [Pod networking](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/workloads/pods/#pod-networking) in the *Kubernetes documentation* .
-        """
-        image_pull_secrets: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobDefinitionImagePullSecretArgsDict']]]]
-        init_containers: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobDefinitionEksContainerArgsDict']]]]
-        """
-        These containers run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. For more information, see [Init Containers](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/workloads/pods/init-containers/) in the *Kubernetes documentation* .
-
-        > This object is limited to 10 elements.
-        """
-        metadata: NotRequired[pulumi.Input['JobDefinitionMetadataArgsDict']]
-        """
-        Metadata about the Kubernetes pod. For more information, see [Understanding Kubernetes Objects](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/overview/working-with-objects/kubernetes-objects/) in the *Kubernetes documentation* .
-        """
-        service_account_name: NotRequired[pulumi.Input[str]]
-        """
-        The name of the service account that's used to run the pod. For more information, see [Kubernetes service accounts](https://docs.aws.amazon.com/eks/latest/userguide/service-accounts.html) and [Configure a Kubernetes service account to assume an IAM role](https://docs.aws.amazon.com/eks/latest/userguide/associate-service-account-role.html) in the *Amazon EKS User Guide* and [Configure service accounts for pods](https://docs.aws.amazon.com/https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/) in the *Kubernetes documentation* .
-        """
-        share_process_namespace: NotRequired[pulumi.Input[bool]]
-        """
-        Indicates if the processes in a container are shared, or visible, to other containers in the same pod. For more information, see [Share Process Namespace between Containers in a Pod](https://docs.aws.amazon.com/https://kubernetes.io/docs/tasks/configure-pod-container/share-process-namespace/) .
-        """
-        volumes: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobDefinitionEksVolumeArgsDict']]]]
-        """
-        Specifies the volumes for a job definition that uses Amazon EKS resources.
-        """
-elif False:
-    JobDefinitionPodPropertiesArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class JobDefinitionPodPropertiesArgs:
-    def __init__(__self__, *,
-                 containers: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionEksContainerArgs']]]] = None,
-                 dns_policy: Optional[pulumi.Input[str]] = None,
-                 host_network: Optional[pulumi.Input[bool]] = None,
-                 image_pull_secrets: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionImagePullSecretArgs']]]] = None,
-                 init_containers: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionEksContainerArgs']]]] = None,
-                 metadata: Optional[pulumi.Input['JobDefinitionMetadataArgs']] = None,
-                 service_account_name: Optional[pulumi.Input[str]] = None,
-                 share_process_namespace: Optional[pulumi.Input[bool]] = None,
-                 volumes: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionEksVolumeArgs']]]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input['JobDefinitionEksContainerArgs']]] containers: The properties of the container that's used on the Amazon EKS pod.
-               
-               > This object is limited to 10 elements.
-        :param pulumi.Input[str] dns_policy: The DNS policy for the pod. The default value is `ClusterFirst` . If the `hostNetwork` parameter is not specified, the default is `ClusterFirstWithHostNet` . `ClusterFirst` indicates that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver inherited from the node. For more information, see [Pod's DNS policy](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy) in the *Kubernetes documentation* .
-               
-               Valid values: `Default` | `ClusterFirst` | `ClusterFirstWithHostNet`
-        :param pulumi.Input[bool] host_network: Indicates if the pod uses the hosts' network IP address. The default value is `true` . Setting this to `false` enables the Kubernetes pod networking model. Most AWS Batch workloads are egress-only and don't require the overhead of IP allocation for each pod for incoming connections. For more information, see [Host namespaces](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/security/pod-security-policy/#host-namespaces) and [Pod networking](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/workloads/pods/#pod-networking) in the *Kubernetes documentation* .
-        :param pulumi.Input[Sequence[pulumi.Input['JobDefinitionEksContainerArgs']]] init_containers: These containers run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. For more information, see [Init Containers](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/workloads/pods/init-containers/) in the *Kubernetes documentation* .
-               
-               > This object is limited to 10 elements.
-        :param pulumi.Input['JobDefinitionMetadataArgs'] metadata: Metadata about the Kubernetes pod. For more information, see [Understanding Kubernetes Objects](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/overview/working-with-objects/kubernetes-objects/) in the *Kubernetes documentation* .
-        :param pulumi.Input[str] service_account_name: The name of the service account that's used to run the pod. For more information, see [Kubernetes service accounts](https://docs.aws.amazon.com/eks/latest/userguide/service-accounts.html) and [Configure a Kubernetes service account to assume an IAM role](https://docs.aws.amazon.com/eks/latest/userguide/associate-service-account-role.html) in the *Amazon EKS User Guide* and [Configure service accounts for pods](https://docs.aws.amazon.com/https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/) in the *Kubernetes documentation* .
-        :param pulumi.Input[bool] share_process_namespace: Indicates if the processes in a container are shared, or visible, to other containers in the same pod. For more information, see [Share Process Namespace between Containers in a Pod](https://docs.aws.amazon.com/https://kubernetes.io/docs/tasks/configure-pod-container/share-process-namespace/) .
-        :param pulumi.Input[Sequence[pulumi.Input['JobDefinitionEksVolumeArgs']]] volumes: Specifies the volumes for a job definition that uses Amazon EKS resources.
-        """
-        if containers is not None:
-            pulumi.set(__self__, "containers", containers)
-        if dns_policy is not None:
-            pulumi.set(__self__, "dns_policy", dns_policy)
-        if host_network is not None:
-            pulumi.set(__self__, "host_network", host_network)
-        if image_pull_secrets is not None:
-            pulumi.set(__self__, "image_pull_secrets", image_pull_secrets)
-        if init_containers is not None:
-            pulumi.set(__self__, "init_containers", init_containers)
-        if metadata is not None:
-            pulumi.set(__self__, "metadata", metadata)
-        if service_account_name is not None:
-            pulumi.set(__self__, "service_account_name", service_account_name)
-        if share_process_namespace is not None:
-            pulumi.set(__self__, "share_process_namespace", share_process_namespace)
-        if volumes is not None:
-            pulumi.set(__self__, "volumes", volumes)
-
-    @property
-    @pulumi.getter
-    def containers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionEksContainerArgs']]]]:
-        """
-        The properties of the container that's used on the Amazon EKS pod.
-
-        > This object is limited to 10 elements.
-        """
-        return pulumi.get(self, "containers")
-
-    @containers.setter
-    def containers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionEksContainerArgs']]]]):
-        pulumi.set(self, "containers", value)
-
-    @property
-    @pulumi.getter(name="dnsPolicy")
-    def dns_policy(self) -> Optional[pulumi.Input[str]]:
-        """
-        The DNS policy for the pod. The default value is `ClusterFirst` . If the `hostNetwork` parameter is not specified, the default is `ClusterFirstWithHostNet` . `ClusterFirst` indicates that any DNS query that does not match the configured cluster domain suffix is forwarded to the upstream nameserver inherited from the node. For more information, see [Pod's DNS policy](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy) in the *Kubernetes documentation* .
-
-        Valid values: `Default` | `ClusterFirst` | `ClusterFirstWithHostNet`
-        """
-        return pulumi.get(self, "dns_policy")
-
-    @dns_policy.setter
-    def dns_policy(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "dns_policy", value)
-
-    @property
-    @pulumi.getter(name="hostNetwork")
-    def host_network(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicates if the pod uses the hosts' network IP address. The default value is `true` . Setting this to `false` enables the Kubernetes pod networking model. Most AWS Batch workloads are egress-only and don't require the overhead of IP allocation for each pod for incoming connections. For more information, see [Host namespaces](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/security/pod-security-policy/#host-namespaces) and [Pod networking](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/workloads/pods/#pod-networking) in the *Kubernetes documentation* .
-        """
-        return pulumi.get(self, "host_network")
-
-    @host_network.setter
-    def host_network(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "host_network", value)
-
-    @property
-    @pulumi.getter(name="imagePullSecrets")
-    def image_pull_secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionImagePullSecretArgs']]]]:
-        return pulumi.get(self, "image_pull_secrets")
-
-    @image_pull_secrets.setter
-    def image_pull_secrets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionImagePullSecretArgs']]]]):
-        pulumi.set(self, "image_pull_secrets", value)
-
-    @property
-    @pulumi.getter(name="initContainers")
-    def init_containers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionEksContainerArgs']]]]:
-        """
-        These containers run before application containers, always runs to completion, and must complete successfully before the next container starts. These containers are registered with the Amazon EKS Connector agent and persists the registration information in the Kubernetes backend data store. For more information, see [Init Containers](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/workloads/pods/init-containers/) in the *Kubernetes documentation* .
-
-        > This object is limited to 10 elements.
-        """
-        return pulumi.get(self, "init_containers")
-
-    @init_containers.setter
-    def init_containers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionEksContainerArgs']]]]):
-        pulumi.set(self, "init_containers", value)
-
-    @property
-    @pulumi.getter
-    def metadata(self) -> Optional[pulumi.Input['JobDefinitionMetadataArgs']]:
-        """
-        Metadata about the Kubernetes pod. For more information, see [Understanding Kubernetes Objects](https://docs.aws.amazon.com/https://kubernetes.io/docs/concepts/overview/working-with-objects/kubernetes-objects/) in the *Kubernetes documentation* .
-        """
-        return pulumi.get(self, "metadata")
-
-    @metadata.setter
-    def metadata(self, value: Optional[pulumi.Input['JobDefinitionMetadataArgs']]):
-        pulumi.set(self, "metadata", value)
-
-    @property
-    @pulumi.getter(name="serviceAccountName")
-    def service_account_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the service account that's used to run the pod. For more information, see [Kubernetes service accounts](https://docs.aws.amazon.com/eks/latest/userguide/service-accounts.html) and [Configure a Kubernetes service account to assume an IAM role](https://docs.aws.amazon.com/eks/latest/userguide/associate-service-account-role.html) in the *Amazon EKS User Guide* and [Configure service accounts for pods](https://docs.aws.amazon.com/https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/) in the *Kubernetes documentation* .
-        """
-        return pulumi.get(self, "service_account_name")
-
-    @service_account_name.setter
-    def service_account_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "service_account_name", value)
-
-    @property
-    @pulumi.getter(name="shareProcessNamespace")
-    def share_process_namespace(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Indicates if the processes in a container are shared, or visible, to other containers in the same pod. For more information, see [Share Process Namespace between Containers in a Pod](https://docs.aws.amazon.com/https://kubernetes.io/docs/tasks/configure-pod-container/share-process-namespace/) .
-        """
-        return pulumi.get(self, "share_process_namespace")
-
-    @share_process_namespace.setter
-    def share_process_namespace(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "share_process_namespace", value)
-
-    @property
-    @pulumi.getter
-    def volumes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionEksVolumeArgs']]]]:
-        """
-        Specifies the volumes for a job definition that uses Amazon EKS resources.
-        """
-        return pulumi.get(self, "volumes")
-
-    @volumes.setter
-    def volumes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionEksVolumeArgs']]]]):
-        pulumi.set(self, "volumes", value)
 
 
 if not MYPY:
@@ -4680,7 +5145,7 @@ if not MYPY:
 
         > The Amazon ECS container agent running on a container instance must register the logging drivers available on that instance with the `ECS_AVAILABLE_LOGGING_DRIVERS` environment variable before containers placed on that instance can use these log configuration options. For more information, see [Amazon ECS container agent configuration](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html) in the *Amazon Elastic Container Service Developer Guide* .
         """
-        mount_points: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobDefinitionMountPointsArgsDict']]]]
+        mount_points: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobDefinitionMountPointArgsDict']]]]
         """
         The mount points for data volumes in your container.
 
@@ -4756,7 +5221,7 @@ class JobDefinitionTaskContainerPropertiesArgs:
                  essential: Optional[pulumi.Input[bool]] = None,
                  linux_parameters: Optional[pulumi.Input['JobDefinitionLinuxParametersArgs']] = None,
                  log_configuration: Optional[pulumi.Input['JobDefinitionLogConfigurationArgs']] = None,
-                 mount_points: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionMountPointsArgs']]]] = None,
+                 mount_points: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionMountPointArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  privileged: Optional[pulumi.Input[bool]] = None,
                  readonly_root_filesystem: Optional[pulumi.Input[bool]] = None,
@@ -4787,7 +5252,7 @@ class JobDefinitionTaskContainerPropertiesArgs:
                This parameter requires version 1.18 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: sudo docker version `--format '{{.Server.APIVersion}}'`
                
                > The Amazon ECS container agent running on a container instance must register the logging drivers available on that instance with the `ECS_AVAILABLE_LOGGING_DRIVERS` environment variable before containers placed on that instance can use these log configuration options. For more information, see [Amazon ECS container agent configuration](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-agent-config.html) in the *Amazon Elastic Container Service Developer Guide* .
-        :param pulumi.Input[Sequence[pulumi.Input['JobDefinitionMountPointsArgs']]] mount_points: The mount points for data volumes in your container.
+        :param pulumi.Input[Sequence[pulumi.Input['JobDefinitionMountPointArgs']]] mount_points: The mount points for data volumes in your container.
                
                This parameter maps to `Volumes` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the [--volume](https://docs.aws.amazon.com/) option to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration) .
                
@@ -4956,7 +5421,7 @@ class JobDefinitionTaskContainerPropertiesArgs:
 
     @property
     @pulumi.getter(name="mountPoints")
-    def mount_points(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionMountPointsArgs']]]]:
+    def mount_points(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionMountPointArgs']]]]:
         """
         The mount points for data volumes in your container.
 
@@ -4967,7 +5432,7 @@ class JobDefinitionTaskContainerPropertiesArgs:
         return pulumi.get(self, "mount_points")
 
     @mount_points.setter
-    def mount_points(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionMountPointsArgs']]]]):
+    def mount_points(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionMountPointArgs']]]]):
         pulumi.set(self, "mount_points", value)
 
     @property
@@ -5088,50 +5553,6 @@ class JobDefinitionTaskContainerPropertiesArgs:
     @user.setter
     def user(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "user", value)
-
-
-if not MYPY:
-    class JobDefinitionTimeoutArgsDict(TypedDict):
-        attempt_duration_seconds: NotRequired[pulumi.Input[int]]
-        """
-        The job timeout time (in seconds) that's measured from the job attempt's `startedAt` timestamp. After this time passes, AWS Batch terminates your jobs if they aren't finished. The minimum value for the timeout is 60 seconds.
-
-        For array jobs, the timeout applies to the child jobs, not to the parent array job.
-
-        For multi-node parallel (MNP) jobs, the timeout applies to the whole job, not to the individual nodes.
-        """
-elif False:
-    JobDefinitionTimeoutArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class JobDefinitionTimeoutArgs:
-    def __init__(__self__, *,
-                 attempt_duration_seconds: Optional[pulumi.Input[int]] = None):
-        """
-        :param pulumi.Input[int] attempt_duration_seconds: The job timeout time (in seconds) that's measured from the job attempt's `startedAt` timestamp. After this time passes, AWS Batch terminates your jobs if they aren't finished. The minimum value for the timeout is 60 seconds.
-               
-               For array jobs, the timeout applies to the child jobs, not to the parent array job.
-               
-               For multi-node parallel (MNP) jobs, the timeout applies to the whole job, not to the individual nodes.
-        """
-        if attempt_duration_seconds is not None:
-            pulumi.set(__self__, "attempt_duration_seconds", attempt_duration_seconds)
-
-    @property
-    @pulumi.getter(name="attemptDurationSeconds")
-    def attempt_duration_seconds(self) -> Optional[pulumi.Input[int]]:
-        """
-        The job timeout time (in seconds) that's measured from the job attempt's `startedAt` timestamp. After this time passes, AWS Batch terminates your jobs if they aren't finished. The minimum value for the timeout is 60 seconds.
-
-        For array jobs, the timeout applies to the child jobs, not to the parent array job.
-
-        For multi-node parallel (MNP) jobs, the timeout applies to the whole job, not to the individual nodes.
-        """
-        return pulumi.get(self, "attempt_duration_seconds")
-
-    @attempt_duration_seconds.setter
-    def attempt_duration_seconds(self, value: Optional[pulumi.Input[int]]):
-        pulumi.set(self, "attempt_duration_seconds", value)
 
 
 if not MYPY:
@@ -5280,50 +5701,12 @@ class JobDefinitionUlimitArgs:
 
 
 if not MYPY:
-    class JobDefinitionVolumesHostArgsDict(TypedDict):
-        source_path: NotRequired[pulumi.Input[str]]
-        """
-        The path on the host container instance that's presented to the container. If this parameter is empty, then the Docker daemon has assigned a host path for you. If this parameter contains a file location, then the data volume persists at the specified location on the host container instance until you delete it manually. If the source path location doesn't exist on the host container instance, the Docker daemon creates it. If the location does exist, the contents of the source path folder are exported.
-
-        > This parameter isn't applicable to jobs that run on Fargate resources. Don't provide this for these jobs.
-        """
-elif False:
-    JobDefinitionVolumesHostArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class JobDefinitionVolumesHostArgs:
-    def __init__(__self__, *,
-                 source_path: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] source_path: The path on the host container instance that's presented to the container. If this parameter is empty, then the Docker daemon has assigned a host path for you. If this parameter contains a file location, then the data volume persists at the specified location on the host container instance until you delete it manually. If the source path location doesn't exist on the host container instance, the Docker daemon creates it. If the location does exist, the contents of the source path folder are exported.
-               
-               > This parameter isn't applicable to jobs that run on Fargate resources. Don't provide this for these jobs.
-        """
-        if source_path is not None:
-            pulumi.set(__self__, "source_path", source_path)
-
-    @property
-    @pulumi.getter(name="sourcePath")
-    def source_path(self) -> Optional[pulumi.Input[str]]:
-        """
-        The path on the host container instance that's presented to the container. If this parameter is empty, then the Docker daemon has assigned a host path for you. If this parameter contains a file location, then the data volume persists at the specified location on the host container instance until you delete it manually. If the source path location doesn't exist on the host container instance, the Docker daemon creates it. If the location does exist, the contents of the source path folder are exported.
-
-        > This parameter isn't applicable to jobs that run on Fargate resources. Don't provide this for these jobs.
-        """
-        return pulumi.get(self, "source_path")
-
-    @source_path.setter
-    def source_path(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "source_path", value)
-
-
-if not MYPY:
-    class JobDefinitionVolumesArgsDict(TypedDict):
+    class JobDefinitionVolumeArgsDict(TypedDict):
         efs_volume_configuration: NotRequired[pulumi.Input['JobDefinitionEfsVolumeConfigurationArgsDict']]
         """
-        This is used when you're using an Amazon Elastic File System file system for job storage. For more information, see [Amazon EFS Volumes](https://docs.aws.amazon.com/batch/latest/userguide/efs-volumes.html) in the *AWS Batch User Guide* .
+        This parameter is specified when you're using an Amazon Elastic File System file system for job storage. Jobs that are running on Fargate resources must specify a `platformVersion` of at least `1.4.0` .
         """
-        host: NotRequired[pulumi.Input['JobDefinitionVolumesHostArgsDict']]
+        host: NotRequired[pulumi.Input['JobDefinitionHostArgsDict']]
         """
         The contents of the `host` parameter determine whether your data volume persists on the host container instance and where it's stored. If the host parameter is empty, then the Docker daemon assigns a host path for your data volume. However, the data isn't guaranteed to persist after the containers that are associated with it stop running.
 
@@ -5334,17 +5717,17 @@ if not MYPY:
         The name of the volume. It can be up to 255 characters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_). This name is referenced in the `sourceVolume` parameter of container definition `mountPoints` .
         """
 elif False:
-    JobDefinitionVolumesArgsDict: TypeAlias = Mapping[str, Any]
+    JobDefinitionVolumeArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
-class JobDefinitionVolumesArgs:
+class JobDefinitionVolumeArgs:
     def __init__(__self__, *,
                  efs_volume_configuration: Optional[pulumi.Input['JobDefinitionEfsVolumeConfigurationArgs']] = None,
-                 host: Optional[pulumi.Input['JobDefinitionVolumesHostArgs']] = None,
+                 host: Optional[pulumi.Input['JobDefinitionHostArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input['JobDefinitionEfsVolumeConfigurationArgs'] efs_volume_configuration: This is used when you're using an Amazon Elastic File System file system for job storage. For more information, see [Amazon EFS Volumes](https://docs.aws.amazon.com/batch/latest/userguide/efs-volumes.html) in the *AWS Batch User Guide* .
-        :param pulumi.Input['JobDefinitionVolumesHostArgs'] host: The contents of the `host` parameter determine whether your data volume persists on the host container instance and where it's stored. If the host parameter is empty, then the Docker daemon assigns a host path for your data volume. However, the data isn't guaranteed to persist after the containers that are associated with it stop running.
+        :param pulumi.Input['JobDefinitionEfsVolumeConfigurationArgs'] efs_volume_configuration: This parameter is specified when you're using an Amazon Elastic File System file system for job storage. Jobs that are running on Fargate resources must specify a `platformVersion` of at least `1.4.0` .
+        :param pulumi.Input['JobDefinitionHostArgs'] host: The contents of the `host` parameter determine whether your data volume persists on the host container instance and where it's stored. If the host parameter is empty, then the Docker daemon assigns a host path for your data volume. However, the data isn't guaranteed to persist after the containers that are associated with it stop running.
                
                > This parameter isn't applicable to jobs that are running on Fargate resources and shouldn't be provided.
         :param pulumi.Input[str] name: The name of the volume. It can be up to 255 characters long. It can contain uppercase and lowercase letters, numbers, hyphens (-), and underscores (_). This name is referenced in the `sourceVolume` parameter of container definition `mountPoints` .
@@ -5360,7 +5743,7 @@ class JobDefinitionVolumesArgs:
     @pulumi.getter(name="efsVolumeConfiguration")
     def efs_volume_configuration(self) -> Optional[pulumi.Input['JobDefinitionEfsVolumeConfigurationArgs']]:
         """
-        This is used when you're using an Amazon Elastic File System file system for job storage. For more information, see [Amazon EFS Volumes](https://docs.aws.amazon.com/batch/latest/userguide/efs-volumes.html) in the *AWS Batch User Guide* .
+        This parameter is specified when you're using an Amazon Elastic File System file system for job storage. Jobs that are running on Fargate resources must specify a `platformVersion` of at least `1.4.0` .
         """
         return pulumi.get(self, "efs_volume_configuration")
 
@@ -5370,7 +5753,7 @@ class JobDefinitionVolumesArgs:
 
     @property
     @pulumi.getter
-    def host(self) -> Optional[pulumi.Input['JobDefinitionVolumesHostArgs']]:
+    def host(self) -> Optional[pulumi.Input['JobDefinitionHostArgs']]:
         """
         The contents of the `host` parameter determine whether your data volume persists on the host container instance and where it's stored. If the host parameter is empty, then the Docker daemon assigns a host path for your data volume. However, the data isn't guaranteed to persist after the containers that are associated with it stop running.
 
@@ -5379,7 +5762,7 @@ class JobDefinitionVolumesArgs:
         return pulumi.get(self, "host")
 
     @host.setter
-    def host(self, value: Optional[pulumi.Input['JobDefinitionVolumesHostArgs']]):
+    def host(self, value: Optional[pulumi.Input['JobDefinitionHostArgs']]):
         pulumi.set(self, "host", value)
 
     @property

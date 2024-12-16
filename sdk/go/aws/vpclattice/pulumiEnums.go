@@ -435,6 +435,7 @@ func (in *listenerProtocolPtr) ToListenerProtocolPtrOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, in).(ListenerProtocolPtrOutput)
 }
 
+// The auth type for the resource configuration.
 type ResourceConfigurationAuthType string
 
 const (
@@ -767,6 +768,7 @@ func (in *resourceConfigurationDnsResourceIpAddressTypePtr) ToResourceConfigurat
 	return pulumi.ToOutputWithContext(ctx, in).(ResourceConfigurationDnsResourceIpAddressTypePtrOutput)
 }
 
+// (SINGLE, GROUP) The protocol accepted by the resource configuration.
 type ResourceConfigurationProtocolType string
 
 const (
@@ -930,6 +932,12 @@ func (in *resourceConfigurationProtocolTypePtr) ToResourceConfigurationProtocolT
 	return pulumi.ToOutputWithContext(ctx, in).(ResourceConfigurationProtocolTypePtrOutput)
 }
 
+// The type of resource configuration. A resource configuration can be one of the following types:
+//
+// - *SINGLE* - A single resource.
+// - *GROUP* - A group of resources. You must create a group resource configuration before you create a child resource configuration.
+// - *CHILD* - A single resource that is part of a group resource configuration.
+// - *ARN* - An AWS resource.
 type ResourceConfigurationType string
 
 const (
@@ -1099,6 +1107,7 @@ func (in *resourceConfigurationTypePtr) ToResourceConfigurationTypePtrOutputWith
 	return pulumi.ToOutputWithContext(ctx, in).(ResourceConfigurationTypePtrOutput)
 }
 
+// The type of IP address used by the resource gateway.
 type ResourceGatewayIpAddressType string
 
 const (

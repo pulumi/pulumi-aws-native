@@ -79,6 +79,9 @@ namespace Pulumi.AwsNative.QBusiness
         /// The Unix timestamp when the Amazon Q Business application was last updated.
         /// </summary>
         public readonly string? CreatedAt;
+        /// <summary>
+        /// Contains the configuration information to customize the logo, font, and color of an Amazon Q Business web experience with individual files for each property or a CSS file for them all.
+        /// </summary>
         public readonly Outputs.WebExperienceCustomizationConfiguration? CustomizationConfiguration;
         /// <summary>
         /// The endpoint URLs for your Amazon Q Business web experience. The URLs are unique and fully hosted by AWS .

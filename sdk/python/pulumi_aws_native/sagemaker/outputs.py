@@ -2550,7 +2550,7 @@ class DomainDefaultSpaceSettings(dict):
         """
         A collection of settings that apply to spaces of Amazon SageMaker Studio. These settings are specified when the Create/Update Domain API is called.
         :param str execution_role: The execution role for the space.
-        :param Sequence['DomainCustomFileSystemConfig'] custom_file_system_configs: The settings for assigning a custom file system to a domain. Permitted users can access this file system in Amazon SageMaker Studio.
+        :param Sequence['DomainCustomFileSystemConfig'] custom_file_system_configs: The settings for assigning a custom file system to a domain. Permitted users can access this file system in Amazon SageMaker AI Studio.
         :param 'DomainCustomPosixUserConfig' custom_posix_user_config: The Jupyter lab's custom posix user configurations.
         :param 'DomainJupyterLabAppSettings' jupyter_lab_app_settings: The Jupyter lab's app settings.
         :param 'DomainJupyterServerAppSettings' jupyter_server_app_settings: The Jupyter server's app settings.
@@ -2586,7 +2586,7 @@ class DomainDefaultSpaceSettings(dict):
     @pulumi.getter(name="customFileSystemConfigs")
     def custom_file_system_configs(self) -> Optional[Sequence['outputs.DomainCustomFileSystemConfig']]:
         """
-        The settings for assigning a custom file system to a domain. Permitted users can access this file system in Amazon SageMaker Studio.
+        The settings for assigning a custom file system to a domain. Permitted users can access this file system in Amazon SageMaker AI Studio.
         """
         return pulumi.get(self, "custom_file_system_configs")
 
@@ -2759,7 +2759,7 @@ class DomainEfsFileSystemConfig(dict):
                  file_system_path: Optional[str] = None):
         """
         :param str file_system_id: The ID of your Amazon EFS file system.
-        :param str file_system_path: The path to the file system directory that is accessible in Amazon SageMaker Studio. Permitted users can access only this directory and below.
+        :param str file_system_path: The path to the file system directory that is accessible in Amazon SageMaker AI Studio. Permitted users can access only this directory and below.
         """
         pulumi.set(__self__, "file_system_id", file_system_id)
         if file_system_path is not None:
@@ -2777,7 +2777,7 @@ class DomainEfsFileSystemConfig(dict):
     @pulumi.getter(name="fileSystemPath")
     def file_system_path(self) -> Optional[str]:
         """
-        The path to the file system directory that is accessible in Amazon SageMaker Studio. Permitted users can access only this directory and below.
+        The path to the file system directory that is accessible in Amazon SageMaker AI Studio. Permitted users can access only this directory and below.
         """
         return pulumi.get(self, "file_system_path")
 
@@ -3621,7 +3621,7 @@ class DomainUserSettings(dict):
         :param 'DomainCodeEditorAppSettings' code_editor_app_settings: The Code Editor application settings.
                
                SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
-        :param Sequence['DomainCustomFileSystemConfig'] custom_file_system_configs: The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio.
+        :param Sequence['DomainCustomFileSystemConfig'] custom_file_system_configs: The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker AI Studio.
                
                SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
         :param 'DomainCustomPosixUserConfig' custom_posix_user_config: Details about the POSIX identity that is used for file system operations.
@@ -3695,7 +3695,7 @@ class DomainUserSettings(dict):
     @pulumi.getter(name="customFileSystemConfigs")
     def custom_file_system_configs(self) -> Optional[Sequence['outputs.DomainCustomFileSystemConfig']]:
         """
-        The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio.
+        The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker AI Studio.
 
         SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
         """
@@ -4865,7 +4865,7 @@ class InferenceComponentSpecification(dict):
                
                Omit this parameter if your request is meant to create an adapter inference component. An adapter inference component is loaded by a base inference component, and it uses the compute resources of the base inference component.
         :param 'InferenceComponentContainerSpecification' container: Defines a container that provides the runtime environment for a model that you deploy with an inference component.
-        :param str model_name: The name of an existing SageMaker model object in your account that you want to deploy with the inference component.
+        :param str model_name: The name of an existing SageMaker AI model object in your account that you want to deploy with the inference component.
         :param 'InferenceComponentStartupParameters' startup_parameters: Settings that take effect while the model container starts up.
         """
         if base_inference_component_name is not None:
@@ -4915,7 +4915,7 @@ class InferenceComponentSpecification(dict):
     @pulumi.getter(name="modelName")
     def model_name(self) -> Optional[str]:
         """
-        The name of an existing SageMaker model object in your account that you want to deploy with the inference component.
+        The name of an existing SageMaker AI model object in your account that you want to deploy with the inference component.
         """
         return pulumi.get(self, "model_name")
 
@@ -8319,8 +8319,8 @@ class ModelCardTrainingMetric(dict):
                  notes: Optional[str] = None):
         """
         training metric data.
-        :param str name: The name of the result from the SageMaker training job.
-        :param float value: The value of a result from the SageMaker training job.
+        :param str name: The name of the result from the SageMaker AI training job.
+        :param float value: The value of a result from the SageMaker AI training job.
         :param str notes: Any additional notes describing the result of the training job.
         """
         pulumi.set(__self__, "name", name)
@@ -8332,7 +8332,7 @@ class ModelCardTrainingMetric(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the result from the SageMaker training job.
+        The name of the result from the SageMaker AI training job.
         """
         return pulumi.get(self, "name")
 
@@ -8340,7 +8340,7 @@ class ModelCardTrainingMetric(dict):
     @pulumi.getter
     def value(self) -> float:
         """
-        The value of a result from the SageMaker training job.
+        The value of a result from the SageMaker AI training job.
         """
         return pulumi.get(self, "value")
 
@@ -13509,7 +13509,7 @@ class MonitoringScheduleMonitoringJobDefinition(dict):
         """
         Defines the monitoring job.
         :param 'MonitoringScheduleMonitoringAppSpecification' monitoring_app_specification: Configures the monitoring job to run a specified Docker container image.
-        :param Sequence['MonitoringScheduleMonitoringInput'] monitoring_inputs: The array of inputs for the monitoring job. Currently we support monitoring an Amazon SageMaker Endpoint.
+        :param Sequence['MonitoringScheduleMonitoringInput'] monitoring_inputs: The array of inputs for the monitoring job. Currently we support monitoring an Amazon SageMaker AI Endpoint.
         :param 'MonitoringScheduleMonitoringOutputConfig' monitoring_output_config: The array of outputs from the monitoring job to be uploaded to Amazon S3.
         :param 'MonitoringScheduleMonitoringResources' monitoring_resources: Identifies the resources, ML compute instances, and ML storage volumes to deploy for a monitoring job. In distributed processing, you specify more than one instance.
         :param str role_arn: The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker can assume to perform tasks on your behalf.
@@ -13544,7 +13544,7 @@ class MonitoringScheduleMonitoringJobDefinition(dict):
     @pulumi.getter(name="monitoringInputs")
     def monitoring_inputs(self) -> Sequence['outputs.MonitoringScheduleMonitoringInput']:
         """
-        The array of inputs for the monitoring job. Currently we support monitoring an Amazon SageMaker Endpoint.
+        The array of inputs for the monitoring job. Currently we support monitoring an Amazon SageMaker AI Endpoint.
         """
         return pulumi.get(self, "monitoring_inputs")
 
@@ -15119,7 +15119,7 @@ class SpaceJupyterServerAppSettings(dict):
                  lifecycle_config_arns: Optional[Sequence[str]] = None):
         """
         The JupyterServer app settings.
-        :param 'SpaceResourceSpec' default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the JupyterServer app. If you use the `LifecycleConfigArns` parameter, then this parameter is also required.
+        :param 'SpaceResourceSpec' default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the default SageMaker AI image used by the JupyterServer app. If you use the `LifecycleConfigArns` parameter, then this parameter is also required.
         :param Sequence[str] lifecycle_config_arns: A list of LifecycleConfigArns available for use with JupyterServer apps.
         """
         if default_resource_spec is not None:
@@ -15131,7 +15131,7 @@ class SpaceJupyterServerAppSettings(dict):
     @pulumi.getter(name="defaultResourceSpec")
     def default_resource_spec(self) -> Optional['outputs.SpaceResourceSpec']:
         """
-        The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the JupyterServer app. If you use the `LifecycleConfigArns` parameter, then this parameter is also required.
+        The default instance type and the Amazon Resource Name (ARN) of the default SageMaker AI image used by the JupyterServer app. If you use the `LifecycleConfigArns` parameter, then this parameter is also required.
         """
         return pulumi.get(self, "default_resource_spec")
 
@@ -15371,7 +15371,7 @@ class SpaceSettings(dict):
         A collection of settings that apply to spaces of Amazon SageMaker Studio. These settings are specified when the CreateSpace API is called.
         :param 'SpaceAppType' app_type: The type of app created within the space.
         :param 'SpaceCodeEditorAppSettings' code_editor_app_settings: The CodeEditor app settings.
-        :param Sequence['SpaceCustomFileSystem'] custom_file_systems: A file system, created by you, that you assign to a space for an Amazon SageMaker Domain. Permitted users can access this file system in Amazon SageMaker Studio.
+        :param Sequence['SpaceCustomFileSystem'] custom_file_systems: A file system, created by you, that you assign to a space for an Amazon SageMaker AI Domain. Permitted users can access this file system in Amazon SageMaker AI Studio.
         :param 'SpaceJupyterLabAppSettings' jupyter_lab_app_settings: The JupyterLab app settings.
         :param 'SpaceJupyterServerAppSettings' jupyter_server_app_settings: The Jupyter server's app settings.
         :param 'SpaceKernelGatewayAppSettings' kernel_gateway_app_settings: The kernel gateway app settings.
@@ -15412,7 +15412,7 @@ class SpaceSettings(dict):
     @pulumi.getter(name="customFileSystems")
     def custom_file_systems(self) -> Optional[Sequence['outputs.SpaceCustomFileSystem']]:
         """
-        A file system, created by you, that you assign to a space for an Amazon SageMaker Domain. Permitted users can access this file system in Amazon SageMaker Studio.
+        A file system, created by you, that you assign to a space for an Amazon SageMaker AI Domain. Permitted users can access this file system in Amazon SageMaker AI Studio.
         """
         return pulumi.get(self, "custom_file_systems")
 
@@ -15922,7 +15922,7 @@ class UserProfileEfsFileSystemConfig(dict):
                  file_system_path: Optional[str] = None):
         """
         :param str file_system_id: The ID of your Amazon EFS file system.
-        :param str file_system_path: The path to the file system directory that is accessible in Amazon SageMaker Studio. Permitted users can access only this directory and below.
+        :param str file_system_path: The path to the file system directory that is accessible in Amazon SageMaker AI Studio. Permitted users can access only this directory and below.
         """
         pulumi.set(__self__, "file_system_id", file_system_id)
         if file_system_path is not None:
@@ -15940,7 +15940,7 @@ class UserProfileEfsFileSystemConfig(dict):
     @pulumi.getter(name="fileSystemPath")
     def file_system_path(self) -> Optional[str]:
         """
-        The path to the file system directory that is accessible in Amazon SageMaker Studio. Permitted users can access only this directory and below.
+        The path to the file system directory that is accessible in Amazon SageMaker AI Studio. Permitted users can access only this directory and below.
         """
         return pulumi.get(self, "file_system_path")
 
@@ -16563,7 +16563,7 @@ class UserProfileUserSettings(dict):
         :param 'UserProfileCodeEditorAppSettings' code_editor_app_settings: The Code Editor application settings.
                
                SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
-        :param Sequence['UserProfileCustomFileSystemConfig'] custom_file_system_configs: The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio.
+        :param Sequence['UserProfileCustomFileSystemConfig'] custom_file_system_configs: The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker AI Studio.
                
                SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
         :param 'UserProfileCustomPosixUserConfig' custom_posix_user_config: Details about the POSIX identity that is used for file system operations.
@@ -16628,7 +16628,7 @@ class UserProfileUserSettings(dict):
     @pulumi.getter(name="customFileSystemConfigs")
     def custom_file_system_configs(self) -> Optional[Sequence['outputs.UserProfileCustomFileSystemConfig']]:
         """
-        The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio.
+        The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker AI Studio.
 
         SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
         """

@@ -968,7 +968,7 @@ if not MYPY:
         """
         assign_public_ip: NotRequired[pulumi.Input['ServiceAwsVpcConfigurationAssignPublicIp']]
         """
-        Whether the task's elastic network interface receives a public IP address. The default value is ``DISABLED``.
+        Whether the task's elastic network interface receives a public IP address. The default value is ``ENABLED``.
         """
         security_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
@@ -991,7 +991,7 @@ class ServiceAwsVpcConfigurationArgs:
                  subnets: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         An object representing the networking details for a task or service. For example ``awsVpcConfiguration={subnets=["subnet-12344321"],securityGroups=["sg-12344321"]}``.
-        :param pulumi.Input['ServiceAwsVpcConfigurationAssignPublicIp'] assign_public_ip: Whether the task's elastic network interface receives a public IP address. The default value is ``DISABLED``.
+        :param pulumi.Input['ServiceAwsVpcConfigurationAssignPublicIp'] assign_public_ip: Whether the task's elastic network interface receives a public IP address. The default value is ``ENABLED``.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: The IDs of the security groups associated with the task or service. If you don't specify a security group, the default security group for the VPC is used. There's a limit of 5 security groups that can be specified per ``awsvpcConfiguration``.
                  All specified security groups must be from the same VPC.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnets: The IDs of the subnets associated with the task or service. There's a limit of 16 subnets that can be specified per ``awsvpcConfiguration``.
@@ -1008,7 +1008,7 @@ class ServiceAwsVpcConfigurationArgs:
     @pulumi.getter(name="assignPublicIp")
     def assign_public_ip(self) -> Optional[pulumi.Input['ServiceAwsVpcConfigurationAssignPublicIp']]:
         """
-        Whether the task's elastic network interface receives a public IP address. The default value is ``DISABLED``.
+        Whether the task's elastic network interface receives a public IP address. The default value is ``ENABLED``.
         """
         return pulumi.get(self, "assign_public_ip")
 
@@ -1880,7 +1880,7 @@ class ServiceDeploymentConfigurationArgs:
 if not MYPY:
     class ServiceDeploymentControllerArgsDict(TypedDict):
         """
-        The deployment controller to use for the service. For more information, see [Amazon ECS deployment types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html) in the *Amazon Elastic Container Service Developer Guide*.
+        The deployment controller to use for the service.
         """
         type: NotRequired[pulumi.Input['ServiceDeploymentControllerType']]
         """
@@ -1895,7 +1895,7 @@ class ServiceDeploymentControllerArgs:
     def __init__(__self__, *,
                  type: Optional[pulumi.Input['ServiceDeploymentControllerType']] = None):
         """
-        The deployment controller to use for the service. For more information, see [Amazon ECS deployment types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-types.html) in the *Amazon Elastic Container Service Developer Guide*.
+        The deployment controller to use for the service.
         :param pulumi.Input['ServiceDeploymentControllerType'] type: The deployment controller type to use. There are three deployment controller types available:
                  + ECS The rolling update (ECS) deployment type involves replacing the current running version of the container with the latest version. The number of containers Amazon ECS adds or removes from the service during a rolling update is controlled by adjusting the minimum and maximum number of healthy tasks allowed during a service deployment, as specified in the DeploymentConfiguration. + CODE_DEPLOY The blue/green (CODE_DEPLOY) deployment type uses the blue/green deployment model powered by , which allows you to verify a new deployment of a service before sending production traffic to it. + EXTERNAL The external (EXTERNAL) deployment type enables you to use any third-party deployment controller for full control over the deployment process for an Amazon ECS service.
         """
@@ -3053,13 +3053,17 @@ class ServiceVolumeConfigurationArgs:
 
 if not MYPY:
     class ServiceVpcLatticeConfigurationArgsDict(TypedDict):
+        """
+        The VPC Lattice configuration for your service that holds the information for the target group(s) Amazon ECS tasks will be registered to.
+        """
         port_name: pulumi.Input[str]
         """
-        The name of the port mapping to register in the VPC Lattice target group. This is the name of the `portMapping` you defined in your task definition.
+        The name of the port mapping to register in the VPC Lattice target group. This is the name of the ``portMapping`` you defined in your task definition.
         """
         role_arn: pulumi.Input[str]
         """
-        The ARN of the IAM role to associate with this VPC Lattice configuration. This is the Amazon ECS infrastructure IAM role that is used to manage your VPC Lattice infrastructure.
+        The ARN of the IAM role to associate with this VPC Lattice configuration. This is the Amazon ECS
+         infrastructure IAM role that is used to manage your VPC Lattice infrastructure.
         """
         target_group_arn: pulumi.Input[str]
         """
@@ -3075,8 +3079,10 @@ class ServiceVpcLatticeConfigurationArgs:
                  role_arn: pulumi.Input[str],
                  target_group_arn: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] port_name: The name of the port mapping to register in the VPC Lattice target group. This is the name of the `portMapping` you defined in your task definition.
-        :param pulumi.Input[str] role_arn: The ARN of the IAM role to associate with this VPC Lattice configuration. This is the Amazon ECS infrastructure IAM role that is used to manage your VPC Lattice infrastructure.
+        The VPC Lattice configuration for your service that holds the information for the target group(s) Amazon ECS tasks will be registered to.
+        :param pulumi.Input[str] port_name: The name of the port mapping to register in the VPC Lattice target group. This is the name of the ``portMapping`` you defined in your task definition.
+        :param pulumi.Input[str] role_arn: The ARN of the IAM role to associate with this VPC Lattice configuration. This is the Amazon ECS
+                infrastructure IAM role that is used to manage your VPC Lattice infrastructure.
         :param pulumi.Input[str] target_group_arn: The full Amazon Resource Name (ARN) of the target group or groups associated with the VPC Lattice configuration that the Amazon ECS tasks will be registered to.
         """
         pulumi.set(__self__, "port_name", port_name)
@@ -3087,7 +3093,7 @@ class ServiceVpcLatticeConfigurationArgs:
     @pulumi.getter(name="portName")
     def port_name(self) -> pulumi.Input[str]:
         """
-        The name of the port mapping to register in the VPC Lattice target group. This is the name of the `portMapping` you defined in your task definition.
+        The name of the port mapping to register in the VPC Lattice target group. This is the name of the ``portMapping`` you defined in your task definition.
         """
         return pulumi.get(self, "port_name")
 
@@ -3099,7 +3105,8 @@ class ServiceVpcLatticeConfigurationArgs:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[str]:
         """
-        The ARN of the IAM role to associate with this VPC Lattice configuration. This is the Amazon ECS infrastructure IAM role that is used to manage your VPC Lattice infrastructure.
+        The ARN of the IAM role to associate with this VPC Lattice configuration. This is the Amazon ECS
+         infrastructure IAM role that is used to manage your VPC Lattice infrastructure.
         """
         return pulumi.get(self, "role_arn")
 
@@ -4762,7 +4769,7 @@ if not MYPY:
         """
         size_in_gi_b: NotRequired[pulumi.Input[int]]
         """
-        The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is ``20`` GiB and the maximum supported value is ``200`` GiB.
+        The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is ``21`` GiB and the maximum supported value is ``200`` GiB.
         """
 elif False:
     TaskDefinitionEphemeralStorageArgsDict: TypeAlias = Mapping[str, Any]
@@ -4776,7 +4783,7 @@ class TaskDefinitionEphemeralStorageArgs:
           For tasks using the Fargate launch type, the task requires the following platforms:
           +  Linux platform version ``1.4.0`` or later.
           +  Windows platform version ``1.0.0`` or later.
-        :param pulumi.Input[int] size_in_gi_b: The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is ``20`` GiB and the maximum supported value is ``200`` GiB.
+        :param pulumi.Input[int] size_in_gi_b: The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is ``21`` GiB and the maximum supported value is ``200`` GiB.
         """
         if size_in_gi_b is not None:
             pulumi.set(__self__, "size_in_gi_b", size_in_gi_b)
@@ -4785,7 +4792,7 @@ class TaskDefinitionEphemeralStorageArgs:
     @pulumi.getter(name="sizeInGiB")
     def size_in_gi_b(self) -> Optional[pulumi.Input[int]]:
         """
-        The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is ``20`` GiB and the maximum supported value is ``200`` GiB.
+        The total amount, in GiB, of ephemeral storage to set for the task. The minimum supported value is ``21`` GiB and the maximum supported value is ``200`` GiB.
         """
         return pulumi.get(self, "size_in_gi_b")
 

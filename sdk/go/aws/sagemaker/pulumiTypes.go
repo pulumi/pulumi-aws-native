@@ -5671,7 +5671,7 @@ func (o DomainDefaultEbsStorageSettingsPtrOutput) MaximumEbsVolumeSizeInGb() pul
 
 // A collection of settings that apply to spaces of Amazon SageMaker Studio. These settings are specified when the Create/Update Domain API is called.
 type DomainDefaultSpaceSettings struct {
-	// The settings for assigning a custom file system to a domain. Permitted users can access this file system in Amazon SageMaker Studio.
+	// The settings for assigning a custom file system to a domain. Permitted users can access this file system in Amazon SageMaker AI Studio.
 	CustomFileSystemConfigs []DomainCustomFileSystemConfig `pulumi:"customFileSystemConfigs"`
 	// The Jupyter lab's custom posix user configurations.
 	CustomPosixUserConfig *DomainCustomPosixUserConfig `pulumi:"customPosixUserConfig"`
@@ -5702,7 +5702,7 @@ type DomainDefaultSpaceSettingsInput interface {
 
 // A collection of settings that apply to spaces of Amazon SageMaker Studio. These settings are specified when the Create/Update Domain API is called.
 type DomainDefaultSpaceSettingsArgs struct {
-	// The settings for assigning a custom file system to a domain. Permitted users can access this file system in Amazon SageMaker Studio.
+	// The settings for assigning a custom file system to a domain. Permitted users can access this file system in Amazon SageMaker AI Studio.
 	CustomFileSystemConfigs DomainCustomFileSystemConfigArrayInput `pulumi:"customFileSystemConfigs"`
 	// The Jupyter lab's custom posix user configurations.
 	CustomPosixUserConfig DomainCustomPosixUserConfigPtrInput `pulumi:"customPosixUserConfig"`
@@ -5798,7 +5798,7 @@ func (o DomainDefaultSpaceSettingsOutput) ToDomainDefaultSpaceSettingsPtrOutputW
 	}).(DomainDefaultSpaceSettingsPtrOutput)
 }
 
-// The settings for assigning a custom file system to a domain. Permitted users can access this file system in Amazon SageMaker Studio.
+// The settings for assigning a custom file system to a domain. Permitted users can access this file system in Amazon SageMaker AI Studio.
 func (o DomainDefaultSpaceSettingsOutput) CustomFileSystemConfigs() DomainCustomFileSystemConfigArrayOutput {
 	return o.ApplyT(func(v DomainDefaultSpaceSettings) []DomainCustomFileSystemConfig { return v.CustomFileSystemConfigs }).(DomainCustomFileSystemConfigArrayOutput)
 }
@@ -5862,7 +5862,7 @@ func (o DomainDefaultSpaceSettingsPtrOutput) Elem() DomainDefaultSpaceSettingsOu
 	}).(DomainDefaultSpaceSettingsOutput)
 }
 
-// The settings for assigning a custom file system to a domain. Permitted users can access this file system in Amazon SageMaker Studio.
+// The settings for assigning a custom file system to a domain. Permitted users can access this file system in Amazon SageMaker AI Studio.
 func (o DomainDefaultSpaceSettingsPtrOutput) CustomFileSystemConfigs() DomainCustomFileSystemConfigArrayOutput {
 	return o.ApplyT(func(v *DomainDefaultSpaceSettings) []DomainCustomFileSystemConfig {
 		if v == nil {
@@ -6246,7 +6246,7 @@ func (o DomainDockerSettingsPtrOutput) VpcOnlyTrustedAccounts() pulumi.StringArr
 type DomainEfsFileSystemConfig struct {
 	// The ID of your Amazon EFS file system.
 	FileSystemId string `pulumi:"fileSystemId"`
-	// The path to the file system directory that is accessible in Amazon SageMaker Studio. Permitted users can access only this directory and below.
+	// The path to the file system directory that is accessible in Amazon SageMaker AI Studio. Permitted users can access only this directory and below.
 	FileSystemPath *string `pulumi:"fileSystemPath"`
 }
 
@@ -6264,7 +6264,7 @@ type DomainEfsFileSystemConfigInput interface {
 type DomainEfsFileSystemConfigArgs struct {
 	// The ID of your Amazon EFS file system.
 	FileSystemId pulumi.StringInput `pulumi:"fileSystemId"`
-	// The path to the file system directory that is accessible in Amazon SageMaker Studio. Permitted users can access only this directory and below.
+	// The path to the file system directory that is accessible in Amazon SageMaker AI Studio. Permitted users can access only this directory and below.
 	FileSystemPath pulumi.StringPtrInput `pulumi:"fileSystemPath"`
 }
 
@@ -6350,7 +6350,7 @@ func (o DomainEfsFileSystemConfigOutput) FileSystemId() pulumi.StringOutput {
 	return o.ApplyT(func(v DomainEfsFileSystemConfig) string { return v.FileSystemId }).(pulumi.StringOutput)
 }
 
-// The path to the file system directory that is accessible in Amazon SageMaker Studio. Permitted users can access only this directory and below.
+// The path to the file system directory that is accessible in Amazon SageMaker AI Studio. Permitted users can access only this directory and below.
 func (o DomainEfsFileSystemConfigOutput) FileSystemPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainEfsFileSystemConfig) *string { return v.FileSystemPath }).(pulumi.StringPtrOutput)
 }
@@ -6389,7 +6389,7 @@ func (o DomainEfsFileSystemConfigPtrOutput) FileSystemId() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The path to the file system directory that is accessible in Amazon SageMaker Studio. Permitted users can access only this directory and below.
+// The path to the file system directory that is accessible in Amazon SageMaker AI Studio. Permitted users can access only this directory and below.
 func (o DomainEfsFileSystemConfigPtrOutput) FileSystemPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainEfsFileSystemConfig) *string {
 		if v == nil {
@@ -8410,7 +8410,7 @@ type DomainUserSettings struct {
 	//
 	// SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
 	CodeEditorAppSettings *DomainCodeEditorAppSettings `pulumi:"codeEditorAppSettings"`
-	// The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio.
+	// The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker AI Studio.
 	//
 	// SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
 	CustomFileSystemConfigs []DomainCustomFileSystemConfig `pulumi:"customFileSystemConfigs"`
@@ -8465,7 +8465,7 @@ type DomainUserSettingsArgs struct {
 	//
 	// SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
 	CodeEditorAppSettings DomainCodeEditorAppSettingsPtrInput `pulumi:"codeEditorAppSettings"`
-	// The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio.
+	// The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker AI Studio.
 	//
 	// SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
 	CustomFileSystemConfigs DomainCustomFileSystemConfigArrayInput `pulumi:"customFileSystemConfigs"`
@@ -8537,7 +8537,7 @@ func (o DomainUserSettingsOutput) CodeEditorAppSettings() DomainCodeEditorAppSet
 	return o.ApplyT(func(v DomainUserSettings) *DomainCodeEditorAppSettings { return v.CodeEditorAppSettings }).(DomainCodeEditorAppSettingsPtrOutput)
 }
 
-// The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio.
+// The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker AI Studio.
 //
 // SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
 func (o DomainUserSettingsOutput) CustomFileSystemConfigs() DomainCustomFileSystemConfigArrayOutput {
@@ -8651,7 +8651,7 @@ func (o DomainUserSettingsPtrOutput) CodeEditorAppSettings() DomainCodeEditorApp
 	}).(DomainCodeEditorAppSettingsPtrOutput)
 }
 
-// The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio.
+// The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker AI Studio.
 //
 // SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
 func (o DomainUserSettingsPtrOutput) CustomFileSystemConfigs() DomainCustomFileSystemConfigArrayOutput {
@@ -11817,7 +11817,7 @@ type InferenceComponentSpecification struct {
 	ComputeResourceRequirements *InferenceComponentComputeResourceRequirements `pulumi:"computeResourceRequirements"`
 	// Defines a container that provides the runtime environment for a model that you deploy with an inference component.
 	Container *InferenceComponentContainerSpecification `pulumi:"container"`
-	// The name of an existing SageMaker model object in your account that you want to deploy with the inference component.
+	// The name of an existing SageMaker AI model object in your account that you want to deploy with the inference component.
 	ModelName *string `pulumi:"modelName"`
 	// Settings that take effect while the model container starts up.
 	StartupParameters *InferenceComponentStartupParameters `pulumi:"startupParameters"`
@@ -11850,7 +11850,7 @@ type InferenceComponentSpecificationArgs struct {
 	ComputeResourceRequirements InferenceComponentComputeResourceRequirementsPtrInput `pulumi:"computeResourceRequirements"`
 	// Defines a container that provides the runtime environment for a model that you deploy with an inference component.
 	Container InferenceComponentContainerSpecificationPtrInput `pulumi:"container"`
-	// The name of an existing SageMaker model object in your account that you want to deploy with the inference component.
+	// The name of an existing SageMaker AI model object in your account that you want to deploy with the inference component.
 	ModelName pulumi.StringPtrInput `pulumi:"modelName"`
 	// Settings that take effect while the model container starts up.
 	StartupParameters InferenceComponentStartupParametersPtrInput `pulumi:"startupParameters"`
@@ -11908,7 +11908,7 @@ func (o InferenceComponentSpecificationOutput) Container() InferenceComponentCon
 	return o.ApplyT(func(v InferenceComponentSpecification) *InferenceComponentContainerSpecification { return v.Container }).(InferenceComponentContainerSpecificationPtrOutput)
 }
 
-// The name of an existing SageMaker model object in your account that you want to deploy with the inference component.
+// The name of an existing SageMaker AI model object in your account that you want to deploy with the inference component.
 func (o InferenceComponentSpecificationOutput) ModelName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InferenceComponentSpecification) *string { return v.ModelName }).(pulumi.StringPtrOutput)
 }
@@ -11982,7 +11982,7 @@ func (o InferenceComponentSpecificationPtrOutput) Container() InferenceComponent
 	}).(InferenceComponentContainerSpecificationPtrOutput)
 }
 
-// The name of an existing SageMaker model object in your account that you want to deploy with the inference component.
+// The name of an existing SageMaker AI model object in your account that you want to deploy with the inference component.
 func (o InferenceComponentSpecificationPtrOutput) ModelName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InferenceComponentSpecification) *string {
 		if v == nil {
@@ -19580,11 +19580,11 @@ func (o ModelCardTrainingHyperParameterArrayOutput) Index(i pulumi.IntInput) Mod
 
 // training metric data.
 type ModelCardTrainingMetric struct {
-	// The name of the result from the SageMaker training job.
+	// The name of the result from the SageMaker AI training job.
 	Name string `pulumi:"name"`
 	// Any additional notes describing the result of the training job.
 	Notes *string `pulumi:"notes"`
-	// The value of a result from the SageMaker training job.
+	// The value of a result from the SageMaker AI training job.
 	Value float64 `pulumi:"value"`
 }
 
@@ -19601,11 +19601,11 @@ type ModelCardTrainingMetricInput interface {
 
 // training metric data.
 type ModelCardTrainingMetricArgs struct {
-	// The name of the result from the SageMaker training job.
+	// The name of the result from the SageMaker AI training job.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Any additional notes describing the result of the training job.
 	Notes pulumi.StringPtrInput `pulumi:"notes"`
-	// The value of a result from the SageMaker training job.
+	// The value of a result from the SageMaker AI training job.
 	Value pulumi.Float64Input `pulumi:"value"`
 }
 
@@ -19661,7 +19661,7 @@ func (o ModelCardTrainingMetricOutput) ToModelCardTrainingMetricOutputWithContex
 	return o
 }
 
-// The name of the result from the SageMaker training job.
+// The name of the result from the SageMaker AI training job.
 func (o ModelCardTrainingMetricOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ModelCardTrainingMetric) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -19671,7 +19671,7 @@ func (o ModelCardTrainingMetricOutput) Notes() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ModelCardTrainingMetric) *string { return v.Notes }).(pulumi.StringPtrOutput)
 }
 
-// The value of a result from the SageMaker training job.
+// The value of a result from the SageMaker AI training job.
 func (o ModelCardTrainingMetricOutput) Value() pulumi.Float64Output {
 	return o.ApplyT(func(v ModelCardTrainingMetric) float64 { return v.Value }).(pulumi.Float64Output)
 }
@@ -32012,7 +32012,7 @@ type MonitoringScheduleMonitoringJobDefinition struct {
 	Environment interface{} `pulumi:"environment"`
 	// Configures the monitoring job to run a specified Docker container image.
 	MonitoringAppSpecification MonitoringScheduleMonitoringAppSpecification `pulumi:"monitoringAppSpecification"`
-	// The array of inputs for the monitoring job. Currently we support monitoring an Amazon SageMaker Endpoint.
+	// The array of inputs for the monitoring job. Currently we support monitoring an Amazon SageMaker AI Endpoint.
 	MonitoringInputs []MonitoringScheduleMonitoringInput `pulumi:"monitoringInputs"`
 	// The array of outputs from the monitoring job to be uploaded to Amazon S3.
 	MonitoringOutputConfig MonitoringScheduleMonitoringOutputConfig `pulumi:"monitoringOutputConfig"`
@@ -32045,7 +32045,7 @@ type MonitoringScheduleMonitoringJobDefinitionArgs struct {
 	Environment pulumi.Input `pulumi:"environment"`
 	// Configures the monitoring job to run a specified Docker container image.
 	MonitoringAppSpecification MonitoringScheduleMonitoringAppSpecificationInput `pulumi:"monitoringAppSpecification"`
-	// The array of inputs for the monitoring job. Currently we support monitoring an Amazon SageMaker Endpoint.
+	// The array of inputs for the monitoring job. Currently we support monitoring an Amazon SageMaker AI Endpoint.
 	MonitoringInputs MonitoringScheduleMonitoringInputArrayInput `pulumi:"monitoringInputs"`
 	// The array of outputs from the monitoring job to be uploaded to Amazon S3.
 	MonitoringOutputConfig MonitoringScheduleMonitoringOutputConfigInput `pulumi:"monitoringOutputConfig"`
@@ -32156,7 +32156,7 @@ func (o MonitoringScheduleMonitoringJobDefinitionOutput) MonitoringAppSpecificat
 	}).(MonitoringScheduleMonitoringAppSpecificationOutput)
 }
 
-// The array of inputs for the monitoring job. Currently we support monitoring an Amazon SageMaker Endpoint.
+// The array of inputs for the monitoring job. Currently we support monitoring an Amazon SageMaker AI Endpoint.
 func (o MonitoringScheduleMonitoringJobDefinitionOutput) MonitoringInputs() MonitoringScheduleMonitoringInputArrayOutput {
 	return o.ApplyT(func(v MonitoringScheduleMonitoringJobDefinition) []MonitoringScheduleMonitoringInput {
 		return v.MonitoringInputs
@@ -32250,7 +32250,7 @@ func (o MonitoringScheduleMonitoringJobDefinitionPtrOutput) MonitoringAppSpecifi
 	}).(MonitoringScheduleMonitoringAppSpecificationPtrOutput)
 }
 
-// The array of inputs for the monitoring job. Currently we support monitoring an Amazon SageMaker Endpoint.
+// The array of inputs for the monitoring job. Currently we support monitoring an Amazon SageMaker AI Endpoint.
 func (o MonitoringScheduleMonitoringJobDefinitionPtrOutput) MonitoringInputs() MonitoringScheduleMonitoringInputArrayOutput {
 	return o.ApplyT(func(v *MonitoringScheduleMonitoringJobDefinition) []MonitoringScheduleMonitoringInput {
 		if v == nil {
@@ -36358,7 +36358,7 @@ func (o SpaceJupyterLabAppSettingsPtrOutput) DefaultResourceSpec() SpaceResource
 
 // The JupyterServer app settings.
 type SpaceJupyterServerAppSettings struct {
-	// The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the JupyterServer app. If you use the `LifecycleConfigArns` parameter, then this parameter is also required.
+	// The default instance type and the Amazon Resource Name (ARN) of the default SageMaker AI image used by the JupyterServer app. If you use the `LifecycleConfigArns` parameter, then this parameter is also required.
 	DefaultResourceSpec *SpaceResourceSpec `pulumi:"defaultResourceSpec"`
 	// A list of LifecycleConfigArns available for use with JupyterServer apps.
 	LifecycleConfigArns []string `pulumi:"lifecycleConfigArns"`
@@ -36377,7 +36377,7 @@ type SpaceJupyterServerAppSettingsInput interface {
 
 // The JupyterServer app settings.
 type SpaceJupyterServerAppSettingsArgs struct {
-	// The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the JupyterServer app. If you use the `LifecycleConfigArns` parameter, then this parameter is also required.
+	// The default instance type and the Amazon Resource Name (ARN) of the default SageMaker AI image used by the JupyterServer app. If you use the `LifecycleConfigArns` parameter, then this parameter is also required.
 	DefaultResourceSpec SpaceResourceSpecPtrInput `pulumi:"defaultResourceSpec"`
 	// A list of LifecycleConfigArns available for use with JupyterServer apps.
 	LifecycleConfigArns pulumi.StringArrayInput `pulumi:"lifecycleConfigArns"`
@@ -36461,7 +36461,7 @@ func (o SpaceJupyterServerAppSettingsOutput) ToSpaceJupyterServerAppSettingsPtrO
 	}).(SpaceJupyterServerAppSettingsPtrOutput)
 }
 
-// The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the JupyterServer app. If you use the `LifecycleConfigArns` parameter, then this parameter is also required.
+// The default instance type and the Amazon Resource Name (ARN) of the default SageMaker AI image used by the JupyterServer app. If you use the `LifecycleConfigArns` parameter, then this parameter is also required.
 func (o SpaceJupyterServerAppSettingsOutput) DefaultResourceSpec() SpaceResourceSpecPtrOutput {
 	return o.ApplyT(func(v SpaceJupyterServerAppSettings) *SpaceResourceSpec { return v.DefaultResourceSpec }).(SpaceResourceSpecPtrOutput)
 }
@@ -36495,7 +36495,7 @@ func (o SpaceJupyterServerAppSettingsPtrOutput) Elem() SpaceJupyterServerAppSett
 	}).(SpaceJupyterServerAppSettingsOutput)
 }
 
-// The default instance type and the Amazon Resource Name (ARN) of the default SageMaker image used by the JupyterServer app. If you use the `LifecycleConfigArns` parameter, then this parameter is also required.
+// The default instance type and the Amazon Resource Name (ARN) of the default SageMaker AI image used by the JupyterServer app. If you use the `LifecycleConfigArns` parameter, then this parameter is also required.
 func (o SpaceJupyterServerAppSettingsPtrOutput) DefaultResourceSpec() SpaceResourceSpecPtrOutput {
 	return o.ApplyT(func(v *SpaceJupyterServerAppSettings) *SpaceResourceSpec {
 		if v == nil {
@@ -37030,7 +37030,7 @@ type SpaceSettings struct {
 	AppType *SpaceAppType `pulumi:"appType"`
 	// The CodeEditor app settings.
 	CodeEditorAppSettings *SpaceCodeEditorAppSettings `pulumi:"codeEditorAppSettings"`
-	// A file system, created by you, that you assign to a space for an Amazon SageMaker Domain. Permitted users can access this file system in Amazon SageMaker Studio.
+	// A file system, created by you, that you assign to a space for an Amazon SageMaker AI Domain. Permitted users can access this file system in Amazon SageMaker AI Studio.
 	CustomFileSystems []SpaceCustomFileSystem `pulumi:"customFileSystems"`
 	// The JupyterLab app settings.
 	JupyterLabAppSettings *SpaceJupyterLabAppSettings `pulumi:"jupyterLabAppSettings"`
@@ -37059,7 +37059,7 @@ type SpaceSettingsArgs struct {
 	AppType SpaceAppTypePtrInput `pulumi:"appType"`
 	// The CodeEditor app settings.
 	CodeEditorAppSettings SpaceCodeEditorAppSettingsPtrInput `pulumi:"codeEditorAppSettings"`
-	// A file system, created by you, that you assign to a space for an Amazon SageMaker Domain. Permitted users can access this file system in Amazon SageMaker Studio.
+	// A file system, created by you, that you assign to a space for an Amazon SageMaker AI Domain. Permitted users can access this file system in Amazon SageMaker AI Studio.
 	CustomFileSystems SpaceCustomFileSystemArrayInput `pulumi:"customFileSystems"`
 	// The JupyterLab app settings.
 	JupyterLabAppSettings SpaceJupyterLabAppSettingsPtrInput `pulumi:"jupyterLabAppSettings"`
@@ -37159,7 +37159,7 @@ func (o SpaceSettingsOutput) CodeEditorAppSettings() SpaceCodeEditorAppSettingsP
 	return o.ApplyT(func(v SpaceSettings) *SpaceCodeEditorAppSettings { return v.CodeEditorAppSettings }).(SpaceCodeEditorAppSettingsPtrOutput)
 }
 
-// A file system, created by you, that you assign to a space for an Amazon SageMaker Domain. Permitted users can access this file system in Amazon SageMaker Studio.
+// A file system, created by you, that you assign to a space for an Amazon SageMaker AI Domain. Permitted users can access this file system in Amazon SageMaker AI Studio.
 func (o SpaceSettingsOutput) CustomFileSystems() SpaceCustomFileSystemArrayOutput {
 	return o.ApplyT(func(v SpaceSettings) []SpaceCustomFileSystem { return v.CustomFileSystems }).(SpaceCustomFileSystemArrayOutput)
 }
@@ -37228,7 +37228,7 @@ func (o SpaceSettingsPtrOutput) CodeEditorAppSettings() SpaceCodeEditorAppSettin
 	}).(SpaceCodeEditorAppSettingsPtrOutput)
 }
 
-// A file system, created by you, that you assign to a space for an Amazon SageMaker Domain. Permitted users can access this file system in Amazon SageMaker Studio.
+// A file system, created by you, that you assign to a space for an Amazon SageMaker AI Domain. Permitted users can access this file system in Amazon SageMaker AI Studio.
 func (o SpaceSettingsPtrOutput) CustomFileSystems() SpaceCustomFileSystemArrayOutput {
 	return o.ApplyT(func(v *SpaceSettings) []SpaceCustomFileSystem {
 		if v == nil {
@@ -38676,7 +38676,7 @@ func (o UserProfileDefaultSpaceStorageSettingsPtrOutput) DefaultEbsStorageSettin
 type UserProfileEfsFileSystemConfig struct {
 	// The ID of your Amazon EFS file system.
 	FileSystemId string `pulumi:"fileSystemId"`
-	// The path to the file system directory that is accessible in Amazon SageMaker Studio. Permitted users can access only this directory and below.
+	// The path to the file system directory that is accessible in Amazon SageMaker AI Studio. Permitted users can access only this directory and below.
 	FileSystemPath *string `pulumi:"fileSystemPath"`
 }
 
@@ -38694,7 +38694,7 @@ type UserProfileEfsFileSystemConfigInput interface {
 type UserProfileEfsFileSystemConfigArgs struct {
 	// The ID of your Amazon EFS file system.
 	FileSystemId pulumi.StringInput `pulumi:"fileSystemId"`
-	// The path to the file system directory that is accessible in Amazon SageMaker Studio. Permitted users can access only this directory and below.
+	// The path to the file system directory that is accessible in Amazon SageMaker AI Studio. Permitted users can access only this directory and below.
 	FileSystemPath pulumi.StringPtrInput `pulumi:"fileSystemPath"`
 }
 
@@ -38780,7 +38780,7 @@ func (o UserProfileEfsFileSystemConfigOutput) FileSystemId() pulumi.StringOutput
 	return o.ApplyT(func(v UserProfileEfsFileSystemConfig) string { return v.FileSystemId }).(pulumi.StringOutput)
 }
 
-// The path to the file system directory that is accessible in Amazon SageMaker Studio. Permitted users can access only this directory and below.
+// The path to the file system directory that is accessible in Amazon SageMaker AI Studio. Permitted users can access only this directory and below.
 func (o UserProfileEfsFileSystemConfigOutput) FileSystemPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserProfileEfsFileSystemConfig) *string { return v.FileSystemPath }).(pulumi.StringPtrOutput)
 }
@@ -38819,7 +38819,7 @@ func (o UserProfileEfsFileSystemConfigPtrOutput) FileSystemId() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// The path to the file system directory that is accessible in Amazon SageMaker Studio. Permitted users can access only this directory and below.
+// The path to the file system directory that is accessible in Amazon SageMaker AI Studio. Permitted users can access only this directory and below.
 func (o UserProfileEfsFileSystemConfigPtrOutput) FileSystemPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserProfileEfsFileSystemConfig) *string {
 		if v == nil {
@@ -40287,7 +40287,7 @@ type UserProfileUserSettings struct {
 	//
 	// SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
 	CodeEditorAppSettings *UserProfileCodeEditorAppSettings `pulumi:"codeEditorAppSettings"`
-	// The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio.
+	// The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker AI Studio.
 	//
 	// SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
 	CustomFileSystemConfigs []UserProfileCustomFileSystemConfig `pulumi:"customFileSystemConfigs"`
@@ -40340,7 +40340,7 @@ type UserProfileUserSettingsArgs struct {
 	//
 	// SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
 	CodeEditorAppSettings UserProfileCodeEditorAppSettingsPtrInput `pulumi:"codeEditorAppSettings"`
-	// The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio.
+	// The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker AI Studio.
 	//
 	// SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
 	CustomFileSystemConfigs UserProfileCustomFileSystemConfigArrayInput `pulumi:"customFileSystemConfigs"`
@@ -40461,7 +40461,7 @@ func (o UserProfileUserSettingsOutput) CodeEditorAppSettings() UserProfileCodeEd
 	return o.ApplyT(func(v UserProfileUserSettings) *UserProfileCodeEditorAppSettings { return v.CodeEditorAppSettings }).(UserProfileCodeEditorAppSettingsPtrOutput)
 }
 
-// The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio.
+// The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker AI Studio.
 //
 // SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
 func (o UserProfileUserSettingsOutput) CustomFileSystemConfigs() UserProfileCustomFileSystemConfigArrayOutput {
@@ -40576,7 +40576,7 @@ func (o UserProfileUserSettingsPtrOutput) CodeEditorAppSettings() UserProfileCod
 	}).(UserProfileCodeEditorAppSettingsPtrOutput)
 }
 
-// The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker Studio.
+// The settings for assigning a custom file system to a user profile. Permitted users can access this file system in Amazon SageMaker AI Studio.
 //
 // SageMaker applies these settings only to private spaces that the user creates in the domain. SageMaker doesn't apply these settings to shared spaces.
 func (o UserProfileUserSettingsPtrOutput) CustomFileSystemConfigs() UserProfileCustomFileSystemConfigArrayOutput {

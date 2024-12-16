@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Wisdom.Outputs
 {
 
+    /// <summary>
+    /// The parsing prompt of the Bedrock foundation model configuration.
+    /// </summary>
     [OutputType]
     public sealed class KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptProperties
     {

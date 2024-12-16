@@ -39,6 +39,9 @@ namespace Pulumi.AwsNative.Wisdom.Inputs
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// Type of topic in a policy.
+        /// </summary>
         [Input("type", required: true)]
         public Input<Pulumi.AwsNative.Wisdom.AiGuardrailGuardrailTopicType> Type { get; set; } = null!;
 

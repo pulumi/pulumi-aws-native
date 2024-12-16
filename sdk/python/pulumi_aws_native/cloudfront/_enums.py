@@ -7,6 +7,7 @@ from enum import Enum
 __all__ = [
     'ContinuousDeploymentPolicyConfigType',
     'ContinuousDeploymentPolicyTrafficConfigType',
+    'DistributionOriginGroupSelectionCriteria',
     'MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus',
 ]
 
@@ -25,6 +26,11 @@ class ContinuousDeploymentPolicyTrafficConfigType(str, Enum):
     """
     SINGLE_WEIGHT = "SingleWeight"
     SINGLE_HEADER = "SingleHeader"
+
+
+class DistributionOriginGroupSelectionCriteria(str, Enum):
+    DEFAULT = "default"
+    MEDIA_QUALITY_BASED = "media-quality-based"
 
 
 class MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus(str, Enum):

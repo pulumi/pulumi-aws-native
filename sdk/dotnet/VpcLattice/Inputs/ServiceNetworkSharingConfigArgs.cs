@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.VpcLattice.Inputs
 
     public sealed class ServiceNetworkSharingConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specify if the service network should be enabled for sharing.
+        /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;
 

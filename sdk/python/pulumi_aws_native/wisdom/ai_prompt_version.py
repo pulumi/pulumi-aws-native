@@ -171,6 +171,9 @@ class AiPromptVersion(pulumi.CustomResource):
     @property
     @pulumi.getter(name="aiPromptArn")
     def ai_prompt_arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the AI prompt.
+        """
         return pulumi.get(self, "ai_prompt_arn")
 
     @property

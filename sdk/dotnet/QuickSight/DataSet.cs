@@ -127,6 +127,9 @@ namespace Pulumi.AwsNative.QuickSight
         [Output("outputColumns")]
         public Output<ImmutableArray<Outputs.DataSetOutputColumn>> OutputColumns { get; private set; } = null!;
 
+        [Output("performanceConfiguration")]
+        public Output<Outputs.DataSetPerformanceConfiguration?> PerformanceConfiguration { get; private set; } = null!;
+
         /// <summary>
         /// &lt;p&gt;A list of resource permissions on the dataset.&lt;/p&gt;
         /// </summary>
@@ -322,6 +325,9 @@ namespace Pulumi.AwsNative.QuickSight
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("performanceConfiguration")]
+        public Input<Inputs.DataSetPerformanceConfigurationArgs>? PerformanceConfiguration { get; set; }
 
         [Input("permissions")]
         private InputList<Inputs.DataSetResourcePermissionArgs>? _permissions;

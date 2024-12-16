@@ -16,8 +16,10 @@ import (
 type TableBucketPolicy struct {
 	pulumi.CustomResourceState
 
+	// The bucket policy JSON for the table bucket.
 	ResourcePolicy TableBucketPolicyResourcePolicyOutput `pulumi:"resourcePolicy"`
-	TableBucketArn pulumi.StringOutput                   `pulumi:"tableBucketArn"`
+	// The Amazon Resource Name (ARN) of the table bucket.
+	TableBucketArn pulumi.StringOutput `pulumi:"tableBucketArn"`
 }
 
 // NewTableBucketPolicy registers a new resource with the given unique name, arguments, and options.
@@ -70,13 +72,17 @@ func (TableBucketPolicyState) ElementType() reflect.Type {
 }
 
 type tableBucketPolicyArgs struct {
+	// The bucket policy JSON for the table bucket.
 	ResourcePolicy TableBucketPolicyResourcePolicy `pulumi:"resourcePolicy"`
-	TableBucketArn string                          `pulumi:"tableBucketArn"`
+	// The Amazon Resource Name (ARN) of the table bucket.
+	TableBucketArn string `pulumi:"tableBucketArn"`
 }
 
 // The set of arguments for constructing a TableBucketPolicy resource.
 type TableBucketPolicyArgs struct {
+	// The bucket policy JSON for the table bucket.
 	ResourcePolicy TableBucketPolicyResourcePolicyInput
+	// The Amazon Resource Name (ARN) of the table bucket.
 	TableBucketArn pulumi.StringInput
 }
 
@@ -117,10 +123,12 @@ func (o TableBucketPolicyOutput) ToTableBucketPolicyOutputWithContext(ctx contex
 	return o
 }
 
+// The bucket policy JSON for the table bucket.
 func (o TableBucketPolicyOutput) ResourcePolicy() TableBucketPolicyResourcePolicyOutput {
 	return o.ApplyT(func(v *TableBucketPolicy) TableBucketPolicyResourcePolicyOutput { return v.ResourcePolicy }).(TableBucketPolicyResourcePolicyOutput)
 }
 
+// The Amazon Resource Name (ARN) of the table bucket.
 func (o TableBucketPolicyOutput) TableBucketArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TableBucketPolicy) pulumi.StringOutput { return v.TableBucketArn }).(pulumi.StringOutput)
 }

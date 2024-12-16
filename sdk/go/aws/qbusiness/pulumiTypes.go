@@ -726,6 +726,7 @@ func (o ApplicationQAppsConfigurationPtrOutput) QAppsControlMode() ApplicationQA
 }
 
 type ApplicationQuickSightConfiguration struct {
+	// The Amazon QuickSight namespace that is used as the identity provider. For more information about QuickSight namespaces, see [Namespace operations](https://docs.aws.amazon.com/quicksight/latest/developerguide/namespace-operations.html) .
 	ClientNamespace string `pulumi:"clientNamespace"`
 }
 
@@ -741,6 +742,7 @@ type ApplicationQuickSightConfigurationInput interface {
 }
 
 type ApplicationQuickSightConfigurationArgs struct {
+	// The Amazon QuickSight namespace that is used as the identity provider. For more information about QuickSight namespaces, see [Namespace operations](https://docs.aws.amazon.com/quicksight/latest/developerguide/namespace-operations.html) .
 	ClientNamespace pulumi.StringInput `pulumi:"clientNamespace"`
 }
 
@@ -821,6 +823,7 @@ func (o ApplicationQuickSightConfigurationOutput) ToApplicationQuickSightConfigu
 	}).(ApplicationQuickSightConfigurationPtrOutput)
 }
 
+// The Amazon QuickSight namespace that is used as the identity provider. For more information about QuickSight namespaces, see [Namespace operations](https://docs.aws.amazon.com/quicksight/latest/developerguide/namespace-operations.html) .
 func (o ApplicationQuickSightConfigurationOutput) ClientNamespace() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationQuickSightConfiguration) string { return v.ClientNamespace }).(pulumi.StringOutput)
 }
@@ -849,6 +852,7 @@ func (o ApplicationQuickSightConfigurationPtrOutput) Elem() ApplicationQuickSigh
 	}).(ApplicationQuickSightConfigurationOutput)
 }
 
+// The Amazon QuickSight namespace that is used as the identity provider. For more information about QuickSight namespaces, see [Namespace operations](https://docs.aws.amazon.com/quicksight/latest/developerguide/namespace-operations.html) .
 func (o ApplicationQuickSightConfigurationPtrOutput) ClientNamespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationQuickSightConfiguration) *string {
 		if v == nil {
@@ -866,7 +870,9 @@ type ApplicationTag struct {
 }
 
 type DataAccessorActionConfiguration struct {
-	Action              string                                 `pulumi:"action"`
+	// The Amazon Q Business action that is allowed.
+	Action string `pulumi:"action"`
+	// The filter configuration for the action, if any.
 	FilterConfiguration *DataAccessorActionFilterConfiguration `pulumi:"filterConfiguration"`
 }
 
@@ -882,7 +888,9 @@ type DataAccessorActionConfigurationInput interface {
 }
 
 type DataAccessorActionConfigurationArgs struct {
-	Action              pulumi.StringInput                            `pulumi:"action"`
+	// The Amazon Q Business action that is allowed.
+	Action pulumi.StringInput `pulumi:"action"`
+	// The filter configuration for the action, if any.
 	FilterConfiguration DataAccessorActionFilterConfigurationPtrInput `pulumi:"filterConfiguration"`
 }
 
@@ -937,10 +945,12 @@ func (o DataAccessorActionConfigurationOutput) ToDataAccessorActionConfiguration
 	return o
 }
 
+// The Amazon Q Business action that is allowed.
 func (o DataAccessorActionConfigurationOutput) Action() pulumi.StringOutput {
 	return o.ApplyT(func(v DataAccessorActionConfiguration) string { return v.Action }).(pulumi.StringOutput)
 }
 
+// The filter configuration for the action, if any.
 func (o DataAccessorActionConfigurationOutput) FilterConfiguration() DataAccessorActionFilterConfigurationPtrOutput {
 	return o.ApplyT(func(v DataAccessorActionConfiguration) *DataAccessorActionFilterConfiguration {
 		return v.FilterConfiguration
@@ -968,6 +978,7 @@ func (o DataAccessorActionConfigurationArrayOutput) Index(i pulumi.IntInput) Dat
 }
 
 type DataAccessorActionFilterConfiguration struct {
+	// Enables filtering of responses based on document attributes or metadata fields.
 	DocumentAttributeFilter DataAccessorAttributeFilter `pulumi:"documentAttributeFilter"`
 }
 
@@ -983,6 +994,7 @@ type DataAccessorActionFilterConfigurationInput interface {
 }
 
 type DataAccessorActionFilterConfigurationArgs struct {
+	// Enables filtering of responses based on document attributes or metadata fields.
 	DocumentAttributeFilter DataAccessorAttributeFilterInput `pulumi:"documentAttributeFilter"`
 }
 
@@ -1063,6 +1075,7 @@ func (o DataAccessorActionFilterConfigurationOutput) ToDataAccessorActionFilterC
 	}).(DataAccessorActionFilterConfigurationPtrOutput)
 }
 
+// Enables filtering of responses based on document attributes or metadata fields.
 func (o DataAccessorActionFilterConfigurationOutput) DocumentAttributeFilter() DataAccessorAttributeFilterOutput {
 	return o.ApplyT(func(v DataAccessorActionFilterConfiguration) DataAccessorAttributeFilter {
 		return v.DocumentAttributeFilter
@@ -1093,6 +1106,7 @@ func (o DataAccessorActionFilterConfigurationPtrOutput) Elem() DataAccessorActio
 	}).(DataAccessorActionFilterConfigurationOutput)
 }
 
+// Enables filtering of responses based on document attributes or metadata fields.
 func (o DataAccessorActionFilterConfigurationPtrOutput) DocumentAttributeFilter() DataAccessorAttributeFilterPtrOutput {
 	return o.ApplyT(func(v *DataAccessorActionFilterConfiguration) *DataAccessorAttributeFilter {
 		if v == nil {
@@ -1103,16 +1117,26 @@ func (o DataAccessorActionFilterConfigurationPtrOutput) DocumentAttributeFilter(
 }
 
 type DataAccessorAttributeFilter struct {
-	AndAllFilters       []DataAccessorAttributeFilter  `pulumi:"andAllFilters"`
-	ContainsAll         *DataAccessorDocumentAttribute `pulumi:"containsAll"`
-	ContainsAny         *DataAccessorDocumentAttribute `pulumi:"containsAny"`
-	EqualsTo            *DataAccessorDocumentAttribute `pulumi:"equalsTo"`
-	GreaterThan         *DataAccessorDocumentAttribute `pulumi:"greaterThan"`
+	// Performs a logical `AND` operation on all supplied filters.
+	AndAllFilters []DataAccessorAttributeFilter `pulumi:"andAllFilters"`
+	// Returns `true` when a document contains all the specified document attributes or metadata fields. Supported for the following [document attribute value types](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html) : `stringListValue` .
+	ContainsAll *DataAccessorDocumentAttribute `pulumi:"containsAll"`
+	// Returns `true` when a document contains any of the specified document attributes or metadata fields. Supported for the following [document attribute value types](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html) : `stringListValue` .
+	ContainsAny *DataAccessorDocumentAttribute `pulumi:"containsAny"`
+	// Performs an equals operation on two document attributes or metadata fields. Supported for the following [document attribute value types](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html) : `dateValue` , `longValue` , `stringListValue` and `stringValue` .
+	EqualsTo *DataAccessorDocumentAttribute `pulumi:"equalsTo"`
+	// Performs a greater than operation on two document attributes or metadata fields. Supported for the following [document attribute value types](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html) : `dateValue` and `longValue` .
+	GreaterThan *DataAccessorDocumentAttribute `pulumi:"greaterThan"`
+	// Performs a greater or equals than operation on two document attributes or metadata fields. Supported for the following [document attribute value types](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html) : `dateValue` and `longValue` .
 	GreaterThanOrEquals *DataAccessorDocumentAttribute `pulumi:"greaterThanOrEquals"`
-	LessThan            *DataAccessorDocumentAttribute `pulumi:"lessThan"`
-	LessThanOrEquals    *DataAccessorDocumentAttribute `pulumi:"lessThanOrEquals"`
-	NotFilter           *DataAccessorAttributeFilter   `pulumi:"notFilter"`
-	OrAllFilters        []DataAccessorAttributeFilter  `pulumi:"orAllFilters"`
+	// Performs a less than operation on two document attributes or metadata fields. Supported for the following [document attribute value types](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html) : `dateValue` and `longValue` .
+	LessThan *DataAccessorDocumentAttribute `pulumi:"lessThan"`
+	// Performs a less than or equals operation on two document attributes or metadata fields.Supported for the following [document attribute value type](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html) : `dateValue` and `longValue` .
+	LessThanOrEquals *DataAccessorDocumentAttribute `pulumi:"lessThanOrEquals"`
+	// Performs a logical `NOT` operation on all supplied filters.
+	NotFilter *DataAccessorAttributeFilter `pulumi:"notFilter"`
+	// Performs a logical `OR` operation on all supplied filters.
+	OrAllFilters []DataAccessorAttributeFilter `pulumi:"orAllFilters"`
 }
 
 // DataAccessorAttributeFilterInput is an input type that accepts DataAccessorAttributeFilterArgs and DataAccessorAttributeFilterOutput values.
@@ -1127,16 +1151,26 @@ type DataAccessorAttributeFilterInput interface {
 }
 
 type DataAccessorAttributeFilterArgs struct {
-	AndAllFilters       DataAccessorAttributeFilterArrayInput `pulumi:"andAllFilters"`
-	ContainsAll         DataAccessorDocumentAttributePtrInput `pulumi:"containsAll"`
-	ContainsAny         DataAccessorDocumentAttributePtrInput `pulumi:"containsAny"`
-	EqualsTo            DataAccessorDocumentAttributePtrInput `pulumi:"equalsTo"`
-	GreaterThan         DataAccessorDocumentAttributePtrInput `pulumi:"greaterThan"`
+	// Performs a logical `AND` operation on all supplied filters.
+	AndAllFilters DataAccessorAttributeFilterArrayInput `pulumi:"andAllFilters"`
+	// Returns `true` when a document contains all the specified document attributes or metadata fields. Supported for the following [document attribute value types](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html) : `stringListValue` .
+	ContainsAll DataAccessorDocumentAttributePtrInput `pulumi:"containsAll"`
+	// Returns `true` when a document contains any of the specified document attributes or metadata fields. Supported for the following [document attribute value types](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html) : `stringListValue` .
+	ContainsAny DataAccessorDocumentAttributePtrInput `pulumi:"containsAny"`
+	// Performs an equals operation on two document attributes or metadata fields. Supported for the following [document attribute value types](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html) : `dateValue` , `longValue` , `stringListValue` and `stringValue` .
+	EqualsTo DataAccessorDocumentAttributePtrInput `pulumi:"equalsTo"`
+	// Performs a greater than operation on two document attributes or metadata fields. Supported for the following [document attribute value types](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html) : `dateValue` and `longValue` .
+	GreaterThan DataAccessorDocumentAttributePtrInput `pulumi:"greaterThan"`
+	// Performs a greater or equals than operation on two document attributes or metadata fields. Supported for the following [document attribute value types](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html) : `dateValue` and `longValue` .
 	GreaterThanOrEquals DataAccessorDocumentAttributePtrInput `pulumi:"greaterThanOrEquals"`
-	LessThan            DataAccessorDocumentAttributePtrInput `pulumi:"lessThan"`
-	LessThanOrEquals    DataAccessorDocumentAttributePtrInput `pulumi:"lessThanOrEquals"`
-	NotFilter           DataAccessorAttributeFilterPtrInput   `pulumi:"notFilter"`
-	OrAllFilters        DataAccessorAttributeFilterArrayInput `pulumi:"orAllFilters"`
+	// Performs a less than operation on two document attributes or metadata fields. Supported for the following [document attribute value types](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html) : `dateValue` and `longValue` .
+	LessThan DataAccessorDocumentAttributePtrInput `pulumi:"lessThan"`
+	// Performs a less than or equals operation on two document attributes or metadata fields.Supported for the following [document attribute value type](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html) : `dateValue` and `longValue` .
+	LessThanOrEquals DataAccessorDocumentAttributePtrInput `pulumi:"lessThanOrEquals"`
+	// Performs a logical `NOT` operation on all supplied filters.
+	NotFilter DataAccessorAttributeFilterPtrInput `pulumi:"notFilter"`
+	// Performs a logical `OR` operation on all supplied filters.
+	OrAllFilters DataAccessorAttributeFilterArrayInput `pulumi:"orAllFilters"`
 }
 
 func (DataAccessorAttributeFilterArgs) ElementType() reflect.Type {
@@ -1241,42 +1275,52 @@ func (o DataAccessorAttributeFilterOutput) ToDataAccessorAttributeFilterPtrOutpu
 	}).(DataAccessorAttributeFilterPtrOutput)
 }
 
+// Performs a logical `AND` operation on all supplied filters.
 func (o DataAccessorAttributeFilterOutput) AndAllFilters() DataAccessorAttributeFilterArrayOutput {
 	return o.ApplyT(func(v DataAccessorAttributeFilter) []DataAccessorAttributeFilter { return v.AndAllFilters }).(DataAccessorAttributeFilterArrayOutput)
 }
 
+// Returns `true` when a document contains all the specified document attributes or metadata fields. Supported for the following [document attribute value types](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html) : `stringListValue` .
 func (o DataAccessorAttributeFilterOutput) ContainsAll() DataAccessorDocumentAttributePtrOutput {
 	return o.ApplyT(func(v DataAccessorAttributeFilter) *DataAccessorDocumentAttribute { return v.ContainsAll }).(DataAccessorDocumentAttributePtrOutput)
 }
 
+// Returns `true` when a document contains any of the specified document attributes or metadata fields. Supported for the following [document attribute value types](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html) : `stringListValue` .
 func (o DataAccessorAttributeFilterOutput) ContainsAny() DataAccessorDocumentAttributePtrOutput {
 	return o.ApplyT(func(v DataAccessorAttributeFilter) *DataAccessorDocumentAttribute { return v.ContainsAny }).(DataAccessorDocumentAttributePtrOutput)
 }
 
+// Performs an equals operation on two document attributes or metadata fields. Supported for the following [document attribute value types](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html) : `dateValue` , `longValue` , `stringListValue` and `stringValue` .
 func (o DataAccessorAttributeFilterOutput) EqualsTo() DataAccessorDocumentAttributePtrOutput {
 	return o.ApplyT(func(v DataAccessorAttributeFilter) *DataAccessorDocumentAttribute { return v.EqualsTo }).(DataAccessorDocumentAttributePtrOutput)
 }
 
+// Performs a greater than operation on two document attributes or metadata fields. Supported for the following [document attribute value types](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html) : `dateValue` and `longValue` .
 func (o DataAccessorAttributeFilterOutput) GreaterThan() DataAccessorDocumentAttributePtrOutput {
 	return o.ApplyT(func(v DataAccessorAttributeFilter) *DataAccessorDocumentAttribute { return v.GreaterThan }).(DataAccessorDocumentAttributePtrOutput)
 }
 
+// Performs a greater or equals than operation on two document attributes or metadata fields. Supported for the following [document attribute value types](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html) : `dateValue` and `longValue` .
 func (o DataAccessorAttributeFilterOutput) GreaterThanOrEquals() DataAccessorDocumentAttributePtrOutput {
 	return o.ApplyT(func(v DataAccessorAttributeFilter) *DataAccessorDocumentAttribute { return v.GreaterThanOrEquals }).(DataAccessorDocumentAttributePtrOutput)
 }
 
+// Performs a less than operation on two document attributes or metadata fields. Supported for the following [document attribute value types](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html) : `dateValue` and `longValue` .
 func (o DataAccessorAttributeFilterOutput) LessThan() DataAccessorDocumentAttributePtrOutput {
 	return o.ApplyT(func(v DataAccessorAttributeFilter) *DataAccessorDocumentAttribute { return v.LessThan }).(DataAccessorDocumentAttributePtrOutput)
 }
 
+// Performs a less than or equals operation on two document attributes or metadata fields.Supported for the following [document attribute value type](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html) : `dateValue` and `longValue` .
 func (o DataAccessorAttributeFilterOutput) LessThanOrEquals() DataAccessorDocumentAttributePtrOutput {
 	return o.ApplyT(func(v DataAccessorAttributeFilter) *DataAccessorDocumentAttribute { return v.LessThanOrEquals }).(DataAccessorDocumentAttributePtrOutput)
 }
 
+// Performs a logical `NOT` operation on all supplied filters.
 func (o DataAccessorAttributeFilterOutput) NotFilter() DataAccessorAttributeFilterPtrOutput {
 	return o.ApplyT(func(v DataAccessorAttributeFilter) *DataAccessorAttributeFilter { return v.NotFilter }).(DataAccessorAttributeFilterPtrOutput)
 }
 
+// Performs a logical `OR` operation on all supplied filters.
 func (o DataAccessorAttributeFilterOutput) OrAllFilters() DataAccessorAttributeFilterArrayOutput {
 	return o.ApplyT(func(v DataAccessorAttributeFilter) []DataAccessorAttributeFilter { return v.OrAllFilters }).(DataAccessorAttributeFilterArrayOutput)
 }
@@ -1305,6 +1349,7 @@ func (o DataAccessorAttributeFilterPtrOutput) Elem() DataAccessorAttributeFilter
 	}).(DataAccessorAttributeFilterOutput)
 }
 
+// Performs a logical `AND` operation on all supplied filters.
 func (o DataAccessorAttributeFilterPtrOutput) AndAllFilters() DataAccessorAttributeFilterArrayOutput {
 	return o.ApplyT(func(v *DataAccessorAttributeFilter) []DataAccessorAttributeFilter {
 		if v == nil {
@@ -1314,6 +1359,7 @@ func (o DataAccessorAttributeFilterPtrOutput) AndAllFilters() DataAccessorAttrib
 	}).(DataAccessorAttributeFilterArrayOutput)
 }
 
+// Returns `true` when a document contains all the specified document attributes or metadata fields. Supported for the following [document attribute value types](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html) : `stringListValue` .
 func (o DataAccessorAttributeFilterPtrOutput) ContainsAll() DataAccessorDocumentAttributePtrOutput {
 	return o.ApplyT(func(v *DataAccessorAttributeFilter) *DataAccessorDocumentAttribute {
 		if v == nil {
@@ -1323,6 +1369,7 @@ func (o DataAccessorAttributeFilterPtrOutput) ContainsAll() DataAccessorDocument
 	}).(DataAccessorDocumentAttributePtrOutput)
 }
 
+// Returns `true` when a document contains any of the specified document attributes or metadata fields. Supported for the following [document attribute value types](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html) : `stringListValue` .
 func (o DataAccessorAttributeFilterPtrOutput) ContainsAny() DataAccessorDocumentAttributePtrOutput {
 	return o.ApplyT(func(v *DataAccessorAttributeFilter) *DataAccessorDocumentAttribute {
 		if v == nil {
@@ -1332,6 +1379,7 @@ func (o DataAccessorAttributeFilterPtrOutput) ContainsAny() DataAccessorDocument
 	}).(DataAccessorDocumentAttributePtrOutput)
 }
 
+// Performs an equals operation on two document attributes or metadata fields. Supported for the following [document attribute value types](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html) : `dateValue` , `longValue` , `stringListValue` and `stringValue` .
 func (o DataAccessorAttributeFilterPtrOutput) EqualsTo() DataAccessorDocumentAttributePtrOutput {
 	return o.ApplyT(func(v *DataAccessorAttributeFilter) *DataAccessorDocumentAttribute {
 		if v == nil {
@@ -1341,6 +1389,7 @@ func (o DataAccessorAttributeFilterPtrOutput) EqualsTo() DataAccessorDocumentAtt
 	}).(DataAccessorDocumentAttributePtrOutput)
 }
 
+// Performs a greater than operation on two document attributes or metadata fields. Supported for the following [document attribute value types](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html) : `dateValue` and `longValue` .
 func (o DataAccessorAttributeFilterPtrOutput) GreaterThan() DataAccessorDocumentAttributePtrOutput {
 	return o.ApplyT(func(v *DataAccessorAttributeFilter) *DataAccessorDocumentAttribute {
 		if v == nil {
@@ -1350,6 +1399,7 @@ func (o DataAccessorAttributeFilterPtrOutput) GreaterThan() DataAccessorDocument
 	}).(DataAccessorDocumentAttributePtrOutput)
 }
 
+// Performs a greater or equals than operation on two document attributes or metadata fields. Supported for the following [document attribute value types](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html) : `dateValue` and `longValue` .
 func (o DataAccessorAttributeFilterPtrOutput) GreaterThanOrEquals() DataAccessorDocumentAttributePtrOutput {
 	return o.ApplyT(func(v *DataAccessorAttributeFilter) *DataAccessorDocumentAttribute {
 		if v == nil {
@@ -1359,6 +1409,7 @@ func (o DataAccessorAttributeFilterPtrOutput) GreaterThanOrEquals() DataAccessor
 	}).(DataAccessorDocumentAttributePtrOutput)
 }
 
+// Performs a less than operation on two document attributes or metadata fields. Supported for the following [document attribute value types](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html) : `dateValue` and `longValue` .
 func (o DataAccessorAttributeFilterPtrOutput) LessThan() DataAccessorDocumentAttributePtrOutput {
 	return o.ApplyT(func(v *DataAccessorAttributeFilter) *DataAccessorDocumentAttribute {
 		if v == nil {
@@ -1368,6 +1419,7 @@ func (o DataAccessorAttributeFilterPtrOutput) LessThan() DataAccessorDocumentAtt
 	}).(DataAccessorDocumentAttributePtrOutput)
 }
 
+// Performs a less than or equals operation on two document attributes or metadata fields.Supported for the following [document attribute value type](https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeValue.html) : `dateValue` and `longValue` .
 func (o DataAccessorAttributeFilterPtrOutput) LessThanOrEquals() DataAccessorDocumentAttributePtrOutput {
 	return o.ApplyT(func(v *DataAccessorAttributeFilter) *DataAccessorDocumentAttribute {
 		if v == nil {
@@ -1377,6 +1429,7 @@ func (o DataAccessorAttributeFilterPtrOutput) LessThanOrEquals() DataAccessorDoc
 	}).(DataAccessorDocumentAttributePtrOutput)
 }
 
+// Performs a logical `NOT` operation on all supplied filters.
 func (o DataAccessorAttributeFilterPtrOutput) NotFilter() DataAccessorAttributeFilterPtrOutput {
 	return o.ApplyT(func(v *DataAccessorAttributeFilter) *DataAccessorAttributeFilter {
 		if v == nil {
@@ -1386,6 +1439,7 @@ func (o DataAccessorAttributeFilterPtrOutput) NotFilter() DataAccessorAttributeF
 	}).(DataAccessorAttributeFilterPtrOutput)
 }
 
+// Performs a logical `OR` operation on all supplied filters.
 func (o DataAccessorAttributeFilterPtrOutput) OrAllFilters() DataAccessorAttributeFilterArrayOutput {
 	return o.ApplyT(func(v *DataAccessorAttributeFilter) []DataAccessorAttributeFilter {
 		if v == nil {
@@ -1416,7 +1470,9 @@ func (o DataAccessorAttributeFilterArrayOutput) Index(i pulumi.IntInput) DataAcc
 }
 
 type DataAccessorDocumentAttribute struct {
-	Name  string      `pulumi:"name"`
+	// The identifier for the attribute.
+	Name string `pulumi:"name"`
+	// The value of the attribute.
 	Value interface{} `pulumi:"value"`
 }
 
@@ -1432,8 +1488,10 @@ type DataAccessorDocumentAttributeInput interface {
 }
 
 type DataAccessorDocumentAttributeArgs struct {
-	Name  pulumi.StringInput `pulumi:"name"`
-	Value pulumi.Input       `pulumi:"value"`
+	// The identifier for the attribute.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The value of the attribute.
+	Value pulumi.Input `pulumi:"value"`
 }
 
 func (DataAccessorDocumentAttributeArgs) ElementType() reflect.Type {
@@ -1513,10 +1571,12 @@ func (o DataAccessorDocumentAttributeOutput) ToDataAccessorDocumentAttributePtrO
 	}).(DataAccessorDocumentAttributePtrOutput)
 }
 
+// The identifier for the attribute.
 func (o DataAccessorDocumentAttributeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DataAccessorDocumentAttribute) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The value of the attribute.
 func (o DataAccessorDocumentAttributeOutput) Value() pulumi.AnyOutput {
 	return o.ApplyT(func(v DataAccessorDocumentAttribute) interface{} { return v.Value }).(pulumi.AnyOutput)
 }
@@ -1545,6 +1605,7 @@ func (o DataAccessorDocumentAttributePtrOutput) Elem() DataAccessorDocumentAttri
 	}).(DataAccessorDocumentAttributeOutput)
 }
 
+// The identifier for the attribute.
 func (o DataAccessorDocumentAttributePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataAccessorDocumentAttribute) *string {
 		if v == nil {
@@ -1554,6 +1615,7 @@ func (o DataAccessorDocumentAttributePtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The value of the attribute.
 func (o DataAccessorDocumentAttributePtrOutput) Value() pulumi.AnyOutput {
 	return o.ApplyT(func(v *DataAccessorDocumentAttribute) interface{} {
 		if v == nil {
@@ -2096,7 +2158,9 @@ func (o DataAccessorDocumentAttributeValue3PropertiesPtrOutput) DateValue() pulu
 }
 
 type DataAccessorTag struct {
-	Key   string `pulumi:"key"`
+	// The key for the tag. Keys are not case sensitive and must be unique for the Amazon Q Business application or data source.
+	Key string `pulumi:"key"`
+	// The value associated with the tag. The value may be an empty string but it can't be null.
 	Value string `pulumi:"value"`
 }
 
@@ -3404,6 +3468,7 @@ func (o DataSourceHookConfigurationPtrOutput) S3BucketName() pulumi.StringPtrOut
 }
 
 type DataSourceImageExtractionConfiguration struct {
+	// Specify whether to extract semantic meaning from images and visuals from documents.
 	ImageExtractionStatus DataSourceImageExtractionStatus `pulumi:"imageExtractionStatus"`
 }
 
@@ -3419,6 +3484,7 @@ type DataSourceImageExtractionConfigurationInput interface {
 }
 
 type DataSourceImageExtractionConfigurationArgs struct {
+	// Specify whether to extract semantic meaning from images and visuals from documents.
 	ImageExtractionStatus DataSourceImageExtractionStatusInput `pulumi:"imageExtractionStatus"`
 }
 
@@ -3499,6 +3565,7 @@ func (o DataSourceImageExtractionConfigurationOutput) ToDataSourceImageExtractio
 	}).(DataSourceImageExtractionConfigurationPtrOutput)
 }
 
+// Specify whether to extract semantic meaning from images and visuals from documents.
 func (o DataSourceImageExtractionConfigurationOutput) ImageExtractionStatus() DataSourceImageExtractionStatusOutput {
 	return o.ApplyT(func(v DataSourceImageExtractionConfiguration) DataSourceImageExtractionStatus {
 		return v.ImageExtractionStatus
@@ -3529,6 +3596,7 @@ func (o DataSourceImageExtractionConfigurationPtrOutput) Elem() DataSourceImageE
 	}).(DataSourceImageExtractionConfigurationOutput)
 }
 
+// Specify whether to extract semantic meaning from images and visuals from documents.
 func (o DataSourceImageExtractionConfigurationPtrOutput) ImageExtractionStatus() DataSourceImageExtractionStatusPtrOutput {
 	return o.ApplyT(func(v *DataSourceImageExtractionConfiguration) *DataSourceImageExtractionStatus {
 		if v == nil {
@@ -3660,6 +3728,7 @@ func (o DataSourceInlineDocumentEnrichmentConfigurationArrayOutput) Index(i pulu
 }
 
 type DataSourceMediaExtractionConfiguration struct {
+	// The configuration for extracting semantic meaning from images in documents. For more information, see [Extracting semantic meaning from images and visuals](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/extracting-meaning-from-images.html) .
 	ImageExtractionConfiguration *DataSourceImageExtractionConfiguration `pulumi:"imageExtractionConfiguration"`
 }
 
@@ -3675,6 +3744,7 @@ type DataSourceMediaExtractionConfigurationInput interface {
 }
 
 type DataSourceMediaExtractionConfigurationArgs struct {
+	// The configuration for extracting semantic meaning from images in documents. For more information, see [Extracting semantic meaning from images and visuals](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/extracting-meaning-from-images.html) .
 	ImageExtractionConfiguration DataSourceImageExtractionConfigurationPtrInput `pulumi:"imageExtractionConfiguration"`
 }
 
@@ -3755,6 +3825,7 @@ func (o DataSourceMediaExtractionConfigurationOutput) ToDataSourceMediaExtractio
 	}).(DataSourceMediaExtractionConfigurationPtrOutput)
 }
 
+// The configuration for extracting semantic meaning from images in documents. For more information, see [Extracting semantic meaning from images and visuals](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/extracting-meaning-from-images.html) .
 func (o DataSourceMediaExtractionConfigurationOutput) ImageExtractionConfiguration() DataSourceImageExtractionConfigurationPtrOutput {
 	return o.ApplyT(func(v DataSourceMediaExtractionConfiguration) *DataSourceImageExtractionConfiguration {
 		return v.ImageExtractionConfiguration
@@ -3785,6 +3856,7 @@ func (o DataSourceMediaExtractionConfigurationPtrOutput) Elem() DataSourceMediaE
 	}).(DataSourceMediaExtractionConfigurationOutput)
 }
 
+// The configuration for extracting semantic meaning from images in documents. For more information, see [Extracting semantic meaning from images and visuals](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/extracting-meaning-from-images.html) .
 func (o DataSourceMediaExtractionConfigurationPtrOutput) ImageExtractionConfiguration() DataSourceImageExtractionConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSourceMediaExtractionConfiguration) *DataSourceImageExtractionConfiguration {
 		if v == nil {
@@ -5826,10 +5898,14 @@ type RetrieverTag struct {
 }
 
 type WebExperienceCustomizationConfiguration struct {
+	// Provides the URL where the custom CSS file is hosted for an Amazon Q web experience.
 	CustomCssUrl *string `pulumi:"customCssUrl"`
-	FaviconUrl   *string `pulumi:"faviconUrl"`
-	FontUrl      *string `pulumi:"fontUrl"`
-	LogoUrl      *string `pulumi:"logoUrl"`
+	// Provides the URL where the custom favicon file is hosted for an Amazon Q web experience.
+	FaviconUrl *string `pulumi:"faviconUrl"`
+	// Provides the URL where the custom font file is hosted for an Amazon Q web experience.
+	FontUrl *string `pulumi:"fontUrl"`
+	// Provides the URL where the custom logo file is hosted for an Amazon Q web experience.
+	LogoUrl *string `pulumi:"logoUrl"`
 }
 
 // WebExperienceCustomizationConfigurationInput is an input type that accepts WebExperienceCustomizationConfigurationArgs and WebExperienceCustomizationConfigurationOutput values.
@@ -5844,10 +5920,14 @@ type WebExperienceCustomizationConfigurationInput interface {
 }
 
 type WebExperienceCustomizationConfigurationArgs struct {
+	// Provides the URL where the custom CSS file is hosted for an Amazon Q web experience.
 	CustomCssUrl pulumi.StringPtrInput `pulumi:"customCssUrl"`
-	FaviconUrl   pulumi.StringPtrInput `pulumi:"faviconUrl"`
-	FontUrl      pulumi.StringPtrInput `pulumi:"fontUrl"`
-	LogoUrl      pulumi.StringPtrInput `pulumi:"logoUrl"`
+	// Provides the URL where the custom favicon file is hosted for an Amazon Q web experience.
+	FaviconUrl pulumi.StringPtrInput `pulumi:"faviconUrl"`
+	// Provides the URL where the custom font file is hosted for an Amazon Q web experience.
+	FontUrl pulumi.StringPtrInput `pulumi:"fontUrl"`
+	// Provides the URL where the custom logo file is hosted for an Amazon Q web experience.
+	LogoUrl pulumi.StringPtrInput `pulumi:"logoUrl"`
 }
 
 func (WebExperienceCustomizationConfigurationArgs) ElementType() reflect.Type {
@@ -5927,18 +6007,22 @@ func (o WebExperienceCustomizationConfigurationOutput) ToWebExperienceCustomizat
 	}).(WebExperienceCustomizationConfigurationPtrOutput)
 }
 
+// Provides the URL where the custom CSS file is hosted for an Amazon Q web experience.
 func (o WebExperienceCustomizationConfigurationOutput) CustomCssUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WebExperienceCustomizationConfiguration) *string { return v.CustomCssUrl }).(pulumi.StringPtrOutput)
 }
 
+// Provides the URL where the custom favicon file is hosted for an Amazon Q web experience.
 func (o WebExperienceCustomizationConfigurationOutput) FaviconUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WebExperienceCustomizationConfiguration) *string { return v.FaviconUrl }).(pulumi.StringPtrOutput)
 }
 
+// Provides the URL where the custom font file is hosted for an Amazon Q web experience.
 func (o WebExperienceCustomizationConfigurationOutput) FontUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WebExperienceCustomizationConfiguration) *string { return v.FontUrl }).(pulumi.StringPtrOutput)
 }
 
+// Provides the URL where the custom logo file is hosted for an Amazon Q web experience.
 func (o WebExperienceCustomizationConfigurationOutput) LogoUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WebExperienceCustomizationConfiguration) *string { return v.LogoUrl }).(pulumi.StringPtrOutput)
 }
@@ -5967,6 +6051,7 @@ func (o WebExperienceCustomizationConfigurationPtrOutput) Elem() WebExperienceCu
 	}).(WebExperienceCustomizationConfigurationOutput)
 }
 
+// Provides the URL where the custom CSS file is hosted for an Amazon Q web experience.
 func (o WebExperienceCustomizationConfigurationPtrOutput) CustomCssUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebExperienceCustomizationConfiguration) *string {
 		if v == nil {
@@ -5976,6 +6061,7 @@ func (o WebExperienceCustomizationConfigurationPtrOutput) CustomCssUrl() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
+// Provides the URL where the custom favicon file is hosted for an Amazon Q web experience.
 func (o WebExperienceCustomizationConfigurationPtrOutput) FaviconUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebExperienceCustomizationConfiguration) *string {
 		if v == nil {
@@ -5985,6 +6071,7 @@ func (o WebExperienceCustomizationConfigurationPtrOutput) FaviconUrl() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
+// Provides the URL where the custom font file is hosted for an Amazon Q web experience.
 func (o WebExperienceCustomizationConfigurationPtrOutput) FontUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebExperienceCustomizationConfiguration) *string {
 		if v == nil {
@@ -5994,6 +6081,7 @@ func (o WebExperienceCustomizationConfigurationPtrOutput) FontUrl() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+// Provides the URL where the custom logo file is hosted for an Amazon Q web experience.
 func (o WebExperienceCustomizationConfigurationPtrOutput) LogoUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebExperienceCustomizationConfiguration) *string {
 		if v == nil {

@@ -408,7 +408,7 @@ func (o ExperimentTemplateExperimentOptionsPtrOutput) EmptyTargetResolutionMode(
 
 type ExperimentTemplateExperimentReportConfiguration struct {
 	// The data sources for the experiment report.
-	DataSources ExperimentTemplateExperimentReportConfigurationDataSourcesProperties `pulumi:"dataSources"`
+	DataSources *ExperimentTemplateExperimentReportConfigurationDataSourcesProperties `pulumi:"dataSources"`
 	// The output destinations of the experiment report.
 	Outputs ExperimentTemplateExperimentReportConfigurationOutputsProperties `pulumi:"outputs"`
 	// The duration after the experiment end time for the data sources to include in the report.
@@ -430,7 +430,7 @@ type ExperimentTemplateExperimentReportConfigurationInput interface {
 
 type ExperimentTemplateExperimentReportConfigurationArgs struct {
 	// The data sources for the experiment report.
-	DataSources ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesInput `pulumi:"dataSources"`
+	DataSources ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesPtrInput `pulumi:"dataSources"`
 	// The output destinations of the experiment report.
 	Outputs ExperimentTemplateExperimentReportConfigurationOutputsPropertiesInput `pulumi:"outputs"`
 	// The duration after the experiment end time for the data sources to include in the report.
@@ -517,10 +517,10 @@ func (o ExperimentTemplateExperimentReportConfigurationOutput) ToExperimentTempl
 }
 
 // The data sources for the experiment report.
-func (o ExperimentTemplateExperimentReportConfigurationOutput) DataSources() ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesOutput {
-	return o.ApplyT(func(v ExperimentTemplateExperimentReportConfiguration) ExperimentTemplateExperimentReportConfigurationDataSourcesProperties {
+func (o ExperimentTemplateExperimentReportConfigurationOutput) DataSources() ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesPtrOutput {
+	return o.ApplyT(func(v ExperimentTemplateExperimentReportConfiguration) *ExperimentTemplateExperimentReportConfigurationDataSourcesProperties {
 		return v.DataSources
-	}).(ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesOutput)
+	}).(ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesPtrOutput)
 }
 
 // The output destinations of the experiment report.
@@ -570,7 +570,7 @@ func (o ExperimentTemplateExperimentReportConfigurationPtrOutput) DataSources() 
 		if v == nil {
 			return nil
 		}
-		return &v.DataSources
+		return v.DataSources
 	}).(ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesPtrOutput)
 }
 

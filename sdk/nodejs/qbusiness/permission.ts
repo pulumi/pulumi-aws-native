@@ -34,9 +34,21 @@ export class Permission extends pulumi.CustomResource {
         return obj['__pulumiType'] === Permission.__pulumiType;
     }
 
+    /**
+     * The list of Amazon Q Business actions that the ISV is allowed to perform.
+     */
     public readonly actions!: pulumi.Output<string[]>;
+    /**
+     * The unique identifier of the Amazon Q Business application.
+     */
     public readonly applicationId!: pulumi.Output<string>;
+    /**
+     * Provides user and group information used for filtering documents to use for generating Amazon Q Business conversation responses.
+     */
     public readonly principal!: pulumi.Output<string>;
+    /**
+     * A unique identifier for the policy statement.
+     */
     public readonly statementId!: pulumi.Output<string>;
 
     /**
@@ -83,8 +95,20 @@ export class Permission extends pulumi.CustomResource {
  * The set of arguments for constructing a Permission resource.
  */
 export interface PermissionArgs {
+    /**
+     * The list of Amazon Q Business actions that the ISV is allowed to perform.
+     */
     actions: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The unique identifier of the Amazon Q Business application.
+     */
     applicationId: pulumi.Input<string>;
+    /**
+     * Provides user and group information used for filtering documents to use for generating Amazon Q Business conversation responses.
+     */
     principal: pulumi.Input<string>;
+    /**
+     * A unique identifier for the policy statement.
+     */
     statementId: pulumi.Input<string>;
 }

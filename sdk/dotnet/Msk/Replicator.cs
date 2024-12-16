@@ -90,6 +90,11 @@ namespace Pulumi.AwsNative.Msk
                 {
                     "description",
                     "kafkaClusters[*]",
+                    "replicationInfoList[*].sourceKafkaClusterArn",
+                    "replicationInfoList[*].targetCompressionType",
+                    "replicationInfoList[*].targetKafkaClusterArn",
+                    "replicationInfoList[*].topicReplication.startingPosition",
+                    "replicationInfoList[*].topicReplication.topicNameConfiguration",
                     "replicatorName",
                     "serviceExecutionRoleArn",
                 },

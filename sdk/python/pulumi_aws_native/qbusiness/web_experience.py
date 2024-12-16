@@ -37,6 +37,7 @@ class WebExperienceArgs:
         """
         The set of arguments for constructing a WebExperience resource.
         :param pulumi.Input[str] application_id: The identifier of the Amazon Q Business web experience.
+        :param pulumi.Input['WebExperienceCustomizationConfigurationArgs'] customization_configuration: Contains the configuration information to customize the logo, font, and color of an Amazon Q Business web experience with individual files for each property or a CSS file for them all.
         :param pulumi.Input[Union['WebExperienceIdentityProviderConfiguration0PropertiesArgs', 'WebExperienceIdentityProviderConfiguration1PropertiesArgs']] identity_provider_configuration: Provides information about the identity provider (IdP) used to authenticate end users of an Amazon Q Business web experience.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] origins: Sets the website domain origins that are allowed to embed the Amazon Q Business web experience. The *domain origin* refers to the base URL for accessing a website including the protocol ( `http/https` ), the domain name, and the port number (if specified).
                
@@ -85,6 +86,9 @@ class WebExperienceArgs:
     @property
     @pulumi.getter(name="customizationConfiguration")
     def customization_configuration(self) -> Optional[pulumi.Input['WebExperienceCustomizationConfigurationArgs']]:
+        """
+        Contains the configuration information to customize the logo, font, and color of an Amazon Q Business web experience with individual files for each property or a CSS file for them all.
+        """
         return pulumi.get(self, "customization_configuration")
 
     @customization_configuration.setter
@@ -214,6 +218,7 @@ class WebExperience(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_id: The identifier of the Amazon Q Business web experience.
+        :param pulumi.Input[Union['WebExperienceCustomizationConfigurationArgs', 'WebExperienceCustomizationConfigurationArgsDict']] customization_configuration: Contains the configuration information to customize the logo, font, and color of an Amazon Q Business web experience with individual files for each property or a CSS file for them all.
         :param pulumi.Input[Union[Union['WebExperienceIdentityProviderConfiguration0PropertiesArgs', 'WebExperienceIdentityProviderConfiguration0PropertiesArgsDict'], Union['WebExperienceIdentityProviderConfiguration1PropertiesArgs', 'WebExperienceIdentityProviderConfiguration1PropertiesArgsDict']]] identity_provider_configuration: Provides information about the identity provider (IdP) used to authenticate end users of an Amazon Q Business web experience.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] origins: Sets the website domain origins that are allowed to embed the Amazon Q Business web experience. The *domain origin* refers to the base URL for accessing a website including the protocol ( `http/https` ), the domain name, and the port number (if specified).
                
@@ -349,6 +354,9 @@ class WebExperience(pulumi.CustomResource):
     @property
     @pulumi.getter(name="customizationConfiguration")
     def customization_configuration(self) -> pulumi.Output[Optional['outputs.WebExperienceCustomizationConfiguration']]:
+        """
+        Contains the configuration information to customize the logo, font, and color of an Amazon Q Business web experience with individual files for each property or a CSS file for them all.
+        """
         return pulumi.get(self, "customization_configuration")
 
     @property

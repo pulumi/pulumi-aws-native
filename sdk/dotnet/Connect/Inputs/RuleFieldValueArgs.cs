@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.Connect.Inputs
 {
 
     /// <summary>
-    /// The value of the field.
+    /// Object for case field values.
     /// </summary>
     public sealed class RuleFieldValueArgs : global::Pulumi.ResourceArgs
     {

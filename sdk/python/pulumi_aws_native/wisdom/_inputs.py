@@ -884,8 +884,17 @@ if not MYPY:
         Content filter config in content policy.
         """
         input_strength: pulumi.Input['AiGuardrailGuardrailFilterStrength']
+        """
+        The strength of the input for the guardrail content filter.
+        """
         output_strength: pulumi.Input['AiGuardrailGuardrailFilterStrength']
+        """
+        The output strength of the guardrail content filter.
+        """
         type: pulumi.Input['AiGuardrailGuardrailContentFilterType']
+        """
+        The type of the guardrail content filter.
+        """
 elif False:
     AiGuardrailGuardrailContentFilterConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -897,6 +906,9 @@ class AiGuardrailGuardrailContentFilterConfigArgs:
                  type: pulumi.Input['AiGuardrailGuardrailContentFilterType']):
         """
         Content filter config in content policy.
+        :param pulumi.Input['AiGuardrailGuardrailFilterStrength'] input_strength: The strength of the input for the guardrail content filter.
+        :param pulumi.Input['AiGuardrailGuardrailFilterStrength'] output_strength: The output strength of the guardrail content filter.
+        :param pulumi.Input['AiGuardrailGuardrailContentFilterType'] type: The type of the guardrail content filter.
         """
         pulumi.set(__self__, "input_strength", input_strength)
         pulumi.set(__self__, "output_strength", output_strength)
@@ -905,6 +917,9 @@ class AiGuardrailGuardrailContentFilterConfigArgs:
     @property
     @pulumi.getter(name="inputStrength")
     def input_strength(self) -> pulumi.Input['AiGuardrailGuardrailFilterStrength']:
+        """
+        The strength of the input for the guardrail content filter.
+        """
         return pulumi.get(self, "input_strength")
 
     @input_strength.setter
@@ -914,6 +929,9 @@ class AiGuardrailGuardrailContentFilterConfigArgs:
     @property
     @pulumi.getter(name="outputStrength")
     def output_strength(self) -> pulumi.Input['AiGuardrailGuardrailFilterStrength']:
+        """
+        The output strength of the guardrail content filter.
+        """
         return pulumi.get(self, "output_strength")
 
     @output_strength.setter
@@ -923,6 +941,9 @@ class AiGuardrailGuardrailContentFilterConfigArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input['AiGuardrailGuardrailContentFilterType']:
+        """
+        The type of the guardrail content filter.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -940,6 +961,9 @@ if not MYPY:
         The threshold for this filter.
         """
         type: pulumi.Input['AiGuardrailGuardrailContextualGroundingFilterType']
+        """
+        The type of this filter.
+        """
 elif False:
     AiGuardrailGuardrailContextualGroundingFilterConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -951,6 +975,7 @@ class AiGuardrailGuardrailContextualGroundingFilterConfigArgs:
         """
         A config for grounding filter.
         :param pulumi.Input[float] threshold: The threshold for this filter.
+        :param pulumi.Input['AiGuardrailGuardrailContextualGroundingFilterType'] type: The type of this filter.
         """
         pulumi.set(__self__, "threshold", threshold)
         pulumi.set(__self__, "type", type)
@@ -970,6 +995,9 @@ class AiGuardrailGuardrailContextualGroundingFilterConfigArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input['AiGuardrailGuardrailContextualGroundingFilterType']:
+        """
+        The type of this filter.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -983,6 +1011,9 @@ if not MYPY:
         A managed words config.
         """
         type: pulumi.Input['AiGuardrailGuardrailManagedWordsType']
+        """
+        The type of guardrail managed words.
+        """
 elif False:
     AiGuardrailGuardrailManagedWordsConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -992,12 +1023,16 @@ class AiGuardrailGuardrailManagedWordsConfigArgs:
                  type: pulumi.Input['AiGuardrailGuardrailManagedWordsType']):
         """
         A managed words config.
+        :param pulumi.Input['AiGuardrailGuardrailManagedWordsType'] type: The type of guardrail managed words.
         """
         pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input['AiGuardrailGuardrailManagedWordsType']:
+        """
+        The type of guardrail managed words.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -1011,6 +1046,9 @@ if not MYPY:
         Pii entity configuration.
         """
         action: pulumi.Input['AiGuardrailGuardrailSensitiveInformationAction']
+        """
+        The action of guardrail PII entity configuration.
+        """
         type: pulumi.Input['AiGuardrailGuardrailPiiEntityType']
 elif False:
     AiGuardrailGuardrailPiiEntityConfigArgsDict: TypeAlias = Mapping[str, Any]
@@ -1022,6 +1060,7 @@ class AiGuardrailGuardrailPiiEntityConfigArgs:
                  type: pulumi.Input['AiGuardrailGuardrailPiiEntityType']):
         """
         Pii entity configuration.
+        :param pulumi.Input['AiGuardrailGuardrailSensitiveInformationAction'] action: The action of guardrail PII entity configuration.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "type", type)
@@ -1029,6 +1068,9 @@ class AiGuardrailGuardrailPiiEntityConfigArgs:
     @property
     @pulumi.getter
     def action(self) -> pulumi.Input['AiGuardrailGuardrailSensitiveInformationAction']:
+        """
+        The action of guardrail PII entity configuration.
+        """
         return pulumi.get(self, "action")
 
     @action.setter
@@ -1051,6 +1093,9 @@ if not MYPY:
         A regex configuration.
         """
         action: pulumi.Input['AiGuardrailGuardrailSensitiveInformationAction']
+        """
+        The action of the guardrail regex configuration.
+        """
         name: pulumi.Input[str]
         """
         The regex name.
@@ -1075,6 +1120,7 @@ class AiGuardrailGuardrailRegexConfigArgs:
                  description: Optional[pulumi.Input[str]] = None):
         """
         A regex configuration.
+        :param pulumi.Input['AiGuardrailGuardrailSensitiveInformationAction'] action: The action of the guardrail regex configuration.
         :param pulumi.Input[str] name: The regex name.
         :param pulumi.Input[str] pattern: The regex pattern.
         :param pulumi.Input[str] description: The regex description.
@@ -1088,6 +1134,9 @@ class AiGuardrailGuardrailRegexConfigArgs:
     @property
     @pulumi.getter
     def action(self) -> pulumi.Input['AiGuardrailGuardrailSensitiveInformationAction']:
+        """
+        The action of the guardrail regex configuration.
+        """
         return pulumi.get(self, "action")
 
     @action.setter
@@ -1145,6 +1194,9 @@ if not MYPY:
         Name of topic in topic policy
         """
         type: pulumi.Input['AiGuardrailGuardrailTopicType']
+        """
+        Type of topic in a policy.
+        """
         examples: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
         List of text examples
@@ -1163,6 +1215,7 @@ class AiGuardrailGuardrailTopicConfigArgs:
         Topic config in topic policy.
         :param pulumi.Input[str] definition: Definition of topic in topic policy
         :param pulumi.Input[str] name: Name of topic in topic policy
+        :param pulumi.Input['AiGuardrailGuardrailTopicType'] type: Type of topic in a policy.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] examples: List of text examples
         """
         pulumi.set(__self__, "definition", definition)
@@ -1198,6 +1251,9 @@ class AiGuardrailGuardrailTopicConfigArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input['AiGuardrailGuardrailTopicType']:
+        """
+        Type of topic in a policy.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -1364,6 +1420,9 @@ class KnowledgeBaseAppIntegrationsConfigurationArgs:
 
 if not MYPY:
     class KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesArgsDict(TypedDict):
+        """
+        The parsing prompt of the Bedrock foundation model configuration.
+        """
         parsing_prompt_text: pulumi.Input[str]
 elif False:
     KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesArgsDict: TypeAlias = Mapping[str, Any]
@@ -1372,6 +1431,9 @@ elif False:
 class KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesArgs:
     def __init__(__self__, *,
                  parsing_prompt_text: pulumi.Input[str]):
+        """
+        The parsing prompt of the Bedrock foundation model configuration.
+        """
         pulumi.set(__self__, "parsing_prompt_text", parsing_prompt_text)
 
     @property
@@ -1387,7 +1449,13 @@ class KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesArg
 if not MYPY:
     class KnowledgeBaseBedrockFoundationModelConfigurationArgsDict(TypedDict):
         model_arn: pulumi.Input[str]
+        """
+        The model ARN of the Bedrock foundation model.
+        """
         parsing_prompt: NotRequired[pulumi.Input['KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesArgsDict']]
+        """
+        The parsing prompt of the Bedrock foundation model configuration.
+        """
 elif False:
     KnowledgeBaseBedrockFoundationModelConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1396,6 +1464,10 @@ class KnowledgeBaseBedrockFoundationModelConfigurationArgs:
     def __init__(__self__, *,
                  model_arn: pulumi.Input[str],
                  parsing_prompt: Optional[pulumi.Input['KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesArgs']] = None):
+        """
+        :param pulumi.Input[str] model_arn: The model ARN of the Bedrock foundation model.
+        :param pulumi.Input['KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesArgs'] parsing_prompt: The parsing prompt of the Bedrock foundation model configuration.
+        """
         pulumi.set(__self__, "model_arn", model_arn)
         if parsing_prompt is not None:
             pulumi.set(__self__, "parsing_prompt", parsing_prompt)
@@ -1403,6 +1475,9 @@ class KnowledgeBaseBedrockFoundationModelConfigurationArgs:
     @property
     @pulumi.getter(name="modelArn")
     def model_arn(self) -> pulumi.Input[str]:
+        """
+        The model ARN of the Bedrock foundation model.
+        """
         return pulumi.get(self, "model_arn")
 
     @model_arn.setter
@@ -1412,6 +1487,9 @@ class KnowledgeBaseBedrockFoundationModelConfigurationArgs:
     @property
     @pulumi.getter(name="parsingPrompt")
     def parsing_prompt(self) -> Optional[pulumi.Input['KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesArgs']]:
+        """
+        The parsing prompt of the Bedrock foundation model configuration.
+        """
         return pulumi.get(self, "parsing_prompt")
 
     @parsing_prompt.setter

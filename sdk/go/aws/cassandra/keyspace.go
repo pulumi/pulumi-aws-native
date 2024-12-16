@@ -120,6 +120,8 @@ import (
 type Keyspace struct {
 	pulumi.CustomResourceState
 
+	// Indicates whether client-side timestamps are enabled (true) or disabled (false) for all tables in the keyspace. To add a Region to a single-Region keyspace with at least one table, the value must be set to true. After you enabled client-side timestamps for a table, you can’t disable it again.
+	ClientSideTimestampsEnabled pulumi.BoolPtrOutput `pulumi:"clientSideTimestampsEnabled"`
 	// Name for Cassandra keyspace
 	KeyspaceName pulumi.StringPtrOutput `pulumi:"keyspaceName"`
 	// Specifies the `ReplicationStrategy` of a keyspace. The options are:
@@ -144,7 +146,6 @@ func NewKeyspace(ctx *pulumi.Context,
 
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"keyspaceName",
-		"replicationSpecification",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -180,6 +181,8 @@ func (KeyspaceState) ElementType() reflect.Type {
 }
 
 type keyspaceArgs struct {
+	// Indicates whether client-side timestamps are enabled (true) or disabled (false) for all tables in the keyspace. To add a Region to a single-Region keyspace with at least one table, the value must be set to true. After you enabled client-side timestamps for a table, you can’t disable it again.
+	ClientSideTimestampsEnabled *bool `pulumi:"clientSideTimestampsEnabled"`
 	// Name for Cassandra keyspace
 	KeyspaceName *string `pulumi:"keyspaceName"`
 	// Specifies the `ReplicationStrategy` of a keyspace. The options are:
@@ -197,6 +200,8 @@ type keyspaceArgs struct {
 
 // The set of arguments for constructing a Keyspace resource.
 type KeyspaceArgs struct {
+	// Indicates whether client-side timestamps are enabled (true) or disabled (false) for all tables in the keyspace. To add a Region to a single-Region keyspace with at least one table, the value must be set to true. After you enabled client-side timestamps for a table, you can’t disable it again.
+	ClientSideTimestampsEnabled pulumi.BoolPtrInput
 	// Name for Cassandra keyspace
 	KeyspaceName pulumi.StringPtrInput
 	// Specifies the `ReplicationStrategy` of a keyspace. The options are:
@@ -247,6 +252,11 @@ func (o KeyspaceOutput) ToKeyspaceOutput() KeyspaceOutput {
 
 func (o KeyspaceOutput) ToKeyspaceOutputWithContext(ctx context.Context) KeyspaceOutput {
 	return o
+}
+
+// Indicates whether client-side timestamps are enabled (true) or disabled (false) for all tables in the keyspace. To add a Region to a single-Region keyspace with at least one table, the value must be set to true. After you enabled client-side timestamps for a table, you can’t disable it again.
+func (o KeyspaceOutput) ClientSideTimestampsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Keyspace) pulumi.BoolPtrOutput { return v.ClientSideTimestampsEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Name for Cassandra keyspace

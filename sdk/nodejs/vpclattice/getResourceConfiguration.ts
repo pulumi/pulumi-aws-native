@@ -18,16 +18,44 @@ export function getResourceConfiguration(args: GetResourceConfigurationArgs, opt
 }
 
 export interface GetResourceConfigurationArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the resource configuration.
+     */
     arn: string;
 }
 
 export interface GetResourceConfigurationResult {
+    /**
+     * Specifies whether the resource configuration can be associated with a sharable service network.
+     */
     readonly allowAssociationToSharableServiceNetwork?: boolean;
+    /**
+     * The Amazon Resource Name (ARN) of the resource configuration.
+     */
     readonly arn?: string;
+    /**
+     * The ID of the resource configuration.
+     */
     readonly id?: string;
+    /**
+     * The name of the resource configuration.
+     */
     readonly name?: string;
+    /**
+     * (SINGLE, GROUP, CHILD) The TCP port ranges that a consumer can use to access a resource configuration (for example: 1-65535). You can separate port ranges using commas (for example: 1,2,22-30).
+     */
     readonly portRanges?: string[];
+    /**
+     * Identifies the resource configuration in one of the following ways:
+     *
+     * - *Amazon Resource Name (ARN)* - Supported resource-types that are provisioned by AWS services, such as RDS databases, can be identified by their ARN.
+     * - *Domain name* - Any domain name that is publicly resolvable.
+     * - *IP address* - For IPv4 and IPv6, only IP addresses in the VPC are supported.
+     */
     readonly resourceConfigurationDefinition?: outputs.vpclattice.ResourceConfigurationDefinition0Properties | outputs.vpclattice.ResourceConfigurationDefinition1Properties | outputs.vpclattice.ResourceConfigurationDefinition2Properties;
+    /**
+     * The tags for the resource configuration.
+     */
     readonly tags?: outputs.Tag[];
 }
 /**
@@ -41,5 +69,8 @@ export function getResourceConfigurationOutput(args: GetResourceConfigurationOut
 }
 
 export interface GetResourceConfigurationOutputArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the resource configuration.
+     */
     arn: pulumi.Input<string>;
 }

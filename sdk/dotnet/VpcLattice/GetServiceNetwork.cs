@@ -86,6 +86,9 @@ namespace Pulumi.AwsNative.VpcLattice
         /// The date and time of the last update, specified in ISO-8601 format.
         /// </summary>
         public readonly string? LastUpdatedAt;
+        /// <summary>
+        /// Specify if the service network should be enabled for sharing.
+        /// </summary>
         public readonly Outputs.ServiceNetworkSharingConfig? SharingConfig;
         /// <summary>
         /// The tags for the service network.

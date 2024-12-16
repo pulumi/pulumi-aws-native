@@ -10,9 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Connect.Inputs
 {
 
-    /// <summary>
-    /// The definition for create case action.
-    /// </summary>
     public sealed class RuleCreateCaseActionArgs : global::Pulumi.ResourceArgs
     {
         [Input("fields", required: true)]
@@ -23,9 +20,6 @@ namespace Pulumi.AwsNative.Connect.Inputs
             set => _fields = value;
         }
 
-        /// <summary>
-        /// The Id of template.
-        /// </summary>
         [Input("templateId", required: true)]
         public Input<string> TemplateId { get; set; } = null!;
 

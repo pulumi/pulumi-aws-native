@@ -341,13 +341,182 @@ func (in *environmentEngineTypePtr) ToEnvironmentEngineTypePtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(EnvironmentEngineTypePtrOutput)
 }
 
+type EnvironmentNetworkType string
+
+const (
+	EnvironmentNetworkTypeIpv4 = EnvironmentNetworkType("ipv4")
+	EnvironmentNetworkTypeDual = EnvironmentNetworkType("dual")
+)
+
+func (EnvironmentNetworkType) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentNetworkType)(nil)).Elem()
+}
+
+func (e EnvironmentNetworkType) ToEnvironmentNetworkTypeOutput() EnvironmentNetworkTypeOutput {
+	return pulumi.ToOutput(e).(EnvironmentNetworkTypeOutput)
+}
+
+func (e EnvironmentNetworkType) ToEnvironmentNetworkTypeOutputWithContext(ctx context.Context) EnvironmentNetworkTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(EnvironmentNetworkTypeOutput)
+}
+
+func (e EnvironmentNetworkType) ToEnvironmentNetworkTypePtrOutput() EnvironmentNetworkTypePtrOutput {
+	return e.ToEnvironmentNetworkTypePtrOutputWithContext(context.Background())
+}
+
+func (e EnvironmentNetworkType) ToEnvironmentNetworkTypePtrOutputWithContext(ctx context.Context) EnvironmentNetworkTypePtrOutput {
+	return EnvironmentNetworkType(e).ToEnvironmentNetworkTypeOutputWithContext(ctx).ToEnvironmentNetworkTypePtrOutputWithContext(ctx)
+}
+
+func (e EnvironmentNetworkType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EnvironmentNetworkType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EnvironmentNetworkType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EnvironmentNetworkType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type EnvironmentNetworkTypeOutput struct{ *pulumi.OutputState }
+
+func (EnvironmentNetworkTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentNetworkType)(nil)).Elem()
+}
+
+func (o EnvironmentNetworkTypeOutput) ToEnvironmentNetworkTypeOutput() EnvironmentNetworkTypeOutput {
+	return o
+}
+
+func (o EnvironmentNetworkTypeOutput) ToEnvironmentNetworkTypeOutputWithContext(ctx context.Context) EnvironmentNetworkTypeOutput {
+	return o
+}
+
+func (o EnvironmentNetworkTypeOutput) ToEnvironmentNetworkTypePtrOutput() EnvironmentNetworkTypePtrOutput {
+	return o.ToEnvironmentNetworkTypePtrOutputWithContext(context.Background())
+}
+
+func (o EnvironmentNetworkTypeOutput) ToEnvironmentNetworkTypePtrOutputWithContext(ctx context.Context) EnvironmentNetworkTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnvironmentNetworkType) *EnvironmentNetworkType {
+		return &v
+	}).(EnvironmentNetworkTypePtrOutput)
+}
+
+func (o EnvironmentNetworkTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o EnvironmentNetworkTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EnvironmentNetworkType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o EnvironmentNetworkTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EnvironmentNetworkTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EnvironmentNetworkType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type EnvironmentNetworkTypePtrOutput struct{ *pulumi.OutputState }
+
+func (EnvironmentNetworkTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EnvironmentNetworkType)(nil)).Elem()
+}
+
+func (o EnvironmentNetworkTypePtrOutput) ToEnvironmentNetworkTypePtrOutput() EnvironmentNetworkTypePtrOutput {
+	return o
+}
+
+func (o EnvironmentNetworkTypePtrOutput) ToEnvironmentNetworkTypePtrOutputWithContext(ctx context.Context) EnvironmentNetworkTypePtrOutput {
+	return o
+}
+
+func (o EnvironmentNetworkTypePtrOutput) Elem() EnvironmentNetworkTypeOutput {
+	return o.ApplyT(func(v *EnvironmentNetworkType) EnvironmentNetworkType {
+		if v != nil {
+			return *v
+		}
+		var ret EnvironmentNetworkType
+		return ret
+	}).(EnvironmentNetworkTypeOutput)
+}
+
+func (o EnvironmentNetworkTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EnvironmentNetworkTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EnvironmentNetworkType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// EnvironmentNetworkTypeInput is an input type that accepts values of the EnvironmentNetworkType enum
+// A concrete instance of `EnvironmentNetworkTypeInput` can be one of the following:
+//
+//	EnvironmentNetworkTypeIpv4
+//	EnvironmentNetworkTypeDual
+type EnvironmentNetworkTypeInput interface {
+	pulumi.Input
+
+	ToEnvironmentNetworkTypeOutput() EnvironmentNetworkTypeOutput
+	ToEnvironmentNetworkTypeOutputWithContext(context.Context) EnvironmentNetworkTypeOutput
+}
+
+var environmentNetworkTypePtrType = reflect.TypeOf((**EnvironmentNetworkType)(nil)).Elem()
+
+type EnvironmentNetworkTypePtrInput interface {
+	pulumi.Input
+
+	ToEnvironmentNetworkTypePtrOutput() EnvironmentNetworkTypePtrOutput
+	ToEnvironmentNetworkTypePtrOutputWithContext(context.Context) EnvironmentNetworkTypePtrOutput
+}
+
+type environmentNetworkTypePtr string
+
+func EnvironmentNetworkTypePtr(v string) EnvironmentNetworkTypePtrInput {
+	return (*environmentNetworkTypePtr)(&v)
+}
+
+func (*environmentNetworkTypePtr) ElementType() reflect.Type {
+	return environmentNetworkTypePtrType
+}
+
+func (in *environmentNetworkTypePtr) ToEnvironmentNetworkTypePtrOutput() EnvironmentNetworkTypePtrOutput {
+	return pulumi.ToOutput(in).(EnvironmentNetworkTypePtrOutput)
+}
+
+func (in *environmentNetworkTypePtr) ToEnvironmentNetworkTypePtrOutputWithContext(ctx context.Context) EnvironmentNetworkTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(EnvironmentNetworkTypePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationEngineTypeInput)(nil)).Elem(), ApplicationEngineType("microfocus"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationEngineTypePtrInput)(nil)).Elem(), ApplicationEngineType("microfocus"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentEngineTypeInput)(nil)).Elem(), EnvironmentEngineType("microfocus"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentEngineTypePtrInput)(nil)).Elem(), EnvironmentEngineType("microfocus"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentNetworkTypeInput)(nil)).Elem(), EnvironmentNetworkType("ipv4"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentNetworkTypePtrInput)(nil)).Elem(), EnvironmentNetworkType("ipv4"))
 	pulumi.RegisterOutputType(ApplicationEngineTypeOutput{})
 	pulumi.RegisterOutputType(ApplicationEngineTypePtrOutput{})
 	pulumi.RegisterOutputType(EnvironmentEngineTypeOutput{})
 	pulumi.RegisterOutputType(EnvironmentEngineTypePtrOutput{})
+	pulumi.RegisterOutputType(EnvironmentNetworkTypeOutput{})
+	pulumi.RegisterOutputType(EnvironmentNetworkTypePtrOutput{})
 }

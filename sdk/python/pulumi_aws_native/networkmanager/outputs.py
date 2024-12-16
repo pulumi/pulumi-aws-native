@@ -29,6 +29,9 @@ __all__ = [
     'CoreNetworkSegment',
     'DeviceAwsLocation',
     'DeviceLocation',
+    'DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChange',
+    'DirectConnectGatewayAttachmentProposedSegmentChange',
+    'DirectConnectGatewayAttachmentTag',
     'LinkBandwidth',
     'SiteLocation',
     'SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChange',
@@ -770,6 +773,171 @@ class DeviceLocation(dict):
         The longitude.
         """
         return pulumi.get(self, "longitude")
+
+
+@pulumi.output_type
+class DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChange(dict):
+    """
+    The attachment to move from one network function group to another.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "attachmentPolicyRuleNumber":
+            suggest = "attachment_policy_rule_number"
+        elif key == "networkFunctionGroupName":
+            suggest = "network_function_group_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChange. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChange.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChange.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 attachment_policy_rule_number: Optional[int] = None,
+                 network_function_group_name: Optional[str] = None,
+                 tags: Optional[Sequence['outputs.DirectConnectGatewayAttachmentTag']] = None):
+        """
+        The attachment to move from one network function group to another.
+        :param int attachment_policy_rule_number: The rule number in the policy document that applies to this change.
+        :param str network_function_group_name: The name of the network function group to change.
+        :param Sequence['DirectConnectGatewayAttachmentTag'] tags: The key-value tags that changed for the network function group.
+        """
+        if attachment_policy_rule_number is not None:
+            pulumi.set(__self__, "attachment_policy_rule_number", attachment_policy_rule_number)
+        if network_function_group_name is not None:
+            pulumi.set(__self__, "network_function_group_name", network_function_group_name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="attachmentPolicyRuleNumber")
+    def attachment_policy_rule_number(self) -> Optional[int]:
+        """
+        The rule number in the policy document that applies to this change.
+        """
+        return pulumi.get(self, "attachment_policy_rule_number")
+
+    @property
+    @pulumi.getter(name="networkFunctionGroupName")
+    def network_function_group_name(self) -> Optional[str]:
+        """
+        The name of the network function group to change.
+        """
+        return pulumi.get(self, "network_function_group_name")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['outputs.DirectConnectGatewayAttachmentTag']]:
+        """
+        The key-value tags that changed for the network function group.
+        """
+        return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class DirectConnectGatewayAttachmentProposedSegmentChange(dict):
+    """
+    The attachment to move from one segment to another.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "attachmentPolicyRuleNumber":
+            suggest = "attachment_policy_rule_number"
+        elif key == "segmentName":
+            suggest = "segment_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DirectConnectGatewayAttachmentProposedSegmentChange. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DirectConnectGatewayAttachmentProposedSegmentChange.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DirectConnectGatewayAttachmentProposedSegmentChange.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 attachment_policy_rule_number: Optional[int] = None,
+                 segment_name: Optional[str] = None,
+                 tags: Optional[Sequence['outputs.DirectConnectGatewayAttachmentTag']] = None):
+        """
+        The attachment to move from one segment to another.
+        :param int attachment_policy_rule_number: The rule number in the policy document that applies to this change.
+        :param str segment_name: The name of the segment to change.
+        :param Sequence['DirectConnectGatewayAttachmentTag'] tags: The key-value tags that changed for the segment.
+        """
+        if attachment_policy_rule_number is not None:
+            pulumi.set(__self__, "attachment_policy_rule_number", attachment_policy_rule_number)
+        if segment_name is not None:
+            pulumi.set(__self__, "segment_name", segment_name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="attachmentPolicyRuleNumber")
+    def attachment_policy_rule_number(self) -> Optional[int]:
+        """
+        The rule number in the policy document that applies to this change.
+        """
+        return pulumi.get(self, "attachment_policy_rule_number")
+
+    @property
+    @pulumi.getter(name="segmentName")
+    def segment_name(self) -> Optional[str]:
+        """
+        The name of the segment to change.
+        """
+        return pulumi.get(self, "segment_name")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['outputs.DirectConnectGatewayAttachmentTag']]:
+        """
+        The key-value tags that changed for the segment.
+        """
+        return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class DirectConnectGatewayAttachmentTag(dict):
+    """
+    A key-value pair to associate with a resource.
+    """
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        A key-value pair to associate with a resource.
+        :param str key: The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        :param str value: The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

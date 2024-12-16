@@ -331,11 +331,11 @@ func (o AutoScalingGroupAcceleratorTotalMemoryMiBRequestPtrOutput) Min() pulumi.
 	}).(pulumi.IntPtrOutput)
 }
 
+// “AvailabilityZoneDistribution“ is a property of the [AWS::AutoScaling::AutoScalingGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html) resource.
 type AutoScalingGroupAvailabilityZoneDistribution struct {
-	// If launches fail in an Availability Zone, the following strategies are available. The default is `balanced-best-effort` .
-	//
-	// - `balanced-only` - If launches fail in an Availability Zone, Auto Scaling will continue to attempt to launch in the unhealthy zone to preserve a balanced distribution.
-	// - `balanced-best-effort` - If launches fail in an Availability Zone, Auto Scaling will attempt to launch in another healthy Availability Zone instead.
+	// If launches fail in an Availability Zone, the following strategies are available. The default is ``balanced-best-effort``.
+	//   +   ``balanced-only`` - If launches fail in an Availability Zone, Auto Scaling will continue to attempt to launch in the unhealthy zone to preserve a balanced distribution.
+	//   +   ``balanced-best-effort`` - If launches fail in an Availability Zone, Auto Scaling will attempt to launch in another healthy Availability Zone instead.
 	CapacityDistributionStrategy *AutoScalingGroupAvailabilityZoneDistributionCapacityDistributionStrategy `pulumi:"capacityDistributionStrategy"`
 }
 
@@ -350,11 +350,11 @@ type AutoScalingGroupAvailabilityZoneDistributionInput interface {
 	ToAutoScalingGroupAvailabilityZoneDistributionOutputWithContext(context.Context) AutoScalingGroupAvailabilityZoneDistributionOutput
 }
 
+// “AvailabilityZoneDistribution“ is a property of the [AWS::AutoScaling::AutoScalingGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html) resource.
 type AutoScalingGroupAvailabilityZoneDistributionArgs struct {
-	// If launches fail in an Availability Zone, the following strategies are available. The default is `balanced-best-effort` .
-	//
-	// - `balanced-only` - If launches fail in an Availability Zone, Auto Scaling will continue to attempt to launch in the unhealthy zone to preserve a balanced distribution.
-	// - `balanced-best-effort` - If launches fail in an Availability Zone, Auto Scaling will attempt to launch in another healthy Availability Zone instead.
+	// If launches fail in an Availability Zone, the following strategies are available. The default is ``balanced-best-effort``.
+	//   +   ``balanced-only`` - If launches fail in an Availability Zone, Auto Scaling will continue to attempt to launch in the unhealthy zone to preserve a balanced distribution.
+	//   +   ``balanced-best-effort`` - If launches fail in an Availability Zone, Auto Scaling will attempt to launch in another healthy Availability Zone instead.
 	CapacityDistributionStrategy AutoScalingGroupAvailabilityZoneDistributionCapacityDistributionStrategyPtrInput `pulumi:"capacityDistributionStrategy"`
 }
 
@@ -411,6 +411,7 @@ func (i *autoScalingGroupAvailabilityZoneDistributionPtrType) ToAutoScalingGroup
 	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupAvailabilityZoneDistributionPtrOutput)
 }
 
+// “AvailabilityZoneDistribution“ is a property of the [AWS::AutoScaling::AutoScalingGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html) resource.
 type AutoScalingGroupAvailabilityZoneDistributionOutput struct{ *pulumi.OutputState }
 
 func (AutoScalingGroupAvailabilityZoneDistributionOutput) ElementType() reflect.Type {
@@ -435,10 +436,9 @@ func (o AutoScalingGroupAvailabilityZoneDistributionOutput) ToAutoScalingGroupAv
 	}).(AutoScalingGroupAvailabilityZoneDistributionPtrOutput)
 }
 
-// If launches fail in an Availability Zone, the following strategies are available. The default is `balanced-best-effort` .
-//
-// - `balanced-only` - If launches fail in an Availability Zone, Auto Scaling will continue to attempt to launch in the unhealthy zone to preserve a balanced distribution.
-// - `balanced-best-effort` - If launches fail in an Availability Zone, Auto Scaling will attempt to launch in another healthy Availability Zone instead.
+// If launches fail in an Availability Zone, the following strategies are available. The default is “balanced-best-effort“.
+//   - “balanced-only“ - If launches fail in an Availability Zone, Auto Scaling will continue to attempt to launch in the unhealthy zone to preserve a balanced distribution.
+//   - “balanced-best-effort“ - If launches fail in an Availability Zone, Auto Scaling will attempt to launch in another healthy Availability Zone instead.
 func (o AutoScalingGroupAvailabilityZoneDistributionOutput) CapacityDistributionStrategy() AutoScalingGroupAvailabilityZoneDistributionCapacityDistributionStrategyPtrOutput {
 	return o.ApplyT(func(v AutoScalingGroupAvailabilityZoneDistribution) *AutoScalingGroupAvailabilityZoneDistributionCapacityDistributionStrategy {
 		return v.CapacityDistributionStrategy
@@ -469,10 +469,9 @@ func (o AutoScalingGroupAvailabilityZoneDistributionPtrOutput) Elem() AutoScalin
 	}).(AutoScalingGroupAvailabilityZoneDistributionOutput)
 }
 
-// If launches fail in an Availability Zone, the following strategies are available. The default is `balanced-best-effort` .
-//
-// - `balanced-only` - If launches fail in an Availability Zone, Auto Scaling will continue to attempt to launch in the unhealthy zone to preserve a balanced distribution.
-// - `balanced-best-effort` - If launches fail in an Availability Zone, Auto Scaling will attempt to launch in another healthy Availability Zone instead.
+// If launches fail in an Availability Zone, the following strategies are available. The default is “balanced-best-effort“.
+//   - “balanced-only“ - If launches fail in an Availability Zone, Auto Scaling will continue to attempt to launch in the unhealthy zone to preserve a balanced distribution.
+//   - “balanced-best-effort“ - If launches fail in an Availability Zone, Auto Scaling will attempt to launch in another healthy Availability Zone instead.
 func (o AutoScalingGroupAvailabilityZoneDistributionPtrOutput) CapacityDistributionStrategy() AutoScalingGroupAvailabilityZoneDistributionCapacityDistributionStrategyPtrOutput {
 	return o.ApplyT(func(v *AutoScalingGroupAvailabilityZoneDistribution) *AutoScalingGroupAvailabilityZoneDistributionCapacityDistributionStrategy {
 		if v == nil {
@@ -482,10 +481,11 @@ func (o AutoScalingGroupAvailabilityZoneDistributionPtrOutput) CapacityDistribut
 	}).(AutoScalingGroupAvailabilityZoneDistributionCapacityDistributionStrategyPtrOutput)
 }
 
+// Describes an Availability Zone impairment policy.
 type AutoScalingGroupAvailabilityZoneImpairmentPolicy struct {
-	// Specifies the health check behavior for the impaired Availability Zone in an active zonal shift. If you select `Replace unhealthy` , instances that appear unhealthy will be replaced in all Availability Zones. If you select `Ignore unhealthy` , instances will not be replaced in the Availability Zone with the active zonal shift. For more information, see [Auto Scaling group zonal shift](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-zonal-shift.html) in the *Amazon EC2 Auto Scaling User Guide* .
+	// Specifies the health check behavior for the impaired Availability Zone in an active zonal shift. If you select ``Replace unhealthy``, instances that appear unhealthy will be replaced in all Availability Zones. If you select ``Ignore unhealthy``, instances will not be replaced in the Availability Zone with the active zonal shift. For more information, see [Auto Scaling group zonal shift](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-zonal-shift.html) in the *Amazon EC2 Auto Scaling User Guide*.
 	ImpairedZoneHealthCheckBehavior AutoScalingGroupAvailabilityZoneImpairmentPolicyImpairedZoneHealthCheckBehavior `pulumi:"impairedZoneHealthCheckBehavior"`
-	// If `true` , enable zonal shift for your Auto Scaling group.
+	// If ``true``, enable zonal shift for your Auto Scaling group.
 	ZonalShiftEnabled bool `pulumi:"zonalShiftEnabled"`
 }
 
@@ -500,10 +500,11 @@ type AutoScalingGroupAvailabilityZoneImpairmentPolicyInput interface {
 	ToAutoScalingGroupAvailabilityZoneImpairmentPolicyOutputWithContext(context.Context) AutoScalingGroupAvailabilityZoneImpairmentPolicyOutput
 }
 
+// Describes an Availability Zone impairment policy.
 type AutoScalingGroupAvailabilityZoneImpairmentPolicyArgs struct {
-	// Specifies the health check behavior for the impaired Availability Zone in an active zonal shift. If you select `Replace unhealthy` , instances that appear unhealthy will be replaced in all Availability Zones. If you select `Ignore unhealthy` , instances will not be replaced in the Availability Zone with the active zonal shift. For more information, see [Auto Scaling group zonal shift](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-zonal-shift.html) in the *Amazon EC2 Auto Scaling User Guide* .
+	// Specifies the health check behavior for the impaired Availability Zone in an active zonal shift. If you select ``Replace unhealthy``, instances that appear unhealthy will be replaced in all Availability Zones. If you select ``Ignore unhealthy``, instances will not be replaced in the Availability Zone with the active zonal shift. For more information, see [Auto Scaling group zonal shift](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-zonal-shift.html) in the *Amazon EC2 Auto Scaling User Guide*.
 	ImpairedZoneHealthCheckBehavior AutoScalingGroupAvailabilityZoneImpairmentPolicyImpairedZoneHealthCheckBehaviorInput `pulumi:"impairedZoneHealthCheckBehavior"`
-	// If `true` , enable zonal shift for your Auto Scaling group.
+	// If ``true``, enable zonal shift for your Auto Scaling group.
 	ZonalShiftEnabled pulumi.BoolInput `pulumi:"zonalShiftEnabled"`
 }
 
@@ -560,6 +561,7 @@ func (i *autoScalingGroupAvailabilityZoneImpairmentPolicyPtrType) ToAutoScalingG
 	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupAvailabilityZoneImpairmentPolicyPtrOutput)
 }
 
+// Describes an Availability Zone impairment policy.
 type AutoScalingGroupAvailabilityZoneImpairmentPolicyOutput struct{ *pulumi.OutputState }
 
 func (AutoScalingGroupAvailabilityZoneImpairmentPolicyOutput) ElementType() reflect.Type {
@@ -584,14 +586,14 @@ func (o AutoScalingGroupAvailabilityZoneImpairmentPolicyOutput) ToAutoScalingGro
 	}).(AutoScalingGroupAvailabilityZoneImpairmentPolicyPtrOutput)
 }
 
-// Specifies the health check behavior for the impaired Availability Zone in an active zonal shift. If you select `Replace unhealthy` , instances that appear unhealthy will be replaced in all Availability Zones. If you select `Ignore unhealthy` , instances will not be replaced in the Availability Zone with the active zonal shift. For more information, see [Auto Scaling group zonal shift](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-zonal-shift.html) in the *Amazon EC2 Auto Scaling User Guide* .
+// Specifies the health check behavior for the impaired Availability Zone in an active zonal shift. If you select “Replace unhealthy“, instances that appear unhealthy will be replaced in all Availability Zones. If you select “Ignore unhealthy“, instances will not be replaced in the Availability Zone with the active zonal shift. For more information, see [Auto Scaling group zonal shift](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-zonal-shift.html) in the *Amazon EC2 Auto Scaling User Guide*.
 func (o AutoScalingGroupAvailabilityZoneImpairmentPolicyOutput) ImpairedZoneHealthCheckBehavior() AutoScalingGroupAvailabilityZoneImpairmentPolicyImpairedZoneHealthCheckBehaviorOutput {
 	return o.ApplyT(func(v AutoScalingGroupAvailabilityZoneImpairmentPolicy) AutoScalingGroupAvailabilityZoneImpairmentPolicyImpairedZoneHealthCheckBehavior {
 		return v.ImpairedZoneHealthCheckBehavior
 	}).(AutoScalingGroupAvailabilityZoneImpairmentPolicyImpairedZoneHealthCheckBehaviorOutput)
 }
 
-// If `true` , enable zonal shift for your Auto Scaling group.
+// If “true“, enable zonal shift for your Auto Scaling group.
 func (o AutoScalingGroupAvailabilityZoneImpairmentPolicyOutput) ZonalShiftEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v AutoScalingGroupAvailabilityZoneImpairmentPolicy) bool { return v.ZonalShiftEnabled }).(pulumi.BoolOutput)
 }
@@ -620,7 +622,7 @@ func (o AutoScalingGroupAvailabilityZoneImpairmentPolicyPtrOutput) Elem() AutoSc
 	}).(AutoScalingGroupAvailabilityZoneImpairmentPolicyOutput)
 }
 
-// Specifies the health check behavior for the impaired Availability Zone in an active zonal shift. If you select `Replace unhealthy` , instances that appear unhealthy will be replaced in all Availability Zones. If you select `Ignore unhealthy` , instances will not be replaced in the Availability Zone with the active zonal shift. For more information, see [Auto Scaling group zonal shift](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-zonal-shift.html) in the *Amazon EC2 Auto Scaling User Guide* .
+// Specifies the health check behavior for the impaired Availability Zone in an active zonal shift. If you select “Replace unhealthy“, instances that appear unhealthy will be replaced in all Availability Zones. If you select “Ignore unhealthy“, instances will not be replaced in the Availability Zone with the active zonal shift. For more information, see [Auto Scaling group zonal shift](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-zonal-shift.html) in the *Amazon EC2 Auto Scaling User Guide*.
 func (o AutoScalingGroupAvailabilityZoneImpairmentPolicyPtrOutput) ImpairedZoneHealthCheckBehavior() AutoScalingGroupAvailabilityZoneImpairmentPolicyImpairedZoneHealthCheckBehaviorPtrOutput {
 	return o.ApplyT(func(v *AutoScalingGroupAvailabilityZoneImpairmentPolicy) *AutoScalingGroupAvailabilityZoneImpairmentPolicyImpairedZoneHealthCheckBehavior {
 		if v == nil {
@@ -630,7 +632,7 @@ func (o AutoScalingGroupAvailabilityZoneImpairmentPolicyPtrOutput) ImpairedZoneH
 	}).(AutoScalingGroupAvailabilityZoneImpairmentPolicyImpairedZoneHealthCheckBehaviorPtrOutput)
 }
 
-// If `true` , enable zonal shift for your Auto Scaling group.
+// If “true“, enable zonal shift for your Auto Scaling group.
 func (o AutoScalingGroupAvailabilityZoneImpairmentPolicyPtrOutput) ZonalShiftEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AutoScalingGroupAvailabilityZoneImpairmentPolicy) *bool {
 		if v == nil {

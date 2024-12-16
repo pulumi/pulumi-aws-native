@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.Connect.Outputs
 {
 
     /// <summary>
-    /// The value of the field.
+    /// Object for case field values.
     /// </summary>
     [OutputType]
     public sealed class RuleFieldValue

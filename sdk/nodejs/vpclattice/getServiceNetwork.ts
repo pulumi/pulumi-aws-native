@@ -48,6 +48,9 @@ export interface GetServiceNetworkResult {
      * The date and time of the last update, specified in ISO-8601 format.
      */
     readonly lastUpdatedAt?: string;
+    /**
+     * Specify if the service network should be enabled for sharing.
+     */
     readonly sharingConfig?: outputs.vpclattice.ServiceNetworkSharingConfig;
     /**
      * The tags for the service network.

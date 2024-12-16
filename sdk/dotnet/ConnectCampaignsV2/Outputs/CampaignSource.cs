@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2.Outputs
 {
 
     /// <summary>
-    /// The possible types of channel config parameters
+    /// The possible source of the campaign
     /// </summary>
     [OutputType]
     public sealed class CampaignSource
@@ -20,11 +20,19 @@ namespace Pulumi.AwsNative.ConnectCampaignsV2.Outputs
         /// The Amazon Resource Name (ARN) of the Customer Profiles segment.
         /// </summary>
         public readonly string? CustomerProfilesSegmentArn;
+        /// <summary>
+        /// The event trigger of the campaign.
+        /// </summary>
+        public readonly Outputs.CampaignEventTrigger? EventTrigger;
 
         [OutputConstructor]
-        private CampaignSource(string? customerProfilesSegmentArn)
+        private CampaignSource(
+            string? customerProfilesSegmentArn,
+
+            Outputs.CampaignEventTrigger? eventTrigger)
         {
             CustomerProfilesSegmentArn = customerProfilesSegmentArn;
+            EventTrigger = eventTrigger;
         }
     }
 }

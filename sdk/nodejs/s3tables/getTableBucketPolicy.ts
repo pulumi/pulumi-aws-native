@@ -18,10 +18,16 @@ export function getTableBucketPolicy(args: GetTableBucketPolicyArgs, opts?: pulu
 }
 
 export interface GetTableBucketPolicyArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the table bucket.
+     */
     tableBucketArn: string;
 }
 
 export interface GetTableBucketPolicyResult {
+    /**
+     * The bucket policy JSON for the table bucket.
+     */
     readonly resourcePolicy?: outputs.s3tables.TableBucketPolicyResourcePolicy;
 }
 /**
@@ -35,5 +41,8 @@ export function getTableBucketPolicyOutput(args: GetTableBucketPolicyOutputArgs,
 }
 
 export interface GetTableBucketPolicyOutputArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the table bucket.
+     */
     tableBucketArn: pulumi.Input<string>;
 }

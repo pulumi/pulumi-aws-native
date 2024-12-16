@@ -73,6 +73,7 @@ export class Environment extends pulumi.CustomResource {
      * The name of the environment.
      */
     public readonly name!: pulumi.Output<string>;
+    public readonly networkType!: pulumi.Output<enums.m2.EnvironmentNetworkType | undefined>;
     /**
      * Configures a desired maintenance window for the environment. If you do not provide a value, a random system-generated value will be assigned.
      */
@@ -122,6 +123,7 @@ export class Environment extends pulumi.CustomResource {
             resourceInputs["instanceType"] = args ? args.instanceType : undefined;
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["networkType"] = args ? args.networkType : undefined;
             resourceInputs["preferredMaintenanceWindow"] = args ? args.preferredMaintenanceWindow : undefined;
             resourceInputs["publiclyAccessible"] = args ? args.publiclyAccessible : undefined;
             resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
@@ -140,6 +142,7 @@ export class Environment extends pulumi.CustomResource {
             resourceInputs["instanceType"] = undefined /*out*/;
             resourceInputs["kmsKeyId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["networkType"] = undefined /*out*/;
             resourceInputs["preferredMaintenanceWindow"] = undefined /*out*/;
             resourceInputs["publiclyAccessible"] = undefined /*out*/;
             resourceInputs["securityGroupIds"] = undefined /*out*/;
@@ -148,7 +151,7 @@ export class Environment extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["description", "engineType", "kmsKeyId", "name", "publiclyAccessible", "securityGroupIds[*]", "storageConfigurations[*]", "subnetIds[*]"] };
+        const replaceOnChanges = { replaceOnChanges: ["description", "engineType", "kmsKeyId", "name", "networkType", "publiclyAccessible", "securityGroupIds[*]", "storageConfigurations[*]", "subnetIds[*]"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Environment.__pulumiType, name, resourceInputs, opts);
     }
@@ -186,6 +189,7 @@ export interface EnvironmentArgs {
      * The name of the environment.
      */
     name?: pulumi.Input<string>;
+    networkType?: pulumi.Input<enums.m2.EnvironmentNetworkType>;
     /**
      * Configures a desired maintenance window for the environment. If you do not provide a value, a random system-generated value will be assigned.
      */

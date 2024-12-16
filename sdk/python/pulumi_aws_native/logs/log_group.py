@@ -23,6 +23,7 @@ __all__ = ['LogGroupArgs', 'LogGroup']
 class LogGroupArgs:
     def __init__(__self__, *,
                  data_protection_policy: Optional[Any] = None,
+                 field_index_policies: Optional[pulumi.Input[Sequence[Any]]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  log_group_class: Optional[pulumi.Input['LogGroupClass']] = None,
                  log_group_name: Optional[pulumi.Input[str]] = None,
@@ -51,6 +52,8 @@ class LogGroupArgs:
         """
         if data_protection_policy is not None:
             pulumi.set(__self__, "data_protection_policy", data_protection_policy)
+        if field_index_policies is not None:
+            pulumi.set(__self__, "field_index_policies", field_index_policies)
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
         if log_group_class is not None:
@@ -76,6 +79,15 @@ class LogGroupArgs:
     @data_protection_policy.setter
     def data_protection_policy(self, value: Optional[Any]):
         pulumi.set(self, "data_protection_policy", value)
+
+    @property
+    @pulumi.getter(name="fieldIndexPolicies")
+    def field_index_policies(self) -> Optional[pulumi.Input[Sequence[Any]]]:
+        return pulumi.get(self, "field_index_policies")
+
+    @field_index_policies.setter
+    def field_index_policies(self, value: Optional[pulumi.Input[Sequence[Any]]]):
+        pulumi.set(self, "field_index_policies", value)
 
     @property
     @pulumi.getter(name="kmsKeyId")
@@ -153,6 +165,7 @@ class LogGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_protection_policy: Optional[Any] = None,
+                 field_index_policies: Optional[pulumi.Input[Sequence[Any]]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  log_group_class: Optional[pulumi.Input['LogGroupClass']] = None,
                  log_group_name: Optional[pulumi.Input[str]] = None,
@@ -216,6 +229,7 @@ class LogGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_protection_policy: Optional[Any] = None,
+                 field_index_policies: Optional[pulumi.Input[Sequence[Any]]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  log_group_class: Optional[pulumi.Input['LogGroupClass']] = None,
                  log_group_name: Optional[pulumi.Input[str]] = None,
@@ -231,6 +245,7 @@ class LogGroup(pulumi.CustomResource):
             __props__ = LogGroupArgs.__new__(LogGroupArgs)
 
             __props__.__dict__["data_protection_policy"] = data_protection_policy
+            __props__.__dict__["field_index_policies"] = field_index_policies
             __props__.__dict__["kms_key_id"] = kms_key_id
             __props__.__dict__["log_group_class"] = log_group_class
             __props__.__dict__["log_group_name"] = log_group_name
@@ -263,6 +278,7 @@ class LogGroup(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = None
         __props__.__dict__["data_protection_policy"] = None
+        __props__.__dict__["field_index_policies"] = None
         __props__.__dict__["kms_key_id"] = None
         __props__.__dict__["log_group_class"] = None
         __props__.__dict__["log_group_name"] = None
@@ -288,6 +304,11 @@ class LogGroup(pulumi.CustomResource):
         Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::LogGroup` for more information about the expected schema for this property.
         """
         return pulumi.get(self, "data_protection_policy")
+
+    @property
+    @pulumi.getter(name="fieldIndexPolicies")
+    def field_index_policies(self) -> pulumi.Output[Optional[Sequence[Any]]]:
+        return pulumi.get(self, "field_index_policies")
 
     @property
     @pulumi.getter(name="kmsKeyId")

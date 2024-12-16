@@ -355,6 +355,7 @@ export class Server extends pulumi.CustomResource {
      * An example `ServerId` is `s-01234567890abcdef` .
      */
     public /*out*/ readonly serverId!: pulumi.Output<string>;
+    public /*out*/ readonly state!: pulumi.Output<enums.transfer.ServerState>;
     /**
      * Specifies the log groups to which your server logs are sent.
      *
@@ -410,6 +411,7 @@ export class Server extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["as2ServiceManagedEgressIpAddresses"] = undefined /*out*/;
             resourceInputs["serverId"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["as2ServiceManagedEgressIpAddresses"] = undefined /*out*/;
@@ -427,6 +429,7 @@ export class Server extends pulumi.CustomResource {
             resourceInputs["s3StorageOptions"] = undefined /*out*/;
             resourceInputs["securityPolicyName"] = undefined /*out*/;
             resourceInputs["serverId"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
             resourceInputs["structuredLogDestinations"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["workflowDetails"] = undefined /*out*/;

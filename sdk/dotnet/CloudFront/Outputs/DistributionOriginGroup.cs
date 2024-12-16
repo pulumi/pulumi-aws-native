@@ -28,6 +28,10 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
         /// A complex type that contains information about the origins in an origin group.
         /// </summary>
         public readonly Outputs.DistributionOriginGroupMembers Members;
+        /// <summary>
+        /// The selection criteria for the origin group. For more information, see [Create an origin group](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/high_availability_origin_failover.html#concept_origin_groups.creating) in the *Amazon CloudFront Developer Guide* .
+        /// </summary>
+        public readonly Pulumi.AwsNative.CloudFront.DistributionOriginGroupSelectionCriteria? SelectionCriteria;
 
         [OutputConstructor]
         private DistributionOriginGroup(
@@ -35,11 +39,14 @@ namespace Pulumi.AwsNative.CloudFront.Outputs
 
             string id,
 
-            Outputs.DistributionOriginGroupMembers members)
+            Outputs.DistributionOriginGroupMembers members,
+
+            Pulumi.AwsNative.CloudFront.DistributionOriginGroupSelectionCriteria? selectionCriteria)
         {
             FailoverCriteria = failoverCriteria;
             Id = id;
             Members = members;
+            SelectionCriteria = selectionCriteria;
         }
     }
 }

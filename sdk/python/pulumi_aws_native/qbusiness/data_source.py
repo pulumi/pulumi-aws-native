@@ -57,6 +57,7 @@ class DataSourceArgs:
         :param pulumi.Input['DataSourceDocumentEnrichmentConfigurationArgs'] document_enrichment_configuration: Provides the configuration information for altering document metadata and content during the document ingestion process.
                
                For more information, see [Custom document enrichment](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/custom-document-enrichment.html) .
+        :param pulumi.Input['DataSourceMediaExtractionConfigurationArgs'] media_extraction_configuration: The configuration for extracting information from media in documents.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of an IAM role with permission to access the data source and required resources.
         :param pulumi.Input[str] sync_schedule: Sets the frequency for Amazon Q Business to check the documents in your data source repository and update your index. If you don't set a schedule, Amazon Q Business won't periodically update the index.
                
@@ -172,6 +173,9 @@ class DataSourceArgs:
     @property
     @pulumi.getter(name="mediaExtractionConfiguration")
     def media_extraction_configuration(self) -> Optional[pulumi.Input['DataSourceMediaExtractionConfigurationArgs']]:
+        """
+        The configuration for extracting information from media in documents.
+        """
         return pulumi.get(self, "media_extraction_configuration")
 
     @media_extraction_configuration.setter
@@ -271,6 +275,7 @@ class DataSource(pulumi.CustomResource):
                
                For more information, see [Custom document enrichment](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/custom-document-enrichment.html) .
         :param pulumi.Input[str] index_id: The identifier of the index the data source is attached to.
+        :param pulumi.Input[Union['DataSourceMediaExtractionConfigurationArgs', 'DataSourceMediaExtractionConfigurationArgsDict']] media_extraction_configuration: The configuration for extracting information from media in documents.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of an IAM role with permission to access the data source and required resources.
         :param pulumi.Input[str] sync_schedule: Sets the frequency for Amazon Q Business to check the documents in your data source repository and update your index. If you don't set a schedule, Amazon Q Business won't periodically update the index.
                
@@ -479,6 +484,9 @@ class DataSource(pulumi.CustomResource):
     @property
     @pulumi.getter(name="mediaExtractionConfiguration")
     def media_extraction_configuration(self) -> pulumi.Output[Optional['outputs.DataSourceMediaExtractionConfiguration']]:
+        """
+        The configuration for extracting information from media in documents.
+        """
         return pulumi.get(self, "media_extraction_configuration")
 
     @property

@@ -705,12 +705,12 @@ class StackSetOperationPreferences(dict):
                
                If failure tolerance or Maximum concurrent accounts are set to percentages, the behavior is similar.
                - `SOFT_FAILURE_TOLERANCE` : This option decouples `FailureToleranceCount` from the actual concurrency. This allows stack set operations to run at the concurrency level set by the `MaxConcurrentCount` value, or `MaxConcurrentPercentage` , regardless of the number of failures.
-        :param int failure_tolerance_count: The number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region. If the operation is stopped in a Region, AWS CloudFormation doesn't attempt the operation in any subsequent Regions.
+        :param int failure_tolerance_count: The number of accounts, per Region, for which this operation can fail before CloudFormation stops the operation in that Region. If the operation is stopped in a Region, CloudFormation doesn't attempt the operation in any subsequent Regions.
                
                Conditional: You must specify either `FailureToleranceCount` or `FailureTolerancePercentage` (but not both).
-        :param int failure_tolerance_percentage: The percentage of accounts, per Region, for which this stack operation can fail before AWS CloudFormation stops the operation in that Region. If the operation is stopped in a Region, AWS CloudFormation doesn't attempt the operation in any subsequent Regions.
+        :param int failure_tolerance_percentage: The percentage of accounts, per Region, for which this stack operation can fail before CloudFormation stops the operation in that Region. If the operation is stopped in a Region, CloudFormation doesn't attempt the operation in any subsequent Regions.
                
-               When calculating the number of accounts based on the specified percentage, AWS CloudFormation rounds *down* to the next whole number.
+               When calculating the number of accounts based on the specified percentage, CloudFormation rounds *down* to the next whole number.
                
                Conditional: You must specify either `FailureToleranceCount` or `FailureTolerancePercentage` , but not both.
         :param int max_concurrent_count: The maximum number of accounts in which to perform this operation at one time. This is dependent on the value of `FailureToleranceCount` . `MaxConcurrentCount` is at most one more than the `FailureToleranceCount` .
@@ -720,7 +720,7 @@ class StackSetOperationPreferences(dict):
                Conditional: You must specify either `MaxConcurrentCount` or `MaxConcurrentPercentage` , but not both.
         :param int max_concurrent_percentage: The maximum percentage of accounts in which to perform this operation at one time.
                
-               When calculating the number of accounts based on the specified percentage, AWS CloudFormation rounds down to the next whole number. This is true except in cases where rounding down would result is zero. In this case, CloudFormation sets the number as one instead.
+               When calculating the number of accounts based on the specified percentage, CloudFormation rounds down to the next whole number. This is true except in cases where rounding down would result is zero. In this case, CloudFormation sets the number as one instead.
                
                Note that this setting lets you specify the *maximum* for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling.
                
@@ -762,7 +762,7 @@ class StackSetOperationPreferences(dict):
     @pulumi.getter(name="failureToleranceCount")
     def failure_tolerance_count(self) -> Optional[int]:
         """
-        The number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region. If the operation is stopped in a Region, AWS CloudFormation doesn't attempt the operation in any subsequent Regions.
+        The number of accounts, per Region, for which this operation can fail before CloudFormation stops the operation in that Region. If the operation is stopped in a Region, CloudFormation doesn't attempt the operation in any subsequent Regions.
 
         Conditional: You must specify either `FailureToleranceCount` or `FailureTolerancePercentage` (but not both).
         """
@@ -772,9 +772,9 @@ class StackSetOperationPreferences(dict):
     @pulumi.getter(name="failureTolerancePercentage")
     def failure_tolerance_percentage(self) -> Optional[int]:
         """
-        The percentage of accounts, per Region, for which this stack operation can fail before AWS CloudFormation stops the operation in that Region. If the operation is stopped in a Region, AWS CloudFormation doesn't attempt the operation in any subsequent Regions.
+        The percentage of accounts, per Region, for which this stack operation can fail before CloudFormation stops the operation in that Region. If the operation is stopped in a Region, CloudFormation doesn't attempt the operation in any subsequent Regions.
 
-        When calculating the number of accounts based on the specified percentage, AWS CloudFormation rounds *down* to the next whole number.
+        When calculating the number of accounts based on the specified percentage, CloudFormation rounds *down* to the next whole number.
 
         Conditional: You must specify either `FailureToleranceCount` or `FailureTolerancePercentage` , but not both.
         """
@@ -798,7 +798,7 @@ class StackSetOperationPreferences(dict):
         """
         The maximum percentage of accounts in which to perform this operation at one time.
 
-        When calculating the number of accounts based on the specified percentage, AWS CloudFormation rounds down to the next whole number. This is true except in cases where rounding down would result is zero. In this case, CloudFormation sets the number as one instead.
+        When calculating the number of accounts based on the specified percentage, CloudFormation rounds down to the next whole number. This is true except in cases where rounding down would result is zero. In this case, CloudFormation sets the number as one instead.
 
         Note that this setting lets you specify the *maximum* for operations. For large deployments, under certain circumstances the actual number of accounts acted upon concurrently may be lower due to service throttling.
 

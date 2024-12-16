@@ -12,7 +12,10 @@ __all__ = [
     'LogAnomalyDetectorEvaluationFrequency',
     'LogGroupClass',
     'MetricFilterMetricTransformationUnit',
+    'QueryDefinitionQueryLanguage',
     'SubscriptionFilterDistribution',
+    'TransformerProcessorListToMapPropertiesFlattenedElement',
+    'TransformerTypeConverterEntryType',
 ]
 
 
@@ -103,9 +106,30 @@ class MetricFilterMetricTransformationUnit(str, Enum):
     NONE = "None"
 
 
+class QueryDefinitionQueryLanguage(str, Enum):
+    """
+    Query language of the query string. Possible values are CWLI, SQL, PPL, with CWLI being the default.
+    """
+    CWLI = "CWLI"
+    SQL = "SQL"
+    PPL = "PPL"
+
+
 class SubscriptionFilterDistribution(str, Enum):
     """
     The method used to distribute log data to the destination, which can be either random or grouped by log stream.
     """
     RANDOM = "Random"
     BY_LOG_STREAM = "ByLogStream"
+
+
+class TransformerProcessorListToMapPropertiesFlattenedElement(str, Enum):
+    FIRST = "first"
+    LAST = "last"
+
+
+class TransformerTypeConverterEntryType(str, Enum):
+    BOOLEAN = "boolean"
+    INTEGER = "integer"
+    DOUBLE = "double"
+    STRING = "string"

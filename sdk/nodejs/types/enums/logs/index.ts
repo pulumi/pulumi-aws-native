@@ -103,6 +103,17 @@ export const MetricFilterMetricTransformationUnit = {
  */
 export type MetricFilterMetricTransformationUnit = (typeof MetricFilterMetricTransformationUnit)[keyof typeof MetricFilterMetricTransformationUnit];
 
+export const QueryDefinitionQueryLanguage = {
+    Cwli: "CWLI",
+    Sql: "SQL",
+    Ppl: "PPL",
+} as const;
+
+/**
+ * Query language of the query string. Possible values are CWLI, SQL, PPL, with CWLI being the default.
+ */
+export type QueryDefinitionQueryLanguage = (typeof QueryDefinitionQueryLanguage)[keyof typeof QueryDefinitionQueryLanguage];
+
 export const SubscriptionFilterDistribution = {
     Random: "Random",
     ByLogStream: "ByLogStream",
@@ -112,3 +123,19 @@ export const SubscriptionFilterDistribution = {
  * The method used to distribute log data to the destination, which can be either random or grouped by log stream.
  */
 export type SubscriptionFilterDistribution = (typeof SubscriptionFilterDistribution)[keyof typeof SubscriptionFilterDistribution];
+
+export const TransformerProcessorListToMapPropertiesFlattenedElement = {
+    First: "first",
+    Last: "last",
+} as const;
+
+export type TransformerProcessorListToMapPropertiesFlattenedElement = (typeof TransformerProcessorListToMapPropertiesFlattenedElement)[keyof typeof TransformerProcessorListToMapPropertiesFlattenedElement];
+
+export const TransformerTypeConverterEntryType = {
+    Boolean: "boolean",
+    Integer: "integer",
+    Double: "double",
+    String: "string",
+} as const;
+
+export type TransformerTypeConverterEntryType = (typeof TransformerTypeConverterEntryType)[keyof typeof TransformerTypeConverterEntryType];

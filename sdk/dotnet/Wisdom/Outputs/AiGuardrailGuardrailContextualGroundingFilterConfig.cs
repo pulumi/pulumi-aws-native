@@ -20,6 +20,9 @@ namespace Pulumi.AwsNative.Wisdom.Outputs
         /// The threshold for this filter.
         /// </summary>
         public readonly double Threshold;
+        /// <summary>
+        /// The type of this filter.
+        /// </summary>
         public readonly Pulumi.AwsNative.Wisdom.AiGuardrailGuardrailContextualGroundingFilterType Type;
 
         [OutputConstructor]

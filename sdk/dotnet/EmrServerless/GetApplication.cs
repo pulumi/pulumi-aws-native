@@ -116,6 +116,10 @@ namespace Pulumi.AwsNative.EmrServerless
         /// </summary>
         public readonly ImmutableArray<Outputs.ApplicationConfigurationObject> RuntimeConfiguration;
         /// <summary>
+        /// The scheduler configuration for batch and streaming jobs running on this application. Supported with release labels emr-7.0.0 and above.
+        /// </summary>
+        public readonly Outputs.ApplicationSchedulerConfiguration? SchedulerConfiguration;
+        /// <summary>
         /// Tag map with key and value
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
@@ -152,6 +156,8 @@ namespace Pulumi.AwsNative.EmrServerless
 
             ImmutableArray<Outputs.ApplicationConfigurationObject> runtimeConfiguration,
 
+            Outputs.ApplicationSchedulerConfiguration? schedulerConfiguration,
+
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             ImmutableDictionary<string, Outputs.ApplicationWorkerTypeSpecificationInput>? workerTypeSpecifications)
@@ -169,6 +175,7 @@ namespace Pulumi.AwsNative.EmrServerless
             NetworkConfiguration = networkConfiguration;
             ReleaseLabel = releaseLabel;
             RuntimeConfiguration = runtimeConfiguration;
+            SchedulerConfiguration = schedulerConfiguration;
             Tags = tags;
             WorkerTypeSpecifications = workerTypeSpecifications;
         }

@@ -29,6 +29,15 @@ type LookupKeyspaceArgs struct {
 }
 
 type LookupKeyspaceResult struct {
+	// Indicates whether client-side timestamps are enabled (true) or disabled (false) for all tables in the keyspace. To add a Region to a single-Region keyspace with at least one table, the value must be set to true. After you enabled client-side timestamps for a table, you can’t disable it again.
+	ClientSideTimestampsEnabled *bool `pulumi:"clientSideTimestampsEnabled"`
+	// Specifies the `ReplicationStrategy` of a keyspace. The options are:
+	//
+	// - `SINGLE_REGION` for a single Region keyspace (optional) or
+	// - `MULTI_REGION` for a multi-Region keyspace
+	//
+	// If no `ReplicationStrategy` is provided, the default is `SINGLE_REGION` . If you choose `MULTI_REGION` , you must also provide a `RegionList` with the AWS Regions that the keyspace is replicated in.
+	ReplicationSpecification *KeyspaceReplicationSpecification `pulumi:"replicationSpecification"`
 	// An array of key-value pairs to apply to this resource.
 	//
 	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
@@ -65,6 +74,21 @@ func (o LookupKeyspaceResultOutput) ToLookupKeyspaceResultOutput() LookupKeyspac
 
 func (o LookupKeyspaceResultOutput) ToLookupKeyspaceResultOutputWithContext(ctx context.Context) LookupKeyspaceResultOutput {
 	return o
+}
+
+// Indicates whether client-side timestamps are enabled (true) or disabled (false) for all tables in the keyspace. To add a Region to a single-Region keyspace with at least one table, the value must be set to true. After you enabled client-side timestamps for a table, you can’t disable it again.
+func (o LookupKeyspaceResultOutput) ClientSideTimestampsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupKeyspaceResult) *bool { return v.ClientSideTimestampsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the `ReplicationStrategy` of a keyspace. The options are:
+//
+// - `SINGLE_REGION` for a single Region keyspace (optional) or
+// - `MULTI_REGION` for a multi-Region keyspace
+//
+// If no `ReplicationStrategy` is provided, the default is `SINGLE_REGION` . If you choose `MULTI_REGION` , you must also provide a `RegionList` with the AWS Regions that the keyspace is replicated in.
+func (o LookupKeyspaceResultOutput) ReplicationSpecification() KeyspaceReplicationSpecificationPtrOutput {
+	return o.ApplyT(func(v LookupKeyspaceResult) *KeyspaceReplicationSpecification { return v.ReplicationSpecification }).(KeyspaceReplicationSpecificationPtrOutput)
 }
 
 // An array of key-value pairs to apply to this resource.

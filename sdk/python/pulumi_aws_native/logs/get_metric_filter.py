@@ -25,13 +25,26 @@ __all__ = [
 
 @pulumi.output_type
 class GetMetricFilterResult:
-    def __init__(__self__, filter_pattern=None, metric_transformations=None):
+    def __init__(__self__, apply_on_transformed_logs=None, filter_pattern=None, metric_transformations=None):
+        if apply_on_transformed_logs and not isinstance(apply_on_transformed_logs, bool):
+            raise TypeError("Expected argument 'apply_on_transformed_logs' to be a bool")
+        pulumi.set(__self__, "apply_on_transformed_logs", apply_on_transformed_logs)
         if filter_pattern and not isinstance(filter_pattern, str):
             raise TypeError("Expected argument 'filter_pattern' to be a str")
         pulumi.set(__self__, "filter_pattern", filter_pattern)
         if metric_transformations and not isinstance(metric_transformations, list):
             raise TypeError("Expected argument 'metric_transformations' to be a list")
         pulumi.set(__self__, "metric_transformations", metric_transformations)
+
+    @property
+    @pulumi.getter(name="applyOnTransformedLogs")
+    def apply_on_transformed_logs(self) -> Optional[bool]:
+        """
+        This parameter is valid only for log groups that have an active log transformer. For more information about log transformers, see [PutTransformer](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutTransformer.html) .
+
+        If this value is `true` , the metric filter is applied on the transformed version of the log events instead of the original ingested log events.
+        """
+        return pulumi.get(self, "apply_on_transformed_logs")
 
     @property
     @pulumi.getter(name="filterPattern")
@@ -56,6 +69,7 @@ class AwaitableGetMetricFilterResult(GetMetricFilterResult):
         if False:
             yield self
         return GetMetricFilterResult(
+            apply_on_transformed_logs=self.apply_on_transformed_logs,
             filter_pattern=self.filter_pattern,
             metric_transformations=self.metric_transformations)
 
@@ -78,6 +92,7 @@ def get_metric_filter(filter_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:logs:getMetricFilter', __args__, opts=opts, typ=GetMetricFilterResult).value
 
     return AwaitableGetMetricFilterResult(
+        apply_on_transformed_logs=pulumi.get(__ret__, 'apply_on_transformed_logs'),
         filter_pattern=pulumi.get(__ret__, 'filter_pattern'),
         metric_transformations=pulumi.get(__ret__, 'metric_transformations'))
 def get_metric_filter_output(filter_name: Optional[pulumi.Input[str]] = None,
@@ -97,5 +112,6 @@ def get_metric_filter_output(filter_name: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:logs:getMetricFilter', __args__, opts=opts, typ=GetMetricFilterResult)
     return __ret__.apply(lambda __response__: GetMetricFilterResult(
+        apply_on_transformed_logs=pulumi.get(__response__, 'apply_on_transformed_logs'),
         filter_pattern=pulumi.get(__response__, 'filter_pattern'),
         metric_transformations=pulumi.get(__response__, 'metric_transformations')))

@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetServerResult:
-    def __init__(__self__, arn=None, as2_service_managed_egress_ip_addresses=None, certificate=None, endpoint_details=None, endpoint_type=None, identity_provider_details=None, logging_role=None, post_authentication_login_banner=None, pre_authentication_login_banner=None, protocol_details=None, protocols=None, s3_storage_options=None, security_policy_name=None, server_id=None, structured_log_destinations=None, tags=None, workflow_details=None):
+    def __init__(__self__, arn=None, as2_service_managed_egress_ip_addresses=None, certificate=None, endpoint_details=None, endpoint_type=None, identity_provider_details=None, logging_role=None, post_authentication_login_banner=None, pre_authentication_login_banner=None, protocol_details=None, protocols=None, s3_storage_options=None, security_policy_name=None, server_id=None, state=None, structured_log_destinations=None, tags=None, workflow_details=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -69,6 +69,9 @@ class GetServerResult:
         if server_id and not isinstance(server_id, str):
             raise TypeError("Expected argument 'server_id' to be a str")
         pulumi.set(__self__, "server_id", server_id)
+        if state and not isinstance(state, str):
+            raise TypeError("Expected argument 'state' to be a str")
+        pulumi.set(__self__, "state", state)
         if structured_log_destinations and not isinstance(structured_log_destinations, list):
             raise TypeError("Expected argument 'structured_log_destinations' to be a list")
         pulumi.set(__self__, "structured_log_destinations", structured_log_destinations)
@@ -248,6 +251,11 @@ class GetServerResult:
         return pulumi.get(self, "server_id")
 
     @property
+    @pulumi.getter
+    def state(self) -> Optional['ServerState']:
+        return pulumi.get(self, "state")
+
+    @property
     @pulumi.getter(name="structuredLogDestinations")
     def structured_log_destinations(self) -> Optional[Sequence[str]]:
         """
@@ -304,6 +312,7 @@ class AwaitableGetServerResult(GetServerResult):
             s3_storage_options=self.s3_storage_options,
             security_policy_name=self.security_policy_name,
             server_id=self.server_id,
+            state=self.state,
             structured_log_destinations=self.structured_log_destinations,
             tags=self.tags,
             workflow_details=self.workflow_details)
@@ -339,6 +348,7 @@ def get_server(arn: Optional[str] = None,
         s3_storage_options=pulumi.get(__ret__, 's3_storage_options'),
         security_policy_name=pulumi.get(__ret__, 'security_policy_name'),
         server_id=pulumi.get(__ret__, 'server_id'),
+        state=pulumi.get(__ret__, 'state'),
         structured_log_destinations=pulumi.get(__ret__, 'structured_log_destinations'),
         tags=pulumi.get(__ret__, 'tags'),
         workflow_details=pulumi.get(__ret__, 'workflow_details'))
@@ -371,6 +381,7 @@ def get_server_output(arn: Optional[pulumi.Input[str]] = None,
         s3_storage_options=pulumi.get(__response__, 's3_storage_options'),
         security_policy_name=pulumi.get(__response__, 'security_policy_name'),
         server_id=pulumi.get(__response__, 'server_id'),
+        state=pulumi.get(__response__, 'state'),
         structured_log_destinations=pulumi.get(__response__, 'structured_log_destinations'),
         tags=pulumi.get(__response__, 'tags'),
         workflow_details=pulumi.get(__response__, 'workflow_details')))

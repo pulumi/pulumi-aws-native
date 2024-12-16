@@ -179,6 +179,17 @@ export const ServerSftpAuthenticationMethods = {
 
 export type ServerSftpAuthenticationMethods = (typeof ServerSftpAuthenticationMethods)[keyof typeof ServerSftpAuthenticationMethods];
 
+export const ServerState = {
+    Offline: "OFFLINE",
+    Online: "ONLINE",
+    Starting: "STARTING",
+    Stopping: "STOPPING",
+    StartFailed: "START_FAILED",
+    StopFailed: "STOP_FAILED",
+} as const;
+
+export type ServerState = (typeof ServerState)[keyof typeof ServerState];
+
 export const ServerTlsSessionResumptionMode = {
     Disabled: "DISABLED",
     Enabled: "ENABLED",

@@ -130,11 +130,10 @@
   "primaryIdentifier" : [ "/properties/PoolId" ],
   "createOnlyProperties" : [ "/properties/PoolName" ],
   "readOnlyProperties" : [ "/properties/PoolId", "/properties/PoolArn", "/properties/CreatedAt" ],
-  "writeOnlyProperties" : [ "/properties/Tags" ],
-  "deprecatedProperties" : [ "/properties/Tags/TagKey", "/properties/Tags/TagValue" ],
+  "deprecatedProperties" : [ "/properties/Tags", "/properties/Tags/TagKey", "/properties/Tags/TagValue" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "workspaces:CreateWorkspacesPool", "workspaces:DescribeWorkspacesPools", "workspaces:CreateTags" ]
+      "permissions" : [ "workspaces:CreateWorkspacesPool", "workspaces:DescribeWorkspacesPools" ]
     },
     "read" : {
       "permissions" : [ "workspaces:DescribeWorkspacesPools" ]

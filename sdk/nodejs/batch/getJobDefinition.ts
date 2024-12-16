@@ -13,12 +13,15 @@ import * as utilities from "../utilities";
 export function getJobDefinition(args: GetJobDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetJobDefinitionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:batch:getJobDefinition", {
-        "id": args.id,
+        "jobDefinitionName": args.jobDefinitionName,
     }, opts);
 }
 
 export interface GetJobDefinitionArgs {
-    id: string;
+    /**
+     * The name of the job definition.
+     */
+    jobDefinitionName: string;
 }
 
 export interface GetJobDefinitionResult {
@@ -34,7 +37,6 @@ export interface GetJobDefinitionResult {
      * An object with properties that are specific to Amazon EKS-based jobs. When `eksProperties` is used in the job definition, it can't be used in addition to `containerProperties` , `ecsProperties` , or `nodeProperties` .
      */
     readonly eksProperties?: outputs.batch.JobDefinitionEksProperties;
-    readonly id?: string;
     /**
      * An object with properties that are specific to multi-node parallel jobs. When `nodeProperties` is used in the job definition, it can't be used in addition to `containerProperties` , `ecsProperties` , or `eksProperties` .
      *
@@ -43,10 +45,8 @@ export interface GetJobDefinitionResult {
     readonly nodeProperties?: outputs.batch.JobDefinitionNodeProperties;
     /**
      * Default parameters or parameter substitution placeholders that are set in the job definition. Parameters are specified as a key-value pair mapping. Parameters in a `SubmitJob` request override any corresponding parameter defaults from the job definition. For more information about specifying parameters, see [Job definition parameters](https://docs.aws.amazon.com/batch/latest/userguide/job_definition_parameters.html) in the *AWS Batch User Guide* .
-     *
-     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Batch::JobDefinition` for more information about the expected schema for this property.
      */
-    readonly parameters?: any;
+    readonly parameters?: {[key: string]: string};
     /**
      * The platform capabilities required by the job definition. If no value is specified, it defaults to `EC2` . Jobs run on Fargate resources specify `FARGATE` .
      */
@@ -64,15 +64,13 @@ export interface GetJobDefinitionResult {
      */
     readonly schedulingPriority?: number;
     /**
-     * The tags that are applied to the job definition.
-     *
-     * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Batch::JobDefinition` for more information about the expected schema for this property.
+     * A key-value pair to associate with a resource.
      */
-    readonly tags?: any;
+    readonly tags?: {[key: string]: string};
     /**
      * The timeout time for jobs that are submitted with this job definition. After the amount of time you specify passes, AWS Batch terminates your jobs if they aren't finished.
      */
-    readonly timeout?: outputs.batch.JobDefinitionTimeout;
+    readonly timeout?: outputs.batch.JobDefinitionJobTimeout;
     /**
      * The type of job definition. For more information about multi-node parallel jobs, see [Creating a multi-node parallel job definition](https://docs.aws.amazon.com/batch/latest/userguide/multi-node-job-def.html) in the *AWS Batch User Guide* .
      *
@@ -89,10 +87,13 @@ export interface GetJobDefinitionResult {
 export function getJobDefinitionOutput(args: GetJobDefinitionOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetJobDefinitionResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:batch:getJobDefinition", {
-        "id": args.id,
+        "jobDefinitionName": args.jobDefinitionName,
     }, opts);
 }
 
 export interface GetJobDefinitionOutputArgs {
-    id: pulumi.Input<string>;
+    /**
+     * The name of the job definition.
+     */
+    jobDefinitionName: pulumi.Input<string>;
 }

@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         private InputList<Inputs.MonitoringScheduleMonitoringInputArgs>? _monitoringInputs;
 
         /// <summary>
-        /// The array of inputs for the monitoring job. Currently we support monitoring an Amazon SageMaker Endpoint.
+        /// The array of inputs for the monitoring job. Currently we support monitoring an Amazon SageMaker AI Endpoint.
         /// </summary>
         public InputList<Inputs.MonitoringScheduleMonitoringInputArgs> MonitoringInputs
         {

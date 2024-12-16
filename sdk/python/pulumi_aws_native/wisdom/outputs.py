@@ -897,6 +897,9 @@ class AiGuardrailGuardrailContentFilterConfig(dict):
                  type: 'AiGuardrailGuardrailContentFilterType'):
         """
         Content filter config in content policy.
+        :param 'AiGuardrailGuardrailFilterStrength' input_strength: The strength of the input for the guardrail content filter.
+        :param 'AiGuardrailGuardrailFilterStrength' output_strength: The output strength of the guardrail content filter.
+        :param 'AiGuardrailGuardrailContentFilterType' type: The type of the guardrail content filter.
         """
         pulumi.set(__self__, "input_strength", input_strength)
         pulumi.set(__self__, "output_strength", output_strength)
@@ -905,16 +908,25 @@ class AiGuardrailGuardrailContentFilterConfig(dict):
     @property
     @pulumi.getter(name="inputStrength")
     def input_strength(self) -> 'AiGuardrailGuardrailFilterStrength':
+        """
+        The strength of the input for the guardrail content filter.
+        """
         return pulumi.get(self, "input_strength")
 
     @property
     @pulumi.getter(name="outputStrength")
     def output_strength(self) -> 'AiGuardrailGuardrailFilterStrength':
+        """
+        The output strength of the guardrail content filter.
+        """
         return pulumi.get(self, "output_strength")
 
     @property
     @pulumi.getter
     def type(self) -> 'AiGuardrailGuardrailContentFilterType':
+        """
+        The type of the guardrail content filter.
+        """
         return pulumi.get(self, "type")
 
 
@@ -929,6 +941,7 @@ class AiGuardrailGuardrailContextualGroundingFilterConfig(dict):
         """
         A config for grounding filter.
         :param float threshold: The threshold for this filter.
+        :param 'AiGuardrailGuardrailContextualGroundingFilterType' type: The type of this filter.
         """
         pulumi.set(__self__, "threshold", threshold)
         pulumi.set(__self__, "type", type)
@@ -944,6 +957,9 @@ class AiGuardrailGuardrailContextualGroundingFilterConfig(dict):
     @property
     @pulumi.getter
     def type(self) -> 'AiGuardrailGuardrailContextualGroundingFilterType':
+        """
+        The type of this filter.
+        """
         return pulumi.get(self, "type")
 
 
@@ -956,12 +972,16 @@ class AiGuardrailGuardrailManagedWordsConfig(dict):
                  type: 'AiGuardrailGuardrailManagedWordsType'):
         """
         A managed words config.
+        :param 'AiGuardrailGuardrailManagedWordsType' type: The type of guardrail managed words.
         """
         pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter
     def type(self) -> 'AiGuardrailGuardrailManagedWordsType':
+        """
+        The type of guardrail managed words.
+        """
         return pulumi.get(self, "type")
 
 
@@ -975,6 +995,7 @@ class AiGuardrailGuardrailPiiEntityConfig(dict):
                  type: 'AiGuardrailGuardrailPiiEntityType'):
         """
         Pii entity configuration.
+        :param 'AiGuardrailGuardrailSensitiveInformationAction' action: The action of guardrail PII entity configuration.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "type", type)
@@ -982,6 +1003,9 @@ class AiGuardrailGuardrailPiiEntityConfig(dict):
     @property
     @pulumi.getter
     def action(self) -> 'AiGuardrailGuardrailSensitiveInformationAction':
+        """
+        The action of guardrail PII entity configuration.
+        """
         return pulumi.get(self, "action")
 
     @property
@@ -1002,6 +1026,7 @@ class AiGuardrailGuardrailRegexConfig(dict):
                  description: Optional[str] = None):
         """
         A regex configuration.
+        :param 'AiGuardrailGuardrailSensitiveInformationAction' action: The action of the guardrail regex configuration.
         :param str name: The regex name.
         :param str pattern: The regex pattern.
         :param str description: The regex description.
@@ -1015,6 +1040,9 @@ class AiGuardrailGuardrailRegexConfig(dict):
     @property
     @pulumi.getter
     def action(self) -> 'AiGuardrailGuardrailSensitiveInformationAction':
+        """
+        The action of the guardrail regex configuration.
+        """
         return pulumi.get(self, "action")
 
     @property
@@ -1056,6 +1084,7 @@ class AiGuardrailGuardrailTopicConfig(dict):
         Topic config in topic policy.
         :param str definition: Definition of topic in topic policy
         :param str name: Name of topic in topic policy
+        :param 'AiGuardrailGuardrailTopicType' type: Type of topic in a policy.
         :param Sequence[str] examples: List of text examples
         """
         pulumi.set(__self__, "definition", definition)
@@ -1083,6 +1112,9 @@ class AiGuardrailGuardrailTopicConfig(dict):
     @property
     @pulumi.getter
     def type(self) -> 'AiGuardrailGuardrailTopicType':
+        """
+        Type of topic in a policy.
+        """
         return pulumi.get(self, "type")
 
     @property
@@ -1256,6 +1288,10 @@ class KnowledgeBaseBedrockFoundationModelConfiguration(dict):
     def __init__(__self__, *,
                  model_arn: str,
                  parsing_prompt: Optional['outputs.KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptProperties'] = None):
+        """
+        :param str model_arn: The model ARN of the Bedrock foundation model.
+        :param 'KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptProperties' parsing_prompt: The parsing prompt of the Bedrock foundation model configuration.
+        """
         pulumi.set(__self__, "model_arn", model_arn)
         if parsing_prompt is not None:
             pulumi.set(__self__, "parsing_prompt", parsing_prompt)
@@ -1263,16 +1299,25 @@ class KnowledgeBaseBedrockFoundationModelConfiguration(dict):
     @property
     @pulumi.getter(name="modelArn")
     def model_arn(self) -> str:
+        """
+        The model ARN of the Bedrock foundation model.
+        """
         return pulumi.get(self, "model_arn")
 
     @property
     @pulumi.getter(name="parsingPrompt")
     def parsing_prompt(self) -> Optional['outputs.KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptProperties']:
+        """
+        The parsing prompt of the Bedrock foundation model configuration.
+        """
         return pulumi.get(self, "parsing_prompt")
 
 
 @pulumi.output_type
 class KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptProperties(dict):
+    """
+    The parsing prompt of the Bedrock foundation model configuration.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -1292,6 +1337,9 @@ class KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptProperties(di
 
     def __init__(__self__, *,
                  parsing_prompt_text: str):
+        """
+        The parsing prompt of the Bedrock foundation model configuration.
+        """
         pulumi.set(__self__, "parsing_prompt_text", parsing_prompt_text)
 
     @property

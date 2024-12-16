@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         private InputList<Inputs.SpaceCustomFileSystemArgs>? _customFileSystems;
 
         /// <summary>
-        /// A file system, created by you, that you assign to a space for an Amazon SageMaker Domain. Permitted users can access this file system in Amazon SageMaker Studio.
+        /// A file system, created by you, that you assign to a space for an Amazon SageMaker AI Domain. Permitted users can access this file system in Amazon SageMaker AI Studio.
         /// </summary>
         public InputList<Inputs.SpaceCustomFileSystemArgs> CustomFileSystems
         {

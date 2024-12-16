@@ -42,10 +42,16 @@ __all__ = [
     'ConfiguredTableAssociationAnalysisRulePolicyV10Properties',
     'ConfiguredTableAssociationAnalysisRulePolicyV11Properties',
     'ConfiguredTableAssociationAnalysisRulePolicyV12Properties',
+    'ConfiguredTableAthenaTableReference',
     'ConfiguredTableDifferentialPrivacy',
     'ConfiguredTableDifferentialPrivacyColumn',
     'ConfiguredTableGlueTableReference',
-    'ConfiguredTableTableReference',
+    'ConfiguredTableSnowflakeTableReference',
+    'ConfiguredTableSnowflakeTableSchemaProperties',
+    'ConfiguredTableSnowflakeTableSchemaV1',
+    'ConfiguredTableTableReference0Properties',
+    'ConfiguredTableTableReference1Properties',
+    'ConfiguredTableTableReference2Properties',
     'IdMappingTableInputReferenceConfig',
     'IdMappingTableInputReferenceProperties',
     'IdMappingTableInputSource',
@@ -995,6 +1001,63 @@ class ConfiguredTableAssociationAnalysisRulePolicyV12Properties(dict):
 
 
 @pulumi.output_type
+class ConfiguredTableAthenaTableReference(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "databaseName":
+            suggest = "database_name"
+        elif key == "tableName":
+            suggest = "table_name"
+        elif key == "workGroup":
+            suggest = "work_group"
+        elif key == "outputLocation":
+            suggest = "output_location"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfiguredTableAthenaTableReference. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfiguredTableAthenaTableReference.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfiguredTableAthenaTableReference.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 database_name: str,
+                 table_name: str,
+                 work_group: str,
+                 output_location: Optional[str] = None):
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "table_name", table_name)
+        pulumi.set(__self__, "work_group", work_group)
+        if output_location is not None:
+            pulumi.set(__self__, "output_location", output_location)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> str:
+        return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter(name="tableName")
+    def table_name(self) -> str:
+        return pulumi.get(self, "table_name")
+
+    @property
+    @pulumi.getter(name="workGroup")
+    def work_group(self) -> str:
+        return pulumi.get(self, "work_group")
+
+    @property
+    @pulumi.getter(name="outputLocation")
+    def output_location(self) -> Optional[str]:
+        return pulumi.get(self, "output_location")
+
+
+@pulumi.output_type
 class ConfiguredTableDifferentialPrivacy(dict):
     def __init__(__self__, *,
                  columns: Sequence['outputs.ConfiguredTableDifferentialPrivacyColumn']):
@@ -1042,46 +1105,178 @@ class ConfiguredTableGlueTableReference(dict):
     def __init__(__self__, *,
                  database_name: str,
                  table_name: str):
-        """
-        :param str database_name: The name of the database the AWS Glue table belongs to.
-        :param str table_name: The name of the AWS Glue table.
-        """
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "table_name", table_name)
 
     @property
     @pulumi.getter(name="databaseName")
     def database_name(self) -> str:
-        """
-        The name of the database the AWS Glue table belongs to.
-        """
         return pulumi.get(self, "database_name")
 
     @property
     @pulumi.getter(name="tableName")
     def table_name(self) -> str:
-        """
-        The name of the AWS Glue table.
-        """
         return pulumi.get(self, "table_name")
 
 
 @pulumi.output_type
-class ConfiguredTableTableReference(dict):
+class ConfiguredTableSnowflakeTableReference(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountIdentifier":
+            suggest = "account_identifier"
+        elif key == "databaseName":
+            suggest = "database_name"
+        elif key == "schemaName":
+            suggest = "schema_name"
+        elif key == "secretArn":
+            suggest = "secret_arn"
+        elif key == "tableName":
+            suggest = "table_name"
+        elif key == "tableSchema":
+            suggest = "table_schema"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfiguredTableSnowflakeTableReference. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfiguredTableSnowflakeTableReference.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfiguredTableSnowflakeTableReference.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 account_identifier: str,
+                 database_name: str,
+                 schema_name: str,
+                 secret_arn: str,
+                 table_name: str,
+                 table_schema: 'outputs.ConfiguredTableSnowflakeTableSchemaProperties'):
+        pulumi.set(__self__, "account_identifier", account_identifier)
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "schema_name", schema_name)
+        pulumi.set(__self__, "secret_arn", secret_arn)
+        pulumi.set(__self__, "table_name", table_name)
+        pulumi.set(__self__, "table_schema", table_schema)
+
+    @property
+    @pulumi.getter(name="accountIdentifier")
+    def account_identifier(self) -> str:
+        return pulumi.get(self, "account_identifier")
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> str:
+        return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> str:
+        return pulumi.get(self, "schema_name")
+
+    @property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> str:
+        return pulumi.get(self, "secret_arn")
+
+    @property
+    @pulumi.getter(name="tableName")
+    def table_name(self) -> str:
+        return pulumi.get(self, "table_name")
+
+    @property
+    @pulumi.getter(name="tableSchema")
+    def table_schema(self) -> 'outputs.ConfiguredTableSnowflakeTableSchemaProperties':
+        return pulumi.get(self, "table_schema")
+
+
+@pulumi.output_type
+class ConfiguredTableSnowflakeTableSchemaProperties(dict):
+    def __init__(__self__, *,
+                 v1: Sequence['outputs.ConfiguredTableSnowflakeTableSchemaV1']):
+        pulumi.set(__self__, "v1", v1)
+
+    @property
+    @pulumi.getter
+    def v1(self) -> Sequence['outputs.ConfiguredTableSnowflakeTableSchemaV1']:
+        return pulumi.get(self, "v1")
+
+
+@pulumi.output_type
+class ConfiguredTableSnowflakeTableSchemaV1(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "columnName":
+            suggest = "column_name"
+        elif key == "columnType":
+            suggest = "column_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConfiguredTableSnowflakeTableSchemaV1. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConfiguredTableSnowflakeTableSchemaV1.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConfiguredTableSnowflakeTableSchemaV1.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 column_name: str,
+                 column_type: str):
+        pulumi.set(__self__, "column_name", column_name)
+        pulumi.set(__self__, "column_type", column_type)
+
+    @property
+    @pulumi.getter(name="columnName")
+    def column_name(self) -> str:
+        return pulumi.get(self, "column_name")
+
+    @property
+    @pulumi.getter(name="columnType")
+    def column_type(self) -> str:
+        return pulumi.get(self, "column_type")
+
+
+@pulumi.output_type
+class ConfiguredTableTableReference0Properties(dict):
     def __init__(__self__, *,
                  glue: 'outputs.ConfiguredTableGlueTableReference'):
-        """
-        :param 'ConfiguredTableGlueTableReference' glue: If present, a reference to the AWS Glue table referred to by this table reference.
-        """
         pulumi.set(__self__, "glue", glue)
 
     @property
     @pulumi.getter
     def glue(self) -> 'outputs.ConfiguredTableGlueTableReference':
-        """
-        If present, a reference to the AWS Glue table referred to by this table reference.
-        """
         return pulumi.get(self, "glue")
+
+
+@pulumi.output_type
+class ConfiguredTableTableReference1Properties(dict):
+    def __init__(__self__, *,
+                 snowflake: 'outputs.ConfiguredTableSnowflakeTableReference'):
+        pulumi.set(__self__, "snowflake", snowflake)
+
+    @property
+    @pulumi.getter
+    def snowflake(self) -> 'outputs.ConfiguredTableSnowflakeTableReference':
+        return pulumi.get(self, "snowflake")
+
+
+@pulumi.output_type
+class ConfiguredTableTableReference2Properties(dict):
+    def __init__(__self__, *,
+                 athena: 'outputs.ConfiguredTableAthenaTableReference'):
+        pulumi.set(__self__, "athena", athena)
+
+    @property
+    @pulumi.getter
+    def athena(self) -> 'outputs.ConfiguredTableAthenaTableReference':
+        return pulumi.get(self, "athena")
 
 
 @pulumi.output_type

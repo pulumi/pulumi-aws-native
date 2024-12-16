@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetQueueResult:
-    def __init__(__self__, description=None, hours_of_operation_arn=None, instance_arn=None, max_contacts=None, name=None, outbound_caller_config=None, queue_arn=None, quick_connect_arns=None, status=None, tags=None, type=None):
+    def __init__(__self__, description=None, hours_of_operation_arn=None, instance_arn=None, max_contacts=None, name=None, outbound_caller_config=None, outbound_email_config=None, queue_arn=None, quick_connect_arns=None, status=None, tags=None, type=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -45,6 +45,9 @@ class GetQueueResult:
         if outbound_caller_config and not isinstance(outbound_caller_config, dict):
             raise TypeError("Expected argument 'outbound_caller_config' to be a dict")
         pulumi.set(__self__, "outbound_caller_config", outbound_caller_config)
+        if outbound_email_config and not isinstance(outbound_email_config, dict):
+            raise TypeError("Expected argument 'outbound_email_config' to be a dict")
+        pulumi.set(__self__, "outbound_email_config", outbound_email_config)
         if queue_arn and not isinstance(queue_arn, str):
             raise TypeError("Expected argument 'queue_arn' to be a str")
         pulumi.set(__self__, "queue_arn", queue_arn)
@@ -110,6 +113,14 @@ class GetQueueResult:
         return pulumi.get(self, "outbound_caller_config")
 
     @property
+    @pulumi.getter(name="outboundEmailConfig")
+    def outbound_email_config(self) -> Optional['outputs.QueueOutboundEmailConfig']:
+        """
+        The outbound email address ID.
+        """
+        return pulumi.get(self, "outbound_email_config")
+
+    @property
     @pulumi.getter(name="queueArn")
     def queue_arn(self) -> Optional[str]:
         """
@@ -162,6 +173,7 @@ class AwaitableGetQueueResult(GetQueueResult):
             max_contacts=self.max_contacts,
             name=self.name,
             outbound_caller_config=self.outbound_caller_config,
+            outbound_email_config=self.outbound_email_config,
             queue_arn=self.queue_arn,
             quick_connect_arns=self.quick_connect_arns,
             status=self.status,
@@ -189,6 +201,7 @@ def get_queue(queue_arn: Optional[str] = None,
         max_contacts=pulumi.get(__ret__, 'max_contacts'),
         name=pulumi.get(__ret__, 'name'),
         outbound_caller_config=pulumi.get(__ret__, 'outbound_caller_config'),
+        outbound_email_config=pulumi.get(__ret__, 'outbound_email_config'),
         queue_arn=pulumi.get(__ret__, 'queue_arn'),
         quick_connect_arns=pulumi.get(__ret__, 'quick_connect_arns'),
         status=pulumi.get(__ret__, 'status'),
@@ -213,6 +226,7 @@ def get_queue_output(queue_arn: Optional[pulumi.Input[str]] = None,
         max_contacts=pulumi.get(__response__, 'max_contacts'),
         name=pulumi.get(__response__, 'name'),
         outbound_caller_config=pulumi.get(__response__, 'outbound_caller_config'),
+        outbound_email_config=pulumi.get(__response__, 'outbound_email_config'),
         queue_arn=pulumi.get(__response__, 'queue_arn'),
         quick_connect_arns=pulumi.get(__response__, 'quick_connect_arns'),
         status=pulumi.get(__response__, 'status'),

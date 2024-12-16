@@ -96,6 +96,12 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
             set => _functionAssociations = value;
         }
 
+        /// <summary>
+        /// The gRPC configuration for your cache behavior.
+        /// </summary>
+        [Input("grpcConfig")]
+        public Input<Inputs.DistributionGrpcConfigArgs>? GrpcConfig { get; set; }
+
         [Input("lambdaFunctionAssociations")]
         private InputList<Inputs.DistributionLambdaFunctionAssociationArgs>? _lambdaFunctionAssociations;
 

@@ -191,6 +191,7 @@ __all__ = [
     'VerifiedAccessInstanceVerifiedAccessTrustProvider',
     'VerifiedAccessTrustProviderDeviceOptions',
     'VerifiedAccessTrustProviderOidcOptions',
+    'VpcEndpointDnsOptionsSpecification',
     'VpnConnectionCloudwatchLogOptionsSpecification',
     'VpnConnectionIkeVersionsRequestListValue',
     'VpnConnectionPhase1EncryptionAlgorithmsRequestListValue',
@@ -4148,12 +4149,18 @@ class LaunchTemplateConnectionTrackingSpecification(dict):
 class LaunchTemplateCpu(dict):
     def __init__(__self__, *,
                  references: Optional[Sequence['outputs.LaunchTemplateReference']] = None):
+        """
+        :param Sequence['LaunchTemplateReference'] references: The instance family to use as the baseline reference for CPU performance. All instance types that match your specified attributes are compared against the CPU performance of the referenced instance family, regardless of CPU manufacturer or architecture differences.
+        """
         if references is not None:
             pulumi.set(__self__, "references", references)
 
     @property
     @pulumi.getter
     def references(self) -> Optional[Sequence['outputs.LaunchTemplateReference']]:
+        """
+        The instance family to use as the baseline reference for CPU performance. All instance types that match your specified attributes are compared against the CPU performance of the referenced instance family, regardless of CPU manufacturer or architecture differences.
+        """
         return pulumi.get(self, "references")
 
 
@@ -4326,6 +4333,8 @@ class LaunchTemplateData(dict):
             suggest = "metadata_options"
         elif key == "networkInterfaces":
             suggest = "network_interfaces"
+        elif key == "networkPerformanceOptions":
+            suggest = "network_performance_options"
         elif key == "privateDnsNameOptions":
             suggest = "private_dns_name_options"
         elif key == "ramDiskId":
@@ -4375,6 +4384,7 @@ class LaunchTemplateData(dict):
                  metadata_options: Optional['outputs.LaunchTemplateMetadataOptions'] = None,
                  monitoring: Optional['outputs.LaunchTemplateMonitoring'] = None,
                  network_interfaces: Optional[Sequence['outputs.LaunchTemplateNetworkInterface']] = None,
+                 network_performance_options: Optional[Any] = None,
                  placement: Optional['outputs.LaunchTemplatePlacement'] = None,
                  private_dns_name_options: Optional['outputs.LaunchTemplatePrivateDnsNameOptions'] = None,
                  ram_disk_id: Optional[str] = None,
@@ -4495,6 +4505,8 @@ class LaunchTemplateData(dict):
             pulumi.set(__self__, "monitoring", monitoring)
         if network_interfaces is not None:
             pulumi.set(__self__, "network_interfaces", network_interfaces)
+        if network_performance_options is not None:
+            pulumi.set(__self__, "network_performance_options", network_performance_options)
         if placement is not None:
             pulumi.set(__self__, "placement", placement)
         if private_dns_name_options is not None:
@@ -4725,6 +4737,11 @@ class LaunchTemplateData(dict):
         The network interfaces for the instance.
         """
         return pulumi.get(self, "network_interfaces")
+
+    @property
+    @pulumi.getter(name="networkPerformanceOptions")
+    def network_performance_options(self) -> Optional[Any]:
+        return pulumi.get(self, "network_performance_options")
 
     @property
     @pulumi.getter
@@ -14196,6 +14213,46 @@ class VerifiedAccessTrustProviderOidcOptions(dict):
         The OIDC user info endpoint.
         """
         return pulumi.get(self, "user_info_endpoint")
+
+
+@pulumi.output_type
+class VpcEndpointDnsOptionsSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dnsRecordIpType":
+            suggest = "dns_record_ip_type"
+        elif key == "privateDnsOnlyForInboundResolverEndpoint":
+            suggest = "private_dns_only_for_inbound_resolver_endpoint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VpcEndpointDnsOptionsSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VpcEndpointDnsOptionsSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VpcEndpointDnsOptionsSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dns_record_ip_type: Optional['VpcEndpointDnsOptionsSpecificationDnsRecordIpType'] = None,
+                 private_dns_only_for_inbound_resolver_endpoint: Optional['VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint'] = None):
+        if dns_record_ip_type is not None:
+            pulumi.set(__self__, "dns_record_ip_type", dns_record_ip_type)
+        if private_dns_only_for_inbound_resolver_endpoint is not None:
+            pulumi.set(__self__, "private_dns_only_for_inbound_resolver_endpoint", private_dns_only_for_inbound_resolver_endpoint)
+
+    @property
+    @pulumi.getter(name="dnsRecordIpType")
+    def dns_record_ip_type(self) -> Optional['VpcEndpointDnsOptionsSpecificationDnsRecordIpType']:
+        return pulumi.get(self, "dns_record_ip_type")
+
+    @property
+    @pulumi.getter(name="privateDnsOnlyForInboundResolverEndpoint")
+    def private_dns_only_for_inbound_resolver_endpoint(self) -> Optional['VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint']:
+        return pulumi.get(self, "private_dns_only_for_inbound_resolver_endpoint")
 
 
 @pulumi.output_type

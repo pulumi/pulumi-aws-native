@@ -230,30 +230,23 @@ class ExperimentTemplateExperimentReportConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 data_sources: 'outputs.ExperimentTemplateExperimentReportConfigurationDataSourcesProperties',
                  outputs: 'outputs.ExperimentTemplateExperimentReportConfigurationOutputsProperties',
+                 data_sources: Optional['outputs.ExperimentTemplateExperimentReportConfigurationDataSourcesProperties'] = None,
                  post_experiment_duration: Optional[str] = None,
                  pre_experiment_duration: Optional[str] = None):
         """
-        :param 'ExperimentTemplateExperimentReportConfigurationDataSourcesProperties' data_sources: The data sources for the experiment report.
         :param 'ExperimentTemplateExperimentReportConfigurationOutputsProperties' outputs: The output destinations of the experiment report.
+        :param 'ExperimentTemplateExperimentReportConfigurationDataSourcesProperties' data_sources: The data sources for the experiment report.
         :param str post_experiment_duration: The duration after the experiment end time for the data sources to include in the report.
         :param str pre_experiment_duration: The duration before the experiment start time for the data sources to include in the report.
         """
-        pulumi.set(__self__, "data_sources", data_sources)
         pulumi.set(__self__, "outputs", outputs)
+        if data_sources is not None:
+            pulumi.set(__self__, "data_sources", data_sources)
         if post_experiment_duration is not None:
             pulumi.set(__self__, "post_experiment_duration", post_experiment_duration)
         if pre_experiment_duration is not None:
             pulumi.set(__self__, "pre_experiment_duration", pre_experiment_duration)
-
-    @property
-    @pulumi.getter(name="dataSources")
-    def data_sources(self) -> 'outputs.ExperimentTemplateExperimentReportConfigurationDataSourcesProperties':
-        """
-        The data sources for the experiment report.
-        """
-        return pulumi.get(self, "data_sources")
 
     @property
     @pulumi.getter
@@ -262,6 +255,14 @@ class ExperimentTemplateExperimentReportConfiguration(dict):
         The output destinations of the experiment report.
         """
         return pulumi.get(self, "outputs")
+
+    @property
+    @pulumi.getter(name="dataSources")
+    def data_sources(self) -> Optional['outputs.ExperimentTemplateExperimentReportConfigurationDataSourcesProperties']:
+        """
+        The data sources for the experiment report.
+        """
+        return pulumi.get(self, "data_sources")
 
     @property
     @pulumi.getter(name="postExperimentDuration")

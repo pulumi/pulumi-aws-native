@@ -129,6 +129,9 @@ namespace Pulumi.AwsNative.QBusiness
         /// For more information, see [Custom document enrichment](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/custom-document-enrichment.html) .
         /// </summary>
         public readonly Outputs.DataSourceDocumentEnrichmentConfiguration? DocumentEnrichmentConfiguration;
+        /// <summary>
+        /// The configuration for extracting information from media in documents.
+        /// </summary>
         public readonly Outputs.DataSourceMediaExtractionConfiguration? MediaExtractionConfiguration;
         /// <summary>
         /// The Amazon Resource Name (ARN) of an IAM role with permission to access the data source and required resources.

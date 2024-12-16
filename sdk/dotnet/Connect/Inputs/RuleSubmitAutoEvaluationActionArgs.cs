@@ -10,14 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Connect.Inputs
 {
 
-    /// <summary>
-    /// The definition of submit auto evaluation action.
-    /// </summary>
     public sealed class RuleSubmitAutoEvaluationActionArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// The Amazon Resource Name (ARN) of the evaluation form.
-        /// </summary>
         [Input("evaluationFormArn", required: true)]
         public Input<string> EvaluationFormArn { get; set; } = null!;
 

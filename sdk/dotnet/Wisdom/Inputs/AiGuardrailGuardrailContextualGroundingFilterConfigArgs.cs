@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.Wisdom.Inputs
         [Input("threshold", required: true)]
         public Input<double> Threshold { get; set; } = null!;
 
+        /// <summary>
+        /// The type of this filter.
+        /// </summary>
         [Input("type", required: true)]
         public Input<Pulumi.AwsNative.Wisdom.AiGuardrailGuardrailContextualGroundingFilterType> Type { get; set; } = null!;
 

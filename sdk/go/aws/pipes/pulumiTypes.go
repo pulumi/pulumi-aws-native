@@ -4769,9 +4769,9 @@ func (o PipeS3LogDestinationPtrOutput) Prefix() pulumi.StringPtrOutput {
 }
 
 type PipeSageMakerPipelineParameter struct {
-	// Name of parameter to start execution of a SageMaker Model Building Pipeline.
+	// Name of parameter to start execution of a SageMaker AI Model Building Pipeline.
 	Name string `pulumi:"name"`
-	// Value of parameter to start execution of a SageMaker Model Building Pipeline.
+	// Value of parameter to start execution of a SageMaker AI Model Building Pipeline.
 	Value string `pulumi:"value"`
 }
 
@@ -4787,9 +4787,9 @@ type PipeSageMakerPipelineParameterInput interface {
 }
 
 type PipeSageMakerPipelineParameterArgs struct {
-	// Name of parameter to start execution of a SageMaker Model Building Pipeline.
+	// Name of parameter to start execution of a SageMaker AI Model Building Pipeline.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Value of parameter to start execution of a SageMaker Model Building Pipeline.
+	// Value of parameter to start execution of a SageMaker AI Model Building Pipeline.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -4844,12 +4844,12 @@ func (o PipeSageMakerPipelineParameterOutput) ToPipeSageMakerPipelineParameterOu
 	return o
 }
 
-// Name of parameter to start execution of a SageMaker Model Building Pipeline.
+// Name of parameter to start execution of a SageMaker AI Model Building Pipeline.
 func (o PipeSageMakerPipelineParameterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v PipeSageMakerPipelineParameter) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Value of parameter to start execution of a SageMaker Model Building Pipeline.
+// Value of parameter to start execution of a SageMaker AI Model Building Pipeline.
 func (o PipeSageMakerPipelineParameterOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v PipeSageMakerPipelineParameter) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -9303,7 +9303,7 @@ type PipeTargetParameters struct {
 	LambdaFunctionParameters *PipeTargetLambdaFunctionParameters `pulumi:"lambdaFunctionParameters"`
 	// These are custom parameters to be used when the target is a Amazon Redshift cluster to invoke the Amazon Redshift Data API BatchExecuteStatement.
 	RedshiftDataParameters *PipeTargetRedshiftDataParameters `pulumi:"redshiftDataParameters"`
-	// The parameters for using a SageMaker pipeline as a target.
+	// The parameters for using a SageMaker AI pipeline as a target.
 	SageMakerPipelineParameters *PipeTargetSageMakerPipelineParameters `pulumi:"sageMakerPipelineParameters"`
 	// The parameters for using a Amazon SQS stream as a target.
 	SqsQueueParameters *PipeTargetSqsQueueParameters `pulumi:"sqsQueueParameters"`
@@ -9345,7 +9345,7 @@ type PipeTargetParametersArgs struct {
 	LambdaFunctionParameters PipeTargetLambdaFunctionParametersPtrInput `pulumi:"lambdaFunctionParameters"`
 	// These are custom parameters to be used when the target is a Amazon Redshift cluster to invoke the Amazon Redshift Data API BatchExecuteStatement.
 	RedshiftDataParameters PipeTargetRedshiftDataParametersPtrInput `pulumi:"redshiftDataParameters"`
-	// The parameters for using a SageMaker pipeline as a target.
+	// The parameters for using a SageMaker AI pipeline as a target.
 	SageMakerPipelineParameters PipeTargetSageMakerPipelineParametersPtrInput `pulumi:"sageMakerPipelineParameters"`
 	// The parameters for using a Amazon SQS stream as a target.
 	SqsQueueParameters PipeTargetSqsQueueParametersPtrInput `pulumi:"sqsQueueParameters"`
@@ -9481,7 +9481,7 @@ func (o PipeTargetParametersOutput) RedshiftDataParameters() PipeTargetRedshiftD
 	return o.ApplyT(func(v PipeTargetParameters) *PipeTargetRedshiftDataParameters { return v.RedshiftDataParameters }).(PipeTargetRedshiftDataParametersPtrOutput)
 }
 
-// The parameters for using a SageMaker pipeline as a target.
+// The parameters for using a SageMaker AI pipeline as a target.
 func (o PipeTargetParametersOutput) SageMakerPipelineParameters() PipeTargetSageMakerPipelineParametersPtrOutput {
 	return o.ApplyT(func(v PipeTargetParameters) *PipeTargetSageMakerPipelineParameters {
 		return v.SageMakerPipelineParameters
@@ -9621,7 +9621,7 @@ func (o PipeTargetParametersPtrOutput) RedshiftDataParameters() PipeTargetRedshi
 	}).(PipeTargetRedshiftDataParametersPtrOutput)
 }
 
-// The parameters for using a SageMaker pipeline as a target.
+// The parameters for using a SageMaker AI pipeline as a target.
 func (o PipeTargetParametersPtrOutput) SageMakerPipelineParameters() PipeTargetSageMakerPipelineParametersPtrOutput {
 	return o.ApplyT(func(v *PipeTargetParameters) *PipeTargetSageMakerPipelineParameters {
 		if v == nil {
@@ -9894,7 +9894,7 @@ func (o PipeTargetRedshiftDataParametersPtrOutput) WithEvent() pulumi.BoolPtrOut
 }
 
 type PipeTargetSageMakerPipelineParameters struct {
-	// List of Parameter names and values for SageMaker Model Building Pipeline execution.
+	// List of Parameter names and values for SageMaker AI Model Building Pipeline execution.
 	PipelineParameterList []PipeSageMakerPipelineParameter `pulumi:"pipelineParameterList"`
 }
 
@@ -9910,7 +9910,7 @@ type PipeTargetSageMakerPipelineParametersInput interface {
 }
 
 type PipeTargetSageMakerPipelineParametersArgs struct {
-	// List of Parameter names and values for SageMaker Model Building Pipeline execution.
+	// List of Parameter names and values for SageMaker AI Model Building Pipeline execution.
 	PipelineParameterList PipeSageMakerPipelineParameterArrayInput `pulumi:"pipelineParameterList"`
 }
 
@@ -9991,7 +9991,7 @@ func (o PipeTargetSageMakerPipelineParametersOutput) ToPipeTargetSageMakerPipeli
 	}).(PipeTargetSageMakerPipelineParametersPtrOutput)
 }
 
-// List of Parameter names and values for SageMaker Model Building Pipeline execution.
+// List of Parameter names and values for SageMaker AI Model Building Pipeline execution.
 func (o PipeTargetSageMakerPipelineParametersOutput) PipelineParameterList() PipeSageMakerPipelineParameterArrayOutput {
 	return o.ApplyT(func(v PipeTargetSageMakerPipelineParameters) []PipeSageMakerPipelineParameter {
 		return v.PipelineParameterList
@@ -10022,7 +10022,7 @@ func (o PipeTargetSageMakerPipelineParametersPtrOutput) Elem() PipeTargetSageMak
 	}).(PipeTargetSageMakerPipelineParametersOutput)
 }
 
-// List of Parameter names and values for SageMaker Model Building Pipeline execution.
+// List of Parameter names and values for SageMaker AI Model Building Pipeline execution.
 func (o PipeTargetSageMakerPipelineParametersPtrOutput) PipelineParameterList() PipeSageMakerPipelineParameterArrayOutput {
 	return o.ApplyT(func(v *PipeTargetSageMakerPipelineParameters) []PipeSageMakerPipelineParameter {
 		if v == nil {

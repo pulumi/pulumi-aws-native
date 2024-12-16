@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.Ec2.Inputs
     {
         [Input("references")]
         private InputList<Inputs.LaunchTemplateReferenceArgs>? _references;
+
+        /// <summary>
+        /// The instance family to use as the baseline reference for CPU performance. All instance types that match your specified attributes are compared against the CPU performance of the referenced instance family, regardless of CPU manufacturer or architecture differences.
+        /// </summary>
         public InputList<Inputs.LaunchTemplateReferenceArgs> References
         {
             get => _references ?? (_references = new InputList<Inputs.LaunchTemplateReferenceArgs>());

@@ -24,17 +24,29 @@ func LookupResourceConfiguration(ctx *pulumi.Context, args *LookupResourceConfig
 }
 
 type LookupResourceConfigurationArgs struct {
+	// The Amazon Resource Name (ARN) of the resource configuration.
 	Arn string `pulumi:"arn"`
 }
 
 type LookupResourceConfigurationResult struct {
-	AllowAssociationToSharableServiceNetwork *bool       `pulumi:"allowAssociationToSharableServiceNetwork"`
-	Arn                                      *string     `pulumi:"arn"`
-	Id                                       *string     `pulumi:"id"`
-	Name                                     *string     `pulumi:"name"`
-	PortRanges                               []string    `pulumi:"portRanges"`
-	ResourceConfigurationDefinition          interface{} `pulumi:"resourceConfigurationDefinition"`
-	Tags                                     []aws.Tag   `pulumi:"tags"`
+	// Specifies whether the resource configuration can be associated with a sharable service network.
+	AllowAssociationToSharableServiceNetwork *bool `pulumi:"allowAssociationToSharableServiceNetwork"`
+	// The Amazon Resource Name (ARN) of the resource configuration.
+	Arn *string `pulumi:"arn"`
+	// The ID of the resource configuration.
+	Id *string `pulumi:"id"`
+	// The name of the resource configuration.
+	Name *string `pulumi:"name"`
+	// (SINGLE, GROUP, CHILD) The TCP port ranges that a consumer can use to access a resource configuration (for example: 1-65535). You can separate port ranges using commas (for example: 1,2,22-30).
+	PortRanges []string `pulumi:"portRanges"`
+	// Identifies the resource configuration in one of the following ways:
+	//
+	// - *Amazon Resource Name (ARN)* - Supported resource-types that are provisioned by AWS services, such as RDS databases, can be identified by their ARN.
+	// - *Domain name* - Any domain name that is publicly resolvable.
+	// - *IP address* - For IPv4 and IPv6, only IP addresses in the VPC are supported.
+	ResourceConfigurationDefinition interface{} `pulumi:"resourceConfigurationDefinition"`
+	// The tags for the resource configuration.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupResourceConfigurationOutput(ctx *pulumi.Context, args LookupResourceConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupResourceConfigurationResultOutput {
@@ -47,6 +59,7 @@ func LookupResourceConfigurationOutput(ctx *pulumi.Context, args LookupResourceC
 }
 
 type LookupResourceConfigurationOutputArgs struct {
+	// The Amazon Resource Name (ARN) of the resource configuration.
 	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
@@ -68,30 +81,41 @@ func (o LookupResourceConfigurationResultOutput) ToLookupResourceConfigurationRe
 	return o
 }
 
+// Specifies whether the resource configuration can be associated with a sharable service network.
 func (o LookupResourceConfigurationResultOutput) AllowAssociationToSharableServiceNetwork() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupResourceConfigurationResult) *bool { return v.AllowAssociationToSharableServiceNetwork }).(pulumi.BoolPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the resource configuration.
 func (o LookupResourceConfigurationResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupResourceConfigurationResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the resource configuration.
 func (o LookupResourceConfigurationResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupResourceConfigurationResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
+// The name of the resource configuration.
 func (o LookupResourceConfigurationResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupResourceConfigurationResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// (SINGLE, GROUP, CHILD) The TCP port ranges that a consumer can use to access a resource configuration (for example: 1-65535). You can separate port ranges using commas (for example: 1,2,22-30).
 func (o LookupResourceConfigurationResultOutput) PortRanges() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupResourceConfigurationResult) []string { return v.PortRanges }).(pulumi.StringArrayOutput)
 }
 
+// Identifies the resource configuration in one of the following ways:
+//
+// - *Amazon Resource Name (ARN)* - Supported resource-types that are provisioned by AWS services, such as RDS databases, can be identified by their ARN.
+// - *Domain name* - Any domain name that is publicly resolvable.
+// - *IP address* - For IPv4 and IPv6, only IP addresses in the VPC are supported.
 func (o LookupResourceConfigurationResultOutput) ResourceConfigurationDefinition() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupResourceConfigurationResult) interface{} { return v.ResourceConfigurationDefinition }).(pulumi.AnyOutput)
 }
 
+// The tags for the resource configuration.
 func (o LookupResourceConfigurationResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupResourceConfigurationResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

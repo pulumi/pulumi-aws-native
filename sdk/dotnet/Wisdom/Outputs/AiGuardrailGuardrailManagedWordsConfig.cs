@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Wisdom.Outputs
     [OutputType]
     public sealed class AiGuardrailGuardrailManagedWordsConfig
     {
+        /// <summary>
+        /// The type of guardrail managed words.
+        /// </summary>
         public readonly Pulumi.AwsNative.Wisdom.AiGuardrailGuardrailManagedWordsType Type;
 
         [OutputConstructor]

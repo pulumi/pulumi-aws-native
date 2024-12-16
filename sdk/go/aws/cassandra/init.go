@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Keyspace{}
 	case "aws-native:cassandra:Table":
 		r = &Table{}
+	case "aws-native:cassandra:Type":
+		r = &Type{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

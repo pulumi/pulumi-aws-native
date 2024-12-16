@@ -2124,6 +2124,8 @@ type DistributionCacheBehavior struct {
 	ForwardedValues *DistributionForwardedValues `pulumi:"forwardedValues"`
 	// A list of CloudFront functions that are associated with this cache behavior. CloudFront functions must be published to the ``LIVE`` stage to associate them with a cache behavior.
 	FunctionAssociations []DistributionFunctionAssociation `pulumi:"functionAssociations"`
+	// The gRPC configuration for your cache behavior.
+	GrpcConfig *DistributionGrpcConfig `pulumi:"grpcConfig"`
 	// A complex type that contains zero or more Lambda@Edge function associations for a cache behavior.
 	LambdaFunctionAssociations []DistributionLambdaFunctionAssociation `pulumi:"lambdaFunctionAssociations"`
 	// This field is deprecated. We recommend that you use the ``MaxTTL`` field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
@@ -2216,6 +2218,8 @@ type DistributionCacheBehaviorArgs struct {
 	ForwardedValues DistributionForwardedValuesPtrInput `pulumi:"forwardedValues"`
 	// A list of CloudFront functions that are associated with this cache behavior. CloudFront functions must be published to the ``LIVE`` stage to associate them with a cache behavior.
 	FunctionAssociations DistributionFunctionAssociationArrayInput `pulumi:"functionAssociations"`
+	// The gRPC configuration for your cache behavior.
+	GrpcConfig DistributionGrpcConfigPtrInput `pulumi:"grpcConfig"`
 	// A complex type that contains zero or more Lambda@Edge function associations for a cache behavior.
 	LambdaFunctionAssociations DistributionLambdaFunctionAssociationArrayInput `pulumi:"lambdaFunctionAssociations"`
 	// This field is deprecated. We recommend that you use the ``MaxTTL`` field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
@@ -2377,6 +2381,11 @@ func (o DistributionCacheBehaviorOutput) ForwardedValues() DistributionForwarded
 // A list of CloudFront functions that are associated with this cache behavior. CloudFront functions must be published to the “LIVE“ stage to associate them with a cache behavior.
 func (o DistributionCacheBehaviorOutput) FunctionAssociations() DistributionFunctionAssociationArrayOutput {
 	return o.ApplyT(func(v DistributionCacheBehavior) []DistributionFunctionAssociation { return v.FunctionAssociations }).(DistributionFunctionAssociationArrayOutput)
+}
+
+// The gRPC configuration for your cache behavior.
+func (o DistributionCacheBehaviorOutput) GrpcConfig() DistributionGrpcConfigPtrOutput {
+	return o.ApplyT(func(v DistributionCacheBehavior) *DistributionGrpcConfig { return v.GrpcConfig }).(DistributionGrpcConfigPtrOutput)
 }
 
 // A complex type that contains zero or more Lambda@Edge function associations for a cache behavior.
@@ -3780,6 +3789,8 @@ type DistributionDefaultCacheBehavior struct {
 	ForwardedValues *DistributionForwardedValues `pulumi:"forwardedValues"`
 	// A list of CloudFront functions that are associated with this cache behavior. Your functions must be published to the ``LIVE`` stage to associate them with a cache behavior.
 	FunctionAssociations []DistributionFunctionAssociation `pulumi:"functionAssociations"`
+	// The gRPC configuration for your cache behavior.
+	GrpcConfig *DistributionGrpcConfig `pulumi:"grpcConfig"`
 	// A complex type that contains zero or more Lambda@Edge function associations for a cache behavior.
 	LambdaFunctionAssociations []DistributionLambdaFunctionAssociation `pulumi:"lambdaFunctionAssociations"`
 	// This field is deprecated. We recommend that you use the ``MaxTTL`` field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
@@ -3860,6 +3871,8 @@ type DistributionDefaultCacheBehaviorArgs struct {
 	ForwardedValues DistributionForwardedValuesPtrInput `pulumi:"forwardedValues"`
 	// A list of CloudFront functions that are associated with this cache behavior. Your functions must be published to the ``LIVE`` stage to associate them with a cache behavior.
 	FunctionAssociations DistributionFunctionAssociationArrayInput `pulumi:"functionAssociations"`
+	// The gRPC configuration for your cache behavior.
+	GrpcConfig DistributionGrpcConfigPtrInput `pulumi:"grpcConfig"`
 	// A complex type that contains zero or more Lambda@Edge function associations for a cache behavior.
 	LambdaFunctionAssociations DistributionLambdaFunctionAssociationArrayInput `pulumi:"lambdaFunctionAssociations"`
 	// This field is deprecated. We recommend that you use the ``MaxTTL`` field in a cache policy instead of this field. For more information, see [Creating cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html#cache-key-create-cache-policy) or [Using the managed cache policies](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html) in the *Amazon CloudFront Developer Guide*.
@@ -3986,6 +3999,11 @@ func (o DistributionDefaultCacheBehaviorOutput) FunctionAssociations() Distribut
 	return o.ApplyT(func(v DistributionDefaultCacheBehavior) []DistributionFunctionAssociation {
 		return v.FunctionAssociations
 	}).(DistributionFunctionAssociationArrayOutput)
+}
+
+// The gRPC configuration for your cache behavior.
+func (o DistributionDefaultCacheBehaviorOutput) GrpcConfig() DistributionGrpcConfigPtrOutput {
+	return o.ApplyT(func(v DistributionDefaultCacheBehavior) *DistributionGrpcConfig { return v.GrpcConfig }).(DistributionGrpcConfigPtrOutput)
 }
 
 // A complex type that contains zero or more Lambda@Edge function associations for a cache behavior.
@@ -4189,6 +4207,16 @@ func (o DistributionDefaultCacheBehaviorPtrOutput) FunctionAssociations() Distri
 		}
 		return v.FunctionAssociations
 	}).(DistributionFunctionAssociationArrayOutput)
+}
+
+// The gRPC configuration for your cache behavior.
+func (o DistributionDefaultCacheBehaviorPtrOutput) GrpcConfig() DistributionGrpcConfigPtrOutput {
+	return o.ApplyT(func(v *DistributionDefaultCacheBehavior) *DistributionGrpcConfig {
+		if v == nil {
+			return nil
+		}
+		return v.GrpcConfig
+	}).(DistributionGrpcConfigPtrOutput)
 }
 
 // A complex type that contains zero or more Lambda@Edge function associations for a cache behavior.
@@ -4895,6 +4923,143 @@ func (o DistributionGeoRestrictionPtrOutput) RestrictionType() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+type DistributionGrpcConfig struct {
+	// Enables your CloudFront distribution to receive gRPC requests and to proxy them directly to your origins.
+	Enabled bool `pulumi:"enabled"`
+}
+
+// DistributionGrpcConfigInput is an input type that accepts DistributionGrpcConfigArgs and DistributionGrpcConfigOutput values.
+// You can construct a concrete instance of `DistributionGrpcConfigInput` via:
+//
+//	DistributionGrpcConfigArgs{...}
+type DistributionGrpcConfigInput interface {
+	pulumi.Input
+
+	ToDistributionGrpcConfigOutput() DistributionGrpcConfigOutput
+	ToDistributionGrpcConfigOutputWithContext(context.Context) DistributionGrpcConfigOutput
+}
+
+type DistributionGrpcConfigArgs struct {
+	// Enables your CloudFront distribution to receive gRPC requests and to proxy them directly to your origins.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+}
+
+func (DistributionGrpcConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionGrpcConfig)(nil)).Elem()
+}
+
+func (i DistributionGrpcConfigArgs) ToDistributionGrpcConfigOutput() DistributionGrpcConfigOutput {
+	return i.ToDistributionGrpcConfigOutputWithContext(context.Background())
+}
+
+func (i DistributionGrpcConfigArgs) ToDistributionGrpcConfigOutputWithContext(ctx context.Context) DistributionGrpcConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionGrpcConfigOutput)
+}
+
+func (i DistributionGrpcConfigArgs) ToDistributionGrpcConfigPtrOutput() DistributionGrpcConfigPtrOutput {
+	return i.ToDistributionGrpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (i DistributionGrpcConfigArgs) ToDistributionGrpcConfigPtrOutputWithContext(ctx context.Context) DistributionGrpcConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionGrpcConfigOutput).ToDistributionGrpcConfigPtrOutputWithContext(ctx)
+}
+
+// DistributionGrpcConfigPtrInput is an input type that accepts DistributionGrpcConfigArgs, DistributionGrpcConfigPtr and DistributionGrpcConfigPtrOutput values.
+// You can construct a concrete instance of `DistributionGrpcConfigPtrInput` via:
+//
+//	        DistributionGrpcConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type DistributionGrpcConfigPtrInput interface {
+	pulumi.Input
+
+	ToDistributionGrpcConfigPtrOutput() DistributionGrpcConfigPtrOutput
+	ToDistributionGrpcConfigPtrOutputWithContext(context.Context) DistributionGrpcConfigPtrOutput
+}
+
+type distributionGrpcConfigPtrType DistributionGrpcConfigArgs
+
+func DistributionGrpcConfigPtr(v *DistributionGrpcConfigArgs) DistributionGrpcConfigPtrInput {
+	return (*distributionGrpcConfigPtrType)(v)
+}
+
+func (*distributionGrpcConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionGrpcConfig)(nil)).Elem()
+}
+
+func (i *distributionGrpcConfigPtrType) ToDistributionGrpcConfigPtrOutput() DistributionGrpcConfigPtrOutput {
+	return i.ToDistributionGrpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *distributionGrpcConfigPtrType) ToDistributionGrpcConfigPtrOutputWithContext(ctx context.Context) DistributionGrpcConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DistributionGrpcConfigPtrOutput)
+}
+
+type DistributionGrpcConfigOutput struct{ *pulumi.OutputState }
+
+func (DistributionGrpcConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DistributionGrpcConfig)(nil)).Elem()
+}
+
+func (o DistributionGrpcConfigOutput) ToDistributionGrpcConfigOutput() DistributionGrpcConfigOutput {
+	return o
+}
+
+func (o DistributionGrpcConfigOutput) ToDistributionGrpcConfigOutputWithContext(ctx context.Context) DistributionGrpcConfigOutput {
+	return o
+}
+
+func (o DistributionGrpcConfigOutput) ToDistributionGrpcConfigPtrOutput() DistributionGrpcConfigPtrOutput {
+	return o.ToDistributionGrpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (o DistributionGrpcConfigOutput) ToDistributionGrpcConfigPtrOutputWithContext(ctx context.Context) DistributionGrpcConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionGrpcConfig) *DistributionGrpcConfig {
+		return &v
+	}).(DistributionGrpcConfigPtrOutput)
+}
+
+// Enables your CloudFront distribution to receive gRPC requests and to proxy them directly to your origins.
+func (o DistributionGrpcConfigOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v DistributionGrpcConfig) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+type DistributionGrpcConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (DistributionGrpcConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DistributionGrpcConfig)(nil)).Elem()
+}
+
+func (o DistributionGrpcConfigPtrOutput) ToDistributionGrpcConfigPtrOutput() DistributionGrpcConfigPtrOutput {
+	return o
+}
+
+func (o DistributionGrpcConfigPtrOutput) ToDistributionGrpcConfigPtrOutputWithContext(ctx context.Context) DistributionGrpcConfigPtrOutput {
+	return o
+}
+
+func (o DistributionGrpcConfigPtrOutput) Elem() DistributionGrpcConfigOutput {
+	return o.ApplyT(func(v *DistributionGrpcConfig) DistributionGrpcConfig {
+		if v != nil {
+			return *v
+		}
+		var ret DistributionGrpcConfig
+		return ret
+	}).(DistributionGrpcConfigOutput)
+}
+
+// Enables your CloudFront distribution to receive gRPC requests and to proxy them directly to your origins.
+func (o DistributionGrpcConfigPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DistributionGrpcConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 // A complex type that contains a Lambda@Edge function association.
 type DistributionLambdaFunctionAssociation struct {
 	// Specifies the event type that triggers a Lambda@Edge function invocation. You can specify the following values:
@@ -5430,7 +5595,7 @@ func (o DistributionLegacyS3OriginPtrOutput) OriginAccessIdentity() pulumi.Strin
 // A complex type that controls whether access logs are written for the distribution.
 type DistributionLogging struct {
 	// The Amazon S3 bucket to store the access logs in, for example, ``myawslogbucket.s3.amazonaws.com``.
-	Bucket string `pulumi:"bucket"`
+	Bucket *string `pulumi:"bucket"`
 	// Specifies whether you want CloudFront to include cookies in access logs, specify ``true`` for ``IncludeCookies``. If you choose to include cookies in logs, CloudFront logs all cookies regardless of how you configure the cache behaviors for this distribution. If you don't want to include cookies when you create a distribution or if you want to disable include cookies for an existing distribution, specify ``false`` for ``IncludeCookies``.
 	IncludeCookies *bool `pulumi:"includeCookies"`
 	// An optional string that you want CloudFront to prefix to the access log ``filenames`` for this distribution, for example, ``myprefix/``. If you want to enable logging, but you don't want to specify a prefix, you still must include an empty ``Prefix`` element in the ``Logging`` element.
@@ -5451,7 +5616,7 @@ type DistributionLoggingInput interface {
 // A complex type that controls whether access logs are written for the distribution.
 type DistributionLoggingArgs struct {
 	// The Amazon S3 bucket to store the access logs in, for example, ``myawslogbucket.s3.amazonaws.com``.
-	Bucket pulumi.StringInput `pulumi:"bucket"`
+	Bucket pulumi.StringPtrInput `pulumi:"bucket"`
 	// Specifies whether you want CloudFront to include cookies in access logs, specify ``true`` for ``IncludeCookies``. If you choose to include cookies in logs, CloudFront logs all cookies regardless of how you configure the cache behaviors for this distribution. If you don't want to include cookies when you create a distribution or if you want to disable include cookies for an existing distribution, specify ``false`` for ``IncludeCookies``.
 	IncludeCookies pulumi.BoolPtrInput `pulumi:"includeCookies"`
 	// An optional string that you want CloudFront to prefix to the access log ``filenames`` for this distribution, for example, ``myprefix/``. If you want to enable logging, but you don't want to specify a prefix, you still must include an empty ``Prefix`` element in the ``Logging`` element.
@@ -5537,8 +5702,8 @@ func (o DistributionLoggingOutput) ToDistributionLoggingPtrOutputWithContext(ctx
 }
 
 // The Amazon S3 bucket to store the access logs in, for example, “myawslogbucket.s3.amazonaws.com“.
-func (o DistributionLoggingOutput) Bucket() pulumi.StringOutput {
-	return o.ApplyT(func(v DistributionLogging) string { return v.Bucket }).(pulumi.StringOutput)
+func (o DistributionLoggingOutput) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DistributionLogging) *string { return v.Bucket }).(pulumi.StringPtrOutput)
 }
 
 // Specifies whether you want CloudFront to include cookies in access logs, specify “true“ for “IncludeCookies“. If you choose to include cookies in logs, CloudFront logs all cookies regardless of how you configure the cache behaviors for this distribution. If you don't want to include cookies when you create a distribution or if you want to disable include cookies for an existing distribution, specify “false“ for “IncludeCookies“.
@@ -5581,7 +5746,7 @@ func (o DistributionLoggingPtrOutput) Bucket() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.Bucket
+		return v.Bucket
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -5971,6 +6136,8 @@ type DistributionOriginGroup struct {
 	Id string `pulumi:"id"`
 	// A complex type that contains information about the origins in an origin group.
 	Members DistributionOriginGroupMembers `pulumi:"members"`
+	// The selection criteria for the origin group. For more information, see [Create an origin group](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/high_availability_origin_failover.html#concept_origin_groups.creating) in the *Amazon CloudFront Developer Guide* .
+	SelectionCriteria *DistributionOriginGroupSelectionCriteria `pulumi:"selectionCriteria"`
 }
 
 // DistributionOriginGroupInput is an input type that accepts DistributionOriginGroupArgs and DistributionOriginGroupOutput values.
@@ -5992,6 +6159,8 @@ type DistributionOriginGroupArgs struct {
 	Id pulumi.StringInput `pulumi:"id"`
 	// A complex type that contains information about the origins in an origin group.
 	Members DistributionOriginGroupMembersInput `pulumi:"members"`
+	// The selection criteria for the origin group. For more information, see [Create an origin group](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/high_availability_origin_failover.html#concept_origin_groups.creating) in the *Amazon CloudFront Developer Guide* .
+	SelectionCriteria DistributionOriginGroupSelectionCriteriaPtrInput `pulumi:"selectionCriteria"`
 }
 
 func (DistributionOriginGroupArgs) ElementType() reflect.Type {
@@ -6059,6 +6228,11 @@ func (o DistributionOriginGroupOutput) Id() pulumi.StringOutput {
 // A complex type that contains information about the origins in an origin group.
 func (o DistributionOriginGroupOutput) Members() DistributionOriginGroupMembersOutput {
 	return o.ApplyT(func(v DistributionOriginGroup) DistributionOriginGroupMembers { return v.Members }).(DistributionOriginGroupMembersOutput)
+}
+
+// The selection criteria for the origin group. For more information, see [Create an origin group](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/high_availability_origin_failover.html#concept_origin_groups.creating) in the *Amazon CloudFront Developer Guide* .
+func (o DistributionOriginGroupOutput) SelectionCriteria() DistributionOriginGroupSelectionCriteriaPtrOutput {
+	return o.ApplyT(func(v DistributionOriginGroup) *DistributionOriginGroupSelectionCriteria { return v.SelectionCriteria }).(DistributionOriginGroupSelectionCriteriaPtrOutput)
 }
 
 type DistributionOriginGroupArrayOutput struct{ *pulumi.OutputState }
@@ -12583,6 +12757,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionFunctionAssociationArrayInput)(nil)).Elem(), DistributionFunctionAssociationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionGeoRestrictionInput)(nil)).Elem(), DistributionGeoRestrictionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionGeoRestrictionPtrInput)(nil)).Elem(), DistributionGeoRestrictionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionGrpcConfigInput)(nil)).Elem(), DistributionGrpcConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionGrpcConfigPtrInput)(nil)).Elem(), DistributionGrpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionLambdaFunctionAssociationInput)(nil)).Elem(), DistributionLambdaFunctionAssociationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionLambdaFunctionAssociationArrayInput)(nil)).Elem(), DistributionLambdaFunctionAssociationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionLegacyCustomOriginInput)(nil)).Elem(), DistributionLegacyCustomOriginArgs{})
@@ -12711,6 +12887,8 @@ func init() {
 	pulumi.RegisterOutputType(DistributionFunctionAssociationArrayOutput{})
 	pulumi.RegisterOutputType(DistributionGeoRestrictionOutput{})
 	pulumi.RegisterOutputType(DistributionGeoRestrictionPtrOutput{})
+	pulumi.RegisterOutputType(DistributionGrpcConfigOutput{})
+	pulumi.RegisterOutputType(DistributionGrpcConfigPtrOutput{})
 	pulumi.RegisterOutputType(DistributionLambdaFunctionAssociationOutput{})
 	pulumi.RegisterOutputType(DistributionLambdaFunctionAssociationArrayOutput{})
 	pulumi.RegisterOutputType(DistributionLegacyCustomOriginOutput{})

@@ -40,16 +40,25 @@ class GetAiGuardrailVersionResult:
     @property
     @pulumi.getter(name="aiGuardrailArn")
     def ai_guardrail_arn(self) -> Optional[str]:
+        """
+        The ARN of the AI guardrail version.
+        """
         return pulumi.get(self, "ai_guardrail_arn")
 
     @property
     @pulumi.getter(name="aiGuardrailVersionId")
     def ai_guardrail_version_id(self) -> Optional[str]:
+        """
+        The ID of the AI guardrail version.
+        """
         return pulumi.get(self, "ai_guardrail_version_id")
 
     @property
     @pulumi.getter(name="assistantArn")
     def assistant_arn(self) -> Optional[str]:
+        """
+        The ARN of the AI guardrail version assistant.
+        """
         return pulumi.get(self, "assistant_arn")
 
     @property
@@ -81,6 +90,8 @@ def get_ai_guardrail_version(ai_guardrail_id: Optional[str] = None,
     Definition of AWS::Wisdom::AIGuardrailVersion Resource Type
 
 
+    :param str ai_guardrail_id: The ID of the AI guardrail version.
+    :param str assistant_id: The ID of the AI guardrail version assistant.
     :param float version_number: The version number for this AI Guardrail version.
     """
     __args__ = dict()
@@ -103,6 +114,8 @@ def get_ai_guardrail_version_output(ai_guardrail_id: Optional[pulumi.Input[str]]
     Definition of AWS::Wisdom::AIGuardrailVersion Resource Type
 
 
+    :param str ai_guardrail_id: The ID of the AI guardrail version.
+    :param str assistant_id: The ID of the AI guardrail version assistant.
     :param float version_number: The version number for this AI Guardrail version.
     """
     __args__ = dict()

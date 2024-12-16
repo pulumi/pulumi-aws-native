@@ -471,6 +471,9 @@ namespace Pulumi.AwsNative.Transfer
         [Output("serverId")]
         public Output<string> ServerId { get; private set; } = null!;
 
+        [Output("state")]
+        public Output<Pulumi.AwsNative.Transfer.ServerState> State { get; private set; } = null!;
+
         /// <summary>
         /// Specifies the log groups to which your server logs are sent.
         /// 

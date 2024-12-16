@@ -26,6 +26,9 @@ class ServiceNetworkResourceAssociationArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ServiceNetworkResourceAssociation resource.
+        :param pulumi.Input[str] resource_configuration_id: The ID of the resource configuration associated with the service network.
+        :param pulumi.Input[str] service_network_id: The ID of the service network associated with the resource configuration.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A key-value pair to associate with a resource.
         """
         if resource_configuration_id is not None:
             pulumi.set(__self__, "resource_configuration_id", resource_configuration_id)
@@ -37,6 +40,9 @@ class ServiceNetworkResourceAssociationArgs:
     @property
     @pulumi.getter(name="resourceConfigurationId")
     def resource_configuration_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the resource configuration associated with the service network.
+        """
         return pulumi.get(self, "resource_configuration_id")
 
     @resource_configuration_id.setter
@@ -46,6 +52,9 @@ class ServiceNetworkResourceAssociationArgs:
     @property
     @pulumi.getter(name="serviceNetworkId")
     def service_network_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the service network associated with the resource configuration.
+        """
         return pulumi.get(self, "service_network_id")
 
     @service_network_id.setter
@@ -55,6 +64,9 @@ class ServiceNetworkResourceAssociationArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        A key-value pair to associate with a resource.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -76,6 +88,9 @@ class ServiceNetworkResourceAssociation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] resource_configuration_id: The ID of the resource configuration associated with the service network.
+        :param pulumi.Input[str] service_network_id: The ID of the service network associated with the resource configuration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A key-value pair to associate with a resource.
         """
         ...
     @overload
@@ -152,25 +167,40 @@ class ServiceNetworkResourceAssociation(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the association.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="awsId")
     def aws_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the association between the service network and resource configuration.
+        """
         return pulumi.get(self, "aws_id")
 
     @property
     @pulumi.getter(name="resourceConfigurationId")
     def resource_configuration_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of the resource configuration associated with the service network.
+        """
         return pulumi.get(self, "resource_configuration_id")
 
     @property
     @pulumi.getter(name="serviceNetworkId")
     def service_network_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of the service network associated with the resource configuration.
+        """
         return pulumi.get(self, "service_network_id")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        A key-value pair to associate with a resource.
+        """
         return pulumi.get(self, "tags")
 

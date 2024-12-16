@@ -287,13 +287,18 @@ class RoutingProfileChannel(str, Enum):
 
 class RulePublishStatus(str, Enum):
     """
-    The publish status of a rule, either draft or published.
+    The publish status of the rule.
+      *Allowed values*: ``DRAFT`` | ``PUBLISHED``
     """
     DRAFT = "DRAFT"
     PUBLISHED = "PUBLISHED"
 
 
 class RuleReferenceType(str, Enum):
+    """
+    The type of the reference. ``DATE`` must be of type Epoch timestamp. 
+      *Allowed values*: ``URL`` | ``ATTACHMENT`` | ``NUMBER`` | ``STRING`` | ``DATE`` | ``EMAIL``
+    """
     URL = "URL"
     ATTACHMENT = "ATTACHMENT"
     NUMBER = "NUMBER"
@@ -304,21 +309,23 @@ class RuleReferenceType(str, Enum):
 
 class RuleSendNotificationActionContentType(str, Enum):
     """
-    The type of content.
+    Content type format.
+      *Allowed value*: ``PLAIN_TEXT``
     """
     PLAIN_TEXT = "PLAIN_TEXT"
 
 
 class RuleSendNotificationActionDeliveryMethod(str, Enum):
     """
-    The means of delivery.
+    Notification delivery method.
+      *Allowed value*: ``EMAIL``
     """
     EMAIL = "EMAIL"
 
 
 class RuleTriggerEventSourceEventSourceName(str, Enum):
     """
-    The name of event source.
+    The name of the event source.
     """
     ON_CONTACT_EVALUATION_SUBMIT = "OnContactEvaluationSubmit"
     ON_POST_CALL_ANALYSIS_AVAILABLE = "OnPostCallAnalysisAvailable"

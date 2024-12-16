@@ -34,11 +34,17 @@ namespace Pulumi.AwsNative.Batch.Inputs
         [Input("logDriver", required: true)]
         public Input<string> LogDriver { get; set; } = null!;
 
+        [Input("options")]
+        private InputMap<string>? _options;
+
         /// <summary>
         /// The configuration options to send to the log driver. This parameter requires version 1.19 of the Docker Remote API or greater on your container instance. To check the Docker Remote API version on your container instance, log in to your container instance and run the following command: `sudo docker version | grep "Server API version"`
         /// </summary>
-        [Input("options")]
-        public Input<object>? Options { get; set; }
+        public InputMap<string> Options
+        {
+            get => _options ?? (_options = new InputMap<string>());
+            set => _options = value;
+        }
 
         [Input("secretOptions")]
         private InputList<Inputs.JobDefinitionSecretArgs>? _secretOptions;

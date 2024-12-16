@@ -256,6 +256,38 @@ namespace Pulumi.AwsNative.Logs
     }
 
     /// <summary>
+    /// Query language of the query string. Possible values are CWLI, SQL, PPL, with CWLI being the default.
+    /// </summary>
+    [EnumType]
+    public readonly struct QueryDefinitionQueryLanguage : IEquatable<QueryDefinitionQueryLanguage>
+    {
+        private readonly string _value;
+
+        private QueryDefinitionQueryLanguage(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static QueryDefinitionQueryLanguage Cwli { get; } = new QueryDefinitionQueryLanguage("CWLI");
+        public static QueryDefinitionQueryLanguage Sql { get; } = new QueryDefinitionQueryLanguage("SQL");
+        public static QueryDefinitionQueryLanguage Ppl { get; } = new QueryDefinitionQueryLanguage("PPL");
+
+        public static bool operator ==(QueryDefinitionQueryLanguage left, QueryDefinitionQueryLanguage right) => left.Equals(right);
+        public static bool operator !=(QueryDefinitionQueryLanguage left, QueryDefinitionQueryLanguage right) => !left.Equals(right);
+
+        public static explicit operator string(QueryDefinitionQueryLanguage value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is QueryDefinitionQueryLanguage other && Equals(other);
+        public bool Equals(QueryDefinitionQueryLanguage other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The method used to distribute log data to the destination, which can be either random or grouped by log stream.
     /// </summary>
     [EnumType]
@@ -279,6 +311,64 @@ namespace Pulumi.AwsNative.Logs
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SubscriptionFilterDistribution other && Equals(other);
         public bool Equals(SubscriptionFilterDistribution other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct TransformerProcessorListToMapPropertiesFlattenedElement : IEquatable<TransformerProcessorListToMapPropertiesFlattenedElement>
+    {
+        private readonly string _value;
+
+        private TransformerProcessorListToMapPropertiesFlattenedElement(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TransformerProcessorListToMapPropertiesFlattenedElement First { get; } = new TransformerProcessorListToMapPropertiesFlattenedElement("first");
+        public static TransformerProcessorListToMapPropertiesFlattenedElement Last { get; } = new TransformerProcessorListToMapPropertiesFlattenedElement("last");
+
+        public static bool operator ==(TransformerProcessorListToMapPropertiesFlattenedElement left, TransformerProcessorListToMapPropertiesFlattenedElement right) => left.Equals(right);
+        public static bool operator !=(TransformerProcessorListToMapPropertiesFlattenedElement left, TransformerProcessorListToMapPropertiesFlattenedElement right) => !left.Equals(right);
+
+        public static explicit operator string(TransformerProcessorListToMapPropertiesFlattenedElement value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TransformerProcessorListToMapPropertiesFlattenedElement other && Equals(other);
+        public bool Equals(TransformerProcessorListToMapPropertiesFlattenedElement other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct TransformerTypeConverterEntryType : IEquatable<TransformerTypeConverterEntryType>
+    {
+        private readonly string _value;
+
+        private TransformerTypeConverterEntryType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TransformerTypeConverterEntryType Boolean { get; } = new TransformerTypeConverterEntryType("boolean");
+        public static TransformerTypeConverterEntryType Integer { get; } = new TransformerTypeConverterEntryType("integer");
+        public static TransformerTypeConverterEntryType Double { get; } = new TransformerTypeConverterEntryType("double");
+        public static TransformerTypeConverterEntryType String { get; } = new TransformerTypeConverterEntryType("string");
+
+        public static bool operator ==(TransformerTypeConverterEntryType left, TransformerTypeConverterEntryType right) => left.Equals(right);
+        public static bool operator !=(TransformerTypeConverterEntryType left, TransformerTypeConverterEntryType right) => !left.Equals(right);
+
+        public static explicit operator string(TransformerTypeConverterEntryType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TransformerTypeConverterEntryType other && Equals(other);
+        public bool Equals(TransformerTypeConverterEntryType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

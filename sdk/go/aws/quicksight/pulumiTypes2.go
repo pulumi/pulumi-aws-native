@@ -23288,6 +23288,139 @@ func (o DataSetOverrideDatasetParameterOperationPtrOutput) ParameterName() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
+type DataSetPerformanceConfiguration struct {
+	UniqueKeys []DataSetUniqueKey `pulumi:"uniqueKeys"`
+}
+
+// DataSetPerformanceConfigurationInput is an input type that accepts DataSetPerformanceConfigurationArgs and DataSetPerformanceConfigurationOutput values.
+// You can construct a concrete instance of `DataSetPerformanceConfigurationInput` via:
+//
+//	DataSetPerformanceConfigurationArgs{...}
+type DataSetPerformanceConfigurationInput interface {
+	pulumi.Input
+
+	ToDataSetPerformanceConfigurationOutput() DataSetPerformanceConfigurationOutput
+	ToDataSetPerformanceConfigurationOutputWithContext(context.Context) DataSetPerformanceConfigurationOutput
+}
+
+type DataSetPerformanceConfigurationArgs struct {
+	UniqueKeys DataSetUniqueKeyArrayInput `pulumi:"uniqueKeys"`
+}
+
+func (DataSetPerformanceConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetPerformanceConfiguration)(nil)).Elem()
+}
+
+func (i DataSetPerformanceConfigurationArgs) ToDataSetPerformanceConfigurationOutput() DataSetPerformanceConfigurationOutput {
+	return i.ToDataSetPerformanceConfigurationOutputWithContext(context.Background())
+}
+
+func (i DataSetPerformanceConfigurationArgs) ToDataSetPerformanceConfigurationOutputWithContext(ctx context.Context) DataSetPerformanceConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetPerformanceConfigurationOutput)
+}
+
+func (i DataSetPerformanceConfigurationArgs) ToDataSetPerformanceConfigurationPtrOutput() DataSetPerformanceConfigurationPtrOutput {
+	return i.ToDataSetPerformanceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DataSetPerformanceConfigurationArgs) ToDataSetPerformanceConfigurationPtrOutputWithContext(ctx context.Context) DataSetPerformanceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetPerformanceConfigurationOutput).ToDataSetPerformanceConfigurationPtrOutputWithContext(ctx)
+}
+
+// DataSetPerformanceConfigurationPtrInput is an input type that accepts DataSetPerformanceConfigurationArgs, DataSetPerformanceConfigurationPtr and DataSetPerformanceConfigurationPtrOutput values.
+// You can construct a concrete instance of `DataSetPerformanceConfigurationPtrInput` via:
+//
+//	        DataSetPerformanceConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSetPerformanceConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDataSetPerformanceConfigurationPtrOutput() DataSetPerformanceConfigurationPtrOutput
+	ToDataSetPerformanceConfigurationPtrOutputWithContext(context.Context) DataSetPerformanceConfigurationPtrOutput
+}
+
+type dataSetPerformanceConfigurationPtrType DataSetPerformanceConfigurationArgs
+
+func DataSetPerformanceConfigurationPtr(v *DataSetPerformanceConfigurationArgs) DataSetPerformanceConfigurationPtrInput {
+	return (*dataSetPerformanceConfigurationPtrType)(v)
+}
+
+func (*dataSetPerformanceConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSetPerformanceConfiguration)(nil)).Elem()
+}
+
+func (i *dataSetPerformanceConfigurationPtrType) ToDataSetPerformanceConfigurationPtrOutput() DataSetPerformanceConfigurationPtrOutput {
+	return i.ToDataSetPerformanceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSetPerformanceConfigurationPtrType) ToDataSetPerformanceConfigurationPtrOutputWithContext(ctx context.Context) DataSetPerformanceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetPerformanceConfigurationPtrOutput)
+}
+
+type DataSetPerformanceConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DataSetPerformanceConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetPerformanceConfiguration)(nil)).Elem()
+}
+
+func (o DataSetPerformanceConfigurationOutput) ToDataSetPerformanceConfigurationOutput() DataSetPerformanceConfigurationOutput {
+	return o
+}
+
+func (o DataSetPerformanceConfigurationOutput) ToDataSetPerformanceConfigurationOutputWithContext(ctx context.Context) DataSetPerformanceConfigurationOutput {
+	return o
+}
+
+func (o DataSetPerformanceConfigurationOutput) ToDataSetPerformanceConfigurationPtrOutput() DataSetPerformanceConfigurationPtrOutput {
+	return o.ToDataSetPerformanceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DataSetPerformanceConfigurationOutput) ToDataSetPerformanceConfigurationPtrOutputWithContext(ctx context.Context) DataSetPerformanceConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSetPerformanceConfiguration) *DataSetPerformanceConfiguration {
+		return &v
+	}).(DataSetPerformanceConfigurationPtrOutput)
+}
+
+func (o DataSetPerformanceConfigurationOutput) UniqueKeys() DataSetUniqueKeyArrayOutput {
+	return o.ApplyT(func(v DataSetPerformanceConfiguration) []DataSetUniqueKey { return v.UniqueKeys }).(DataSetUniqueKeyArrayOutput)
+}
+
+type DataSetPerformanceConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSetPerformanceConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSetPerformanceConfiguration)(nil)).Elem()
+}
+
+func (o DataSetPerformanceConfigurationPtrOutput) ToDataSetPerformanceConfigurationPtrOutput() DataSetPerformanceConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSetPerformanceConfigurationPtrOutput) ToDataSetPerformanceConfigurationPtrOutputWithContext(ctx context.Context) DataSetPerformanceConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSetPerformanceConfigurationPtrOutput) Elem() DataSetPerformanceConfigurationOutput {
+	return o.ApplyT(func(v *DataSetPerformanceConfiguration) DataSetPerformanceConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DataSetPerformanceConfiguration
+		return ret
+	}).(DataSetPerformanceConfigurationOutput)
+}
+
+func (o DataSetPerformanceConfigurationPtrOutput) UniqueKeys() DataSetUniqueKeyArrayOutput {
+	return o.ApplyT(func(v *DataSetPerformanceConfiguration) []DataSetUniqueKey {
+		if v == nil {
+			return nil
+		}
+		return v.UniqueKeys
+	}).(DataSetUniqueKeyArrayOutput)
+}
+
 // <p>A view of a data source that contains information about the shape of the data in the
 //
 //	underlying source. This is a variant type structure. For this structure to be valid,
@@ -25799,6 +25932,100 @@ func (o DataSetTransformOperationArrayOutput) Index(i pulumi.IntInput) DataSetTr
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataSetTransformOperation {
 		return vs[0].([]DataSetTransformOperation)[vs[1].(int)]
 	}).(DataSetTransformOperationOutput)
+}
+
+type DataSetUniqueKey struct {
+	ColumnNames []string `pulumi:"columnNames"`
+}
+
+// DataSetUniqueKeyInput is an input type that accepts DataSetUniqueKeyArgs and DataSetUniqueKeyOutput values.
+// You can construct a concrete instance of `DataSetUniqueKeyInput` via:
+//
+//	DataSetUniqueKeyArgs{...}
+type DataSetUniqueKeyInput interface {
+	pulumi.Input
+
+	ToDataSetUniqueKeyOutput() DataSetUniqueKeyOutput
+	ToDataSetUniqueKeyOutputWithContext(context.Context) DataSetUniqueKeyOutput
+}
+
+type DataSetUniqueKeyArgs struct {
+	ColumnNames pulumi.StringArrayInput `pulumi:"columnNames"`
+}
+
+func (DataSetUniqueKeyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetUniqueKey)(nil)).Elem()
+}
+
+func (i DataSetUniqueKeyArgs) ToDataSetUniqueKeyOutput() DataSetUniqueKeyOutput {
+	return i.ToDataSetUniqueKeyOutputWithContext(context.Background())
+}
+
+func (i DataSetUniqueKeyArgs) ToDataSetUniqueKeyOutputWithContext(ctx context.Context) DataSetUniqueKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetUniqueKeyOutput)
+}
+
+// DataSetUniqueKeyArrayInput is an input type that accepts DataSetUniqueKeyArray and DataSetUniqueKeyArrayOutput values.
+// You can construct a concrete instance of `DataSetUniqueKeyArrayInput` via:
+//
+//	DataSetUniqueKeyArray{ DataSetUniqueKeyArgs{...} }
+type DataSetUniqueKeyArrayInput interface {
+	pulumi.Input
+
+	ToDataSetUniqueKeyArrayOutput() DataSetUniqueKeyArrayOutput
+	ToDataSetUniqueKeyArrayOutputWithContext(context.Context) DataSetUniqueKeyArrayOutput
+}
+
+type DataSetUniqueKeyArray []DataSetUniqueKeyInput
+
+func (DataSetUniqueKeyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataSetUniqueKey)(nil)).Elem()
+}
+
+func (i DataSetUniqueKeyArray) ToDataSetUniqueKeyArrayOutput() DataSetUniqueKeyArrayOutput {
+	return i.ToDataSetUniqueKeyArrayOutputWithContext(context.Background())
+}
+
+func (i DataSetUniqueKeyArray) ToDataSetUniqueKeyArrayOutputWithContext(ctx context.Context) DataSetUniqueKeyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSetUniqueKeyArrayOutput)
+}
+
+type DataSetUniqueKeyOutput struct{ *pulumi.OutputState }
+
+func (DataSetUniqueKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSetUniqueKey)(nil)).Elem()
+}
+
+func (o DataSetUniqueKeyOutput) ToDataSetUniqueKeyOutput() DataSetUniqueKeyOutput {
+	return o
+}
+
+func (o DataSetUniqueKeyOutput) ToDataSetUniqueKeyOutputWithContext(ctx context.Context) DataSetUniqueKeyOutput {
+	return o
+}
+
+func (o DataSetUniqueKeyOutput) ColumnNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DataSetUniqueKey) []string { return v.ColumnNames }).(pulumi.StringArrayOutput)
+}
+
+type DataSetUniqueKeyArrayOutput struct{ *pulumi.OutputState }
+
+func (DataSetUniqueKeyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataSetUniqueKey)(nil)).Elem()
+}
+
+func (o DataSetUniqueKeyArrayOutput) ToDataSetUniqueKeyArrayOutput() DataSetUniqueKeyArrayOutput {
+	return o
+}
+
+func (o DataSetUniqueKeyArrayOutput) ToDataSetUniqueKeyArrayOutputWithContext(ctx context.Context) DataSetUniqueKeyArrayOutput {
+	return o
+}
+
+func (o DataSetUniqueKeyArrayOutput) Index(i pulumi.IntInput) DataSetUniqueKeyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataSetUniqueKey {
+		return vs[0].([]DataSetUniqueKey)[vs[1].(int)]
+	}).(DataSetUniqueKeyOutput)
 }
 
 // <p>A transform operation that removes tags associated with a column.</p>
@@ -85790,533 +86017,6 @@ func (o TemplateParameterDeclarationArrayOutput) Index(i pulumi.IntInput) Templa
 	}).(TemplateParameterDeclarationOutput)
 }
 
-type TemplateParameterDropDownControl struct {
-	// The values that are displayed in a control can be configured to only show values that are valid based on what's selected in other controls.
-	CascadingControlConfiguration *TemplateCascadingControlConfiguration `pulumi:"cascadingControlConfiguration"`
-	// The visibility configuration of the Apply button on a `ParameterDropDownControl` .
-	CommitMode *TemplateCommitMode `pulumi:"commitMode"`
-	// The display options of a control.
-	DisplayOptions *TemplateDropDownControlDisplayOptions `pulumi:"displayOptions"`
-	// The ID of the `ParameterDropDownControl` .
-	ParameterControlId string `pulumi:"parameterControlId"`
-	// A list of selectable values that are used in a control.
-	SelectableValues *TemplateParameterSelectableValues `pulumi:"selectableValues"`
-	// The source parameter name of the `ParameterDropDownControl` .
-	SourceParameterName string `pulumi:"sourceParameterName"`
-	// The title of the `ParameterDropDownControl` .
-	Title string `pulumi:"title"`
-	// The type parameter name of the `ParameterDropDownControl` .
-	Type *TemplateSheetControlListType `pulumi:"type"`
-}
-
-// TemplateParameterDropDownControlInput is an input type that accepts TemplateParameterDropDownControlArgs and TemplateParameterDropDownControlOutput values.
-// You can construct a concrete instance of `TemplateParameterDropDownControlInput` via:
-//
-//	TemplateParameterDropDownControlArgs{...}
-type TemplateParameterDropDownControlInput interface {
-	pulumi.Input
-
-	ToTemplateParameterDropDownControlOutput() TemplateParameterDropDownControlOutput
-	ToTemplateParameterDropDownControlOutputWithContext(context.Context) TemplateParameterDropDownControlOutput
-}
-
-type TemplateParameterDropDownControlArgs struct {
-	// The values that are displayed in a control can be configured to only show values that are valid based on what's selected in other controls.
-	CascadingControlConfiguration TemplateCascadingControlConfigurationPtrInput `pulumi:"cascadingControlConfiguration"`
-	// The visibility configuration of the Apply button on a `ParameterDropDownControl` .
-	CommitMode TemplateCommitModePtrInput `pulumi:"commitMode"`
-	// The display options of a control.
-	DisplayOptions TemplateDropDownControlDisplayOptionsPtrInput `pulumi:"displayOptions"`
-	// The ID of the `ParameterDropDownControl` .
-	ParameterControlId pulumi.StringInput `pulumi:"parameterControlId"`
-	// A list of selectable values that are used in a control.
-	SelectableValues TemplateParameterSelectableValuesPtrInput `pulumi:"selectableValues"`
-	// The source parameter name of the `ParameterDropDownControl` .
-	SourceParameterName pulumi.StringInput `pulumi:"sourceParameterName"`
-	// The title of the `ParameterDropDownControl` .
-	Title pulumi.StringInput `pulumi:"title"`
-	// The type parameter name of the `ParameterDropDownControl` .
-	Type TemplateSheetControlListTypePtrInput `pulumi:"type"`
-}
-
-func (TemplateParameterDropDownControlArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateParameterDropDownControl)(nil)).Elem()
-}
-
-func (i TemplateParameterDropDownControlArgs) ToTemplateParameterDropDownControlOutput() TemplateParameterDropDownControlOutput {
-	return i.ToTemplateParameterDropDownControlOutputWithContext(context.Background())
-}
-
-func (i TemplateParameterDropDownControlArgs) ToTemplateParameterDropDownControlOutputWithContext(ctx context.Context) TemplateParameterDropDownControlOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateParameterDropDownControlOutput)
-}
-
-func (i TemplateParameterDropDownControlArgs) ToTemplateParameterDropDownControlPtrOutput() TemplateParameterDropDownControlPtrOutput {
-	return i.ToTemplateParameterDropDownControlPtrOutputWithContext(context.Background())
-}
-
-func (i TemplateParameterDropDownControlArgs) ToTemplateParameterDropDownControlPtrOutputWithContext(ctx context.Context) TemplateParameterDropDownControlPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateParameterDropDownControlOutput).ToTemplateParameterDropDownControlPtrOutputWithContext(ctx)
-}
-
-// TemplateParameterDropDownControlPtrInput is an input type that accepts TemplateParameterDropDownControlArgs, TemplateParameterDropDownControlPtr and TemplateParameterDropDownControlPtrOutput values.
-// You can construct a concrete instance of `TemplateParameterDropDownControlPtrInput` via:
-//
-//	        TemplateParameterDropDownControlArgs{...}
-//
-//	or:
-//
-//	        nil
-type TemplateParameterDropDownControlPtrInput interface {
-	pulumi.Input
-
-	ToTemplateParameterDropDownControlPtrOutput() TemplateParameterDropDownControlPtrOutput
-	ToTemplateParameterDropDownControlPtrOutputWithContext(context.Context) TemplateParameterDropDownControlPtrOutput
-}
-
-type templateParameterDropDownControlPtrType TemplateParameterDropDownControlArgs
-
-func TemplateParameterDropDownControlPtr(v *TemplateParameterDropDownControlArgs) TemplateParameterDropDownControlPtrInput {
-	return (*templateParameterDropDownControlPtrType)(v)
-}
-
-func (*templateParameterDropDownControlPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateParameterDropDownControl)(nil)).Elem()
-}
-
-func (i *templateParameterDropDownControlPtrType) ToTemplateParameterDropDownControlPtrOutput() TemplateParameterDropDownControlPtrOutput {
-	return i.ToTemplateParameterDropDownControlPtrOutputWithContext(context.Background())
-}
-
-func (i *templateParameterDropDownControlPtrType) ToTemplateParameterDropDownControlPtrOutputWithContext(ctx context.Context) TemplateParameterDropDownControlPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateParameterDropDownControlPtrOutput)
-}
-
-type TemplateParameterDropDownControlOutput struct{ *pulumi.OutputState }
-
-func (TemplateParameterDropDownControlOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateParameterDropDownControl)(nil)).Elem()
-}
-
-func (o TemplateParameterDropDownControlOutput) ToTemplateParameterDropDownControlOutput() TemplateParameterDropDownControlOutput {
-	return o
-}
-
-func (o TemplateParameterDropDownControlOutput) ToTemplateParameterDropDownControlOutputWithContext(ctx context.Context) TemplateParameterDropDownControlOutput {
-	return o
-}
-
-func (o TemplateParameterDropDownControlOutput) ToTemplateParameterDropDownControlPtrOutput() TemplateParameterDropDownControlPtrOutput {
-	return o.ToTemplateParameterDropDownControlPtrOutputWithContext(context.Background())
-}
-
-func (o TemplateParameterDropDownControlOutput) ToTemplateParameterDropDownControlPtrOutputWithContext(ctx context.Context) TemplateParameterDropDownControlPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateParameterDropDownControl) *TemplateParameterDropDownControl {
-		return &v
-	}).(TemplateParameterDropDownControlPtrOutput)
-}
-
-// The values that are displayed in a control can be configured to only show values that are valid based on what's selected in other controls.
-func (o TemplateParameterDropDownControlOutput) CascadingControlConfiguration() TemplateCascadingControlConfigurationPtrOutput {
-	return o.ApplyT(func(v TemplateParameterDropDownControl) *TemplateCascadingControlConfiguration {
-		return v.CascadingControlConfiguration
-	}).(TemplateCascadingControlConfigurationPtrOutput)
-}
-
-// The visibility configuration of the Apply button on a `ParameterDropDownControl` .
-func (o TemplateParameterDropDownControlOutput) CommitMode() TemplateCommitModePtrOutput {
-	return o.ApplyT(func(v TemplateParameterDropDownControl) *TemplateCommitMode { return v.CommitMode }).(TemplateCommitModePtrOutput)
-}
-
-// The display options of a control.
-func (o TemplateParameterDropDownControlOutput) DisplayOptions() TemplateDropDownControlDisplayOptionsPtrOutput {
-	return o.ApplyT(func(v TemplateParameterDropDownControl) *TemplateDropDownControlDisplayOptions {
-		return v.DisplayOptions
-	}).(TemplateDropDownControlDisplayOptionsPtrOutput)
-}
-
-// The ID of the `ParameterDropDownControl` .
-func (o TemplateParameterDropDownControlOutput) ParameterControlId() pulumi.StringOutput {
-	return o.ApplyT(func(v TemplateParameterDropDownControl) string { return v.ParameterControlId }).(pulumi.StringOutput)
-}
-
-// A list of selectable values that are used in a control.
-func (o TemplateParameterDropDownControlOutput) SelectableValues() TemplateParameterSelectableValuesPtrOutput {
-	return o.ApplyT(func(v TemplateParameterDropDownControl) *TemplateParameterSelectableValues { return v.SelectableValues }).(TemplateParameterSelectableValuesPtrOutput)
-}
-
-// The source parameter name of the `ParameterDropDownControl` .
-func (o TemplateParameterDropDownControlOutput) SourceParameterName() pulumi.StringOutput {
-	return o.ApplyT(func(v TemplateParameterDropDownControl) string { return v.SourceParameterName }).(pulumi.StringOutput)
-}
-
-// The title of the `ParameterDropDownControl` .
-func (o TemplateParameterDropDownControlOutput) Title() pulumi.StringOutput {
-	return o.ApplyT(func(v TemplateParameterDropDownControl) string { return v.Title }).(pulumi.StringOutput)
-}
-
-// The type parameter name of the `ParameterDropDownControl` .
-func (o TemplateParameterDropDownControlOutput) Type() TemplateSheetControlListTypePtrOutput {
-	return o.ApplyT(func(v TemplateParameterDropDownControl) *TemplateSheetControlListType { return v.Type }).(TemplateSheetControlListTypePtrOutput)
-}
-
-type TemplateParameterDropDownControlPtrOutput struct{ *pulumi.OutputState }
-
-func (TemplateParameterDropDownControlPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateParameterDropDownControl)(nil)).Elem()
-}
-
-func (o TemplateParameterDropDownControlPtrOutput) ToTemplateParameterDropDownControlPtrOutput() TemplateParameterDropDownControlPtrOutput {
-	return o
-}
-
-func (o TemplateParameterDropDownControlPtrOutput) ToTemplateParameterDropDownControlPtrOutputWithContext(ctx context.Context) TemplateParameterDropDownControlPtrOutput {
-	return o
-}
-
-func (o TemplateParameterDropDownControlPtrOutput) Elem() TemplateParameterDropDownControlOutput {
-	return o.ApplyT(func(v *TemplateParameterDropDownControl) TemplateParameterDropDownControl {
-		if v != nil {
-			return *v
-		}
-		var ret TemplateParameterDropDownControl
-		return ret
-	}).(TemplateParameterDropDownControlOutput)
-}
-
-// The values that are displayed in a control can be configured to only show values that are valid based on what's selected in other controls.
-func (o TemplateParameterDropDownControlPtrOutput) CascadingControlConfiguration() TemplateCascadingControlConfigurationPtrOutput {
-	return o.ApplyT(func(v *TemplateParameterDropDownControl) *TemplateCascadingControlConfiguration {
-		if v == nil {
-			return nil
-		}
-		return v.CascadingControlConfiguration
-	}).(TemplateCascadingControlConfigurationPtrOutput)
-}
-
-// The visibility configuration of the Apply button on a `ParameterDropDownControl` .
-func (o TemplateParameterDropDownControlPtrOutput) CommitMode() TemplateCommitModePtrOutput {
-	return o.ApplyT(func(v *TemplateParameterDropDownControl) *TemplateCommitMode {
-		if v == nil {
-			return nil
-		}
-		return v.CommitMode
-	}).(TemplateCommitModePtrOutput)
-}
-
-// The display options of a control.
-func (o TemplateParameterDropDownControlPtrOutput) DisplayOptions() TemplateDropDownControlDisplayOptionsPtrOutput {
-	return o.ApplyT(func(v *TemplateParameterDropDownControl) *TemplateDropDownControlDisplayOptions {
-		if v == nil {
-			return nil
-		}
-		return v.DisplayOptions
-	}).(TemplateDropDownControlDisplayOptionsPtrOutput)
-}
-
-// The ID of the `ParameterDropDownControl` .
-func (o TemplateParameterDropDownControlPtrOutput) ParameterControlId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TemplateParameterDropDownControl) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ParameterControlId
-	}).(pulumi.StringPtrOutput)
-}
-
-// A list of selectable values that are used in a control.
-func (o TemplateParameterDropDownControlPtrOutput) SelectableValues() TemplateParameterSelectableValuesPtrOutput {
-	return o.ApplyT(func(v *TemplateParameterDropDownControl) *TemplateParameterSelectableValues {
-		if v == nil {
-			return nil
-		}
-		return v.SelectableValues
-	}).(TemplateParameterSelectableValuesPtrOutput)
-}
-
-// The source parameter name of the `ParameterDropDownControl` .
-func (o TemplateParameterDropDownControlPtrOutput) SourceParameterName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TemplateParameterDropDownControl) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.SourceParameterName
-	}).(pulumi.StringPtrOutput)
-}
-
-// The title of the `ParameterDropDownControl` .
-func (o TemplateParameterDropDownControlPtrOutput) Title() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TemplateParameterDropDownControl) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Title
-	}).(pulumi.StringPtrOutput)
-}
-
-// The type parameter name of the `ParameterDropDownControl` .
-func (o TemplateParameterDropDownControlPtrOutput) Type() TemplateSheetControlListTypePtrOutput {
-	return o.ApplyT(func(v *TemplateParameterDropDownControl) *TemplateSheetControlListType {
-		if v == nil {
-			return nil
-		}
-		return v.Type
-	}).(TemplateSheetControlListTypePtrOutput)
-}
-
-type TemplateParameterListControl struct {
-	// The values that are displayed in a control can be configured to only show values that are valid based on what's selected in other controls.
-	CascadingControlConfiguration *TemplateCascadingControlConfiguration `pulumi:"cascadingControlConfiguration"`
-	// The display options of a control.
-	DisplayOptions *TemplateListControlDisplayOptions `pulumi:"displayOptions"`
-	// The ID of the `ParameterListControl` .
-	ParameterControlId string `pulumi:"parameterControlId"`
-	// A list of selectable values that are used in a control.
-	SelectableValues *TemplateParameterSelectableValues `pulumi:"selectableValues"`
-	// The source parameter name of the `ParameterListControl` .
-	SourceParameterName string `pulumi:"sourceParameterName"`
-	// The title of the `ParameterListControl` .
-	Title string `pulumi:"title"`
-	// The type of `ParameterListControl` .
-	Type *TemplateSheetControlListType `pulumi:"type"`
-}
-
-// TemplateParameterListControlInput is an input type that accepts TemplateParameterListControlArgs and TemplateParameterListControlOutput values.
-// You can construct a concrete instance of `TemplateParameterListControlInput` via:
-//
-//	TemplateParameterListControlArgs{...}
-type TemplateParameterListControlInput interface {
-	pulumi.Input
-
-	ToTemplateParameterListControlOutput() TemplateParameterListControlOutput
-	ToTemplateParameterListControlOutputWithContext(context.Context) TemplateParameterListControlOutput
-}
-
-type TemplateParameterListControlArgs struct {
-	// The values that are displayed in a control can be configured to only show values that are valid based on what's selected in other controls.
-	CascadingControlConfiguration TemplateCascadingControlConfigurationPtrInput `pulumi:"cascadingControlConfiguration"`
-	// The display options of a control.
-	DisplayOptions TemplateListControlDisplayOptionsPtrInput `pulumi:"displayOptions"`
-	// The ID of the `ParameterListControl` .
-	ParameterControlId pulumi.StringInput `pulumi:"parameterControlId"`
-	// A list of selectable values that are used in a control.
-	SelectableValues TemplateParameterSelectableValuesPtrInput `pulumi:"selectableValues"`
-	// The source parameter name of the `ParameterListControl` .
-	SourceParameterName pulumi.StringInput `pulumi:"sourceParameterName"`
-	// The title of the `ParameterListControl` .
-	Title pulumi.StringInput `pulumi:"title"`
-	// The type of `ParameterListControl` .
-	Type TemplateSheetControlListTypePtrInput `pulumi:"type"`
-}
-
-func (TemplateParameterListControlArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateParameterListControl)(nil)).Elem()
-}
-
-func (i TemplateParameterListControlArgs) ToTemplateParameterListControlOutput() TemplateParameterListControlOutput {
-	return i.ToTemplateParameterListControlOutputWithContext(context.Background())
-}
-
-func (i TemplateParameterListControlArgs) ToTemplateParameterListControlOutputWithContext(ctx context.Context) TemplateParameterListControlOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateParameterListControlOutput)
-}
-
-func (i TemplateParameterListControlArgs) ToTemplateParameterListControlPtrOutput() TemplateParameterListControlPtrOutput {
-	return i.ToTemplateParameterListControlPtrOutputWithContext(context.Background())
-}
-
-func (i TemplateParameterListControlArgs) ToTemplateParameterListControlPtrOutputWithContext(ctx context.Context) TemplateParameterListControlPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateParameterListControlOutput).ToTemplateParameterListControlPtrOutputWithContext(ctx)
-}
-
-// TemplateParameterListControlPtrInput is an input type that accepts TemplateParameterListControlArgs, TemplateParameterListControlPtr and TemplateParameterListControlPtrOutput values.
-// You can construct a concrete instance of `TemplateParameterListControlPtrInput` via:
-//
-//	        TemplateParameterListControlArgs{...}
-//
-//	or:
-//
-//	        nil
-type TemplateParameterListControlPtrInput interface {
-	pulumi.Input
-
-	ToTemplateParameterListControlPtrOutput() TemplateParameterListControlPtrOutput
-	ToTemplateParameterListControlPtrOutputWithContext(context.Context) TemplateParameterListControlPtrOutput
-}
-
-type templateParameterListControlPtrType TemplateParameterListControlArgs
-
-func TemplateParameterListControlPtr(v *TemplateParameterListControlArgs) TemplateParameterListControlPtrInput {
-	return (*templateParameterListControlPtrType)(v)
-}
-
-func (*templateParameterListControlPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateParameterListControl)(nil)).Elem()
-}
-
-func (i *templateParameterListControlPtrType) ToTemplateParameterListControlPtrOutput() TemplateParameterListControlPtrOutput {
-	return i.ToTemplateParameterListControlPtrOutputWithContext(context.Background())
-}
-
-func (i *templateParameterListControlPtrType) ToTemplateParameterListControlPtrOutputWithContext(ctx context.Context) TemplateParameterListControlPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateParameterListControlPtrOutput)
-}
-
-type TemplateParameterListControlOutput struct{ *pulumi.OutputState }
-
-func (TemplateParameterListControlOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateParameterListControl)(nil)).Elem()
-}
-
-func (o TemplateParameterListControlOutput) ToTemplateParameterListControlOutput() TemplateParameterListControlOutput {
-	return o
-}
-
-func (o TemplateParameterListControlOutput) ToTemplateParameterListControlOutputWithContext(ctx context.Context) TemplateParameterListControlOutput {
-	return o
-}
-
-func (o TemplateParameterListControlOutput) ToTemplateParameterListControlPtrOutput() TemplateParameterListControlPtrOutput {
-	return o.ToTemplateParameterListControlPtrOutputWithContext(context.Background())
-}
-
-func (o TemplateParameterListControlOutput) ToTemplateParameterListControlPtrOutputWithContext(ctx context.Context) TemplateParameterListControlPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateParameterListControl) *TemplateParameterListControl {
-		return &v
-	}).(TemplateParameterListControlPtrOutput)
-}
-
-// The values that are displayed in a control can be configured to only show values that are valid based on what's selected in other controls.
-func (o TemplateParameterListControlOutput) CascadingControlConfiguration() TemplateCascadingControlConfigurationPtrOutput {
-	return o.ApplyT(func(v TemplateParameterListControl) *TemplateCascadingControlConfiguration {
-		return v.CascadingControlConfiguration
-	}).(TemplateCascadingControlConfigurationPtrOutput)
-}
-
-// The display options of a control.
-func (o TemplateParameterListControlOutput) DisplayOptions() TemplateListControlDisplayOptionsPtrOutput {
-	return o.ApplyT(func(v TemplateParameterListControl) *TemplateListControlDisplayOptions { return v.DisplayOptions }).(TemplateListControlDisplayOptionsPtrOutput)
-}
-
-// The ID of the `ParameterListControl` .
-func (o TemplateParameterListControlOutput) ParameterControlId() pulumi.StringOutput {
-	return o.ApplyT(func(v TemplateParameterListControl) string { return v.ParameterControlId }).(pulumi.StringOutput)
-}
-
-// A list of selectable values that are used in a control.
-func (o TemplateParameterListControlOutput) SelectableValues() TemplateParameterSelectableValuesPtrOutput {
-	return o.ApplyT(func(v TemplateParameterListControl) *TemplateParameterSelectableValues { return v.SelectableValues }).(TemplateParameterSelectableValuesPtrOutput)
-}
-
-// The source parameter name of the `ParameterListControl` .
-func (o TemplateParameterListControlOutput) SourceParameterName() pulumi.StringOutput {
-	return o.ApplyT(func(v TemplateParameterListControl) string { return v.SourceParameterName }).(pulumi.StringOutput)
-}
-
-// The title of the `ParameterListControl` .
-func (o TemplateParameterListControlOutput) Title() pulumi.StringOutput {
-	return o.ApplyT(func(v TemplateParameterListControl) string { return v.Title }).(pulumi.StringOutput)
-}
-
-// The type of `ParameterListControl` .
-func (o TemplateParameterListControlOutput) Type() TemplateSheetControlListTypePtrOutput {
-	return o.ApplyT(func(v TemplateParameterListControl) *TemplateSheetControlListType { return v.Type }).(TemplateSheetControlListTypePtrOutput)
-}
-
-type TemplateParameterListControlPtrOutput struct{ *pulumi.OutputState }
-
-func (TemplateParameterListControlPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateParameterListControl)(nil)).Elem()
-}
-
-func (o TemplateParameterListControlPtrOutput) ToTemplateParameterListControlPtrOutput() TemplateParameterListControlPtrOutput {
-	return o
-}
-
-func (o TemplateParameterListControlPtrOutput) ToTemplateParameterListControlPtrOutputWithContext(ctx context.Context) TemplateParameterListControlPtrOutput {
-	return o
-}
-
-func (o TemplateParameterListControlPtrOutput) Elem() TemplateParameterListControlOutput {
-	return o.ApplyT(func(v *TemplateParameterListControl) TemplateParameterListControl {
-		if v != nil {
-			return *v
-		}
-		var ret TemplateParameterListControl
-		return ret
-	}).(TemplateParameterListControlOutput)
-}
-
-// The values that are displayed in a control can be configured to only show values that are valid based on what's selected in other controls.
-func (o TemplateParameterListControlPtrOutput) CascadingControlConfiguration() TemplateCascadingControlConfigurationPtrOutput {
-	return o.ApplyT(func(v *TemplateParameterListControl) *TemplateCascadingControlConfiguration {
-		if v == nil {
-			return nil
-		}
-		return v.CascadingControlConfiguration
-	}).(TemplateCascadingControlConfigurationPtrOutput)
-}
-
-// The display options of a control.
-func (o TemplateParameterListControlPtrOutput) DisplayOptions() TemplateListControlDisplayOptionsPtrOutput {
-	return o.ApplyT(func(v *TemplateParameterListControl) *TemplateListControlDisplayOptions {
-		if v == nil {
-			return nil
-		}
-		return v.DisplayOptions
-	}).(TemplateListControlDisplayOptionsPtrOutput)
-}
-
-// The ID of the `ParameterListControl` .
-func (o TemplateParameterListControlPtrOutput) ParameterControlId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TemplateParameterListControl) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ParameterControlId
-	}).(pulumi.StringPtrOutput)
-}
-
-// A list of selectable values that are used in a control.
-func (o TemplateParameterListControlPtrOutput) SelectableValues() TemplateParameterSelectableValuesPtrOutput {
-	return o.ApplyT(func(v *TemplateParameterListControl) *TemplateParameterSelectableValues {
-		if v == nil {
-			return nil
-		}
-		return v.SelectableValues
-	}).(TemplateParameterSelectableValuesPtrOutput)
-}
-
-// The source parameter name of the `ParameterListControl` .
-func (o TemplateParameterListControlPtrOutput) SourceParameterName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TemplateParameterListControl) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.SourceParameterName
-	}).(pulumi.StringPtrOutput)
-}
-
-// The title of the `ParameterListControl` .
-func (o TemplateParameterListControlPtrOutput) Title() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TemplateParameterListControl) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Title
-	}).(pulumi.StringPtrOutput)
-}
-
-// The type of `ParameterListControl` .
-func (o TemplateParameterListControlPtrOutput) Type() TemplateSheetControlListTypePtrOutput {
-	return o.ApplyT(func(v *TemplateParameterListControl) *TemplateSheetControlListType {
-		if v == nil {
-			return nil
-		}
-		return v.Type
-	}).(TemplateSheetControlListTypePtrOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardSheetLayoutElementMaximizationOptionInput)(nil)).Elem(), DashboardSheetLayoutElementMaximizationOptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardSheetLayoutElementMaximizationOptionPtrInput)(nil)).Elem(), DashboardSheetLayoutElementMaximizationOptionArgs{})
@@ -86586,6 +86286,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetNewDefaultValuesPtrInput)(nil)).Elem(), DataSetNewDefaultValuesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetOverrideDatasetParameterOperationInput)(nil)).Elem(), DataSetOverrideDatasetParameterOperationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetOverrideDatasetParameterOperationPtrInput)(nil)).Elem(), DataSetOverrideDatasetParameterOperationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetPerformanceConfigurationInput)(nil)).Elem(), DataSetPerformanceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetPerformanceConfigurationPtrInput)(nil)).Elem(), DataSetPerformanceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetPhysicalTableInput)(nil)).Elem(), DataSetPhysicalTableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetPhysicalTableMapInput)(nil)).Elem(), DataSetPhysicalTableMap{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetProjectOperationInput)(nil)).Elem(), DataSetProjectOperationArgs{})
@@ -86616,6 +86318,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetTagColumnOperationPtrInput)(nil)).Elem(), DataSetTagColumnOperationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetTransformOperationInput)(nil)).Elem(), DataSetTransformOperationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetTransformOperationArrayInput)(nil)).Elem(), DataSetTransformOperationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetUniqueKeyInput)(nil)).Elem(), DataSetUniqueKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSetUniqueKeyArrayInput)(nil)).Elem(), DataSetUniqueKeyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetUntagColumnOperationInput)(nil)).Elem(), DataSetUntagColumnOperationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetUntagColumnOperationPtrInput)(nil)).Elem(), DataSetUntagColumnOperationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetUploadSettingsInput)(nil)).Elem(), DataSetUploadSettingsArgs{})
@@ -87298,10 +87002,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateParameterDateTimePickerControlPtrInput)(nil)).Elem(), TemplateParameterDateTimePickerControlArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateParameterDeclarationInput)(nil)).Elem(), TemplateParameterDeclarationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateParameterDeclarationArrayInput)(nil)).Elem(), TemplateParameterDeclarationArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateParameterDropDownControlInput)(nil)).Elem(), TemplateParameterDropDownControlArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateParameterDropDownControlPtrInput)(nil)).Elem(), TemplateParameterDropDownControlArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateParameterListControlInput)(nil)).Elem(), TemplateParameterListControlArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateParameterListControlPtrInput)(nil)).Elem(), TemplateParameterListControlArgs{})
 	pulumi.RegisterOutputType(DashboardSheetLayoutElementMaximizationOptionOutput{})
 	pulumi.RegisterOutputType(DashboardSheetLayoutElementMaximizationOptionPtrOutput{})
 	pulumi.RegisterOutputType(DashboardSheetTextBoxOutput{})
@@ -87574,6 +87274,8 @@ func init() {
 	pulumi.RegisterOutputType(DataSetOutputColumnArrayOutput{})
 	pulumi.RegisterOutputType(DataSetOverrideDatasetParameterOperationOutput{})
 	pulumi.RegisterOutputType(DataSetOverrideDatasetParameterOperationPtrOutput{})
+	pulumi.RegisterOutputType(DataSetPerformanceConfigurationOutput{})
+	pulumi.RegisterOutputType(DataSetPerformanceConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataSetPhysicalTableOutput{})
 	pulumi.RegisterOutputType(DataSetPhysicalTableMapOutput{})
 	pulumi.RegisterOutputType(DataSetProjectOperationOutput{})
@@ -87604,6 +87306,8 @@ func init() {
 	pulumi.RegisterOutputType(DataSetTagColumnOperationPtrOutput{})
 	pulumi.RegisterOutputType(DataSetTransformOperationOutput{})
 	pulumi.RegisterOutputType(DataSetTransformOperationArrayOutput{})
+	pulumi.RegisterOutputType(DataSetUniqueKeyOutput{})
+	pulumi.RegisterOutputType(DataSetUniqueKeyArrayOutput{})
 	pulumi.RegisterOutputType(DataSetUntagColumnOperationOutput{})
 	pulumi.RegisterOutputType(DataSetUntagColumnOperationPtrOutput{})
 	pulumi.RegisterOutputType(DataSetUploadSettingsOutput{})
@@ -88290,8 +87994,4 @@ func init() {
 	pulumi.RegisterOutputType(TemplateParameterDateTimePickerControlPtrOutput{})
 	pulumi.RegisterOutputType(TemplateParameterDeclarationOutput{})
 	pulumi.RegisterOutputType(TemplateParameterDeclarationArrayOutput{})
-	pulumi.RegisterOutputType(TemplateParameterDropDownControlOutput{})
-	pulumi.RegisterOutputType(TemplateParameterDropDownControlPtrOutput{})
-	pulumi.RegisterOutputType(TemplateParameterListControlOutput{})
-	pulumi.RegisterOutputType(TemplateParameterListControlPtrOutput{})
 }

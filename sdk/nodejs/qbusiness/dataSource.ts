@@ -87,6 +87,9 @@ export class DataSource extends pulumi.CustomResource {
      * The identifier of the index the data source is attached to.
      */
     public readonly indexId!: pulumi.Output<string>;
+    /**
+     * The configuration for extracting information from media in documents.
+     */
     public readonly mediaExtractionConfiguration!: pulumi.Output<outputs.qbusiness.DataSourceMediaExtractionConfiguration | undefined>;
     /**
      * The Amazon Resource Name (ARN) of an IAM role with permission to access the data source and required resources.
@@ -227,6 +230,9 @@ export interface DataSourceArgs {
      * The identifier of the index the data source is attached to.
      */
     indexId: pulumi.Input<string>;
+    /**
+     * The configuration for extracting information from media in documents.
+     */
     mediaExtractionConfiguration?: pulumi.Input<inputs.qbusiness.DataSourceMediaExtractionConfigurationArgs>;
     /**
      * The Amazon Resource Name (ARN) of an IAM role with permission to access the data source and required resources.

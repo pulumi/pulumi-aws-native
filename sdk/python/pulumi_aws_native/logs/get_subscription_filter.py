@@ -24,7 +24,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetSubscriptionFilterResult:
-    def __init__(__self__, destination_arn=None, distribution=None, filter_pattern=None, role_arn=None):
+    def __init__(__self__, apply_on_transformed_logs=None, destination_arn=None, distribution=None, filter_pattern=None, role_arn=None):
+        if apply_on_transformed_logs and not isinstance(apply_on_transformed_logs, bool):
+            raise TypeError("Expected argument 'apply_on_transformed_logs' to be a bool")
+        pulumi.set(__self__, "apply_on_transformed_logs", apply_on_transformed_logs)
         if destination_arn and not isinstance(destination_arn, str):
             raise TypeError("Expected argument 'destination_arn' to be a str")
         pulumi.set(__self__, "destination_arn", destination_arn)
@@ -37,6 +40,16 @@ class GetSubscriptionFilterResult:
         if role_arn and not isinstance(role_arn, str):
             raise TypeError("Expected argument 'role_arn' to be a str")
         pulumi.set(__self__, "role_arn", role_arn)
+
+    @property
+    @pulumi.getter(name="applyOnTransformedLogs")
+    def apply_on_transformed_logs(self) -> Optional[bool]:
+        """
+        This parameter is valid only for log groups that have an active log transformer. For more information about log transformers, see [PutTransformer](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutTransformer.html) .
+
+        If this value is `true` , the subscription filter is applied on the transformed version of the log events instead of the original ingested log events.
+        """
+        return pulumi.get(self, "apply_on_transformed_logs")
 
     @property
     @pulumi.getter(name="destinationArn")
@@ -77,6 +90,7 @@ class AwaitableGetSubscriptionFilterResult(GetSubscriptionFilterResult):
         if False:
             yield self
         return GetSubscriptionFilterResult(
+            apply_on_transformed_logs=self.apply_on_transformed_logs,
             destination_arn=self.destination_arn,
             distribution=self.distribution,
             filter_pattern=self.filter_pattern,
@@ -106,6 +120,7 @@ def get_subscription_filter(filter_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:logs:getSubscriptionFilter', __args__, opts=opts, typ=GetSubscriptionFilterResult).value
 
     return AwaitableGetSubscriptionFilterResult(
+        apply_on_transformed_logs=pulumi.get(__ret__, 'apply_on_transformed_logs'),
         destination_arn=pulumi.get(__ret__, 'destination_arn'),
         distribution=pulumi.get(__ret__, 'distribution'),
         filter_pattern=pulumi.get(__ret__, 'filter_pattern'),
@@ -132,6 +147,7 @@ def get_subscription_filter_output(filter_name: Optional[pulumi.Input[str]] = No
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:logs:getSubscriptionFilter', __args__, opts=opts, typ=GetSubscriptionFilterResult)
     return __ret__.apply(lambda __response__: GetSubscriptionFilterResult(
+        apply_on_transformed_logs=pulumi.get(__response__, 'apply_on_transformed_logs'),
         destination_arn=pulumi.get(__response__, 'destination_arn'),
         distribution=pulumi.get(__response__, 'distribution'),
         filter_pattern=pulumi.get(__response__, 'filter_pattern'),

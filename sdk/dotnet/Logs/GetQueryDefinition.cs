@@ -76,6 +76,10 @@ namespace Pulumi.AwsNative.Logs
         /// </summary>
         public readonly string? QueryDefinitionId;
         /// <summary>
+        /// Query language of the query string. Possible values are CWLI, SQL, PPL, with CWLI being the default.
+        /// </summary>
+        public readonly Pulumi.AwsNative.Logs.QueryDefinitionQueryLanguage? QueryLanguage;
+        /// <summary>
         /// The query string to use for this definition
         /// </summary>
         public readonly string? QueryString;
@@ -88,11 +92,14 @@ namespace Pulumi.AwsNative.Logs
 
             string? queryDefinitionId,
 
+            Pulumi.AwsNative.Logs.QueryDefinitionQueryLanguage? queryLanguage,
+
             string? queryString)
         {
             LogGroupNames = logGroupNames;
             Name = name;
             QueryDefinitionId = queryDefinitionId;
+            QueryLanguage = queryLanguage;
             QueryString = queryString;
         }
     }

@@ -52,6 +52,7 @@ export class LogGroup extends pulumi.CustomResource {
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::LogGroup` for more information about the expected schema for this property.
      */
     public readonly dataProtectionPolicy!: pulumi.Output<any | undefined>;
+    public readonly fieldIndexPolicies!: pulumi.Output<any[] | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the KMS key to use when encrypting log data.
      *  To associate an KMS key with the log group, specify the ARN of that KMS key here. If you do so, ingested data is encrypted using this key. This association is stored as long as the data encrypted with the KMS key is still within CWL. This enables CWL to decrypt this data whenever it is requested.
@@ -94,6 +95,7 @@ export class LogGroup extends pulumi.CustomResource {
         opts = opts || {};
         if (!opts.id) {
             resourceInputs["dataProtectionPolicy"] = args ? args.dataProtectionPolicy : undefined;
+            resourceInputs["fieldIndexPolicies"] = args ? args.fieldIndexPolicies : undefined;
             resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             resourceInputs["logGroupClass"] = args ? args.logGroupClass : undefined;
             resourceInputs["logGroupName"] = args ? args.logGroupName : undefined;
@@ -103,6 +105,7 @@ export class LogGroup extends pulumi.CustomResource {
         } else {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["dataProtectionPolicy"] = undefined /*out*/;
+            resourceInputs["fieldIndexPolicies"] = undefined /*out*/;
             resourceInputs["kmsKeyId"] = undefined /*out*/;
             resourceInputs["logGroupClass"] = undefined /*out*/;
             resourceInputs["logGroupName"] = undefined /*out*/;
@@ -127,6 +130,7 @@ export interface LogGroupArgs {
      * Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::LogGroup` for more information about the expected schema for this property.
      */
     dataProtectionPolicy?: any;
+    fieldIndexPolicies?: pulumi.Input<any[]>;
     /**
      * The Amazon Resource Name (ARN) of the KMS key to use when encrypting log data.
      *  To associate an KMS key with the log group, specify the ARN of that KMS key here. If you do so, ingested data is encrypted using this key. This association is stored as long as the data encrypted with the KMS key is still within CWL. This enables CWL to decrypt this data whenever it is requested.

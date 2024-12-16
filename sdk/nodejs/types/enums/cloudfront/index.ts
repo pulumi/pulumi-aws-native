@@ -22,6 +22,13 @@ export const ContinuousDeploymentPolicyTrafficConfigType = {
  */
 export type ContinuousDeploymentPolicyTrafficConfigType = (typeof ContinuousDeploymentPolicyTrafficConfigType)[keyof typeof ContinuousDeploymentPolicyTrafficConfigType];
 
+export const DistributionOriginGroupSelectionCriteria = {
+    Default: "default",
+    MediaQualityBased: "media-quality-based",
+} as const;
+
+export type DistributionOriginGroupSelectionCriteria = (typeof DistributionOriginGroupSelectionCriteria)[keyof typeof DistributionOriginGroupSelectionCriteria];
+
 export const MonitoringSubscriptionRealtimeMetricsSubscriptionConfigRealtimeMetricsSubscriptionStatus = {
     Enabled: "Enabled",
     Disabled: "Disabled",

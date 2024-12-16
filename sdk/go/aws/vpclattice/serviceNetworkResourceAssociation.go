@@ -16,11 +16,16 @@ import (
 type ServiceNetworkResourceAssociation struct {
 	pulumi.CustomResourceState
 
-	Arn                     pulumi.StringOutput    `pulumi:"arn"`
-	AwsId                   pulumi.StringOutput    `pulumi:"awsId"`
+	// The Amazon Resource Name (ARN) of the association.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The ID of the association between the service network and resource configuration.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
+	// The ID of the resource configuration associated with the service network.
 	ResourceConfigurationId pulumi.StringPtrOutput `pulumi:"resourceConfigurationId"`
-	ServiceNetworkId        pulumi.StringPtrOutput `pulumi:"serviceNetworkId"`
-	Tags                    aws.TagArrayOutput     `pulumi:"tags"`
+	// The ID of the service network associated with the resource configuration.
+	ServiceNetworkId pulumi.StringPtrOutput `pulumi:"serviceNetworkId"`
+	// A key-value pair to associate with a resource.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewServiceNetworkResourceAssociation registers a new resource with the given unique name, arguments, and options.
@@ -68,16 +73,22 @@ func (ServiceNetworkResourceAssociationState) ElementType() reflect.Type {
 }
 
 type serviceNetworkResourceAssociationArgs struct {
-	ResourceConfigurationId *string   `pulumi:"resourceConfigurationId"`
-	ServiceNetworkId        *string   `pulumi:"serviceNetworkId"`
-	Tags                    []aws.Tag `pulumi:"tags"`
+	// The ID of the resource configuration associated with the service network.
+	ResourceConfigurationId *string `pulumi:"resourceConfigurationId"`
+	// The ID of the service network associated with the resource configuration.
+	ServiceNetworkId *string `pulumi:"serviceNetworkId"`
+	// A key-value pair to associate with a resource.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ServiceNetworkResourceAssociation resource.
 type ServiceNetworkResourceAssociationArgs struct {
+	// The ID of the resource configuration associated with the service network.
 	ResourceConfigurationId pulumi.StringPtrInput
-	ServiceNetworkId        pulumi.StringPtrInput
-	Tags                    aws.TagArrayInput
+	// The ID of the service network associated with the resource configuration.
+	ServiceNetworkId pulumi.StringPtrInput
+	// A key-value pair to associate with a resource.
+	Tags aws.TagArrayInput
 }
 
 func (ServiceNetworkResourceAssociationArgs) ElementType() reflect.Type {
@@ -117,22 +128,27 @@ func (o ServiceNetworkResourceAssociationOutput) ToServiceNetworkResourceAssocia
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the association.
 func (o ServiceNetworkResourceAssociationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceNetworkResourceAssociation) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The ID of the association between the service network and resource configuration.
 func (o ServiceNetworkResourceAssociationOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceNetworkResourceAssociation) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
+// The ID of the resource configuration associated with the service network.
 func (o ServiceNetworkResourceAssociationOutput) ResourceConfigurationId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceNetworkResourceAssociation) pulumi.StringPtrOutput { return v.ResourceConfigurationId }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the service network associated with the resource configuration.
 func (o ServiceNetworkResourceAssociationOutput) ServiceNetworkId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceNetworkResourceAssociation) pulumi.StringPtrOutput { return v.ServiceNetworkId }).(pulumi.StringPtrOutput)
 }
 
+// A key-value pair to associate with a resource.
 func (o ServiceNetworkResourceAssociationOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *ServiceNetworkResourceAssociation) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

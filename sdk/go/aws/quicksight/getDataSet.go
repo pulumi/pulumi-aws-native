@@ -60,7 +60,8 @@ type LookupDataSetResult struct {
 	Name *string `pulumi:"name"`
 	// <p>The list of columns after all transforms. These columns are available in templates,
 	//             analyses, and dashboards.</p>
-	OutputColumns []DataSetOutputColumn `pulumi:"outputColumns"`
+	OutputColumns            []DataSetOutputColumn            `pulumi:"outputColumns"`
+	PerformanceConfiguration *DataSetPerformanceConfiguration `pulumi:"performanceConfiguration"`
 	// <p>A list of resource permissions on the dataset.</p>
 	Permissions []DataSetResourcePermission `pulumi:"permissions"`
 	// Declares the physical tables that are available in the underlying data sources.
@@ -177,6 +178,10 @@ func (o LookupDataSetResultOutput) Name() pulumi.StringPtrOutput {
 //	analyses, and dashboards.</p>
 func (o LookupDataSetResultOutput) OutputColumns() DataSetOutputColumnArrayOutput {
 	return o.ApplyT(func(v LookupDataSetResult) []DataSetOutputColumn { return v.OutputColumns }).(DataSetOutputColumnArrayOutput)
+}
+
+func (o LookupDataSetResultOutput) PerformanceConfiguration() DataSetPerformanceConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupDataSetResult) *DataSetPerformanceConfiguration { return v.PerformanceConfiguration }).(DataSetPerformanceConfigurationPtrOutput)
 }
 
 // <p>A list of resource permissions on the dataset.</p>

@@ -34,6 +34,9 @@ export class AiPromptVersion extends pulumi.CustomResource {
         return obj['__pulumiType'] === AiPromptVersion.__pulumiType;
     }
 
+    /**
+     * The ARN of the AI prompt.
+     */
     public /*out*/ readonly aiPromptArn!: pulumi.Output<string>;
     /**
      * The identifier of the Amazon Q in Connect AI prompt.

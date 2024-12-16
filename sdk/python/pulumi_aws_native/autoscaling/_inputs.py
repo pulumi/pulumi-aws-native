@@ -234,12 +234,14 @@ class AutoScalingGroupAcceleratorTotalMemoryMiBRequestArgs:
 
 if not MYPY:
     class AutoScalingGroupAvailabilityZoneDistributionArgsDict(TypedDict):
+        """
+        ``AvailabilityZoneDistribution`` is a property of the [AWS::AutoScaling::AutoScalingGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html) resource.
+        """
         capacity_distribution_strategy: NotRequired[pulumi.Input['AutoScalingGroupAvailabilityZoneDistributionCapacityDistributionStrategy']]
         """
-        If launches fail in an Availability Zone, the following strategies are available. The default is `balanced-best-effort` .
-
-        - `balanced-only` - If launches fail in an Availability Zone, Auto Scaling will continue to attempt to launch in the unhealthy zone to preserve a balanced distribution.
-        - `balanced-best-effort` - If launches fail in an Availability Zone, Auto Scaling will attempt to launch in another healthy Availability Zone instead.
+        If launches fail in an Availability Zone, the following strategies are available. The default is ``balanced-best-effort``. 
+          +   ``balanced-only`` - If launches fail in an Availability Zone, Auto Scaling will continue to attempt to launch in the unhealthy zone to preserve a balanced distribution.
+          +   ``balanced-best-effort`` - If launches fail in an Availability Zone, Auto Scaling will attempt to launch in another healthy Availability Zone instead.
         """
 elif False:
     AutoScalingGroupAvailabilityZoneDistributionArgsDict: TypeAlias = Mapping[str, Any]
@@ -249,10 +251,10 @@ class AutoScalingGroupAvailabilityZoneDistributionArgs:
     def __init__(__self__, *,
                  capacity_distribution_strategy: Optional[pulumi.Input['AutoScalingGroupAvailabilityZoneDistributionCapacityDistributionStrategy']] = None):
         """
-        :param pulumi.Input['AutoScalingGroupAvailabilityZoneDistributionCapacityDistributionStrategy'] capacity_distribution_strategy: If launches fail in an Availability Zone, the following strategies are available. The default is `balanced-best-effort` .
-               
-               - `balanced-only` - If launches fail in an Availability Zone, Auto Scaling will continue to attempt to launch in the unhealthy zone to preserve a balanced distribution.
-               - `balanced-best-effort` - If launches fail in an Availability Zone, Auto Scaling will attempt to launch in another healthy Availability Zone instead.
+        ``AvailabilityZoneDistribution`` is a property of the [AWS::AutoScaling::AutoScalingGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html) resource.
+        :param pulumi.Input['AutoScalingGroupAvailabilityZoneDistributionCapacityDistributionStrategy'] capacity_distribution_strategy: If launches fail in an Availability Zone, the following strategies are available. The default is ``balanced-best-effort``. 
+                 +   ``balanced-only`` - If launches fail in an Availability Zone, Auto Scaling will continue to attempt to launch in the unhealthy zone to preserve a balanced distribution.
+                 +   ``balanced-best-effort`` - If launches fail in an Availability Zone, Auto Scaling will attempt to launch in another healthy Availability Zone instead.
         """
         if capacity_distribution_strategy is not None:
             pulumi.set(__self__, "capacity_distribution_strategy", capacity_distribution_strategy)
@@ -261,10 +263,9 @@ class AutoScalingGroupAvailabilityZoneDistributionArgs:
     @pulumi.getter(name="capacityDistributionStrategy")
     def capacity_distribution_strategy(self) -> Optional[pulumi.Input['AutoScalingGroupAvailabilityZoneDistributionCapacityDistributionStrategy']]:
         """
-        If launches fail in an Availability Zone, the following strategies are available. The default is `balanced-best-effort` .
-
-        - `balanced-only` - If launches fail in an Availability Zone, Auto Scaling will continue to attempt to launch in the unhealthy zone to preserve a balanced distribution.
-        - `balanced-best-effort` - If launches fail in an Availability Zone, Auto Scaling will attempt to launch in another healthy Availability Zone instead.
+        If launches fail in an Availability Zone, the following strategies are available. The default is ``balanced-best-effort``. 
+          +   ``balanced-only`` - If launches fail in an Availability Zone, Auto Scaling will continue to attempt to launch in the unhealthy zone to preserve a balanced distribution.
+          +   ``balanced-best-effort`` - If launches fail in an Availability Zone, Auto Scaling will attempt to launch in another healthy Availability Zone instead.
         """
         return pulumi.get(self, "capacity_distribution_strategy")
 
@@ -275,13 +276,16 @@ class AutoScalingGroupAvailabilityZoneDistributionArgs:
 
 if not MYPY:
     class AutoScalingGroupAvailabilityZoneImpairmentPolicyArgsDict(TypedDict):
+        """
+        Describes an Availability Zone impairment policy.
+        """
         impaired_zone_health_check_behavior: pulumi.Input['AutoScalingGroupAvailabilityZoneImpairmentPolicyImpairedZoneHealthCheckBehavior']
         """
-        Specifies the health check behavior for the impaired Availability Zone in an active zonal shift. If you select `Replace unhealthy` , instances that appear unhealthy will be replaced in all Availability Zones. If you select `Ignore unhealthy` , instances will not be replaced in the Availability Zone with the active zonal shift. For more information, see [Auto Scaling group zonal shift](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-zonal-shift.html) in the *Amazon EC2 Auto Scaling User Guide* .
+        Specifies the health check behavior for the impaired Availability Zone in an active zonal shift. If you select ``Replace unhealthy``, instances that appear unhealthy will be replaced in all Availability Zones. If you select ``Ignore unhealthy``, instances will not be replaced in the Availability Zone with the active zonal shift. For more information, see [Auto Scaling group zonal shift](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-zonal-shift.html) in the *Amazon EC2 Auto Scaling User Guide*.
         """
         zonal_shift_enabled: pulumi.Input[bool]
         """
-        If `true` , enable zonal shift for your Auto Scaling group.
+        If ``true``, enable zonal shift for your Auto Scaling group.
         """
 elif False:
     AutoScalingGroupAvailabilityZoneImpairmentPolicyArgsDict: TypeAlias = Mapping[str, Any]
@@ -292,8 +296,9 @@ class AutoScalingGroupAvailabilityZoneImpairmentPolicyArgs:
                  impaired_zone_health_check_behavior: pulumi.Input['AutoScalingGroupAvailabilityZoneImpairmentPolicyImpairedZoneHealthCheckBehavior'],
                  zonal_shift_enabled: pulumi.Input[bool]):
         """
-        :param pulumi.Input['AutoScalingGroupAvailabilityZoneImpairmentPolicyImpairedZoneHealthCheckBehavior'] impaired_zone_health_check_behavior: Specifies the health check behavior for the impaired Availability Zone in an active zonal shift. If you select `Replace unhealthy` , instances that appear unhealthy will be replaced in all Availability Zones. If you select `Ignore unhealthy` , instances will not be replaced in the Availability Zone with the active zonal shift. For more information, see [Auto Scaling group zonal shift](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-zonal-shift.html) in the *Amazon EC2 Auto Scaling User Guide* .
-        :param pulumi.Input[bool] zonal_shift_enabled: If `true` , enable zonal shift for your Auto Scaling group.
+        Describes an Availability Zone impairment policy.
+        :param pulumi.Input['AutoScalingGroupAvailabilityZoneImpairmentPolicyImpairedZoneHealthCheckBehavior'] impaired_zone_health_check_behavior: Specifies the health check behavior for the impaired Availability Zone in an active zonal shift. If you select ``Replace unhealthy``, instances that appear unhealthy will be replaced in all Availability Zones. If you select ``Ignore unhealthy``, instances will not be replaced in the Availability Zone with the active zonal shift. For more information, see [Auto Scaling group zonal shift](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-zonal-shift.html) in the *Amazon EC2 Auto Scaling User Guide*.
+        :param pulumi.Input[bool] zonal_shift_enabled: If ``true``, enable zonal shift for your Auto Scaling group.
         """
         pulumi.set(__self__, "impaired_zone_health_check_behavior", impaired_zone_health_check_behavior)
         pulumi.set(__self__, "zonal_shift_enabled", zonal_shift_enabled)
@@ -302,7 +307,7 @@ class AutoScalingGroupAvailabilityZoneImpairmentPolicyArgs:
     @pulumi.getter(name="impairedZoneHealthCheckBehavior")
     def impaired_zone_health_check_behavior(self) -> pulumi.Input['AutoScalingGroupAvailabilityZoneImpairmentPolicyImpairedZoneHealthCheckBehavior']:
         """
-        Specifies the health check behavior for the impaired Availability Zone in an active zonal shift. If you select `Replace unhealthy` , instances that appear unhealthy will be replaced in all Availability Zones. If you select `Ignore unhealthy` , instances will not be replaced in the Availability Zone with the active zonal shift. For more information, see [Auto Scaling group zonal shift](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-zonal-shift.html) in the *Amazon EC2 Auto Scaling User Guide* .
+        Specifies the health check behavior for the impaired Availability Zone in an active zonal shift. If you select ``Replace unhealthy``, instances that appear unhealthy will be replaced in all Availability Zones. If you select ``Ignore unhealthy``, instances will not be replaced in the Availability Zone with the active zonal shift. For more information, see [Auto Scaling group zonal shift](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-zonal-shift.html) in the *Amazon EC2 Auto Scaling User Guide*.
         """
         return pulumi.get(self, "impaired_zone_health_check_behavior")
 
@@ -314,7 +319,7 @@ class AutoScalingGroupAvailabilityZoneImpairmentPolicyArgs:
     @pulumi.getter(name="zonalShiftEnabled")
     def zonal_shift_enabled(self) -> pulumi.Input[bool]:
         """
-        If `true` , enable zonal shift for your Auto Scaling group.
+        If ``true``, enable zonal shift for your Auto Scaling group.
         """
         return pulumi.get(self, "zonal_shift_enabled")
 

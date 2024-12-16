@@ -1605,6 +1605,146 @@ func (o CampaignEmailOutboundModePtrOutput) AgentlessConfig() CampaignAgentlessC
 	}).(CampaignAgentlessConfigPtrOutput)
 }
 
+// The event trigger of the campaign
+type CampaignEventTrigger struct {
+	// The Amazon Resource Name (ARN) of the Customer Profiles domain.
+	CustomerProfilesDomainArn *string `pulumi:"customerProfilesDomainArn"`
+}
+
+// CampaignEventTriggerInput is an input type that accepts CampaignEventTriggerArgs and CampaignEventTriggerOutput values.
+// You can construct a concrete instance of `CampaignEventTriggerInput` via:
+//
+//	CampaignEventTriggerArgs{...}
+type CampaignEventTriggerInput interface {
+	pulumi.Input
+
+	ToCampaignEventTriggerOutput() CampaignEventTriggerOutput
+	ToCampaignEventTriggerOutputWithContext(context.Context) CampaignEventTriggerOutput
+}
+
+// The event trigger of the campaign
+type CampaignEventTriggerArgs struct {
+	// The Amazon Resource Name (ARN) of the Customer Profiles domain.
+	CustomerProfilesDomainArn pulumi.StringPtrInput `pulumi:"customerProfilesDomainArn"`
+}
+
+func (CampaignEventTriggerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignEventTrigger)(nil)).Elem()
+}
+
+func (i CampaignEventTriggerArgs) ToCampaignEventTriggerOutput() CampaignEventTriggerOutput {
+	return i.ToCampaignEventTriggerOutputWithContext(context.Background())
+}
+
+func (i CampaignEventTriggerArgs) ToCampaignEventTriggerOutputWithContext(ctx context.Context) CampaignEventTriggerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignEventTriggerOutput)
+}
+
+func (i CampaignEventTriggerArgs) ToCampaignEventTriggerPtrOutput() CampaignEventTriggerPtrOutput {
+	return i.ToCampaignEventTriggerPtrOutputWithContext(context.Background())
+}
+
+func (i CampaignEventTriggerArgs) ToCampaignEventTriggerPtrOutputWithContext(ctx context.Context) CampaignEventTriggerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignEventTriggerOutput).ToCampaignEventTriggerPtrOutputWithContext(ctx)
+}
+
+// CampaignEventTriggerPtrInput is an input type that accepts CampaignEventTriggerArgs, CampaignEventTriggerPtr and CampaignEventTriggerPtrOutput values.
+// You can construct a concrete instance of `CampaignEventTriggerPtrInput` via:
+//
+//	        CampaignEventTriggerArgs{...}
+//
+//	or:
+//
+//	        nil
+type CampaignEventTriggerPtrInput interface {
+	pulumi.Input
+
+	ToCampaignEventTriggerPtrOutput() CampaignEventTriggerPtrOutput
+	ToCampaignEventTriggerPtrOutputWithContext(context.Context) CampaignEventTriggerPtrOutput
+}
+
+type campaignEventTriggerPtrType CampaignEventTriggerArgs
+
+func CampaignEventTriggerPtr(v *CampaignEventTriggerArgs) CampaignEventTriggerPtrInput {
+	return (*campaignEventTriggerPtrType)(v)
+}
+
+func (*campaignEventTriggerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CampaignEventTrigger)(nil)).Elem()
+}
+
+func (i *campaignEventTriggerPtrType) ToCampaignEventTriggerPtrOutput() CampaignEventTriggerPtrOutput {
+	return i.ToCampaignEventTriggerPtrOutputWithContext(context.Background())
+}
+
+func (i *campaignEventTriggerPtrType) ToCampaignEventTriggerPtrOutputWithContext(ctx context.Context) CampaignEventTriggerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CampaignEventTriggerPtrOutput)
+}
+
+// The event trigger of the campaign
+type CampaignEventTriggerOutput struct{ *pulumi.OutputState }
+
+func (CampaignEventTriggerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CampaignEventTrigger)(nil)).Elem()
+}
+
+func (o CampaignEventTriggerOutput) ToCampaignEventTriggerOutput() CampaignEventTriggerOutput {
+	return o
+}
+
+func (o CampaignEventTriggerOutput) ToCampaignEventTriggerOutputWithContext(ctx context.Context) CampaignEventTriggerOutput {
+	return o
+}
+
+func (o CampaignEventTriggerOutput) ToCampaignEventTriggerPtrOutput() CampaignEventTriggerPtrOutput {
+	return o.ToCampaignEventTriggerPtrOutputWithContext(context.Background())
+}
+
+func (o CampaignEventTriggerOutput) ToCampaignEventTriggerPtrOutputWithContext(ctx context.Context) CampaignEventTriggerPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CampaignEventTrigger) *CampaignEventTrigger {
+		return &v
+	}).(CampaignEventTriggerPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Customer Profiles domain.
+func (o CampaignEventTriggerOutput) CustomerProfilesDomainArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CampaignEventTrigger) *string { return v.CustomerProfilesDomainArn }).(pulumi.StringPtrOutput)
+}
+
+type CampaignEventTriggerPtrOutput struct{ *pulumi.OutputState }
+
+func (CampaignEventTriggerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CampaignEventTrigger)(nil)).Elem()
+}
+
+func (o CampaignEventTriggerPtrOutput) ToCampaignEventTriggerPtrOutput() CampaignEventTriggerPtrOutput {
+	return o
+}
+
+func (o CampaignEventTriggerPtrOutput) ToCampaignEventTriggerPtrOutputWithContext(ctx context.Context) CampaignEventTriggerPtrOutput {
+	return o
+}
+
+func (o CampaignEventTriggerPtrOutput) Elem() CampaignEventTriggerOutput {
+	return o.ApplyT(func(v *CampaignEventTrigger) CampaignEventTrigger {
+		if v != nil {
+			return *v
+		}
+		var ret CampaignEventTrigger
+		return ret
+	}).(CampaignEventTriggerOutput)
+}
+
+// The Amazon Resource Name (ARN) of the Customer Profiles domain.
+func (o CampaignEventTriggerPtrOutput) CustomerProfilesDomainArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CampaignEventTrigger) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomerProfilesDomainArn
+	}).(pulumi.StringPtrOutput)
+}
+
 // Local time zone config
 type CampaignLocalTimeZoneConfig struct {
 	// The timezone to use for all recipients.
@@ -3093,10 +3233,12 @@ func (o CampaignSmsOutboundModePtrOutput) AgentlessConfig() CampaignAgentlessCon
 	}).(CampaignAgentlessConfigPtrOutput)
 }
 
-// The possible types of channel config parameters
+// The possible source of the campaign
 type CampaignSource struct {
 	// The Amazon Resource Name (ARN) of the Customer Profiles segment.
 	CustomerProfilesSegmentArn *string `pulumi:"customerProfilesSegmentArn"`
+	// The event trigger of the campaign.
+	EventTrigger *CampaignEventTrigger `pulumi:"eventTrigger"`
 }
 
 // CampaignSourceInput is an input type that accepts CampaignSourceArgs and CampaignSourceOutput values.
@@ -3110,10 +3252,12 @@ type CampaignSourceInput interface {
 	ToCampaignSourceOutputWithContext(context.Context) CampaignSourceOutput
 }
 
-// The possible types of channel config parameters
+// The possible source of the campaign
 type CampaignSourceArgs struct {
 	// The Amazon Resource Name (ARN) of the Customer Profiles segment.
 	CustomerProfilesSegmentArn pulumi.StringPtrInput `pulumi:"customerProfilesSegmentArn"`
+	// The event trigger of the campaign.
+	EventTrigger CampaignEventTriggerPtrInput `pulumi:"eventTrigger"`
 }
 
 func (CampaignSourceArgs) ElementType() reflect.Type {
@@ -3169,7 +3313,7 @@ func (i *campaignSourcePtrType) ToCampaignSourcePtrOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(CampaignSourcePtrOutput)
 }
 
-// The possible types of channel config parameters
+// The possible source of the campaign
 type CampaignSourceOutput struct{ *pulumi.OutputState }
 
 func (CampaignSourceOutput) ElementType() reflect.Type {
@@ -3197,6 +3341,11 @@ func (o CampaignSourceOutput) ToCampaignSourcePtrOutputWithContext(ctx context.C
 // The Amazon Resource Name (ARN) of the Customer Profiles segment.
 func (o CampaignSourceOutput) CustomerProfilesSegmentArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CampaignSource) *string { return v.CustomerProfilesSegmentArn }).(pulumi.StringPtrOutput)
+}
+
+// The event trigger of the campaign.
+func (o CampaignSourceOutput) EventTrigger() CampaignEventTriggerPtrOutput {
+	return o.ApplyT(func(v CampaignSource) *CampaignEventTrigger { return v.EventTrigger }).(CampaignEventTriggerPtrOutput)
 }
 
 type CampaignSourcePtrOutput struct{ *pulumi.OutputState }
@@ -3231,6 +3380,16 @@ func (o CampaignSourcePtrOutput) CustomerProfilesSegmentArn() pulumi.StringPtrOu
 		}
 		return v.CustomerProfilesSegmentArn
 	}).(pulumi.StringPtrOutput)
+}
+
+// The event trigger of the campaign.
+func (o CampaignSourcePtrOutput) EventTrigger() CampaignEventTriggerPtrOutput {
+	return o.ApplyT(func(v *CampaignSource) *CampaignEventTrigger {
+		if v == nil {
+			return nil
+		}
+		return v.EventTrigger
+	}).(CampaignEventTriggerPtrOutput)
 }
 
 type CampaignTag struct {
@@ -4081,6 +4240,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignEmailOutboundConfigPtrInput)(nil)).Elem(), CampaignEmailOutboundConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignEmailOutboundModeInput)(nil)).Elem(), CampaignEmailOutboundModeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignEmailOutboundModePtrInput)(nil)).Elem(), CampaignEmailOutboundModeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CampaignEventTriggerInput)(nil)).Elem(), CampaignEventTriggerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CampaignEventTriggerPtrInput)(nil)).Elem(), CampaignEventTriggerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignLocalTimeZoneConfigInput)(nil)).Elem(), CampaignLocalTimeZoneConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignLocalTimeZoneConfigPtrInput)(nil)).Elem(), CampaignLocalTimeZoneConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CampaignOpenHoursInput)(nil)).Elem(), CampaignOpenHoursArgs{})
@@ -4135,6 +4296,8 @@ func init() {
 	pulumi.RegisterOutputType(CampaignEmailOutboundConfigPtrOutput{})
 	pulumi.RegisterOutputType(CampaignEmailOutboundModeOutput{})
 	pulumi.RegisterOutputType(CampaignEmailOutboundModePtrOutput{})
+	pulumi.RegisterOutputType(CampaignEventTriggerOutput{})
+	pulumi.RegisterOutputType(CampaignEventTriggerPtrOutput{})
 	pulumi.RegisterOutputType(CampaignLocalTimeZoneConfigOutput{})
 	pulumi.RegisterOutputType(CampaignLocalTimeZoneConfigPtrOutput{})
 	pulumi.RegisterOutputType(CampaignOpenHoursOutput{})

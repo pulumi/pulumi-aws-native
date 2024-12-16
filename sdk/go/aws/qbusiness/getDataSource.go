@@ -61,7 +61,8 @@ type LookupDataSourceResult struct {
 	//
 	// For more information, see [Custom document enrichment](https://docs.aws.amazon.com/amazonq/latest/business-use-dg/custom-document-enrichment.html) .
 	DocumentEnrichmentConfiguration *DataSourceDocumentEnrichmentConfiguration `pulumi:"documentEnrichmentConfiguration"`
-	MediaExtractionConfiguration    *DataSourceMediaExtractionConfiguration    `pulumi:"mediaExtractionConfiguration"`
+	// The configuration for extracting information from media in documents.
+	MediaExtractionConfiguration *DataSourceMediaExtractionConfiguration `pulumi:"mediaExtractionConfiguration"`
 	// The Amazon Resource Name (ARN) of an IAM role with permission to access the data source and required resources.
 	RoleArn *string `pulumi:"roleArn"`
 	// The status of the Amazon Q Business data source.
@@ -167,6 +168,7 @@ func (o LookupDataSourceResultOutput) DocumentEnrichmentConfiguration() DataSour
 	}).(DataSourceDocumentEnrichmentConfigurationPtrOutput)
 }
 
+// The configuration for extracting information from media in documents.
 func (o LookupDataSourceResultOutput) MediaExtractionConfiguration() DataSourceMediaExtractionConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupDataSourceResult) *DataSourceMediaExtractionConfiguration {
 		return v.MediaExtractionConfiguration

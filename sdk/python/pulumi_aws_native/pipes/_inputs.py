@@ -2262,11 +2262,11 @@ if not MYPY:
     class PipeSageMakerPipelineParameterArgsDict(TypedDict):
         name: pulumi.Input[str]
         """
-        Name of parameter to start execution of a SageMaker Model Building Pipeline.
+        Name of parameter to start execution of a SageMaker AI Model Building Pipeline.
         """
         value: pulumi.Input[str]
         """
-        Value of parameter to start execution of a SageMaker Model Building Pipeline.
+        Value of parameter to start execution of a SageMaker AI Model Building Pipeline.
         """
 elif False:
     PipeSageMakerPipelineParameterArgsDict: TypeAlias = Mapping[str, Any]
@@ -2277,8 +2277,8 @@ class PipeSageMakerPipelineParameterArgs:
                  name: pulumi.Input[str],
                  value: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] name: Name of parameter to start execution of a SageMaker Model Building Pipeline.
-        :param pulumi.Input[str] value: Value of parameter to start execution of a SageMaker Model Building Pipeline.
+        :param pulumi.Input[str] name: Name of parameter to start execution of a SageMaker AI Model Building Pipeline.
+        :param pulumi.Input[str] value: Value of parameter to start execution of a SageMaker AI Model Building Pipeline.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
@@ -2287,7 +2287,7 @@ class PipeSageMakerPipelineParameterArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Name of parameter to start execution of a SageMaker Model Building Pipeline.
+        Name of parameter to start execution of a SageMaker AI Model Building Pipeline.
         """
         return pulumi.get(self, "name")
 
@@ -2299,7 +2299,7 @@ class PipeSageMakerPipelineParameterArgs:
     @pulumi.getter
     def value(self) -> pulumi.Input[str]:
         """
-        Value of parameter to start execution of a SageMaker Model Building Pipeline.
+        Value of parameter to start execution of a SageMaker AI Model Building Pipeline.
         """
         return pulumi.get(self, "value")
 
@@ -4570,7 +4570,7 @@ if not MYPY:
         """
         sage_maker_pipeline_parameters: NotRequired[pulumi.Input['PipeTargetSageMakerPipelineParametersArgsDict']]
         """
-        The parameters for using a SageMaker pipeline as a target.
+        The parameters for using a SageMaker AI pipeline as a target.
         """
         sqs_queue_parameters: NotRequired[pulumi.Input['PipeTargetSqsQueueParametersArgsDict']]
         """
@@ -4615,7 +4615,7 @@ class PipeTargetParametersArgs:
         :param pulumi.Input['PipeTargetKinesisStreamParametersArgs'] kinesis_stream_parameters: The parameters for using a Kinesis stream as a target.
         :param pulumi.Input['PipeTargetLambdaFunctionParametersArgs'] lambda_function_parameters: The parameters for using a Lambda function as a target.
         :param pulumi.Input['PipeTargetRedshiftDataParametersArgs'] redshift_data_parameters: These are custom parameters to be used when the target is a Amazon Redshift cluster to invoke the Amazon Redshift Data API BatchExecuteStatement.
-        :param pulumi.Input['PipeTargetSageMakerPipelineParametersArgs'] sage_maker_pipeline_parameters: The parameters for using a SageMaker pipeline as a target.
+        :param pulumi.Input['PipeTargetSageMakerPipelineParametersArgs'] sage_maker_pipeline_parameters: The parameters for using a SageMaker AI pipeline as a target.
         :param pulumi.Input['PipeTargetSqsQueueParametersArgs'] sqs_queue_parameters: The parameters for using a Amazon SQS stream as a target.
         :param pulumi.Input['PipeTargetStateMachineParametersArgs'] step_function_state_machine_parameters: The parameters for using a Step Functions state machine as a target.
         :param pulumi.Input['PipeTargetTimestreamParametersArgs'] timestream_parameters: The parameters for using a Timestream for LiveAnalytics table as a target.
@@ -4761,7 +4761,7 @@ class PipeTargetParametersArgs:
     @pulumi.getter(name="sageMakerPipelineParameters")
     def sage_maker_pipeline_parameters(self) -> Optional[pulumi.Input['PipeTargetSageMakerPipelineParametersArgs']]:
         """
-        The parameters for using a SageMaker pipeline as a target.
+        The parameters for using a SageMaker AI pipeline as a target.
         """
         return pulumi.get(self, "sage_maker_pipeline_parameters")
 
@@ -4940,7 +4940,7 @@ if not MYPY:
     class PipeTargetSageMakerPipelineParametersArgsDict(TypedDict):
         pipeline_parameter_list: NotRequired[pulumi.Input[Sequence[pulumi.Input['PipeSageMakerPipelineParameterArgsDict']]]]
         """
-        List of Parameter names and values for SageMaker Model Building Pipeline execution.
+        List of Parameter names and values for SageMaker AI Model Building Pipeline execution.
         """
 elif False:
     PipeTargetSageMakerPipelineParametersArgsDict: TypeAlias = Mapping[str, Any]
@@ -4950,7 +4950,7 @@ class PipeTargetSageMakerPipelineParametersArgs:
     def __init__(__self__, *,
                  pipeline_parameter_list: Optional[pulumi.Input[Sequence[pulumi.Input['PipeSageMakerPipelineParameterArgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['PipeSageMakerPipelineParameterArgs']]] pipeline_parameter_list: List of Parameter names and values for SageMaker Model Building Pipeline execution.
+        :param pulumi.Input[Sequence[pulumi.Input['PipeSageMakerPipelineParameterArgs']]] pipeline_parameter_list: List of Parameter names and values for SageMaker AI Model Building Pipeline execution.
         """
         if pipeline_parameter_list is not None:
             pulumi.set(__self__, "pipeline_parameter_list", pipeline_parameter_list)
@@ -4959,7 +4959,7 @@ class PipeTargetSageMakerPipelineParametersArgs:
     @pulumi.getter(name="pipelineParameterList")
     def pipeline_parameter_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PipeSageMakerPipelineParameterArgs']]]]:
         """
-        List of Parameter names and values for SageMaker Model Building Pipeline execution.
+        List of Parameter names and values for SageMaker AI Model Building Pipeline execution.
         """
         return pulumi.get(self, "pipeline_parameter_list")
 

@@ -90,6 +90,11 @@ export const getSubscriptionFilter: typeof import("./getSubscriptionFilter").get
 export const getSubscriptionFilterOutput: typeof import("./getSubscriptionFilter").getSubscriptionFilterOutput = null as any;
 utilities.lazyLoad(exports, ["getSubscriptionFilter","getSubscriptionFilterOutput"], () => require("./getSubscriptionFilter"));
 
+export { GetTransformerArgs, GetTransformerResult, GetTransformerOutputArgs } from "./getTransformer";
+export const getTransformer: typeof import("./getTransformer").getTransformer = null as any;
+export const getTransformerOutput: typeof import("./getTransformer").getTransformerOutput = null as any;
+utilities.lazyLoad(exports, ["getTransformer","getTransformerOutput"], () => require("./getTransformer"));
+
 export { IntegrationArgs } from "./integration";
 export type Integration = import("./integration").Integration;
 export const Integration: typeof import("./integration").Integration = null as any;
@@ -130,6 +135,11 @@ export type SubscriptionFilter = import("./subscriptionFilter").SubscriptionFilt
 export const SubscriptionFilter: typeof import("./subscriptionFilter").SubscriptionFilter = null as any;
 utilities.lazyLoad(exports, ["SubscriptionFilter"], () => require("./subscriptionFilter"));
 
+export { TransformerArgs } from "./transformer";
+export type Transformer = import("./transformer").Transformer;
+export const Transformer: typeof import("./transformer").Transformer = null as any;
+utilities.lazyLoad(exports, ["Transformer"], () => require("./transformer"));
+
 
 // Export enums:
 export * from "../types/enums/logs";
@@ -164,6 +174,8 @@ const _module = {
                 return new ResourcePolicy(name, <any>undefined, { urn })
             case "aws-native:logs:SubscriptionFilter":
                 return new SubscriptionFilter(name, <any>undefined, { urn })
+            case "aws-native:logs:Transformer":
+                return new Transformer(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

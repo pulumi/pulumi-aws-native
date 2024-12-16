@@ -11,24 +11,24 @@ namespace Pulumi.AwsNative.Connect.Inputs
 {
 
     /// <summary>
-    /// The definition of task action.
+    /// Information about the task action. This field is required if ``TriggerEventSource`` is one of the following values: ``OnZendeskTicketCreate`` | ``OnZendeskTicketStatusUpdate`` | ``OnSalesforceCaseCreate``
     /// </summary>
     public sealed class RuleTaskActionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the contact flow.
+        /// The Amazon Resource Name (ARN) of the flow.
         /// </summary>
         [Input("contactFlowArn", required: true)]
         public Input<string> ContactFlowArn { get; set; } = null!;
 
         /// <summary>
-        /// The description which appears in the agent's Contact Control Panel (CCP).
+        /// The description. Supports variable injection. For more information, see [JSONPath reference](https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-variable-injection.html) in the *Administrators Guide*.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The name which appears in the agent's Contact Control Panel (CCP).
+        /// The name. Supports variable injection. For more information, see [JSONPath reference](https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-variable-injection.html) in the *Administrators Guide*.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.Connect.Inputs
         private InputMap<Inputs.RuleReferenceArgs>? _references;
 
         /// <summary>
-        /// A formatted URL that is shown to an agent in the Contact Control Panel (CCP).
+        /// Information about the reference when the ``referenceType`` is ``URL``. Otherwise, null. ``URL`` is the only accepted type. (Supports variable injection in the ``Value`` field.)
         /// </summary>
         public InputMap<Inputs.RuleReferenceArgs> References
         {

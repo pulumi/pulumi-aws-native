@@ -820,8 +820,7 @@ type Bucket struct {
 	// Specifies the lifecycle configuration for objects in an Amazon S3 bucket. For more information, see [Object Lifecycle Management](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html) in the *Amazon S3 User Guide*.
 	LifecycleConfiguration BucketLifecycleConfigurationPtrOutput `pulumi:"lifecycleConfiguration"`
 	// Settings that define where logs are stored.
-	LoggingConfiguration       BucketLoggingConfigurationPtrOutput       `pulumi:"loggingConfiguration"`
-	MetadataTableConfiguration BucketMetadataTableConfigurationPtrOutput `pulumi:"metadataTableConfiguration"`
+	LoggingConfiguration BucketLoggingConfigurationPtrOutput `pulumi:"loggingConfiguration"`
 	// Specifies a metrics configuration for the CloudWatch request metrics (specified by the metrics configuration ID) from an Amazon S3 bucket. If you're updating an existing metrics configuration, note that this is a full replacement of the existing metrics configuration. If you don't include the elements you want to keep, they are erased. For more information, see [PutBucketMetricsConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTMetricConfiguration.html).
 	MetricsConfigurations BucketMetricsConfigurationArrayOutput `pulumi:"metricsConfigurations"`
 	// Configuration that defines how Amazon S3 handles bucket notifications.
@@ -927,8 +926,7 @@ type bucketArgs struct {
 	// Specifies the lifecycle configuration for objects in an Amazon S3 bucket. For more information, see [Object Lifecycle Management](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html) in the *Amazon S3 User Guide*.
 	LifecycleConfiguration *BucketLifecycleConfiguration `pulumi:"lifecycleConfiguration"`
 	// Settings that define where logs are stored.
-	LoggingConfiguration       *BucketLoggingConfiguration       `pulumi:"loggingConfiguration"`
-	MetadataTableConfiguration *BucketMetadataTableConfiguration `pulumi:"metadataTableConfiguration"`
+	LoggingConfiguration *BucketLoggingConfiguration `pulumi:"loggingConfiguration"`
 	// Specifies a metrics configuration for the CloudWatch request metrics (specified by the metrics configuration ID) from an Amazon S3 bucket. If you're updating an existing metrics configuration, note that this is a full replacement of the existing metrics configuration. If you don't include the elements you want to keep, they are erased. For more information, see [PutBucketMetricsConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTMetricConfiguration.html).
 	MetricsConfigurations []BucketMetricsConfiguration `pulumi:"metricsConfigurations"`
 	// Configuration that defines how Amazon S3 handles bucket notifications.
@@ -982,8 +980,7 @@ type BucketArgs struct {
 	// Specifies the lifecycle configuration for objects in an Amazon S3 bucket. For more information, see [Object Lifecycle Management](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html) in the *Amazon S3 User Guide*.
 	LifecycleConfiguration BucketLifecycleConfigurationPtrInput
 	// Settings that define where logs are stored.
-	LoggingConfiguration       BucketLoggingConfigurationPtrInput
-	MetadataTableConfiguration BucketMetadataTableConfigurationPtrInput
+	LoggingConfiguration BucketLoggingConfigurationPtrInput
 	// Specifies a metrics configuration for the CloudWatch request metrics (specified by the metrics configuration ID) from an Amazon S3 bucket. If you're updating an existing metrics configuration, note that this is a full replacement of the existing metrics configuration. If you don't include the elements you want to keep, they are erased. For more information, see [PutBucketMetricsConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTMetricConfiguration.html).
 	MetricsConfigurations BucketMetricsConfigurationArrayInput
 	// Configuration that defines how Amazon S3 handles bucket notifications.
@@ -1128,10 +1125,6 @@ func (o BucketOutput) LifecycleConfiguration() BucketLifecycleConfigurationPtrOu
 // Settings that define where logs are stored.
 func (o BucketOutput) LoggingConfiguration() BucketLoggingConfigurationPtrOutput {
 	return o.ApplyT(func(v *Bucket) BucketLoggingConfigurationPtrOutput { return v.LoggingConfiguration }).(BucketLoggingConfigurationPtrOutput)
-}
-
-func (o BucketOutput) MetadataTableConfiguration() BucketMetadataTableConfigurationPtrOutput {
-	return o.ApplyT(func(v *Bucket) BucketMetadataTableConfigurationPtrOutput { return v.MetadataTableConfiguration }).(BucketMetadataTableConfigurationPtrOutput)
 }
 
 // Specifies a metrics configuration for the CloudWatch request metrics (specified by the metrics configuration ID) from an Amazon S3 bucket. If you're updating an existing metrics configuration, note that this is a full replacement of the existing metrics configuration. If you don't include the elements you want to keep, they are erased. For more information, see [PutBucketMetricsConfiguration](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTMetricConfiguration.html).

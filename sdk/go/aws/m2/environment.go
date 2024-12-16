@@ -33,7 +33,8 @@ type Environment struct {
 	// The ID or the Amazon Resource Name (ARN) of the customer managed KMS Key used for encrypting environment-related resources.
 	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
 	// The name of the environment.
-	Name pulumi.StringOutput `pulumi:"name"`
+	Name        pulumi.StringOutput             `pulumi:"name"`
+	NetworkType EnvironmentNetworkTypePtrOutput `pulumi:"networkType"`
 	// Configures a desired maintenance window for the environment. If you do not provide a value, a random system-generated value will be assigned.
 	PreferredMaintenanceWindow pulumi.StringPtrOutput `pulumi:"preferredMaintenanceWindow"`
 	// Specifies whether the environment is publicly accessible.
@@ -66,6 +67,7 @@ func NewEnvironment(ctx *pulumi.Context,
 		"engineType",
 		"kmsKeyId",
 		"name",
+		"networkType",
 		"publiclyAccessible",
 		"securityGroupIds[*]",
 		"storageConfigurations[*]",
@@ -118,7 +120,8 @@ type environmentArgs struct {
 	// The ID or the Amazon Resource Name (ARN) of the customer managed KMS Key used for encrypting environment-related resources.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// The name of the environment.
-	Name *string `pulumi:"name"`
+	Name        *string                 `pulumi:"name"`
+	NetworkType *EnvironmentNetworkType `pulumi:"networkType"`
 	// Configures a desired maintenance window for the environment. If you do not provide a value, a random system-generated value will be assigned.
 	PreferredMaintenanceWindow *string `pulumi:"preferredMaintenanceWindow"`
 	// Specifies whether the environment is publicly accessible.
@@ -148,7 +151,8 @@ type EnvironmentArgs struct {
 	// The ID or the Amazon Resource Name (ARN) of the customer managed KMS Key used for encrypting environment-related resources.
 	KmsKeyId pulumi.StringPtrInput
 	// The name of the environment.
-	Name pulumi.StringPtrInput
+	Name        pulumi.StringPtrInput
+	NetworkType EnvironmentNetworkTypePtrInput
 	// Configures a desired maintenance window for the environment. If you do not provide a value, a random system-generated value will be assigned.
 	PreferredMaintenanceWindow pulumi.StringPtrInput
 	// Specifies whether the environment is publicly accessible.
@@ -243,6 +247,10 @@ func (o EnvironmentOutput) KmsKeyId() pulumi.StringPtrOutput {
 // The name of the environment.
 func (o EnvironmentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o EnvironmentOutput) NetworkType() EnvironmentNetworkTypePtrOutput {
+	return o.ApplyT(func(v *Environment) EnvironmentNetworkTypePtrOutput { return v.NetworkType }).(EnvironmentNetworkTypePtrOutput)
 }
 
 // Configures a desired maintenance window for the environment. If you do not provide a value, a random system-generated value will be assigned.

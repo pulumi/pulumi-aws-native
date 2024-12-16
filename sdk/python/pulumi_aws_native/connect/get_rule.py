@@ -50,7 +50,7 @@ class GetRuleResult:
     @pulumi.getter
     def actions(self) -> Optional['outputs.RuleActions']:
         """
-        The list of actions that will be executed when a rule is triggered.
+        A list of actions to be run when the rule is triggered.
         """
         return pulumi.get(self, "actions")
 
@@ -58,7 +58,7 @@ class GetRuleResult:
     @pulumi.getter
     def function(self) -> Optional[str]:
         """
-        The conditions of a rule.
+        The conditions of the rule.
         """
         return pulumi.get(self, "function")
 
@@ -74,7 +74,8 @@ class GetRuleResult:
     @pulumi.getter(name="publishStatus")
     def publish_status(self) -> Optional['RulePublishStatus']:
         """
-        The publish status of a rule, either draft or published.
+        The publish status of the rule.
+          *Allowed values*: ``DRAFT`` | ``PUBLISHED``
         """
         return pulumi.get(self, "publish_status")
 
@@ -90,7 +91,7 @@ class GetRuleResult:
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
-        One or more tags.
+        The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
         """
         return pulumi.get(self, "tags")
 
@@ -112,7 +113,7 @@ class AwaitableGetRuleResult(GetRuleResult):
 def get_rule(rule_arn: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRuleResult:
     """
-    Resource Type definition for AWS:Connect::Rule
+    Creates a rule for the specified CON instance.
 
 
     :param str rule_arn: The Amazon Resource Name (ARN) of the rule.
@@ -132,7 +133,7 @@ def get_rule(rule_arn: Optional[str] = None,
 def get_rule_output(rule_arn: Optional[pulumi.Input[str]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRuleResult]:
     """
-    Resource Type definition for AWS:Connect::Rule
+    Creates a rule for the specified CON instance.
 
 
     :param str rule_arn: The Amazon Resource Name (ARN) of the rule.

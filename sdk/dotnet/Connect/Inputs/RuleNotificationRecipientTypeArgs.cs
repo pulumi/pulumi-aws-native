@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.Connect.Inputs
         private InputList<string>? _userArns;
 
         /// <summary>
-        /// The list of recipients by user arns.
+        /// The Amazon Resource Name (ARN) of the user account.
         /// </summary>
         public InputList<string> UserArns
         {
@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.Connect.Inputs
         private InputMap<string>? _userTags;
 
         /// <summary>
-        /// The collection of recipients who are identified by user tags
+        /// The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }. CON users with the specified tags will be notified.
         /// </summary>
         public InputMap<string> UserTags
         {

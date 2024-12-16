@@ -359,6 +359,7 @@ class Workgroup(dict):
         :param bool enhanced_vpc_routing: The value that specifies whether to enable enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC.
         :param int max_capacity: The maximum data-warehouse capacity Amazon Redshift Serverless uses to serve queries. The max capacity is specified in RPUs.
         :param str namespace_name: The namespace the workgroup is associated with.
+        :param 'WorkgroupPerformanceTarget' price_performance_target: An object that represents the price performance target settings for the workgroup.
         :param bool publicly_accessible: A value that specifies whether the workgroup can be accessible from a public network.
         :param Sequence[str] security_group_ids: An array of security group IDs to associate with the workgroup.
         :param 'WorkgroupStatus' status: The status of the workgroup.
@@ -457,6 +458,9 @@ class Workgroup(dict):
     @property
     @pulumi.getter(name="pricePerformanceTarget")
     def price_performance_target(self) -> Optional['outputs.WorkgroupPerformanceTarget']:
+        """
+        An object that represents the price performance target settings for the workgroup.
+        """
         return pulumi.get(self, "price_performance_target")
 
     @property
@@ -709,6 +713,10 @@ class WorkgroupPerformanceTarget(dict):
     def __init__(__self__, *,
                  level: Optional[int] = None,
                  status: Optional['WorkgroupPerformanceTargetStatus'] = None):
+        """
+        :param int level: The target price performance level for the workgroup. Valid values include 1, 25, 50, 75, and 100. These correspond to the price performance levels LOW_COST, ECONOMICAL, BALANCED, RESOURCEFUL, and HIGH_PERFORMANCE.
+        :param 'WorkgroupPerformanceTargetStatus' status: Whether the price performance target is enabled for the workgroup.
+        """
         if level is not None:
             pulumi.set(__self__, "level", level)
         if status is not None:
@@ -717,11 +725,17 @@ class WorkgroupPerformanceTarget(dict):
     @property
     @pulumi.getter
     def level(self) -> Optional[int]:
+        """
+        The target price performance level for the workgroup. Valid values include 1, 25, 50, 75, and 100. These correspond to the price performance levels LOW_COST, ECONOMICAL, BALANCED, RESOURCEFUL, and HIGH_PERFORMANCE.
+        """
         return pulumi.get(self, "level")
 
     @property
     @pulumi.getter
     def status(self) -> Optional['WorkgroupPerformanceTargetStatus']:
+        """
+        Whether the price performance target is enabled for the workgroup.
+        """
         return pulumi.get(self, "status")
 
 

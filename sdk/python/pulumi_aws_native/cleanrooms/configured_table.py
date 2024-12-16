@@ -26,7 +26,7 @@ class ConfiguredTableArgs:
     def __init__(__self__, *,
                  allowed_columns: pulumi.Input[Sequence[pulumi.Input[str]]],
                  analysis_method: pulumi.Input['ConfiguredTableAnalysisMethod'],
-                 table_reference: pulumi.Input['ConfiguredTableTableReferenceArgs'],
+                 table_reference: pulumi.Input[Union['ConfiguredTableTableReference0PropertiesArgs', 'ConfiguredTableTableReference1PropertiesArgs', 'ConfiguredTableTableReference2PropertiesArgs']],
                  analysis_rules: Optional[pulumi.Input[Sequence[pulumi.Input['ConfiguredTableAnalysisRuleArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -35,7 +35,7 @@ class ConfiguredTableArgs:
         The set of arguments for constructing a ConfiguredTable resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_columns: The columns within the underlying AWS Glue table that can be utilized within collaborations.
         :param pulumi.Input['ConfiguredTableAnalysisMethod'] analysis_method: The analysis method for the configured table. The only valid value is currently `DIRECT_QUERY`.
-        :param pulumi.Input['ConfiguredTableTableReferenceArgs'] table_reference: The table that this configured table represents.
+        :param pulumi.Input[Union['ConfiguredTableTableReference0PropertiesArgs', 'ConfiguredTableTableReference1PropertiesArgs', 'ConfiguredTableTableReference2PropertiesArgs']] table_reference: The table that this configured table represents.
         :param pulumi.Input[Sequence[pulumi.Input['ConfiguredTableAnalysisRuleArgs']]] analysis_rules: The analysis rule that was created for the configured table.
         :param pulumi.Input[str] description: A description for the configured table.
         :param pulumi.Input[str] name: A name for the configured table.
@@ -79,14 +79,14 @@ class ConfiguredTableArgs:
 
     @property
     @pulumi.getter(name="tableReference")
-    def table_reference(self) -> pulumi.Input['ConfiguredTableTableReferenceArgs']:
+    def table_reference(self) -> pulumi.Input[Union['ConfiguredTableTableReference0PropertiesArgs', 'ConfiguredTableTableReference1PropertiesArgs', 'ConfiguredTableTableReference2PropertiesArgs']]:
         """
         The table that this configured table represents.
         """
         return pulumi.get(self, "table_reference")
 
     @table_reference.setter
-    def table_reference(self, value: pulumi.Input['ConfiguredTableTableReferenceArgs']):
+    def table_reference(self, value: pulumi.Input[Union['ConfiguredTableTableReference0PropertiesArgs', 'ConfiguredTableTableReference1PropertiesArgs', 'ConfiguredTableTableReference2PropertiesArgs']]):
         pulumi.set(self, "table_reference", value)
 
     @property
@@ -148,7 +148,7 @@ class ConfiguredTable(pulumi.CustomResource):
                  analysis_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConfiguredTableAnalysisRuleArgs', 'ConfiguredTableAnalysisRuleArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 table_reference: Optional[pulumi.Input[Union['ConfiguredTableTableReferenceArgs', 'ConfiguredTableTableReferenceArgsDict']]] = None,
+                 table_reference: Optional[pulumi.Input[Union[Union['ConfiguredTableTableReference0PropertiesArgs', 'ConfiguredTableTableReference0PropertiesArgsDict'], Union['ConfiguredTableTableReference1PropertiesArgs', 'ConfiguredTableTableReference1PropertiesArgsDict'], Union['ConfiguredTableTableReference2PropertiesArgs', 'ConfiguredTableTableReference2PropertiesArgsDict']]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
@@ -161,7 +161,7 @@ class ConfiguredTable(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['ConfiguredTableAnalysisRuleArgs', 'ConfiguredTableAnalysisRuleArgsDict']]]] analysis_rules: The analysis rule that was created for the configured table.
         :param pulumi.Input[str] description: A description for the configured table.
         :param pulumi.Input[str] name: A name for the configured table.
-        :param pulumi.Input[Union['ConfiguredTableTableReferenceArgs', 'ConfiguredTableTableReferenceArgsDict']] table_reference: The table that this configured table represents.
+        :param pulumi.Input[Union[Union['ConfiguredTableTableReference0PropertiesArgs', 'ConfiguredTableTableReference0PropertiesArgsDict'], Union['ConfiguredTableTableReference1PropertiesArgs', 'ConfiguredTableTableReference1PropertiesArgsDict'], Union['ConfiguredTableTableReference2PropertiesArgs', 'ConfiguredTableTableReference2PropertiesArgsDict']]] table_reference: The table that this configured table represents.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
         """
         ...
@@ -193,7 +193,7 @@ class ConfiguredTable(pulumi.CustomResource):
                  analysis_rules: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ConfiguredTableAnalysisRuleArgs', 'ConfiguredTableAnalysisRuleArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 table_reference: Optional[pulumi.Input[Union['ConfiguredTableTableReferenceArgs', 'ConfiguredTableTableReferenceArgsDict']]] = None,
+                 table_reference: Optional[pulumi.Input[Union[Union['ConfiguredTableTableReference0PropertiesArgs', 'ConfiguredTableTableReference0PropertiesArgsDict'], Union['ConfiguredTableTableReference1PropertiesArgs', 'ConfiguredTableTableReference1PropertiesArgsDict'], Union['ConfiguredTableTableReference2PropertiesArgs', 'ConfiguredTableTableReference2PropertiesArgsDict']]]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -316,7 +316,7 @@ class ConfiguredTable(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="tableReference")
-    def table_reference(self) -> pulumi.Output['outputs.ConfiguredTableTableReference']:
+    def table_reference(self) -> pulumi.Output[Any]:
         """
         The table that this configured table represents.
         """

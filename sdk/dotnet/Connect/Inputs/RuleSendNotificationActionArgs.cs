@@ -11,33 +11,38 @@ namespace Pulumi.AwsNative.Connect.Inputs
 {
 
     /// <summary>
-    /// The definition for sending notification action.
+    /// Information about the send notification action.
     /// </summary>
     public sealed class RuleSendNotificationActionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The content of notification.
+        /// Notification content. Supports variable injection. For more information, see [JSONPath reference](https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-variable-injection.html) in the *Administrators Guide*.
         /// </summary>
         [Input("content", required: true)]
         public Input<string> Content { get; set; } = null!;
 
         /// <summary>
-        /// The type of content.
+        /// Content type format.
+        ///   *Allowed value*: ``PLAIN_TEXT``
         /// </summary>
         [Input("contentType", required: true)]
         public Input<Pulumi.AwsNative.Connect.RuleSendNotificationActionContentType> ContentType { get; set; } = null!;
 
         /// <summary>
-        /// The means of delivery.
+        /// Notification delivery method.
+        ///   *Allowed value*: ``EMAIL``
         /// </summary>
         [Input("deliveryMethod", required: true)]
         public Input<Pulumi.AwsNative.Connect.RuleSendNotificationActionDeliveryMethod> DeliveryMethod { get; set; } = null!;
 
+        /// <summary>
+        /// Notification recipient.
+        /// </summary>
         [Input("recipient", required: true)]
         public Input<Inputs.RuleNotificationRecipientTypeArgs> Recipient { get; set; } = null!;
 
         /// <summary>
-        /// The subject of notification.
+        /// The subject of the email if the delivery method is ``EMAIL``. Supports variable injection. For more information, see [JSONPath reference](https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-variable-injection.html) in the *Administrators Guide*.
         /// </summary>
         [Input("subject")]
         public Input<string>? Subject { get; set; }

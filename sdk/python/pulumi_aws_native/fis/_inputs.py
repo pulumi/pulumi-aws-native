@@ -338,13 +338,13 @@ class ExperimentTemplateExperimentReportConfigurationOutputsPropertiesArgs:
 
 if not MYPY:
     class ExperimentTemplateExperimentReportConfigurationArgsDict(TypedDict):
-        data_sources: pulumi.Input['ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesArgsDict']
-        """
-        The data sources for the experiment report.
-        """
         outputs: pulumi.Input['ExperimentTemplateExperimentReportConfigurationOutputsPropertiesArgsDict']
         """
         The output destinations of the experiment report.
+        """
+        data_sources: NotRequired[pulumi.Input['ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesArgsDict']]
+        """
+        The data sources for the experiment report.
         """
         post_experiment_duration: NotRequired[pulumi.Input[str]]
         """
@@ -360,34 +360,23 @@ elif False:
 @pulumi.input_type
 class ExperimentTemplateExperimentReportConfigurationArgs:
     def __init__(__self__, *,
-                 data_sources: pulumi.Input['ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesArgs'],
                  outputs: pulumi.Input['ExperimentTemplateExperimentReportConfigurationOutputsPropertiesArgs'],
+                 data_sources: Optional[pulumi.Input['ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesArgs']] = None,
                  post_experiment_duration: Optional[pulumi.Input[str]] = None,
                  pre_experiment_duration: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input['ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesArgs'] data_sources: The data sources for the experiment report.
         :param pulumi.Input['ExperimentTemplateExperimentReportConfigurationOutputsPropertiesArgs'] outputs: The output destinations of the experiment report.
+        :param pulumi.Input['ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesArgs'] data_sources: The data sources for the experiment report.
         :param pulumi.Input[str] post_experiment_duration: The duration after the experiment end time for the data sources to include in the report.
         :param pulumi.Input[str] pre_experiment_duration: The duration before the experiment start time for the data sources to include in the report.
         """
-        pulumi.set(__self__, "data_sources", data_sources)
         pulumi.set(__self__, "outputs", outputs)
+        if data_sources is not None:
+            pulumi.set(__self__, "data_sources", data_sources)
         if post_experiment_duration is not None:
             pulumi.set(__self__, "post_experiment_duration", post_experiment_duration)
         if pre_experiment_duration is not None:
             pulumi.set(__self__, "pre_experiment_duration", pre_experiment_duration)
-
-    @property
-    @pulumi.getter(name="dataSources")
-    def data_sources(self) -> pulumi.Input['ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesArgs']:
-        """
-        The data sources for the experiment report.
-        """
-        return pulumi.get(self, "data_sources")
-
-    @data_sources.setter
-    def data_sources(self, value: pulumi.Input['ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesArgs']):
-        pulumi.set(self, "data_sources", value)
 
     @property
     @pulumi.getter
@@ -400,6 +389,18 @@ class ExperimentTemplateExperimentReportConfigurationArgs:
     @outputs.setter
     def outputs(self, value: pulumi.Input['ExperimentTemplateExperimentReportConfigurationOutputsPropertiesArgs']):
         pulumi.set(self, "outputs", value)
+
+    @property
+    @pulumi.getter(name="dataSources")
+    def data_sources(self) -> Optional[pulumi.Input['ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesArgs']]:
+        """
+        The data sources for the experiment report.
+        """
+        return pulumi.get(self, "data_sources")
+
+    @data_sources.setter
+    def data_sources(self, value: Optional[pulumi.Input['ExperimentTemplateExperimentReportConfigurationDataSourcesPropertiesArgs']]):
+        pulumi.set(self, "data_sources", value)
 
     @property
     @pulumi.getter(name="postExperimentDuration")

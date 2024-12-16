@@ -36,11 +36,17 @@ class GetTableBucketResult:
     @property
     @pulumi.getter(name="tableBucketArn")
     def table_bucket_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the table bucket.
+        """
         return pulumi.get(self, "table_bucket_arn")
 
     @property
     @pulumi.getter(name="unreferencedFileRemoval")
     def unreferenced_file_removal(self) -> Optional['outputs.TableBucketUnreferencedFileRemoval']:
+        """
+        The unreferenced file removal settings for your table bucket. Unreferenced file removal identifies and deletes all objects that are not referenced by any table snapshots. For more information, see the [*Amazon S3 User Guide*](https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-table-buckets-maintenance.html) .
+        """
         return pulumi.get(self, "unreferenced_file_removal")
 
 
@@ -58,6 +64,9 @@ def get_table_bucket(table_bucket_arn: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTableBucketResult:
     """
     Creates an Amazon S3 Tables table bucket in the same AWS Region where you create the AWS CloudFormation stack.
+
+
+    :param str table_bucket_arn: The Amazon Resource Name (ARN) of the table bucket.
     """
     __args__ = dict()
     __args__['tableBucketArn'] = table_bucket_arn
@@ -71,6 +80,9 @@ def get_table_bucket_output(table_bucket_arn: Optional[pulumi.Input[str]] = None
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTableBucketResult]:
     """
     Creates an Amazon S3 Tables table bucket in the same AWS Region where you create the AWS CloudFormation stack.
+
+
+    :param str table_bucket_arn: The Amazon Resource Name (ARN) of the table bucket.
     """
     __args__ = dict()
     __args__['tableBucketArn'] = table_bucket_arn

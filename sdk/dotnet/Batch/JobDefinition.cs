@@ -15,9 +15,6 @@ namespace Pulumi.AwsNative.Batch
     [AwsNativeResourceType("aws-native:batch:JobDefinition")]
     public partial class JobDefinition : global::Pulumi.CustomResource
     {
-        [Output("awsId")]
-        public Output<string> AwsId { get; private set; } = null!;
-
         /// <summary>
         /// An object with properties specific to Amazon ECS-based jobs. When `containerProperties` is used in the job definition, it can't be used in addition to `eksProperties` , `ecsProperties` , or `nodeProperties` .
         /// </summary>
@@ -52,11 +49,9 @@ namespace Pulumi.AwsNative.Batch
 
         /// <summary>
         /// Default parameters or parameter substitution placeholders that are set in the job definition. Parameters are specified as a key-value pair mapping. Parameters in a `SubmitJob` request override any corresponding parameter defaults from the job definition. For more information about specifying parameters, see [Job definition parameters](https://docs.aws.amazon.com/batch/latest/userguide/job_definition_parameters.html) in the *AWS Batch User Guide* .
-        /// 
-        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Batch::JobDefinition` for more information about the expected schema for this property.
         /// </summary>
         [Output("parameters")]
-        public Output<object?> Parameters { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Parameters { get; private set; } = null!;
 
         /// <summary>
         /// The platform capabilities required by the job definition. If no value is specified, it defaults to `EC2` . Jobs run on Fargate resources specify `FARGATE` .
@@ -83,18 +78,16 @@ namespace Pulumi.AwsNative.Batch
         public Output<int?> SchedulingPriority { get; private set; } = null!;
 
         /// <summary>
-        /// The tags that are applied to the job definition.
-        /// 
-        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Batch::JobDefinition` for more information about the expected schema for this property.
+        /// A key-value pair to associate with a resource.
         /// </summary>
         [Output("tags")]
-        public Output<object?> Tags { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
         /// The timeout time for jobs that are submitted with this job definition. After the amount of time you specify passes, AWS Batch terminates your jobs if they aren't finished.
         /// </summary>
         [Output("timeout")]
-        public Output<Outputs.JobDefinitionTimeout?> Timeout { get; private set; } = null!;
+        public Output<Outputs.JobDefinitionJobTimeout?> Timeout { get; private set; } = null!;
 
         /// <summary>
         /// The type of job definition. For more information about multi-node parallel jobs, see [Creating a multi-node parallel job definition](https://docs.aws.amazon.com/batch/latest/userguide/multi-node-job-def.html) in the *AWS Batch User Guide* .
@@ -188,13 +181,17 @@ namespace Pulumi.AwsNative.Batch
         [Input("nodeProperties")]
         public Input<Inputs.JobDefinitionNodePropertiesArgs>? NodeProperties { get; set; }
 
+        [Input("parameters")]
+        private InputMap<string>? _parameters;
+
         /// <summary>
         /// Default parameters or parameter substitution placeholders that are set in the job definition. Parameters are specified as a key-value pair mapping. Parameters in a `SubmitJob` request override any corresponding parameter defaults from the job definition. For more information about specifying parameters, see [Job definition parameters](https://docs.aws.amazon.com/batch/latest/userguide/job_definition_parameters.html) in the *AWS Batch User Guide* .
-        /// 
-        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Batch::JobDefinition` for more information about the expected schema for this property.
         /// </summary>
-        [Input("parameters")]
-        public Input<object>? Parameters { get; set; }
+        public InputMap<string> Parameters
+        {
+            get => _parameters ?? (_parameters = new InputMap<string>());
+            set => _parameters = value;
+        }
 
         [Input("platformCapabilities")]
         private InputList<string>? _platformCapabilities;
@@ -226,19 +223,23 @@ namespace Pulumi.AwsNative.Batch
         [Input("schedulingPriority")]
         public Input<int>? SchedulingPriority { get; set; }
 
-        /// <summary>
-        /// The tags that are applied to the job definition.
-        /// 
-        /// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Batch::JobDefinition` for more information about the expected schema for this property.
-        /// </summary>
         [Input("tags")]
-        public Input<object>? Tags { get; set; }
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A key-value pair to associate with a resource.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// The timeout time for jobs that are submitted with this job definition. After the amount of time you specify passes, AWS Batch terminates your jobs if they aren't finished.
         /// </summary>
         [Input("timeout")]
-        public Input<Inputs.JobDefinitionTimeoutArgs>? Timeout { get; set; }
+        public Input<Inputs.JobDefinitionJobTimeoutArgs>? Timeout { get; set; }
 
         /// <summary>
         /// The type of job definition. For more information about multi-node parallel jobs, see [Creating a multi-node parallel job definition](https://docs.aws.amazon.com/batch/latest/userguide/multi-node-job-def.html) in the *AWS Batch User Guide* .

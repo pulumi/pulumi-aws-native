@@ -1,4 +1,3 @@
-AWS::Batch::JobDefinition
 AWS::Cognito::UserPoolDomain
 AWS::GameCast::Application
 AWS::GameCast::StreamGroup

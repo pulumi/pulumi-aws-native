@@ -79,6 +79,12 @@ namespace Pulumi.AwsNative.Logs
     public sealed class GetMetricFilterResult
     {
         /// <summary>
+        /// This parameter is valid only for log groups that have an active log transformer. For more information about log transformers, see [PutTransformer](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutTransformer.html) .
+        /// 
+        /// If this value is `true` , the metric filter is applied on the transformed version of the log events instead of the original ingested log events.
+        /// </summary>
+        public readonly bool? ApplyOnTransformedLogs;
+        /// <summary>
         /// A filter pattern for extracting metric data out of ingested log events. For more information, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
         /// </summary>
         public readonly string? FilterPattern;
@@ -89,10 +95,13 @@ namespace Pulumi.AwsNative.Logs
 
         [OutputConstructor]
         private GetMetricFilterResult(
+            bool? applyOnTransformedLogs,
+
             string? filterPattern,
 
             ImmutableArray<Outputs.MetricFilterMetricTransformation> metricTransformations)
         {
+            ApplyOnTransformedLogs = applyOnTransformedLogs;
             FilterPattern = filterPattern;
             MetricTransformations = metricTransformations;
         }

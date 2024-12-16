@@ -56,6 +56,9 @@ class ListenerProtocol(str, Enum):
 
 
 class ResourceConfigurationAuthType(str, Enum):
+    """
+    The auth type for the resource configuration.
+    """
     NONE = "NONE"
     AWS_IAM = "AWS_IAM"
 
@@ -67,10 +70,21 @@ class ResourceConfigurationDnsResourceIpAddressType(str, Enum):
 
 
 class ResourceConfigurationProtocolType(str, Enum):
+    """
+    (SINGLE, GROUP) The protocol accepted by the resource configuration.
+    """
     TCP = "TCP"
 
 
 class ResourceConfigurationType(str, Enum):
+    """
+    The type of resource configuration. A resource configuration can be one of the following types:
+
+    - *SINGLE* - A single resource.
+    - *GROUP* - A group of resources. You must create a group resource configuration before you create a child resource configuration.
+    - *CHILD* - A single resource that is part of a group resource configuration.
+    - *ARN* - An AWS resource.
+    """
     GROUP = "GROUP"
     CHILD = "CHILD"
     SINGLE = "SINGLE"
@@ -78,6 +92,9 @@ class ResourceConfigurationType(str, Enum):
 
 
 class ResourceGatewayIpAddressType(str, Enum):
+    """
+    The type of IP address used by the resource gateway.
+    """
     IPV4 = "IPV4"
     IPV6 = "IPV6"
     DUALSTACK = "DUALSTACK"

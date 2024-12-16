@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.Batch.Outputs
         /// <summary>
         /// The authorization configuration details for the Amazon EFS file system.
         /// </summary>
-        public readonly Outputs.JobDefinitionAuthorizationConfig? AuthorizationConfig;
+        public readonly Outputs.JobDefinitionEfsAuthorizationConfig? AuthorizationConfig;
         /// <summary>
         /// The Amazon EFS file system ID to use.
         /// </summary>
@@ -38,7 +38,7 @@ namespace Pulumi.AwsNative.Batch.Outputs
 
         [OutputConstructor]
         private JobDefinitionEfsVolumeConfiguration(
-            Outputs.JobDefinitionAuthorizationConfig? authorizationConfig,
+            Outputs.JobDefinitionEfsAuthorizationConfig? authorizationConfig,
 
             string fileSystemId,
 

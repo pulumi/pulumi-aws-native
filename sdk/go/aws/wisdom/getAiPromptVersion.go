@@ -32,6 +32,7 @@ type LookupAiPromptVersionArgs struct {
 }
 
 type LookupAiPromptVersionResult struct {
+	// The ARN of the AI prompt.
 	AiPromptArn       *string `pulumi:"aiPromptArn"`
 	AiPromptVersionId *string `pulumi:"aiPromptVersionId"`
 	AssistantArn      *string `pulumi:"assistantArn"`
@@ -75,6 +76,7 @@ func (o LookupAiPromptVersionResultOutput) ToLookupAiPromptVersionResultOutputWi
 	return o
 }
 
+// The ARN of the AI prompt.
 func (o LookupAiPromptVersionResultOutput) AiPromptArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAiPromptVersionResult) *string { return v.AiPromptArn }).(pulumi.StringPtrOutput)
 }

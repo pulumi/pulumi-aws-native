@@ -179,6 +179,7 @@ namespace Pulumi.AwsNative.Transfer
         /// An example `ServerId` is `s-01234567890abcdef` .
         /// </summary>
         public readonly string? ServerId;
+        public readonly Pulumi.AwsNative.Transfer.ServerState? State;
         /// <summary>
         /// Specifies the log groups to which your server logs are sent.
         /// 
@@ -234,6 +235,8 @@ namespace Pulumi.AwsNative.Transfer
 
             string? serverId,
 
+            Pulumi.AwsNative.Transfer.ServerState? state,
+
             ImmutableArray<string> structuredLogDestinations,
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
@@ -254,6 +257,7 @@ namespace Pulumi.AwsNative.Transfer
             S3StorageOptions = s3StorageOptions;
             SecurityPolicyName = securityPolicyName;
             ServerId = serverId;
+            State = state;
             StructuredLogDestinations = structuredLogDestinations;
             Tags = tags;
             WorkflowDetails = workflowDetails;

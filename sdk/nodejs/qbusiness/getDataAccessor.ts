@@ -19,18 +19,48 @@ export function getDataAccessor(args: GetDataAccessorArgs, opts?: pulumi.InvokeO
 }
 
 export interface GetDataAccessorArgs {
+    /**
+     * The unique identifier of the Amazon Q Business application.
+     */
     applicationId: string;
+    /**
+     * The unique identifier of the data accessor.
+     */
     dataAccessorId: string;
 }
 
 export interface GetDataAccessorResult {
+    /**
+     * A list of action configurations specifying the allowed actions and any associated filters.
+     */
     readonly actionConfigurations?: outputs.qbusiness.DataAccessorActionConfiguration[];
+    /**
+     * The timestamp when the data accessor was created.
+     */
     readonly createdAt?: string;
+    /**
+     * The Amazon Resource Name (ARN) of the data accessor.
+     */
     readonly dataAccessorArn?: string;
+    /**
+     * The unique identifier of the data accessor.
+     */
     readonly dataAccessorId?: string;
+    /**
+     * The friendly name of the data accessor.
+     */
     readonly displayName?: string;
+    /**
+     * The Amazon Resource Name (ARN) of the associated IAM Identity Center application.
+     */
     readonly idcApplicationArn?: string;
+    /**
+     * The tags to associate with the data accessor.
+     */
     readonly tags?: outputs.Tag[];
+    /**
+     * The timestamp when the data accessor was last updated.
+     */
     readonly updatedAt?: string;
 }
 /**
@@ -45,6 +75,12 @@ export function getDataAccessorOutput(args: GetDataAccessorOutputArgs, opts?: pu
 }
 
 export interface GetDataAccessorOutputArgs {
+    /**
+     * The unique identifier of the Amazon Q Business application.
+     */
     applicationId: pulumi.Input<string>;
+    /**
+     * The unique identifier of the data accessor.
+     */
     dataAccessorId: pulumi.Input<string>;
 }

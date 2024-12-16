@@ -55,7 +55,8 @@ type DataSet struct {
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// <p>The list of columns after all transforms. These columns are available in templates,
 	//             analyses, and dashboards.</p>
-	OutputColumns DataSetOutputColumnArrayOutput `pulumi:"outputColumns"`
+	OutputColumns            DataSetOutputColumnArrayOutput           `pulumi:"outputColumns"`
+	PerformanceConfiguration DataSetPerformanceConfigurationPtrOutput `pulumi:"performanceConfiguration"`
 	// <p>A list of resource permissions on the dataset.</p>
 	Permissions DataSetResourcePermissionArrayOutput `pulumi:"permissions"`
 	// Declares the physical tables that are available in the underlying data sources.
@@ -140,7 +141,8 @@ type dataSetArgs struct {
 	// Configures the combination and transformation of the data from the physical tables.
 	LogicalTableMap map[string]DataSetLogicalTable `pulumi:"logicalTableMap"`
 	// <p>The display name for the dataset.</p>
-	Name *string `pulumi:"name"`
+	Name                     *string                          `pulumi:"name"`
+	PerformanceConfiguration *DataSetPerformanceConfiguration `pulumi:"performanceConfiguration"`
 	// <p>A list of resource permissions on the dataset.</p>
 	Permissions []DataSetResourcePermission `pulumi:"permissions"`
 	// Declares the physical tables that are available in the underlying data sources.
@@ -182,7 +184,8 @@ type DataSetArgs struct {
 	// Configures the combination and transformation of the data from the physical tables.
 	LogicalTableMap DataSetLogicalTableMapInput
 	// <p>The display name for the dataset.</p>
-	Name pulumi.StringPtrInput
+	Name                     pulumi.StringPtrInput
+	PerformanceConfiguration DataSetPerformanceConfigurationPtrInput
 	// <p>A list of resource permissions on the dataset.</p>
 	Permissions DataSetResourcePermissionArrayInput
 	// Declares the physical tables that are available in the underlying data sources.
@@ -327,6 +330,10 @@ func (o DataSetOutput) Name() pulumi.StringPtrOutput {
 //	analyses, and dashboards.</p>
 func (o DataSetOutput) OutputColumns() DataSetOutputColumnArrayOutput {
 	return o.ApplyT(func(v *DataSet) DataSetOutputColumnArrayOutput { return v.OutputColumns }).(DataSetOutputColumnArrayOutput)
+}
+
+func (o DataSetOutput) PerformanceConfiguration() DataSetPerformanceConfigurationPtrOutput {
+	return o.ApplyT(func(v *DataSet) DataSetPerformanceConfigurationPtrOutput { return v.PerformanceConfiguration }).(DataSetPerformanceConfigurationPtrOutput)
 }
 
 // <p>A list of resource permissions on the dataset.</p>

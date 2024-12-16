@@ -2512,9 +2512,12 @@ func (o AiGuardrailAiGuardrailWordPolicyConfigPtrOutput) WordsConfig() AiGuardra
 
 // Content filter config in content policy.
 type AiGuardrailGuardrailContentFilterConfig struct {
-	InputStrength  AiGuardrailGuardrailFilterStrength    `pulumi:"inputStrength"`
-	OutputStrength AiGuardrailGuardrailFilterStrength    `pulumi:"outputStrength"`
-	Type           AiGuardrailGuardrailContentFilterType `pulumi:"type"`
+	// The strength of the input for the guardrail content filter.
+	InputStrength AiGuardrailGuardrailFilterStrength `pulumi:"inputStrength"`
+	// The output strength of the guardrail content filter.
+	OutputStrength AiGuardrailGuardrailFilterStrength `pulumi:"outputStrength"`
+	// The type of the guardrail content filter.
+	Type AiGuardrailGuardrailContentFilterType `pulumi:"type"`
 }
 
 // AiGuardrailGuardrailContentFilterConfigInput is an input type that accepts AiGuardrailGuardrailContentFilterConfigArgs and AiGuardrailGuardrailContentFilterConfigOutput values.
@@ -2530,9 +2533,12 @@ type AiGuardrailGuardrailContentFilterConfigInput interface {
 
 // Content filter config in content policy.
 type AiGuardrailGuardrailContentFilterConfigArgs struct {
-	InputStrength  AiGuardrailGuardrailFilterStrengthInput    `pulumi:"inputStrength"`
-	OutputStrength AiGuardrailGuardrailFilterStrengthInput    `pulumi:"outputStrength"`
-	Type           AiGuardrailGuardrailContentFilterTypeInput `pulumi:"type"`
+	// The strength of the input for the guardrail content filter.
+	InputStrength AiGuardrailGuardrailFilterStrengthInput `pulumi:"inputStrength"`
+	// The output strength of the guardrail content filter.
+	OutputStrength AiGuardrailGuardrailFilterStrengthInput `pulumi:"outputStrength"`
+	// The type of the guardrail content filter.
+	Type AiGuardrailGuardrailContentFilterTypeInput `pulumi:"type"`
 }
 
 func (AiGuardrailGuardrailContentFilterConfigArgs) ElementType() reflect.Type {
@@ -2587,18 +2593,21 @@ func (o AiGuardrailGuardrailContentFilterConfigOutput) ToAiGuardrailGuardrailCon
 	return o
 }
 
+// The strength of the input for the guardrail content filter.
 func (o AiGuardrailGuardrailContentFilterConfigOutput) InputStrength() AiGuardrailGuardrailFilterStrengthOutput {
 	return o.ApplyT(func(v AiGuardrailGuardrailContentFilterConfig) AiGuardrailGuardrailFilterStrength {
 		return v.InputStrength
 	}).(AiGuardrailGuardrailFilterStrengthOutput)
 }
 
+// The output strength of the guardrail content filter.
 func (o AiGuardrailGuardrailContentFilterConfigOutput) OutputStrength() AiGuardrailGuardrailFilterStrengthOutput {
 	return o.ApplyT(func(v AiGuardrailGuardrailContentFilterConfig) AiGuardrailGuardrailFilterStrength {
 		return v.OutputStrength
 	}).(AiGuardrailGuardrailFilterStrengthOutput)
 }
 
+// The type of the guardrail content filter.
 func (o AiGuardrailGuardrailContentFilterConfigOutput) Type() AiGuardrailGuardrailContentFilterTypeOutput {
 	return o.ApplyT(func(v AiGuardrailGuardrailContentFilterConfig) AiGuardrailGuardrailContentFilterType { return v.Type }).(AiGuardrailGuardrailContentFilterTypeOutput)
 }
@@ -2626,8 +2635,9 @@ func (o AiGuardrailGuardrailContentFilterConfigArrayOutput) Index(i pulumi.IntIn
 // A config for grounding filter.
 type AiGuardrailGuardrailContextualGroundingFilterConfig struct {
 	// The threshold for this filter.
-	Threshold float64                                           `pulumi:"threshold"`
-	Type      AiGuardrailGuardrailContextualGroundingFilterType `pulumi:"type"`
+	Threshold float64 `pulumi:"threshold"`
+	// The type of this filter.
+	Type AiGuardrailGuardrailContextualGroundingFilterType `pulumi:"type"`
 }
 
 // AiGuardrailGuardrailContextualGroundingFilterConfigInput is an input type that accepts AiGuardrailGuardrailContextualGroundingFilterConfigArgs and AiGuardrailGuardrailContextualGroundingFilterConfigOutput values.
@@ -2644,8 +2654,9 @@ type AiGuardrailGuardrailContextualGroundingFilterConfigInput interface {
 // A config for grounding filter.
 type AiGuardrailGuardrailContextualGroundingFilterConfigArgs struct {
 	// The threshold for this filter.
-	Threshold pulumi.Float64Input                                    `pulumi:"threshold"`
-	Type      AiGuardrailGuardrailContextualGroundingFilterTypeInput `pulumi:"type"`
+	Threshold pulumi.Float64Input `pulumi:"threshold"`
+	// The type of this filter.
+	Type AiGuardrailGuardrailContextualGroundingFilterTypeInput `pulumi:"type"`
 }
 
 func (AiGuardrailGuardrailContextualGroundingFilterConfigArgs) ElementType() reflect.Type {
@@ -2705,6 +2716,7 @@ func (o AiGuardrailGuardrailContextualGroundingFilterConfigOutput) Threshold() p
 	return o.ApplyT(func(v AiGuardrailGuardrailContextualGroundingFilterConfig) float64 { return v.Threshold }).(pulumi.Float64Output)
 }
 
+// The type of this filter.
 func (o AiGuardrailGuardrailContextualGroundingFilterConfigOutput) Type() AiGuardrailGuardrailContextualGroundingFilterTypeOutput {
 	return o.ApplyT(func(v AiGuardrailGuardrailContextualGroundingFilterConfig) AiGuardrailGuardrailContextualGroundingFilterType {
 		return v.Type
@@ -2733,6 +2745,7 @@ func (o AiGuardrailGuardrailContextualGroundingFilterConfigArrayOutput) Index(i 
 
 // A managed words config.
 type AiGuardrailGuardrailManagedWordsConfig struct {
+	// The type of guardrail managed words.
 	Type AiGuardrailGuardrailManagedWordsType `pulumi:"type"`
 }
 
@@ -2749,6 +2762,7 @@ type AiGuardrailGuardrailManagedWordsConfigInput interface {
 
 // A managed words config.
 type AiGuardrailGuardrailManagedWordsConfigArgs struct {
+	// The type of guardrail managed words.
 	Type AiGuardrailGuardrailManagedWordsTypeInput `pulumi:"type"`
 }
 
@@ -2804,6 +2818,7 @@ func (o AiGuardrailGuardrailManagedWordsConfigOutput) ToAiGuardrailGuardrailMana
 	return o
 }
 
+// The type of guardrail managed words.
 func (o AiGuardrailGuardrailManagedWordsConfigOutput) Type() AiGuardrailGuardrailManagedWordsTypeOutput {
 	return o.ApplyT(func(v AiGuardrailGuardrailManagedWordsConfig) AiGuardrailGuardrailManagedWordsType { return v.Type }).(AiGuardrailGuardrailManagedWordsTypeOutput)
 }
@@ -2830,6 +2845,7 @@ func (o AiGuardrailGuardrailManagedWordsConfigArrayOutput) Index(i pulumi.IntInp
 
 // Pii entity configuration.
 type AiGuardrailGuardrailPiiEntityConfig struct {
+	// The action of guardrail PII entity configuration.
 	Action AiGuardrailGuardrailSensitiveInformationAction `pulumi:"action"`
 	Type   AiGuardrailGuardrailPiiEntityType              `pulumi:"type"`
 }
@@ -2847,6 +2863,7 @@ type AiGuardrailGuardrailPiiEntityConfigInput interface {
 
 // Pii entity configuration.
 type AiGuardrailGuardrailPiiEntityConfigArgs struct {
+	// The action of guardrail PII entity configuration.
 	Action AiGuardrailGuardrailSensitiveInformationActionInput `pulumi:"action"`
 	Type   AiGuardrailGuardrailPiiEntityTypeInput              `pulumi:"type"`
 }
@@ -2903,6 +2920,7 @@ func (o AiGuardrailGuardrailPiiEntityConfigOutput) ToAiGuardrailGuardrailPiiEnti
 	return o
 }
 
+// The action of guardrail PII entity configuration.
 func (o AiGuardrailGuardrailPiiEntityConfigOutput) Action() AiGuardrailGuardrailSensitiveInformationActionOutput {
 	return o.ApplyT(func(v AiGuardrailGuardrailPiiEntityConfig) AiGuardrailGuardrailSensitiveInformationAction {
 		return v.Action
@@ -2935,6 +2953,7 @@ func (o AiGuardrailGuardrailPiiEntityConfigArrayOutput) Index(i pulumi.IntInput)
 
 // A regex configuration.
 type AiGuardrailGuardrailRegexConfig struct {
+	// The action of the guardrail regex configuration.
 	Action AiGuardrailGuardrailSensitiveInformationAction `pulumi:"action"`
 	// The regex description.
 	Description *string `pulumi:"description"`
@@ -2957,6 +2976,7 @@ type AiGuardrailGuardrailRegexConfigInput interface {
 
 // A regex configuration.
 type AiGuardrailGuardrailRegexConfigArgs struct {
+	// The action of the guardrail regex configuration.
 	Action AiGuardrailGuardrailSensitiveInformationActionInput `pulumi:"action"`
 	// The regex description.
 	Description pulumi.StringPtrInput `pulumi:"description"`
@@ -3018,6 +3038,7 @@ func (o AiGuardrailGuardrailRegexConfigOutput) ToAiGuardrailGuardrailRegexConfig
 	return o
 }
 
+// The action of the guardrail regex configuration.
 func (o AiGuardrailGuardrailRegexConfigOutput) Action() AiGuardrailGuardrailSensitiveInformationActionOutput {
 	return o.ApplyT(func(v AiGuardrailGuardrailRegexConfig) AiGuardrailGuardrailSensitiveInformationAction {
 		return v.Action
@@ -3066,7 +3087,8 @@ type AiGuardrailGuardrailTopicConfig struct {
 	// List of text examples
 	Examples []string `pulumi:"examples"`
 	// Name of topic in topic policy
-	Name string                        `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// Type of topic in a policy.
 	Type AiGuardrailGuardrailTopicType `pulumi:"type"`
 }
 
@@ -3088,7 +3110,8 @@ type AiGuardrailGuardrailTopicConfigArgs struct {
 	// List of text examples
 	Examples pulumi.StringArrayInput `pulumi:"examples"`
 	// Name of topic in topic policy
-	Name pulumi.StringInput                 `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// Type of topic in a policy.
 	Type AiGuardrailGuardrailTopicTypeInput `pulumi:"type"`
 }
 
@@ -3159,6 +3182,7 @@ func (o AiGuardrailGuardrailTopicConfigOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AiGuardrailGuardrailTopicConfig) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Type of topic in a policy.
 func (o AiGuardrailGuardrailTopicConfigOutput) Type() AiGuardrailGuardrailTopicTypeOutput {
 	return o.ApplyT(func(v AiGuardrailGuardrailTopicConfig) AiGuardrailGuardrailTopicType { return v.Type }).(AiGuardrailGuardrailTopicTypeOutput)
 }
@@ -3702,7 +3726,9 @@ func (o KnowledgeBaseAppIntegrationsConfigurationPtrOutput) ObjectFields() pulum
 }
 
 type KnowledgeBaseBedrockFoundationModelConfiguration struct {
-	ModelArn      string                                                                   `pulumi:"modelArn"`
+	// The model ARN of the Bedrock foundation model.
+	ModelArn string `pulumi:"modelArn"`
+	// The parsing prompt of the Bedrock foundation model configuration.
 	ParsingPrompt *KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptProperties `pulumi:"parsingPrompt"`
 }
 
@@ -3718,7 +3744,9 @@ type KnowledgeBaseBedrockFoundationModelConfigurationInput interface {
 }
 
 type KnowledgeBaseBedrockFoundationModelConfigurationArgs struct {
-	ModelArn      pulumi.StringInput                                                              `pulumi:"modelArn"`
+	// The model ARN of the Bedrock foundation model.
+	ModelArn pulumi.StringInput `pulumi:"modelArn"`
+	// The parsing prompt of the Bedrock foundation model configuration.
 	ParsingPrompt KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesPtrInput `pulumi:"parsingPrompt"`
 }
 
@@ -3799,10 +3827,12 @@ func (o KnowledgeBaseBedrockFoundationModelConfigurationOutput) ToKnowledgeBaseB
 	}).(KnowledgeBaseBedrockFoundationModelConfigurationPtrOutput)
 }
 
+// The model ARN of the Bedrock foundation model.
 func (o KnowledgeBaseBedrockFoundationModelConfigurationOutput) ModelArn() pulumi.StringOutput {
 	return o.ApplyT(func(v KnowledgeBaseBedrockFoundationModelConfiguration) string { return v.ModelArn }).(pulumi.StringOutput)
 }
 
+// The parsing prompt of the Bedrock foundation model configuration.
 func (o KnowledgeBaseBedrockFoundationModelConfigurationOutput) ParsingPrompt() KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesPtrOutput {
 	return o.ApplyT(func(v KnowledgeBaseBedrockFoundationModelConfiguration) *KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptProperties {
 		return v.ParsingPrompt
@@ -3833,6 +3863,7 @@ func (o KnowledgeBaseBedrockFoundationModelConfigurationPtrOutput) Elem() Knowle
 	}).(KnowledgeBaseBedrockFoundationModelConfigurationOutput)
 }
 
+// The model ARN of the Bedrock foundation model.
 func (o KnowledgeBaseBedrockFoundationModelConfigurationPtrOutput) ModelArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KnowledgeBaseBedrockFoundationModelConfiguration) *string {
 		if v == nil {
@@ -3842,6 +3873,7 @@ func (o KnowledgeBaseBedrockFoundationModelConfigurationPtrOutput) ModelArn() pu
 	}).(pulumi.StringPtrOutput)
 }
 
+// The parsing prompt of the Bedrock foundation model configuration.
 func (o KnowledgeBaseBedrockFoundationModelConfigurationPtrOutput) ParsingPrompt() KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesPtrOutput {
 	return o.ApplyT(func(v *KnowledgeBaseBedrockFoundationModelConfiguration) *KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptProperties {
 		if v == nil {
@@ -3851,6 +3883,7 @@ func (o KnowledgeBaseBedrockFoundationModelConfigurationPtrOutput) ParsingPrompt
 	}).(KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesPtrOutput)
 }
 
+// The parsing prompt of the Bedrock foundation model configuration.
 type KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptProperties struct {
 	ParsingPromptText string `pulumi:"parsingPromptText"`
 }
@@ -3866,6 +3899,7 @@ type KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesInpu
 	ToKnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesOutputWithContext(context.Context) KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesOutput
 }
 
+// The parsing prompt of the Bedrock foundation model configuration.
 type KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesArgs struct {
 	ParsingPromptText pulumi.StringInput `pulumi:"parsingPromptText"`
 }
@@ -3923,6 +3957,7 @@ func (i *knowledgeBaseBedrockFoundationModelConfigurationParsingPromptProperties
 	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesPtrOutput)
 }
 
+// The parsing prompt of the Bedrock foundation model configuration.
 type KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesOutput struct{ *pulumi.OutputState }
 
 func (KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesOutput) ElementType() reflect.Type {

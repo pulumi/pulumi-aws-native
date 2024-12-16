@@ -38,6 +38,8 @@ __all__ = [
     'TableScalingPolicyArgsDict',
     'TableTargetTrackingScalingPolicyConfigurationArgs',
     'TableTargetTrackingScalingPolicyConfigurationArgsDict',
+    'TypeFieldArgs',
+    'TypeFieldArgsDict',
 ]
 
 MYPY = False
@@ -801,5 +803,39 @@ class TableTargetTrackingScalingPolicyConfigurationArgs:
     @scale_out_cooldown.setter
     def scale_out_cooldown(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "scale_out_cooldown", value)
+
+
+if not MYPY:
+    class TypeFieldArgsDict(TypedDict):
+        field_name: pulumi.Input[str]
+        field_type: pulumi.Input[str]
+elif False:
+    TypeFieldArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TypeFieldArgs:
+    def __init__(__self__, *,
+                 field_name: pulumi.Input[str],
+                 field_type: pulumi.Input[str]):
+        pulumi.set(__self__, "field_name", field_name)
+        pulumi.set(__self__, "field_type", field_type)
+
+    @property
+    @pulumi.getter(name="fieldName")
+    def field_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "field_name")
+
+    @field_name.setter
+    def field_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "field_name", value)
+
+    @property
+    @pulumi.getter(name="fieldType")
+    def field_type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "field_type")
+
+    @field_type.setter
+    def field_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "field_type", value)
 
 

@@ -23,7 +23,8 @@ func LookupJobDefinition(ctx *pulumi.Context, args *LookupJobDefinitionArgs, opt
 }
 
 type LookupJobDefinitionArgs struct {
-	Id string `pulumi:"id"`
+	// The name of the job definition.
+	JobDefinitionName string `pulumi:"jobDefinitionName"`
 }
 
 type LookupJobDefinitionResult struct {
@@ -33,15 +34,12 @@ type LookupJobDefinitionResult struct {
 	EcsProperties *JobDefinitionEcsProperties `pulumi:"ecsProperties"`
 	// An object with properties that are specific to Amazon EKS-based jobs. When `eksProperties` is used in the job definition, it can't be used in addition to `containerProperties` , `ecsProperties` , or `nodeProperties` .
 	EksProperties *JobDefinitionEksProperties `pulumi:"eksProperties"`
-	Id            *string                     `pulumi:"id"`
 	// An object with properties that are specific to multi-node parallel jobs. When `nodeProperties` is used in the job definition, it can't be used in addition to `containerProperties` , `ecsProperties` , or `eksProperties` .
 	//
 	// > If the job runs on Fargate resources, don't specify `nodeProperties` . Use `containerProperties` instead.
 	NodeProperties *JobDefinitionNodeProperties `pulumi:"nodeProperties"`
 	// Default parameters or parameter substitution placeholders that are set in the job definition. Parameters are specified as a key-value pair mapping. Parameters in a `SubmitJob` request override any corresponding parameter defaults from the job definition. For more information about specifying parameters, see [Job definition parameters](https://docs.aws.amazon.com/batch/latest/userguide/job_definition_parameters.html) in the *AWS Batch User Guide* .
-	//
-	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Batch::JobDefinition` for more information about the expected schema for this property.
-	Parameters interface{} `pulumi:"parameters"`
+	Parameters map[string]string `pulumi:"parameters"`
 	// The platform capabilities required by the job definition. If no value is specified, it defaults to `EC2` . Jobs run on Fargate resources specify `FARGATE` .
 	PlatformCapabilities []string `pulumi:"platformCapabilities"`
 	// Specifies whether to propagate the tags from the job or job definition to the corresponding Amazon ECS task. If no value is specified, the tags aren't propagated. Tags can only be propagated to the tasks when the tasks are created. For tags with the same name, job tags are given priority over job definitions tags. If the total number of combined tags from the job and job definition is over 50, the job is moved to the `FAILED` state.
@@ -50,12 +48,10 @@ type LookupJobDefinitionResult struct {
 	RetryStrategy *JobDefinitionRetryStrategy `pulumi:"retryStrategy"`
 	// The scheduling priority of the job definition. This only affects jobs in job queues with a fair share policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower scheduling priority.
 	SchedulingPriority *int `pulumi:"schedulingPriority"`
-	// The tags that are applied to the job definition.
-	//
-	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Batch::JobDefinition` for more information about the expected schema for this property.
-	Tags interface{} `pulumi:"tags"`
+	// A key-value pair to associate with a resource.
+	Tags map[string]string `pulumi:"tags"`
 	// The timeout time for jobs that are submitted with this job definition. After the amount of time you specify passes, AWS Batch terminates your jobs if they aren't finished.
-	Timeout *JobDefinitionTimeout `pulumi:"timeout"`
+	Timeout *JobDefinitionJobTimeout `pulumi:"timeout"`
 	// The type of job definition. For more information about multi-node parallel jobs, see [Creating a multi-node parallel job definition](https://docs.aws.amazon.com/batch/latest/userguide/multi-node-job-def.html) in the *AWS Batch User Guide* .
 	//
 	// - If the value is `container` , then one of the following is required: `containerProperties` , `ecsProperties` , or `eksProperties` .
@@ -75,7 +71,8 @@ func LookupJobDefinitionOutput(ctx *pulumi.Context, args LookupJobDefinitionOutp
 }
 
 type LookupJobDefinitionOutputArgs struct {
-	Id pulumi.StringInput `pulumi:"id"`
+	// The name of the job definition.
+	JobDefinitionName pulumi.StringInput `pulumi:"jobDefinitionName"`
 }
 
 func (LookupJobDefinitionOutputArgs) ElementType() reflect.Type {
@@ -111,10 +108,6 @@ func (o LookupJobDefinitionResultOutput) EksProperties() JobDefinitionEksPropert
 	return o.ApplyT(func(v LookupJobDefinitionResult) *JobDefinitionEksProperties { return v.EksProperties }).(JobDefinitionEksPropertiesPtrOutput)
 }
 
-func (o LookupJobDefinitionResultOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupJobDefinitionResult) *string { return v.Id }).(pulumi.StringPtrOutput)
-}
-
 // An object with properties that are specific to multi-node parallel jobs. When `nodeProperties` is used in the job definition, it can't be used in addition to `containerProperties` , `ecsProperties` , or `eksProperties` .
 //
 // > If the job runs on Fargate resources, don't specify `nodeProperties` . Use `containerProperties` instead.
@@ -123,10 +116,8 @@ func (o LookupJobDefinitionResultOutput) NodeProperties() JobDefinitionNodePrope
 }
 
 // Default parameters or parameter substitution placeholders that are set in the job definition. Parameters are specified as a key-value pair mapping. Parameters in a `SubmitJob` request override any corresponding parameter defaults from the job definition. For more information about specifying parameters, see [Job definition parameters](https://docs.aws.amazon.com/batch/latest/userguide/job_definition_parameters.html) in the *AWS Batch User Guide* .
-//
-// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Batch::JobDefinition` for more information about the expected schema for this property.
-func (o LookupJobDefinitionResultOutput) Parameters() pulumi.AnyOutput {
-	return o.ApplyT(func(v LookupJobDefinitionResult) interface{} { return v.Parameters }).(pulumi.AnyOutput)
+func (o LookupJobDefinitionResultOutput) Parameters() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupJobDefinitionResult) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
 }
 
 // The platform capabilities required by the job definition. If no value is specified, it defaults to `EC2` . Jobs run on Fargate resources specify `FARGATE` .
@@ -149,16 +140,14 @@ func (o LookupJobDefinitionResultOutput) SchedulingPriority() pulumi.IntPtrOutpu
 	return o.ApplyT(func(v LookupJobDefinitionResult) *int { return v.SchedulingPriority }).(pulumi.IntPtrOutput)
 }
 
-// The tags that are applied to the job definition.
-//
-// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Batch::JobDefinition` for more information about the expected schema for this property.
-func (o LookupJobDefinitionResultOutput) Tags() pulumi.AnyOutput {
-	return o.ApplyT(func(v LookupJobDefinitionResult) interface{} { return v.Tags }).(pulumi.AnyOutput)
+// A key-value pair to associate with a resource.
+func (o LookupJobDefinitionResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupJobDefinitionResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 // The timeout time for jobs that are submitted with this job definition. After the amount of time you specify passes, AWS Batch terminates your jobs if they aren't finished.
-func (o LookupJobDefinitionResultOutput) Timeout() JobDefinitionTimeoutPtrOutput {
-	return o.ApplyT(func(v LookupJobDefinitionResult) *JobDefinitionTimeout { return v.Timeout }).(JobDefinitionTimeoutPtrOutput)
+func (o LookupJobDefinitionResultOutput) Timeout() JobDefinitionJobTimeoutPtrOutput {
+	return o.ApplyT(func(v LookupJobDefinitionResult) *JobDefinitionJobTimeout { return v.Timeout }).(JobDefinitionJobTimeoutPtrOutput)
 }
 
 // The type of job definition. For more information about multi-node parallel jobs, see [Creating a multi-node parallel job definition](https://docs.aws.amazon.com/batch/latest/userguide/multi-node-job-def.html) in the *AWS Batch User Guide* .

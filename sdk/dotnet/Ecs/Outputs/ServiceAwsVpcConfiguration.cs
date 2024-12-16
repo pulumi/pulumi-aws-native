@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.Ecs.Outputs
     public sealed class ServiceAwsVpcConfiguration
     {
         /// <summary>
-        /// Whether the task's elastic network interface receives a public IP address. The default value is ``DISABLED``.
+        /// Whether the task's elastic network interface receives a public IP address. The default value is ``ENABLED``.
         /// </summary>
         public readonly Pulumi.AwsNative.Ecs.ServiceAwsVpcConfigurationAssignPublicIp? AssignPublicIp;
         /// <summary>

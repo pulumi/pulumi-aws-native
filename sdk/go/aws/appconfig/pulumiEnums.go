@@ -10,6 +10,174 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// On resource deletion this controls whether the Deletion Protection check should be applied, bypassed, or (the default) whether the behavior should be controlled by the account-level Deletion Protection setting. See https://docs.aws.amazon.com/appconfig/latest/userguide/deletion-protection.html
+type ConfigurationProfileDeletionProtectionCheck string
+
+const (
+	ConfigurationProfileDeletionProtectionCheckAccountDefault = ConfigurationProfileDeletionProtectionCheck("ACCOUNT_DEFAULT")
+	ConfigurationProfileDeletionProtectionCheckApply          = ConfigurationProfileDeletionProtectionCheck("APPLY")
+	ConfigurationProfileDeletionProtectionCheckBypass         = ConfigurationProfileDeletionProtectionCheck("BYPASS")
+)
+
+func (ConfigurationProfileDeletionProtectionCheck) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationProfileDeletionProtectionCheck)(nil)).Elem()
+}
+
+func (e ConfigurationProfileDeletionProtectionCheck) ToConfigurationProfileDeletionProtectionCheckOutput() ConfigurationProfileDeletionProtectionCheckOutput {
+	return pulumi.ToOutput(e).(ConfigurationProfileDeletionProtectionCheckOutput)
+}
+
+func (e ConfigurationProfileDeletionProtectionCheck) ToConfigurationProfileDeletionProtectionCheckOutputWithContext(ctx context.Context) ConfigurationProfileDeletionProtectionCheckOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ConfigurationProfileDeletionProtectionCheckOutput)
+}
+
+func (e ConfigurationProfileDeletionProtectionCheck) ToConfigurationProfileDeletionProtectionCheckPtrOutput() ConfigurationProfileDeletionProtectionCheckPtrOutput {
+	return e.ToConfigurationProfileDeletionProtectionCheckPtrOutputWithContext(context.Background())
+}
+
+func (e ConfigurationProfileDeletionProtectionCheck) ToConfigurationProfileDeletionProtectionCheckPtrOutputWithContext(ctx context.Context) ConfigurationProfileDeletionProtectionCheckPtrOutput {
+	return ConfigurationProfileDeletionProtectionCheck(e).ToConfigurationProfileDeletionProtectionCheckOutputWithContext(ctx).ToConfigurationProfileDeletionProtectionCheckPtrOutputWithContext(ctx)
+}
+
+func (e ConfigurationProfileDeletionProtectionCheck) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConfigurationProfileDeletionProtectionCheck) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConfigurationProfileDeletionProtectionCheck) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ConfigurationProfileDeletionProtectionCheck) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ConfigurationProfileDeletionProtectionCheckOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationProfileDeletionProtectionCheckOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationProfileDeletionProtectionCheck)(nil)).Elem()
+}
+
+func (o ConfigurationProfileDeletionProtectionCheckOutput) ToConfigurationProfileDeletionProtectionCheckOutput() ConfigurationProfileDeletionProtectionCheckOutput {
+	return o
+}
+
+func (o ConfigurationProfileDeletionProtectionCheckOutput) ToConfigurationProfileDeletionProtectionCheckOutputWithContext(ctx context.Context) ConfigurationProfileDeletionProtectionCheckOutput {
+	return o
+}
+
+func (o ConfigurationProfileDeletionProtectionCheckOutput) ToConfigurationProfileDeletionProtectionCheckPtrOutput() ConfigurationProfileDeletionProtectionCheckPtrOutput {
+	return o.ToConfigurationProfileDeletionProtectionCheckPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigurationProfileDeletionProtectionCheckOutput) ToConfigurationProfileDeletionProtectionCheckPtrOutputWithContext(ctx context.Context) ConfigurationProfileDeletionProtectionCheckPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationProfileDeletionProtectionCheck) *ConfigurationProfileDeletionProtectionCheck {
+		return &v
+	}).(ConfigurationProfileDeletionProtectionCheckPtrOutput)
+}
+
+func (o ConfigurationProfileDeletionProtectionCheckOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ConfigurationProfileDeletionProtectionCheckOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConfigurationProfileDeletionProtectionCheck) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ConfigurationProfileDeletionProtectionCheckOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigurationProfileDeletionProtectionCheckOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConfigurationProfileDeletionProtectionCheck) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConfigurationProfileDeletionProtectionCheckPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationProfileDeletionProtectionCheckPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationProfileDeletionProtectionCheck)(nil)).Elem()
+}
+
+func (o ConfigurationProfileDeletionProtectionCheckPtrOutput) ToConfigurationProfileDeletionProtectionCheckPtrOutput() ConfigurationProfileDeletionProtectionCheckPtrOutput {
+	return o
+}
+
+func (o ConfigurationProfileDeletionProtectionCheckPtrOutput) ToConfigurationProfileDeletionProtectionCheckPtrOutputWithContext(ctx context.Context) ConfigurationProfileDeletionProtectionCheckPtrOutput {
+	return o
+}
+
+func (o ConfigurationProfileDeletionProtectionCheckPtrOutput) Elem() ConfigurationProfileDeletionProtectionCheckOutput {
+	return o.ApplyT(func(v *ConfigurationProfileDeletionProtectionCheck) ConfigurationProfileDeletionProtectionCheck {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationProfileDeletionProtectionCheck
+		return ret
+	}).(ConfigurationProfileDeletionProtectionCheckOutput)
+}
+
+func (o ConfigurationProfileDeletionProtectionCheckPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigurationProfileDeletionProtectionCheckPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ConfigurationProfileDeletionProtectionCheck) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ConfigurationProfileDeletionProtectionCheckInput is an input type that accepts values of the ConfigurationProfileDeletionProtectionCheck enum
+// A concrete instance of `ConfigurationProfileDeletionProtectionCheckInput` can be one of the following:
+//
+//	ConfigurationProfileDeletionProtectionCheckAccountDefault
+//	ConfigurationProfileDeletionProtectionCheckApply
+//	ConfigurationProfileDeletionProtectionCheckBypass
+type ConfigurationProfileDeletionProtectionCheckInput interface {
+	pulumi.Input
+
+	ToConfigurationProfileDeletionProtectionCheckOutput() ConfigurationProfileDeletionProtectionCheckOutput
+	ToConfigurationProfileDeletionProtectionCheckOutputWithContext(context.Context) ConfigurationProfileDeletionProtectionCheckOutput
+}
+
+var configurationProfileDeletionProtectionCheckPtrType = reflect.TypeOf((**ConfigurationProfileDeletionProtectionCheck)(nil)).Elem()
+
+type ConfigurationProfileDeletionProtectionCheckPtrInput interface {
+	pulumi.Input
+
+	ToConfigurationProfileDeletionProtectionCheckPtrOutput() ConfigurationProfileDeletionProtectionCheckPtrOutput
+	ToConfigurationProfileDeletionProtectionCheckPtrOutputWithContext(context.Context) ConfigurationProfileDeletionProtectionCheckPtrOutput
+}
+
+type configurationProfileDeletionProtectionCheckPtr string
+
+func ConfigurationProfileDeletionProtectionCheckPtr(v string) ConfigurationProfileDeletionProtectionCheckPtrInput {
+	return (*configurationProfileDeletionProtectionCheckPtr)(&v)
+}
+
+func (*configurationProfileDeletionProtectionCheckPtr) ElementType() reflect.Type {
+	return configurationProfileDeletionProtectionCheckPtrType
+}
+
+func (in *configurationProfileDeletionProtectionCheckPtr) ToConfigurationProfileDeletionProtectionCheckPtrOutput() ConfigurationProfileDeletionProtectionCheckPtrOutput {
+	return pulumi.ToOutput(in).(ConfigurationProfileDeletionProtectionCheckPtrOutput)
+}
+
+func (in *configurationProfileDeletionProtectionCheckPtr) ToConfigurationProfileDeletionProtectionCheckPtrOutputWithContext(ctx context.Context) ConfigurationProfileDeletionProtectionCheckPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ConfigurationProfileDeletionProtectionCheckPtrOutput)
+}
+
 // The algorithm used to define how percentage grows over time. AWS AppConfig supports the following growth types:
 //
 // Linear: For this type, AWS AppConfig processes the deployment by dividing the total number of targets by the value specified for Step percentage. For example, a linear deployment that uses a Step percentage of 10 deploys the configuration to 10 percent of the hosts. After those deployments are complete, the system deploys the configuration to the next 10 percent. This continues until 100% of the targets have successfully received the configuration.
@@ -354,13 +522,189 @@ func (in *deploymentStrategyReplicateToPtr) ToDeploymentStrategyReplicateToPtrOu
 	return pulumi.ToOutputWithContext(ctx, in).(DeploymentStrategyReplicateToPtrOutput)
 }
 
+// On resource deletion this controls whether the Deletion Protection check should be applied, bypassed, or (the default) whether the behavior should be controlled by the account-level Deletion Protection setting. See https://docs.aws.amazon.com/appconfig/latest/userguide/deletion-protection.html
+type EnvironmentDeletionProtectionCheck string
+
+const (
+	EnvironmentDeletionProtectionCheckAccountDefault = EnvironmentDeletionProtectionCheck("ACCOUNT_DEFAULT")
+	EnvironmentDeletionProtectionCheckApply          = EnvironmentDeletionProtectionCheck("APPLY")
+	EnvironmentDeletionProtectionCheckBypass         = EnvironmentDeletionProtectionCheck("BYPASS")
+)
+
+func (EnvironmentDeletionProtectionCheck) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentDeletionProtectionCheck)(nil)).Elem()
+}
+
+func (e EnvironmentDeletionProtectionCheck) ToEnvironmentDeletionProtectionCheckOutput() EnvironmentDeletionProtectionCheckOutput {
+	return pulumi.ToOutput(e).(EnvironmentDeletionProtectionCheckOutput)
+}
+
+func (e EnvironmentDeletionProtectionCheck) ToEnvironmentDeletionProtectionCheckOutputWithContext(ctx context.Context) EnvironmentDeletionProtectionCheckOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(EnvironmentDeletionProtectionCheckOutput)
+}
+
+func (e EnvironmentDeletionProtectionCheck) ToEnvironmentDeletionProtectionCheckPtrOutput() EnvironmentDeletionProtectionCheckPtrOutput {
+	return e.ToEnvironmentDeletionProtectionCheckPtrOutputWithContext(context.Background())
+}
+
+func (e EnvironmentDeletionProtectionCheck) ToEnvironmentDeletionProtectionCheckPtrOutputWithContext(ctx context.Context) EnvironmentDeletionProtectionCheckPtrOutput {
+	return EnvironmentDeletionProtectionCheck(e).ToEnvironmentDeletionProtectionCheckOutputWithContext(ctx).ToEnvironmentDeletionProtectionCheckPtrOutputWithContext(ctx)
+}
+
+func (e EnvironmentDeletionProtectionCheck) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EnvironmentDeletionProtectionCheck) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EnvironmentDeletionProtectionCheck) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EnvironmentDeletionProtectionCheck) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type EnvironmentDeletionProtectionCheckOutput struct{ *pulumi.OutputState }
+
+func (EnvironmentDeletionProtectionCheckOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EnvironmentDeletionProtectionCheck)(nil)).Elem()
+}
+
+func (o EnvironmentDeletionProtectionCheckOutput) ToEnvironmentDeletionProtectionCheckOutput() EnvironmentDeletionProtectionCheckOutput {
+	return o
+}
+
+func (o EnvironmentDeletionProtectionCheckOutput) ToEnvironmentDeletionProtectionCheckOutputWithContext(ctx context.Context) EnvironmentDeletionProtectionCheckOutput {
+	return o
+}
+
+func (o EnvironmentDeletionProtectionCheckOutput) ToEnvironmentDeletionProtectionCheckPtrOutput() EnvironmentDeletionProtectionCheckPtrOutput {
+	return o.ToEnvironmentDeletionProtectionCheckPtrOutputWithContext(context.Background())
+}
+
+func (o EnvironmentDeletionProtectionCheckOutput) ToEnvironmentDeletionProtectionCheckPtrOutputWithContext(ctx context.Context) EnvironmentDeletionProtectionCheckPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnvironmentDeletionProtectionCheck) *EnvironmentDeletionProtectionCheck {
+		return &v
+	}).(EnvironmentDeletionProtectionCheckPtrOutput)
+}
+
+func (o EnvironmentDeletionProtectionCheckOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o EnvironmentDeletionProtectionCheckOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EnvironmentDeletionProtectionCheck) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o EnvironmentDeletionProtectionCheckOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EnvironmentDeletionProtectionCheckOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EnvironmentDeletionProtectionCheck) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type EnvironmentDeletionProtectionCheckPtrOutput struct{ *pulumi.OutputState }
+
+func (EnvironmentDeletionProtectionCheckPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EnvironmentDeletionProtectionCheck)(nil)).Elem()
+}
+
+func (o EnvironmentDeletionProtectionCheckPtrOutput) ToEnvironmentDeletionProtectionCheckPtrOutput() EnvironmentDeletionProtectionCheckPtrOutput {
+	return o
+}
+
+func (o EnvironmentDeletionProtectionCheckPtrOutput) ToEnvironmentDeletionProtectionCheckPtrOutputWithContext(ctx context.Context) EnvironmentDeletionProtectionCheckPtrOutput {
+	return o
+}
+
+func (o EnvironmentDeletionProtectionCheckPtrOutput) Elem() EnvironmentDeletionProtectionCheckOutput {
+	return o.ApplyT(func(v *EnvironmentDeletionProtectionCheck) EnvironmentDeletionProtectionCheck {
+		if v != nil {
+			return *v
+		}
+		var ret EnvironmentDeletionProtectionCheck
+		return ret
+	}).(EnvironmentDeletionProtectionCheckOutput)
+}
+
+func (o EnvironmentDeletionProtectionCheckPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EnvironmentDeletionProtectionCheckPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EnvironmentDeletionProtectionCheck) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// EnvironmentDeletionProtectionCheckInput is an input type that accepts values of the EnvironmentDeletionProtectionCheck enum
+// A concrete instance of `EnvironmentDeletionProtectionCheckInput` can be one of the following:
+//
+//	EnvironmentDeletionProtectionCheckAccountDefault
+//	EnvironmentDeletionProtectionCheckApply
+//	EnvironmentDeletionProtectionCheckBypass
+type EnvironmentDeletionProtectionCheckInput interface {
+	pulumi.Input
+
+	ToEnvironmentDeletionProtectionCheckOutput() EnvironmentDeletionProtectionCheckOutput
+	ToEnvironmentDeletionProtectionCheckOutputWithContext(context.Context) EnvironmentDeletionProtectionCheckOutput
+}
+
+var environmentDeletionProtectionCheckPtrType = reflect.TypeOf((**EnvironmentDeletionProtectionCheck)(nil)).Elem()
+
+type EnvironmentDeletionProtectionCheckPtrInput interface {
+	pulumi.Input
+
+	ToEnvironmentDeletionProtectionCheckPtrOutput() EnvironmentDeletionProtectionCheckPtrOutput
+	ToEnvironmentDeletionProtectionCheckPtrOutputWithContext(context.Context) EnvironmentDeletionProtectionCheckPtrOutput
+}
+
+type environmentDeletionProtectionCheckPtr string
+
+func EnvironmentDeletionProtectionCheckPtr(v string) EnvironmentDeletionProtectionCheckPtrInput {
+	return (*environmentDeletionProtectionCheckPtr)(&v)
+}
+
+func (*environmentDeletionProtectionCheckPtr) ElementType() reflect.Type {
+	return environmentDeletionProtectionCheckPtrType
+}
+
+func (in *environmentDeletionProtectionCheckPtr) ToEnvironmentDeletionProtectionCheckPtrOutput() EnvironmentDeletionProtectionCheckPtrOutput {
+	return pulumi.ToOutput(in).(EnvironmentDeletionProtectionCheckPtrOutput)
+}
+
+func (in *environmentDeletionProtectionCheckPtr) ToEnvironmentDeletionProtectionCheckPtrOutputWithContext(ctx context.Context) EnvironmentDeletionProtectionCheckPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(EnvironmentDeletionProtectionCheckPtrOutput)
+}
+
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationProfileDeletionProtectionCheckInput)(nil)).Elem(), ConfigurationProfileDeletionProtectionCheck("ACCOUNT_DEFAULT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationProfileDeletionProtectionCheckPtrInput)(nil)).Elem(), ConfigurationProfileDeletionProtectionCheck("ACCOUNT_DEFAULT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentStrategyGrowthTypeInput)(nil)).Elem(), DeploymentStrategyGrowthType("EXPONENTIAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentStrategyGrowthTypePtrInput)(nil)).Elem(), DeploymentStrategyGrowthType("EXPONENTIAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentStrategyReplicateToInput)(nil)).Elem(), DeploymentStrategyReplicateTo("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentStrategyReplicateToPtrInput)(nil)).Elem(), DeploymentStrategyReplicateTo("NONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentDeletionProtectionCheckInput)(nil)).Elem(), EnvironmentDeletionProtectionCheck("ACCOUNT_DEFAULT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentDeletionProtectionCheckPtrInput)(nil)).Elem(), EnvironmentDeletionProtectionCheck("ACCOUNT_DEFAULT"))
+	pulumi.RegisterOutputType(ConfigurationProfileDeletionProtectionCheckOutput{})
+	pulumi.RegisterOutputType(ConfigurationProfileDeletionProtectionCheckPtrOutput{})
 	pulumi.RegisterOutputType(DeploymentStrategyGrowthTypeOutput{})
 	pulumi.RegisterOutputType(DeploymentStrategyGrowthTypePtrOutput{})
 	pulumi.RegisterOutputType(DeploymentStrategyReplicateToOutput{})
 	pulumi.RegisterOutputType(DeploymentStrategyReplicateToPtrOutput{})
+	pulumi.RegisterOutputType(EnvironmentDeletionProtectionCheckOutput{})
+	pulumi.RegisterOutputType(EnvironmentDeletionProtectionCheckPtrOutput{})
 }

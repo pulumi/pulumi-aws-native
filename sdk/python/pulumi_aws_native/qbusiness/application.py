@@ -53,6 +53,7 @@ class ApplicationArgs:
         :param pulumi.Input['ApplicationIdentityType'] identity_type: The authentication type being used by a Amazon Q Business application.
         :param pulumi.Input['ApplicationPersonalizationConfigurationArgs'] personalization_configuration: Configuration information about chat response personalization. For more information, see [Personalizing chat responses](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/personalizing-chat-responses.html) .
         :param pulumi.Input['ApplicationQAppsConfigurationArgs'] q_apps_configuration: Configuration information about Amazon Q Apps.
+        :param pulumi.Input['ApplicationQuickSightConfigurationArgs'] quick_sight_configuration: The Amazon QuickSight configuration for an Amazon Q Business application that uses QuickSight as the identity provider.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of an IAM role with permissions to access your Amazon CloudWatch logs and metrics. If this property is not specified, Amazon Q Business will create a [service linked role (SLR)](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/using-service-linked-roles.html#slr-permissions) and use it as the application's role.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A list of key-value pairs that identify or categorize your Amazon Q Business application. You can also use tags to help control access to the application. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
         """
@@ -221,6 +222,9 @@ class ApplicationArgs:
     @property
     @pulumi.getter(name="quickSightConfiguration")
     def quick_sight_configuration(self) -> Optional[pulumi.Input['ApplicationQuickSightConfigurationArgs']]:
+        """
+        The Amazon QuickSight configuration for an Amazon Q Business application that uses QuickSight as the identity provider.
+        """
         return pulumi.get(self, "quick_sight_configuration")
 
     @quick_sight_configuration.setter
@@ -290,6 +294,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input['ApplicationIdentityType'] identity_type: The authentication type being used by a Amazon Q Business application.
         :param pulumi.Input[Union['ApplicationPersonalizationConfigurationArgs', 'ApplicationPersonalizationConfigurationArgsDict']] personalization_configuration: Configuration information about chat response personalization. For more information, see [Personalizing chat responses](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/personalizing-chat-responses.html) .
         :param pulumi.Input[Union['ApplicationQAppsConfigurationArgs', 'ApplicationQAppsConfigurationArgsDict']] q_apps_configuration: Configuration information about Amazon Q Apps.
+        :param pulumi.Input[Union['ApplicationQuickSightConfigurationArgs', 'ApplicationQuickSightConfigurationArgsDict']] quick_sight_configuration: The Amazon QuickSight configuration for an Amazon Q Business application that uses QuickSight as the identity provider.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of an IAM role with permissions to access your Amazon CloudWatch logs and metrics. If this property is not specified, Amazon Q Business will create a [service linked role (SLR)](https://docs.aws.amazon.com/amazonq/latest/qbusiness-ug/using-service-linked-roles.html#slr-permissions) and use it as the application's role.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of key-value pairs that identify or categorize your Amazon Q Business application. You can also use tags to help control access to the application. Tag keys and values can consist of Unicode letters, digits, white space, and any of the following symbols: _ . : / = + - @.
         """
@@ -533,6 +538,9 @@ class Application(pulumi.CustomResource):
     @property
     @pulumi.getter(name="quickSightConfiguration")
     def quick_sight_configuration(self) -> pulumi.Output[Optional['outputs.ApplicationQuickSightConfiguration']]:
+        """
+        The Amazon QuickSight configuration for an Amazon Q Business application that uses QuickSight as the identity provider.
+        """
         return pulumi.get(self, "quick_sight_configuration")
 
     @property

@@ -39,6 +39,12 @@ export class MetricFilter extends pulumi.CustomResource {
     }
 
     /**
+     * This parameter is valid only for log groups that have an active log transformer. For more information about log transformers, see [PutTransformer](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutTransformer.html) .
+     *
+     * If this value is `true` , the metric filter is applied on the transformed version of the log events instead of the original ingested log events.
+     */
+    public readonly applyOnTransformedLogs!: pulumi.Output<boolean | undefined>;
+    /**
      * The name of the metric filter.
      */
     public readonly filterName!: pulumi.Output<string | undefined>;
@@ -75,11 +81,13 @@ export class MetricFilter extends pulumi.CustomResource {
             if ((!args || args.metricTransformations === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'metricTransformations'");
             }
+            resourceInputs["applyOnTransformedLogs"] = args ? args.applyOnTransformedLogs : undefined;
             resourceInputs["filterName"] = args ? args.filterName : undefined;
             resourceInputs["filterPattern"] = args ? args.filterPattern : undefined;
             resourceInputs["logGroupName"] = args ? args.logGroupName : undefined;
             resourceInputs["metricTransformations"] = args ? args.metricTransformations : undefined;
         } else {
+            resourceInputs["applyOnTransformedLogs"] = undefined /*out*/;
             resourceInputs["filterName"] = undefined /*out*/;
             resourceInputs["filterPattern"] = undefined /*out*/;
             resourceInputs["logGroupName"] = undefined /*out*/;
@@ -96,6 +104,12 @@ export class MetricFilter extends pulumi.CustomResource {
  * The set of arguments for constructing a MetricFilter resource.
  */
 export interface MetricFilterArgs {
+    /**
+     * This parameter is valid only for log groups that have an active log transformer. For more information about log transformers, see [PutTransformer](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutTransformer.html) .
+     *
+     * If this value is `true` , the metric filter is applied on the transformed version of the log events instead of the original ingested log events.
+     */
+    applyOnTransformedLogs?: pulumi.Input<boolean>;
     /**
      * The name of the metric filter.
      */

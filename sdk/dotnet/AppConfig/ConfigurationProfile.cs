@@ -28,6 +28,12 @@ namespace Pulumi.AwsNative.AppConfig
         public Output<string> ConfigurationProfileId { get; private set; } = null!;
 
         /// <summary>
+        /// On resource deletion this controls whether the Deletion Protection check should be applied, bypassed, or (the default) whether the behavior should be controlled by the account-level Deletion Protection setting. See https://docs.aws.amazon.com/appconfig/latest/userguide/deletion-protection.html
+        /// </summary>
+        [Output("deletionProtectionCheck")]
+        public Output<Pulumi.AwsNative.AppConfig.ConfigurationProfileDeletionProtectionCheck?> DeletionProtectionCheck { get; private set; } = null!;
+
+        /// <summary>
         /// A description of the configuration profile.
         /// </summary>
         [Output("description")]
@@ -137,6 +143,12 @@ namespace Pulumi.AwsNative.AppConfig
         /// </summary>
         [Input("applicationId", required: true)]
         public Input<string> ApplicationId { get; set; } = null!;
+
+        /// <summary>
+        /// On resource deletion this controls whether the Deletion Protection check should be applied, bypassed, or (the default) whether the behavior should be controlled by the account-level Deletion Protection setting. See https://docs.aws.amazon.com/appconfig/latest/userguide/deletion-protection.html
+        /// </summary>
+        [Input("deletionProtectionCheck")]
+        public Input<Pulumi.AwsNative.AppConfig.ConfigurationProfileDeletionProtectionCheck>? DeletionProtectionCheck { get; set; }
 
         /// <summary>
         /// A description of the configuration profile.

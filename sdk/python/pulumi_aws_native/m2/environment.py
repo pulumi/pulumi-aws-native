@@ -29,6 +29,7 @@ class EnvironmentArgs:
                  high_availability_config: Optional[pulumi.Input['EnvironmentHighAvailabilityConfigArgs']] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 network_type: Optional[pulumi.Input['EnvironmentNetworkType']] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
                  publicly_accessible: Optional[pulumi.Input[bool]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -63,6 +64,8 @@ class EnvironmentArgs:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if network_type is not None:
+            pulumi.set(__self__, "network_type", network_type)
         if preferred_maintenance_window is not None:
             pulumi.set(__self__, "preferred_maintenance_window", preferred_maintenance_window)
         if publicly_accessible is not None:
@@ -161,6 +164,15 @@ class EnvironmentArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="networkType")
+    def network_type(self) -> Optional[pulumi.Input['EnvironmentNetworkType']]:
+        return pulumi.get(self, "network_type")
+
+    @network_type.setter
+    def network_type(self, value: Optional[pulumi.Input['EnvironmentNetworkType']]):
+        pulumi.set(self, "network_type", value)
+
+    @property
     @pulumi.getter(name="preferredMaintenanceWindow")
     def preferred_maintenance_window(self) -> Optional[pulumi.Input[str]]:
         """
@@ -245,6 +257,7 @@ class Environment(pulumi.CustomResource):
                  instance_type: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 network_type: Optional[pulumi.Input['EnvironmentNetworkType']] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
                  publicly_accessible: Optional[pulumi.Input[bool]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -302,6 +315,7 @@ class Environment(pulumi.CustomResource):
                  instance_type: Optional[pulumi.Input[str]] = None,
                  kms_key_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 network_type: Optional[pulumi.Input['EnvironmentNetworkType']] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
                  publicly_accessible: Optional[pulumi.Input[bool]] = None,
                  security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -328,6 +342,7 @@ class Environment(pulumi.CustomResource):
             __props__.__dict__["instance_type"] = instance_type
             __props__.__dict__["kms_key_id"] = kms_key_id
             __props__.__dict__["name"] = name
+            __props__.__dict__["network_type"] = network_type
             __props__.__dict__["preferred_maintenance_window"] = preferred_maintenance_window
             __props__.__dict__["publicly_accessible"] = publicly_accessible
             __props__.__dict__["security_group_ids"] = security_group_ids
@@ -336,7 +351,7 @@ class Environment(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["environment_arn"] = None
             __props__.__dict__["environment_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["description", "engineType", "kmsKeyId", "name", "publiclyAccessible", "securityGroupIds[*]", "storageConfigurations[*]", "subnetIds[*]"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["description", "engineType", "kmsKeyId", "name", "networkType", "publiclyAccessible", "securityGroupIds[*]", "storageConfigurations[*]", "subnetIds[*]"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Environment, __self__).__init__(
             'aws-native:m2:Environment',
@@ -369,6 +384,7 @@ class Environment(pulumi.CustomResource):
         __props__.__dict__["instance_type"] = None
         __props__.__dict__["kms_key_id"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["network_type"] = None
         __props__.__dict__["preferred_maintenance_window"] = None
         __props__.__dict__["publicly_accessible"] = None
         __props__.__dict__["security_group_ids"] = None
@@ -448,6 +464,11 @@ class Environment(pulumi.CustomResource):
         The name of the environment.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="networkType")
+    def network_type(self) -> pulumi.Output[Optional['EnvironmentNetworkType']]:
+        return pulumi.get(self, "network_type")
 
     @property
     @pulumi.getter(name="preferredMaintenanceWindow")

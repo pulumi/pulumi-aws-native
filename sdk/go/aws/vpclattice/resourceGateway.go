@@ -16,16 +16,22 @@ import (
 type ResourceGateway struct {
 	pulumi.CustomResourceState
 
-	Arn           pulumi.StringOutput                   `pulumi:"arn"`
-	AwsId         pulumi.StringOutput                   `pulumi:"awsId"`
+	// The Amazon Resource Name (ARN) of the resource gateway.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The ID of the resource gateway.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
+	// The type of IP address used by the resource gateway.
 	IpAddressType ResourceGatewayIpAddressTypePtrOutput `pulumi:"ipAddressType"`
-	Name          pulumi.StringPtrOutput                `pulumi:"name"`
+	// The name of the resource gateway.
+	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// The ID of one or more security groups to associate with the endpoint network interface.
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
 	// The ID of one or more subnets in which to create an endpoint network interface.
-	SubnetIds     pulumi.StringArrayOutput `pulumi:"subnetIds"`
-	Tags          aws.TagArrayOutput       `pulumi:"tags"`
-	VpcIdentifier pulumi.StringPtrOutput   `pulumi:"vpcIdentifier"`
+	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
+	// The tags for the resource gateway.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
+	// The ID of the VPC for the resource gateway.
+	VpcIdentifier pulumi.StringPtrOutput `pulumi:"vpcIdentifier"`
 }
 
 // NewResourceGateway registers a new resource with the given unique name, arguments, and options.
@@ -75,25 +81,33 @@ func (ResourceGatewayState) ElementType() reflect.Type {
 }
 
 type resourceGatewayArgs struct {
+	// The type of IP address used by the resource gateway.
 	IpAddressType *ResourceGatewayIpAddressType `pulumi:"ipAddressType"`
-	Name          *string                       `pulumi:"name"`
+	// The name of the resource gateway.
+	Name *string `pulumi:"name"`
 	// The ID of one or more security groups to associate with the endpoint network interface.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// The ID of one or more subnets in which to create an endpoint network interface.
-	SubnetIds     []string  `pulumi:"subnetIds"`
-	Tags          []aws.Tag `pulumi:"tags"`
-	VpcIdentifier *string   `pulumi:"vpcIdentifier"`
+	SubnetIds []string `pulumi:"subnetIds"`
+	// The tags for the resource gateway.
+	Tags []aws.Tag `pulumi:"tags"`
+	// The ID of the VPC for the resource gateway.
+	VpcIdentifier *string `pulumi:"vpcIdentifier"`
 }
 
 // The set of arguments for constructing a ResourceGateway resource.
 type ResourceGatewayArgs struct {
+	// The type of IP address used by the resource gateway.
 	IpAddressType ResourceGatewayIpAddressTypePtrInput
-	Name          pulumi.StringPtrInput
+	// The name of the resource gateway.
+	Name pulumi.StringPtrInput
 	// The ID of one or more security groups to associate with the endpoint network interface.
 	SecurityGroupIds pulumi.StringArrayInput
 	// The ID of one or more subnets in which to create an endpoint network interface.
-	SubnetIds     pulumi.StringArrayInput
-	Tags          aws.TagArrayInput
+	SubnetIds pulumi.StringArrayInput
+	// The tags for the resource gateway.
+	Tags aws.TagArrayInput
+	// The ID of the VPC for the resource gateway.
 	VpcIdentifier pulumi.StringPtrInput
 }
 
@@ -134,18 +148,22 @@ func (o ResourceGatewayOutput) ToResourceGatewayOutputWithContext(ctx context.Co
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the resource gateway.
 func (o ResourceGatewayOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceGateway) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The ID of the resource gateway.
 func (o ResourceGatewayOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceGateway) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
+// The type of IP address used by the resource gateway.
 func (o ResourceGatewayOutput) IpAddressType() ResourceGatewayIpAddressTypePtrOutput {
 	return o.ApplyT(func(v *ResourceGateway) ResourceGatewayIpAddressTypePtrOutput { return v.IpAddressType }).(ResourceGatewayIpAddressTypePtrOutput)
 }
 
+// The name of the resource gateway.
 func (o ResourceGatewayOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceGateway) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
@@ -160,10 +178,12 @@ func (o ResourceGatewayOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResourceGateway) pulumi.StringArrayOutput { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
+// The tags for the resource gateway.
 func (o ResourceGatewayOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *ResourceGateway) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
+// The ID of the VPC for the resource gateway.
 func (o ResourceGatewayOutput) VpcIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceGateway) pulumi.StringPtrOutput { return v.VpcIdentifier }).(pulumi.StringPtrOutput)
 }

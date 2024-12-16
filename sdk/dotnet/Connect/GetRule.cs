@@ -12,19 +12,19 @@ namespace Pulumi.AwsNative.Connect
     public static class GetRule
     {
         /// <summary>
-        /// Resource Type definition for AWS:Connect::Rule
+        /// Creates a rule for the specified CON instance.
         /// </summary>
         public static Task<GetRuleResult> InvokeAsync(GetRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRuleResult>("aws-native:connect:getRule", args ?? new GetRuleArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS:Connect::Rule
+        /// Creates a rule for the specified CON instance.
         /// </summary>
         public static Output<GetRuleResult> Invoke(GetRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRuleResult>("aws-native:connect:getRule", args ?? new GetRuleInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource Type definition for AWS:Connect::Rule
+        /// Creates a rule for the specified CON instance.
         /// </summary>
         public static Output<GetRuleResult> Invoke(GetRuleInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetRuleResult>("aws-native:connect:getRule", args ?? new GetRuleInvokeArgs(), options.WithDefaults());
@@ -64,11 +64,11 @@ namespace Pulumi.AwsNative.Connect
     public sealed class GetRuleResult
     {
         /// <summary>
-        /// The list of actions that will be executed when a rule is triggered.
+        /// A list of actions to be run when the rule is triggered.
         /// </summary>
         public readonly Outputs.RuleActions? Actions;
         /// <summary>
-        /// The conditions of a rule.
+        /// The conditions of the rule.
         /// </summary>
         public readonly string? Function;
         /// <summary>
@@ -76,7 +76,8 @@ namespace Pulumi.AwsNative.Connect
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// The publish status of a rule, either draft or published.
+        /// The publish status of the rule.
+        ///   *Allowed values*: ``DRAFT`` | ``PUBLISHED``
         /// </summary>
         public readonly Pulumi.AwsNative.Connect.RulePublishStatus? PublishStatus;
         /// <summary>
@@ -84,7 +85,7 @@ namespace Pulumi.AwsNative.Connect
         /// </summary>
         public readonly string? RuleArn;
         /// <summary>
-        /// One or more tags.
+        /// The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 

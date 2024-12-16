@@ -30,6 +30,11 @@ export type Device = import("./device").Device;
 export const Device: typeof import("./device").Device = null as any;
 utilities.lazyLoad(exports, ["Device"], () => require("./device"));
 
+export { DirectConnectGatewayAttachmentArgs } from "./directConnectGatewayAttachment";
+export type DirectConnectGatewayAttachment = import("./directConnectGatewayAttachment").DirectConnectGatewayAttachment;
+export const DirectConnectGatewayAttachment: typeof import("./directConnectGatewayAttachment").DirectConnectGatewayAttachment = null as any;
+utilities.lazyLoad(exports, ["DirectConnectGatewayAttachment"], () => require("./directConnectGatewayAttachment"));
+
 export { GetConnectAttachmentArgs, GetConnectAttachmentResult, GetConnectAttachmentOutputArgs } from "./getConnectAttachment";
 export const getConnectAttachment: typeof import("./getConnectAttachment").getConnectAttachment = null as any;
 export const getConnectAttachmentOutput: typeof import("./getConnectAttachment").getConnectAttachmentOutput = null as any;
@@ -49,6 +54,11 @@ export { GetDeviceArgs, GetDeviceResult, GetDeviceOutputArgs } from "./getDevice
 export const getDevice: typeof import("./getDevice").getDevice = null as any;
 export const getDeviceOutput: typeof import("./getDevice").getDeviceOutput = null as any;
 utilities.lazyLoad(exports, ["getDevice","getDeviceOutput"], () => require("./getDevice"));
+
+export { GetDirectConnectGatewayAttachmentArgs, GetDirectConnectGatewayAttachmentResult, GetDirectConnectGatewayAttachmentOutputArgs } from "./getDirectConnectGatewayAttachment";
+export const getDirectConnectGatewayAttachment: typeof import("./getDirectConnectGatewayAttachment").getDirectConnectGatewayAttachment = null as any;
+export const getDirectConnectGatewayAttachmentOutput: typeof import("./getDirectConnectGatewayAttachment").getDirectConnectGatewayAttachmentOutput = null as any;
+utilities.lazyLoad(exports, ["getDirectConnectGatewayAttachment","getDirectConnectGatewayAttachmentOutput"], () => require("./getDirectConnectGatewayAttachment"));
 
 export { GetGlobalNetworkArgs, GetGlobalNetworkResult, GetGlobalNetworkOutputArgs } from "./getGlobalNetwork";
 export const getGlobalNetwork: typeof import("./getGlobalNetwork").getGlobalNetwork = null as any;
@@ -145,6 +155,8 @@ const _module = {
                 return new CustomerGatewayAssociation(name, <any>undefined, { urn })
             case "aws-native:networkmanager:Device":
                 return new Device(name, <any>undefined, { urn })
+            case "aws-native:networkmanager:DirectConnectGatewayAttachment":
+                return new DirectConnectGatewayAttachment(name, <any>undefined, { urn })
             case "aws-native:networkmanager:GlobalNetwork":
                 return new GlobalNetwork(name, <any>undefined, { urn })
             case "aws-native:networkmanager:Link":

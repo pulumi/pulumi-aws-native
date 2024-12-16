@@ -62,6 +62,10 @@ export class Queue extends pulumi.CustomResource {
      */
     public readonly outboundCallerConfig!: pulumi.Output<outputs.connect.QueueOutboundCallerConfig | undefined>;
     /**
+     * The outbound email address ID.
+     */
+    public readonly outboundEmailConfig!: pulumi.Output<outputs.connect.QueueOutboundEmailConfig | undefined>;
+    /**
      * The Amazon Resource Name (ARN) for the queue.
      */
     public /*out*/ readonly queueArn!: pulumi.Output<string>;
@@ -105,6 +109,7 @@ export class Queue extends pulumi.CustomResource {
             resourceInputs["maxContacts"] = args ? args.maxContacts : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["outboundCallerConfig"] = args ? args.outboundCallerConfig : undefined;
+            resourceInputs["outboundEmailConfig"] = args ? args.outboundEmailConfig : undefined;
             resourceInputs["quickConnectArns"] = args ? args.quickConnectArns : undefined;
             resourceInputs["status"] = args ? args.status : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -117,6 +122,7 @@ export class Queue extends pulumi.CustomResource {
             resourceInputs["maxContacts"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["outboundCallerConfig"] = undefined /*out*/;
+            resourceInputs["outboundEmailConfig"] = undefined /*out*/;
             resourceInputs["queueArn"] = undefined /*out*/;
             resourceInputs["quickConnectArns"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
@@ -156,6 +162,10 @@ export interface QueueArgs {
      * The outbound caller ID name, number, and outbound whisper flow.
      */
     outboundCallerConfig?: pulumi.Input<inputs.connect.QueueOutboundCallerConfigArgs>;
+    /**
+     * The outbound email address ID.
+     */
+    outboundEmailConfig?: pulumi.Input<inputs.connect.QueueOutboundEmailConfigArgs>;
     /**
      * The quick connects available to agents who are working the queue.
      */

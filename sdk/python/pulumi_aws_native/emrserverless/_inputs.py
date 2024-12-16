@@ -44,6 +44,8 @@ __all__ = [
     'ApplicationNetworkConfigurationArgsDict',
     'ApplicationS3MonitoringConfigurationArgs',
     'ApplicationS3MonitoringConfigurationArgsDict',
+    'ApplicationSchedulerConfigurationArgs',
+    'ApplicationSchedulerConfigurationArgsDict',
     'ApplicationWorkerConfigurationArgs',
     'ApplicationWorkerConfigurationArgsDict',
     'ApplicationWorkerTypeSpecificationInputArgs',
@@ -818,6 +820,62 @@ class ApplicationS3MonitoringConfigurationArgs:
     @log_uri.setter
     def log_uri(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "log_uri", value)
+
+
+if not MYPY:
+    class ApplicationSchedulerConfigurationArgsDict(TypedDict):
+        """
+        The scheduler configuration for batch and streaming jobs running on this application. Supported with release labels emr-7.0.0 and above.
+        """
+        max_concurrent_runs: NotRequired[pulumi.Input[int]]
+        """
+        The maximum concurrent job runs on this application. If scheduler configuration is enabled on your application, the default value is 15. The valid range is 1 to 1000.
+        """
+        queue_timeout_minutes: NotRequired[pulumi.Input[int]]
+        """
+        The maximum duration in minutes for the job in QUEUED state. If scheduler configuration is enabled on your application, the default value is 360 minutes (6 hours). The valid range is from 15 to 720.
+        """
+elif False:
+    ApplicationSchedulerConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ApplicationSchedulerConfigurationArgs:
+    def __init__(__self__, *,
+                 max_concurrent_runs: Optional[pulumi.Input[int]] = None,
+                 queue_timeout_minutes: Optional[pulumi.Input[int]] = None):
+        """
+        The scheduler configuration for batch and streaming jobs running on this application. Supported with release labels emr-7.0.0 and above.
+        :param pulumi.Input[int] max_concurrent_runs: The maximum concurrent job runs on this application. If scheduler configuration is enabled on your application, the default value is 15. The valid range is 1 to 1000.
+        :param pulumi.Input[int] queue_timeout_minutes: The maximum duration in minutes for the job in QUEUED state. If scheduler configuration is enabled on your application, the default value is 360 minutes (6 hours). The valid range is from 15 to 720.
+        """
+        if max_concurrent_runs is not None:
+            pulumi.set(__self__, "max_concurrent_runs", max_concurrent_runs)
+        if queue_timeout_minutes is not None:
+            pulumi.set(__self__, "queue_timeout_minutes", queue_timeout_minutes)
+
+    @property
+    @pulumi.getter(name="maxConcurrentRuns")
+    def max_concurrent_runs(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum concurrent job runs on this application. If scheduler configuration is enabled on your application, the default value is 15. The valid range is 1 to 1000.
+        """
+        return pulumi.get(self, "max_concurrent_runs")
+
+    @max_concurrent_runs.setter
+    def max_concurrent_runs(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_concurrent_runs", value)
+
+    @property
+    @pulumi.getter(name="queueTimeoutMinutes")
+    def queue_timeout_minutes(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum duration in minutes for the job in QUEUED state. If scheduler configuration is enabled on your application, the default value is 360 minutes (6 hours). The valid range is from 15 to 720.
+        """
+        return pulumi.get(self, "queue_timeout_minutes")
+
+    @queue_timeout_minutes.setter
+    def queue_timeout_minutes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "queue_timeout_minutes", value)
 
 
 if not MYPY:

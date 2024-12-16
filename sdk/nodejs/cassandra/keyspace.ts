@@ -99,6 +99,10 @@ export class Keyspace extends pulumi.CustomResource {
     }
 
     /**
+     * Indicates whether client-side timestamps are enabled (true) or disabled (false) for all tables in the keyspace. To add a Region to a single-Region keyspace with at least one table, the value must be set to true. After you enabled client-side timestamps for a table, you can’t disable it again.
+     */
+    public readonly clientSideTimestampsEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * Name for Cassandra keyspace
      */
     public readonly keyspaceName!: pulumi.Output<string | undefined>;
@@ -129,16 +133,18 @@ export class Keyspace extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            resourceInputs["clientSideTimestampsEnabled"] = args ? args.clientSideTimestampsEnabled : undefined;
             resourceInputs["keyspaceName"] = args ? args.keyspaceName : undefined;
             resourceInputs["replicationSpecification"] = args ? args.replicationSpecification : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
         } else {
+            resourceInputs["clientSideTimestampsEnabled"] = undefined /*out*/;
             resourceInputs["keyspaceName"] = undefined /*out*/;
             resourceInputs["replicationSpecification"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["keyspaceName", "replicationSpecification"] };
+        const replaceOnChanges = { replaceOnChanges: ["keyspaceName"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Keyspace.__pulumiType, name, resourceInputs, opts);
     }
@@ -148,6 +154,10 @@ export class Keyspace extends pulumi.CustomResource {
  * The set of arguments for constructing a Keyspace resource.
  */
 export interface KeyspaceArgs {
+    /**
+     * Indicates whether client-side timestamps are enabled (true) or disabled (false) for all tables in the keyspace. To add a Region to a single-Region keyspace with at least one table, the value must be set to true. After you enabled client-side timestamps for a table, you can’t disable it again.
+     */
+    clientSideTimestampsEnabled?: pulumi.Input<boolean>;
     /**
      * Name for Cassandra keyspace
      */

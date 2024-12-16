@@ -10,6 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.VpcLattice.Inputs
 {
 
+    /// <summary>
+    /// Identifies the resource configuration in one of the following ways:
+    /// 
+    /// - *Amazon Resource Name (ARN)* - Supported resource-types that are provisioned by AWS services, such as RDS databases, can be identified by their ARN.
+    /// - *Domain name* - Any domain name that is publicly resolvable.
+    /// - *IP address* - For IPv4 and IPv6, only IP addresses in the VPC are supported.
+    /// </summary>
     public sealed class ResourceConfigurationDefinition0PropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("ipResource", required: true)]

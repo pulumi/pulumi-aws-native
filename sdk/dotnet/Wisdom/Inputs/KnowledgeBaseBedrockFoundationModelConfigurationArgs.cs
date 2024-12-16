@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.Wisdom.Inputs
 
     public sealed class KnowledgeBaseBedrockFoundationModelConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The model ARN of the Bedrock foundation model.
+        /// </summary>
         [Input("modelArn", required: true)]
         public Input<string> ModelArn { get; set; } = null!;
 
+        /// <summary>
+        /// The parsing prompt of the Bedrock foundation model configuration.
+        /// </summary>
         [Input("parsingPrompt")]
         public Input<Inputs.KnowledgeBaseBedrockFoundationModelConfigurationParsingPromptPropertiesArgs>? ParsingPrompt { get; set; }
 

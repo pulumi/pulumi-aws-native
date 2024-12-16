@@ -4094,7 +4094,9 @@ func (in *routingProfileChannelPtr) ToRoutingProfileChannelPtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(RoutingProfileChannelPtrOutput)
 }
 
-// The publish status of a rule, either draft or published.
+// The publish status of the rule.
+//
+//	*Allowed values*: ``DRAFT`` | ``PUBLISHED``
 type RulePublishStatus string
 
 const (
@@ -4260,6 +4262,9 @@ func (in *rulePublishStatusPtr) ToRulePublishStatusPtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(RulePublishStatusPtrOutput)
 }
 
+// The type of the reference. “DATE“ must be of type Epoch timestamp.
+//
+//	*Allowed values*: ``URL`` | ``ATTACHMENT`` | ``NUMBER`` | ``STRING`` | ``DATE`` | ``EMAIL``
 type RuleReferenceType string
 
 const (
@@ -4433,7 +4438,9 @@ func (in *ruleReferenceTypePtr) ToRuleReferenceTypePtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(RuleReferenceTypePtrOutput)
 }
 
-// The type of content.
+// Content type format.
+//
+//	*Allowed value*: ``PLAIN_TEXT``
 type RuleSendNotificationActionContentType string
 
 const (
@@ -4597,7 +4604,9 @@ func (in *ruleSendNotificationActionContentTypePtr) ToRuleSendNotificationAction
 	return pulumi.ToOutputWithContext(ctx, in).(RuleSendNotificationActionContentTypePtrOutput)
 }
 
-// The means of delivery.
+// Notification delivery method.
+//
+//	*Allowed value*: ``EMAIL``
 type RuleSendNotificationActionDeliveryMethod string
 
 const (
@@ -4761,7 +4770,7 @@ func (in *ruleSendNotificationActionDeliveryMethodPtr) ToRuleSendNotificationAct
 	return pulumi.ToOutputWithContext(ctx, in).(RuleSendNotificationActionDeliveryMethodPtrOutput)
 }
 
-// The name of event source.
+// The name of the event source.
 type RuleTriggerEventSourceEventSourceName string
 
 const (

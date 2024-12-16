@@ -69,9 +69,6 @@ namespace Pulumi.AwsNative.WorkSpaces
         [Output("poolName")]
         public Output<string> PoolName { get; private set; } = null!;
 
-        /// <summary>
-        /// The tags for the pool.
-        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -168,10 +165,6 @@ namespace Pulumi.AwsNative.WorkSpaces
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
-
-        /// <summary>
-        /// The tags for the pool.
-        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

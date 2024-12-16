@@ -37,9 +37,21 @@ export class ResourceGateway extends pulumi.CustomResource {
         return obj['__pulumiType'] === ResourceGateway.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the resource gateway.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The ID of the resource gateway.
+     */
     public /*out*/ readonly awsId!: pulumi.Output<string>;
+    /**
+     * The type of IP address used by the resource gateway.
+     */
     public readonly ipAddressType!: pulumi.Output<enums.vpclattice.ResourceGatewayIpAddressType | undefined>;
+    /**
+     * The name of the resource gateway.
+     */
     public readonly name!: pulumi.Output<string | undefined>;
     /**
      * The ID of one or more security groups to associate with the endpoint network interface.
@@ -49,7 +61,13 @@ export class ResourceGateway extends pulumi.CustomResource {
      * The ID of one or more subnets in which to create an endpoint network interface.
      */
     public readonly subnetIds!: pulumi.Output<string[] | undefined>;
+    /**
+     * The tags for the resource gateway.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
+    /**
+     * The ID of the VPC for the resource gateway.
+     */
     public readonly vpcIdentifier!: pulumi.Output<string | undefined>;
 
     /**
@@ -92,7 +110,13 @@ export class ResourceGateway extends pulumi.CustomResource {
  * The set of arguments for constructing a ResourceGateway resource.
  */
 export interface ResourceGatewayArgs {
+    /**
+     * The type of IP address used by the resource gateway.
+     */
     ipAddressType?: pulumi.Input<enums.vpclattice.ResourceGatewayIpAddressType>;
+    /**
+     * The name of the resource gateway.
+     */
     name?: pulumi.Input<string>;
     /**
      * The ID of one or more security groups to associate with the endpoint network interface.
@@ -102,6 +126,12 @@ export interface ResourceGatewayArgs {
      * The ID of one or more subnets in which to create an endpoint network interface.
      */
     subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The tags for the resource gateway.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
+    /**
+     * The ID of the VPC for the resource gateway.
+     */
     vpcIdentifier?: pulumi.Input<string>;
 }

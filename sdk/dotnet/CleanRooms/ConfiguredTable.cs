@@ -65,7 +65,7 @@ namespace Pulumi.AwsNative.CleanRooms
         /// The table that this configured table represents.
         /// </summary>
         [Output("tableReference")]
-        public Output<Outputs.ConfiguredTableTableReference> TableReference { get; private set; } = null!;
+        public Output<object> TableReference { get; private set; } = null!;
 
         /// <summary>
         /// An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
@@ -170,7 +170,7 @@ namespace Pulumi.AwsNative.CleanRooms
         /// The table that this configured table represents.
         /// </summary>
         [Input("tableReference", required: true)]
-        public Input<Inputs.ConfiguredTableTableReferenceArgs> TableReference { get; set; } = null!;
+        public object TableReference { get; set; } = null!;
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

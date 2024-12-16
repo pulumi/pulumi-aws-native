@@ -139,6 +139,7 @@ export interface GetServerResult {
      * An example `ServerId` is `s-01234567890abcdef` .
      */
     readonly serverId?: string;
+    readonly state?: enums.transfer.ServerState;
     /**
      * Specifies the log groups to which your server logs are sent.
      *

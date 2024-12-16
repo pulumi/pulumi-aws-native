@@ -19,6 +19,8 @@ type Environment struct {
 
 	// The application ID.
 	ApplicationId pulumi.StringOutput `pulumi:"applicationId"`
+	// On resource deletion this controls whether the Deletion Protection check should be applied, bypassed, or (the default) whether the behavior should be controlled by the account-level Deletion Protection setting. See https://docs.aws.amazon.com/appconfig/latest/userguide/deletion-protection.html
+	DeletionProtectionCheck EnvironmentDeletionProtectionCheckPtrOutput `pulumi:"deletionProtectionCheck"`
 	// A description of the environment.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The environment ID.
@@ -80,6 +82,8 @@ func (EnvironmentState) ElementType() reflect.Type {
 type environmentArgs struct {
 	// The application ID.
 	ApplicationId string `pulumi:"applicationId"`
+	// On resource deletion this controls whether the Deletion Protection check should be applied, bypassed, or (the default) whether the behavior should be controlled by the account-level Deletion Protection setting. See https://docs.aws.amazon.com/appconfig/latest/userguide/deletion-protection.html
+	DeletionProtectionCheck *EnvironmentDeletionProtectionCheck `pulumi:"deletionProtectionCheck"`
 	// A description of the environment.
 	Description *string `pulumi:"description"`
 	// Amazon CloudWatch alarms to monitor during the deployment process.
@@ -94,6 +98,8 @@ type environmentArgs struct {
 type EnvironmentArgs struct {
 	// The application ID.
 	ApplicationId pulumi.StringInput
+	// On resource deletion this controls whether the Deletion Protection check should be applied, bypassed, or (the default) whether the behavior should be controlled by the account-level Deletion Protection setting. See https://docs.aws.amazon.com/appconfig/latest/userguide/deletion-protection.html
+	DeletionProtectionCheck EnvironmentDeletionProtectionCheckPtrInput
 	// A description of the environment.
 	Description pulumi.StringPtrInput
 	// Amazon CloudWatch alarms to monitor during the deployment process.
@@ -144,6 +150,11 @@ func (o EnvironmentOutput) ToEnvironmentOutputWithContext(ctx context.Context) E
 // The application ID.
 func (o EnvironmentOutput) ApplicationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.ApplicationId }).(pulumi.StringOutput)
+}
+
+// On resource deletion this controls whether the Deletion Protection check should be applied, bypassed, or (the default) whether the behavior should be controlled by the account-level Deletion Protection setting. See https://docs.aws.amazon.com/appconfig/latest/userguide/deletion-protection.html
+func (o EnvironmentOutput) DeletionProtectionCheck() EnvironmentDeletionProtectionCheckPtrOutput {
+	return o.ApplyT(func(v *Environment) EnvironmentDeletionProtectionCheckPtrOutput { return v.DeletionProtectionCheck }).(EnvironmentDeletionProtectionCheckPtrOutput)
 }
 
 // A description of the environment.

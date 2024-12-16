@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     public sealed class ModelCardTrainingMetric
     {
         /// <summary>
-        /// The name of the result from the SageMaker training job.
+        /// The name of the result from the SageMaker AI training job.
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         /// </summary>
         public readonly string? Notes;
         /// <summary>
-        /// The value of a result from the SageMaker training job.
+        /// The value of a result from the SageMaker AI training job.
         /// </summary>
         public readonly double Value;
 

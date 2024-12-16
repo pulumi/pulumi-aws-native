@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDataSetResult:
-    def __init__(__self__, arn=None, column_groups=None, column_level_permission_rules=None, consumed_spice_capacity_in_bytes=None, created_time=None, data_set_refresh_properties=None, data_set_usage_configuration=None, dataset_parameters=None, import_mode=None, last_updated_time=None, logical_table_map=None, name=None, output_columns=None, permissions=None, physical_table_map=None, row_level_permission_data_set=None, row_level_permission_tag_configuration=None, tags=None):
+    def __init__(__self__, arn=None, column_groups=None, column_level_permission_rules=None, consumed_spice_capacity_in_bytes=None, created_time=None, data_set_refresh_properties=None, data_set_usage_configuration=None, dataset_parameters=None, import_mode=None, last_updated_time=None, logical_table_map=None, name=None, output_columns=None, performance_configuration=None, permissions=None, physical_table_map=None, row_level_permission_data_set=None, row_level_permission_tag_configuration=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -66,6 +66,9 @@ class GetDataSetResult:
         if output_columns and not isinstance(output_columns, list):
             raise TypeError("Expected argument 'output_columns' to be a list")
         pulumi.set(__self__, "output_columns", output_columns)
+        if performance_configuration and not isinstance(performance_configuration, dict):
+            raise TypeError("Expected argument 'performance_configuration' to be a dict")
+        pulumi.set(__self__, "performance_configuration", performance_configuration)
         if permissions and not isinstance(permissions, list):
             raise TypeError("Expected argument 'permissions' to be a list")
         pulumi.set(__self__, "permissions", permissions)
@@ -191,6 +194,11 @@ class GetDataSetResult:
         return pulumi.get(self, "output_columns")
 
     @property
+    @pulumi.getter(name="performanceConfiguration")
+    def performance_configuration(self) -> Optional['outputs.DataSetPerformanceConfiguration']:
+        return pulumi.get(self, "performance_configuration")
+
+    @property
     @pulumi.getter
     def permissions(self) -> Optional[Sequence['outputs.DataSetResourcePermission']]:
         """
@@ -250,6 +258,7 @@ class AwaitableGetDataSetResult(GetDataSetResult):
             logical_table_map=self.logical_table_map,
             name=self.name,
             output_columns=self.output_columns,
+            performance_configuration=self.performance_configuration,
             permissions=self.permissions,
             physical_table_map=self.physical_table_map,
             row_level_permission_data_set=self.row_level_permission_data_set,
@@ -287,6 +296,7 @@ def get_data_set(aws_account_id: Optional[str] = None,
         logical_table_map=pulumi.get(__ret__, 'logical_table_map'),
         name=pulumi.get(__ret__, 'name'),
         output_columns=pulumi.get(__ret__, 'output_columns'),
+        performance_configuration=pulumi.get(__ret__, 'performance_configuration'),
         permissions=pulumi.get(__ret__, 'permissions'),
         physical_table_map=pulumi.get(__ret__, 'physical_table_map'),
         row_level_permission_data_set=pulumi.get(__ret__, 'row_level_permission_data_set'),
@@ -321,6 +331,7 @@ def get_data_set_output(aws_account_id: Optional[pulumi.Input[str]] = None,
         logical_table_map=pulumi.get(__response__, 'logical_table_map'),
         name=pulumi.get(__response__, 'name'),
         output_columns=pulumi.get(__response__, 'output_columns'),
+        performance_configuration=pulumi.get(__response__, 'performance_configuration'),
         permissions=pulumi.get(__response__, 'permissions'),
         physical_table_map=pulumi.get(__response__, 'physical_table_map'),
         row_level_permission_data_set=pulumi.get(__response__, 'row_level_permission_data_set'),

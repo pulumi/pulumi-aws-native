@@ -27,7 +27,8 @@ type LogGroup struct {
 	//  For more information, including a list of types of data that can be audited and masked, see [Protect sensitive log data with masking](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data.html).
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::LogGroup` for more information about the expected schema for this property.
-	DataProtectionPolicy pulumi.AnyOutput `pulumi:"dataProtectionPolicy"`
+	DataProtectionPolicy pulumi.AnyOutput   `pulumi:"dataProtectionPolicy"`
+	FieldIndexPolicies   pulumi.ArrayOutput `pulumi:"fieldIndexPolicies"`
 	// The Amazon Resource Name (ARN) of the KMS key to use when encrypting log data.
 	//  To associate an KMS key with the log group, specify the ARN of that KMS key here. If you do so, ingested data is encrypted using this key. This association is stored as long as the data encrypted with the KMS key is still within CWL. This enables CWL to decrypt this data whenever it is requested.
 	//  If you attempt to associate a KMS key with the log group but the KMS key doesn't exist or is deactivated, you will receive an ``InvalidParameterException`` error.
@@ -97,7 +98,8 @@ type logGroupArgs struct {
 	//  For more information, including a list of types of data that can be audited and masked, see [Protect sensitive log data with masking](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data.html).
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::LogGroup` for more information about the expected schema for this property.
-	DataProtectionPolicy interface{} `pulumi:"dataProtectionPolicy"`
+	DataProtectionPolicy interface{}   `pulumi:"dataProtectionPolicy"`
+	FieldIndexPolicies   []interface{} `pulumi:"fieldIndexPolicies"`
 	// The Amazon Resource Name (ARN) of the KMS key to use when encrypting log data.
 	//  To associate an KMS key with the log group, specify the ARN of that KMS key here. If you do so, ingested data is encrypted using this key. This association is stored as long as the data encrypted with the KMS key is still within CWL. This enables CWL to decrypt this data whenever it is requested.
 	//  If you attempt to associate a KMS key with the log group but the KMS key doesn't exist or is deactivated, you will receive an ``InvalidParameterException`` error.
@@ -126,6 +128,7 @@ type LogGroupArgs struct {
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::LogGroup` for more information about the expected schema for this property.
 	DataProtectionPolicy pulumi.Input
+	FieldIndexPolicies   pulumi.ArrayInput
 	// The Amazon Resource Name (ARN) of the KMS key to use when encrypting log data.
 	//  To associate an KMS key with the log group, specify the ARN of that KMS key here. If you do so, ingested data is encrypted using this key. This association is stored as long as the data encrypted with the KMS key is still within CWL. This enables CWL to decrypt this data whenever it is requested.
 	//  If you attempt to associate a KMS key with the log group but the KMS key doesn't exist or is deactivated, you will receive an ``InvalidParameterException`` error.
@@ -196,6 +199,10 @@ func (o LogGroupOutput) Arn() pulumi.StringOutput {
 // Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::LogGroup` for more information about the expected schema for this property.
 func (o LogGroupOutput) DataProtectionPolicy() pulumi.AnyOutput {
 	return o.ApplyT(func(v *LogGroup) pulumi.AnyOutput { return v.DataProtectionPolicy }).(pulumi.AnyOutput)
+}
+
+func (o LogGroupOutput) FieldIndexPolicies() pulumi.ArrayOutput {
+	return o.ApplyT(func(v *LogGroup) pulumi.ArrayOutput { return v.FieldIndexPolicies }).(pulumi.ArrayOutput)
 }
 
 // The Amazon Resource Name (ARN) of the KMS key to use when encrypting log data.

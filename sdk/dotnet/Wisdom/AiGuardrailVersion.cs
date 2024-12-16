@@ -15,21 +15,39 @@ namespace Pulumi.AwsNative.Wisdom
     [AwsNativeResourceType("aws-native:wisdom:AiGuardrailVersion")]
     public partial class AiGuardrailVersion : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ARN of the AI guardrail version.
+        /// </summary>
         [Output("aiGuardrailArn")]
         public Output<string> AiGuardrailArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the AI guardrail version.
+        /// </summary>
         [Output("aiGuardrailId")]
         public Output<string> AiGuardrailId { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the AI guardrail version.
+        /// </summary>
         [Output("aiGuardrailVersionId")]
         public Output<string> AiGuardrailVersionId { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN of the AI guardrail version assistant.
+        /// </summary>
         [Output("assistantArn")]
         public Output<string> AssistantArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the AI guardrail version assistant.
+        /// </summary>
         [Output("assistantId")]
         public Output<string> AssistantId { get; private set; } = null!;
 
+        /// <summary>
+        /// The modified time of the AI guardrail version in seconds.
+        /// </summary>
         [Output("modifiedTimeSeconds")]
         public Output<double?> ModifiedTimeSeconds { get; private set; } = null!;
 
@@ -90,12 +108,21 @@ namespace Pulumi.AwsNative.Wisdom
 
     public sealed class AiGuardrailVersionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ID of the AI guardrail version.
+        /// </summary>
         [Input("aiGuardrailId", required: true)]
         public Input<string> AiGuardrailId { get; set; } = null!;
 
+        /// <summary>
+        /// The ID of the AI guardrail version assistant.
+        /// </summary>
         [Input("assistantId", required: true)]
         public Input<string> AssistantId { get; set; } = null!;
 
+        /// <summary>
+        /// The modified time of the AI guardrail version in seconds.
+        /// </summary>
         [Input("modifiedTimeSeconds")]
         public Input<double>? ModifiedTimeSeconds { get; set; }
 

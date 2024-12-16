@@ -2765,8 +2765,11 @@ func (o HoursOfOperationConfigArrayOutput) Index(i pulumi.IntInput) HoursOfOpera
 
 // Overrides attached to the hours of operation.
 type HoursOfOperationOverride struct {
-	EffectiveFrom              string                           `pulumi:"effectiveFrom"`
-	EffectiveTill              string                           `pulumi:"effectiveTill"`
+	// The date from which the hours of operation override would be effective.
+	EffectiveFrom string `pulumi:"effectiveFrom"`
+	// The date till which the hours of operation override would be effective.
+	EffectiveTill string `pulumi:"effectiveTill"`
+	// The identifier for the hours of operation override.
 	HoursOfOperationOverrideId *string                          `pulumi:"hoursOfOperationOverrideId"`
 	OverrideConfig             []HoursOfOperationOverrideConfig `pulumi:"overrideConfig"`
 	OverrideDescription        *string                          `pulumi:"overrideDescription"`
@@ -2786,8 +2789,11 @@ type HoursOfOperationOverrideInput interface {
 
 // Overrides attached to the hours of operation.
 type HoursOfOperationOverrideArgs struct {
-	EffectiveFrom              pulumi.StringInput                       `pulumi:"effectiveFrom"`
-	EffectiveTill              pulumi.StringInput                       `pulumi:"effectiveTill"`
+	// The date from which the hours of operation override would be effective.
+	EffectiveFrom pulumi.StringInput `pulumi:"effectiveFrom"`
+	// The date till which the hours of operation override would be effective.
+	EffectiveTill pulumi.StringInput `pulumi:"effectiveTill"`
+	// The identifier for the hours of operation override.
 	HoursOfOperationOverrideId pulumi.StringPtrInput                    `pulumi:"hoursOfOperationOverrideId"`
 	OverrideConfig             HoursOfOperationOverrideConfigArrayInput `pulumi:"overrideConfig"`
 	OverrideDescription        pulumi.StringPtrInput                    `pulumi:"overrideDescription"`
@@ -2846,14 +2852,17 @@ func (o HoursOfOperationOverrideOutput) ToHoursOfOperationOverrideOutputWithCont
 	return o
 }
 
+// The date from which the hours of operation override would be effective.
 func (o HoursOfOperationOverrideOutput) EffectiveFrom() pulumi.StringOutput {
 	return o.ApplyT(func(v HoursOfOperationOverride) string { return v.EffectiveFrom }).(pulumi.StringOutput)
 }
 
+// The date till which the hours of operation override would be effective.
 func (o HoursOfOperationOverrideOutput) EffectiveTill() pulumi.StringOutput {
 	return o.ApplyT(func(v HoursOfOperationOverride) string { return v.EffectiveTill }).(pulumi.StringOutput)
 }
 
+// The identifier for the hours of operation override.
 func (o HoursOfOperationOverrideOutput) HoursOfOperationOverrideId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HoursOfOperationOverride) *string { return v.HoursOfOperationOverrideId }).(pulumi.StringPtrOutput)
 }
@@ -4336,6 +4345,146 @@ func (o QueueOutboundCallerConfigPtrOutput) OutboundFlowArn() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+// The outbound email address ID.
+type QueueOutboundEmailConfig struct {
+	// The identifier of the email address.
+	OutboundEmailAddressId *string `pulumi:"outboundEmailAddressId"`
+}
+
+// QueueOutboundEmailConfigInput is an input type that accepts QueueOutboundEmailConfigArgs and QueueOutboundEmailConfigOutput values.
+// You can construct a concrete instance of `QueueOutboundEmailConfigInput` via:
+//
+//	QueueOutboundEmailConfigArgs{...}
+type QueueOutboundEmailConfigInput interface {
+	pulumi.Input
+
+	ToQueueOutboundEmailConfigOutput() QueueOutboundEmailConfigOutput
+	ToQueueOutboundEmailConfigOutputWithContext(context.Context) QueueOutboundEmailConfigOutput
+}
+
+// The outbound email address ID.
+type QueueOutboundEmailConfigArgs struct {
+	// The identifier of the email address.
+	OutboundEmailAddressId pulumi.StringPtrInput `pulumi:"outboundEmailAddressId"`
+}
+
+func (QueueOutboundEmailConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*QueueOutboundEmailConfig)(nil)).Elem()
+}
+
+func (i QueueOutboundEmailConfigArgs) ToQueueOutboundEmailConfigOutput() QueueOutboundEmailConfigOutput {
+	return i.ToQueueOutboundEmailConfigOutputWithContext(context.Background())
+}
+
+func (i QueueOutboundEmailConfigArgs) ToQueueOutboundEmailConfigOutputWithContext(ctx context.Context) QueueOutboundEmailConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueueOutboundEmailConfigOutput)
+}
+
+func (i QueueOutboundEmailConfigArgs) ToQueueOutboundEmailConfigPtrOutput() QueueOutboundEmailConfigPtrOutput {
+	return i.ToQueueOutboundEmailConfigPtrOutputWithContext(context.Background())
+}
+
+func (i QueueOutboundEmailConfigArgs) ToQueueOutboundEmailConfigPtrOutputWithContext(ctx context.Context) QueueOutboundEmailConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueueOutboundEmailConfigOutput).ToQueueOutboundEmailConfigPtrOutputWithContext(ctx)
+}
+
+// QueueOutboundEmailConfigPtrInput is an input type that accepts QueueOutboundEmailConfigArgs, QueueOutboundEmailConfigPtr and QueueOutboundEmailConfigPtrOutput values.
+// You can construct a concrete instance of `QueueOutboundEmailConfigPtrInput` via:
+//
+//	        QueueOutboundEmailConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type QueueOutboundEmailConfigPtrInput interface {
+	pulumi.Input
+
+	ToQueueOutboundEmailConfigPtrOutput() QueueOutboundEmailConfigPtrOutput
+	ToQueueOutboundEmailConfigPtrOutputWithContext(context.Context) QueueOutboundEmailConfigPtrOutput
+}
+
+type queueOutboundEmailConfigPtrType QueueOutboundEmailConfigArgs
+
+func QueueOutboundEmailConfigPtr(v *QueueOutboundEmailConfigArgs) QueueOutboundEmailConfigPtrInput {
+	return (*queueOutboundEmailConfigPtrType)(v)
+}
+
+func (*queueOutboundEmailConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**QueueOutboundEmailConfig)(nil)).Elem()
+}
+
+func (i *queueOutboundEmailConfigPtrType) ToQueueOutboundEmailConfigPtrOutput() QueueOutboundEmailConfigPtrOutput {
+	return i.ToQueueOutboundEmailConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *queueOutboundEmailConfigPtrType) ToQueueOutboundEmailConfigPtrOutputWithContext(ctx context.Context) QueueOutboundEmailConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueueOutboundEmailConfigPtrOutput)
+}
+
+// The outbound email address ID.
+type QueueOutboundEmailConfigOutput struct{ *pulumi.OutputState }
+
+func (QueueOutboundEmailConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*QueueOutboundEmailConfig)(nil)).Elem()
+}
+
+func (o QueueOutboundEmailConfigOutput) ToQueueOutboundEmailConfigOutput() QueueOutboundEmailConfigOutput {
+	return o
+}
+
+func (o QueueOutboundEmailConfigOutput) ToQueueOutboundEmailConfigOutputWithContext(ctx context.Context) QueueOutboundEmailConfigOutput {
+	return o
+}
+
+func (o QueueOutboundEmailConfigOutput) ToQueueOutboundEmailConfigPtrOutput() QueueOutboundEmailConfigPtrOutput {
+	return o.ToQueueOutboundEmailConfigPtrOutputWithContext(context.Background())
+}
+
+func (o QueueOutboundEmailConfigOutput) ToQueueOutboundEmailConfigPtrOutputWithContext(ctx context.Context) QueueOutboundEmailConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v QueueOutboundEmailConfig) *QueueOutboundEmailConfig {
+		return &v
+	}).(QueueOutboundEmailConfigPtrOutput)
+}
+
+// The identifier of the email address.
+func (o QueueOutboundEmailConfigOutput) OutboundEmailAddressId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v QueueOutboundEmailConfig) *string { return v.OutboundEmailAddressId }).(pulumi.StringPtrOutput)
+}
+
+type QueueOutboundEmailConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (QueueOutboundEmailConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**QueueOutboundEmailConfig)(nil)).Elem()
+}
+
+func (o QueueOutboundEmailConfigPtrOutput) ToQueueOutboundEmailConfigPtrOutput() QueueOutboundEmailConfigPtrOutput {
+	return o
+}
+
+func (o QueueOutboundEmailConfigPtrOutput) ToQueueOutboundEmailConfigPtrOutputWithContext(ctx context.Context) QueueOutboundEmailConfigPtrOutput {
+	return o
+}
+
+func (o QueueOutboundEmailConfigPtrOutput) Elem() QueueOutboundEmailConfigOutput {
+	return o.ApplyT(func(v *QueueOutboundEmailConfig) QueueOutboundEmailConfig {
+		if v != nil {
+			return *v
+		}
+		var ret QueueOutboundEmailConfig
+		return ret
+	}).(QueueOutboundEmailConfigOutput)
+}
+
+// The identifier of the email address.
+func (o QueueOutboundEmailConfigPtrOutput) OutboundEmailAddressId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *QueueOutboundEmailConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OutboundEmailAddressId
+	}).(pulumi.StringPtrOutput)
+}
+
 // A key-value pair to associate with a resource.
 type QueueTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -
@@ -5424,18 +5573,18 @@ type RoutingProfileTag struct {
 	Value string `pulumi:"value"`
 }
 
-// The list of actions that will be executed when a rule is triggered.
+// A list of actions to be run when the rule is triggered.
 type RuleActions struct {
-	// Information about the contact category action. The syntax can be empty, for example, `{}` .
+	// Information about the contact category action. The syntax can be empty, for example, ``{}``.
 	AssignContactCategoryActions []RuleAssignContactCategoryAction `pulumi:"assignContactCategoryActions"`
 	CreateCaseActions            []RuleCreateCaseAction            `pulumi:"createCaseActions"`
 	EndAssociatedTasksActions    []RuleEndAssociatedTasksAction    `pulumi:"endAssociatedTasksActions"`
-	// Information about the EventBridge action.
+	// Information about the EV action.
 	EventBridgeActions []RuleEventBridgeAction `pulumi:"eventBridgeActions"`
 	// Information about the send notification action.
 	SendNotificationActions     []RuleSendNotificationAction     `pulumi:"sendNotificationActions"`
 	SubmitAutoEvaluationActions []RuleSubmitAutoEvaluationAction `pulumi:"submitAutoEvaluationActions"`
-	// Information about the task action. This field is required if `TriggerEventSource` is one of the following values: `OnZendeskTicketCreate` | `OnZendeskTicketStatusUpdate` | `OnSalesforceCaseCreate`
+	// Information about the task action. This field is required if ``TriggerEventSource`` is one of the following values: ``OnZendeskTicketCreate`` | ``OnZendeskTicketStatusUpdate`` | ``OnSalesforceCaseCreate``
 	TaskActions       []RuleTaskAction       `pulumi:"taskActions"`
 	UpdateCaseActions []RuleUpdateCaseAction `pulumi:"updateCaseActions"`
 }
@@ -5451,18 +5600,18 @@ type RuleActionsInput interface {
 	ToRuleActionsOutputWithContext(context.Context) RuleActionsOutput
 }
 
-// The list of actions that will be executed when a rule is triggered.
+// A list of actions to be run when the rule is triggered.
 type RuleActionsArgs struct {
-	// Information about the contact category action. The syntax can be empty, for example, `{}` .
+	// Information about the contact category action. The syntax can be empty, for example, ``{}``.
 	AssignContactCategoryActions RuleAssignContactCategoryActionArrayInput `pulumi:"assignContactCategoryActions"`
 	CreateCaseActions            RuleCreateCaseActionArrayInput            `pulumi:"createCaseActions"`
 	EndAssociatedTasksActions    RuleEndAssociatedTasksActionArrayInput    `pulumi:"endAssociatedTasksActions"`
-	// Information about the EventBridge action.
+	// Information about the EV action.
 	EventBridgeActions RuleEventBridgeActionArrayInput `pulumi:"eventBridgeActions"`
 	// Information about the send notification action.
 	SendNotificationActions     RuleSendNotificationActionArrayInput     `pulumi:"sendNotificationActions"`
 	SubmitAutoEvaluationActions RuleSubmitAutoEvaluationActionArrayInput `pulumi:"submitAutoEvaluationActions"`
-	// Information about the task action. This field is required if `TriggerEventSource` is one of the following values: `OnZendeskTicketCreate` | `OnZendeskTicketStatusUpdate` | `OnSalesforceCaseCreate`
+	// Information about the task action. This field is required if ``TriggerEventSource`` is one of the following values: ``OnZendeskTicketCreate`` | ``OnZendeskTicketStatusUpdate`` | ``OnSalesforceCaseCreate``
 	TaskActions       RuleTaskActionArrayInput       `pulumi:"taskActions"`
 	UpdateCaseActions RuleUpdateCaseActionArrayInput `pulumi:"updateCaseActions"`
 }
@@ -5479,7 +5628,7 @@ func (i RuleActionsArgs) ToRuleActionsOutputWithContext(ctx context.Context) Rul
 	return pulumi.ToOutputWithContext(ctx, i).(RuleActionsOutput)
 }
 
-// The list of actions that will be executed when a rule is triggered.
+// A list of actions to be run when the rule is triggered.
 type RuleActionsOutput struct{ *pulumi.OutputState }
 
 func (RuleActionsOutput) ElementType() reflect.Type {
@@ -5494,7 +5643,7 @@ func (o RuleActionsOutput) ToRuleActionsOutputWithContext(ctx context.Context) R
 	return o
 }
 
-// Information about the contact category action. The syntax can be empty, for example, `{}` .
+// Information about the contact category action. The syntax can be empty, for example, “{}“.
 func (o RuleActionsOutput) AssignContactCategoryActions() RuleAssignContactCategoryActionArrayOutput {
 	return o.ApplyT(func(v RuleActions) []RuleAssignContactCategoryAction { return v.AssignContactCategoryActions }).(RuleAssignContactCategoryActionArrayOutput)
 }
@@ -5507,7 +5656,7 @@ func (o RuleActionsOutput) EndAssociatedTasksActions() RuleEndAssociatedTasksAct
 	return o.ApplyT(func(v RuleActions) []RuleEndAssociatedTasksAction { return v.EndAssociatedTasksActions }).(RuleEndAssociatedTasksActionArrayOutput)
 }
 
-// Information about the EventBridge action.
+// Information about the EV action.
 func (o RuleActionsOutput) EventBridgeActions() RuleEventBridgeActionArrayOutput {
 	return o.ApplyT(func(v RuleActions) []RuleEventBridgeAction { return v.EventBridgeActions }).(RuleEventBridgeActionArrayOutput)
 }
@@ -5521,7 +5670,7 @@ func (o RuleActionsOutput) SubmitAutoEvaluationActions() RuleSubmitAutoEvaluatio
 	return o.ApplyT(func(v RuleActions) []RuleSubmitAutoEvaluationAction { return v.SubmitAutoEvaluationActions }).(RuleSubmitAutoEvaluationActionArrayOutput)
 }
 
-// Information about the task action. This field is required if `TriggerEventSource` is one of the following values: `OnZendeskTicketCreate` | `OnZendeskTicketStatusUpdate` | `OnSalesforceCaseCreate`
+// Information about the task action. This field is required if “TriggerEventSource“ is one of the following values: “OnZendeskTicketCreate“ | “OnZendeskTicketStatusUpdate“ | “OnSalesforceCaseCreate“
 func (o RuleActionsOutput) TaskActions() RuleTaskActionArrayOutput {
 	return o.ApplyT(func(v RuleActions) []RuleTaskAction { return v.TaskActions }).(RuleTaskActionArrayOutput)
 }
@@ -5554,7 +5703,7 @@ func (o RuleActionsPtrOutput) Elem() RuleActionsOutput {
 	}).(RuleActionsOutput)
 }
 
-// Information about the contact category action. The syntax can be empty, for example, `{}` .
+// Information about the contact category action. The syntax can be empty, for example, “{}“.
 func (o RuleActionsPtrOutput) AssignContactCategoryActions() RuleAssignContactCategoryActionArrayOutput {
 	return o.ApplyT(func(v *RuleActions) []RuleAssignContactCategoryAction {
 		if v == nil {
@@ -5582,7 +5731,7 @@ func (o RuleActionsPtrOutput) EndAssociatedTasksActions() RuleEndAssociatedTasks
 	}).(RuleEndAssociatedTasksActionArrayOutput)
 }
 
-// Information about the EventBridge action.
+// Information about the EV action.
 func (o RuleActionsPtrOutput) EventBridgeActions() RuleEventBridgeActionArrayOutput {
 	return o.ApplyT(func(v *RuleActions) []RuleEventBridgeAction {
 		if v == nil {
@@ -5611,7 +5760,7 @@ func (o RuleActionsPtrOutput) SubmitAutoEvaluationActions() RuleSubmitAutoEvalua
 	}).(RuleSubmitAutoEvaluationActionArrayOutput)
 }
 
-// Information about the task action. This field is required if `TriggerEventSource` is one of the following values: `OnZendeskTicketCreate` | `OnZendeskTicketStatusUpdate` | `OnSalesforceCaseCreate`
+// Information about the task action. This field is required if “TriggerEventSource“ is one of the following values: “OnZendeskTicketCreate“ | “OnZendeskTicketStatusUpdate“ | “OnSalesforceCaseCreate“
 func (o RuleActionsPtrOutput) TaskActions() RuleTaskActionArrayOutput {
 	return o.ApplyT(func(v *RuleActions) []RuleTaskAction {
 		if v == nil {
@@ -5721,11 +5870,9 @@ func (o RuleAssignContactCategoryActionArrayOutput) Index(i pulumi.IntInput) Rul
 	}).(RuleAssignContactCategoryActionOutput)
 }
 
-// The definition for create case action.
 type RuleCreateCaseAction struct {
-	Fields []RuleField `pulumi:"fields"`
-	// The Id of template.
-	TemplateId string `pulumi:"templateId"`
+	Fields     []RuleField `pulumi:"fields"`
+	TemplateId string      `pulumi:"templateId"`
 }
 
 // RuleCreateCaseActionInput is an input type that accepts RuleCreateCaseActionArgs and RuleCreateCaseActionOutput values.
@@ -5739,11 +5886,9 @@ type RuleCreateCaseActionInput interface {
 	ToRuleCreateCaseActionOutputWithContext(context.Context) RuleCreateCaseActionOutput
 }
 
-// The definition for create case action.
 type RuleCreateCaseActionArgs struct {
-	Fields RuleFieldArrayInput `pulumi:"fields"`
-	// The Id of template.
-	TemplateId pulumi.StringInput `pulumi:"templateId"`
+	Fields     RuleFieldArrayInput `pulumi:"fields"`
+	TemplateId pulumi.StringInput  `pulumi:"templateId"`
 }
 
 func (RuleCreateCaseActionArgs) ElementType() reflect.Type {
@@ -5783,7 +5928,6 @@ func (i RuleCreateCaseActionArray) ToRuleCreateCaseActionArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(RuleCreateCaseActionArrayOutput)
 }
 
-// The definition for create case action.
 type RuleCreateCaseActionOutput struct{ *pulumi.OutputState }
 
 func (RuleCreateCaseActionOutput) ElementType() reflect.Type {
@@ -5802,7 +5946,6 @@ func (o RuleCreateCaseActionOutput) Fields() RuleFieldArrayOutput {
 	return o.ApplyT(func(v RuleCreateCaseAction) []RuleField { return v.Fields }).(RuleFieldArrayOutput)
 }
 
-// The Id of template.
 func (o RuleCreateCaseActionOutput) TemplateId() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleCreateCaseAction) string { return v.TemplateId }).(pulumi.StringOutput)
 }
@@ -5918,9 +6061,9 @@ func (o RuleEndAssociatedTasksActionArrayOutput) Index(i pulumi.IntInput) RuleEn
 	}).(RuleEndAssociatedTasksActionOutput)
 }
 
-// The definition for event bridge action.
+// The EV action definition.
 type RuleEventBridgeAction struct {
-	// The name of the event bridge action.
+	// The name.
 	Name string `pulumi:"name"`
 }
 
@@ -5935,9 +6078,9 @@ type RuleEventBridgeActionInput interface {
 	ToRuleEventBridgeActionOutputWithContext(context.Context) RuleEventBridgeActionOutput
 }
 
-// The definition for event bridge action.
+// The EV action definition.
 type RuleEventBridgeActionArgs struct {
-	// The name of the event bridge action.
+	// The name.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -5978,7 +6121,7 @@ func (i RuleEventBridgeActionArray) ToRuleEventBridgeActionArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(RuleEventBridgeActionArrayOutput)
 }
 
-// The definition for event bridge action.
+// The EV action definition.
 type RuleEventBridgeActionOutput struct{ *pulumi.OutputState }
 
 func (RuleEventBridgeActionOutput) ElementType() reflect.Type {
@@ -5993,7 +6136,7 @@ func (o RuleEventBridgeActionOutput) ToRuleEventBridgeActionOutputWithContext(ct
 	return o
 }
 
-// The name of the event bridge action.
+// The name.
 func (o RuleEventBridgeActionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleEventBridgeAction) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -6018,9 +6161,7 @@ func (o RuleEventBridgeActionArrayOutput) Index(i pulumi.IntInput) RuleEventBrid
 	}).(RuleEventBridgeActionOutput)
 }
 
-// The field of the case.
 type RuleField struct {
-	// The Id of the field
 	Id    string         `pulumi:"id"`
 	Value RuleFieldValue `pulumi:"value"`
 }
@@ -6036,9 +6177,7 @@ type RuleFieldInput interface {
 	ToRuleFieldOutputWithContext(context.Context) RuleFieldOutput
 }
 
-// The field of the case.
 type RuleFieldArgs struct {
-	// The Id of the field
 	Id    pulumi.StringInput  `pulumi:"id"`
 	Value RuleFieldValueInput `pulumi:"value"`
 }
@@ -6080,7 +6219,6 @@ func (i RuleFieldArray) ToRuleFieldArrayOutputWithContext(ctx context.Context) R
 	return pulumi.ToOutputWithContext(ctx, i).(RuleFieldArrayOutput)
 }
 
-// The field of the case.
 type RuleFieldOutput struct{ *pulumi.OutputState }
 
 func (RuleFieldOutput) ElementType() reflect.Type {
@@ -6095,7 +6233,6 @@ func (o RuleFieldOutput) ToRuleFieldOutputWithContext(ctx context.Context) RuleF
 	return o
 }
 
-// The Id of the field
 func (o RuleFieldOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleField) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -6124,7 +6261,7 @@ func (o RuleFieldArrayOutput) Index(i pulumi.IntInput) RuleFieldOutput {
 	}).(RuleFieldOutput)
 }
 
-// The value of the field.
+// Object for case field values.
 type RuleFieldValue struct {
 	BooleanValue *bool       `pulumi:"booleanValue"`
 	DoubleValue  *float64    `pulumi:"doubleValue"`
@@ -6143,7 +6280,7 @@ type RuleFieldValueInput interface {
 	ToRuleFieldValueOutputWithContext(context.Context) RuleFieldValueOutput
 }
 
-// The value of the field.
+// Object for case field values.
 type RuleFieldValueArgs struct {
 	BooleanValue pulumi.BoolPtrInput    `pulumi:"booleanValue"`
 	DoubleValue  pulumi.Float64PtrInput `pulumi:"doubleValue"`
@@ -6163,7 +6300,7 @@ func (i RuleFieldValueArgs) ToRuleFieldValueOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(RuleFieldValueOutput)
 }
 
-// The value of the field.
+// Object for case field values.
 type RuleFieldValueOutput struct{ *pulumi.OutputState }
 
 func (RuleFieldValueOutput) ElementType() reflect.Type {
@@ -6196,9 +6333,9 @@ func (o RuleFieldValueOutput) StringValue() pulumi.StringPtrOutput {
 
 // The type of notification recipient.
 type RuleNotificationRecipientType struct {
-	// The list of recipients by user arns.
+	// The Amazon Resource Name (ARN) of the user account.
 	UserArns []string `pulumi:"userArns"`
-	// The collection of recipients who are identified by user tags
+	// The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }. CON users with the specified tags will be notified.
 	UserTags map[string]string `pulumi:"userTags"`
 }
 
@@ -6215,9 +6352,9 @@ type RuleNotificationRecipientTypeInput interface {
 
 // The type of notification recipient.
 type RuleNotificationRecipientTypeArgs struct {
-	// The list of recipients by user arns.
+	// The Amazon Resource Name (ARN) of the user account.
 	UserArns pulumi.StringArrayInput `pulumi:"userArns"`
-	// The collection of recipients who are identified by user tags
+	// The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }. CON users with the specified tags will be notified.
 	UserTags pulumi.StringMapInput `pulumi:"userTags"`
 }
 
@@ -6248,20 +6385,23 @@ func (o RuleNotificationRecipientTypeOutput) ToRuleNotificationRecipientTypeOutp
 	return o
 }
 
-// The list of recipients by user arns.
+// The Amazon Resource Name (ARN) of the user account.
 func (o RuleNotificationRecipientTypeOutput) UserArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RuleNotificationRecipientType) []string { return v.UserArns }).(pulumi.StringArrayOutput)
 }
 
-// The collection of recipients who are identified by user tags
+// The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }. CON users with the specified tags will be notified.
 func (o RuleNotificationRecipientTypeOutput) UserTags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v RuleNotificationRecipientType) map[string]string { return v.UserTags }).(pulumi.StringMapOutput)
 }
 
-// A contact reference.
+// Information about the reference when the “referenceType“ is “URL“. Otherwise, null. (Supports variable injection in the “Value“ field.)
 type RuleReference struct {
-	Type  RuleReferenceType `pulumi:"type"`
-	Value string            `pulumi:"value"`
+	// The type of the reference. ``DATE`` must be of type Epoch timestamp.
+	//   *Allowed values*: ``URL`` | ``ATTACHMENT`` | ``NUMBER`` | ``STRING`` | ``DATE`` | ``EMAIL``
+	Type RuleReferenceType `pulumi:"type"`
+	// A valid value for the reference. For example, for a URL reference, a formatted URL that is displayed to an agent in the Contact Control Panel (CCP).
+	Value string `pulumi:"value"`
 }
 
 // RuleReferenceInput is an input type that accepts RuleReferenceArgs and RuleReferenceOutput values.
@@ -6275,10 +6415,13 @@ type RuleReferenceInput interface {
 	ToRuleReferenceOutputWithContext(context.Context) RuleReferenceOutput
 }
 
-// A contact reference.
+// Information about the reference when the “referenceType“ is “URL“. Otherwise, null. (Supports variable injection in the “Value“ field.)
 type RuleReferenceArgs struct {
-	Type  RuleReferenceTypeInput `pulumi:"type"`
-	Value pulumi.StringInput     `pulumi:"value"`
+	// The type of the reference. ``DATE`` must be of type Epoch timestamp.
+	//   *Allowed values*: ``URL`` | ``ATTACHMENT`` | ``NUMBER`` | ``STRING`` | ``DATE`` | ``EMAIL``
+	Type RuleReferenceTypeInput `pulumi:"type"`
+	// A valid value for the reference. For example, for a URL reference, a formatted URL that is displayed to an agent in the Contact Control Panel (CCP).
+	Value pulumi.StringInput `pulumi:"value"`
 }
 
 func (RuleReferenceArgs) ElementType() reflect.Type {
@@ -6318,7 +6461,7 @@ func (i RuleReferenceMap) ToRuleReferenceMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(RuleReferenceMapOutput)
 }
 
-// A contact reference.
+// Information about the reference when the “referenceType“ is “URL“. Otherwise, null. (Supports variable injection in the “Value“ field.)
 type RuleReferenceOutput struct{ *pulumi.OutputState }
 
 func (RuleReferenceOutput) ElementType() reflect.Type {
@@ -6333,10 +6476,14 @@ func (o RuleReferenceOutput) ToRuleReferenceOutputWithContext(ctx context.Contex
 	return o
 }
 
+// The type of the reference. “DATE“ must be of type Epoch timestamp.
+//
+//	*Allowed values*: ``URL`` | ``ATTACHMENT`` | ``NUMBER`` | ``STRING`` | ``DATE`` | ``EMAIL``
 func (o RuleReferenceOutput) Type() RuleReferenceTypeOutput {
 	return o.ApplyT(func(v RuleReference) RuleReferenceType { return v.Type }).(RuleReferenceTypeOutput)
 }
 
+// A valid value for the reference. For example, for a URL reference, a formatted URL that is displayed to an agent in the Contact Control Panel (CCP).
 func (o RuleReferenceOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleReference) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -6361,16 +6508,19 @@ func (o RuleReferenceMapOutput) MapIndex(k pulumi.StringInput) RuleReferenceOutp
 	}).(RuleReferenceOutput)
 }
 
-// The definition for sending notification action.
+// Information about the send notification action.
 type RuleSendNotificationAction struct {
-	// The content of notification.
+	// Notification content. Supports variable injection. For more information, see [JSONPath reference](https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-variable-injection.html) in the *Administrators Guide*.
 	Content string `pulumi:"content"`
-	// The type of content.
+	// Content type format.
+	//   *Allowed value*: ``PLAIN_TEXT``
 	ContentType RuleSendNotificationActionContentType `pulumi:"contentType"`
-	// The means of delivery.
+	// Notification delivery method.
+	//   *Allowed value*: ``EMAIL``
 	DeliveryMethod RuleSendNotificationActionDeliveryMethod `pulumi:"deliveryMethod"`
-	Recipient      RuleNotificationRecipientType            `pulumi:"recipient"`
-	// The subject of notification.
+	// Notification recipient.
+	Recipient RuleNotificationRecipientType `pulumi:"recipient"`
+	// The subject of the email if the delivery method is ``EMAIL``. Supports variable injection. For more information, see [JSONPath reference](https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-variable-injection.html) in the *Administrators Guide*.
 	Subject *string `pulumi:"subject"`
 }
 
@@ -6385,16 +6535,19 @@ type RuleSendNotificationActionInput interface {
 	ToRuleSendNotificationActionOutputWithContext(context.Context) RuleSendNotificationActionOutput
 }
 
-// The definition for sending notification action.
+// Information about the send notification action.
 type RuleSendNotificationActionArgs struct {
-	// The content of notification.
+	// Notification content. Supports variable injection. For more information, see [JSONPath reference](https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-variable-injection.html) in the *Administrators Guide*.
 	Content pulumi.StringInput `pulumi:"content"`
-	// The type of content.
+	// Content type format.
+	//   *Allowed value*: ``PLAIN_TEXT``
 	ContentType RuleSendNotificationActionContentTypeInput `pulumi:"contentType"`
-	// The means of delivery.
+	// Notification delivery method.
+	//   *Allowed value*: ``EMAIL``
 	DeliveryMethod RuleSendNotificationActionDeliveryMethodInput `pulumi:"deliveryMethod"`
-	Recipient      RuleNotificationRecipientTypeInput            `pulumi:"recipient"`
-	// The subject of notification.
+	// Notification recipient.
+	Recipient RuleNotificationRecipientTypeInput `pulumi:"recipient"`
+	// The subject of the email if the delivery method is ``EMAIL``. Supports variable injection. For more information, see [JSONPath reference](https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-variable-injection.html) in the *Administrators Guide*.
 	Subject pulumi.StringPtrInput `pulumi:"subject"`
 }
 
@@ -6435,7 +6588,7 @@ func (i RuleSendNotificationActionArray) ToRuleSendNotificationActionArrayOutput
 	return pulumi.ToOutputWithContext(ctx, i).(RuleSendNotificationActionArrayOutput)
 }
 
-// The definition for sending notification action.
+// Information about the send notification action.
 type RuleSendNotificationActionOutput struct{ *pulumi.OutputState }
 
 func (RuleSendNotificationActionOutput) ElementType() reflect.Type {
@@ -6450,26 +6603,31 @@ func (o RuleSendNotificationActionOutput) ToRuleSendNotificationActionOutputWith
 	return o
 }
 
-// The content of notification.
+// Notification content. Supports variable injection. For more information, see [JSONPath reference](https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-variable-injection.html) in the *Administrators Guide*.
 func (o RuleSendNotificationActionOutput) Content() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleSendNotificationAction) string { return v.Content }).(pulumi.StringOutput)
 }
 
-// The type of content.
+// Content type format.
+//
+//	*Allowed value*: ``PLAIN_TEXT``
 func (o RuleSendNotificationActionOutput) ContentType() RuleSendNotificationActionContentTypeOutput {
 	return o.ApplyT(func(v RuleSendNotificationAction) RuleSendNotificationActionContentType { return v.ContentType }).(RuleSendNotificationActionContentTypeOutput)
 }
 
-// The means of delivery.
+// Notification delivery method.
+//
+//	*Allowed value*: ``EMAIL``
 func (o RuleSendNotificationActionOutput) DeliveryMethod() RuleSendNotificationActionDeliveryMethodOutput {
 	return o.ApplyT(func(v RuleSendNotificationAction) RuleSendNotificationActionDeliveryMethod { return v.DeliveryMethod }).(RuleSendNotificationActionDeliveryMethodOutput)
 }
 
+// Notification recipient.
 func (o RuleSendNotificationActionOutput) Recipient() RuleNotificationRecipientTypeOutput {
 	return o.ApplyT(func(v RuleSendNotificationAction) RuleNotificationRecipientType { return v.Recipient }).(RuleNotificationRecipientTypeOutput)
 }
 
-// The subject of notification.
+// The subject of the email if the delivery method is “EMAIL“. Supports variable injection. For more information, see [JSONPath reference](https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-variable-injection.html) in the *Administrators Guide*.
 func (o RuleSendNotificationActionOutput) Subject() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleSendNotificationAction) *string { return v.Subject }).(pulumi.StringPtrOutput)
 }
@@ -6494,9 +6652,7 @@ func (o RuleSendNotificationActionArrayOutput) Index(i pulumi.IntInput) RuleSend
 	}).(RuleSendNotificationActionOutput)
 }
 
-// The definition of submit auto evaluation action.
 type RuleSubmitAutoEvaluationAction struct {
-	// The Amazon Resource Name (ARN) of the evaluation form.
 	EvaluationFormArn string `pulumi:"evaluationFormArn"`
 }
 
@@ -6511,9 +6667,7 @@ type RuleSubmitAutoEvaluationActionInput interface {
 	ToRuleSubmitAutoEvaluationActionOutputWithContext(context.Context) RuleSubmitAutoEvaluationActionOutput
 }
 
-// The definition of submit auto evaluation action.
 type RuleSubmitAutoEvaluationActionArgs struct {
-	// The Amazon Resource Name (ARN) of the evaluation form.
 	EvaluationFormArn pulumi.StringInput `pulumi:"evaluationFormArn"`
 }
 
@@ -6554,7 +6708,6 @@ func (i RuleSubmitAutoEvaluationActionArray) ToRuleSubmitAutoEvaluationActionArr
 	return pulumi.ToOutputWithContext(ctx, i).(RuleSubmitAutoEvaluationActionArrayOutput)
 }
 
-// The definition of submit auto evaluation action.
 type RuleSubmitAutoEvaluationActionOutput struct{ *pulumi.OutputState }
 
 func (RuleSubmitAutoEvaluationActionOutput) ElementType() reflect.Type {
@@ -6569,7 +6722,6 @@ func (o RuleSubmitAutoEvaluationActionOutput) ToRuleSubmitAutoEvaluationActionOu
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the evaluation form.
 func (o RuleSubmitAutoEvaluationActionOutput) EvaluationFormArn() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleSubmitAutoEvaluationAction) string { return v.EvaluationFormArn }).(pulumi.StringOutput)
 }
@@ -6596,21 +6748,21 @@ func (o RuleSubmitAutoEvaluationActionArrayOutput) Index(i pulumi.IntInput) Rule
 
 // A key-value pair to associate with a resource.
 type RuleTag struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -
 	Key string `pulumi:"key"`
-	// The value for the tag. You can specify a value that's 1 to 256 characters in length.
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -
 	Value string `pulumi:"value"`
 }
 
-// The definition of task action.
+// Information about the task action. This field is required if “TriggerEventSource“ is one of the following values: “OnZendeskTicketCreate“ | “OnZendeskTicketStatusUpdate“ | “OnSalesforceCaseCreate“
 type RuleTaskAction struct {
-	// The Amazon Resource Name (ARN) of the contact flow.
+	// The Amazon Resource Name (ARN) of the flow.
 	ContactFlowArn string `pulumi:"contactFlowArn"`
-	// The description which appears in the agent's Contact Control Panel (CCP).
+	// The description. Supports variable injection. For more information, see [JSONPath reference](https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-variable-injection.html) in the *Administrators Guide*.
 	Description *string `pulumi:"description"`
-	// The name which appears in the agent's Contact Control Panel (CCP).
+	// The name. Supports variable injection. For more information, see [JSONPath reference](https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-variable-injection.html) in the *Administrators Guide*.
 	Name string `pulumi:"name"`
-	// A formatted URL that is shown to an agent in the Contact Control Panel (CCP).
+	// Information about the reference when the ``referenceType`` is ``URL``. Otherwise, null. ``URL`` is the only accepted type. (Supports variable injection in the ``Value`` field.)
 	References map[string]RuleReference `pulumi:"references"`
 }
 
@@ -6625,15 +6777,15 @@ type RuleTaskActionInput interface {
 	ToRuleTaskActionOutputWithContext(context.Context) RuleTaskActionOutput
 }
 
-// The definition of task action.
+// Information about the task action. This field is required if “TriggerEventSource“ is one of the following values: “OnZendeskTicketCreate“ | “OnZendeskTicketStatusUpdate“ | “OnSalesforceCaseCreate“
 type RuleTaskActionArgs struct {
-	// The Amazon Resource Name (ARN) of the contact flow.
+	// The Amazon Resource Name (ARN) of the flow.
 	ContactFlowArn pulumi.StringInput `pulumi:"contactFlowArn"`
-	// The description which appears in the agent's Contact Control Panel (CCP).
+	// The description. Supports variable injection. For more information, see [JSONPath reference](https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-variable-injection.html) in the *Administrators Guide*.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The name which appears in the agent's Contact Control Panel (CCP).
+	// The name. Supports variable injection. For more information, see [JSONPath reference](https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-variable-injection.html) in the *Administrators Guide*.
 	Name pulumi.StringInput `pulumi:"name"`
-	// A formatted URL that is shown to an agent in the Contact Control Panel (CCP).
+	// Information about the reference when the ``referenceType`` is ``URL``. Otherwise, null. ``URL`` is the only accepted type. (Supports variable injection in the ``Value`` field.)
 	References RuleReferenceMapInput `pulumi:"references"`
 }
 
@@ -6674,7 +6826,7 @@ func (i RuleTaskActionArray) ToRuleTaskActionArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(RuleTaskActionArrayOutput)
 }
 
-// The definition of task action.
+// Information about the task action. This field is required if “TriggerEventSource“ is one of the following values: “OnZendeskTicketCreate“ | “OnZendeskTicketStatusUpdate“ | “OnSalesforceCaseCreate“
 type RuleTaskActionOutput struct{ *pulumi.OutputState }
 
 func (RuleTaskActionOutput) ElementType() reflect.Type {
@@ -6689,22 +6841,22 @@ func (o RuleTaskActionOutput) ToRuleTaskActionOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the contact flow.
+// The Amazon Resource Name (ARN) of the flow.
 func (o RuleTaskActionOutput) ContactFlowArn() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleTaskAction) string { return v.ContactFlowArn }).(pulumi.StringOutput)
 }
 
-// The description which appears in the agent's Contact Control Panel (CCP).
+// The description. Supports variable injection. For more information, see [JSONPath reference](https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-variable-injection.html) in the *Administrators Guide*.
 func (o RuleTaskActionOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleTaskAction) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The name which appears in the agent's Contact Control Panel (CCP).
+// The name. Supports variable injection. For more information, see [JSONPath reference](https://docs.aws.amazon.com/connect/latest/adminguide/contact-lens-variable-injection.html) in the *Administrators Guide*.
 func (o RuleTaskActionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleTaskAction) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// A formatted URL that is shown to an agent in the Contact Control Panel (CCP).
+// Information about the reference when the “referenceType“ is “URL“. Otherwise, null. “URL“ is the only accepted type. (Supports variable injection in the “Value“ field.)
 func (o RuleTaskActionOutput) References() RuleReferenceMapOutput {
 	return o.ApplyT(func(v RuleTaskAction) map[string]RuleReference { return v.References }).(RuleReferenceMapOutput)
 }
@@ -6729,11 +6881,11 @@ func (o RuleTaskActionArrayOutput) Index(i pulumi.IntInput) RuleTaskActionOutput
 	}).(RuleTaskActionOutput)
 }
 
-// The event source that will trigger the rule.
+// The name of the event source.
 type RuleTriggerEventSource struct {
-	// The name of event source.
+	// The name of the event source.
 	EventSourceName RuleTriggerEventSourceEventSourceName `pulumi:"eventSourceName"`
-	// The Amazon Resource Name (ARN) for the AppIntegration association.
+	// The Amazon Resource Name (ARN) of the integration association. ``IntegrationAssociationArn`` is required if ``TriggerEventSource`` is one of the following values: ``OnZendeskTicketCreate`` | ``OnZendeskTicketStatusUpdate`` | ``OnSalesforceCaseCreate``
 	IntegrationAssociationArn *string `pulumi:"integrationAssociationArn"`
 }
 
@@ -6748,11 +6900,11 @@ type RuleTriggerEventSourceInput interface {
 	ToRuleTriggerEventSourceOutputWithContext(context.Context) RuleTriggerEventSourceOutput
 }
 
-// The event source that will trigger the rule.
+// The name of the event source.
 type RuleTriggerEventSourceArgs struct {
-	// The name of event source.
+	// The name of the event source.
 	EventSourceName RuleTriggerEventSourceEventSourceNameInput `pulumi:"eventSourceName"`
-	// The Amazon Resource Name (ARN) for the AppIntegration association.
+	// The Amazon Resource Name (ARN) of the integration association. ``IntegrationAssociationArn`` is required if ``TriggerEventSource`` is one of the following values: ``OnZendeskTicketCreate`` | ``OnZendeskTicketStatusUpdate`` | ``OnSalesforceCaseCreate``
 	IntegrationAssociationArn pulumi.StringPtrInput `pulumi:"integrationAssociationArn"`
 }
 
@@ -6768,7 +6920,7 @@ func (i RuleTriggerEventSourceArgs) ToRuleTriggerEventSourceOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(RuleTriggerEventSourceOutput)
 }
 
-// The event source that will trigger the rule.
+// The name of the event source.
 type RuleTriggerEventSourceOutput struct{ *pulumi.OutputState }
 
 func (RuleTriggerEventSourceOutput) ElementType() reflect.Type {
@@ -6783,17 +6935,16 @@ func (o RuleTriggerEventSourceOutput) ToRuleTriggerEventSourceOutputWithContext(
 	return o
 }
 
-// The name of event source.
+// The name of the event source.
 func (o RuleTriggerEventSourceOutput) EventSourceName() RuleTriggerEventSourceEventSourceNameOutput {
 	return o.ApplyT(func(v RuleTriggerEventSource) RuleTriggerEventSourceEventSourceName { return v.EventSourceName }).(RuleTriggerEventSourceEventSourceNameOutput)
 }
 
-// The Amazon Resource Name (ARN) for the AppIntegration association.
+// The Amazon Resource Name (ARN) of the integration association. “IntegrationAssociationArn“ is required if “TriggerEventSource“ is one of the following values: “OnZendeskTicketCreate“ | “OnZendeskTicketStatusUpdate“ | “OnSalesforceCaseCreate“
 func (o RuleTriggerEventSourceOutput) IntegrationAssociationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleTriggerEventSource) *string { return v.IntegrationAssociationArn }).(pulumi.StringPtrOutput)
 }
 
-// The definition for update case action.
 type RuleUpdateCaseAction struct {
 	Fields []RuleField `pulumi:"fields"`
 }
@@ -6809,7 +6960,6 @@ type RuleUpdateCaseActionInput interface {
 	ToRuleUpdateCaseActionOutputWithContext(context.Context) RuleUpdateCaseActionOutput
 }
 
-// The definition for update case action.
 type RuleUpdateCaseActionArgs struct {
 	Fields RuleFieldArrayInput `pulumi:"fields"`
 }
@@ -6851,7 +7001,6 @@ func (i RuleUpdateCaseActionArray) ToRuleUpdateCaseActionArrayOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(RuleUpdateCaseActionArrayOutput)
 }
 
-// The definition for update case action.
 type RuleUpdateCaseActionOutput struct{ *pulumi.OutputState }
 
 func (RuleUpdateCaseActionOutput) ElementType() reflect.Type {
@@ -8816,9 +8965,9 @@ func (o UserHierarchyStructurePropertiesPtrOutput) LevelTwo() UserHierarchyStruc
 type UserIdentityInfo struct {
 	// The email address. If you are using SAML for identity management and include this parameter, an error is returned.
 	Email *string `pulumi:"email"`
-	// The first name. This is required if you are using Amazon Connect or SAML for identity management.
+	// The first name. This is required if you are using Amazon Connect or SAML for identity management. Inputs must be in Unicode Normalization Form C (NFC). Text containing characters in a non-NFC form (for example, decomposed characters or combining marks) are not accepted.
 	FirstName *string `pulumi:"firstName"`
-	// The last name. This is required if you are using Amazon Connect or SAML for identity management.
+	// The last name. This is required if you are using Amazon Connect or SAML for identity management. Inputs must be in Unicode Normalization Form C (NFC). Text containing characters in a non-NFC form (for example, decomposed characters or combining marks) are not accepted.
 	LastName *string `pulumi:"lastName"`
 	// The user's mobile number.
 	Mobile *string `pulumi:"mobile"`
@@ -8843,9 +8992,9 @@ type UserIdentityInfoInput interface {
 type UserIdentityInfoArgs struct {
 	// The email address. If you are using SAML for identity management and include this parameter, an error is returned.
 	Email pulumi.StringPtrInput `pulumi:"email"`
-	// The first name. This is required if you are using Amazon Connect or SAML for identity management.
+	// The first name. This is required if you are using Amazon Connect or SAML for identity management. Inputs must be in Unicode Normalization Form C (NFC). Text containing characters in a non-NFC form (for example, decomposed characters or combining marks) are not accepted.
 	FirstName pulumi.StringPtrInput `pulumi:"firstName"`
-	// The last name. This is required if you are using Amazon Connect or SAML for identity management.
+	// The last name. This is required if you are using Amazon Connect or SAML for identity management. Inputs must be in Unicode Normalization Form C (NFC). Text containing characters in a non-NFC form (for example, decomposed characters or combining marks) are not accepted.
 	LastName pulumi.StringPtrInput `pulumi:"lastName"`
 	// The user's mobile number.
 	Mobile pulumi.StringPtrInput `pulumi:"mobile"`
@@ -8938,12 +9087,12 @@ func (o UserIdentityInfoOutput) Email() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserIdentityInfo) *string { return v.Email }).(pulumi.StringPtrOutput)
 }
 
-// The first name. This is required if you are using Amazon Connect or SAML for identity management.
+// The first name. This is required if you are using Amazon Connect or SAML for identity management. Inputs must be in Unicode Normalization Form C (NFC). Text containing characters in a non-NFC form (for example, decomposed characters or combining marks) are not accepted.
 func (o UserIdentityInfoOutput) FirstName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserIdentityInfo) *string { return v.FirstName }).(pulumi.StringPtrOutput)
 }
 
-// The last name. This is required if you are using Amazon Connect or SAML for identity management.
+// The last name. This is required if you are using Amazon Connect or SAML for identity management. Inputs must be in Unicode Normalization Form C (NFC). Text containing characters in a non-NFC form (for example, decomposed characters or combining marks) are not accepted.
 func (o UserIdentityInfoOutput) LastName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserIdentityInfo) *string { return v.LastName }).(pulumi.StringPtrOutput)
 }
@@ -8994,7 +9143,7 @@ func (o UserIdentityInfoPtrOutput) Email() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The first name. This is required if you are using Amazon Connect or SAML for identity management.
+// The first name. This is required if you are using Amazon Connect or SAML for identity management. Inputs must be in Unicode Normalization Form C (NFC). Text containing characters in a non-NFC form (for example, decomposed characters or combining marks) are not accepted.
 func (o UserIdentityInfoPtrOutput) FirstName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserIdentityInfo) *string {
 		if v == nil {
@@ -9004,7 +9153,7 @@ func (o UserIdentityInfoPtrOutput) FirstName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The last name. This is required if you are using Amazon Connect or SAML for identity management.
+// The last name. This is required if you are using Amazon Connect or SAML for identity management. Inputs must be in Unicode Normalization Form C (NFC). Text containing characters in a non-NFC form (for example, decomposed characters or combining marks) are not accepted.
 func (o UserIdentityInfoPtrOutput) LastName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserIdentityInfo) *string {
 		if v == nil {
@@ -9466,6 +9615,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceStorageConfigS3ConfigPtrInput)(nil)).Elem(), InstanceStorageConfigS3ConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*QueueOutboundCallerConfigInput)(nil)).Elem(), QueueOutboundCallerConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*QueueOutboundCallerConfigPtrInput)(nil)).Elem(), QueueOutboundCallerConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*QueueOutboundEmailConfigInput)(nil)).Elem(), QueueOutboundEmailConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*QueueOutboundEmailConfigPtrInput)(nil)).Elem(), QueueOutboundEmailConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*QuickConnectConfigInput)(nil)).Elem(), QuickConnectConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*QuickConnectPhoneNumberQuickConnectConfigInput)(nil)).Elem(), QuickConnectPhoneNumberQuickConnectConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*QuickConnectPhoneNumberQuickConnectConfigPtrInput)(nil)).Elem(), QuickConnectPhoneNumberQuickConnectConfigArgs{})
@@ -9590,6 +9741,8 @@ func init() {
 	pulumi.RegisterOutputType(InstanceStorageConfigS3ConfigPtrOutput{})
 	pulumi.RegisterOutputType(QueueOutboundCallerConfigOutput{})
 	pulumi.RegisterOutputType(QueueOutboundCallerConfigPtrOutput{})
+	pulumi.RegisterOutputType(QueueOutboundEmailConfigOutput{})
+	pulumi.RegisterOutputType(QueueOutboundEmailConfigPtrOutput{})
 	pulumi.RegisterOutputType(QuickConnectConfigOutput{})
 	pulumi.RegisterOutputType(QuickConnectConfigPtrOutput{})
 	pulumi.RegisterOutputType(QuickConnectPhoneNumberQuickConnectConfigOutput{})

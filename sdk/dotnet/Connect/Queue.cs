@@ -52,6 +52,12 @@ namespace Pulumi.AwsNative.Connect
         public Output<Outputs.QueueOutboundCallerConfig?> OutboundCallerConfig { get; private set; } = null!;
 
         /// <summary>
+        /// The outbound email address ID.
+        /// </summary>
+        [Output("outboundEmailConfig")]
+        public Output<Outputs.QueueOutboundEmailConfig?> OutboundEmailConfig { get; private set; } = null!;
+
+        /// <summary>
         /// The Amazon Resource Name (ARN) for the queue.
         /// </summary>
         [Output("queueArn")]
@@ -161,6 +167,12 @@ namespace Pulumi.AwsNative.Connect
         /// </summary>
         [Input("outboundCallerConfig")]
         public Input<Inputs.QueueOutboundCallerConfigArgs>? OutboundCallerConfig { get; set; }
+
+        /// <summary>
+        /// The outbound email address ID.
+        /// </summary>
+        [Input("outboundEmailConfig")]
+        public Input<Inputs.QueueOutboundEmailConfigArgs>? OutboundEmailConfig { get; set; }
 
         [Input("quickConnectArns")]
         private InputList<string>? _quickConnectArns;

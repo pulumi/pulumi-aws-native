@@ -18,3 +18,10 @@ export const EnvironmentEngineType = {
  * The target platform for the environment.
  */
 export type EnvironmentEngineType = (typeof EnvironmentEngineType)[keyof typeof EnvironmentEngineType];
+
+export const EnvironmentNetworkType = {
+    Ipv4: "ipv4",
+    Dual: "dual",
+} as const;
+
+export type EnvironmentNetworkType = (typeof EnvironmentNetworkType)[keyof typeof EnvironmentNetworkType];

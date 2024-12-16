@@ -12,15 +12,27 @@ namespace Pulumi.AwsNative.QBusiness.Inputs
 
     public sealed class WebExperienceCustomizationConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Provides the URL where the custom CSS file is hosted for an Amazon Q web experience.
+        /// </summary>
         [Input("customCssUrl")]
         public Input<string>? CustomCssUrl { get; set; }
 
+        /// <summary>
+        /// Provides the URL where the custom favicon file is hosted for an Amazon Q web experience.
+        /// </summary>
         [Input("faviconUrl")]
         public Input<string>? FaviconUrl { get; set; }
 
+        /// <summary>
+        /// Provides the URL where the custom font file is hosted for an Amazon Q web experience.
+        /// </summary>
         [Input("fontUrl")]
         public Input<string>? FontUrl { get; set; }
 
+        /// <summary>
+        /// Provides the URL where the custom logo file is hosted for an Amazon Q web experience.
+        /// </summary>
         [Input("logoUrl")]
         public Input<string>? LogoUrl { get; set; }
 

@@ -23,6 +23,7 @@ __all__ = [
     'ServerProtocol',
     'ServerSetStatOption',
     'ServerSftpAuthenticationMethods',
+    'ServerState',
     'ServerTlsSessionResumptionMode',
     'UserHomeDirectoryType',
     'UserMapType',
@@ -172,6 +173,15 @@ class ServerSftpAuthenticationMethods(str, Enum):
     PUBLIC_KEY = "PUBLIC_KEY"
     PUBLIC_KEY_OR_PASSWORD = "PUBLIC_KEY_OR_PASSWORD"
     PUBLIC_KEY_AND_PASSWORD = "PUBLIC_KEY_AND_PASSWORD"
+
+
+class ServerState(str, Enum):
+    OFFLINE = "OFFLINE"
+    ONLINE = "ONLINE"
+    STARTING = "STARTING"
+    STOPPING = "STOPPING"
+    START_FAILED = "START_FAILED"
+    STOP_FAILED = "STOP_FAILED"
 
 
 class ServerTlsSessionResumptionMode(str, Enum):

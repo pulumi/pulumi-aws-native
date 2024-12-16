@@ -16,18 +16,39 @@ import (
 type ResourceConfiguration struct {
 	pulumi.CustomResourceState
 
-	AllowAssociationToSharableServiceNetwork pulumi.BoolPtrOutput                       `pulumi:"allowAssociationToSharableServiceNetwork"`
-	Arn                                      pulumi.StringOutput                        `pulumi:"arn"`
-	AwsId                                    pulumi.StringOutput                        `pulumi:"awsId"`
-	Name                                     pulumi.StringPtrOutput                     `pulumi:"name"`
-	PortRanges                               pulumi.StringArrayOutput                   `pulumi:"portRanges"`
-	ProtocolType                             ResourceConfigurationProtocolTypePtrOutput `pulumi:"protocolType"`
-	ResourceConfigurationAuthType            ResourceConfigurationAuthTypePtrOutput     `pulumi:"resourceConfigurationAuthType"`
-	ResourceConfigurationDefinition          pulumi.AnyOutput                           `pulumi:"resourceConfigurationDefinition"`
-	ResourceConfigurationGroupId             pulumi.StringPtrOutput                     `pulumi:"resourceConfigurationGroupId"`
-	ResourceConfigurationType                ResourceConfigurationTypePtrOutput         `pulumi:"resourceConfigurationType"`
-	ResourceGatewayId                        pulumi.StringPtrOutput                     `pulumi:"resourceGatewayId"`
-	Tags                                     aws.TagArrayOutput                         `pulumi:"tags"`
+	// Specifies whether the resource configuration can be associated with a sharable service network.
+	AllowAssociationToSharableServiceNetwork pulumi.BoolPtrOutput `pulumi:"allowAssociationToSharableServiceNetwork"`
+	// The Amazon Resource Name (ARN) of the resource configuration.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The ID of the resource configuration.
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
+	// The name of the resource configuration.
+	Name pulumi.StringPtrOutput `pulumi:"name"`
+	// (SINGLE, GROUP, CHILD) The TCP port ranges that a consumer can use to access a resource configuration (for example: 1-65535). You can separate port ranges using commas (for example: 1,2,22-30).
+	PortRanges pulumi.StringArrayOutput `pulumi:"portRanges"`
+	// (SINGLE, GROUP) The protocol accepted by the resource configuration.
+	ProtocolType ResourceConfigurationProtocolTypePtrOutput `pulumi:"protocolType"`
+	// The auth type for the resource configuration.
+	ResourceConfigurationAuthType ResourceConfigurationAuthTypePtrOutput `pulumi:"resourceConfigurationAuthType"`
+	// Identifies the resource configuration in one of the following ways:
+	//
+	// - *Amazon Resource Name (ARN)* - Supported resource-types that are provisioned by AWS services, such as RDS databases, can be identified by their ARN.
+	// - *Domain name* - Any domain name that is publicly resolvable.
+	// - *IP address* - For IPv4 and IPv6, only IP addresses in the VPC are supported.
+	ResourceConfigurationDefinition pulumi.AnyOutput `pulumi:"resourceConfigurationDefinition"`
+	// The ID of the group resource configuration.
+	ResourceConfigurationGroupId pulumi.StringPtrOutput `pulumi:"resourceConfigurationGroupId"`
+	// The type of resource configuration. A resource configuration can be one of the following types:
+	//
+	// - *SINGLE* - A single resource.
+	// - *GROUP* - A group of resources. You must create a group resource configuration before you create a child resource configuration.
+	// - *CHILD* - A single resource that is part of a group resource configuration.
+	// - *ARN* - An AWS resource.
+	ResourceConfigurationType ResourceConfigurationTypePtrOutput `pulumi:"resourceConfigurationType"`
+	// The ID of the resource gateway.
+	ResourceGatewayId pulumi.StringPtrOutput `pulumi:"resourceGatewayId"`
+	// The tags for the resource configuration.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewResourceConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -77,30 +98,68 @@ func (ResourceConfigurationState) ElementType() reflect.Type {
 }
 
 type resourceConfigurationArgs struct {
-	AllowAssociationToSharableServiceNetwork *bool                              `pulumi:"allowAssociationToSharableServiceNetwork"`
-	Name                                     *string                            `pulumi:"name"`
-	PortRanges                               []string                           `pulumi:"portRanges"`
-	ProtocolType                             *ResourceConfigurationProtocolType `pulumi:"protocolType"`
-	ResourceConfigurationAuthType            *ResourceConfigurationAuthType     `pulumi:"resourceConfigurationAuthType"`
-	ResourceConfigurationDefinition          interface{}                        `pulumi:"resourceConfigurationDefinition"`
-	ResourceConfigurationGroupId             *string                            `pulumi:"resourceConfigurationGroupId"`
-	ResourceConfigurationType                *ResourceConfigurationType         `pulumi:"resourceConfigurationType"`
-	ResourceGatewayId                        *string                            `pulumi:"resourceGatewayId"`
-	Tags                                     []aws.Tag                          `pulumi:"tags"`
+	// Specifies whether the resource configuration can be associated with a sharable service network.
+	AllowAssociationToSharableServiceNetwork *bool `pulumi:"allowAssociationToSharableServiceNetwork"`
+	// The name of the resource configuration.
+	Name *string `pulumi:"name"`
+	// (SINGLE, GROUP, CHILD) The TCP port ranges that a consumer can use to access a resource configuration (for example: 1-65535). You can separate port ranges using commas (for example: 1,2,22-30).
+	PortRanges []string `pulumi:"portRanges"`
+	// (SINGLE, GROUP) The protocol accepted by the resource configuration.
+	ProtocolType *ResourceConfigurationProtocolType `pulumi:"protocolType"`
+	// The auth type for the resource configuration.
+	ResourceConfigurationAuthType *ResourceConfigurationAuthType `pulumi:"resourceConfigurationAuthType"`
+	// Identifies the resource configuration in one of the following ways:
+	//
+	// - *Amazon Resource Name (ARN)* - Supported resource-types that are provisioned by AWS services, such as RDS databases, can be identified by their ARN.
+	// - *Domain name* - Any domain name that is publicly resolvable.
+	// - *IP address* - For IPv4 and IPv6, only IP addresses in the VPC are supported.
+	ResourceConfigurationDefinition interface{} `pulumi:"resourceConfigurationDefinition"`
+	// The ID of the group resource configuration.
+	ResourceConfigurationGroupId *string `pulumi:"resourceConfigurationGroupId"`
+	// The type of resource configuration. A resource configuration can be one of the following types:
+	//
+	// - *SINGLE* - A single resource.
+	// - *GROUP* - A group of resources. You must create a group resource configuration before you create a child resource configuration.
+	// - *CHILD* - A single resource that is part of a group resource configuration.
+	// - *ARN* - An AWS resource.
+	ResourceConfigurationType *ResourceConfigurationType `pulumi:"resourceConfigurationType"`
+	// The ID of the resource gateway.
+	ResourceGatewayId *string `pulumi:"resourceGatewayId"`
+	// The tags for the resource configuration.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ResourceConfiguration resource.
 type ResourceConfigurationArgs struct {
+	// Specifies whether the resource configuration can be associated with a sharable service network.
 	AllowAssociationToSharableServiceNetwork pulumi.BoolPtrInput
-	Name                                     pulumi.StringPtrInput
-	PortRanges                               pulumi.StringArrayInput
-	ProtocolType                             ResourceConfigurationProtocolTypePtrInput
-	ResourceConfigurationAuthType            ResourceConfigurationAuthTypePtrInput
-	ResourceConfigurationDefinition          pulumi.Input
-	ResourceConfigurationGroupId             pulumi.StringPtrInput
-	ResourceConfigurationType                ResourceConfigurationTypePtrInput
-	ResourceGatewayId                        pulumi.StringPtrInput
-	Tags                                     aws.TagArrayInput
+	// The name of the resource configuration.
+	Name pulumi.StringPtrInput
+	// (SINGLE, GROUP, CHILD) The TCP port ranges that a consumer can use to access a resource configuration (for example: 1-65535). You can separate port ranges using commas (for example: 1,2,22-30).
+	PortRanges pulumi.StringArrayInput
+	// (SINGLE, GROUP) The protocol accepted by the resource configuration.
+	ProtocolType ResourceConfigurationProtocolTypePtrInput
+	// The auth type for the resource configuration.
+	ResourceConfigurationAuthType ResourceConfigurationAuthTypePtrInput
+	// Identifies the resource configuration in one of the following ways:
+	//
+	// - *Amazon Resource Name (ARN)* - Supported resource-types that are provisioned by AWS services, such as RDS databases, can be identified by their ARN.
+	// - *Domain name* - Any domain name that is publicly resolvable.
+	// - *IP address* - For IPv4 and IPv6, only IP addresses in the VPC are supported.
+	ResourceConfigurationDefinition pulumi.Input
+	// The ID of the group resource configuration.
+	ResourceConfigurationGroupId pulumi.StringPtrInput
+	// The type of resource configuration. A resource configuration can be one of the following types:
+	//
+	// - *SINGLE* - A single resource.
+	// - *GROUP* - A group of resources. You must create a group resource configuration before you create a child resource configuration.
+	// - *CHILD* - A single resource that is part of a group resource configuration.
+	// - *ARN* - An AWS resource.
+	ResourceConfigurationType ResourceConfigurationTypePtrInput
+	// The ID of the resource gateway.
+	ResourceGatewayId pulumi.StringPtrInput
+	// The tags for the resource configuration.
+	Tags aws.TagArrayInput
 }
 
 func (ResourceConfigurationArgs) ElementType() reflect.Type {
@@ -140,52 +199,73 @@ func (o ResourceConfigurationOutput) ToResourceConfigurationOutputWithContext(ct
 	return o
 }
 
+// Specifies whether the resource configuration can be associated with a sharable service network.
 func (o ResourceConfigurationOutput) AllowAssociationToSharableServiceNetwork() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ResourceConfiguration) pulumi.BoolPtrOutput { return v.AllowAssociationToSharableServiceNetwork }).(pulumi.BoolPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) of the resource configuration.
 func (o ResourceConfigurationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceConfiguration) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The ID of the resource configuration.
 func (o ResourceConfigurationOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceConfiguration) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
+// The name of the resource configuration.
 func (o ResourceConfigurationOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceConfiguration) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// (SINGLE, GROUP, CHILD) The TCP port ranges that a consumer can use to access a resource configuration (for example: 1-65535). You can separate port ranges using commas (for example: 1,2,22-30).
 func (o ResourceConfigurationOutput) PortRanges() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResourceConfiguration) pulumi.StringArrayOutput { return v.PortRanges }).(pulumi.StringArrayOutput)
 }
 
+// (SINGLE, GROUP) The protocol accepted by the resource configuration.
 func (o ResourceConfigurationOutput) ProtocolType() ResourceConfigurationProtocolTypePtrOutput {
 	return o.ApplyT(func(v *ResourceConfiguration) ResourceConfigurationProtocolTypePtrOutput { return v.ProtocolType }).(ResourceConfigurationProtocolTypePtrOutput)
 }
 
+// The auth type for the resource configuration.
 func (o ResourceConfigurationOutput) ResourceConfigurationAuthType() ResourceConfigurationAuthTypePtrOutput {
 	return o.ApplyT(func(v *ResourceConfiguration) ResourceConfigurationAuthTypePtrOutput {
 		return v.ResourceConfigurationAuthType
 	}).(ResourceConfigurationAuthTypePtrOutput)
 }
 
+// Identifies the resource configuration in one of the following ways:
+//
+// - *Amazon Resource Name (ARN)* - Supported resource-types that are provisioned by AWS services, such as RDS databases, can be identified by their ARN.
+// - *Domain name* - Any domain name that is publicly resolvable.
+// - *IP address* - For IPv4 and IPv6, only IP addresses in the VPC are supported.
 func (o ResourceConfigurationOutput) ResourceConfigurationDefinition() pulumi.AnyOutput {
 	return o.ApplyT(func(v *ResourceConfiguration) pulumi.AnyOutput { return v.ResourceConfigurationDefinition }).(pulumi.AnyOutput)
 }
 
+// The ID of the group resource configuration.
 func (o ResourceConfigurationOutput) ResourceConfigurationGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceConfiguration) pulumi.StringPtrOutput { return v.ResourceConfigurationGroupId }).(pulumi.StringPtrOutput)
 }
 
+// The type of resource configuration. A resource configuration can be one of the following types:
+//
+// - *SINGLE* - A single resource.
+// - *GROUP* - A group of resources. You must create a group resource configuration before you create a child resource configuration.
+// - *CHILD* - A single resource that is part of a group resource configuration.
+// - *ARN* - An AWS resource.
 func (o ResourceConfigurationOutput) ResourceConfigurationType() ResourceConfigurationTypePtrOutput {
 	return o.ApplyT(func(v *ResourceConfiguration) ResourceConfigurationTypePtrOutput { return v.ResourceConfigurationType }).(ResourceConfigurationTypePtrOutput)
 }
 
+// The ID of the resource gateway.
 func (o ResourceConfigurationOutput) ResourceGatewayId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ResourceConfiguration) pulumi.StringPtrOutput { return v.ResourceGatewayId }).(pulumi.StringPtrOutput)
 }
 
+// The tags for the resource configuration.
 func (o ResourceConfigurationOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *ResourceConfiguration) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

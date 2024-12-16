@@ -15,12 +15,21 @@ namespace Pulumi.AwsNative.Connect.Inputs
     /// </summary>
     public sealed class HoursOfOperationOverrideArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The date from which the hours of operation override would be effective.
+        /// </summary>
         [Input("effectiveFrom", required: true)]
         public Input<string> EffectiveFrom { get; set; } = null!;
 
+        /// <summary>
+        /// The date till which the hours of operation override would be effective.
+        /// </summary>
         [Input("effectiveTill", required: true)]
         public Input<string> EffectiveTill { get; set; } = null!;
 
+        /// <summary>
+        /// The identifier for the hours of operation override.
+        /// </summary>
         [Input("hoursOfOperationOverrideId")]
         public Input<string>? HoursOfOperationOverrideId { get; set; }
 

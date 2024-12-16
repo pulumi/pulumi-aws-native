@@ -137,6 +137,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// The network interfaces for the instance.
         /// </summary>
         public readonly ImmutableArray<Outputs.LaunchTemplateNetworkInterface> NetworkInterfaces;
+        public readonly object? NetworkPerformanceOptions;
         /// <summary>
         /// The placement for the instance.
         /// </summary>
@@ -222,6 +223,8 @@ namespace Pulumi.AwsNative.Ec2.Outputs
 
             ImmutableArray<Outputs.LaunchTemplateNetworkInterface> networkInterfaces,
 
+            object? networkPerformanceOptions,
+
             Outputs.LaunchTemplatePlacement? placement,
 
             Outputs.LaunchTemplatePrivateDnsNameOptions? privateDnsNameOptions,
@@ -260,6 +263,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
             MetadataOptions = metadataOptions;
             Monitoring = monitoring;
             NetworkInterfaces = networkInterfaces;
+            NetworkPerformanceOptions = networkPerformanceOptions;
             Placement = placement;
             PrivateDnsNameOptions = privateDnsNameOptions;
             RamDiskId = ramDiskId;

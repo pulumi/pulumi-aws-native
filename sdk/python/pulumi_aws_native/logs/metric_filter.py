@@ -25,17 +25,23 @@ class MetricFilterArgs:
                  filter_pattern: pulumi.Input[str],
                  log_group_name: pulumi.Input[str],
                  metric_transformations: pulumi.Input[Sequence[pulumi.Input['MetricFilterMetricTransformationArgs']]],
+                 apply_on_transformed_logs: Optional[pulumi.Input[bool]] = None,
                  filter_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a MetricFilter resource.
         :param pulumi.Input[str] filter_pattern: A filter pattern for extracting metric data out of ingested log events. For more information, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
         :param pulumi.Input[str] log_group_name: The name of an existing log group that you want to associate with this metric filter.
         :param pulumi.Input[Sequence[pulumi.Input['MetricFilterMetricTransformationArgs']]] metric_transformations: The metric transformations.
+        :param pulumi.Input[bool] apply_on_transformed_logs: This parameter is valid only for log groups that have an active log transformer. For more information about log transformers, see [PutTransformer](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutTransformer.html) .
+               
+               If this value is `true` , the metric filter is applied on the transformed version of the log events instead of the original ingested log events.
         :param pulumi.Input[str] filter_name: The name of the metric filter.
         """
         pulumi.set(__self__, "filter_pattern", filter_pattern)
         pulumi.set(__self__, "log_group_name", log_group_name)
         pulumi.set(__self__, "metric_transformations", metric_transformations)
+        if apply_on_transformed_logs is not None:
+            pulumi.set(__self__, "apply_on_transformed_logs", apply_on_transformed_logs)
         if filter_name is not None:
             pulumi.set(__self__, "filter_name", filter_name)
 
@@ -76,6 +82,20 @@ class MetricFilterArgs:
         pulumi.set(self, "metric_transformations", value)
 
     @property
+    @pulumi.getter(name="applyOnTransformedLogs")
+    def apply_on_transformed_logs(self) -> Optional[pulumi.Input[bool]]:
+        """
+        This parameter is valid only for log groups that have an active log transformer. For more information about log transformers, see [PutTransformer](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutTransformer.html) .
+
+        If this value is `true` , the metric filter is applied on the transformed version of the log events instead of the original ingested log events.
+        """
+        return pulumi.get(self, "apply_on_transformed_logs")
+
+    @apply_on_transformed_logs.setter
+    def apply_on_transformed_logs(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "apply_on_transformed_logs", value)
+
+    @property
     @pulumi.getter(name="filterName")
     def filter_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -93,6 +113,7 @@ class MetricFilter(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 apply_on_transformed_logs: Optional[pulumi.Input[bool]] = None,
                  filter_name: Optional[pulumi.Input[str]] = None,
                  filter_pattern: Optional[pulumi.Input[str]] = None,
                  log_group_name: Optional[pulumi.Input[str]] = None,
@@ -104,6 +125,9 @@ class MetricFilter(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] apply_on_transformed_logs: This parameter is valid only for log groups that have an active log transformer. For more information about log transformers, see [PutTransformer](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutTransformer.html) .
+               
+               If this value is `true` , the metric filter is applied on the transformed version of the log events instead of the original ingested log events.
         :param pulumi.Input[str] filter_name: The name of the metric filter.
         :param pulumi.Input[str] filter_pattern: A filter pattern for extracting metric data out of ingested log events. For more information, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
         :param pulumi.Input[str] log_group_name: The name of an existing log group that you want to associate with this metric filter.
@@ -134,6 +158,7 @@ class MetricFilter(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 apply_on_transformed_logs: Optional[pulumi.Input[bool]] = None,
                  filter_name: Optional[pulumi.Input[str]] = None,
                  filter_pattern: Optional[pulumi.Input[str]] = None,
                  log_group_name: Optional[pulumi.Input[str]] = None,
@@ -147,6 +172,7 @@ class MetricFilter(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = MetricFilterArgs.__new__(MetricFilterArgs)
 
+            __props__.__dict__["apply_on_transformed_logs"] = apply_on_transformed_logs
             __props__.__dict__["filter_name"] = filter_name
             if filter_pattern is None and not opts.urn:
                 raise TypeError("Missing required property 'filter_pattern'")
@@ -181,11 +207,22 @@ class MetricFilter(pulumi.CustomResource):
 
         __props__ = MetricFilterArgs.__new__(MetricFilterArgs)
 
+        __props__.__dict__["apply_on_transformed_logs"] = None
         __props__.__dict__["filter_name"] = None
         __props__.__dict__["filter_pattern"] = None
         __props__.__dict__["log_group_name"] = None
         __props__.__dict__["metric_transformations"] = None
         return MetricFilter(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="applyOnTransformedLogs")
+    def apply_on_transformed_logs(self) -> pulumi.Output[Optional[bool]]:
+        """
+        This parameter is valid only for log groups that have an active log transformer. For more information about log transformers, see [PutTransformer](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutTransformer.html) .
+
+        If this value is `true` , the metric filter is applied on the transformed version of the log events instead of the original ingested log events.
+        """
+        return pulumi.get(self, "apply_on_transformed_logs")
 
     @property
     @pulumi.getter(name="filterName")

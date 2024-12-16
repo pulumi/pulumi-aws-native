@@ -87,7 +87,7 @@ namespace Pulumi.AwsNative.Batch.Inputs
         public Input<Inputs.JobDefinitionLogConfigurationArgs>? LogConfiguration { get; set; }
 
         [Input("mountPoints")]
-        private InputList<Inputs.JobDefinitionMountPointsArgs>? _mountPoints;
+        private InputList<Inputs.JobDefinitionMountPointArgs>? _mountPoints;
 
         /// <summary>
         /// The mount points for data volumes in your container.
@@ -96,9 +96,9 @@ namespace Pulumi.AwsNative.Batch.Inputs
         /// 
         /// Windows containers can mount whole directories on the same drive as `$env:ProgramData` . Windows containers can't mount directories on a different drive, and mount point can't be across drives.
         /// </summary>
-        public InputList<Inputs.JobDefinitionMountPointsArgs> MountPoints
+        public InputList<Inputs.JobDefinitionMountPointArgs> MountPoints
         {
-            get => _mountPoints ?? (_mountPoints = new InputList<Inputs.JobDefinitionMountPointsArgs>());
+            get => _mountPoints ?? (_mountPoints = new InputList<Inputs.JobDefinitionMountPointArgs>());
             set => _mountPoints = value;
         }
 

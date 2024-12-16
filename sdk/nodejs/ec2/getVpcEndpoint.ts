@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -42,10 +45,12 @@ export interface GetVpcEndpointResult {
      * If you update the `PrivateDnsEnabled` or `SubnetIds` properties, the DNS entries in the list will change.
      */
     readonly dnsEntries?: string[];
+    readonly dnsOptions?: outputs.ec2.VpcEndpointDnsOptionsSpecification;
     /**
      * The ID of the VPC endpoint.
      */
     readonly id?: string;
+    readonly ipAddressType?: enums.ec2.VpcEndpointIpAddressType;
     /**
      * (Interface endpoints) The network interface IDs. If you update the `PrivateDnsEnabled` or `SubnetIds` properties, the items in this list might change.
      */
