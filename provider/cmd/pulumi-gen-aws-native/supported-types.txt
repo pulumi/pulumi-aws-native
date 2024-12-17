@@ -812,6 +812,9 @@ AWS::PCAConnectorAD::Template
 AWS::PCAConnectorAD::TemplateGroupAccessControlEntry
 AWS::PCAConnectorSCEP::Challenge
 AWS::PCAConnectorSCEP::Connector
+AWS::PCS::Cluster
+AWS::PCS::ComputeNodeGroup
+AWS::PCS::Queue
 AWS::Panorama::ApplicationInstance
 AWS::Panorama::Package
 AWS::Panorama::PackageVersion

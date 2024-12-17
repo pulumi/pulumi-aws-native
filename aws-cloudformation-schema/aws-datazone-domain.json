@@ -133,16 +133,16 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "datazone:CreateDomain", "datazone:UpdateDomain", "datazone:GetDomain", "datazone:TagResource", "sso:CreateManagedApplicationInstance", "sso:DeleteManagedApplicationInstance", "sso:PutApplicationAssignmentConfiguration" ]
+      "permissions" : [ "datazone:CreateDomain", "datazone:UpdateDomain", "datazone:GetDomain", "datazone:TagResource", "sso:CreateManagedApplicationInstance", "sso:DeleteManagedApplicationInstance", "sso:PutApplicationAssignmentConfiguration", "sso:ListInstances", "iam:PassRole" ]
     },
     "read" : {
       "permissions" : [ "datazone:GetDomain" ]
     },
     "update" : {
-      "permissions" : [ "datazone:UpdateDomain", "datazone:GetDomain", "datazone:TagResource", "datazone:UntagResource", "sso:CreateManagedApplicationInstance", "sso:DeleteManagedApplicationInstance", "sso:PutApplicationAssignmentConfiguration" ]
+      "permissions" : [ "datazone:UpdateDomain", "datazone:GetDomain", "datazone:TagResource", "datazone:UntagResource", "sso:CreateManagedApplicationInstance", "sso:DeleteManagedApplicationInstance", "sso:PutApplicationAssignmentConfiguration", "sso:ListInstances", "iam:PassRole" ]
     },
     "delete" : {
-      "permissions" : [ "datazone:DeleteDomain", "datazone:GetDomain", "sso:DeleteManagedApplicationInstance", "sso:PutApplicationAssignmentConfiguration" ]
+      "permissions" : [ "datazone:DeleteDomain", "datazone:GetDomain", "sso:DeleteManagedApplicationInstance", "sso:PutApplicationAssignmentConfiguration", "sso:ListInstances" ]
     },
     "list" : {
       "permissions" : [ "datazone:ListDomains" ]
