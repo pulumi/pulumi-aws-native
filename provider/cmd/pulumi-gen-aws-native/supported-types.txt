@@ -812,6 +812,9 @@ AWS::PCAConnectorAD::Template
 AWS::PCAConnectorAD::TemplateGroupAccessControlEntry
 AWS::PCAConnectorSCEP::Challenge
 AWS::PCAConnectorSCEP::Connector
+AWS::PCS::Cluster
+AWS::PCS::ComputeNodeGroup
+AWS::PCS::Queue
 AWS::Panorama::ApplicationInstance
 AWS::Panorama::Package
 AWS::Panorama::PackageVersion
@@ -836,6 +839,7 @@ AWS::QBusiness::Retriever
 AWS::QBusiness::WebExperience
 AWS::QLDB::Stream
 AWS::QuickSight::Analysis
+AWS::QuickSight::CustomPermissions
 AWS::QuickSight::Dashboard
 AWS::QuickSight::DataSet
 AWS::QuickSight::DataSource

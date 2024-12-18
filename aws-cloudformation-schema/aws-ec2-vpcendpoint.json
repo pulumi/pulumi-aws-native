@@ -1,8 +1,10 @@
 {
   "tagging" : {
-    "taggable" : false,
-    "tagOnCreate" : false,
-    "tagUpdatable" : false,
+    "permissions" : [ "ec2:CreateTags", "ec2:DeleteTags", "ec2:DescribeVpcEndpoints" ],
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "tagProperty" : "/properties/Tags",
     "cloudFormationSystemTags" : false
   },
   "handlers" : {
@@ -10,18 +12,18 @@
       "permissions" : [ "ec2:DescribeVpcEndpoints", "ec2:DescribeSubnets", "ec2:DescribeSecurityGroups", "vpc-lattice:DescribeServiceNetworkVpcEndpointAssociation" ]
     },
     "create" : {
-      "permissions" : [ "ec2:CreateVpcEndpoint", "ec2:DescribeVpcEndpoints", "ec2:DescribeSubnets", "ec2:DescribeSecurityGroups", "vpc-lattice:CreateServiceNetworkVpcEndpointAssociation", "vpc-lattice:DescribeServiceNetworkVpcEndpointAssociation" ],
+      "permissions" : [ "ec2:CreateVpcEndpoint", "ec2:DescribeVpcEndpoints", "ec2:DescribeSubnets", "ec2:DescribeSecurityGroups", "vpc-lattice:CreateServiceNetworkVpcEndpointAssociation", "vpc-lattice:DescribeServiceNetworkVpcEndpointAssociation", "ec2:CreateTags", "ec2:DeleteTags" ],
       "timeoutInMinutes" : 210
     },
     "update" : {
-      "permissions" : [ "ec2:ModifyVpcEndpoint", "ec2:DescribeVpcEndpoints", "ec2:DescribeSubnets", "ec2:DescribeSecurityGroups", "vpc-lattice:CreateServiceNetworkVpcEndpointAssociation", "vpc-lattice:DescribeServiceNetworkVpcEndpointAssociation" ],
+      "permissions" : [ "ec2:ModifyVpcEndpoint", "ec2:DescribeVpcEndpoints", "ec2:DescribeSubnets", "ec2:DescribeSecurityGroups", "vpc-lattice:CreateServiceNetworkVpcEndpointAssociation", "vpc-lattice:DescribeServiceNetworkVpcEndpointAssociation", "ec2:CreateTags", "ec2:DeleteTags" ],
       "timeoutInMinutes" : 210
     },
     "list" : {
       "permissions" : [ "ec2:DescribeVpcEndpoints", "ec2:DescribeSubnets", "ec2:DescribeSecurityGroups", "vpc-lattice:DescribeServiceNetworkVpcEndpointAssociation" ]
     },
     "delete" : {
-      "permissions" : [ "ec2:DeleteVpcEndpoints", "ec2:DescribeVpcEndpoints", "ec2:DescribeSubnets", "ec2:DescribeSecurityGroups", "vpc-lattice:DescribeServiceNetworkVpcEndpointAssociation" ],
+      "permissions" : [ "ec2:DeleteVpcEndpoints", "ec2:DescribeVpcEndpoints", "ec2:DescribeSubnets", "ec2:DescribeSecurityGroups", "vpc-lattice:DescribeServiceNetworkVpcEndpointAssociation", "ec2:CreateTags", "ec2:DeleteTags" ],
       "timeoutInMinutes" : 210
     }
   },
@@ -46,6 +48,20 @@
           "enum" : [ "ipv4", "ipv6", "dualstack", "service-defined", "not-specified" ]
         }
       }
+    },
+    "Tag" : {
+      "description" : "",
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "Value" : {
+          "type" : "string"
+        },
+        "Key" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "Value", "Key" ]
     }
   },
   "properties" : {
@@ -163,6 +179,15 @@
     "Id" : {
       "description" : "",
       "type" : "string"
+    },
+    "Tags" : {
+      "uniqueItems" : false,
+      "description" : "",
+      "insertionOrder" : false,
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/definitions/Tag"
+      }
     }
   },
   "required" : [ "VpcId" ]
