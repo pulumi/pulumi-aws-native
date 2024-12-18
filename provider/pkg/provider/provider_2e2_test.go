@@ -14,6 +14,7 @@ import (
 	"github.com/pulumi/providertest/pulumitest/opttest"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/provider"
 	pulumirpc "github.com/pulumi/pulumi/sdk/v3/proto/go"
+	"github.com/stretchr/testify/assert"
 )
 
 func TestE2eSnapshots(t *testing.T) {
@@ -28,6 +29,19 @@ func TestE2eSnapshots(t *testing.T) {
 		test := newAwsTest(t, filepath.Join("testdata", "webAcl"))
 		testUpgradeFrom(t, test, "0.94.0")
 	})
+}
+
+func TestAutonaming(t *testing.T) {
+	t.Parallel()
+	pt := newAwsTest(t, filepath.Join("testdata", "autonaming"), opttest.Env("PULUMI_EXPERIMENTAL", "1"))
+	pt.Preview(t)
+	up := pt.Up(t)
+	logGroupName, ok := up.Outputs["logGroupName"].Value.(string)
+	assert.True(t, ok)
+	assert.Contains(t, logGroupName, "autonaming-log-") // project + name + random suffix
+	fifoQueueName, ok := up.Outputs["fifoQueueName"].Value.(string)
+	assert.True(t, ok)
+	assert.Contains(t, fifoQueueName, "queue.fifo") // verbatim name + resource's autonaming trivia suffix
 }
 
 func testUpgradeFrom(t *testing.T, test *pulumitest.PulumiTest, version string) {

@@ -27,6 +27,9 @@ func CheckNamingTrivia(sdkName string, props resource.PropertyMap, spec *metadat
 	if err != nil {
 		return false, nil, err
 	}
+	if !namingTriviaApplies {
+		return false, nil, nil
+	}
 	namingTrivia := *spec.Trivia
 
 	return namingTriviaApplies, &namingTrivia, nil

@@ -14,14 +14,19 @@ import (
 
 func Test_getDefaultName(t *testing.T) {
 	const sdkName = "autoName"
+	p := func(v EngineAutonamingMode) *EngineAutonamingMode {
+		return &v
+	}
 	tests := []struct {
-		name       string
-		minLength  int
-		maxLength  int
-		olds       resource.PropertyMap
-		news       resource.PropertyMap
-		err        error
-		comparison func(t *testing.T, actual resource.PropertyValue) bool
+		name             string
+		minLength        int
+		maxLength        int
+		olds             resource.PropertyMap
+		news             resource.PropertyMap
+		err              error
+		comparison       func(t *testing.T, actual *resource.PropertyValue) bool
+		engineAutonaming EngineAutonamingConfiguration
+		noName           bool
 	}{
 		{
 			name: "Name specified explicitly",
@@ -63,6 +68,61 @@ func Test_getDefaultName(t *testing.T) {
 			maxLength:  13,
 			comparison: within(13, 13),
 		},
+		{
+			name: "Autoname with AutonamingMode=Propose",
+			engineAutonaming: EngineAutonamingConfiguration{
+				AutonamingMode: p(EngineAutonamingModePropose),
+				ProposedName:   "proposed-name",
+			},
+			comparison: equals(resource.NewStringProperty("proposed-name")),
+		},
+		{
+			name: "Autoname with AutonamingMode=Enforce",
+			engineAutonaming: EngineAutonamingConfiguration{
+				AutonamingMode: p(EngineAutonamingModeEnforce),
+				ProposedName:   "enforced-name",
+			},
+			comparison: equals(resource.NewStringProperty("enforced-name")),
+		},
+		{
+			name: "Autoname with AutonamingMode=Disable",
+			engineAutonaming: EngineAutonamingConfiguration{
+				AutonamingMode: p(EngineAutonamingModeDisable),
+			},
+			comparison: func(t *testing.T, actual *resource.PropertyValue) bool {
+				return actual == nil
+			},
+			noName: true,
+		},
+		{
+			name: "Autoname with Propose mode and max length constraints",
+			engineAutonaming: EngineAutonamingConfiguration{
+				AutonamingMode: p(EngineAutonamingModePropose),
+				ProposedName:   "very-long-proposed-name",
+			},
+			maxLength: 10,
+			err:       fmt.Errorf("proposed name %q exceeds max length of %d", "very-long-proposed-name", 10),
+		},
+		{
+			name: "Autoname with Propose mode and min length constraints",
+			engineAutonaming: EngineAutonamingConfiguration{
+				AutonamingMode: p(EngineAutonamingModePropose),
+				ProposedName:   "too-short-proposed-name",
+			},
+			minLength: 25,
+			err:       fmt.Errorf("proposed name %q is shorter than min length of %d", "too-short-proposed-name", 25),
+		},
+		{
+			name: "Autoname with Propose mode and trivia",
+			engineAutonaming: EngineAutonamingConfiguration{
+				AutonamingMode: p(EngineAutonamingModePropose),
+				ProposedName:   "proposed-name",
+			},
+			news: resource.PropertyMap{
+				"flag": resource.NewBoolProperty(true),
+			},
+			comparison: equals(resource.NewStringProperty("proposed-name-trivia-value")),
+		},
 	}
 
 	urn := resource.URN("urn:pulumi:dev::test::test-provider:testModule:TestResource::myName")
@@ -73,16 +133,29 @@ func Test_getDefaultName(t *testing.T) {
 				SdkName:   "autoName",
 				MinLength: tt.minLength,
 				MaxLength: tt.maxLength,
+				TriviaSpec: &metadata.NamingTriviaSpec{
+					Rule: &metadata.NamingRule{
+						Field: "flag",
+						Condition: &metadata.NamingCondition{
+							Predicate: metadata.NamingPredicateEquals,
+							Value:     resource.NewBoolProperty(true),
+						},
+					},
+					Trivia: &metadata.NamingTrivia{
+						Suffix: "-trivia-value",
+					},
+				},
 			}
-			got, err := getDefaultName(nil, urn, autoNamingSpec, tt.olds, tt.news, nil)
+			got, has, err := getDefaultName(urn, tt.engineAutonaming, autoNamingSpec, tt.olds, tt.news, nil)
 			if tt.err != nil {
 				require.EqualError(t, err, tt.err.Error())
 				return
 			} else {
 				require.NoError(t, err)
+				require.Equal(t, tt.noName, !has)
 			}
 			if !tt.comparison(t, got) {
-				t.Errorf("getDefaultName() = %v for spec: %+v", got, autoNamingSpec)
+				t.Errorf("getDefaultName() = %v for spec: %+v", *got, autoNamingSpec)
 			}
 			t.Logf("getDefaultName() = %v for spec: %+v", got, autoNamingSpec)
 		})
@@ -100,7 +173,7 @@ func Test_getDefaultName_withAutoNameConfig(t *testing.T) {
 		olds           resource.PropertyMap
 		news           resource.PropertyMap
 		err            error
-		comparison     func(t *testing.T, actual resource.PropertyValue) bool
+		comparison     func(t *testing.T, actual *resource.PropertyValue) bool
 	}{
 		{
 			name:         "Name specified explicitly",
@@ -190,35 +263,37 @@ func Test_getDefaultName_withAutoNameConfig(t *testing.T) {
 			}
 
 			autoNameConfig := tt.autoNameConfig
-			got, err := getDefaultName(nil, urn, autoNamingSpec, tt.olds, tt.news, &autoNameConfig)
+			engineAutonaming := EngineAutonamingConfiguration{}
+			got, has, err := getDefaultName(urn, engineAutonaming, autoNamingSpec, tt.olds, tt.news, &autoNameConfig)
 			if tt.err != nil {
 				require.EqualError(t, err, tt.err.Error())
 				return
 			} else {
 				require.NoError(t, err)
+				require.True(t, has)
 			}
 			if !tt.comparison(t, got) {
-				t.Errorf("getDefaultName() = %v for spec: %+v", got, autoNamingSpec)
+				t.Errorf("getDefaultName() = %v for spec: %+v", *got, autoNamingSpec)
 			}
-			t.Logf("getDefaultName() = %v for spec: %+v", got, autoNamingSpec)
+			t.Logf("getDefaultName() = %v for spec: %+v", *got, autoNamingSpec)
 		})
 	}
 }
 
-func equals(expected resource.PropertyValue) func(t *testing.T, actual resource.PropertyValue) bool {
-	return func(t *testing.T, actual resource.PropertyValue) bool {
-		return expected == actual
+func equals(expected resource.PropertyValue) func(t *testing.T, actual *resource.PropertyValue) bool {
+	return func(t *testing.T, actual *resource.PropertyValue) bool {
+		return expected == *actual
 	}
 }
 
-func startsWith(prefix string, randomLen int) func(t *testing.T, actual resource.PropertyValue) bool {
-	return func(t *testing.T, actual resource.PropertyValue) bool {
+func startsWith(prefix string, randomLen int) func(t *testing.T, actual *resource.PropertyValue) bool {
+	return func(t *testing.T, actual *resource.PropertyValue) bool {
 		return assert.Regexp(t, fmt.Sprintf("^%s-[a-z0-9]{%d}", prefix, randomLen), actual.StringValue())
 	}
 }
 
-func within(min, max int) func(t *testing.T, value resource.PropertyValue) bool {
-	return func(t *testing.T, actual resource.PropertyValue) bool {
+func within(min, max int) func(t *testing.T, value *resource.PropertyValue) bool {
+	return func(t *testing.T, actual *resource.PropertyValue) bool {
 		l := len(actual.V.(string))
 		return min <= l && l <= max
 	}

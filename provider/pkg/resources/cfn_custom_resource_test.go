@@ -11,6 +11,7 @@ import (
 	"time"
 
 	"github.com/aws/aws-lambda-go/cfn"
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/autonaming"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/client"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/naming"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
@@ -89,12 +90,12 @@ func TestCfnCustomResource_Check(t *testing.T) {
 		{
 			name: "Unknown inputs",
 			inputs: resource.PropertyMap{
-				"serviceToken":             resource.MakeComputed(resource.NewStringProperty("")),
-				"stackId":                  resource.MakeComputed(resource.NewStringProperty("")),
+				"serviceToken": resource.MakeComputed(resource.NewStringProperty("")),
+				"stackId":      resource.MakeComputed(resource.NewStringProperty("")),
 			},
 			expectedInputs: resource.PropertyMap{
-				"serviceToken":             resource.MakeComputed(resource.NewStringProperty("")),
-				"stackId":                  resource.MakeComputed(resource.NewStringProperty("")),
+				"serviceToken": resource.MakeComputed(resource.NewStringProperty("")),
+				"stackId":      resource.MakeComputed(resource.NewStringProperty("")),
 			},
 		},
 		{
@@ -117,11 +118,13 @@ func TestCfnCustomResource_Check(t *testing.T) {
 			c := &cfnCustomResource{}
 			ctx := context.Background()
 			urn := urn.URN("urn:pulumi:testProject::test::aws-native:cloudformation:CfnCustomResource::dummy")
-			randomSeed := []byte{}
+			engineAutonaming := autonaming.EngineAutonamingConfiguration{
+				RandomSeed: []byte{},
+			}
 			state := resource.PropertyMap{}
 			defaultTags := map[string]string{}
 
-			newInputs, failures, err := c.Check(ctx, urn, randomSeed, tt.inputs, state, defaultTags)
+			newInputs, failures, err := c.Check(ctx, urn, engineAutonaming, tt.inputs, state, defaultTags)
 
 			if tt.expectedError != nil {
 				assert.Error(t, err)
@@ -233,7 +236,7 @@ func TestCfnCustomResource_Create(t *testing.T) {
 			},
 		},
 		{
-			name: "CustomResource without response data",
+			name:               "CustomResource without response data",
 			customResourceData: nil,
 			customResourceInputs: map[string]interface{}{
 				"key1": "value1",
@@ -624,7 +627,7 @@ func TestCfnCustomResource_Update(t *testing.T) {
 			newCustomResourceData: map[string]interface{}{"new": "value"},
 		},
 		{
-			name: "CustomResource without response data",
+			name:                  "CustomResource without response data",
 			newCustomResourceData: nil,
 		},
 	}

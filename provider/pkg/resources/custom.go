@@ -6,13 +6,15 @@ import (
 	"context"
 	"time"
 
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/autonaming"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 )
 
 //go:generate mockgen -package resources -source custom.go -destination mock_custom_resource.go CustomResource
 type CustomResource interface {
 	// Check validates and transforms the inputs of the resource.
-	Check(ctx context.Context, urn resource.URN, randomSeed []byte, inputs, state resource.PropertyMap, defaultTags map[string]string) (resource.PropertyMap, []ValidationFailure, error)
+	Check(ctx context.Context, urn resource.URN, engineAutonaming autonaming.EngineAutonamingConfiguration,
+		inputs, state resource.PropertyMap, defaultTags map[string]string) (resource.PropertyMap, []ValidationFailure, error)
 	// Create creates a new resource in the cloud provider and returns its unique identifier and outputs.
 	Create(ctx context.Context, urn resource.URN, inputs resource.PropertyMap, timeout time.Duration) (identifier *string, outputs resource.PropertyMap, err error)
 	// Read returns the outputs and the updated inputs of the resource.

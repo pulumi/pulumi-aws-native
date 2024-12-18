@@ -532,8 +532,9 @@ func (p *cfnProvider) Configure(ctx context.Context, req *pulumirpc.ConfigureReq
 	p.configured = true
 
 	return &pulumirpc.ConfigureResponse{
-		AcceptSecrets:   true,
-		SupportsPreview: true,
+		AcceptSecrets:                   true,
+		SupportsPreview:                 true,
+		SupportsAutonamingConfiguration: true,
 	}, nil
 }
 
@@ -744,7 +745,7 @@ func (p *cfnProvider) Check(ctx context.Context, req *pulumirpc.CheckRequest) (*
 	var failures []resources.ValidationFailure
 	resourceToken := string(urn.Type())
 	if customResource, ok := p.customResources[resourceToken]; ok {
-		newInputs, failures, err = customResource.Check(ctx, urn, req.RandomSeed, newInputs, olds, p.defaultTags)
+		newInputs, failures, err = customResource.Check(ctx, urn, engineAutonaming(req), newInputs, olds, p.defaultTags)
 		if err != nil {
 			return nil, fmt.Errorf("failed to check custom resource %q: %w", resourceToken, err)
 		}
@@ -754,7 +755,8 @@ func (p *cfnProvider) Check(ctx context.Context, req *pulumirpc.CheckRequest) (*
 			return nil, errors.Errorf("resource type %s not found", resourceToken)
 		}
 
-		if err := autonaming.ApplyAutoNaming(spec.AutoNamingSpec, urn, req.RandomSeed, olds, newInputs, p.autoNamingConfig); err != nil {
+		if err := autonaming.ApplyAutoNaming(spec.AutoNamingSpec, urn, engineAutonaming(req),
+			olds, newInputs, p.autoNamingConfig); err != nil {
 			return nil, fmt.Errorf("failed to apply auto-naming: %w", err)
 		}
 
@@ -790,6 +792,18 @@ func (p *cfnProvider) Check(ctx context.Context, req *pulumirpc.CheckRequest) (*
 		return &pulumirpc.CheckResponse{Inputs: inputs}, nil
 	}
 	return &pulumirpc.CheckResponse{Failures: checkFailures}, nil
+}
+
+func engineAutonaming(req *pulumirpc.CheckRequest) autonaming.EngineAutonamingConfiguration {
+	engineAutonaming := autonaming.EngineAutonamingConfiguration{
+		RandomSeed: req.RandomSeed,
+	}
+	if req.Autonaming != nil {
+		mode := autonaming.EngineAutonamingMode(req.Autonaming.Mode)
+		engineAutonaming.AutonamingMode = &mode
+		engineAutonaming.ProposedName = req.Autonaming.ProposedName
+	}
+	return engineAutonaming
 }
 
 func (p *cfnProvider) Diff(ctx context.Context, req *pulumirpc.DiffRequest) (*pulumirpc.DiffResponse, error) {

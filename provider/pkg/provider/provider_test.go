@@ -102,6 +102,64 @@ func TestConfigure(t *testing.T) {
 	})
 }
 
+func TestEngineAutonaming(t *testing.T) {
+	t.Parallel()
+
+	t.Run("WithoutAutonaming", func(t *testing.T) {
+		req := &pulumirpc.CheckRequest{
+			RandomSeed: []byte("test-seed"),
+		}
+
+		config := engineAutonaming(req)
+		assert.Equal(t, []byte("test-seed"), config.RandomSeed)
+		assert.Nil(t, config.AutonamingMode)
+		assert.Empty(t, config.ProposedName)
+	})
+
+	tests := []struct {
+		name         string
+		mode         pulumirpc.CheckRequest_AutonamingOptions_Mode
+		proposedName string
+		want         autonaming.EngineAutonamingMode
+	}{
+		{
+			name: "Disable",
+			mode: pulumirpc.CheckRequest_AutonamingOptions_DISABLE,
+			want: autonaming.EngineAutonamingModeDisable,
+		},
+		{
+			name:         "Enforce",
+			mode:         pulumirpc.CheckRequest_AutonamingOptions_ENFORCE,
+			proposedName: "test-resource",
+			want:         autonaming.EngineAutonamingModeEnforce,
+		},
+		{
+			name:         "Propose",
+			mode:         pulumirpc.CheckRequest_AutonamingOptions_PROPOSE,
+			proposedName: "test-resource",
+			want:         autonaming.EngineAutonamingModePropose,
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			req := &pulumirpc.CheckRequest{
+				RandomSeed: []byte("test-seed"),
+				Autonaming: &pulumirpc.CheckRequest_AutonamingOptions{
+					Mode:         tt.mode,
+					ProposedName: tt.proposedName,
+				},
+			}
+
+			config := engineAutonaming(req)
+			assert.Equal(t, []byte("test-seed"), config.RandomSeed)
+			require.NotNil(t, config.AutonamingMode)
+			assert.Equal(t, tt.want, *config.AutonamingMode)
+			assert.Equal(t, tt.proposedName, config.ProposedName)
+		})
+	}
+}
+
 func TestCreatePreview(t *testing.T) {
 	ctrl := gomock.NewController(t)
 	defer ctrl.Finish()
