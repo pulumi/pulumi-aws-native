@@ -3681,6 +3681,33 @@ namespace Pulumi.AwsNative.QuickSight
     }
 
     [EnumType]
+    public readonly struct CustomPermissionsCapabilityState : IEquatable<CustomPermissionsCapabilityState>
+    {
+        private readonly string _value;
+
+        private CustomPermissionsCapabilityState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CustomPermissionsCapabilityState Deny { get; } = new CustomPermissionsCapabilityState("DENY");
+
+        public static bool operator ==(CustomPermissionsCapabilityState left, CustomPermissionsCapabilityState right) => left.Equals(right);
+        public static bool operator !=(CustomPermissionsCapabilityState left, CustomPermissionsCapabilityState right) => !left.Equals(right);
+
+        public static explicit operator string(CustomPermissionsCapabilityState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CustomPermissionsCapabilityState other && Equals(other);
+        public bool Equals(CustomPermissionsCapabilityState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct DashboardAnchorOption : IEquatable<DashboardAnchorOption>
     {
         private readonly string _value;

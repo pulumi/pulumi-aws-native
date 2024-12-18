@@ -131,6 +131,7 @@ __all__ = [
     'AnalysisWordCloudWordOrientation',
     'AnalysisWordCloudWordPadding',
     'AnalysisWordCloudWordScaling',
+    'CustomPermissionsCapabilityState',
     'DashboardAnchorOption',
     'DashboardArcThickness',
     'DashboardArcThicknessOptions',
@@ -1208,6 +1209,10 @@ class AnalysisWordCloudWordPadding(str, Enum):
 class AnalysisWordCloudWordScaling(str, Enum):
     EMPHASIZE = "EMPHASIZE"
     NORMAL = "NORMAL"
+
+
+class CustomPermissionsCapabilityState(str, Enum):
+    DENY = "DENY"
 
 
 class DashboardAnchorOption(str, Enum):

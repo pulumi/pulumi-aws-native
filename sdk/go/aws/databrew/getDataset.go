@@ -36,6 +36,8 @@ type LookupDatasetResult struct {
 	Input *DatasetInputType `pulumi:"input"`
 	// PathOptions
 	PathOptions *DatasetPathOptions `pulumi:"pathOptions"`
+	// Source type of the dataset
+	Source *DatasetSource `pulumi:"source"`
 }
 
 func LookupDatasetOutput(ctx *pulumi.Context, args LookupDatasetOutputArgs, opts ...pulumi.InvokeOption) LookupDatasetResultOutput {
@@ -88,6 +90,11 @@ func (o LookupDatasetResultOutput) Input() DatasetInputTypePtrOutput {
 // PathOptions
 func (o LookupDatasetResultOutput) PathOptions() DatasetPathOptionsPtrOutput {
 	return o.ApplyT(func(v LookupDatasetResult) *DatasetPathOptions { return v.PathOptions }).(DatasetPathOptionsPtrOutput)
+}
+
+// Source type of the dataset
+func (o LookupDatasetResultOutput) Source() DatasetSourcePtrOutput {
+	return o.ApplyT(func(v LookupDatasetResult) *DatasetSource { return v.Source }).(DatasetSourcePtrOutput)
 }
 
 func init() {

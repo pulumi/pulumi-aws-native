@@ -77,6 +77,9 @@ class GetIdNamespaceAssociationResult:
     @property
     @pulumi.getter(name="collaborationIdentifier")
     def collaboration_identifier(self) -> Optional[str]:
+        """
+        The unique identifier of the collaboration that contains this ID namespace association.
+        """
         return pulumi.get(self, "collaboration_identifier")
 
     @property
@@ -98,6 +101,9 @@ class GetIdNamespaceAssociationResult:
     @property
     @pulumi.getter(name="idNamespaceAssociationIdentifier")
     def id_namespace_association_identifier(self) -> Optional[str]:
+        """
+        The unique identifier of the ID namespace association that you want to retrieve.
+        """
         return pulumi.get(self, "id_namespace_association_identifier")
 
     @property
@@ -155,6 +161,7 @@ def get_id_namespace_association(id_namespace_association_identifier: Optional[s
     Represents an association between an ID namespace and a collaboration
 
 
+    :param str id_namespace_association_identifier: The unique identifier of the ID namespace association that you want to retrieve.
     :param str membership_identifier: The unique identifier of the membership that contains the ID namespace association.
     """
     __args__ = dict()
@@ -181,6 +188,7 @@ def get_id_namespace_association_output(id_namespace_association_identifier: Opt
     Represents an association between an ID namespace and a collaboration
 
 
+    :param str id_namespace_association_identifier: The unique identifier of the ID namespace association that you want to retrieve.
     :param str membership_identifier: The unique identifier of the membership that contains the ID namespace association.
     """
     __args__ = dict()

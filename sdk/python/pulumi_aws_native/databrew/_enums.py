@@ -9,6 +9,7 @@ __all__ = [
     'DatasetFilesLimitOrderedBy',
     'DatasetFormat',
     'DatasetParameterType',
+    'DatasetSource',
     'JobDatabaseOutputDatabaseOutputMode',
     'JobEncryptionMode',
     'JobLogSubscription',
@@ -56,6 +57,15 @@ class DatasetParameterType(str, Enum):
     STRING = "String"
     NUMBER = "Number"
     DATETIME = "Datetime"
+
+
+class DatasetSource(str, Enum):
+    """
+    Source type of the dataset
+    """
+    S3 = "S3"
+    DATA_CATALOG = "DATA-CATALOG"
+    DATABASE = "DATABASE"
 
 
 class JobDatabaseOutputDatabaseOutputMode(str, Enum):

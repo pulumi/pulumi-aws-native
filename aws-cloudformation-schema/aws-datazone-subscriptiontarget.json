@@ -121,7 +121,7 @@
       "description" : "The Amazon DataZone user who updated the subscription target."
     }
   },
-  "required" : [ "ApplicableAssetTypes", "AuthorizedPrincipals", "DomainIdentifier", "EnvironmentIdentifier", "ManageAccessRole", "Name", "SubscriptionTargetConfig", "Type" ],
+  "required" : [ "ApplicableAssetTypes", "AuthorizedPrincipals", "DomainIdentifier", "EnvironmentIdentifier", "Name", "SubscriptionTargetConfig", "Type" ],
   "readOnlyProperties" : [ "/properties/CreatedAt", "/properties/CreatedBy", "/properties/DomainId", "/properties/EnvironmentId", "/properties/Id", "/properties/ProjectId", "/properties/UpdatedAt", "/properties/UpdatedBy" ],
   "createOnlyProperties" : [ "/properties/Type", "/properties/DomainIdentifier", "/properties/EnvironmentIdentifier" ],
   "writeOnlyProperties" : [ "/properties/DomainIdentifier", "/properties/EnvironmentIdentifier" ],

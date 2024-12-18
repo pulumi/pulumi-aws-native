@@ -132,6 +132,7 @@ namespace Pulumi.AwsNative.Ec2
         /// The IDs of the subnets in which to create endpoint network interfaces. You must specify this property for an interface endpoint or a Gateway Load Balancer endpoint. You can't specify this property for a gateway endpoint. For a Gateway Load Balancer endpoint, you can specify only one subnet.
         /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetVpcEndpointResult(
@@ -155,7 +156,9 @@ namespace Pulumi.AwsNative.Ec2
 
             ImmutableArray<string> securityGroupIds,
 
-            ImmutableArray<string> subnetIds)
+            ImmutableArray<string> subnetIds,
+
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             CreationTimestamp = creationTimestamp;
             DnsEntries = dnsEntries;
@@ -168,6 +171,7 @@ namespace Pulumi.AwsNative.Ec2
             RouteTableIds = routeTableIds;
             SecurityGroupIds = securityGroupIds;
             SubnetIds = subnetIds;
+            Tags = tags;
         }
     }
 }

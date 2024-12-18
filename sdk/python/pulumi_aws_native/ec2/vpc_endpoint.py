@@ -14,6 +14,8 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -33,6 +35,7 @@ class VpcEndpointArgs:
                  service_name: Optional[pulumi.Input[str]] = None,
                  service_network_arn: Optional[pulumi.Input[str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  vpc_endpoint_type: Optional[pulumi.Input['VpcEndpointType']] = None):
         """
         The set of arguments for constructing a VpcEndpoint resource.
@@ -74,6 +77,8 @@ class VpcEndpointArgs:
             pulumi.set(__self__, "service_network_arn", service_network_arn)
         if subnet_ids is not None:
             pulumi.set(__self__, "subnet_ids", subnet_ids)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
         if vpc_endpoint_type is not None:
             pulumi.set(__self__, "vpc_endpoint_type", vpc_endpoint_type)
 
@@ -205,6 +210,15 @@ class VpcEndpointArgs:
         pulumi.set(self, "subnet_ids", value)
 
     @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
     @pulumi.getter(name="vpcEndpointType")
     def vpc_endpoint_type(self) -> Optional[pulumi.Input['VpcEndpointType']]:
         """
@@ -233,6 +247,7 @@ class VpcEndpoint(pulumi.CustomResource):
                  service_name: Optional[pulumi.Input[str]] = None,
                  service_network_arn: Optional[pulumi.Input[str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  vpc_endpoint_type: Optional[pulumi.Input['VpcEndpointType']] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -304,6 +319,7 @@ class VpcEndpoint(pulumi.CustomResource):
                  service_name: Optional[pulumi.Input[str]] = None,
                  service_network_arn: Optional[pulumi.Input[str]] = None,
                  subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  vpc_endpoint_type: Optional[pulumi.Input['VpcEndpointType']] = None,
                  vpc_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -325,6 +341,7 @@ class VpcEndpoint(pulumi.CustomResource):
             __props__.__dict__["service_name"] = service_name
             __props__.__dict__["service_network_arn"] = service_network_arn
             __props__.__dict__["subnet_ids"] = subnet_ids
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["vpc_endpoint_type"] = vpc_endpoint_type
             if vpc_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_id'")
@@ -371,6 +388,7 @@ class VpcEndpoint(pulumi.CustomResource):
         __props__.__dict__["service_name"] = None
         __props__.__dict__["service_network_arn"] = None
         __props__.__dict__["subnet_ids"] = None
+        __props__.__dict__["tags"] = None
         __props__.__dict__["vpc_endpoint_type"] = None
         __props__.__dict__["vpc_id"] = None
         return VpcEndpoint(resource_name, opts=opts, __props__=__props__)
@@ -487,6 +505,11 @@ class VpcEndpoint(pulumi.CustomResource):
         The IDs of the subnets in which to create endpoint network interfaces. You must specify this property for an interface endpoint or a Gateway Load Balancer endpoint. You can't specify this property for a gateway endpoint. For a Gateway Load Balancer endpoint, you can specify only one subnet.
         """
         return pulumi.get(self, "subnet_ids")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        return pulumi.get(self, "tags")
 
     @property
     @pulumi.getter(name="vpcEndpointType")

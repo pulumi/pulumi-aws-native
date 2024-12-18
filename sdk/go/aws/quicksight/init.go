@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:quicksight:Analysis":
 		r = &Analysis{}
+	case "aws-native:quicksight:CustomPermissions":
+		r = &CustomPermissions{}
 	case "aws-native:quicksight:Dashboard":
 		r = &Dashboard{}
 	case "aws-native:quicksight:DataSet":

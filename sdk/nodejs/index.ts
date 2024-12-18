@@ -223,6 +223,7 @@ import * as panorama from "./panorama";
 import * as paymentcryptography from "./paymentcryptography";
 import * as pcaconnectorad from "./pcaconnectorad";
 import * as pcaconnectorscep from "./pcaconnectorscep";
+import * as pcs from "./pcs";
 import * as personalize from "./personalize";
 import * as pinpoint from "./pinpoint";
 import * as pipes from "./pipes";
@@ -447,6 +448,7 @@ export {
     paymentcryptography,
     pcaconnectorad,
     pcaconnectorscep,
+    pcs,
     personalize,
     pinpoint,
     pipes,

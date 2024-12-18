@@ -29,6 +29,7 @@ class DatasetArgs:
                  format_options: Optional[pulumi.Input['DatasetFormatOptionsArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  path_options: Optional[pulumi.Input['DatasetPathOptionsArgs']] = None,
+                 source: Optional[pulumi.Input['DatasetSource']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
         """
         The set of arguments for constructing a Dataset resource.
@@ -37,6 +38,7 @@ class DatasetArgs:
         :param pulumi.Input['DatasetFormatOptionsArgs'] format_options: Format options for dataset
         :param pulumi.Input[str] name: Dataset name
         :param pulumi.Input['DatasetPathOptionsArgs'] path_options: PathOptions
+        :param pulumi.Input['DatasetSource'] source: Source type of the dataset
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: Metadata tags that have been applied to the dataset.
         """
         pulumi.set(__self__, "input", input)
@@ -48,6 +50,8 @@ class DatasetArgs:
             pulumi.set(__self__, "name", name)
         if path_options is not None:
             pulumi.set(__self__, "path_options", path_options)
+        if source is not None:
+            pulumi.set(__self__, "source", source)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -113,6 +117,18 @@ class DatasetArgs:
 
     @property
     @pulumi.getter
+    def source(self) -> Optional[pulumi.Input['DatasetSource']]:
+        """
+        Source type of the dataset
+        """
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: Optional[pulumi.Input['DatasetSource']]):
+        pulumi.set(self, "source", value)
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
         """
         Metadata tags that have been applied to the dataset.
@@ -134,6 +150,7 @@ class Dataset(pulumi.CustomResource):
                  input: Optional[pulumi.Input[Union['DatasetInputArgs', 'DatasetInputArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  path_options: Optional[pulumi.Input[Union['DatasetPathOptionsArgs', 'DatasetPathOptionsArgsDict']]] = None,
+                 source: Optional[pulumi.Input['DatasetSource']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  __props__=None):
         """
@@ -173,6 +190,7 @@ class Dataset(pulumi.CustomResource):
         :param pulumi.Input[Union['DatasetInputArgs', 'DatasetInputArgsDict']] input: Input
         :param pulumi.Input[str] name: Dataset name
         :param pulumi.Input[Union['DatasetPathOptionsArgs', 'DatasetPathOptionsArgsDict']] path_options: PathOptions
+        :param pulumi.Input['DatasetSource'] source: Source type of the dataset
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]] tags: Metadata tags that have been applied to the dataset.
         """
         ...
@@ -231,6 +249,7 @@ class Dataset(pulumi.CustomResource):
                  input: Optional[pulumi.Input[Union['DatasetInputArgs', 'DatasetInputArgsDict']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  path_options: Optional[pulumi.Input[Union['DatasetPathOptionsArgs', 'DatasetPathOptionsArgsDict']]] = None,
+                 source: Optional[pulumi.Input['DatasetSource']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -248,6 +267,7 @@ class Dataset(pulumi.CustomResource):
             __props__.__dict__["input"] = input
             __props__.__dict__["name"] = name
             __props__.__dict__["path_options"] = path_options
+            __props__.__dict__["source"] = source
             __props__.__dict__["tags"] = tags
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name", "tags[*]"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
@@ -278,6 +298,7 @@ class Dataset(pulumi.CustomResource):
         __props__.__dict__["input"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["path_options"] = None
+        __props__.__dict__["source"] = None
         __props__.__dict__["tags"] = None
         return Dataset(resource_name, opts=opts, __props__=__props__)
 
@@ -320,6 +341,14 @@ class Dataset(pulumi.CustomResource):
         PathOptions
         """
         return pulumi.get(self, "path_options")
+
+    @property
+    @pulumi.getter
+    def source(self) -> pulumi.Output[Optional['DatasetSource']]:
+        """
+        Source type of the dataset
+        """
+        return pulumi.get(self, "source")
 
     @property
     @pulumi.getter

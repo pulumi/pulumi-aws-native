@@ -25,9 +25,9 @@ class SubscriptionTargetArgs:
                  authorized_principals: pulumi.Input[Sequence[pulumi.Input[str]]],
                  domain_identifier: pulumi.Input[str],
                  environment_identifier: pulumi.Input[str],
-                 manage_access_role: pulumi.Input[str],
                  subscription_target_config: pulumi.Input[Sequence[pulumi.Input['SubscriptionTargetFormArgs']]],
                  type: pulumi.Input[str],
+                 manage_access_role: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  provider: Optional[pulumi.Input[str]] = None):
         """
@@ -36,9 +36,9 @@ class SubscriptionTargetArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] authorized_principals: The authorized principals of the subscription target.
         :param pulumi.Input[str] domain_identifier: The ID of the Amazon DataZone domain in which subscription target would be created.
         :param pulumi.Input[str] environment_identifier: The ID of the environment in which subscription target would be created.
-        :param pulumi.Input[str] manage_access_role: The manage access role that is used to create the subscription target.
         :param pulumi.Input[Sequence[pulumi.Input['SubscriptionTargetFormArgs']]] subscription_target_config: The configuration of the subscription target.
         :param pulumi.Input[str] type: The type of the subscription target.
+        :param pulumi.Input[str] manage_access_role: The manage access role that is used to create the subscription target.
         :param pulumi.Input[str] name: The name of the subscription target.
         :param pulumi.Input[str] provider: The provider of the subscription target.
         """
@@ -46,9 +46,10 @@ class SubscriptionTargetArgs:
         pulumi.set(__self__, "authorized_principals", authorized_principals)
         pulumi.set(__self__, "domain_identifier", domain_identifier)
         pulumi.set(__self__, "environment_identifier", environment_identifier)
-        pulumi.set(__self__, "manage_access_role", manage_access_role)
         pulumi.set(__self__, "subscription_target_config", subscription_target_config)
         pulumi.set(__self__, "type", type)
+        if manage_access_role is not None:
+            pulumi.set(__self__, "manage_access_role", manage_access_role)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if provider is not None:
@@ -103,18 +104,6 @@ class SubscriptionTargetArgs:
         pulumi.set(self, "environment_identifier", value)
 
     @property
-    @pulumi.getter(name="manageAccessRole")
-    def manage_access_role(self) -> pulumi.Input[str]:
-        """
-        The manage access role that is used to create the subscription target.
-        """
-        return pulumi.get(self, "manage_access_role")
-
-    @manage_access_role.setter
-    def manage_access_role(self, value: pulumi.Input[str]):
-        pulumi.set(self, "manage_access_role", value)
-
-    @property
     @pulumi.getter(name="subscriptionTargetConfig")
     def subscription_target_config(self) -> pulumi.Input[Sequence[pulumi.Input['SubscriptionTargetFormArgs']]]:
         """
@@ -137,6 +126,18 @@ class SubscriptionTargetArgs:
     @type.setter
     def type(self, value: pulumi.Input[str]):
         pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="manageAccessRole")
+    def manage_access_role(self) -> Optional[pulumi.Input[str]]:
+        """
+        The manage access role that is used to create the subscription target.
+        """
+        return pulumi.get(self, "manage_access_role")
+
+    @manage_access_role.setter
+    def manage_access_role(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "manage_access_role", value)
 
     @property
     @pulumi.getter
@@ -247,8 +248,6 @@ class SubscriptionTarget(pulumi.CustomResource):
             if environment_identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'environment_identifier'")
             __props__.__dict__["environment_identifier"] = environment_identifier
-            if manage_access_role is None and not opts.urn:
-                raise TypeError("Missing required property 'manage_access_role'")
             __props__.__dict__["manage_access_role"] = manage_access_role
             __props__.__dict__["name"] = name
             __props__.__dict__["provider"] = provider
@@ -383,7 +382,7 @@ class SubscriptionTarget(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="manageAccessRole")
-    def manage_access_role(self) -> pulumi.Output[str]:
+    def manage_access_role(self) -> pulumi.Output[Optional[str]]:
         """
         The manage access role that is used to create the subscription target.
         """

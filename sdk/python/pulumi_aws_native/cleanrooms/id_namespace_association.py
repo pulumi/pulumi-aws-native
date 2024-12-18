@@ -259,6 +259,9 @@ class IdNamespaceAssociation(pulumi.CustomResource):
     @property
     @pulumi.getter(name="collaborationIdentifier")
     def collaboration_identifier(self) -> pulumi.Output[str]:
+        """
+        The unique identifier of the collaboration that contains this ID namespace association.
+        """
         return pulumi.get(self, "collaboration_identifier")
 
     @property
@@ -280,6 +283,9 @@ class IdNamespaceAssociation(pulumi.CustomResource):
     @property
     @pulumi.getter(name="idNamespaceAssociationIdentifier")
     def id_namespace_association_identifier(self) -> pulumi.Output[str]:
+        """
+        The unique identifier of the ID namespace association that you want to retrieve.
+        """
         return pulumi.get(self, "id_namespace_association_identifier")
 
     @property

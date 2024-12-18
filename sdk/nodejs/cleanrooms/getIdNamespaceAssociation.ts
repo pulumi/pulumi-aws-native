@@ -19,6 +19,9 @@ export function getIdNamespaceAssociation(args: GetIdNamespaceAssociationArgs, o
 }
 
 export interface GetIdNamespaceAssociationArgs {
+    /**
+     * The unique identifier of the ID namespace association that you want to retrieve.
+     */
     idNamespaceAssociationIdentifier: string;
     /**
      * The unique identifier of the membership that contains the ID namespace association.
@@ -35,6 +38,9 @@ export interface GetIdNamespaceAssociationResult {
      * The Amazon Resource Name (ARN) of the collaboration that contains this ID namespace association.
      */
     readonly collaborationArn?: string;
+    /**
+     * The unique identifier of the collaboration that contains this ID namespace association.
+     */
     readonly collaborationIdentifier?: string;
     /**
      * The description of the ID namespace association.
@@ -44,6 +50,9 @@ export interface GetIdNamespaceAssociationResult {
      * The configuration settings for the ID mapping table.
      */
     readonly idMappingConfig?: outputs.cleanrooms.IdNamespaceAssociationIdMappingConfig;
+    /**
+     * The unique identifier of the ID namespace association that you want to retrieve.
+     */
     readonly idNamespaceAssociationIdentifier?: string;
     readonly inputReferenceProperties?: outputs.cleanrooms.IdNamespaceAssociationInputReferenceProperties;
     /**
@@ -71,6 +80,9 @@ export function getIdNamespaceAssociationOutput(args: GetIdNamespaceAssociationO
 }
 
 export interface GetIdNamespaceAssociationOutputArgs {
+    /**
+     * The unique identifier of the ID namespace association that you want to retrieve.
+     */
     idNamespaceAssociationIdentifier: pulumi.Input<string>;
     /**
      * The unique identifier of the membership that contains the ID namespace association.

@@ -13,6 +13,334 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type TemplateParameterDateTimePickerControl struct {
+	// The display options of a control.
+	DisplayOptions *TemplateDateTimePickerControlDisplayOptions `pulumi:"displayOptions"`
+	// The ID of the `ParameterDateTimePickerControl` .
+	ParameterControlId string `pulumi:"parameterControlId"`
+	// The name of the `ParameterDateTimePickerControl` .
+	SourceParameterName string `pulumi:"sourceParameterName"`
+	// The title of the `ParameterDateTimePickerControl` .
+	Title string `pulumi:"title"`
+}
+
+// TemplateParameterDateTimePickerControlInput is an input type that accepts TemplateParameterDateTimePickerControlArgs and TemplateParameterDateTimePickerControlOutput values.
+// You can construct a concrete instance of `TemplateParameterDateTimePickerControlInput` via:
+//
+//	TemplateParameterDateTimePickerControlArgs{...}
+type TemplateParameterDateTimePickerControlInput interface {
+	pulumi.Input
+
+	ToTemplateParameterDateTimePickerControlOutput() TemplateParameterDateTimePickerControlOutput
+	ToTemplateParameterDateTimePickerControlOutputWithContext(context.Context) TemplateParameterDateTimePickerControlOutput
+}
+
+type TemplateParameterDateTimePickerControlArgs struct {
+	// The display options of a control.
+	DisplayOptions TemplateDateTimePickerControlDisplayOptionsPtrInput `pulumi:"displayOptions"`
+	// The ID of the `ParameterDateTimePickerControl` .
+	ParameterControlId pulumi.StringInput `pulumi:"parameterControlId"`
+	// The name of the `ParameterDateTimePickerControl` .
+	SourceParameterName pulumi.StringInput `pulumi:"sourceParameterName"`
+	// The title of the `ParameterDateTimePickerControl` .
+	Title pulumi.StringInput `pulumi:"title"`
+}
+
+func (TemplateParameterDateTimePickerControlArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateParameterDateTimePickerControl)(nil)).Elem()
+}
+
+func (i TemplateParameterDateTimePickerControlArgs) ToTemplateParameterDateTimePickerControlOutput() TemplateParameterDateTimePickerControlOutput {
+	return i.ToTemplateParameterDateTimePickerControlOutputWithContext(context.Background())
+}
+
+func (i TemplateParameterDateTimePickerControlArgs) ToTemplateParameterDateTimePickerControlOutputWithContext(ctx context.Context) TemplateParameterDateTimePickerControlOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateParameterDateTimePickerControlOutput)
+}
+
+func (i TemplateParameterDateTimePickerControlArgs) ToTemplateParameterDateTimePickerControlPtrOutput() TemplateParameterDateTimePickerControlPtrOutput {
+	return i.ToTemplateParameterDateTimePickerControlPtrOutputWithContext(context.Background())
+}
+
+func (i TemplateParameterDateTimePickerControlArgs) ToTemplateParameterDateTimePickerControlPtrOutputWithContext(ctx context.Context) TemplateParameterDateTimePickerControlPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateParameterDateTimePickerControlOutput).ToTemplateParameterDateTimePickerControlPtrOutputWithContext(ctx)
+}
+
+// TemplateParameterDateTimePickerControlPtrInput is an input type that accepts TemplateParameterDateTimePickerControlArgs, TemplateParameterDateTimePickerControlPtr and TemplateParameterDateTimePickerControlPtrOutput values.
+// You can construct a concrete instance of `TemplateParameterDateTimePickerControlPtrInput` via:
+//
+//	        TemplateParameterDateTimePickerControlArgs{...}
+//
+//	or:
+//
+//	        nil
+type TemplateParameterDateTimePickerControlPtrInput interface {
+	pulumi.Input
+
+	ToTemplateParameterDateTimePickerControlPtrOutput() TemplateParameterDateTimePickerControlPtrOutput
+	ToTemplateParameterDateTimePickerControlPtrOutputWithContext(context.Context) TemplateParameterDateTimePickerControlPtrOutput
+}
+
+type templateParameterDateTimePickerControlPtrType TemplateParameterDateTimePickerControlArgs
+
+func TemplateParameterDateTimePickerControlPtr(v *TemplateParameterDateTimePickerControlArgs) TemplateParameterDateTimePickerControlPtrInput {
+	return (*templateParameterDateTimePickerControlPtrType)(v)
+}
+
+func (*templateParameterDateTimePickerControlPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateParameterDateTimePickerControl)(nil)).Elem()
+}
+
+func (i *templateParameterDateTimePickerControlPtrType) ToTemplateParameterDateTimePickerControlPtrOutput() TemplateParameterDateTimePickerControlPtrOutput {
+	return i.ToTemplateParameterDateTimePickerControlPtrOutputWithContext(context.Background())
+}
+
+func (i *templateParameterDateTimePickerControlPtrType) ToTemplateParameterDateTimePickerControlPtrOutputWithContext(ctx context.Context) TemplateParameterDateTimePickerControlPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateParameterDateTimePickerControlPtrOutput)
+}
+
+type TemplateParameterDateTimePickerControlOutput struct{ *pulumi.OutputState }
+
+func (TemplateParameterDateTimePickerControlOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateParameterDateTimePickerControl)(nil)).Elem()
+}
+
+func (o TemplateParameterDateTimePickerControlOutput) ToTemplateParameterDateTimePickerControlOutput() TemplateParameterDateTimePickerControlOutput {
+	return o
+}
+
+func (o TemplateParameterDateTimePickerControlOutput) ToTemplateParameterDateTimePickerControlOutputWithContext(ctx context.Context) TemplateParameterDateTimePickerControlOutput {
+	return o
+}
+
+func (o TemplateParameterDateTimePickerControlOutput) ToTemplateParameterDateTimePickerControlPtrOutput() TemplateParameterDateTimePickerControlPtrOutput {
+	return o.ToTemplateParameterDateTimePickerControlPtrOutputWithContext(context.Background())
+}
+
+func (o TemplateParameterDateTimePickerControlOutput) ToTemplateParameterDateTimePickerControlPtrOutputWithContext(ctx context.Context) TemplateParameterDateTimePickerControlPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateParameterDateTimePickerControl) *TemplateParameterDateTimePickerControl {
+		return &v
+	}).(TemplateParameterDateTimePickerControlPtrOutput)
+}
+
+// The display options of a control.
+func (o TemplateParameterDateTimePickerControlOutput) DisplayOptions() TemplateDateTimePickerControlDisplayOptionsPtrOutput {
+	return o.ApplyT(func(v TemplateParameterDateTimePickerControl) *TemplateDateTimePickerControlDisplayOptions {
+		return v.DisplayOptions
+	}).(TemplateDateTimePickerControlDisplayOptionsPtrOutput)
+}
+
+// The ID of the `ParameterDateTimePickerControl` .
+func (o TemplateParameterDateTimePickerControlOutput) ParameterControlId() pulumi.StringOutput {
+	return o.ApplyT(func(v TemplateParameterDateTimePickerControl) string { return v.ParameterControlId }).(pulumi.StringOutput)
+}
+
+// The name of the `ParameterDateTimePickerControl` .
+func (o TemplateParameterDateTimePickerControlOutput) SourceParameterName() pulumi.StringOutput {
+	return o.ApplyT(func(v TemplateParameterDateTimePickerControl) string { return v.SourceParameterName }).(pulumi.StringOutput)
+}
+
+// The title of the `ParameterDateTimePickerControl` .
+func (o TemplateParameterDateTimePickerControlOutput) Title() pulumi.StringOutput {
+	return o.ApplyT(func(v TemplateParameterDateTimePickerControl) string { return v.Title }).(pulumi.StringOutput)
+}
+
+type TemplateParameterDateTimePickerControlPtrOutput struct{ *pulumi.OutputState }
+
+func (TemplateParameterDateTimePickerControlPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TemplateParameterDateTimePickerControl)(nil)).Elem()
+}
+
+func (o TemplateParameterDateTimePickerControlPtrOutput) ToTemplateParameterDateTimePickerControlPtrOutput() TemplateParameterDateTimePickerControlPtrOutput {
+	return o
+}
+
+func (o TemplateParameterDateTimePickerControlPtrOutput) ToTemplateParameterDateTimePickerControlPtrOutputWithContext(ctx context.Context) TemplateParameterDateTimePickerControlPtrOutput {
+	return o
+}
+
+func (o TemplateParameterDateTimePickerControlPtrOutput) Elem() TemplateParameterDateTimePickerControlOutput {
+	return o.ApplyT(func(v *TemplateParameterDateTimePickerControl) TemplateParameterDateTimePickerControl {
+		if v != nil {
+			return *v
+		}
+		var ret TemplateParameterDateTimePickerControl
+		return ret
+	}).(TemplateParameterDateTimePickerControlOutput)
+}
+
+// The display options of a control.
+func (o TemplateParameterDateTimePickerControlPtrOutput) DisplayOptions() TemplateDateTimePickerControlDisplayOptionsPtrOutput {
+	return o.ApplyT(func(v *TemplateParameterDateTimePickerControl) *TemplateDateTimePickerControlDisplayOptions {
+		if v == nil {
+			return nil
+		}
+		return v.DisplayOptions
+	}).(TemplateDateTimePickerControlDisplayOptionsPtrOutput)
+}
+
+// The ID of the `ParameterDateTimePickerControl` .
+func (o TemplateParameterDateTimePickerControlPtrOutput) ParameterControlId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateParameterDateTimePickerControl) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ParameterControlId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the `ParameterDateTimePickerControl` .
+func (o TemplateParameterDateTimePickerControlPtrOutput) SourceParameterName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateParameterDateTimePickerControl) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SourceParameterName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The title of the `ParameterDateTimePickerControl` .
+func (o TemplateParameterDateTimePickerControlPtrOutput) Title() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TemplateParameterDateTimePickerControl) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Title
+	}).(pulumi.StringPtrOutput)
+}
+
+type TemplateParameterDeclaration struct {
+	// A parameter declaration for the `DateTime` data type.
+	DateTimeParameterDeclaration *TemplateDateTimeParameterDeclaration `pulumi:"dateTimeParameterDeclaration"`
+	// A parameter declaration for the `Decimal` data type.
+	DecimalParameterDeclaration *TemplateDecimalParameterDeclaration `pulumi:"decimalParameterDeclaration"`
+	// A parameter declaration for the `Integer` data type.
+	IntegerParameterDeclaration *TemplateIntegerParameterDeclaration `pulumi:"integerParameterDeclaration"`
+	// A parameter declaration for the `String` data type.
+	StringParameterDeclaration *TemplateStringParameterDeclaration `pulumi:"stringParameterDeclaration"`
+}
+
+// TemplateParameterDeclarationInput is an input type that accepts TemplateParameterDeclarationArgs and TemplateParameterDeclarationOutput values.
+// You can construct a concrete instance of `TemplateParameterDeclarationInput` via:
+//
+//	TemplateParameterDeclarationArgs{...}
+type TemplateParameterDeclarationInput interface {
+	pulumi.Input
+
+	ToTemplateParameterDeclarationOutput() TemplateParameterDeclarationOutput
+	ToTemplateParameterDeclarationOutputWithContext(context.Context) TemplateParameterDeclarationOutput
+}
+
+type TemplateParameterDeclarationArgs struct {
+	// A parameter declaration for the `DateTime` data type.
+	DateTimeParameterDeclaration TemplateDateTimeParameterDeclarationPtrInput `pulumi:"dateTimeParameterDeclaration"`
+	// A parameter declaration for the `Decimal` data type.
+	DecimalParameterDeclaration TemplateDecimalParameterDeclarationPtrInput `pulumi:"decimalParameterDeclaration"`
+	// A parameter declaration for the `Integer` data type.
+	IntegerParameterDeclaration TemplateIntegerParameterDeclarationPtrInput `pulumi:"integerParameterDeclaration"`
+	// A parameter declaration for the `String` data type.
+	StringParameterDeclaration TemplateStringParameterDeclarationPtrInput `pulumi:"stringParameterDeclaration"`
+}
+
+func (TemplateParameterDeclarationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateParameterDeclaration)(nil)).Elem()
+}
+
+func (i TemplateParameterDeclarationArgs) ToTemplateParameterDeclarationOutput() TemplateParameterDeclarationOutput {
+	return i.ToTemplateParameterDeclarationOutputWithContext(context.Background())
+}
+
+func (i TemplateParameterDeclarationArgs) ToTemplateParameterDeclarationOutputWithContext(ctx context.Context) TemplateParameterDeclarationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateParameterDeclarationOutput)
+}
+
+// TemplateParameterDeclarationArrayInput is an input type that accepts TemplateParameterDeclarationArray and TemplateParameterDeclarationArrayOutput values.
+// You can construct a concrete instance of `TemplateParameterDeclarationArrayInput` via:
+//
+//	TemplateParameterDeclarationArray{ TemplateParameterDeclarationArgs{...} }
+type TemplateParameterDeclarationArrayInput interface {
+	pulumi.Input
+
+	ToTemplateParameterDeclarationArrayOutput() TemplateParameterDeclarationArrayOutput
+	ToTemplateParameterDeclarationArrayOutputWithContext(context.Context) TemplateParameterDeclarationArrayOutput
+}
+
+type TemplateParameterDeclarationArray []TemplateParameterDeclarationInput
+
+func (TemplateParameterDeclarationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TemplateParameterDeclaration)(nil)).Elem()
+}
+
+func (i TemplateParameterDeclarationArray) ToTemplateParameterDeclarationArrayOutput() TemplateParameterDeclarationArrayOutput {
+	return i.ToTemplateParameterDeclarationArrayOutputWithContext(context.Background())
+}
+
+func (i TemplateParameterDeclarationArray) ToTemplateParameterDeclarationArrayOutputWithContext(ctx context.Context) TemplateParameterDeclarationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateParameterDeclarationArrayOutput)
+}
+
+type TemplateParameterDeclarationOutput struct{ *pulumi.OutputState }
+
+func (TemplateParameterDeclarationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateParameterDeclaration)(nil)).Elem()
+}
+
+func (o TemplateParameterDeclarationOutput) ToTemplateParameterDeclarationOutput() TemplateParameterDeclarationOutput {
+	return o
+}
+
+func (o TemplateParameterDeclarationOutput) ToTemplateParameterDeclarationOutputWithContext(ctx context.Context) TemplateParameterDeclarationOutput {
+	return o
+}
+
+// A parameter declaration for the `DateTime` data type.
+func (o TemplateParameterDeclarationOutput) DateTimeParameterDeclaration() TemplateDateTimeParameterDeclarationPtrOutput {
+	return o.ApplyT(func(v TemplateParameterDeclaration) *TemplateDateTimeParameterDeclaration {
+		return v.DateTimeParameterDeclaration
+	}).(TemplateDateTimeParameterDeclarationPtrOutput)
+}
+
+// A parameter declaration for the `Decimal` data type.
+func (o TemplateParameterDeclarationOutput) DecimalParameterDeclaration() TemplateDecimalParameterDeclarationPtrOutput {
+	return o.ApplyT(func(v TemplateParameterDeclaration) *TemplateDecimalParameterDeclaration {
+		return v.DecimalParameterDeclaration
+	}).(TemplateDecimalParameterDeclarationPtrOutput)
+}
+
+// A parameter declaration for the `Integer` data type.
+func (o TemplateParameterDeclarationOutput) IntegerParameterDeclaration() TemplateIntegerParameterDeclarationPtrOutput {
+	return o.ApplyT(func(v TemplateParameterDeclaration) *TemplateIntegerParameterDeclaration {
+		return v.IntegerParameterDeclaration
+	}).(TemplateIntegerParameterDeclarationPtrOutput)
+}
+
+// A parameter declaration for the `String` data type.
+func (o TemplateParameterDeclarationOutput) StringParameterDeclaration() TemplateStringParameterDeclarationPtrOutput {
+	return o.ApplyT(func(v TemplateParameterDeclaration) *TemplateStringParameterDeclaration {
+		return v.StringParameterDeclaration
+	}).(TemplateStringParameterDeclarationPtrOutput)
+}
+
+type TemplateParameterDeclarationArrayOutput struct{ *pulumi.OutputState }
+
+func (TemplateParameterDeclarationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TemplateParameterDeclaration)(nil)).Elem()
+}
+
+func (o TemplateParameterDeclarationArrayOutput) ToTemplateParameterDeclarationArrayOutput() TemplateParameterDeclarationArrayOutput {
+	return o
+}
+
+func (o TemplateParameterDeclarationArrayOutput) ToTemplateParameterDeclarationArrayOutputWithContext(ctx context.Context) TemplateParameterDeclarationArrayOutput {
+	return o
+}
+
+func (o TemplateParameterDeclarationArrayOutput) Index(i pulumi.IntInput) TemplateParameterDeclarationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TemplateParameterDeclaration {
+		return vs[0].([]TemplateParameterDeclaration)[vs[1].(int)]
+	}).(TemplateParameterDeclarationOutput)
+}
+
 type TemplateParameterDropDownControl struct {
 	// The values that are displayed in a control can be configured to only show values that are valid based on what's selected in other controls.
 	CascadingControlConfiguration *TemplateCascadingControlConfiguration `pulumi:"cascadingControlConfiguration"`
@@ -42391,6 +42719,10 @@ type VpcConnectionTag struct {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateParameterDateTimePickerControlInput)(nil)).Elem(), TemplateParameterDateTimePickerControlArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateParameterDateTimePickerControlPtrInput)(nil)).Elem(), TemplateParameterDateTimePickerControlArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateParameterDeclarationInput)(nil)).Elem(), TemplateParameterDeclarationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateParameterDeclarationArrayInput)(nil)).Elem(), TemplateParameterDeclarationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateParameterDropDownControlInput)(nil)).Elem(), TemplateParameterDropDownControlArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateParameterDropDownControlPtrInput)(nil)).Elem(), TemplateParameterDropDownControlArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateParameterListControlInput)(nil)).Elem(), TemplateParameterListControlArgs{})
@@ -42864,6 +43196,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicSemanticTypePtrInput)(nil)).Elem(), TopicSemanticTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicSingularFilterConstantInput)(nil)).Elem(), TopicSingularFilterConstantArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicSingularFilterConstantPtrInput)(nil)).Elem(), TopicSingularFilterConstantArgs{})
+	pulumi.RegisterOutputType(TemplateParameterDateTimePickerControlOutput{})
+	pulumi.RegisterOutputType(TemplateParameterDateTimePickerControlPtrOutput{})
+	pulumi.RegisterOutputType(TemplateParameterDeclarationOutput{})
+	pulumi.RegisterOutputType(TemplateParameterDeclarationArrayOutput{})
 	pulumi.RegisterOutputType(TemplateParameterDropDownControlOutput{})
 	pulumi.RegisterOutputType(TemplateParameterDropDownControlPtrOutput{})
 	pulumi.RegisterOutputType(TemplateParameterListControlOutput{})

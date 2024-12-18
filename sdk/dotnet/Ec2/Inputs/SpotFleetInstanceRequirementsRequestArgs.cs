@@ -134,6 +134,9 @@ namespace Pulumi.AwsNative.Ec2.Inputs
         [Input("baselineEbsBandwidthMbps")]
         public Input<Inputs.SpotFleetBaselineEbsBandwidthMbpsRequestArgs>? BaselineEbsBandwidthMbps { get; set; }
 
+        [Input("baselinePerformanceFactors")]
+        public Input<Inputs.SpotFleetBaselinePerformanceFactorsRequestArgs>? BaselinePerformanceFactors { get; set; }
+
         /// <summary>
         /// Indicates whether burstable performance T instance types are included, excluded, or required. For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html) .
         /// 

@@ -259,6 +259,9 @@ class IdMappingTable(pulumi.CustomResource):
     @property
     @pulumi.getter(name="collaborationIdentifier")
     def collaboration_identifier(self) -> pulumi.Output[str]:
+        """
+        The unique identifier of the collaboration that contains this ID mapping table.
+        """
         return pulumi.get(self, "collaboration_identifier")
 
     @property
@@ -272,6 +275,9 @@ class IdMappingTable(pulumi.CustomResource):
     @property
     @pulumi.getter(name="idMappingTableIdentifier")
     def id_mapping_table_identifier(self) -> pulumi.Output[str]:
+        """
+        The unique identifier of the ID mapping table identifier that you want to retrieve.
+        """
         return pulumi.get(self, "id_mapping_table_identifier")
 
     @property

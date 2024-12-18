@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -59,6 +60,7 @@ type VpcEndpoint struct {
 	ServiceNetworkArn pulumi.StringPtrOutput `pulumi:"serviceNetworkArn"`
 	// The IDs of the subnets in which to create endpoint network interfaces. You must specify this property for an interface endpoint or a Gateway Load Balancer endpoint. You can't specify this property for a gateway endpoint. For a Gateway Load Balancer endpoint, you can specify only one subnet.
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
+	Tags      aws.TagArrayOutput       `pulumi:"tags"`
 	// The type of endpoint.
 	//  Default: Gateway
 	VpcEndpointType VpcEndpointTypePtrOutput `pulumi:"vpcEndpointType"`
@@ -139,7 +141,8 @@ type vpcEndpointArgs struct {
 	ServiceName       *string `pulumi:"serviceName"`
 	ServiceNetworkArn *string `pulumi:"serviceNetworkArn"`
 	// The IDs of the subnets in which to create endpoint network interfaces. You must specify this property for an interface endpoint or a Gateway Load Balancer endpoint. You can't specify this property for a gateway endpoint. For a Gateway Load Balancer endpoint, you can specify only one subnet.
-	SubnetIds []string `pulumi:"subnetIds"`
+	SubnetIds []string  `pulumi:"subnetIds"`
+	Tags      []aws.Tag `pulumi:"tags"`
 	// The type of endpoint.
 	//  Default: Gateway
 	VpcEndpointType *VpcEndpointType `pulumi:"vpcEndpointType"`
@@ -172,6 +175,7 @@ type VpcEndpointArgs struct {
 	ServiceNetworkArn pulumi.StringPtrInput
 	// The IDs of the subnets in which to create endpoint network interfaces. You must specify this property for an interface endpoint or a Gateway Load Balancer endpoint. You can't specify this property for a gateway endpoint. For a Gateway Load Balancer endpoint, you can specify only one subnet.
 	SubnetIds pulumi.StringArrayInput
+	Tags      aws.TagArrayInput
 	// The type of endpoint.
 	//  Default: Gateway
 	VpcEndpointType VpcEndpointTypePtrInput
@@ -295,6 +299,10 @@ func (o VpcEndpointOutput) ServiceNetworkArn() pulumi.StringPtrOutput {
 // The IDs of the subnets in which to create endpoint network interfaces. You must specify this property for an interface endpoint or a Gateway Load Balancer endpoint. You can't specify this property for a gateway endpoint. For a Gateway Load Balancer endpoint, you can specify only one subnet.
 func (o VpcEndpointOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *VpcEndpoint) pulumi.StringArrayOutput { return v.SubnetIds }).(pulumi.StringArrayOutput)
+}
+
+func (o VpcEndpointOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *VpcEndpoint) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 // The type of endpoint.

@@ -22,6 +22,11 @@
       "description" : "Input",
       "$ref" : "#/definitions/Input"
     },
+    "Source" : {
+      "description" : "Source type of the dataset",
+      "type" : "string",
+      "enum" : [ "S3", "DATA-CATALOG", "DATABASE" ]
+    },
     "PathOptions" : {
       "description" : "PathOptions",
       "$ref" : "#/definitions/PathOptions"
@@ -137,6 +142,9 @@
         },
         "Key" : {
           "type" : "string"
+        },
+        "BucketOwner" : {
+          "$ref" : "#/definitions/BucketOwner"
         }
       },
       "additionalProperties" : false,
@@ -194,6 +202,12 @@
         }
       },
       "additionalProperties" : false
+    },
+    "BucketOwner" : {
+      "description" : "Bucket owner",
+      "type" : "string",
+      "minLength" : 12,
+      "maxLength" : 12
     },
     "PathOptions" : {
       "description" : "Path options for dataset",

@@ -1583,6 +1583,139 @@ func (o Ec2FleetBaselineEbsBandwidthMbpsRequestPtrOutput) Min() pulumi.IntPtrOut
 	}).(pulumi.IntPtrOutput)
 }
 
+type Ec2FleetBaselinePerformanceFactorsRequest struct {
+	Cpu *Ec2FleetCpuPerformanceFactorRequest `pulumi:"cpu"`
+}
+
+// Ec2FleetBaselinePerformanceFactorsRequestInput is an input type that accepts Ec2FleetBaselinePerformanceFactorsRequestArgs and Ec2FleetBaselinePerformanceFactorsRequestOutput values.
+// You can construct a concrete instance of `Ec2FleetBaselinePerformanceFactorsRequestInput` via:
+//
+//	Ec2FleetBaselinePerformanceFactorsRequestArgs{...}
+type Ec2FleetBaselinePerformanceFactorsRequestInput interface {
+	pulumi.Input
+
+	ToEc2FleetBaselinePerformanceFactorsRequestOutput() Ec2FleetBaselinePerformanceFactorsRequestOutput
+	ToEc2FleetBaselinePerformanceFactorsRequestOutputWithContext(context.Context) Ec2FleetBaselinePerformanceFactorsRequestOutput
+}
+
+type Ec2FleetBaselinePerformanceFactorsRequestArgs struct {
+	Cpu Ec2FleetCpuPerformanceFactorRequestPtrInput `pulumi:"cpu"`
+}
+
+func (Ec2FleetBaselinePerformanceFactorsRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ec2FleetBaselinePerformanceFactorsRequest)(nil)).Elem()
+}
+
+func (i Ec2FleetBaselinePerformanceFactorsRequestArgs) ToEc2FleetBaselinePerformanceFactorsRequestOutput() Ec2FleetBaselinePerformanceFactorsRequestOutput {
+	return i.ToEc2FleetBaselinePerformanceFactorsRequestOutputWithContext(context.Background())
+}
+
+func (i Ec2FleetBaselinePerformanceFactorsRequestArgs) ToEc2FleetBaselinePerformanceFactorsRequestOutputWithContext(ctx context.Context) Ec2FleetBaselinePerformanceFactorsRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetBaselinePerformanceFactorsRequestOutput)
+}
+
+func (i Ec2FleetBaselinePerformanceFactorsRequestArgs) ToEc2FleetBaselinePerformanceFactorsRequestPtrOutput() Ec2FleetBaselinePerformanceFactorsRequestPtrOutput {
+	return i.ToEc2FleetBaselinePerformanceFactorsRequestPtrOutputWithContext(context.Background())
+}
+
+func (i Ec2FleetBaselinePerformanceFactorsRequestArgs) ToEc2FleetBaselinePerformanceFactorsRequestPtrOutputWithContext(ctx context.Context) Ec2FleetBaselinePerformanceFactorsRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetBaselinePerformanceFactorsRequestOutput).ToEc2FleetBaselinePerformanceFactorsRequestPtrOutputWithContext(ctx)
+}
+
+// Ec2FleetBaselinePerformanceFactorsRequestPtrInput is an input type that accepts Ec2FleetBaselinePerformanceFactorsRequestArgs, Ec2FleetBaselinePerformanceFactorsRequestPtr and Ec2FleetBaselinePerformanceFactorsRequestPtrOutput values.
+// You can construct a concrete instance of `Ec2FleetBaselinePerformanceFactorsRequestPtrInput` via:
+//
+//	        Ec2FleetBaselinePerformanceFactorsRequestArgs{...}
+//
+//	or:
+//
+//	        nil
+type Ec2FleetBaselinePerformanceFactorsRequestPtrInput interface {
+	pulumi.Input
+
+	ToEc2FleetBaselinePerformanceFactorsRequestPtrOutput() Ec2FleetBaselinePerformanceFactorsRequestPtrOutput
+	ToEc2FleetBaselinePerformanceFactorsRequestPtrOutputWithContext(context.Context) Ec2FleetBaselinePerformanceFactorsRequestPtrOutput
+}
+
+type ec2FleetBaselinePerformanceFactorsRequestPtrType Ec2FleetBaselinePerformanceFactorsRequestArgs
+
+func Ec2FleetBaselinePerformanceFactorsRequestPtr(v *Ec2FleetBaselinePerformanceFactorsRequestArgs) Ec2FleetBaselinePerformanceFactorsRequestPtrInput {
+	return (*ec2FleetBaselinePerformanceFactorsRequestPtrType)(v)
+}
+
+func (*ec2FleetBaselinePerformanceFactorsRequestPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Ec2FleetBaselinePerformanceFactorsRequest)(nil)).Elem()
+}
+
+func (i *ec2FleetBaselinePerformanceFactorsRequestPtrType) ToEc2FleetBaselinePerformanceFactorsRequestPtrOutput() Ec2FleetBaselinePerformanceFactorsRequestPtrOutput {
+	return i.ToEc2FleetBaselinePerformanceFactorsRequestPtrOutputWithContext(context.Background())
+}
+
+func (i *ec2FleetBaselinePerformanceFactorsRequestPtrType) ToEc2FleetBaselinePerformanceFactorsRequestPtrOutputWithContext(ctx context.Context) Ec2FleetBaselinePerformanceFactorsRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetBaselinePerformanceFactorsRequestPtrOutput)
+}
+
+type Ec2FleetBaselinePerformanceFactorsRequestOutput struct{ *pulumi.OutputState }
+
+func (Ec2FleetBaselinePerformanceFactorsRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ec2FleetBaselinePerformanceFactorsRequest)(nil)).Elem()
+}
+
+func (o Ec2FleetBaselinePerformanceFactorsRequestOutput) ToEc2FleetBaselinePerformanceFactorsRequestOutput() Ec2FleetBaselinePerformanceFactorsRequestOutput {
+	return o
+}
+
+func (o Ec2FleetBaselinePerformanceFactorsRequestOutput) ToEc2FleetBaselinePerformanceFactorsRequestOutputWithContext(ctx context.Context) Ec2FleetBaselinePerformanceFactorsRequestOutput {
+	return o
+}
+
+func (o Ec2FleetBaselinePerformanceFactorsRequestOutput) ToEc2FleetBaselinePerformanceFactorsRequestPtrOutput() Ec2FleetBaselinePerformanceFactorsRequestPtrOutput {
+	return o.ToEc2FleetBaselinePerformanceFactorsRequestPtrOutputWithContext(context.Background())
+}
+
+func (o Ec2FleetBaselinePerformanceFactorsRequestOutput) ToEc2FleetBaselinePerformanceFactorsRequestPtrOutputWithContext(ctx context.Context) Ec2FleetBaselinePerformanceFactorsRequestPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Ec2FleetBaselinePerformanceFactorsRequest) *Ec2FleetBaselinePerformanceFactorsRequest {
+		return &v
+	}).(Ec2FleetBaselinePerformanceFactorsRequestPtrOutput)
+}
+
+func (o Ec2FleetBaselinePerformanceFactorsRequestOutput) Cpu() Ec2FleetCpuPerformanceFactorRequestPtrOutput {
+	return o.ApplyT(func(v Ec2FleetBaselinePerformanceFactorsRequest) *Ec2FleetCpuPerformanceFactorRequest { return v.Cpu }).(Ec2FleetCpuPerformanceFactorRequestPtrOutput)
+}
+
+type Ec2FleetBaselinePerformanceFactorsRequestPtrOutput struct{ *pulumi.OutputState }
+
+func (Ec2FleetBaselinePerformanceFactorsRequestPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Ec2FleetBaselinePerformanceFactorsRequest)(nil)).Elem()
+}
+
+func (o Ec2FleetBaselinePerformanceFactorsRequestPtrOutput) ToEc2FleetBaselinePerformanceFactorsRequestPtrOutput() Ec2FleetBaselinePerformanceFactorsRequestPtrOutput {
+	return o
+}
+
+func (o Ec2FleetBaselinePerformanceFactorsRequestPtrOutput) ToEc2FleetBaselinePerformanceFactorsRequestPtrOutputWithContext(ctx context.Context) Ec2FleetBaselinePerformanceFactorsRequestPtrOutput {
+	return o
+}
+
+func (o Ec2FleetBaselinePerformanceFactorsRequestPtrOutput) Elem() Ec2FleetBaselinePerformanceFactorsRequestOutput {
+	return o.ApplyT(func(v *Ec2FleetBaselinePerformanceFactorsRequest) Ec2FleetBaselinePerformanceFactorsRequest {
+		if v != nil {
+			return *v
+		}
+		var ret Ec2FleetBaselinePerformanceFactorsRequest
+		return ret
+	}).(Ec2FleetBaselinePerformanceFactorsRequestOutput)
+}
+
+func (o Ec2FleetBaselinePerformanceFactorsRequestPtrOutput) Cpu() Ec2FleetCpuPerformanceFactorRequestPtrOutput {
+	return o.ApplyT(func(v *Ec2FleetBaselinePerformanceFactorsRequest) *Ec2FleetCpuPerformanceFactorRequest {
+		if v == nil {
+			return nil
+		}
+		return v.Cpu
+	}).(Ec2FleetCpuPerformanceFactorRequestPtrOutput)
+}
+
 type Ec2FleetCapacityRebalance struct {
 	// The replacement strategy to use. Only available for fleets of type `maintain` .
 	//
@@ -1934,6 +2067,141 @@ func (o Ec2FleetCapacityReservationOptionsRequestPtrOutput) UsageStrategy() Ec2F
 		}
 		return v.UsageStrategy
 	}).(Ec2FleetCapacityReservationOptionsRequestUsageStrategyPtrOutput)
+}
+
+type Ec2FleetCpuPerformanceFactorRequest struct {
+	References []Ec2FleetPerformanceFactorReferenceRequest `pulumi:"references"`
+}
+
+// Ec2FleetCpuPerformanceFactorRequestInput is an input type that accepts Ec2FleetCpuPerformanceFactorRequestArgs and Ec2FleetCpuPerformanceFactorRequestOutput values.
+// You can construct a concrete instance of `Ec2FleetCpuPerformanceFactorRequestInput` via:
+//
+//	Ec2FleetCpuPerformanceFactorRequestArgs{...}
+type Ec2FleetCpuPerformanceFactorRequestInput interface {
+	pulumi.Input
+
+	ToEc2FleetCpuPerformanceFactorRequestOutput() Ec2FleetCpuPerformanceFactorRequestOutput
+	ToEc2FleetCpuPerformanceFactorRequestOutputWithContext(context.Context) Ec2FleetCpuPerformanceFactorRequestOutput
+}
+
+type Ec2FleetCpuPerformanceFactorRequestArgs struct {
+	References Ec2FleetPerformanceFactorReferenceRequestArrayInput `pulumi:"references"`
+}
+
+func (Ec2FleetCpuPerformanceFactorRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ec2FleetCpuPerformanceFactorRequest)(nil)).Elem()
+}
+
+func (i Ec2FleetCpuPerformanceFactorRequestArgs) ToEc2FleetCpuPerformanceFactorRequestOutput() Ec2FleetCpuPerformanceFactorRequestOutput {
+	return i.ToEc2FleetCpuPerformanceFactorRequestOutputWithContext(context.Background())
+}
+
+func (i Ec2FleetCpuPerformanceFactorRequestArgs) ToEc2FleetCpuPerformanceFactorRequestOutputWithContext(ctx context.Context) Ec2FleetCpuPerformanceFactorRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetCpuPerformanceFactorRequestOutput)
+}
+
+func (i Ec2FleetCpuPerformanceFactorRequestArgs) ToEc2FleetCpuPerformanceFactorRequestPtrOutput() Ec2FleetCpuPerformanceFactorRequestPtrOutput {
+	return i.ToEc2FleetCpuPerformanceFactorRequestPtrOutputWithContext(context.Background())
+}
+
+func (i Ec2FleetCpuPerformanceFactorRequestArgs) ToEc2FleetCpuPerformanceFactorRequestPtrOutputWithContext(ctx context.Context) Ec2FleetCpuPerformanceFactorRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetCpuPerformanceFactorRequestOutput).ToEc2FleetCpuPerformanceFactorRequestPtrOutputWithContext(ctx)
+}
+
+// Ec2FleetCpuPerformanceFactorRequestPtrInput is an input type that accepts Ec2FleetCpuPerformanceFactorRequestArgs, Ec2FleetCpuPerformanceFactorRequestPtr and Ec2FleetCpuPerformanceFactorRequestPtrOutput values.
+// You can construct a concrete instance of `Ec2FleetCpuPerformanceFactorRequestPtrInput` via:
+//
+//	        Ec2FleetCpuPerformanceFactorRequestArgs{...}
+//
+//	or:
+//
+//	        nil
+type Ec2FleetCpuPerformanceFactorRequestPtrInput interface {
+	pulumi.Input
+
+	ToEc2FleetCpuPerformanceFactorRequestPtrOutput() Ec2FleetCpuPerformanceFactorRequestPtrOutput
+	ToEc2FleetCpuPerformanceFactorRequestPtrOutputWithContext(context.Context) Ec2FleetCpuPerformanceFactorRequestPtrOutput
+}
+
+type ec2FleetCpuPerformanceFactorRequestPtrType Ec2FleetCpuPerformanceFactorRequestArgs
+
+func Ec2FleetCpuPerformanceFactorRequestPtr(v *Ec2FleetCpuPerformanceFactorRequestArgs) Ec2FleetCpuPerformanceFactorRequestPtrInput {
+	return (*ec2FleetCpuPerformanceFactorRequestPtrType)(v)
+}
+
+func (*ec2FleetCpuPerformanceFactorRequestPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Ec2FleetCpuPerformanceFactorRequest)(nil)).Elem()
+}
+
+func (i *ec2FleetCpuPerformanceFactorRequestPtrType) ToEc2FleetCpuPerformanceFactorRequestPtrOutput() Ec2FleetCpuPerformanceFactorRequestPtrOutput {
+	return i.ToEc2FleetCpuPerformanceFactorRequestPtrOutputWithContext(context.Background())
+}
+
+func (i *ec2FleetCpuPerformanceFactorRequestPtrType) ToEc2FleetCpuPerformanceFactorRequestPtrOutputWithContext(ctx context.Context) Ec2FleetCpuPerformanceFactorRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetCpuPerformanceFactorRequestPtrOutput)
+}
+
+type Ec2FleetCpuPerformanceFactorRequestOutput struct{ *pulumi.OutputState }
+
+func (Ec2FleetCpuPerformanceFactorRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ec2FleetCpuPerformanceFactorRequest)(nil)).Elem()
+}
+
+func (o Ec2FleetCpuPerformanceFactorRequestOutput) ToEc2FleetCpuPerformanceFactorRequestOutput() Ec2FleetCpuPerformanceFactorRequestOutput {
+	return o
+}
+
+func (o Ec2FleetCpuPerformanceFactorRequestOutput) ToEc2FleetCpuPerformanceFactorRequestOutputWithContext(ctx context.Context) Ec2FleetCpuPerformanceFactorRequestOutput {
+	return o
+}
+
+func (o Ec2FleetCpuPerformanceFactorRequestOutput) ToEc2FleetCpuPerformanceFactorRequestPtrOutput() Ec2FleetCpuPerformanceFactorRequestPtrOutput {
+	return o.ToEc2FleetCpuPerformanceFactorRequestPtrOutputWithContext(context.Background())
+}
+
+func (o Ec2FleetCpuPerformanceFactorRequestOutput) ToEc2FleetCpuPerformanceFactorRequestPtrOutputWithContext(ctx context.Context) Ec2FleetCpuPerformanceFactorRequestPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Ec2FleetCpuPerformanceFactorRequest) *Ec2FleetCpuPerformanceFactorRequest {
+		return &v
+	}).(Ec2FleetCpuPerformanceFactorRequestPtrOutput)
+}
+
+func (o Ec2FleetCpuPerformanceFactorRequestOutput) References() Ec2FleetPerformanceFactorReferenceRequestArrayOutput {
+	return o.ApplyT(func(v Ec2FleetCpuPerformanceFactorRequest) []Ec2FleetPerformanceFactorReferenceRequest {
+		return v.References
+	}).(Ec2FleetPerformanceFactorReferenceRequestArrayOutput)
+}
+
+type Ec2FleetCpuPerformanceFactorRequestPtrOutput struct{ *pulumi.OutputState }
+
+func (Ec2FleetCpuPerformanceFactorRequestPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Ec2FleetCpuPerformanceFactorRequest)(nil)).Elem()
+}
+
+func (o Ec2FleetCpuPerformanceFactorRequestPtrOutput) ToEc2FleetCpuPerformanceFactorRequestPtrOutput() Ec2FleetCpuPerformanceFactorRequestPtrOutput {
+	return o
+}
+
+func (o Ec2FleetCpuPerformanceFactorRequestPtrOutput) ToEc2FleetCpuPerformanceFactorRequestPtrOutputWithContext(ctx context.Context) Ec2FleetCpuPerformanceFactorRequestPtrOutput {
+	return o
+}
+
+func (o Ec2FleetCpuPerformanceFactorRequestPtrOutput) Elem() Ec2FleetCpuPerformanceFactorRequestOutput {
+	return o.ApplyT(func(v *Ec2FleetCpuPerformanceFactorRequest) Ec2FleetCpuPerformanceFactorRequest {
+		if v != nil {
+			return *v
+		}
+		var ret Ec2FleetCpuPerformanceFactorRequest
+		return ret
+	}).(Ec2FleetCpuPerformanceFactorRequestOutput)
+}
+
+func (o Ec2FleetCpuPerformanceFactorRequestPtrOutput) References() Ec2FleetPerformanceFactorReferenceRequestArrayOutput {
+	return o.ApplyT(func(v *Ec2FleetCpuPerformanceFactorRequest) []Ec2FleetPerformanceFactorReferenceRequest {
+		if v == nil {
+			return nil
+		}
+		return v.References
+	}).(Ec2FleetPerformanceFactorReferenceRequestArrayOutput)
 }
 
 type Ec2FleetFleetLaunchTemplateConfigRequest struct {
@@ -2541,7 +2809,8 @@ type Ec2FleetInstanceRequirementsRequest struct {
 	// The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps. For more information, see [Amazon EBS–optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html) in the *Amazon EC2 User Guide* .
 	//
 	// Default: No minimum or maximum limits
-	BaselineEbsBandwidthMbps *Ec2FleetBaselineEbsBandwidthMbpsRequest `pulumi:"baselineEbsBandwidthMbps"`
+	BaselineEbsBandwidthMbps   *Ec2FleetBaselineEbsBandwidthMbpsRequest   `pulumi:"baselineEbsBandwidthMbps"`
+	BaselinePerformanceFactors *Ec2FleetBaselinePerformanceFactorsRequest `pulumi:"baselinePerformanceFactors"`
 	// Indicates whether burstable performance T instance types are included, excluded, or required. For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html) .
 	//
 	// - To include burstable performance instance types, specify `included` .
@@ -2731,7 +3000,8 @@ type Ec2FleetInstanceRequirementsRequestArgs struct {
 	// The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps. For more information, see [Amazon EBS–optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html) in the *Amazon EC2 User Guide* .
 	//
 	// Default: No minimum or maximum limits
-	BaselineEbsBandwidthMbps Ec2FleetBaselineEbsBandwidthMbpsRequestPtrInput `pulumi:"baselineEbsBandwidthMbps"`
+	BaselineEbsBandwidthMbps   Ec2FleetBaselineEbsBandwidthMbpsRequestPtrInput   `pulumi:"baselineEbsBandwidthMbps"`
+	BaselinePerformanceFactors Ec2FleetBaselinePerformanceFactorsRequestPtrInput `pulumi:"baselinePerformanceFactors"`
 	// Indicates whether burstable performance T instance types are included, excluded, or required. For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html) .
 	//
 	// - To include burstable performance instance types, specify `included` .
@@ -3023,6 +3293,12 @@ func (o Ec2FleetInstanceRequirementsRequestOutput) BaselineEbsBandwidthMbps() Ec
 	return o.ApplyT(func(v Ec2FleetInstanceRequirementsRequest) *Ec2FleetBaselineEbsBandwidthMbpsRequest {
 		return v.BaselineEbsBandwidthMbps
 	}).(Ec2FleetBaselineEbsBandwidthMbpsRequestPtrOutput)
+}
+
+func (o Ec2FleetInstanceRequirementsRequestOutput) BaselinePerformanceFactors() Ec2FleetBaselinePerformanceFactorsRequestPtrOutput {
+	return o.ApplyT(func(v Ec2FleetInstanceRequirementsRequest) *Ec2FleetBaselinePerformanceFactorsRequest {
+		return v.BaselinePerformanceFactors
+	}).(Ec2FleetBaselinePerformanceFactorsRequestPtrOutput)
 }
 
 // Indicates whether burstable performance T instance types are included, excluded, or required. For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html) .
@@ -3355,6 +3631,15 @@ func (o Ec2FleetInstanceRequirementsRequestPtrOutput) BaselineEbsBandwidthMbps()
 		}
 		return v.BaselineEbsBandwidthMbps
 	}).(Ec2FleetBaselineEbsBandwidthMbpsRequestPtrOutput)
+}
+
+func (o Ec2FleetInstanceRequirementsRequestPtrOutput) BaselinePerformanceFactors() Ec2FleetBaselinePerformanceFactorsRequestPtrOutput {
+	return o.ApplyT(func(v *Ec2FleetInstanceRequirementsRequest) *Ec2FleetBaselinePerformanceFactorsRequest {
+		if v == nil {
+			return nil
+		}
+		return v.BaselinePerformanceFactors
+	}).(Ec2FleetBaselinePerformanceFactorsRequestPtrOutput)
 }
 
 // Indicates whether burstable performance T instance types are included, excluded, or required. For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html) .
@@ -4660,6 +4945,100 @@ func (o Ec2FleetOnDemandOptionsRequestPtrOutput) SingleInstanceType() pulumi.Boo
 		}
 		return v.SingleInstanceType
 	}).(pulumi.BoolPtrOutput)
+}
+
+type Ec2FleetPerformanceFactorReferenceRequest struct {
+	InstanceFamily *string `pulumi:"instanceFamily"`
+}
+
+// Ec2FleetPerformanceFactorReferenceRequestInput is an input type that accepts Ec2FleetPerformanceFactorReferenceRequestArgs and Ec2FleetPerformanceFactorReferenceRequestOutput values.
+// You can construct a concrete instance of `Ec2FleetPerformanceFactorReferenceRequestInput` via:
+//
+//	Ec2FleetPerformanceFactorReferenceRequestArgs{...}
+type Ec2FleetPerformanceFactorReferenceRequestInput interface {
+	pulumi.Input
+
+	ToEc2FleetPerformanceFactorReferenceRequestOutput() Ec2FleetPerformanceFactorReferenceRequestOutput
+	ToEc2FleetPerformanceFactorReferenceRequestOutputWithContext(context.Context) Ec2FleetPerformanceFactorReferenceRequestOutput
+}
+
+type Ec2FleetPerformanceFactorReferenceRequestArgs struct {
+	InstanceFamily pulumi.StringPtrInput `pulumi:"instanceFamily"`
+}
+
+func (Ec2FleetPerformanceFactorReferenceRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ec2FleetPerformanceFactorReferenceRequest)(nil)).Elem()
+}
+
+func (i Ec2FleetPerformanceFactorReferenceRequestArgs) ToEc2FleetPerformanceFactorReferenceRequestOutput() Ec2FleetPerformanceFactorReferenceRequestOutput {
+	return i.ToEc2FleetPerformanceFactorReferenceRequestOutputWithContext(context.Background())
+}
+
+func (i Ec2FleetPerformanceFactorReferenceRequestArgs) ToEc2FleetPerformanceFactorReferenceRequestOutputWithContext(ctx context.Context) Ec2FleetPerformanceFactorReferenceRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetPerformanceFactorReferenceRequestOutput)
+}
+
+// Ec2FleetPerformanceFactorReferenceRequestArrayInput is an input type that accepts Ec2FleetPerformanceFactorReferenceRequestArray and Ec2FleetPerformanceFactorReferenceRequestArrayOutput values.
+// You can construct a concrete instance of `Ec2FleetPerformanceFactorReferenceRequestArrayInput` via:
+//
+//	Ec2FleetPerformanceFactorReferenceRequestArray{ Ec2FleetPerformanceFactorReferenceRequestArgs{...} }
+type Ec2FleetPerformanceFactorReferenceRequestArrayInput interface {
+	pulumi.Input
+
+	ToEc2FleetPerformanceFactorReferenceRequestArrayOutput() Ec2FleetPerformanceFactorReferenceRequestArrayOutput
+	ToEc2FleetPerformanceFactorReferenceRequestArrayOutputWithContext(context.Context) Ec2FleetPerformanceFactorReferenceRequestArrayOutput
+}
+
+type Ec2FleetPerformanceFactorReferenceRequestArray []Ec2FleetPerformanceFactorReferenceRequestInput
+
+func (Ec2FleetPerformanceFactorReferenceRequestArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Ec2FleetPerformanceFactorReferenceRequest)(nil)).Elem()
+}
+
+func (i Ec2FleetPerformanceFactorReferenceRequestArray) ToEc2FleetPerformanceFactorReferenceRequestArrayOutput() Ec2FleetPerformanceFactorReferenceRequestArrayOutput {
+	return i.ToEc2FleetPerformanceFactorReferenceRequestArrayOutputWithContext(context.Background())
+}
+
+func (i Ec2FleetPerformanceFactorReferenceRequestArray) ToEc2FleetPerformanceFactorReferenceRequestArrayOutputWithContext(ctx context.Context) Ec2FleetPerformanceFactorReferenceRequestArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetPerformanceFactorReferenceRequestArrayOutput)
+}
+
+type Ec2FleetPerformanceFactorReferenceRequestOutput struct{ *pulumi.OutputState }
+
+func (Ec2FleetPerformanceFactorReferenceRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ec2FleetPerformanceFactorReferenceRequest)(nil)).Elem()
+}
+
+func (o Ec2FleetPerformanceFactorReferenceRequestOutput) ToEc2FleetPerformanceFactorReferenceRequestOutput() Ec2FleetPerformanceFactorReferenceRequestOutput {
+	return o
+}
+
+func (o Ec2FleetPerformanceFactorReferenceRequestOutput) ToEc2FleetPerformanceFactorReferenceRequestOutputWithContext(ctx context.Context) Ec2FleetPerformanceFactorReferenceRequestOutput {
+	return o
+}
+
+func (o Ec2FleetPerformanceFactorReferenceRequestOutput) InstanceFamily() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Ec2FleetPerformanceFactorReferenceRequest) *string { return v.InstanceFamily }).(pulumi.StringPtrOutput)
+}
+
+type Ec2FleetPerformanceFactorReferenceRequestArrayOutput struct{ *pulumi.OutputState }
+
+func (Ec2FleetPerformanceFactorReferenceRequestArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Ec2FleetPerformanceFactorReferenceRequest)(nil)).Elem()
+}
+
+func (o Ec2FleetPerformanceFactorReferenceRequestArrayOutput) ToEc2FleetPerformanceFactorReferenceRequestArrayOutput() Ec2FleetPerformanceFactorReferenceRequestArrayOutput {
+	return o
+}
+
+func (o Ec2FleetPerformanceFactorReferenceRequestArrayOutput) ToEc2FleetPerformanceFactorReferenceRequestArrayOutputWithContext(ctx context.Context) Ec2FleetPerformanceFactorReferenceRequestArrayOutput {
+	return o
+}
+
+func (o Ec2FleetPerformanceFactorReferenceRequestArrayOutput) Index(i pulumi.IntInput) Ec2FleetPerformanceFactorReferenceRequestOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Ec2FleetPerformanceFactorReferenceRequest {
+		return vs[0].([]Ec2FleetPerformanceFactorReferenceRequest)[vs[1].(int)]
+	}).(Ec2FleetPerformanceFactorReferenceRequestOutput)
 }
 
 type Ec2FleetPlacement struct {
@@ -22551,6 +22930,139 @@ func (o SpotFleetBaselineEbsBandwidthMbpsRequestPtrOutput) Min() pulumi.IntPtrOu
 	}).(pulumi.IntPtrOutput)
 }
 
+type SpotFleetBaselinePerformanceFactorsRequest struct {
+	Cpu *SpotFleetCpuPerformanceFactorRequest `pulumi:"cpu"`
+}
+
+// SpotFleetBaselinePerformanceFactorsRequestInput is an input type that accepts SpotFleetBaselinePerformanceFactorsRequestArgs and SpotFleetBaselinePerformanceFactorsRequestOutput values.
+// You can construct a concrete instance of `SpotFleetBaselinePerformanceFactorsRequestInput` via:
+//
+//	SpotFleetBaselinePerformanceFactorsRequestArgs{...}
+type SpotFleetBaselinePerformanceFactorsRequestInput interface {
+	pulumi.Input
+
+	ToSpotFleetBaselinePerformanceFactorsRequestOutput() SpotFleetBaselinePerformanceFactorsRequestOutput
+	ToSpotFleetBaselinePerformanceFactorsRequestOutputWithContext(context.Context) SpotFleetBaselinePerformanceFactorsRequestOutput
+}
+
+type SpotFleetBaselinePerformanceFactorsRequestArgs struct {
+	Cpu SpotFleetCpuPerformanceFactorRequestPtrInput `pulumi:"cpu"`
+}
+
+func (SpotFleetBaselinePerformanceFactorsRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleetBaselinePerformanceFactorsRequest)(nil)).Elem()
+}
+
+func (i SpotFleetBaselinePerformanceFactorsRequestArgs) ToSpotFleetBaselinePerformanceFactorsRequestOutput() SpotFleetBaselinePerformanceFactorsRequestOutput {
+	return i.ToSpotFleetBaselinePerformanceFactorsRequestOutputWithContext(context.Background())
+}
+
+func (i SpotFleetBaselinePerformanceFactorsRequestArgs) ToSpotFleetBaselinePerformanceFactorsRequestOutputWithContext(ctx context.Context) SpotFleetBaselinePerformanceFactorsRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetBaselinePerformanceFactorsRequestOutput)
+}
+
+func (i SpotFleetBaselinePerformanceFactorsRequestArgs) ToSpotFleetBaselinePerformanceFactorsRequestPtrOutput() SpotFleetBaselinePerformanceFactorsRequestPtrOutput {
+	return i.ToSpotFleetBaselinePerformanceFactorsRequestPtrOutputWithContext(context.Background())
+}
+
+func (i SpotFleetBaselinePerformanceFactorsRequestArgs) ToSpotFleetBaselinePerformanceFactorsRequestPtrOutputWithContext(ctx context.Context) SpotFleetBaselinePerformanceFactorsRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetBaselinePerformanceFactorsRequestOutput).ToSpotFleetBaselinePerformanceFactorsRequestPtrOutputWithContext(ctx)
+}
+
+// SpotFleetBaselinePerformanceFactorsRequestPtrInput is an input type that accepts SpotFleetBaselinePerformanceFactorsRequestArgs, SpotFleetBaselinePerformanceFactorsRequestPtr and SpotFleetBaselinePerformanceFactorsRequestPtrOutput values.
+// You can construct a concrete instance of `SpotFleetBaselinePerformanceFactorsRequestPtrInput` via:
+//
+//	        SpotFleetBaselinePerformanceFactorsRequestArgs{...}
+//
+//	or:
+//
+//	        nil
+type SpotFleetBaselinePerformanceFactorsRequestPtrInput interface {
+	pulumi.Input
+
+	ToSpotFleetBaselinePerformanceFactorsRequestPtrOutput() SpotFleetBaselinePerformanceFactorsRequestPtrOutput
+	ToSpotFleetBaselinePerformanceFactorsRequestPtrOutputWithContext(context.Context) SpotFleetBaselinePerformanceFactorsRequestPtrOutput
+}
+
+type spotFleetBaselinePerformanceFactorsRequestPtrType SpotFleetBaselinePerformanceFactorsRequestArgs
+
+func SpotFleetBaselinePerformanceFactorsRequestPtr(v *SpotFleetBaselinePerformanceFactorsRequestArgs) SpotFleetBaselinePerformanceFactorsRequestPtrInput {
+	return (*spotFleetBaselinePerformanceFactorsRequestPtrType)(v)
+}
+
+func (*spotFleetBaselinePerformanceFactorsRequestPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpotFleetBaselinePerformanceFactorsRequest)(nil)).Elem()
+}
+
+func (i *spotFleetBaselinePerformanceFactorsRequestPtrType) ToSpotFleetBaselinePerformanceFactorsRequestPtrOutput() SpotFleetBaselinePerformanceFactorsRequestPtrOutput {
+	return i.ToSpotFleetBaselinePerformanceFactorsRequestPtrOutputWithContext(context.Background())
+}
+
+func (i *spotFleetBaselinePerformanceFactorsRequestPtrType) ToSpotFleetBaselinePerformanceFactorsRequestPtrOutputWithContext(ctx context.Context) SpotFleetBaselinePerformanceFactorsRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetBaselinePerformanceFactorsRequestPtrOutput)
+}
+
+type SpotFleetBaselinePerformanceFactorsRequestOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetBaselinePerformanceFactorsRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleetBaselinePerformanceFactorsRequest)(nil)).Elem()
+}
+
+func (o SpotFleetBaselinePerformanceFactorsRequestOutput) ToSpotFleetBaselinePerformanceFactorsRequestOutput() SpotFleetBaselinePerformanceFactorsRequestOutput {
+	return o
+}
+
+func (o SpotFleetBaselinePerformanceFactorsRequestOutput) ToSpotFleetBaselinePerformanceFactorsRequestOutputWithContext(ctx context.Context) SpotFleetBaselinePerformanceFactorsRequestOutput {
+	return o
+}
+
+func (o SpotFleetBaselinePerformanceFactorsRequestOutput) ToSpotFleetBaselinePerformanceFactorsRequestPtrOutput() SpotFleetBaselinePerformanceFactorsRequestPtrOutput {
+	return o.ToSpotFleetBaselinePerformanceFactorsRequestPtrOutputWithContext(context.Background())
+}
+
+func (o SpotFleetBaselinePerformanceFactorsRequestOutput) ToSpotFleetBaselinePerformanceFactorsRequestPtrOutputWithContext(ctx context.Context) SpotFleetBaselinePerformanceFactorsRequestPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpotFleetBaselinePerformanceFactorsRequest) *SpotFleetBaselinePerformanceFactorsRequest {
+		return &v
+	}).(SpotFleetBaselinePerformanceFactorsRequestPtrOutput)
+}
+
+func (o SpotFleetBaselinePerformanceFactorsRequestOutput) Cpu() SpotFleetCpuPerformanceFactorRequestPtrOutput {
+	return o.ApplyT(func(v SpotFleetBaselinePerformanceFactorsRequest) *SpotFleetCpuPerformanceFactorRequest { return v.Cpu }).(SpotFleetCpuPerformanceFactorRequestPtrOutput)
+}
+
+type SpotFleetBaselinePerformanceFactorsRequestPtrOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetBaselinePerformanceFactorsRequestPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpotFleetBaselinePerformanceFactorsRequest)(nil)).Elem()
+}
+
+func (o SpotFleetBaselinePerformanceFactorsRequestPtrOutput) ToSpotFleetBaselinePerformanceFactorsRequestPtrOutput() SpotFleetBaselinePerformanceFactorsRequestPtrOutput {
+	return o
+}
+
+func (o SpotFleetBaselinePerformanceFactorsRequestPtrOutput) ToSpotFleetBaselinePerformanceFactorsRequestPtrOutputWithContext(ctx context.Context) SpotFleetBaselinePerformanceFactorsRequestPtrOutput {
+	return o
+}
+
+func (o SpotFleetBaselinePerformanceFactorsRequestPtrOutput) Elem() SpotFleetBaselinePerformanceFactorsRequestOutput {
+	return o.ApplyT(func(v *SpotFleetBaselinePerformanceFactorsRequest) SpotFleetBaselinePerformanceFactorsRequest {
+		if v != nil {
+			return *v
+		}
+		var ret SpotFleetBaselinePerformanceFactorsRequest
+		return ret
+	}).(SpotFleetBaselinePerformanceFactorsRequestOutput)
+}
+
+func (o SpotFleetBaselinePerformanceFactorsRequestPtrOutput) Cpu() SpotFleetCpuPerformanceFactorRequestPtrOutput {
+	return o.ApplyT(func(v *SpotFleetBaselinePerformanceFactorsRequest) *SpotFleetCpuPerformanceFactorRequest {
+		if v == nil {
+			return nil
+		}
+		return v.Cpu
+	}).(SpotFleetCpuPerformanceFactorRequestPtrOutput)
+}
+
 type SpotFleetBlockDeviceMapping struct {
 	// The device name (for example, `/dev/sdh` or `xvdh` ).
 	DeviceName string `pulumi:"deviceName"`
@@ -22921,6 +23433,141 @@ func (o SpotFleetClassicLoadBalancersConfigPtrOutput) ClassicLoadBalancers() Spo
 		}
 		return v.ClassicLoadBalancers
 	}).(SpotFleetClassicLoadBalancerArrayOutput)
+}
+
+type SpotFleetCpuPerformanceFactorRequest struct {
+	References []SpotFleetPerformanceFactorReferenceRequest `pulumi:"references"`
+}
+
+// SpotFleetCpuPerformanceFactorRequestInput is an input type that accepts SpotFleetCpuPerformanceFactorRequestArgs and SpotFleetCpuPerformanceFactorRequestOutput values.
+// You can construct a concrete instance of `SpotFleetCpuPerformanceFactorRequestInput` via:
+//
+//	SpotFleetCpuPerformanceFactorRequestArgs{...}
+type SpotFleetCpuPerformanceFactorRequestInput interface {
+	pulumi.Input
+
+	ToSpotFleetCpuPerformanceFactorRequestOutput() SpotFleetCpuPerformanceFactorRequestOutput
+	ToSpotFleetCpuPerformanceFactorRequestOutputWithContext(context.Context) SpotFleetCpuPerformanceFactorRequestOutput
+}
+
+type SpotFleetCpuPerformanceFactorRequestArgs struct {
+	References SpotFleetPerformanceFactorReferenceRequestArrayInput `pulumi:"references"`
+}
+
+func (SpotFleetCpuPerformanceFactorRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleetCpuPerformanceFactorRequest)(nil)).Elem()
+}
+
+func (i SpotFleetCpuPerformanceFactorRequestArgs) ToSpotFleetCpuPerformanceFactorRequestOutput() SpotFleetCpuPerformanceFactorRequestOutput {
+	return i.ToSpotFleetCpuPerformanceFactorRequestOutputWithContext(context.Background())
+}
+
+func (i SpotFleetCpuPerformanceFactorRequestArgs) ToSpotFleetCpuPerformanceFactorRequestOutputWithContext(ctx context.Context) SpotFleetCpuPerformanceFactorRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetCpuPerformanceFactorRequestOutput)
+}
+
+func (i SpotFleetCpuPerformanceFactorRequestArgs) ToSpotFleetCpuPerformanceFactorRequestPtrOutput() SpotFleetCpuPerformanceFactorRequestPtrOutput {
+	return i.ToSpotFleetCpuPerformanceFactorRequestPtrOutputWithContext(context.Background())
+}
+
+func (i SpotFleetCpuPerformanceFactorRequestArgs) ToSpotFleetCpuPerformanceFactorRequestPtrOutputWithContext(ctx context.Context) SpotFleetCpuPerformanceFactorRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetCpuPerformanceFactorRequestOutput).ToSpotFleetCpuPerformanceFactorRequestPtrOutputWithContext(ctx)
+}
+
+// SpotFleetCpuPerformanceFactorRequestPtrInput is an input type that accepts SpotFleetCpuPerformanceFactorRequestArgs, SpotFleetCpuPerformanceFactorRequestPtr and SpotFleetCpuPerformanceFactorRequestPtrOutput values.
+// You can construct a concrete instance of `SpotFleetCpuPerformanceFactorRequestPtrInput` via:
+//
+//	        SpotFleetCpuPerformanceFactorRequestArgs{...}
+//
+//	or:
+//
+//	        nil
+type SpotFleetCpuPerformanceFactorRequestPtrInput interface {
+	pulumi.Input
+
+	ToSpotFleetCpuPerformanceFactorRequestPtrOutput() SpotFleetCpuPerformanceFactorRequestPtrOutput
+	ToSpotFleetCpuPerformanceFactorRequestPtrOutputWithContext(context.Context) SpotFleetCpuPerformanceFactorRequestPtrOutput
+}
+
+type spotFleetCpuPerformanceFactorRequestPtrType SpotFleetCpuPerformanceFactorRequestArgs
+
+func SpotFleetCpuPerformanceFactorRequestPtr(v *SpotFleetCpuPerformanceFactorRequestArgs) SpotFleetCpuPerformanceFactorRequestPtrInput {
+	return (*spotFleetCpuPerformanceFactorRequestPtrType)(v)
+}
+
+func (*spotFleetCpuPerformanceFactorRequestPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpotFleetCpuPerformanceFactorRequest)(nil)).Elem()
+}
+
+func (i *spotFleetCpuPerformanceFactorRequestPtrType) ToSpotFleetCpuPerformanceFactorRequestPtrOutput() SpotFleetCpuPerformanceFactorRequestPtrOutput {
+	return i.ToSpotFleetCpuPerformanceFactorRequestPtrOutputWithContext(context.Background())
+}
+
+func (i *spotFleetCpuPerformanceFactorRequestPtrType) ToSpotFleetCpuPerformanceFactorRequestPtrOutputWithContext(ctx context.Context) SpotFleetCpuPerformanceFactorRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetCpuPerformanceFactorRequestPtrOutput)
+}
+
+type SpotFleetCpuPerformanceFactorRequestOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetCpuPerformanceFactorRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleetCpuPerformanceFactorRequest)(nil)).Elem()
+}
+
+func (o SpotFleetCpuPerformanceFactorRequestOutput) ToSpotFleetCpuPerformanceFactorRequestOutput() SpotFleetCpuPerformanceFactorRequestOutput {
+	return o
+}
+
+func (o SpotFleetCpuPerformanceFactorRequestOutput) ToSpotFleetCpuPerformanceFactorRequestOutputWithContext(ctx context.Context) SpotFleetCpuPerformanceFactorRequestOutput {
+	return o
+}
+
+func (o SpotFleetCpuPerformanceFactorRequestOutput) ToSpotFleetCpuPerformanceFactorRequestPtrOutput() SpotFleetCpuPerformanceFactorRequestPtrOutput {
+	return o.ToSpotFleetCpuPerformanceFactorRequestPtrOutputWithContext(context.Background())
+}
+
+func (o SpotFleetCpuPerformanceFactorRequestOutput) ToSpotFleetCpuPerformanceFactorRequestPtrOutputWithContext(ctx context.Context) SpotFleetCpuPerformanceFactorRequestPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpotFleetCpuPerformanceFactorRequest) *SpotFleetCpuPerformanceFactorRequest {
+		return &v
+	}).(SpotFleetCpuPerformanceFactorRequestPtrOutput)
+}
+
+func (o SpotFleetCpuPerformanceFactorRequestOutput) References() SpotFleetPerformanceFactorReferenceRequestArrayOutput {
+	return o.ApplyT(func(v SpotFleetCpuPerformanceFactorRequest) []SpotFleetPerformanceFactorReferenceRequest {
+		return v.References
+	}).(SpotFleetPerformanceFactorReferenceRequestArrayOutput)
+}
+
+type SpotFleetCpuPerformanceFactorRequestPtrOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetCpuPerformanceFactorRequestPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpotFleetCpuPerformanceFactorRequest)(nil)).Elem()
+}
+
+func (o SpotFleetCpuPerformanceFactorRequestPtrOutput) ToSpotFleetCpuPerformanceFactorRequestPtrOutput() SpotFleetCpuPerformanceFactorRequestPtrOutput {
+	return o
+}
+
+func (o SpotFleetCpuPerformanceFactorRequestPtrOutput) ToSpotFleetCpuPerformanceFactorRequestPtrOutputWithContext(ctx context.Context) SpotFleetCpuPerformanceFactorRequestPtrOutput {
+	return o
+}
+
+func (o SpotFleetCpuPerformanceFactorRequestPtrOutput) Elem() SpotFleetCpuPerformanceFactorRequestOutput {
+	return o.ApplyT(func(v *SpotFleetCpuPerformanceFactorRequest) SpotFleetCpuPerformanceFactorRequest {
+		if v != nil {
+			return *v
+		}
+		var ret SpotFleetCpuPerformanceFactorRequest
+		return ret
+	}).(SpotFleetCpuPerformanceFactorRequestOutput)
+}
+
+func (o SpotFleetCpuPerformanceFactorRequestPtrOutput) References() SpotFleetPerformanceFactorReferenceRequestArrayOutput {
+	return o.ApplyT(func(v *SpotFleetCpuPerformanceFactorRequest) []SpotFleetPerformanceFactorReferenceRequest {
+		if v == nil {
+			return nil
+		}
+		return v.References
+	}).(SpotFleetPerformanceFactorReferenceRequestArrayOutput)
 }
 
 type SpotFleetEbsBlockDevice struct {
@@ -24056,7 +24703,8 @@ type SpotFleetInstanceRequirementsRequest struct {
 	// The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps. For more information, see [Amazon EBS–optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html) in the *Amazon EC2 User Guide* .
 	//
 	// Default: No minimum or maximum limits
-	BaselineEbsBandwidthMbps *SpotFleetBaselineEbsBandwidthMbpsRequest `pulumi:"baselineEbsBandwidthMbps"`
+	BaselineEbsBandwidthMbps   *SpotFleetBaselineEbsBandwidthMbpsRequest   `pulumi:"baselineEbsBandwidthMbps"`
+	BaselinePerformanceFactors *SpotFleetBaselinePerformanceFactorsRequest `pulumi:"baselinePerformanceFactors"`
 	// Indicates whether burstable performance T instance types are included, excluded, or required. For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html) .
 	//
 	// - To include burstable performance instance types, specify `included` .
@@ -24246,7 +24894,8 @@ type SpotFleetInstanceRequirementsRequestArgs struct {
 	// The minimum and maximum baseline bandwidth to Amazon EBS, in Mbps. For more information, see [Amazon EBS–optimized instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-optimized.html) in the *Amazon EC2 User Guide* .
 	//
 	// Default: No minimum or maximum limits
-	BaselineEbsBandwidthMbps SpotFleetBaselineEbsBandwidthMbpsRequestPtrInput `pulumi:"baselineEbsBandwidthMbps"`
+	BaselineEbsBandwidthMbps   SpotFleetBaselineEbsBandwidthMbpsRequestPtrInput   `pulumi:"baselineEbsBandwidthMbps"`
+	BaselinePerformanceFactors SpotFleetBaselinePerformanceFactorsRequestPtrInput `pulumi:"baselinePerformanceFactors"`
 	// Indicates whether burstable performance T instance types are included, excluded, or required. For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html) .
 	//
 	// - To include burstable performance instance types, specify `included` .
@@ -24538,6 +25187,12 @@ func (o SpotFleetInstanceRequirementsRequestOutput) BaselineEbsBandwidthMbps() S
 	return o.ApplyT(func(v SpotFleetInstanceRequirementsRequest) *SpotFleetBaselineEbsBandwidthMbpsRequest {
 		return v.BaselineEbsBandwidthMbps
 	}).(SpotFleetBaselineEbsBandwidthMbpsRequestPtrOutput)
+}
+
+func (o SpotFleetInstanceRequirementsRequestOutput) BaselinePerformanceFactors() SpotFleetBaselinePerformanceFactorsRequestPtrOutput {
+	return o.ApplyT(func(v SpotFleetInstanceRequirementsRequest) *SpotFleetBaselinePerformanceFactorsRequest {
+		return v.BaselinePerformanceFactors
+	}).(SpotFleetBaselinePerformanceFactorsRequestPtrOutput)
 }
 
 // Indicates whether burstable performance T instance types are included, excluded, or required. For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html) .
@@ -24870,6 +25525,15 @@ func (o SpotFleetInstanceRequirementsRequestPtrOutput) BaselineEbsBandwidthMbps(
 		}
 		return v.BaselineEbsBandwidthMbps
 	}).(SpotFleetBaselineEbsBandwidthMbpsRequestPtrOutput)
+}
+
+func (o SpotFleetInstanceRequirementsRequestPtrOutput) BaselinePerformanceFactors() SpotFleetBaselinePerformanceFactorsRequestPtrOutput {
+	return o.ApplyT(func(v *SpotFleetInstanceRequirementsRequest) *SpotFleetBaselinePerformanceFactorsRequest {
+		if v == nil {
+			return nil
+		}
+		return v.BaselinePerformanceFactors
+	}).(SpotFleetBaselinePerformanceFactorsRequestPtrOutput)
 }
 
 // Indicates whether burstable performance T instance types are included, excluded, or required. For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html) .
@@ -26636,6 +27300,100 @@ func (o SpotFleetNetworkInterfaceCountRequestPtrOutput) Min() pulumi.IntPtrOutpu
 		}
 		return v.Min
 	}).(pulumi.IntPtrOutput)
+}
+
+type SpotFleetPerformanceFactorReferenceRequest struct {
+	InstanceFamily *string `pulumi:"instanceFamily"`
+}
+
+// SpotFleetPerformanceFactorReferenceRequestInput is an input type that accepts SpotFleetPerformanceFactorReferenceRequestArgs and SpotFleetPerformanceFactorReferenceRequestOutput values.
+// You can construct a concrete instance of `SpotFleetPerformanceFactorReferenceRequestInput` via:
+//
+//	SpotFleetPerformanceFactorReferenceRequestArgs{...}
+type SpotFleetPerformanceFactorReferenceRequestInput interface {
+	pulumi.Input
+
+	ToSpotFleetPerformanceFactorReferenceRequestOutput() SpotFleetPerformanceFactorReferenceRequestOutput
+	ToSpotFleetPerformanceFactorReferenceRequestOutputWithContext(context.Context) SpotFleetPerformanceFactorReferenceRequestOutput
+}
+
+type SpotFleetPerformanceFactorReferenceRequestArgs struct {
+	InstanceFamily pulumi.StringPtrInput `pulumi:"instanceFamily"`
+}
+
+func (SpotFleetPerformanceFactorReferenceRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleetPerformanceFactorReferenceRequest)(nil)).Elem()
+}
+
+func (i SpotFleetPerformanceFactorReferenceRequestArgs) ToSpotFleetPerformanceFactorReferenceRequestOutput() SpotFleetPerformanceFactorReferenceRequestOutput {
+	return i.ToSpotFleetPerformanceFactorReferenceRequestOutputWithContext(context.Background())
+}
+
+func (i SpotFleetPerformanceFactorReferenceRequestArgs) ToSpotFleetPerformanceFactorReferenceRequestOutputWithContext(ctx context.Context) SpotFleetPerformanceFactorReferenceRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetPerformanceFactorReferenceRequestOutput)
+}
+
+// SpotFleetPerformanceFactorReferenceRequestArrayInput is an input type that accepts SpotFleetPerformanceFactorReferenceRequestArray and SpotFleetPerformanceFactorReferenceRequestArrayOutput values.
+// You can construct a concrete instance of `SpotFleetPerformanceFactorReferenceRequestArrayInput` via:
+//
+//	SpotFleetPerformanceFactorReferenceRequestArray{ SpotFleetPerformanceFactorReferenceRequestArgs{...} }
+type SpotFleetPerformanceFactorReferenceRequestArrayInput interface {
+	pulumi.Input
+
+	ToSpotFleetPerformanceFactorReferenceRequestArrayOutput() SpotFleetPerformanceFactorReferenceRequestArrayOutput
+	ToSpotFleetPerformanceFactorReferenceRequestArrayOutputWithContext(context.Context) SpotFleetPerformanceFactorReferenceRequestArrayOutput
+}
+
+type SpotFleetPerformanceFactorReferenceRequestArray []SpotFleetPerformanceFactorReferenceRequestInput
+
+func (SpotFleetPerformanceFactorReferenceRequestArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SpotFleetPerformanceFactorReferenceRequest)(nil)).Elem()
+}
+
+func (i SpotFleetPerformanceFactorReferenceRequestArray) ToSpotFleetPerformanceFactorReferenceRequestArrayOutput() SpotFleetPerformanceFactorReferenceRequestArrayOutput {
+	return i.ToSpotFleetPerformanceFactorReferenceRequestArrayOutputWithContext(context.Background())
+}
+
+func (i SpotFleetPerformanceFactorReferenceRequestArray) ToSpotFleetPerformanceFactorReferenceRequestArrayOutputWithContext(ctx context.Context) SpotFleetPerformanceFactorReferenceRequestArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetPerformanceFactorReferenceRequestArrayOutput)
+}
+
+type SpotFleetPerformanceFactorReferenceRequestOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetPerformanceFactorReferenceRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpotFleetPerformanceFactorReferenceRequest)(nil)).Elem()
+}
+
+func (o SpotFleetPerformanceFactorReferenceRequestOutput) ToSpotFleetPerformanceFactorReferenceRequestOutput() SpotFleetPerformanceFactorReferenceRequestOutput {
+	return o
+}
+
+func (o SpotFleetPerformanceFactorReferenceRequestOutput) ToSpotFleetPerformanceFactorReferenceRequestOutputWithContext(ctx context.Context) SpotFleetPerformanceFactorReferenceRequestOutput {
+	return o
+}
+
+func (o SpotFleetPerformanceFactorReferenceRequestOutput) InstanceFamily() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpotFleetPerformanceFactorReferenceRequest) *string { return v.InstanceFamily }).(pulumi.StringPtrOutput)
+}
+
+type SpotFleetPerformanceFactorReferenceRequestArrayOutput struct{ *pulumi.OutputState }
+
+func (SpotFleetPerformanceFactorReferenceRequestArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SpotFleetPerformanceFactorReferenceRequest)(nil)).Elem()
+}
+
+func (o SpotFleetPerformanceFactorReferenceRequestArrayOutput) ToSpotFleetPerformanceFactorReferenceRequestArrayOutput() SpotFleetPerformanceFactorReferenceRequestArrayOutput {
+	return o
+}
+
+func (o SpotFleetPerformanceFactorReferenceRequestArrayOutput) ToSpotFleetPerformanceFactorReferenceRequestArrayOutputWithContext(ctx context.Context) SpotFleetPerformanceFactorReferenceRequestArrayOutput {
+	return o
+}
+
+func (o SpotFleetPerformanceFactorReferenceRequestArrayOutput) Index(i pulumi.IntInput) SpotFleetPerformanceFactorReferenceRequestOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SpotFleetPerformanceFactorReferenceRequest {
+		return vs[0].([]SpotFleetPerformanceFactorReferenceRequest)[vs[1].(int)]
+	}).(SpotFleetPerformanceFactorReferenceRequestOutput)
 }
 
 type SpotFleetPrivateIpAddressSpecification struct {
@@ -31271,6 +32029,11 @@ func (o VpcEndpointDnsOptionsSpecificationPtrOutput) PrivateDnsOnlyForInboundRes
 	}).(VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointPtrOutput)
 }
 
+type VpcEndpointTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
 // A key-value pair to associate with a resource.
 type VpcPeeringConnectionTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -32778,10 +33541,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetAcceleratorTotalMemoryMiBRequestPtrInput)(nil)).Elem(), Ec2FleetAcceleratorTotalMemoryMiBRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetBaselineEbsBandwidthMbpsRequestInput)(nil)).Elem(), Ec2FleetBaselineEbsBandwidthMbpsRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetBaselineEbsBandwidthMbpsRequestPtrInput)(nil)).Elem(), Ec2FleetBaselineEbsBandwidthMbpsRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetBaselinePerformanceFactorsRequestInput)(nil)).Elem(), Ec2FleetBaselinePerformanceFactorsRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetBaselinePerformanceFactorsRequestPtrInput)(nil)).Elem(), Ec2FleetBaselinePerformanceFactorsRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetCapacityRebalanceInput)(nil)).Elem(), Ec2FleetCapacityRebalanceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetCapacityRebalancePtrInput)(nil)).Elem(), Ec2FleetCapacityRebalanceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetCapacityReservationOptionsRequestInput)(nil)).Elem(), Ec2FleetCapacityReservationOptionsRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetCapacityReservationOptionsRequestPtrInput)(nil)).Elem(), Ec2FleetCapacityReservationOptionsRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetCpuPerformanceFactorRequestInput)(nil)).Elem(), Ec2FleetCpuPerformanceFactorRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetCpuPerformanceFactorRequestPtrInput)(nil)).Elem(), Ec2FleetCpuPerformanceFactorRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetFleetLaunchTemplateConfigRequestInput)(nil)).Elem(), Ec2FleetFleetLaunchTemplateConfigRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetFleetLaunchTemplateConfigRequestArrayInput)(nil)).Elem(), Ec2FleetFleetLaunchTemplateConfigRequestArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetFleetLaunchTemplateOverridesRequestInput)(nil)).Elem(), Ec2FleetFleetLaunchTemplateOverridesRequestArgs{})
@@ -32802,6 +33569,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetNetworkInterfaceCountRequestPtrInput)(nil)).Elem(), Ec2FleetNetworkInterfaceCountRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetOnDemandOptionsRequestInput)(nil)).Elem(), Ec2FleetOnDemandOptionsRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetOnDemandOptionsRequestPtrInput)(nil)).Elem(), Ec2FleetOnDemandOptionsRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetPerformanceFactorReferenceRequestInput)(nil)).Elem(), Ec2FleetPerformanceFactorReferenceRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetPerformanceFactorReferenceRequestArrayInput)(nil)).Elem(), Ec2FleetPerformanceFactorReferenceRequestArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetPlacementInput)(nil)).Elem(), Ec2FleetPlacementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetPlacementPtrInput)(nil)).Elem(), Ec2FleetPlacementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetSpotOptionsRequestInput)(nil)).Elem(), Ec2FleetSpotOptionsRequestArgs{})
@@ -32984,12 +33753,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetAcceleratorTotalMemoryMiBRequestPtrInput)(nil)).Elem(), SpotFleetAcceleratorTotalMemoryMiBRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetBaselineEbsBandwidthMbpsRequestInput)(nil)).Elem(), SpotFleetBaselineEbsBandwidthMbpsRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetBaselineEbsBandwidthMbpsRequestPtrInput)(nil)).Elem(), SpotFleetBaselineEbsBandwidthMbpsRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetBaselinePerformanceFactorsRequestInput)(nil)).Elem(), SpotFleetBaselinePerformanceFactorsRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetBaselinePerformanceFactorsRequestPtrInput)(nil)).Elem(), SpotFleetBaselinePerformanceFactorsRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetBlockDeviceMappingInput)(nil)).Elem(), SpotFleetBlockDeviceMappingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetBlockDeviceMappingArrayInput)(nil)).Elem(), SpotFleetBlockDeviceMappingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetClassicLoadBalancerInput)(nil)).Elem(), SpotFleetClassicLoadBalancerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetClassicLoadBalancerArrayInput)(nil)).Elem(), SpotFleetClassicLoadBalancerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetClassicLoadBalancersConfigInput)(nil)).Elem(), SpotFleetClassicLoadBalancersConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetClassicLoadBalancersConfigPtrInput)(nil)).Elem(), SpotFleetClassicLoadBalancersConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetCpuPerformanceFactorRequestInput)(nil)).Elem(), SpotFleetCpuPerformanceFactorRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetCpuPerformanceFactorRequestPtrInput)(nil)).Elem(), SpotFleetCpuPerformanceFactorRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetEbsBlockDeviceInput)(nil)).Elem(), SpotFleetEbsBlockDeviceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetEbsBlockDevicePtrInput)(nil)).Elem(), SpotFleetEbsBlockDeviceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetFleetLaunchTemplateSpecificationInput)(nil)).Elem(), SpotFleetFleetLaunchTemplateSpecificationArgs{})
@@ -33022,6 +33795,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetNetworkBandwidthGbpsRequestPtrInput)(nil)).Elem(), SpotFleetNetworkBandwidthGbpsRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetNetworkInterfaceCountRequestInput)(nil)).Elem(), SpotFleetNetworkInterfaceCountRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetNetworkInterfaceCountRequestPtrInput)(nil)).Elem(), SpotFleetNetworkInterfaceCountRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetPerformanceFactorReferenceRequestInput)(nil)).Elem(), SpotFleetPerformanceFactorReferenceRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetPerformanceFactorReferenceRequestArrayInput)(nil)).Elem(), SpotFleetPerformanceFactorReferenceRequestArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetPrivateIpAddressSpecificationInput)(nil)).Elem(), SpotFleetPrivateIpAddressSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetPrivateIpAddressSpecificationArrayInput)(nil)).Elem(), SpotFleetPrivateIpAddressSpecificationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetRequestConfigDataInput)(nil)).Elem(), SpotFleetRequestConfigDataArgs{})
@@ -33114,10 +33889,14 @@ func init() {
 	pulumi.RegisterOutputType(Ec2FleetAcceleratorTotalMemoryMiBRequestPtrOutput{})
 	pulumi.RegisterOutputType(Ec2FleetBaselineEbsBandwidthMbpsRequestOutput{})
 	pulumi.RegisterOutputType(Ec2FleetBaselineEbsBandwidthMbpsRequestPtrOutput{})
+	pulumi.RegisterOutputType(Ec2FleetBaselinePerformanceFactorsRequestOutput{})
+	pulumi.RegisterOutputType(Ec2FleetBaselinePerformanceFactorsRequestPtrOutput{})
 	pulumi.RegisterOutputType(Ec2FleetCapacityRebalanceOutput{})
 	pulumi.RegisterOutputType(Ec2FleetCapacityRebalancePtrOutput{})
 	pulumi.RegisterOutputType(Ec2FleetCapacityReservationOptionsRequestOutput{})
 	pulumi.RegisterOutputType(Ec2FleetCapacityReservationOptionsRequestPtrOutput{})
+	pulumi.RegisterOutputType(Ec2FleetCpuPerformanceFactorRequestOutput{})
+	pulumi.RegisterOutputType(Ec2FleetCpuPerformanceFactorRequestPtrOutput{})
 	pulumi.RegisterOutputType(Ec2FleetFleetLaunchTemplateConfigRequestOutput{})
 	pulumi.RegisterOutputType(Ec2FleetFleetLaunchTemplateConfigRequestArrayOutput{})
 	pulumi.RegisterOutputType(Ec2FleetFleetLaunchTemplateOverridesRequestOutput{})
@@ -33138,6 +33917,8 @@ func init() {
 	pulumi.RegisterOutputType(Ec2FleetNetworkInterfaceCountRequestPtrOutput{})
 	pulumi.RegisterOutputType(Ec2FleetOnDemandOptionsRequestOutput{})
 	pulumi.RegisterOutputType(Ec2FleetOnDemandOptionsRequestPtrOutput{})
+	pulumi.RegisterOutputType(Ec2FleetPerformanceFactorReferenceRequestOutput{})
+	pulumi.RegisterOutputType(Ec2FleetPerformanceFactorReferenceRequestArrayOutput{})
 	pulumi.RegisterOutputType(Ec2FleetPlacementOutput{})
 	pulumi.RegisterOutputType(Ec2FleetPlacementPtrOutput{})
 	pulumi.RegisterOutputType(Ec2FleetSpotOptionsRequestOutput{})
@@ -33351,12 +34132,16 @@ func init() {
 	pulumi.RegisterOutputType(SpotFleetAcceleratorTotalMemoryMiBRequestPtrOutput{})
 	pulumi.RegisterOutputType(SpotFleetBaselineEbsBandwidthMbpsRequestOutput{})
 	pulumi.RegisterOutputType(SpotFleetBaselineEbsBandwidthMbpsRequestPtrOutput{})
+	pulumi.RegisterOutputType(SpotFleetBaselinePerformanceFactorsRequestOutput{})
+	pulumi.RegisterOutputType(SpotFleetBaselinePerformanceFactorsRequestPtrOutput{})
 	pulumi.RegisterOutputType(SpotFleetBlockDeviceMappingOutput{})
 	pulumi.RegisterOutputType(SpotFleetBlockDeviceMappingArrayOutput{})
 	pulumi.RegisterOutputType(SpotFleetClassicLoadBalancerOutput{})
 	pulumi.RegisterOutputType(SpotFleetClassicLoadBalancerArrayOutput{})
 	pulumi.RegisterOutputType(SpotFleetClassicLoadBalancersConfigOutput{})
 	pulumi.RegisterOutputType(SpotFleetClassicLoadBalancersConfigPtrOutput{})
+	pulumi.RegisterOutputType(SpotFleetCpuPerformanceFactorRequestOutput{})
+	pulumi.RegisterOutputType(SpotFleetCpuPerformanceFactorRequestPtrOutput{})
 	pulumi.RegisterOutputType(SpotFleetEbsBlockDeviceOutput{})
 	pulumi.RegisterOutputType(SpotFleetEbsBlockDevicePtrOutput{})
 	pulumi.RegisterOutputType(SpotFleetFleetLaunchTemplateSpecificationOutput{})
@@ -33389,6 +34174,8 @@ func init() {
 	pulumi.RegisterOutputType(SpotFleetNetworkBandwidthGbpsRequestPtrOutput{})
 	pulumi.RegisterOutputType(SpotFleetNetworkInterfaceCountRequestOutput{})
 	pulumi.RegisterOutputType(SpotFleetNetworkInterfaceCountRequestPtrOutput{})
+	pulumi.RegisterOutputType(SpotFleetPerformanceFactorReferenceRequestOutput{})
+	pulumi.RegisterOutputType(SpotFleetPerformanceFactorReferenceRequestArrayOutput{})
 	pulumi.RegisterOutputType(SpotFleetPrivateIpAddressSpecificationOutput{})
 	pulumi.RegisterOutputType(SpotFleetPrivateIpAddressSpecificationArrayOutput{})
 	pulumi.RegisterOutputType(SpotFleetRequestConfigDataOutput{})

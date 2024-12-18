@@ -11,6 +11,7 @@ namespace Pulumi.AwsNative.Ec2
 {
     /// <summary>
     /// Specifies a network ACL for your VPC.
+    ///  To add a network ACL entry, see [AWS::EC2::NetworkAclEntry](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkaclentry.html).
     /// </summary>
     [AwsNativeResourceType("aws-native:ec2:NetworkAcl")]
     public partial class NetworkAcl : global::Pulumi.CustomResource

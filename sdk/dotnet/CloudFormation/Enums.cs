@@ -178,6 +178,7 @@ namespace Pulumi.AwsNative.CloudFormation
         public static GuardHookTargetOperation Resource { get; } = new GuardHookTargetOperation("RESOURCE");
         public static GuardHookTargetOperation Stack { get; } = new GuardHookTargetOperation("STACK");
         public static GuardHookTargetOperation ChangeSet { get; } = new GuardHookTargetOperation("CHANGE_SET");
+        public static GuardHookTargetOperation CloudControl { get; } = new GuardHookTargetOperation("CLOUD_CONTROL");
 
         public static bool operator ==(GuardHookTargetOperation left, GuardHookTargetOperation right) => left.Equals(right);
         public static bool operator !=(GuardHookTargetOperation left, GuardHookTargetOperation right) => !left.Equals(right);
@@ -432,6 +433,7 @@ namespace Pulumi.AwsNative.CloudFormation
         public static LambdaHookTargetOperation Resource { get; } = new LambdaHookTargetOperation("RESOURCE");
         public static LambdaHookTargetOperation Stack { get; } = new LambdaHookTargetOperation("STACK");
         public static LambdaHookTargetOperation ChangeSet { get; } = new LambdaHookTargetOperation("CHANGE_SET");
+        public static LambdaHookTargetOperation CloudControl { get; } = new LambdaHookTargetOperation("CLOUD_CONTROL");
 
         public static bool operator ==(LambdaHookTargetOperation left, LambdaHookTargetOperation right) => left.Equals(right);
         public static bool operator !=(LambdaHookTargetOperation left, LambdaHookTargetOperation right) => !left.Equals(right);

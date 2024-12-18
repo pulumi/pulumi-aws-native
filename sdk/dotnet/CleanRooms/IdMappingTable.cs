@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.CleanRooms
         [Output("collaborationArn")]
         public Output<string> CollaborationArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique identifier of the collaboration that contains this ID mapping table.
+        /// </summary>
         [Output("collaborationIdentifier")]
         public Output<string> CollaborationIdentifier { get; private set; } = null!;
 
@@ -36,6 +39,9 @@ namespace Pulumi.AwsNative.CleanRooms
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique identifier of the ID mapping table identifier that you want to retrieve.
+        /// </summary>
         [Output("idMappingTableIdentifier")]
         public Output<string> IdMappingTableIdentifier { get; private set; } = null!;
 

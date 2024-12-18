@@ -38,10 +38,14 @@ __all__ = [
     'Ec2FleetAcceleratorTotalMemoryMiBRequestArgsDict',
     'Ec2FleetBaselineEbsBandwidthMbpsRequestArgs',
     'Ec2FleetBaselineEbsBandwidthMbpsRequestArgsDict',
+    'Ec2FleetBaselinePerformanceFactorsRequestArgs',
+    'Ec2FleetBaselinePerformanceFactorsRequestArgsDict',
     'Ec2FleetCapacityRebalanceArgs',
     'Ec2FleetCapacityRebalanceArgsDict',
     'Ec2FleetCapacityReservationOptionsRequestArgs',
     'Ec2FleetCapacityReservationOptionsRequestArgsDict',
+    'Ec2FleetCpuPerformanceFactorRequestArgs',
+    'Ec2FleetCpuPerformanceFactorRequestArgsDict',
     'Ec2FleetFleetLaunchTemplateConfigRequestArgs',
     'Ec2FleetFleetLaunchTemplateConfigRequestArgsDict',
     'Ec2FleetFleetLaunchTemplateOverridesRequestArgs',
@@ -62,6 +66,8 @@ __all__ = [
     'Ec2FleetNetworkInterfaceCountRequestArgsDict',
     'Ec2FleetOnDemandOptionsRequestArgs',
     'Ec2FleetOnDemandOptionsRequestArgsDict',
+    'Ec2FleetPerformanceFactorReferenceRequestArgs',
+    'Ec2FleetPerformanceFactorReferenceRequestArgsDict',
     'Ec2FleetPlacementArgs',
     'Ec2FleetPlacementArgsDict',
     'Ec2FleetSpotOptionsRequestArgs',
@@ -246,12 +252,16 @@ __all__ = [
     'SpotFleetAcceleratorTotalMemoryMiBRequestArgsDict',
     'SpotFleetBaselineEbsBandwidthMbpsRequestArgs',
     'SpotFleetBaselineEbsBandwidthMbpsRequestArgsDict',
+    'SpotFleetBaselinePerformanceFactorsRequestArgs',
+    'SpotFleetBaselinePerformanceFactorsRequestArgsDict',
     'SpotFleetBlockDeviceMappingArgs',
     'SpotFleetBlockDeviceMappingArgsDict',
     'SpotFleetClassicLoadBalancersConfigArgs',
     'SpotFleetClassicLoadBalancersConfigArgsDict',
     'SpotFleetClassicLoadBalancerArgs',
     'SpotFleetClassicLoadBalancerArgsDict',
+    'SpotFleetCpuPerformanceFactorRequestArgs',
+    'SpotFleetCpuPerformanceFactorRequestArgsDict',
     'SpotFleetEbsBlockDeviceArgs',
     'SpotFleetEbsBlockDeviceArgsDict',
     'SpotFleetFleetLaunchTemplateSpecificationArgs',
@@ -284,6 +294,8 @@ __all__ = [
     'SpotFleetNetworkBandwidthGbpsRequestArgsDict',
     'SpotFleetNetworkInterfaceCountRequestArgs',
     'SpotFleetNetworkInterfaceCountRequestArgsDict',
+    'SpotFleetPerformanceFactorReferenceRequestArgs',
+    'SpotFleetPerformanceFactorReferenceRequestArgsDict',
     'SpotFleetPrivateIpAddressSpecificationArgs',
     'SpotFleetPrivateIpAddressSpecificationArgsDict',
     'SpotFleetRequestConfigDataArgs',
@@ -1062,6 +1074,29 @@ class Ec2FleetBaselineEbsBandwidthMbpsRequestArgs:
 
 
 if not MYPY:
+    class Ec2FleetBaselinePerformanceFactorsRequestArgsDict(TypedDict):
+        cpu: NotRequired[pulumi.Input['Ec2FleetCpuPerformanceFactorRequestArgsDict']]
+elif False:
+    Ec2FleetBaselinePerformanceFactorsRequestArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class Ec2FleetBaselinePerformanceFactorsRequestArgs:
+    def __init__(__self__, *,
+                 cpu: Optional[pulumi.Input['Ec2FleetCpuPerformanceFactorRequestArgs']] = None):
+        if cpu is not None:
+            pulumi.set(__self__, "cpu", cpu)
+
+    @property
+    @pulumi.getter
+    def cpu(self) -> Optional[pulumi.Input['Ec2FleetCpuPerformanceFactorRequestArgs']]:
+        return pulumi.get(self, "cpu")
+
+    @cpu.setter
+    def cpu(self, value: Optional[pulumi.Input['Ec2FleetCpuPerformanceFactorRequestArgs']]):
+        pulumi.set(self, "cpu", value)
+
+
+if not MYPY:
     class Ec2FleetCapacityRebalanceArgsDict(TypedDict):
         replacement_strategy: NotRequired[pulumi.Input['Ec2FleetCapacityRebalanceReplacementStrategy']]
         """
@@ -1185,6 +1220,29 @@ class Ec2FleetCapacityReservationOptionsRequestArgs:
     @usage_strategy.setter
     def usage_strategy(self, value: Optional[pulumi.Input['Ec2FleetCapacityReservationOptionsRequestUsageStrategy']]):
         pulumi.set(self, "usage_strategy", value)
+
+
+if not MYPY:
+    class Ec2FleetCpuPerformanceFactorRequestArgsDict(TypedDict):
+        references: NotRequired[pulumi.Input[Sequence[pulumi.Input['Ec2FleetPerformanceFactorReferenceRequestArgsDict']]]]
+elif False:
+    Ec2FleetCpuPerformanceFactorRequestArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class Ec2FleetCpuPerformanceFactorRequestArgs:
+    def __init__(__self__, *,
+                 references: Optional[pulumi.Input[Sequence[pulumi.Input['Ec2FleetPerformanceFactorReferenceRequestArgs']]]] = None):
+        if references is not None:
+            pulumi.set(__self__, "references", references)
+
+    @property
+    @pulumi.getter
+    def references(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['Ec2FleetPerformanceFactorReferenceRequestArgs']]]]:
+        return pulumi.get(self, "references")
+
+    @references.setter
+    def references(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['Ec2FleetPerformanceFactorReferenceRequestArgs']]]]):
+        pulumi.set(self, "references", value)
 
 
 if not MYPY:
@@ -1650,6 +1708,7 @@ if not MYPY:
 
         Default: No minimum or maximum limits
         """
+        baseline_performance_factors: NotRequired[pulumi.Input['Ec2FleetBaselinePerformanceFactorsRequestArgsDict']]
         burstable_performance: NotRequired[pulumi.Input['Ec2FleetInstanceRequirementsRequestBurstablePerformance']]
         """
         Indicates whether burstable performance T instance types are included, excluded, or required. For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html) .
@@ -1806,6 +1865,7 @@ class Ec2FleetInstanceRequirementsRequestArgs:
                  allowed_instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  bare_metal: Optional[pulumi.Input['Ec2FleetInstanceRequirementsRequestBareMetal']] = None,
                  baseline_ebs_bandwidth_mbps: Optional[pulumi.Input['Ec2FleetBaselineEbsBandwidthMbpsRequestArgs']] = None,
+                 baseline_performance_factors: Optional[pulumi.Input['Ec2FleetBaselinePerformanceFactorsRequestArgs']] = None,
                  burstable_performance: Optional[pulumi.Input['Ec2FleetInstanceRequirementsRequestBurstablePerformance']] = None,
                  cpu_manufacturers: Optional[pulumi.Input[Sequence[pulumi.Input['Ec2FleetInstanceRequirementsRequestCpuManufacturersItem']]]] = None,
                  excluded_instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1992,6 +2052,8 @@ class Ec2FleetInstanceRequirementsRequestArgs:
             pulumi.set(__self__, "bare_metal", bare_metal)
         if baseline_ebs_bandwidth_mbps is not None:
             pulumi.set(__self__, "baseline_ebs_bandwidth_mbps", baseline_ebs_bandwidth_mbps)
+        if baseline_performance_factors is not None:
+            pulumi.set(__self__, "baseline_performance_factors", baseline_performance_factors)
         if burstable_performance is not None:
             pulumi.set(__self__, "burstable_performance", burstable_performance)
         if cpu_manufacturers is not None:
@@ -2170,6 +2232,15 @@ class Ec2FleetInstanceRequirementsRequestArgs:
     @baseline_ebs_bandwidth_mbps.setter
     def baseline_ebs_bandwidth_mbps(self, value: Optional[pulumi.Input['Ec2FleetBaselineEbsBandwidthMbpsRequestArgs']]):
         pulumi.set(self, "baseline_ebs_bandwidth_mbps", value)
+
+    @property
+    @pulumi.getter(name="baselinePerformanceFactors")
+    def baseline_performance_factors(self) -> Optional[pulumi.Input['Ec2FleetBaselinePerformanceFactorsRequestArgs']]:
+        return pulumi.get(self, "baseline_performance_factors")
+
+    @baseline_performance_factors.setter
+    def baseline_performance_factors(self, value: Optional[pulumi.Input['Ec2FleetBaselinePerformanceFactorsRequestArgs']]):
+        pulumi.set(self, "baseline_performance_factors", value)
 
     @property
     @pulumi.getter(name="burstablePerformance")
@@ -2866,6 +2937,29 @@ class Ec2FleetOnDemandOptionsRequestArgs:
     @single_instance_type.setter
     def single_instance_type(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "single_instance_type", value)
+
+
+if not MYPY:
+    class Ec2FleetPerformanceFactorReferenceRequestArgsDict(TypedDict):
+        instance_family: NotRequired[pulumi.Input[str]]
+elif False:
+    Ec2FleetPerformanceFactorReferenceRequestArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class Ec2FleetPerformanceFactorReferenceRequestArgs:
+    def __init__(__self__, *,
+                 instance_family: Optional[pulumi.Input[str]] = None):
+        if instance_family is not None:
+            pulumi.set(__self__, "instance_family", instance_family)
+
+    @property
+    @pulumi.getter(name="instanceFamily")
+    def instance_family(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "instance_family")
+
+    @instance_family.setter
+    def instance_family(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "instance_family", value)
 
 
 if not MYPY:
@@ -11252,6 +11346,29 @@ class SpotFleetBaselineEbsBandwidthMbpsRequestArgs:
 
 
 if not MYPY:
+    class SpotFleetBaselinePerformanceFactorsRequestArgsDict(TypedDict):
+        cpu: NotRequired[pulumi.Input['SpotFleetCpuPerformanceFactorRequestArgsDict']]
+elif False:
+    SpotFleetBaselinePerformanceFactorsRequestArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SpotFleetBaselinePerformanceFactorsRequestArgs:
+    def __init__(__self__, *,
+                 cpu: Optional[pulumi.Input['SpotFleetCpuPerformanceFactorRequestArgs']] = None):
+        if cpu is not None:
+            pulumi.set(__self__, "cpu", cpu)
+
+    @property
+    @pulumi.getter
+    def cpu(self) -> Optional[pulumi.Input['SpotFleetCpuPerformanceFactorRequestArgs']]:
+        return pulumi.get(self, "cpu")
+
+    @cpu.setter
+    def cpu(self, value: Optional[pulumi.Input['SpotFleetCpuPerformanceFactorRequestArgs']]):
+        pulumi.set(self, "cpu", value)
+
+
+if not MYPY:
     class SpotFleetBlockDeviceMappingArgsDict(TypedDict):
         device_name: pulumi.Input[str]
         """
@@ -11414,6 +11531,29 @@ class SpotFleetClassicLoadBalancerArgs:
     @name.setter
     def name(self, value: pulumi.Input[str]):
         pulumi.set(self, "name", value)
+
+
+if not MYPY:
+    class SpotFleetCpuPerformanceFactorRequestArgsDict(TypedDict):
+        references: NotRequired[pulumi.Input[Sequence[pulumi.Input['SpotFleetPerformanceFactorReferenceRequestArgsDict']]]]
+elif False:
+    SpotFleetCpuPerformanceFactorRequestArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SpotFleetCpuPerformanceFactorRequestArgs:
+    def __init__(__self__, *,
+                 references: Optional[pulumi.Input[Sequence[pulumi.Input['SpotFleetPerformanceFactorReferenceRequestArgs']]]] = None):
+        if references is not None:
+            pulumi.set(__self__, "references", references)
+
+    @property
+    @pulumi.getter
+    def references(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpotFleetPerformanceFactorReferenceRequestArgs']]]]:
+        return pulumi.get(self, "references")
+
+    @references.setter
+    def references(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SpotFleetPerformanceFactorReferenceRequestArgs']]]]):
+        pulumi.set(self, "references", value)
 
 
 if not MYPY:
@@ -12137,6 +12277,7 @@ if not MYPY:
 
         Default: No minimum or maximum limits
         """
+        baseline_performance_factors: NotRequired[pulumi.Input['SpotFleetBaselinePerformanceFactorsRequestArgsDict']]
         burstable_performance: NotRequired[pulumi.Input['SpotFleetInstanceRequirementsRequestBurstablePerformance']]
         """
         Indicates whether burstable performance T instance types are included, excluded, or required. For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html) .
@@ -12293,6 +12434,7 @@ class SpotFleetInstanceRequirementsRequestArgs:
                  allowed_instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  bare_metal: Optional[pulumi.Input['SpotFleetInstanceRequirementsRequestBareMetal']] = None,
                  baseline_ebs_bandwidth_mbps: Optional[pulumi.Input['SpotFleetBaselineEbsBandwidthMbpsRequestArgs']] = None,
+                 baseline_performance_factors: Optional[pulumi.Input['SpotFleetBaselinePerformanceFactorsRequestArgs']] = None,
                  burstable_performance: Optional[pulumi.Input['SpotFleetInstanceRequirementsRequestBurstablePerformance']] = None,
                  cpu_manufacturers: Optional[pulumi.Input[Sequence[pulumi.Input['SpotFleetInstanceRequirementsRequestCpuManufacturersItem']]]] = None,
                  excluded_instance_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -12479,6 +12621,8 @@ class SpotFleetInstanceRequirementsRequestArgs:
             pulumi.set(__self__, "bare_metal", bare_metal)
         if baseline_ebs_bandwidth_mbps is not None:
             pulumi.set(__self__, "baseline_ebs_bandwidth_mbps", baseline_ebs_bandwidth_mbps)
+        if baseline_performance_factors is not None:
+            pulumi.set(__self__, "baseline_performance_factors", baseline_performance_factors)
         if burstable_performance is not None:
             pulumi.set(__self__, "burstable_performance", burstable_performance)
         if cpu_manufacturers is not None:
@@ -12657,6 +12801,15 @@ class SpotFleetInstanceRequirementsRequestArgs:
     @baseline_ebs_bandwidth_mbps.setter
     def baseline_ebs_bandwidth_mbps(self, value: Optional[pulumi.Input['SpotFleetBaselineEbsBandwidthMbpsRequestArgs']]):
         pulumi.set(self, "baseline_ebs_bandwidth_mbps", value)
+
+    @property
+    @pulumi.getter(name="baselinePerformanceFactors")
+    def baseline_performance_factors(self) -> Optional[pulumi.Input['SpotFleetBaselinePerformanceFactorsRequestArgs']]:
+        return pulumi.get(self, "baseline_performance_factors")
+
+    @baseline_performance_factors.setter
+    def baseline_performance_factors(self, value: Optional[pulumi.Input['SpotFleetBaselinePerformanceFactorsRequestArgs']]):
+        pulumi.set(self, "baseline_performance_factors", value)
 
     @property
     @pulumi.getter(name="burstablePerformance")
@@ -13884,6 +14037,29 @@ class SpotFleetNetworkInterfaceCountRequestArgs:
     @min.setter
     def min(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "min", value)
+
+
+if not MYPY:
+    class SpotFleetPerformanceFactorReferenceRequestArgsDict(TypedDict):
+        instance_family: NotRequired[pulumi.Input[str]]
+elif False:
+    SpotFleetPerformanceFactorReferenceRequestArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SpotFleetPerformanceFactorReferenceRequestArgs:
+    def __init__(__self__, *,
+                 instance_family: Optional[pulumi.Input[str]] = None):
+        if instance_family is not None:
+            pulumi.set(__self__, "instance_family", instance_family)
+
+    @property
+    @pulumi.getter(name="instanceFamily")
+    def instance_family(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "instance_family")
+
+    @instance_family.setter
+    def instance_family(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "instance_family", value)
 
 
 if not MYPY:

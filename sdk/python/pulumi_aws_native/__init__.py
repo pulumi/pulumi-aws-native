@@ -338,6 +338,8 @@ if typing.TYPE_CHECKING:
     pcaconnectorad = __pcaconnectorad
     import pulumi_aws_native.pcaconnectorscep as __pcaconnectorscep
     pcaconnectorscep = __pcaconnectorscep
+    import pulumi_aws_native.pcs as __pcs
+    pcs = __pcs
     import pulumi_aws_native.personalize as __personalize
     personalize = __personalize
     import pulumi_aws_native.pinpoint as __pinpoint
@@ -623,6 +625,7 @@ else:
     paymentcryptography = _utilities.lazy_import('pulumi_aws_native.paymentcryptography')
     pcaconnectorad = _utilities.lazy_import('pulumi_aws_native.pcaconnectorad')
     pcaconnectorscep = _utilities.lazy_import('pulumi_aws_native.pcaconnectorscep')
+    pcs = _utilities.lazy_import('pulumi_aws_native.pcs')
     personalize = _utilities.lazy_import('pulumi_aws_native.personalize')
     pinpoint = _utilities.lazy_import('pulumi_aws_native.pinpoint')
     pipes = _utilities.lazy_import('pulumi_aws_native.pipes')
@@ -2617,6 +2620,16 @@ _utilities.register(
  },
  {
   "pkg": "aws-native",
+  "mod": "pcs",
+  "fqn": "pulumi_aws_native.pcs",
+  "classes": {
+   "aws-native:pcs:Cluster": "Cluster",
+   "aws-native:pcs:ComputeNodeGroup": "ComputeNodeGroup",
+   "aws-native:pcs:Queue": "Queue"
+  }
+ },
+ {
+  "pkg": "aws-native",
   "mod": "personalize",
   "fqn": "pulumi_aws_native.personalize",
   "classes": {
@@ -2681,6 +2694,7 @@ _utilities.register(
   "fqn": "pulumi_aws_native.quicksight",
   "classes": {
    "aws-native:quicksight:Analysis": "Analysis",
+   "aws-native:quicksight:CustomPermissions": "CustomPermissions",
    "aws-native:quicksight:Dashboard": "Dashboard",
    "aws-native:quicksight:DataSet": "DataSet",
    "aws-native:quicksight:DataSource": "DataSource",

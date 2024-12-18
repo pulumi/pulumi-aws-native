@@ -20,11 +20,13 @@ type IdMappingTable struct {
 	// The Amazon Resource Name (ARN) of the ID mapping table.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The Amazon Resource Name (ARN) of the collaboration that contains this ID mapping table.
-	CollaborationArn        pulumi.StringOutput `pulumi:"collaborationArn"`
+	CollaborationArn pulumi.StringOutput `pulumi:"collaborationArn"`
+	// The unique identifier of the collaboration that contains this ID mapping table.
 	CollaborationIdentifier pulumi.StringOutput `pulumi:"collaborationIdentifier"`
 	// The description of the ID mapping table.
-	Description              pulumi.StringPtrOutput `pulumi:"description"`
-	IdMappingTableIdentifier pulumi.StringOutput    `pulumi:"idMappingTableIdentifier"`
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The unique identifier of the ID mapping table identifier that you want to retrieve.
+	IdMappingTableIdentifier pulumi.StringOutput `pulumi:"idMappingTableIdentifier"`
 	// The input reference configuration for the ID mapping table.
 	InputReferenceConfig     IdMappingTableInputReferenceConfigOutput     `pulumi:"inputReferenceConfig"`
 	InputReferenceProperties IdMappingTableInputReferencePropertiesOutput `pulumi:"inputReferenceProperties"`
@@ -169,6 +171,7 @@ func (o IdMappingTableOutput) CollaborationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *IdMappingTable) pulumi.StringOutput { return v.CollaborationArn }).(pulumi.StringOutput)
 }
 
+// The unique identifier of the collaboration that contains this ID mapping table.
 func (o IdMappingTableOutput) CollaborationIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *IdMappingTable) pulumi.StringOutput { return v.CollaborationIdentifier }).(pulumi.StringOutput)
 }
@@ -178,6 +181,7 @@ func (o IdMappingTableOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdMappingTable) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The unique identifier of the ID mapping table identifier that you want to retrieve.
 func (o IdMappingTableOutput) IdMappingTableIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *IdMappingTable) pulumi.StringOutput { return v.IdMappingTableIdentifier }).(pulumi.StringOutput)
 }

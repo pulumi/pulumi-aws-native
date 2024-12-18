@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -66,7 +67,8 @@ type LookupVpcEndpointResult struct {
 	// The IDs of the security groups to associate with the endpoint network interfaces. If this parameter is not specified, we use the default security group for the VPC. Security groups are supported only for interface endpoints.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// The IDs of the subnets in which to create endpoint network interfaces. You must specify this property for an interface endpoint or a Gateway Load Balancer endpoint. You can't specify this property for a gateway endpoint. For a Gateway Load Balancer endpoint, you can specify only one subnet.
-	SubnetIds []string `pulumi:"subnetIds"`
+	SubnetIds []string  `pulumi:"subnetIds"`
+	Tags      []aws.Tag `pulumi:"tags"`
 }
 
 func LookupVpcEndpointOutput(ctx *pulumi.Context, args LookupVpcEndpointOutputArgs, opts ...pulumi.InvokeOption) LookupVpcEndpointResultOutput {
@@ -167,6 +169,10 @@ func (o LookupVpcEndpointResultOutput) SecurityGroupIds() pulumi.StringArrayOutp
 // The IDs of the subnets in which to create endpoint network interfaces. You must specify this property for an interface endpoint or a Gateway Load Balancer endpoint. You can't specify this property for a gateway endpoint. For a Gateway Load Balancer endpoint, you can specify only one subnet.
 func (o LookupVpcEndpointResultOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupVpcEndpointResult) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
+}
+
+func (o LookupVpcEndpointResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupVpcEndpointResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

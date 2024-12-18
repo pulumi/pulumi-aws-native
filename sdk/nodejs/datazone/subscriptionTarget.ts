@@ -76,7 +76,7 @@ export class SubscriptionTarget extends pulumi.CustomResource {
     /**
      * The manage access role that is used to create the subscription target.
      */
-    public readonly manageAccessRole!: pulumi.Output<string>;
+    public readonly manageAccessRole!: pulumi.Output<string | undefined>;
     /**
      * The name of the subscription target.
      */
@@ -128,9 +128,6 @@ export class SubscriptionTarget extends pulumi.CustomResource {
             }
             if ((!args || args.environmentIdentifier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'environmentIdentifier'");
-            }
-            if ((!args || args.manageAccessRole === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'manageAccessRole'");
             }
             if ((!args || args.subscriptionTargetConfig === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subscriptionTargetConfig'");
@@ -204,7 +201,7 @@ export interface SubscriptionTargetArgs {
     /**
      * The manage access role that is used to create the subscription target.
      */
-    manageAccessRole: pulumi.Input<string>;
+    manageAccessRole?: pulumi.Input<string>;
     /**
      * The name of the subscription target.
      */

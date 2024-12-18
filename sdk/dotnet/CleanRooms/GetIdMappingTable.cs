@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.CleanRooms
 
     public sealed class GetIdMappingTableArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The unique identifier of the ID mapping table identifier that you want to retrieve.
+        /// </summary>
         [Input("idMappingTableIdentifier", required: true)]
         public string IdMappingTableIdentifier { get; set; } = null!;
 
@@ -50,6 +53,9 @@ namespace Pulumi.AwsNative.CleanRooms
 
     public sealed class GetIdMappingTableInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The unique identifier of the ID mapping table identifier that you want to retrieve.
+        /// </summary>
         [Input("idMappingTableIdentifier", required: true)]
         public Input<string> IdMappingTableIdentifier { get; set; } = null!;
 
@@ -77,11 +83,17 @@ namespace Pulumi.AwsNative.CleanRooms
         /// The Amazon Resource Name (ARN) of the collaboration that contains this ID mapping table.
         /// </summary>
         public readonly string? CollaborationArn;
+        /// <summary>
+        /// The unique identifier of the collaboration that contains this ID mapping table.
+        /// </summary>
         public readonly string? CollaborationIdentifier;
         /// <summary>
         /// The description of the ID mapping table.
         /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// The unique identifier of the ID mapping table identifier that you want to retrieve.
+        /// </summary>
         public readonly string? IdMappingTableIdentifier;
         public readonly Outputs.IdMappingTableInputReferenceProperties? InputReferenceProperties;
         /// <summary>

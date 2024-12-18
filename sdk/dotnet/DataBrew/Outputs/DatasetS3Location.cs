@@ -20,6 +20,7 @@ namespace Pulumi.AwsNative.DataBrew.Outputs
         /// The Amazon S3 bucket name.
         /// </summary>
         public readonly string Bucket;
+        public readonly string? BucketOwner;
         /// <summary>
         /// The unique name of the object in the bucket.
         /// </summary>
@@ -29,9 +30,12 @@ namespace Pulumi.AwsNative.DataBrew.Outputs
         private DatasetS3Location(
             string bucket,
 
+            string? bucketOwner,
+
             string? key)
         {
             Bucket = bucket;
+            BucketOwner = bucketOwner;
             Key = key;
         }
     }

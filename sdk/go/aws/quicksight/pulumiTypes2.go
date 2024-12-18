@@ -13,6 +13,287 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type DashboardSheetImageTooltipConfiguration struct {
+	TooltipText *DashboardSheetImageTooltipText `pulumi:"tooltipText"`
+	Visibility  *DashboardVisibility            `pulumi:"visibility"`
+}
+
+// DashboardSheetImageTooltipConfigurationInput is an input type that accepts DashboardSheetImageTooltipConfigurationArgs and DashboardSheetImageTooltipConfigurationOutput values.
+// You can construct a concrete instance of `DashboardSheetImageTooltipConfigurationInput` via:
+//
+//	DashboardSheetImageTooltipConfigurationArgs{...}
+type DashboardSheetImageTooltipConfigurationInput interface {
+	pulumi.Input
+
+	ToDashboardSheetImageTooltipConfigurationOutput() DashboardSheetImageTooltipConfigurationOutput
+	ToDashboardSheetImageTooltipConfigurationOutputWithContext(context.Context) DashboardSheetImageTooltipConfigurationOutput
+}
+
+type DashboardSheetImageTooltipConfigurationArgs struct {
+	TooltipText DashboardSheetImageTooltipTextPtrInput `pulumi:"tooltipText"`
+	Visibility  DashboardVisibilityPtrInput            `pulumi:"visibility"`
+}
+
+func (DashboardSheetImageTooltipConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardSheetImageTooltipConfiguration)(nil)).Elem()
+}
+
+func (i DashboardSheetImageTooltipConfigurationArgs) ToDashboardSheetImageTooltipConfigurationOutput() DashboardSheetImageTooltipConfigurationOutput {
+	return i.ToDashboardSheetImageTooltipConfigurationOutputWithContext(context.Background())
+}
+
+func (i DashboardSheetImageTooltipConfigurationArgs) ToDashboardSheetImageTooltipConfigurationOutputWithContext(ctx context.Context) DashboardSheetImageTooltipConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardSheetImageTooltipConfigurationOutput)
+}
+
+func (i DashboardSheetImageTooltipConfigurationArgs) ToDashboardSheetImageTooltipConfigurationPtrOutput() DashboardSheetImageTooltipConfigurationPtrOutput {
+	return i.ToDashboardSheetImageTooltipConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DashboardSheetImageTooltipConfigurationArgs) ToDashboardSheetImageTooltipConfigurationPtrOutputWithContext(ctx context.Context) DashboardSheetImageTooltipConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardSheetImageTooltipConfigurationOutput).ToDashboardSheetImageTooltipConfigurationPtrOutputWithContext(ctx)
+}
+
+// DashboardSheetImageTooltipConfigurationPtrInput is an input type that accepts DashboardSheetImageTooltipConfigurationArgs, DashboardSheetImageTooltipConfigurationPtr and DashboardSheetImageTooltipConfigurationPtrOutput values.
+// You can construct a concrete instance of `DashboardSheetImageTooltipConfigurationPtrInput` via:
+//
+//	        DashboardSheetImageTooltipConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DashboardSheetImageTooltipConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDashboardSheetImageTooltipConfigurationPtrOutput() DashboardSheetImageTooltipConfigurationPtrOutput
+	ToDashboardSheetImageTooltipConfigurationPtrOutputWithContext(context.Context) DashboardSheetImageTooltipConfigurationPtrOutput
+}
+
+type dashboardSheetImageTooltipConfigurationPtrType DashboardSheetImageTooltipConfigurationArgs
+
+func DashboardSheetImageTooltipConfigurationPtr(v *DashboardSheetImageTooltipConfigurationArgs) DashboardSheetImageTooltipConfigurationPtrInput {
+	return (*dashboardSheetImageTooltipConfigurationPtrType)(v)
+}
+
+func (*dashboardSheetImageTooltipConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardSheetImageTooltipConfiguration)(nil)).Elem()
+}
+
+func (i *dashboardSheetImageTooltipConfigurationPtrType) ToDashboardSheetImageTooltipConfigurationPtrOutput() DashboardSheetImageTooltipConfigurationPtrOutput {
+	return i.ToDashboardSheetImageTooltipConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *dashboardSheetImageTooltipConfigurationPtrType) ToDashboardSheetImageTooltipConfigurationPtrOutputWithContext(ctx context.Context) DashboardSheetImageTooltipConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardSheetImageTooltipConfigurationPtrOutput)
+}
+
+type DashboardSheetImageTooltipConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DashboardSheetImageTooltipConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardSheetImageTooltipConfiguration)(nil)).Elem()
+}
+
+func (o DashboardSheetImageTooltipConfigurationOutput) ToDashboardSheetImageTooltipConfigurationOutput() DashboardSheetImageTooltipConfigurationOutput {
+	return o
+}
+
+func (o DashboardSheetImageTooltipConfigurationOutput) ToDashboardSheetImageTooltipConfigurationOutputWithContext(ctx context.Context) DashboardSheetImageTooltipConfigurationOutput {
+	return o
+}
+
+func (o DashboardSheetImageTooltipConfigurationOutput) ToDashboardSheetImageTooltipConfigurationPtrOutput() DashboardSheetImageTooltipConfigurationPtrOutput {
+	return o.ToDashboardSheetImageTooltipConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardSheetImageTooltipConfigurationOutput) ToDashboardSheetImageTooltipConfigurationPtrOutputWithContext(ctx context.Context) DashboardSheetImageTooltipConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardSheetImageTooltipConfiguration) *DashboardSheetImageTooltipConfiguration {
+		return &v
+	}).(DashboardSheetImageTooltipConfigurationPtrOutput)
+}
+
+func (o DashboardSheetImageTooltipConfigurationOutput) TooltipText() DashboardSheetImageTooltipTextPtrOutput {
+	return o.ApplyT(func(v DashboardSheetImageTooltipConfiguration) *DashboardSheetImageTooltipText { return v.TooltipText }).(DashboardSheetImageTooltipTextPtrOutput)
+}
+
+func (o DashboardSheetImageTooltipConfigurationOutput) Visibility() DashboardVisibilityPtrOutput {
+	return o.ApplyT(func(v DashboardSheetImageTooltipConfiguration) *DashboardVisibility { return v.Visibility }).(DashboardVisibilityPtrOutput)
+}
+
+type DashboardSheetImageTooltipConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardSheetImageTooltipConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardSheetImageTooltipConfiguration)(nil)).Elem()
+}
+
+func (o DashboardSheetImageTooltipConfigurationPtrOutput) ToDashboardSheetImageTooltipConfigurationPtrOutput() DashboardSheetImageTooltipConfigurationPtrOutput {
+	return o
+}
+
+func (o DashboardSheetImageTooltipConfigurationPtrOutput) ToDashboardSheetImageTooltipConfigurationPtrOutputWithContext(ctx context.Context) DashboardSheetImageTooltipConfigurationPtrOutput {
+	return o
+}
+
+func (o DashboardSheetImageTooltipConfigurationPtrOutput) Elem() DashboardSheetImageTooltipConfigurationOutput {
+	return o.ApplyT(func(v *DashboardSheetImageTooltipConfiguration) DashboardSheetImageTooltipConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardSheetImageTooltipConfiguration
+		return ret
+	}).(DashboardSheetImageTooltipConfigurationOutput)
+}
+
+func (o DashboardSheetImageTooltipConfigurationPtrOutput) TooltipText() DashboardSheetImageTooltipTextPtrOutput {
+	return o.ApplyT(func(v *DashboardSheetImageTooltipConfiguration) *DashboardSheetImageTooltipText {
+		if v == nil {
+			return nil
+		}
+		return v.TooltipText
+	}).(DashboardSheetImageTooltipTextPtrOutput)
+}
+
+func (o DashboardSheetImageTooltipConfigurationPtrOutput) Visibility() DashboardVisibilityPtrOutput {
+	return o.ApplyT(func(v *DashboardSheetImageTooltipConfiguration) *DashboardVisibility {
+		if v == nil {
+			return nil
+		}
+		return v.Visibility
+	}).(DashboardVisibilityPtrOutput)
+}
+
+type DashboardSheetImageTooltipText struct {
+	PlainText *string `pulumi:"plainText"`
+}
+
+// DashboardSheetImageTooltipTextInput is an input type that accepts DashboardSheetImageTooltipTextArgs and DashboardSheetImageTooltipTextOutput values.
+// You can construct a concrete instance of `DashboardSheetImageTooltipTextInput` via:
+//
+//	DashboardSheetImageTooltipTextArgs{...}
+type DashboardSheetImageTooltipTextInput interface {
+	pulumi.Input
+
+	ToDashboardSheetImageTooltipTextOutput() DashboardSheetImageTooltipTextOutput
+	ToDashboardSheetImageTooltipTextOutputWithContext(context.Context) DashboardSheetImageTooltipTextOutput
+}
+
+type DashboardSheetImageTooltipTextArgs struct {
+	PlainText pulumi.StringPtrInput `pulumi:"plainText"`
+}
+
+func (DashboardSheetImageTooltipTextArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardSheetImageTooltipText)(nil)).Elem()
+}
+
+func (i DashboardSheetImageTooltipTextArgs) ToDashboardSheetImageTooltipTextOutput() DashboardSheetImageTooltipTextOutput {
+	return i.ToDashboardSheetImageTooltipTextOutputWithContext(context.Background())
+}
+
+func (i DashboardSheetImageTooltipTextArgs) ToDashboardSheetImageTooltipTextOutputWithContext(ctx context.Context) DashboardSheetImageTooltipTextOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardSheetImageTooltipTextOutput)
+}
+
+func (i DashboardSheetImageTooltipTextArgs) ToDashboardSheetImageTooltipTextPtrOutput() DashboardSheetImageTooltipTextPtrOutput {
+	return i.ToDashboardSheetImageTooltipTextPtrOutputWithContext(context.Background())
+}
+
+func (i DashboardSheetImageTooltipTextArgs) ToDashboardSheetImageTooltipTextPtrOutputWithContext(ctx context.Context) DashboardSheetImageTooltipTextPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardSheetImageTooltipTextOutput).ToDashboardSheetImageTooltipTextPtrOutputWithContext(ctx)
+}
+
+// DashboardSheetImageTooltipTextPtrInput is an input type that accepts DashboardSheetImageTooltipTextArgs, DashboardSheetImageTooltipTextPtr and DashboardSheetImageTooltipTextPtrOutput values.
+// You can construct a concrete instance of `DashboardSheetImageTooltipTextPtrInput` via:
+//
+//	        DashboardSheetImageTooltipTextArgs{...}
+//
+//	or:
+//
+//	        nil
+type DashboardSheetImageTooltipTextPtrInput interface {
+	pulumi.Input
+
+	ToDashboardSheetImageTooltipTextPtrOutput() DashboardSheetImageTooltipTextPtrOutput
+	ToDashboardSheetImageTooltipTextPtrOutputWithContext(context.Context) DashboardSheetImageTooltipTextPtrOutput
+}
+
+type dashboardSheetImageTooltipTextPtrType DashboardSheetImageTooltipTextArgs
+
+func DashboardSheetImageTooltipTextPtr(v *DashboardSheetImageTooltipTextArgs) DashboardSheetImageTooltipTextPtrInput {
+	return (*dashboardSheetImageTooltipTextPtrType)(v)
+}
+
+func (*dashboardSheetImageTooltipTextPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardSheetImageTooltipText)(nil)).Elem()
+}
+
+func (i *dashboardSheetImageTooltipTextPtrType) ToDashboardSheetImageTooltipTextPtrOutput() DashboardSheetImageTooltipTextPtrOutput {
+	return i.ToDashboardSheetImageTooltipTextPtrOutputWithContext(context.Background())
+}
+
+func (i *dashboardSheetImageTooltipTextPtrType) ToDashboardSheetImageTooltipTextPtrOutputWithContext(ctx context.Context) DashboardSheetImageTooltipTextPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardSheetImageTooltipTextPtrOutput)
+}
+
+type DashboardSheetImageTooltipTextOutput struct{ *pulumi.OutputState }
+
+func (DashboardSheetImageTooltipTextOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardSheetImageTooltipText)(nil)).Elem()
+}
+
+func (o DashboardSheetImageTooltipTextOutput) ToDashboardSheetImageTooltipTextOutput() DashboardSheetImageTooltipTextOutput {
+	return o
+}
+
+func (o DashboardSheetImageTooltipTextOutput) ToDashboardSheetImageTooltipTextOutputWithContext(ctx context.Context) DashboardSheetImageTooltipTextOutput {
+	return o
+}
+
+func (o DashboardSheetImageTooltipTextOutput) ToDashboardSheetImageTooltipTextPtrOutput() DashboardSheetImageTooltipTextPtrOutput {
+	return o.ToDashboardSheetImageTooltipTextPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardSheetImageTooltipTextOutput) ToDashboardSheetImageTooltipTextPtrOutputWithContext(ctx context.Context) DashboardSheetImageTooltipTextPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardSheetImageTooltipText) *DashboardSheetImageTooltipText {
+		return &v
+	}).(DashboardSheetImageTooltipTextPtrOutput)
+}
+
+func (o DashboardSheetImageTooltipTextOutput) PlainText() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardSheetImageTooltipText) *string { return v.PlainText }).(pulumi.StringPtrOutput)
+}
+
+type DashboardSheetImageTooltipTextPtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardSheetImageTooltipTextPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardSheetImageTooltipText)(nil)).Elem()
+}
+
+func (o DashboardSheetImageTooltipTextPtrOutput) ToDashboardSheetImageTooltipTextPtrOutput() DashboardSheetImageTooltipTextPtrOutput {
+	return o
+}
+
+func (o DashboardSheetImageTooltipTextPtrOutput) ToDashboardSheetImageTooltipTextPtrOutputWithContext(ctx context.Context) DashboardSheetImageTooltipTextPtrOutput {
+	return o
+}
+
+func (o DashboardSheetImageTooltipTextPtrOutput) Elem() DashboardSheetImageTooltipTextOutput {
+	return o.ApplyT(func(v *DashboardSheetImageTooltipText) DashboardSheetImageTooltipText {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardSheetImageTooltipText
+		return ret
+	}).(DashboardSheetImageTooltipTextOutput)
+}
+
+func (o DashboardSheetImageTooltipTextPtrOutput) PlainText() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardSheetImageTooltipText) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PlainText
+	}).(pulumi.StringPtrOutput)
+}
+
 // <p>The sheet layout maximization options of a dashbaord.</p>
 type DashboardSheetLayoutElementMaximizationOption struct {
 	// The status of the sheet layout maximization options of a dashbaord.
@@ -85689,335 +85970,11 @@ func (o TemplateParameterControlArrayOutput) Index(i pulumi.IntInput) TemplatePa
 	}).(TemplateParameterControlOutput)
 }
 
-type TemplateParameterDateTimePickerControl struct {
-	// The display options of a control.
-	DisplayOptions *TemplateDateTimePickerControlDisplayOptions `pulumi:"displayOptions"`
-	// The ID of the `ParameterDateTimePickerControl` .
-	ParameterControlId string `pulumi:"parameterControlId"`
-	// The name of the `ParameterDateTimePickerControl` .
-	SourceParameterName string `pulumi:"sourceParameterName"`
-	// The title of the `ParameterDateTimePickerControl` .
-	Title string `pulumi:"title"`
-}
-
-// TemplateParameterDateTimePickerControlInput is an input type that accepts TemplateParameterDateTimePickerControlArgs and TemplateParameterDateTimePickerControlOutput values.
-// You can construct a concrete instance of `TemplateParameterDateTimePickerControlInput` via:
-//
-//	TemplateParameterDateTimePickerControlArgs{...}
-type TemplateParameterDateTimePickerControlInput interface {
-	pulumi.Input
-
-	ToTemplateParameterDateTimePickerControlOutput() TemplateParameterDateTimePickerControlOutput
-	ToTemplateParameterDateTimePickerControlOutputWithContext(context.Context) TemplateParameterDateTimePickerControlOutput
-}
-
-type TemplateParameterDateTimePickerControlArgs struct {
-	// The display options of a control.
-	DisplayOptions TemplateDateTimePickerControlDisplayOptionsPtrInput `pulumi:"displayOptions"`
-	// The ID of the `ParameterDateTimePickerControl` .
-	ParameterControlId pulumi.StringInput `pulumi:"parameterControlId"`
-	// The name of the `ParameterDateTimePickerControl` .
-	SourceParameterName pulumi.StringInput `pulumi:"sourceParameterName"`
-	// The title of the `ParameterDateTimePickerControl` .
-	Title pulumi.StringInput `pulumi:"title"`
-}
-
-func (TemplateParameterDateTimePickerControlArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateParameterDateTimePickerControl)(nil)).Elem()
-}
-
-func (i TemplateParameterDateTimePickerControlArgs) ToTemplateParameterDateTimePickerControlOutput() TemplateParameterDateTimePickerControlOutput {
-	return i.ToTemplateParameterDateTimePickerControlOutputWithContext(context.Background())
-}
-
-func (i TemplateParameterDateTimePickerControlArgs) ToTemplateParameterDateTimePickerControlOutputWithContext(ctx context.Context) TemplateParameterDateTimePickerControlOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateParameterDateTimePickerControlOutput)
-}
-
-func (i TemplateParameterDateTimePickerControlArgs) ToTemplateParameterDateTimePickerControlPtrOutput() TemplateParameterDateTimePickerControlPtrOutput {
-	return i.ToTemplateParameterDateTimePickerControlPtrOutputWithContext(context.Background())
-}
-
-func (i TemplateParameterDateTimePickerControlArgs) ToTemplateParameterDateTimePickerControlPtrOutputWithContext(ctx context.Context) TemplateParameterDateTimePickerControlPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateParameterDateTimePickerControlOutput).ToTemplateParameterDateTimePickerControlPtrOutputWithContext(ctx)
-}
-
-// TemplateParameterDateTimePickerControlPtrInput is an input type that accepts TemplateParameterDateTimePickerControlArgs, TemplateParameterDateTimePickerControlPtr and TemplateParameterDateTimePickerControlPtrOutput values.
-// You can construct a concrete instance of `TemplateParameterDateTimePickerControlPtrInput` via:
-//
-//	        TemplateParameterDateTimePickerControlArgs{...}
-//
-//	or:
-//
-//	        nil
-type TemplateParameterDateTimePickerControlPtrInput interface {
-	pulumi.Input
-
-	ToTemplateParameterDateTimePickerControlPtrOutput() TemplateParameterDateTimePickerControlPtrOutput
-	ToTemplateParameterDateTimePickerControlPtrOutputWithContext(context.Context) TemplateParameterDateTimePickerControlPtrOutput
-}
-
-type templateParameterDateTimePickerControlPtrType TemplateParameterDateTimePickerControlArgs
-
-func TemplateParameterDateTimePickerControlPtr(v *TemplateParameterDateTimePickerControlArgs) TemplateParameterDateTimePickerControlPtrInput {
-	return (*templateParameterDateTimePickerControlPtrType)(v)
-}
-
-func (*templateParameterDateTimePickerControlPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateParameterDateTimePickerControl)(nil)).Elem()
-}
-
-func (i *templateParameterDateTimePickerControlPtrType) ToTemplateParameterDateTimePickerControlPtrOutput() TemplateParameterDateTimePickerControlPtrOutput {
-	return i.ToTemplateParameterDateTimePickerControlPtrOutputWithContext(context.Background())
-}
-
-func (i *templateParameterDateTimePickerControlPtrType) ToTemplateParameterDateTimePickerControlPtrOutputWithContext(ctx context.Context) TemplateParameterDateTimePickerControlPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateParameterDateTimePickerControlPtrOutput)
-}
-
-type TemplateParameterDateTimePickerControlOutput struct{ *pulumi.OutputState }
-
-func (TemplateParameterDateTimePickerControlOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateParameterDateTimePickerControl)(nil)).Elem()
-}
-
-func (o TemplateParameterDateTimePickerControlOutput) ToTemplateParameterDateTimePickerControlOutput() TemplateParameterDateTimePickerControlOutput {
-	return o
-}
-
-func (o TemplateParameterDateTimePickerControlOutput) ToTemplateParameterDateTimePickerControlOutputWithContext(ctx context.Context) TemplateParameterDateTimePickerControlOutput {
-	return o
-}
-
-func (o TemplateParameterDateTimePickerControlOutput) ToTemplateParameterDateTimePickerControlPtrOutput() TemplateParameterDateTimePickerControlPtrOutput {
-	return o.ToTemplateParameterDateTimePickerControlPtrOutputWithContext(context.Background())
-}
-
-func (o TemplateParameterDateTimePickerControlOutput) ToTemplateParameterDateTimePickerControlPtrOutputWithContext(ctx context.Context) TemplateParameterDateTimePickerControlPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateParameterDateTimePickerControl) *TemplateParameterDateTimePickerControl {
-		return &v
-	}).(TemplateParameterDateTimePickerControlPtrOutput)
-}
-
-// The display options of a control.
-func (o TemplateParameterDateTimePickerControlOutput) DisplayOptions() TemplateDateTimePickerControlDisplayOptionsPtrOutput {
-	return o.ApplyT(func(v TemplateParameterDateTimePickerControl) *TemplateDateTimePickerControlDisplayOptions {
-		return v.DisplayOptions
-	}).(TemplateDateTimePickerControlDisplayOptionsPtrOutput)
-}
-
-// The ID of the `ParameterDateTimePickerControl` .
-func (o TemplateParameterDateTimePickerControlOutput) ParameterControlId() pulumi.StringOutput {
-	return o.ApplyT(func(v TemplateParameterDateTimePickerControl) string { return v.ParameterControlId }).(pulumi.StringOutput)
-}
-
-// The name of the `ParameterDateTimePickerControl` .
-func (o TemplateParameterDateTimePickerControlOutput) SourceParameterName() pulumi.StringOutput {
-	return o.ApplyT(func(v TemplateParameterDateTimePickerControl) string { return v.SourceParameterName }).(pulumi.StringOutput)
-}
-
-// The title of the `ParameterDateTimePickerControl` .
-func (o TemplateParameterDateTimePickerControlOutput) Title() pulumi.StringOutput {
-	return o.ApplyT(func(v TemplateParameterDateTimePickerControl) string { return v.Title }).(pulumi.StringOutput)
-}
-
-type TemplateParameterDateTimePickerControlPtrOutput struct{ *pulumi.OutputState }
-
-func (TemplateParameterDateTimePickerControlPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateParameterDateTimePickerControl)(nil)).Elem()
-}
-
-func (o TemplateParameterDateTimePickerControlPtrOutput) ToTemplateParameterDateTimePickerControlPtrOutput() TemplateParameterDateTimePickerControlPtrOutput {
-	return o
-}
-
-func (o TemplateParameterDateTimePickerControlPtrOutput) ToTemplateParameterDateTimePickerControlPtrOutputWithContext(ctx context.Context) TemplateParameterDateTimePickerControlPtrOutput {
-	return o
-}
-
-func (o TemplateParameterDateTimePickerControlPtrOutput) Elem() TemplateParameterDateTimePickerControlOutput {
-	return o.ApplyT(func(v *TemplateParameterDateTimePickerControl) TemplateParameterDateTimePickerControl {
-		if v != nil {
-			return *v
-		}
-		var ret TemplateParameterDateTimePickerControl
-		return ret
-	}).(TemplateParameterDateTimePickerControlOutput)
-}
-
-// The display options of a control.
-func (o TemplateParameterDateTimePickerControlPtrOutput) DisplayOptions() TemplateDateTimePickerControlDisplayOptionsPtrOutput {
-	return o.ApplyT(func(v *TemplateParameterDateTimePickerControl) *TemplateDateTimePickerControlDisplayOptions {
-		if v == nil {
-			return nil
-		}
-		return v.DisplayOptions
-	}).(TemplateDateTimePickerControlDisplayOptionsPtrOutput)
-}
-
-// The ID of the `ParameterDateTimePickerControl` .
-func (o TemplateParameterDateTimePickerControlPtrOutput) ParameterControlId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TemplateParameterDateTimePickerControl) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ParameterControlId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The name of the `ParameterDateTimePickerControl` .
-func (o TemplateParameterDateTimePickerControlPtrOutput) SourceParameterName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TemplateParameterDateTimePickerControl) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.SourceParameterName
-	}).(pulumi.StringPtrOutput)
-}
-
-// The title of the `ParameterDateTimePickerControl` .
-func (o TemplateParameterDateTimePickerControlPtrOutput) Title() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TemplateParameterDateTimePickerControl) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Title
-	}).(pulumi.StringPtrOutput)
-}
-
-type TemplateParameterDeclaration struct {
-	// A parameter declaration for the `DateTime` data type.
-	DateTimeParameterDeclaration *TemplateDateTimeParameterDeclaration `pulumi:"dateTimeParameterDeclaration"`
-	// A parameter declaration for the `Decimal` data type.
-	DecimalParameterDeclaration *TemplateDecimalParameterDeclaration `pulumi:"decimalParameterDeclaration"`
-	// A parameter declaration for the `Integer` data type.
-	IntegerParameterDeclaration *TemplateIntegerParameterDeclaration `pulumi:"integerParameterDeclaration"`
-	// A parameter declaration for the `String` data type.
-	StringParameterDeclaration *TemplateStringParameterDeclaration `pulumi:"stringParameterDeclaration"`
-}
-
-// TemplateParameterDeclarationInput is an input type that accepts TemplateParameterDeclarationArgs and TemplateParameterDeclarationOutput values.
-// You can construct a concrete instance of `TemplateParameterDeclarationInput` via:
-//
-//	TemplateParameterDeclarationArgs{...}
-type TemplateParameterDeclarationInput interface {
-	pulumi.Input
-
-	ToTemplateParameterDeclarationOutput() TemplateParameterDeclarationOutput
-	ToTemplateParameterDeclarationOutputWithContext(context.Context) TemplateParameterDeclarationOutput
-}
-
-type TemplateParameterDeclarationArgs struct {
-	// A parameter declaration for the `DateTime` data type.
-	DateTimeParameterDeclaration TemplateDateTimeParameterDeclarationPtrInput `pulumi:"dateTimeParameterDeclaration"`
-	// A parameter declaration for the `Decimal` data type.
-	DecimalParameterDeclaration TemplateDecimalParameterDeclarationPtrInput `pulumi:"decimalParameterDeclaration"`
-	// A parameter declaration for the `Integer` data type.
-	IntegerParameterDeclaration TemplateIntegerParameterDeclarationPtrInput `pulumi:"integerParameterDeclaration"`
-	// A parameter declaration for the `String` data type.
-	StringParameterDeclaration TemplateStringParameterDeclarationPtrInput `pulumi:"stringParameterDeclaration"`
-}
-
-func (TemplateParameterDeclarationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateParameterDeclaration)(nil)).Elem()
-}
-
-func (i TemplateParameterDeclarationArgs) ToTemplateParameterDeclarationOutput() TemplateParameterDeclarationOutput {
-	return i.ToTemplateParameterDeclarationOutputWithContext(context.Background())
-}
-
-func (i TemplateParameterDeclarationArgs) ToTemplateParameterDeclarationOutputWithContext(ctx context.Context) TemplateParameterDeclarationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateParameterDeclarationOutput)
-}
-
-// TemplateParameterDeclarationArrayInput is an input type that accepts TemplateParameterDeclarationArray and TemplateParameterDeclarationArrayOutput values.
-// You can construct a concrete instance of `TemplateParameterDeclarationArrayInput` via:
-//
-//	TemplateParameterDeclarationArray{ TemplateParameterDeclarationArgs{...} }
-type TemplateParameterDeclarationArrayInput interface {
-	pulumi.Input
-
-	ToTemplateParameterDeclarationArrayOutput() TemplateParameterDeclarationArrayOutput
-	ToTemplateParameterDeclarationArrayOutputWithContext(context.Context) TemplateParameterDeclarationArrayOutput
-}
-
-type TemplateParameterDeclarationArray []TemplateParameterDeclarationInput
-
-func (TemplateParameterDeclarationArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TemplateParameterDeclaration)(nil)).Elem()
-}
-
-func (i TemplateParameterDeclarationArray) ToTemplateParameterDeclarationArrayOutput() TemplateParameterDeclarationArrayOutput {
-	return i.ToTemplateParameterDeclarationArrayOutputWithContext(context.Background())
-}
-
-func (i TemplateParameterDeclarationArray) ToTemplateParameterDeclarationArrayOutputWithContext(ctx context.Context) TemplateParameterDeclarationArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateParameterDeclarationArrayOutput)
-}
-
-type TemplateParameterDeclarationOutput struct{ *pulumi.OutputState }
-
-func (TemplateParameterDeclarationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateParameterDeclaration)(nil)).Elem()
-}
-
-func (o TemplateParameterDeclarationOutput) ToTemplateParameterDeclarationOutput() TemplateParameterDeclarationOutput {
-	return o
-}
-
-func (o TemplateParameterDeclarationOutput) ToTemplateParameterDeclarationOutputWithContext(ctx context.Context) TemplateParameterDeclarationOutput {
-	return o
-}
-
-// A parameter declaration for the `DateTime` data type.
-func (o TemplateParameterDeclarationOutput) DateTimeParameterDeclaration() TemplateDateTimeParameterDeclarationPtrOutput {
-	return o.ApplyT(func(v TemplateParameterDeclaration) *TemplateDateTimeParameterDeclaration {
-		return v.DateTimeParameterDeclaration
-	}).(TemplateDateTimeParameterDeclarationPtrOutput)
-}
-
-// A parameter declaration for the `Decimal` data type.
-func (o TemplateParameterDeclarationOutput) DecimalParameterDeclaration() TemplateDecimalParameterDeclarationPtrOutput {
-	return o.ApplyT(func(v TemplateParameterDeclaration) *TemplateDecimalParameterDeclaration {
-		return v.DecimalParameterDeclaration
-	}).(TemplateDecimalParameterDeclarationPtrOutput)
-}
-
-// A parameter declaration for the `Integer` data type.
-func (o TemplateParameterDeclarationOutput) IntegerParameterDeclaration() TemplateIntegerParameterDeclarationPtrOutput {
-	return o.ApplyT(func(v TemplateParameterDeclaration) *TemplateIntegerParameterDeclaration {
-		return v.IntegerParameterDeclaration
-	}).(TemplateIntegerParameterDeclarationPtrOutput)
-}
-
-// A parameter declaration for the `String` data type.
-func (o TemplateParameterDeclarationOutput) StringParameterDeclaration() TemplateStringParameterDeclarationPtrOutput {
-	return o.ApplyT(func(v TemplateParameterDeclaration) *TemplateStringParameterDeclaration {
-		return v.StringParameterDeclaration
-	}).(TemplateStringParameterDeclarationPtrOutput)
-}
-
-type TemplateParameterDeclarationArrayOutput struct{ *pulumi.OutputState }
-
-func (TemplateParameterDeclarationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TemplateParameterDeclaration)(nil)).Elem()
-}
-
-func (o TemplateParameterDeclarationArrayOutput) ToTemplateParameterDeclarationArrayOutput() TemplateParameterDeclarationArrayOutput {
-	return o
-}
-
-func (o TemplateParameterDeclarationArrayOutput) ToTemplateParameterDeclarationArrayOutputWithContext(ctx context.Context) TemplateParameterDeclarationArrayOutput {
-	return o
-}
-
-func (o TemplateParameterDeclarationArrayOutput) Index(i pulumi.IntInput) TemplateParameterDeclarationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TemplateParameterDeclaration {
-		return vs[0].([]TemplateParameterDeclaration)[vs[1].(int)]
-	}).(TemplateParameterDeclarationOutput)
-}
-
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardSheetImageTooltipConfigurationInput)(nil)).Elem(), DashboardSheetImageTooltipConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardSheetImageTooltipConfigurationPtrInput)(nil)).Elem(), DashboardSheetImageTooltipConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardSheetImageTooltipTextInput)(nil)).Elem(), DashboardSheetImageTooltipTextArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardSheetImageTooltipTextPtrInput)(nil)).Elem(), DashboardSheetImageTooltipTextArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardSheetLayoutElementMaximizationOptionInput)(nil)).Elem(), DashboardSheetLayoutElementMaximizationOptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardSheetLayoutElementMaximizationOptionPtrInput)(nil)).Elem(), DashboardSheetLayoutElementMaximizationOptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardSheetTextBoxInput)(nil)).Elem(), DashboardSheetTextBoxArgs{})
@@ -86998,10 +86955,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplatePanelTitleOptionsPtrInput)(nil)).Elem(), TemplatePanelTitleOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateParameterControlInput)(nil)).Elem(), TemplateParameterControlArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateParameterControlArrayInput)(nil)).Elem(), TemplateParameterControlArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateParameterDateTimePickerControlInput)(nil)).Elem(), TemplateParameterDateTimePickerControlArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateParameterDateTimePickerControlPtrInput)(nil)).Elem(), TemplateParameterDateTimePickerControlArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateParameterDeclarationInput)(nil)).Elem(), TemplateParameterDeclarationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateParameterDeclarationArrayInput)(nil)).Elem(), TemplateParameterDeclarationArray{})
+	pulumi.RegisterOutputType(DashboardSheetImageTooltipConfigurationOutput{})
+	pulumi.RegisterOutputType(DashboardSheetImageTooltipConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(DashboardSheetImageTooltipTextOutput{})
+	pulumi.RegisterOutputType(DashboardSheetImageTooltipTextPtrOutput{})
 	pulumi.RegisterOutputType(DashboardSheetLayoutElementMaximizationOptionOutput{})
 	pulumi.RegisterOutputType(DashboardSheetLayoutElementMaximizationOptionPtrOutput{})
 	pulumi.RegisterOutputType(DashboardSheetTextBoxOutput{})
@@ -87990,8 +87947,4 @@ func init() {
 	pulumi.RegisterOutputType(TemplatePanelTitleOptionsPtrOutput{})
 	pulumi.RegisterOutputType(TemplateParameterControlOutput{})
 	pulumi.RegisterOutputType(TemplateParameterControlArrayOutput{})
-	pulumi.RegisterOutputType(TemplateParameterDateTimePickerControlOutput{})
-	pulumi.RegisterOutputType(TemplateParameterDateTimePickerControlPtrOutput{})
-	pulumi.RegisterOutputType(TemplateParameterDeclarationOutput{})
-	pulumi.RegisterOutputType(TemplateParameterDeclarationArrayOutput{})
 }

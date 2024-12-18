@@ -35,7 +35,7 @@ type SubscriptionTarget struct {
 	// The ID of the environment in which subscription target would be created.
 	EnvironmentIdentifier pulumi.StringOutput `pulumi:"environmentIdentifier"`
 	// The manage access role that is used to create the subscription target.
-	ManageAccessRole pulumi.StringOutput `pulumi:"manageAccessRole"`
+	ManageAccessRole pulumi.StringPtrOutput `pulumi:"manageAccessRole"`
 	// The name of the subscription target.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The identifier of the project specified in the subscription target.
@@ -70,9 +70,6 @@ func NewSubscriptionTarget(ctx *pulumi.Context,
 	}
 	if args.EnvironmentIdentifier == nil {
 		return nil, errors.New("invalid value for required argument 'EnvironmentIdentifier'")
-	}
-	if args.ManageAccessRole == nil {
-		return nil, errors.New("invalid value for required argument 'ManageAccessRole'")
 	}
 	if args.SubscriptionTargetConfig == nil {
 		return nil, errors.New("invalid value for required argument 'SubscriptionTargetConfig'")
@@ -128,7 +125,7 @@ type subscriptionTargetArgs struct {
 	// The ID of the environment in which subscription target would be created.
 	EnvironmentIdentifier string `pulumi:"environmentIdentifier"`
 	// The manage access role that is used to create the subscription target.
-	ManageAccessRole string `pulumi:"manageAccessRole"`
+	ManageAccessRole *string `pulumi:"manageAccessRole"`
 	// The name of the subscription target.
 	Name *string `pulumi:"name"`
 	// The provider of the subscription target.
@@ -150,7 +147,7 @@ type SubscriptionTargetArgs struct {
 	// The ID of the environment in which subscription target would be created.
 	EnvironmentIdentifier pulumi.StringInput
 	// The manage access role that is used to create the subscription target.
-	ManageAccessRole pulumi.StringInput
+	ManageAccessRole pulumi.StringPtrInput
 	// The name of the subscription target.
 	Name pulumi.StringPtrInput
 	// The provider of the subscription target.
@@ -244,8 +241,8 @@ func (o SubscriptionTargetOutput) EnvironmentIdentifier() pulumi.StringOutput {
 }
 
 // The manage access role that is used to create the subscription target.
-func (o SubscriptionTargetOutput) ManageAccessRole() pulumi.StringOutput {
-	return o.ApplyT(func(v *SubscriptionTarget) pulumi.StringOutput { return v.ManageAccessRole }).(pulumi.StringOutput)
+func (o SubscriptionTargetOutput) ManageAccessRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SubscriptionTarget) pulumi.StringPtrOutput { return v.ManageAccessRole }).(pulumi.StringPtrOutput)
 }
 
 // The name of the subscription target.

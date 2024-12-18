@@ -45,11 +45,17 @@ export class IdMappingTable extends pulumi.CustomResource {
      * The Amazon Resource Name (ARN) of the collaboration that contains this ID mapping table.
      */
     public /*out*/ readonly collaborationArn!: pulumi.Output<string>;
+    /**
+     * The unique identifier of the collaboration that contains this ID mapping table.
+     */
     public /*out*/ readonly collaborationIdentifier!: pulumi.Output<string>;
     /**
      * The description of the ID mapping table.
      */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * The unique identifier of the ID mapping table identifier that you want to retrieve.
+     */
     public /*out*/ readonly idMappingTableIdentifier!: pulumi.Output<string>;
     /**
      * The input reference configuration for the ID mapping table.

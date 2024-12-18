@@ -85,6 +85,7 @@ class GuardHookTargetOperation(str, Enum):
     RESOURCE = "RESOURCE"
     STACK = "STACK"
     CHANGE_SET = "CHANGE_SET"
+    CLOUD_CONTROL = "CLOUD_CONTROL"
 
 
 class HookTypeConfigConfigurationAlias(str, Enum):
@@ -155,6 +156,7 @@ class LambdaHookTargetOperation(str, Enum):
     RESOURCE = "RESOURCE"
     STACK = "STACK"
     CHANGE_SET = "CHANGE_SET"
+    CLOUD_CONTROL = "CLOUD_CONTROL"
 
 
 class ModuleVersionVisibility(str, Enum):

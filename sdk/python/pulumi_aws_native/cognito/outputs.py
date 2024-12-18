@@ -1656,7 +1656,7 @@ class UserPoolPasswordPolicy(dict):
         :param int minimum_length: The minimum length of the password in the policy that you have set. This value can't be less than 6.
         :param int password_history_size: The number of previous passwords that you want Amazon Cognito to restrict each user from reusing. Users can't set a password that matches any of `n` previous passwords, where `n` is the value of `PasswordHistorySize` .
                
-               Password history isn't enforced and isn't displayed in [DescribeUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html) responses when you set this value to `0` or don't provide it. To activate this setting, [advanced security features](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-advanced-security.html) must be active in your user pool.
+               Password history isn't enforced and isn't displayed in [DescribeUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html) responses when you set this value to `0` or don't provide it. To activate this setting, your user pool must be in the [Essentials tier](https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html) or higher.
         :param bool require_lowercase: The requirement in a password policy that users must include at least one lowercase letter in their password.
         :param bool require_numbers: The requirement in a password policy that users must include at least one number in their password.
         :param bool require_symbols: The requirement in a password policy that users must include at least one symbol in their password.
@@ -1694,7 +1694,7 @@ class UserPoolPasswordPolicy(dict):
         """
         The number of previous passwords that you want Amazon Cognito to restrict each user from reusing. Users can't set a password that matches any of `n` previous passwords, where `n` is the value of `PasswordHistorySize` .
 
-        Password history isn't enforced and isn't displayed in [DescribeUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html) responses when you set this value to `0` or don't provide it. To activate this setting, [advanced security features](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-advanced-security.html) must be active in your user pool.
+        Password history isn't enforced and isn't displayed in [DescribeUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html) responses when you set this value to `0` or don't provide it. To activate this setting, your user pool must be in the [Essentials tier](https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html) or higher.
         """
         return pulumi.get(self, "password_history_size")
 
@@ -1767,7 +1767,7 @@ class UserPoolPolicies(dict):
                  sign_in_policy: Optional['outputs.UserPoolSignInPolicy'] = None):
         """
         :param 'UserPoolPasswordPolicy' password_policy: The password policy settings for a user pool, including complexity, history, and length requirements.
-        :param 'UserPoolSignInPolicy' sign_in_policy: The policy for allowed types of authentication in a user pool.
+        :param 'UserPoolSignInPolicy' sign_in_policy: The policy for allowed types of authentication in a user pool. To activate this setting, your user pool must be in the [Essentials tier](https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html) or higher.
                
                This data type is a request and response parameter of [CreateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.html) and [UpdateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.html) , and a response parameter of [DescribeUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html) .
         """
@@ -1788,7 +1788,7 @@ class UserPoolPolicies(dict):
     @pulumi.getter(name="signInPolicy")
     def sign_in_policy(self) -> Optional['outputs.UserPoolSignInPolicy']:
         """
-        The policy for allowed types of authentication in a user pool.
+        The policy for allowed types of authentication in a user pool. To activate this setting, your user pool must be in the [Essentials tier](https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html) or higher.
 
         This data type is a request and response parameter of [CreateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.html) and [UpdateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.html) , and a response parameter of [DescribeUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html) .
         """

@@ -106,6 +106,9 @@ export type GroupProfileStatus = (typeof GroupProfileStatus)[keyof typeof GroupP
 export const ProjectMembershipUserDesignation = {
     ProjectOwner: "PROJECT_OWNER",
     ProjectContributor: "PROJECT_CONTRIBUTOR",
+    ProjectCatalogViewer: "PROJECT_CATALOG_VIEWER",
+    ProjectCatalogConsumer: "PROJECT_CATALOG_CONSUMER",
+    ProjectCatalogSteward: "PROJECT_CATALOG_STEWARD",
 } as const;
 
 export type ProjectMembershipUserDesignation = (typeof ProjectMembershipUserDesignation)[keyof typeof ProjectMembershipUserDesignation];

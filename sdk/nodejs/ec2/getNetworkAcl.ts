@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
 
 /**
  * Specifies a network ACL for your VPC.
+ *  To add a network ACL entry, see [AWS::EC2::NetworkAclEntry](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkaclentry.html).
  */
 export function getNetworkAcl(args: GetNetworkAclArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkAclResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -36,6 +37,7 @@ export interface GetNetworkAclResult {
 }
 /**
  * Specifies a network ACL for your VPC.
+ *  To add a network ACL entry, see [AWS::EC2::NetworkAclEntry](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkaclentry.html).
  */
 export function getNetworkAclOutput(args: GetNetworkAclOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkAclResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

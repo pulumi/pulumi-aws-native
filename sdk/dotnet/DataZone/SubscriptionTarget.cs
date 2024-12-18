@@ -73,7 +73,7 @@ namespace Pulumi.AwsNative.DataZone
         /// The manage access role that is used to create the subscription target.
         /// </summary>
         [Output("manageAccessRole")]
-        public Output<string> ManageAccessRole { get; private set; } = null!;
+        public Output<string?> ManageAccessRole { get; private set; } = null!;
 
         /// <summary>
         /// The name of the subscription target.
@@ -207,8 +207,8 @@ namespace Pulumi.AwsNative.DataZone
         /// <summary>
         /// The manage access role that is used to create the subscription target.
         /// </summary>
-        [Input("manageAccessRole", required: true)]
-        public Input<string> ManageAccessRole { get; set; } = null!;
+        [Input("manageAccessRole")]
+        public Input<string>? ManageAccessRole { get; set; }
 
         /// <summary>
         /// The name of the subscription target.

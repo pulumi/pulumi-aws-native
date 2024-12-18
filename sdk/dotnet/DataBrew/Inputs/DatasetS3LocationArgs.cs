@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.DataBrew.Inputs
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
 
+        [Input("bucketOwner")]
+        public Input<string>? BucketOwner { get; set; }
+
         /// <summary>
         /// The unique name of the object in the bucket.
         /// </summary>

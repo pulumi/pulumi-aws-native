@@ -74,6 +74,9 @@ class GetIdMappingTableResult:
     @property
     @pulumi.getter(name="collaborationIdentifier")
     def collaboration_identifier(self) -> Optional[str]:
+        """
+        The unique identifier of the collaboration that contains this ID mapping table.
+        """
         return pulumi.get(self, "collaboration_identifier")
 
     @property
@@ -87,6 +90,9 @@ class GetIdMappingTableResult:
     @property
     @pulumi.getter(name="idMappingTableIdentifier")
     def id_mapping_table_identifier(self) -> Optional[str]:
+        """
+        The unique identifier of the ID mapping table identifier that you want to retrieve.
+        """
         return pulumi.get(self, "id_mapping_table_identifier")
 
     @property
@@ -143,6 +149,7 @@ def get_id_mapping_table(id_mapping_table_identifier: Optional[str] = None,
     Represents an association between an ID mapping workflow and a collaboration
 
 
+    :param str id_mapping_table_identifier: The unique identifier of the ID mapping table identifier that you want to retrieve.
     :param str membership_identifier: The unique identifier of the membership resource for the ID mapping table.
     """
     __args__ = dict()
@@ -168,6 +175,7 @@ def get_id_mapping_table_output(id_mapping_table_identifier: Optional[pulumi.Inp
     Represents an association between an ID mapping workflow and a collaboration
 
 
+    :param str id_mapping_table_identifier: The unique identifier of the ID mapping table identifier that you want to retrieve.
     :param str membership_identifier: The unique identifier of the membership resource for the ID mapping table.
     """
     __args__ = dict()

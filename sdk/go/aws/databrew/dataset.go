@@ -74,6 +74,8 @@ type Dataset struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// PathOptions
 	PathOptions DatasetPathOptionsPtrOutput `pulumi:"pathOptions"`
+	// Source type of the dataset
+	Source DatasetSourcePtrOutput `pulumi:"source"`
 	// Metadata tags that have been applied to the dataset.
 	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
 }
@@ -136,6 +138,8 @@ type datasetArgs struct {
 	Name *string `pulumi:"name"`
 	// PathOptions
 	PathOptions *DatasetPathOptions `pulumi:"pathOptions"`
+	// Source type of the dataset
+	Source *DatasetSource `pulumi:"source"`
 	// Metadata tags that have been applied to the dataset.
 	Tags []aws.CreateOnlyTag `pulumi:"tags"`
 }
@@ -152,6 +156,8 @@ type DatasetArgs struct {
 	Name pulumi.StringPtrInput
 	// PathOptions
 	PathOptions DatasetPathOptionsPtrInput
+	// Source type of the dataset
+	Source DatasetSourcePtrInput
 	// Metadata tags that have been applied to the dataset.
 	Tags aws.CreateOnlyTagArrayInput
 }
@@ -216,6 +222,11 @@ func (o DatasetOutput) Name() pulumi.StringOutput {
 // PathOptions
 func (o DatasetOutput) PathOptions() DatasetPathOptionsPtrOutput {
 	return o.ApplyT(func(v *Dataset) DatasetPathOptionsPtrOutput { return v.PathOptions }).(DatasetPathOptionsPtrOutput)
+}
+
+// Source type of the dataset
+func (o DatasetOutput) Source() DatasetSourcePtrOutput {
+	return o.ApplyT(func(v *Dataset) DatasetSourcePtrOutput { return v.Source }).(DatasetSourcePtrOutput)
 }
 
 // Metadata tags that have been applied to the dataset.

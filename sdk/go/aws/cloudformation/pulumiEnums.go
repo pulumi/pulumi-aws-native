@@ -370,9 +370,10 @@ const (
 type GuardHookTargetOperation string
 
 const (
-	GuardHookTargetOperationResource  = GuardHookTargetOperation("RESOURCE")
-	GuardHookTargetOperationStack     = GuardHookTargetOperation("STACK")
-	GuardHookTargetOperationChangeSet = GuardHookTargetOperation("CHANGE_SET")
+	GuardHookTargetOperationResource     = GuardHookTargetOperation("RESOURCE")
+	GuardHookTargetOperationStack        = GuardHookTargetOperation("STACK")
+	GuardHookTargetOperationChangeSet    = GuardHookTargetOperation("CHANGE_SET")
+	GuardHookTargetOperationCloudControl = GuardHookTargetOperation("CLOUD_CONTROL")
 )
 
 func (GuardHookTargetOperation) ElementType() reflect.Type {
@@ -500,6 +501,7 @@ func (o GuardHookTargetOperationPtrOutput) ToStringPtrOutputWithContext(ctx cont
 //	GuardHookTargetOperationResource
 //	GuardHookTargetOperationStack
 //	GuardHookTargetOperationChangeSet
+//	GuardHookTargetOperationCloudControl
 type GuardHookTargetOperationInput interface {
 	pulumi.Input
 
@@ -1764,9 +1766,10 @@ func (in *lambdaHookStackFiltersPropertiesFilteringCriteriaPtr) ToLambdaHookStac
 type LambdaHookTargetOperation string
 
 const (
-	LambdaHookTargetOperationResource  = LambdaHookTargetOperation("RESOURCE")
-	LambdaHookTargetOperationStack     = LambdaHookTargetOperation("STACK")
-	LambdaHookTargetOperationChangeSet = LambdaHookTargetOperation("CHANGE_SET")
+	LambdaHookTargetOperationResource     = LambdaHookTargetOperation("RESOURCE")
+	LambdaHookTargetOperationStack        = LambdaHookTargetOperation("STACK")
+	LambdaHookTargetOperationChangeSet    = LambdaHookTargetOperation("CHANGE_SET")
+	LambdaHookTargetOperationCloudControl = LambdaHookTargetOperation("CLOUD_CONTROL")
 )
 
 func (LambdaHookTargetOperation) ElementType() reflect.Type {
@@ -1894,6 +1897,7 @@ func (o LambdaHookTargetOperationPtrOutput) ToStringPtrOutputWithContext(ctx con
 //	LambdaHookTargetOperationResource
 //	LambdaHookTargetOperationStack
 //	LambdaHookTargetOperationChangeSet
+//	LambdaHookTargetOperationCloudControl
 type LambdaHookTargetOperationInput interface {
 	pulumi.Input
 

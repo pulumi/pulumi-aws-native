@@ -1239,9 +1239,8 @@ type AppTag struct {
 // Details of an instance group in a SageMaker HyperPod cluster.
 type ClusterInstanceGroup struct {
 	// The number of instances that are currently in the instance group of a SageMaker HyperPod cluster.
-	CurrentCount   *int        `pulumi:"currentCount"`
-	CustomMetadata interface{} `pulumi:"customMetadata"`
-	ExecutionRole  string      `pulumi:"executionRole"`
+	CurrentCount  *int   `pulumi:"currentCount"`
+	ExecutionRole string `pulumi:"executionRole"`
 	// The number of instances you specified to add to the instance group of a SageMaker HyperPod cluster.
 	InstanceCount           int                            `pulumi:"instanceCount"`
 	InstanceGroupName       string                         `pulumi:"instanceGroupName"`
@@ -1268,9 +1267,8 @@ type ClusterInstanceGroupInput interface {
 // Details of an instance group in a SageMaker HyperPod cluster.
 type ClusterInstanceGroupArgs struct {
 	// The number of instances that are currently in the instance group of a SageMaker HyperPod cluster.
-	CurrentCount   pulumi.IntPtrInput `pulumi:"currentCount"`
-	CustomMetadata pulumi.Input       `pulumi:"customMetadata"`
-	ExecutionRole  pulumi.StringInput `pulumi:"executionRole"`
+	CurrentCount  pulumi.IntPtrInput `pulumi:"currentCount"`
+	ExecutionRole pulumi.StringInput `pulumi:"executionRole"`
 	// The number of instances you specified to add to the instance group of a SageMaker HyperPod cluster.
 	InstanceCount           pulumi.IntInput                        `pulumi:"instanceCount"`
 	InstanceGroupName       pulumi.StringInput                     `pulumi:"instanceGroupName"`
@@ -1338,10 +1336,6 @@ func (o ClusterInstanceGroupOutput) ToClusterInstanceGroupOutputWithContext(ctx 
 // The number of instances that are currently in the instance group of a SageMaker HyperPod cluster.
 func (o ClusterInstanceGroupOutput) CurrentCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ClusterInstanceGroup) *int { return v.CurrentCount }).(pulumi.IntPtrOutput)
-}
-
-func (o ClusterInstanceGroupOutput) CustomMetadata() pulumi.AnyOutput {
-	return o.ApplyT(func(v ClusterInstanceGroup) interface{} { return v.CustomMetadata }).(pulumi.AnyOutput)
 }
 
 func (o ClusterInstanceGroupOutput) ExecutionRole() pulumi.StringOutput {

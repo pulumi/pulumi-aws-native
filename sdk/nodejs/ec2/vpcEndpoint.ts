@@ -100,6 +100,7 @@ export class VpcEndpoint extends pulumi.CustomResource {
      * The IDs of the subnets in which to create endpoint network interfaces. You must specify this property for an interface endpoint or a Gateway Load Balancer endpoint. You can't specify this property for a gateway endpoint. For a Gateway Load Balancer endpoint, you can specify only one subnet.
      */
     public readonly subnetIds!: pulumi.Output<string[] | undefined>;
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The type of endpoint.
      *  Default: Gateway
@@ -134,6 +135,7 @@ export class VpcEndpoint extends pulumi.CustomResource {
             resourceInputs["serviceName"] = args ? args.serviceName : undefined;
             resourceInputs["serviceNetworkArn"] = args ? args.serviceNetworkArn : undefined;
             resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vpcEndpointType"] = args ? args.vpcEndpointType : undefined;
             resourceInputs["vpcId"] = args ? args.vpcId : undefined;
             resourceInputs["awsId"] = undefined /*out*/;
@@ -155,6 +157,7 @@ export class VpcEndpoint extends pulumi.CustomResource {
             resourceInputs["serviceName"] = undefined /*out*/;
             resourceInputs["serviceNetworkArn"] = undefined /*out*/;
             resourceInputs["subnetIds"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["vpcEndpointType"] = undefined /*out*/;
             resourceInputs["vpcId"] = undefined /*out*/;
         }
@@ -204,6 +207,7 @@ export interface VpcEndpointArgs {
      * The IDs of the subnets in which to create endpoint network interfaces. You must specify this property for an interface endpoint or a Gateway Load Balancer endpoint. You can't specify this property for a gateway endpoint. For a Gateway Load Balancer endpoint, you can specify only one subnet.
      */
     subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
     /**
      * The type of endpoint.
      *  Default: Gateway

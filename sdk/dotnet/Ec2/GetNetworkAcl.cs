@@ -13,18 +13,21 @@ namespace Pulumi.AwsNative.Ec2
     {
         /// <summary>
         /// Specifies a network ACL for your VPC.
+        ///  To add a network ACL entry, see [AWS::EC2::NetworkAclEntry](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkaclentry.html).
         /// </summary>
         public static Task<GetNetworkAclResult> InvokeAsync(GetNetworkAclArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkAclResult>("aws-native:ec2:getNetworkAcl", args ?? new GetNetworkAclArgs(), options.WithDefaults());
 
         /// <summary>
         /// Specifies a network ACL for your VPC.
+        ///  To add a network ACL entry, see [AWS::EC2::NetworkAclEntry](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkaclentry.html).
         /// </summary>
         public static Output<GetNetworkAclResult> Invoke(GetNetworkAclInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkAclResult>("aws-native:ec2:getNetworkAcl", args ?? new GetNetworkAclInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Specifies a network ACL for your VPC.
+        ///  To add a network ACL entry, see [AWS::EC2::NetworkAclEntry](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkaclentry.html).
         /// </summary>
         public static Output<GetNetworkAclResult> Invoke(GetNetworkAclInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkAclResult>("aws-native:ec2:getNetworkAcl", args ?? new GetNetworkAclInvokeArgs(), options.WithDefaults());

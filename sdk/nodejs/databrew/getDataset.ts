@@ -41,6 +41,10 @@ export interface GetDatasetResult {
      * PathOptions
      */
     readonly pathOptions?: outputs.databrew.DatasetPathOptions;
+    /**
+     * Source type of the dataset
+     */
+    readonly source?: enums.databrew.DatasetSource;
 }
 /**
  * Resource schema for AWS::DataBrew::Dataset.

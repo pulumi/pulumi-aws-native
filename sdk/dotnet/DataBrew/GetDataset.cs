@@ -79,6 +79,10 @@ namespace Pulumi.AwsNative.DataBrew
         /// PathOptions
         /// </summary>
         public readonly Outputs.DatasetPathOptions? PathOptions;
+        /// <summary>
+        /// Source type of the dataset
+        /// </summary>
+        public readonly Pulumi.AwsNative.DataBrew.DatasetSource? Source;
 
         [OutputConstructor]
         private GetDatasetResult(
@@ -88,12 +92,15 @@ namespace Pulumi.AwsNative.DataBrew
 
             Outputs.DatasetInput? input,
 
-            Outputs.DatasetPathOptions? pathOptions)
+            Outputs.DatasetPathOptions? pathOptions,
+
+            Pulumi.AwsNative.DataBrew.DatasetSource? source)
         {
             Format = format;
             FormatOptions = formatOptions;
             Input = input;
             PathOptions = pathOptions;
+            Source = source;
         }
     }
 }

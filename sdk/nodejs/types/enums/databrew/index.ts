@@ -45,6 +45,17 @@ export const DatasetParameterType = {
  */
 export type DatasetParameterType = (typeof DatasetParameterType)[keyof typeof DatasetParameterType];
 
+export const DatasetSource = {
+    S3: "S3",
+    DataCatalog: "DATA-CATALOG",
+    Database: "DATABASE",
+} as const;
+
+/**
+ * Source type of the dataset
+ */
+export type DatasetSource = (typeof DatasetSource)[keyof typeof DatasetSource];
+
 export const JobDatabaseOutputDatabaseOutputMode = {
     NewTable: "NEW_TABLE",
 } as const;

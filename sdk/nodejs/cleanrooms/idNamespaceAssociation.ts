@@ -45,6 +45,9 @@ export class IdNamespaceAssociation extends pulumi.CustomResource {
      * The Amazon Resource Name (ARN) of the collaboration that contains this ID namespace association.
      */
     public /*out*/ readonly collaborationArn!: pulumi.Output<string>;
+    /**
+     * The unique identifier of the collaboration that contains this ID namespace association.
+     */
     public /*out*/ readonly collaborationIdentifier!: pulumi.Output<string>;
     /**
      * The description of the ID namespace association.
@@ -54,6 +57,9 @@ export class IdNamespaceAssociation extends pulumi.CustomResource {
      * The configuration settings for the ID mapping table.
      */
     public readonly idMappingConfig!: pulumi.Output<outputs.cleanrooms.IdNamespaceAssociationIdMappingConfig | undefined>;
+    /**
+     * The unique identifier of the ID namespace association that you want to retrieve.
+     */
     public /*out*/ readonly idNamespaceAssociationIdentifier!: pulumi.Output<string>;
     /**
      * The input reference configuration for the ID namespace association.

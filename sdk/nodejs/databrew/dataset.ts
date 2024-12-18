@@ -86,6 +86,10 @@ export class Dataset extends pulumi.CustomResource {
      */
     public readonly pathOptions!: pulumi.Output<outputs.databrew.DatasetPathOptions | undefined>;
     /**
+     * Source type of the dataset
+     */
+    public readonly source!: pulumi.Output<enums.databrew.DatasetSource | undefined>;
+    /**
      * Metadata tags that have been applied to the dataset.
      */
     public readonly tags!: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
@@ -109,6 +113,7 @@ export class Dataset extends pulumi.CustomResource {
             resourceInputs["input"] = args ? args.input : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["pathOptions"] = args ? args.pathOptions : undefined;
+            resourceInputs["source"] = args ? args.source : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
         } else {
             resourceInputs["format"] = undefined /*out*/;
@@ -116,6 +121,7 @@ export class Dataset extends pulumi.CustomResource {
             resourceInputs["input"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["pathOptions"] = undefined /*out*/;
+            resourceInputs["source"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -149,6 +155,10 @@ export interface DatasetArgs {
      * PathOptions
      */
     pathOptions?: pulumi.Input<inputs.databrew.DatasetPathOptionsArgs>;
+    /**
+     * Source type of the dataset
+     */
+    source?: pulumi.Input<enums.databrew.DatasetSource>;
     /**
      * Metadata tags that have been applied to the dataset.
      */

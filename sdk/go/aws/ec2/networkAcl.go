@@ -14,6 +14,8 @@ import (
 )
 
 // Specifies a network ACL for your VPC.
+//
+//	To add a network ACL entry, see [AWS::EC2::NetworkAclEntry](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkaclentry.html).
 type NetworkAcl struct {
 	pulumi.CustomResourceState
 

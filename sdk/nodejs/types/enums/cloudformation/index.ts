@@ -56,6 +56,7 @@ export const GuardHookTargetOperation = {
     Resource: "RESOURCE",
     Stack: "STACK",
     ChangeSet: "CHANGE_SET",
+    CloudControl: "CLOUD_CONTROL",
 } as const;
 
 /**
@@ -142,6 +143,7 @@ export const LambdaHookTargetOperation = {
     Resource: "RESOURCE",
     Stack: "STACK",
     ChangeSet: "CHANGE_SET",
+    CloudControl: "CLOUD_CONTROL",
 } as const;
 
 /**

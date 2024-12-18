@@ -10,7 +10,7 @@
     },
     "Arn" : {
       "type" : "string",
-      "pattern" : "^arn:aws(-(cn|us-gov))?:[a-z-]+:(([a-z]+-)+[0-9])?:([0-9]{12})?:[^.]+$"
+      "pattern" : "^arn:aws(-(cn|us-gov|iso-f|iso-e))?:[a-z-]+:(([a-z]+-)+[0-9])?:([0-9]{12})?:[^.]+$"
     },
     "Tags" : {
       "type" : "array",
@@ -159,6 +159,12 @@
   "required" : [ "AuthMode", "EngineSecurityGroupId", "Name", "ServiceRole", "SubnetIds", "VpcId", "WorkspaceSecurityGroupId", "DefaultS3Location" ],
   "readOnlyProperties" : [ "/properties/StudioId", "/properties/Arn", "/properties/Url" ],
   "primaryIdentifier" : [ "/properties/StudioId" ],
+  "tagging" : {
+    "taggable" : false,
+    "tagOnCreate" : false,
+    "tagUpdatable" : false,
+    "cloudFormationSystemTags" : false
+  },
   "createOnlyProperties" : [ "/properties/AuthMode", "/properties/EngineSecurityGroupId", "/properties/ServiceRole", "/properties/UserRole", "/properties/VpcId", "/properties/WorkspaceSecurityGroupId", "/properties/TrustedIdentityPropagationEnabled", "/properties/IdcUserAssignment", "/properties/IdcInstanceArn", "/properties/EncryptionKeyArn" ],
   "handlers" : {
     "create" : {

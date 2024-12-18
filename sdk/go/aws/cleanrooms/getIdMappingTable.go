@@ -24,6 +24,7 @@ func LookupIdMappingTable(ctx *pulumi.Context, args *LookupIdMappingTableArgs, o
 }
 
 type LookupIdMappingTableArgs struct {
+	// The unique identifier of the ID mapping table identifier that you want to retrieve.
 	IdMappingTableIdentifier string `pulumi:"idMappingTableIdentifier"`
 	// The unique identifier of the membership resource for the ID mapping table.
 	MembershipIdentifier string `pulumi:"membershipIdentifier"`
@@ -33,10 +34,12 @@ type LookupIdMappingTableResult struct {
 	// The Amazon Resource Name (ARN) of the ID mapping table.
 	Arn *string `pulumi:"arn"`
 	// The Amazon Resource Name (ARN) of the collaboration that contains this ID mapping table.
-	CollaborationArn        *string `pulumi:"collaborationArn"`
+	CollaborationArn *string `pulumi:"collaborationArn"`
+	// The unique identifier of the collaboration that contains this ID mapping table.
 	CollaborationIdentifier *string `pulumi:"collaborationIdentifier"`
 	// The description of the ID mapping table.
-	Description              *string                                 `pulumi:"description"`
+	Description *string `pulumi:"description"`
+	// The unique identifier of the ID mapping table identifier that you want to retrieve.
 	IdMappingTableIdentifier *string                                 `pulumi:"idMappingTableIdentifier"`
 	InputReferenceProperties *IdMappingTableInputReferenceProperties `pulumi:"inputReferenceProperties"`
 	// The Amazon Resource Name (ARN) of the AWS KMS key.
@@ -57,6 +60,7 @@ func LookupIdMappingTableOutput(ctx *pulumi.Context, args LookupIdMappingTableOu
 }
 
 type LookupIdMappingTableOutputArgs struct {
+	// The unique identifier of the ID mapping table identifier that you want to retrieve.
 	IdMappingTableIdentifier pulumi.StringInput `pulumi:"idMappingTableIdentifier"`
 	// The unique identifier of the membership resource for the ID mapping table.
 	MembershipIdentifier pulumi.StringInput `pulumi:"membershipIdentifier"`
@@ -90,6 +94,7 @@ func (o LookupIdMappingTableResultOutput) CollaborationArn() pulumi.StringPtrOut
 	return o.ApplyT(func(v LookupIdMappingTableResult) *string { return v.CollaborationArn }).(pulumi.StringPtrOutput)
 }
 
+// The unique identifier of the collaboration that contains this ID mapping table.
 func (o LookupIdMappingTableResultOutput) CollaborationIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupIdMappingTableResult) *string { return v.CollaborationIdentifier }).(pulumi.StringPtrOutput)
 }
@@ -99,6 +104,7 @@ func (o LookupIdMappingTableResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupIdMappingTableResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The unique identifier of the ID mapping table identifier that you want to retrieve.
 func (o LookupIdMappingTableResultOutput) IdMappingTableIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupIdMappingTableResult) *string { return v.IdMappingTableIdentifier }).(pulumi.StringPtrOutput)
 }

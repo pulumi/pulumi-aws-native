@@ -10,6 +10,11 @@ export type Analysis = import("./analysis").Analysis;
 export const Analysis: typeof import("./analysis").Analysis = null as any;
 utilities.lazyLoad(exports, ["Analysis"], () => require("./analysis"));
 
+export { CustomPermissionsArgs } from "./customPermissions";
+export type CustomPermissions = import("./customPermissions").CustomPermissions;
+export const CustomPermissions: typeof import("./customPermissions").CustomPermissions = null as any;
+utilities.lazyLoad(exports, ["CustomPermissions"], () => require("./customPermissions"));
+
 export { DashboardArgs } from "./dashboard";
 export type Dashboard = import("./dashboard").Dashboard;
 export const Dashboard: typeof import("./dashboard").Dashboard = null as any;
@@ -34,6 +39,11 @@ export { GetAnalysisArgs, GetAnalysisResult, GetAnalysisOutputArgs } from "./get
 export const getAnalysis: typeof import("./getAnalysis").getAnalysis = null as any;
 export const getAnalysisOutput: typeof import("./getAnalysis").getAnalysisOutput = null as any;
 utilities.lazyLoad(exports, ["getAnalysis","getAnalysisOutput"], () => require("./getAnalysis"));
+
+export { GetCustomPermissionsArgs, GetCustomPermissionsResult, GetCustomPermissionsOutputArgs } from "./getCustomPermissions";
+export const getCustomPermissions: typeof import("./getCustomPermissions").getCustomPermissions = null as any;
+export const getCustomPermissionsOutput: typeof import("./getCustomPermissions").getCustomPermissionsOutput = null as any;
+utilities.lazyLoad(exports, ["getCustomPermissions","getCustomPermissionsOutput"], () => require("./getCustomPermissions"));
 
 export { GetDashboardArgs, GetDashboardResult, GetDashboardOutputArgs } from "./getDashboard";
 export const getDashboard: typeof import("./getDashboard").getDashboard = null as any;
@@ -110,6 +120,8 @@ const _module = {
         switch (type) {
             case "aws-native:quicksight:Analysis":
                 return new Analysis(name, <any>undefined, { urn })
+            case "aws-native:quicksight:CustomPermissions":
+                return new CustomPermissions(name, <any>undefined, { urn })
             case "aws-native:quicksight:Dashboard":
                 return new Dashboard(name, <any>undefined, { urn })
             case "aws-native:quicksight:DataSet":

@@ -1029,6 +1029,12 @@ export const AnalysisWordCloudWordScaling = {
 
 export type AnalysisWordCloudWordScaling = (typeof AnalysisWordCloudWordScaling)[keyof typeof AnalysisWordCloudWordScaling];
 
+export const CustomPermissionsCapabilityState = {
+    Deny: "DENY",
+} as const;
+
+export type CustomPermissionsCapabilityState = (typeof CustomPermissionsCapabilityState)[keyof typeof CustomPermissionsCapabilityState];
+
 export const DashboardAnchorOption = {
     Now: "NOW",
 } as const;

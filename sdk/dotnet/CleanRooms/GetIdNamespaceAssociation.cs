@@ -33,6 +33,9 @@ namespace Pulumi.AwsNative.CleanRooms
 
     public sealed class GetIdNamespaceAssociationArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The unique identifier of the ID namespace association that you want to retrieve.
+        /// </summary>
         [Input("idNamespaceAssociationIdentifier", required: true)]
         public string IdNamespaceAssociationIdentifier { get; set; } = null!;
 
@@ -50,6 +53,9 @@ namespace Pulumi.AwsNative.CleanRooms
 
     public sealed class GetIdNamespaceAssociationInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The unique identifier of the ID namespace association that you want to retrieve.
+        /// </summary>
         [Input("idNamespaceAssociationIdentifier", required: true)]
         public Input<string> IdNamespaceAssociationIdentifier { get; set; } = null!;
 
@@ -77,6 +83,9 @@ namespace Pulumi.AwsNative.CleanRooms
         /// The Amazon Resource Name (ARN) of the collaboration that contains this ID namespace association.
         /// </summary>
         public readonly string? CollaborationArn;
+        /// <summary>
+        /// The unique identifier of the collaboration that contains this ID namespace association.
+        /// </summary>
         public readonly string? CollaborationIdentifier;
         /// <summary>
         /// The description of the ID namespace association.
@@ -86,6 +95,9 @@ namespace Pulumi.AwsNative.CleanRooms
         /// The configuration settings for the ID mapping table.
         /// </summary>
         public readonly Outputs.IdNamespaceAssociationIdMappingConfig? IdMappingConfig;
+        /// <summary>
+        /// The unique identifier of the ID namespace association that you want to retrieve.
+        /// </summary>
         public readonly string? IdNamespaceAssociationIdentifier;
         public readonly Outputs.IdNamespaceAssociationInputReferenceProperties? InputReferenceProperties;
         /// <summary>

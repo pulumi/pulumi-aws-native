@@ -21085,6 +21085,169 @@ func (in *analysisWordCloudWordScalingPtr) ToAnalysisWordCloudWordScalingPtrOutp
 	return pulumi.ToOutputWithContext(ctx, in).(AnalysisWordCloudWordScalingPtrOutput)
 }
 
+type CustomPermissionsCapabilityState string
+
+const (
+	CustomPermissionsCapabilityStateDeny = CustomPermissionsCapabilityState("DENY")
+)
+
+func (CustomPermissionsCapabilityState) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomPermissionsCapabilityState)(nil)).Elem()
+}
+
+func (e CustomPermissionsCapabilityState) ToCustomPermissionsCapabilityStateOutput() CustomPermissionsCapabilityStateOutput {
+	return pulumi.ToOutput(e).(CustomPermissionsCapabilityStateOutput)
+}
+
+func (e CustomPermissionsCapabilityState) ToCustomPermissionsCapabilityStateOutputWithContext(ctx context.Context) CustomPermissionsCapabilityStateOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CustomPermissionsCapabilityStateOutput)
+}
+
+func (e CustomPermissionsCapabilityState) ToCustomPermissionsCapabilityStatePtrOutput() CustomPermissionsCapabilityStatePtrOutput {
+	return e.ToCustomPermissionsCapabilityStatePtrOutputWithContext(context.Background())
+}
+
+func (e CustomPermissionsCapabilityState) ToCustomPermissionsCapabilityStatePtrOutputWithContext(ctx context.Context) CustomPermissionsCapabilityStatePtrOutput {
+	return CustomPermissionsCapabilityState(e).ToCustomPermissionsCapabilityStateOutputWithContext(ctx).ToCustomPermissionsCapabilityStatePtrOutputWithContext(ctx)
+}
+
+func (e CustomPermissionsCapabilityState) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CustomPermissionsCapabilityState) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CustomPermissionsCapabilityState) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CustomPermissionsCapabilityState) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type CustomPermissionsCapabilityStateOutput struct{ *pulumi.OutputState }
+
+func (CustomPermissionsCapabilityStateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomPermissionsCapabilityState)(nil)).Elem()
+}
+
+func (o CustomPermissionsCapabilityStateOutput) ToCustomPermissionsCapabilityStateOutput() CustomPermissionsCapabilityStateOutput {
+	return o
+}
+
+func (o CustomPermissionsCapabilityStateOutput) ToCustomPermissionsCapabilityStateOutputWithContext(ctx context.Context) CustomPermissionsCapabilityStateOutput {
+	return o
+}
+
+func (o CustomPermissionsCapabilityStateOutput) ToCustomPermissionsCapabilityStatePtrOutput() CustomPermissionsCapabilityStatePtrOutput {
+	return o.ToCustomPermissionsCapabilityStatePtrOutputWithContext(context.Background())
+}
+
+func (o CustomPermissionsCapabilityStateOutput) ToCustomPermissionsCapabilityStatePtrOutputWithContext(ctx context.Context) CustomPermissionsCapabilityStatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomPermissionsCapabilityState) *CustomPermissionsCapabilityState {
+		return &v
+	}).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (o CustomPermissionsCapabilityStateOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CustomPermissionsCapabilityStateOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CustomPermissionsCapabilityState) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CustomPermissionsCapabilityStateOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CustomPermissionsCapabilityStateOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CustomPermissionsCapabilityState) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CustomPermissionsCapabilityStatePtrOutput struct{ *pulumi.OutputState }
+
+func (CustomPermissionsCapabilityStatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CustomPermissionsCapabilityState)(nil)).Elem()
+}
+
+func (o CustomPermissionsCapabilityStatePtrOutput) ToCustomPermissionsCapabilityStatePtrOutput() CustomPermissionsCapabilityStatePtrOutput {
+	return o
+}
+
+func (o CustomPermissionsCapabilityStatePtrOutput) ToCustomPermissionsCapabilityStatePtrOutputWithContext(ctx context.Context) CustomPermissionsCapabilityStatePtrOutput {
+	return o
+}
+
+func (o CustomPermissionsCapabilityStatePtrOutput) Elem() CustomPermissionsCapabilityStateOutput {
+	return o.ApplyT(func(v *CustomPermissionsCapabilityState) CustomPermissionsCapabilityState {
+		if v != nil {
+			return *v
+		}
+		var ret CustomPermissionsCapabilityState
+		return ret
+	}).(CustomPermissionsCapabilityStateOutput)
+}
+
+func (o CustomPermissionsCapabilityStatePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CustomPermissionsCapabilityStatePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CustomPermissionsCapabilityState) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// CustomPermissionsCapabilityStateInput is an input type that accepts values of the CustomPermissionsCapabilityState enum
+// A concrete instance of `CustomPermissionsCapabilityStateInput` can be one of the following:
+//
+//	CustomPermissionsCapabilityStateDeny
+type CustomPermissionsCapabilityStateInput interface {
+	pulumi.Input
+
+	ToCustomPermissionsCapabilityStateOutput() CustomPermissionsCapabilityStateOutput
+	ToCustomPermissionsCapabilityStateOutputWithContext(context.Context) CustomPermissionsCapabilityStateOutput
+}
+
+var customPermissionsCapabilityStatePtrType = reflect.TypeOf((**CustomPermissionsCapabilityState)(nil)).Elem()
+
+type CustomPermissionsCapabilityStatePtrInput interface {
+	pulumi.Input
+
+	ToCustomPermissionsCapabilityStatePtrOutput() CustomPermissionsCapabilityStatePtrOutput
+	ToCustomPermissionsCapabilityStatePtrOutputWithContext(context.Context) CustomPermissionsCapabilityStatePtrOutput
+}
+
+type customPermissionsCapabilityStatePtr string
+
+func CustomPermissionsCapabilityStatePtr(v string) CustomPermissionsCapabilityStatePtrInput {
+	return (*customPermissionsCapabilityStatePtr)(&v)
+}
+
+func (*customPermissionsCapabilityStatePtr) ElementType() reflect.Type {
+	return customPermissionsCapabilityStatePtrType
+}
+
+func (in *customPermissionsCapabilityStatePtr) ToCustomPermissionsCapabilityStatePtrOutput() CustomPermissionsCapabilityStatePtrOutput {
+	return pulumi.ToOutput(in).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
+func (in *customPermissionsCapabilityStatePtr) ToCustomPermissionsCapabilityStatePtrOutputWithContext(ctx context.Context) CustomPermissionsCapabilityStatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CustomPermissionsCapabilityStatePtrOutput)
+}
+
 type DashboardAnchorOption string
 
 const (
@@ -71213,6 +71376,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisWordCloudWordPaddingPtrInput)(nil)).Elem(), AnalysisWordCloudWordPadding("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisWordCloudWordScalingInput)(nil)).Elem(), AnalysisWordCloudWordScaling("EMPHASIZE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisWordCloudWordScalingPtrInput)(nil)).Elem(), AnalysisWordCloudWordScaling("EMPHASIZE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomPermissionsCapabilityStateInput)(nil)).Elem(), CustomPermissionsCapabilityState("DENY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomPermissionsCapabilityStatePtrInput)(nil)).Elem(), CustomPermissionsCapabilityState("DENY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardAnchorOptionInput)(nil)).Elem(), DashboardAnchorOption("NOW"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardAnchorOptionPtrInput)(nil)).Elem(), DashboardAnchorOption("NOW"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardArcThicknessInput)(nil)).Elem(), DashboardArcThickness("SMALL"))
@@ -72049,6 +72214,8 @@ func init() {
 	pulumi.RegisterOutputType(AnalysisWordCloudWordPaddingPtrOutput{})
 	pulumi.RegisterOutputType(AnalysisWordCloudWordScalingOutput{})
 	pulumi.RegisterOutputType(AnalysisWordCloudWordScalingPtrOutput{})
+	pulumi.RegisterOutputType(CustomPermissionsCapabilityStateOutput{})
+	pulumi.RegisterOutputType(CustomPermissionsCapabilityStatePtrOutput{})
 	pulumi.RegisterOutputType(DashboardAnchorOptionOutput{})
 	pulumi.RegisterOutputType(DashboardAnchorOptionPtrOutput{})
 	pulumi.RegisterOutputType(DashboardArcThicknessOutput{})

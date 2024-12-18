@@ -479,8 +479,17 @@ if not MYPY:
           For One Zone file systems, the replication configuration must specify the AWS-Region in which the destination file system is located.
         """
         role_arn: NotRequired[pulumi.Input[str]]
+        """
+        The Amazon Resource Name (ARN) of the current source file system in the replication configuration.
+        """
         status: NotRequired[pulumi.Input[str]]
+        """
+        Describes the status of the replication configuration. For more information about replication status, see [Viewing replication details](https://docs.aws.amazon.com//efs/latest/ug/awsbackup.html#restoring-backup-efsmonitoring-replication-status.html) in the *Amazon EFS User Guide* .
+        """
         status_message: NotRequired[pulumi.Input[str]]
+        """
+        Message that provides details about the `PAUSED` or `ERRROR` state of the replication destination configuration. For more information about replication status messages, see [Viewing replication details](https://docs.aws.amazon.com//efs/latest/ug/awsbackup.html#restoring-backup-efsmonitoring-replication-status.html) in the *Amazon EFS User Guide* .
+        """
 elif False:
     FileSystemReplicationDestinationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -503,6 +512,9 @@ class FileSystemReplicationDestinationArgs:
         :param pulumi.Input[str] kms_key_id: The ID of an kms-key-long used to protect the encrypted file system.
         :param pulumi.Input[str] region: The AWS-Region in which the destination file system is located.
                  For One Zone file systems, the replication configuration must specify the AWS-Region in which the destination file system is located.
+        :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the current source file system in the replication configuration.
+        :param pulumi.Input[str] status: Describes the status of the replication configuration. For more information about replication status, see [Viewing replication details](https://docs.aws.amazon.com//efs/latest/ug/awsbackup.html#restoring-backup-efsmonitoring-replication-status.html) in the *Amazon EFS User Guide* .
+        :param pulumi.Input[str] status_message: Message that provides details about the `PAUSED` or `ERRROR` state of the replication destination configuration. For more information about replication status messages, see [Viewing replication details](https://docs.aws.amazon.com//efs/latest/ug/awsbackup.html#restoring-backup-efsmonitoring-replication-status.html) in the *Amazon EFS User Guide* .
         """
         if availability_zone_name is not None:
             pulumi.set(__self__, "availability_zone_name", availability_zone_name)
@@ -573,6 +585,9 @@ class FileSystemReplicationDestinationArgs:
     @property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the current source file system in the replication configuration.
+        """
         return pulumi.get(self, "role_arn")
 
     @role_arn.setter
@@ -582,6 +597,9 @@ class FileSystemReplicationDestinationArgs:
     @property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        Describes the status of the replication configuration. For more information about replication status, see [Viewing replication details](https://docs.aws.amazon.com//efs/latest/ug/awsbackup.html#restoring-backup-efsmonitoring-replication-status.html) in the *Amazon EFS User Guide* .
+        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -591,6 +609,9 @@ class FileSystemReplicationDestinationArgs:
     @property
     @pulumi.getter(name="statusMessage")
     def status_message(self) -> Optional[pulumi.Input[str]]:
+        """
+        Message that provides details about the `PAUSED` or `ERRROR` state of the replication destination configuration. For more information about replication status messages, see [Viewing replication details](https://docs.aws.amazon.com//efs/latest/ug/awsbackup.html#restoring-backup-efsmonitoring-replication-status.html) in the *Amazon EFS User Guide* .
+        """
         return pulumi.get(self, "status_message")
 
     @status_message.setter

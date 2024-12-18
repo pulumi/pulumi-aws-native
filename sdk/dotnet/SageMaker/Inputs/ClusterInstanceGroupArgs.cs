@@ -21,9 +21,6 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         [Input("currentCount")]
         public Input<int>? CurrentCount { get; set; }
 
-        [Input("customMetadata")]
-        public Input<object>? CustomMetadata { get; set; }
-
         [Input("executionRole", required: true)]
         public Input<string> ExecutionRole { get; set; } = null!;
 

@@ -1162,6 +1162,7 @@ if not MYPY:
         """
         The Amazon S3 bucket name.
         """
+        bucket_owner: NotRequired[pulumi.Input[str]]
         key: NotRequired[pulumi.Input[str]]
         """
         The unique name of the object in the bucket.
@@ -1173,6 +1174,7 @@ elif False:
 class DatasetS3LocationArgs:
     def __init__(__self__, *,
                  bucket: pulumi.Input[str],
+                 bucket_owner: Optional[pulumi.Input[str]] = None,
                  key: Optional[pulumi.Input[str]] = None):
         """
         Input location
@@ -1180,6 +1182,8 @@ class DatasetS3LocationArgs:
         :param pulumi.Input[str] key: The unique name of the object in the bucket.
         """
         pulumi.set(__self__, "bucket", bucket)
+        if bucket_owner is not None:
+            pulumi.set(__self__, "bucket_owner", bucket_owner)
         if key is not None:
             pulumi.set(__self__, "key", key)
 
@@ -1194,6 +1198,15 @@ class DatasetS3LocationArgs:
     @bucket.setter
     def bucket(self, value: pulumi.Input[str]):
         pulumi.set(self, "bucket", value)
+
+    @property
+    @pulumi.getter(name="bucketOwner")
+    def bucket_owner(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "bucket_owner")
+
+    @bucket_owner.setter
+    def bucket_owner(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "bucket_owner", value)
 
     @property
     @pulumi.getter

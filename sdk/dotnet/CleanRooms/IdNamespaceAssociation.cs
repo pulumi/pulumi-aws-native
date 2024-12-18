@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.CleanRooms
         [Output("collaborationArn")]
         public Output<string> CollaborationArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique identifier of the collaboration that contains this ID namespace association.
+        /// </summary>
         [Output("collaborationIdentifier")]
         public Output<string> CollaborationIdentifier { get; private set; } = null!;
 
@@ -42,6 +45,9 @@ namespace Pulumi.AwsNative.CleanRooms
         [Output("idMappingConfig")]
         public Output<Outputs.IdNamespaceAssociationIdMappingConfig?> IdMappingConfig { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique identifier of the ID namespace association that you want to retrieve.
+        /// </summary>
         [Output("idNamespaceAssociationIdentifier")]
         public Output<string> IdNamespaceAssociationIdentifier { get; private set; } = null!;
 

@@ -95,6 +95,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// Default: No minimum or maximum limits
         /// </summary>
         public readonly Outputs.SpotFleetBaselineEbsBandwidthMbpsRequest? BaselineEbsBandwidthMbps;
+        public readonly Outputs.SpotFleetBaselinePerformanceFactorsRequest? BaselinePerformanceFactors;
         /// <summary>
         /// Indicates whether burstable performance T instance types are included, excluded, or required. For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html) .
         /// 
@@ -256,6 +257,8 @@ namespace Pulumi.AwsNative.Ec2.Outputs
 
             Outputs.SpotFleetBaselineEbsBandwidthMbpsRequest? baselineEbsBandwidthMbps,
 
+            Outputs.SpotFleetBaselinePerformanceFactorsRequest? baselinePerformanceFactors,
+
             Pulumi.AwsNative.Ec2.SpotFleetInstanceRequirementsRequestBurstablePerformance? burstablePerformance,
 
             ImmutableArray<Pulumi.AwsNative.Ec2.SpotFleetInstanceRequirementsRequestCpuManufacturersItem> cpuManufacturers,
@@ -296,6 +299,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
             AllowedInstanceTypes = allowedInstanceTypes;
             BareMetal = bareMetal;
             BaselineEbsBandwidthMbps = baselineEbsBandwidthMbps;
+            BaselinePerformanceFactors = baselinePerformanceFactors;
             BurstablePerformance = burstablePerformance;
             CpuManufacturers = cpuManufacturers;
             ExcludedInstanceTypes = excludedInstanceTypes;

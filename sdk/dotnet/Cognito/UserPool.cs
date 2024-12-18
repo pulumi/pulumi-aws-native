@@ -170,9 +170,9 @@ namespace Pulumi.AwsNative.Cognito
         public Output<Outputs.UserPoolUserAttributeUpdateSettings?> UserAttributeUpdateSettings { get; private set; } = null!;
 
         /// <summary>
-        /// User pool add-ons. Contains settings for activation of advanced security features. To log user security information but take no action, set to `AUDIT` . To configure automatic security responses to risky traffic to your user pool, set to `ENFORCED` .
+        /// User pool add-ons. Contains settings for activation of threat protection. To log user security information but take no action, set to `AUDIT` . To configure automatic security responses to risky traffic to your user pool, set to `ENFORCED` .
         /// 
-        /// For more information, see [Adding advanced security to a user pool](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-advanced-security.html) .
+        /// For more information, see [Adding advanced security to a user pool](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-advanced-security.html) . To activate this setting, your user pool must be on the [Plus tier](https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-plus.html) .
         /// </summary>
         [Output("userPoolAddOns")]
         public Output<Outputs.UserPoolAddOns?> UserPoolAddOns { get; private set; } = null!;
@@ -449,9 +449,9 @@ namespace Pulumi.AwsNative.Cognito
         public Input<Inputs.UserPoolUserAttributeUpdateSettingsArgs>? UserAttributeUpdateSettings { get; set; }
 
         /// <summary>
-        /// User pool add-ons. Contains settings for activation of advanced security features. To log user security information but take no action, set to `AUDIT` . To configure automatic security responses to risky traffic to your user pool, set to `ENFORCED` .
+        /// User pool add-ons. Contains settings for activation of threat protection. To log user security information but take no action, set to `AUDIT` . To configure automatic security responses to risky traffic to your user pool, set to `ENFORCED` .
         /// 
-        /// For more information, see [Adding advanced security to a user pool](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-advanced-security.html) .
+        /// For more information, see [Adding advanced security to a user pool](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-advanced-security.html) . To activate this setting, your user pool must be on the [Plus tier](https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-plus.html) .
         /// </summary>
         [Input("userPoolAddOns")]
         public Input<Inputs.UserPoolAddOnsArgs>? UserPoolAddOns { get; set; }

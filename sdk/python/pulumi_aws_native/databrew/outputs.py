@@ -966,8 +966,26 @@ class DatasetS3Location(dict):
     """
     Input location
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketOwner":
+            suggest = "bucket_owner"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DatasetS3Location. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DatasetS3Location.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DatasetS3Location.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  bucket: str,
+                 bucket_owner: Optional[str] = None,
                  key: Optional[str] = None):
         """
         Input location
@@ -975,6 +993,8 @@ class DatasetS3Location(dict):
         :param str key: The unique name of the object in the bucket.
         """
         pulumi.set(__self__, "bucket", bucket)
+        if bucket_owner is not None:
+            pulumi.set(__self__, "bucket_owner", bucket_owner)
         if key is not None:
             pulumi.set(__self__, "key", key)
 
@@ -985,6 +1005,11 @@ class DatasetS3Location(dict):
         The Amazon S3 bucket name.
         """
         return pulumi.get(self, "bucket")
+
+    @property
+    @pulumi.getter(name="bucketOwner")
+    def bucket_owner(self) -> Optional[str]:
+        return pulumi.get(self, "bucket_owner")
 
     @property
     @pulumi.getter

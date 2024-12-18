@@ -24,6 +24,7 @@ func LookupIdNamespaceAssociation(ctx *pulumi.Context, args *LookupIdNamespaceAs
 }
 
 type LookupIdNamespaceAssociationArgs struct {
+	// The unique identifier of the ID namespace association that you want to retrieve.
 	IdNamespaceAssociationIdentifier string `pulumi:"idNamespaceAssociationIdentifier"`
 	// The unique identifier of the membership that contains the ID namespace association.
 	MembershipIdentifier string `pulumi:"membershipIdentifier"`
@@ -33,12 +34,14 @@ type LookupIdNamespaceAssociationResult struct {
 	// The Amazon Resource Name (ARN) of the ID namespace association.
 	Arn *string `pulumi:"arn"`
 	// The Amazon Resource Name (ARN) of the collaboration that contains this ID namespace association.
-	CollaborationArn        *string `pulumi:"collaborationArn"`
+	CollaborationArn *string `pulumi:"collaborationArn"`
+	// The unique identifier of the collaboration that contains this ID namespace association.
 	CollaborationIdentifier *string `pulumi:"collaborationIdentifier"`
 	// The description of the ID namespace association.
 	Description *string `pulumi:"description"`
 	// The configuration settings for the ID mapping table.
-	IdMappingConfig                  *IdNamespaceAssociationIdMappingConfig          `pulumi:"idMappingConfig"`
+	IdMappingConfig *IdNamespaceAssociationIdMappingConfig `pulumi:"idMappingConfig"`
+	// The unique identifier of the ID namespace association that you want to retrieve.
 	IdNamespaceAssociationIdentifier *string                                         `pulumi:"idNamespaceAssociationIdentifier"`
 	InputReferenceProperties         *IdNamespaceAssociationInputReferenceProperties `pulumi:"inputReferenceProperties"`
 	// The Amazon Resource Name (ARN) of the membership resource for this ID namespace association.
@@ -59,6 +62,7 @@ func LookupIdNamespaceAssociationOutput(ctx *pulumi.Context, args LookupIdNamesp
 }
 
 type LookupIdNamespaceAssociationOutputArgs struct {
+	// The unique identifier of the ID namespace association that you want to retrieve.
 	IdNamespaceAssociationIdentifier pulumi.StringInput `pulumi:"idNamespaceAssociationIdentifier"`
 	// The unique identifier of the membership that contains the ID namespace association.
 	MembershipIdentifier pulumi.StringInput `pulumi:"membershipIdentifier"`
@@ -92,6 +96,7 @@ func (o LookupIdNamespaceAssociationResultOutput) CollaborationArn() pulumi.Stri
 	return o.ApplyT(func(v LookupIdNamespaceAssociationResult) *string { return v.CollaborationArn }).(pulumi.StringPtrOutput)
 }
 
+// The unique identifier of the collaboration that contains this ID namespace association.
 func (o LookupIdNamespaceAssociationResultOutput) CollaborationIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupIdNamespaceAssociationResult) *string { return v.CollaborationIdentifier }).(pulumi.StringPtrOutput)
 }
@@ -108,6 +113,7 @@ func (o LookupIdNamespaceAssociationResultOutput) IdMappingConfig() IdNamespaceA
 	}).(IdNamespaceAssociationIdMappingConfigPtrOutput)
 }
 
+// The unique identifier of the ID namespace association that you want to retrieve.
 func (o LookupIdNamespaceAssociationResultOutput) IdNamespaceAssociationIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupIdNamespaceAssociationResult) *string { return v.IdNamespaceAssociationIdentifier }).(pulumi.StringPtrOutput)
 }

@@ -1137,8 +1137,11 @@ func (in *groupProfileStatusPtr) ToGroupProfileStatusPtrOutputWithContext(ctx co
 type ProjectMembershipUserDesignation string
 
 const (
-	ProjectMembershipUserDesignationProjectOwner       = ProjectMembershipUserDesignation("PROJECT_OWNER")
-	ProjectMembershipUserDesignationProjectContributor = ProjectMembershipUserDesignation("PROJECT_CONTRIBUTOR")
+	ProjectMembershipUserDesignationProjectOwner           = ProjectMembershipUserDesignation("PROJECT_OWNER")
+	ProjectMembershipUserDesignationProjectContributor     = ProjectMembershipUserDesignation("PROJECT_CONTRIBUTOR")
+	ProjectMembershipUserDesignationProjectCatalogViewer   = ProjectMembershipUserDesignation("PROJECT_CATALOG_VIEWER")
+	ProjectMembershipUserDesignationProjectCatalogConsumer = ProjectMembershipUserDesignation("PROJECT_CATALOG_CONSUMER")
+	ProjectMembershipUserDesignationProjectCatalogSteward  = ProjectMembershipUserDesignation("PROJECT_CATALOG_STEWARD")
 )
 
 func (ProjectMembershipUserDesignation) ElementType() reflect.Type {
@@ -1265,6 +1268,9 @@ func (o ProjectMembershipUserDesignationPtrOutput) ToStringPtrOutputWithContext(
 //
 //	ProjectMembershipUserDesignationProjectOwner
 //	ProjectMembershipUserDesignationProjectContributor
+//	ProjectMembershipUserDesignationProjectCatalogViewer
+//	ProjectMembershipUserDesignationProjectCatalogConsumer
+//	ProjectMembershipUserDesignationProjectCatalogSteward
 type ProjectMembershipUserDesignationInput interface {
 	pulumi.Input
 

@@ -92,6 +92,12 @@ namespace Pulumi.AwsNative.DataBrew
         public Output<Outputs.DatasetPathOptions?> PathOptions { get; private set; } = null!;
 
         /// <summary>
+        /// Source type of the dataset
+        /// </summary>
+        [Output("source")]
+        public Output<Pulumi.AwsNative.DataBrew.DatasetSource?> Source { get; private set; } = null!;
+
+        /// <summary>
         /// Metadata tags that have been applied to the dataset.
         /// </summary>
         [Output("tags")]
@@ -176,6 +182,12 @@ namespace Pulumi.AwsNative.DataBrew
         /// </summary>
         [Input("pathOptions")]
         public Input<Inputs.DatasetPathOptionsArgs>? PathOptions { get; set; }
+
+        /// <summary>
+        /// Source type of the dataset
+        /// </summary>
+        [Input("source")]
+        public Input<Pulumi.AwsNative.DataBrew.DatasetSource>? Source { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>? _tags;

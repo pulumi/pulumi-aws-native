@@ -288,6 +288,9 @@ namespace Pulumi.AwsNative.DataZone
 
         public static ProjectMembershipUserDesignation ProjectOwner { get; } = new ProjectMembershipUserDesignation("PROJECT_OWNER");
         public static ProjectMembershipUserDesignation ProjectContributor { get; } = new ProjectMembershipUserDesignation("PROJECT_CONTRIBUTOR");
+        public static ProjectMembershipUserDesignation ProjectCatalogViewer { get; } = new ProjectMembershipUserDesignation("PROJECT_CATALOG_VIEWER");
+        public static ProjectMembershipUserDesignation ProjectCatalogConsumer { get; } = new ProjectMembershipUserDesignation("PROJECT_CATALOG_CONSUMER");
+        public static ProjectMembershipUserDesignation ProjectCatalogSteward { get; } = new ProjectMembershipUserDesignation("PROJECT_CATALOG_STEWARD");
 
         public static bool operator ==(ProjectMembershipUserDesignation left, ProjectMembershipUserDesignation right) => left.Equals(right);
         public static bool operator !=(ProjectMembershipUserDesignation left, ProjectMembershipUserDesignation right) => !left.Equals(right);

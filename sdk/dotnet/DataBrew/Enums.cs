@@ -135,6 +135,38 @@ namespace Pulumi.AwsNative.DataBrew
     }
 
     /// <summary>
+    /// Source type of the dataset
+    /// </summary>
+    [EnumType]
+    public readonly struct DatasetSource : IEquatable<DatasetSource>
+    {
+        private readonly string _value;
+
+        private DatasetSource(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DatasetSource S3 { get; } = new DatasetSource("S3");
+        public static DatasetSource DataCatalog { get; } = new DatasetSource("DATA-CATALOG");
+        public static DatasetSource Database { get; } = new DatasetSource("DATABASE");
+
+        public static bool operator ==(DatasetSource left, DatasetSource right) => left.Equals(right);
+        public static bool operator !=(DatasetSource left, DatasetSource right) => !left.Equals(right);
+
+        public static explicit operator string(DatasetSource value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DatasetSource other && Equals(other);
+        public bool Equals(DatasetSource other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Database table name
     /// </summary>
     [EnumType]

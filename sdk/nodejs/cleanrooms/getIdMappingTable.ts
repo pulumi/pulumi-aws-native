@@ -19,6 +19,9 @@ export function getIdMappingTable(args: GetIdMappingTableArgs, opts?: pulumi.Inv
 }
 
 export interface GetIdMappingTableArgs {
+    /**
+     * The unique identifier of the ID mapping table identifier that you want to retrieve.
+     */
     idMappingTableIdentifier: string;
     /**
      * The unique identifier of the membership resource for the ID mapping table.
@@ -35,11 +38,17 @@ export interface GetIdMappingTableResult {
      * The Amazon Resource Name (ARN) of the collaboration that contains this ID mapping table.
      */
     readonly collaborationArn?: string;
+    /**
+     * The unique identifier of the collaboration that contains this ID mapping table.
+     */
     readonly collaborationIdentifier?: string;
     /**
      * The description of the ID mapping table.
      */
     readonly description?: string;
+    /**
+     * The unique identifier of the ID mapping table identifier that you want to retrieve.
+     */
     readonly idMappingTableIdentifier?: string;
     readonly inputReferenceProperties?: outputs.cleanrooms.IdMappingTableInputReferenceProperties;
     /**
@@ -67,6 +76,9 @@ export function getIdMappingTableOutput(args: GetIdMappingTableOutputArgs, opts?
 }
 
 export interface GetIdMappingTableOutputArgs {
+    /**
+     * The unique identifier of the ID mapping table identifier that you want to retrieve.
+     */
     idMappingTableIdentifier: pulumi.Input<string>;
     /**
      * The unique identifier of the membership resource for the ID mapping table.

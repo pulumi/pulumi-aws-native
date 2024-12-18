@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import outputs as _root_outputs
 from ._enums import *
 
 __all__ = [
@@ -25,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetVpcEndpointResult:
-    def __init__(__self__, creation_timestamp=None, dns_entries=None, dns_options=None, id=None, ip_address_type=None, network_interface_ids=None, policy_document=None, private_dns_enabled=None, route_table_ids=None, security_group_ids=None, subnet_ids=None):
+    def __init__(__self__, creation_timestamp=None, dns_entries=None, dns_options=None, id=None, ip_address_type=None, network_interface_ids=None, policy_document=None, private_dns_enabled=None, route_table_ids=None, security_group_ids=None, subnet_ids=None, tags=None):
         if creation_timestamp and not isinstance(creation_timestamp, str):
             raise TypeError("Expected argument 'creation_timestamp' to be a str")
         pulumi.set(__self__, "creation_timestamp", creation_timestamp)
@@ -59,6 +60,9 @@ class GetVpcEndpointResult:
         if subnet_ids and not isinstance(subnet_ids, list):
             raise TypeError("Expected argument 'subnet_ids' to be a list")
         pulumi.set(__self__, "subnet_ids", subnet_ids)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="creationTimestamp")
@@ -155,6 +159,11 @@ class GetVpcEndpointResult:
         """
         return pulumi.get(self, "subnet_ids")
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetVpcEndpointResult(GetVpcEndpointResult):
     # pylint: disable=using-constant-test
@@ -172,7 +181,8 @@ class AwaitableGetVpcEndpointResult(GetVpcEndpointResult):
             private_dns_enabled=self.private_dns_enabled,
             route_table_ids=self.route_table_ids,
             security_group_ids=self.security_group_ids,
-            subnet_ids=self.subnet_ids)
+            subnet_ids=self.subnet_ids,
+            tags=self.tags)
 
 
 def get_vpc_endpoint(id: Optional[str] = None,
@@ -205,7 +215,8 @@ def get_vpc_endpoint(id: Optional[str] = None,
         private_dns_enabled=pulumi.get(__ret__, 'private_dns_enabled'),
         route_table_ids=pulumi.get(__ret__, 'route_table_ids'),
         security_group_ids=pulumi.get(__ret__, 'security_group_ids'),
-        subnet_ids=pulumi.get(__ret__, 'subnet_ids'))
+        subnet_ids=pulumi.get(__ret__, 'subnet_ids'),
+        tags=pulumi.get(__ret__, 'tags'))
 def get_vpc_endpoint_output(id: Optional[pulumi.Input[str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcEndpointResult]:
     """
@@ -235,4 +246,5 @@ def get_vpc_endpoint_output(id: Optional[pulumi.Input[str]] = None,
         private_dns_enabled=pulumi.get(__response__, 'private_dns_enabled'),
         route_table_ids=pulumi.get(__response__, 'route_table_ids'),
         security_group_ids=pulumi.get(__response__, 'security_group_ids'),
-        subnet_ids=pulumi.get(__response__, 'subnet_ids')))
+        subnet_ids=pulumi.get(__response__, 'subnet_ids'),
+        tags=pulumi.get(__response__, 'tags')))

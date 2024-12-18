@@ -207,9 +207,6 @@
         },
         "ExecutionRole" : {
           "$ref" : "#/definitions/ExecutionRole"
-        },
-        "CustomMetadata" : {
-          "$ref" : "#/definitions/CustomMetadata"
         }
       },
       "required" : [ "ExecutionRole", "InstanceCount", "InstanceGroupName", "InstanceType", "LifeCycleConfig" ]
