@@ -146,13 +146,13 @@ func Test_getDefaultName(t *testing.T) {
 					},
 				},
 			}
-			got, has, err := getDefaultName(urn, tt.engineAutonaming, autoNamingSpec, tt.olds, tt.news, nil)
+			got, err := getDefaultName(urn, tt.engineAutonaming, autoNamingSpec, tt.olds, tt.news, nil)
 			if tt.err != nil {
 				require.EqualError(t, err, tt.err.Error())
 				return
 			} else {
 				require.NoError(t, err)
-				require.Equal(t, tt.noName, !has)
+				require.Equal(t, tt.noName, got == nil)
 			}
 			if !tt.comparison(t, got) {
 				t.Errorf("getDefaultName() = %v for spec: %+v", *got, autoNamingSpec)
@@ -264,13 +264,13 @@ func Test_getDefaultName_withAutoNameConfig(t *testing.T) {
 
 			autoNameConfig := tt.autoNameConfig
 			engineAutonaming := EngineAutonamingConfiguration{}
-			got, has, err := getDefaultName(urn, engineAutonaming, autoNamingSpec, tt.olds, tt.news, &autoNameConfig)
+			got, err := getDefaultName(urn, engineAutonaming, autoNamingSpec, tt.olds, tt.news, &autoNameConfig)
 			if tt.err != nil {
 				require.EqualError(t, err, tt.err.Error())
 				return
 			} else {
 				require.NoError(t, err)
-				require.True(t, has)
+				require.True(t, got != nil)
 			}
 			if !tt.comparison(t, got) {
 				t.Errorf("getDefaultName() = %v for spec: %+v", *got, autoNamingSpec)

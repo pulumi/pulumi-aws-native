@@ -43,11 +43,11 @@ func ApplyAutoNaming(
 		return nil
 	}
 	// Auto-name fields if not already specified
-	val, ok, err := getDefaultName(urn, engineAutonaming, spec, olds, news, config)
+	val, err := getDefaultName(urn, engineAutonaming, spec, olds, news, config)
 	if err != nil {
 		return err
 	}
-	if ok {
+	if val != nil {
 		news[resource.PropertyKey(spec.SdkName)] = *val
 	}
 	return nil
@@ -65,33 +65,33 @@ func getDefaultName(
 	olds,
 	news resource.PropertyMap,
 	config *AutoNamingConfig,
-) (*resource.PropertyValue, bool, error) {
+) (*resource.PropertyValue, error) {
 	sdkName := autoNamingSpec.SdkName
 
 	// Prefer explicitly specified name
 	if v, ok := news[resource.PropertyKey(sdkName)]; ok {
-		return &v, true, nil
+		return &v, nil
 	}
 
 	// Fallback to previous name if specified/set.
 	if v, ok := olds[resource.PropertyKey(sdkName)]; ok {
-		return &v, true, nil
+		return &v, nil
 	}
 
 	// Generate naming trivia for the resource.
 	namingTriviaApplies, namingTrivia, err := CheckNamingTrivia(sdkName, news, autoNamingSpec.TriviaSpec)
 	if err != nil {
-		return nil, false, err
+		return nil, err
 	}
 
 	if engineAutonaming.AutonamingMode != nil {
 		//panic("yes")
 		switch *engineAutonaming.AutonamingMode {
 		case EngineAutonamingModeDisable:
-			return nil, false, nil
+			return nil, nil
 		case EngineAutonamingModeEnforce:
 			v := resource.NewStringProperty(engineAutonaming.ProposedName)
-			return &v, true, nil
+			return &v, nil
 		case EngineAutonamingModePropose:
 			proposedName := engineAutonaming.ProposedName
 
@@ -102,14 +102,14 @@ func getDefaultName(
 
 			// Validate the proposed name against the length constraints.
 			if autoNamingSpec.MaxLength > 0 && len(proposedName) > autoNamingSpec.MaxLength {
-				return nil, false, fmt.Errorf("proposed name %q exceeds max length of %d", proposedName, autoNamingSpec.MaxLength)
+				return nil, fmt.Errorf("proposed name %q exceeds max length of %d", proposedName, autoNamingSpec.MaxLength)
 			}
 			if autoNamingSpec.MinLength > 0 && len(proposedName) < autoNamingSpec.MinLength {
-				return nil, false, fmt.Errorf("proposed name %q is shorter than min length of %d", proposedName, autoNamingSpec.MinLength)
+				return nil, fmt.Errorf("proposed name %q is shorter than min length of %d", proposedName, autoNamingSpec.MinLength)
 			}
 
 			v := resource.NewStringProperty(proposedName)
-			return &v, true, nil
+			return &v, nil
 		}
 	}
 
@@ -141,7 +141,7 @@ func getDefaultName(
 		if left <= 0 && autoTrim {
 			autoTrimMaxLength := autoNamingSpec.MaxLength - namingTrivia.Length() - randomSuffixMinLength
 			if autoTrimMaxLength <= 0 {
-				return nil, false, fmt.Errorf("failed to auto-generate value for %[1]q."+
+				return nil, fmt.Errorf("failed to auto-generate value for %[1]q."+
 					" Prefix: %[2]q is too large to fix max length constraint of %[3]d"+
 					" with required suffix length %[4]d. Please provide a value for %[1]q",
 					sdkName, prefix, autoNamingSpec.MaxLength, randomSuffixMinLength)
@@ -153,12 +153,12 @@ func getDefaultName(
 
 		if left <= 0 {
 			if namingTrivia.Length() > 0 {
-				return nil, false, fmt.Errorf("failed to auto-generate value for %[1]q."+
+				return nil, fmt.Errorf("failed to auto-generate value for %[1]q."+
 					" Prefix: %[2]q is too large to fix max length constraint of %[3]d"+
 					" with required suffix %[4]q. Please provide a value for %[1]q",
 					sdkName, prefix, autoNamingSpec.MaxLength, namingTrivia.Suffix)
 			} else {
-				return nil, false, fmt.Errorf("failed to auto-generate value for %[1]q."+
+				return nil, fmt.Errorf("failed to auto-generate value for %[1]q."+
 					" Prefix: %[2]q is too large to fix max length constraint of %[3]d. Please provide a value for %[1]q",
 					sdkName, prefix, autoNamingSpec.MaxLength)
 			}
@@ -172,7 +172,7 @@ func getDefaultName(
 	// Resource name is URN name + "-" + random suffix.
 	random, err := resource.NewUniqueName(engineAutonaming.RandomSeed, prefix, randLength, maxLength, nil)
 	if err != nil {
-		return nil, false, err
+		return nil, err
 	}
 
 	// Apply naming trivia to the generated name.
@@ -181,7 +181,7 @@ func getDefaultName(
 	}
 
 	v := resource.NewStringProperty(random)
-	return &v, true, nil
+	return &v, nil
 }
 
 // trimName will trim the prefix to fit within the max length constraint.
