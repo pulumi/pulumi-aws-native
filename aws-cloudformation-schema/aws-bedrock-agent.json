@@ -157,6 +157,9 @@
         },
         "Parameters" : {
           "$ref" : "#/definitions/ParameterMap"
+        },
+        "RequireConfirmation" : {
+          "$ref" : "#/definitions/RequireConfirmation"
         }
       },
       "required" : [ "Name" ],
@@ -334,6 +337,11 @@
       "type" : "string",
       "description" : "Prompt Type.",
       "enum" : [ "PRE_PROCESSING", "ORCHESTRATION", "POST_PROCESSING", "KNOWLEDGE_BASE_RESPONSE_GENERATION" ]
+    },
+    "RequireConfirmation" : {
+      "type" : "string",
+      "description" : "ENUM to check if action requires user confirmation",
+      "enum" : [ "ENABLED", "DISABLED" ]
     },
     "S3Identifier" : {
       "type" : "object",

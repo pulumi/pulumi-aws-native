@@ -151,7 +151,9 @@
   "createOnlyProperties" : [ "/properties/Name", "/properties/Type", "/properties/ExecutionRoleArn", "/properties/AuthType" ],
   "readOnlyProperties" : [ "/properties/Arn", "/properties/BaseUrl" ],
   "writeOnlyProperties" : [ "/properties/ClientToken" ],
+  "deprecatedProperties" : [ "/properties/ClientToken" ],
   "primaryIdentifier" : [ "/properties/Arn" ],
+  "replacementStrategy" : "delete_then_create",
   "handlers" : {
     "create" : {
       "permissions" : [ "sagemaker:CreatePartnerApp", "sagemaker:DescribePartnerApp", "sagemaker:AddTags", "sagemaker:ListTags", "iam:PassRole" ],
