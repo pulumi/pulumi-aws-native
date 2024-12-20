@@ -11,17 +11,17 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
 {
 
     /// <summary>
-    /// Prompt template configuration
+    /// Tool choice
     /// </summary>
     [OutputType]
-    public sealed class PromptTemplateConfigurationProperties
+    public sealed class PromptToolChoice1Properties
     {
-        public readonly Outputs.PromptTextPromptTemplateConfiguration Text;
+        public readonly Outputs.PromptAnyToolChoice Any;
 
         [OutputConstructor]
-        private PromptTemplateConfigurationProperties(Outputs.PromptTextPromptTemplateConfiguration text)
+        private PromptToolChoice1Properties(Outputs.PromptAnyToolChoice any)
         {
-            Text = text;
+            Any = any;
         }
     }
 }

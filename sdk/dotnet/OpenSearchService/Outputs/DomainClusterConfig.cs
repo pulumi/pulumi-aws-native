@@ -41,6 +41,7 @@ namespace Pulumi.AwsNative.OpenSearchService.Outputs
         /// Indicates whether Multi-AZ with Standby deployment option is enabled. For more information, see [Multi-AZ with Standby](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-multiaz.html#managedomains-za-standby) .
         /// </summary>
         public readonly bool? MultiAzWithStandbyEnabled;
+        public readonly ImmutableArray<Outputs.DomainNodeOption> NodeOptions;
         /// <summary>
         /// The number of warm nodes in the cluster.
         /// </summary>
@@ -78,6 +79,8 @@ namespace Pulumi.AwsNative.OpenSearchService.Outputs
 
             bool? multiAzWithStandbyEnabled,
 
+            ImmutableArray<Outputs.DomainNodeOption> nodeOptions,
+
             int? warmCount,
 
             bool? warmEnabled,
@@ -95,6 +98,7 @@ namespace Pulumi.AwsNative.OpenSearchService.Outputs
             InstanceCount = instanceCount;
             InstanceType = instanceType;
             MultiAzWithStandbyEnabled = multiAzWithStandbyEnabled;
+            NodeOptions = nodeOptions;
             WarmCount = warmCount;
             WarmEnabled = warmEnabled;
             WarmType = warmType;

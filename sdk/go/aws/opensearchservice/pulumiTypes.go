@@ -504,7 +504,8 @@ type DomainClusterConfig struct {
 	// The instance type for your data nodes, such as `m3.medium.search` . For valid values, see [Supported instance types in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/supported-instance-types.html) .
 	InstanceType *string `pulumi:"instanceType"`
 	// Indicates whether Multi-AZ with Standby deployment option is enabled. For more information, see [Multi-AZ with Standby](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-multiaz.html#managedomains-za-standby) .
-	MultiAzWithStandbyEnabled *bool `pulumi:"multiAzWithStandbyEnabled"`
+	MultiAzWithStandbyEnabled *bool              `pulumi:"multiAzWithStandbyEnabled"`
+	NodeOptions               []DomainNodeOption `pulumi:"nodeOptions"`
 	// The number of warm nodes in the cluster.
 	WarmCount *int `pulumi:"warmCount"`
 	// Whether to enable UltraWarm storage for the cluster. See [UltraWarm storage for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ultrawarm.html) .
@@ -542,7 +543,8 @@ type DomainClusterConfigArgs struct {
 	// The instance type for your data nodes, such as `m3.medium.search` . For valid values, see [Supported instance types in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/supported-instance-types.html) .
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
 	// Indicates whether Multi-AZ with Standby deployment option is enabled. For more information, see [Multi-AZ with Standby](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-multiaz.html#managedomains-za-standby) .
-	MultiAzWithStandbyEnabled pulumi.BoolPtrInput `pulumi:"multiAzWithStandbyEnabled"`
+	MultiAzWithStandbyEnabled pulumi.BoolPtrInput        `pulumi:"multiAzWithStandbyEnabled"`
+	NodeOptions               DomainNodeOptionArrayInput `pulumi:"nodeOptions"`
 	// The number of warm nodes in the cluster.
 	WarmCount pulumi.IntPtrInput `pulumi:"warmCount"`
 	// Whether to enable UltraWarm storage for the cluster. See [UltraWarm storage for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ultrawarm.html) .
@@ -667,6 +669,10 @@ func (o DomainClusterConfigOutput) MultiAzWithStandbyEnabled() pulumi.BoolPtrOut
 	return o.ApplyT(func(v DomainClusterConfig) *bool { return v.MultiAzWithStandbyEnabled }).(pulumi.BoolPtrOutput)
 }
 
+func (o DomainClusterConfigOutput) NodeOptions() DomainNodeOptionArrayOutput {
+	return o.ApplyT(func(v DomainClusterConfig) []DomainNodeOption { return v.NodeOptions }).(DomainNodeOptionArrayOutput)
+}
+
 // The number of warm nodes in the cluster.
 func (o DomainClusterConfigOutput) WarmCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DomainClusterConfig) *int { return v.WarmCount }).(pulumi.IntPtrOutput)
@@ -784,6 +790,15 @@ func (o DomainClusterConfigPtrOutput) MultiAzWithStandbyEnabled() pulumi.BoolPtr
 		}
 		return v.MultiAzWithStandbyEnabled
 	}).(pulumi.BoolPtrOutput)
+}
+
+func (o DomainClusterConfigPtrOutput) NodeOptions() DomainNodeOptionArrayOutput {
+	return o.ApplyT(func(v *DomainClusterConfig) []DomainNodeOption {
+		if v == nil {
+			return nil
+		}
+		return v.NodeOptions
+	}).(DomainNodeOptionArrayOutput)
 }
 
 // The number of warm nodes in the cluster.
@@ -2673,6 +2688,269 @@ func (o DomainMasterUserOptionsPtrOutput) MasterUserPassword() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+type DomainNodeConfig struct {
+	Count   *int    `pulumi:"count"`
+	Enabled *bool   `pulumi:"enabled"`
+	Type    *string `pulumi:"type"`
+}
+
+// DomainNodeConfigInput is an input type that accepts DomainNodeConfigArgs and DomainNodeConfigOutput values.
+// You can construct a concrete instance of `DomainNodeConfigInput` via:
+//
+//	DomainNodeConfigArgs{...}
+type DomainNodeConfigInput interface {
+	pulumi.Input
+
+	ToDomainNodeConfigOutput() DomainNodeConfigOutput
+	ToDomainNodeConfigOutputWithContext(context.Context) DomainNodeConfigOutput
+}
+
+type DomainNodeConfigArgs struct {
+	Count   pulumi.IntPtrInput    `pulumi:"count"`
+	Enabled pulumi.BoolPtrInput   `pulumi:"enabled"`
+	Type    pulumi.StringPtrInput `pulumi:"type"`
+}
+
+func (DomainNodeConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainNodeConfig)(nil)).Elem()
+}
+
+func (i DomainNodeConfigArgs) ToDomainNodeConfigOutput() DomainNodeConfigOutput {
+	return i.ToDomainNodeConfigOutputWithContext(context.Background())
+}
+
+func (i DomainNodeConfigArgs) ToDomainNodeConfigOutputWithContext(ctx context.Context) DomainNodeConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainNodeConfigOutput)
+}
+
+func (i DomainNodeConfigArgs) ToDomainNodeConfigPtrOutput() DomainNodeConfigPtrOutput {
+	return i.ToDomainNodeConfigPtrOutputWithContext(context.Background())
+}
+
+func (i DomainNodeConfigArgs) ToDomainNodeConfigPtrOutputWithContext(ctx context.Context) DomainNodeConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainNodeConfigOutput).ToDomainNodeConfigPtrOutputWithContext(ctx)
+}
+
+// DomainNodeConfigPtrInput is an input type that accepts DomainNodeConfigArgs, DomainNodeConfigPtr and DomainNodeConfigPtrOutput values.
+// You can construct a concrete instance of `DomainNodeConfigPtrInput` via:
+//
+//	        DomainNodeConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainNodeConfigPtrInput interface {
+	pulumi.Input
+
+	ToDomainNodeConfigPtrOutput() DomainNodeConfigPtrOutput
+	ToDomainNodeConfigPtrOutputWithContext(context.Context) DomainNodeConfigPtrOutput
+}
+
+type domainNodeConfigPtrType DomainNodeConfigArgs
+
+func DomainNodeConfigPtr(v *DomainNodeConfigArgs) DomainNodeConfigPtrInput {
+	return (*domainNodeConfigPtrType)(v)
+}
+
+func (*domainNodeConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainNodeConfig)(nil)).Elem()
+}
+
+func (i *domainNodeConfigPtrType) ToDomainNodeConfigPtrOutput() DomainNodeConfigPtrOutput {
+	return i.ToDomainNodeConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *domainNodeConfigPtrType) ToDomainNodeConfigPtrOutputWithContext(ctx context.Context) DomainNodeConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainNodeConfigPtrOutput)
+}
+
+type DomainNodeConfigOutput struct{ *pulumi.OutputState }
+
+func (DomainNodeConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainNodeConfig)(nil)).Elem()
+}
+
+func (o DomainNodeConfigOutput) ToDomainNodeConfigOutput() DomainNodeConfigOutput {
+	return o
+}
+
+func (o DomainNodeConfigOutput) ToDomainNodeConfigOutputWithContext(ctx context.Context) DomainNodeConfigOutput {
+	return o
+}
+
+func (o DomainNodeConfigOutput) ToDomainNodeConfigPtrOutput() DomainNodeConfigPtrOutput {
+	return o.ToDomainNodeConfigPtrOutputWithContext(context.Background())
+}
+
+func (o DomainNodeConfigOutput) ToDomainNodeConfigPtrOutputWithContext(ctx context.Context) DomainNodeConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainNodeConfig) *DomainNodeConfig {
+		return &v
+	}).(DomainNodeConfigPtrOutput)
+}
+
+func (o DomainNodeConfigOutput) Count() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DomainNodeConfig) *int { return v.Count }).(pulumi.IntPtrOutput)
+}
+
+func (o DomainNodeConfigOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DomainNodeConfig) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o DomainNodeConfigOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainNodeConfig) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+type DomainNodeConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainNodeConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainNodeConfig)(nil)).Elem()
+}
+
+func (o DomainNodeConfigPtrOutput) ToDomainNodeConfigPtrOutput() DomainNodeConfigPtrOutput {
+	return o
+}
+
+func (o DomainNodeConfigPtrOutput) ToDomainNodeConfigPtrOutputWithContext(ctx context.Context) DomainNodeConfigPtrOutput {
+	return o
+}
+
+func (o DomainNodeConfigPtrOutput) Elem() DomainNodeConfigOutput {
+	return o.ApplyT(func(v *DomainNodeConfig) DomainNodeConfig {
+		if v != nil {
+			return *v
+		}
+		var ret DomainNodeConfig
+		return ret
+	}).(DomainNodeConfigOutput)
+}
+
+func (o DomainNodeConfigPtrOutput) Count() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DomainNodeConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Count
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o DomainNodeConfigPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DomainNodeConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o DomainNodeConfigPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainNodeConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type DomainNodeOption struct {
+	NodeConfig *DomainNodeConfig         `pulumi:"nodeConfig"`
+	NodeType   *DomainNodeOptionNodeType `pulumi:"nodeType"`
+}
+
+// DomainNodeOptionInput is an input type that accepts DomainNodeOptionArgs and DomainNodeOptionOutput values.
+// You can construct a concrete instance of `DomainNodeOptionInput` via:
+//
+//	DomainNodeOptionArgs{...}
+type DomainNodeOptionInput interface {
+	pulumi.Input
+
+	ToDomainNodeOptionOutput() DomainNodeOptionOutput
+	ToDomainNodeOptionOutputWithContext(context.Context) DomainNodeOptionOutput
+}
+
+type DomainNodeOptionArgs struct {
+	NodeConfig DomainNodeConfigPtrInput         `pulumi:"nodeConfig"`
+	NodeType   DomainNodeOptionNodeTypePtrInput `pulumi:"nodeType"`
+}
+
+func (DomainNodeOptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainNodeOption)(nil)).Elem()
+}
+
+func (i DomainNodeOptionArgs) ToDomainNodeOptionOutput() DomainNodeOptionOutput {
+	return i.ToDomainNodeOptionOutputWithContext(context.Background())
+}
+
+func (i DomainNodeOptionArgs) ToDomainNodeOptionOutputWithContext(ctx context.Context) DomainNodeOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainNodeOptionOutput)
+}
+
+// DomainNodeOptionArrayInput is an input type that accepts DomainNodeOptionArray and DomainNodeOptionArrayOutput values.
+// You can construct a concrete instance of `DomainNodeOptionArrayInput` via:
+//
+//	DomainNodeOptionArray{ DomainNodeOptionArgs{...} }
+type DomainNodeOptionArrayInput interface {
+	pulumi.Input
+
+	ToDomainNodeOptionArrayOutput() DomainNodeOptionArrayOutput
+	ToDomainNodeOptionArrayOutputWithContext(context.Context) DomainNodeOptionArrayOutput
+}
+
+type DomainNodeOptionArray []DomainNodeOptionInput
+
+func (DomainNodeOptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DomainNodeOption)(nil)).Elem()
+}
+
+func (i DomainNodeOptionArray) ToDomainNodeOptionArrayOutput() DomainNodeOptionArrayOutput {
+	return i.ToDomainNodeOptionArrayOutputWithContext(context.Background())
+}
+
+func (i DomainNodeOptionArray) ToDomainNodeOptionArrayOutputWithContext(ctx context.Context) DomainNodeOptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainNodeOptionArrayOutput)
+}
+
+type DomainNodeOptionOutput struct{ *pulumi.OutputState }
+
+func (DomainNodeOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainNodeOption)(nil)).Elem()
+}
+
+func (o DomainNodeOptionOutput) ToDomainNodeOptionOutput() DomainNodeOptionOutput {
+	return o
+}
+
+func (o DomainNodeOptionOutput) ToDomainNodeOptionOutputWithContext(ctx context.Context) DomainNodeOptionOutput {
+	return o
+}
+
+func (o DomainNodeOptionOutput) NodeConfig() DomainNodeConfigPtrOutput {
+	return o.ApplyT(func(v DomainNodeOption) *DomainNodeConfig { return v.NodeConfig }).(DomainNodeConfigPtrOutput)
+}
+
+func (o DomainNodeOptionOutput) NodeType() DomainNodeOptionNodeTypePtrOutput {
+	return o.ApplyT(func(v DomainNodeOption) *DomainNodeOptionNodeType { return v.NodeType }).(DomainNodeOptionNodeTypePtrOutput)
+}
+
+type DomainNodeOptionArrayOutput struct{ *pulumi.OutputState }
+
+func (DomainNodeOptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DomainNodeOption)(nil)).Elem()
+}
+
+func (o DomainNodeOptionArrayOutput) ToDomainNodeOptionArrayOutput() DomainNodeOptionArrayOutput {
+	return o
+}
+
+func (o DomainNodeOptionArrayOutput) ToDomainNodeOptionArrayOutputWithContext(ctx context.Context) DomainNodeOptionArrayOutput {
+	return o
+}
+
+func (o DomainNodeOptionArrayOutput) Index(i pulumi.IntInput) DomainNodeOptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DomainNodeOption {
+		return vs[0].([]DomainNodeOption)[vs[1].(int)]
+	}).(DomainNodeOptionOutput)
+}
+
 type DomainNodeToNodeEncryptionOptions struct {
 	// Specifies to enable or disable node-to-node encryption on the domain. Required if you enable fine-grained access control in [AdvancedSecurityOptionsInput](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html) .
 	Enabled *bool `pulumi:"enabled"`
@@ -4484,6 +4762,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainLogPublishingOptionMapInput)(nil)).Elem(), DomainLogPublishingOptionMap{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainMasterUserOptionsInput)(nil)).Elem(), DomainMasterUserOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainMasterUserOptionsPtrInput)(nil)).Elem(), DomainMasterUserOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainNodeConfigInput)(nil)).Elem(), DomainNodeConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainNodeConfigPtrInput)(nil)).Elem(), DomainNodeConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainNodeOptionInput)(nil)).Elem(), DomainNodeOptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainNodeOptionArrayInput)(nil)).Elem(), DomainNodeOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainNodeToNodeEncryptionOptionsInput)(nil)).Elem(), DomainNodeToNodeEncryptionOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainNodeToNodeEncryptionOptionsPtrInput)(nil)).Elem(), DomainNodeToNodeEncryptionOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainOffPeakWindowInput)(nil)).Elem(), DomainOffPeakWindowArgs{})
@@ -4532,6 +4814,10 @@ func init() {
 	pulumi.RegisterOutputType(DomainLogPublishingOptionMapOutput{})
 	pulumi.RegisterOutputType(DomainMasterUserOptionsOutput{})
 	pulumi.RegisterOutputType(DomainMasterUserOptionsPtrOutput{})
+	pulumi.RegisterOutputType(DomainNodeConfigOutput{})
+	pulumi.RegisterOutputType(DomainNodeConfigPtrOutput{})
+	pulumi.RegisterOutputType(DomainNodeOptionOutput{})
+	pulumi.RegisterOutputType(DomainNodeOptionArrayOutput{})
 	pulumi.RegisterOutputType(DomainNodeToNodeEncryptionOptionsOutput{})
 	pulumi.RegisterOutputType(DomainNodeToNodeEncryptionOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DomainOffPeakWindowOutput{})

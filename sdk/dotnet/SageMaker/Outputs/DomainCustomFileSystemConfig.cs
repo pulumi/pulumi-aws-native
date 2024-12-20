@@ -17,11 +17,16 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         /// The settings for a custom Amazon EFS file system.
         /// </summary>
         public readonly Outputs.DomainEfsFileSystemConfig? EfsFileSystemConfig;
+        public readonly Outputs.DomainFSxLustreFileSystemConfig? FSxLustreFileSystemConfig;
 
         [OutputConstructor]
-        private DomainCustomFileSystemConfig(Outputs.DomainEfsFileSystemConfig? efsFileSystemConfig)
+        private DomainCustomFileSystemConfig(
+            Outputs.DomainEfsFileSystemConfig? efsFileSystemConfig,
+
+            Outputs.DomainFSxLustreFileSystemConfig? fSxLustreFileSystemConfig)
         {
             EfsFileSystemConfig = efsFileSystemConfig;
+            FSxLustreFileSystemConfig = fSxLustreFileSystemConfig;
         }
     }
 }

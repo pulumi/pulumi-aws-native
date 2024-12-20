@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         [Input("efsFileSystem")]
         public Input<Inputs.SpaceEfsFileSystemArgs>? EfsFileSystem { get; set; }
 
+        [Input("fSxLustreFileSystem")]
+        public Input<Inputs.SpaceFSxLustreFileSystemArgs>? FSxLustreFileSystem { get; set; }
+
         public SpaceCustomFileSystemArgs()
         {
         }

@@ -1268,6 +1268,172 @@ func (in *agentPromptTypePtr) ToAgentPromptTypePtrOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, in).(AgentPromptTypePtrOutput)
 }
 
+// ENUM to check if action requires user confirmation
+type AgentRequireConfirmation string
+
+const (
+	AgentRequireConfirmationEnabled  = AgentRequireConfirmation("ENABLED")
+	AgentRequireConfirmationDisabled = AgentRequireConfirmation("DISABLED")
+)
+
+func (AgentRequireConfirmation) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentRequireConfirmation)(nil)).Elem()
+}
+
+func (e AgentRequireConfirmation) ToAgentRequireConfirmationOutput() AgentRequireConfirmationOutput {
+	return pulumi.ToOutput(e).(AgentRequireConfirmationOutput)
+}
+
+func (e AgentRequireConfirmation) ToAgentRequireConfirmationOutputWithContext(ctx context.Context) AgentRequireConfirmationOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AgentRequireConfirmationOutput)
+}
+
+func (e AgentRequireConfirmation) ToAgentRequireConfirmationPtrOutput() AgentRequireConfirmationPtrOutput {
+	return e.ToAgentRequireConfirmationPtrOutputWithContext(context.Background())
+}
+
+func (e AgentRequireConfirmation) ToAgentRequireConfirmationPtrOutputWithContext(ctx context.Context) AgentRequireConfirmationPtrOutput {
+	return AgentRequireConfirmation(e).ToAgentRequireConfirmationOutputWithContext(ctx).ToAgentRequireConfirmationPtrOutputWithContext(ctx)
+}
+
+func (e AgentRequireConfirmation) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AgentRequireConfirmation) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AgentRequireConfirmation) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AgentRequireConfirmation) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AgentRequireConfirmationOutput struct{ *pulumi.OutputState }
+
+func (AgentRequireConfirmationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentRequireConfirmation)(nil)).Elem()
+}
+
+func (o AgentRequireConfirmationOutput) ToAgentRequireConfirmationOutput() AgentRequireConfirmationOutput {
+	return o
+}
+
+func (o AgentRequireConfirmationOutput) ToAgentRequireConfirmationOutputWithContext(ctx context.Context) AgentRequireConfirmationOutput {
+	return o
+}
+
+func (o AgentRequireConfirmationOutput) ToAgentRequireConfirmationPtrOutput() AgentRequireConfirmationPtrOutput {
+	return o.ToAgentRequireConfirmationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentRequireConfirmationOutput) ToAgentRequireConfirmationPtrOutputWithContext(ctx context.Context) AgentRequireConfirmationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentRequireConfirmation) *AgentRequireConfirmation {
+		return &v
+	}).(AgentRequireConfirmationPtrOutput)
+}
+
+func (o AgentRequireConfirmationOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AgentRequireConfirmationOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AgentRequireConfirmation) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AgentRequireConfirmationOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AgentRequireConfirmationOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AgentRequireConfirmation) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentRequireConfirmationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentRequireConfirmationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentRequireConfirmation)(nil)).Elem()
+}
+
+func (o AgentRequireConfirmationPtrOutput) ToAgentRequireConfirmationPtrOutput() AgentRequireConfirmationPtrOutput {
+	return o
+}
+
+func (o AgentRequireConfirmationPtrOutput) ToAgentRequireConfirmationPtrOutputWithContext(ctx context.Context) AgentRequireConfirmationPtrOutput {
+	return o
+}
+
+func (o AgentRequireConfirmationPtrOutput) Elem() AgentRequireConfirmationOutput {
+	return o.ApplyT(func(v *AgentRequireConfirmation) AgentRequireConfirmation {
+		if v != nil {
+			return *v
+		}
+		var ret AgentRequireConfirmation
+		return ret
+	}).(AgentRequireConfirmationOutput)
+}
+
+func (o AgentRequireConfirmationPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AgentRequireConfirmationPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AgentRequireConfirmation) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AgentRequireConfirmationInput is an input type that accepts values of the AgentRequireConfirmation enum
+// A concrete instance of `AgentRequireConfirmationInput` can be one of the following:
+//
+//	AgentRequireConfirmationEnabled
+//	AgentRequireConfirmationDisabled
+type AgentRequireConfirmationInput interface {
+	pulumi.Input
+
+	ToAgentRequireConfirmationOutput() AgentRequireConfirmationOutput
+	ToAgentRequireConfirmationOutputWithContext(context.Context) AgentRequireConfirmationOutput
+}
+
+var agentRequireConfirmationPtrType = reflect.TypeOf((**AgentRequireConfirmation)(nil)).Elem()
+
+type AgentRequireConfirmationPtrInput interface {
+	pulumi.Input
+
+	ToAgentRequireConfirmationPtrOutput() AgentRequireConfirmationPtrOutput
+	ToAgentRequireConfirmationPtrOutputWithContext(context.Context) AgentRequireConfirmationPtrOutput
+}
+
+type agentRequireConfirmationPtr string
+
+func AgentRequireConfirmationPtr(v string) AgentRequireConfirmationPtrInput {
+	return (*agentRequireConfirmationPtr)(&v)
+}
+
+func (*agentRequireConfirmationPtr) ElementType() reflect.Type {
+	return agentRequireConfirmationPtrType
+}
+
+func (in *agentRequireConfirmationPtr) ToAgentRequireConfirmationPtrOutput() AgentRequireConfirmationPtrOutput {
+	return pulumi.ToOutput(in).(AgentRequireConfirmationPtrOutput)
+}
+
+func (in *agentRequireConfirmationPtr) ToAgentRequireConfirmationPtrOutputWithContext(ctx context.Context) AgentRequireConfirmationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AgentRequireConfirmationPtrOutput)
+}
+
 // Schema Type for Action APIs.
 type AgentStatus string
 
@@ -6800,11 +6966,178 @@ func (in *knowledgeBaseTypePtr) ToKnowledgeBaseTypePtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(KnowledgeBaseTypePtrOutput)
 }
 
+// Conversation roles for the chat prompt
+type PromptConversationRole string
+
+const (
+	PromptConversationRoleUser      = PromptConversationRole("user")
+	PromptConversationRoleAssistant = PromptConversationRole("assistant")
+)
+
+func (PromptConversationRole) ElementType() reflect.Type {
+	return reflect.TypeOf((*PromptConversationRole)(nil)).Elem()
+}
+
+func (e PromptConversationRole) ToPromptConversationRoleOutput() PromptConversationRoleOutput {
+	return pulumi.ToOutput(e).(PromptConversationRoleOutput)
+}
+
+func (e PromptConversationRole) ToPromptConversationRoleOutputWithContext(ctx context.Context) PromptConversationRoleOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PromptConversationRoleOutput)
+}
+
+func (e PromptConversationRole) ToPromptConversationRolePtrOutput() PromptConversationRolePtrOutput {
+	return e.ToPromptConversationRolePtrOutputWithContext(context.Background())
+}
+
+func (e PromptConversationRole) ToPromptConversationRolePtrOutputWithContext(ctx context.Context) PromptConversationRolePtrOutput {
+	return PromptConversationRole(e).ToPromptConversationRoleOutputWithContext(ctx).ToPromptConversationRolePtrOutputWithContext(ctx)
+}
+
+func (e PromptConversationRole) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PromptConversationRole) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PromptConversationRole) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PromptConversationRole) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PromptConversationRoleOutput struct{ *pulumi.OutputState }
+
+func (PromptConversationRoleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PromptConversationRole)(nil)).Elem()
+}
+
+func (o PromptConversationRoleOutput) ToPromptConversationRoleOutput() PromptConversationRoleOutput {
+	return o
+}
+
+func (o PromptConversationRoleOutput) ToPromptConversationRoleOutputWithContext(ctx context.Context) PromptConversationRoleOutput {
+	return o
+}
+
+func (o PromptConversationRoleOutput) ToPromptConversationRolePtrOutput() PromptConversationRolePtrOutput {
+	return o.ToPromptConversationRolePtrOutputWithContext(context.Background())
+}
+
+func (o PromptConversationRoleOutput) ToPromptConversationRolePtrOutputWithContext(ctx context.Context) PromptConversationRolePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PromptConversationRole) *PromptConversationRole {
+		return &v
+	}).(PromptConversationRolePtrOutput)
+}
+
+func (o PromptConversationRoleOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PromptConversationRoleOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PromptConversationRole) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PromptConversationRoleOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PromptConversationRoleOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PromptConversationRole) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PromptConversationRolePtrOutput struct{ *pulumi.OutputState }
+
+func (PromptConversationRolePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PromptConversationRole)(nil)).Elem()
+}
+
+func (o PromptConversationRolePtrOutput) ToPromptConversationRolePtrOutput() PromptConversationRolePtrOutput {
+	return o
+}
+
+func (o PromptConversationRolePtrOutput) ToPromptConversationRolePtrOutputWithContext(ctx context.Context) PromptConversationRolePtrOutput {
+	return o
+}
+
+func (o PromptConversationRolePtrOutput) Elem() PromptConversationRoleOutput {
+	return o.ApplyT(func(v *PromptConversationRole) PromptConversationRole {
+		if v != nil {
+			return *v
+		}
+		var ret PromptConversationRole
+		return ret
+	}).(PromptConversationRoleOutput)
+}
+
+func (o PromptConversationRolePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PromptConversationRolePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PromptConversationRole) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PromptConversationRoleInput is an input type that accepts values of the PromptConversationRole enum
+// A concrete instance of `PromptConversationRoleInput` can be one of the following:
+//
+//	PromptConversationRoleUser
+//	PromptConversationRoleAssistant
+type PromptConversationRoleInput interface {
+	pulumi.Input
+
+	ToPromptConversationRoleOutput() PromptConversationRoleOutput
+	ToPromptConversationRoleOutputWithContext(context.Context) PromptConversationRoleOutput
+}
+
+var promptConversationRolePtrType = reflect.TypeOf((**PromptConversationRole)(nil)).Elem()
+
+type PromptConversationRolePtrInput interface {
+	pulumi.Input
+
+	ToPromptConversationRolePtrOutput() PromptConversationRolePtrOutput
+	ToPromptConversationRolePtrOutputWithContext(context.Context) PromptConversationRolePtrOutput
+}
+
+type promptConversationRolePtr string
+
+func PromptConversationRolePtr(v string) PromptConversationRolePtrInput {
+	return (*promptConversationRolePtr)(&v)
+}
+
+func (*promptConversationRolePtr) ElementType() reflect.Type {
+	return promptConversationRolePtrType
+}
+
+func (in *promptConversationRolePtr) ToPromptConversationRolePtrOutput() PromptConversationRolePtrOutput {
+	return pulumi.ToOutput(in).(PromptConversationRolePtrOutput)
+}
+
+func (in *promptConversationRolePtr) ToPromptConversationRolePtrOutputWithContext(ctx context.Context) PromptConversationRolePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PromptConversationRolePtrOutput)
+}
+
 // Prompt template type
 type PromptTemplateType string
 
 const (
 	PromptTemplateTypeText = PromptTemplateType("TEXT")
+	PromptTemplateTypeChat = PromptTemplateType("CHAT")
 )
 
 func (PromptTemplateType) ElementType() reflect.Type {
@@ -6930,6 +7263,7 @@ func (o PromptTemplateTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 // A concrete instance of `PromptTemplateTypeInput` can be one of the following:
 //
 //	PromptTemplateTypeText
+//	PromptTemplateTypeChat
 type PromptTemplateTypeInput interface {
 	pulumi.Input
 
@@ -7069,6 +7403,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentPromptStatePtrInput)(nil)).Elem(), AgentPromptState("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentPromptTypeInput)(nil)).Elem(), AgentPromptType("PRE_PROCESSING"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentPromptTypePtrInput)(nil)).Elem(), AgentPromptType("PRE_PROCESSING"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentRequireConfirmationInput)(nil)).Elem(), AgentRequireConfirmation("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentRequireConfirmationPtrInput)(nil)).Elem(), AgentRequireConfirmation("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentTypeInput)(nil)).Elem(), AgentType("string"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentTypePtrInput)(nil)).Elem(), AgentType("string"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceChunkingStrategyInput)(nil)).Elem(), DataSourceChunkingStrategy("FIXED_SIZE"))
@@ -7121,6 +7457,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseStorageTypePtrInput)(nil)).Elem(), KnowledgeBaseStorageType("OPENSEARCH_SERVERLESS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseTypeInput)(nil)).Elem(), KnowledgeBaseType("VECTOR"))
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseTypePtrInput)(nil)).Elem(), KnowledgeBaseType("VECTOR"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PromptConversationRoleInput)(nil)).Elem(), PromptConversationRole("user"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PromptConversationRolePtrInput)(nil)).Elem(), PromptConversationRole("user"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PromptTemplateTypeInput)(nil)).Elem(), PromptTemplateType("TEXT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PromptTemplateTypePtrInput)(nil)).Elem(), PromptTemplateType("TEXT"))
 	pulumi.RegisterOutputType(AgentActionGroupSignatureOutput{})
@@ -7139,6 +7477,8 @@ func init() {
 	pulumi.RegisterOutputType(AgentPromptStatePtrOutput{})
 	pulumi.RegisterOutputType(AgentPromptTypeOutput{})
 	pulumi.RegisterOutputType(AgentPromptTypePtrOutput{})
+	pulumi.RegisterOutputType(AgentRequireConfirmationOutput{})
+	pulumi.RegisterOutputType(AgentRequireConfirmationPtrOutput{})
 	pulumi.RegisterOutputType(AgentStatusOutput{})
 	pulumi.RegisterOutputType(AgentStatusPtrOutput{})
 	pulumi.RegisterOutputType(AgentTypeOutput{})
@@ -7215,6 +7555,8 @@ func init() {
 	pulumi.RegisterOutputType(KnowledgeBaseStorageTypePtrOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseTypeOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseTypePtrOutput{})
+	pulumi.RegisterOutputType(PromptConversationRoleOutput{})
+	pulumi.RegisterOutputType(PromptConversationRolePtrOutput{})
 	pulumi.RegisterOutputType(PromptTemplateTypeOutput{})
 	pulumi.RegisterOutputType(PromptTemplateTypePtrOutput{})
 	pulumi.RegisterOutputType(PromptVersionPromptTemplateTypeOutput{})

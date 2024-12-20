@@ -31,6 +31,8 @@ __all__ = [
     'DomainJwtOptions',
     'DomainLogPublishingOption',
     'DomainMasterUserOptions',
+    'DomainNodeConfig',
+    'DomainNodeOption',
     'DomainNodeToNodeEncryptionOptions',
     'DomainOffPeakWindow',
     'DomainOffPeakWindowOptions',
@@ -267,6 +269,8 @@ class DomainClusterConfig(dict):
             suggest = "instance_type"
         elif key == "multiAzWithStandbyEnabled":
             suggest = "multi_az_with_standby_enabled"
+        elif key == "nodeOptions":
+            suggest = "node_options"
         elif key == "warmCount":
             suggest = "warm_count"
         elif key == "warmEnabled":
@@ -297,6 +301,7 @@ class DomainClusterConfig(dict):
                  instance_count: Optional[int] = None,
                  instance_type: Optional[str] = None,
                  multi_az_with_standby_enabled: Optional[bool] = None,
+                 node_options: Optional[Sequence['outputs.DomainNodeOption']] = None,
                  warm_count: Optional[int] = None,
                  warm_enabled: Optional[bool] = None,
                  warm_type: Optional[str] = None,
@@ -330,6 +335,8 @@ class DomainClusterConfig(dict):
             pulumi.set(__self__, "instance_type", instance_type)
         if multi_az_with_standby_enabled is not None:
             pulumi.set(__self__, "multi_az_with_standby_enabled", multi_az_with_standby_enabled)
+        if node_options is not None:
+            pulumi.set(__self__, "node_options", node_options)
         if warm_count is not None:
             pulumi.set(__self__, "warm_count", warm_count)
         if warm_enabled is not None:
@@ -396,6 +403,11 @@ class DomainClusterConfig(dict):
         Indicates whether Multi-AZ with Standby deployment option is enabled. For more information, see [Multi-AZ with Standby](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-multiaz.html#managedomains-za-standby) .
         """
         return pulumi.get(self, "multi_az_with_standby_enabled")
+
+    @property
+    @pulumi.getter(name="nodeOptions")
+    def node_options(self) -> Optional[Sequence['outputs.DomainNodeOption']]:
+        return pulumi.get(self, "node_options")
 
     @property
     @pulumi.getter(name="warmCount")
@@ -1117,6 +1129,75 @@ class DomainMasterUserOptions(dict):
         If you don't want to specify this value directly within the template, you can use a [dynamic reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/dynamic-references.html) instead.
         """
         return pulumi.get(self, "master_user_password")
+
+
+@pulumi.output_type
+class DomainNodeConfig(dict):
+    def __init__(__self__, *,
+                 count: Optional[int] = None,
+                 enabled: Optional[bool] = None,
+                 type: Optional[str] = None):
+        if count is not None:
+            pulumi.set(__self__, "count", count)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def count(self) -> Optional[int]:
+        return pulumi.get(self, "count")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class DomainNodeOption(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nodeConfig":
+            suggest = "node_config"
+        elif key == "nodeType":
+            suggest = "node_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainNodeOption. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainNodeOption.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainNodeOption.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 node_config: Optional['outputs.DomainNodeConfig'] = None,
+                 node_type: Optional['DomainNodeOptionNodeType'] = None):
+        if node_config is not None:
+            pulumi.set(__self__, "node_config", node_config)
+        if node_type is not None:
+            pulumi.set(__self__, "node_type", node_type)
+
+    @property
+    @pulumi.getter(name="nodeConfig")
+    def node_config(self) -> Optional['outputs.DomainNodeConfig']:
+        return pulumi.get(self, "node_config")
+
+    @property
+    @pulumi.getter(name="nodeType")
+    def node_type(self) -> Optional['DomainNodeOptionNodeType']:
+        return pulumi.get(self, "node_type")
 
 
 @pulumi.output_type

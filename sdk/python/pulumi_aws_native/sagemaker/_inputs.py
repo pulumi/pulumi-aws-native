@@ -106,6 +106,8 @@ __all__ = [
     'DomainDockerSettingsArgsDict',
     'DomainEfsFileSystemConfigArgs',
     'DomainEfsFileSystemConfigArgsDict',
+    'DomainFSxLustreFileSystemConfigArgs',
+    'DomainFSxLustreFileSystemConfigArgsDict',
     'DomainIdleSettingsArgs',
     'DomainIdleSettingsArgsDict',
     'DomainJupyterLabAppSettingsArgs',
@@ -496,6 +498,8 @@ __all__ = [
     'SpaceEbsStorageSettingsArgsDict',
     'SpaceEfsFileSystemArgs',
     'SpaceEfsFileSystemArgsDict',
+    'SpaceFSxLustreFileSystemArgs',
+    'SpaceFSxLustreFileSystemArgsDict',
     'SpaceIdleSettingsArgs',
     'SpaceIdleSettingsArgsDict',
     'SpaceJupyterLabAppSettingsArgs',
@@ -532,6 +536,8 @@ __all__ = [
     'UserProfileDefaultSpaceStorageSettingsArgsDict',
     'UserProfileEfsFileSystemConfigArgs',
     'UserProfileEfsFileSystemConfigArgsDict',
+    'UserProfileFSxLustreFileSystemConfigArgs',
+    'UserProfileFSxLustreFileSystemConfigArgsDict',
     'UserProfileIdleSettingsArgs',
     'UserProfileIdleSettingsArgsDict',
     'UserProfileJupyterLabAppSettingsArgs',
@@ -2845,18 +2851,22 @@ if not MYPY:
         """
         The settings for a custom Amazon EFS file system.
         """
+        f_sx_lustre_file_system_config: NotRequired[pulumi.Input['DomainFSxLustreFileSystemConfigArgsDict']]
 elif False:
     DomainCustomFileSystemConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class DomainCustomFileSystemConfigArgs:
     def __init__(__self__, *,
-                 efs_file_system_config: Optional[pulumi.Input['DomainEfsFileSystemConfigArgs']] = None):
+                 efs_file_system_config: Optional[pulumi.Input['DomainEfsFileSystemConfigArgs']] = None,
+                 f_sx_lustre_file_system_config: Optional[pulumi.Input['DomainFSxLustreFileSystemConfigArgs']] = None):
         """
         :param pulumi.Input['DomainEfsFileSystemConfigArgs'] efs_file_system_config: The settings for a custom Amazon EFS file system.
         """
         if efs_file_system_config is not None:
             pulumi.set(__self__, "efs_file_system_config", efs_file_system_config)
+        if f_sx_lustre_file_system_config is not None:
+            pulumi.set(__self__, "f_sx_lustre_file_system_config", f_sx_lustre_file_system_config)
 
     @property
     @pulumi.getter(name="efsFileSystemConfig")
@@ -2869,6 +2879,15 @@ class DomainCustomFileSystemConfigArgs:
     @efs_file_system_config.setter
     def efs_file_system_config(self, value: Optional[pulumi.Input['DomainEfsFileSystemConfigArgs']]):
         pulumi.set(self, "efs_file_system_config", value)
+
+    @property
+    @pulumi.getter(name="fSxLustreFileSystemConfig")
+    def f_sx_lustre_file_system_config(self) -> Optional[pulumi.Input['DomainFSxLustreFileSystemConfigArgs']]:
+        return pulumi.get(self, "f_sx_lustre_file_system_config")
+
+    @f_sx_lustre_file_system_config.setter
+    def f_sx_lustre_file_system_config(self, value: Optional[pulumi.Input['DomainFSxLustreFileSystemConfigArgs']]):
+        pulumi.set(self, "f_sx_lustre_file_system_config", value)
 
 
 if not MYPY:
@@ -3360,6 +3379,41 @@ class DomainEfsFileSystemConfigArgs:
         """
         The path to the file system directory that is accessible in Amazon SageMaker AI Studio. Permitted users can access only this directory and below.
         """
+        return pulumi.get(self, "file_system_path")
+
+    @file_system_path.setter
+    def file_system_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "file_system_path", value)
+
+
+if not MYPY:
+    class DomainFSxLustreFileSystemConfigArgsDict(TypedDict):
+        file_system_id: pulumi.Input[str]
+        file_system_path: NotRequired[pulumi.Input[str]]
+elif False:
+    DomainFSxLustreFileSystemConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DomainFSxLustreFileSystemConfigArgs:
+    def __init__(__self__, *,
+                 file_system_id: pulumi.Input[str],
+                 file_system_path: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "file_system_id", file_system_id)
+        if file_system_path is not None:
+            pulumi.set(__self__, "file_system_path", file_system_path)
+
+    @property
+    @pulumi.getter(name="fileSystemId")
+    def file_system_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "file_system_id")
+
+    @file_system_id.setter
+    def file_system_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "file_system_id", value)
+
+    @property
+    @pulumi.getter(name="fileSystemPath")
+    def file_system_path(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "file_system_path")
 
     @file_system_path.setter
@@ -17401,15 +17455,19 @@ class SpaceCodeRepositoryArgs:
 if not MYPY:
     class SpaceCustomFileSystemArgsDict(TypedDict):
         efs_file_system: NotRequired[pulumi.Input['SpaceEfsFileSystemArgsDict']]
+        f_sx_lustre_file_system: NotRequired[pulumi.Input['SpaceFSxLustreFileSystemArgsDict']]
 elif False:
     SpaceCustomFileSystemArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SpaceCustomFileSystemArgs:
     def __init__(__self__, *,
-                 efs_file_system: Optional[pulumi.Input['SpaceEfsFileSystemArgs']] = None):
+                 efs_file_system: Optional[pulumi.Input['SpaceEfsFileSystemArgs']] = None,
+                 f_sx_lustre_file_system: Optional[pulumi.Input['SpaceFSxLustreFileSystemArgs']] = None):
         if efs_file_system is not None:
             pulumi.set(__self__, "efs_file_system", efs_file_system)
+        if f_sx_lustre_file_system is not None:
+            pulumi.set(__self__, "f_sx_lustre_file_system", f_sx_lustre_file_system)
 
     @property
     @pulumi.getter(name="efsFileSystem")
@@ -17419,6 +17477,15 @@ class SpaceCustomFileSystemArgs:
     @efs_file_system.setter
     def efs_file_system(self, value: Optional[pulumi.Input['SpaceEfsFileSystemArgs']]):
         pulumi.set(self, "efs_file_system", value)
+
+    @property
+    @pulumi.getter(name="fSxLustreFileSystem")
+    def f_sx_lustre_file_system(self) -> Optional[pulumi.Input['SpaceFSxLustreFileSystemArgs']]:
+        return pulumi.get(self, "f_sx_lustre_file_system")
+
+    @f_sx_lustre_file_system.setter
+    def f_sx_lustre_file_system(self, value: Optional[pulumi.Input['SpaceFSxLustreFileSystemArgs']]):
+        pulumi.set(self, "f_sx_lustre_file_system", value)
 
 
 if not MYPY:
@@ -17538,6 +17605,28 @@ elif False:
 
 @pulumi.input_type
 class SpaceEfsFileSystemArgs:
+    def __init__(__self__, *,
+                 file_system_id: pulumi.Input[str]):
+        pulumi.set(__self__, "file_system_id", file_system_id)
+
+    @property
+    @pulumi.getter(name="fileSystemId")
+    def file_system_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "file_system_id")
+
+    @file_system_id.setter
+    def file_system_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "file_system_id", value)
+
+
+if not MYPY:
+    class SpaceFSxLustreFileSystemArgsDict(TypedDict):
+        file_system_id: pulumi.Input[str]
+elif False:
+    SpaceFSxLustreFileSystemArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SpaceFSxLustreFileSystemArgs:
     def __init__(__self__, *,
                  file_system_id: pulumi.Input[str]):
         pulumi.set(__self__, "file_system_id", file_system_id)
@@ -18299,18 +18388,22 @@ if not MYPY:
         """
         The settings for a custom Amazon EFS file system.
         """
+        f_sx_lustre_file_system_config: NotRequired[pulumi.Input['UserProfileFSxLustreFileSystemConfigArgsDict']]
 elif False:
     UserProfileCustomFileSystemConfigArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class UserProfileCustomFileSystemConfigArgs:
     def __init__(__self__, *,
-                 efs_file_system_config: Optional[pulumi.Input['UserProfileEfsFileSystemConfigArgs']] = None):
+                 efs_file_system_config: Optional[pulumi.Input['UserProfileEfsFileSystemConfigArgs']] = None,
+                 f_sx_lustre_file_system_config: Optional[pulumi.Input['UserProfileFSxLustreFileSystemConfigArgs']] = None):
         """
         :param pulumi.Input['UserProfileEfsFileSystemConfigArgs'] efs_file_system_config: The settings for a custom Amazon EFS file system.
         """
         if efs_file_system_config is not None:
             pulumi.set(__self__, "efs_file_system_config", efs_file_system_config)
+        if f_sx_lustre_file_system_config is not None:
+            pulumi.set(__self__, "f_sx_lustre_file_system_config", f_sx_lustre_file_system_config)
 
     @property
     @pulumi.getter(name="efsFileSystemConfig")
@@ -18323,6 +18416,15 @@ class UserProfileCustomFileSystemConfigArgs:
     @efs_file_system_config.setter
     def efs_file_system_config(self, value: Optional[pulumi.Input['UserProfileEfsFileSystemConfigArgs']]):
         pulumi.set(self, "efs_file_system_config", value)
+
+    @property
+    @pulumi.getter(name="fSxLustreFileSystemConfig")
+    def f_sx_lustre_file_system_config(self) -> Optional[pulumi.Input['UserProfileFSxLustreFileSystemConfigArgs']]:
+        return pulumi.get(self, "f_sx_lustre_file_system_config")
+
+    @f_sx_lustre_file_system_config.setter
+    def f_sx_lustre_file_system_config(self, value: Optional[pulumi.Input['UserProfileFSxLustreFileSystemConfigArgs']]):
+        pulumi.set(self, "f_sx_lustre_file_system_config", value)
 
 
 if not MYPY:
@@ -18583,6 +18685,41 @@ class UserProfileEfsFileSystemConfigArgs:
         """
         The path to the file system directory that is accessible in Amazon SageMaker AI Studio. Permitted users can access only this directory and below.
         """
+        return pulumi.get(self, "file_system_path")
+
+    @file_system_path.setter
+    def file_system_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "file_system_path", value)
+
+
+if not MYPY:
+    class UserProfileFSxLustreFileSystemConfigArgsDict(TypedDict):
+        file_system_id: pulumi.Input[str]
+        file_system_path: NotRequired[pulumi.Input[str]]
+elif False:
+    UserProfileFSxLustreFileSystemConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class UserProfileFSxLustreFileSystemConfigArgs:
+    def __init__(__self__, *,
+                 file_system_id: pulumi.Input[str],
+                 file_system_path: Optional[pulumi.Input[str]] = None):
+        pulumi.set(__self__, "file_system_id", file_system_id)
+        if file_system_path is not None:
+            pulumi.set(__self__, "file_system_path", file_system_path)
+
+    @property
+    @pulumi.getter(name="fileSystemId")
+    def file_system_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "file_system_id")
+
+    @file_system_id.setter
+    def file_system_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "file_system_id", value)
+
+    @property
+    @pulumi.getter(name="fileSystemPath")
+    def file_system_path(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "file_system_path")
 
     @file_system_path.setter

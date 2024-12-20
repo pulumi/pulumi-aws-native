@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
     /// </summary>
     public sealed class PromptVariantArgs : global::Pulumi.ResourceArgs
     {
+        [Input("genAiResource")]
+        public Input<Inputs.PromptGenAiResourcePropertiesArgs>? GenAiResource { get; set; }
+
         /// <summary>
         /// Contains inference configurations for the prompt variant.
         /// </summary>
@@ -37,7 +40,7 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
         /// Contains configurations for the prompt template.
         /// </summary>
         [Input("templateConfiguration", required: true)]
-        public Input<Inputs.PromptTemplateConfigurationPropertiesArgs> TemplateConfiguration { get; set; } = null!;
+        public InputUnion<Inputs.PromptTemplateConfiguration0PropertiesArgs, Inputs.PromptTemplateConfiguration1PropertiesArgs> TemplateConfiguration { get; set; } = null!;
 
         /// <summary>
         /// The type of prompt template to use.

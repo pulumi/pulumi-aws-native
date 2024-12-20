@@ -12,6 +12,12 @@ export const ApplicationAppConfigType = {
  */
 export type ApplicationAppConfigType = (typeof ApplicationAppConfigType)[keyof typeof ApplicationAppConfigType];
 
+export const DomainNodeOptionNodeType = {
+    Coordinator: "coordinator",
+} as const;
+
+export type DomainNodeOptionNodeType = (typeof DomainNodeOptionNodeType)[keyof typeof DomainNodeOptionNodeType];
+
 export const DomainRolesKeyIdcType = {
     GroupName: "GroupName",
     GroupId: "GroupId",

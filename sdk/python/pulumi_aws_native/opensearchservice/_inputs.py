@@ -44,6 +44,10 @@ __all__ = [
     'DomainLogPublishingOptionArgsDict',
     'DomainMasterUserOptionsArgs',
     'DomainMasterUserOptionsArgsDict',
+    'DomainNodeConfigArgs',
+    'DomainNodeConfigArgsDict',
+    'DomainNodeOptionArgs',
+    'DomainNodeOptionArgsDict',
     'DomainNodeToNodeEncryptionOptionsArgs',
     'DomainNodeToNodeEncryptionOptionsArgsDict',
     'DomainOffPeakWindowOptionsArgs',
@@ -359,6 +363,7 @@ if not MYPY:
         """
         Indicates whether Multi-AZ with Standby deployment option is enabled. For more information, see [Multi-AZ with Standby](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-multiaz.html#managedomains-za-standby) .
         """
+        node_options: NotRequired[pulumi.Input[Sequence[pulumi.Input['DomainNodeOptionArgsDict']]]]
         warm_count: NotRequired[pulumi.Input[int]]
         """
         The number of warm nodes in the cluster.
@@ -392,6 +397,7 @@ class DomainClusterConfigArgs:
                  instance_count: Optional[pulumi.Input[int]] = None,
                  instance_type: Optional[pulumi.Input[str]] = None,
                  multi_az_with_standby_enabled: Optional[pulumi.Input[bool]] = None,
+                 node_options: Optional[pulumi.Input[Sequence[pulumi.Input['DomainNodeOptionArgs']]]] = None,
                  warm_count: Optional[pulumi.Input[int]] = None,
                  warm_enabled: Optional[pulumi.Input[bool]] = None,
                  warm_type: Optional[pulumi.Input[str]] = None,
@@ -425,6 +431,8 @@ class DomainClusterConfigArgs:
             pulumi.set(__self__, "instance_type", instance_type)
         if multi_az_with_standby_enabled is not None:
             pulumi.set(__self__, "multi_az_with_standby_enabled", multi_az_with_standby_enabled)
+        if node_options is not None:
+            pulumi.set(__self__, "node_options", node_options)
         if warm_count is not None:
             pulumi.set(__self__, "warm_count", warm_count)
         if warm_enabled is not None:
@@ -519,6 +527,15 @@ class DomainClusterConfigArgs:
     @multi_az_with_standby_enabled.setter
     def multi_az_with_standby_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "multi_az_with_standby_enabled", value)
+
+    @property
+    @pulumi.getter(name="nodeOptions")
+    def node_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DomainNodeOptionArgs']]]]:
+        return pulumi.get(self, "node_options")
+
+    @node_options.setter
+    def node_options(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['DomainNodeOptionArgs']]]]):
+        pulumi.set(self, "node_options", value)
 
     @property
     @pulumi.getter(name="warmCount")
@@ -1395,6 +1412,91 @@ class DomainMasterUserOptionsArgs:
     @master_user_password.setter
     def master_user_password(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "master_user_password", value)
+
+
+if not MYPY:
+    class DomainNodeConfigArgsDict(TypedDict):
+        count: NotRequired[pulumi.Input[int]]
+        enabled: NotRequired[pulumi.Input[bool]]
+        type: NotRequired[pulumi.Input[str]]
+elif False:
+    DomainNodeConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DomainNodeConfigArgs:
+    def __init__(__self__, *,
+                 count: Optional[pulumi.Input[int]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 type: Optional[pulumi.Input[str]] = None):
+        if count is not None:
+            pulumi.set(__self__, "count", count)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def count(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "count")
+
+    @count.setter
+    def count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "count", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
+
+if not MYPY:
+    class DomainNodeOptionArgsDict(TypedDict):
+        node_config: NotRequired[pulumi.Input['DomainNodeConfigArgsDict']]
+        node_type: NotRequired[pulumi.Input['DomainNodeOptionNodeType']]
+elif False:
+    DomainNodeOptionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DomainNodeOptionArgs:
+    def __init__(__self__, *,
+                 node_config: Optional[pulumi.Input['DomainNodeConfigArgs']] = None,
+                 node_type: Optional[pulumi.Input['DomainNodeOptionNodeType']] = None):
+        if node_config is not None:
+            pulumi.set(__self__, "node_config", node_config)
+        if node_type is not None:
+            pulumi.set(__self__, "node_type", node_type)
+
+    @property
+    @pulumi.getter(name="nodeConfig")
+    def node_config(self) -> Optional[pulumi.Input['DomainNodeConfigArgs']]:
+        return pulumi.get(self, "node_config")
+
+    @node_config.setter
+    def node_config(self, value: Optional[pulumi.Input['DomainNodeConfigArgs']]):
+        pulumi.set(self, "node_config", value)
+
+    @property
+    @pulumi.getter(name="nodeType")
+    def node_type(self) -> Optional[pulumi.Input['DomainNodeOptionNodeType']]:
+        return pulumi.get(self, "node_type")
+
+    @node_type.setter
+    def node_type(self, value: Optional[pulumi.Input['DomainNodeOptionNodeType']]):
+        pulumi.set(self, "node_type", value)
 
 
 if not MYPY:

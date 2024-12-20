@@ -13,14 +13,14 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
     /// <summary>
     /// Prompt template configuration
     /// </summary>
-    public sealed class PromptTemplateConfigurationPropertiesArgs : global::Pulumi.ResourceArgs
+    public sealed class PromptTemplateConfiguration0PropertiesArgs : global::Pulumi.ResourceArgs
     {
         [Input("text", required: true)]
         public Input<Inputs.PromptTextPromptTemplateConfigurationArgs> Text { get; set; } = null!;
 
-        public PromptTemplateConfigurationPropertiesArgs()
+        public PromptTemplateConfiguration0PropertiesArgs()
         {
         }
-        public static new PromptTemplateConfigurationPropertiesArgs Empty => new PromptTemplateConfigurationPropertiesArgs();
+        public static new PromptTemplateConfiguration0PropertiesArgs Empty => new PromptTemplateConfiguration0PropertiesArgs();
     }
 }

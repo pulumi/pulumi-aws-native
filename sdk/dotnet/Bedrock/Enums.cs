@@ -260,6 +260,37 @@ namespace Pulumi.AwsNative.Bedrock
     }
 
     /// <summary>
+    /// ENUM to check if action requires user confirmation
+    /// </summary>
+    [EnumType]
+    public readonly struct AgentRequireConfirmation : IEquatable<AgentRequireConfirmation>
+    {
+        private readonly string _value;
+
+        private AgentRequireConfirmation(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AgentRequireConfirmation Enabled { get; } = new AgentRequireConfirmation("ENABLED");
+        public static AgentRequireConfirmation Disabled { get; } = new AgentRequireConfirmation("DISABLED");
+
+        public static bool operator ==(AgentRequireConfirmation left, AgentRequireConfirmation right) => left.Equals(right);
+        public static bool operator !=(AgentRequireConfirmation left, AgentRequireConfirmation right) => !left.Equals(right);
+
+        public static explicit operator string(AgentRequireConfirmation value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AgentRequireConfirmation other && Equals(other);
+        public bool Equals(AgentRequireConfirmation other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Schema Type for Action APIs.
     /// </summary>
     [EnumType]
@@ -1515,6 +1546,37 @@ namespace Pulumi.AwsNative.Bedrock
     }
 
     /// <summary>
+    /// Conversation roles for the chat prompt
+    /// </summary>
+    [EnumType]
+    public readonly struct PromptConversationRole : IEquatable<PromptConversationRole>
+    {
+        private readonly string _value;
+
+        private PromptConversationRole(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PromptConversationRole User { get; } = new PromptConversationRole("user");
+        public static PromptConversationRole Assistant { get; } = new PromptConversationRole("assistant");
+
+        public static bool operator ==(PromptConversationRole left, PromptConversationRole right) => left.Equals(right);
+        public static bool operator !=(PromptConversationRole left, PromptConversationRole right) => !left.Equals(right);
+
+        public static explicit operator string(PromptConversationRole value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PromptConversationRole other && Equals(other);
+        public bool Equals(PromptConversationRole other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Prompt template type
     /// </summary>
     [EnumType]
@@ -1528,6 +1590,7 @@ namespace Pulumi.AwsNative.Bedrock
         }
 
         public static PromptTemplateType Text { get; } = new PromptTemplateType("TEXT");
+        public static PromptTemplateType Chat { get; } = new PromptTemplateType("CHAT");
 
         public static bool operator ==(PromptTemplateType left, PromptTemplateType right) => left.Equals(right);
         public static bool operator !=(PromptTemplateType left, PromptTemplateType right) => !left.Equals(right);

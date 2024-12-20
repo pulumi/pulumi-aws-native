@@ -5135,7 +5135,8 @@ func (o DomainCodeRepositoryArrayOutput) Index(i pulumi.IntInput) DomainCodeRepo
 
 type DomainCustomFileSystemConfig struct {
 	// The settings for a custom Amazon EFS file system.
-	EfsFileSystemConfig *DomainEfsFileSystemConfig `pulumi:"efsFileSystemConfig"`
+	EfsFileSystemConfig       *DomainEfsFileSystemConfig       `pulumi:"efsFileSystemConfig"`
+	FSxLustreFileSystemConfig *DomainFSxLustreFileSystemConfig `pulumi:"fSxLustreFileSystemConfig"`
 }
 
 // DomainCustomFileSystemConfigInput is an input type that accepts DomainCustomFileSystemConfigArgs and DomainCustomFileSystemConfigOutput values.
@@ -5151,7 +5152,8 @@ type DomainCustomFileSystemConfigInput interface {
 
 type DomainCustomFileSystemConfigArgs struct {
 	// The settings for a custom Amazon EFS file system.
-	EfsFileSystemConfig DomainEfsFileSystemConfigPtrInput `pulumi:"efsFileSystemConfig"`
+	EfsFileSystemConfig       DomainEfsFileSystemConfigPtrInput       `pulumi:"efsFileSystemConfig"`
+	FSxLustreFileSystemConfig DomainFSxLustreFileSystemConfigPtrInput `pulumi:"fSxLustreFileSystemConfig"`
 }
 
 func (DomainCustomFileSystemConfigArgs) ElementType() reflect.Type {
@@ -5208,6 +5210,12 @@ func (o DomainCustomFileSystemConfigOutput) ToDomainCustomFileSystemConfigOutput
 // The settings for a custom Amazon EFS file system.
 func (o DomainCustomFileSystemConfigOutput) EfsFileSystemConfig() DomainEfsFileSystemConfigPtrOutput {
 	return o.ApplyT(func(v DomainCustomFileSystemConfig) *DomainEfsFileSystemConfig { return v.EfsFileSystemConfig }).(DomainEfsFileSystemConfigPtrOutput)
+}
+
+func (o DomainCustomFileSystemConfigOutput) FSxLustreFileSystemConfig() DomainFSxLustreFileSystemConfigPtrOutput {
+	return o.ApplyT(func(v DomainCustomFileSystemConfig) *DomainFSxLustreFileSystemConfig {
+		return v.FSxLustreFileSystemConfig
+	}).(DomainFSxLustreFileSystemConfigPtrOutput)
 }
 
 type DomainCustomFileSystemConfigArrayOutput struct{ *pulumi.OutputState }
@@ -6386,6 +6394,154 @@ func (o DomainEfsFileSystemConfigPtrOutput) FileSystemId() pulumi.StringPtrOutpu
 // The path to the file system directory that is accessible in Amazon SageMaker AI Studio. Permitted users can access only this directory and below.
 func (o DomainEfsFileSystemConfigPtrOutput) FileSystemPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainEfsFileSystemConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FileSystemPath
+	}).(pulumi.StringPtrOutput)
+}
+
+type DomainFSxLustreFileSystemConfig struct {
+	FileSystemId   string  `pulumi:"fileSystemId"`
+	FileSystemPath *string `pulumi:"fileSystemPath"`
+}
+
+// DomainFSxLustreFileSystemConfigInput is an input type that accepts DomainFSxLustreFileSystemConfigArgs and DomainFSxLustreFileSystemConfigOutput values.
+// You can construct a concrete instance of `DomainFSxLustreFileSystemConfigInput` via:
+//
+//	DomainFSxLustreFileSystemConfigArgs{...}
+type DomainFSxLustreFileSystemConfigInput interface {
+	pulumi.Input
+
+	ToDomainFSxLustreFileSystemConfigOutput() DomainFSxLustreFileSystemConfigOutput
+	ToDomainFSxLustreFileSystemConfigOutputWithContext(context.Context) DomainFSxLustreFileSystemConfigOutput
+}
+
+type DomainFSxLustreFileSystemConfigArgs struct {
+	FileSystemId   pulumi.StringInput    `pulumi:"fileSystemId"`
+	FileSystemPath pulumi.StringPtrInput `pulumi:"fileSystemPath"`
+}
+
+func (DomainFSxLustreFileSystemConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainFSxLustreFileSystemConfig)(nil)).Elem()
+}
+
+func (i DomainFSxLustreFileSystemConfigArgs) ToDomainFSxLustreFileSystemConfigOutput() DomainFSxLustreFileSystemConfigOutput {
+	return i.ToDomainFSxLustreFileSystemConfigOutputWithContext(context.Background())
+}
+
+func (i DomainFSxLustreFileSystemConfigArgs) ToDomainFSxLustreFileSystemConfigOutputWithContext(ctx context.Context) DomainFSxLustreFileSystemConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainFSxLustreFileSystemConfigOutput)
+}
+
+func (i DomainFSxLustreFileSystemConfigArgs) ToDomainFSxLustreFileSystemConfigPtrOutput() DomainFSxLustreFileSystemConfigPtrOutput {
+	return i.ToDomainFSxLustreFileSystemConfigPtrOutputWithContext(context.Background())
+}
+
+func (i DomainFSxLustreFileSystemConfigArgs) ToDomainFSxLustreFileSystemConfigPtrOutputWithContext(ctx context.Context) DomainFSxLustreFileSystemConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainFSxLustreFileSystemConfigOutput).ToDomainFSxLustreFileSystemConfigPtrOutputWithContext(ctx)
+}
+
+// DomainFSxLustreFileSystemConfigPtrInput is an input type that accepts DomainFSxLustreFileSystemConfigArgs, DomainFSxLustreFileSystemConfigPtr and DomainFSxLustreFileSystemConfigPtrOutput values.
+// You can construct a concrete instance of `DomainFSxLustreFileSystemConfigPtrInput` via:
+//
+//	        DomainFSxLustreFileSystemConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainFSxLustreFileSystemConfigPtrInput interface {
+	pulumi.Input
+
+	ToDomainFSxLustreFileSystemConfigPtrOutput() DomainFSxLustreFileSystemConfigPtrOutput
+	ToDomainFSxLustreFileSystemConfigPtrOutputWithContext(context.Context) DomainFSxLustreFileSystemConfigPtrOutput
+}
+
+type domainFSxLustreFileSystemConfigPtrType DomainFSxLustreFileSystemConfigArgs
+
+func DomainFSxLustreFileSystemConfigPtr(v *DomainFSxLustreFileSystemConfigArgs) DomainFSxLustreFileSystemConfigPtrInput {
+	return (*domainFSxLustreFileSystemConfigPtrType)(v)
+}
+
+func (*domainFSxLustreFileSystemConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainFSxLustreFileSystemConfig)(nil)).Elem()
+}
+
+func (i *domainFSxLustreFileSystemConfigPtrType) ToDomainFSxLustreFileSystemConfigPtrOutput() DomainFSxLustreFileSystemConfigPtrOutput {
+	return i.ToDomainFSxLustreFileSystemConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *domainFSxLustreFileSystemConfigPtrType) ToDomainFSxLustreFileSystemConfigPtrOutputWithContext(ctx context.Context) DomainFSxLustreFileSystemConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainFSxLustreFileSystemConfigPtrOutput)
+}
+
+type DomainFSxLustreFileSystemConfigOutput struct{ *pulumi.OutputState }
+
+func (DomainFSxLustreFileSystemConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainFSxLustreFileSystemConfig)(nil)).Elem()
+}
+
+func (o DomainFSxLustreFileSystemConfigOutput) ToDomainFSxLustreFileSystemConfigOutput() DomainFSxLustreFileSystemConfigOutput {
+	return o
+}
+
+func (o DomainFSxLustreFileSystemConfigOutput) ToDomainFSxLustreFileSystemConfigOutputWithContext(ctx context.Context) DomainFSxLustreFileSystemConfigOutput {
+	return o
+}
+
+func (o DomainFSxLustreFileSystemConfigOutput) ToDomainFSxLustreFileSystemConfigPtrOutput() DomainFSxLustreFileSystemConfigPtrOutput {
+	return o.ToDomainFSxLustreFileSystemConfigPtrOutputWithContext(context.Background())
+}
+
+func (o DomainFSxLustreFileSystemConfigOutput) ToDomainFSxLustreFileSystemConfigPtrOutputWithContext(ctx context.Context) DomainFSxLustreFileSystemConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainFSxLustreFileSystemConfig) *DomainFSxLustreFileSystemConfig {
+		return &v
+	}).(DomainFSxLustreFileSystemConfigPtrOutput)
+}
+
+func (o DomainFSxLustreFileSystemConfigOutput) FileSystemId() pulumi.StringOutput {
+	return o.ApplyT(func(v DomainFSxLustreFileSystemConfig) string { return v.FileSystemId }).(pulumi.StringOutput)
+}
+
+func (o DomainFSxLustreFileSystemConfigOutput) FileSystemPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainFSxLustreFileSystemConfig) *string { return v.FileSystemPath }).(pulumi.StringPtrOutput)
+}
+
+type DomainFSxLustreFileSystemConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainFSxLustreFileSystemConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainFSxLustreFileSystemConfig)(nil)).Elem()
+}
+
+func (o DomainFSxLustreFileSystemConfigPtrOutput) ToDomainFSxLustreFileSystemConfigPtrOutput() DomainFSxLustreFileSystemConfigPtrOutput {
+	return o
+}
+
+func (o DomainFSxLustreFileSystemConfigPtrOutput) ToDomainFSxLustreFileSystemConfigPtrOutputWithContext(ctx context.Context) DomainFSxLustreFileSystemConfigPtrOutput {
+	return o
+}
+
+func (o DomainFSxLustreFileSystemConfigPtrOutput) Elem() DomainFSxLustreFileSystemConfigOutput {
+	return o.ApplyT(func(v *DomainFSxLustreFileSystemConfig) DomainFSxLustreFileSystemConfig {
+		if v != nil {
+			return *v
+		}
+		var ret DomainFSxLustreFileSystemConfig
+		return ret
+	}).(DomainFSxLustreFileSystemConfigOutput)
+}
+
+func (o DomainFSxLustreFileSystemConfigPtrOutput) FileSystemId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainFSxLustreFileSystemConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FileSystemId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o DomainFSxLustreFileSystemConfigPtrOutput) FileSystemPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainFSxLustreFileSystemConfig) *string {
 		if v == nil {
 			return nil
 		}
@@ -35551,7 +35707,8 @@ func (o SpaceCodeRepositoryArrayOutput) Index(i pulumi.IntInput) SpaceCodeReposi
 }
 
 type SpaceCustomFileSystem struct {
-	EfsFileSystem *SpaceEfsFileSystem `pulumi:"efsFileSystem"`
+	EfsFileSystem       *SpaceEfsFileSystem       `pulumi:"efsFileSystem"`
+	FSxLustreFileSystem *SpaceFSxLustreFileSystem `pulumi:"fSxLustreFileSystem"`
 }
 
 // SpaceCustomFileSystemInput is an input type that accepts SpaceCustomFileSystemArgs and SpaceCustomFileSystemOutput values.
@@ -35566,7 +35723,8 @@ type SpaceCustomFileSystemInput interface {
 }
 
 type SpaceCustomFileSystemArgs struct {
-	EfsFileSystem SpaceEfsFileSystemPtrInput `pulumi:"efsFileSystem"`
+	EfsFileSystem       SpaceEfsFileSystemPtrInput       `pulumi:"efsFileSystem"`
+	FSxLustreFileSystem SpaceFSxLustreFileSystemPtrInput `pulumi:"fSxLustreFileSystem"`
 }
 
 func (SpaceCustomFileSystemArgs) ElementType() reflect.Type {
@@ -35622,6 +35780,10 @@ func (o SpaceCustomFileSystemOutput) ToSpaceCustomFileSystemOutputWithContext(ct
 
 func (o SpaceCustomFileSystemOutput) EfsFileSystem() SpaceEfsFileSystemPtrOutput {
 	return o.ApplyT(func(v SpaceCustomFileSystem) *SpaceEfsFileSystem { return v.EfsFileSystem }).(SpaceEfsFileSystemPtrOutput)
+}
+
+func (o SpaceCustomFileSystemOutput) FSxLustreFileSystem() SpaceFSxLustreFileSystemPtrOutput {
+	return o.ApplyT(func(v SpaceCustomFileSystem) *SpaceFSxLustreFileSystem { return v.FSxLustreFileSystem }).(SpaceFSxLustreFileSystemPtrOutput)
 }
 
 type SpaceCustomFileSystemArrayOutput struct{ *pulumi.OutputState }
@@ -36028,6 +36190,139 @@ func (o SpaceEfsFileSystemPtrOutput) Elem() SpaceEfsFileSystemOutput {
 
 func (o SpaceEfsFileSystemPtrOutput) FileSystemId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SpaceEfsFileSystem) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FileSystemId
+	}).(pulumi.StringPtrOutput)
+}
+
+type SpaceFSxLustreFileSystem struct {
+	FileSystemId string `pulumi:"fileSystemId"`
+}
+
+// SpaceFSxLustreFileSystemInput is an input type that accepts SpaceFSxLustreFileSystemArgs and SpaceFSxLustreFileSystemOutput values.
+// You can construct a concrete instance of `SpaceFSxLustreFileSystemInput` via:
+//
+//	SpaceFSxLustreFileSystemArgs{...}
+type SpaceFSxLustreFileSystemInput interface {
+	pulumi.Input
+
+	ToSpaceFSxLustreFileSystemOutput() SpaceFSxLustreFileSystemOutput
+	ToSpaceFSxLustreFileSystemOutputWithContext(context.Context) SpaceFSxLustreFileSystemOutput
+}
+
+type SpaceFSxLustreFileSystemArgs struct {
+	FileSystemId pulumi.StringInput `pulumi:"fileSystemId"`
+}
+
+func (SpaceFSxLustreFileSystemArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpaceFSxLustreFileSystem)(nil)).Elem()
+}
+
+func (i SpaceFSxLustreFileSystemArgs) ToSpaceFSxLustreFileSystemOutput() SpaceFSxLustreFileSystemOutput {
+	return i.ToSpaceFSxLustreFileSystemOutputWithContext(context.Background())
+}
+
+func (i SpaceFSxLustreFileSystemArgs) ToSpaceFSxLustreFileSystemOutputWithContext(ctx context.Context) SpaceFSxLustreFileSystemOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpaceFSxLustreFileSystemOutput)
+}
+
+func (i SpaceFSxLustreFileSystemArgs) ToSpaceFSxLustreFileSystemPtrOutput() SpaceFSxLustreFileSystemPtrOutput {
+	return i.ToSpaceFSxLustreFileSystemPtrOutputWithContext(context.Background())
+}
+
+func (i SpaceFSxLustreFileSystemArgs) ToSpaceFSxLustreFileSystemPtrOutputWithContext(ctx context.Context) SpaceFSxLustreFileSystemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpaceFSxLustreFileSystemOutput).ToSpaceFSxLustreFileSystemPtrOutputWithContext(ctx)
+}
+
+// SpaceFSxLustreFileSystemPtrInput is an input type that accepts SpaceFSxLustreFileSystemArgs, SpaceFSxLustreFileSystemPtr and SpaceFSxLustreFileSystemPtrOutput values.
+// You can construct a concrete instance of `SpaceFSxLustreFileSystemPtrInput` via:
+//
+//	        SpaceFSxLustreFileSystemArgs{...}
+//
+//	or:
+//
+//	        nil
+type SpaceFSxLustreFileSystemPtrInput interface {
+	pulumi.Input
+
+	ToSpaceFSxLustreFileSystemPtrOutput() SpaceFSxLustreFileSystemPtrOutput
+	ToSpaceFSxLustreFileSystemPtrOutputWithContext(context.Context) SpaceFSxLustreFileSystemPtrOutput
+}
+
+type spaceFSxLustreFileSystemPtrType SpaceFSxLustreFileSystemArgs
+
+func SpaceFSxLustreFileSystemPtr(v *SpaceFSxLustreFileSystemArgs) SpaceFSxLustreFileSystemPtrInput {
+	return (*spaceFSxLustreFileSystemPtrType)(v)
+}
+
+func (*spaceFSxLustreFileSystemPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpaceFSxLustreFileSystem)(nil)).Elem()
+}
+
+func (i *spaceFSxLustreFileSystemPtrType) ToSpaceFSxLustreFileSystemPtrOutput() SpaceFSxLustreFileSystemPtrOutput {
+	return i.ToSpaceFSxLustreFileSystemPtrOutputWithContext(context.Background())
+}
+
+func (i *spaceFSxLustreFileSystemPtrType) ToSpaceFSxLustreFileSystemPtrOutputWithContext(ctx context.Context) SpaceFSxLustreFileSystemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpaceFSxLustreFileSystemPtrOutput)
+}
+
+type SpaceFSxLustreFileSystemOutput struct{ *pulumi.OutputState }
+
+func (SpaceFSxLustreFileSystemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpaceFSxLustreFileSystem)(nil)).Elem()
+}
+
+func (o SpaceFSxLustreFileSystemOutput) ToSpaceFSxLustreFileSystemOutput() SpaceFSxLustreFileSystemOutput {
+	return o
+}
+
+func (o SpaceFSxLustreFileSystemOutput) ToSpaceFSxLustreFileSystemOutputWithContext(ctx context.Context) SpaceFSxLustreFileSystemOutput {
+	return o
+}
+
+func (o SpaceFSxLustreFileSystemOutput) ToSpaceFSxLustreFileSystemPtrOutput() SpaceFSxLustreFileSystemPtrOutput {
+	return o.ToSpaceFSxLustreFileSystemPtrOutputWithContext(context.Background())
+}
+
+func (o SpaceFSxLustreFileSystemOutput) ToSpaceFSxLustreFileSystemPtrOutputWithContext(ctx context.Context) SpaceFSxLustreFileSystemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpaceFSxLustreFileSystem) *SpaceFSxLustreFileSystem {
+		return &v
+	}).(SpaceFSxLustreFileSystemPtrOutput)
+}
+
+func (o SpaceFSxLustreFileSystemOutput) FileSystemId() pulumi.StringOutput {
+	return o.ApplyT(func(v SpaceFSxLustreFileSystem) string { return v.FileSystemId }).(pulumi.StringOutput)
+}
+
+type SpaceFSxLustreFileSystemPtrOutput struct{ *pulumi.OutputState }
+
+func (SpaceFSxLustreFileSystemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpaceFSxLustreFileSystem)(nil)).Elem()
+}
+
+func (o SpaceFSxLustreFileSystemPtrOutput) ToSpaceFSxLustreFileSystemPtrOutput() SpaceFSxLustreFileSystemPtrOutput {
+	return o
+}
+
+func (o SpaceFSxLustreFileSystemPtrOutput) ToSpaceFSxLustreFileSystemPtrOutputWithContext(ctx context.Context) SpaceFSxLustreFileSystemPtrOutput {
+	return o
+}
+
+func (o SpaceFSxLustreFileSystemPtrOutput) Elem() SpaceFSxLustreFileSystemOutput {
+	return o.ApplyT(func(v *SpaceFSxLustreFileSystem) SpaceFSxLustreFileSystem {
+		if v != nil {
+			return *v
+		}
+		var ret SpaceFSxLustreFileSystem
+		return ret
+	}).(SpaceFSxLustreFileSystemOutput)
+}
+
+func (o SpaceFSxLustreFileSystemPtrOutput) FileSystemId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpaceFSxLustreFileSystem) *string {
 		if v == nil {
 			return nil
 		}
@@ -37995,7 +38290,8 @@ func (o UserProfileCodeRepositoryArrayOutput) Index(i pulumi.IntInput) UserProfi
 
 type UserProfileCustomFileSystemConfig struct {
 	// The settings for a custom Amazon EFS file system.
-	EfsFileSystemConfig *UserProfileEfsFileSystemConfig `pulumi:"efsFileSystemConfig"`
+	EfsFileSystemConfig       *UserProfileEfsFileSystemConfig       `pulumi:"efsFileSystemConfig"`
+	FSxLustreFileSystemConfig *UserProfileFSxLustreFileSystemConfig `pulumi:"fSxLustreFileSystemConfig"`
 }
 
 // UserProfileCustomFileSystemConfigInput is an input type that accepts UserProfileCustomFileSystemConfigArgs and UserProfileCustomFileSystemConfigOutput values.
@@ -38011,7 +38307,8 @@ type UserProfileCustomFileSystemConfigInput interface {
 
 type UserProfileCustomFileSystemConfigArgs struct {
 	// The settings for a custom Amazon EFS file system.
-	EfsFileSystemConfig UserProfileEfsFileSystemConfigPtrInput `pulumi:"efsFileSystemConfig"`
+	EfsFileSystemConfig       UserProfileEfsFileSystemConfigPtrInput       `pulumi:"efsFileSystemConfig"`
+	FSxLustreFileSystemConfig UserProfileFSxLustreFileSystemConfigPtrInput `pulumi:"fSxLustreFileSystemConfig"`
 }
 
 func (UserProfileCustomFileSystemConfigArgs) ElementType() reflect.Type {
@@ -38070,6 +38367,12 @@ func (o UserProfileCustomFileSystemConfigOutput) EfsFileSystemConfig() UserProfi
 	return o.ApplyT(func(v UserProfileCustomFileSystemConfig) *UserProfileEfsFileSystemConfig {
 		return v.EfsFileSystemConfig
 	}).(UserProfileEfsFileSystemConfigPtrOutput)
+}
+
+func (o UserProfileCustomFileSystemConfigOutput) FSxLustreFileSystemConfig() UserProfileFSxLustreFileSystemConfigPtrOutput {
+	return o.ApplyT(func(v UserProfileCustomFileSystemConfig) *UserProfileFSxLustreFileSystemConfig {
+		return v.FSxLustreFileSystemConfig
+	}).(UserProfileFSxLustreFileSystemConfigPtrOutput)
 }
 
 type UserProfileCustomFileSystemConfigArrayOutput struct{ *pulumi.OutputState }
@@ -38816,6 +39119,154 @@ func (o UserProfileEfsFileSystemConfigPtrOutput) FileSystemId() pulumi.StringPtr
 // The path to the file system directory that is accessible in Amazon SageMaker AI Studio. Permitted users can access only this directory and below.
 func (o UserProfileEfsFileSystemConfigPtrOutput) FileSystemPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserProfileEfsFileSystemConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FileSystemPath
+	}).(pulumi.StringPtrOutput)
+}
+
+type UserProfileFSxLustreFileSystemConfig struct {
+	FileSystemId   string  `pulumi:"fileSystemId"`
+	FileSystemPath *string `pulumi:"fileSystemPath"`
+}
+
+// UserProfileFSxLustreFileSystemConfigInput is an input type that accepts UserProfileFSxLustreFileSystemConfigArgs and UserProfileFSxLustreFileSystemConfigOutput values.
+// You can construct a concrete instance of `UserProfileFSxLustreFileSystemConfigInput` via:
+//
+//	UserProfileFSxLustreFileSystemConfigArgs{...}
+type UserProfileFSxLustreFileSystemConfigInput interface {
+	pulumi.Input
+
+	ToUserProfileFSxLustreFileSystemConfigOutput() UserProfileFSxLustreFileSystemConfigOutput
+	ToUserProfileFSxLustreFileSystemConfigOutputWithContext(context.Context) UserProfileFSxLustreFileSystemConfigOutput
+}
+
+type UserProfileFSxLustreFileSystemConfigArgs struct {
+	FileSystemId   pulumi.StringInput    `pulumi:"fileSystemId"`
+	FileSystemPath pulumi.StringPtrInput `pulumi:"fileSystemPath"`
+}
+
+func (UserProfileFSxLustreFileSystemConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileFSxLustreFileSystemConfig)(nil)).Elem()
+}
+
+func (i UserProfileFSxLustreFileSystemConfigArgs) ToUserProfileFSxLustreFileSystemConfigOutput() UserProfileFSxLustreFileSystemConfigOutput {
+	return i.ToUserProfileFSxLustreFileSystemConfigOutputWithContext(context.Background())
+}
+
+func (i UserProfileFSxLustreFileSystemConfigArgs) ToUserProfileFSxLustreFileSystemConfigOutputWithContext(ctx context.Context) UserProfileFSxLustreFileSystemConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileFSxLustreFileSystemConfigOutput)
+}
+
+func (i UserProfileFSxLustreFileSystemConfigArgs) ToUserProfileFSxLustreFileSystemConfigPtrOutput() UserProfileFSxLustreFileSystemConfigPtrOutput {
+	return i.ToUserProfileFSxLustreFileSystemConfigPtrOutputWithContext(context.Background())
+}
+
+func (i UserProfileFSxLustreFileSystemConfigArgs) ToUserProfileFSxLustreFileSystemConfigPtrOutputWithContext(ctx context.Context) UserProfileFSxLustreFileSystemConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileFSxLustreFileSystemConfigOutput).ToUserProfileFSxLustreFileSystemConfigPtrOutputWithContext(ctx)
+}
+
+// UserProfileFSxLustreFileSystemConfigPtrInput is an input type that accepts UserProfileFSxLustreFileSystemConfigArgs, UserProfileFSxLustreFileSystemConfigPtr and UserProfileFSxLustreFileSystemConfigPtrOutput values.
+// You can construct a concrete instance of `UserProfileFSxLustreFileSystemConfigPtrInput` via:
+//
+//	        UserProfileFSxLustreFileSystemConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type UserProfileFSxLustreFileSystemConfigPtrInput interface {
+	pulumi.Input
+
+	ToUserProfileFSxLustreFileSystemConfigPtrOutput() UserProfileFSxLustreFileSystemConfigPtrOutput
+	ToUserProfileFSxLustreFileSystemConfigPtrOutputWithContext(context.Context) UserProfileFSxLustreFileSystemConfigPtrOutput
+}
+
+type userProfileFSxLustreFileSystemConfigPtrType UserProfileFSxLustreFileSystemConfigArgs
+
+func UserProfileFSxLustreFileSystemConfigPtr(v *UserProfileFSxLustreFileSystemConfigArgs) UserProfileFSxLustreFileSystemConfigPtrInput {
+	return (*userProfileFSxLustreFileSystemConfigPtrType)(v)
+}
+
+func (*userProfileFSxLustreFileSystemConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileFSxLustreFileSystemConfig)(nil)).Elem()
+}
+
+func (i *userProfileFSxLustreFileSystemConfigPtrType) ToUserProfileFSxLustreFileSystemConfigPtrOutput() UserProfileFSxLustreFileSystemConfigPtrOutput {
+	return i.ToUserProfileFSxLustreFileSystemConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *userProfileFSxLustreFileSystemConfigPtrType) ToUserProfileFSxLustreFileSystemConfigPtrOutputWithContext(ctx context.Context) UserProfileFSxLustreFileSystemConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserProfileFSxLustreFileSystemConfigPtrOutput)
+}
+
+type UserProfileFSxLustreFileSystemConfigOutput struct{ *pulumi.OutputState }
+
+func (UserProfileFSxLustreFileSystemConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserProfileFSxLustreFileSystemConfig)(nil)).Elem()
+}
+
+func (o UserProfileFSxLustreFileSystemConfigOutput) ToUserProfileFSxLustreFileSystemConfigOutput() UserProfileFSxLustreFileSystemConfigOutput {
+	return o
+}
+
+func (o UserProfileFSxLustreFileSystemConfigOutput) ToUserProfileFSxLustreFileSystemConfigOutputWithContext(ctx context.Context) UserProfileFSxLustreFileSystemConfigOutput {
+	return o
+}
+
+func (o UserProfileFSxLustreFileSystemConfigOutput) ToUserProfileFSxLustreFileSystemConfigPtrOutput() UserProfileFSxLustreFileSystemConfigPtrOutput {
+	return o.ToUserProfileFSxLustreFileSystemConfigPtrOutputWithContext(context.Background())
+}
+
+func (o UserProfileFSxLustreFileSystemConfigOutput) ToUserProfileFSxLustreFileSystemConfigPtrOutputWithContext(ctx context.Context) UserProfileFSxLustreFileSystemConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserProfileFSxLustreFileSystemConfig) *UserProfileFSxLustreFileSystemConfig {
+		return &v
+	}).(UserProfileFSxLustreFileSystemConfigPtrOutput)
+}
+
+func (o UserProfileFSxLustreFileSystemConfigOutput) FileSystemId() pulumi.StringOutput {
+	return o.ApplyT(func(v UserProfileFSxLustreFileSystemConfig) string { return v.FileSystemId }).(pulumi.StringOutput)
+}
+
+func (o UserProfileFSxLustreFileSystemConfigOutput) FileSystemPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserProfileFSxLustreFileSystemConfig) *string { return v.FileSystemPath }).(pulumi.StringPtrOutput)
+}
+
+type UserProfileFSxLustreFileSystemConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (UserProfileFSxLustreFileSystemConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserProfileFSxLustreFileSystemConfig)(nil)).Elem()
+}
+
+func (o UserProfileFSxLustreFileSystemConfigPtrOutput) ToUserProfileFSxLustreFileSystemConfigPtrOutput() UserProfileFSxLustreFileSystemConfigPtrOutput {
+	return o
+}
+
+func (o UserProfileFSxLustreFileSystemConfigPtrOutput) ToUserProfileFSxLustreFileSystemConfigPtrOutputWithContext(ctx context.Context) UserProfileFSxLustreFileSystemConfigPtrOutput {
+	return o
+}
+
+func (o UserProfileFSxLustreFileSystemConfigPtrOutput) Elem() UserProfileFSxLustreFileSystemConfigOutput {
+	return o.ApplyT(func(v *UserProfileFSxLustreFileSystemConfig) UserProfileFSxLustreFileSystemConfig {
+		if v != nil {
+			return *v
+		}
+		var ret UserProfileFSxLustreFileSystemConfig
+		return ret
+	}).(UserProfileFSxLustreFileSystemConfigOutput)
+}
+
+func (o UserProfileFSxLustreFileSystemConfigPtrOutput) FileSystemId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserProfileFSxLustreFileSystemConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FileSystemId
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o UserProfileFSxLustreFileSystemConfigPtrOutput) FileSystemPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserProfileFSxLustreFileSystemConfig) *string {
 		if v == nil {
 			return nil
 		}
@@ -40791,6 +41242,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDockerSettingsPtrInput)(nil)).Elem(), DomainDockerSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainEfsFileSystemConfigInput)(nil)).Elem(), DomainEfsFileSystemConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainEfsFileSystemConfigPtrInput)(nil)).Elem(), DomainEfsFileSystemConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainFSxLustreFileSystemConfigInput)(nil)).Elem(), DomainFSxLustreFileSystemConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainFSxLustreFileSystemConfigPtrInput)(nil)).Elem(), DomainFSxLustreFileSystemConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainIdleSettingsInput)(nil)).Elem(), DomainIdleSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainIdleSettingsPtrInput)(nil)).Elem(), DomainIdleSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainJupyterLabAppSettingsInput)(nil)).Elem(), DomainJupyterLabAppSettingsArgs{})
@@ -41140,6 +41593,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SpaceEbsStorageSettingsPtrInput)(nil)).Elem(), SpaceEbsStorageSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpaceEfsFileSystemInput)(nil)).Elem(), SpaceEfsFileSystemArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpaceEfsFileSystemPtrInput)(nil)).Elem(), SpaceEfsFileSystemArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpaceFSxLustreFileSystemInput)(nil)).Elem(), SpaceFSxLustreFileSystemArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpaceFSxLustreFileSystemPtrInput)(nil)).Elem(), SpaceFSxLustreFileSystemArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpaceIdleSettingsInput)(nil)).Elem(), SpaceIdleSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpaceIdleSettingsPtrInput)(nil)).Elem(), SpaceIdleSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpaceJupyterLabAppSettingsInput)(nil)).Elem(), SpaceJupyterLabAppSettingsArgs{})
@@ -41176,6 +41631,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileDefaultSpaceStorageSettingsPtrInput)(nil)).Elem(), UserProfileDefaultSpaceStorageSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileEfsFileSystemConfigInput)(nil)).Elem(), UserProfileEfsFileSystemConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileEfsFileSystemConfigPtrInput)(nil)).Elem(), UserProfileEfsFileSystemConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileFSxLustreFileSystemConfigInput)(nil)).Elem(), UserProfileFSxLustreFileSystemConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileFSxLustreFileSystemConfigPtrInput)(nil)).Elem(), UserProfileFSxLustreFileSystemConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileIdleSettingsInput)(nil)).Elem(), UserProfileIdleSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileIdleSettingsPtrInput)(nil)).Elem(), UserProfileIdleSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserProfileJupyterLabAppSettingsInput)(nil)).Elem(), UserProfileJupyterLabAppSettingsArgs{})
@@ -41277,6 +41734,8 @@ func init() {
 	pulumi.RegisterOutputType(DomainDockerSettingsPtrOutput{})
 	pulumi.RegisterOutputType(DomainEfsFileSystemConfigOutput{})
 	pulumi.RegisterOutputType(DomainEfsFileSystemConfigPtrOutput{})
+	pulumi.RegisterOutputType(DomainFSxLustreFileSystemConfigOutput{})
+	pulumi.RegisterOutputType(DomainFSxLustreFileSystemConfigPtrOutput{})
 	pulumi.RegisterOutputType(DomainIdleSettingsOutput{})
 	pulumi.RegisterOutputType(DomainIdleSettingsPtrOutput{})
 	pulumi.RegisterOutputType(DomainJupyterLabAppSettingsOutput{})
@@ -41635,6 +42094,8 @@ func init() {
 	pulumi.RegisterOutputType(SpaceEbsStorageSettingsPtrOutput{})
 	pulumi.RegisterOutputType(SpaceEfsFileSystemOutput{})
 	pulumi.RegisterOutputType(SpaceEfsFileSystemPtrOutput{})
+	pulumi.RegisterOutputType(SpaceFSxLustreFileSystemOutput{})
+	pulumi.RegisterOutputType(SpaceFSxLustreFileSystemPtrOutput{})
 	pulumi.RegisterOutputType(SpaceIdleSettingsOutput{})
 	pulumi.RegisterOutputType(SpaceIdleSettingsPtrOutput{})
 	pulumi.RegisterOutputType(SpaceJupyterLabAppSettingsOutput{})
@@ -41671,6 +42132,8 @@ func init() {
 	pulumi.RegisterOutputType(UserProfileDefaultSpaceStorageSettingsPtrOutput{})
 	pulumi.RegisterOutputType(UserProfileEfsFileSystemConfigOutput{})
 	pulumi.RegisterOutputType(UserProfileEfsFileSystemConfigPtrOutput{})
+	pulumi.RegisterOutputType(UserProfileFSxLustreFileSystemConfigOutput{})
+	pulumi.RegisterOutputType(UserProfileFSxLustreFileSystemConfigPtrOutput{})
 	pulumi.RegisterOutputType(UserProfileIdleSettingsOutput{})
 	pulumi.RegisterOutputType(UserProfileIdleSettingsPtrOutput{})
 	pulumi.RegisterOutputType(UserProfileJupyterLabAppSettingsOutput{})

@@ -195,12 +195,29 @@ __all__ = [
     'KnowledgeBaseRdsFieldMapping',
     'KnowledgeBaseStorageConfiguration',
     'KnowledgeBaseVectorKnowledgeBaseConfiguration',
+    'PromptAgentResource',
+    'PromptAnyToolChoice',
+    'PromptAutoToolChoice',
+    'PromptChatPromptTemplateConfiguration',
+    'PromptContentBlockProperties',
+    'PromptGenAiResourceProperties',
     'PromptInferenceConfigurationProperties',
     'PromptInputVariable',
+    'PromptMessage',
     'PromptModelInferenceConfiguration',
-    'PromptTemplateConfigurationProperties',
+    'PromptSpecificToolChoice',
+    'PromptSystemContentBlockProperties',
+    'PromptTemplateConfiguration0Properties',
+    'PromptTemplateConfiguration1Properties',
     'PromptTextPromptTemplateConfiguration',
     'PromptTextS3Location',
+    'PromptToolChoice0Properties',
+    'PromptToolChoice1Properties',
+    'PromptToolChoice2Properties',
+    'PromptToolConfiguration',
+    'PromptToolInputSchemaProperties',
+    'PromptToolProperties',
+    'PromptToolSpecification',
     'PromptVariant',
     'PromptVersionPromptInferenceConfigurationProperties',
     'PromptVersionPromptInputVariable',
@@ -575,10 +592,28 @@ class AgentFunction(dict):
     """
     Function definition
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "requireConfirmation":
+            suggest = "require_confirmation"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentFunction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentFunction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentFunction.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  description: Optional[str] = None,
-                 parameters: Optional[Mapping[str, 'outputs.AgentParameterDetail']] = None):
+                 parameters: Optional[Mapping[str, 'outputs.AgentParameterDetail']] = None,
+                 require_confirmation: Optional['AgentRequireConfirmation'] = None):
         """
         Function definition
         :param str name: Name for a resource.
@@ -590,6 +625,8 @@ class AgentFunction(dict):
             pulumi.set(__self__, "description", description)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
+        if require_confirmation is not None:
+            pulumi.set(__self__, "require_confirmation", require_confirmation)
 
     @property
     @pulumi.getter
@@ -614,6 +651,11 @@ class AgentFunction(dict):
         The parameters that the agent elicits from the user to fulfill the function.
         """
         return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter(name="requireConfirmation")
+    def require_confirmation(self) -> Optional['AgentRequireConfirmation']:
+        return pulumi.get(self, "require_confirmation")
 
 
 @pulumi.output_type
@@ -7885,6 +7927,182 @@ class KnowledgeBaseVectorKnowledgeBaseConfiguration(dict):
 
 
 @pulumi.output_type
+class PromptAgentResource(dict):
+    """
+    Target Agent to invoke with Prompt
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "agentIdentifier":
+            suggest = "agent_identifier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PromptAgentResource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PromptAgentResource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PromptAgentResource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 agent_identifier: str):
+        """
+        Target Agent to invoke with Prompt
+        :param str agent_identifier: Arn representation of the Agent Alias.
+        """
+        pulumi.set(__self__, "agent_identifier", agent_identifier)
+
+    @property
+    @pulumi.getter(name="agentIdentifier")
+    def agent_identifier(self) -> str:
+        """
+        Arn representation of the Agent Alias.
+        """
+        return pulumi.get(self, "agent_identifier")
+
+
+@pulumi.output_type
+class PromptAnyToolChoice(dict):
+    """
+    Any Tool choice
+    """
+    def __init__(__self__):
+        """
+        Any Tool choice
+        """
+        pass
+
+
+@pulumi.output_type
+class PromptAutoToolChoice(dict):
+    """
+    Auto Tool choice
+    """
+    def __init__(__self__):
+        """
+        Auto Tool choice
+        """
+        pass
+
+
+@pulumi.output_type
+class PromptChatPromptTemplateConfiguration(dict):
+    """
+    Configuration for chat prompt template
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inputVariables":
+            suggest = "input_variables"
+        elif key == "toolConfiguration":
+            suggest = "tool_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PromptChatPromptTemplateConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PromptChatPromptTemplateConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PromptChatPromptTemplateConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 messages: Sequence['outputs.PromptMessage'],
+                 input_variables: Optional[Sequence['outputs.PromptInputVariable']] = None,
+                 system: Optional[Sequence['outputs.PromptSystemContentBlockProperties']] = None,
+                 tool_configuration: Optional['outputs.PromptToolConfiguration'] = None):
+        """
+        Configuration for chat prompt template
+        :param Sequence['PromptMessage'] messages: List of messages for chat prompt template
+        :param Sequence['PromptInputVariable'] input_variables: List of input variables
+        :param Sequence['PromptSystemContentBlockProperties'] system: Configuration for chat prompt template
+        """
+        pulumi.set(__self__, "messages", messages)
+        if input_variables is not None:
+            pulumi.set(__self__, "input_variables", input_variables)
+        if system is not None:
+            pulumi.set(__self__, "system", system)
+        if tool_configuration is not None:
+            pulumi.set(__self__, "tool_configuration", tool_configuration)
+
+    @property
+    @pulumi.getter
+    def messages(self) -> Sequence['outputs.PromptMessage']:
+        """
+        List of messages for chat prompt template
+        """
+        return pulumi.get(self, "messages")
+
+    @property
+    @pulumi.getter(name="inputVariables")
+    def input_variables(self) -> Optional[Sequence['outputs.PromptInputVariable']]:
+        """
+        List of input variables
+        """
+        return pulumi.get(self, "input_variables")
+
+    @property
+    @pulumi.getter
+    def system(self) -> Optional[Sequence['outputs.PromptSystemContentBlockProperties']]:
+        """
+        Configuration for chat prompt template
+        """
+        return pulumi.get(self, "system")
+
+    @property
+    @pulumi.getter(name="toolConfiguration")
+    def tool_configuration(self) -> Optional['outputs.PromptToolConfiguration']:
+        return pulumi.get(self, "tool_configuration")
+
+
+@pulumi.output_type
+class PromptContentBlockProperties(dict):
+    """
+    Configuration for chat prompt template
+    """
+    def __init__(__self__, *,
+                 text: str):
+        """
+        Configuration for chat prompt template
+        :param str text: Configuration for chat prompt template
+        """
+        pulumi.set(__self__, "text", text)
+
+    @property
+    @pulumi.getter
+    def text(self) -> str:
+        """
+        Configuration for chat prompt template
+        """
+        return pulumi.get(self, "text")
+
+
+@pulumi.output_type
+class PromptGenAiResourceProperties(dict):
+    """
+    Target resource to invoke with Prompt
+    """
+    def __init__(__self__, *,
+                 agent: 'outputs.PromptAgentResource'):
+        """
+        Target resource to invoke with Prompt
+        """
+        pulumi.set(__self__, "agent", agent)
+
+    @property
+    @pulumi.getter
+    def agent(self) -> 'outputs.PromptAgentResource':
+        return pulumi.get(self, "agent")
+
+
+@pulumi.output_type
 class PromptInferenceConfigurationProperties(dict):
     """
     Model inference configuration
@@ -7923,6 +8141,35 @@ class PromptInputVariable(dict):
         Name for an input variable
         """
         return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class PromptMessage(dict):
+    """
+    Chat prompt Message
+    """
+    def __init__(__self__, *,
+                 content: Sequence['outputs.PromptContentBlockProperties'],
+                 role: 'PromptConversationRole'):
+        """
+        Chat prompt Message
+        :param Sequence['PromptContentBlockProperties'] content: List of Content Blocks
+        """
+        pulumi.set(__self__, "content", content)
+        pulumi.set(__self__, "role", role)
+
+    @property
+    @pulumi.getter
+    def content(self) -> Sequence['outputs.PromptContentBlockProperties']:
+        """
+        List of Content Blocks
+        """
+        return pulumi.get(self, "content")
+
+    @property
+    @pulumi.getter
+    def role(self) -> 'PromptConversationRole':
+        return pulumi.get(self, "role")
 
 
 @pulumi.output_type
@@ -8006,7 +8253,51 @@ class PromptModelInferenceConfiguration(dict):
 
 
 @pulumi.output_type
-class PromptTemplateConfigurationProperties(dict):
+class PromptSpecificToolChoice(dict):
+    """
+    Specific Tool choice
+    """
+    def __init__(__self__, *,
+                 name: str):
+        """
+        Specific Tool choice
+        :param str name: Tool name
+        """
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Tool name
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class PromptSystemContentBlockProperties(dict):
+    """
+    Configuration for chat prompt template
+    """
+    def __init__(__self__, *,
+                 text: str):
+        """
+        Configuration for chat prompt template
+        :param str text: Configuration for chat prompt template
+        """
+        pulumi.set(__self__, "text", text)
+
+    @property
+    @pulumi.getter
+    def text(self) -> str:
+        """
+        Configuration for chat prompt template
+        """
+        return pulumi.get(self, "text")
+
+
+@pulumi.output_type
+class PromptTemplateConfiguration0Properties(dict):
     """
     Prompt template configuration
     """
@@ -8021,6 +8312,24 @@ class PromptTemplateConfigurationProperties(dict):
     @pulumi.getter
     def text(self) -> 'outputs.PromptTextPromptTemplateConfiguration':
         return pulumi.get(self, "text")
+
+
+@pulumi.output_type
+class PromptTemplateConfiguration1Properties(dict):
+    """
+    Prompt template configuration
+    """
+    def __init__(__self__, *,
+                 chat: 'outputs.PromptChatPromptTemplateConfiguration'):
+        """
+        Prompt template configuration
+        """
+        pulumi.set(__self__, "chat", chat)
+
+    @property
+    @pulumi.getter
+    def chat(self) -> 'outputs.PromptChatPromptTemplateConfiguration':
+        return pulumi.get(self, "chat")
 
 
 @pulumi.output_type
@@ -8131,6 +8440,214 @@ class PromptTextS3Location(dict):
 
 
 @pulumi.output_type
+class PromptToolChoice0Properties(dict):
+    """
+    Tool choice
+    """
+    def __init__(__self__, *,
+                 auto: 'outputs.PromptAutoToolChoice'):
+        """
+        Tool choice
+        """
+        pulumi.set(__self__, "auto", auto)
+
+    @property
+    @pulumi.getter
+    def auto(self) -> 'outputs.PromptAutoToolChoice':
+        return pulumi.get(self, "auto")
+
+
+@pulumi.output_type
+class PromptToolChoice1Properties(dict):
+    """
+    Tool choice
+    """
+    def __init__(__self__, *,
+                 any: 'outputs.PromptAnyToolChoice'):
+        """
+        Tool choice
+        """
+        pulumi.set(__self__, "any", any)
+
+    @property
+    @pulumi.getter
+    def any(self) -> 'outputs.PromptAnyToolChoice':
+        return pulumi.get(self, "any")
+
+
+@pulumi.output_type
+class PromptToolChoice2Properties(dict):
+    """
+    Tool choice
+    """
+    def __init__(__self__, *,
+                 tool: 'outputs.PromptSpecificToolChoice'):
+        """
+        Tool choice
+        """
+        pulumi.set(__self__, "tool", tool)
+
+    @property
+    @pulumi.getter
+    def tool(self) -> 'outputs.PromptSpecificToolChoice':
+        return pulumi.get(self, "tool")
+
+
+@pulumi.output_type
+class PromptToolConfiguration(dict):
+    """
+    Tool configuration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "toolChoice":
+            suggest = "tool_choice"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PromptToolConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PromptToolConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PromptToolConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 tools: Sequence['outputs.PromptToolProperties'],
+                 tool_choice: Optional[Any] = None):
+        """
+        Tool configuration
+        :param Sequence['PromptToolProperties'] tools: List of Tools
+        """
+        pulumi.set(__self__, "tools", tools)
+        if tool_choice is not None:
+            pulumi.set(__self__, "tool_choice", tool_choice)
+
+    @property
+    @pulumi.getter
+    def tools(self) -> Sequence['outputs.PromptToolProperties']:
+        """
+        List of Tools
+        """
+        return pulumi.get(self, "tools")
+
+    @property
+    @pulumi.getter(name="toolChoice")
+    def tool_choice(self) -> Optional[Any]:
+        return pulumi.get(self, "tool_choice")
+
+
+@pulumi.output_type
+class PromptToolInputSchemaProperties(dict):
+    """
+    Tool input schema json
+    """
+    def __init__(__self__, *,
+                 json: Any):
+        """
+        Tool input schema json
+        """
+        pulumi.set(__self__, "json", json)
+
+    @property
+    @pulumi.getter
+    def json(self) -> Any:
+        return pulumi.get(self, "json")
+
+
+@pulumi.output_type
+class PromptToolProperties(dict):
+    """
+    Tool details
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "toolSpec":
+            suggest = "tool_spec"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PromptToolProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PromptToolProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PromptToolProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 tool_spec: 'outputs.PromptToolSpecification'):
+        """
+        Tool details
+        """
+        pulumi.set(__self__, "tool_spec", tool_spec)
+
+    @property
+    @pulumi.getter(name="toolSpec")
+    def tool_spec(self) -> 'outputs.PromptToolSpecification':
+        return pulumi.get(self, "tool_spec")
+
+
+@pulumi.output_type
+class PromptToolSpecification(dict):
+    """
+    Tool specification
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inputSchema":
+            suggest = "input_schema"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PromptToolSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PromptToolSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PromptToolSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 input_schema: 'outputs.PromptToolInputSchemaProperties',
+                 name: str,
+                 description: Optional[str] = None):
+        """
+        Tool specification
+        :param str name: Tool name
+        """
+        pulumi.set(__self__, "input_schema", input_schema)
+        pulumi.set(__self__, "name", name)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter(name="inputSchema")
+    def input_schema(self) -> 'outputs.PromptToolInputSchemaProperties':
+        return pulumi.get(self, "input_schema")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Tool name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+
+@pulumi.output_type
 class PromptVariant(dict):
     """
     Prompt variant
@@ -8142,6 +8659,8 @@ class PromptVariant(dict):
             suggest = "template_configuration"
         elif key == "templateType":
             suggest = "template_type"
+        elif key == "genAiResource":
+            suggest = "gen_ai_resource"
         elif key == "inferenceConfiguration":
             suggest = "inference_configuration"
         elif key == "modelId":
@@ -8160,14 +8679,15 @@ class PromptVariant(dict):
 
     def __init__(__self__, *,
                  name: str,
-                 template_configuration: 'outputs.PromptTemplateConfigurationProperties',
+                 template_configuration: Any,
                  template_type: 'PromptTemplateType',
+                 gen_ai_resource: Optional['outputs.PromptGenAiResourceProperties'] = None,
                  inference_configuration: Optional['outputs.PromptInferenceConfigurationProperties'] = None,
                  model_id: Optional[str] = None):
         """
         Prompt variant
         :param str name: Name for a variant.
-        :param 'PromptTemplateConfigurationProperties' template_configuration: Contains configurations for the prompt template.
+        :param Union['PromptTemplateConfiguration0Properties', 'PromptTemplateConfiguration1Properties'] template_configuration: Contains configurations for the prompt template.
         :param 'PromptTemplateType' template_type: The type of prompt template to use.
         :param 'PromptInferenceConfigurationProperties' inference_configuration: Contains inference configurations for the prompt variant.
         :param str model_id: ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
@@ -8175,6 +8695,8 @@ class PromptVariant(dict):
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "template_configuration", template_configuration)
         pulumi.set(__self__, "template_type", template_type)
+        if gen_ai_resource is not None:
+            pulumi.set(__self__, "gen_ai_resource", gen_ai_resource)
         if inference_configuration is not None:
             pulumi.set(__self__, "inference_configuration", inference_configuration)
         if model_id is not None:
@@ -8190,7 +8712,7 @@ class PromptVariant(dict):
 
     @property
     @pulumi.getter(name="templateConfiguration")
-    def template_configuration(self) -> 'outputs.PromptTemplateConfigurationProperties':
+    def template_configuration(self) -> Any:
         """
         Contains configurations for the prompt template.
         """
@@ -8203,6 +8725,11 @@ class PromptVariant(dict):
         The type of prompt template to use.
         """
         return pulumi.get(self, "template_type")
+
+    @property
+    @pulumi.getter(name="genAiResource")
+    def gen_ai_resource(self) -> Optional['outputs.PromptGenAiResourceProperties']:
+        return pulumi.get(self, "gen_ai_resource")
 
     @property
     @pulumi.getter(name="inferenceConfiguration")

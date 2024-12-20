@@ -270,18 +270,52 @@ __all__ = [
     'KnowledgeBaseStorageConfigurationArgsDict',
     'KnowledgeBaseVectorKnowledgeBaseConfigurationArgs',
     'KnowledgeBaseVectorKnowledgeBaseConfigurationArgsDict',
+    'PromptAgentResourceArgs',
+    'PromptAgentResourceArgsDict',
+    'PromptAnyToolChoiceArgs',
+    'PromptAnyToolChoiceArgsDict',
+    'PromptAutoToolChoiceArgs',
+    'PromptAutoToolChoiceArgsDict',
+    'PromptChatPromptTemplateConfigurationArgs',
+    'PromptChatPromptTemplateConfigurationArgsDict',
+    'PromptContentBlockPropertiesArgs',
+    'PromptContentBlockPropertiesArgsDict',
+    'PromptGenAiResourcePropertiesArgs',
+    'PromptGenAiResourcePropertiesArgsDict',
     'PromptInferenceConfigurationPropertiesArgs',
     'PromptInferenceConfigurationPropertiesArgsDict',
     'PromptInputVariableArgs',
     'PromptInputVariableArgsDict',
+    'PromptMessageArgs',
+    'PromptMessageArgsDict',
     'PromptModelInferenceConfigurationArgs',
     'PromptModelInferenceConfigurationArgsDict',
-    'PromptTemplateConfigurationPropertiesArgs',
-    'PromptTemplateConfigurationPropertiesArgsDict',
+    'PromptSpecificToolChoiceArgs',
+    'PromptSpecificToolChoiceArgsDict',
+    'PromptSystemContentBlockPropertiesArgs',
+    'PromptSystemContentBlockPropertiesArgsDict',
+    'PromptTemplateConfiguration0PropertiesArgs',
+    'PromptTemplateConfiguration0PropertiesArgsDict',
+    'PromptTemplateConfiguration1PropertiesArgs',
+    'PromptTemplateConfiguration1PropertiesArgsDict',
     'PromptTextPromptTemplateConfigurationArgs',
     'PromptTextPromptTemplateConfigurationArgsDict',
     'PromptTextS3LocationArgs',
     'PromptTextS3LocationArgsDict',
+    'PromptToolChoice0PropertiesArgs',
+    'PromptToolChoice0PropertiesArgsDict',
+    'PromptToolChoice1PropertiesArgs',
+    'PromptToolChoice1PropertiesArgsDict',
+    'PromptToolChoice2PropertiesArgs',
+    'PromptToolChoice2PropertiesArgsDict',
+    'PromptToolConfigurationArgs',
+    'PromptToolConfigurationArgsDict',
+    'PromptToolInputSchemaPropertiesArgs',
+    'PromptToolInputSchemaPropertiesArgsDict',
+    'PromptToolPropertiesArgs',
+    'PromptToolPropertiesArgsDict',
+    'PromptToolSpecificationArgs',
+    'PromptToolSpecificationArgsDict',
     'PromptVariantArgs',
     'PromptVariantArgsDict',
 ]
@@ -682,6 +716,7 @@ if not MYPY:
         """
         The parameters that the agent elicits from the user to fulfill the function.
         """
+        require_confirmation: NotRequired[pulumi.Input['AgentRequireConfirmation']]
 elif False:
     AgentFunctionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -690,7 +725,8 @@ class AgentFunctionArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['AgentParameterDetailArgs']]]] = None):
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['AgentParameterDetailArgs']]]] = None,
+                 require_confirmation: Optional[pulumi.Input['AgentRequireConfirmation']] = None):
         """
         Function definition
         :param pulumi.Input[str] name: Name for a resource.
@@ -702,6 +738,8 @@ class AgentFunctionArgs:
             pulumi.set(__self__, "description", description)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
+        if require_confirmation is not None:
+            pulumi.set(__self__, "require_confirmation", require_confirmation)
 
     @property
     @pulumi.getter
@@ -738,6 +776,15 @@ class AgentFunctionArgs:
     @parameters.setter
     def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['AgentParameterDetailArgs']]]]):
         pulumi.set(self, "parameters", value)
+
+    @property
+    @pulumi.getter(name="requireConfirmation")
+    def require_confirmation(self) -> Optional[pulumi.Input['AgentRequireConfirmation']]:
+        return pulumi.get(self, "require_confirmation")
+
+    @require_confirmation.setter
+    def require_confirmation(self, value: Optional[pulumi.Input['AgentRequireConfirmation']]):
+        pulumi.set(self, "require_confirmation", value)
 
 
 if not MYPY:
@@ -7506,6 +7553,228 @@ class KnowledgeBaseVectorKnowledgeBaseConfigurationArgs:
 
 
 if not MYPY:
+    class PromptAgentResourceArgsDict(TypedDict):
+        """
+        Target Agent to invoke with Prompt
+        """
+        agent_identifier: pulumi.Input[str]
+        """
+        Arn representation of the Agent Alias.
+        """
+elif False:
+    PromptAgentResourceArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PromptAgentResourceArgs:
+    def __init__(__self__, *,
+                 agent_identifier: pulumi.Input[str]):
+        """
+        Target Agent to invoke with Prompt
+        :param pulumi.Input[str] agent_identifier: Arn representation of the Agent Alias.
+        """
+        pulumi.set(__self__, "agent_identifier", agent_identifier)
+
+    @property
+    @pulumi.getter(name="agentIdentifier")
+    def agent_identifier(self) -> pulumi.Input[str]:
+        """
+        Arn representation of the Agent Alias.
+        """
+        return pulumi.get(self, "agent_identifier")
+
+    @agent_identifier.setter
+    def agent_identifier(self, value: pulumi.Input[str]):
+        pulumi.set(self, "agent_identifier", value)
+
+
+if not MYPY:
+    class PromptAnyToolChoiceArgsDict(TypedDict):
+        """
+        Any Tool choice
+        """
+        pass
+elif False:
+    PromptAnyToolChoiceArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PromptAnyToolChoiceArgs:
+    def __init__(__self__):
+        """
+        Any Tool choice
+        """
+        pass
+
+
+if not MYPY:
+    class PromptAutoToolChoiceArgsDict(TypedDict):
+        """
+        Auto Tool choice
+        """
+        pass
+elif False:
+    PromptAutoToolChoiceArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PromptAutoToolChoiceArgs:
+    def __init__(__self__):
+        """
+        Auto Tool choice
+        """
+        pass
+
+
+if not MYPY:
+    class PromptChatPromptTemplateConfigurationArgsDict(TypedDict):
+        """
+        Configuration for chat prompt template
+        """
+        messages: pulumi.Input[Sequence[pulumi.Input['PromptMessageArgsDict']]]
+        """
+        List of messages for chat prompt template
+        """
+        input_variables: NotRequired[pulumi.Input[Sequence[pulumi.Input['PromptInputVariableArgsDict']]]]
+        """
+        List of input variables
+        """
+        system: NotRequired[pulumi.Input[Sequence[pulumi.Input['PromptSystemContentBlockPropertiesArgsDict']]]]
+        """
+        Configuration for chat prompt template
+        """
+        tool_configuration: NotRequired[pulumi.Input['PromptToolConfigurationArgsDict']]
+elif False:
+    PromptChatPromptTemplateConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PromptChatPromptTemplateConfigurationArgs:
+    def __init__(__self__, *,
+                 messages: pulumi.Input[Sequence[pulumi.Input['PromptMessageArgs']]],
+                 input_variables: Optional[pulumi.Input[Sequence[pulumi.Input['PromptInputVariableArgs']]]] = None,
+                 system: Optional[pulumi.Input[Sequence[pulumi.Input['PromptSystemContentBlockPropertiesArgs']]]] = None,
+                 tool_configuration: Optional[pulumi.Input['PromptToolConfigurationArgs']] = None):
+        """
+        Configuration for chat prompt template
+        :param pulumi.Input[Sequence[pulumi.Input['PromptMessageArgs']]] messages: List of messages for chat prompt template
+        :param pulumi.Input[Sequence[pulumi.Input['PromptInputVariableArgs']]] input_variables: List of input variables
+        :param pulumi.Input[Sequence[pulumi.Input['PromptSystemContentBlockPropertiesArgs']]] system: Configuration for chat prompt template
+        """
+        pulumi.set(__self__, "messages", messages)
+        if input_variables is not None:
+            pulumi.set(__self__, "input_variables", input_variables)
+        if system is not None:
+            pulumi.set(__self__, "system", system)
+        if tool_configuration is not None:
+            pulumi.set(__self__, "tool_configuration", tool_configuration)
+
+    @property
+    @pulumi.getter
+    def messages(self) -> pulumi.Input[Sequence[pulumi.Input['PromptMessageArgs']]]:
+        """
+        List of messages for chat prompt template
+        """
+        return pulumi.get(self, "messages")
+
+    @messages.setter
+    def messages(self, value: pulumi.Input[Sequence[pulumi.Input['PromptMessageArgs']]]):
+        pulumi.set(self, "messages", value)
+
+    @property
+    @pulumi.getter(name="inputVariables")
+    def input_variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PromptInputVariableArgs']]]]:
+        """
+        List of input variables
+        """
+        return pulumi.get(self, "input_variables")
+
+    @input_variables.setter
+    def input_variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PromptInputVariableArgs']]]]):
+        pulumi.set(self, "input_variables", value)
+
+    @property
+    @pulumi.getter
+    def system(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PromptSystemContentBlockPropertiesArgs']]]]:
+        """
+        Configuration for chat prompt template
+        """
+        return pulumi.get(self, "system")
+
+    @system.setter
+    def system(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PromptSystemContentBlockPropertiesArgs']]]]):
+        pulumi.set(self, "system", value)
+
+    @property
+    @pulumi.getter(name="toolConfiguration")
+    def tool_configuration(self) -> Optional[pulumi.Input['PromptToolConfigurationArgs']]:
+        return pulumi.get(self, "tool_configuration")
+
+    @tool_configuration.setter
+    def tool_configuration(self, value: Optional[pulumi.Input['PromptToolConfigurationArgs']]):
+        pulumi.set(self, "tool_configuration", value)
+
+
+if not MYPY:
+    class PromptContentBlockPropertiesArgsDict(TypedDict):
+        """
+        Configuration for chat prompt template
+        """
+        text: pulumi.Input[str]
+        """
+        Configuration for chat prompt template
+        """
+elif False:
+    PromptContentBlockPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PromptContentBlockPropertiesArgs:
+    def __init__(__self__, *,
+                 text: pulumi.Input[str]):
+        """
+        Configuration for chat prompt template
+        :param pulumi.Input[str] text: Configuration for chat prompt template
+        """
+        pulumi.set(__self__, "text", text)
+
+    @property
+    @pulumi.getter
+    def text(self) -> pulumi.Input[str]:
+        """
+        Configuration for chat prompt template
+        """
+        return pulumi.get(self, "text")
+
+    @text.setter
+    def text(self, value: pulumi.Input[str]):
+        pulumi.set(self, "text", value)
+
+
+if not MYPY:
+    class PromptGenAiResourcePropertiesArgsDict(TypedDict):
+        """
+        Target resource to invoke with Prompt
+        """
+        agent: pulumi.Input['PromptAgentResourceArgsDict']
+elif False:
+    PromptGenAiResourcePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PromptGenAiResourcePropertiesArgs:
+    def __init__(__self__, *,
+                 agent: pulumi.Input['PromptAgentResourceArgs']):
+        """
+        Target resource to invoke with Prompt
+        """
+        pulumi.set(__self__, "agent", agent)
+
+    @property
+    @pulumi.getter
+    def agent(self) -> pulumi.Input['PromptAgentResourceArgs']:
+        return pulumi.get(self, "agent")
+
+    @agent.setter
+    def agent(self, value: pulumi.Input['PromptAgentResourceArgs']):
+        pulumi.set(self, "agent", value)
+
+
+if not MYPY:
     class PromptInferenceConfigurationPropertiesArgsDict(TypedDict):
         """
         Model inference configuration
@@ -7567,6 +7836,53 @@ class PromptInputVariableArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+
+if not MYPY:
+    class PromptMessageArgsDict(TypedDict):
+        """
+        Chat prompt Message
+        """
+        content: pulumi.Input[Sequence[pulumi.Input['PromptContentBlockPropertiesArgsDict']]]
+        """
+        List of Content Blocks
+        """
+        role: pulumi.Input['PromptConversationRole']
+elif False:
+    PromptMessageArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PromptMessageArgs:
+    def __init__(__self__, *,
+                 content: pulumi.Input[Sequence[pulumi.Input['PromptContentBlockPropertiesArgs']]],
+                 role: pulumi.Input['PromptConversationRole']):
+        """
+        Chat prompt Message
+        :param pulumi.Input[Sequence[pulumi.Input['PromptContentBlockPropertiesArgs']]] content: List of Content Blocks
+        """
+        pulumi.set(__self__, "content", content)
+        pulumi.set(__self__, "role", role)
+
+    @property
+    @pulumi.getter
+    def content(self) -> pulumi.Input[Sequence[pulumi.Input['PromptContentBlockPropertiesArgs']]]:
+        """
+        List of Content Blocks
+        """
+        return pulumi.get(self, "content")
+
+    @content.setter
+    def content(self, value: pulumi.Input[Sequence[pulumi.Input['PromptContentBlockPropertiesArgs']]]):
+        pulumi.set(self, "content", value)
+
+    @property
+    @pulumi.getter
+    def role(self) -> pulumi.Input['PromptConversationRole']:
+        return pulumi.get(self, "role")
+
+    @role.setter
+    def role(self, value: pulumi.Input['PromptConversationRole']):
+        pulumi.set(self, "role", value)
 
 
 if not MYPY:
@@ -7666,16 +7982,86 @@ class PromptModelInferenceConfigurationArgs:
 
 
 if not MYPY:
-    class PromptTemplateConfigurationPropertiesArgsDict(TypedDict):
+    class PromptSpecificToolChoiceArgsDict(TypedDict):
+        """
+        Specific Tool choice
+        """
+        name: pulumi.Input[str]
+        """
+        Tool name
+        """
+elif False:
+    PromptSpecificToolChoiceArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PromptSpecificToolChoiceArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str]):
+        """
+        Specific Tool choice
+        :param pulumi.Input[str] name: Tool name
+        """
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Tool name
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+
+if not MYPY:
+    class PromptSystemContentBlockPropertiesArgsDict(TypedDict):
+        """
+        Configuration for chat prompt template
+        """
+        text: pulumi.Input[str]
+        """
+        Configuration for chat prompt template
+        """
+elif False:
+    PromptSystemContentBlockPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PromptSystemContentBlockPropertiesArgs:
+    def __init__(__self__, *,
+                 text: pulumi.Input[str]):
+        """
+        Configuration for chat prompt template
+        :param pulumi.Input[str] text: Configuration for chat prompt template
+        """
+        pulumi.set(__self__, "text", text)
+
+    @property
+    @pulumi.getter
+    def text(self) -> pulumi.Input[str]:
+        """
+        Configuration for chat prompt template
+        """
+        return pulumi.get(self, "text")
+
+    @text.setter
+    def text(self, value: pulumi.Input[str]):
+        pulumi.set(self, "text", value)
+
+
+if not MYPY:
+    class PromptTemplateConfiguration0PropertiesArgsDict(TypedDict):
         """
         Prompt template configuration
         """
         text: pulumi.Input['PromptTextPromptTemplateConfigurationArgsDict']
 elif False:
-    PromptTemplateConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+    PromptTemplateConfiguration0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
-class PromptTemplateConfigurationPropertiesArgs:
+class PromptTemplateConfiguration0PropertiesArgs:
     def __init__(__self__, *,
                  text: pulumi.Input['PromptTextPromptTemplateConfigurationArgs']):
         """
@@ -7691,6 +8077,34 @@ class PromptTemplateConfigurationPropertiesArgs:
     @text.setter
     def text(self, value: pulumi.Input['PromptTextPromptTemplateConfigurationArgs']):
         pulumi.set(self, "text", value)
+
+
+if not MYPY:
+    class PromptTemplateConfiguration1PropertiesArgsDict(TypedDict):
+        """
+        Prompt template configuration
+        """
+        chat: pulumi.Input['PromptChatPromptTemplateConfigurationArgsDict']
+elif False:
+    PromptTemplateConfiguration1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PromptTemplateConfiguration1PropertiesArgs:
+    def __init__(__self__, *,
+                 chat: pulumi.Input['PromptChatPromptTemplateConfigurationArgs']):
+        """
+        Prompt template configuration
+        """
+        pulumi.set(__self__, "chat", chat)
+
+    @property
+    @pulumi.getter
+    def chat(self) -> pulumi.Input['PromptChatPromptTemplateConfigurationArgs']:
+        return pulumi.get(self, "chat")
+
+    @chat.setter
+    def chat(self, value: pulumi.Input['PromptChatPromptTemplateConfigurationArgs']):
+        pulumi.set(self, "chat", value)
 
 
 if not MYPY:
@@ -7837,6 +8251,254 @@ class PromptTextS3LocationArgs:
 
 
 if not MYPY:
+    class PromptToolChoice0PropertiesArgsDict(TypedDict):
+        """
+        Tool choice
+        """
+        auto: pulumi.Input['PromptAutoToolChoiceArgsDict']
+elif False:
+    PromptToolChoice0PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PromptToolChoice0PropertiesArgs:
+    def __init__(__self__, *,
+                 auto: pulumi.Input['PromptAutoToolChoiceArgs']):
+        """
+        Tool choice
+        """
+        pulumi.set(__self__, "auto", auto)
+
+    @property
+    @pulumi.getter
+    def auto(self) -> pulumi.Input['PromptAutoToolChoiceArgs']:
+        return pulumi.get(self, "auto")
+
+    @auto.setter
+    def auto(self, value: pulumi.Input['PromptAutoToolChoiceArgs']):
+        pulumi.set(self, "auto", value)
+
+
+if not MYPY:
+    class PromptToolChoice1PropertiesArgsDict(TypedDict):
+        """
+        Tool choice
+        """
+        any: pulumi.Input['PromptAnyToolChoiceArgsDict']
+elif False:
+    PromptToolChoice1PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PromptToolChoice1PropertiesArgs:
+    def __init__(__self__, *,
+                 any: pulumi.Input['PromptAnyToolChoiceArgs']):
+        """
+        Tool choice
+        """
+        pulumi.set(__self__, "any", any)
+
+    @property
+    @pulumi.getter
+    def any(self) -> pulumi.Input['PromptAnyToolChoiceArgs']:
+        return pulumi.get(self, "any")
+
+    @any.setter
+    def any(self, value: pulumi.Input['PromptAnyToolChoiceArgs']):
+        pulumi.set(self, "any", value)
+
+
+if not MYPY:
+    class PromptToolChoice2PropertiesArgsDict(TypedDict):
+        """
+        Tool choice
+        """
+        tool: pulumi.Input['PromptSpecificToolChoiceArgsDict']
+elif False:
+    PromptToolChoice2PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PromptToolChoice2PropertiesArgs:
+    def __init__(__self__, *,
+                 tool: pulumi.Input['PromptSpecificToolChoiceArgs']):
+        """
+        Tool choice
+        """
+        pulumi.set(__self__, "tool", tool)
+
+    @property
+    @pulumi.getter
+    def tool(self) -> pulumi.Input['PromptSpecificToolChoiceArgs']:
+        return pulumi.get(self, "tool")
+
+    @tool.setter
+    def tool(self, value: pulumi.Input['PromptSpecificToolChoiceArgs']):
+        pulumi.set(self, "tool", value)
+
+
+if not MYPY:
+    class PromptToolConfigurationArgsDict(TypedDict):
+        """
+        Tool configuration
+        """
+        tools: pulumi.Input[Sequence[pulumi.Input['PromptToolPropertiesArgsDict']]]
+        """
+        List of Tools
+        """
+        tool_choice: NotRequired[pulumi.Input[Union['PromptToolChoice0PropertiesArgsDict', 'PromptToolChoice1PropertiesArgsDict', 'PromptToolChoice2PropertiesArgsDict']]]
+elif False:
+    PromptToolConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PromptToolConfigurationArgs:
+    def __init__(__self__, *,
+                 tools: pulumi.Input[Sequence[pulumi.Input['PromptToolPropertiesArgs']]],
+                 tool_choice: Optional[pulumi.Input[Union['PromptToolChoice0PropertiesArgs', 'PromptToolChoice1PropertiesArgs', 'PromptToolChoice2PropertiesArgs']]] = None):
+        """
+        Tool configuration
+        :param pulumi.Input[Sequence[pulumi.Input['PromptToolPropertiesArgs']]] tools: List of Tools
+        """
+        pulumi.set(__self__, "tools", tools)
+        if tool_choice is not None:
+            pulumi.set(__self__, "tool_choice", tool_choice)
+
+    @property
+    @pulumi.getter
+    def tools(self) -> pulumi.Input[Sequence[pulumi.Input['PromptToolPropertiesArgs']]]:
+        """
+        List of Tools
+        """
+        return pulumi.get(self, "tools")
+
+    @tools.setter
+    def tools(self, value: pulumi.Input[Sequence[pulumi.Input['PromptToolPropertiesArgs']]]):
+        pulumi.set(self, "tools", value)
+
+    @property
+    @pulumi.getter(name="toolChoice")
+    def tool_choice(self) -> Optional[pulumi.Input[Union['PromptToolChoice0PropertiesArgs', 'PromptToolChoice1PropertiesArgs', 'PromptToolChoice2PropertiesArgs']]]:
+        return pulumi.get(self, "tool_choice")
+
+    @tool_choice.setter
+    def tool_choice(self, value: Optional[pulumi.Input[Union['PromptToolChoice0PropertiesArgs', 'PromptToolChoice1PropertiesArgs', 'PromptToolChoice2PropertiesArgs']]]):
+        pulumi.set(self, "tool_choice", value)
+
+
+if not MYPY:
+    class PromptToolInputSchemaPropertiesArgsDict(TypedDict):
+        """
+        Tool input schema json
+        """
+        json: Any
+elif False:
+    PromptToolInputSchemaPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PromptToolInputSchemaPropertiesArgs:
+    def __init__(__self__, *,
+                 json: Any):
+        """
+        Tool input schema json
+        """
+        pulumi.set(__self__, "json", json)
+
+    @property
+    @pulumi.getter
+    def json(self) -> Any:
+        return pulumi.get(self, "json")
+
+    @json.setter
+    def json(self, value: Any):
+        pulumi.set(self, "json", value)
+
+
+if not MYPY:
+    class PromptToolPropertiesArgsDict(TypedDict):
+        """
+        Tool details
+        """
+        tool_spec: pulumi.Input['PromptToolSpecificationArgsDict']
+elif False:
+    PromptToolPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PromptToolPropertiesArgs:
+    def __init__(__self__, *,
+                 tool_spec: pulumi.Input['PromptToolSpecificationArgs']):
+        """
+        Tool details
+        """
+        pulumi.set(__self__, "tool_spec", tool_spec)
+
+    @property
+    @pulumi.getter(name="toolSpec")
+    def tool_spec(self) -> pulumi.Input['PromptToolSpecificationArgs']:
+        return pulumi.get(self, "tool_spec")
+
+    @tool_spec.setter
+    def tool_spec(self, value: pulumi.Input['PromptToolSpecificationArgs']):
+        pulumi.set(self, "tool_spec", value)
+
+
+if not MYPY:
+    class PromptToolSpecificationArgsDict(TypedDict):
+        """
+        Tool specification
+        """
+        input_schema: pulumi.Input['PromptToolInputSchemaPropertiesArgsDict']
+        name: pulumi.Input[str]
+        """
+        Tool name
+        """
+        description: NotRequired[pulumi.Input[str]]
+elif False:
+    PromptToolSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PromptToolSpecificationArgs:
+    def __init__(__self__, *,
+                 input_schema: pulumi.Input['PromptToolInputSchemaPropertiesArgs'],
+                 name: pulumi.Input[str],
+                 description: Optional[pulumi.Input[str]] = None):
+        """
+        Tool specification
+        :param pulumi.Input[str] name: Tool name
+        """
+        pulumi.set(__self__, "input_schema", input_schema)
+        pulumi.set(__self__, "name", name)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter(name="inputSchema")
+    def input_schema(self) -> pulumi.Input['PromptToolInputSchemaPropertiesArgs']:
+        return pulumi.get(self, "input_schema")
+
+    @input_schema.setter
+    def input_schema(self, value: pulumi.Input['PromptToolInputSchemaPropertiesArgs']):
+        pulumi.set(self, "input_schema", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Tool name
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+
+if not MYPY:
     class PromptVariantArgsDict(TypedDict):
         """
         Prompt variant
@@ -7845,7 +8507,7 @@ if not MYPY:
         """
         Name for a variant.
         """
-        template_configuration: pulumi.Input['PromptTemplateConfigurationPropertiesArgsDict']
+        template_configuration: pulumi.Input[Union['PromptTemplateConfiguration0PropertiesArgsDict', 'PromptTemplateConfiguration1PropertiesArgsDict']]
         """
         Contains configurations for the prompt template.
         """
@@ -7853,6 +8515,7 @@ if not MYPY:
         """
         The type of prompt template to use.
         """
+        gen_ai_resource: NotRequired[pulumi.Input['PromptGenAiResourcePropertiesArgsDict']]
         inference_configuration: NotRequired[pulumi.Input['PromptInferenceConfigurationPropertiesArgsDict']]
         """
         Contains inference configurations for the prompt variant.
@@ -7868,14 +8531,15 @@ elif False:
 class PromptVariantArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 template_configuration: pulumi.Input['PromptTemplateConfigurationPropertiesArgs'],
+                 template_configuration: pulumi.Input[Union['PromptTemplateConfiguration0PropertiesArgs', 'PromptTemplateConfiguration1PropertiesArgs']],
                  template_type: pulumi.Input['PromptTemplateType'],
+                 gen_ai_resource: Optional[pulumi.Input['PromptGenAiResourcePropertiesArgs']] = None,
                  inference_configuration: Optional[pulumi.Input['PromptInferenceConfigurationPropertiesArgs']] = None,
                  model_id: Optional[pulumi.Input[str]] = None):
         """
         Prompt variant
         :param pulumi.Input[str] name: Name for a variant.
-        :param pulumi.Input['PromptTemplateConfigurationPropertiesArgs'] template_configuration: Contains configurations for the prompt template.
+        :param pulumi.Input[Union['PromptTemplateConfiguration0PropertiesArgs', 'PromptTemplateConfiguration1PropertiesArgs']] template_configuration: Contains configurations for the prompt template.
         :param pulumi.Input['PromptTemplateType'] template_type: The type of prompt template to use.
         :param pulumi.Input['PromptInferenceConfigurationPropertiesArgs'] inference_configuration: Contains inference configurations for the prompt variant.
         :param pulumi.Input[str] model_id: ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
@@ -7883,6 +8547,8 @@ class PromptVariantArgs:
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "template_configuration", template_configuration)
         pulumi.set(__self__, "template_type", template_type)
+        if gen_ai_resource is not None:
+            pulumi.set(__self__, "gen_ai_resource", gen_ai_resource)
         if inference_configuration is not None:
             pulumi.set(__self__, "inference_configuration", inference_configuration)
         if model_id is not None:
@@ -7902,14 +8568,14 @@ class PromptVariantArgs:
 
     @property
     @pulumi.getter(name="templateConfiguration")
-    def template_configuration(self) -> pulumi.Input['PromptTemplateConfigurationPropertiesArgs']:
+    def template_configuration(self) -> pulumi.Input[Union['PromptTemplateConfiguration0PropertiesArgs', 'PromptTemplateConfiguration1PropertiesArgs']]:
         """
         Contains configurations for the prompt template.
         """
         return pulumi.get(self, "template_configuration")
 
     @template_configuration.setter
-    def template_configuration(self, value: pulumi.Input['PromptTemplateConfigurationPropertiesArgs']):
+    def template_configuration(self, value: pulumi.Input[Union['PromptTemplateConfiguration0PropertiesArgs', 'PromptTemplateConfiguration1PropertiesArgs']]):
         pulumi.set(self, "template_configuration", value)
 
     @property
@@ -7923,6 +8589,15 @@ class PromptVariantArgs:
     @template_type.setter
     def template_type(self, value: pulumi.Input['PromptTemplateType']):
         pulumi.set(self, "template_type", value)
+
+    @property
+    @pulumi.getter(name="genAiResource")
+    def gen_ai_resource(self) -> Optional[pulumi.Input['PromptGenAiResourcePropertiesArgs']]:
+        return pulumi.get(self, "gen_ai_resource")
+
+    @gen_ai_resource.setter
+    def gen_ai_resource(self, value: Optional[pulumi.Input['PromptGenAiResourcePropertiesArgs']]):
+        pulumi.set(self, "gen_ai_resource", value)
 
     @property
     @pulumi.getter(name="inferenceConfiguration")

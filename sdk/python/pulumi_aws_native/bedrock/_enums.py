@@ -13,6 +13,7 @@ __all__ = [
     'AgentKnowledgeBaseState',
     'AgentPromptState',
     'AgentPromptType',
+    'AgentRequireConfirmation',
     'AgentStatus',
     'AgentType',
     'ApplicationInferenceProfileInferenceProfileStatus',
@@ -51,6 +52,7 @@ __all__ = [
     'KnowledgeBaseStatus',
     'KnowledgeBaseStorageType',
     'KnowledgeBaseType',
+    'PromptConversationRole',
     'PromptTemplateType',
     'PromptVersionPromptTemplateType',
 ]
@@ -122,6 +124,14 @@ class AgentPromptType(str, Enum):
     ORCHESTRATION = "ORCHESTRATION"
     POST_PROCESSING = "POST_PROCESSING"
     KNOWLEDGE_BASE_RESPONSE_GENERATION = "KNOWLEDGE_BASE_RESPONSE_GENERATION"
+
+
+class AgentRequireConfirmation(str, Enum):
+    """
+    ENUM to check if action requires user confirmation
+    """
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
 
 
 class AgentStatus(str, Enum):
@@ -505,11 +515,20 @@ class KnowledgeBaseType(str, Enum):
     VECTOR = "VECTOR"
 
 
+class PromptConversationRole(str, Enum):
+    """
+    Conversation roles for the chat prompt
+    """
+    USER = "user"
+    ASSISTANT = "assistant"
+
+
 class PromptTemplateType(str, Enum):
     """
     Prompt template type
     """
     TEXT = "TEXT"
+    CHAT = "CHAT"
 
 
 class PromptVersionPromptTemplateType(str, Enum):

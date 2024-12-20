@@ -176,6 +176,169 @@ func (in *applicationAppConfigTypePtr) ToApplicationAppConfigTypePtrOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, in).(ApplicationAppConfigTypePtrOutput)
 }
 
+type DomainNodeOptionNodeType string
+
+const (
+	DomainNodeOptionNodeTypeCoordinator = DomainNodeOptionNodeType("coordinator")
+)
+
+func (DomainNodeOptionNodeType) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainNodeOptionNodeType)(nil)).Elem()
+}
+
+func (e DomainNodeOptionNodeType) ToDomainNodeOptionNodeTypeOutput() DomainNodeOptionNodeTypeOutput {
+	return pulumi.ToOutput(e).(DomainNodeOptionNodeTypeOutput)
+}
+
+func (e DomainNodeOptionNodeType) ToDomainNodeOptionNodeTypeOutputWithContext(ctx context.Context) DomainNodeOptionNodeTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DomainNodeOptionNodeTypeOutput)
+}
+
+func (e DomainNodeOptionNodeType) ToDomainNodeOptionNodeTypePtrOutput() DomainNodeOptionNodeTypePtrOutput {
+	return e.ToDomainNodeOptionNodeTypePtrOutputWithContext(context.Background())
+}
+
+func (e DomainNodeOptionNodeType) ToDomainNodeOptionNodeTypePtrOutputWithContext(ctx context.Context) DomainNodeOptionNodeTypePtrOutput {
+	return DomainNodeOptionNodeType(e).ToDomainNodeOptionNodeTypeOutputWithContext(ctx).ToDomainNodeOptionNodeTypePtrOutputWithContext(ctx)
+}
+
+func (e DomainNodeOptionNodeType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DomainNodeOptionNodeType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DomainNodeOptionNodeType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DomainNodeOptionNodeType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DomainNodeOptionNodeTypeOutput struct{ *pulumi.OutputState }
+
+func (DomainNodeOptionNodeTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainNodeOptionNodeType)(nil)).Elem()
+}
+
+func (o DomainNodeOptionNodeTypeOutput) ToDomainNodeOptionNodeTypeOutput() DomainNodeOptionNodeTypeOutput {
+	return o
+}
+
+func (o DomainNodeOptionNodeTypeOutput) ToDomainNodeOptionNodeTypeOutputWithContext(ctx context.Context) DomainNodeOptionNodeTypeOutput {
+	return o
+}
+
+func (o DomainNodeOptionNodeTypeOutput) ToDomainNodeOptionNodeTypePtrOutput() DomainNodeOptionNodeTypePtrOutput {
+	return o.ToDomainNodeOptionNodeTypePtrOutputWithContext(context.Background())
+}
+
+func (o DomainNodeOptionNodeTypeOutput) ToDomainNodeOptionNodeTypePtrOutputWithContext(ctx context.Context) DomainNodeOptionNodeTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainNodeOptionNodeType) *DomainNodeOptionNodeType {
+		return &v
+	}).(DomainNodeOptionNodeTypePtrOutput)
+}
+
+func (o DomainNodeOptionNodeTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DomainNodeOptionNodeTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainNodeOptionNodeType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DomainNodeOptionNodeTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainNodeOptionNodeTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DomainNodeOptionNodeType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DomainNodeOptionNodeTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DomainNodeOptionNodeTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainNodeOptionNodeType)(nil)).Elem()
+}
+
+func (o DomainNodeOptionNodeTypePtrOutput) ToDomainNodeOptionNodeTypePtrOutput() DomainNodeOptionNodeTypePtrOutput {
+	return o
+}
+
+func (o DomainNodeOptionNodeTypePtrOutput) ToDomainNodeOptionNodeTypePtrOutputWithContext(ctx context.Context) DomainNodeOptionNodeTypePtrOutput {
+	return o
+}
+
+func (o DomainNodeOptionNodeTypePtrOutput) Elem() DomainNodeOptionNodeTypeOutput {
+	return o.ApplyT(func(v *DomainNodeOptionNodeType) DomainNodeOptionNodeType {
+		if v != nil {
+			return *v
+		}
+		var ret DomainNodeOptionNodeType
+		return ret
+	}).(DomainNodeOptionNodeTypeOutput)
+}
+
+func (o DomainNodeOptionNodeTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DomainNodeOptionNodeTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DomainNodeOptionNodeType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DomainNodeOptionNodeTypeInput is an input type that accepts values of the DomainNodeOptionNodeType enum
+// A concrete instance of `DomainNodeOptionNodeTypeInput` can be one of the following:
+//
+//	DomainNodeOptionNodeTypeCoordinator
+type DomainNodeOptionNodeTypeInput interface {
+	pulumi.Input
+
+	ToDomainNodeOptionNodeTypeOutput() DomainNodeOptionNodeTypeOutput
+	ToDomainNodeOptionNodeTypeOutputWithContext(context.Context) DomainNodeOptionNodeTypeOutput
+}
+
+var domainNodeOptionNodeTypePtrType = reflect.TypeOf((**DomainNodeOptionNodeType)(nil)).Elem()
+
+type DomainNodeOptionNodeTypePtrInput interface {
+	pulumi.Input
+
+	ToDomainNodeOptionNodeTypePtrOutput() DomainNodeOptionNodeTypePtrOutput
+	ToDomainNodeOptionNodeTypePtrOutputWithContext(context.Context) DomainNodeOptionNodeTypePtrOutput
+}
+
+type domainNodeOptionNodeTypePtr string
+
+func DomainNodeOptionNodeTypePtr(v string) DomainNodeOptionNodeTypePtrInput {
+	return (*domainNodeOptionNodeTypePtr)(&v)
+}
+
+func (*domainNodeOptionNodeTypePtr) ElementType() reflect.Type {
+	return domainNodeOptionNodeTypePtrType
+}
+
+func (in *domainNodeOptionNodeTypePtr) ToDomainNodeOptionNodeTypePtrOutput() DomainNodeOptionNodeTypePtrOutput {
+	return pulumi.ToOutput(in).(DomainNodeOptionNodeTypePtrOutput)
+}
+
+func (in *domainNodeOptionNodeTypePtr) ToDomainNodeOptionNodeTypePtrOutputWithContext(ctx context.Context) DomainNodeOptionNodeTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DomainNodeOptionNodeTypePtrOutput)
+}
+
 // Roles Key Idc type values.
 type DomainRolesKeyIdcType string
 
@@ -513,12 +676,16 @@ func (in *domainSubjectKeyIdcTypePtr) ToDomainSubjectKeyIdcTypePtrOutputWithCont
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationAppConfigTypeInput)(nil)).Elem(), ApplicationAppConfigType("opensearchDashboards.dashboardAdmin.users"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationAppConfigTypePtrInput)(nil)).Elem(), ApplicationAppConfigType("opensearchDashboards.dashboardAdmin.users"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainNodeOptionNodeTypeInput)(nil)).Elem(), DomainNodeOptionNodeType("coordinator"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainNodeOptionNodeTypePtrInput)(nil)).Elem(), DomainNodeOptionNodeType("coordinator"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainRolesKeyIdcTypeInput)(nil)).Elem(), DomainRolesKeyIdcType("GroupName"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainRolesKeyIdcTypePtrInput)(nil)).Elem(), DomainRolesKeyIdcType("GroupName"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainSubjectKeyIdcTypeInput)(nil)).Elem(), DomainSubjectKeyIdcType("UserName"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainSubjectKeyIdcTypePtrInput)(nil)).Elem(), DomainSubjectKeyIdcType("UserName"))
 	pulumi.RegisterOutputType(ApplicationAppConfigTypeOutput{})
 	pulumi.RegisterOutputType(ApplicationAppConfigTypePtrOutput{})
+	pulumi.RegisterOutputType(DomainNodeOptionNodeTypeOutput{})
+	pulumi.RegisterOutputType(DomainNodeOptionNodeTypePtrOutput{})
 	pulumi.RegisterOutputType(DomainRolesKeyIdcTypeOutput{})
 	pulumi.RegisterOutputType(DomainRolesKeyIdcTypePtrOutput{})
 	pulumi.RegisterOutputType(DomainSubjectKeyIdcTypeOutput{})

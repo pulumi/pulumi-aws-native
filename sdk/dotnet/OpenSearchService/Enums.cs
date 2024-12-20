@@ -38,6 +38,33 @@ namespace Pulumi.AwsNative.OpenSearchService
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct DomainNodeOptionNodeType : IEquatable<DomainNodeOptionNodeType>
+    {
+        private readonly string _value;
+
+        private DomainNodeOptionNodeType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DomainNodeOptionNodeType Coordinator { get; } = new DomainNodeOptionNodeType("coordinator");
+
+        public static bool operator ==(DomainNodeOptionNodeType left, DomainNodeOptionNodeType right) => left.Equals(right);
+        public static bool operator !=(DomainNodeOptionNodeType left, DomainNodeOptionNodeType right) => !left.Equals(right);
+
+        public static explicit operator string(DomainNodeOptionNodeType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DomainNodeOptionNodeType other && Equals(other);
+        public bool Equals(DomainNodeOptionNodeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// Roles Key Idc type values.
     /// </summary>

@@ -28,6 +28,7 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
         /// The parameters that the agent elicits from the user to fulfill the function.
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.AgentParameterDetail>? Parameters;
+        public readonly Pulumi.AwsNative.Bedrock.AgentRequireConfirmation? RequireConfirmation;
 
         [OutputConstructor]
         private AgentFunction(
@@ -35,11 +36,14 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
 
             string name,
 
-            ImmutableDictionary<string, Outputs.AgentParameterDetail>? parameters)
+            ImmutableDictionary<string, Outputs.AgentParameterDetail>? parameters,
+
+            Pulumi.AwsNative.Bedrock.AgentRequireConfirmation? requireConfirmation)
         {
             Description = description;
             Name = name;
             Parameters = parameters;
+            RequireConfirmation = requireConfirmation;
         }
     }
 }

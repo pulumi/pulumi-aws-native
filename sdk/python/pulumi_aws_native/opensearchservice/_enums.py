@@ -6,6 +6,7 @@ from enum import Enum
 
 __all__ = [
     'ApplicationAppConfigType',
+    'DomainNodeOptionNodeType',
     'DomainRolesKeyIdcType',
     'DomainSubjectKeyIdcType',
 ]
@@ -17,6 +18,10 @@ class ApplicationAppConfigType(str, Enum):
     """
     OPENSEARCH_DASHBOARDS_DASHBOARD_ADMIN_USERS = "opensearchDashboards.dashboardAdmin.users"
     OPENSEARCH_DASHBOARDS_DASHBOARD_ADMIN_GROUPS = "opensearchDashboards.dashboardAdmin.groups"
+
+
+class DomainNodeOptionNodeType(str, Enum):
+    COORDINATOR = "coordinator"
 
 
 class DomainRolesKeyIdcType(str, Enum):

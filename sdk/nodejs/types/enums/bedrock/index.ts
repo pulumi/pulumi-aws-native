@@ -86,6 +86,16 @@ export const AgentPromptType = {
  */
 export type AgentPromptType = (typeof AgentPromptType)[keyof typeof AgentPromptType];
 
+export const AgentRequireConfirmation = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+/**
+ * ENUM to check if action requires user confirmation
+ */
+export type AgentRequireConfirmation = (typeof AgentRequireConfirmation)[keyof typeof AgentRequireConfirmation];
+
 export const AgentStatus = {
     Creating: "CREATING",
     Preparing: "PREPARING",
@@ -543,8 +553,19 @@ export const KnowledgeBaseType = {
  */
 export type KnowledgeBaseType = (typeof KnowledgeBaseType)[keyof typeof KnowledgeBaseType];
 
+export const PromptConversationRole = {
+    User: "user",
+    Assistant: "assistant",
+} as const;
+
+/**
+ * Conversation roles for the chat prompt
+ */
+export type PromptConversationRole = (typeof PromptConversationRole)[keyof typeof PromptConversationRole];
+
 export const PromptTemplateType = {
     Text: "TEXT",
+    Chat: "CHAT",
 } as const;
 
 /**

@@ -54,6 +54,14 @@ namespace Pulumi.AwsNative.OpenSearchService.Inputs
         [Input("multiAzWithStandbyEnabled")]
         public Input<bool>? MultiAzWithStandbyEnabled { get; set; }
 
+        [Input("nodeOptions")]
+        private InputList<Inputs.DomainNodeOptionArgs>? _nodeOptions;
+        public InputList<Inputs.DomainNodeOptionArgs> NodeOptions
+        {
+            get => _nodeOptions ?? (_nodeOptions = new InputList<Inputs.DomainNodeOptionArgs>());
+            set => _nodeOptions = value;
+        }
+
         /// <summary>
         /// The number of warm nodes in the cluster.
         /// </summary>
