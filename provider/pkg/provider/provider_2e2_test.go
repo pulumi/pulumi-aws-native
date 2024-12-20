@@ -32,7 +32,7 @@ func TestE2eSnapshots(t *testing.T) {
 }
 
 func TestAutonaming(t *testing.T) {
-	t.Parallel()
+	skipIfShort(t)
 	pt := newAwsTest(t, filepath.Join("testdata", "autonaming"), opttest.Env("PULUMI_EXPERIMENTAL", "1"))
 	pt.Preview(t)
 	up := pt.Up(t)
@@ -75,4 +75,10 @@ func testProviderServer() (pulumirpc.ResourceProviderServer, error) {
 		return nil, err
 	}
 	return provider.NewAwsNativeProvider(nil, "aws-native", "0.1.0", schemaBytes, metadataBytes)
+}
+
+func skipIfShort(t *testing.T) {
+	if testing.Short() {
+		t.Skip("skipping long-running test in short mode")
+	}
 }
