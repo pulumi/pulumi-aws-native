@@ -233,7 +233,7 @@ type customResourceInvokeData struct {
 
 // Check validates the inputs of the resource and applies default values if necessary.
 // It returns the inputs, validation failures, and an error if the inputs cannot be unmarshalled.
-func (c *cfnCustomResource) Check(ctx context.Context, urn urn.URN, _ autonaming.EngineAutonamingConfiguration, inputs resource.PropertyMap, state resource.PropertyMap, defaultTags map[string]string) (resource.PropertyMap, []ValidationFailure, error) {
+func (c *cfnCustomResource) Check(ctx context.Context, urn urn.URN, _ autonaming.EngineAutoNamingConfig, inputs resource.PropertyMap, state resource.PropertyMap, defaultTags map[string]string) (resource.PropertyMap, []ValidationFailure, error) {
 	var typedInputs CfnCustomResourceInputs
 	_, err := resourcex.Unmarshal(&typedInputs, inputs, resourcex.UnmarshalOptions{})
 	if err != nil {

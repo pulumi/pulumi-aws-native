@@ -66,7 +66,7 @@ func TestConfigure(t *testing.T) {
 		assert.NoError(t, err)
 
 		assert.NotNil(t, provider.autoNamingConfig)
-		assert.Equal(t, autonaming.AutoNamingConfig{
+		assert.Equal(t, autonaming.ProviderAutoNamingConfig{
 			AutoTrim:              true,
 			RandomSuffixMinLength: 5,
 		}, *provider.autoNamingConfig)
@@ -85,7 +85,7 @@ func TestConfigure(t *testing.T) {
 		assert.NoError(t, err)
 
 		assert.NotNil(t, provider.autoNamingConfig)
-		assert.Equal(t, autonaming.AutoNamingConfig{}, *provider.autoNamingConfig)
+		assert.Equal(t, autonaming.ProviderAutoNamingConfig{}, *provider.autoNamingConfig)
 	})
 
 	t.Run("AutoNaming config invalid", func(t *testing.T) {

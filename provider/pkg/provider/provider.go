@@ -108,7 +108,7 @@ type cfnProvider struct {
 	partition           partition
 	resourceMap         *metadata.CloudAPIMetadata
 	roleArn             *string
-	autoNamingConfig    *autonaming.AutoNamingConfig
+	autoNamingConfig    *autonaming.ProviderAutoNamingConfig
 	allowedAccountIds   []string
 	forbiddenAccountIds []string
 	defaultTags         map[string]string
@@ -522,7 +522,7 @@ func (p *cfnProvider) Configure(ctx context.Context, req *pulumirpc.ConfigureReq
 	}
 
 	if autoNaming, ok := vars["aws-native:config:autoNaming"]; ok {
-		var autoNamingConfig autonaming.AutoNamingConfig
+		var autoNamingConfig autonaming.ProviderAutoNamingConfig
 		if err := json.Unmarshal([]byte(autoNaming), &autoNamingConfig); err != nil {
 			return nil, fmt.Errorf("failed to unmarshal 'autoNaming' config: %w", err)
 		}
@@ -755,8 +755,8 @@ func (p *cfnProvider) Check(ctx context.Context, req *pulumirpc.CheckRequest) (*
 			return nil, errors.Errorf("resource type %s not found", resourceToken)
 		}
 
-		if err := autonaming.ApplyAutoNaming(spec.AutoNamingSpec, urn, engineAutonaming(req),
-			olds, newInputs, p.autoNamingConfig); err != nil {
+		if err := autonaming.ApplyAutoNaming(spec.AutoNamingSpec, urn, engineAutonaming(req), p.autoNamingConfig,
+			olds, newInputs); err != nil {
 			return nil, fmt.Errorf("failed to apply auto-naming: %w", err)
 		}
 
@@ -794,8 +794,8 @@ func (p *cfnProvider) Check(ctx context.Context, req *pulumirpc.CheckRequest) (*
 	return &pulumirpc.CheckResponse{Failures: checkFailures}, nil
 }
 
-func engineAutonaming(req *pulumirpc.CheckRequest) autonaming.EngineAutonamingConfiguration {
-	engineAutonaming := autonaming.EngineAutonamingConfiguration{
+func engineAutonaming(req *pulumirpc.CheckRequest) autonaming.EngineAutoNamingConfig {
+	engineAutonaming := autonaming.EngineAutoNamingConfig{
 		RandomSeed: req.RandomSeed,
 	}
 	if req.Autonaming != nil {

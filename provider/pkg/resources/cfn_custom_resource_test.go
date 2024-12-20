@@ -118,7 +118,7 @@ func TestCfnCustomResource_Check(t *testing.T) {
 			c := &cfnCustomResource{}
 			ctx := context.Background()
 			urn := urn.URN("urn:pulumi:testProject::test::aws-native:cloudformation:CfnCustomResource::dummy")
-			engineAutonaming := autonaming.EngineAutonamingConfiguration{
+			engineAutonaming := autonaming.EngineAutoNamingConfig{
 				RandomSeed: []byte{},
 			}
 			state := resource.PropertyMap{}

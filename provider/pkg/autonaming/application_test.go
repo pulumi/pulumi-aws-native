@@ -18,15 +18,16 @@ func Test_getDefaultName(t *testing.T) {
 		return &v
 	}
 	tests := []struct {
-		name             string
-		minLength        int
-		maxLength        int
-		olds             resource.PropertyMap
-		news             resource.PropertyMap
-		err              error
-		comparison       func(t *testing.T, actual *resource.PropertyValue) bool
-		engineAutonaming EngineAutonamingConfiguration
-		noName           bool
+		name           string
+		minLength      int
+		maxLength      int
+		olds           resource.PropertyMap
+		news           resource.PropertyMap
+		err            error
+		comparison     func(t *testing.T, actual *resource.PropertyValue) bool
+		engineConfig   EngineAutoNamingConfig
+		providerConfig *ProviderAutoNamingConfig
+		noName         bool
 	}{
 		{
 			name: "Name specified explicitly",
@@ -70,7 +71,7 @@ func Test_getDefaultName(t *testing.T) {
 		},
 		{
 			name: "Autoname with AutonamingMode=Propose",
-			engineAutonaming: EngineAutonamingConfiguration{
+			engineConfig: EngineAutoNamingConfig{
 				AutonamingMode: p(EngineAutonamingModePropose),
 				ProposedName:   "proposed-name",
 			},
@@ -78,7 +79,7 @@ func Test_getDefaultName(t *testing.T) {
 		},
 		{
 			name: "Autoname with AutonamingMode=Enforce",
-			engineAutonaming: EngineAutonamingConfiguration{
+			engineConfig: EngineAutoNamingConfig{
 				AutonamingMode: p(EngineAutonamingModeEnforce),
 				ProposedName:   "enforced-name",
 			},
@@ -86,7 +87,7 @@ func Test_getDefaultName(t *testing.T) {
 		},
 		{
 			name: "Autoname with AutonamingMode=Disable",
-			engineAutonaming: EngineAutonamingConfiguration{
+			engineConfig: EngineAutoNamingConfig{
 				AutonamingMode: p(EngineAutonamingModeDisable),
 			},
 			comparison: func(t *testing.T, actual *resource.PropertyValue) bool {
@@ -96,7 +97,7 @@ func Test_getDefaultName(t *testing.T) {
 		},
 		{
 			name: "Autoname with Propose mode and max length constraints",
-			engineAutonaming: EngineAutonamingConfiguration{
+			engineConfig: EngineAutoNamingConfig{
 				AutonamingMode: p(EngineAutonamingModePropose),
 				ProposedName:   "very-long-proposed-name",
 			},
@@ -105,7 +106,7 @@ func Test_getDefaultName(t *testing.T) {
 		},
 		{
 			name: "Autoname with Propose mode and min length constraints",
-			engineAutonaming: EngineAutonamingConfiguration{
+			engineConfig: EngineAutoNamingConfig{
 				AutonamingMode: p(EngineAutonamingModePropose),
 				ProposedName:   "too-short-proposed-name",
 			},
@@ -114,7 +115,7 @@ func Test_getDefaultName(t *testing.T) {
 		},
 		{
 			name: "Autoname with Propose mode and trivia",
-			engineAutonaming: EngineAutonamingConfiguration{
+			engineConfig: EngineAutoNamingConfig{
 				AutonamingMode: p(EngineAutonamingModePropose),
 				ProposedName:   "proposed-name",
 			},
@@ -122,6 +123,18 @@ func Test_getDefaultName(t *testing.T) {
 				"flag": resource.NewBoolProperty(true),
 			},
 			comparison: equals(resource.NewStringProperty("proposed-name-trivia-value")),
+		},
+		{
+			name: "Engine autonaming config conflicts with provider autonaming config",
+			engineConfig: EngineAutoNamingConfig{
+				AutonamingMode: p(EngineAutonamingModePropose),
+				ProposedName:   "proposed-name",
+			},
+			providerConfig: &ProviderAutoNamingConfig{
+				AutoTrim:              true,
+				RandomSuffixMinLength: 5,
+			},
+			err: fmt.Errorf("pulumi:autonaming conflicts with provider autonaming configuration, please specify only one"),
 		},
 	}
 
@@ -146,7 +159,7 @@ func Test_getDefaultName(t *testing.T) {
 					},
 				},
 			}
-			got, err := getDefaultName(urn, tt.engineAutonaming, autoNamingSpec, tt.olds, tt.news, nil)
+			got, err := getDefaultName(urn, tt.engineConfig, tt.providerConfig, autoNamingSpec, tt.olds, tt.news)
 			if tt.err != nil {
 				require.EqualError(t, err, tt.err.Error())
 				return
@@ -167,7 +180,7 @@ func Test_getDefaultName_withAutoNameConfig(t *testing.T) {
 	tests := []struct {
 		name           string
 		resourceName   string
-		autoNameConfig AutoNamingConfig
+		autoNameConfig ProviderAutoNamingConfig
 		minLength      int
 		maxLength      int
 		olds           resource.PropertyMap
@@ -181,7 +194,7 @@ func Test_getDefaultName_withAutoNameConfig(t *testing.T) {
 			news: resource.PropertyMap{
 				resource.PropertyKey(sdkName): resource.NewStringProperty("newName"),
 			},
-			autoNameConfig: AutoNamingConfig{
+			autoNameConfig: ProviderAutoNamingConfig{
 				AutoTrim:              true,
 				RandomSuffixMinLength: 1,
 			},
@@ -194,7 +207,7 @@ func Test_getDefaultName_withAutoNameConfig(t *testing.T) {
 			olds: resource.PropertyMap{
 				resource.PropertyKey(sdkName): resource.NewStringProperty("oldName"),
 			},
-			autoNameConfig: AutoNamingConfig{
+			autoNameConfig: ProviderAutoNamingConfig{
 				AutoTrim:              true,
 				RandomSuffixMinLength: 1,
 			},
@@ -205,7 +218,7 @@ func Test_getDefaultName_withAutoNameConfig(t *testing.T) {
 			resourceName: "myReallyLongName",
 			name:         "Autoname with constraints on max length",
 			maxLength:    12,
-			autoNameConfig: AutoNamingConfig{
+			autoNameConfig: ProviderAutoNamingConfig{
 				AutoTrim: true,
 			},
 			comparison: startsWith("myReagName", 1),
@@ -214,7 +227,7 @@ func Test_getDefaultName_withAutoNameConfig(t *testing.T) {
 			resourceName: "myReallyLongName",
 			name:         "Autoname with odd constraints on max length",
 			maxLength:    13,
-			autoNameConfig: AutoNamingConfig{
+			autoNameConfig: ProviderAutoNamingConfig{
 				AutoTrim: true,
 			},
 			comparison: startsWith("myRealgName", 1),
@@ -223,7 +236,7 @@ func Test_getDefaultName_withAutoNameConfig(t *testing.T) {
 			name:         "Autoname with max length too small and no auto trim",
 			resourceName: "myName",
 			maxLength:    4,
-			autoNameConfig: AutoNamingConfig{
+			autoNameConfig: ProviderAutoNamingConfig{
 				RandomSuffixMinLength: 2,
 			},
 			comparison: within(15, 15),
@@ -233,7 +246,7 @@ func Test_getDefaultName_withAutoNameConfig(t *testing.T) {
 			name:         "Autoname with constraints on min and max length",
 			minLength:    13,
 			resourceName: "myReallyLongName",
-			autoNameConfig: AutoNamingConfig{
+			autoNameConfig: ProviderAutoNamingConfig{
 				RandomSuffixMinLength: 2,
 				AutoTrim:              true,
 			},
@@ -243,7 +256,7 @@ func Test_getDefaultName_withAutoNameConfig(t *testing.T) {
 		{
 			name:         "Autoname with long random suffix",
 			resourceName: "myReallyLongName",
-			autoNameConfig: AutoNamingConfig{
+			autoNameConfig: ProviderAutoNamingConfig{
 				RandomSuffixMinLength: 14,
 				AutoTrim:              true,
 			},
@@ -263,8 +276,8 @@ func Test_getDefaultName_withAutoNameConfig(t *testing.T) {
 			}
 
 			autoNameConfig := tt.autoNameConfig
-			engineAutonaming := EngineAutonamingConfiguration{}
-			got, err := getDefaultName(urn, engineAutonaming, autoNamingSpec, tt.olds, tt.news, &autoNameConfig)
+			engineAutonaming := EngineAutoNamingConfig{}
+			got, err := getDefaultName(urn, engineAutonaming, &autoNameConfig, autoNamingSpec, tt.olds, tt.news)
 			if tt.err != nil {
 				require.EqualError(t, err, tt.err.Error())
 				return

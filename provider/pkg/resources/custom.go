@@ -13,7 +13,7 @@ import (
 //go:generate mockgen -package resources -source custom.go -destination mock_custom_resource.go CustomResource
 type CustomResource interface {
 	// Check validates and transforms the inputs of the resource.
-	Check(ctx context.Context, urn resource.URN, engineAutonaming autonaming.EngineAutonamingConfiguration,
+	Check(ctx context.Context, urn resource.URN, engineAutonaming autonaming.EngineAutoNamingConfig,
 		inputs, state resource.PropertyMap, defaultTags map[string]string) (resource.PropertyMap, []ValidationFailure, error)
 	// Create creates a new resource in the cloud provider and returns its unique identifier and outputs.
 	Create(ctx context.Context, urn resource.URN, inputs resource.PropertyMap, timeout time.Duration) (identifier *string, outputs resource.PropertyMap, err error)

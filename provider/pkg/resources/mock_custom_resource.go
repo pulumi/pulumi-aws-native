@@ -44,7 +44,7 @@ func (m *MockCustomResource) EXPECT() *MockCustomResourceMockRecorder {
 }
 
 // Check mocks base method.
-func (m *MockCustomResource) Check(ctx context.Context, urn resource.URN, engineAutonaming autonaming.EngineAutonamingConfiguration, inputs, state resource.PropertyMap, defaultTags map[string]string) (resource.PropertyMap, []ValidationFailure, error) {
+func (m *MockCustomResource) Check(ctx context.Context, urn resource.URN, engineAutonaming autonaming.EngineAutoNamingConfig, inputs, state resource.PropertyMap, defaultTags map[string]string) (resource.PropertyMap, []ValidationFailure, error) {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "Check", ctx, urn, engineAutonaming, inputs, state, defaultTags)
 	ret0, _ := ret[0].(resource.PropertyMap)

@@ -10,13 +10,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 )
 
-type AutoNamingConfig struct {
+// ProviderAutoNamingConfig contains autonaming parameters configured for the provider.
+type ProviderAutoNamingConfig struct {
 	AutoTrim              bool `json:"autoTrim"`
 	RandomSuffixMinLength int  `json:"randomSuffixMinLength"`
 }
 
-// EngineAutonamingConfiguration contains autonaming parameters passed to the provider from the engine.
-type EngineAutonamingConfiguration struct {
+// EngineAutoNamingConfig contains autonaming parameters passed to the provider from the engine.
+type EngineAutoNamingConfig struct {
 	RandomSeed     []byte
 	AutonamingMode *EngineAutonamingMode
 	ProposedName   string
@@ -34,16 +35,16 @@ const (
 func ApplyAutoNaming(
 	spec *metadata.AutoNamingSpec,
 	urn resource.URN,
-	engineAutonaming EngineAutonamingConfiguration,
+	engineConfig EngineAutoNamingConfig,
+	providerConfig *ProviderAutoNamingConfig,
 	olds,
 	news resource.PropertyMap,
-	config *AutoNamingConfig,
 ) error {
 	if spec == nil {
 		return nil
 	}
 	// Auto-name fields if not already specified
-	val, err := getDefaultName(urn, engineAutonaming, spec, olds, news, config)
+	val, err := getDefaultName(urn, engineConfig, providerConfig, spec, olds, news)
 	if err != nil {
 		return err
 	}
@@ -60,13 +61,13 @@ func ApplyAutoNaming(
 // Defaults to the name followed by 7 random hex characters separated by a '-'.
 func getDefaultName(
 	urn resource.URN,
-	engineAutonaming EngineAutonamingConfiguration,
-	autoNamingSpec *metadata.AutoNamingSpec,
+	engineConfig EngineAutoNamingConfig,
+	providerConfig *ProviderAutoNamingConfig,
+	propertySpec *metadata.AutoNamingSpec,
 	olds,
 	news resource.PropertyMap,
-	config *AutoNamingConfig,
 ) (*resource.PropertyValue, error) {
-	sdkName := autoNamingSpec.SdkName
+	sdkName := propertySpec.SdkName
 
 	// Prefer explicitly specified name
 	if v, ok := news[resource.PropertyKey(sdkName)]; ok {
@@ -79,21 +80,25 @@ func getDefaultName(
 	}
 
 	// Generate naming trivia for the resource.
-	namingTriviaApplies, namingTrivia, err := CheckNamingTrivia(sdkName, news, autoNamingSpec.TriviaSpec)
+	namingTriviaApplies, namingTrivia, err := CheckNamingTrivia(sdkName, news, propertySpec.TriviaSpec)
 	if err != nil {
 		return nil, err
 	}
 
-	if engineAutonaming.AutonamingMode != nil {
-		//panic("yes")
-		switch *engineAutonaming.AutonamingMode {
+	if engineConfig.AutonamingMode != nil {
+		// Engine autonaming conflicts with provider autonaming. If both are specified, return an error.
+		if providerConfig != nil {
+			return nil, fmt.Errorf("pulumi:autonaming conflicts with provider autonaming configuration, please specify only one")
+		}
+
+		switch *engineConfig.AutonamingMode {
 		case EngineAutonamingModeDisable:
 			return nil, nil
 		case EngineAutonamingModeEnforce:
-			v := resource.NewStringProperty(engineAutonaming.ProposedName)
+			v := resource.NewStringProperty(engineConfig.ProposedName)
 			return &v, nil
 		case EngineAutonamingModePropose:
-			proposedName := engineAutonaming.ProposedName
+			proposedName := engineConfig.ProposedName
 
 			// Apply naming trivia to the generated name.
 			if namingTriviaApplies {
@@ -101,11 +106,11 @@ func getDefaultName(
 			}
 
 			// Validate the proposed name against the length constraints.
-			if autoNamingSpec.MaxLength > 0 && len(proposedName) > autoNamingSpec.MaxLength {
-				return nil, fmt.Errorf("proposed name %q exceeds max length of %d", proposedName, autoNamingSpec.MaxLength)
+			if propertySpec.MaxLength > 0 && len(proposedName) > propertySpec.MaxLength {
+				return nil, fmt.Errorf("proposed name %q exceeds max length of %d", proposedName, propertySpec.MaxLength)
 			}
-			if autoNamingSpec.MinLength > 0 && len(proposedName) < autoNamingSpec.MinLength {
-				return nil, fmt.Errorf("proposed name %q is shorter than min length of %d", proposedName, autoNamingSpec.MinLength)
+			if propertySpec.MinLength > 0 && len(proposedName) < propertySpec.MinLength {
+				return nil, fmt.Errorf("proposed name %q is shorter than min length of %d", proposedName, propertySpec.MinLength)
 			}
 
 			v := resource.NewStringProperty(proposedName)
@@ -116,10 +121,10 @@ func getDefaultName(
 	var autoTrim bool
 	// resource.NewUniqueName does not allow for a random suffix shorter than 1.
 	randomSuffixMinLength := 1
-	if config != nil {
-		autoTrim = config.AutoTrim
-		if config.RandomSuffixMinLength != 0 {
-			randomSuffixMinLength = config.RandomSuffixMinLength
+	if providerConfig != nil {
+		autoTrim = providerConfig.AutoTrim
+		if providerConfig.RandomSuffixMinLength != 0 {
+			randomSuffixMinLength = providerConfig.RandomSuffixMinLength
 		}
 	}
 
@@ -130,21 +135,21 @@ func getDefaultName(
 	if randomSuffixMinLength > randLength {
 		randLength = randomSuffixMinLength
 	}
-	if len(prefix)+namingTrivia.Length()+randLength < autoNamingSpec.MinLength {
-		randLength = autoNamingSpec.MinLength - len(prefix) - namingTrivia.Length()
+	if len(prefix)+namingTrivia.Length()+randLength < propertySpec.MinLength {
+		randLength = propertySpec.MinLength - len(prefix) - namingTrivia.Length()
 	}
 
 	maxLength := 0
-	if autoNamingSpec.MaxLength > 0 {
-		left := autoNamingSpec.MaxLength - len(prefix) - namingTrivia.Length()
+	if propertySpec.MaxLength > 0 {
+		left := propertySpec.MaxLength - len(prefix) - namingTrivia.Length()
 
 		if left <= 0 && autoTrim {
-			autoTrimMaxLength := autoNamingSpec.MaxLength - namingTrivia.Length() - randomSuffixMinLength
+			autoTrimMaxLength := propertySpec.MaxLength - namingTrivia.Length() - randomSuffixMinLength
 			if autoTrimMaxLength <= 0 {
 				return nil, fmt.Errorf("failed to auto-generate value for %[1]q."+
 					" Prefix: %[2]q is too large to fix max length constraint of %[3]d"+
 					" with required suffix length %[4]d. Please provide a value for %[1]q",
-					sdkName, prefix, autoNamingSpec.MaxLength, randomSuffixMinLength)
+					sdkName, prefix, propertySpec.MaxLength, randomSuffixMinLength)
 			}
 			prefix = trimName(prefix, autoTrimMaxLength)
 			randLength = randomSuffixMinLength
@@ -156,11 +161,11 @@ func getDefaultName(
 				return nil, fmt.Errorf("failed to auto-generate value for %[1]q."+
 					" Prefix: %[2]q is too large to fix max length constraint of %[3]d"+
 					" with required suffix %[4]q. Please provide a value for %[1]q",
-					sdkName, prefix, autoNamingSpec.MaxLength, namingTrivia.Suffix)
+					sdkName, prefix, propertySpec.MaxLength, namingTrivia.Suffix)
 			} else {
 				return nil, fmt.Errorf("failed to auto-generate value for %[1]q."+
 					" Prefix: %[2]q is too large to fix max length constraint of %[3]d. Please provide a value for %[1]q",
-					sdkName, prefix, autoNamingSpec.MaxLength)
+					sdkName, prefix, propertySpec.MaxLength)
 			}
 		}
 		if left < randLength {
@@ -170,7 +175,7 @@ func getDefaultName(
 	}
 
 	// Resource name is URN name + "-" + random suffix.
-	random, err := resource.NewUniqueName(engineAutonaming.RandomSeed, prefix, randLength, maxLength, nil)
+	random, err := resource.NewUniqueName(engineConfig.RandomSeed, prefix, randLength, maxLength, nil)
 	if err != nil {
 		return nil, err
 	}
