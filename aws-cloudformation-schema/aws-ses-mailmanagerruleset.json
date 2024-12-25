@@ -80,6 +80,34 @@
       "required" : [ "MailboxArn", "RoleArn" ],
       "additionalProperties" : false
     },
+    "DeliverToQBusinessAction" : {
+      "type" : "object",
+      "properties" : {
+        "ActionFailurePolicy" : {
+          "$ref" : "#/definitions/ActionFailurePolicy"
+        },
+        "ApplicationId" : {
+          "type" : "string",
+          "maxLength" : 36,
+          "minLength" : 36,
+          "pattern" : "^[a-z0-9-]+$"
+        },
+        "IndexId" : {
+          "type" : "string",
+          "maxLength" : 36,
+          "minLength" : 36,
+          "pattern" : "^[a-z0-9-]+$"
+        },
+        "RoleArn" : {
+          "type" : "string",
+          "maxLength" : 2048,
+          "minLength" : 20,
+          "pattern" : "^[a-zA-Z0-9:_/+=,@.#-]+$"
+        }
+      },
+      "required" : [ "ApplicationId", "IndexId", "RoleArn" ],
+      "additionalProperties" : false
+    },
     "DropAction" : {
       "type" : "object",
       "additionalProperties" : false
@@ -242,6 +270,16 @@
           }
         },
         "required" : [ "DeliverToMailbox" ],
+        "additionalProperties" : false
+      }, {
+        "type" : "object",
+        "title" : "DeliverToQBusiness",
+        "properties" : {
+          "DeliverToQBusiness" : {
+            "$ref" : "#/definitions/DeliverToQBusinessAction"
+          }
+        },
+        "required" : [ "DeliverToQBusiness" ],
         "additionalProperties" : false
       } ]
     },

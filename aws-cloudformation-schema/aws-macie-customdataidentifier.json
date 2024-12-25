@@ -73,7 +73,8 @@
     "tagOnCreate" : true,
     "tagUpdatable" : true,
     "cloudFormationSystemTags" : true,
-    "tagProperty" : "/properties/Tags"
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "macie2:TagResource", "macie2:UntagResource" ]
   },
   "required" : [ "Name", "Regex" ],
   "additionalProperties" : false,
@@ -95,7 +96,7 @@
       "permissions" : [ "macie2:ListCustomDataIdentifiers" ]
     },
     "update" : {
-      "permissions" : [ "macie2:TagResource", "macie2:UntagResource" ]
+      "permissions" : [ "macie2:TagResource", "macie2:UntagResource", "macie2:GetCustomDataIdentifier" ]
     }
   }
 }
