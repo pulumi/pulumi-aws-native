@@ -537,9 +537,7 @@
             "$ref" : "#/definitions/InputColumn"
           }
         },
-        "UploadSettings" : {
-          "$ref" : "#/definitions/UploadSettings"
-        }
+        "UploadSettings" : { }
       },
       "required" : [ "DataSourceArn", "InputColumns" ]
     },

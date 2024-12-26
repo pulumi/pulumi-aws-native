@@ -225,7 +225,8 @@
   "readOnlyProperties" : [ "/properties/Arn", "/properties/Endpoints", "/properties/ErrorInfo", "/properties/Id", "/properties/Status" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "ec2:CreateNetworkInterface", "ec2:DescribeVpcs", "ec2:DescribeSubnets", "ec2:DescribeSecurityGroups", "ec2:GetSecurityGroupsForVpc", "iam:CreateServiceLinkedRole", "secretsmanager:CreateSecret", "secretsmanager:TagResource", "pcs:CreateCluster", "pcs:GetCluster", "pcs:ListTagsForResource", "pcs:TagResource" ]
+      "permissions" : [ "ec2:CreateNetworkInterface", "ec2:DescribeVpcs", "ec2:DescribeSubnets", "ec2:DescribeSecurityGroups", "ec2:GetSecurityGroupsForVpc", "iam:CreateServiceLinkedRole", "secretsmanager:CreateSecret", "secretsmanager:TagResource", "pcs:CreateCluster", "pcs:GetCluster", "pcs:ListTagsForResource", "pcs:TagResource" ],
+      "timeoutInMinutes" : 60
     },
     "read" : {
       "permissions" : [ "pcs:GetCluster", "pcs:ListTagsForResource" ]
@@ -235,7 +236,8 @@
       "timeoutInMinutes" : 60
     },
     "delete" : {
-      "permissions" : [ "pcs:DeleteCluster", "pcs:GetCluster" ]
+      "permissions" : [ "pcs:DeleteCluster", "pcs:GetCluster" ],
+      "timeoutInMinutes" : 60
     },
     "list" : {
       "permissions" : [ "pcs:ListClusters" ]
