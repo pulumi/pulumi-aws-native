@@ -3,7 +3,7 @@ module github.com/pulumi/pulumi-aws-native/examples/simple-go
 go 1.21
 
 require (
-	github.com/pulumi/pulumi-aws-native/sdk v1.18.0
+	github.com/pulumi/pulumi-aws-native/sdk v1.19.0
 	github.com/pulumi/pulumi/sdk/v3 v3.144.1
 )
 
