@@ -789,6 +789,9 @@ class VpcBlockPublicAccessOptionsInternetGatewayBlockMode(str, Enum):
 
 
 class VpcEndpointDnsOptionsSpecificationDnsRecordIpType(str, Enum):
+    """
+    The DNS records created for the endpoint.
+    """
     IPV4 = "ipv4"
     IPV6 = "ipv6"
     DUALSTACK = "dualstack"
@@ -797,12 +800,18 @@ class VpcEndpointDnsOptionsSpecificationDnsRecordIpType(str, Enum):
 
 
 class VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint(str, Enum):
+    """
+    Indicates whether to enable private DNS only for inbound endpoints. This option is available only for services that support both gateway and interface endpoints. It routes traffic that originates from the VPC to the gateway endpoint and traffic that originates from on-premises to the interface endpoint.
+    """
     ONLY_INBOUND_RESOLVER = "OnlyInboundResolver"
     ALL_RESOLVERS = "AllResolvers"
     NOT_SPECIFIED = "NotSpecified"
 
 
 class VpcEndpointIpAddressType(str, Enum):
+    """
+    The supported IP address types.
+    """
     IPV4 = "ipv4"
     IPV6 = "ipv6"
     DUALSTACK = "dualstack"

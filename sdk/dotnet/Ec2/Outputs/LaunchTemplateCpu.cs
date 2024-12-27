@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Ec2.Outputs
 {
 
+    /// <summary>
+    /// Specifies the CPU performance to consider when using an instance family as the baseline reference.
+    /// </summary>
     [OutputType]
     public sealed class LaunchTemplateCpu
     {

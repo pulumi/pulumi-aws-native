@@ -2852,6 +2852,9 @@ if not MYPY:
         The settings for a custom Amazon EFS file system.
         """
         f_sx_lustre_file_system_config: NotRequired[pulumi.Input['DomainFSxLustreFileSystemConfigArgsDict']]
+        """
+        The settings for a custom Amazon FSx for Lustre file system.
+        """
 elif False:
     DomainCustomFileSystemConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2862,6 +2865,7 @@ class DomainCustomFileSystemConfigArgs:
                  f_sx_lustre_file_system_config: Optional[pulumi.Input['DomainFSxLustreFileSystemConfigArgs']] = None):
         """
         :param pulumi.Input['DomainEfsFileSystemConfigArgs'] efs_file_system_config: The settings for a custom Amazon EFS file system.
+        :param pulumi.Input['DomainFSxLustreFileSystemConfigArgs'] f_sx_lustre_file_system_config: The settings for a custom Amazon FSx for Lustre file system.
         """
         if efs_file_system_config is not None:
             pulumi.set(__self__, "efs_file_system_config", efs_file_system_config)
@@ -2883,6 +2887,9 @@ class DomainCustomFileSystemConfigArgs:
     @property
     @pulumi.getter(name="fSxLustreFileSystemConfig")
     def f_sx_lustre_file_system_config(self) -> Optional[pulumi.Input['DomainFSxLustreFileSystemConfigArgs']]:
+        """
+        The settings for a custom Amazon FSx for Lustre file system.
+        """
         return pulumi.get(self, "f_sx_lustre_file_system_config")
 
     @f_sx_lustre_file_system_config.setter
@@ -3389,7 +3396,13 @@ class DomainEfsFileSystemConfigArgs:
 if not MYPY:
     class DomainFSxLustreFileSystemConfigArgsDict(TypedDict):
         file_system_id: pulumi.Input[str]
+        """
+        The globally unique, 17-digit, ID of the file system, assigned by Amazon FSx for Lustre.
+        """
         file_system_path: NotRequired[pulumi.Input[str]]
+        """
+        The path to the file system directory that is accessible in Amazon SageMaker Studio. Permitted users can access only this directory and below.
+        """
 elif False:
     DomainFSxLustreFileSystemConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -3398,6 +3411,10 @@ class DomainFSxLustreFileSystemConfigArgs:
     def __init__(__self__, *,
                  file_system_id: pulumi.Input[str],
                  file_system_path: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] file_system_id: The globally unique, 17-digit, ID of the file system, assigned by Amazon FSx for Lustre.
+        :param pulumi.Input[str] file_system_path: The path to the file system directory that is accessible in Amazon SageMaker Studio. Permitted users can access only this directory and below.
+        """
         pulumi.set(__self__, "file_system_id", file_system_id)
         if file_system_path is not None:
             pulumi.set(__self__, "file_system_path", file_system_path)
@@ -3405,6 +3422,9 @@ class DomainFSxLustreFileSystemConfigArgs:
     @property
     @pulumi.getter(name="fileSystemId")
     def file_system_id(self) -> pulumi.Input[str]:
+        """
+        The globally unique, 17-digit, ID of the file system, assigned by Amazon FSx for Lustre.
+        """
         return pulumi.get(self, "file_system_id")
 
     @file_system_id.setter
@@ -3414,6 +3434,9 @@ class DomainFSxLustreFileSystemConfigArgs:
     @property
     @pulumi.getter(name="fileSystemPath")
     def file_system_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path to the file system directory that is accessible in Amazon SageMaker Studio. Permitted users can access only this directory and below.
+        """
         return pulumi.get(self, "file_system_path")
 
     @file_system_path.setter
@@ -18012,6 +18035,8 @@ if not MYPY:
         app_type: NotRequired[pulumi.Input['SpaceAppType']]
         """
         The type of app created within the space.
+
+        If using the [UpdateSpace](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateSpace.html) API, you can't change the app type of your space by specifying a different value for this field.
         """
         code_editor_app_settings: NotRequired[pulumi.Input['SpaceCodeEditorAppSettingsArgsDict']]
         """
@@ -18053,6 +18078,8 @@ class SpaceSettingsArgs:
         """
         A collection of settings that apply to spaces of Amazon SageMaker Studio. These settings are specified when the CreateSpace API is called.
         :param pulumi.Input['SpaceAppType'] app_type: The type of app created within the space.
+               
+               If using the [UpdateSpace](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateSpace.html) API, you can't change the app type of your space by specifying a different value for this field.
         :param pulumi.Input['SpaceCodeEditorAppSettingsArgs'] code_editor_app_settings: The CodeEditor app settings.
         :param pulumi.Input[Sequence[pulumi.Input['SpaceCustomFileSystemArgs']]] custom_file_systems: A file system, created by you, that you assign to a space for an Amazon SageMaker AI Domain. Permitted users can access this file system in Amazon SageMaker AI Studio.
         :param pulumi.Input['SpaceJupyterLabAppSettingsArgs'] jupyter_lab_app_settings: The JupyterLab app settings.
@@ -18080,6 +18107,8 @@ class SpaceSettingsArgs:
     def app_type(self) -> Optional[pulumi.Input['SpaceAppType']]:
         """
         The type of app created within the space.
+
+        If using the [UpdateSpace](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateSpace.html) API, you can't change the app type of your space by specifying a different value for this field.
         """
         return pulumi.get(self, "app_type")
 
@@ -18389,6 +18418,9 @@ if not MYPY:
         The settings for a custom Amazon EFS file system.
         """
         f_sx_lustre_file_system_config: NotRequired[pulumi.Input['UserProfileFSxLustreFileSystemConfigArgsDict']]
+        """
+        The settings for a custom Amazon FSx for Lustre file system.
+        """
 elif False:
     UserProfileCustomFileSystemConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -18399,6 +18431,7 @@ class UserProfileCustomFileSystemConfigArgs:
                  f_sx_lustre_file_system_config: Optional[pulumi.Input['UserProfileFSxLustreFileSystemConfigArgs']] = None):
         """
         :param pulumi.Input['UserProfileEfsFileSystemConfigArgs'] efs_file_system_config: The settings for a custom Amazon EFS file system.
+        :param pulumi.Input['UserProfileFSxLustreFileSystemConfigArgs'] f_sx_lustre_file_system_config: The settings for a custom Amazon FSx for Lustre file system.
         """
         if efs_file_system_config is not None:
             pulumi.set(__self__, "efs_file_system_config", efs_file_system_config)
@@ -18420,6 +18453,9 @@ class UserProfileCustomFileSystemConfigArgs:
     @property
     @pulumi.getter(name="fSxLustreFileSystemConfig")
     def f_sx_lustre_file_system_config(self) -> Optional[pulumi.Input['UserProfileFSxLustreFileSystemConfigArgs']]:
+        """
+        The settings for a custom Amazon FSx for Lustre file system.
+        """
         return pulumi.get(self, "f_sx_lustre_file_system_config")
 
     @f_sx_lustre_file_system_config.setter
@@ -18695,7 +18731,13 @@ class UserProfileEfsFileSystemConfigArgs:
 if not MYPY:
     class UserProfileFSxLustreFileSystemConfigArgsDict(TypedDict):
         file_system_id: pulumi.Input[str]
+        """
+        The globally unique, 17-digit, ID of the file system, assigned by Amazon FSx for Lustre.
+        """
         file_system_path: NotRequired[pulumi.Input[str]]
+        """
+        The path to the file system directory that is accessible in Amazon SageMaker Studio. Permitted users can access only this directory and below.
+        """
 elif False:
     UserProfileFSxLustreFileSystemConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -18704,6 +18746,10 @@ class UserProfileFSxLustreFileSystemConfigArgs:
     def __init__(__self__, *,
                  file_system_id: pulumi.Input[str],
                  file_system_path: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] file_system_id: The globally unique, 17-digit, ID of the file system, assigned by Amazon FSx for Lustre.
+        :param pulumi.Input[str] file_system_path: The path to the file system directory that is accessible in Amazon SageMaker Studio. Permitted users can access only this directory and below.
+        """
         pulumi.set(__self__, "file_system_id", file_system_id)
         if file_system_path is not None:
             pulumi.set(__self__, "file_system_path", file_system_path)
@@ -18711,6 +18757,9 @@ class UserProfileFSxLustreFileSystemConfigArgs:
     @property
     @pulumi.getter(name="fileSystemId")
     def file_system_id(self) -> pulumi.Input[str]:
+        """
+        The globally unique, 17-digit, ID of the file system, assigned by Amazon FSx for Lustre.
+        """
         return pulumi.get(self, "file_system_id")
 
     @file_system_id.setter
@@ -18720,6 +18769,9 @@ class UserProfileFSxLustreFileSystemConfigArgs:
     @property
     @pulumi.getter(name="fileSystemPath")
     def file_system_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The path to the file system directory that is accessible in Amazon SageMaker Studio. Permitted users can access only this directory and below.
+        """
         return pulumi.get(self, "file_system_path")
 
     @file_system_path.setter

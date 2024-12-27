@@ -17,6 +17,10 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
     public sealed class DataSourceParsingConfiguration
     {
         /// <summary>
+        /// If you specify `BEDROCK_DATA_AUTOMATION` as the parsing strategy for ingesting your data source, use this object to modify configurations for using the Amazon Bedrock Data Automation parser.
+        /// </summary>
+        public readonly Outputs.DataSourceBedrockDataAutomationConfiguration? BedrockDataAutomationConfiguration;
+        /// <summary>
         /// If you specify `BEDROCK_FOUNDATION_MODEL` as the parsing strategy for ingesting your data source, use this object to modify configurations for using a foundation model to parse documents.
         /// </summary>
         public readonly Outputs.DataSourceBedrockFoundationModelConfiguration? BedrockFoundationModelConfiguration;
@@ -27,10 +31,13 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
 
         [OutputConstructor]
         private DataSourceParsingConfiguration(
+            Outputs.DataSourceBedrockDataAutomationConfiguration? bedrockDataAutomationConfiguration,
+
             Outputs.DataSourceBedrockFoundationModelConfiguration? bedrockFoundationModelConfiguration,
 
             Pulumi.AwsNative.Bedrock.DataSourceParsingStrategy parsingStrategy)
         {
+            BedrockDataAutomationConfiguration = bedrockDataAutomationConfiguration;
             BedrockFoundationModelConfiguration = bedrockFoundationModelConfiguration;
             ParsingStrategy = parsingStrategy;
         }

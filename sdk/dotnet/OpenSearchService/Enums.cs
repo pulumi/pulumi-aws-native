@@ -38,6 +38,9 @@ namespace Pulumi.AwsNative.OpenSearchService
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Container for node type like coordinating.
+    /// </summary>
     [EnumType]
     public readonly struct DomainNodeOptionNodeType : IEquatable<DomainNodeOptionNodeType>
     {

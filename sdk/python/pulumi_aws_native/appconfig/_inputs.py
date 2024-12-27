@@ -18,6 +18,8 @@ from ._enums import *
 __all__ = [
     'ConfigurationProfileValidatorsArgs',
     'ConfigurationProfileValidatorsArgsDict',
+    'DeploymentDynamicExtensionParametersArgs',
+    'DeploymentDynamicExtensionParametersArgsDict',
     'EnvironmentMonitorArgs',
     'EnvironmentMonitorArgsDict',
     'ExtensionActionArgs',
@@ -82,6 +84,78 @@ class ConfigurationProfileValidatorsArgs:
     @type.setter
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
+
+
+if not MYPY:
+    class DeploymentDynamicExtensionParametersArgsDict(TypedDict):
+        extension_reference: NotRequired[pulumi.Input[str]]
+        """
+        The ARN or ID of the extension for which you are inserting a dynamic parameter.
+        """
+        parameter_name: NotRequired[pulumi.Input[str]]
+        """
+        The parameter name.
+        """
+        parameter_value: NotRequired[pulumi.Input[str]]
+        """
+        The parameter value.
+        """
+elif False:
+    DeploymentDynamicExtensionParametersArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DeploymentDynamicExtensionParametersArgs:
+    def __init__(__self__, *,
+                 extension_reference: Optional[pulumi.Input[str]] = None,
+                 parameter_name: Optional[pulumi.Input[str]] = None,
+                 parameter_value: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] extension_reference: The ARN or ID of the extension for which you are inserting a dynamic parameter.
+        :param pulumi.Input[str] parameter_name: The parameter name.
+        :param pulumi.Input[str] parameter_value: The parameter value.
+        """
+        if extension_reference is not None:
+            pulumi.set(__self__, "extension_reference", extension_reference)
+        if parameter_name is not None:
+            pulumi.set(__self__, "parameter_name", parameter_name)
+        if parameter_value is not None:
+            pulumi.set(__self__, "parameter_value", parameter_value)
+
+    @property
+    @pulumi.getter(name="extensionReference")
+    def extension_reference(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN or ID of the extension for which you are inserting a dynamic parameter.
+        """
+        return pulumi.get(self, "extension_reference")
+
+    @extension_reference.setter
+    def extension_reference(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "extension_reference", value)
+
+    @property
+    @pulumi.getter(name="parameterName")
+    def parameter_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The parameter name.
+        """
+        return pulumi.get(self, "parameter_name")
+
+    @parameter_name.setter
+    def parameter_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "parameter_name", value)
+
+    @property
+    @pulumi.getter(name="parameterValue")
+    def parameter_value(self) -> Optional[pulumi.Input[str]]:
+        """
+        The parameter value.
+        """
+        return pulumi.get(self, "parameter_value")
+
+    @parameter_value.setter
+    def parameter_value(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "parameter_value", value)
 
 
 if not MYPY:

@@ -17,20 +17,27 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
     public sealed class KnowledgeBaseConfiguration
     {
         /// <summary>
+        /// Settings for an Amazon Kendra knowledge base.
+        /// </summary>
+        public readonly Outputs.KnowledgeBaseKendraKnowledgeBaseConfiguration? KendraKnowledgeBaseConfiguration;
+        /// <summary>
         /// The type of data that the data source is converted into for the knowledge base.
         /// </summary>
         public readonly Pulumi.AwsNative.Bedrock.KnowledgeBaseType Type;
         /// <summary>
         /// Contains details about the model that's used to convert the data source into vector embeddings.
         /// </summary>
-        public readonly Outputs.KnowledgeBaseVectorKnowledgeBaseConfiguration VectorKnowledgeBaseConfiguration;
+        public readonly Outputs.KnowledgeBaseVectorKnowledgeBaseConfiguration? VectorKnowledgeBaseConfiguration;
 
         [OutputConstructor]
         private KnowledgeBaseConfiguration(
+            Outputs.KnowledgeBaseKendraKnowledgeBaseConfiguration? kendraKnowledgeBaseConfiguration,
+
             Pulumi.AwsNative.Bedrock.KnowledgeBaseType type,
 
-            Outputs.KnowledgeBaseVectorKnowledgeBaseConfiguration vectorKnowledgeBaseConfiguration)
+            Outputs.KnowledgeBaseVectorKnowledgeBaseConfiguration? vectorKnowledgeBaseConfiguration)
         {
+            KendraKnowledgeBaseConfiguration = kendraKnowledgeBaseConfiguration;
             Type = type;
             VectorKnowledgeBaseConfiguration = vectorKnowledgeBaseConfiguration;
         }

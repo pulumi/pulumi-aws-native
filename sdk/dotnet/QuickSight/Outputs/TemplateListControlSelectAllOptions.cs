@@ -16,10 +16,10 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// <summary>
         /// The visibility configuration of the `Select all` options in a list control.
         /// </summary>
-        public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? Visibility;
+        public readonly object? Visibility;
 
         [OutputConstructor]
-        private TemplateListControlSelectAllOptions(Pulumi.AwsNative.QuickSight.TemplateVisibility? visibility)
+        private TemplateListControlSelectAllOptions(object? visibility)
         {
             Visibility = visibility;
         }

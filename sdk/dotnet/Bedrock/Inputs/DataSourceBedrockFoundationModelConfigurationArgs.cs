@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
         public Input<string> ModelArn { get; set; } = null!;
 
         /// <summary>
+        /// Specifies whether to enable parsing of multimodal data, including both text and/or images.
+        /// </summary>
+        [Input("parsingModality")]
+        public Input<Pulumi.AwsNative.Bedrock.DataSourceParsingModality>? ParsingModality { get; set; }
+
+        /// <summary>
         /// Instructions for interpreting the contents of a document.
         /// </summary>
         [Input("parsingPrompt")]

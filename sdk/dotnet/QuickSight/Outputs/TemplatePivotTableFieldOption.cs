@@ -24,7 +24,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// <summary>
         /// The visibility of the pivot table field.
         /// </summary>
-        public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? Visibility;
+        public readonly object? Visibility;
 
         [OutputConstructor]
         private TemplatePivotTableFieldOption(
@@ -32,7 +32,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             string fieldId,
 
-            Pulumi.AwsNative.QuickSight.TemplateVisibility? visibility)
+            object? visibility)
         {
             CustomLabel = customLabel;
             FieldId = fieldId;

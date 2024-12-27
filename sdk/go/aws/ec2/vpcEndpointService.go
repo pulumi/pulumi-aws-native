@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -27,6 +28,8 @@ type VpcEndpointService struct {
 	PayerResponsibility pulumi.StringPtrOutput `pulumi:"payerResponsibility"`
 	// The ID of the endpoint service.
 	ServiceId pulumi.StringOutput `pulumi:"serviceId"`
+	// The tags to add to the VPC endpoint service.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewVpcEndpointService registers a new resource with the given unique name, arguments, and options.
@@ -79,6 +82,8 @@ type vpcEndpointServiceArgs struct {
 	NetworkLoadBalancerArns []string `pulumi:"networkLoadBalancerArns"`
 	// The entity that is responsible for the endpoint costs. The default is the endpoint owner. If you set the payer responsibility to the service owner, you cannot set it back to the endpoint owner.
 	PayerResponsibility *string `pulumi:"payerResponsibility"`
+	// The tags to add to the VPC endpoint service.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a VpcEndpointService resource.
@@ -93,6 +98,8 @@ type VpcEndpointServiceArgs struct {
 	NetworkLoadBalancerArns pulumi.StringArrayInput
 	// The entity that is responsible for the endpoint costs. The default is the endpoint owner. If you set the payer responsibility to the service owner, you cannot set it back to the endpoint owner.
 	PayerResponsibility pulumi.StringPtrInput
+	// The tags to add to the VPC endpoint service.
+	Tags aws.TagArrayInput
 }
 
 func (VpcEndpointServiceArgs) ElementType() reflect.Type {
@@ -160,6 +167,11 @@ func (o VpcEndpointServiceOutput) PayerResponsibility() pulumi.StringPtrOutput {
 // The ID of the endpoint service.
 func (o VpcEndpointServiceOutput) ServiceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcEndpointService) pulumi.StringOutput { return v.ServiceId }).(pulumi.StringOutput)
+}
+
+// The tags to add to the VPC endpoint service.
+func (o VpcEndpointServiceOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *VpcEndpointService) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

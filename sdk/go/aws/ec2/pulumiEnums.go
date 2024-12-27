@@ -10907,6 +10907,7 @@ func (in *vpcBlockPublicAccessOptionsInternetGatewayBlockModePtr) ToVpcBlockPubl
 	return pulumi.ToOutputWithContext(ctx, in).(VpcBlockPublicAccessOptionsInternetGatewayBlockModePtrOutput)
 }
 
+// The DNS records created for the endpoint.
 type VpcEndpointDnsOptionsSpecificationDnsRecordIpType string
 
 const (
@@ -11078,6 +11079,7 @@ func (in *vpcEndpointDnsOptionsSpecificationDnsRecordIpTypePtr) ToVpcEndpointDns
 	return pulumi.ToOutputWithContext(ctx, in).(VpcEndpointDnsOptionsSpecificationDnsRecordIpTypePtrOutput)
 }
 
+// Indicates whether to enable private DNS only for inbound endpoints. This option is available only for services that support both gateway and interface endpoints. It routes traffic that originates from the VPC to the gateway endpoint and traffic that originates from on-premises to the interface endpoint.
 type VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint string
 
 const (
@@ -11245,6 +11247,7 @@ func (in *vpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndp
 	return pulumi.ToOutputWithContext(ctx, in).(VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpointPtrOutput)
 }
 
+// The supported IP address types.
 type VpcEndpointIpAddressType string
 
 const (

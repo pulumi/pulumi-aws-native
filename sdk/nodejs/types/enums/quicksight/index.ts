@@ -2099,17 +2099,6 @@ export const DataSetDatasetParameterValueType = {
 
 export type DataSetDatasetParameterValueType = (typeof DataSetDatasetParameterValueType)[keyof typeof DataSetDatasetParameterValueType];
 
-export const DataSetFileFormat = {
-    Csv: "CSV",
-    Tsv: "TSV",
-    Clf: "CLF",
-    Elf: "ELF",
-    Xlsx: "XLSX",
-    Json: "JSON",
-} as const;
-
-export type DataSetFileFormat = (typeof DataSetFileFormat)[keyof typeof DataSetFileFormat];
-
 export const DataSetGeoSpatialCountryCode = {
     Us: "US",
 } as const;
@@ -2188,13 +2177,6 @@ export const DataSetStatus = {
 } as const;
 
 export type DataSetStatus = (typeof DataSetStatus)[keyof typeof DataSetStatus];
-
-export const DataSetTextQualifier = {
-    DoubleQuote: "DOUBLE_QUOTE",
-    SingleQuote: "SINGLE_QUOTE",
-} as const;
-
-export type DataSetTextQualifier = (typeof DataSetTextQualifier)[keyof typeof DataSetTextQualifier];
 
 export const DataSetTimeGranularity = {
     Year: "YEAR",
@@ -3280,13 +3262,6 @@ export const TemplateVerticalTextAlignment = {
 } as const;
 
 export type TemplateVerticalTextAlignment = (typeof TemplateVerticalTextAlignment)[keyof typeof TemplateVerticalTextAlignment];
-
-export const TemplateVisibility = {
-    Hidden: "HIDDEN",
-    Visible: "VISIBLE",
-} as const;
-
-export type TemplateVisibility = (typeof TemplateVisibility)[keyof typeof TemplateVisibility];
 
 export const TemplateVisualCustomActionTrigger = {
     DataPointClick: "DATA_POINT_CLICK",

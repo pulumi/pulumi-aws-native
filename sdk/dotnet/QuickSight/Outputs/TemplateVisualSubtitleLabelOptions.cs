@@ -20,13 +20,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// <summary>
         /// The visibility of the subtitle label.
         /// </summary>
-        public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? Visibility;
+        public readonly object? Visibility;
 
         [OutputConstructor]
         private TemplateVisualSubtitleLabelOptions(
             Outputs.TemplateLongFormatText? formatText,
 
-            Pulumi.AwsNative.QuickSight.TemplateVisibility? visibility)
+            object? visibility)
         {
             FormatText = formatText;
             Visibility = visibility;

@@ -69,6 +69,9 @@ namespace Pulumi.AwsNative.M2
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The network type supported by the runtime environment.
+        /// </summary>
         [Output("networkType")]
         public Output<Pulumi.AwsNative.M2.EnvironmentNetworkType?> NetworkType { get; private set; } = null!;
 
@@ -207,6 +210,9 @@ namespace Pulumi.AwsNative.M2
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The network type supported by the runtime environment.
+        /// </summary>
         [Input("networkType")]
         public Input<Pulumi.AwsNative.M2.EnvironmentNetworkType>? NetworkType { get; set; }
 

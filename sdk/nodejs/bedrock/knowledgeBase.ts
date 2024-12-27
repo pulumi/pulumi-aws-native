@@ -76,7 +76,7 @@ export class KnowledgeBase extends pulumi.CustomResource {
     /**
      * Contains details about the storage configuration of the knowledge base.
      */
-    public readonly storageConfiguration!: pulumi.Output<outputs.bedrock.KnowledgeBaseStorageConfiguration>;
+    public readonly storageConfiguration!: pulumi.Output<outputs.bedrock.KnowledgeBaseStorageConfiguration | undefined>;
     /**
      * Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
      *
@@ -105,9 +105,6 @@ export class KnowledgeBase extends pulumi.CustomResource {
             }
             if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
-            }
-            if ((!args || args.storageConfiguration === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'storageConfiguration'");
             }
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["knowledgeBaseConfiguration"] = args ? args.knowledgeBaseConfiguration : undefined;
@@ -165,7 +162,7 @@ export interface KnowledgeBaseArgs {
     /**
      * Contains details about the storage configuration of the knowledge base.
      */
-    storageConfiguration: pulumi.Input<inputs.bedrock.KnowledgeBaseStorageConfigurationArgs>;
+    storageConfiguration?: pulumi.Input<inputs.bedrock.KnowledgeBaseStorageConfigurationArgs>;
     /**
      * Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
      *

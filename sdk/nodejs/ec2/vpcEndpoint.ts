@@ -61,7 +61,13 @@ export class VpcEndpoint extends pulumi.CustomResource {
      * If you update the `PrivateDnsEnabled` or `SubnetIds` properties, the DNS entries in the list will change.
      */
     public /*out*/ readonly dnsEntries!: pulumi.Output<string[]>;
+    /**
+     * Describes the DNS options for an endpoint.
+     */
     public readonly dnsOptions!: pulumi.Output<outputs.ec2.VpcEndpointDnsOptionsSpecification | undefined>;
+    /**
+     * The supported IP address types.
+     */
     public readonly ipAddressType!: pulumi.Output<enums.ec2.VpcEndpointIpAddressType | undefined>;
     /**
      * (Interface endpoints) The network interface IDs. If you update the `PrivateDnsEnabled` or `SubnetIds` properties, the items in this list might change.
@@ -82,6 +88,9 @@ export class VpcEndpoint extends pulumi.CustomResource {
      *  Default: ``false``
      */
     public readonly privateDnsEnabled!: pulumi.Output<boolean | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) of the resource configuration.
+     */
     public readonly resourceConfigurationArn!: pulumi.Output<string | undefined>;
     /**
      * The IDs of the route tables. Routing is supported only for gateway endpoints.
@@ -95,6 +104,9 @@ export class VpcEndpoint extends pulumi.CustomResource {
      * The name of the endpoint service.
      */
     public readonly serviceName!: pulumi.Output<string | undefined>;
+    /**
+     * The Amazon Resource Name (ARN) of the service network.
+     */
     public readonly serviceNetworkArn!: pulumi.Output<string | undefined>;
     /**
      * The IDs of the subnets in which to create endpoint network interfaces. You must specify this property for an interface endpoint or a Gateway Load Balancer endpoint. You can't specify this property for a gateway endpoint. For a Gateway Load Balancer endpoint, you can specify only one subnet.
@@ -172,7 +184,13 @@ export class VpcEndpoint extends pulumi.CustomResource {
  * The set of arguments for constructing a VpcEndpoint resource.
  */
 export interface VpcEndpointArgs {
+    /**
+     * Describes the DNS options for an endpoint.
+     */
     dnsOptions?: pulumi.Input<inputs.ec2.VpcEndpointDnsOptionsSpecificationArgs>;
+    /**
+     * The supported IP address types.
+     */
     ipAddressType?: pulumi.Input<enums.ec2.VpcEndpointIpAddressType>;
     /**
      * An endpoint policy, which controls access to the service from the VPC. The default endpoint policy allows full access to the service. Endpoint policies are supported only for gateway and interface endpoints.
@@ -189,6 +207,9 @@ export interface VpcEndpointArgs {
      *  Default: ``false``
      */
     privateDnsEnabled?: pulumi.Input<boolean>;
+    /**
+     * The Amazon Resource Name (ARN) of the resource configuration.
+     */
     resourceConfigurationArn?: pulumi.Input<string>;
     /**
      * The IDs of the route tables. Routing is supported only for gateway endpoints.
@@ -202,6 +223,9 @@ export interface VpcEndpointArgs {
      * The name of the endpoint service.
      */
     serviceName?: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the service network.
+     */
     serviceNetworkArn?: pulumi.Input<string>;
     /**
      * The IDs of the subnets in which to create endpoint network interfaces. You must specify this property for an interface endpoint or a Gateway Load Balancer endpoint. You can't specify this property for a gateway endpoint. For a Gateway Load Balancer endpoint, you can specify only one subnet.

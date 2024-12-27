@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         /// The visibility of the category labels within the data labels.
         /// </summary>
         [Input("categoryLabelVisibility")]
-        public Input<Pulumi.AwsNative.QuickSight.TemplateVisibility>? CategoryLabelVisibility { get; set; }
+        public Input<object>? CategoryLabelVisibility { get; set; }
 
         /// <summary>
         /// The color of the data label text.
@@ -42,7 +42,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         /// The visibility of the measure labels within the data labels.
         /// </summary>
         [Input("measureLabelVisibility")]
-        public Input<Pulumi.AwsNative.QuickSight.TemplateVisibility>? MeasureLabelVisibility { get; set; }
+        public Input<object>? MeasureLabelVisibility { get; set; }
 
         /// <summary>
         /// Determines the positioning of the data label relative to a section of the funnel.
@@ -54,7 +54,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         /// The visibility option that determines if data labels are displayed.
         /// </summary>
         [Input("visibility")]
-        public Input<Pulumi.AwsNative.QuickSight.TemplateVisibility>? Visibility { get; set; }
+        public Input<object>? Visibility { get; set; }
 
         public TemplateFunnelChartDataLabelOptionsArgs()
         {

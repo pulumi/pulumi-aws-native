@@ -24,14 +24,19 @@ func LookupCustomPermissions(ctx *pulumi.Context, args *LookupCustomPermissionsA
 }
 
 type LookupCustomPermissionsArgs struct {
-	AwsAccountId          string `pulumi:"awsAccountId"`
+	// The ID of the AWS account that contains the custom permission configuration that you want to update.
+	AwsAccountId string `pulumi:"awsAccountId"`
+	// The name of the custom permissions profile.
 	CustomPermissionsName string `pulumi:"customPermissionsName"`
 }
 
 type LookupCustomPermissionsResult struct {
-	Arn          *string                        `pulumi:"arn"`
+	// The Amazon Resource Name (ARN) of the custom permissions profile.
+	Arn *string `pulumi:"arn"`
+	// A set of actions in the custom permissions profile.
 	Capabilities *CustomPermissionsCapabilities `pulumi:"capabilities"`
-	Tags         []aws.Tag                      `pulumi:"tags"`
+	// The tags to associate with the custom permissions profile.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupCustomPermissionsOutput(ctx *pulumi.Context, args LookupCustomPermissionsOutputArgs, opts ...pulumi.InvokeOption) LookupCustomPermissionsResultOutput {
@@ -44,7 +49,9 @@ func LookupCustomPermissionsOutput(ctx *pulumi.Context, args LookupCustomPermiss
 }
 
 type LookupCustomPermissionsOutputArgs struct {
-	AwsAccountId          pulumi.StringInput `pulumi:"awsAccountId"`
+	// The ID of the AWS account that contains the custom permission configuration that you want to update.
+	AwsAccountId pulumi.StringInput `pulumi:"awsAccountId"`
+	// The name of the custom permissions profile.
 	CustomPermissionsName pulumi.StringInput `pulumi:"customPermissionsName"`
 }
 
@@ -66,14 +73,17 @@ func (o LookupCustomPermissionsResultOutput) ToLookupCustomPermissionsResultOutp
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the custom permissions profile.
 func (o LookupCustomPermissionsResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupCustomPermissionsResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// A set of actions in the custom permissions profile.
 func (o LookupCustomPermissionsResultOutput) Capabilities() CustomPermissionsCapabilitiesPtrOutput {
 	return o.ApplyT(func(v LookupCustomPermissionsResult) *CustomPermissionsCapabilities { return v.Capabilities }).(CustomPermissionsCapabilitiesPtrOutput)
 }
 
+// The tags to associate with the custom permissions profile.
 func (o LookupCustomPermissionsResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupCustomPermissionsResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

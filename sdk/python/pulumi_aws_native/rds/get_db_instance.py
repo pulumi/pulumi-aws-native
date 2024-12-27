@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDbInstanceResult:
-    def __init__(__self__, allocated_storage=None, associated_roles=None, auto_minor_version_upgrade=None, automatic_backup_replication_region=None, availability_zone=None, backup_retention_period=None, ca_certificate_identifier=None, certificate_details=None, copy_tags_to_snapshot=None, db_cluster_snapshot_identifier=None, db_instance_arn=None, db_instance_class=None, db_parameter_group_name=None, db_security_groups=None, db_system_id=None, dbi_resource_id=None, dedicated_log_volume=None, deletion_protection=None, domain=None, domain_auth_secret_arn=None, domain_dns_ips=None, domain_fqdn=None, domain_iam_role_name=None, domain_ou=None, enable_cloudwatch_logs_exports=None, enable_iam_database_authentication=None, enable_performance_insights=None, endpoint=None, engine=None, engine_lifecycle_support=None, engine_version=None, iops=None, license_model=None, manage_master_user_password=None, master_user_secret=None, max_allocated_storage=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, network_type=None, option_group_name=None, performance_insights_kms_key_id=None, performance_insights_retention_period=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, processor_features=None, promotion_tier=None, publicly_accessible=None, replica_mode=None, source_db_cluster_identifier=None, storage_throughput=None, storage_type=None, tags=None, tde_credential_arn=None, vpc_security_groups=None):
+    def __init__(__self__, allocated_storage=None, associated_roles=None, auto_minor_version_upgrade=None, automatic_backup_replication_region=None, availability_zone=None, backup_retention_period=None, ca_certificate_identifier=None, certificate_details=None, copy_tags_to_snapshot=None, db_cluster_snapshot_identifier=None, db_instance_arn=None, db_instance_class=None, db_parameter_group_name=None, db_security_groups=None, dbi_resource_id=None, dedicated_log_volume=None, deletion_protection=None, domain=None, domain_auth_secret_arn=None, domain_dns_ips=None, domain_fqdn=None, domain_iam_role_name=None, domain_ou=None, enable_cloudwatch_logs_exports=None, enable_iam_database_authentication=None, enable_performance_insights=None, endpoint=None, engine=None, engine_lifecycle_support=None, engine_version=None, iops=None, license_model=None, manage_master_user_password=None, master_user_secret=None, max_allocated_storage=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, network_type=None, option_group_name=None, performance_insights_kms_key_id=None, performance_insights_retention_period=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, processor_features=None, promotion_tier=None, publicly_accessible=None, replica_mode=None, source_db_cluster_identifier=None, storage_throughput=None, storage_type=None, tags=None, tde_credential_arn=None, vpc_security_groups=None):
         if allocated_storage and not isinstance(allocated_storage, str):
             raise TypeError("Expected argument 'allocated_storage' to be a str")
         pulumi.set(__self__, "allocated_storage", allocated_storage)
@@ -69,9 +69,6 @@ class GetDbInstanceResult:
         if db_security_groups and not isinstance(db_security_groups, list):
             raise TypeError("Expected argument 'db_security_groups' to be a list")
         pulumi.set(__self__, "db_security_groups", db_security_groups)
-        if db_system_id and not isinstance(db_system_id, str):
-            raise TypeError("Expected argument 'db_system_id' to be a str")
-        pulumi.set(__self__, "db_system_id", db_system_id)
         if dbi_resource_id and not isinstance(dbi_resource_id, str):
             raise TypeError("Expected argument 'dbi_resource_id' to be a str")
         pulumi.set(__self__, "dbi_resource_id", dbi_resource_id)
@@ -404,14 +401,6 @@ class GetDbInstanceResult:
          All other properties are ignored. Specify a virtual private cloud (VPC) security group if you want to submit other properties, such as ``StorageType``, ``StorageEncrypted``, or ``KmsKeyId``. If you're already using the ``DBSecurityGroups`` property, you can't use these other properties by updating your DB instance to use a VPC security group. You must recreate the DB instance.
         """
         return pulumi.get(self, "db_security_groups")
-
-    @property
-    @pulumi.getter(name="dbSystemId")
-    def db_system_id(self) -> Optional[str]:
-        """
-        The Oracle system identifier (SID), which is the name of the Oracle database instance that manages your database files. In this context, the term "Oracle database instance" refers exclusively to the system global area (SGA) and Oracle background processes. If you don't specify a SID, the value defaults to ``RDSCDB``. The Oracle SID is also the name of your CDB.
-        """
-        return pulumi.get(self, "db_system_id")
 
     @property
     @pulumi.getter(name="dbiResourceId")
@@ -944,7 +933,6 @@ class AwaitableGetDbInstanceResult(GetDbInstanceResult):
             db_instance_class=self.db_instance_class,
             db_parameter_group_name=self.db_parameter_group_name,
             db_security_groups=self.db_security_groups,
-            db_system_id=self.db_system_id,
             dbi_resource_id=self.dbi_resource_id,
             dedicated_log_volume=self.dedicated_log_volume,
             deletion_protection=self.deletion_protection,
@@ -1038,7 +1026,6 @@ def get_db_instance(db_instance_identifier: Optional[str] = None,
         db_instance_class=pulumi.get(__ret__, 'db_instance_class'),
         db_parameter_group_name=pulumi.get(__ret__, 'db_parameter_group_name'),
         db_security_groups=pulumi.get(__ret__, 'db_security_groups'),
-        db_system_id=pulumi.get(__ret__, 'db_system_id'),
         dbi_resource_id=pulumi.get(__ret__, 'dbi_resource_id'),
         dedicated_log_volume=pulumi.get(__ret__, 'dedicated_log_volume'),
         deletion_protection=pulumi.get(__ret__, 'deletion_protection'),
@@ -1129,7 +1116,6 @@ def get_db_instance_output(db_instance_identifier: Optional[pulumi.Input[str]] =
         db_instance_class=pulumi.get(__response__, 'db_instance_class'),
         db_parameter_group_name=pulumi.get(__response__, 'db_parameter_group_name'),
         db_security_groups=pulumi.get(__response__, 'db_security_groups'),
-        db_system_id=pulumi.get(__response__, 'db_system_id'),
         dbi_resource_id=pulumi.get(__response__, 'dbi_resource_id'),
         dedicated_log_volume=pulumi.get(__response__, 'dedicated_log_volume'),
         deletion_protection=pulumi.get(__response__, 'deletion_protection'),

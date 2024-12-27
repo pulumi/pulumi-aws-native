@@ -194,8 +194,18 @@ export const DataSourceDataDeletionPolicy = {
  */
 export type DataSourceDataDeletionPolicy = (typeof DataSourceDataDeletionPolicy)[keyof typeof DataSourceDataDeletionPolicy];
 
+export const DataSourceParsingModality = {
+    Multimodal: "MULTIMODAL",
+} as const;
+
+/**
+ * Determine how will parsed content be stored.
+ */
+export type DataSourceParsingModality = (typeof DataSourceParsingModality)[keyof typeof DataSourceParsingModality];
+
 export const DataSourceParsingStrategy = {
     BedrockFoundationModel: "BEDROCK_FOUNDATION_MODEL",
+    BedrockDataAutomation: "BEDROCK_DATA_AUTOMATION",
 } as const;
 
 /**
@@ -256,6 +266,7 @@ export const DataSourceType = {
     Salesforce: "SALESFORCE",
     Sharepoint: "SHAREPOINT",
     Web: "WEB",
+    Custom: "CUSTOM",
 } as const;
 
 /**
@@ -544,8 +555,18 @@ export const KnowledgeBaseStorageType = {
  */
 export type KnowledgeBaseStorageType = (typeof KnowledgeBaseStorageType)[keyof typeof KnowledgeBaseStorageType];
 
+export const KnowledgeBaseSupplementalDataStorageLocationType = {
+    S3: "S3",
+} as const;
+
+/**
+ * Supplemental data storage location type.
+ */
+export type KnowledgeBaseSupplementalDataStorageLocationType = (typeof KnowledgeBaseSupplementalDataStorageLocationType)[keyof typeof KnowledgeBaseSupplementalDataStorageLocationType];
+
 export const KnowledgeBaseType = {
     Vector: "VECTOR",
+    Kendra: "KENDRA",
 } as const;
 
 /**

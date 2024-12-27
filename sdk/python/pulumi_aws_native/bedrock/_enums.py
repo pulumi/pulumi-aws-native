@@ -23,6 +23,7 @@ __all__ = [
     'DataSourceConfluenceSourceConfigurationHostType',
     'DataSourceCrawlFilterConfigurationType',
     'DataSourceDataDeletionPolicy',
+    'DataSourceParsingModality',
     'DataSourceParsingStrategy',
     'DataSourceSalesforceSourceConfigurationAuthType',
     'DataSourceSharePointSourceConfigurationAuthType',
@@ -51,6 +52,7 @@ __all__ = [
     'GuardrailTopicType',
     'KnowledgeBaseStatus',
     'KnowledgeBaseStorageType',
+    'KnowledgeBaseSupplementalDataStorageLocationType',
     'KnowledgeBaseType',
     'PromptConversationRole',
     'PromptTemplateType',
@@ -214,11 +216,19 @@ class DataSourceDataDeletionPolicy(str, Enum):
     DELETE = "DELETE"
 
 
+class DataSourceParsingModality(str, Enum):
+    """
+    Determine how will parsed content be stored.
+    """
+    MULTIMODAL = "MULTIMODAL"
+
+
 class DataSourceParsingStrategy(str, Enum):
     """
     The parsing strategy for the data source.
     """
     BEDROCK_FOUNDATION_MODEL = "BEDROCK_FOUNDATION_MODEL"
+    BEDROCK_DATA_AUTOMATION = "BEDROCK_DATA_AUTOMATION"
 
 
 class DataSourceSalesforceSourceConfigurationAuthType(str, Enum):
@@ -267,6 +277,7 @@ class DataSourceType(str, Enum):
     SALESFORCE = "SALESFORCE"
     SHAREPOINT = "SHAREPOINT"
     WEB = "WEB"
+    CUSTOM = "CUSTOM"
 
 
 class DataSourceWebScopeType(str, Enum):
@@ -508,11 +519,19 @@ class KnowledgeBaseStorageType(str, Enum):
     MONGO_DB_ATLAS = "MONGO_DB_ATLAS"
 
 
+class KnowledgeBaseSupplementalDataStorageLocationType(str, Enum):
+    """
+    Supplemental data storage location type.
+    """
+    S3 = "S3"
+
+
 class KnowledgeBaseType(str, Enum):
     """
     The type of a knowledge base.
     """
     VECTOR = "VECTOR"
+    KENDRA = "KENDRA"
 
 
 class PromptConversationRole(str, Enum):

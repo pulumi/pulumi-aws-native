@@ -44,7 +44,7 @@ export class DataAccessor extends pulumi.CustomResource {
     /**
      * The unique identifier of the Amazon Q Business application.
      */
-    public readonly applicationId!: pulumi.Output<string | undefined>;
+    public readonly applicationId!: pulumi.Output<string>;
     /**
      * The timestamp when the data accessor was created.
      */
@@ -92,6 +92,9 @@ export class DataAccessor extends pulumi.CustomResource {
             if ((!args || args.actionConfigurations === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'actionConfigurations'");
             }
+            if ((!args || args.applicationId === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'applicationId'");
+            }
             if ((!args || args.displayName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
@@ -138,7 +141,7 @@ export interface DataAccessorArgs {
     /**
      * The unique identifier of the Amazon Q Business application.
      */
-    applicationId?: pulumi.Input<string>;
+    applicationId: pulumi.Input<string>;
     /**
      * The friendly name of the data accessor.
      */

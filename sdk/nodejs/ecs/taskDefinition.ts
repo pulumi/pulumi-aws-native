@@ -238,6 +238,9 @@ export class TaskDefinition extends pulumi.CustomResource {
      *  This option requires Linux platform ``1.4.0`` or later.
      */
     public readonly cpu!: pulumi.Output<string | undefined>;
+    /**
+     * Enables fault injection and allows for fault injection requests to be accepted from the task's containers. The default value is `false` .
+     */
     public readonly enableFaultInjection!: pulumi.Output<boolean | undefined>;
     /**
      * The ephemeral storage settings to use for tasks run with the task definition.
@@ -428,6 +431,9 @@ export interface TaskDefinitionArgs {
      *  This option requires Linux platform ``1.4.0`` or later.
      */
     cpu?: pulumi.Input<string>;
+    /**
+     * Enables fault injection and allows for fault injection requests to be accepted from the task's containers. The default value is `false` .
+     */
     enableFaultInjection?: pulumi.Input<boolean>;
     /**
      * The ephemeral storage settings to use for tasks run with the task definition.

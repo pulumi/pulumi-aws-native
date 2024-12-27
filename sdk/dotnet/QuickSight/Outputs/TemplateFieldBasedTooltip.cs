@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// <summary>
         /// The visibility of `Show aggregations` .
         /// </summary>
-        public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? AggregationVisibility;
+        public readonly object? AggregationVisibility;
         /// <summary>
         /// The fields configuration in the tooltip.
         /// </summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
         [OutputConstructor]
         private TemplateFieldBasedTooltip(
-            Pulumi.AwsNative.QuickSight.TemplateVisibility? aggregationVisibility,
+            object? aggregationVisibility,
 
             ImmutableArray<Outputs.TemplateTooltipItem> tooltipFields,
 

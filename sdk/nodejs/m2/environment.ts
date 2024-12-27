@@ -73,6 +73,9 @@ export class Environment extends pulumi.CustomResource {
      * The name of the environment.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The network type supported by the runtime environment.
+     */
     public readonly networkType!: pulumi.Output<enums.m2.EnvironmentNetworkType | undefined>;
     /**
      * Configures a desired maintenance window for the environment. If you do not provide a value, a random system-generated value will be assigned.
@@ -189,6 +192,9 @@ export interface EnvironmentArgs {
      * The name of the environment.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The network type supported by the runtime environment.
+     */
     networkType?: pulumi.Input<enums.m2.EnvironmentNetworkType>;
     /**
      * Configures a desired maintenance window for the environment. If you do not provide a value, a random system-generated value will be assigned.

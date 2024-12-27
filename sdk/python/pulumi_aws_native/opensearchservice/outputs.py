@@ -315,6 +315,7 @@ class DomainClusterConfig(dict):
         :param int instance_count: The number of data nodes (instances) to use in the OpenSearch Service domain.
         :param str instance_type: The instance type for your data nodes, such as `m3.medium.search` . For valid values, see [Supported instance types in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/supported-instance-types.html) .
         :param bool multi_az_with_standby_enabled: Indicates whether Multi-AZ with Standby deployment option is enabled. For more information, see [Multi-AZ with Standby](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-multiaz.html#managedomains-za-standby) .
+        :param Sequence['DomainNodeOption'] node_options: List of node options for the domain.
         :param int warm_count: The number of warm nodes in the cluster.
         :param bool warm_enabled: Whether to enable UltraWarm storage for the cluster. See [UltraWarm storage for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ultrawarm.html) .
         :param str warm_type: The instance type for the cluster's warm nodes.
@@ -407,6 +408,9 @@ class DomainClusterConfig(dict):
     @property
     @pulumi.getter(name="nodeOptions")
     def node_options(self) -> Optional[Sequence['outputs.DomainNodeOption']]:
+        """
+        List of node options for the domain.
+        """
         return pulumi.get(self, "node_options")
 
     @property
@@ -1137,6 +1141,11 @@ class DomainNodeConfig(dict):
                  count: Optional[int] = None,
                  enabled: Optional[bool] = None,
                  type: Optional[str] = None):
+        """
+        :param int count: The number of nodes of a particular node type in the cluster.
+        :param bool enabled: A boolean that indicates whether a particular node type is enabled or not.
+        :param str type: The instance type of a particular node type in the cluster.
+        """
         if count is not None:
             pulumi.set(__self__, "count", count)
         if enabled is not None:
@@ -1147,16 +1156,25 @@ class DomainNodeConfig(dict):
     @property
     @pulumi.getter
     def count(self) -> Optional[int]:
+        """
+        The number of nodes of a particular node type in the cluster.
+        """
         return pulumi.get(self, "count")
 
     @property
     @pulumi.getter
     def enabled(self) -> Optional[bool]:
+        """
+        A boolean that indicates whether a particular node type is enabled or not.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def type(self) -> Optional[str]:
+        """
+        The instance type of a particular node type in the cluster.
+        """
         return pulumi.get(self, "type")
 
 
@@ -1184,6 +1202,10 @@ class DomainNodeOption(dict):
     def __init__(__self__, *,
                  node_config: Optional['outputs.DomainNodeConfig'] = None,
                  node_type: Optional['DomainNodeOptionNodeType'] = None):
+        """
+        :param 'DomainNodeConfig' node_config: Container for specifying configuration of any node type.
+        :param 'DomainNodeOptionNodeType' node_type: Container for node type like coordinating.
+        """
         if node_config is not None:
             pulumi.set(__self__, "node_config", node_config)
         if node_type is not None:
@@ -1192,11 +1214,17 @@ class DomainNodeOption(dict):
     @property
     @pulumi.getter(name="nodeConfig")
     def node_config(self) -> Optional['outputs.DomainNodeConfig']:
+        """
+        Container for specifying configuration of any node type.
+        """
         return pulumi.get(self, "node_config")
 
     @property
     @pulumi.getter(name="nodeType")
     def node_type(self) -> Optional['DomainNodeOptionNodeType']:
+        """
+        Container for node type like coordinating.
+        """
         return pulumi.get(self, "node_type")
 
 

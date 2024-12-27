@@ -25,6 +25,7 @@ class VpcCidrBlockArgs:
                  ipv4_ipam_pool_id: Optional[pulumi.Input[str]] = None,
                  ipv4_netmask_length: Optional[pulumi.Input[int]] = None,
                  ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
+                 ipv6_cidr_block_network_border_group: Optional[pulumi.Input[str]] = None,
                  ipv6_ipam_pool_id: Optional[pulumi.Input[str]] = None,
                  ipv6_netmask_length: Optional[pulumi.Input[int]] = None,
                  ipv6_pool: Optional[pulumi.Input[str]] = None):
@@ -36,6 +37,7 @@ class VpcCidrBlockArgs:
         :param pulumi.Input[str] ipv4_ipam_pool_id: The ID of the IPv4 IPAM pool to Associate a CIDR from to a VPC.
         :param pulumi.Input[int] ipv4_netmask_length: The netmask length of the IPv4 CIDR you would like to associate from an Amazon VPC IP Address Manager (IPAM) pool.
         :param pulumi.Input[str] ipv6_cidr_block: An IPv6 CIDR block from the IPv6 address pool.
+        :param pulumi.Input[str] ipv6_cidr_block_network_border_group: The name of the location from which we advertise the IPV6 CIDR block.
         :param pulumi.Input[str] ipv6_ipam_pool_id: The ID of the IPv6 IPAM pool to Associate a CIDR from to a VPC.
         :param pulumi.Input[int] ipv6_netmask_length: The netmask length of the IPv6 CIDR you would like to associate from an Amazon VPC IP Address Manager (IPAM) pool.
         :param pulumi.Input[str] ipv6_pool: The ID of an IPv6 address pool from which to allocate the IPv6 CIDR block.
@@ -51,6 +53,8 @@ class VpcCidrBlockArgs:
             pulumi.set(__self__, "ipv4_netmask_length", ipv4_netmask_length)
         if ipv6_cidr_block is not None:
             pulumi.set(__self__, "ipv6_cidr_block", ipv6_cidr_block)
+        if ipv6_cidr_block_network_border_group is not None:
+            pulumi.set(__self__, "ipv6_cidr_block_network_border_group", ipv6_cidr_block_network_border_group)
         if ipv6_ipam_pool_id is not None:
             pulumi.set(__self__, "ipv6_ipam_pool_id", ipv6_ipam_pool_id)
         if ipv6_netmask_length is not None:
@@ -131,6 +135,18 @@ class VpcCidrBlockArgs:
         pulumi.set(self, "ipv6_cidr_block", value)
 
     @property
+    @pulumi.getter(name="ipv6CidrBlockNetworkBorderGroup")
+    def ipv6_cidr_block_network_border_group(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the location from which we advertise the IPV6 CIDR block.
+        """
+        return pulumi.get(self, "ipv6_cidr_block_network_border_group")
+
+    @ipv6_cidr_block_network_border_group.setter
+    def ipv6_cidr_block_network_border_group(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ipv6_cidr_block_network_border_group", value)
+
+    @property
     @pulumi.getter(name="ipv6IpamPoolId")
     def ipv6_ipam_pool_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -177,6 +193,7 @@ class VpcCidrBlock(pulumi.CustomResource):
                  ipv4_ipam_pool_id: Optional[pulumi.Input[str]] = None,
                  ipv4_netmask_length: Optional[pulumi.Input[int]] = None,
                  ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
+                 ipv6_cidr_block_network_border_group: Optional[pulumi.Input[str]] = None,
                  ipv6_ipam_pool_id: Optional[pulumi.Input[str]] = None,
                  ipv6_netmask_length: Optional[pulumi.Input[int]] = None,
                  ipv6_pool: Optional[pulumi.Input[str]] = None,
@@ -192,6 +209,7 @@ class VpcCidrBlock(pulumi.CustomResource):
         :param pulumi.Input[str] ipv4_ipam_pool_id: The ID of the IPv4 IPAM pool to Associate a CIDR from to a VPC.
         :param pulumi.Input[int] ipv4_netmask_length: The netmask length of the IPv4 CIDR you would like to associate from an Amazon VPC IP Address Manager (IPAM) pool.
         :param pulumi.Input[str] ipv6_cidr_block: An IPv6 CIDR block from the IPv6 address pool.
+        :param pulumi.Input[str] ipv6_cidr_block_network_border_group: The name of the location from which we advertise the IPV6 CIDR block.
         :param pulumi.Input[str] ipv6_ipam_pool_id: The ID of the IPv6 IPAM pool to Associate a CIDR from to a VPC.
         :param pulumi.Input[int] ipv6_netmask_length: The netmask length of the IPv6 CIDR you would like to associate from an Amazon VPC IP Address Manager (IPAM) pool.
         :param pulumi.Input[str] ipv6_pool: The ID of an IPv6 address pool from which to allocate the IPv6 CIDR block.
@@ -226,6 +244,7 @@ class VpcCidrBlock(pulumi.CustomResource):
                  ipv4_ipam_pool_id: Optional[pulumi.Input[str]] = None,
                  ipv4_netmask_length: Optional[pulumi.Input[int]] = None,
                  ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
+                 ipv6_cidr_block_network_border_group: Optional[pulumi.Input[str]] = None,
                  ipv6_ipam_pool_id: Optional[pulumi.Input[str]] = None,
                  ipv6_netmask_length: Optional[pulumi.Input[int]] = None,
                  ipv6_pool: Optional[pulumi.Input[str]] = None,
@@ -244,6 +263,7 @@ class VpcCidrBlock(pulumi.CustomResource):
             __props__.__dict__["ipv4_ipam_pool_id"] = ipv4_ipam_pool_id
             __props__.__dict__["ipv4_netmask_length"] = ipv4_netmask_length
             __props__.__dict__["ipv6_cidr_block"] = ipv6_cidr_block
+            __props__.__dict__["ipv6_cidr_block_network_border_group"] = ipv6_cidr_block_network_border_group
             __props__.__dict__["ipv6_ipam_pool_id"] = ipv6_ipam_pool_id
             __props__.__dict__["ipv6_netmask_length"] = ipv6_netmask_length
             __props__.__dict__["ipv6_pool"] = ipv6_pool
@@ -253,7 +273,7 @@ class VpcCidrBlock(pulumi.CustomResource):
             __props__.__dict__["aws_id"] = None
             __props__.__dict__["ip_source"] = None
             __props__.__dict__["ipv6_address_attribute"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["amazonProvidedIpv6CidrBlock", "cidrBlock", "ipv4IpamPoolId", "ipv4NetmaskLength", "ipv6CidrBlock", "ipv6IpamPoolId", "ipv6NetmaskLength", "ipv6Pool", "vpcId"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["amazonProvidedIpv6CidrBlock", "cidrBlock", "ipv4IpamPoolId", "ipv4NetmaskLength", "ipv6CidrBlock", "ipv6CidrBlockNetworkBorderGroup", "ipv6IpamPoolId", "ipv6NetmaskLength", "ipv6Pool", "vpcId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(VpcCidrBlock, __self__).__init__(
             'aws-native:ec2:VpcCidrBlock',
@@ -285,6 +305,7 @@ class VpcCidrBlock(pulumi.CustomResource):
         __props__.__dict__["ipv4_netmask_length"] = None
         __props__.__dict__["ipv6_address_attribute"] = None
         __props__.__dict__["ipv6_cidr_block"] = None
+        __props__.__dict__["ipv6_cidr_block_network_border_group"] = None
         __props__.__dict__["ipv6_ipam_pool_id"] = None
         __props__.__dict__["ipv6_netmask_length"] = None
         __props__.__dict__["ipv6_pool"] = None
@@ -354,6 +375,14 @@ class VpcCidrBlock(pulumi.CustomResource):
         An IPv6 CIDR block from the IPv6 address pool.
         """
         return pulumi.get(self, "ipv6_cidr_block")
+
+    @property
+    @pulumi.getter(name="ipv6CidrBlockNetworkBorderGroup")
+    def ipv6_cidr_block_network_border_group(self) -> pulumi.Output[Optional[str]]:
+        """
+        The name of the location from which we advertise the IPV6 CIDR block.
+        """
+        return pulumi.get(self, "ipv6_cidr_block_network_border_group")
 
     @property
     @pulumi.getter(name="ipv6IpamPoolId")

@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         /// The visibility configuration of the sort icon on a chart's axis label.
         /// </summary>
         [Input("sortIconVisibility")]
-        public Input<Pulumi.AwsNative.QuickSight.TemplateVisibility>? SortIconVisibility { get; set; }
+        public Input<object>? SortIconVisibility { get; set; }
 
         /// <summary>
         /// The visibility of an axis label on a chart. Choose one of the following options:
@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         /// - `HIDDEN` : Hides the axis.
         /// </summary>
         [Input("visibility")]
-        public Input<Pulumi.AwsNative.QuickSight.TemplateVisibility>? Visibility { get; set; }
+        public Input<object>? Visibility { get; set; }
 
         public TemplateChartAxisLabelOptionsArgs()
         {

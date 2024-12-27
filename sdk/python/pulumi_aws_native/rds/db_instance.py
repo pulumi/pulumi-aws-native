@@ -47,6 +47,7 @@ class DbInstanceArgs:
                  db_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  db_snapshot_identifier: Optional[pulumi.Input[str]] = None,
                  db_subnet_group_name: Optional[pulumi.Input[str]] = None,
+                 db_system_id: Optional[pulumi.Input[str]] = None,
                  dedicated_log_volume: Optional[pulumi.Input[bool]] = None,
                  delete_automated_backups: Optional[pulumi.Input[bool]] = None,
                  deletion_protection: Optional[pulumi.Input[bool]] = None,
@@ -302,6 +303,7 @@ class DbInstanceArgs:
                 If there's no DB subnet group, then the DB instance isn't a VPC DB instance.
                 For more information about using Amazon RDS in a VPC, see [Amazon VPC and Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html) in the *Amazon RDS User Guide*. 
                 This setting doesn't apply to Amazon Aurora DB instances. The DB subnet group is managed by the DB cluster. If specified, the setting must match the DB cluster setting.
+        :param pulumi.Input[str] db_system_id: The Oracle system identifier (SID), which is the name of the Oracle database instance that manages your database files. In this context, the term "Oracle database instance" refers exclusively to the system global area (SGA) and Oracle background processes. If you don't specify a SID, the value defaults to ``RDSCDB``. The Oracle SID is also the name of your CDB.
         :param pulumi.Input[bool] dedicated_log_volume: Indicates whether the DB instance has a dedicated log volume (DLV) enabled.
         :param pulumi.Input[bool] delete_automated_backups: A value that indicates whether to remove automated backups immediately after the DB instance is deleted. This parameter isn't case-sensitive. The default is to remove automated backups immediately after the DB instance is deleted.
                  *Amazon Aurora* 
@@ -674,6 +676,8 @@ class DbInstanceArgs:
             pulumi.set(__self__, "db_snapshot_identifier", db_snapshot_identifier)
         if db_subnet_group_name is not None:
             pulumi.set(__self__, "db_subnet_group_name", db_subnet_group_name)
+        if db_system_id is not None:
+            pulumi.set(__self__, "db_system_id", db_system_id)
         if dedicated_log_volume is not None:
             pulumi.set(__self__, "dedicated_log_volume", dedicated_log_volume)
         if delete_automated_backups is not None:
@@ -1235,6 +1239,18 @@ class DbInstanceArgs:
     @db_subnet_group_name.setter
     def db_subnet_group_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "db_subnet_group_name", value)
+
+    @property
+    @pulumi.getter(name="dbSystemId")
+    def db_system_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Oracle system identifier (SID), which is the name of the Oracle database instance that manages your database files. In this context, the term "Oracle database instance" refers exclusively to the system global area (SGA) and Oracle background processes. If you don't specify a SID, the value defaults to ``RDSCDB``. The Oracle SID is also the name of your CDB.
+        """
+        return pulumi.get(self, "db_system_id")
+
+    @db_system_id.setter
+    def db_system_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "db_system_id", value)
 
     @property
     @pulumi.getter(name="dedicatedLogVolume")
@@ -2191,6 +2207,7 @@ class DbInstance(pulumi.CustomResource):
                  db_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  db_snapshot_identifier: Optional[pulumi.Input[str]] = None,
                  db_subnet_group_name: Optional[pulumi.Input[str]] = None,
+                 db_system_id: Optional[pulumi.Input[str]] = None,
                  dedicated_log_volume: Optional[pulumi.Input[bool]] = None,
                  delete_automated_backups: Optional[pulumi.Input[bool]] = None,
                  deletion_protection: Optional[pulumi.Input[bool]] = None,
@@ -2470,6 +2487,7 @@ class DbInstance(pulumi.CustomResource):
                 If there's no DB subnet group, then the DB instance isn't a VPC DB instance.
                 For more information about using Amazon RDS in a VPC, see [Amazon VPC and Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html) in the *Amazon RDS User Guide*. 
                 This setting doesn't apply to Amazon Aurora DB instances. The DB subnet group is managed by the DB cluster. If specified, the setting must match the DB cluster setting.
+        :param pulumi.Input[str] db_system_id: The Oracle system identifier (SID), which is the name of the Oracle database instance that manages your database files. In this context, the term "Oracle database instance" refers exclusively to the system global area (SGA) and Oracle background processes. If you don't specify a SID, the value defaults to ``RDSCDB``. The Oracle SID is also the name of your CDB.
         :param pulumi.Input[bool] dedicated_log_volume: Indicates whether the DB instance has a dedicated log volume (DLV) enabled.
         :param pulumi.Input[bool] delete_automated_backups: A value that indicates whether to remove automated backups immediately after the DB instance is deleted. This parameter isn't case-sensitive. The default is to remove automated backups immediately after the DB instance is deleted.
                  *Amazon Aurora* 
@@ -2863,6 +2881,7 @@ class DbInstance(pulumi.CustomResource):
                  db_security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  db_snapshot_identifier: Optional[pulumi.Input[str]] = None,
                  db_subnet_group_name: Optional[pulumi.Input[str]] = None,
+                 db_system_id: Optional[pulumi.Input[str]] = None,
                  dedicated_log_volume: Optional[pulumi.Input[bool]] = None,
                  delete_automated_backups: Optional[pulumi.Input[bool]] = None,
                  deletion_protection: Optional[pulumi.Input[bool]] = None,
@@ -2950,6 +2969,7 @@ class DbInstance(pulumi.CustomResource):
             __props__.__dict__["db_security_groups"] = db_security_groups
             __props__.__dict__["db_snapshot_identifier"] = db_snapshot_identifier
             __props__.__dict__["db_subnet_group_name"] = db_subnet_group_name
+            __props__.__dict__["db_system_id"] = db_system_id
             __props__.__dict__["dedicated_log_volume"] = dedicated_log_volume
             __props__.__dict__["delete_automated_backups"] = delete_automated_backups
             __props__.__dict__["deletion_protection"] = deletion_protection
@@ -3006,9 +3026,8 @@ class DbInstance(pulumi.CustomResource):
             __props__.__dict__["use_latest_restorable_time"] = use_latest_restorable_time
             __props__.__dict__["vpc_security_groups"] = vpc_security_groups
             __props__.__dict__["db_instance_arn"] = None
-            __props__.__dict__["db_system_id"] = None
             __props__.__dict__["dbi_resource_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["characterSetName", "customIamInstanceProfile", "dbClusterIdentifier", "dbInstanceIdentifier", "dbName", "dbSubnetGroupName", "kmsKeyId", "masterUsername", "ncharCharacterSetName", "sourceRegion", "storageEncrypted", "timezone"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["characterSetName", "customIamInstanceProfile", "dbClusterIdentifier", "dbInstanceIdentifier", "dbName", "dbSubnetGroupName", "dbSystemId", "kmsKeyId", "masterUsername", "ncharCharacterSetName", "sourceRegion", "storageEncrypted", "timezone"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(DbInstance, __self__).__init__(
             'aws-native:rds:DbInstance',
@@ -3484,7 +3503,7 @@ class DbInstance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="dbSystemId")
-    def db_system_id(self) -> pulumi.Output[str]:
+    def db_system_id(self) -> pulumi.Output[Optional[str]]:
         """
         The Oracle system identifier (SID), which is the name of the Oracle database instance that manages your database files. In this context, the term "Oracle database instance" refers exclusively to the system global area (SGA) and Oracle background processes. If you don't specify a SID, the value defaults to ``RDSCDB``. The Oracle SID is also the name of your CDB.
         """

@@ -64,6 +64,12 @@ namespace Pulumi.AwsNative.Ec2
         public Output<string?> Ipv6CidrBlock { get; private set; } = null!;
 
         /// <summary>
+        /// The name of the location from which we advertise the IPV6 CIDR block.
+        /// </summary>
+        [Output("ipv6CidrBlockNetworkBorderGroup")]
+        public Output<string?> Ipv6CidrBlockNetworkBorderGroup { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the IPv6 IPAM pool to Associate a CIDR from to a VPC.
         /// </summary>
         [Output("ipv6IpamPoolId")]
@@ -117,6 +123,7 @@ namespace Pulumi.AwsNative.Ec2
                     "ipv4IpamPoolId",
                     "ipv4NetmaskLength",
                     "ipv6CidrBlock",
+                    "ipv6CidrBlockNetworkBorderGroup",
                     "ipv6IpamPoolId",
                     "ipv6NetmaskLength",
                     "ipv6Pool",
@@ -173,6 +180,12 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         [Input("ipv6CidrBlock")]
         public Input<string>? Ipv6CidrBlock { get; set; }
+
+        /// <summary>
+        /// The name of the location from which we advertise the IPV6 CIDR block.
+        /// </summary>
+        [Input("ipv6CidrBlockNetworkBorderGroup")]
+        public Input<string>? Ipv6CidrBlockNetworkBorderGroup { get; set; }
 
         /// <summary>
         /// The ID of the IPv6 IPAM pool to Associate a CIDR from to a VPC.

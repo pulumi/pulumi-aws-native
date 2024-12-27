@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         /// Determines whether or not the axis line is visible.
         /// </summary>
         [Input("axisLineVisibility")]
-        public Input<Pulumi.AwsNative.QuickSight.TemplateVisibility>? AxisLineVisibility { get; set; }
+        public Input<object>? AxisLineVisibility { get; set; }
 
         /// <summary>
         /// String based length that is composed of value and unit in px
@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         /// Determines whether or not the grid line is visible.
         /// </summary>
         [Input("gridLineVisibility")]
-        public Input<Pulumi.AwsNative.QuickSight.TemplateVisibility>? GridLineVisibility { get; set; }
+        public Input<object>? GridLineVisibility { get; set; }
 
         /// <summary>
         /// The scroll bar options for an axis.

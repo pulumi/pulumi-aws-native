@@ -30,6 +30,10 @@ class CustomPermissionsArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a CustomPermissions resource.
+        :param pulumi.Input[str] aws_account_id: The ID of the AWS account that contains the custom permission configuration that you want to update.
+        :param pulumi.Input['CustomPermissionsCapabilitiesArgs'] capabilities: A set of actions in the custom permissions profile.
+        :param pulumi.Input[str] custom_permissions_name: The name of the custom permissions profile.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags to associate with the custom permissions profile.
         """
         pulumi.set(__self__, "aws_account_id", aws_account_id)
         if capabilities is not None:
@@ -42,6 +46,9 @@ class CustomPermissionsArgs:
     @property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the AWS account that contains the custom permission configuration that you want to update.
+        """
         return pulumi.get(self, "aws_account_id")
 
     @aws_account_id.setter
@@ -51,6 +58,9 @@ class CustomPermissionsArgs:
     @property
     @pulumi.getter
     def capabilities(self) -> Optional[pulumi.Input['CustomPermissionsCapabilitiesArgs']]:
+        """
+        A set of actions in the custom permissions profile.
+        """
         return pulumi.get(self, "capabilities")
 
     @capabilities.setter
@@ -60,6 +70,9 @@ class CustomPermissionsArgs:
     @property
     @pulumi.getter(name="customPermissionsName")
     def custom_permissions_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the custom permissions profile.
+        """
         return pulumi.get(self, "custom_permissions_name")
 
     @custom_permissions_name.setter
@@ -69,6 +82,9 @@ class CustomPermissionsArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        The tags to associate with the custom permissions profile.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -91,6 +107,10 @@ class CustomPermissions(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] aws_account_id: The ID of the AWS account that contains the custom permission configuration that you want to update.
+        :param pulumi.Input[Union['CustomPermissionsCapabilitiesArgs', 'CustomPermissionsCapabilitiesArgsDict']] capabilities: A set of actions in the custom permissions profile.
+        :param pulumi.Input[str] custom_permissions_name: The name of the custom permissions profile.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags to associate with the custom permissions profile.
         """
         ...
     @overload
@@ -170,25 +190,40 @@ class CustomPermissions(pulumi.CustomResource):
     @property
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
+        """
+        The Amazon Resource Name (ARN) of the custom permissions profile.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the AWS account that contains the custom permission configuration that you want to update.
+        """
         return pulumi.get(self, "aws_account_id")
 
     @property
     @pulumi.getter
     def capabilities(self) -> pulumi.Output[Optional['outputs.CustomPermissionsCapabilities']]:
+        """
+        A set of actions in the custom permissions profile.
+        """
         return pulumi.get(self, "capabilities")
 
     @property
     @pulumi.getter(name="customPermissionsName")
     def custom_permissions_name(self) -> pulumi.Output[str]:
+        """
+        The name of the custom permissions profile.
+        """
         return pulumi.get(self, "custom_permissions_name")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        The tags to associate with the custom permissions profile.
+        """
         return pulumi.get(self, "tags")
 

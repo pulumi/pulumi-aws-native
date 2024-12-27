@@ -83,6 +83,10 @@ namespace Pulumi.AwsNative.Ec2
         /// The ID of the endpoint service.
         /// </summary>
         public readonly string? ServiceId;
+        /// <summary>
+        /// The tags to add to the VPC endpoint service.
+        /// </summary>
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetVpcEndpointServiceResult(
@@ -94,13 +98,16 @@ namespace Pulumi.AwsNative.Ec2
 
             string? payerResponsibility,
 
-            string? serviceId)
+            string? serviceId,
+
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             AcceptanceRequired = acceptanceRequired;
             GatewayLoadBalancerArns = gatewayLoadBalancerArns;
             NetworkLoadBalancerArns = networkLoadBalancerArns;
             PayerResponsibility = payerResponsibility;
             ServiceId = serviceId;
+            Tags = tags;
         }
     }
 }

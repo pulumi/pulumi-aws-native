@@ -37,10 +37,25 @@ export class CustomPermissions extends pulumi.CustomResource {
         return obj['__pulumiType'] === CustomPermissions.__pulumiType;
     }
 
+    /**
+     * The Amazon Resource Name (ARN) of the custom permissions profile.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The ID of the AWS account that contains the custom permission configuration that you want to update.
+     */
     public readonly awsAccountId!: pulumi.Output<string>;
+    /**
+     * A set of actions in the custom permissions profile.
+     */
     public readonly capabilities!: pulumi.Output<outputs.quicksight.CustomPermissionsCapabilities | undefined>;
+    /**
+     * The name of the custom permissions profile.
+     */
     public readonly customPermissionsName!: pulumi.Output<string>;
+    /**
+     * The tags to associate with the custom permissions profile.
+     */
     public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
@@ -80,8 +95,20 @@ export class CustomPermissions extends pulumi.CustomResource {
  * The set of arguments for constructing a CustomPermissions resource.
  */
 export interface CustomPermissionsArgs {
+    /**
+     * The ID of the AWS account that contains the custom permission configuration that you want to update.
+     */
     awsAccountId: pulumi.Input<string>;
+    /**
+     * A set of actions in the custom permissions profile.
+     */
     capabilities?: pulumi.Input<inputs.quicksight.CustomPermissionsCapabilitiesArgs>;
+    /**
+     * The name of the custom permissions profile.
+     */
     customPermissionsName?: pulumi.Input<string>;
+    /**
+     * The tags to associate with the custom permissions profile.
+     */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

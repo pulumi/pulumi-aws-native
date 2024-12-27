@@ -2329,7 +2329,8 @@ func (o DatasetPathParameterArrayOutput) Index(i pulumi.IntInput) DatasetPathPar
 // Input location
 type DatasetS3Location struct {
 	// The Amazon S3 bucket name.
-	Bucket      string  `pulumi:"bucket"`
+	Bucket string `pulumi:"bucket"`
+	// The AWS account ID of the bucket owner.
 	BucketOwner *string `pulumi:"bucketOwner"`
 	// The unique name of the object in the bucket.
 	Key *string `pulumi:"key"`
@@ -2349,7 +2350,8 @@ type DatasetS3LocationInput interface {
 // Input location
 type DatasetS3LocationArgs struct {
 	// The Amazon S3 bucket name.
-	Bucket      pulumi.StringInput    `pulumi:"bucket"`
+	Bucket pulumi.StringInput `pulumi:"bucket"`
+	// The AWS account ID of the bucket owner.
 	BucketOwner pulumi.StringPtrInput `pulumi:"bucketOwner"`
 	// The unique name of the object in the bucket.
 	Key pulumi.StringPtrInput `pulumi:"key"`
@@ -2438,6 +2440,7 @@ func (o DatasetS3LocationOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v DatasetS3Location) string { return v.Bucket }).(pulumi.StringOutput)
 }
 
+// The AWS account ID of the bucket owner.
 func (o DatasetS3LocationOutput) BucketOwner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DatasetS3Location) *string { return v.BucketOwner }).(pulumi.StringPtrOutput)
 }
@@ -2481,6 +2484,7 @@ func (o DatasetS3LocationPtrOutput) Bucket() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The AWS account ID of the bucket owner.
 func (o DatasetS3LocationPtrOutput) BucketOwner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DatasetS3Location) *string {
 		if v == nil {

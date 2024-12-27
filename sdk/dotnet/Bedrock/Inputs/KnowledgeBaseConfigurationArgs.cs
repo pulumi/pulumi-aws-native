@@ -16,6 +16,12 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
     public sealed class KnowledgeBaseConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Settings for an Amazon Kendra knowledge base.
+        /// </summary>
+        [Input("kendraKnowledgeBaseConfiguration")]
+        public Input<Inputs.KnowledgeBaseKendraKnowledgeBaseConfigurationArgs>? KendraKnowledgeBaseConfiguration { get; set; }
+
+        /// <summary>
         /// The type of data that the data source is converted into for the knowledge base.
         /// </summary>
         [Input("type", required: true)]
@@ -24,8 +30,8 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
         /// <summary>
         /// Contains details about the model that's used to convert the data source into vector embeddings.
         /// </summary>
-        [Input("vectorKnowledgeBaseConfiguration", required: true)]
-        public Input<Inputs.KnowledgeBaseVectorKnowledgeBaseConfigurationArgs> VectorKnowledgeBaseConfiguration { get; set; } = null!;
+        [Input("vectorKnowledgeBaseConfiguration")]
+        public Input<Inputs.KnowledgeBaseVectorKnowledgeBaseConfigurationArgs>? VectorKnowledgeBaseConfiguration { get; set; }
 
         public KnowledgeBaseConfigurationArgs()
         {

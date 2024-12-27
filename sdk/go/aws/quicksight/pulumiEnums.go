@@ -43034,179 +43034,6 @@ func (in *dataSetDatasetParameterValueTypePtr) ToDataSetDatasetParameterValueTyp
 	return pulumi.ToOutputWithContext(ctx, in).(DataSetDatasetParameterValueTypePtrOutput)
 }
 
-type DataSetFileFormat string
-
-const (
-	DataSetFileFormatCsv  = DataSetFileFormat("CSV")
-	DataSetFileFormatTsv  = DataSetFileFormat("TSV")
-	DataSetFileFormatClf  = DataSetFileFormat("CLF")
-	DataSetFileFormatElf  = DataSetFileFormat("ELF")
-	DataSetFileFormatXlsx = DataSetFileFormat("XLSX")
-	DataSetFileFormatJson = DataSetFileFormat("JSON")
-)
-
-func (DataSetFileFormat) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSetFileFormat)(nil)).Elem()
-}
-
-func (e DataSetFileFormat) ToDataSetFileFormatOutput() DataSetFileFormatOutput {
-	return pulumi.ToOutput(e).(DataSetFileFormatOutput)
-}
-
-func (e DataSetFileFormat) ToDataSetFileFormatOutputWithContext(ctx context.Context) DataSetFileFormatOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(DataSetFileFormatOutput)
-}
-
-func (e DataSetFileFormat) ToDataSetFileFormatPtrOutput() DataSetFileFormatPtrOutput {
-	return e.ToDataSetFileFormatPtrOutputWithContext(context.Background())
-}
-
-func (e DataSetFileFormat) ToDataSetFileFormatPtrOutputWithContext(ctx context.Context) DataSetFileFormatPtrOutput {
-	return DataSetFileFormat(e).ToDataSetFileFormatOutputWithContext(ctx).ToDataSetFileFormatPtrOutputWithContext(ctx)
-}
-
-func (e DataSetFileFormat) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e DataSetFileFormat) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e DataSetFileFormat) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e DataSetFileFormat) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type DataSetFileFormatOutput struct{ *pulumi.OutputState }
-
-func (DataSetFileFormatOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSetFileFormat)(nil)).Elem()
-}
-
-func (o DataSetFileFormatOutput) ToDataSetFileFormatOutput() DataSetFileFormatOutput {
-	return o
-}
-
-func (o DataSetFileFormatOutput) ToDataSetFileFormatOutputWithContext(ctx context.Context) DataSetFileFormatOutput {
-	return o
-}
-
-func (o DataSetFileFormatOutput) ToDataSetFileFormatPtrOutput() DataSetFileFormatPtrOutput {
-	return o.ToDataSetFileFormatPtrOutputWithContext(context.Background())
-}
-
-func (o DataSetFileFormatOutput) ToDataSetFileFormatPtrOutputWithContext(ctx context.Context) DataSetFileFormatPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSetFileFormat) *DataSetFileFormat {
-		return &v
-	}).(DataSetFileFormatPtrOutput)
-}
-
-func (o DataSetFileFormatOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o DataSetFileFormatOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataSetFileFormat) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o DataSetFileFormatOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o DataSetFileFormatOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataSetFileFormat) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type DataSetFileFormatPtrOutput struct{ *pulumi.OutputState }
-
-func (DataSetFileFormatPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataSetFileFormat)(nil)).Elem()
-}
-
-func (o DataSetFileFormatPtrOutput) ToDataSetFileFormatPtrOutput() DataSetFileFormatPtrOutput {
-	return o
-}
-
-func (o DataSetFileFormatPtrOutput) ToDataSetFileFormatPtrOutputWithContext(ctx context.Context) DataSetFileFormatPtrOutput {
-	return o
-}
-
-func (o DataSetFileFormatPtrOutput) Elem() DataSetFileFormatOutput {
-	return o.ApplyT(func(v *DataSetFileFormat) DataSetFileFormat {
-		if v != nil {
-			return *v
-		}
-		var ret DataSetFileFormat
-		return ret
-	}).(DataSetFileFormatOutput)
-}
-
-func (o DataSetFileFormatPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o DataSetFileFormatPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DataSetFileFormat) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// DataSetFileFormatInput is an input type that accepts values of the DataSetFileFormat enum
-// A concrete instance of `DataSetFileFormatInput` can be one of the following:
-//
-//	DataSetFileFormatCsv
-//	DataSetFileFormatTsv
-//	DataSetFileFormatClf
-//	DataSetFileFormatElf
-//	DataSetFileFormatXlsx
-//	DataSetFileFormatJson
-type DataSetFileFormatInput interface {
-	pulumi.Input
-
-	ToDataSetFileFormatOutput() DataSetFileFormatOutput
-	ToDataSetFileFormatOutputWithContext(context.Context) DataSetFileFormatOutput
-}
-
-var dataSetFileFormatPtrType = reflect.TypeOf((**DataSetFileFormat)(nil)).Elem()
-
-type DataSetFileFormatPtrInput interface {
-	pulumi.Input
-
-	ToDataSetFileFormatPtrOutput() DataSetFileFormatPtrOutput
-	ToDataSetFileFormatPtrOutputWithContext(context.Context) DataSetFileFormatPtrOutput
-}
-
-type dataSetFileFormatPtr string
-
-func DataSetFileFormatPtr(v string) DataSetFileFormatPtrInput {
-	return (*dataSetFileFormatPtr)(&v)
-}
-
-func (*dataSetFileFormatPtr) ElementType() reflect.Type {
-	return dataSetFileFormatPtrType
-}
-
-func (in *dataSetFileFormatPtr) ToDataSetFileFormatPtrOutput() DataSetFileFormatPtrOutput {
-	return pulumi.ToOutput(in).(DataSetFileFormatPtrOutput)
-}
-
-func (in *dataSetFileFormatPtr) ToDataSetFileFormatPtrOutputWithContext(ctx context.Context) DataSetFileFormatPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(DataSetFileFormatPtrOutput)
-}
-
 type DataSetGeoSpatialCountryCode string
 
 const (
@@ -44722,171 +44549,6 @@ func (in *dataSetStatusPtr) ToDataSetStatusPtrOutput() DataSetStatusPtrOutput {
 
 func (in *dataSetStatusPtr) ToDataSetStatusPtrOutputWithContext(ctx context.Context) DataSetStatusPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DataSetStatusPtrOutput)
-}
-
-type DataSetTextQualifier string
-
-const (
-	DataSetTextQualifierDoubleQuote = DataSetTextQualifier("DOUBLE_QUOTE")
-	DataSetTextQualifierSingleQuote = DataSetTextQualifier("SINGLE_QUOTE")
-)
-
-func (DataSetTextQualifier) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSetTextQualifier)(nil)).Elem()
-}
-
-func (e DataSetTextQualifier) ToDataSetTextQualifierOutput() DataSetTextQualifierOutput {
-	return pulumi.ToOutput(e).(DataSetTextQualifierOutput)
-}
-
-func (e DataSetTextQualifier) ToDataSetTextQualifierOutputWithContext(ctx context.Context) DataSetTextQualifierOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(DataSetTextQualifierOutput)
-}
-
-func (e DataSetTextQualifier) ToDataSetTextQualifierPtrOutput() DataSetTextQualifierPtrOutput {
-	return e.ToDataSetTextQualifierPtrOutputWithContext(context.Background())
-}
-
-func (e DataSetTextQualifier) ToDataSetTextQualifierPtrOutputWithContext(ctx context.Context) DataSetTextQualifierPtrOutput {
-	return DataSetTextQualifier(e).ToDataSetTextQualifierOutputWithContext(ctx).ToDataSetTextQualifierPtrOutputWithContext(ctx)
-}
-
-func (e DataSetTextQualifier) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e DataSetTextQualifier) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e DataSetTextQualifier) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e DataSetTextQualifier) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type DataSetTextQualifierOutput struct{ *pulumi.OutputState }
-
-func (DataSetTextQualifierOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DataSetTextQualifier)(nil)).Elem()
-}
-
-func (o DataSetTextQualifierOutput) ToDataSetTextQualifierOutput() DataSetTextQualifierOutput {
-	return o
-}
-
-func (o DataSetTextQualifierOutput) ToDataSetTextQualifierOutputWithContext(ctx context.Context) DataSetTextQualifierOutput {
-	return o
-}
-
-func (o DataSetTextQualifierOutput) ToDataSetTextQualifierPtrOutput() DataSetTextQualifierPtrOutput {
-	return o.ToDataSetTextQualifierPtrOutputWithContext(context.Background())
-}
-
-func (o DataSetTextQualifierOutput) ToDataSetTextQualifierPtrOutputWithContext(ctx context.Context) DataSetTextQualifierPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSetTextQualifier) *DataSetTextQualifier {
-		return &v
-	}).(DataSetTextQualifierPtrOutput)
-}
-
-func (o DataSetTextQualifierOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o DataSetTextQualifierOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataSetTextQualifier) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o DataSetTextQualifierOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o DataSetTextQualifierOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataSetTextQualifier) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type DataSetTextQualifierPtrOutput struct{ *pulumi.OutputState }
-
-func (DataSetTextQualifierPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataSetTextQualifier)(nil)).Elem()
-}
-
-func (o DataSetTextQualifierPtrOutput) ToDataSetTextQualifierPtrOutput() DataSetTextQualifierPtrOutput {
-	return o
-}
-
-func (o DataSetTextQualifierPtrOutput) ToDataSetTextQualifierPtrOutputWithContext(ctx context.Context) DataSetTextQualifierPtrOutput {
-	return o
-}
-
-func (o DataSetTextQualifierPtrOutput) Elem() DataSetTextQualifierOutput {
-	return o.ApplyT(func(v *DataSetTextQualifier) DataSetTextQualifier {
-		if v != nil {
-			return *v
-		}
-		var ret DataSetTextQualifier
-		return ret
-	}).(DataSetTextQualifierOutput)
-}
-
-func (o DataSetTextQualifierPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o DataSetTextQualifierPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DataSetTextQualifier) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// DataSetTextQualifierInput is an input type that accepts values of the DataSetTextQualifier enum
-// A concrete instance of `DataSetTextQualifierInput` can be one of the following:
-//
-//	DataSetTextQualifierDoubleQuote
-//	DataSetTextQualifierSingleQuote
-type DataSetTextQualifierInput interface {
-	pulumi.Input
-
-	ToDataSetTextQualifierOutput() DataSetTextQualifierOutput
-	ToDataSetTextQualifierOutputWithContext(context.Context) DataSetTextQualifierOutput
-}
-
-var dataSetTextQualifierPtrType = reflect.TypeOf((**DataSetTextQualifier)(nil)).Elem()
-
-type DataSetTextQualifierPtrInput interface {
-	pulumi.Input
-
-	ToDataSetTextQualifierPtrOutput() DataSetTextQualifierPtrOutput
-	ToDataSetTextQualifierPtrOutputWithContext(context.Context) DataSetTextQualifierPtrOutput
-}
-
-type dataSetTextQualifierPtr string
-
-func DataSetTextQualifierPtr(v string) DataSetTextQualifierPtrInput {
-	return (*dataSetTextQualifierPtr)(&v)
-}
-
-func (*dataSetTextQualifierPtr) ElementType() reflect.Type {
-	return dataSetTextQualifierPtrType
-}
-
-func (in *dataSetTextQualifierPtr) ToDataSetTextQualifierPtrOutput() DataSetTextQualifierPtrOutput {
-	return pulumi.ToOutput(in).(DataSetTextQualifierPtrOutput)
-}
-
-func (in *dataSetTextQualifierPtr) ToDataSetTextQualifierPtrOutputWithContext(ctx context.Context) DataSetTextQualifierPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(DataSetTextQualifierPtrOutput)
 }
 
 type DataSetTimeGranularity string
@@ -65687,171 +65349,6 @@ func (in *templateVerticalTextAlignmentPtr) ToTemplateVerticalTextAlignmentPtrOu
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateVerticalTextAlignmentPtrOutput)
 }
 
-type TemplateVisibility string
-
-const (
-	TemplateVisibilityHidden  = TemplateVisibility("HIDDEN")
-	TemplateVisibilityVisible = TemplateVisibility("VISIBLE")
-)
-
-func (TemplateVisibility) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateVisibility)(nil)).Elem()
-}
-
-func (e TemplateVisibility) ToTemplateVisibilityOutput() TemplateVisibilityOutput {
-	return pulumi.ToOutput(e).(TemplateVisibilityOutput)
-}
-
-func (e TemplateVisibility) ToTemplateVisibilityOutputWithContext(ctx context.Context) TemplateVisibilityOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(TemplateVisibilityOutput)
-}
-
-func (e TemplateVisibility) ToTemplateVisibilityPtrOutput() TemplateVisibilityPtrOutput {
-	return e.ToTemplateVisibilityPtrOutputWithContext(context.Background())
-}
-
-func (e TemplateVisibility) ToTemplateVisibilityPtrOutputWithContext(ctx context.Context) TemplateVisibilityPtrOutput {
-	return TemplateVisibility(e).ToTemplateVisibilityOutputWithContext(ctx).ToTemplateVisibilityPtrOutputWithContext(ctx)
-}
-
-func (e TemplateVisibility) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e TemplateVisibility) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e TemplateVisibility) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e TemplateVisibility) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type TemplateVisibilityOutput struct{ *pulumi.OutputState }
-
-func (TemplateVisibilityOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateVisibility)(nil)).Elem()
-}
-
-func (o TemplateVisibilityOutput) ToTemplateVisibilityOutput() TemplateVisibilityOutput {
-	return o
-}
-
-func (o TemplateVisibilityOutput) ToTemplateVisibilityOutputWithContext(ctx context.Context) TemplateVisibilityOutput {
-	return o
-}
-
-func (o TemplateVisibilityOutput) ToTemplateVisibilityPtrOutput() TemplateVisibilityPtrOutput {
-	return o.ToTemplateVisibilityPtrOutputWithContext(context.Background())
-}
-
-func (o TemplateVisibilityOutput) ToTemplateVisibilityPtrOutputWithContext(ctx context.Context) TemplateVisibilityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateVisibility) *TemplateVisibility {
-		return &v
-	}).(TemplateVisibilityPtrOutput)
-}
-
-func (o TemplateVisibilityOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o TemplateVisibilityOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e TemplateVisibility) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o TemplateVisibilityOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o TemplateVisibilityOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e TemplateVisibility) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type TemplateVisibilityPtrOutput struct{ *pulumi.OutputState }
-
-func (TemplateVisibilityPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateVisibility)(nil)).Elem()
-}
-
-func (o TemplateVisibilityPtrOutput) ToTemplateVisibilityPtrOutput() TemplateVisibilityPtrOutput {
-	return o
-}
-
-func (o TemplateVisibilityPtrOutput) ToTemplateVisibilityPtrOutputWithContext(ctx context.Context) TemplateVisibilityPtrOutput {
-	return o
-}
-
-func (o TemplateVisibilityPtrOutput) Elem() TemplateVisibilityOutput {
-	return o.ApplyT(func(v *TemplateVisibility) TemplateVisibility {
-		if v != nil {
-			return *v
-		}
-		var ret TemplateVisibility
-		return ret
-	}).(TemplateVisibilityOutput)
-}
-
-func (o TemplateVisibilityPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o TemplateVisibilityPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TemplateVisibility) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// TemplateVisibilityInput is an input type that accepts values of the TemplateVisibility enum
-// A concrete instance of `TemplateVisibilityInput` can be one of the following:
-//
-//	TemplateVisibilityHidden
-//	TemplateVisibilityVisible
-type TemplateVisibilityInput interface {
-	pulumi.Input
-
-	ToTemplateVisibilityOutput() TemplateVisibilityOutput
-	ToTemplateVisibilityOutputWithContext(context.Context) TemplateVisibilityOutput
-}
-
-var templateVisibilityPtrType = reflect.TypeOf((**TemplateVisibility)(nil)).Elem()
-
-type TemplateVisibilityPtrInput interface {
-	pulumi.Input
-
-	ToTemplateVisibilityPtrOutput() TemplateVisibilityPtrOutput
-	ToTemplateVisibilityPtrOutputWithContext(context.Context) TemplateVisibilityPtrOutput
-}
-
-type templateVisibilityPtr string
-
-func TemplateVisibilityPtr(v string) TemplateVisibilityPtrInput {
-	return (*templateVisibilityPtr)(&v)
-}
-
-func (*templateVisibilityPtr) ElementType() reflect.Type {
-	return templateVisibilityPtrType
-}
-
-func (in *templateVisibilityPtr) ToTemplateVisibilityPtrOutput() TemplateVisibilityPtrOutput {
-	return pulumi.ToOutput(in).(TemplateVisibilityPtrOutput)
-}
-
-func (in *templateVisibilityPtr) ToTemplateVisibilityPtrOutputWithContext(ctx context.Context) TemplateVisibilityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(TemplateVisibilityPtrOutput)
-}
-
 type TemplateVisualCustomActionTrigger string
 
 const (
@@ -71637,8 +71134,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetColumnTagNameArrayInput)(nil)).Elem(), DataSetColumnTagNameArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetDatasetParameterValueTypeInput)(nil)).Elem(), DataSetDatasetParameterValueType("MULTI_VALUED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetDatasetParameterValueTypePtrInput)(nil)).Elem(), DataSetDatasetParameterValueType("MULTI_VALUED"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DataSetFileFormatInput)(nil)).Elem(), DataSetFileFormat("CSV"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DataSetFileFormatPtrInput)(nil)).Elem(), DataSetFileFormat("CSV"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetGeoSpatialCountryCodeInput)(nil)).Elem(), DataSetGeoSpatialCountryCode("US"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetGeoSpatialCountryCodePtrInput)(nil)).Elem(), DataSetGeoSpatialCountryCode("US"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetGeoSpatialDataRoleInput)(nil)).Elem(), DataSetGeoSpatialDataRole("COUNTRY"))
@@ -71657,8 +71152,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetRowLevelPermissionPolicyPtrInput)(nil)).Elem(), DataSetRowLevelPermissionPolicy("GRANT_ACCESS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetStatusInput)(nil)).Elem(), DataSetStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetStatusPtrInput)(nil)).Elem(), DataSetStatus("ENABLED"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DataSetTextQualifierInput)(nil)).Elem(), DataSetTextQualifier("DOUBLE_QUOTE"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DataSetTextQualifierPtrInput)(nil)).Elem(), DataSetTextQualifier("DOUBLE_QUOTE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetTimeGranularityInput)(nil)).Elem(), DataSetTimeGranularity("YEAR"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetTimeGranularityPtrInput)(nil)).Elem(), DataSetTimeGranularity("YEAR"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceAuthenticationTypeInput)(nil)).Elem(), DataSourceAuthenticationType("PASSWORD"))
@@ -71903,8 +71396,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateValueWhenUnsetOptionPtrInput)(nil)).Elem(), TemplateValueWhenUnsetOption("RECOMMENDED_VALUE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateVerticalTextAlignmentInput)(nil)).Elem(), TemplateVerticalTextAlignment("TOP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateVerticalTextAlignmentPtrInput)(nil)).Elem(), TemplateVerticalTextAlignment("TOP"))
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateVisibilityInput)(nil)).Elem(), TemplateVisibility("HIDDEN"))
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateVisibilityPtrInput)(nil)).Elem(), TemplateVisibility("HIDDEN"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateVisualCustomActionTriggerInput)(nil)).Elem(), TemplateVisualCustomActionTrigger("DATA_POINT_CLICK"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateVisualCustomActionTriggerPtrInput)(nil)).Elem(), TemplateVisualCustomActionTrigger("DATA_POINT_CLICK"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateWidgetStatusInput)(nil)).Elem(), TemplateWidgetStatus("ENABLED"))
@@ -72479,8 +71970,6 @@ func init() {
 	pulumi.RegisterOutputType(DataSetColumnTagNameArrayOutput{})
 	pulumi.RegisterOutputType(DataSetDatasetParameterValueTypeOutput{})
 	pulumi.RegisterOutputType(DataSetDatasetParameterValueTypePtrOutput{})
-	pulumi.RegisterOutputType(DataSetFileFormatOutput{})
-	pulumi.RegisterOutputType(DataSetFileFormatPtrOutput{})
 	pulumi.RegisterOutputType(DataSetGeoSpatialCountryCodeOutput{})
 	pulumi.RegisterOutputType(DataSetGeoSpatialCountryCodePtrOutput{})
 	pulumi.RegisterOutputType(DataSetGeoSpatialDataRoleOutput{})
@@ -72499,8 +71988,6 @@ func init() {
 	pulumi.RegisterOutputType(DataSetRowLevelPermissionPolicyPtrOutput{})
 	pulumi.RegisterOutputType(DataSetStatusOutput{})
 	pulumi.RegisterOutputType(DataSetStatusPtrOutput{})
-	pulumi.RegisterOutputType(DataSetTextQualifierOutput{})
-	pulumi.RegisterOutputType(DataSetTextQualifierPtrOutput{})
 	pulumi.RegisterOutputType(DataSetTimeGranularityOutput{})
 	pulumi.RegisterOutputType(DataSetTimeGranularityPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceAuthenticationTypeOutput{})
@@ -72751,8 +72238,6 @@ func init() {
 	pulumi.RegisterOutputType(TemplateValueWhenUnsetOptionPtrOutput{})
 	pulumi.RegisterOutputType(TemplateVerticalTextAlignmentOutput{})
 	pulumi.RegisterOutputType(TemplateVerticalTextAlignmentPtrOutput{})
-	pulumi.RegisterOutputType(TemplateVisibilityOutput{})
-	pulumi.RegisterOutputType(TemplateVisibilityPtrOutput{})
 	pulumi.RegisterOutputType(TemplateVisualCustomActionTriggerOutput{})
 	pulumi.RegisterOutputType(TemplateVisualCustomActionTriggerPtrOutput{})
 	pulumi.RegisterOutputType(TemplateWidgetStatusOutput{})

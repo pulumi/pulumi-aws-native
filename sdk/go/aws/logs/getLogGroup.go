@@ -40,8 +40,13 @@ type LookupLogGroupResult struct {
 	//  For more information, including a list of types of data that can be audited and masked, see [Protect sensitive log data with masking](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data.html).
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Logs::LogGroup` for more information about the expected schema for this property.
-	DataProtectionPolicy interface{}   `pulumi:"dataProtectionPolicy"`
-	FieldIndexPolicies   []interface{} `pulumi:"fieldIndexPolicies"`
+	DataProtectionPolicy interface{} `pulumi:"dataProtectionPolicy"`
+	// Creates or updates a *field index policy* for the specified log group. Only log groups in the Standard log class support field index policies. For more information about log classes, see [Log classes](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch_Logs_Log_Classes.html) .
+	//
+	// You can use field index policies to create *field indexes* on fields found in log events in the log group. Creating field indexes lowers the costs for CloudWatch Logs Insights queries that reference those field indexes, because these queries attempt to skip the processing of log events that are known to not match the indexed field. Good fields to index are fields that you often need to query for and fields that have high cardinality of values Common examples of indexes include request ID, session ID, userID, and instance IDs. For more information, see [Create field indexes to improve query performance and reduce costs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatchLogs-Field-Indexing.html) .
+	//
+	// Currently, this array supports only one field index policy object.
+	FieldIndexPolicies []interface{} `pulumi:"fieldIndexPolicies"`
 	// The Amazon Resource Name (ARN) of the KMS key to use when encrypting log data.
 	//  To associate an KMS key with the log group, specify the ARN of that KMS key here. If you do so, ingested data is encrypted using this key. This association is stored as long as the data encrypted with the KMS key is still within CWL. This enables CWL to decrypt this data whenever it is requested.
 	//  If you attempt to associate a KMS key with the log group but the KMS key doesn't exist or is deactivated, you will receive an ``InvalidParameterException`` error.
@@ -107,6 +112,11 @@ func (o LookupLogGroupResultOutput) DataProtectionPolicy() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupLogGroupResult) interface{} { return v.DataProtectionPolicy }).(pulumi.AnyOutput)
 }
 
+// Creates or updates a *field index policy* for the specified log group. Only log groups in the Standard log class support field index policies. For more information about log classes, see [Log classes](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch_Logs_Log_Classes.html) .
+//
+// You can use field index policies to create *field indexes* on fields found in log events in the log group. Creating field indexes lowers the costs for CloudWatch Logs Insights queries that reference those field indexes, because these queries attempt to skip the processing of log events that are known to not match the indexed field. Good fields to index are fields that you often need to query for and fields that have high cardinality of values Common examples of indexes include request ID, session ID, userID, and instance IDs. For more information, see [Create field indexes to improve query performance and reduce costs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatchLogs-Field-Indexing.html) .
+//
+// Currently, this array supports only one field index policy object.
 func (o LookupLogGroupResultOutput) FieldIndexPolicies() pulumi.ArrayOutput {
 	return o.ApplyT(func(v LookupLogGroupResult) []interface{} { return v.FieldIndexPolicies }).(pulumi.ArrayOutput)
 }

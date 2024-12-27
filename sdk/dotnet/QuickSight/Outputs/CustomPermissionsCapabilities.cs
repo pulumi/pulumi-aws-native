@@ -13,22 +13,73 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class CustomPermissionsCapabilities
     {
+        /// <summary>
+        /// The ability to add or run anomaly detection.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? AddOrRunAnomalyDetectionForAnalyses;
+        /// <summary>
+        /// The ability to create and update email reports.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? CreateAndUpdateDashboardEmailReports;
+        /// <summary>
+        /// The ability to create and update data sources.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? CreateAndUpdateDataSources;
+        /// <summary>
+        /// The ability to create and update datasets.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? CreateAndUpdateDatasets;
+        /// <summary>
+        /// The ability to export to Create and Update themes.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? CreateAndUpdateThemes;
+        /// <summary>
+        /// The ability to create and update threshold alerts.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? CreateAndUpdateThresholdAlerts;
+        /// <summary>
+        /// The ability to create shared folders.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? CreateSharedFolders;
+        /// <summary>
+        /// The ability to create a SPICE dataset.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? CreateSpiceDataset;
+        /// <summary>
+        /// The ability to export to CSV files.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? ExportToCsv;
+        /// <summary>
+        /// The ability to export to Excel files.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? ExportToExcel;
+        /// <summary>
+        /// The ability to rename shared folders.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? RenameSharedFolders;
+        /// <summary>
+        /// The ability to share analyses.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? ShareAnalyses;
+        /// <summary>
+        /// The ability to share dashboards.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? ShareDashboards;
+        /// <summary>
+        /// The ability to share data sources.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? ShareDataSources;
+        /// <summary>
+        /// The ability to share datasets.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? ShareDatasets;
+        /// <summary>
+        /// The ability to subscribe to email reports.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? SubscribeDashboardEmailReports;
+        /// <summary>
+        /// The ability to view account SPICE capacity.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.CustomPermissionsCapabilityState? ViewAccountSpiceCapacity;
 
         [OutputConstructor]

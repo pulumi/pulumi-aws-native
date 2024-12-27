@@ -36,7 +36,7 @@ class IndexArgs:
                  user_token_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['IndexUserTokenConfigurationArgs']]]] = None):
         """
         The set of arguments for constructing a Index resource.
-        :param pulumi.Input['IndexEdition'] edition: Indicates whether the index is a Enterprise Edition index or a Developer Edition index. Valid values are `DEVELOPER_EDITION` and `ENTERPRISE_EDITION` .
+        :param pulumi.Input['IndexEdition'] edition: Indicates whether the index is a Enterprise Edition index, a Developer Edition index, or a GenAI Enterprise Edition index.
         :param pulumi.Input[str] role_arn: An IAM role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role used when you use the [BatchPutDocument](https://docs.aws.amazon.com/kendra/latest/dg/BatchPutDocument.html) operation to index documents from an Amazon S3 bucket.
         :param pulumi.Input['IndexCapacityUnitsConfigurationArgs'] capacity_units: Capacity units
         :param pulumi.Input[str] description: A description for the index
@@ -78,7 +78,7 @@ class IndexArgs:
     @pulumi.getter
     def edition(self) -> pulumi.Input['IndexEdition']:
         """
-        Indicates whether the index is a Enterprise Edition index or a Developer Edition index. Valid values are `DEVELOPER_EDITION` and `ENTERPRISE_EDITION` .
+        Indicates whether the index is a Enterprise Edition index, a Developer Edition index, or a GenAI Enterprise Edition index.
         """
         return pulumi.get(self, "edition")
 
@@ -227,7 +227,7 @@ class Index(pulumi.CustomResource):
         :param pulumi.Input[Union['IndexCapacityUnitsConfigurationArgs', 'IndexCapacityUnitsConfigurationArgsDict']] capacity_units: Capacity units
         :param pulumi.Input[str] description: A description for the index
         :param pulumi.Input[Sequence[pulumi.Input[Union['IndexDocumentMetadataConfigurationArgs', 'IndexDocumentMetadataConfigurationArgsDict']]]] document_metadata_configurations: Document metadata configurations
-        :param pulumi.Input['IndexEdition'] edition: Indicates whether the index is a Enterprise Edition index or a Developer Edition index. Valid values are `DEVELOPER_EDITION` and `ENTERPRISE_EDITION` .
+        :param pulumi.Input['IndexEdition'] edition: Indicates whether the index is a Enterprise Edition index, a Developer Edition index, or a GenAI Enterprise Edition index.
         :param pulumi.Input[str] name: The name of the index.
         :param pulumi.Input[str] role_arn: An IAM role that gives Amazon Kendra permissions to access your Amazon CloudWatch logs and metrics. This is also the role used when you use the [BatchPutDocument](https://docs.aws.amazon.com/kendra/latest/dg/BatchPutDocument.html) operation to index documents from an Amazon S3 bucket.
         :param pulumi.Input[Union['IndexServerSideEncryptionConfigurationArgs', 'IndexServerSideEncryptionConfigurationArgsDict']] server_side_encryption_configuration: Server side encryption configuration
@@ -384,7 +384,7 @@ class Index(pulumi.CustomResource):
     @pulumi.getter
     def edition(self) -> pulumi.Output['IndexEdition']:
         """
-        Indicates whether the index is a Enterprise Edition index or a Developer Edition index. Valid values are `DEVELOPER_EDITION` and `ENTERPRISE_EDITION` .
+        Indicates whether the index is a Enterprise Edition index, a Developer Edition index, or a GenAI Enterprise Edition index.
         """
         return pulumi.get(self, "edition")
 

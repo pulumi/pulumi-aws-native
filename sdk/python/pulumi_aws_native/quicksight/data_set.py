@@ -60,6 +60,7 @@ class DataSetArgs:
         :param pulumi.Input['DataSetIngestionWaitPolicyArgs'] ingestion_wait_policy: The wait policy to use when creating or updating a Dataset. The default is to wait for SPICE ingestion to finish with timeout of 36 hours.
         :param pulumi.Input[Mapping[str, pulumi.Input['DataSetLogicalTableArgs']]] logical_table_map: Configures the combination and transformation of the data from the physical tables.
         :param pulumi.Input[str] name: <p>The display name for the dataset.</p>
+        :param pulumi.Input['DataSetPerformanceConfigurationArgs'] performance_configuration: The performance optimization configuration of a dataset.
         :param pulumi.Input[Sequence[pulumi.Input['DataSetResourcePermissionArgs']]] permissions: <p>A list of resource permissions on the dataset.</p>
         :param pulumi.Input[Mapping[str, pulumi.Input['DataSetPhysicalTableArgs']]] physical_table_map: Declares the physical tables that are available in the underlying data sources.
         :param pulumi.Input['DataSetRowLevelPermissionDataSetArgs'] row_level_permission_data_set: The row-level security configuration for the data that you want to create.
@@ -266,6 +267,9 @@ class DataSetArgs:
     @property
     @pulumi.getter(name="performanceConfiguration")
     def performance_configuration(self) -> Optional[pulumi.Input['DataSetPerformanceConfigurationArgs']]:
+        """
+        The performance optimization configuration of a dataset.
+        """
         return pulumi.get(self, "performance_configuration")
 
     @performance_configuration.setter
@@ -378,6 +382,7 @@ class DataSet(pulumi.CustomResource):
         :param pulumi.Input[Union['DataSetIngestionWaitPolicyArgs', 'DataSetIngestionWaitPolicyArgsDict']] ingestion_wait_policy: The wait policy to use when creating or updating a Dataset. The default is to wait for SPICE ingestion to finish with timeout of 36 hours.
         :param pulumi.Input[Mapping[str, pulumi.Input[Union['DataSetLogicalTableArgs', 'DataSetLogicalTableArgsDict']]]] logical_table_map: Configures the combination and transformation of the data from the physical tables.
         :param pulumi.Input[str] name: <p>The display name for the dataset.</p>
+        :param pulumi.Input[Union['DataSetPerformanceConfigurationArgs', 'DataSetPerformanceConfigurationArgsDict']] performance_configuration: The performance optimization configuration of a dataset.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DataSetResourcePermissionArgs', 'DataSetResourcePermissionArgsDict']]]] permissions: <p>A list of resource permissions on the dataset.</p>
         :param pulumi.Input[Mapping[str, pulumi.Input[Union['DataSetPhysicalTableArgs', 'DataSetPhysicalTableArgsDict']]]] physical_table_map: Declares the physical tables that are available in the underlying data sources.
         :param pulumi.Input[Union['DataSetRowLevelPermissionDataSetArgs', 'DataSetRowLevelPermissionDataSetArgsDict']] row_level_permission_data_set: The row-level security configuration for the data that you want to create.
@@ -661,6 +666,9 @@ class DataSet(pulumi.CustomResource):
     @property
     @pulumi.getter(name="performanceConfiguration")
     def performance_configuration(self) -> pulumi.Output[Optional['outputs.DataSetPerformanceConfiguration']]:
+        """
+        The performance optimization configuration of a dataset.
+        """
         return pulumi.get(self, "performance_configuration")
 
     @property

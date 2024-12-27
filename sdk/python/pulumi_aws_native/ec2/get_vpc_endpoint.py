@@ -89,6 +89,9 @@ class GetVpcEndpointResult:
     @property
     @pulumi.getter(name="dnsOptions")
     def dns_options(self) -> Optional['outputs.VpcEndpointDnsOptionsSpecification']:
+        """
+        Describes the DNS options for an endpoint.
+        """
         return pulumi.get(self, "dns_options")
 
     @property
@@ -102,6 +105,9 @@ class GetVpcEndpointResult:
     @property
     @pulumi.getter(name="ipAddressType")
     def ip_address_type(self) -> Optional['VpcEndpointIpAddressType']:
+        """
+        The supported IP address types.
+        """
         return pulumi.get(self, "ip_address_type")
 
     @property

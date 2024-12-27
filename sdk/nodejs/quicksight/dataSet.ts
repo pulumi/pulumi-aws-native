@@ -113,6 +113,9 @@ export class DataSet extends pulumi.CustomResource {
      *             analyses, and dashboards.</p>
      */
     public /*out*/ readonly outputColumns!: pulumi.Output<outputs.quicksight.DataSetOutputColumn[]>;
+    /**
+     * The performance optimization configuration of a dataset.
+     */
     public readonly performanceConfiguration!: pulumi.Output<outputs.quicksight.DataSetPerformanceConfiguration | undefined>;
     /**
      * <p>A list of resource permissions on the dataset.</p>
@@ -261,6 +264,9 @@ export interface DataSetArgs {
      * <p>The display name for the dataset.</p>
      */
     name?: pulumi.Input<string>;
+    /**
+     * The performance optimization configuration of a dataset.
+     */
     performanceConfiguration?: pulumi.Input<inputs.quicksight.DataSetPerformanceConfigurationArgs>;
     /**
      * <p>A list of resource permissions on the dataset.</p>

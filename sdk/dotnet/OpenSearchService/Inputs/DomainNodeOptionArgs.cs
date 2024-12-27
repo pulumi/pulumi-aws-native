@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.OpenSearchService.Inputs
 
     public sealed class DomainNodeOptionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Container for specifying configuration of any node type.
+        /// </summary>
         [Input("nodeConfig")]
         public Input<Inputs.DomainNodeConfigArgs>? NodeConfig { get; set; }
 
+        /// <summary>
+        /// Container for node type like coordinating.
+        /// </summary>
         [Input("nodeType")]
         public Input<Pulumi.AwsNative.OpenSearchService.DomainNodeOptionNodeType>? NodeType { get; set; }
 

@@ -57,7 +57,7 @@ namespace Pulumi.AwsNative.WaFv2.Outputs
         /// </summary>
         public readonly Outputs.RuleGroupForwardedIpConfiguration? ForwardedIpConfig;
         /// <summary>
-        /// The limit on requests per 5-minute period for a single aggregation instance for the rate-based rule. If the rate-based statement includes a `ScopeDownStatement` , this limit is applied only to the requests that match the statement.
+        /// The limit on requests during the specified evaluation window for a single aggregation instance for the rate-based rule. If the rate-based statement includes a `ScopeDownStatement` , this limit is applied only to the requests that match the statement.
         /// 
         /// Examples:
         /// 

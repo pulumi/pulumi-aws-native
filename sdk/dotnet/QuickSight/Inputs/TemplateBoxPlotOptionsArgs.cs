@@ -16,13 +16,13 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         /// Determines the visibility of all data points of the box plot.
         /// </summary>
         [Input("allDataPointsVisibility")]
-        public Input<Pulumi.AwsNative.QuickSight.TemplateVisibility>? AllDataPointsVisibility { get; set; }
+        public Input<object>? AllDataPointsVisibility { get; set; }
 
         /// <summary>
         /// Determines the visibility of the outlier in a box plot.
         /// </summary>
         [Input("outlierVisibility")]
-        public Input<Pulumi.AwsNative.QuickSight.TemplateVisibility>? OutlierVisibility { get; set; }
+        public Input<object>? OutlierVisibility { get; set; }
 
         /// <summary>
         /// The style options of the box plot.

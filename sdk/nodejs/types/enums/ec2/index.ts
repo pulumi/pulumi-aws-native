@@ -841,6 +841,9 @@ export const VpcEndpointDnsOptionsSpecificationDnsRecordIpType = {
     NotSpecified: "not-specified",
 } as const;
 
+/**
+ * The DNS records created for the endpoint.
+ */
 export type VpcEndpointDnsOptionsSpecificationDnsRecordIpType = (typeof VpcEndpointDnsOptionsSpecificationDnsRecordIpType)[keyof typeof VpcEndpointDnsOptionsSpecificationDnsRecordIpType];
 
 export const VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint = {
@@ -849,6 +852,9 @@ export const VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverE
     NotSpecified: "NotSpecified",
 } as const;
 
+/**
+ * Indicates whether to enable private DNS only for inbound endpoints. This option is available only for services that support both gateway and interface endpoints. It routes traffic that originates from the VPC to the gateway endpoint and traffic that originates from on-premises to the interface endpoint.
+ */
 export type VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint = (typeof VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint)[keyof typeof VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint];
 
 export const VpcEndpointIpAddressType = {
@@ -858,6 +864,9 @@ export const VpcEndpointIpAddressType = {
     NotSpecified: "not-specified",
 } as const;
 
+/**
+ * The supported IP address types.
+ */
 export type VpcEndpointIpAddressType = (typeof VpcEndpointIpAddressType)[keyof typeof VpcEndpointIpAddressType];
 
 export const VpcEndpointType = {

@@ -17,6 +17,8 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     {
         /// <summary>
         /// The type of app created within the space.
+        /// 
+        /// If using the [UpdateSpace](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateSpace.html) API, you can't change the app type of your space by specifying a different value for this field.
         /// </summary>
         [Input("appType")]
         public Input<Pulumi.AwsNative.SageMaker.SpaceAppType>? AppType { get; set; }

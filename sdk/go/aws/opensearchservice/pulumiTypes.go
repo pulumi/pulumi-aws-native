@@ -504,8 +504,9 @@ type DomainClusterConfig struct {
 	// The instance type for your data nodes, such as `m3.medium.search` . For valid values, see [Supported instance types in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/supported-instance-types.html) .
 	InstanceType *string `pulumi:"instanceType"`
 	// Indicates whether Multi-AZ with Standby deployment option is enabled. For more information, see [Multi-AZ with Standby](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-multiaz.html#managedomains-za-standby) .
-	MultiAzWithStandbyEnabled *bool              `pulumi:"multiAzWithStandbyEnabled"`
-	NodeOptions               []DomainNodeOption `pulumi:"nodeOptions"`
+	MultiAzWithStandbyEnabled *bool `pulumi:"multiAzWithStandbyEnabled"`
+	// List of node options for the domain.
+	NodeOptions []DomainNodeOption `pulumi:"nodeOptions"`
 	// The number of warm nodes in the cluster.
 	WarmCount *int `pulumi:"warmCount"`
 	// Whether to enable UltraWarm storage for the cluster. See [UltraWarm storage for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ultrawarm.html) .
@@ -543,8 +544,9 @@ type DomainClusterConfigArgs struct {
 	// The instance type for your data nodes, such as `m3.medium.search` . For valid values, see [Supported instance types in Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/supported-instance-types.html) .
 	InstanceType pulumi.StringPtrInput `pulumi:"instanceType"`
 	// Indicates whether Multi-AZ with Standby deployment option is enabled. For more information, see [Multi-AZ with Standby](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/managedomains-multiaz.html#managedomains-za-standby) .
-	MultiAzWithStandbyEnabled pulumi.BoolPtrInput        `pulumi:"multiAzWithStandbyEnabled"`
-	NodeOptions               DomainNodeOptionArrayInput `pulumi:"nodeOptions"`
+	MultiAzWithStandbyEnabled pulumi.BoolPtrInput `pulumi:"multiAzWithStandbyEnabled"`
+	// List of node options for the domain.
+	NodeOptions DomainNodeOptionArrayInput `pulumi:"nodeOptions"`
 	// The number of warm nodes in the cluster.
 	WarmCount pulumi.IntPtrInput `pulumi:"warmCount"`
 	// Whether to enable UltraWarm storage for the cluster. See [UltraWarm storage for Amazon OpenSearch Service](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/ultrawarm.html) .
@@ -669,6 +671,7 @@ func (o DomainClusterConfigOutput) MultiAzWithStandbyEnabled() pulumi.BoolPtrOut
 	return o.ApplyT(func(v DomainClusterConfig) *bool { return v.MultiAzWithStandbyEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// List of node options for the domain.
 func (o DomainClusterConfigOutput) NodeOptions() DomainNodeOptionArrayOutput {
 	return o.ApplyT(func(v DomainClusterConfig) []DomainNodeOption { return v.NodeOptions }).(DomainNodeOptionArrayOutput)
 }
@@ -792,6 +795,7 @@ func (o DomainClusterConfigPtrOutput) MultiAzWithStandbyEnabled() pulumi.BoolPtr
 	}).(pulumi.BoolPtrOutput)
 }
 
+// List of node options for the domain.
 func (o DomainClusterConfigPtrOutput) NodeOptions() DomainNodeOptionArrayOutput {
 	return o.ApplyT(func(v *DomainClusterConfig) []DomainNodeOption {
 		if v == nil {
@@ -2689,9 +2693,12 @@ func (o DomainMasterUserOptionsPtrOutput) MasterUserPassword() pulumi.StringPtrO
 }
 
 type DomainNodeConfig struct {
-	Count   *int    `pulumi:"count"`
-	Enabled *bool   `pulumi:"enabled"`
-	Type    *string `pulumi:"type"`
+	// The number of nodes of a particular node type in the cluster.
+	Count *int `pulumi:"count"`
+	// A boolean that indicates whether a particular node type is enabled or not.
+	Enabled *bool `pulumi:"enabled"`
+	// The instance type of a particular node type in the cluster.
+	Type *string `pulumi:"type"`
 }
 
 // DomainNodeConfigInput is an input type that accepts DomainNodeConfigArgs and DomainNodeConfigOutput values.
@@ -2706,9 +2713,12 @@ type DomainNodeConfigInput interface {
 }
 
 type DomainNodeConfigArgs struct {
-	Count   pulumi.IntPtrInput    `pulumi:"count"`
-	Enabled pulumi.BoolPtrInput   `pulumi:"enabled"`
-	Type    pulumi.StringPtrInput `pulumi:"type"`
+	// The number of nodes of a particular node type in the cluster.
+	Count pulumi.IntPtrInput `pulumi:"count"`
+	// A boolean that indicates whether a particular node type is enabled or not.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// The instance type of a particular node type in the cluster.
+	Type pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (DomainNodeConfigArgs) ElementType() reflect.Type {
@@ -2788,14 +2798,17 @@ func (o DomainNodeConfigOutput) ToDomainNodeConfigPtrOutputWithContext(ctx conte
 	}).(DomainNodeConfigPtrOutput)
 }
 
+// The number of nodes of a particular node type in the cluster.
 func (o DomainNodeConfigOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DomainNodeConfig) *int { return v.Count }).(pulumi.IntPtrOutput)
 }
 
+// A boolean that indicates whether a particular node type is enabled or not.
 func (o DomainNodeConfigOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v DomainNodeConfig) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
+// The instance type of a particular node type in the cluster.
 func (o DomainNodeConfigOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainNodeConfig) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
@@ -2824,6 +2837,7 @@ func (o DomainNodeConfigPtrOutput) Elem() DomainNodeConfigOutput {
 	}).(DomainNodeConfigOutput)
 }
 
+// The number of nodes of a particular node type in the cluster.
 func (o DomainNodeConfigPtrOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DomainNodeConfig) *int {
 		if v == nil {
@@ -2833,6 +2847,7 @@ func (o DomainNodeConfigPtrOutput) Count() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// A boolean that indicates whether a particular node type is enabled or not.
 func (o DomainNodeConfigPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DomainNodeConfig) *bool {
 		if v == nil {
@@ -2842,6 +2857,7 @@ func (o DomainNodeConfigPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The instance type of a particular node type in the cluster.
 func (o DomainNodeConfigPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainNodeConfig) *string {
 		if v == nil {
@@ -2852,8 +2868,10 @@ func (o DomainNodeConfigPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type DomainNodeOption struct {
-	NodeConfig *DomainNodeConfig         `pulumi:"nodeConfig"`
-	NodeType   *DomainNodeOptionNodeType `pulumi:"nodeType"`
+	// Container for specifying configuration of any node type.
+	NodeConfig *DomainNodeConfig `pulumi:"nodeConfig"`
+	// Container for node type like coordinating.
+	NodeType *DomainNodeOptionNodeType `pulumi:"nodeType"`
 }
 
 // DomainNodeOptionInput is an input type that accepts DomainNodeOptionArgs and DomainNodeOptionOutput values.
@@ -2868,8 +2886,10 @@ type DomainNodeOptionInput interface {
 }
 
 type DomainNodeOptionArgs struct {
-	NodeConfig DomainNodeConfigPtrInput         `pulumi:"nodeConfig"`
-	NodeType   DomainNodeOptionNodeTypePtrInput `pulumi:"nodeType"`
+	// Container for specifying configuration of any node type.
+	NodeConfig DomainNodeConfigPtrInput `pulumi:"nodeConfig"`
+	// Container for node type like coordinating.
+	NodeType DomainNodeOptionNodeTypePtrInput `pulumi:"nodeType"`
 }
 
 func (DomainNodeOptionArgs) ElementType() reflect.Type {
@@ -2923,10 +2943,12 @@ func (o DomainNodeOptionOutput) ToDomainNodeOptionOutputWithContext(ctx context.
 	return o
 }
 
+// Container for specifying configuration of any node type.
 func (o DomainNodeOptionOutput) NodeConfig() DomainNodeConfigPtrOutput {
 	return o.ApplyT(func(v DomainNodeOption) *DomainNodeConfig { return v.NodeConfig }).(DomainNodeConfigPtrOutput)
 }
 
+// Container for node type like coordinating.
 func (o DomainNodeOptionOutput) NodeType() DomainNodeOptionNodeTypePtrOutput {
 	return o.ApplyT(func(v DomainNodeOption) *DomainNodeOptionNodeType { return v.NodeType }).(DomainNodeOptionNodeTypePtrOutput)
 }

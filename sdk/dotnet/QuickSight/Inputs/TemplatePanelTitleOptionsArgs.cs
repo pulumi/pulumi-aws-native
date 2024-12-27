@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         /// Determines whether or not panel titles are displayed.
         /// </summary>
         [Input("visibility")]
-        public Input<Pulumi.AwsNative.QuickSight.TemplateVisibility>? Visibility { get; set; }
+        public Input<object>? Visibility { get; set; }
 
         public TemplatePanelTitleOptionsArgs()
         {

@@ -55,7 +55,8 @@ type DataSet struct {
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// <p>The list of columns after all transforms. These columns are available in templates,
 	//             analyses, and dashboards.</p>
-	OutputColumns            DataSetOutputColumnArrayOutput           `pulumi:"outputColumns"`
+	OutputColumns DataSetOutputColumnArrayOutput `pulumi:"outputColumns"`
+	// The performance optimization configuration of a dataset.
 	PerformanceConfiguration DataSetPerformanceConfigurationPtrOutput `pulumi:"performanceConfiguration"`
 	// <p>A list of resource permissions on the dataset.</p>
 	Permissions DataSetResourcePermissionArrayOutput `pulumi:"permissions"`
@@ -141,7 +142,8 @@ type dataSetArgs struct {
 	// Configures the combination and transformation of the data from the physical tables.
 	LogicalTableMap map[string]DataSetLogicalTable `pulumi:"logicalTableMap"`
 	// <p>The display name for the dataset.</p>
-	Name                     *string                          `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// The performance optimization configuration of a dataset.
 	PerformanceConfiguration *DataSetPerformanceConfiguration `pulumi:"performanceConfiguration"`
 	// <p>A list of resource permissions on the dataset.</p>
 	Permissions []DataSetResourcePermission `pulumi:"permissions"`
@@ -184,7 +186,8 @@ type DataSetArgs struct {
 	// Configures the combination and transformation of the data from the physical tables.
 	LogicalTableMap DataSetLogicalTableMapInput
 	// <p>The display name for the dataset.</p>
-	Name                     pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// The performance optimization configuration of a dataset.
 	PerformanceConfiguration DataSetPerformanceConfigurationPtrInput
 	// <p>A list of resource permissions on the dataset.</p>
 	Permissions DataSetResourcePermissionArrayInput
@@ -332,6 +335,7 @@ func (o DataSetOutput) OutputColumns() DataSetOutputColumnArrayOutput {
 	return o.ApplyT(func(v *DataSet) DataSetOutputColumnArrayOutput { return v.OutputColumns }).(DataSetOutputColumnArrayOutput)
 }
 
+// The performance optimization configuration of a dataset.
 func (o DataSetOutput) PerformanceConfiguration() DataSetPerformanceConfigurationPtrOutput {
 	return o.ApplyT(func(v *DataSet) DataSetPerformanceConfigurationPtrOutput { return v.PerformanceConfiguration }).(DataSetPerformanceConfigurationPtrOutput)
 }

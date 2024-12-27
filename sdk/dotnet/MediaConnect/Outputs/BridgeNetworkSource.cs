@@ -21,6 +21,10 @@ namespace Pulumi.AwsNative.MediaConnect.Outputs
         /// </summary>
         public readonly string MulticastIp;
         /// <summary>
+        /// The settings related to the multicast source.
+        /// </summary>
+        public readonly Outputs.BridgeMulticastSourceSettings? MulticastSourceSettings;
+        /// <summary>
         /// The name of the network source.
         /// </summary>
         public readonly string Name;
@@ -41,6 +45,8 @@ namespace Pulumi.AwsNative.MediaConnect.Outputs
         private BridgeNetworkSource(
             string multicastIp,
 
+            Outputs.BridgeMulticastSourceSettings? multicastSourceSettings,
+
             string name,
 
             string networkName,
@@ -50,6 +56,7 @@ namespace Pulumi.AwsNative.MediaConnect.Outputs
             Pulumi.AwsNative.MediaConnect.BridgeProtocolEnum protocol)
         {
             MulticastIp = multicastIp;
+            MulticastSourceSettings = multicastSourceSettings;
             Name = name;
             NetworkName = networkName;
             Port = port;

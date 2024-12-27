@@ -13,6 +13,8 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 
 __all__ = ['VpcEndpointServiceArgs', 'VpcEndpointService']
 
@@ -23,7 +25,8 @@ class VpcEndpointServiceArgs:
                  contributor_insights_enabled: Optional[pulumi.Input[bool]] = None,
                  gateway_load_balancer_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  network_load_balancer_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 payer_responsibility: Optional[pulumi.Input[str]] = None):
+                 payer_responsibility: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a VpcEndpointService resource.
         :param pulumi.Input[bool] acceptance_required: Indicates whether requests from service consumers to create an endpoint to your service must be accepted.
@@ -31,6 +34,7 @@ class VpcEndpointServiceArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] gateway_load_balancer_arns: The Amazon Resource Names (ARNs) of the Gateway Load Balancers.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_load_balancer_arns: The Amazon Resource Names (ARNs) of the Network Load Balancers.
         :param pulumi.Input[str] payer_responsibility: The entity that is responsible for the endpoint costs. The default is the endpoint owner. If you set the payer responsibility to the service owner, you cannot set it back to the endpoint owner.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags to add to the VPC endpoint service.
         """
         if acceptance_required is not None:
             pulumi.set(__self__, "acceptance_required", acceptance_required)
@@ -42,6 +46,8 @@ class VpcEndpointServiceArgs:
             pulumi.set(__self__, "network_load_balancer_arns", network_load_balancer_arns)
         if payer_responsibility is not None:
             pulumi.set(__self__, "payer_responsibility", payer_responsibility)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="acceptanceRequired")
@@ -103,6 +109,18 @@ class VpcEndpointServiceArgs:
     def payer_responsibility(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "payer_responsibility", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        The tags to add to the VPC endpoint service.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
 
 class VpcEndpointService(pulumi.CustomResource):
     @overload
@@ -114,6 +132,7 @@ class VpcEndpointService(pulumi.CustomResource):
                  gateway_load_balancer_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  network_load_balancer_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  payer_responsibility: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::EC2::VPCEndpointService
@@ -125,6 +144,7 @@ class VpcEndpointService(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] gateway_load_balancer_arns: The Amazon Resource Names (ARNs) of the Gateway Load Balancers.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_load_balancer_arns: The Amazon Resource Names (ARNs) of the Network Load Balancers.
         :param pulumi.Input[str] payer_responsibility: The entity that is responsible for the endpoint costs. The default is the endpoint owner. If you set the payer responsibility to the service owner, you cannot set it back to the endpoint owner.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags to add to the VPC endpoint service.
         """
         ...
     @overload
@@ -155,6 +175,7 @@ class VpcEndpointService(pulumi.CustomResource):
                  gateway_load_balancer_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  network_load_balancer_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  payer_responsibility: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -169,6 +190,7 @@ class VpcEndpointService(pulumi.CustomResource):
             __props__.__dict__["gateway_load_balancer_arns"] = gateway_load_balancer_arns
             __props__.__dict__["network_load_balancer_arns"] = network_load_balancer_arns
             __props__.__dict__["payer_responsibility"] = payer_responsibility
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["service_id"] = None
         super(VpcEndpointService, __self__).__init__(
             'aws-native:ec2:VpcEndpointService',
@@ -198,6 +220,7 @@ class VpcEndpointService(pulumi.CustomResource):
         __props__.__dict__["network_load_balancer_arns"] = None
         __props__.__dict__["payer_responsibility"] = None
         __props__.__dict__["service_id"] = None
+        __props__.__dict__["tags"] = None
         return VpcEndpointService(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -247,4 +270,12 @@ class VpcEndpointService(pulumi.CustomResource):
         The ID of the endpoint service.
         """
         return pulumi.get(self, "service_id")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        The tags to add to the VPC endpoint service.
+        """
+        return pulumi.get(self, "tags")
 

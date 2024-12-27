@@ -32,6 +32,8 @@ type VpcCidrBlock struct {
 	Ipv6AddressAttribute pulumi.StringOutput `pulumi:"ipv6AddressAttribute"`
 	// An IPv6 CIDR block from the IPv6 address pool.
 	Ipv6CidrBlock pulumi.StringPtrOutput `pulumi:"ipv6CidrBlock"`
+	// The name of the location from which we advertise the IPV6 CIDR block.
+	Ipv6CidrBlockNetworkBorderGroup pulumi.StringPtrOutput `pulumi:"ipv6CidrBlockNetworkBorderGroup"`
 	// The ID of the IPv6 IPAM pool to Associate a CIDR from to a VPC.
 	Ipv6IpamPoolId pulumi.StringPtrOutput `pulumi:"ipv6IpamPoolId"`
 	// The netmask length of the IPv6 CIDR you would like to associate from an Amazon VPC IP Address Manager (IPAM) pool.
@@ -58,6 +60,7 @@ func NewVpcCidrBlock(ctx *pulumi.Context,
 		"ipv4IpamPoolId",
 		"ipv4NetmaskLength",
 		"ipv6CidrBlock",
+		"ipv6CidrBlockNetworkBorderGroup",
 		"ipv6IpamPoolId",
 		"ipv6NetmaskLength",
 		"ipv6Pool",
@@ -107,6 +110,8 @@ type vpcCidrBlockArgs struct {
 	Ipv4NetmaskLength *int `pulumi:"ipv4NetmaskLength"`
 	// An IPv6 CIDR block from the IPv6 address pool.
 	Ipv6CidrBlock *string `pulumi:"ipv6CidrBlock"`
+	// The name of the location from which we advertise the IPV6 CIDR block.
+	Ipv6CidrBlockNetworkBorderGroup *string `pulumi:"ipv6CidrBlockNetworkBorderGroup"`
 	// The ID of the IPv6 IPAM pool to Associate a CIDR from to a VPC.
 	Ipv6IpamPoolId *string `pulumi:"ipv6IpamPoolId"`
 	// The netmask length of the IPv6 CIDR you would like to associate from an Amazon VPC IP Address Manager (IPAM) pool.
@@ -129,6 +134,8 @@ type VpcCidrBlockArgs struct {
 	Ipv4NetmaskLength pulumi.IntPtrInput
 	// An IPv6 CIDR block from the IPv6 address pool.
 	Ipv6CidrBlock pulumi.StringPtrInput
+	// The name of the location from which we advertise the IPV6 CIDR block.
+	Ipv6CidrBlockNetworkBorderGroup pulumi.StringPtrInput
 	// The ID of the IPv6 IPAM pool to Associate a CIDR from to a VPC.
 	Ipv6IpamPoolId pulumi.StringPtrInput
 	// The netmask length of the IPv6 CIDR you would like to associate from an Amazon VPC IP Address Manager (IPAM) pool.
@@ -214,6 +221,11 @@ func (o VpcCidrBlockOutput) Ipv6AddressAttribute() pulumi.StringOutput {
 // An IPv6 CIDR block from the IPv6 address pool.
 func (o VpcCidrBlockOutput) Ipv6CidrBlock() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpcCidrBlock) pulumi.StringPtrOutput { return v.Ipv6CidrBlock }).(pulumi.StringPtrOutput)
+}
+
+// The name of the location from which we advertise the IPV6 CIDR block.
+func (o VpcCidrBlockOutput) Ipv6CidrBlockNetworkBorderGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcCidrBlock) pulumi.StringPtrOutput { return v.Ipv6CidrBlockNetworkBorderGroup }).(pulumi.StringPtrOutput)
 }
 
 // The ID of the IPv6 IPAM pool to Associate a CIDR from to a VPC.

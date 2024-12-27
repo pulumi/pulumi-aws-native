@@ -263,7 +263,6 @@ __all__ = [
     'DataSetColumnDataType',
     'DataSetColumnTagName',
     'DataSetDatasetParameterValueType',
-    'DataSetFileFormat',
     'DataSetGeoSpatialCountryCode',
     'DataSetGeoSpatialDataRole',
     'DataSetImportMode',
@@ -273,7 +272,6 @@ __all__ = [
     'DataSetRowLevelPermissionFormatVersion',
     'DataSetRowLevelPermissionPolicy',
     'DataSetStatus',
-    'DataSetTextQualifier',
     'DataSetTimeGranularity',
     'DataSourceAuthenticationType',
     'DataSourceErrorInfoType',
@@ -399,7 +397,6 @@ __all__ = [
     'TemplateValidationStrategyMode',
     'TemplateValueWhenUnsetOption',
     'TemplateVerticalTextAlignment',
-    'TemplateVisibility',
     'TemplateVisualCustomActionTrigger',
     'TemplateWidgetStatus',
     'TemplateWordCloudCloudLayout',
@@ -2017,15 +2014,6 @@ class DataSetDatasetParameterValueType(str, Enum):
     SINGLE_VALUED = "SINGLE_VALUED"
 
 
-class DataSetFileFormat(str, Enum):
-    CSV = "CSV"
-    TSV = "TSV"
-    CLF = "CLF"
-    ELF = "ELF"
-    XLSX = "XLSX"
-    JSON = "JSON"
-
-
 class DataSetGeoSpatialCountryCode(str, Enum):
     US = "US"
 
@@ -2085,11 +2073,6 @@ class DataSetRowLevelPermissionPolicy(str, Enum):
 class DataSetStatus(str, Enum):
     ENABLED = "ENABLED"
     DISABLED = "DISABLED"
-
-
-class DataSetTextQualifier(str, Enum):
-    DOUBLE_QUOTE = "DOUBLE_QUOTE"
-    SINGLE_QUOTE = "SINGLE_QUOTE"
 
 
 class DataSetTimeGranularity(str, Enum):
@@ -2925,11 +2908,6 @@ class TemplateVerticalTextAlignment(str, Enum):
     MIDDLE = "MIDDLE"
     BOTTOM = "BOTTOM"
     AUTO = "AUTO"
-
-
-class TemplateVisibility(str, Enum):
-    HIDDEN = "HIDDEN"
-    VISIBLE = "VISIBLE"
 
 
 class TemplateVisualCustomActionTrigger(str, Enum):

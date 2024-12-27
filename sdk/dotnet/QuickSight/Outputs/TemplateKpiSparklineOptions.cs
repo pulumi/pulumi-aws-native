@@ -20,7 +20,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// <summary>
         /// The tooltip visibility of the sparkline.
         /// </summary>
-        public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? TooltipVisibility;
+        public readonly object? TooltipVisibility;
         /// <summary>
         /// The type of the sparkline.
         /// </summary>
@@ -28,17 +28,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// <summary>
         /// The visibility of the sparkline.
         /// </summary>
-        public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? Visibility;
+        public readonly object? Visibility;
 
         [OutputConstructor]
         private TemplateKpiSparklineOptions(
             string? color,
 
-            Pulumi.AwsNative.QuickSight.TemplateVisibility? tooltipVisibility,
+            object? tooltipVisibility,
 
             Pulumi.AwsNative.QuickSight.TemplateKpiSparklineType type,
 
-            Pulumi.AwsNative.QuickSight.TemplateVisibility? visibility)
+            object? visibility)
         {
             Color = color;
             TooltipVisibility = tooltipVisibility;

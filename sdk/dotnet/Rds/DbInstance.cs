@@ -358,7 +358,7 @@ namespace Pulumi.AwsNative.Rds
         /// The Oracle system identifier (SID), which is the name of the Oracle database instance that manages your database files. In this context, the term "Oracle database instance" refers exclusively to the system global area (SGA) and Oracle background processes. If you don't specify a SID, the value defaults to ``RDSCDB``. The Oracle SID is also the name of your CDB.
         /// </summary>
         [Output("dbSystemId")]
-        public Output<string> DbSystemId { get; private set; } = null!;
+        public Output<string?> DbSystemId { get; private set; } = null!;
 
         /// <summary>
         /// The AWS Region-unique, immutable identifier for the DB instance. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB instance is accessed.
@@ -993,6 +993,7 @@ namespace Pulumi.AwsNative.Rds
                     "dbInstanceIdentifier",
                     "dbName",
                     "dbSubnetGroupName",
+                    "dbSystemId",
                     "kmsKeyId",
                     "masterUsername",
                     "ncharCharacterSetName",
@@ -1346,6 +1347,12 @@ namespace Pulumi.AwsNative.Rds
         /// </summary>
         [Input("dbSubnetGroupName")]
         public Input<string>? DbSubnetGroupName { get; set; }
+
+        /// <summary>
+        /// The Oracle system identifier (SID), which is the name of the Oracle database instance that manages your database files. In this context, the term "Oracle database instance" refers exclusively to the system global area (SGA) and Oracle background processes. If you don't specify a SID, the value defaults to ``RDSCDB``. The Oracle SID is also the name of your CDB.
+        /// </summary>
+        [Input("dbSystemId")]
+        public Input<string>? DbSystemId { get; set; }
 
         /// <summary>
         /// Indicates whether the DB instance has a dedicated log volume (DLV) enabled.

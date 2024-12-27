@@ -32,7 +32,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// <summary>
         /// Configuration option that determines whether to show the line for the series.
         /// </summary>
-        public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? LineVisibility;
+        public readonly object? LineVisibility;
         /// <summary>
         /// String based length that is composed of value and unit in px
         /// </summary>
@@ -44,7 +44,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Pulumi.AwsNative.QuickSight.TemplateLineChartLineStyle? lineStyle,
 
-            Pulumi.AwsNative.QuickSight.TemplateVisibility? lineVisibility,
+            object? lineVisibility,
 
             string? lineWidth)
         {

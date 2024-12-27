@@ -89,7 +89,7 @@ namespace Pulumi.AwsNative.Ecs
         /// <summary>
         /// The capacity provider strategy to use for the service.
         ///  If a ``capacityProviderStrategy`` is specified, the ``launchType`` parameter must be omitted. If no ``capacityProviderStrategy`` or ``launchType`` is specified, the ``defaultCapacityProviderStrategy`` for the cluster is used.
-        ///  A capacity provider strategy may contain a maximum of 6 capacity providers.
+        ///  A capacity provider strategy can contain a maximum of 20 capacity providers.
         /// </summary>
         public readonly ImmutableArray<Outputs.ServiceCapacityProviderStrategyItem> CapacityProviderStrategy;
         /// <summary>

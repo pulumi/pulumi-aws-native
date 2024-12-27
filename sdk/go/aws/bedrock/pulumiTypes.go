@@ -901,8 +901,9 @@ type AgentFunction struct {
 	// Name for a resource.
 	Name string `pulumi:"name"`
 	// The parameters that the agent elicits from the user to fulfill the function.
-	Parameters          map[string]AgentParameterDetail `pulumi:"parameters"`
-	RequireConfirmation *AgentRequireConfirmation       `pulumi:"requireConfirmation"`
+	Parameters map[string]AgentParameterDetail `pulumi:"parameters"`
+	// Contains information if user confirmation is required to invoke the function.
+	RequireConfirmation *AgentRequireConfirmation `pulumi:"requireConfirmation"`
 }
 
 // AgentFunctionInput is an input type that accepts AgentFunctionArgs and AgentFunctionOutput values.
@@ -923,7 +924,8 @@ type AgentFunctionArgs struct {
 	// Name for a resource.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The parameters that the agent elicits from the user to fulfill the function.
-	Parameters          AgentParameterDetailMapInput     `pulumi:"parameters"`
+	Parameters AgentParameterDetailMapInput `pulumi:"parameters"`
+	// Contains information if user confirmation is required to invoke the function.
 	RequireConfirmation AgentRequireConfirmationPtrInput `pulumi:"requireConfirmation"`
 }
 
@@ -994,6 +996,7 @@ func (o AgentFunctionOutput) Parameters() AgentParameterDetailMapOutput {
 	return o.ApplyT(func(v AgentFunction) map[string]AgentParameterDetail { return v.Parameters }).(AgentParameterDetailMapOutput)
 }
 
+// Contains information if user confirmation is required to invoke the function.
 func (o AgentFunctionOutput) RequireConfirmation() AgentRequireConfirmationPtrOutput {
 	return o.ApplyT(func(v AgentFunction) *AgentRequireConfirmation { return v.RequireConfirmation }).(AgentRequireConfirmationPtrOutput)
 }
@@ -2452,10 +2455,154 @@ type ApplicationInferenceProfileTag struct {
 	Value string `pulumi:"value"`
 }
 
+// Settings for a Bedrock Data Automation used to parse documents for a data source.
+type DataSourceBedrockDataAutomationConfiguration struct {
+	// Specifies whether to enable parsing of multimodal data, including both text and/or images.
+	ParsingModality *DataSourceParsingModality `pulumi:"parsingModality"`
+}
+
+// DataSourceBedrockDataAutomationConfigurationInput is an input type that accepts DataSourceBedrockDataAutomationConfigurationArgs and DataSourceBedrockDataAutomationConfigurationOutput values.
+// You can construct a concrete instance of `DataSourceBedrockDataAutomationConfigurationInput` via:
+//
+//	DataSourceBedrockDataAutomationConfigurationArgs{...}
+type DataSourceBedrockDataAutomationConfigurationInput interface {
+	pulumi.Input
+
+	ToDataSourceBedrockDataAutomationConfigurationOutput() DataSourceBedrockDataAutomationConfigurationOutput
+	ToDataSourceBedrockDataAutomationConfigurationOutputWithContext(context.Context) DataSourceBedrockDataAutomationConfigurationOutput
+}
+
+// Settings for a Bedrock Data Automation used to parse documents for a data source.
+type DataSourceBedrockDataAutomationConfigurationArgs struct {
+	// Specifies whether to enable parsing of multimodal data, including both text and/or images.
+	ParsingModality DataSourceParsingModalityPtrInput `pulumi:"parsingModality"`
+}
+
+func (DataSourceBedrockDataAutomationConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceBedrockDataAutomationConfiguration)(nil)).Elem()
+}
+
+func (i DataSourceBedrockDataAutomationConfigurationArgs) ToDataSourceBedrockDataAutomationConfigurationOutput() DataSourceBedrockDataAutomationConfigurationOutput {
+	return i.ToDataSourceBedrockDataAutomationConfigurationOutputWithContext(context.Background())
+}
+
+func (i DataSourceBedrockDataAutomationConfigurationArgs) ToDataSourceBedrockDataAutomationConfigurationOutputWithContext(ctx context.Context) DataSourceBedrockDataAutomationConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceBedrockDataAutomationConfigurationOutput)
+}
+
+func (i DataSourceBedrockDataAutomationConfigurationArgs) ToDataSourceBedrockDataAutomationConfigurationPtrOutput() DataSourceBedrockDataAutomationConfigurationPtrOutput {
+	return i.ToDataSourceBedrockDataAutomationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceBedrockDataAutomationConfigurationArgs) ToDataSourceBedrockDataAutomationConfigurationPtrOutputWithContext(ctx context.Context) DataSourceBedrockDataAutomationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceBedrockDataAutomationConfigurationOutput).ToDataSourceBedrockDataAutomationConfigurationPtrOutputWithContext(ctx)
+}
+
+// DataSourceBedrockDataAutomationConfigurationPtrInput is an input type that accepts DataSourceBedrockDataAutomationConfigurationArgs, DataSourceBedrockDataAutomationConfigurationPtr and DataSourceBedrockDataAutomationConfigurationPtrOutput values.
+// You can construct a concrete instance of `DataSourceBedrockDataAutomationConfigurationPtrInput` via:
+//
+//	        DataSourceBedrockDataAutomationConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceBedrockDataAutomationConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceBedrockDataAutomationConfigurationPtrOutput() DataSourceBedrockDataAutomationConfigurationPtrOutput
+	ToDataSourceBedrockDataAutomationConfigurationPtrOutputWithContext(context.Context) DataSourceBedrockDataAutomationConfigurationPtrOutput
+}
+
+type dataSourceBedrockDataAutomationConfigurationPtrType DataSourceBedrockDataAutomationConfigurationArgs
+
+func DataSourceBedrockDataAutomationConfigurationPtr(v *DataSourceBedrockDataAutomationConfigurationArgs) DataSourceBedrockDataAutomationConfigurationPtrInput {
+	return (*dataSourceBedrockDataAutomationConfigurationPtrType)(v)
+}
+
+func (*dataSourceBedrockDataAutomationConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceBedrockDataAutomationConfiguration)(nil)).Elem()
+}
+
+func (i *dataSourceBedrockDataAutomationConfigurationPtrType) ToDataSourceBedrockDataAutomationConfigurationPtrOutput() DataSourceBedrockDataAutomationConfigurationPtrOutput {
+	return i.ToDataSourceBedrockDataAutomationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceBedrockDataAutomationConfigurationPtrType) ToDataSourceBedrockDataAutomationConfigurationPtrOutputWithContext(ctx context.Context) DataSourceBedrockDataAutomationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceBedrockDataAutomationConfigurationPtrOutput)
+}
+
+// Settings for a Bedrock Data Automation used to parse documents for a data source.
+type DataSourceBedrockDataAutomationConfigurationOutput struct{ *pulumi.OutputState }
+
+func (DataSourceBedrockDataAutomationConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceBedrockDataAutomationConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceBedrockDataAutomationConfigurationOutput) ToDataSourceBedrockDataAutomationConfigurationOutput() DataSourceBedrockDataAutomationConfigurationOutput {
+	return o
+}
+
+func (o DataSourceBedrockDataAutomationConfigurationOutput) ToDataSourceBedrockDataAutomationConfigurationOutputWithContext(ctx context.Context) DataSourceBedrockDataAutomationConfigurationOutput {
+	return o
+}
+
+func (o DataSourceBedrockDataAutomationConfigurationOutput) ToDataSourceBedrockDataAutomationConfigurationPtrOutput() DataSourceBedrockDataAutomationConfigurationPtrOutput {
+	return o.ToDataSourceBedrockDataAutomationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceBedrockDataAutomationConfigurationOutput) ToDataSourceBedrockDataAutomationConfigurationPtrOutputWithContext(ctx context.Context) DataSourceBedrockDataAutomationConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceBedrockDataAutomationConfiguration) *DataSourceBedrockDataAutomationConfiguration {
+		return &v
+	}).(DataSourceBedrockDataAutomationConfigurationPtrOutput)
+}
+
+// Specifies whether to enable parsing of multimodal data, including both text and/or images.
+func (o DataSourceBedrockDataAutomationConfigurationOutput) ParsingModality() DataSourceParsingModalityPtrOutput {
+	return o.ApplyT(func(v DataSourceBedrockDataAutomationConfiguration) *DataSourceParsingModality {
+		return v.ParsingModality
+	}).(DataSourceParsingModalityPtrOutput)
+}
+
+type DataSourceBedrockDataAutomationConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceBedrockDataAutomationConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceBedrockDataAutomationConfiguration)(nil)).Elem()
+}
+
+func (o DataSourceBedrockDataAutomationConfigurationPtrOutput) ToDataSourceBedrockDataAutomationConfigurationPtrOutput() DataSourceBedrockDataAutomationConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceBedrockDataAutomationConfigurationPtrOutput) ToDataSourceBedrockDataAutomationConfigurationPtrOutputWithContext(ctx context.Context) DataSourceBedrockDataAutomationConfigurationPtrOutput {
+	return o
+}
+
+func (o DataSourceBedrockDataAutomationConfigurationPtrOutput) Elem() DataSourceBedrockDataAutomationConfigurationOutput {
+	return o.ApplyT(func(v *DataSourceBedrockDataAutomationConfiguration) DataSourceBedrockDataAutomationConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceBedrockDataAutomationConfiguration
+		return ret
+	}).(DataSourceBedrockDataAutomationConfigurationOutput)
+}
+
+// Specifies whether to enable parsing of multimodal data, including both text and/or images.
+func (o DataSourceBedrockDataAutomationConfigurationPtrOutput) ParsingModality() DataSourceParsingModalityPtrOutput {
+	return o.ApplyT(func(v *DataSourceBedrockDataAutomationConfiguration) *DataSourceParsingModality {
+		if v == nil {
+			return nil
+		}
+		return v.ParsingModality
+	}).(DataSourceParsingModalityPtrOutput)
+}
+
 // Settings for a foundation model used to parse documents for a data source.
 type DataSourceBedrockFoundationModelConfiguration struct {
 	// The model's ARN.
 	ModelArn string `pulumi:"modelArn"`
+	// Specifies whether to enable parsing of multimodal data, including both text and/or images.
+	ParsingModality *DataSourceParsingModality `pulumi:"parsingModality"`
 	// Instructions for interpreting the contents of a document.
 	ParsingPrompt *DataSourceParsingPrompt `pulumi:"parsingPrompt"`
 }
@@ -2475,6 +2622,8 @@ type DataSourceBedrockFoundationModelConfigurationInput interface {
 type DataSourceBedrockFoundationModelConfigurationArgs struct {
 	// The model's ARN.
 	ModelArn pulumi.StringInput `pulumi:"modelArn"`
+	// Specifies whether to enable parsing of multimodal data, including both text and/or images.
+	ParsingModality DataSourceParsingModalityPtrInput `pulumi:"parsingModality"`
 	// Instructions for interpreting the contents of a document.
 	ParsingPrompt DataSourceParsingPromptPtrInput `pulumi:"parsingPrompt"`
 }
@@ -2562,6 +2711,13 @@ func (o DataSourceBedrockFoundationModelConfigurationOutput) ModelArn() pulumi.S
 	return o.ApplyT(func(v DataSourceBedrockFoundationModelConfiguration) string { return v.ModelArn }).(pulumi.StringOutput)
 }
 
+// Specifies whether to enable parsing of multimodal data, including both text and/or images.
+func (o DataSourceBedrockFoundationModelConfigurationOutput) ParsingModality() DataSourceParsingModalityPtrOutput {
+	return o.ApplyT(func(v DataSourceBedrockFoundationModelConfiguration) *DataSourceParsingModality {
+		return v.ParsingModality
+	}).(DataSourceParsingModalityPtrOutput)
+}
+
 // Instructions for interpreting the contents of a document.
 func (o DataSourceBedrockFoundationModelConfigurationOutput) ParsingPrompt() DataSourceParsingPromptPtrOutput {
 	return o.ApplyT(func(v DataSourceBedrockFoundationModelConfiguration) *DataSourceParsingPrompt { return v.ParsingPrompt }).(DataSourceParsingPromptPtrOutput)
@@ -2599,6 +2755,16 @@ func (o DataSourceBedrockFoundationModelConfigurationPtrOutput) ModelArn() pulum
 		}
 		return &v.ModelArn
 	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether to enable parsing of multimodal data, including both text and/or images.
+func (o DataSourceBedrockFoundationModelConfigurationPtrOutput) ParsingModality() DataSourceParsingModalityPtrOutput {
+	return o.ApplyT(func(v *DataSourceBedrockFoundationModelConfiguration) *DataSourceParsingModality {
+		if v == nil {
+			return nil
+		}
+		return v.ParsingModality
+	}).(DataSourceParsingModalityPtrOutput)
 }
 
 // Instructions for interpreting the contents of a document.
@@ -4448,6 +4614,8 @@ func (o DataSourceIntermediateStoragePtrOutput) S3Location() DataSourceS3Locatio
 
 // Settings for parsing document contents
 type DataSourceParsingConfiguration struct {
+	// If you specify `BEDROCK_DATA_AUTOMATION` as the parsing strategy for ingesting your data source, use this object to modify configurations for using the Amazon Bedrock Data Automation parser.
+	BedrockDataAutomationConfiguration *DataSourceBedrockDataAutomationConfiguration `pulumi:"bedrockDataAutomationConfiguration"`
 	// If you specify `BEDROCK_FOUNDATION_MODEL` as the parsing strategy for ingesting your data source, use this object to modify configurations for using a foundation model to parse documents.
 	BedrockFoundationModelConfiguration *DataSourceBedrockFoundationModelConfiguration `pulumi:"bedrockFoundationModelConfiguration"`
 	// The parsing strategy for the data source.
@@ -4467,6 +4635,8 @@ type DataSourceParsingConfigurationInput interface {
 
 // Settings for parsing document contents
 type DataSourceParsingConfigurationArgs struct {
+	// If you specify `BEDROCK_DATA_AUTOMATION` as the parsing strategy for ingesting your data source, use this object to modify configurations for using the Amazon Bedrock Data Automation parser.
+	BedrockDataAutomationConfiguration DataSourceBedrockDataAutomationConfigurationPtrInput `pulumi:"bedrockDataAutomationConfiguration"`
 	// If you specify `BEDROCK_FOUNDATION_MODEL` as the parsing strategy for ingesting your data source, use this object to modify configurations for using a foundation model to parse documents.
 	BedrockFoundationModelConfiguration DataSourceBedrockFoundationModelConfigurationPtrInput `pulumi:"bedrockFoundationModelConfiguration"`
 	// The parsing strategy for the data source.
@@ -4551,6 +4721,13 @@ func (o DataSourceParsingConfigurationOutput) ToDataSourceParsingConfigurationPt
 	}).(DataSourceParsingConfigurationPtrOutput)
 }
 
+// If you specify `BEDROCK_DATA_AUTOMATION` as the parsing strategy for ingesting your data source, use this object to modify configurations for using the Amazon Bedrock Data Automation parser.
+func (o DataSourceParsingConfigurationOutput) BedrockDataAutomationConfiguration() DataSourceBedrockDataAutomationConfigurationPtrOutput {
+	return o.ApplyT(func(v DataSourceParsingConfiguration) *DataSourceBedrockDataAutomationConfiguration {
+		return v.BedrockDataAutomationConfiguration
+	}).(DataSourceBedrockDataAutomationConfigurationPtrOutput)
+}
+
 // If you specify `BEDROCK_FOUNDATION_MODEL` as the parsing strategy for ingesting your data source, use this object to modify configurations for using a foundation model to parse documents.
 func (o DataSourceParsingConfigurationOutput) BedrockFoundationModelConfiguration() DataSourceBedrockFoundationModelConfigurationPtrOutput {
 	return o.ApplyT(func(v DataSourceParsingConfiguration) *DataSourceBedrockFoundationModelConfiguration {
@@ -4585,6 +4762,16 @@ func (o DataSourceParsingConfigurationPtrOutput) Elem() DataSourceParsingConfigu
 		var ret DataSourceParsingConfiguration
 		return ret
 	}).(DataSourceParsingConfigurationOutput)
+}
+
+// If you specify `BEDROCK_DATA_AUTOMATION` as the parsing strategy for ingesting your data source, use this object to modify configurations for using the Amazon Bedrock Data Automation parser.
+func (o DataSourceParsingConfigurationPtrOutput) BedrockDataAutomationConfiguration() DataSourceBedrockDataAutomationConfigurationPtrOutput {
+	return o.ApplyT(func(v *DataSourceParsingConfiguration) *DataSourceBedrockDataAutomationConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.BedrockDataAutomationConfiguration
+	}).(DataSourceBedrockDataAutomationConfigurationPtrOutput)
 }
 
 // If you specify `BEDROCK_FOUNDATION_MODEL` as the parsing strategy for ingesting your data source, use this object to modify configurations for using a foundation model to parse documents.
@@ -20066,10 +20253,12 @@ func (o KnowledgeBaseBedrockEmbeddingModelConfigurationPtrOutput) Dimensions() p
 
 // Contains details about the embeddings model used for the knowledge base.
 type KnowledgeBaseConfiguration struct {
+	// Settings for an Amazon Kendra knowledge base.
+	KendraKnowledgeBaseConfiguration *KnowledgeBaseKendraKnowledgeBaseConfiguration `pulumi:"kendraKnowledgeBaseConfiguration"`
 	// The type of data that the data source is converted into for the knowledge base.
 	Type KnowledgeBaseType `pulumi:"type"`
 	// Contains details about the model that's used to convert the data source into vector embeddings.
-	VectorKnowledgeBaseConfiguration KnowledgeBaseVectorKnowledgeBaseConfiguration `pulumi:"vectorKnowledgeBaseConfiguration"`
+	VectorKnowledgeBaseConfiguration *KnowledgeBaseVectorKnowledgeBaseConfiguration `pulumi:"vectorKnowledgeBaseConfiguration"`
 }
 
 // KnowledgeBaseConfigurationInput is an input type that accepts KnowledgeBaseConfigurationArgs and KnowledgeBaseConfigurationOutput values.
@@ -20085,10 +20274,12 @@ type KnowledgeBaseConfigurationInput interface {
 
 // Contains details about the embeddings model used for the knowledge base.
 type KnowledgeBaseConfigurationArgs struct {
+	// Settings for an Amazon Kendra knowledge base.
+	KendraKnowledgeBaseConfiguration KnowledgeBaseKendraKnowledgeBaseConfigurationPtrInput `pulumi:"kendraKnowledgeBaseConfiguration"`
 	// The type of data that the data source is converted into for the knowledge base.
 	Type KnowledgeBaseTypeInput `pulumi:"type"`
 	// Contains details about the model that's used to convert the data source into vector embeddings.
-	VectorKnowledgeBaseConfiguration KnowledgeBaseVectorKnowledgeBaseConfigurationInput `pulumi:"vectorKnowledgeBaseConfiguration"`
+	VectorKnowledgeBaseConfiguration KnowledgeBaseVectorKnowledgeBaseConfigurationPtrInput `pulumi:"vectorKnowledgeBaseConfiguration"`
 }
 
 func (KnowledgeBaseConfigurationArgs) ElementType() reflect.Type {
@@ -20118,16 +20309,23 @@ func (o KnowledgeBaseConfigurationOutput) ToKnowledgeBaseConfigurationOutputWith
 	return o
 }
 
+// Settings for an Amazon Kendra knowledge base.
+func (o KnowledgeBaseConfigurationOutput) KendraKnowledgeBaseConfiguration() KnowledgeBaseKendraKnowledgeBaseConfigurationPtrOutput {
+	return o.ApplyT(func(v KnowledgeBaseConfiguration) *KnowledgeBaseKendraKnowledgeBaseConfiguration {
+		return v.KendraKnowledgeBaseConfiguration
+	}).(KnowledgeBaseKendraKnowledgeBaseConfigurationPtrOutput)
+}
+
 // The type of data that the data source is converted into for the knowledge base.
 func (o KnowledgeBaseConfigurationOutput) Type() KnowledgeBaseTypeOutput {
 	return o.ApplyT(func(v KnowledgeBaseConfiguration) KnowledgeBaseType { return v.Type }).(KnowledgeBaseTypeOutput)
 }
 
 // Contains details about the model that's used to convert the data source into vector embeddings.
-func (o KnowledgeBaseConfigurationOutput) VectorKnowledgeBaseConfiguration() KnowledgeBaseVectorKnowledgeBaseConfigurationOutput {
-	return o.ApplyT(func(v KnowledgeBaseConfiguration) KnowledgeBaseVectorKnowledgeBaseConfiguration {
+func (o KnowledgeBaseConfigurationOutput) VectorKnowledgeBaseConfiguration() KnowledgeBaseVectorKnowledgeBaseConfigurationPtrOutput {
+	return o.ApplyT(func(v KnowledgeBaseConfiguration) *KnowledgeBaseVectorKnowledgeBaseConfiguration {
 		return v.VectorKnowledgeBaseConfiguration
-	}).(KnowledgeBaseVectorKnowledgeBaseConfigurationOutput)
+	}).(KnowledgeBaseVectorKnowledgeBaseConfigurationPtrOutput)
 }
 
 // The embeddings model configuration details for the vector model used in Knowledge Base.
@@ -20270,6 +20468,146 @@ func (o KnowledgeBaseEmbeddingModelConfigurationPtrOutput) BedrockEmbeddingModel
 		}
 		return v.BedrockEmbeddingModelConfiguration
 	}).(KnowledgeBaseBedrockEmbeddingModelConfigurationPtrOutput)
+}
+
+// Configurations for a Kendra knowledge base
+type KnowledgeBaseKendraKnowledgeBaseConfiguration struct {
+	// The ARN of the Amazon Kendra index.
+	KendraIndexArn string `pulumi:"kendraIndexArn"`
+}
+
+// KnowledgeBaseKendraKnowledgeBaseConfigurationInput is an input type that accepts KnowledgeBaseKendraKnowledgeBaseConfigurationArgs and KnowledgeBaseKendraKnowledgeBaseConfigurationOutput values.
+// You can construct a concrete instance of `KnowledgeBaseKendraKnowledgeBaseConfigurationInput` via:
+//
+//	KnowledgeBaseKendraKnowledgeBaseConfigurationArgs{...}
+type KnowledgeBaseKendraKnowledgeBaseConfigurationInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseKendraKnowledgeBaseConfigurationOutput() KnowledgeBaseKendraKnowledgeBaseConfigurationOutput
+	ToKnowledgeBaseKendraKnowledgeBaseConfigurationOutputWithContext(context.Context) KnowledgeBaseKendraKnowledgeBaseConfigurationOutput
+}
+
+// Configurations for a Kendra knowledge base
+type KnowledgeBaseKendraKnowledgeBaseConfigurationArgs struct {
+	// The ARN of the Amazon Kendra index.
+	KendraIndexArn pulumi.StringInput `pulumi:"kendraIndexArn"`
+}
+
+func (KnowledgeBaseKendraKnowledgeBaseConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseKendraKnowledgeBaseConfiguration)(nil)).Elem()
+}
+
+func (i KnowledgeBaseKendraKnowledgeBaseConfigurationArgs) ToKnowledgeBaseKendraKnowledgeBaseConfigurationOutput() KnowledgeBaseKendraKnowledgeBaseConfigurationOutput {
+	return i.ToKnowledgeBaseKendraKnowledgeBaseConfigurationOutputWithContext(context.Background())
+}
+
+func (i KnowledgeBaseKendraKnowledgeBaseConfigurationArgs) ToKnowledgeBaseKendraKnowledgeBaseConfigurationOutputWithContext(ctx context.Context) KnowledgeBaseKendraKnowledgeBaseConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseKendraKnowledgeBaseConfigurationOutput)
+}
+
+func (i KnowledgeBaseKendraKnowledgeBaseConfigurationArgs) ToKnowledgeBaseKendraKnowledgeBaseConfigurationPtrOutput() KnowledgeBaseKendraKnowledgeBaseConfigurationPtrOutput {
+	return i.ToKnowledgeBaseKendraKnowledgeBaseConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i KnowledgeBaseKendraKnowledgeBaseConfigurationArgs) ToKnowledgeBaseKendraKnowledgeBaseConfigurationPtrOutputWithContext(ctx context.Context) KnowledgeBaseKendraKnowledgeBaseConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseKendraKnowledgeBaseConfigurationOutput).ToKnowledgeBaseKendraKnowledgeBaseConfigurationPtrOutputWithContext(ctx)
+}
+
+// KnowledgeBaseKendraKnowledgeBaseConfigurationPtrInput is an input type that accepts KnowledgeBaseKendraKnowledgeBaseConfigurationArgs, KnowledgeBaseKendraKnowledgeBaseConfigurationPtr and KnowledgeBaseKendraKnowledgeBaseConfigurationPtrOutput values.
+// You can construct a concrete instance of `KnowledgeBaseKendraKnowledgeBaseConfigurationPtrInput` via:
+//
+//	        KnowledgeBaseKendraKnowledgeBaseConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type KnowledgeBaseKendraKnowledgeBaseConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseKendraKnowledgeBaseConfigurationPtrOutput() KnowledgeBaseKendraKnowledgeBaseConfigurationPtrOutput
+	ToKnowledgeBaseKendraKnowledgeBaseConfigurationPtrOutputWithContext(context.Context) KnowledgeBaseKendraKnowledgeBaseConfigurationPtrOutput
+}
+
+type knowledgeBaseKendraKnowledgeBaseConfigurationPtrType KnowledgeBaseKendraKnowledgeBaseConfigurationArgs
+
+func KnowledgeBaseKendraKnowledgeBaseConfigurationPtr(v *KnowledgeBaseKendraKnowledgeBaseConfigurationArgs) KnowledgeBaseKendraKnowledgeBaseConfigurationPtrInput {
+	return (*knowledgeBaseKendraKnowledgeBaseConfigurationPtrType)(v)
+}
+
+func (*knowledgeBaseKendraKnowledgeBaseConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KnowledgeBaseKendraKnowledgeBaseConfiguration)(nil)).Elem()
+}
+
+func (i *knowledgeBaseKendraKnowledgeBaseConfigurationPtrType) ToKnowledgeBaseKendraKnowledgeBaseConfigurationPtrOutput() KnowledgeBaseKendraKnowledgeBaseConfigurationPtrOutput {
+	return i.ToKnowledgeBaseKendraKnowledgeBaseConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *knowledgeBaseKendraKnowledgeBaseConfigurationPtrType) ToKnowledgeBaseKendraKnowledgeBaseConfigurationPtrOutputWithContext(ctx context.Context) KnowledgeBaseKendraKnowledgeBaseConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseKendraKnowledgeBaseConfigurationPtrOutput)
+}
+
+// Configurations for a Kendra knowledge base
+type KnowledgeBaseKendraKnowledgeBaseConfigurationOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseKendraKnowledgeBaseConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseKendraKnowledgeBaseConfiguration)(nil)).Elem()
+}
+
+func (o KnowledgeBaseKendraKnowledgeBaseConfigurationOutput) ToKnowledgeBaseKendraKnowledgeBaseConfigurationOutput() KnowledgeBaseKendraKnowledgeBaseConfigurationOutput {
+	return o
+}
+
+func (o KnowledgeBaseKendraKnowledgeBaseConfigurationOutput) ToKnowledgeBaseKendraKnowledgeBaseConfigurationOutputWithContext(ctx context.Context) KnowledgeBaseKendraKnowledgeBaseConfigurationOutput {
+	return o
+}
+
+func (o KnowledgeBaseKendraKnowledgeBaseConfigurationOutput) ToKnowledgeBaseKendraKnowledgeBaseConfigurationPtrOutput() KnowledgeBaseKendraKnowledgeBaseConfigurationPtrOutput {
+	return o.ToKnowledgeBaseKendraKnowledgeBaseConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o KnowledgeBaseKendraKnowledgeBaseConfigurationOutput) ToKnowledgeBaseKendraKnowledgeBaseConfigurationPtrOutputWithContext(ctx context.Context) KnowledgeBaseKendraKnowledgeBaseConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KnowledgeBaseKendraKnowledgeBaseConfiguration) *KnowledgeBaseKendraKnowledgeBaseConfiguration {
+		return &v
+	}).(KnowledgeBaseKendraKnowledgeBaseConfigurationPtrOutput)
+}
+
+// The ARN of the Amazon Kendra index.
+func (o KnowledgeBaseKendraKnowledgeBaseConfigurationOutput) KendraIndexArn() pulumi.StringOutput {
+	return o.ApplyT(func(v KnowledgeBaseKendraKnowledgeBaseConfiguration) string { return v.KendraIndexArn }).(pulumi.StringOutput)
+}
+
+type KnowledgeBaseKendraKnowledgeBaseConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseKendraKnowledgeBaseConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KnowledgeBaseKendraKnowledgeBaseConfiguration)(nil)).Elem()
+}
+
+func (o KnowledgeBaseKendraKnowledgeBaseConfigurationPtrOutput) ToKnowledgeBaseKendraKnowledgeBaseConfigurationPtrOutput() KnowledgeBaseKendraKnowledgeBaseConfigurationPtrOutput {
+	return o
+}
+
+func (o KnowledgeBaseKendraKnowledgeBaseConfigurationPtrOutput) ToKnowledgeBaseKendraKnowledgeBaseConfigurationPtrOutputWithContext(ctx context.Context) KnowledgeBaseKendraKnowledgeBaseConfigurationPtrOutput {
+	return o
+}
+
+func (o KnowledgeBaseKendraKnowledgeBaseConfigurationPtrOutput) Elem() KnowledgeBaseKendraKnowledgeBaseConfigurationOutput {
+	return o.ApplyT(func(v *KnowledgeBaseKendraKnowledgeBaseConfiguration) KnowledgeBaseKendraKnowledgeBaseConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret KnowledgeBaseKendraKnowledgeBaseConfiguration
+		return ret
+	}).(KnowledgeBaseKendraKnowledgeBaseConfigurationOutput)
+}
+
+// The ARN of the Amazon Kendra index.
+func (o KnowledgeBaseKendraKnowledgeBaseConfigurationPtrOutput) KendraIndexArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KnowledgeBaseKendraKnowledgeBaseConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KendraIndexArn
+	}).(pulumi.StringPtrOutput)
 }
 
 // Contains the storage configuration of the knowledge base in MongoDb Atlas Cloud.
@@ -21833,6 +22171,146 @@ func (o KnowledgeBaseRdsFieldMappingPtrOutput) VectorField() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
+// An Amazon S3 location.
+type KnowledgeBaseS3Location struct {
+	// The location's URI
+	Uri string `pulumi:"uri"`
+}
+
+// KnowledgeBaseS3LocationInput is an input type that accepts KnowledgeBaseS3LocationArgs and KnowledgeBaseS3LocationOutput values.
+// You can construct a concrete instance of `KnowledgeBaseS3LocationInput` via:
+//
+//	KnowledgeBaseS3LocationArgs{...}
+type KnowledgeBaseS3LocationInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseS3LocationOutput() KnowledgeBaseS3LocationOutput
+	ToKnowledgeBaseS3LocationOutputWithContext(context.Context) KnowledgeBaseS3LocationOutput
+}
+
+// An Amazon S3 location.
+type KnowledgeBaseS3LocationArgs struct {
+	// The location's URI
+	Uri pulumi.StringInput `pulumi:"uri"`
+}
+
+func (KnowledgeBaseS3LocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseS3Location)(nil)).Elem()
+}
+
+func (i KnowledgeBaseS3LocationArgs) ToKnowledgeBaseS3LocationOutput() KnowledgeBaseS3LocationOutput {
+	return i.ToKnowledgeBaseS3LocationOutputWithContext(context.Background())
+}
+
+func (i KnowledgeBaseS3LocationArgs) ToKnowledgeBaseS3LocationOutputWithContext(ctx context.Context) KnowledgeBaseS3LocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseS3LocationOutput)
+}
+
+func (i KnowledgeBaseS3LocationArgs) ToKnowledgeBaseS3LocationPtrOutput() KnowledgeBaseS3LocationPtrOutput {
+	return i.ToKnowledgeBaseS3LocationPtrOutputWithContext(context.Background())
+}
+
+func (i KnowledgeBaseS3LocationArgs) ToKnowledgeBaseS3LocationPtrOutputWithContext(ctx context.Context) KnowledgeBaseS3LocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseS3LocationOutput).ToKnowledgeBaseS3LocationPtrOutputWithContext(ctx)
+}
+
+// KnowledgeBaseS3LocationPtrInput is an input type that accepts KnowledgeBaseS3LocationArgs, KnowledgeBaseS3LocationPtr and KnowledgeBaseS3LocationPtrOutput values.
+// You can construct a concrete instance of `KnowledgeBaseS3LocationPtrInput` via:
+//
+//	        KnowledgeBaseS3LocationArgs{...}
+//
+//	or:
+//
+//	        nil
+type KnowledgeBaseS3LocationPtrInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseS3LocationPtrOutput() KnowledgeBaseS3LocationPtrOutput
+	ToKnowledgeBaseS3LocationPtrOutputWithContext(context.Context) KnowledgeBaseS3LocationPtrOutput
+}
+
+type knowledgeBaseS3LocationPtrType KnowledgeBaseS3LocationArgs
+
+func KnowledgeBaseS3LocationPtr(v *KnowledgeBaseS3LocationArgs) KnowledgeBaseS3LocationPtrInput {
+	return (*knowledgeBaseS3LocationPtrType)(v)
+}
+
+func (*knowledgeBaseS3LocationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KnowledgeBaseS3Location)(nil)).Elem()
+}
+
+func (i *knowledgeBaseS3LocationPtrType) ToKnowledgeBaseS3LocationPtrOutput() KnowledgeBaseS3LocationPtrOutput {
+	return i.ToKnowledgeBaseS3LocationPtrOutputWithContext(context.Background())
+}
+
+func (i *knowledgeBaseS3LocationPtrType) ToKnowledgeBaseS3LocationPtrOutputWithContext(ctx context.Context) KnowledgeBaseS3LocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseS3LocationPtrOutput)
+}
+
+// An Amazon S3 location.
+type KnowledgeBaseS3LocationOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseS3LocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseS3Location)(nil)).Elem()
+}
+
+func (o KnowledgeBaseS3LocationOutput) ToKnowledgeBaseS3LocationOutput() KnowledgeBaseS3LocationOutput {
+	return o
+}
+
+func (o KnowledgeBaseS3LocationOutput) ToKnowledgeBaseS3LocationOutputWithContext(ctx context.Context) KnowledgeBaseS3LocationOutput {
+	return o
+}
+
+func (o KnowledgeBaseS3LocationOutput) ToKnowledgeBaseS3LocationPtrOutput() KnowledgeBaseS3LocationPtrOutput {
+	return o.ToKnowledgeBaseS3LocationPtrOutputWithContext(context.Background())
+}
+
+func (o KnowledgeBaseS3LocationOutput) ToKnowledgeBaseS3LocationPtrOutputWithContext(ctx context.Context) KnowledgeBaseS3LocationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KnowledgeBaseS3Location) *KnowledgeBaseS3Location {
+		return &v
+	}).(KnowledgeBaseS3LocationPtrOutput)
+}
+
+// The location's URI
+func (o KnowledgeBaseS3LocationOutput) Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v KnowledgeBaseS3Location) string { return v.Uri }).(pulumi.StringOutput)
+}
+
+type KnowledgeBaseS3LocationPtrOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseS3LocationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KnowledgeBaseS3Location)(nil)).Elem()
+}
+
+func (o KnowledgeBaseS3LocationPtrOutput) ToKnowledgeBaseS3LocationPtrOutput() KnowledgeBaseS3LocationPtrOutput {
+	return o
+}
+
+func (o KnowledgeBaseS3LocationPtrOutput) ToKnowledgeBaseS3LocationPtrOutputWithContext(ctx context.Context) KnowledgeBaseS3LocationPtrOutput {
+	return o
+}
+
+func (o KnowledgeBaseS3LocationPtrOutput) Elem() KnowledgeBaseS3LocationOutput {
+	return o.ApplyT(func(v *KnowledgeBaseS3Location) KnowledgeBaseS3Location {
+		if v != nil {
+			return *v
+		}
+		var ret KnowledgeBaseS3Location
+		return ret
+	}).(KnowledgeBaseS3LocationOutput)
+}
+
+// The location's URI
+func (o KnowledgeBaseS3LocationPtrOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KnowledgeBaseS3Location) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Uri
+	}).(pulumi.StringPtrOutput)
+}
+
 // The vector store service in which the knowledge base is stored.
 type KnowledgeBaseStorageConfiguration struct {
 	// Contains the storage configuration of the knowledge base in MongoDB Atlas.
@@ -21884,6 +22362,47 @@ func (i KnowledgeBaseStorageConfigurationArgs) ToKnowledgeBaseStorageConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseStorageConfigurationOutput)
 }
 
+func (i KnowledgeBaseStorageConfigurationArgs) ToKnowledgeBaseStorageConfigurationPtrOutput() KnowledgeBaseStorageConfigurationPtrOutput {
+	return i.ToKnowledgeBaseStorageConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i KnowledgeBaseStorageConfigurationArgs) ToKnowledgeBaseStorageConfigurationPtrOutputWithContext(ctx context.Context) KnowledgeBaseStorageConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseStorageConfigurationOutput).ToKnowledgeBaseStorageConfigurationPtrOutputWithContext(ctx)
+}
+
+// KnowledgeBaseStorageConfigurationPtrInput is an input type that accepts KnowledgeBaseStorageConfigurationArgs, KnowledgeBaseStorageConfigurationPtr and KnowledgeBaseStorageConfigurationPtrOutput values.
+// You can construct a concrete instance of `KnowledgeBaseStorageConfigurationPtrInput` via:
+//
+//	        KnowledgeBaseStorageConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type KnowledgeBaseStorageConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseStorageConfigurationPtrOutput() KnowledgeBaseStorageConfigurationPtrOutput
+	ToKnowledgeBaseStorageConfigurationPtrOutputWithContext(context.Context) KnowledgeBaseStorageConfigurationPtrOutput
+}
+
+type knowledgeBaseStorageConfigurationPtrType KnowledgeBaseStorageConfigurationArgs
+
+func KnowledgeBaseStorageConfigurationPtr(v *KnowledgeBaseStorageConfigurationArgs) KnowledgeBaseStorageConfigurationPtrInput {
+	return (*knowledgeBaseStorageConfigurationPtrType)(v)
+}
+
+func (*knowledgeBaseStorageConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KnowledgeBaseStorageConfiguration)(nil)).Elem()
+}
+
+func (i *knowledgeBaseStorageConfigurationPtrType) ToKnowledgeBaseStorageConfigurationPtrOutput() KnowledgeBaseStorageConfigurationPtrOutput {
+	return i.ToKnowledgeBaseStorageConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *knowledgeBaseStorageConfigurationPtrType) ToKnowledgeBaseStorageConfigurationPtrOutputWithContext(ctx context.Context) KnowledgeBaseStorageConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseStorageConfigurationPtrOutput)
+}
+
 // The vector store service in which the knowledge base is stored.
 type KnowledgeBaseStorageConfigurationOutput struct{ *pulumi.OutputState }
 
@@ -21897,6 +22416,16 @@ func (o KnowledgeBaseStorageConfigurationOutput) ToKnowledgeBaseStorageConfigura
 
 func (o KnowledgeBaseStorageConfigurationOutput) ToKnowledgeBaseStorageConfigurationOutputWithContext(ctx context.Context) KnowledgeBaseStorageConfigurationOutput {
 	return o
+}
+
+func (o KnowledgeBaseStorageConfigurationOutput) ToKnowledgeBaseStorageConfigurationPtrOutput() KnowledgeBaseStorageConfigurationPtrOutput {
+	return o.ToKnowledgeBaseStorageConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o KnowledgeBaseStorageConfigurationOutput) ToKnowledgeBaseStorageConfigurationPtrOutputWithContext(ctx context.Context) KnowledgeBaseStorageConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KnowledgeBaseStorageConfiguration) *KnowledgeBaseStorageConfiguration {
+		return &v
+	}).(KnowledgeBaseStorageConfigurationPtrOutput)
 }
 
 // Contains the storage configuration of the knowledge base in MongoDB Atlas.
@@ -21930,12 +22459,331 @@ func (o KnowledgeBaseStorageConfigurationOutput) Type() KnowledgeBaseStorageType
 	return o.ApplyT(func(v KnowledgeBaseStorageConfiguration) KnowledgeBaseStorageType { return v.Type }).(KnowledgeBaseStorageTypeOutput)
 }
 
+type KnowledgeBaseStorageConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseStorageConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KnowledgeBaseStorageConfiguration)(nil)).Elem()
+}
+
+func (o KnowledgeBaseStorageConfigurationPtrOutput) ToKnowledgeBaseStorageConfigurationPtrOutput() KnowledgeBaseStorageConfigurationPtrOutput {
+	return o
+}
+
+func (o KnowledgeBaseStorageConfigurationPtrOutput) ToKnowledgeBaseStorageConfigurationPtrOutputWithContext(ctx context.Context) KnowledgeBaseStorageConfigurationPtrOutput {
+	return o
+}
+
+func (o KnowledgeBaseStorageConfigurationPtrOutput) Elem() KnowledgeBaseStorageConfigurationOutput {
+	return o.ApplyT(func(v *KnowledgeBaseStorageConfiguration) KnowledgeBaseStorageConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret KnowledgeBaseStorageConfiguration
+		return ret
+	}).(KnowledgeBaseStorageConfigurationOutput)
+}
+
+// Contains the storage configuration of the knowledge base in MongoDB Atlas.
+func (o KnowledgeBaseStorageConfigurationPtrOutput) MongoDbAtlasConfiguration() KnowledgeBaseMongoDbAtlasConfigurationPtrOutput {
+	return o.ApplyT(func(v *KnowledgeBaseStorageConfiguration) *KnowledgeBaseMongoDbAtlasConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.MongoDbAtlasConfiguration
+	}).(KnowledgeBaseMongoDbAtlasConfigurationPtrOutput)
+}
+
+// Contains the storage configuration of the knowledge base in Amazon OpenSearch Service.
+func (o KnowledgeBaseStorageConfigurationPtrOutput) OpensearchServerlessConfiguration() KnowledgeBaseOpenSearchServerlessConfigurationPtrOutput {
+	return o.ApplyT(func(v *KnowledgeBaseStorageConfiguration) *KnowledgeBaseOpenSearchServerlessConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.OpensearchServerlessConfiguration
+	}).(KnowledgeBaseOpenSearchServerlessConfigurationPtrOutput)
+}
+
+// Contains the storage configuration of the knowledge base in Pinecone.
+func (o KnowledgeBaseStorageConfigurationPtrOutput) PineconeConfiguration() KnowledgeBasePineconeConfigurationPtrOutput {
+	return o.ApplyT(func(v *KnowledgeBaseStorageConfiguration) *KnowledgeBasePineconeConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.PineconeConfiguration
+	}).(KnowledgeBasePineconeConfigurationPtrOutput)
+}
+
+// Contains details about the storage configuration of the knowledge base in Amazon RDS. For more information, see [Create a vector index in Amazon RDS](https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base-setup-rds.html) .
+func (o KnowledgeBaseStorageConfigurationPtrOutput) RdsConfiguration() KnowledgeBaseRdsConfigurationPtrOutput {
+	return o.ApplyT(func(v *KnowledgeBaseStorageConfiguration) *KnowledgeBaseRdsConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.RdsConfiguration
+	}).(KnowledgeBaseRdsConfigurationPtrOutput)
+}
+
+// The vector store service in which the knowledge base is stored.
+func (o KnowledgeBaseStorageConfigurationPtrOutput) Type() KnowledgeBaseStorageTypePtrOutput {
+	return o.ApplyT(func(v *KnowledgeBaseStorageConfiguration) *KnowledgeBaseStorageType {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(KnowledgeBaseStorageTypePtrOutput)
+}
+
+// Configurations for supplemental data storage.
+type KnowledgeBaseSupplementalDataStorageConfiguration struct {
+	SupplementalDataStorageLocations []KnowledgeBaseSupplementalDataStorageLocation `pulumi:"supplementalDataStorageLocations"`
+}
+
+// KnowledgeBaseSupplementalDataStorageConfigurationInput is an input type that accepts KnowledgeBaseSupplementalDataStorageConfigurationArgs and KnowledgeBaseSupplementalDataStorageConfigurationOutput values.
+// You can construct a concrete instance of `KnowledgeBaseSupplementalDataStorageConfigurationInput` via:
+//
+//	KnowledgeBaseSupplementalDataStorageConfigurationArgs{...}
+type KnowledgeBaseSupplementalDataStorageConfigurationInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseSupplementalDataStorageConfigurationOutput() KnowledgeBaseSupplementalDataStorageConfigurationOutput
+	ToKnowledgeBaseSupplementalDataStorageConfigurationOutputWithContext(context.Context) KnowledgeBaseSupplementalDataStorageConfigurationOutput
+}
+
+// Configurations for supplemental data storage.
+type KnowledgeBaseSupplementalDataStorageConfigurationArgs struct {
+	SupplementalDataStorageLocations KnowledgeBaseSupplementalDataStorageLocationArrayInput `pulumi:"supplementalDataStorageLocations"`
+}
+
+func (KnowledgeBaseSupplementalDataStorageConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseSupplementalDataStorageConfiguration)(nil)).Elem()
+}
+
+func (i KnowledgeBaseSupplementalDataStorageConfigurationArgs) ToKnowledgeBaseSupplementalDataStorageConfigurationOutput() KnowledgeBaseSupplementalDataStorageConfigurationOutput {
+	return i.ToKnowledgeBaseSupplementalDataStorageConfigurationOutputWithContext(context.Background())
+}
+
+func (i KnowledgeBaseSupplementalDataStorageConfigurationArgs) ToKnowledgeBaseSupplementalDataStorageConfigurationOutputWithContext(ctx context.Context) KnowledgeBaseSupplementalDataStorageConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseSupplementalDataStorageConfigurationOutput)
+}
+
+func (i KnowledgeBaseSupplementalDataStorageConfigurationArgs) ToKnowledgeBaseSupplementalDataStorageConfigurationPtrOutput() KnowledgeBaseSupplementalDataStorageConfigurationPtrOutput {
+	return i.ToKnowledgeBaseSupplementalDataStorageConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i KnowledgeBaseSupplementalDataStorageConfigurationArgs) ToKnowledgeBaseSupplementalDataStorageConfigurationPtrOutputWithContext(ctx context.Context) KnowledgeBaseSupplementalDataStorageConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseSupplementalDataStorageConfigurationOutput).ToKnowledgeBaseSupplementalDataStorageConfigurationPtrOutputWithContext(ctx)
+}
+
+// KnowledgeBaseSupplementalDataStorageConfigurationPtrInput is an input type that accepts KnowledgeBaseSupplementalDataStorageConfigurationArgs, KnowledgeBaseSupplementalDataStorageConfigurationPtr and KnowledgeBaseSupplementalDataStorageConfigurationPtrOutput values.
+// You can construct a concrete instance of `KnowledgeBaseSupplementalDataStorageConfigurationPtrInput` via:
+//
+//	        KnowledgeBaseSupplementalDataStorageConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type KnowledgeBaseSupplementalDataStorageConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseSupplementalDataStorageConfigurationPtrOutput() KnowledgeBaseSupplementalDataStorageConfigurationPtrOutput
+	ToKnowledgeBaseSupplementalDataStorageConfigurationPtrOutputWithContext(context.Context) KnowledgeBaseSupplementalDataStorageConfigurationPtrOutput
+}
+
+type knowledgeBaseSupplementalDataStorageConfigurationPtrType KnowledgeBaseSupplementalDataStorageConfigurationArgs
+
+func KnowledgeBaseSupplementalDataStorageConfigurationPtr(v *KnowledgeBaseSupplementalDataStorageConfigurationArgs) KnowledgeBaseSupplementalDataStorageConfigurationPtrInput {
+	return (*knowledgeBaseSupplementalDataStorageConfigurationPtrType)(v)
+}
+
+func (*knowledgeBaseSupplementalDataStorageConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KnowledgeBaseSupplementalDataStorageConfiguration)(nil)).Elem()
+}
+
+func (i *knowledgeBaseSupplementalDataStorageConfigurationPtrType) ToKnowledgeBaseSupplementalDataStorageConfigurationPtrOutput() KnowledgeBaseSupplementalDataStorageConfigurationPtrOutput {
+	return i.ToKnowledgeBaseSupplementalDataStorageConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *knowledgeBaseSupplementalDataStorageConfigurationPtrType) ToKnowledgeBaseSupplementalDataStorageConfigurationPtrOutputWithContext(ctx context.Context) KnowledgeBaseSupplementalDataStorageConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseSupplementalDataStorageConfigurationPtrOutput)
+}
+
+// Configurations for supplemental data storage.
+type KnowledgeBaseSupplementalDataStorageConfigurationOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseSupplementalDataStorageConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseSupplementalDataStorageConfiguration)(nil)).Elem()
+}
+
+func (o KnowledgeBaseSupplementalDataStorageConfigurationOutput) ToKnowledgeBaseSupplementalDataStorageConfigurationOutput() KnowledgeBaseSupplementalDataStorageConfigurationOutput {
+	return o
+}
+
+func (o KnowledgeBaseSupplementalDataStorageConfigurationOutput) ToKnowledgeBaseSupplementalDataStorageConfigurationOutputWithContext(ctx context.Context) KnowledgeBaseSupplementalDataStorageConfigurationOutput {
+	return o
+}
+
+func (o KnowledgeBaseSupplementalDataStorageConfigurationOutput) ToKnowledgeBaseSupplementalDataStorageConfigurationPtrOutput() KnowledgeBaseSupplementalDataStorageConfigurationPtrOutput {
+	return o.ToKnowledgeBaseSupplementalDataStorageConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o KnowledgeBaseSupplementalDataStorageConfigurationOutput) ToKnowledgeBaseSupplementalDataStorageConfigurationPtrOutputWithContext(ctx context.Context) KnowledgeBaseSupplementalDataStorageConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KnowledgeBaseSupplementalDataStorageConfiguration) *KnowledgeBaseSupplementalDataStorageConfiguration {
+		return &v
+	}).(KnowledgeBaseSupplementalDataStorageConfigurationPtrOutput)
+}
+
+func (o KnowledgeBaseSupplementalDataStorageConfigurationOutput) SupplementalDataStorageLocations() KnowledgeBaseSupplementalDataStorageLocationArrayOutput {
+	return o.ApplyT(func(v KnowledgeBaseSupplementalDataStorageConfiguration) []KnowledgeBaseSupplementalDataStorageLocation {
+		return v.SupplementalDataStorageLocations
+	}).(KnowledgeBaseSupplementalDataStorageLocationArrayOutput)
+}
+
+type KnowledgeBaseSupplementalDataStorageConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseSupplementalDataStorageConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KnowledgeBaseSupplementalDataStorageConfiguration)(nil)).Elem()
+}
+
+func (o KnowledgeBaseSupplementalDataStorageConfigurationPtrOutput) ToKnowledgeBaseSupplementalDataStorageConfigurationPtrOutput() KnowledgeBaseSupplementalDataStorageConfigurationPtrOutput {
+	return o
+}
+
+func (o KnowledgeBaseSupplementalDataStorageConfigurationPtrOutput) ToKnowledgeBaseSupplementalDataStorageConfigurationPtrOutputWithContext(ctx context.Context) KnowledgeBaseSupplementalDataStorageConfigurationPtrOutput {
+	return o
+}
+
+func (o KnowledgeBaseSupplementalDataStorageConfigurationPtrOutput) Elem() KnowledgeBaseSupplementalDataStorageConfigurationOutput {
+	return o.ApplyT(func(v *KnowledgeBaseSupplementalDataStorageConfiguration) KnowledgeBaseSupplementalDataStorageConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret KnowledgeBaseSupplementalDataStorageConfiguration
+		return ret
+	}).(KnowledgeBaseSupplementalDataStorageConfigurationOutput)
+}
+
+func (o KnowledgeBaseSupplementalDataStorageConfigurationPtrOutput) SupplementalDataStorageLocations() KnowledgeBaseSupplementalDataStorageLocationArrayOutput {
+	return o.ApplyT(func(v *KnowledgeBaseSupplementalDataStorageConfiguration) []KnowledgeBaseSupplementalDataStorageLocation {
+		if v == nil {
+			return nil
+		}
+		return v.SupplementalDataStorageLocations
+	}).(KnowledgeBaseSupplementalDataStorageLocationArrayOutput)
+}
+
+// Supplemental data storage location.
+type KnowledgeBaseSupplementalDataStorageLocation struct {
+	S3Location                          *KnowledgeBaseS3Location                         `pulumi:"s3Location"`
+	SupplementalDataStorageLocationType KnowledgeBaseSupplementalDataStorageLocationType `pulumi:"supplementalDataStorageLocationType"`
+}
+
+// KnowledgeBaseSupplementalDataStorageLocationInput is an input type that accepts KnowledgeBaseSupplementalDataStorageLocationArgs and KnowledgeBaseSupplementalDataStorageLocationOutput values.
+// You can construct a concrete instance of `KnowledgeBaseSupplementalDataStorageLocationInput` via:
+//
+//	KnowledgeBaseSupplementalDataStorageLocationArgs{...}
+type KnowledgeBaseSupplementalDataStorageLocationInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseSupplementalDataStorageLocationOutput() KnowledgeBaseSupplementalDataStorageLocationOutput
+	ToKnowledgeBaseSupplementalDataStorageLocationOutputWithContext(context.Context) KnowledgeBaseSupplementalDataStorageLocationOutput
+}
+
+// Supplemental data storage location.
+type KnowledgeBaseSupplementalDataStorageLocationArgs struct {
+	S3Location                          KnowledgeBaseS3LocationPtrInput                       `pulumi:"s3Location"`
+	SupplementalDataStorageLocationType KnowledgeBaseSupplementalDataStorageLocationTypeInput `pulumi:"supplementalDataStorageLocationType"`
+}
+
+func (KnowledgeBaseSupplementalDataStorageLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseSupplementalDataStorageLocation)(nil)).Elem()
+}
+
+func (i KnowledgeBaseSupplementalDataStorageLocationArgs) ToKnowledgeBaseSupplementalDataStorageLocationOutput() KnowledgeBaseSupplementalDataStorageLocationOutput {
+	return i.ToKnowledgeBaseSupplementalDataStorageLocationOutputWithContext(context.Background())
+}
+
+func (i KnowledgeBaseSupplementalDataStorageLocationArgs) ToKnowledgeBaseSupplementalDataStorageLocationOutputWithContext(ctx context.Context) KnowledgeBaseSupplementalDataStorageLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseSupplementalDataStorageLocationOutput)
+}
+
+// KnowledgeBaseSupplementalDataStorageLocationArrayInput is an input type that accepts KnowledgeBaseSupplementalDataStorageLocationArray and KnowledgeBaseSupplementalDataStorageLocationArrayOutput values.
+// You can construct a concrete instance of `KnowledgeBaseSupplementalDataStorageLocationArrayInput` via:
+//
+//	KnowledgeBaseSupplementalDataStorageLocationArray{ KnowledgeBaseSupplementalDataStorageLocationArgs{...} }
+type KnowledgeBaseSupplementalDataStorageLocationArrayInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseSupplementalDataStorageLocationArrayOutput() KnowledgeBaseSupplementalDataStorageLocationArrayOutput
+	ToKnowledgeBaseSupplementalDataStorageLocationArrayOutputWithContext(context.Context) KnowledgeBaseSupplementalDataStorageLocationArrayOutput
+}
+
+type KnowledgeBaseSupplementalDataStorageLocationArray []KnowledgeBaseSupplementalDataStorageLocationInput
+
+func (KnowledgeBaseSupplementalDataStorageLocationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KnowledgeBaseSupplementalDataStorageLocation)(nil)).Elem()
+}
+
+func (i KnowledgeBaseSupplementalDataStorageLocationArray) ToKnowledgeBaseSupplementalDataStorageLocationArrayOutput() KnowledgeBaseSupplementalDataStorageLocationArrayOutput {
+	return i.ToKnowledgeBaseSupplementalDataStorageLocationArrayOutputWithContext(context.Background())
+}
+
+func (i KnowledgeBaseSupplementalDataStorageLocationArray) ToKnowledgeBaseSupplementalDataStorageLocationArrayOutputWithContext(ctx context.Context) KnowledgeBaseSupplementalDataStorageLocationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseSupplementalDataStorageLocationArrayOutput)
+}
+
+// Supplemental data storage location.
+type KnowledgeBaseSupplementalDataStorageLocationOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseSupplementalDataStorageLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseSupplementalDataStorageLocation)(nil)).Elem()
+}
+
+func (o KnowledgeBaseSupplementalDataStorageLocationOutput) ToKnowledgeBaseSupplementalDataStorageLocationOutput() KnowledgeBaseSupplementalDataStorageLocationOutput {
+	return o
+}
+
+func (o KnowledgeBaseSupplementalDataStorageLocationOutput) ToKnowledgeBaseSupplementalDataStorageLocationOutputWithContext(ctx context.Context) KnowledgeBaseSupplementalDataStorageLocationOutput {
+	return o
+}
+
+func (o KnowledgeBaseSupplementalDataStorageLocationOutput) S3Location() KnowledgeBaseS3LocationPtrOutput {
+	return o.ApplyT(func(v KnowledgeBaseSupplementalDataStorageLocation) *KnowledgeBaseS3Location { return v.S3Location }).(KnowledgeBaseS3LocationPtrOutput)
+}
+
+func (o KnowledgeBaseSupplementalDataStorageLocationOutput) SupplementalDataStorageLocationType() KnowledgeBaseSupplementalDataStorageLocationTypeOutput {
+	return o.ApplyT(func(v KnowledgeBaseSupplementalDataStorageLocation) KnowledgeBaseSupplementalDataStorageLocationType {
+		return v.SupplementalDataStorageLocationType
+	}).(KnowledgeBaseSupplementalDataStorageLocationTypeOutput)
+}
+
+type KnowledgeBaseSupplementalDataStorageLocationArrayOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseSupplementalDataStorageLocationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KnowledgeBaseSupplementalDataStorageLocation)(nil)).Elem()
+}
+
+func (o KnowledgeBaseSupplementalDataStorageLocationArrayOutput) ToKnowledgeBaseSupplementalDataStorageLocationArrayOutput() KnowledgeBaseSupplementalDataStorageLocationArrayOutput {
+	return o
+}
+
+func (o KnowledgeBaseSupplementalDataStorageLocationArrayOutput) ToKnowledgeBaseSupplementalDataStorageLocationArrayOutputWithContext(ctx context.Context) KnowledgeBaseSupplementalDataStorageLocationArrayOutput {
+	return o
+}
+
+func (o KnowledgeBaseSupplementalDataStorageLocationArrayOutput) Index(i pulumi.IntInput) KnowledgeBaseSupplementalDataStorageLocationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KnowledgeBaseSupplementalDataStorageLocation {
+		return vs[0].([]KnowledgeBaseSupplementalDataStorageLocation)[vs[1].(int)]
+	}).(KnowledgeBaseSupplementalDataStorageLocationOutput)
+}
+
 // Contains details about the model used to create vector embeddings for the knowledge base.
 type KnowledgeBaseVectorKnowledgeBaseConfiguration struct {
 	// The ARN of the model used to create vector embeddings for the knowledge base.
 	EmbeddingModelArn string `pulumi:"embeddingModelArn"`
 	// The embeddings model configuration details for the vector model used in Knowledge Base.
 	EmbeddingModelConfiguration *KnowledgeBaseEmbeddingModelConfiguration `pulumi:"embeddingModelConfiguration"`
+	// If you include multimodal data from your data source, use this object to specify configurations for the storage location of the images extracted from your documents. These images can be retrieved and returned to the end user. They can also be used in generation when using [RetrieveAndGenerate](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html) .
+	SupplementalDataStorageConfiguration *KnowledgeBaseSupplementalDataStorageConfiguration `pulumi:"supplementalDataStorageConfiguration"`
 }
 
 // KnowledgeBaseVectorKnowledgeBaseConfigurationInput is an input type that accepts KnowledgeBaseVectorKnowledgeBaseConfigurationArgs and KnowledgeBaseVectorKnowledgeBaseConfigurationOutput values.
@@ -21955,6 +22803,8 @@ type KnowledgeBaseVectorKnowledgeBaseConfigurationArgs struct {
 	EmbeddingModelArn pulumi.StringInput `pulumi:"embeddingModelArn"`
 	// The embeddings model configuration details for the vector model used in Knowledge Base.
 	EmbeddingModelConfiguration KnowledgeBaseEmbeddingModelConfigurationPtrInput `pulumi:"embeddingModelConfiguration"`
+	// If you include multimodal data from your data source, use this object to specify configurations for the storage location of the images extracted from your documents. These images can be retrieved and returned to the end user. They can also be used in generation when using [RetrieveAndGenerate](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html) .
+	SupplementalDataStorageConfiguration KnowledgeBaseSupplementalDataStorageConfigurationPtrInput `pulumi:"supplementalDataStorageConfiguration"`
 }
 
 func (KnowledgeBaseVectorKnowledgeBaseConfigurationArgs) ElementType() reflect.Type {
@@ -21967,6 +22817,47 @@ func (i KnowledgeBaseVectorKnowledgeBaseConfigurationArgs) ToKnowledgeBaseVector
 
 func (i KnowledgeBaseVectorKnowledgeBaseConfigurationArgs) ToKnowledgeBaseVectorKnowledgeBaseConfigurationOutputWithContext(ctx context.Context) KnowledgeBaseVectorKnowledgeBaseConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseVectorKnowledgeBaseConfigurationOutput)
+}
+
+func (i KnowledgeBaseVectorKnowledgeBaseConfigurationArgs) ToKnowledgeBaseVectorKnowledgeBaseConfigurationPtrOutput() KnowledgeBaseVectorKnowledgeBaseConfigurationPtrOutput {
+	return i.ToKnowledgeBaseVectorKnowledgeBaseConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i KnowledgeBaseVectorKnowledgeBaseConfigurationArgs) ToKnowledgeBaseVectorKnowledgeBaseConfigurationPtrOutputWithContext(ctx context.Context) KnowledgeBaseVectorKnowledgeBaseConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseVectorKnowledgeBaseConfigurationOutput).ToKnowledgeBaseVectorKnowledgeBaseConfigurationPtrOutputWithContext(ctx)
+}
+
+// KnowledgeBaseVectorKnowledgeBaseConfigurationPtrInput is an input type that accepts KnowledgeBaseVectorKnowledgeBaseConfigurationArgs, KnowledgeBaseVectorKnowledgeBaseConfigurationPtr and KnowledgeBaseVectorKnowledgeBaseConfigurationPtrOutput values.
+// You can construct a concrete instance of `KnowledgeBaseVectorKnowledgeBaseConfigurationPtrInput` via:
+//
+//	        KnowledgeBaseVectorKnowledgeBaseConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type KnowledgeBaseVectorKnowledgeBaseConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseVectorKnowledgeBaseConfigurationPtrOutput() KnowledgeBaseVectorKnowledgeBaseConfigurationPtrOutput
+	ToKnowledgeBaseVectorKnowledgeBaseConfigurationPtrOutputWithContext(context.Context) KnowledgeBaseVectorKnowledgeBaseConfigurationPtrOutput
+}
+
+type knowledgeBaseVectorKnowledgeBaseConfigurationPtrType KnowledgeBaseVectorKnowledgeBaseConfigurationArgs
+
+func KnowledgeBaseVectorKnowledgeBaseConfigurationPtr(v *KnowledgeBaseVectorKnowledgeBaseConfigurationArgs) KnowledgeBaseVectorKnowledgeBaseConfigurationPtrInput {
+	return (*knowledgeBaseVectorKnowledgeBaseConfigurationPtrType)(v)
+}
+
+func (*knowledgeBaseVectorKnowledgeBaseConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KnowledgeBaseVectorKnowledgeBaseConfiguration)(nil)).Elem()
+}
+
+func (i *knowledgeBaseVectorKnowledgeBaseConfigurationPtrType) ToKnowledgeBaseVectorKnowledgeBaseConfigurationPtrOutput() KnowledgeBaseVectorKnowledgeBaseConfigurationPtrOutput {
+	return i.ToKnowledgeBaseVectorKnowledgeBaseConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *knowledgeBaseVectorKnowledgeBaseConfigurationPtrType) ToKnowledgeBaseVectorKnowledgeBaseConfigurationPtrOutputWithContext(ctx context.Context) KnowledgeBaseVectorKnowledgeBaseConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KnowledgeBaseVectorKnowledgeBaseConfigurationPtrOutput)
 }
 
 // Contains details about the model used to create vector embeddings for the knowledge base.
@@ -21984,6 +22875,16 @@ func (o KnowledgeBaseVectorKnowledgeBaseConfigurationOutput) ToKnowledgeBaseVect
 	return o
 }
 
+func (o KnowledgeBaseVectorKnowledgeBaseConfigurationOutput) ToKnowledgeBaseVectorKnowledgeBaseConfigurationPtrOutput() KnowledgeBaseVectorKnowledgeBaseConfigurationPtrOutput {
+	return o.ToKnowledgeBaseVectorKnowledgeBaseConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o KnowledgeBaseVectorKnowledgeBaseConfigurationOutput) ToKnowledgeBaseVectorKnowledgeBaseConfigurationPtrOutputWithContext(ctx context.Context) KnowledgeBaseVectorKnowledgeBaseConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KnowledgeBaseVectorKnowledgeBaseConfiguration) *KnowledgeBaseVectorKnowledgeBaseConfiguration {
+		return &v
+	}).(KnowledgeBaseVectorKnowledgeBaseConfigurationPtrOutput)
+}
+
 // The ARN of the model used to create vector embeddings for the knowledge base.
 func (o KnowledgeBaseVectorKnowledgeBaseConfigurationOutput) EmbeddingModelArn() pulumi.StringOutput {
 	return o.ApplyT(func(v KnowledgeBaseVectorKnowledgeBaseConfiguration) string { return v.EmbeddingModelArn }).(pulumi.StringOutput)
@@ -21994,6 +22895,67 @@ func (o KnowledgeBaseVectorKnowledgeBaseConfigurationOutput) EmbeddingModelConfi
 	return o.ApplyT(func(v KnowledgeBaseVectorKnowledgeBaseConfiguration) *KnowledgeBaseEmbeddingModelConfiguration {
 		return v.EmbeddingModelConfiguration
 	}).(KnowledgeBaseEmbeddingModelConfigurationPtrOutput)
+}
+
+// If you include multimodal data from your data source, use this object to specify configurations for the storage location of the images extracted from your documents. These images can be retrieved and returned to the end user. They can also be used in generation when using [RetrieveAndGenerate](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html) .
+func (o KnowledgeBaseVectorKnowledgeBaseConfigurationOutput) SupplementalDataStorageConfiguration() KnowledgeBaseSupplementalDataStorageConfigurationPtrOutput {
+	return o.ApplyT(func(v KnowledgeBaseVectorKnowledgeBaseConfiguration) *KnowledgeBaseSupplementalDataStorageConfiguration {
+		return v.SupplementalDataStorageConfiguration
+	}).(KnowledgeBaseSupplementalDataStorageConfigurationPtrOutput)
+}
+
+type KnowledgeBaseVectorKnowledgeBaseConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseVectorKnowledgeBaseConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KnowledgeBaseVectorKnowledgeBaseConfiguration)(nil)).Elem()
+}
+
+func (o KnowledgeBaseVectorKnowledgeBaseConfigurationPtrOutput) ToKnowledgeBaseVectorKnowledgeBaseConfigurationPtrOutput() KnowledgeBaseVectorKnowledgeBaseConfigurationPtrOutput {
+	return o
+}
+
+func (o KnowledgeBaseVectorKnowledgeBaseConfigurationPtrOutput) ToKnowledgeBaseVectorKnowledgeBaseConfigurationPtrOutputWithContext(ctx context.Context) KnowledgeBaseVectorKnowledgeBaseConfigurationPtrOutput {
+	return o
+}
+
+func (o KnowledgeBaseVectorKnowledgeBaseConfigurationPtrOutput) Elem() KnowledgeBaseVectorKnowledgeBaseConfigurationOutput {
+	return o.ApplyT(func(v *KnowledgeBaseVectorKnowledgeBaseConfiguration) KnowledgeBaseVectorKnowledgeBaseConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret KnowledgeBaseVectorKnowledgeBaseConfiguration
+		return ret
+	}).(KnowledgeBaseVectorKnowledgeBaseConfigurationOutput)
+}
+
+// The ARN of the model used to create vector embeddings for the knowledge base.
+func (o KnowledgeBaseVectorKnowledgeBaseConfigurationPtrOutput) EmbeddingModelArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KnowledgeBaseVectorKnowledgeBaseConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EmbeddingModelArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The embeddings model configuration details for the vector model used in Knowledge Base.
+func (o KnowledgeBaseVectorKnowledgeBaseConfigurationPtrOutput) EmbeddingModelConfiguration() KnowledgeBaseEmbeddingModelConfigurationPtrOutput {
+	return o.ApplyT(func(v *KnowledgeBaseVectorKnowledgeBaseConfiguration) *KnowledgeBaseEmbeddingModelConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.EmbeddingModelConfiguration
+	}).(KnowledgeBaseEmbeddingModelConfigurationPtrOutput)
+}
+
+// If you include multimodal data from your data source, use this object to specify configurations for the storage location of the images extracted from your documents. These images can be retrieved and returned to the end user. They can also be used in generation when using [RetrieveAndGenerate](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html) .
+func (o KnowledgeBaseVectorKnowledgeBaseConfigurationPtrOutput) SupplementalDataStorageConfiguration() KnowledgeBaseSupplementalDataStorageConfigurationPtrOutput {
+	return o.ApplyT(func(v *KnowledgeBaseVectorKnowledgeBaseConfiguration) *KnowledgeBaseSupplementalDataStorageConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.SupplementalDataStorageConfiguration
+	}).(KnowledgeBaseSupplementalDataStorageConfigurationPtrOutput)
 }
 
 // Target Agent to invoke with Prompt
@@ -24637,6 +25599,7 @@ func (o PromptToolSpecificationOutput) Name() pulumi.StringOutput {
 
 // Prompt variant
 type PromptVariant struct {
+	// Specifies a generative AI resource with which to use the prompt.
 	GenAiResource *PromptGenAiResourceProperties `pulumi:"genAiResource"`
 	// Contains inference configurations for the prompt variant.
 	InferenceConfiguration *PromptInferenceConfigurationProperties `pulumi:"inferenceConfiguration"`
@@ -24663,6 +25626,7 @@ type PromptVariantInput interface {
 
 // Prompt variant
 type PromptVariantArgs struct {
+	// Specifies a generative AI resource with which to use the prompt.
 	GenAiResource PromptGenAiResourcePropertiesPtrInput `pulumi:"genAiResource"`
 	// Contains inference configurations for the prompt variant.
 	InferenceConfiguration PromptInferenceConfigurationPropertiesPtrInput `pulumi:"inferenceConfiguration"`
@@ -24728,6 +25692,7 @@ func (o PromptVariantOutput) ToPromptVariantOutputWithContext(ctx context.Contex
 	return o
 }
 
+// Specifies a generative AI resource with which to use the prompt.
 func (o PromptVariantOutput) GenAiResource() PromptGenAiResourcePropertiesPtrOutput {
 	return o.ApplyT(func(v PromptVariant) *PromptGenAiResourceProperties { return v.GenAiResource }).(PromptGenAiResourcePropertiesPtrOutput)
 }
@@ -25175,6 +26140,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentS3IdentifierPtrInput)(nil)).Elem(), AgentS3IdentifierArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInferenceProfileInferenceProfileModelSourcePropertiesInput)(nil)).Elem(), ApplicationInferenceProfileInferenceProfileModelSourcePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationInferenceProfileInferenceProfileModelSourcePropertiesPtrInput)(nil)).Elem(), ApplicationInferenceProfileInferenceProfileModelSourcePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceBedrockDataAutomationConfigurationInput)(nil)).Elem(), DataSourceBedrockDataAutomationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceBedrockDataAutomationConfigurationPtrInput)(nil)).Elem(), DataSourceBedrockDataAutomationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceBedrockFoundationModelConfigurationInput)(nil)).Elem(), DataSourceBedrockFoundationModelConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceBedrockFoundationModelConfigurationPtrInput)(nil)).Elem(), DataSourceBedrockFoundationModelConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceChunkingConfigurationInput)(nil)).Elem(), DataSourceChunkingConfigurationArgs{})
@@ -25373,6 +26340,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseConfigurationInput)(nil)).Elem(), KnowledgeBaseConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseEmbeddingModelConfigurationInput)(nil)).Elem(), KnowledgeBaseEmbeddingModelConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseEmbeddingModelConfigurationPtrInput)(nil)).Elem(), KnowledgeBaseEmbeddingModelConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseKendraKnowledgeBaseConfigurationInput)(nil)).Elem(), KnowledgeBaseKendraKnowledgeBaseConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseKendraKnowledgeBaseConfigurationPtrInput)(nil)).Elem(), KnowledgeBaseKendraKnowledgeBaseConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseMongoDbAtlasConfigurationInput)(nil)).Elem(), KnowledgeBaseMongoDbAtlasConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseMongoDbAtlasConfigurationPtrInput)(nil)).Elem(), KnowledgeBaseMongoDbAtlasConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseMongoDbAtlasFieldMappingInput)(nil)).Elem(), KnowledgeBaseMongoDbAtlasFieldMappingArgs{})
@@ -25389,8 +26358,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseRdsConfigurationPtrInput)(nil)).Elem(), KnowledgeBaseRdsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseRdsFieldMappingInput)(nil)).Elem(), KnowledgeBaseRdsFieldMappingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseRdsFieldMappingPtrInput)(nil)).Elem(), KnowledgeBaseRdsFieldMappingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseS3LocationInput)(nil)).Elem(), KnowledgeBaseS3LocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseS3LocationPtrInput)(nil)).Elem(), KnowledgeBaseS3LocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseStorageConfigurationInput)(nil)).Elem(), KnowledgeBaseStorageConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseStorageConfigurationPtrInput)(nil)).Elem(), KnowledgeBaseStorageConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseSupplementalDataStorageConfigurationInput)(nil)).Elem(), KnowledgeBaseSupplementalDataStorageConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseSupplementalDataStorageConfigurationPtrInput)(nil)).Elem(), KnowledgeBaseSupplementalDataStorageConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseSupplementalDataStorageLocationInput)(nil)).Elem(), KnowledgeBaseSupplementalDataStorageLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseSupplementalDataStorageLocationArrayInput)(nil)).Elem(), KnowledgeBaseSupplementalDataStorageLocationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseVectorKnowledgeBaseConfigurationInput)(nil)).Elem(), KnowledgeBaseVectorKnowledgeBaseConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseVectorKnowledgeBaseConfigurationPtrInput)(nil)).Elem(), KnowledgeBaseVectorKnowledgeBaseConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PromptAgentResourceInput)(nil)).Elem(), PromptAgentResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PromptAgentResourcePtrInput)(nil)).Elem(), PromptAgentResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PromptAnyToolChoiceInput)(nil)).Elem(), PromptAnyToolChoiceArgs{})
@@ -25469,6 +26446,8 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationInferenceProfileInferenceProfileModelArrayOutput{})
 	pulumi.RegisterOutputType(ApplicationInferenceProfileInferenceProfileModelSourcePropertiesOutput{})
 	pulumi.RegisterOutputType(ApplicationInferenceProfileInferenceProfileModelSourcePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceBedrockDataAutomationConfigurationOutput{})
+	pulumi.RegisterOutputType(DataSourceBedrockDataAutomationConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceBedrockFoundationModelConfigurationOutput{})
 	pulumi.RegisterOutputType(DataSourceBedrockFoundationModelConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceChunkingConfigurationOutput{})
@@ -25766,6 +26745,8 @@ func init() {
 	pulumi.RegisterOutputType(KnowledgeBaseConfigurationOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseEmbeddingModelConfigurationOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseEmbeddingModelConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseKendraKnowledgeBaseConfigurationOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseKendraKnowledgeBaseConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseMongoDbAtlasConfigurationOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseMongoDbAtlasConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseMongoDbAtlasFieldMappingOutput{})
@@ -25782,8 +26763,16 @@ func init() {
 	pulumi.RegisterOutputType(KnowledgeBaseRdsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseRdsFieldMappingOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseRdsFieldMappingPtrOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseS3LocationOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseS3LocationPtrOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseStorageConfigurationOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseStorageConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseSupplementalDataStorageConfigurationOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseSupplementalDataStorageConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseSupplementalDataStorageLocationOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseSupplementalDataStorageLocationArrayOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseVectorKnowledgeBaseConfigurationOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseVectorKnowledgeBaseConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(PromptAgentResourceOutput{})
 	pulumi.RegisterOutputType(PromptAgentResourcePtrOutput{})
 	pulumi.RegisterOutputType(PromptAnyToolChoiceOutput{})

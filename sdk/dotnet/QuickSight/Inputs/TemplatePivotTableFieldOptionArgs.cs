@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         /// The visibility of the pivot table field.
         /// </summary>
         [Input("visibility")]
-        public Input<Pulumi.AwsNative.QuickSight.TemplateVisibility>? Visibility { get; set; }
+        public Input<object>? Visibility { get; set; }
 
         public TemplatePivotTableFieldOptionArgs()
         {

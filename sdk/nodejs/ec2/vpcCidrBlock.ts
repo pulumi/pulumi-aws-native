@@ -67,6 +67,10 @@ export class VpcCidrBlock extends pulumi.CustomResource {
      */
     public readonly ipv6CidrBlock!: pulumi.Output<string | undefined>;
     /**
+     * The name of the location from which we advertise the IPV6 CIDR block.
+     */
+    public readonly ipv6CidrBlockNetworkBorderGroup!: pulumi.Output<string | undefined>;
+    /**
      * The ID of the IPv6 IPAM pool to Associate a CIDR from to a VPC.
      */
     public readonly ipv6IpamPoolId!: pulumi.Output<string | undefined>;
@@ -102,6 +106,7 @@ export class VpcCidrBlock extends pulumi.CustomResource {
             resourceInputs["ipv4IpamPoolId"] = args ? args.ipv4IpamPoolId : undefined;
             resourceInputs["ipv4NetmaskLength"] = args ? args.ipv4NetmaskLength : undefined;
             resourceInputs["ipv6CidrBlock"] = args ? args.ipv6CidrBlock : undefined;
+            resourceInputs["ipv6CidrBlockNetworkBorderGroup"] = args ? args.ipv6CidrBlockNetworkBorderGroup : undefined;
             resourceInputs["ipv6IpamPoolId"] = args ? args.ipv6IpamPoolId : undefined;
             resourceInputs["ipv6NetmaskLength"] = args ? args.ipv6NetmaskLength : undefined;
             resourceInputs["ipv6Pool"] = args ? args.ipv6Pool : undefined;
@@ -118,13 +123,14 @@ export class VpcCidrBlock extends pulumi.CustomResource {
             resourceInputs["ipv4NetmaskLength"] = undefined /*out*/;
             resourceInputs["ipv6AddressAttribute"] = undefined /*out*/;
             resourceInputs["ipv6CidrBlock"] = undefined /*out*/;
+            resourceInputs["ipv6CidrBlockNetworkBorderGroup"] = undefined /*out*/;
             resourceInputs["ipv6IpamPoolId"] = undefined /*out*/;
             resourceInputs["ipv6NetmaskLength"] = undefined /*out*/;
             resourceInputs["ipv6Pool"] = undefined /*out*/;
             resourceInputs["vpcId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["amazonProvidedIpv6CidrBlock", "cidrBlock", "ipv4IpamPoolId", "ipv4NetmaskLength", "ipv6CidrBlock", "ipv6IpamPoolId", "ipv6NetmaskLength", "ipv6Pool", "vpcId"] };
+        const replaceOnChanges = { replaceOnChanges: ["amazonProvidedIpv6CidrBlock", "cidrBlock", "ipv4IpamPoolId", "ipv4NetmaskLength", "ipv6CidrBlock", "ipv6CidrBlockNetworkBorderGroup", "ipv6IpamPoolId", "ipv6NetmaskLength", "ipv6Pool", "vpcId"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(VpcCidrBlock.__pulumiType, name, resourceInputs, opts);
     }
@@ -154,6 +160,10 @@ export interface VpcCidrBlockArgs {
      * An IPv6 CIDR block from the IPv6 address pool.
      */
     ipv6CidrBlock?: pulumi.Input<string>;
+    /**
+     * The name of the location from which we advertise the IPV6 CIDR block.
+     */
+    ipv6CidrBlockNetworkBorderGroup?: pulumi.Input<string>;
     /**
      * The ID of the IPv6 IPAM pool to Associate a CIDR from to a VPC.
      */

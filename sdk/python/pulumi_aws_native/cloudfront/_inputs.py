@@ -1708,6 +1708,10 @@ if not MYPY:
         """
         A complex type that contains information about CNAMEs (alternate domain names), if any, for this distribution.
         """
+        anycast_ip_list_id: NotRequired[pulumi.Input[str]]
+        """
+        ID of the Anycast static IP list that is associated with the distribution.
+        """
         cache_behaviors: NotRequired[pulumi.Input[Sequence[pulumi.Input['DistributionCacheBehaviorArgsDict']]]]
         """
         A complex type that contains zero or more ``CacheBehavior`` elements.
@@ -1740,12 +1744,12 @@ if not MYPY:
         """
         default_root_object: NotRequired[pulumi.Input[str]]
         """
-        The object that you want CloudFront to request from your origin (for example, ``index.html``) when a viewer requests the root URL for your distribution (``https://www.example.com``) instead of an object in your distribution (``https://www.example.com/product-description.html``). Specifying a default root object avoids exposing the contents of your distribution.
-         Specify only the object name, for example, ``index.html``. Don't add a ``/`` before the object name.
+        When a viewer requests the root URL for your distribution, the default root object is the object that you want CloudFront to request from your origin. For example, if your root URL is ``https://www.example.com``, you can specify CloudFront to return the ``index.html`` file as the default root object. You can specify a default root object so that viewers see a specific file or object, instead of another object in your distribution (for example, ``https://www.example.com/product-description.html``). A default root object avoids exposing the contents of your distribution.
+         You can specify the object name or a path to the object name (for example, ``index.html`` or ``exampleFolderName/index.html``). Your string can't begin with a forward slash (``/``). Only specify the object name or the path to the object.
          If you don't want to specify a default root object when you create a distribution, include an empty ``DefaultRootObject`` element.
          To delete the default root object from an existing distribution, update the distribution configuration and include an empty ``DefaultRootObject`` element.
          To replace the default root object, update the distribution configuration and specify the new object.
-         For more information about the default root object, see [Creating a Default Root Object](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DefaultRootObject.html) in the *Amazon CloudFront Developer Guide*.
+         For more information about the default root object, see [Specify a default root object](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DefaultRootObject.html) in the *Amazon CloudFront Developer Guide*.
         """
         http_version: NotRequired[pulumi.Input[str]]
         """
@@ -1816,6 +1820,7 @@ class DistributionConfigArgs:
                  default_cache_behavior: pulumi.Input['DistributionDefaultCacheBehaviorArgs'],
                  enabled: pulumi.Input[bool],
                  aliases: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 anycast_ip_list_id: Optional[pulumi.Input[str]] = None,
                  cache_behaviors: Optional[pulumi.Input[Sequence[pulumi.Input['DistributionCacheBehaviorArgs']]]] = None,
                  cnames: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
@@ -1839,6 +1844,7 @@ class DistributionConfigArgs:
         :param pulumi.Input['DistributionDefaultCacheBehaviorArgs'] default_cache_behavior: A complex type that describes the default cache behavior if you don't specify a ``CacheBehavior`` element or if files don't match any of the values of ``PathPattern`` in ``CacheBehavior`` elements. You must create exactly one default cache behavior.
         :param pulumi.Input[bool] enabled: From this field, you can enable or disable the selected distribution.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] aliases: A complex type that contains information about CNAMEs (alternate domain names), if any, for this distribution.
+        :param pulumi.Input[str] anycast_ip_list_id: ID of the Anycast static IP list that is associated with the distribution.
         :param pulumi.Input[Sequence[pulumi.Input['DistributionCacheBehaviorArgs']]] cache_behaviors: A complex type that contains zero or more ``CacheBehavior`` elements.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] cnames: An alias for the CF distribution's domain name.
                  This property is legacy. We recommend that you use [Aliases](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-distributionconfig.html#cfn-cloudfront-distribution-distributionconfig-aliases) instead.
@@ -1851,12 +1857,12 @@ class DistributionConfigArgs:
                 For more information about custom error pages, see [Customizing Error Responses](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/custom-error-pages.html) in the *Amazon CloudFront Developer Guide*.
         :param pulumi.Input['DistributionLegacyCustomOriginArgs'] custom_origin: The user-defined HTTP server that serves as the origin for content that CF distributes.
                  This property is legacy. We recommend that you use [Origin](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html) instead.
-        :param pulumi.Input[str] default_root_object: The object that you want CloudFront to request from your origin (for example, ``index.html``) when a viewer requests the root URL for your distribution (``https://www.example.com``) instead of an object in your distribution (``https://www.example.com/product-description.html``). Specifying a default root object avoids exposing the contents of your distribution.
-                Specify only the object name, for example, ``index.html``. Don't add a ``/`` before the object name.
+        :param pulumi.Input[str] default_root_object: When a viewer requests the root URL for your distribution, the default root object is the object that you want CloudFront to request from your origin. For example, if your root URL is ``https://www.example.com``, you can specify CloudFront to return the ``index.html`` file as the default root object. You can specify a default root object so that viewers see a specific file or object, instead of another object in your distribution (for example, ``https://www.example.com/product-description.html``). A default root object avoids exposing the contents of your distribution.
+                You can specify the object name or a path to the object name (for example, ``index.html`` or ``exampleFolderName/index.html``). Your string can't begin with a forward slash (``/``). Only specify the object name or the path to the object.
                 If you don't want to specify a default root object when you create a distribution, include an empty ``DefaultRootObject`` element.
                 To delete the default root object from an existing distribution, update the distribution configuration and include an empty ``DefaultRootObject`` element.
                 To replace the default root object, update the distribution configuration and specify the new object.
-                For more information about the default root object, see [Creating a Default Root Object](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DefaultRootObject.html) in the *Amazon CloudFront Developer Guide*.
+                For more information about the default root object, see [Specify a default root object](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DefaultRootObject.html) in the *Amazon CloudFront Developer Guide*.
         :param pulumi.Input[str] http_version: (Optional) Specify the HTTP version(s) that you want viewers to use to communicate with CF. The default value for new distributions is ``http1.1``.
                 For viewers and CF to use HTTP/2, viewers must support TLSv1.2 or later, and must support Server Name Indication (SNI).
                 For viewers and CF to use HTTP/3, viewers must support TLSv1.3 and Server Name Indication (SNI). CF supports HTTP/3 connection migration to allow the viewer to switch networks without losing connection. For more information about connection migration, see [Connection Migration](https://docs.aws.amazon.com/https://www.rfc-editor.org/rfc/rfc9000.html#name-connection-migration) at RFC 9000. For more information about supported TLSv1.3 ciphers, see [Supported protocols and ciphers between viewers and CloudFront](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html).
@@ -1889,6 +1895,8 @@ class DistributionConfigArgs:
         pulumi.set(__self__, "enabled", enabled)
         if aliases is not None:
             pulumi.set(__self__, "aliases", aliases)
+        if anycast_ip_list_id is not None:
+            pulumi.set(__self__, "anycast_ip_list_id", anycast_ip_list_id)
         if cache_behaviors is not None:
             pulumi.set(__self__, "cache_behaviors", cache_behaviors)
         if cnames is not None:
@@ -1961,6 +1969,18 @@ class DistributionConfigArgs:
     @aliases.setter
     def aliases(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "aliases", value)
+
+    @property
+    @pulumi.getter(name="anycastIpListId")
+    def anycast_ip_list_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the Anycast static IP list that is associated with the distribution.
+        """
+        return pulumi.get(self, "anycast_ip_list_id")
+
+    @anycast_ip_list_id.setter
+    def anycast_ip_list_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "anycast_ip_list_id", value)
 
     @property
     @pulumi.getter(name="cacheBehaviors")
@@ -2044,12 +2064,12 @@ class DistributionConfigArgs:
     @pulumi.getter(name="defaultRootObject")
     def default_root_object(self) -> Optional[pulumi.Input[str]]:
         """
-        The object that you want CloudFront to request from your origin (for example, ``index.html``) when a viewer requests the root URL for your distribution (``https://www.example.com``) instead of an object in your distribution (``https://www.example.com/product-description.html``). Specifying a default root object avoids exposing the contents of your distribution.
-         Specify only the object name, for example, ``index.html``. Don't add a ``/`` before the object name.
+        When a viewer requests the root URL for your distribution, the default root object is the object that you want CloudFront to request from your origin. For example, if your root URL is ``https://www.example.com``, you can specify CloudFront to return the ``index.html`` file as the default root object. You can specify a default root object so that viewers see a specific file or object, instead of another object in your distribution (for example, ``https://www.example.com/product-description.html``). A default root object avoids exposing the contents of your distribution.
+         You can specify the object name or a path to the object name (for example, ``index.html`` or ``exampleFolderName/index.html``). Your string can't begin with a forward slash (``/``). Only specify the object name or the path to the object.
          If you don't want to specify a default root object when you create a distribution, include an empty ``DefaultRootObject`` element.
          To delete the default root object from an existing distribution, update the distribution configuration and include an empty ``DefaultRootObject`` element.
          To replace the default root object, update the distribution configuration and specify the new object.
-         For more information about the default root object, see [Creating a Default Root Object](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DefaultRootObject.html) in the *Amazon CloudFront Developer Guide*.
+         For more information about the default root object, see [Specify a default root object](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DefaultRootObject.html) in the *Amazon CloudFront Developer Guide*.
         """
         return pulumi.get(self, "default_root_object")
 
@@ -2453,12 +2473,12 @@ if not MYPY:
         origin_keepalive_timeout: NotRequired[pulumi.Input[int]]
         """
         Specifies how long, in seconds, CloudFront persists its connection to the origin. The minimum timeout is 1 second, the maximum is 60 seconds, and the default (if you don't specify otherwise) is 5 seconds.
-         For more information, see [Origin Keep-alive Timeout](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginKeepaliveTimeout) in the *Amazon CloudFront Developer Guide*.
+         For more information, see [Keep-alive timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginKeepaliveTimeout) in the *Amazon CloudFront Developer Guide*.
         """
         origin_read_timeout: NotRequired[pulumi.Input[int]]
         """
         Specifies how long, in seconds, CloudFront waits for a response from the origin. This is also known as the *origin response timeout*. The minimum timeout is 1 second, the maximum is 60 seconds, and the default (if you don't specify otherwise) is 30 seconds.
-         For more information, see [Origin Response Timeout](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginResponseTimeout) in the *Amazon CloudFront Developer Guide*.
+         For more information, see [Response timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginResponseTimeout) in the *Amazon CloudFront Developer Guide*.
         """
         origin_ssl_protocols: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
@@ -2486,9 +2506,9 @@ class DistributionCustomOriginConfigArgs:
         :param pulumi.Input[int] http_port: The HTTP port that CloudFront uses to connect to the origin. Specify the HTTP port that the origin listens on.
         :param pulumi.Input[int] https_port: The HTTPS port that CloudFront uses to connect to the origin. Specify the HTTPS port that the origin listens on.
         :param pulumi.Input[int] origin_keepalive_timeout: Specifies how long, in seconds, CloudFront persists its connection to the origin. The minimum timeout is 1 second, the maximum is 60 seconds, and the default (if you don't specify otherwise) is 5 seconds.
-                For more information, see [Origin Keep-alive Timeout](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginKeepaliveTimeout) in the *Amazon CloudFront Developer Guide*.
+                For more information, see [Keep-alive timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginKeepaliveTimeout) in the *Amazon CloudFront Developer Guide*.
         :param pulumi.Input[int] origin_read_timeout: Specifies how long, in seconds, CloudFront waits for a response from the origin. This is also known as the *origin response timeout*. The minimum timeout is 1 second, the maximum is 60 seconds, and the default (if you don't specify otherwise) is 30 seconds.
-                For more information, see [Origin Response Timeout](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginResponseTimeout) in the *Amazon CloudFront Developer Guide*.
+                For more information, see [Response timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginResponseTimeout) in the *Amazon CloudFront Developer Guide*.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] origin_ssl_protocols: Specifies the minimum SSL/TLS protocol that CloudFront uses when connecting to your origin over HTTPS. Valid values include ``SSLv3``, ``TLSv1``, ``TLSv1.1``, and ``TLSv1.2``.
                 For more information, see [Minimum Origin SSL Protocol](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginSSLProtocols) in the *Amazon CloudFront Developer Guide*.
         """
@@ -2548,7 +2568,7 @@ class DistributionCustomOriginConfigArgs:
     def origin_keepalive_timeout(self) -> Optional[pulumi.Input[int]]:
         """
         Specifies how long, in seconds, CloudFront persists its connection to the origin. The minimum timeout is 1 second, the maximum is 60 seconds, and the default (if you don't specify otherwise) is 5 seconds.
-         For more information, see [Origin Keep-alive Timeout](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginKeepaliveTimeout) in the *Amazon CloudFront Developer Guide*.
+         For more information, see [Keep-alive timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginKeepaliveTimeout) in the *Amazon CloudFront Developer Guide*.
         """
         return pulumi.get(self, "origin_keepalive_timeout")
 
@@ -2561,7 +2581,7 @@ class DistributionCustomOriginConfigArgs:
     def origin_read_timeout(self) -> Optional[pulumi.Input[int]]:
         """
         Specifies how long, in seconds, CloudFront waits for a response from the origin. This is also known as the *origin response timeout*. The minimum timeout is 1 second, the maximum is 60 seconds, and the default (if you don't specify otherwise) is 30 seconds.
-         For more information, see [Origin Response Timeout](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginResponseTimeout) in the *Amazon CloudFront Developer Guide*.
+         For more information, see [Response timeout (custom origins only)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-web-values-specify.html#DownloadDistValuesOriginResponseTimeout) in the *Amazon CloudFront Developer Guide*.
         """
         return pulumi.get(self, "origin_read_timeout")
 
@@ -3358,6 +3378,11 @@ class DistributionGeoRestrictionArgs:
 
 if not MYPY:
     class DistributionGrpcConfigArgsDict(TypedDict):
+        """
+        Amazon CloudFront supports gRPC, an open-source remote procedure call (RPC) framework built on HTTP/2. gRPC offers bi-directional streaming and binary protocol that buffers payloads, making it suitable for applications that require low latency communications.
+         To enable your distribution to handle gRPC requests, you must include HTTP/2 as one of the supported ``HTTP`` versions and allow ``HTTP`` methods, including ``POST``.
+         For more information, see [Using gRPC with CloudFront distributions](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-using-grpc.html) in the *Amazon CloudFront Developer Guide*.
+        """
         enabled: pulumi.Input[bool]
         """
         Enables your CloudFront distribution to receive gRPC requests and to proxy them directly to your origins.
@@ -3370,6 +3395,9 @@ class DistributionGrpcConfigArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[bool]):
         """
+        Amazon CloudFront supports gRPC, an open-source remote procedure call (RPC) framework built on HTTP/2. gRPC offers bi-directional streaming and binary protocol that buffers payloads, making it suitable for applications that require low latency communications.
+         To enable your distribution to handle gRPC requests, you must include HTTP/2 as one of the supported ``HTTP`` versions and allow ``HTTP`` methods, including ``POST``.
+         For more information, see [Using gRPC with CloudFront distributions](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/distribution-using-grpc.html) in the *Amazon CloudFront Developer Guide*.
         :param pulumi.Input[bool] enabled: Enables your CloudFront distribution to receive gRPC requests and to proxy them directly to your origins.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -3659,11 +3687,12 @@ class DistributionLegacyS3OriginArgs:
 if not MYPY:
     class DistributionLoggingArgsDict(TypedDict):
         """
-        A complex type that controls whether access logs are written for the distribution.
+        A complex type that specifies whether access logs are written for the distribution.
+          If you already enabled standard logging (legacy) and you want to enable standard logging (v2) to send your access logs to Amazon S3, we recommend that you specify a *different* Amazon S3 bucket or use a *separate path* in the same bucket (for example, use a log prefix or partitioning). This helps you keep track of which log files are associated with which logging subscription and prevents log files from overwriting each other. For more information, see [Standard logging (access logs)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/AccessLogs.html) in the *Amazon CloudFront Developer Guide*.
         """
         bucket: NotRequired[pulumi.Input[str]]
         """
-        The Amazon S3 bucket to store the access logs in, for example, ``myawslogbucket.s3.amazonaws.com``.
+        The Amazon S3 bucket to store the access logs in, for example, ``amzn-s3-demo-bucket.s3.amazonaws.com``.
         """
         include_cookies: NotRequired[pulumi.Input[bool]]
         """
@@ -3683,8 +3712,9 @@ class DistributionLoggingArgs:
                  include_cookies: Optional[pulumi.Input[bool]] = None,
                  prefix: Optional[pulumi.Input[str]] = None):
         """
-        A complex type that controls whether access logs are written for the distribution.
-        :param pulumi.Input[str] bucket: The Amazon S3 bucket to store the access logs in, for example, ``myawslogbucket.s3.amazonaws.com``.
+        A complex type that specifies whether access logs are written for the distribution.
+          If you already enabled standard logging (legacy) and you want to enable standard logging (v2) to send your access logs to Amazon S3, we recommend that you specify a *different* Amazon S3 bucket or use a *separate path* in the same bucket (for example, use a log prefix or partitioning). This helps you keep track of which log files are associated with which logging subscription and prevents log files from overwriting each other. For more information, see [Standard logging (access logs)](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/AccessLogs.html) in the *Amazon CloudFront Developer Guide*.
+        :param pulumi.Input[str] bucket: The Amazon S3 bucket to store the access logs in, for example, ``amzn-s3-demo-bucket.s3.amazonaws.com``.
         :param pulumi.Input[bool] include_cookies: Specifies whether you want CloudFront to include cookies in access logs, specify ``true`` for ``IncludeCookies``. If you choose to include cookies in logs, CloudFront logs all cookies regardless of how you configure the cache behaviors for this distribution. If you don't want to include cookies when you create a distribution or if you want to disable include cookies for an existing distribution, specify ``false`` for ``IncludeCookies``.
         :param pulumi.Input[str] prefix: An optional string that you want CloudFront to prefix to the access log ``filenames`` for this distribution, for example, ``myprefix/``. If you want to enable logging, but you don't want to specify a prefix, you still must include an empty ``Prefix`` element in the ``Logging`` element.
         """
@@ -3699,7 +3729,7 @@ class DistributionLoggingArgs:
     @pulumi.getter
     def bucket(self) -> Optional[pulumi.Input[str]]:
         """
-        The Amazon S3 bucket to store the access logs in, for example, ``myawslogbucket.s3.amazonaws.com``.
+        The Amazon S3 bucket to store the access logs in, for example, ``amzn-s3-demo-bucket.s3.amazonaws.com``.
         """
         return pulumi.get(self, "bucket")
 
@@ -3968,7 +3998,8 @@ class DistributionOriginGroupsArgs:
 if not MYPY:
     class DistributionOriginGroupArgsDict(TypedDict):
         """
-        An origin group includes two origins (a primary origin and a second origin to failover to) and a failover criteria that you specify. You create an origin group to support origin failover in CloudFront. When you create or update a distribution, you can specify the origin group instead of a single origin, and CloudFront will failover from the primary origin to the second origin under the failover conditions that you've chosen.
+        An origin group includes two origins (a primary origin and a secondary origin to failover to) and a failover criteria that you specify. You create an origin group to support origin failover in CloudFront. When you create or update a distribution, you can specify the origin group instead of a single origin, and CloudFront will failover from the primary origin to the secondary origin under the failover conditions that you've chosen.
+         Optionally, you can choose selection criteria for your origin group to specify how your origins are selected when your distribution routes viewer requests.
         """
         failover_criteria: pulumi.Input['DistributionOriginGroupFailoverCriteriaArgsDict']
         """
@@ -3984,7 +4015,7 @@ if not MYPY:
         """
         selection_criteria: NotRequired[pulumi.Input['DistributionOriginGroupSelectionCriteria']]
         """
-        The selection criteria for the origin group. For more information, see [Create an origin group](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/high_availability_origin_failover.html#concept_origin_groups.creating) in the *Amazon CloudFront Developer Guide* .
+        The selection criteria for the origin group. For more information, see [Create an origin group](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/high_availability_origin_failover.html#concept_origin_groups.creating) in the *Amazon CloudFront Developer Guide*.
         """
 elif False:
     DistributionOriginGroupArgsDict: TypeAlias = Mapping[str, Any]
@@ -3997,11 +4028,12 @@ class DistributionOriginGroupArgs:
                  members: pulumi.Input['DistributionOriginGroupMembersArgs'],
                  selection_criteria: Optional[pulumi.Input['DistributionOriginGroupSelectionCriteria']] = None):
         """
-        An origin group includes two origins (a primary origin and a second origin to failover to) and a failover criteria that you specify. You create an origin group to support origin failover in CloudFront. When you create or update a distribution, you can specify the origin group instead of a single origin, and CloudFront will failover from the primary origin to the second origin under the failover conditions that you've chosen.
+        An origin group includes two origins (a primary origin and a secondary origin to failover to) and a failover criteria that you specify. You create an origin group to support origin failover in CloudFront. When you create or update a distribution, you can specify the origin group instead of a single origin, and CloudFront will failover from the primary origin to the secondary origin under the failover conditions that you've chosen.
+         Optionally, you can choose selection criteria for your origin group to specify how your origins are selected when your distribution routes viewer requests.
         :param pulumi.Input['DistributionOriginGroupFailoverCriteriaArgs'] failover_criteria: A complex type that contains information about the failover criteria for an origin group.
         :param pulumi.Input[str] id: The origin group's ID.
         :param pulumi.Input['DistributionOriginGroupMembersArgs'] members: A complex type that contains information about the origins in an origin group.
-        :param pulumi.Input['DistributionOriginGroupSelectionCriteria'] selection_criteria: The selection criteria for the origin group. For more information, see [Create an origin group](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/high_availability_origin_failover.html#concept_origin_groups.creating) in the *Amazon CloudFront Developer Guide* .
+        :param pulumi.Input['DistributionOriginGroupSelectionCriteria'] selection_criteria: The selection criteria for the origin group. For more information, see [Create an origin group](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/high_availability_origin_failover.html#concept_origin_groups.creating) in the *Amazon CloudFront Developer Guide*.
         """
         pulumi.set(__self__, "failover_criteria", failover_criteria)
         pulumi.set(__self__, "id", id)
@@ -4049,7 +4081,7 @@ class DistributionOriginGroupArgs:
     @pulumi.getter(name="selectionCriteria")
     def selection_criteria(self) -> Optional[pulumi.Input['DistributionOriginGroupSelectionCriteria']]:
         """
-        The selection criteria for the origin group. For more information, see [Create an origin group](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/high_availability_origin_failover.html#concept_origin_groups.creating) in the *Amazon CloudFront Developer Guide* .
+        The selection criteria for the origin group. For more information, see [Create an origin group](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/high_availability_origin_failover.html#concept_origin_groups.creating) in the *Amazon CloudFront Developer Guide*.
         """
         return pulumi.get(self, "selection_criteria")
 

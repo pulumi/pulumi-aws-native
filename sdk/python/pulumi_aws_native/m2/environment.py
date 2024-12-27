@@ -45,6 +45,7 @@ class EnvironmentArgs:
         :param pulumi.Input['EnvironmentHighAvailabilityConfigArgs'] high_availability_config: Defines the details of a high availability configuration.
         :param pulumi.Input[str] kms_key_id: The ID or the Amazon Resource Name (ARN) of the customer managed KMS Key used for encrypting environment-related resources.
         :param pulumi.Input[str] name: The name of the environment.
+        :param pulumi.Input['EnvironmentNetworkType'] network_type: The network type supported by the runtime environment.
         :param pulumi.Input[str] preferred_maintenance_window: Configures a desired maintenance window for the environment. If you do not provide a value, a random system-generated value will be assigned.
         :param pulumi.Input[bool] publicly_accessible: Specifies whether the environment is publicly accessible.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: The list of security groups for the VPC associated with this environment.
@@ -166,6 +167,9 @@ class EnvironmentArgs:
     @property
     @pulumi.getter(name="networkType")
     def network_type(self) -> Optional[pulumi.Input['EnvironmentNetworkType']]:
+        """
+        The network type supported by the runtime environment.
+        """
         return pulumi.get(self, "network_type")
 
     @network_type.setter
@@ -277,6 +281,7 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input[str] instance_type: The type of instance underlying the environment.
         :param pulumi.Input[str] kms_key_id: The ID or the Amazon Resource Name (ARN) of the customer managed KMS Key used for encrypting environment-related resources.
         :param pulumi.Input[str] name: The name of the environment.
+        :param pulumi.Input['EnvironmentNetworkType'] network_type: The network type supported by the runtime environment.
         :param pulumi.Input[str] preferred_maintenance_window: Configures a desired maintenance window for the environment. If you do not provide a value, a random system-generated value will be assigned.
         :param pulumi.Input[bool] publicly_accessible: Specifies whether the environment is publicly accessible.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: The list of security groups for the VPC associated with this environment.
@@ -468,6 +473,9 @@ class Environment(pulumi.CustomResource):
     @property
     @pulumi.getter(name="networkType")
     def network_type(self) -> pulumi.Output[Optional['EnvironmentNetworkType']]:
+        """
+        The network type supported by the runtime environment.
+        """
         return pulumi.get(self, "network_type")
 
     @property

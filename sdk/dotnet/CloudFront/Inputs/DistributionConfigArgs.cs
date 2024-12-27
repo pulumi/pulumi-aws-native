@@ -27,6 +27,12 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
             set => _aliases = value;
         }
 
+        /// <summary>
+        /// ID of the Anycast static IP list that is associated with the distribution.
+        /// </summary>
+        [Input("anycastIpListId")]
+        public Input<string>? AnycastIpListId { get; set; }
+
         [Input("cacheBehaviors")]
         private InputList<Inputs.DistributionCacheBehaviorArgs>? _cacheBehaviors;
 
@@ -94,12 +100,12 @@ namespace Pulumi.AwsNative.CloudFront.Inputs
         public Input<Inputs.DistributionDefaultCacheBehaviorArgs> DefaultCacheBehavior { get; set; } = null!;
 
         /// <summary>
-        /// The object that you want CloudFront to request from your origin (for example, ``index.html``) when a viewer requests the root URL for your distribution (``https://www.example.com``) instead of an object in your distribution (``https://www.example.com/product-description.html``). Specifying a default root object avoids exposing the contents of your distribution.
-        ///  Specify only the object name, for example, ``index.html``. Don't add a ``/`` before the object name.
+        /// When a viewer requests the root URL for your distribution, the default root object is the object that you want CloudFront to request from your origin. For example, if your root URL is ``https://www.example.com``, you can specify CloudFront to return the ``index.html`` file as the default root object. You can specify a default root object so that viewers see a specific file or object, instead of another object in your distribution (for example, ``https://www.example.com/product-description.html``). A default root object avoids exposing the contents of your distribution.
+        ///  You can specify the object name or a path to the object name (for example, ``index.html`` or ``exampleFolderName/index.html``). Your string can't begin with a forward slash (``/``). Only specify the object name or the path to the object.
         ///  If you don't want to specify a default root object when you create a distribution, include an empty ``DefaultRootObject`` element.
         ///  To delete the default root object from an existing distribution, update the distribution configuration and include an empty ``DefaultRootObject`` element.
         ///  To replace the default root object, update the distribution configuration and specify the new object.
-        ///  For more information about the default root object, see [Creating a Default Root Object](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DefaultRootObject.html) in the *Amazon CloudFront Developer Guide*.
+        ///  For more information about the default root object, see [Specify a default root object](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DefaultRootObject.html) in the *Amazon CloudFront Developer Guide*.
         /// </summary>
         [Input("defaultRootObject")]
         public Input<string>? DefaultRootObject { get; set; }

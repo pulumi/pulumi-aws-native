@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         /// The visibility of an element within a free-form layout.
         /// </summary>
         [Input("visibility")]
-        public Input<Pulumi.AwsNative.QuickSight.TemplateVisibility>? Visibility { get; set; }
+        public Input<object>? Visibility { get; set; }
 
         /// <summary>
         /// String based length that is composed of value and unit in px

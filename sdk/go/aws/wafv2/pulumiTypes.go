@@ -6989,7 +6989,7 @@ type RuleGroupRateBasedStatement struct {
 	//
 	// This is required if you specify a forwarded IP in the rule's aggregate key settings.
 	ForwardedIpConfig *RuleGroupForwardedIpConfiguration `pulumi:"forwardedIpConfig"`
-	// The limit on requests per 5-minute period for a single aggregation instance for the rate-based rule. If the rate-based statement includes a `ScopeDownStatement` , this limit is applied only to the requests that match the statement.
+	// The limit on requests during the specified evaluation window for a single aggregation instance for the rate-based rule. If the rate-based statement includes a `ScopeDownStatement` , this limit is applied only to the requests that match the statement.
 	//
 	// Examples:
 	//
@@ -7047,7 +7047,7 @@ type RuleGroupRateBasedStatementArgs struct {
 	//
 	// This is required if you specify a forwarded IP in the rule's aggregate key settings.
 	ForwardedIpConfig RuleGroupForwardedIpConfigurationPtrInput `pulumi:"forwardedIpConfig"`
-	// The limit on requests per 5-minute period for a single aggregation instance for the rate-based rule. If the rate-based statement includes a `ScopeDownStatement` , this limit is applied only to the requests that match the statement.
+	// The limit on requests during the specified evaluation window for a single aggregation instance for the rate-based rule. If the rate-based statement includes a `ScopeDownStatement` , this limit is applied only to the requests that match the statement.
 	//
 	// Examples:
 	//
@@ -7184,7 +7184,7 @@ func (o RuleGroupRateBasedStatementOutput) ForwardedIpConfig() RuleGroupForwarde
 	return o.ApplyT(func(v RuleGroupRateBasedStatement) *RuleGroupForwardedIpConfiguration { return v.ForwardedIpConfig }).(RuleGroupForwardedIpConfigurationPtrOutput)
 }
 
-// The limit on requests per 5-minute period for a single aggregation instance for the rate-based rule. If the rate-based statement includes a `ScopeDownStatement` , this limit is applied only to the requests that match the statement.
+// The limit on requests during the specified evaluation window for a single aggregation instance for the rate-based rule. If the rate-based statement includes a `ScopeDownStatement` , this limit is applied only to the requests that match the statement.
 //
 // Examples:
 //
@@ -7290,7 +7290,7 @@ func (o RuleGroupRateBasedStatementPtrOutput) ForwardedIpConfig() RuleGroupForwa
 	}).(RuleGroupForwardedIpConfigurationPtrOutput)
 }
 
-// The limit on requests per 5-minute period for a single aggregation instance for the rate-based rule. If the rate-based statement includes a `ScopeDownStatement` , this limit is applied only to the requests that match the statement.
+// The limit on requests during the specified evaluation window for a single aggregation instance for the rate-based rule. If the rate-based statement includes a `ScopeDownStatement` , this limit is applied only to the requests that match the statement.
 //
 // Examples:
 //
@@ -18832,7 +18832,7 @@ type WebAclRateBasedStatement struct {
 	//
 	// This is required if you specify a forwarded IP in the rule's aggregate key settings.
 	ForwardedIpConfig *WebAclForwardedIpConfiguration `pulumi:"forwardedIpConfig"`
-	// The limit on requests per 5-minute period for a single aggregation instance for the rate-based rule. If the rate-based statement includes a `ScopeDownStatement` , this limit is applied only to the requests that match the statement.
+	// The limit on requests during the specified evaluation window for a single aggregation instance for the rate-based rule. If the rate-based statement includes a `ScopeDownStatement` , this limit is applied only to the requests that match the statement.
 	//
 	// Examples:
 	//
@@ -18890,7 +18890,7 @@ type WebAclRateBasedStatementArgs struct {
 	//
 	// This is required if you specify a forwarded IP in the rule's aggregate key settings.
 	ForwardedIpConfig WebAclForwardedIpConfigurationPtrInput `pulumi:"forwardedIpConfig"`
-	// The limit on requests per 5-minute period for a single aggregation instance for the rate-based rule. If the rate-based statement includes a `ScopeDownStatement` , this limit is applied only to the requests that match the statement.
+	// The limit on requests during the specified evaluation window for a single aggregation instance for the rate-based rule. If the rate-based statement includes a `ScopeDownStatement` , this limit is applied only to the requests that match the statement.
 	//
 	// Examples:
 	//
@@ -19025,7 +19025,7 @@ func (o WebAclRateBasedStatementOutput) ForwardedIpConfig() WebAclForwardedIpCon
 	return o.ApplyT(func(v WebAclRateBasedStatement) *WebAclForwardedIpConfiguration { return v.ForwardedIpConfig }).(WebAclForwardedIpConfigurationPtrOutput)
 }
 
-// The limit on requests per 5-minute period for a single aggregation instance for the rate-based rule. If the rate-based statement includes a `ScopeDownStatement` , this limit is applied only to the requests that match the statement.
+// The limit on requests during the specified evaluation window for a single aggregation instance for the rate-based rule. If the rate-based statement includes a `ScopeDownStatement` , this limit is applied only to the requests that match the statement.
 //
 // Examples:
 //
@@ -19131,7 +19131,7 @@ func (o WebAclRateBasedStatementPtrOutput) ForwardedIpConfig() WebAclForwardedIp
 	}).(WebAclForwardedIpConfigurationPtrOutput)
 }
 
-// The limit on requests per 5-minute period for a single aggregation instance for the rate-based rule. If the rate-based statement includes a `ScopeDownStatement` , this limit is applied only to the requests that match the statement.
+// The limit on requests during the specified evaluation window for a single aggregation instance for the rate-based rule. If the rate-based statement includes a `ScopeDownStatement` , this limit is applied only to the requests that match the statement.
 //
 // Examples:
 //

@@ -177,8 +177,6 @@ type LookupDbInstanceResult struct {
 	//
 	//  All other properties are ignored. Specify a virtual private cloud (VPC) security group if you want to submit other properties, such as ``StorageType``, ``StorageEncrypted``, or ``KmsKeyId``. If you're already using the ``DBSecurityGroups`` property, you can't use these other properties by updating your DB instance to use a VPC security group. You must recreate the DB instance.
 	DbSecurityGroups []string `pulumi:"dbSecurityGroups"`
-	// The Oracle system identifier (SID), which is the name of the Oracle database instance that manages your database files. In this context, the term "Oracle database instance" refers exclusively to the system global area (SGA) and Oracle background processes. If you don't specify a SID, the value defaults to ``RDSCDB``. The Oracle SID is also the name of your CDB.
-	DbSystemId *string `pulumi:"dbSystemId"`
 	// The AWS Region-unique, immutable identifier for the DB instance. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB instance is accessed.
 	DbiResourceId *string `pulumi:"dbiResourceId"`
 	// Indicates whether the DB instance has a dedicated log volume (DLV) enabled.
@@ -655,11 +653,6 @@ func (o LookupDbInstanceResultOutput) DbParameterGroupName() pulumi.StringPtrOut
 //	All other properties are ignored. Specify a virtual private cloud (VPC) security group if you want to submit other properties, such as ``StorageType``, ``StorageEncrypted``, or ``KmsKeyId``. If you're already using the ``DBSecurityGroups`` property, you can't use these other properties by updating your DB instance to use a VPC security group. You must recreate the DB instance.
 func (o LookupDbInstanceResultOutput) DbSecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupDbInstanceResult) []string { return v.DbSecurityGroups }).(pulumi.StringArrayOutput)
-}
-
-// The Oracle system identifier (SID), which is the name of the Oracle database instance that manages your database files. In this context, the term "Oracle database instance" refers exclusively to the system global area (SGA) and Oracle background processes. If you don't specify a SID, the value defaults to “RDSCDB“. The Oracle SID is also the name of your CDB.
-func (o LookupDbInstanceResultOutput) DbSystemId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupDbInstanceResult) *string { return v.DbSystemId }).(pulumi.StringPtrOutput)
 }
 
 // The AWS Region-unique, immutable identifier for the DB instance. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB instance is accessed.

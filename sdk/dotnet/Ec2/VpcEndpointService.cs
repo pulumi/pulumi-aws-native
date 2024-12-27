@@ -51,6 +51,12 @@ namespace Pulumi.AwsNative.Ec2
         [Output("serviceId")]
         public Output<string> ServiceId { get; private set; } = null!;
 
+        /// <summary>
+        /// The tags to add to the VPC endpoint service.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a VpcEndpointService resource with the given unique name, arguments, and options.
@@ -137,6 +143,18 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         [Input("payerResponsibility")]
         public Input<string>? PayerResponsibility { get; set; }
+
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// The tags to add to the VPC endpoint service.
+        /// </summary>
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
+        }
 
         public VpcEndpointServiceArgs()
         {

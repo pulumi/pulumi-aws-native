@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// <summary>
         /// The visibility of a table field.
         /// </summary>
-        public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? Visibility;
+        public readonly object? Visibility;
         /// <summary>
         /// String based length that is composed of value and unit in px
         /// </summary>
@@ -42,7 +42,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Outputs.TemplateTableFieldUrlConfiguration? urlStyling,
 
-            Pulumi.AwsNative.QuickSight.TemplateVisibility? visibility,
+            object? visibility,
 
             string? width)
         {

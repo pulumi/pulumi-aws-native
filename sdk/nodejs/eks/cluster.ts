@@ -62,7 +62,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly clusterSecurityGroupId!: pulumi.Output<string>;
     /**
-     * Indicates the current configuration of the compute capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your AWS account. For more information, see EKS Auto Mode compute capability in the EKS User Guide.
+     * Indicates the current configuration of the compute capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your AWS account. For more information, see EKS Auto Mode compute capability in the *Amazon EKS User Guide* .
      */
     public readonly computeConfig!: pulumi.Output<outputs.eks.ClusterComputeConfig | undefined>;
     /**
@@ -110,7 +110,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly roleArn!: pulumi.Output<string>;
     /**
-     * Indicates the current configuration of the block storage capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the block storage capability is enabled, EKS Auto Mode will create and delete EBS volumes in your AWS account. For more information, see EKS Auto Mode block storage capability in the EKS User Guide.
+     * Indicates the current configuration of the block storage capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the block storage capability is enabled, EKS Auto Mode will create and delete EBS volumes in your AWS account. For more information, see EKS Auto Mode block storage capability in the *Amazon EKS User Guide* .
      */
     public readonly storageConfig!: pulumi.Output<outputs.eks.ClusterStorageConfig | undefined>;
     /**
@@ -120,7 +120,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * This value indicates if extended support is enabled or disabled for the cluster.
      *
-     * [Learn more about EKS Extended Support in the EKS User Guide.](https://docs.aws.amazon.com/eks/latest/userguide/extended-support-control.html)
+     * [Learn more about EKS Extended Support in the *Amazon EKS User Guide* .](https://docs.aws.amazon.com/eks/latest/userguide/extended-support-control.html)
      */
     public readonly upgradePolicy!: pulumi.Output<outputs.eks.ClusterUpgradePolicy | undefined>;
     /**
@@ -217,7 +217,7 @@ export interface ClusterArgs {
      */
     bootstrapSelfManagedAddons?: pulumi.Input<boolean>;
     /**
-     * Indicates the current configuration of the compute capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your AWS account. For more information, see EKS Auto Mode compute capability in the EKS User Guide.
+     * Indicates the current configuration of the compute capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your AWS account. For more information, see EKS Auto Mode compute capability in the *Amazon EKS User Guide* .
      */
     computeConfig?: pulumi.Input<inputs.eks.ClusterComputeConfigArgs>;
     /**
@@ -253,7 +253,7 @@ export interface ClusterArgs {
      */
     roleArn: pulumi.Input<string>;
     /**
-     * Indicates the current configuration of the block storage capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the block storage capability is enabled, EKS Auto Mode will create and delete EBS volumes in your AWS account. For more information, see EKS Auto Mode block storage capability in the EKS User Guide.
+     * Indicates the current configuration of the block storage capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the block storage capability is enabled, EKS Auto Mode will create and delete EBS volumes in your AWS account. For more information, see EKS Auto Mode block storage capability in the *Amazon EKS User Guide* .
      */
     storageConfig?: pulumi.Input<inputs.eks.ClusterStorageConfigArgs>;
     /**
@@ -263,7 +263,7 @@ export interface ClusterArgs {
     /**
      * This value indicates if extended support is enabled or disabled for the cluster.
      *
-     * [Learn more about EKS Extended Support in the EKS User Guide.](https://docs.aws.amazon.com/eks/latest/userguide/extended-support-control.html)
+     * [Learn more about EKS Extended Support in the *Amazon EKS User Guide* .](https://docs.aws.amazon.com/eks/latest/userguide/extended-support-control.html)
      */
     upgradePolicy?: pulumi.Input<inputs.eks.ClusterUpgradePolicyArgs>;
     /**

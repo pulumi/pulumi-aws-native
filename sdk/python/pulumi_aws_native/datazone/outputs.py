@@ -19,6 +19,7 @@ from ._enums import *
 __all__ = [
     'DataSourceConfigurationInput0Properties',
     'DataSourceConfigurationInput1Properties',
+    'DataSourceConfigurationInput2Properties',
     'DataSourceFilterExpression',
     'DataSourceFormInput',
     'DataSourceGlueRunConfigurationInput',
@@ -30,6 +31,7 @@ __all__ = [
     'DataSourceRedshiftStorage0Properties',
     'DataSourceRedshiftStorage1Properties',
     'DataSourceRelationalFilterConfiguration',
+    'DataSourceSageMakerRunConfigurationInput',
     'DataSourceScheduleConfiguration',
     'DomainSingleSignOn',
     'EnvironmentActionsAwsConsoleLinkParameters',
@@ -48,7 +50,7 @@ __all__ = [
 @pulumi.output_type
 class DataSourceConfigurationInput0Properties(dict):
     """
-    Specifies the configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration.
+    Specifies the configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration or sageMakerRunConfiguration.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -70,7 +72,7 @@ class DataSourceConfigurationInput0Properties(dict):
     def __init__(__self__, *,
                  glue_run_configuration: Optional['outputs.DataSourceGlueRunConfigurationInput'] = None):
         """
-        Specifies the configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration.
+        Specifies the configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration or sageMakerRunConfiguration.
         """
         if glue_run_configuration is not None:
             pulumi.set(__self__, "glue_run_configuration", glue_run_configuration)
@@ -84,7 +86,7 @@ class DataSourceConfigurationInput0Properties(dict):
 @pulumi.output_type
 class DataSourceConfigurationInput1Properties(dict):
     """
-    Specifies the configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration.
+    Specifies the configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration or sageMakerRunConfiguration.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -106,7 +108,7 @@ class DataSourceConfigurationInput1Properties(dict):
     def __init__(__self__, *,
                  redshift_run_configuration: Optional['outputs.DataSourceRedshiftRunConfigurationInput'] = None):
         """
-        Specifies the configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration.
+        Specifies the configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration or sageMakerRunConfiguration.
         """
         if redshift_run_configuration is not None:
             pulumi.set(__self__, "redshift_run_configuration", redshift_run_configuration)
@@ -115,6 +117,42 @@ class DataSourceConfigurationInput1Properties(dict):
     @pulumi.getter(name="redshiftRunConfiguration")
     def redshift_run_configuration(self) -> Optional['outputs.DataSourceRedshiftRunConfigurationInput']:
         return pulumi.get(self, "redshift_run_configuration")
+
+
+@pulumi.output_type
+class DataSourceConfigurationInput2Properties(dict):
+    """
+    Specifies the configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration or sageMakerRunConfiguration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sageMakerRunConfiguration":
+            suggest = "sage_maker_run_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceConfigurationInput2Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceConfigurationInput2Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceConfigurationInput2Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 sage_maker_run_configuration: Optional['outputs.DataSourceSageMakerRunConfigurationInput'] = None):
+        """
+        Specifies the configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration or sageMakerRunConfiguration.
+        """
+        if sage_maker_run_configuration is not None:
+            pulumi.set(__self__, "sage_maker_run_configuration", sage_maker_run_configuration)
+
+    @property
+    @pulumi.getter(name="sageMakerRunConfiguration")
+    def sage_maker_run_configuration(self) -> Optional['outputs.DataSourceSageMakerRunConfigurationInput']:
+        return pulumi.get(self, "sage_maker_run_configuration")
 
 
 @pulumi.output_type
@@ -651,6 +689,45 @@ class DataSourceRelationalFilterConfiguration(dict):
         The schema name specified in the relational filter configuration for the data source.
         """
         return pulumi.get(self, "schema_name")
+
+
+@pulumi.output_type
+class DataSourceSageMakerRunConfigurationInput(dict):
+    """
+    The configuration details of the Amazon SageMaker data source.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "trackingAssets":
+            suggest = "tracking_assets"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceSageMakerRunConfigurationInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceSageMakerRunConfigurationInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceSageMakerRunConfigurationInput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 tracking_assets: Mapping[str, Any]):
+        """
+        The configuration details of the Amazon SageMaker data source.
+        :param Mapping[str, Any] tracking_assets: The tracking assets of the Amazon SageMaker run.
+        """
+        pulumi.set(__self__, "tracking_assets", tracking_assets)
+
+    @property
+    @pulumi.getter(name="trackingAssets")
+    def tracking_assets(self) -> Mapping[str, Any]:
+        """
+        The tracking assets of the Amazon SageMaker run.
+        """
+        return pulumi.get(self, "tracking_assets")
 
 
 @pulumi.output_type

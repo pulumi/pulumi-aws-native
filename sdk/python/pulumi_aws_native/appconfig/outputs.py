@@ -17,6 +17,7 @@ from ._enums import *
 
 __all__ = [
     'ConfigurationProfileValidators',
+    'DeploymentDynamicExtensionParameters',
     'EnvironmentMonitor',
     'ExtensionAction',
     'ExtensionParameter',
@@ -55,6 +56,70 @@ class ConfigurationProfileValidators(dict):
         AWS AppConfig supports validators of type JSON_SCHEMA and LAMBDA.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class DeploymentDynamicExtensionParameters(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "extensionReference":
+            suggest = "extension_reference"
+        elif key == "parameterName":
+            suggest = "parameter_name"
+        elif key == "parameterValue":
+            suggest = "parameter_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DeploymentDynamicExtensionParameters. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DeploymentDynamicExtensionParameters.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DeploymentDynamicExtensionParameters.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 extension_reference: Optional[str] = None,
+                 parameter_name: Optional[str] = None,
+                 parameter_value: Optional[str] = None):
+        """
+        :param str extension_reference: The ARN or ID of the extension for which you are inserting a dynamic parameter.
+        :param str parameter_name: The parameter name.
+        :param str parameter_value: The parameter value.
+        """
+        if extension_reference is not None:
+            pulumi.set(__self__, "extension_reference", extension_reference)
+        if parameter_name is not None:
+            pulumi.set(__self__, "parameter_name", parameter_name)
+        if parameter_value is not None:
+            pulumi.set(__self__, "parameter_value", parameter_value)
+
+    @property
+    @pulumi.getter(name="extensionReference")
+    def extension_reference(self) -> Optional[str]:
+        """
+        The ARN or ID of the extension for which you are inserting a dynamic parameter.
+        """
+        return pulumi.get(self, "extension_reference")
+
+    @property
+    @pulumi.getter(name="parameterName")
+    def parameter_name(self) -> Optional[str]:
+        """
+        The parameter name.
+        """
+        return pulumi.get(self, "parameter_name")
+
+    @property
+    @pulumi.getter(name="parameterValue")
+    def parameter_value(self) -> Optional[str]:
+        """
+        The parameter value.
+        """
+        return pulumi.get(self, "parameter_value")
 
 
 @pulumi.output_type

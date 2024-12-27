@@ -33,9 +33,15 @@ namespace Pulumi.AwsNative.QuickSight
 
     public sealed class GetCustomPermissionsArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the AWS account that contains the custom permission configuration that you want to update.
+        /// </summary>
         [Input("awsAccountId", required: true)]
         public string AwsAccountId { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the custom permissions profile.
+        /// </summary>
         [Input("customPermissionsName", required: true)]
         public string CustomPermissionsName { get; set; } = null!;
 
@@ -47,9 +53,15 @@ namespace Pulumi.AwsNative.QuickSight
 
     public sealed class GetCustomPermissionsInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The ID of the AWS account that contains the custom permission configuration that you want to update.
+        /// </summary>
         [Input("awsAccountId", required: true)]
         public Input<string> AwsAccountId { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the custom permissions profile.
+        /// </summary>
         [Input("customPermissionsName", required: true)]
         public Input<string> CustomPermissionsName { get; set; } = null!;
 
@@ -63,8 +75,17 @@ namespace Pulumi.AwsNative.QuickSight
     [OutputType]
     public sealed class GetCustomPermissionsResult
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the custom permissions profile.
+        /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// A set of actions in the custom permissions profile.
+        /// </summary>
         public readonly Outputs.CustomPermissionsCapabilities? Capabilities;
+        /// <summary>
+        /// The tags to associate with the custom permissions profile.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

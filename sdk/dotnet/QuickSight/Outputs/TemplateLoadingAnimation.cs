@@ -16,10 +16,10 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// <summary>
         /// The visibility configuration of `LoadingAnimation` .
         /// </summary>
-        public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? Visibility;
+        public readonly object? Visibility;
 
         [OutputConstructor]
-        private TemplateLoadingAnimation(Pulumi.AwsNative.QuickSight.TemplateVisibility? visibility)
+        private TemplateLoadingAnimation(object? visibility)
         {
             Visibility = visibility;
         }

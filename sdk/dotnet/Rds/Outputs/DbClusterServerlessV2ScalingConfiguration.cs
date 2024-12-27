@@ -26,18 +26,27 @@ namespace Pulumi.AwsNative.Rds.Outputs
         /// </summary>
         public readonly double? MaxCapacity;
         /// <summary>
-        /// The minimum number of Aurora capacity units (ACUs) for a DB instance in an Aurora Serverless v2 cluster. You can specify ACU values in half-step increments, such as 8, 8.5, 9, and so on. The smallest value that you can use is 0.5.
+        /// The minimum number of Aurora capacity units (ACUs) for a DB instance in an Aurora Serverless v2 cluster. You can specify ACU values in half-step increments, such as 8, 8.5, 9, and so on. For Aurora versions that support the Aurora Serverless v2 auto-pause feature, the smallest value that you can use is 0. For versions that don't support Aurora Serverless v2 auto-pause, the smallest value that you can use is 0.5.
         /// </summary>
         public readonly double? MinCapacity;
+        /// <summary>
+        /// Specifies the number of seconds an Aurora Serverless v2 DB instance must be idle before Aurora attempts to automatically pause it.
+        /// 
+        /// Specify a value between 300 seconds (five minutes) and 86,400 seconds (one day). The default is 300 seconds.
+        /// </summary>
+        public readonly int? SecondsUntilAutoPause;
 
         [OutputConstructor]
         private DbClusterServerlessV2ScalingConfiguration(
             double? maxCapacity,
 
-            double? minCapacity)
+            double? minCapacity,
+
+            int? secondsUntilAutoPause)
         {
             MaxCapacity = maxCapacity;
             MinCapacity = minCapacity;
+            SecondsUntilAutoPause = secondsUntilAutoPause;
         }
     }
 }

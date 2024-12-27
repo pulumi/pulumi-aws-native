@@ -50,6 +50,7 @@ AWS::ApiGatewayV2::RouteResponse
 AWS::ApiGatewayV2::VpcLink
 AWS::AppConfig::Application
 AWS::AppConfig::ConfigurationProfile
+AWS::AppConfig::Deployment
 AWS::AppConfig::DeploymentStrategy
 AWS::AppConfig::Environment
 AWS::AppConfig::Extension

@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from .. import outputs as _root_outputs
 
 __all__ = [
     'GetVpcEndpointServiceResult',
@@ -23,7 +24,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetVpcEndpointServiceResult:
-    def __init__(__self__, acceptance_required=None, gateway_load_balancer_arns=None, network_load_balancer_arns=None, payer_responsibility=None, service_id=None):
+    def __init__(__self__, acceptance_required=None, gateway_load_balancer_arns=None, network_load_balancer_arns=None, payer_responsibility=None, service_id=None, tags=None):
         if acceptance_required and not isinstance(acceptance_required, bool):
             raise TypeError("Expected argument 'acceptance_required' to be a bool")
         pulumi.set(__self__, "acceptance_required", acceptance_required)
@@ -39,6 +40,9 @@ class GetVpcEndpointServiceResult:
         if service_id and not isinstance(service_id, str):
             raise TypeError("Expected argument 'service_id' to be a str")
         pulumi.set(__self__, "service_id", service_id)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="acceptanceRequired")
@@ -80,6 +84,14 @@ class GetVpcEndpointServiceResult:
         """
         return pulumi.get(self, "service_id")
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        The tags to add to the VPC endpoint service.
+        """
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetVpcEndpointServiceResult(GetVpcEndpointServiceResult):
     # pylint: disable=using-constant-test
@@ -91,7 +103,8 @@ class AwaitableGetVpcEndpointServiceResult(GetVpcEndpointServiceResult):
             gateway_load_balancer_arns=self.gateway_load_balancer_arns,
             network_load_balancer_arns=self.network_load_balancer_arns,
             payer_responsibility=self.payer_responsibility,
-            service_id=self.service_id)
+            service_id=self.service_id,
+            tags=self.tags)
 
 
 def get_vpc_endpoint_service(service_id: Optional[str] = None,
@@ -112,7 +125,8 @@ def get_vpc_endpoint_service(service_id: Optional[str] = None,
         gateway_load_balancer_arns=pulumi.get(__ret__, 'gateway_load_balancer_arns'),
         network_load_balancer_arns=pulumi.get(__ret__, 'network_load_balancer_arns'),
         payer_responsibility=pulumi.get(__ret__, 'payer_responsibility'),
-        service_id=pulumi.get(__ret__, 'service_id'))
+        service_id=pulumi.get(__ret__, 'service_id'),
+        tags=pulumi.get(__ret__, 'tags'))
 def get_vpc_endpoint_service_output(service_id: Optional[pulumi.Input[str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetVpcEndpointServiceResult]:
     """
@@ -130,4 +144,5 @@ def get_vpc_endpoint_service_output(service_id: Optional[pulumi.Input[str]] = No
         gateway_load_balancer_arns=pulumi.get(__response__, 'gateway_load_balancer_arns'),
         network_load_balancer_arns=pulumi.get(__response__, 'network_load_balancer_arns'),
         payer_responsibility=pulumi.get(__response__, 'payer_responsibility'),
-        service_id=pulumi.get(__response__, 'service_id')))
+        service_id=pulumi.get(__response__, 'service_id'),
+        tags=pulumi.get(__response__, 'tags')))

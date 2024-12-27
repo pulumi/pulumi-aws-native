@@ -21,6 +21,10 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
         /// </summary>
         public readonly string ModelArn;
         /// <summary>
+        /// Specifies whether to enable parsing of multimodal data, including both text and/or images.
+        /// </summary>
+        public readonly Pulumi.AwsNative.Bedrock.DataSourceParsingModality? ParsingModality;
+        /// <summary>
         /// Instructions for interpreting the contents of a document.
         /// </summary>
         public readonly Outputs.DataSourceParsingPrompt? ParsingPrompt;
@@ -29,9 +33,12 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
         private DataSourceBedrockFoundationModelConfiguration(
             string modelArn,
 
+            Pulumi.AwsNative.Bedrock.DataSourceParsingModality? parsingModality,
+
             Outputs.DataSourceParsingPrompt? parsingPrompt)
         {
             ModelArn = modelArn;
+            ParsingModality = parsingModality;
             ParsingPrompt = parsingPrompt;
         }
     }

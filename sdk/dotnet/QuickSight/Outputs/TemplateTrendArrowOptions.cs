@@ -16,10 +16,10 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// <summary>
         /// The visibility of the trend arrows.
         /// </summary>
-        public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? Visibility;
+        public readonly object? Visibility;
 
         [OutputConstructor]
-        private TemplateTrendArrowOptions(Pulumi.AwsNative.QuickSight.TemplateVisibility? visibility)
+        private TemplateTrendArrowOptions(object? visibility)
         {
             Visibility = visibility;
         }

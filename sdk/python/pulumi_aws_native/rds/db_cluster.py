@@ -89,7 +89,7 @@ class DbClusterArgs:
         :param pulumi.Input[Sequence[pulumi.Input['DbClusterDbClusterRoleArgs']]] associated_roles: Provides a list of the AWS Identity and Access Management (IAM) roles that are associated with the DB cluster. IAM roles that are associated with a DB cluster grant permission for the DB cluster to access other Amazon Web Services on your behalf.
                 Valid for: Aurora DB clusters and Multi-AZ DB clusters
         :param pulumi.Input[bool] auto_minor_version_upgrade: Specifies whether minor engine upgrades are applied automatically to the DB cluster during the maintenance window. By default, minor engine upgrades are applied automatically.
-                Valid for Cluster Type: Multi-AZ DB clusters only
+                Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB cluster
         :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: A list of Availability Zones (AZs) where instances in the DB cluster can be created. For information on AWS Regions and Availability Zones, see [Choosing the Regions and Availability Zones](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Concepts.RegionsAndAvailabilityZones.html) in the *Amazon Aurora User Guide*. 
                 Valid for: Aurora DB clusters only
         :param pulumi.Input[int] backtrack_window: The target backtrack window, in seconds. To disable backtracking, set this value to ``0``.
@@ -103,7 +103,7 @@ class DbClusterArgs:
                  +  Must be a value from 1 to 35
                  
                 Valid for: Aurora DB clusters and Multi-AZ DB clusters
-        :param pulumi.Input[str] cluster_scalability_type: Specifies the scalability mode of the Aurora DB cluster. When set to `limitless` , the cluster operates as an Aurora Limitless Database, allowing you to create a DB shard group for horizontal scaling (sharding) capabilities. When set to `standard` (the default), the cluster uses normal DB instance creation.
+        :param pulumi.Input[str] cluster_scalability_type: Specifies the scalability mode of the Aurora DB cluster. When set to ``limitless``, the cluster operates as an Aurora Limitless Database, allowing you to create a DB shard group for horizontal scaling (sharding) capabilities. When set to ``standard`` (the default), the cluster uses normal DB instance creation.
         :param pulumi.Input[bool] copy_tags_to_snapshot: A value that indicates whether to copy all tags from the DB cluster to snapshots of the DB cluster. The default is not to copy them.
                 Valid for: Aurora DB clusters and Multi-AZ DB clusters
         :param pulumi.Input[str] database_name: The name of your database. If you don't provide a name, then Amazon RDS won't create a database in this DB cluster. For naming constraints, see [Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_Limits.html#RDS_Limits.Constraints) in the *Amazon Aurora User Guide*. 
@@ -178,7 +178,7 @@ class DbClusterArgs:
         :param pulumi.Input[str] engine_lifecycle_support: The life cycle type for this DB cluster.
                  By default, this value is set to ``open-source-rds-extended-support``, which enrolls your DB cluster into Amazon RDS Extended Support. At the end of standard support, you can avoid charges for Extended Support by setting the value to ``open-source-rds-extended-support-disabled``. In this case, creating the DB cluster will fail if the DB major version is past its end of standard support date.
                  You can use this setting to enroll your DB cluster into Amazon RDS Extended Support. With RDS Extended Support, you can run the selected major engine version on your DB cluster past the end of standard support for that engine version. For more information, see the following sections:
-                 +  Amazon Aurora (PostgreSQL only) - [Using Amazon RDS Extended Support](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/extended-support.html) in the *Amazon Aurora User Guide* 
+                 +  Amazon Aurora - [Using Amazon RDS Extended Support](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/extended-support.html) in the *Amazon Aurora User Guide* 
                  +  Amazon RDS - [Using Amazon RDS Extended Support](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html) in the *Amazon RDS User Guide* 
                  
                 Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
@@ -234,18 +234,19 @@ class DbClusterArgs:
                  If you specify the ``SourceDBClusterIdentifier``, ``SnapshotIdentifier``, or ``GlobalClusterIdentifier`` property, don't specify this property. The value is inherited from the source DB cluster, the snapshot, or the primary DB cluster for the global database cluster, respectively.
                  Valid for: Aurora DB clusters and Multi-AZ DB clusters
         :param pulumi.Input['DbClusterMasterUserSecretArgs'] master_user_secret: The secret managed by RDS in AWS Secrets Manager for the master user password.
-                For more information, see [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html) in the *Amazon RDS User Guide* and [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html) in the *Amazon Aurora User Guide.*
+                 When you restore a DB cluster from a snapshot, Amazon RDS generates a new secret instead of reusing the secret specified in the ``SecretArn`` property. This ensures that the restored DB cluster is securely managed with a dedicated secret. To maintain consistent integration with your application, you might need to update resource configurations to reference the newly created secret.
+                 For more information, see [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html) in the *Amazon RDS User Guide* and [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html) in the *Amazon Aurora User Guide.*
         :param pulumi.Input[str] master_username: The name of the master user for the DB cluster.
                  If you specify the ``SourceDBClusterIdentifier``, ``SnapshotIdentifier``, or ``GlobalClusterIdentifier`` property, don't specify this property. The value is inherited from the source DB cluster, the snapshot, or the primary DB cluster for the global database cluster, respectively.
                  Valid for: Aurora DB clusters and Multi-AZ DB clusters
         :param pulumi.Input[int] monitoring_interval: The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB cluster. To turn off collecting Enhanced Monitoring metrics, specify ``0``.
                 If ``MonitoringRoleArn`` is specified, also set ``MonitoringInterval`` to a value other than ``0``.
-                Valid for Cluster Type: Multi-AZ DB clusters only
+                Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
                 Valid Values: ``0 | 1 | 5 | 10 | 15 | 30 | 60`` 
                 Default: ``0``
         :param pulumi.Input[str] monitoring_role_arn: The Amazon Resource Name (ARN) for the IAM role that permits RDS to send Enhanced Monitoring metrics to Amazon CloudWatch Logs. An example is ``arn:aws:iam:123456789012:role/emaccess``. For information on creating a monitoring role, see [Setting up and enabling Enhanced Monitoring](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.OS.html#USER_Monitoring.OS.Enabling) in the *Amazon RDS User Guide*.
                 If ``MonitoringInterval`` is set to a value other than ``0``, supply a ``MonitoringRoleArn`` value.
-                Valid for Cluster Type: Multi-AZ DB clusters only
+                Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
         :param pulumi.Input[str] network_type: The network type of the DB cluster.
                 Valid values:
                  +   ``IPV4`` 
@@ -256,13 +257,13 @@ class DbClusterArgs:
                 Valid for: Aurora DB clusters only
         :param pulumi.Input[bool] performance_insights_enabled: Specifies whether to turn on Performance Insights for the DB cluster.
                 For more information, see [Using Amazon Performance Insights](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html) in the *Amazon RDS User Guide*.
-                Valid for Cluster Type: Multi-AZ DB clusters only
+                Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
         :param pulumi.Input[str] performance_insights_kms_key_id: The AWS KMS key identifier for encryption of Performance Insights data.
                 The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
                 If you don't specify a value for ``PerformanceInsightsKMSKeyId``, then Amazon RDS uses your default KMS key. There is a default KMS key for your AWS-account. Your AWS-account has a different default KMS key for each AWS-Region.
-                Valid for Cluster Type: Multi-AZ DB clusters only
+                Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
         :param pulumi.Input[int] performance_insights_retention_period: The number of days to retain Performance Insights data.
-                Valid for Cluster Type: Multi-AZ DB clusters only
+                Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
                 Valid Values:
                  +   ``7`` 
                  +   *month* * 31, where *month* is a number of months from 1-23. Examples: ``93`` (3 months * 31), ``341`` (11 months * 31), ``589`` (19 months * 31)
@@ -540,7 +541,7 @@ class DbClusterArgs:
     def auto_minor_version_upgrade(self) -> Optional[pulumi.Input[bool]]:
         """
         Specifies whether minor engine upgrades are applied automatically to the DB cluster during the maintenance window. By default, minor engine upgrades are applied automatically.
-         Valid for Cluster Type: Multi-AZ DB clusters only
+         Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB cluster
         """
         return pulumi.get(self, "auto_minor_version_upgrade")
 
@@ -598,7 +599,7 @@ class DbClusterArgs:
     @pulumi.getter(name="clusterScalabilityType")
     def cluster_scalability_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the scalability mode of the Aurora DB cluster. When set to `limitless` , the cluster operates as an Aurora Limitless Database, allowing you to create a DB shard group for horizontal scaling (sharding) capabilities. When set to `standard` (the default), the cluster uses normal DB instance creation.
+        Specifies the scalability mode of the Aurora DB cluster. When set to ``limitless``, the cluster operates as an Aurora Limitless Database, allowing you to create a DB shard group for horizontal scaling (sharding) capabilities. When set to ``standard`` (the default), the cluster uses normal DB instance creation.
         """
         return pulumi.get(self, "cluster_scalability_type")
 
@@ -871,7 +872,7 @@ class DbClusterArgs:
         The life cycle type for this DB cluster.
           By default, this value is set to ``open-source-rds-extended-support``, which enrolls your DB cluster into Amazon RDS Extended Support. At the end of standard support, you can avoid charges for Extended Support by setting the value to ``open-source-rds-extended-support-disabled``. In this case, creating the DB cluster will fail if the DB major version is past its end of standard support date.
           You can use this setting to enroll your DB cluster into Amazon RDS Extended Support. With RDS Extended Support, you can run the selected major engine version on your DB cluster past the end of standard support for that engine version. For more information, see the following sections:
-          +  Amazon Aurora (PostgreSQL only) - [Using Amazon RDS Extended Support](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/extended-support.html) in the *Amazon Aurora User Guide* 
+          +  Amazon Aurora - [Using Amazon RDS Extended Support](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/extended-support.html) in the *Amazon Aurora User Guide* 
           +  Amazon RDS - [Using Amazon RDS Extended Support](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html) in the *Amazon RDS User Guide* 
           
          Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
@@ -1015,7 +1016,8 @@ class DbClusterArgs:
     def master_user_secret(self) -> Optional[pulumi.Input['DbClusterMasterUserSecretArgs']]:
         """
         The secret managed by RDS in AWS Secrets Manager for the master user password.
-         For more information, see [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html) in the *Amazon RDS User Guide* and [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html) in the *Amazon Aurora User Guide.*
+          When you restore a DB cluster from a snapshot, Amazon RDS generates a new secret instead of reusing the secret specified in the ``SecretArn`` property. This ensures that the restored DB cluster is securely managed with a dedicated secret. To maintain consistent integration with your application, you might need to update resource configurations to reference the newly created secret.
+          For more information, see [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html) in the *Amazon RDS User Guide* and [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html) in the *Amazon Aurora User Guide.*
         """
         return pulumi.get(self, "master_user_secret")
 
@@ -1043,7 +1045,7 @@ class DbClusterArgs:
         """
         The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB cluster. To turn off collecting Enhanced Monitoring metrics, specify ``0``.
          If ``MonitoringRoleArn`` is specified, also set ``MonitoringInterval`` to a value other than ``0``.
-         Valid for Cluster Type: Multi-AZ DB clusters only
+         Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
          Valid Values: ``0 | 1 | 5 | 10 | 15 | 30 | 60`` 
          Default: ``0``
         """
@@ -1059,7 +1061,7 @@ class DbClusterArgs:
         """
         The Amazon Resource Name (ARN) for the IAM role that permits RDS to send Enhanced Monitoring metrics to Amazon CloudWatch Logs. An example is ``arn:aws:iam:123456789012:role/emaccess``. For information on creating a monitoring role, see [Setting up and enabling Enhanced Monitoring](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.OS.html#USER_Monitoring.OS.Enabling) in the *Amazon RDS User Guide*.
          If ``MonitoringInterval`` is set to a value other than ``0``, supply a ``MonitoringRoleArn`` value.
-         Valid for Cluster Type: Multi-AZ DB clusters only
+         Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
         """
         return pulumi.get(self, "monitoring_role_arn")
 
@@ -1092,7 +1094,7 @@ class DbClusterArgs:
         """
         Specifies whether to turn on Performance Insights for the DB cluster.
          For more information, see [Using Amazon Performance Insights](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html) in the *Amazon RDS User Guide*.
-         Valid for Cluster Type: Multi-AZ DB clusters only
+         Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
         """
         return pulumi.get(self, "performance_insights_enabled")
 
@@ -1107,7 +1109,7 @@ class DbClusterArgs:
         The AWS KMS key identifier for encryption of Performance Insights data.
          The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
          If you don't specify a value for ``PerformanceInsightsKMSKeyId``, then Amazon RDS uses your default KMS key. There is a default KMS key for your AWS-account. Your AWS-account has a different default KMS key for each AWS-Region.
-         Valid for Cluster Type: Multi-AZ DB clusters only
+         Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
         """
         return pulumi.get(self, "performance_insights_kms_key_id")
 
@@ -1120,7 +1122,7 @@ class DbClusterArgs:
     def performance_insights_retention_period(self) -> Optional[pulumi.Input[int]]:
         """
         The number of days to retain Performance Insights data.
-         Valid for Cluster Type: Multi-AZ DB clusters only
+         Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
          Valid Values:
           +   ``7`` 
           +   *month* * 31, where *month* is a number of months from 1-23. Examples: ``93`` (3 months * 31), ``341`` (11 months * 31), ``589`` (19 months * 31)
@@ -1545,7 +1547,7 @@ class DbCluster(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['DbClusterDbClusterRoleArgs', 'DbClusterDbClusterRoleArgsDict']]]] associated_roles: Provides a list of the AWS Identity and Access Management (IAM) roles that are associated with the DB cluster. IAM roles that are associated with a DB cluster grant permission for the DB cluster to access other Amazon Web Services on your behalf.
                 Valid for: Aurora DB clusters and Multi-AZ DB clusters
         :param pulumi.Input[bool] auto_minor_version_upgrade: Specifies whether minor engine upgrades are applied automatically to the DB cluster during the maintenance window. By default, minor engine upgrades are applied automatically.
-                Valid for Cluster Type: Multi-AZ DB clusters only
+                Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB cluster
         :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: A list of Availability Zones (AZs) where instances in the DB cluster can be created. For information on AWS Regions and Availability Zones, see [Choosing the Regions and Availability Zones](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Concepts.RegionsAndAvailabilityZones.html) in the *Amazon Aurora User Guide*. 
                 Valid for: Aurora DB clusters only
         :param pulumi.Input[int] backtrack_window: The target backtrack window, in seconds. To disable backtracking, set this value to ``0``.
@@ -1559,7 +1561,7 @@ class DbCluster(pulumi.CustomResource):
                  +  Must be a value from 1 to 35
                  
                 Valid for: Aurora DB clusters and Multi-AZ DB clusters
-        :param pulumi.Input[str] cluster_scalability_type: Specifies the scalability mode of the Aurora DB cluster. When set to `limitless` , the cluster operates as an Aurora Limitless Database, allowing you to create a DB shard group for horizontal scaling (sharding) capabilities. When set to `standard` (the default), the cluster uses normal DB instance creation.
+        :param pulumi.Input[str] cluster_scalability_type: Specifies the scalability mode of the Aurora DB cluster. When set to ``limitless``, the cluster operates as an Aurora Limitless Database, allowing you to create a DB shard group for horizontal scaling (sharding) capabilities. When set to ``standard`` (the default), the cluster uses normal DB instance creation.
         :param pulumi.Input[bool] copy_tags_to_snapshot: A value that indicates whether to copy all tags from the DB cluster to snapshots of the DB cluster. The default is not to copy them.
                 Valid for: Aurora DB clusters and Multi-AZ DB clusters
         :param pulumi.Input[str] database_name: The name of your database. If you don't provide a name, then Amazon RDS won't create a database in this DB cluster. For naming constraints, see [Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_Limits.html#RDS_Limits.Constraints) in the *Amazon Aurora User Guide*. 
@@ -1634,7 +1636,7 @@ class DbCluster(pulumi.CustomResource):
         :param pulumi.Input[str] engine_lifecycle_support: The life cycle type for this DB cluster.
                  By default, this value is set to ``open-source-rds-extended-support``, which enrolls your DB cluster into Amazon RDS Extended Support. At the end of standard support, you can avoid charges for Extended Support by setting the value to ``open-source-rds-extended-support-disabled``. In this case, creating the DB cluster will fail if the DB major version is past its end of standard support date.
                  You can use this setting to enroll your DB cluster into Amazon RDS Extended Support. With RDS Extended Support, you can run the selected major engine version on your DB cluster past the end of standard support for that engine version. For more information, see the following sections:
-                 +  Amazon Aurora (PostgreSQL only) - [Using Amazon RDS Extended Support](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/extended-support.html) in the *Amazon Aurora User Guide* 
+                 +  Amazon Aurora - [Using Amazon RDS Extended Support](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/extended-support.html) in the *Amazon Aurora User Guide* 
                  +  Amazon RDS - [Using Amazon RDS Extended Support](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html) in the *Amazon RDS User Guide* 
                  
                 Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
@@ -1690,18 +1692,19 @@ class DbCluster(pulumi.CustomResource):
                  If you specify the ``SourceDBClusterIdentifier``, ``SnapshotIdentifier``, or ``GlobalClusterIdentifier`` property, don't specify this property. The value is inherited from the source DB cluster, the snapshot, or the primary DB cluster for the global database cluster, respectively.
                  Valid for: Aurora DB clusters and Multi-AZ DB clusters
         :param pulumi.Input[Union['DbClusterMasterUserSecretArgs', 'DbClusterMasterUserSecretArgsDict']] master_user_secret: The secret managed by RDS in AWS Secrets Manager for the master user password.
-                For more information, see [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html) in the *Amazon RDS User Guide* and [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html) in the *Amazon Aurora User Guide.*
+                 When you restore a DB cluster from a snapshot, Amazon RDS generates a new secret instead of reusing the secret specified in the ``SecretArn`` property. This ensures that the restored DB cluster is securely managed with a dedicated secret. To maintain consistent integration with your application, you might need to update resource configurations to reference the newly created secret.
+                 For more information, see [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html) in the *Amazon RDS User Guide* and [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html) in the *Amazon Aurora User Guide.*
         :param pulumi.Input[str] master_username: The name of the master user for the DB cluster.
                  If you specify the ``SourceDBClusterIdentifier``, ``SnapshotIdentifier``, or ``GlobalClusterIdentifier`` property, don't specify this property. The value is inherited from the source DB cluster, the snapshot, or the primary DB cluster for the global database cluster, respectively.
                  Valid for: Aurora DB clusters and Multi-AZ DB clusters
         :param pulumi.Input[int] monitoring_interval: The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB cluster. To turn off collecting Enhanced Monitoring metrics, specify ``0``.
                 If ``MonitoringRoleArn`` is specified, also set ``MonitoringInterval`` to a value other than ``0``.
-                Valid for Cluster Type: Multi-AZ DB clusters only
+                Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
                 Valid Values: ``0 | 1 | 5 | 10 | 15 | 30 | 60`` 
                 Default: ``0``
         :param pulumi.Input[str] monitoring_role_arn: The Amazon Resource Name (ARN) for the IAM role that permits RDS to send Enhanced Monitoring metrics to Amazon CloudWatch Logs. An example is ``arn:aws:iam:123456789012:role/emaccess``. For information on creating a monitoring role, see [Setting up and enabling Enhanced Monitoring](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.OS.html#USER_Monitoring.OS.Enabling) in the *Amazon RDS User Guide*.
                 If ``MonitoringInterval`` is set to a value other than ``0``, supply a ``MonitoringRoleArn`` value.
-                Valid for Cluster Type: Multi-AZ DB clusters only
+                Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
         :param pulumi.Input[str] network_type: The network type of the DB cluster.
                 Valid values:
                  +   ``IPV4`` 
@@ -1712,13 +1715,13 @@ class DbCluster(pulumi.CustomResource):
                 Valid for: Aurora DB clusters only
         :param pulumi.Input[bool] performance_insights_enabled: Specifies whether to turn on Performance Insights for the DB cluster.
                 For more information, see [Using Amazon Performance Insights](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html) in the *Amazon RDS User Guide*.
-                Valid for Cluster Type: Multi-AZ DB clusters only
+                Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
         :param pulumi.Input[str] performance_insights_kms_key_id: The AWS KMS key identifier for encryption of Performance Insights data.
                 The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
                 If you don't specify a value for ``PerformanceInsightsKMSKeyId``, then Amazon RDS uses your default KMS key. There is a default KMS key for your AWS-account. Your AWS-account has a different default KMS key for each AWS-Region.
-                Valid for Cluster Type: Multi-AZ DB clusters only
+                Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
         :param pulumi.Input[int] performance_insights_retention_period: The number of days to retain Performance Insights data.
-                Valid for Cluster Type: Multi-AZ DB clusters only
+                Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
                 Valid Values:
                  +   ``7`` 
                  +   *month* * 31, where *month* is a number of months from 1-23. Examples: ``93`` (3 months * 31), ``341`` (11 months * 31), ``589`` (19 months * 31)
@@ -2128,7 +2131,7 @@ class DbCluster(pulumi.CustomResource):
     def auto_minor_version_upgrade(self) -> pulumi.Output[Optional[bool]]:
         """
         Specifies whether minor engine upgrades are applied automatically to the DB cluster during the maintenance window. By default, minor engine upgrades are applied automatically.
-         Valid for Cluster Type: Multi-AZ DB clusters only
+         Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB cluster
         """
         return pulumi.get(self, "auto_minor_version_upgrade")
 
@@ -2170,7 +2173,7 @@ class DbCluster(pulumi.CustomResource):
     @pulumi.getter(name="clusterScalabilityType")
     def cluster_scalability_type(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies the scalability mode of the Aurora DB cluster. When set to `limitless` , the cluster operates as an Aurora Limitless Database, allowing you to create a DB shard group for horizontal scaling (sharding) capabilities. When set to `standard` (the default), the cluster uses normal DB instance creation.
+        Specifies the scalability mode of the Aurora DB cluster. When set to ``limitless``, the cluster operates as an Aurora Limitless Database, allowing you to create a DB shard group for horizontal scaling (sharding) capabilities. When set to ``standard`` (the default), the cluster uses normal DB instance creation.
         """
         return pulumi.get(self, "cluster_scalability_type")
 
@@ -2392,7 +2395,7 @@ class DbCluster(pulumi.CustomResource):
         The life cycle type for this DB cluster.
           By default, this value is set to ``open-source-rds-extended-support``, which enrolls your DB cluster into Amazon RDS Extended Support. At the end of standard support, you can avoid charges for Extended Support by setting the value to ``open-source-rds-extended-support-disabled``. In this case, creating the DB cluster will fail if the DB major version is past its end of standard support date.
           You can use this setting to enroll your DB cluster into Amazon RDS Extended Support. With RDS Extended Support, you can run the selected major engine version on your DB cluster past the end of standard support for that engine version. For more information, see the following sections:
-          +  Amazon Aurora (PostgreSQL only) - [Using Amazon RDS Extended Support](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/extended-support.html) in the *Amazon Aurora User Guide* 
+          +  Amazon Aurora - [Using Amazon RDS Extended Support](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/extended-support.html) in the *Amazon Aurora User Guide* 
           +  Amazon RDS - [Using Amazon RDS Extended Support](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html) in the *Amazon RDS User Guide* 
           
          Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
@@ -2504,7 +2507,8 @@ class DbCluster(pulumi.CustomResource):
     def master_user_secret(self) -> pulumi.Output[Optional['outputs.DbClusterMasterUserSecret']]:
         """
         The secret managed by RDS in AWS Secrets Manager for the master user password.
-         For more information, see [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html) in the *Amazon RDS User Guide* and [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html) in the *Amazon Aurora User Guide.*
+          When you restore a DB cluster from a snapshot, Amazon RDS generates a new secret instead of reusing the secret specified in the ``SecretArn`` property. This ensures that the restored DB cluster is securely managed with a dedicated secret. To maintain consistent integration with your application, you might need to update resource configurations to reference the newly created secret.
+          For more information, see [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html) in the *Amazon RDS User Guide* and [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html) in the *Amazon Aurora User Guide.*
         """
         return pulumi.get(self, "master_user_secret")
 
@@ -2524,7 +2528,7 @@ class DbCluster(pulumi.CustomResource):
         """
         The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB cluster. To turn off collecting Enhanced Monitoring metrics, specify ``0``.
          If ``MonitoringRoleArn`` is specified, also set ``MonitoringInterval`` to a value other than ``0``.
-         Valid for Cluster Type: Multi-AZ DB clusters only
+         Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
          Valid Values: ``0 | 1 | 5 | 10 | 15 | 30 | 60`` 
          Default: ``0``
         """
@@ -2536,7 +2540,7 @@ class DbCluster(pulumi.CustomResource):
         """
         The Amazon Resource Name (ARN) for the IAM role that permits RDS to send Enhanced Monitoring metrics to Amazon CloudWatch Logs. An example is ``arn:aws:iam:123456789012:role/emaccess``. For information on creating a monitoring role, see [Setting up and enabling Enhanced Monitoring](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.OS.html#USER_Monitoring.OS.Enabling) in the *Amazon RDS User Guide*.
          If ``MonitoringInterval`` is set to a value other than ``0``, supply a ``MonitoringRoleArn`` value.
-         Valid for Cluster Type: Multi-AZ DB clusters only
+         Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
         """
         return pulumi.get(self, "monitoring_role_arn")
 
@@ -2561,7 +2565,7 @@ class DbCluster(pulumi.CustomResource):
         """
         Specifies whether to turn on Performance Insights for the DB cluster.
          For more information, see [Using Amazon Performance Insights](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PerfInsights.html) in the *Amazon RDS User Guide*.
-         Valid for Cluster Type: Multi-AZ DB clusters only
+         Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
         """
         return pulumi.get(self, "performance_insights_enabled")
 
@@ -2572,7 +2576,7 @@ class DbCluster(pulumi.CustomResource):
         The AWS KMS key identifier for encryption of Performance Insights data.
          The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
          If you don't specify a value for ``PerformanceInsightsKMSKeyId``, then Amazon RDS uses your default KMS key. There is a default KMS key for your AWS-account. Your AWS-account has a different default KMS key for each AWS-Region.
-         Valid for Cluster Type: Multi-AZ DB clusters only
+         Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
         """
         return pulumi.get(self, "performance_insights_kms_key_id")
 
@@ -2581,7 +2585,7 @@ class DbCluster(pulumi.CustomResource):
     def performance_insights_retention_period(self) -> pulumi.Output[Optional[int]]:
         """
         The number of days to retain Performance Insights data.
-         Valid for Cluster Type: Multi-AZ DB clusters only
+         Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB clusters
          Valid Values:
           +   ``7`` 
           +   *month* * 31, where *month* is a number of months from 1-23. Examples: ``93`` (3 months * 31), ``341`` (11 months * 31), ``589`` (19 months * 31)

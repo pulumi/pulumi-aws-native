@@ -40,7 +40,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         /// Information about the format for the S3 source file or files.
         /// </summary>
         [Input("uploadSettings")]
-        public Input<Inputs.DataSetUploadSettingsArgs>? UploadSettings { get; set; }
+        public Input<object>? UploadSettings { get; set; }
 
         public DataSetS3SourceArgs()
         {

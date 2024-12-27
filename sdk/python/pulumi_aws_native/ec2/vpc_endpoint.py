@@ -40,6 +40,8 @@ class VpcEndpointArgs:
         """
         The set of arguments for constructing a VpcEndpoint resource.
         :param pulumi.Input[str] vpc_id: The ID of the VPC.
+        :param pulumi.Input['VpcEndpointDnsOptionsSpecificationArgs'] dns_options: Describes the DNS options for an endpoint.
+        :param pulumi.Input['VpcEndpointIpAddressType'] ip_address_type: The supported IP address types.
         :param Any policy_document: An endpoint policy, which controls access to the service from the VPC. The default endpoint policy allows full access to the service. Endpoint policies are supported only for gateway and interface endpoints.
                 For CloudFormation templates in YAML, you can provide the policy in JSON or YAML format. For example, if you have a JSON policy, you can convert it to YAML before including it in the YAML template, and CFNlong converts the policy to JSON format before calling the API actions for privatelink. Alternatively, you can include the JSON directly in the YAML, as shown in the following ``Properties`` section:
                 ``Properties: VpcEndpointType: 'Interface' ServiceName: !Sub 'com.amazonaws.${AWS::Region}.logs' PolicyDocument: '{ "Version":"2012-10-17", "Statement": [{ "Effect":"Allow", "Principal":"*", "Action":["logs:Describe*","logs:Get*","logs:List*","logs:FilterLogEvents"], "Resource":"*" }] }'``
@@ -49,9 +51,11 @@ class VpcEndpointArgs:
                 To use a private hosted zone, you must set the following VPC attributes to ``true``: ``enableDnsHostnames`` and ``enableDnsSupport``.
                 This property is supported only for interface endpoints.
                 Default: ``false``
+        :param pulumi.Input[str] resource_configuration_arn: The Amazon Resource Name (ARN) of the resource configuration.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] route_table_ids: The IDs of the route tables. Routing is supported only for gateway endpoints.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: The IDs of the security groups to associate with the endpoint network interfaces. If this parameter is not specified, we use the default security group for the VPC. Security groups are supported only for interface endpoints.
         :param pulumi.Input[str] service_name: The name of the endpoint service.
+        :param pulumi.Input[str] service_network_arn: The Amazon Resource Name (ARN) of the service network.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The IDs of the subnets in which to create endpoint network interfaces. You must specify this property for an interface endpoint or a Gateway Load Balancer endpoint. You can't specify this property for a gateway endpoint. For a Gateway Load Balancer endpoint, you can specify only one subnet.
         :param pulumi.Input['VpcEndpointType'] vpc_endpoint_type: The type of endpoint.
                 Default: Gateway
@@ -97,6 +101,9 @@ class VpcEndpointArgs:
     @property
     @pulumi.getter(name="dnsOptions")
     def dns_options(self) -> Optional[pulumi.Input['VpcEndpointDnsOptionsSpecificationArgs']]:
+        """
+        Describes the DNS options for an endpoint.
+        """
         return pulumi.get(self, "dns_options")
 
     @dns_options.setter
@@ -106,6 +113,9 @@ class VpcEndpointArgs:
     @property
     @pulumi.getter(name="ipAddressType")
     def ip_address_type(self) -> Optional[pulumi.Input['VpcEndpointIpAddressType']]:
+        """
+        The supported IP address types.
+        """
         return pulumi.get(self, "ip_address_type")
 
     @ip_address_type.setter
@@ -146,6 +156,9 @@ class VpcEndpointArgs:
     @property
     @pulumi.getter(name="resourceConfigurationArn")
     def resource_configuration_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the resource configuration.
+        """
         return pulumi.get(self, "resource_configuration_arn")
 
     @resource_configuration_arn.setter
@@ -191,6 +204,9 @@ class VpcEndpointArgs:
     @property
     @pulumi.getter(name="serviceNetworkArn")
     def service_network_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the service network.
+        """
         return pulumi.get(self, "service_network_arn")
 
     @service_network_arn.setter
@@ -262,6 +278,8 @@ class VpcEndpoint(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['VpcEndpointDnsOptionsSpecificationArgs', 'VpcEndpointDnsOptionsSpecificationArgsDict']] dns_options: Describes the DNS options for an endpoint.
+        :param pulumi.Input['VpcEndpointIpAddressType'] ip_address_type: The supported IP address types.
         :param Any policy_document: An endpoint policy, which controls access to the service from the VPC. The default endpoint policy allows full access to the service. Endpoint policies are supported only for gateway and interface endpoints.
                 For CloudFormation templates in YAML, you can provide the policy in JSON or YAML format. For example, if you have a JSON policy, you can convert it to YAML before including it in the YAML template, and CFNlong converts the policy to JSON format before calling the API actions for privatelink. Alternatively, you can include the JSON directly in the YAML, as shown in the following ``Properties`` section:
                 ``Properties: VpcEndpointType: 'Interface' ServiceName: !Sub 'com.amazonaws.${AWS::Region}.logs' PolicyDocument: '{ "Version":"2012-10-17", "Statement": [{ "Effect":"Allow", "Principal":"*", "Action":["logs:Describe*","logs:Get*","logs:List*","logs:FilterLogEvents"], "Resource":"*" }] }'``
@@ -271,9 +289,11 @@ class VpcEndpoint(pulumi.CustomResource):
                 To use a private hosted zone, you must set the following VPC attributes to ``true``: ``enableDnsHostnames`` and ``enableDnsSupport``.
                 This property is supported only for interface endpoints.
                 Default: ``false``
+        :param pulumi.Input[str] resource_configuration_arn: The Amazon Resource Name (ARN) of the resource configuration.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] route_table_ids: The IDs of the route tables. Routing is supported only for gateway endpoints.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: The IDs of the security groups to associate with the endpoint network interfaces. If this parameter is not specified, we use the default security group for the VPC. Security groups are supported only for interface endpoints.
         :param pulumi.Input[str] service_name: The name of the endpoint service.
+        :param pulumi.Input[str] service_network_arn: The Amazon Resource Name (ARN) of the service network.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: The IDs of the subnets in which to create endpoint network interfaces. You must specify this property for an interface endpoint or a Gateway Load Balancer endpoint. You can't specify this property for a gateway endpoint. For a Gateway Load Balancer endpoint, you can specify only one subnet.
         :param pulumi.Input['VpcEndpointType'] vpc_endpoint_type: The type of endpoint.
                 Default: Gateway
@@ -426,11 +446,17 @@ class VpcEndpoint(pulumi.CustomResource):
     @property
     @pulumi.getter(name="dnsOptions")
     def dns_options(self) -> pulumi.Output[Optional['outputs.VpcEndpointDnsOptionsSpecification']]:
+        """
+        Describes the DNS options for an endpoint.
+        """
         return pulumi.get(self, "dns_options")
 
     @property
     @pulumi.getter(name="ipAddressType")
     def ip_address_type(self) -> pulumi.Output[Optional['VpcEndpointIpAddressType']]:
+        """
+        The supported IP address types.
+        """
         return pulumi.get(self, "ip_address_type")
 
     @property
@@ -467,6 +493,9 @@ class VpcEndpoint(pulumi.CustomResource):
     @property
     @pulumi.getter(name="resourceConfigurationArn")
     def resource_configuration_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Amazon Resource Name (ARN) of the resource configuration.
+        """
         return pulumi.get(self, "resource_configuration_arn")
 
     @property
@@ -496,6 +525,9 @@ class VpcEndpoint(pulumi.CustomResource):
     @property
     @pulumi.getter(name="serviceNetworkArn")
     def service_network_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Amazon Resource Name (ARN) of the service network.
+        """
         return pulumi.get(self, "service_network_arn")
 
     @property

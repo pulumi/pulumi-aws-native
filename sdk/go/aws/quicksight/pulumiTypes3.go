@@ -13,334 +13,6 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
-type TemplateParameterDateTimePickerControl struct {
-	// The display options of a control.
-	DisplayOptions *TemplateDateTimePickerControlDisplayOptions `pulumi:"displayOptions"`
-	// The ID of the `ParameterDateTimePickerControl` .
-	ParameterControlId string `pulumi:"parameterControlId"`
-	// The name of the `ParameterDateTimePickerControl` .
-	SourceParameterName string `pulumi:"sourceParameterName"`
-	// The title of the `ParameterDateTimePickerControl` .
-	Title string `pulumi:"title"`
-}
-
-// TemplateParameterDateTimePickerControlInput is an input type that accepts TemplateParameterDateTimePickerControlArgs and TemplateParameterDateTimePickerControlOutput values.
-// You can construct a concrete instance of `TemplateParameterDateTimePickerControlInput` via:
-//
-//	TemplateParameterDateTimePickerControlArgs{...}
-type TemplateParameterDateTimePickerControlInput interface {
-	pulumi.Input
-
-	ToTemplateParameterDateTimePickerControlOutput() TemplateParameterDateTimePickerControlOutput
-	ToTemplateParameterDateTimePickerControlOutputWithContext(context.Context) TemplateParameterDateTimePickerControlOutput
-}
-
-type TemplateParameterDateTimePickerControlArgs struct {
-	// The display options of a control.
-	DisplayOptions TemplateDateTimePickerControlDisplayOptionsPtrInput `pulumi:"displayOptions"`
-	// The ID of the `ParameterDateTimePickerControl` .
-	ParameterControlId pulumi.StringInput `pulumi:"parameterControlId"`
-	// The name of the `ParameterDateTimePickerControl` .
-	SourceParameterName pulumi.StringInput `pulumi:"sourceParameterName"`
-	// The title of the `ParameterDateTimePickerControl` .
-	Title pulumi.StringInput `pulumi:"title"`
-}
-
-func (TemplateParameterDateTimePickerControlArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateParameterDateTimePickerControl)(nil)).Elem()
-}
-
-func (i TemplateParameterDateTimePickerControlArgs) ToTemplateParameterDateTimePickerControlOutput() TemplateParameterDateTimePickerControlOutput {
-	return i.ToTemplateParameterDateTimePickerControlOutputWithContext(context.Background())
-}
-
-func (i TemplateParameterDateTimePickerControlArgs) ToTemplateParameterDateTimePickerControlOutputWithContext(ctx context.Context) TemplateParameterDateTimePickerControlOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateParameterDateTimePickerControlOutput)
-}
-
-func (i TemplateParameterDateTimePickerControlArgs) ToTemplateParameterDateTimePickerControlPtrOutput() TemplateParameterDateTimePickerControlPtrOutput {
-	return i.ToTemplateParameterDateTimePickerControlPtrOutputWithContext(context.Background())
-}
-
-func (i TemplateParameterDateTimePickerControlArgs) ToTemplateParameterDateTimePickerControlPtrOutputWithContext(ctx context.Context) TemplateParameterDateTimePickerControlPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateParameterDateTimePickerControlOutput).ToTemplateParameterDateTimePickerControlPtrOutputWithContext(ctx)
-}
-
-// TemplateParameterDateTimePickerControlPtrInput is an input type that accepts TemplateParameterDateTimePickerControlArgs, TemplateParameterDateTimePickerControlPtr and TemplateParameterDateTimePickerControlPtrOutput values.
-// You can construct a concrete instance of `TemplateParameterDateTimePickerControlPtrInput` via:
-//
-//	        TemplateParameterDateTimePickerControlArgs{...}
-//
-//	or:
-//
-//	        nil
-type TemplateParameterDateTimePickerControlPtrInput interface {
-	pulumi.Input
-
-	ToTemplateParameterDateTimePickerControlPtrOutput() TemplateParameterDateTimePickerControlPtrOutput
-	ToTemplateParameterDateTimePickerControlPtrOutputWithContext(context.Context) TemplateParameterDateTimePickerControlPtrOutput
-}
-
-type templateParameterDateTimePickerControlPtrType TemplateParameterDateTimePickerControlArgs
-
-func TemplateParameterDateTimePickerControlPtr(v *TemplateParameterDateTimePickerControlArgs) TemplateParameterDateTimePickerControlPtrInput {
-	return (*templateParameterDateTimePickerControlPtrType)(v)
-}
-
-func (*templateParameterDateTimePickerControlPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateParameterDateTimePickerControl)(nil)).Elem()
-}
-
-func (i *templateParameterDateTimePickerControlPtrType) ToTemplateParameterDateTimePickerControlPtrOutput() TemplateParameterDateTimePickerControlPtrOutput {
-	return i.ToTemplateParameterDateTimePickerControlPtrOutputWithContext(context.Background())
-}
-
-func (i *templateParameterDateTimePickerControlPtrType) ToTemplateParameterDateTimePickerControlPtrOutputWithContext(ctx context.Context) TemplateParameterDateTimePickerControlPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateParameterDateTimePickerControlPtrOutput)
-}
-
-type TemplateParameterDateTimePickerControlOutput struct{ *pulumi.OutputState }
-
-func (TemplateParameterDateTimePickerControlOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateParameterDateTimePickerControl)(nil)).Elem()
-}
-
-func (o TemplateParameterDateTimePickerControlOutput) ToTemplateParameterDateTimePickerControlOutput() TemplateParameterDateTimePickerControlOutput {
-	return o
-}
-
-func (o TemplateParameterDateTimePickerControlOutput) ToTemplateParameterDateTimePickerControlOutputWithContext(ctx context.Context) TemplateParameterDateTimePickerControlOutput {
-	return o
-}
-
-func (o TemplateParameterDateTimePickerControlOutput) ToTemplateParameterDateTimePickerControlPtrOutput() TemplateParameterDateTimePickerControlPtrOutput {
-	return o.ToTemplateParameterDateTimePickerControlPtrOutputWithContext(context.Background())
-}
-
-func (o TemplateParameterDateTimePickerControlOutput) ToTemplateParameterDateTimePickerControlPtrOutputWithContext(ctx context.Context) TemplateParameterDateTimePickerControlPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TemplateParameterDateTimePickerControl) *TemplateParameterDateTimePickerControl {
-		return &v
-	}).(TemplateParameterDateTimePickerControlPtrOutput)
-}
-
-// The display options of a control.
-func (o TemplateParameterDateTimePickerControlOutput) DisplayOptions() TemplateDateTimePickerControlDisplayOptionsPtrOutput {
-	return o.ApplyT(func(v TemplateParameterDateTimePickerControl) *TemplateDateTimePickerControlDisplayOptions {
-		return v.DisplayOptions
-	}).(TemplateDateTimePickerControlDisplayOptionsPtrOutput)
-}
-
-// The ID of the `ParameterDateTimePickerControl` .
-func (o TemplateParameterDateTimePickerControlOutput) ParameterControlId() pulumi.StringOutput {
-	return o.ApplyT(func(v TemplateParameterDateTimePickerControl) string { return v.ParameterControlId }).(pulumi.StringOutput)
-}
-
-// The name of the `ParameterDateTimePickerControl` .
-func (o TemplateParameterDateTimePickerControlOutput) SourceParameterName() pulumi.StringOutput {
-	return o.ApplyT(func(v TemplateParameterDateTimePickerControl) string { return v.SourceParameterName }).(pulumi.StringOutput)
-}
-
-// The title of the `ParameterDateTimePickerControl` .
-func (o TemplateParameterDateTimePickerControlOutput) Title() pulumi.StringOutput {
-	return o.ApplyT(func(v TemplateParameterDateTimePickerControl) string { return v.Title }).(pulumi.StringOutput)
-}
-
-type TemplateParameterDateTimePickerControlPtrOutput struct{ *pulumi.OutputState }
-
-func (TemplateParameterDateTimePickerControlPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TemplateParameterDateTimePickerControl)(nil)).Elem()
-}
-
-func (o TemplateParameterDateTimePickerControlPtrOutput) ToTemplateParameterDateTimePickerControlPtrOutput() TemplateParameterDateTimePickerControlPtrOutput {
-	return o
-}
-
-func (o TemplateParameterDateTimePickerControlPtrOutput) ToTemplateParameterDateTimePickerControlPtrOutputWithContext(ctx context.Context) TemplateParameterDateTimePickerControlPtrOutput {
-	return o
-}
-
-func (o TemplateParameterDateTimePickerControlPtrOutput) Elem() TemplateParameterDateTimePickerControlOutput {
-	return o.ApplyT(func(v *TemplateParameterDateTimePickerControl) TemplateParameterDateTimePickerControl {
-		if v != nil {
-			return *v
-		}
-		var ret TemplateParameterDateTimePickerControl
-		return ret
-	}).(TemplateParameterDateTimePickerControlOutput)
-}
-
-// The display options of a control.
-func (o TemplateParameterDateTimePickerControlPtrOutput) DisplayOptions() TemplateDateTimePickerControlDisplayOptionsPtrOutput {
-	return o.ApplyT(func(v *TemplateParameterDateTimePickerControl) *TemplateDateTimePickerControlDisplayOptions {
-		if v == nil {
-			return nil
-		}
-		return v.DisplayOptions
-	}).(TemplateDateTimePickerControlDisplayOptionsPtrOutput)
-}
-
-// The ID of the `ParameterDateTimePickerControl` .
-func (o TemplateParameterDateTimePickerControlPtrOutput) ParameterControlId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TemplateParameterDateTimePickerControl) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ParameterControlId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The name of the `ParameterDateTimePickerControl` .
-func (o TemplateParameterDateTimePickerControlPtrOutput) SourceParameterName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TemplateParameterDateTimePickerControl) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.SourceParameterName
-	}).(pulumi.StringPtrOutput)
-}
-
-// The title of the `ParameterDateTimePickerControl` .
-func (o TemplateParameterDateTimePickerControlPtrOutput) Title() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TemplateParameterDateTimePickerControl) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Title
-	}).(pulumi.StringPtrOutput)
-}
-
-type TemplateParameterDeclaration struct {
-	// A parameter declaration for the `DateTime` data type.
-	DateTimeParameterDeclaration *TemplateDateTimeParameterDeclaration `pulumi:"dateTimeParameterDeclaration"`
-	// A parameter declaration for the `Decimal` data type.
-	DecimalParameterDeclaration *TemplateDecimalParameterDeclaration `pulumi:"decimalParameterDeclaration"`
-	// A parameter declaration for the `Integer` data type.
-	IntegerParameterDeclaration *TemplateIntegerParameterDeclaration `pulumi:"integerParameterDeclaration"`
-	// A parameter declaration for the `String` data type.
-	StringParameterDeclaration *TemplateStringParameterDeclaration `pulumi:"stringParameterDeclaration"`
-}
-
-// TemplateParameterDeclarationInput is an input type that accepts TemplateParameterDeclarationArgs and TemplateParameterDeclarationOutput values.
-// You can construct a concrete instance of `TemplateParameterDeclarationInput` via:
-//
-//	TemplateParameterDeclarationArgs{...}
-type TemplateParameterDeclarationInput interface {
-	pulumi.Input
-
-	ToTemplateParameterDeclarationOutput() TemplateParameterDeclarationOutput
-	ToTemplateParameterDeclarationOutputWithContext(context.Context) TemplateParameterDeclarationOutput
-}
-
-type TemplateParameterDeclarationArgs struct {
-	// A parameter declaration for the `DateTime` data type.
-	DateTimeParameterDeclaration TemplateDateTimeParameterDeclarationPtrInput `pulumi:"dateTimeParameterDeclaration"`
-	// A parameter declaration for the `Decimal` data type.
-	DecimalParameterDeclaration TemplateDecimalParameterDeclarationPtrInput `pulumi:"decimalParameterDeclaration"`
-	// A parameter declaration for the `Integer` data type.
-	IntegerParameterDeclaration TemplateIntegerParameterDeclarationPtrInput `pulumi:"integerParameterDeclaration"`
-	// A parameter declaration for the `String` data type.
-	StringParameterDeclaration TemplateStringParameterDeclarationPtrInput `pulumi:"stringParameterDeclaration"`
-}
-
-func (TemplateParameterDeclarationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateParameterDeclaration)(nil)).Elem()
-}
-
-func (i TemplateParameterDeclarationArgs) ToTemplateParameterDeclarationOutput() TemplateParameterDeclarationOutput {
-	return i.ToTemplateParameterDeclarationOutputWithContext(context.Background())
-}
-
-func (i TemplateParameterDeclarationArgs) ToTemplateParameterDeclarationOutputWithContext(ctx context.Context) TemplateParameterDeclarationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateParameterDeclarationOutput)
-}
-
-// TemplateParameterDeclarationArrayInput is an input type that accepts TemplateParameterDeclarationArray and TemplateParameterDeclarationArrayOutput values.
-// You can construct a concrete instance of `TemplateParameterDeclarationArrayInput` via:
-//
-//	TemplateParameterDeclarationArray{ TemplateParameterDeclarationArgs{...} }
-type TemplateParameterDeclarationArrayInput interface {
-	pulumi.Input
-
-	ToTemplateParameterDeclarationArrayOutput() TemplateParameterDeclarationArrayOutput
-	ToTemplateParameterDeclarationArrayOutputWithContext(context.Context) TemplateParameterDeclarationArrayOutput
-}
-
-type TemplateParameterDeclarationArray []TemplateParameterDeclarationInput
-
-func (TemplateParameterDeclarationArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TemplateParameterDeclaration)(nil)).Elem()
-}
-
-func (i TemplateParameterDeclarationArray) ToTemplateParameterDeclarationArrayOutput() TemplateParameterDeclarationArrayOutput {
-	return i.ToTemplateParameterDeclarationArrayOutputWithContext(context.Background())
-}
-
-func (i TemplateParameterDeclarationArray) ToTemplateParameterDeclarationArrayOutputWithContext(ctx context.Context) TemplateParameterDeclarationArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateParameterDeclarationArrayOutput)
-}
-
-type TemplateParameterDeclarationOutput struct{ *pulumi.OutputState }
-
-func (TemplateParameterDeclarationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateParameterDeclaration)(nil)).Elem()
-}
-
-func (o TemplateParameterDeclarationOutput) ToTemplateParameterDeclarationOutput() TemplateParameterDeclarationOutput {
-	return o
-}
-
-func (o TemplateParameterDeclarationOutput) ToTemplateParameterDeclarationOutputWithContext(ctx context.Context) TemplateParameterDeclarationOutput {
-	return o
-}
-
-// A parameter declaration for the `DateTime` data type.
-func (o TemplateParameterDeclarationOutput) DateTimeParameterDeclaration() TemplateDateTimeParameterDeclarationPtrOutput {
-	return o.ApplyT(func(v TemplateParameterDeclaration) *TemplateDateTimeParameterDeclaration {
-		return v.DateTimeParameterDeclaration
-	}).(TemplateDateTimeParameterDeclarationPtrOutput)
-}
-
-// A parameter declaration for the `Decimal` data type.
-func (o TemplateParameterDeclarationOutput) DecimalParameterDeclaration() TemplateDecimalParameterDeclarationPtrOutput {
-	return o.ApplyT(func(v TemplateParameterDeclaration) *TemplateDecimalParameterDeclaration {
-		return v.DecimalParameterDeclaration
-	}).(TemplateDecimalParameterDeclarationPtrOutput)
-}
-
-// A parameter declaration for the `Integer` data type.
-func (o TemplateParameterDeclarationOutput) IntegerParameterDeclaration() TemplateIntegerParameterDeclarationPtrOutput {
-	return o.ApplyT(func(v TemplateParameterDeclaration) *TemplateIntegerParameterDeclaration {
-		return v.IntegerParameterDeclaration
-	}).(TemplateIntegerParameterDeclarationPtrOutput)
-}
-
-// A parameter declaration for the `String` data type.
-func (o TemplateParameterDeclarationOutput) StringParameterDeclaration() TemplateStringParameterDeclarationPtrOutput {
-	return o.ApplyT(func(v TemplateParameterDeclaration) *TemplateStringParameterDeclaration {
-		return v.StringParameterDeclaration
-	}).(TemplateStringParameterDeclarationPtrOutput)
-}
-
-type TemplateParameterDeclarationArrayOutput struct{ *pulumi.OutputState }
-
-func (TemplateParameterDeclarationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TemplateParameterDeclaration)(nil)).Elem()
-}
-
-func (o TemplateParameterDeclarationArrayOutput) ToTemplateParameterDeclarationArrayOutput() TemplateParameterDeclarationArrayOutput {
-	return o
-}
-
-func (o TemplateParameterDeclarationArrayOutput) ToTemplateParameterDeclarationArrayOutputWithContext(ctx context.Context) TemplateParameterDeclarationArrayOutput {
-	return o
-}
-
-func (o TemplateParameterDeclarationArrayOutput) Index(i pulumi.IntInput) TemplateParameterDeclarationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TemplateParameterDeclaration {
-		return vs[0].([]TemplateParameterDeclaration)[vs[1].(int)]
-	}).(TemplateParameterDeclarationOutput)
-}
-
 type TemplateParameterDropDownControl struct {
 	// The values that are displayed in a control can be configured to only show values that are valid based on what's selected in other controls.
 	CascadingControlConfiguration *TemplateCascadingControlConfiguration `pulumi:"cascadingControlConfiguration"`
@@ -5159,7 +4831,7 @@ type TemplatePivotTableFieldOption struct {
 	// The field ID of the pivot table field.
 	FieldId string `pulumi:"fieldId"`
 	// The visibility of the pivot table field.
-	Visibility *TemplateVisibility `pulumi:"visibility"`
+	Visibility interface{} `pulumi:"visibility"`
 }
 
 // TemplatePivotTableFieldOptionInput is an input type that accepts TemplatePivotTableFieldOptionArgs and TemplatePivotTableFieldOptionOutput values.
@@ -5179,7 +4851,7 @@ type TemplatePivotTableFieldOptionArgs struct {
 	// The field ID of the pivot table field.
 	FieldId pulumi.StringInput `pulumi:"fieldId"`
 	// The visibility of the pivot table field.
-	Visibility TemplateVisibilityPtrInput `pulumi:"visibility"`
+	Visibility pulumi.Input `pulumi:"visibility"`
 }
 
 func (TemplatePivotTableFieldOptionArgs) ElementType() reflect.Type {
@@ -5244,8 +4916,8 @@ func (o TemplatePivotTableFieldOptionOutput) FieldId() pulumi.StringOutput {
 }
 
 // The visibility of the pivot table field.
-func (o TemplatePivotTableFieldOptionOutput) Visibility() TemplateVisibilityPtrOutput {
-	return o.ApplyT(func(v TemplatePivotTableFieldOption) *TemplateVisibility { return v.Visibility }).(TemplateVisibilityPtrOutput)
+func (o TemplatePivotTableFieldOptionOutput) Visibility() pulumi.AnyOutput {
+	return o.ApplyT(func(v TemplatePivotTableFieldOption) interface{} { return v.Visibility }).(pulumi.AnyOutput)
 }
 
 type TemplatePivotTableFieldOptionArrayOutput struct{ *pulumi.OutputState }
@@ -5685,11 +5357,11 @@ type TemplatePivotTableOptions struct {
 	// The table cell style of cells.
 	CellStyle *TemplateTableCellStyle `pulumi:"cellStyle"`
 	// The visibility setting of a pivot table's collapsed row dimension fields. If the value of this structure is `HIDDEN` , all collapsed columns in a pivot table are automatically hidden. The default value is `VISIBLE` .
-	CollapsedRowDimensionsVisibility *TemplateVisibility `pulumi:"collapsedRowDimensionsVisibility"`
+	CollapsedRowDimensionsVisibility interface{} `pulumi:"collapsedRowDimensionsVisibility"`
 	// The table cell style of the column header.
 	ColumnHeaderStyle *TemplateTableCellStyle `pulumi:"columnHeaderStyle"`
 	// The visibility of the column names.
-	ColumnNamesVisibility *TemplateVisibility `pulumi:"columnNamesVisibility"`
+	ColumnNamesVisibility interface{} `pulumi:"columnNamesVisibility"`
 	// String based length that is composed of value and unit in px
 	DefaultCellWidth *string `pulumi:"defaultCellWidth"`
 	// The metric placement (row, column) options.
@@ -5708,9 +5380,9 @@ type TemplatePivotTableOptions struct {
 	// - `HIERARCHY` : All row fields are displayed in a single column. Indentation is used to differentiate row headers of different fields.
 	RowsLayout *TemplatePivotTableRowsLayout `pulumi:"rowsLayout"`
 	// The visibility of the single metric options.
-	SingleMetricVisibility *TemplateVisibility `pulumi:"singleMetricVisibility"`
+	SingleMetricVisibility interface{} `pulumi:"singleMetricVisibility"`
 	// Determines the visibility of the pivot table.
-	ToggleButtonsVisibility *TemplateVisibility `pulumi:"toggleButtonsVisibility"`
+	ToggleButtonsVisibility interface{} `pulumi:"toggleButtonsVisibility"`
 }
 
 // TemplatePivotTableOptionsInput is an input type that accepts TemplatePivotTableOptionsArgs and TemplatePivotTableOptionsOutput values.
@@ -5728,11 +5400,11 @@ type TemplatePivotTableOptionsArgs struct {
 	// The table cell style of cells.
 	CellStyle TemplateTableCellStylePtrInput `pulumi:"cellStyle"`
 	// The visibility setting of a pivot table's collapsed row dimension fields. If the value of this structure is `HIDDEN` , all collapsed columns in a pivot table are automatically hidden. The default value is `VISIBLE` .
-	CollapsedRowDimensionsVisibility TemplateVisibilityPtrInput `pulumi:"collapsedRowDimensionsVisibility"`
+	CollapsedRowDimensionsVisibility pulumi.Input `pulumi:"collapsedRowDimensionsVisibility"`
 	// The table cell style of the column header.
 	ColumnHeaderStyle TemplateTableCellStylePtrInput `pulumi:"columnHeaderStyle"`
 	// The visibility of the column names.
-	ColumnNamesVisibility TemplateVisibilityPtrInput `pulumi:"columnNamesVisibility"`
+	ColumnNamesVisibility pulumi.Input `pulumi:"columnNamesVisibility"`
 	// String based length that is composed of value and unit in px
 	DefaultCellWidth pulumi.StringPtrInput `pulumi:"defaultCellWidth"`
 	// The metric placement (row, column) options.
@@ -5751,9 +5423,9 @@ type TemplatePivotTableOptionsArgs struct {
 	// - `HIERARCHY` : All row fields are displayed in a single column. Indentation is used to differentiate row headers of different fields.
 	RowsLayout TemplatePivotTableRowsLayoutPtrInput `pulumi:"rowsLayout"`
 	// The visibility of the single metric options.
-	SingleMetricVisibility TemplateVisibilityPtrInput `pulumi:"singleMetricVisibility"`
+	SingleMetricVisibility pulumi.Input `pulumi:"singleMetricVisibility"`
 	// Determines the visibility of the pivot table.
-	ToggleButtonsVisibility TemplateVisibilityPtrInput `pulumi:"toggleButtonsVisibility"`
+	ToggleButtonsVisibility pulumi.Input `pulumi:"toggleButtonsVisibility"`
 }
 
 func (TemplatePivotTableOptionsArgs) ElementType() reflect.Type {
@@ -5839,8 +5511,8 @@ func (o TemplatePivotTableOptionsOutput) CellStyle() TemplateTableCellStylePtrOu
 }
 
 // The visibility setting of a pivot table's collapsed row dimension fields. If the value of this structure is `HIDDEN` , all collapsed columns in a pivot table are automatically hidden. The default value is `VISIBLE` .
-func (o TemplatePivotTableOptionsOutput) CollapsedRowDimensionsVisibility() TemplateVisibilityPtrOutput {
-	return o.ApplyT(func(v TemplatePivotTableOptions) *TemplateVisibility { return v.CollapsedRowDimensionsVisibility }).(TemplateVisibilityPtrOutput)
+func (o TemplatePivotTableOptionsOutput) CollapsedRowDimensionsVisibility() pulumi.AnyOutput {
+	return o.ApplyT(func(v TemplatePivotTableOptions) interface{} { return v.CollapsedRowDimensionsVisibility }).(pulumi.AnyOutput)
 }
 
 // The table cell style of the column header.
@@ -5849,8 +5521,8 @@ func (o TemplatePivotTableOptionsOutput) ColumnHeaderStyle() TemplateTableCellSt
 }
 
 // The visibility of the column names.
-func (o TemplatePivotTableOptionsOutput) ColumnNamesVisibility() TemplateVisibilityPtrOutput {
-	return o.ApplyT(func(v TemplatePivotTableOptions) *TemplateVisibility { return v.ColumnNamesVisibility }).(TemplateVisibilityPtrOutput)
+func (o TemplatePivotTableOptionsOutput) ColumnNamesVisibility() pulumi.AnyOutput {
+	return o.ApplyT(func(v TemplatePivotTableOptions) interface{} { return v.ColumnNamesVisibility }).(pulumi.AnyOutput)
 }
 
 // String based length that is composed of value and unit in px
@@ -5892,13 +5564,13 @@ func (o TemplatePivotTableOptionsOutput) RowsLayout() TemplatePivotTableRowsLayo
 }
 
 // The visibility of the single metric options.
-func (o TemplatePivotTableOptionsOutput) SingleMetricVisibility() TemplateVisibilityPtrOutput {
-	return o.ApplyT(func(v TemplatePivotTableOptions) *TemplateVisibility { return v.SingleMetricVisibility }).(TemplateVisibilityPtrOutput)
+func (o TemplatePivotTableOptionsOutput) SingleMetricVisibility() pulumi.AnyOutput {
+	return o.ApplyT(func(v TemplatePivotTableOptions) interface{} { return v.SingleMetricVisibility }).(pulumi.AnyOutput)
 }
 
 // Determines the visibility of the pivot table.
-func (o TemplatePivotTableOptionsOutput) ToggleButtonsVisibility() TemplateVisibilityPtrOutput {
-	return o.ApplyT(func(v TemplatePivotTableOptions) *TemplateVisibility { return v.ToggleButtonsVisibility }).(TemplateVisibilityPtrOutput)
+func (o TemplatePivotTableOptionsOutput) ToggleButtonsVisibility() pulumi.AnyOutput {
+	return o.ApplyT(func(v TemplatePivotTableOptions) interface{} { return v.ToggleButtonsVisibility }).(pulumi.AnyOutput)
 }
 
 type TemplatePivotTableOptionsPtrOutput struct{ *pulumi.OutputState }
@@ -5936,13 +5608,13 @@ func (o TemplatePivotTableOptionsPtrOutput) CellStyle() TemplateTableCellStylePt
 }
 
 // The visibility setting of a pivot table's collapsed row dimension fields. If the value of this structure is `HIDDEN` , all collapsed columns in a pivot table are automatically hidden. The default value is `VISIBLE` .
-func (o TemplatePivotTableOptionsPtrOutput) CollapsedRowDimensionsVisibility() TemplateVisibilityPtrOutput {
-	return o.ApplyT(func(v *TemplatePivotTableOptions) *TemplateVisibility {
+func (o TemplatePivotTableOptionsPtrOutput) CollapsedRowDimensionsVisibility() pulumi.AnyOutput {
+	return o.ApplyT(func(v *TemplatePivotTableOptions) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.CollapsedRowDimensionsVisibility
-	}).(TemplateVisibilityPtrOutput)
+	}).(pulumi.AnyOutput)
 }
 
 // The table cell style of the column header.
@@ -5956,13 +5628,13 @@ func (o TemplatePivotTableOptionsPtrOutput) ColumnHeaderStyle() TemplateTableCel
 }
 
 // The visibility of the column names.
-func (o TemplatePivotTableOptionsPtrOutput) ColumnNamesVisibility() TemplateVisibilityPtrOutput {
-	return o.ApplyT(func(v *TemplatePivotTableOptions) *TemplateVisibility {
+func (o TemplatePivotTableOptionsPtrOutput) ColumnNamesVisibility() pulumi.AnyOutput {
+	return o.ApplyT(func(v *TemplatePivotTableOptions) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.ColumnNamesVisibility
-	}).(TemplateVisibilityPtrOutput)
+	}).(pulumi.AnyOutput)
 }
 
 // String based length that is composed of value and unit in px
@@ -6039,30 +5711,30 @@ func (o TemplatePivotTableOptionsPtrOutput) RowsLayout() TemplatePivotTableRowsL
 }
 
 // The visibility of the single metric options.
-func (o TemplatePivotTableOptionsPtrOutput) SingleMetricVisibility() TemplateVisibilityPtrOutput {
-	return o.ApplyT(func(v *TemplatePivotTableOptions) *TemplateVisibility {
+func (o TemplatePivotTableOptionsPtrOutput) SingleMetricVisibility() pulumi.AnyOutput {
+	return o.ApplyT(func(v *TemplatePivotTableOptions) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.SingleMetricVisibility
-	}).(TemplateVisibilityPtrOutput)
+	}).(pulumi.AnyOutput)
 }
 
 // Determines the visibility of the pivot table.
-func (o TemplatePivotTableOptionsPtrOutput) ToggleButtonsVisibility() TemplateVisibilityPtrOutput {
-	return o.ApplyT(func(v *TemplatePivotTableOptions) *TemplateVisibility {
+func (o TemplatePivotTableOptionsPtrOutput) ToggleButtonsVisibility() pulumi.AnyOutput {
+	return o.ApplyT(func(v *TemplatePivotTableOptions) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.ToggleButtonsVisibility
-	}).(TemplateVisibilityPtrOutput)
+	}).(pulumi.AnyOutput)
 }
 
 type TemplatePivotTablePaginatedReportOptions struct {
 	// The visibility of the repeating header rows on each page.
-	OverflowColumnHeaderVisibility *TemplateVisibility `pulumi:"overflowColumnHeaderVisibility"`
+	OverflowColumnHeaderVisibility interface{} `pulumi:"overflowColumnHeaderVisibility"`
 	// The visibility of the printing table overflow across pages.
-	VerticalOverflowVisibility *TemplateVisibility `pulumi:"verticalOverflowVisibility"`
+	VerticalOverflowVisibility interface{} `pulumi:"verticalOverflowVisibility"`
 }
 
 // TemplatePivotTablePaginatedReportOptionsInput is an input type that accepts TemplatePivotTablePaginatedReportOptionsArgs and TemplatePivotTablePaginatedReportOptionsOutput values.
@@ -6078,9 +5750,9 @@ type TemplatePivotTablePaginatedReportOptionsInput interface {
 
 type TemplatePivotTablePaginatedReportOptionsArgs struct {
 	// The visibility of the repeating header rows on each page.
-	OverflowColumnHeaderVisibility TemplateVisibilityPtrInput `pulumi:"overflowColumnHeaderVisibility"`
+	OverflowColumnHeaderVisibility pulumi.Input `pulumi:"overflowColumnHeaderVisibility"`
 	// The visibility of the printing table overflow across pages.
-	VerticalOverflowVisibility TemplateVisibilityPtrInput `pulumi:"verticalOverflowVisibility"`
+	VerticalOverflowVisibility pulumi.Input `pulumi:"verticalOverflowVisibility"`
 }
 
 func (TemplatePivotTablePaginatedReportOptionsArgs) ElementType() reflect.Type {
@@ -6161,17 +5833,13 @@ func (o TemplatePivotTablePaginatedReportOptionsOutput) ToTemplatePivotTablePagi
 }
 
 // The visibility of the repeating header rows on each page.
-func (o TemplatePivotTablePaginatedReportOptionsOutput) OverflowColumnHeaderVisibility() TemplateVisibilityPtrOutput {
-	return o.ApplyT(func(v TemplatePivotTablePaginatedReportOptions) *TemplateVisibility {
-		return v.OverflowColumnHeaderVisibility
-	}).(TemplateVisibilityPtrOutput)
+func (o TemplatePivotTablePaginatedReportOptionsOutput) OverflowColumnHeaderVisibility() pulumi.AnyOutput {
+	return o.ApplyT(func(v TemplatePivotTablePaginatedReportOptions) interface{} { return v.OverflowColumnHeaderVisibility }).(pulumi.AnyOutput)
 }
 
 // The visibility of the printing table overflow across pages.
-func (o TemplatePivotTablePaginatedReportOptionsOutput) VerticalOverflowVisibility() TemplateVisibilityPtrOutput {
-	return o.ApplyT(func(v TemplatePivotTablePaginatedReportOptions) *TemplateVisibility {
-		return v.VerticalOverflowVisibility
-	}).(TemplateVisibilityPtrOutput)
+func (o TemplatePivotTablePaginatedReportOptionsOutput) VerticalOverflowVisibility() pulumi.AnyOutput {
+	return o.ApplyT(func(v TemplatePivotTablePaginatedReportOptions) interface{} { return v.VerticalOverflowVisibility }).(pulumi.AnyOutput)
 }
 
 type TemplatePivotTablePaginatedReportOptionsPtrOutput struct{ *pulumi.OutputState }
@@ -6199,30 +5867,30 @@ func (o TemplatePivotTablePaginatedReportOptionsPtrOutput) Elem() TemplatePivotT
 }
 
 // The visibility of the repeating header rows on each page.
-func (o TemplatePivotTablePaginatedReportOptionsPtrOutput) OverflowColumnHeaderVisibility() TemplateVisibilityPtrOutput {
-	return o.ApplyT(func(v *TemplatePivotTablePaginatedReportOptions) *TemplateVisibility {
+func (o TemplatePivotTablePaginatedReportOptionsPtrOutput) OverflowColumnHeaderVisibility() pulumi.AnyOutput {
+	return o.ApplyT(func(v *TemplatePivotTablePaginatedReportOptions) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.OverflowColumnHeaderVisibility
-	}).(TemplateVisibilityPtrOutput)
+	}).(pulumi.AnyOutput)
 }
 
 // The visibility of the printing table overflow across pages.
-func (o TemplatePivotTablePaginatedReportOptionsPtrOutput) VerticalOverflowVisibility() TemplateVisibilityPtrOutput {
-	return o.ApplyT(func(v *TemplatePivotTablePaginatedReportOptions) *TemplateVisibility {
+func (o TemplatePivotTablePaginatedReportOptionsPtrOutput) VerticalOverflowVisibility() pulumi.AnyOutput {
+	return o.ApplyT(func(v *TemplatePivotTablePaginatedReportOptions) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.VerticalOverflowVisibility
-	}).(TemplateVisibilityPtrOutput)
+	}).(pulumi.AnyOutput)
 }
 
 type TemplatePivotTableRowsLabelOptions struct {
 	// The custom label string for the rows label.
 	CustomLabel *string `pulumi:"customLabel"`
 	// The visibility of the rows label.
-	Visibility *TemplateVisibility `pulumi:"visibility"`
+	Visibility interface{} `pulumi:"visibility"`
 }
 
 // TemplatePivotTableRowsLabelOptionsInput is an input type that accepts TemplatePivotTableRowsLabelOptionsArgs and TemplatePivotTableRowsLabelOptionsOutput values.
@@ -6240,7 +5908,7 @@ type TemplatePivotTableRowsLabelOptionsArgs struct {
 	// The custom label string for the rows label.
 	CustomLabel pulumi.StringPtrInput `pulumi:"customLabel"`
 	// The visibility of the rows label.
-	Visibility TemplateVisibilityPtrInput `pulumi:"visibility"`
+	Visibility pulumi.Input `pulumi:"visibility"`
 }
 
 func (TemplatePivotTableRowsLabelOptionsArgs) ElementType() reflect.Type {
@@ -6326,8 +5994,8 @@ func (o TemplatePivotTableRowsLabelOptionsOutput) CustomLabel() pulumi.StringPtr
 }
 
 // The visibility of the rows label.
-func (o TemplatePivotTableRowsLabelOptionsOutput) Visibility() TemplateVisibilityPtrOutput {
-	return o.ApplyT(func(v TemplatePivotTableRowsLabelOptions) *TemplateVisibility { return v.Visibility }).(TemplateVisibilityPtrOutput)
+func (o TemplatePivotTableRowsLabelOptionsOutput) Visibility() pulumi.AnyOutput {
+	return o.ApplyT(func(v TemplatePivotTableRowsLabelOptions) interface{} { return v.Visibility }).(pulumi.AnyOutput)
 }
 
 type TemplatePivotTableRowsLabelOptionsPtrOutput struct{ *pulumi.OutputState }
@@ -6365,13 +6033,13 @@ func (o TemplatePivotTableRowsLabelOptionsPtrOutput) CustomLabel() pulumi.String
 }
 
 // The visibility of the rows label.
-func (o TemplatePivotTableRowsLabelOptionsPtrOutput) Visibility() TemplateVisibilityPtrOutput {
-	return o.ApplyT(func(v *TemplatePivotTableRowsLabelOptions) *TemplateVisibility {
+func (o TemplatePivotTableRowsLabelOptionsPtrOutput) Visibility() pulumi.AnyOutput {
+	return o.ApplyT(func(v *TemplatePivotTableRowsLabelOptions) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Visibility
-	}).(TemplateVisibilityPtrOutput)
+	}).(pulumi.AnyOutput)
 }
 
 type TemplatePivotTableSortBy struct {
@@ -7038,7 +6706,7 @@ type TemplatePivotTotalOptions struct {
 	// The cell styling options for the total cells.
 	TotalCellStyle *TemplateTableCellStyle `pulumi:"totalCellStyle"`
 	// The visibility configuration for the total cells.
-	TotalsVisibility *TemplateVisibility `pulumi:"totalsVisibility"`
+	TotalsVisibility interface{} `pulumi:"totalsVisibility"`
 	// The cell styling options for the totals of value cells.
 	ValueCellStyle *TemplateTableCellStyle `pulumi:"valueCellStyle"`
 }
@@ -7068,7 +6736,7 @@ type TemplatePivotTotalOptionsArgs struct {
 	// The cell styling options for the total cells.
 	TotalCellStyle TemplateTableCellStylePtrInput `pulumi:"totalCellStyle"`
 	// The visibility configuration for the total cells.
-	TotalsVisibility TemplateVisibilityPtrInput `pulumi:"totalsVisibility"`
+	TotalsVisibility pulumi.Input `pulumi:"totalsVisibility"`
 	// The cell styling options for the totals of value cells.
 	ValueCellStyle TemplateTableCellStylePtrInput `pulumi:"valueCellStyle"`
 }
@@ -7181,8 +6849,8 @@ func (o TemplatePivotTotalOptionsOutput) TotalCellStyle() TemplateTableCellStyle
 }
 
 // The visibility configuration for the total cells.
-func (o TemplatePivotTotalOptionsOutput) TotalsVisibility() TemplateVisibilityPtrOutput {
-	return o.ApplyT(func(v TemplatePivotTotalOptions) *TemplateVisibility { return v.TotalsVisibility }).(TemplateVisibilityPtrOutput)
+func (o TemplatePivotTotalOptionsOutput) TotalsVisibility() pulumi.AnyOutput {
+	return o.ApplyT(func(v TemplatePivotTotalOptions) interface{} { return v.TotalsVisibility }).(pulumi.AnyOutput)
 }
 
 // The cell styling options for the totals of value cells.
@@ -7275,13 +6943,13 @@ func (o TemplatePivotTotalOptionsPtrOutput) TotalCellStyle() TemplateTableCellSt
 }
 
 // The visibility configuration for the total cells.
-func (o TemplatePivotTotalOptionsPtrOutput) TotalsVisibility() TemplateVisibilityPtrOutput {
-	return o.ApplyT(func(v *TemplatePivotTotalOptions) *TemplateVisibility {
+func (o TemplatePivotTotalOptionsPtrOutput) TotalsVisibility() pulumi.AnyOutput {
+	return o.ApplyT(func(v *TemplatePivotTotalOptions) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.TotalsVisibility
-	}).(TemplateVisibilityPtrOutput)
+	}).(pulumi.AnyOutput)
 }
 
 // The cell styling options for the totals of value cells.
@@ -8607,7 +8275,7 @@ func (o TemplatePredefinedHierarchyPtrOutput) HierarchyId() pulumi.StringPtrOutp
 
 type TemplateProgressBarOptions struct {
 	// The visibility of the progress bar.
-	Visibility *TemplateVisibility `pulumi:"visibility"`
+	Visibility interface{} `pulumi:"visibility"`
 }
 
 // TemplateProgressBarOptionsInput is an input type that accepts TemplateProgressBarOptionsArgs and TemplateProgressBarOptionsOutput values.
@@ -8623,7 +8291,7 @@ type TemplateProgressBarOptionsInput interface {
 
 type TemplateProgressBarOptionsArgs struct {
 	// The visibility of the progress bar.
-	Visibility TemplateVisibilityPtrInput `pulumi:"visibility"`
+	Visibility pulumi.Input `pulumi:"visibility"`
 }
 
 func (TemplateProgressBarOptionsArgs) ElementType() reflect.Type {
@@ -8704,8 +8372,8 @@ func (o TemplateProgressBarOptionsOutput) ToTemplateProgressBarOptionsPtrOutputW
 }
 
 // The visibility of the progress bar.
-func (o TemplateProgressBarOptionsOutput) Visibility() TemplateVisibilityPtrOutput {
-	return o.ApplyT(func(v TemplateProgressBarOptions) *TemplateVisibility { return v.Visibility }).(TemplateVisibilityPtrOutput)
+func (o TemplateProgressBarOptionsOutput) Visibility() pulumi.AnyOutput {
+	return o.ApplyT(func(v TemplateProgressBarOptions) interface{} { return v.Visibility }).(pulumi.AnyOutput)
 }
 
 type TemplateProgressBarOptionsPtrOutput struct{ *pulumi.OutputState }
@@ -8733,13 +8401,13 @@ func (o TemplateProgressBarOptionsPtrOutput) Elem() TemplateProgressBarOptionsOu
 }
 
 // The visibility of the progress bar.
-func (o TemplateProgressBarOptionsPtrOutput) Visibility() TemplateVisibilityPtrOutput {
-	return o.ApplyT(func(v *TemplateProgressBarOptions) *TemplateVisibility {
+func (o TemplateProgressBarOptionsPtrOutput) Visibility() pulumi.AnyOutput {
+	return o.ApplyT(func(v *TemplateProgressBarOptions) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Visibility
-	}).(TemplateVisibilityPtrOutput)
+	}).(pulumi.AnyOutput)
 }
 
 type TemplateQueryExecutionOptions struct {
@@ -9056,7 +8724,7 @@ func (o TemplateRadarChartAggregatedFieldWellsPtrOutput) Values() TemplateMeasur
 
 type TemplateRadarChartAreaStyleSettings struct {
 	// The visibility settings of a radar chart.
-	Visibility *TemplateVisibility `pulumi:"visibility"`
+	Visibility interface{} `pulumi:"visibility"`
 }
 
 // TemplateRadarChartAreaStyleSettingsInput is an input type that accepts TemplateRadarChartAreaStyleSettingsArgs and TemplateRadarChartAreaStyleSettingsOutput values.
@@ -9072,7 +8740,7 @@ type TemplateRadarChartAreaStyleSettingsInput interface {
 
 type TemplateRadarChartAreaStyleSettingsArgs struct {
 	// The visibility settings of a radar chart.
-	Visibility TemplateVisibilityPtrInput `pulumi:"visibility"`
+	Visibility pulumi.Input `pulumi:"visibility"`
 }
 
 func (TemplateRadarChartAreaStyleSettingsArgs) ElementType() reflect.Type {
@@ -9153,8 +8821,8 @@ func (o TemplateRadarChartAreaStyleSettingsOutput) ToTemplateRadarChartAreaStyle
 }
 
 // The visibility settings of a radar chart.
-func (o TemplateRadarChartAreaStyleSettingsOutput) Visibility() TemplateVisibilityPtrOutput {
-	return o.ApplyT(func(v TemplateRadarChartAreaStyleSettings) *TemplateVisibility { return v.Visibility }).(TemplateVisibilityPtrOutput)
+func (o TemplateRadarChartAreaStyleSettingsOutput) Visibility() pulumi.AnyOutput {
+	return o.ApplyT(func(v TemplateRadarChartAreaStyleSettings) interface{} { return v.Visibility }).(pulumi.AnyOutput)
 }
 
 type TemplateRadarChartAreaStyleSettingsPtrOutput struct{ *pulumi.OutputState }
@@ -9182,18 +8850,18 @@ func (o TemplateRadarChartAreaStyleSettingsPtrOutput) Elem() TemplateRadarChartA
 }
 
 // The visibility settings of a radar chart.
-func (o TemplateRadarChartAreaStyleSettingsPtrOutput) Visibility() TemplateVisibilityPtrOutput {
-	return o.ApplyT(func(v *TemplateRadarChartAreaStyleSettings) *TemplateVisibility {
+func (o TemplateRadarChartAreaStyleSettingsPtrOutput) Visibility() pulumi.AnyOutput {
+	return o.ApplyT(func(v *TemplateRadarChartAreaStyleSettings) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Visibility
-	}).(TemplateVisibilityPtrOutput)
+	}).(pulumi.AnyOutput)
 }
 
 type TemplateRadarChartConfiguration struct {
 	// Determines the visibility of the colors of alternatign bands in a radar chart.
-	AlternateBandColorsVisibility *TemplateVisibility `pulumi:"alternateBandColorsVisibility"`
+	AlternateBandColorsVisibility interface{} `pulumi:"alternateBandColorsVisibility"`
 	// The color of the even-numbered alternate bands of a radar chart.
 	AlternateBandEvenColor *string `pulumi:"alternateBandEvenColor"`
 	// The color of the odd-numbered alternate bands of a radar chart.
@@ -9237,7 +8905,7 @@ type TemplateRadarChartConfigurationInput interface {
 
 type TemplateRadarChartConfigurationArgs struct {
 	// Determines the visibility of the colors of alternatign bands in a radar chart.
-	AlternateBandColorsVisibility TemplateVisibilityPtrInput `pulumi:"alternateBandColorsVisibility"`
+	AlternateBandColorsVisibility pulumi.Input `pulumi:"alternateBandColorsVisibility"`
 	// The color of the even-numbered alternate bands of a radar chart.
 	AlternateBandEvenColor pulumi.StringPtrInput `pulumi:"alternateBandEvenColor"`
 	// The color of the odd-numbered alternate bands of a radar chart.
@@ -9346,8 +9014,8 @@ func (o TemplateRadarChartConfigurationOutput) ToTemplateRadarChartConfiguration
 }
 
 // Determines the visibility of the colors of alternatign bands in a radar chart.
-func (o TemplateRadarChartConfigurationOutput) AlternateBandColorsVisibility() TemplateVisibilityPtrOutput {
-	return o.ApplyT(func(v TemplateRadarChartConfiguration) *TemplateVisibility { return v.AlternateBandColorsVisibility }).(TemplateVisibilityPtrOutput)
+func (o TemplateRadarChartConfigurationOutput) AlternateBandColorsVisibility() pulumi.AnyOutput {
+	return o.ApplyT(func(v TemplateRadarChartConfiguration) interface{} { return v.AlternateBandColorsVisibility }).(pulumi.AnyOutput)
 }
 
 // The color of the even-numbered alternate bands of a radar chart.
@@ -9447,13 +9115,13 @@ func (o TemplateRadarChartConfigurationPtrOutput) Elem() TemplateRadarChartConfi
 }
 
 // Determines the visibility of the colors of alternatign bands in a radar chart.
-func (o TemplateRadarChartConfigurationPtrOutput) AlternateBandColorsVisibility() TemplateVisibilityPtrOutput {
-	return o.ApplyT(func(v *TemplateRadarChartConfiguration) *TemplateVisibility {
+func (o TemplateRadarChartConfigurationPtrOutput) AlternateBandColorsVisibility() pulumi.AnyOutput {
+	return o.ApplyT(func(v *TemplateRadarChartConfiguration) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.AlternateBandColorsVisibility
-	}).(TemplateVisibilityPtrOutput)
+	}).(pulumi.AnyOutput)
 }
 
 // The color of the even-numbered alternate bands of a radar chart.
@@ -10319,7 +9987,7 @@ func (o TemplateRadarChartVisualPtrOutput) VisualId() pulumi.StringPtrOutput {
 
 type TemplateRangeEndsLabelType struct {
 	// The visibility of the range ends label.
-	Visibility *TemplateVisibility `pulumi:"visibility"`
+	Visibility interface{} `pulumi:"visibility"`
 }
 
 // TemplateRangeEndsLabelTypeInput is an input type that accepts TemplateRangeEndsLabelTypeArgs and TemplateRangeEndsLabelTypeOutput values.
@@ -10335,7 +10003,7 @@ type TemplateRangeEndsLabelTypeInput interface {
 
 type TemplateRangeEndsLabelTypeArgs struct {
 	// The visibility of the range ends label.
-	Visibility TemplateVisibilityPtrInput `pulumi:"visibility"`
+	Visibility pulumi.Input `pulumi:"visibility"`
 }
 
 func (TemplateRangeEndsLabelTypeArgs) ElementType() reflect.Type {
@@ -10416,8 +10084,8 @@ func (o TemplateRangeEndsLabelTypeOutput) ToTemplateRangeEndsLabelTypePtrOutputW
 }
 
 // The visibility of the range ends label.
-func (o TemplateRangeEndsLabelTypeOutput) Visibility() TemplateVisibilityPtrOutput {
-	return o.ApplyT(func(v TemplateRangeEndsLabelType) *TemplateVisibility { return v.Visibility }).(TemplateVisibilityPtrOutput)
+func (o TemplateRangeEndsLabelTypeOutput) Visibility() pulumi.AnyOutput {
+	return o.ApplyT(func(v TemplateRangeEndsLabelType) interface{} { return v.Visibility }).(pulumi.AnyOutput)
 }
 
 type TemplateRangeEndsLabelTypePtrOutput struct{ *pulumi.OutputState }
@@ -10445,13 +10113,13 @@ func (o TemplateRangeEndsLabelTypePtrOutput) Elem() TemplateRangeEndsLabelTypeOu
 }
 
 // The visibility of the range ends label.
-func (o TemplateRangeEndsLabelTypePtrOutput) Visibility() TemplateVisibilityPtrOutput {
-	return o.ApplyT(func(v *TemplateRangeEndsLabelType) *TemplateVisibility {
+func (o TemplateRangeEndsLabelTypePtrOutput) Visibility() pulumi.AnyOutput {
+	return o.ApplyT(func(v *TemplateRangeEndsLabelType) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Visibility
-	}).(TemplateVisibilityPtrOutput)
+	}).(pulumi.AnyOutput)
 }
 
 type TemplateReferenceLine struct {
@@ -15016,7 +14684,7 @@ func (o TemplateScatterPlotVisualPtrOutput) VisualId() pulumi.StringPtrOutput {
 
 type TemplateScrollBarOptions struct {
 	// The visibility of the data zoom scroll bar.
-	Visibility *TemplateVisibility `pulumi:"visibility"`
+	Visibility interface{} `pulumi:"visibility"`
 	// The visibility range for the data zoom scroll bar.
 	VisibleRange *TemplateVisibleRangeOptions `pulumi:"visibleRange"`
 }
@@ -15034,7 +14702,7 @@ type TemplateScrollBarOptionsInput interface {
 
 type TemplateScrollBarOptionsArgs struct {
 	// The visibility of the data zoom scroll bar.
-	Visibility TemplateVisibilityPtrInput `pulumi:"visibility"`
+	Visibility pulumi.Input `pulumi:"visibility"`
 	// The visibility range for the data zoom scroll bar.
 	VisibleRange TemplateVisibleRangeOptionsPtrInput `pulumi:"visibleRange"`
 }
@@ -15117,8 +14785,8 @@ func (o TemplateScrollBarOptionsOutput) ToTemplateScrollBarOptionsPtrOutputWithC
 }
 
 // The visibility of the data zoom scroll bar.
-func (o TemplateScrollBarOptionsOutput) Visibility() TemplateVisibilityPtrOutput {
-	return o.ApplyT(func(v TemplateScrollBarOptions) *TemplateVisibility { return v.Visibility }).(TemplateVisibilityPtrOutput)
+func (o TemplateScrollBarOptionsOutput) Visibility() pulumi.AnyOutput {
+	return o.ApplyT(func(v TemplateScrollBarOptions) interface{} { return v.Visibility }).(pulumi.AnyOutput)
 }
 
 // The visibility range for the data zoom scroll bar.
@@ -15151,13 +14819,13 @@ func (o TemplateScrollBarOptionsPtrOutput) Elem() TemplateScrollBarOptionsOutput
 }
 
 // The visibility of the data zoom scroll bar.
-func (o TemplateScrollBarOptionsPtrOutput) Visibility() TemplateVisibilityPtrOutput {
-	return o.ApplyT(func(v *TemplateScrollBarOptions) *TemplateVisibility {
+func (o TemplateScrollBarOptionsPtrOutput) Visibility() pulumi.AnyOutput {
+	return o.ApplyT(func(v *TemplateScrollBarOptions) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Visibility
-	}).(TemplateVisibilityPtrOutput)
+	}).(pulumi.AnyOutput)
 }
 
 // The visibility range for the data zoom scroll bar.
@@ -15172,7 +14840,7 @@ func (o TemplateScrollBarOptionsPtrOutput) VisibleRange() TemplateVisibleRangeOp
 
 type TemplateSecondaryValueOptions struct {
 	// Determines the visibility of the secondary value.
-	Visibility *TemplateVisibility `pulumi:"visibility"`
+	Visibility interface{} `pulumi:"visibility"`
 }
 
 // TemplateSecondaryValueOptionsInput is an input type that accepts TemplateSecondaryValueOptionsArgs and TemplateSecondaryValueOptionsOutput values.
@@ -15188,7 +14856,7 @@ type TemplateSecondaryValueOptionsInput interface {
 
 type TemplateSecondaryValueOptionsArgs struct {
 	// Determines the visibility of the secondary value.
-	Visibility TemplateVisibilityPtrInput `pulumi:"visibility"`
+	Visibility pulumi.Input `pulumi:"visibility"`
 }
 
 func (TemplateSecondaryValueOptionsArgs) ElementType() reflect.Type {
@@ -15269,8 +14937,8 @@ func (o TemplateSecondaryValueOptionsOutput) ToTemplateSecondaryValueOptionsPtrO
 }
 
 // Determines the visibility of the secondary value.
-func (o TemplateSecondaryValueOptionsOutput) Visibility() TemplateVisibilityPtrOutput {
-	return o.ApplyT(func(v TemplateSecondaryValueOptions) *TemplateVisibility { return v.Visibility }).(TemplateVisibilityPtrOutput)
+func (o TemplateSecondaryValueOptionsOutput) Visibility() pulumi.AnyOutput {
+	return o.ApplyT(func(v TemplateSecondaryValueOptions) interface{} { return v.Visibility }).(pulumi.AnyOutput)
 }
 
 type TemplateSecondaryValueOptionsPtrOutput struct{ *pulumi.OutputState }
@@ -15298,13 +14966,13 @@ func (o TemplateSecondaryValueOptionsPtrOutput) Elem() TemplateSecondaryValueOpt
 }
 
 // Determines the visibility of the secondary value.
-func (o TemplateSecondaryValueOptionsPtrOutput) Visibility() TemplateVisibilityPtrOutput {
-	return o.ApplyT(func(v *TemplateSecondaryValueOptions) *TemplateVisibility {
+func (o TemplateSecondaryValueOptionsPtrOutput) Visibility() pulumi.AnyOutput {
+	return o.ApplyT(func(v *TemplateSecondaryValueOptions) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Visibility
-	}).(TemplateVisibilityPtrOutput)
+	}).(pulumi.AnyOutput)
 }
 
 type TemplateSectionAfterPageBreak struct {
@@ -16976,7 +16644,7 @@ type TemplateSheetControlInfoIconLabelOptions struct {
 	// The text content of info icon.
 	InfoIconText *string `pulumi:"infoIconText"`
 	// The visibility configuration of info icon label options.
-	Visibility *TemplateVisibility `pulumi:"visibility"`
+	Visibility interface{} `pulumi:"visibility"`
 }
 
 // TemplateSheetControlInfoIconLabelOptionsInput is an input type that accepts TemplateSheetControlInfoIconLabelOptionsArgs and TemplateSheetControlInfoIconLabelOptionsOutput values.
@@ -16994,7 +16662,7 @@ type TemplateSheetControlInfoIconLabelOptionsArgs struct {
 	// The text content of info icon.
 	InfoIconText pulumi.StringPtrInput `pulumi:"infoIconText"`
 	// The visibility configuration of info icon label options.
-	Visibility TemplateVisibilityPtrInput `pulumi:"visibility"`
+	Visibility pulumi.Input `pulumi:"visibility"`
 }
 
 func (TemplateSheetControlInfoIconLabelOptionsArgs) ElementType() reflect.Type {
@@ -17080,8 +16748,8 @@ func (o TemplateSheetControlInfoIconLabelOptionsOutput) InfoIconText() pulumi.St
 }
 
 // The visibility configuration of info icon label options.
-func (o TemplateSheetControlInfoIconLabelOptionsOutput) Visibility() TemplateVisibilityPtrOutput {
-	return o.ApplyT(func(v TemplateSheetControlInfoIconLabelOptions) *TemplateVisibility { return v.Visibility }).(TemplateVisibilityPtrOutput)
+func (o TemplateSheetControlInfoIconLabelOptionsOutput) Visibility() pulumi.AnyOutput {
+	return o.ApplyT(func(v TemplateSheetControlInfoIconLabelOptions) interface{} { return v.Visibility }).(pulumi.AnyOutput)
 }
 
 type TemplateSheetControlInfoIconLabelOptionsPtrOutput struct{ *pulumi.OutputState }
@@ -17119,13 +16787,13 @@ func (o TemplateSheetControlInfoIconLabelOptionsPtrOutput) InfoIconText() pulumi
 }
 
 // The visibility configuration of info icon label options.
-func (o TemplateSheetControlInfoIconLabelOptionsPtrOutput) Visibility() TemplateVisibilityPtrOutput {
-	return o.ApplyT(func(v *TemplateSheetControlInfoIconLabelOptions) *TemplateVisibility {
+func (o TemplateSheetControlInfoIconLabelOptionsPtrOutput) Visibility() pulumi.AnyOutput {
+	return o.ApplyT(func(v *TemplateSheetControlInfoIconLabelOptions) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Visibility
-	}).(TemplateVisibilityPtrOutput)
+	}).(pulumi.AnyOutput)
 }
 
 type TemplateSheetControlLayout struct {
@@ -17502,7 +17170,7 @@ type TemplateSheetElementConfigurationOverrides struct {
 	//
 	// - `VISIBLE`
 	// - `HIDDEN`
-	Visibility *TemplateVisibility `pulumi:"visibility"`
+	Visibility interface{} `pulumi:"visibility"`
 }
 
 // TemplateSheetElementConfigurationOverridesInput is an input type that accepts TemplateSheetElementConfigurationOverridesArgs and TemplateSheetElementConfigurationOverridesOutput values.
@@ -17521,7 +17189,7 @@ type TemplateSheetElementConfigurationOverridesArgs struct {
 	//
 	// - `VISIBLE`
 	// - `HIDDEN`
-	Visibility TemplateVisibilityPtrInput `pulumi:"visibility"`
+	Visibility pulumi.Input `pulumi:"visibility"`
 }
 
 func (TemplateSheetElementConfigurationOverridesArgs) ElementType() reflect.Type {
@@ -17554,8 +17222,8 @@ func (o TemplateSheetElementConfigurationOverridesOutput) ToTemplateSheetElement
 //
 // - `VISIBLE`
 // - `HIDDEN`
-func (o TemplateSheetElementConfigurationOverridesOutput) Visibility() TemplateVisibilityPtrOutput {
-	return o.ApplyT(func(v TemplateSheetElementConfigurationOverrides) *TemplateVisibility { return v.Visibility }).(TemplateVisibilityPtrOutput)
+func (o TemplateSheetElementConfigurationOverridesOutput) Visibility() pulumi.AnyOutput {
+	return o.ApplyT(func(v TemplateSheetElementConfigurationOverrides) interface{} { return v.Visibility }).(pulumi.AnyOutput)
 }
 
 type TemplateSheetElementRenderingRule struct {
@@ -18115,7 +17783,7 @@ func (o TemplateSheetImageStaticFileSourcePtrOutput) StaticFileId() pulumi.Strin
 
 type TemplateSheetImageTooltipConfiguration struct {
 	TooltipText *TemplateSheetImageTooltipText `pulumi:"tooltipText"`
-	Visibility  *TemplateVisibility            `pulumi:"visibility"`
+	Visibility  interface{}                    `pulumi:"visibility"`
 }
 
 // TemplateSheetImageTooltipConfigurationInput is an input type that accepts TemplateSheetImageTooltipConfigurationArgs and TemplateSheetImageTooltipConfigurationOutput values.
@@ -18131,7 +17799,7 @@ type TemplateSheetImageTooltipConfigurationInput interface {
 
 type TemplateSheetImageTooltipConfigurationArgs struct {
 	TooltipText TemplateSheetImageTooltipTextPtrInput `pulumi:"tooltipText"`
-	Visibility  TemplateVisibilityPtrInput            `pulumi:"visibility"`
+	Visibility  pulumi.Input                          `pulumi:"visibility"`
 }
 
 func (TemplateSheetImageTooltipConfigurationArgs) ElementType() reflect.Type {
@@ -18215,8 +17883,8 @@ func (o TemplateSheetImageTooltipConfigurationOutput) TooltipText() TemplateShee
 	return o.ApplyT(func(v TemplateSheetImageTooltipConfiguration) *TemplateSheetImageTooltipText { return v.TooltipText }).(TemplateSheetImageTooltipTextPtrOutput)
 }
 
-func (o TemplateSheetImageTooltipConfigurationOutput) Visibility() TemplateVisibilityPtrOutput {
-	return o.ApplyT(func(v TemplateSheetImageTooltipConfiguration) *TemplateVisibility { return v.Visibility }).(TemplateVisibilityPtrOutput)
+func (o TemplateSheetImageTooltipConfigurationOutput) Visibility() pulumi.AnyOutput {
+	return o.ApplyT(func(v TemplateSheetImageTooltipConfiguration) interface{} { return v.Visibility }).(pulumi.AnyOutput)
 }
 
 type TemplateSheetImageTooltipConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -18252,13 +17920,13 @@ func (o TemplateSheetImageTooltipConfigurationPtrOutput) TooltipText() TemplateS
 	}).(TemplateSheetImageTooltipTextPtrOutput)
 }
 
-func (o TemplateSheetImageTooltipConfigurationPtrOutput) Visibility() TemplateVisibilityPtrOutput {
-	return o.ApplyT(func(v *TemplateSheetImageTooltipConfiguration) *TemplateVisibility {
+func (o TemplateSheetImageTooltipConfigurationPtrOutput) Visibility() pulumi.AnyOutput {
+	return o.ApplyT(func(v *TemplateSheetImageTooltipConfiguration) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Visibility
-	}).(TemplateVisibilityPtrOutput)
+	}).(pulumi.AnyOutput)
 }
 
 type TemplateSheetImageTooltipText struct {
@@ -20968,7 +20636,7 @@ type TemplateSubtotalOptions struct {
 	// The cell styling options for the subtotal cells.
 	TotalCellStyle *TemplateTableCellStyle `pulumi:"totalCellStyle"`
 	// The visibility configuration for the subtotal cells.
-	TotalsVisibility *TemplateVisibility `pulumi:"totalsVisibility"`
+	TotalsVisibility interface{} `pulumi:"totalsVisibility"`
 	// The cell styling options for the subtotals of value cells.
 	ValueCellStyle *TemplateTableCellStyle `pulumi:"valueCellStyle"`
 }
@@ -20998,7 +20666,7 @@ type TemplateSubtotalOptionsArgs struct {
 	// The cell styling options for the subtotal cells.
 	TotalCellStyle TemplateTableCellStylePtrInput `pulumi:"totalCellStyle"`
 	// The visibility configuration for the subtotal cells.
-	TotalsVisibility TemplateVisibilityPtrInput `pulumi:"totalsVisibility"`
+	TotalsVisibility pulumi.Input `pulumi:"totalsVisibility"`
 	// The cell styling options for the subtotals of value cells.
 	ValueCellStyle TemplateTableCellStylePtrInput `pulumi:"valueCellStyle"`
 }
@@ -21111,8 +20779,8 @@ func (o TemplateSubtotalOptionsOutput) TotalCellStyle() TemplateTableCellStylePt
 }
 
 // The visibility configuration for the subtotal cells.
-func (o TemplateSubtotalOptionsOutput) TotalsVisibility() TemplateVisibilityPtrOutput {
-	return o.ApplyT(func(v TemplateSubtotalOptions) *TemplateVisibility { return v.TotalsVisibility }).(TemplateVisibilityPtrOutput)
+func (o TemplateSubtotalOptionsOutput) TotalsVisibility() pulumi.AnyOutput {
+	return o.ApplyT(func(v TemplateSubtotalOptions) interface{} { return v.TotalsVisibility }).(pulumi.AnyOutput)
 }
 
 // The cell styling options for the subtotals of value cells.
@@ -21205,13 +20873,13 @@ func (o TemplateSubtotalOptionsPtrOutput) TotalCellStyle() TemplateTableCellStyl
 }
 
 // The visibility configuration for the subtotal cells.
-func (o TemplateSubtotalOptionsPtrOutput) TotalsVisibility() TemplateVisibilityPtrOutput {
-	return o.ApplyT(func(v *TemplateSubtotalOptions) *TemplateVisibility {
+func (o TemplateSubtotalOptionsPtrOutput) TotalsVisibility() pulumi.AnyOutput {
+	return o.ApplyT(func(v *TemplateSubtotalOptions) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.TotalsVisibility
-	}).(TemplateVisibilityPtrOutput)
+	}).(pulumi.AnyOutput)
 }
 
 // The cell styling options for the subtotals of value cells.
@@ -21866,7 +21534,7 @@ type TemplateTableCellStyle struct {
 	// The vertical text alignment (top, middle, bottom) for the table cells.
 	VerticalTextAlignment *TemplateVerticalTextAlignment `pulumi:"verticalTextAlignment"`
 	// The visibility of the table cells.
-	Visibility *TemplateVisibility `pulumi:"visibility"`
+	Visibility interface{} `pulumi:"visibility"`
 }
 
 // TemplateTableCellStyleInput is an input type that accepts TemplateTableCellStyleArgs and TemplateTableCellStyleOutput values.
@@ -21896,7 +21564,7 @@ type TemplateTableCellStyleArgs struct {
 	// The vertical text alignment (top, middle, bottom) for the table cells.
 	VerticalTextAlignment TemplateVerticalTextAlignmentPtrInput `pulumi:"verticalTextAlignment"`
 	// The visibility of the table cells.
-	Visibility TemplateVisibilityPtrInput `pulumi:"visibility"`
+	Visibility pulumi.Input `pulumi:"visibility"`
 }
 
 func (TemplateTableCellStyleArgs) ElementType() reflect.Type {
@@ -22012,8 +21680,8 @@ func (o TemplateTableCellStyleOutput) VerticalTextAlignment() TemplateVerticalTe
 }
 
 // The visibility of the table cells.
-func (o TemplateTableCellStyleOutput) Visibility() TemplateVisibilityPtrOutput {
-	return o.ApplyT(func(v TemplateTableCellStyle) *TemplateVisibility { return v.Visibility }).(TemplateVisibilityPtrOutput)
+func (o TemplateTableCellStyleOutput) Visibility() pulumi.AnyOutput {
+	return o.ApplyT(func(v TemplateTableCellStyle) interface{} { return v.Visibility }).(pulumi.AnyOutput)
 }
 
 type TemplateTableCellStylePtrOutput struct{ *pulumi.OutputState }
@@ -22111,13 +21779,13 @@ func (o TemplateTableCellStylePtrOutput) VerticalTextAlignment() TemplateVertica
 }
 
 // The visibility of the table cells.
-func (o TemplateTableCellStylePtrOutput) Visibility() TemplateVisibilityPtrOutput {
-	return o.ApplyT(func(v *TemplateTableCellStyle) *TemplateVisibility {
+func (o TemplateTableCellStylePtrOutput) Visibility() pulumi.AnyOutput {
+	return o.ApplyT(func(v *TemplateTableCellStyle) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Visibility
-	}).(TemplateVisibilityPtrOutput)
+	}).(pulumi.AnyOutput)
 }
 
 type TemplateTableConditionalFormatting struct {
@@ -23380,7 +23048,7 @@ type TemplateTableFieldOption struct {
 	// The URL configuration for a table field.
 	UrlStyling *TemplateTableFieldUrlConfiguration `pulumi:"urlStyling"`
 	// The visibility of a table field.
-	Visibility *TemplateVisibility `pulumi:"visibility"`
+	Visibility interface{} `pulumi:"visibility"`
 	// String based length that is composed of value and unit in px
 	Width *string `pulumi:"width"`
 }
@@ -23404,7 +23072,7 @@ type TemplateTableFieldOptionArgs struct {
 	// The URL configuration for a table field.
 	UrlStyling TemplateTableFieldUrlConfigurationPtrInput `pulumi:"urlStyling"`
 	// The visibility of a table field.
-	Visibility TemplateVisibilityPtrInput `pulumi:"visibility"`
+	Visibility pulumi.Input `pulumi:"visibility"`
 	// String based length that is composed of value and unit in px
 	Width pulumi.StringPtrInput `pulumi:"width"`
 }
@@ -23476,8 +23144,8 @@ func (o TemplateTableFieldOptionOutput) UrlStyling() TemplateTableFieldUrlConfig
 }
 
 // The visibility of a table field.
-func (o TemplateTableFieldOptionOutput) Visibility() TemplateVisibilityPtrOutput {
-	return o.ApplyT(func(v TemplateTableFieldOption) *TemplateVisibility { return v.Visibility }).(TemplateVisibilityPtrOutput)
+func (o TemplateTableFieldOptionOutput) Visibility() pulumi.AnyOutput {
+	return o.ApplyT(func(v TemplateTableFieldOption) interface{} { return v.Visibility }).(pulumi.AnyOutput)
 }
 
 // String based length that is composed of value and unit in px
@@ -24291,9 +23959,9 @@ func (o TemplateTableOptionsPtrOutput) RowAlternateColorOptions() TemplateRowAlt
 
 type TemplateTablePaginatedReportOptions struct {
 	// The visibility of repeating header rows on each page.
-	OverflowColumnHeaderVisibility *TemplateVisibility `pulumi:"overflowColumnHeaderVisibility"`
+	OverflowColumnHeaderVisibility interface{} `pulumi:"overflowColumnHeaderVisibility"`
 	// The visibility of printing table overflow across pages.
-	VerticalOverflowVisibility *TemplateVisibility `pulumi:"verticalOverflowVisibility"`
+	VerticalOverflowVisibility interface{} `pulumi:"verticalOverflowVisibility"`
 }
 
 // TemplateTablePaginatedReportOptionsInput is an input type that accepts TemplateTablePaginatedReportOptionsArgs and TemplateTablePaginatedReportOptionsOutput values.
@@ -24309,9 +23977,9 @@ type TemplateTablePaginatedReportOptionsInput interface {
 
 type TemplateTablePaginatedReportOptionsArgs struct {
 	// The visibility of repeating header rows on each page.
-	OverflowColumnHeaderVisibility TemplateVisibilityPtrInput `pulumi:"overflowColumnHeaderVisibility"`
+	OverflowColumnHeaderVisibility pulumi.Input `pulumi:"overflowColumnHeaderVisibility"`
 	// The visibility of printing table overflow across pages.
-	VerticalOverflowVisibility TemplateVisibilityPtrInput `pulumi:"verticalOverflowVisibility"`
+	VerticalOverflowVisibility pulumi.Input `pulumi:"verticalOverflowVisibility"`
 }
 
 func (TemplateTablePaginatedReportOptionsArgs) ElementType() reflect.Type {
@@ -24392,15 +24060,13 @@ func (o TemplateTablePaginatedReportOptionsOutput) ToTemplateTablePaginatedRepor
 }
 
 // The visibility of repeating header rows on each page.
-func (o TemplateTablePaginatedReportOptionsOutput) OverflowColumnHeaderVisibility() TemplateVisibilityPtrOutput {
-	return o.ApplyT(func(v TemplateTablePaginatedReportOptions) *TemplateVisibility {
-		return v.OverflowColumnHeaderVisibility
-	}).(TemplateVisibilityPtrOutput)
+func (o TemplateTablePaginatedReportOptionsOutput) OverflowColumnHeaderVisibility() pulumi.AnyOutput {
+	return o.ApplyT(func(v TemplateTablePaginatedReportOptions) interface{} { return v.OverflowColumnHeaderVisibility }).(pulumi.AnyOutput)
 }
 
 // The visibility of printing table overflow across pages.
-func (o TemplateTablePaginatedReportOptionsOutput) VerticalOverflowVisibility() TemplateVisibilityPtrOutput {
-	return o.ApplyT(func(v TemplateTablePaginatedReportOptions) *TemplateVisibility { return v.VerticalOverflowVisibility }).(TemplateVisibilityPtrOutput)
+func (o TemplateTablePaginatedReportOptionsOutput) VerticalOverflowVisibility() pulumi.AnyOutput {
+	return o.ApplyT(func(v TemplateTablePaginatedReportOptions) interface{} { return v.VerticalOverflowVisibility }).(pulumi.AnyOutput)
 }
 
 type TemplateTablePaginatedReportOptionsPtrOutput struct{ *pulumi.OutputState }
@@ -24428,23 +24094,23 @@ func (o TemplateTablePaginatedReportOptionsPtrOutput) Elem() TemplateTablePagina
 }
 
 // The visibility of repeating header rows on each page.
-func (o TemplateTablePaginatedReportOptionsPtrOutput) OverflowColumnHeaderVisibility() TemplateVisibilityPtrOutput {
-	return o.ApplyT(func(v *TemplateTablePaginatedReportOptions) *TemplateVisibility {
+func (o TemplateTablePaginatedReportOptionsPtrOutput) OverflowColumnHeaderVisibility() pulumi.AnyOutput {
+	return o.ApplyT(func(v *TemplateTablePaginatedReportOptions) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.OverflowColumnHeaderVisibility
-	}).(TemplateVisibilityPtrOutput)
+	}).(pulumi.AnyOutput)
 }
 
 // The visibility of printing table overflow across pages.
-func (o TemplateTablePaginatedReportOptionsPtrOutput) VerticalOverflowVisibility() TemplateVisibilityPtrOutput {
-	return o.ApplyT(func(v *TemplateTablePaginatedReportOptions) *TemplateVisibility {
+func (o TemplateTablePaginatedReportOptionsPtrOutput) VerticalOverflowVisibility() pulumi.AnyOutput {
+	return o.ApplyT(func(v *TemplateTablePaginatedReportOptions) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.VerticalOverflowVisibility
-	}).(TemplateVisibilityPtrOutput)
+	}).(pulumi.AnyOutput)
 }
 
 type TemplateTablePinnedFieldOptions struct {
@@ -25979,7 +25645,7 @@ func (o TemplateTextConditionalFormatPtrOutput) TextColor() TemplateConditionalF
 
 type TemplateTextControlPlaceholderOptions struct {
 	// The visibility configuration of the placeholder options in a text control.
-	Visibility *TemplateVisibility `pulumi:"visibility"`
+	Visibility interface{} `pulumi:"visibility"`
 }
 
 // TemplateTextControlPlaceholderOptionsInput is an input type that accepts TemplateTextControlPlaceholderOptionsArgs and TemplateTextControlPlaceholderOptionsOutput values.
@@ -25995,7 +25661,7 @@ type TemplateTextControlPlaceholderOptionsInput interface {
 
 type TemplateTextControlPlaceholderOptionsArgs struct {
 	// The visibility configuration of the placeholder options in a text control.
-	Visibility TemplateVisibilityPtrInput `pulumi:"visibility"`
+	Visibility pulumi.Input `pulumi:"visibility"`
 }
 
 func (TemplateTextControlPlaceholderOptionsArgs) ElementType() reflect.Type {
@@ -26076,8 +25742,8 @@ func (o TemplateTextControlPlaceholderOptionsOutput) ToTemplateTextControlPlaceh
 }
 
 // The visibility configuration of the placeholder options in a text control.
-func (o TemplateTextControlPlaceholderOptionsOutput) Visibility() TemplateVisibilityPtrOutput {
-	return o.ApplyT(func(v TemplateTextControlPlaceholderOptions) *TemplateVisibility { return v.Visibility }).(TemplateVisibilityPtrOutput)
+func (o TemplateTextControlPlaceholderOptionsOutput) Visibility() pulumi.AnyOutput {
+	return o.ApplyT(func(v TemplateTextControlPlaceholderOptions) interface{} { return v.Visibility }).(pulumi.AnyOutput)
 }
 
 type TemplateTextControlPlaceholderOptionsPtrOutput struct{ *pulumi.OutputState }
@@ -26105,13 +25771,13 @@ func (o TemplateTextControlPlaceholderOptionsPtrOutput) Elem() TemplateTextContr
 }
 
 // The visibility configuration of the placeholder options in a text control.
-func (o TemplateTextControlPlaceholderOptionsPtrOutput) Visibility() TemplateVisibilityPtrOutput {
-	return o.ApplyT(func(v *TemplateTextControlPlaceholderOptions) *TemplateVisibility {
+func (o TemplateTextControlPlaceholderOptionsPtrOutput) Visibility() pulumi.AnyOutput {
+	return o.ApplyT(func(v *TemplateTextControlPlaceholderOptions) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Visibility
-	}).(TemplateVisibilityPtrOutput)
+	}).(pulumi.AnyOutput)
 }
 
 type TemplateTextFieldControlDisplayOptions struct {
@@ -26297,7 +25963,7 @@ type TemplateThousandSeparatorOptions struct {
 	// Determines the thousands separator symbol.
 	Symbol *TemplateNumericSeparatorSymbol `pulumi:"symbol"`
 	// Determines the visibility of the thousands separator.
-	Visibility *TemplateVisibility `pulumi:"visibility"`
+	Visibility interface{} `pulumi:"visibility"`
 }
 
 // TemplateThousandSeparatorOptionsInput is an input type that accepts TemplateThousandSeparatorOptionsArgs and TemplateThousandSeparatorOptionsOutput values.
@@ -26315,7 +25981,7 @@ type TemplateThousandSeparatorOptionsArgs struct {
 	// Determines the thousands separator symbol.
 	Symbol TemplateNumericSeparatorSymbolPtrInput `pulumi:"symbol"`
 	// Determines the visibility of the thousands separator.
-	Visibility TemplateVisibilityPtrInput `pulumi:"visibility"`
+	Visibility pulumi.Input `pulumi:"visibility"`
 }
 
 func (TemplateThousandSeparatorOptionsArgs) ElementType() reflect.Type {
@@ -26401,8 +26067,8 @@ func (o TemplateThousandSeparatorOptionsOutput) Symbol() TemplateNumericSeparato
 }
 
 // Determines the visibility of the thousands separator.
-func (o TemplateThousandSeparatorOptionsOutput) Visibility() TemplateVisibilityPtrOutput {
-	return o.ApplyT(func(v TemplateThousandSeparatorOptions) *TemplateVisibility { return v.Visibility }).(TemplateVisibilityPtrOutput)
+func (o TemplateThousandSeparatorOptionsOutput) Visibility() pulumi.AnyOutput {
+	return o.ApplyT(func(v TemplateThousandSeparatorOptions) interface{} { return v.Visibility }).(pulumi.AnyOutput)
 }
 
 type TemplateThousandSeparatorOptionsPtrOutput struct{ *pulumi.OutputState }
@@ -26440,13 +26106,13 @@ func (o TemplateThousandSeparatorOptionsPtrOutput) Symbol() TemplateNumericSepar
 }
 
 // Determines the visibility of the thousands separator.
-func (o TemplateThousandSeparatorOptionsPtrOutput) Visibility() TemplateVisibilityPtrOutput {
-	return o.ApplyT(func(v *TemplateThousandSeparatorOptions) *TemplateVisibility {
+func (o TemplateThousandSeparatorOptionsPtrOutput) Visibility() pulumi.AnyOutput {
+	return o.ApplyT(func(v *TemplateThousandSeparatorOptions) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Visibility
-	}).(TemplateVisibilityPtrOutput)
+	}).(pulumi.AnyOutput)
 }
 
 type TemplateTimeBasedForecastProperties struct {
@@ -27782,7 +27448,7 @@ type TemplateTooltipOptions struct {
 	// - `DETAILED` : A detailed tooltip.
 	SelectedTooltipType *TemplateSelectedTooltipType `pulumi:"selectedTooltipType"`
 	// Determines whether or not the tooltip is visible.
-	TooltipVisibility *TemplateVisibility `pulumi:"tooltipVisibility"`
+	TooltipVisibility interface{} `pulumi:"tooltipVisibility"`
 }
 
 // TemplateTooltipOptionsInput is an input type that accepts TemplateTooltipOptionsArgs and TemplateTooltipOptionsOutput values.
@@ -27805,7 +27471,7 @@ type TemplateTooltipOptionsArgs struct {
 	// - `DETAILED` : A detailed tooltip.
 	SelectedTooltipType TemplateSelectedTooltipTypePtrInput `pulumi:"selectedTooltipType"`
 	// Determines whether or not the tooltip is visible.
-	TooltipVisibility TemplateVisibilityPtrInput `pulumi:"tooltipVisibility"`
+	TooltipVisibility pulumi.Input `pulumi:"tooltipVisibility"`
 }
 
 func (TemplateTooltipOptionsArgs) ElementType() reflect.Type {
@@ -27899,8 +27565,8 @@ func (o TemplateTooltipOptionsOutput) SelectedTooltipType() TemplateSelectedTool
 }
 
 // Determines whether or not the tooltip is visible.
-func (o TemplateTooltipOptionsOutput) TooltipVisibility() TemplateVisibilityPtrOutput {
-	return o.ApplyT(func(v TemplateTooltipOptions) *TemplateVisibility { return v.TooltipVisibility }).(TemplateVisibilityPtrOutput)
+func (o TemplateTooltipOptionsOutput) TooltipVisibility() pulumi.AnyOutput {
+	return o.ApplyT(func(v TemplateTooltipOptions) interface{} { return v.TooltipVisibility }).(pulumi.AnyOutput)
 }
 
 type TemplateTooltipOptionsPtrOutput struct{ *pulumi.OutputState }
@@ -27951,13 +27617,13 @@ func (o TemplateTooltipOptionsPtrOutput) SelectedTooltipType() TemplateSelectedT
 }
 
 // Determines whether or not the tooltip is visible.
-func (o TemplateTooltipOptionsPtrOutput) TooltipVisibility() TemplateVisibilityPtrOutput {
-	return o.ApplyT(func(v *TemplateTooltipOptions) *TemplateVisibility {
+func (o TemplateTooltipOptionsPtrOutput) TooltipVisibility() pulumi.AnyOutput {
+	return o.ApplyT(func(v *TemplateTooltipOptions) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.TooltipVisibility
-	}).(TemplateVisibilityPtrOutput)
+	}).(pulumi.AnyOutput)
 }
 
 type TemplateTopBottomFilter struct {
@@ -29090,7 +28756,7 @@ type TemplateTotalOptions struct {
 	// Cell styling options for the total cells.
 	TotalCellStyle *TemplateTableCellStyle `pulumi:"totalCellStyle"`
 	// The visibility configuration for the total cells.
-	TotalsVisibility *TemplateVisibility `pulumi:"totalsVisibility"`
+	TotalsVisibility interface{} `pulumi:"totalsVisibility"`
 }
 
 // TemplateTotalOptionsInput is an input type that accepts TemplateTotalOptionsArgs and TemplateTotalOptionsOutput values.
@@ -29116,7 +28782,7 @@ type TemplateTotalOptionsArgs struct {
 	// Cell styling options for the total cells.
 	TotalCellStyle TemplateTableCellStylePtrInput `pulumi:"totalCellStyle"`
 	// The visibility configuration for the total cells.
-	TotalsVisibility TemplateVisibilityPtrInput `pulumi:"totalsVisibility"`
+	TotalsVisibility pulumi.Input `pulumi:"totalsVisibility"`
 }
 
 func (TemplateTotalOptionsArgs) ElementType() reflect.Type {
@@ -29222,8 +28888,8 @@ func (o TemplateTotalOptionsOutput) TotalCellStyle() TemplateTableCellStylePtrOu
 }
 
 // The visibility configuration for the total cells.
-func (o TemplateTotalOptionsOutput) TotalsVisibility() TemplateVisibilityPtrOutput {
-	return o.ApplyT(func(v TemplateTotalOptions) *TemplateVisibility { return v.TotalsVisibility }).(TemplateVisibilityPtrOutput)
+func (o TemplateTotalOptionsOutput) TotalsVisibility() pulumi.AnyOutput {
+	return o.ApplyT(func(v TemplateTotalOptions) interface{} { return v.TotalsVisibility }).(pulumi.AnyOutput)
 }
 
 type TemplateTotalOptionsPtrOutput struct{ *pulumi.OutputState }
@@ -29301,13 +28967,13 @@ func (o TemplateTotalOptionsPtrOutput) TotalCellStyle() TemplateTableCellStylePt
 }
 
 // The visibility configuration for the total cells.
-func (o TemplateTotalOptionsPtrOutput) TotalsVisibility() TemplateVisibilityPtrOutput {
-	return o.ApplyT(func(v *TemplateTotalOptions) *TemplateVisibility {
+func (o TemplateTotalOptionsPtrOutput) TotalsVisibility() pulumi.AnyOutput {
+	return o.ApplyT(func(v *TemplateTotalOptions) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.TotalsVisibility
-	}).(TemplateVisibilityPtrOutput)
+	}).(pulumi.AnyOutput)
 }
 
 type TemplateTreeMapAggregatedFieldWells struct {
@@ -30320,7 +29986,7 @@ func (o TemplateTreeMapVisualPtrOutput) VisualId() pulumi.StringPtrOutput {
 
 type TemplateTrendArrowOptions struct {
 	// The visibility of the trend arrows.
-	Visibility *TemplateVisibility `pulumi:"visibility"`
+	Visibility interface{} `pulumi:"visibility"`
 }
 
 // TemplateTrendArrowOptionsInput is an input type that accepts TemplateTrendArrowOptionsArgs and TemplateTrendArrowOptionsOutput values.
@@ -30336,7 +30002,7 @@ type TemplateTrendArrowOptionsInput interface {
 
 type TemplateTrendArrowOptionsArgs struct {
 	// The visibility of the trend arrows.
-	Visibility TemplateVisibilityPtrInput `pulumi:"visibility"`
+	Visibility pulumi.Input `pulumi:"visibility"`
 }
 
 func (TemplateTrendArrowOptionsArgs) ElementType() reflect.Type {
@@ -30417,8 +30083,8 @@ func (o TemplateTrendArrowOptionsOutput) ToTemplateTrendArrowOptionsPtrOutputWit
 }
 
 // The visibility of the trend arrows.
-func (o TemplateTrendArrowOptionsOutput) Visibility() TemplateVisibilityPtrOutput {
-	return o.ApplyT(func(v TemplateTrendArrowOptions) *TemplateVisibility { return v.Visibility }).(TemplateVisibilityPtrOutput)
+func (o TemplateTrendArrowOptionsOutput) Visibility() pulumi.AnyOutput {
+	return o.ApplyT(func(v TemplateTrendArrowOptions) interface{} { return v.Visibility }).(pulumi.AnyOutput)
 }
 
 type TemplateTrendArrowOptionsPtrOutput struct{ *pulumi.OutputState }
@@ -30446,13 +30112,13 @@ func (o TemplateTrendArrowOptionsPtrOutput) Elem() TemplateTrendArrowOptionsOutp
 }
 
 // The visibility of the trend arrows.
-func (o TemplateTrendArrowOptionsPtrOutput) Visibility() TemplateVisibilityPtrOutput {
-	return o.ApplyT(func(v *TemplateTrendArrowOptions) *TemplateVisibility {
+func (o TemplateTrendArrowOptionsPtrOutput) Visibility() pulumi.AnyOutput {
+	return o.ApplyT(func(v *TemplateTrendArrowOptions) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Visibility
-	}).(TemplateVisibilityPtrOutput)
+	}).(pulumi.AnyOutput)
 }
 
 type TemplateUnaggregatedField struct {
@@ -32437,7 +32103,7 @@ type TemplateVisualSubtitleLabelOptions struct {
 	// The long text format of the subtitle label, such as plain text or rich text.
 	FormatText *TemplateLongFormatText `pulumi:"formatText"`
 	// The visibility of the subtitle label.
-	Visibility *TemplateVisibility `pulumi:"visibility"`
+	Visibility interface{} `pulumi:"visibility"`
 }
 
 // TemplateVisualSubtitleLabelOptionsInput is an input type that accepts TemplateVisualSubtitleLabelOptionsArgs and TemplateVisualSubtitleLabelOptionsOutput values.
@@ -32455,7 +32121,7 @@ type TemplateVisualSubtitleLabelOptionsArgs struct {
 	// The long text format of the subtitle label, such as plain text or rich text.
 	FormatText TemplateLongFormatTextPtrInput `pulumi:"formatText"`
 	// The visibility of the subtitle label.
-	Visibility TemplateVisibilityPtrInput `pulumi:"visibility"`
+	Visibility pulumi.Input `pulumi:"visibility"`
 }
 
 func (TemplateVisualSubtitleLabelOptionsArgs) ElementType() reflect.Type {
@@ -32541,8 +32207,8 @@ func (o TemplateVisualSubtitleLabelOptionsOutput) FormatText() TemplateLongForma
 }
 
 // The visibility of the subtitle label.
-func (o TemplateVisualSubtitleLabelOptionsOutput) Visibility() TemplateVisibilityPtrOutput {
-	return o.ApplyT(func(v TemplateVisualSubtitleLabelOptions) *TemplateVisibility { return v.Visibility }).(TemplateVisibilityPtrOutput)
+func (o TemplateVisualSubtitleLabelOptionsOutput) Visibility() pulumi.AnyOutput {
+	return o.ApplyT(func(v TemplateVisualSubtitleLabelOptions) interface{} { return v.Visibility }).(pulumi.AnyOutput)
 }
 
 type TemplateVisualSubtitleLabelOptionsPtrOutput struct{ *pulumi.OutputState }
@@ -32580,20 +32246,20 @@ func (o TemplateVisualSubtitleLabelOptionsPtrOutput) FormatText() TemplateLongFo
 }
 
 // The visibility of the subtitle label.
-func (o TemplateVisualSubtitleLabelOptionsPtrOutput) Visibility() TemplateVisibilityPtrOutput {
-	return o.ApplyT(func(v *TemplateVisualSubtitleLabelOptions) *TemplateVisibility {
+func (o TemplateVisualSubtitleLabelOptionsPtrOutput) Visibility() pulumi.AnyOutput {
+	return o.ApplyT(func(v *TemplateVisualSubtitleLabelOptions) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Visibility
-	}).(TemplateVisibilityPtrOutput)
+	}).(pulumi.AnyOutput)
 }
 
 type TemplateVisualTitleLabelOptions struct {
 	// The short text format of the title label, such as plain text or rich text.
 	FormatText *TemplateShortFormatText `pulumi:"formatText"`
 	// The visibility of the title label.
-	Visibility *TemplateVisibility `pulumi:"visibility"`
+	Visibility interface{} `pulumi:"visibility"`
 }
 
 // TemplateVisualTitleLabelOptionsInput is an input type that accepts TemplateVisualTitleLabelOptionsArgs and TemplateVisualTitleLabelOptionsOutput values.
@@ -32611,7 +32277,7 @@ type TemplateVisualTitleLabelOptionsArgs struct {
 	// The short text format of the title label, such as plain text or rich text.
 	FormatText TemplateShortFormatTextPtrInput `pulumi:"formatText"`
 	// The visibility of the title label.
-	Visibility TemplateVisibilityPtrInput `pulumi:"visibility"`
+	Visibility pulumi.Input `pulumi:"visibility"`
 }
 
 func (TemplateVisualTitleLabelOptionsArgs) ElementType() reflect.Type {
@@ -32697,8 +32363,8 @@ func (o TemplateVisualTitleLabelOptionsOutput) FormatText() TemplateShortFormatT
 }
 
 // The visibility of the title label.
-func (o TemplateVisualTitleLabelOptionsOutput) Visibility() TemplateVisibilityPtrOutput {
-	return o.ApplyT(func(v TemplateVisualTitleLabelOptions) *TemplateVisibility { return v.Visibility }).(TemplateVisibilityPtrOutput)
+func (o TemplateVisualTitleLabelOptionsOutput) Visibility() pulumi.AnyOutput {
+	return o.ApplyT(func(v TemplateVisualTitleLabelOptions) interface{} { return v.Visibility }).(pulumi.AnyOutput)
 }
 
 type TemplateVisualTitleLabelOptionsPtrOutput struct{ *pulumi.OutputState }
@@ -32736,13 +32402,13 @@ func (o TemplateVisualTitleLabelOptionsPtrOutput) FormatText() TemplateShortForm
 }
 
 // The visibility of the title label.
-func (o TemplateVisualTitleLabelOptionsPtrOutput) Visibility() TemplateVisibilityPtrOutput {
-	return o.ApplyT(func(v *TemplateVisualTitleLabelOptions) *TemplateVisibility {
+func (o TemplateVisualTitleLabelOptionsPtrOutput) Visibility() pulumi.AnyOutput {
+	return o.ApplyT(func(v *TemplateVisualTitleLabelOptions) interface{} {
 		if v == nil {
 			return nil
 		}
 		return v.Visibility
-	}).(TemplateVisibilityPtrOutput)
+	}).(pulumi.AnyOutput)
 }
 
 type TemplateWaterfallChartAggregatedFieldWells struct {
@@ -42719,10 +42385,6 @@ type VpcConnectionTag struct {
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateParameterDateTimePickerControlInput)(nil)).Elem(), TemplateParameterDateTimePickerControlArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateParameterDateTimePickerControlPtrInput)(nil)).Elem(), TemplateParameterDateTimePickerControlArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateParameterDeclarationInput)(nil)).Elem(), TemplateParameterDeclarationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateParameterDeclarationArrayInput)(nil)).Elem(), TemplateParameterDeclarationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateParameterDropDownControlInput)(nil)).Elem(), TemplateParameterDropDownControlArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateParameterDropDownControlPtrInput)(nil)).Elem(), TemplateParameterDropDownControlArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateParameterListControlInput)(nil)).Elem(), TemplateParameterListControlArgs{})
@@ -43196,10 +42858,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicSemanticTypePtrInput)(nil)).Elem(), TopicSemanticTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicSingularFilterConstantInput)(nil)).Elem(), TopicSingularFilterConstantArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicSingularFilterConstantPtrInput)(nil)).Elem(), TopicSingularFilterConstantArgs{})
-	pulumi.RegisterOutputType(TemplateParameterDateTimePickerControlOutput{})
-	pulumi.RegisterOutputType(TemplateParameterDateTimePickerControlPtrOutput{})
-	pulumi.RegisterOutputType(TemplateParameterDeclarationOutput{})
-	pulumi.RegisterOutputType(TemplateParameterDeclarationArrayOutput{})
 	pulumi.RegisterOutputType(TemplateParameterDropDownControlOutput{})
 	pulumi.RegisterOutputType(TemplateParameterDropDownControlPtrOutput{})
 	pulumi.RegisterOutputType(TemplateParameterListControlOutput{})

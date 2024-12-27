@@ -24,7 +24,7 @@ type Service struct {
 	AvailabilityZoneRebalancing ServiceAvailabilityZoneRebalancingPtrOutput `pulumi:"availabilityZoneRebalancing"`
 	// The capacity provider strategy to use for the service.
 	//  If a ``capacityProviderStrategy`` is specified, the ``launchType`` parameter must be omitted. If no ``capacityProviderStrategy`` or ``launchType`` is specified, the ``defaultCapacityProviderStrategy`` for the cluster is used.
-	//  A capacity provider strategy may contain a maximum of 6 capacity providers.
+	//  A capacity provider strategy can contain a maximum of 20 capacity providers.
 	CapacityProviderStrategy ServiceCapacityProviderStrategyItemArrayOutput `pulumi:"capacityProviderStrategy"`
 	// The short name or full Amazon Resource Name (ARN) of the cluster that you run your service on. If you do not specify a cluster, the default cluster is assumed.
 	Cluster pulumi.StringPtrOutput `pulumi:"cluster"`
@@ -157,7 +157,7 @@ type serviceArgs struct {
 	AvailabilityZoneRebalancing *ServiceAvailabilityZoneRebalancing `pulumi:"availabilityZoneRebalancing"`
 	// The capacity provider strategy to use for the service.
 	//  If a ``capacityProviderStrategy`` is specified, the ``launchType`` parameter must be omitted. If no ``capacityProviderStrategy`` or ``launchType`` is specified, the ``defaultCapacityProviderStrategy`` for the cluster is used.
-	//  A capacity provider strategy may contain a maximum of 6 capacity providers.
+	//  A capacity provider strategy can contain a maximum of 20 capacity providers.
 	CapacityProviderStrategy []ServiceCapacityProviderStrategyItem `pulumi:"capacityProviderStrategy"`
 	// The short name or full Amazon Resource Name (ARN) of the cluster that you run your service on. If you do not specify a cluster, the default cluster is assumed.
 	Cluster *string `pulumi:"cluster"`
@@ -239,7 +239,7 @@ type ServiceArgs struct {
 	AvailabilityZoneRebalancing ServiceAvailabilityZoneRebalancingPtrInput
 	// The capacity provider strategy to use for the service.
 	//  If a ``capacityProviderStrategy`` is specified, the ``launchType`` parameter must be omitted. If no ``capacityProviderStrategy`` or ``launchType`` is specified, the ``defaultCapacityProviderStrategy`` for the cluster is used.
-	//  A capacity provider strategy may contain a maximum of 6 capacity providers.
+	//  A capacity provider strategy can contain a maximum of 20 capacity providers.
 	CapacityProviderStrategy ServiceCapacityProviderStrategyItemArrayInput
 	// The short name or full Amazon Resource Name (ARN) of the cluster that you run your service on. If you do not specify a cluster, the default cluster is assumed.
 	Cluster pulumi.StringPtrInput
@@ -361,7 +361,7 @@ func (o ServiceOutput) AvailabilityZoneRebalancing() ServiceAvailabilityZoneReba
 // The capacity provider strategy to use for the service.
 //
 //	If a ``capacityProviderStrategy`` is specified, the ``launchType`` parameter must be omitted. If no ``capacityProviderStrategy`` or ``launchType`` is specified, the ``defaultCapacityProviderStrategy`` for the cluster is used.
-//	A capacity provider strategy may contain a maximum of 6 capacity providers.
+//	A capacity provider strategy can contain a maximum of 20 capacity providers.
 func (o ServiceOutput) CapacityProviderStrategy() ServiceCapacityProviderStrategyItemArrayOutput {
 	return o.ApplyT(func(v *Service) ServiceCapacityProviderStrategyItemArrayOutput { return v.CapacityProviderStrategy }).(ServiceCapacityProviderStrategyItemArrayOutput)
 }

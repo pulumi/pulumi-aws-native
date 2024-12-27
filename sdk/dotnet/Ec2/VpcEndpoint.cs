@@ -45,9 +45,15 @@ namespace Pulumi.AwsNative.Ec2
         [Output("dnsEntries")]
         public Output<ImmutableArray<string>> DnsEntries { get; private set; } = null!;
 
+        /// <summary>
+        /// Describes the DNS options for an endpoint.
+        /// </summary>
         [Output("dnsOptions")]
         public Output<Outputs.VpcEndpointDnsOptionsSpecification?> DnsOptions { get; private set; } = null!;
 
+        /// <summary>
+        /// The supported IP address types.
+        /// </summary>
         [Output("ipAddressType")]
         public Output<Pulumi.AwsNative.Ec2.VpcEndpointIpAddressType?> IpAddressType { get; private set; } = null!;
 
@@ -76,6 +82,9 @@ namespace Pulumi.AwsNative.Ec2
         [Output("privateDnsEnabled")]
         public Output<bool?> PrivateDnsEnabled { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the resource configuration.
+        /// </summary>
         [Output("resourceConfigurationArn")]
         public Output<string?> ResourceConfigurationArn { get; private set; } = null!;
 
@@ -97,6 +106,9 @@ namespace Pulumi.AwsNative.Ec2
         [Output("serviceName")]
         public Output<string?> ServiceName { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the service network.
+        /// </summary>
         [Output("serviceNetworkArn")]
         public Output<string?> ServiceNetworkArn { get; private set; } = null!;
 
@@ -175,9 +187,15 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class VpcEndpointArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Describes the DNS options for an endpoint.
+        /// </summary>
         [Input("dnsOptions")]
         public Input<Inputs.VpcEndpointDnsOptionsSpecificationArgs>? DnsOptions { get; set; }
 
+        /// <summary>
+        /// The supported IP address types.
+        /// </summary>
         [Input("ipAddressType")]
         public Input<Pulumi.AwsNative.Ec2.VpcEndpointIpAddressType>? IpAddressType { get; set; }
 
@@ -200,6 +218,9 @@ namespace Pulumi.AwsNative.Ec2
         [Input("privateDnsEnabled")]
         public Input<bool>? PrivateDnsEnabled { get; set; }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the resource configuration.
+        /// </summary>
         [Input("resourceConfigurationArn")]
         public Input<string>? ResourceConfigurationArn { get; set; }
 
@@ -233,6 +254,9 @@ namespace Pulumi.AwsNative.Ec2
         [Input("serviceName")]
         public Input<string>? ServiceName { get; set; }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the service network.
+        /// </summary>
         [Input("serviceNetworkArn")]
         public Input<string>? ServiceNetworkArn { get; set; }
 

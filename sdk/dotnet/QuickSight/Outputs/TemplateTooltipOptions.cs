@@ -27,7 +27,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// <summary>
         /// Determines whether or not the tooltip is visible.
         /// </summary>
-        public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? TooltipVisibility;
+        public readonly object? TooltipVisibility;
 
         [OutputConstructor]
         private TemplateTooltipOptions(
@@ -35,7 +35,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Pulumi.AwsNative.QuickSight.TemplateSelectedTooltipType? selectedTooltipType,
 
-            Pulumi.AwsNative.QuickSight.TemplateVisibility? tooltipVisibility)
+            object? tooltipVisibility)
         {
             FieldBasedTooltip = fieldBasedTooltip;
             SelectedTooltipType = selectedTooltipType;

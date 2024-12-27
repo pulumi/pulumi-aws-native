@@ -42,7 +42,7 @@ namespace Pulumi.AwsNative.Ec2.Inputs
         public Input<int>? Iops { get; set; }
 
         /// <summary>
-        /// The ARN of the symmetric KMSlong (KMS) CMK used for encryption.
+        /// Identifier (key ID, key alias, key ARN, or alias ARN) of the customer managed KMS key to use for EBS encryption.
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }

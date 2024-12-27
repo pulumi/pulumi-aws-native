@@ -301,8 +301,9 @@ type TaskDefinition struct {
 	//       This option requires Linux platform ``1.4.0`` or later.
 	//   +  16384 (16vCPU) - Available ``memory`` values: 32GB and 120 GB in 8 GB increments
 	//       This option requires Linux platform ``1.4.0`` or later.
-	Cpu                  pulumi.StringPtrOutput `pulumi:"cpu"`
-	EnableFaultInjection pulumi.BoolPtrOutput   `pulumi:"enableFaultInjection"`
+	Cpu pulumi.StringPtrOutput `pulumi:"cpu"`
+	// Enables fault injection and allows for fault injection requests to be accepted from the task's containers. The default value is `false` .
+	EnableFaultInjection pulumi.BoolPtrOutput `pulumi:"enableFaultInjection"`
 	// The ephemeral storage settings to use for tasks run with the task definition.
 	EphemeralStorage TaskDefinitionEphemeralStoragePtrOutput `pulumi:"ephemeralStorage"`
 	// The Amazon Resource Name (ARN) of the task execution role that grants the Amazon ECS container agent permission to make AWS API calls on your behalf. For informationabout the required IAM roles for Amazon ECS, see [IAM roles for Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/security-ecs-iam-role-overview.html) in the *Amazon Elastic Container Service Developer Guide*.
@@ -454,8 +455,9 @@ type taskDefinitionArgs struct {
 	//       This option requires Linux platform ``1.4.0`` or later.
 	//   +  16384 (16vCPU) - Available ``memory`` values: 32GB and 120 GB in 8 GB increments
 	//       This option requires Linux platform ``1.4.0`` or later.
-	Cpu                  *string `pulumi:"cpu"`
-	EnableFaultInjection *bool   `pulumi:"enableFaultInjection"`
+	Cpu *string `pulumi:"cpu"`
+	// Enables fault injection and allows for fault injection requests to be accepted from the task's containers. The default value is `false` .
+	EnableFaultInjection *bool `pulumi:"enableFaultInjection"`
 	// The ephemeral storage settings to use for tasks run with the task definition.
 	EphemeralStorage *TaskDefinitionEphemeralStorage `pulumi:"ephemeralStorage"`
 	// The Amazon Resource Name (ARN) of the task execution role that grants the Amazon ECS container agent permission to make AWS API calls on your behalf. For informationabout the required IAM roles for Amazon ECS, see [IAM roles for Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/security-ecs-iam-role-overview.html) in the *Amazon Elastic Container Service Developer Guide*.
@@ -547,7 +549,8 @@ type TaskDefinitionArgs struct {
 	//       This option requires Linux platform ``1.4.0`` or later.
 	//   +  16384 (16vCPU) - Available ``memory`` values: 32GB and 120 GB in 8 GB increments
 	//       This option requires Linux platform ``1.4.0`` or later.
-	Cpu                  pulumi.StringPtrInput
+	Cpu pulumi.StringPtrInput
+	// Enables fault injection and allows for fault injection requests to be accepted from the task's containers. The default value is `false` .
 	EnableFaultInjection pulumi.BoolPtrInput
 	// The ephemeral storage settings to use for tasks run with the task definition.
 	EphemeralStorage TaskDefinitionEphemeralStoragePtrInput
@@ -683,6 +686,7 @@ func (o TaskDefinitionOutput) Cpu() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskDefinition) pulumi.StringPtrOutput { return v.Cpu }).(pulumi.StringPtrOutput)
 }
 
+// Enables fault injection and allows for fault injection requests to be accepted from the task's containers. The default value is `false` .
 func (o TaskDefinitionOutput) EnableFaultInjection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TaskDefinition) pulumi.BoolPtrOutput { return v.EnableFaultInjection }).(pulumi.BoolPtrOutput)
 }

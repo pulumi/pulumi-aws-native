@@ -39,6 +39,9 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
             set => _parameters = value;
         }
 
+        /// <summary>
+        /// Contains information if user confirmation is required to invoke the function.
+        /// </summary>
         [Input("requireConfirmation")]
         public Input<Pulumi.AwsNative.Bedrock.AgentRequireConfirmation>? RequireConfirmation { get; set; }
 

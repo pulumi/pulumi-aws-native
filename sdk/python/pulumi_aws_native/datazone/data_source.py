@@ -27,7 +27,7 @@ class DataSourceArgs:
                  project_identifier: pulumi.Input[str],
                  type: pulumi.Input[str],
                  asset_forms_input: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceFormInputArgs']]]] = None,
-                 configuration: Optional[pulumi.Input[Union['DataSourceConfigurationInput0PropertiesArgs', 'DataSourceConfigurationInput1PropertiesArgs']]] = None,
+                 configuration: Optional[pulumi.Input[Union['DataSourceConfigurationInput0PropertiesArgs', 'DataSourceConfigurationInput1PropertiesArgs', 'DataSourceConfigurationInput2PropertiesArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enable_setting: Optional[pulumi.Input['DataSourceEnableSetting']] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -41,7 +41,7 @@ class DataSourceArgs:
         :param pulumi.Input[str] project_identifier: The identifier of the Amazon DataZone project in which you want to add the data source.
         :param pulumi.Input[str] type: The type of the data source.
         :param pulumi.Input[Sequence[pulumi.Input['DataSourceFormInputArgs']]] asset_forms_input: The metadata forms that are to be attached to the assets that this data source works with.
-        :param pulumi.Input[Union['DataSourceConfigurationInput0PropertiesArgs', 'DataSourceConfigurationInput1PropertiesArgs']] configuration: Configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration.
+        :param pulumi.Input[Union['DataSourceConfigurationInput0PropertiesArgs', 'DataSourceConfigurationInput1PropertiesArgs', 'DataSourceConfigurationInput2PropertiesArgs']] configuration: Configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration.
         :param pulumi.Input[str] description: The description of the data source.
         :param pulumi.Input['DataSourceEnableSetting'] enable_setting: Specifies whether the data source is enabled.
         :param pulumi.Input[str] name: The name of the data source.
@@ -132,14 +132,14 @@ class DataSourceArgs:
 
     @property
     @pulumi.getter
-    def configuration(self) -> Optional[pulumi.Input[Union['DataSourceConfigurationInput0PropertiesArgs', 'DataSourceConfigurationInput1PropertiesArgs']]]:
+    def configuration(self) -> Optional[pulumi.Input[Union['DataSourceConfigurationInput0PropertiesArgs', 'DataSourceConfigurationInput1PropertiesArgs', 'DataSourceConfigurationInput2PropertiesArgs']]]:
         """
         Configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration.
         """
         return pulumi.get(self, "configuration")
 
     @configuration.setter
-    def configuration(self, value: Optional[pulumi.Input[Union['DataSourceConfigurationInput0PropertiesArgs', 'DataSourceConfigurationInput1PropertiesArgs']]]):
+    def configuration(self, value: Optional[pulumi.Input[Union['DataSourceConfigurationInput0PropertiesArgs', 'DataSourceConfigurationInput1PropertiesArgs', 'DataSourceConfigurationInput2PropertiesArgs']]]):
         pulumi.set(self, "configuration", value)
 
     @property
@@ -221,7 +221,7 @@ class DataSource(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  asset_forms_input: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataSourceFormInputArgs', 'DataSourceFormInputArgsDict']]]]] = None,
-                 configuration: Optional[pulumi.Input[Union[Union['DataSourceConfigurationInput0PropertiesArgs', 'DataSourceConfigurationInput0PropertiesArgsDict'], Union['DataSourceConfigurationInput1PropertiesArgs', 'DataSourceConfigurationInput1PropertiesArgsDict']]]] = None,
+                 configuration: Optional[pulumi.Input[Union[Union['DataSourceConfigurationInput0PropertiesArgs', 'DataSourceConfigurationInput0PropertiesArgsDict'], Union['DataSourceConfigurationInput1PropertiesArgs', 'DataSourceConfigurationInput1PropertiesArgsDict'], Union['DataSourceConfigurationInput2PropertiesArgs', 'DataSourceConfigurationInput2PropertiesArgsDict']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  domain_identifier: Optional[pulumi.Input[str]] = None,
                  enable_setting: Optional[pulumi.Input['DataSourceEnableSetting']] = None,
@@ -239,7 +239,7 @@ class DataSource(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DataSourceFormInputArgs', 'DataSourceFormInputArgsDict']]]] asset_forms_input: The metadata forms that are to be attached to the assets that this data source works with.
-        :param pulumi.Input[Union[Union['DataSourceConfigurationInput0PropertiesArgs', 'DataSourceConfigurationInput0PropertiesArgsDict'], Union['DataSourceConfigurationInput1PropertiesArgs', 'DataSourceConfigurationInput1PropertiesArgsDict']]] configuration: Configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration.
+        :param pulumi.Input[Union[Union['DataSourceConfigurationInput0PropertiesArgs', 'DataSourceConfigurationInput0PropertiesArgsDict'], Union['DataSourceConfigurationInput1PropertiesArgs', 'DataSourceConfigurationInput1PropertiesArgsDict'], Union['DataSourceConfigurationInput2PropertiesArgs', 'DataSourceConfigurationInput2PropertiesArgsDict']]] configuration: Configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration.
         :param pulumi.Input[str] description: The description of the data source.
         :param pulumi.Input[str] domain_identifier: The ID of the Amazon DataZone domain where the data source is created.
         :param pulumi.Input['DataSourceEnableSetting'] enable_setting: Specifies whether the data source is enabled.
@@ -276,7 +276,7 @@ class DataSource(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  asset_forms_input: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataSourceFormInputArgs', 'DataSourceFormInputArgsDict']]]]] = None,
-                 configuration: Optional[pulumi.Input[Union[Union['DataSourceConfigurationInput0PropertiesArgs', 'DataSourceConfigurationInput0PropertiesArgsDict'], Union['DataSourceConfigurationInput1PropertiesArgs', 'DataSourceConfigurationInput1PropertiesArgsDict']]]] = None,
+                 configuration: Optional[pulumi.Input[Union[Union['DataSourceConfigurationInput0PropertiesArgs', 'DataSourceConfigurationInput0PropertiesArgsDict'], Union['DataSourceConfigurationInput1PropertiesArgs', 'DataSourceConfigurationInput1PropertiesArgsDict'], Union['DataSourceConfigurationInput2PropertiesArgs', 'DataSourceConfigurationInput2PropertiesArgsDict']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  domain_identifier: Optional[pulumi.Input[str]] = None,
                  enable_setting: Optional[pulumi.Input['DataSourceEnableSetting']] = None,

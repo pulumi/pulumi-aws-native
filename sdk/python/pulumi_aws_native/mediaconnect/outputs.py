@@ -21,6 +21,7 @@ __all__ = [
     'BridgeFailoverConfig',
     'BridgeFlowSource',
     'BridgeIngressGatewayBridge',
+    'BridgeMulticastSourceSettings',
     'BridgeNetworkOutput',
     'BridgeNetworkSource',
     'BridgeOutput',
@@ -28,6 +29,7 @@ __all__ = [
     'BridgeSource',
     'BridgeSourceBridgeFlowSource',
     'BridgeSourceBridgeNetworkSource',
+    'BridgeSourceMulticastSourceSettings',
     'BridgeSourcePriority',
     'BridgeSourceVpcInterfaceAttachment',
     'BridgeVpcInterfaceAttachment',
@@ -272,6 +274,46 @@ class BridgeIngressGatewayBridge(dict):
 
 
 @pulumi.output_type
+class BridgeMulticastSourceSettings(dict):
+    """
+    The settings related to the multicast source.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "multicastSourceIp":
+            suggest = "multicast_source_ip"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BridgeMulticastSourceSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BridgeMulticastSourceSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BridgeMulticastSourceSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 multicast_source_ip: Optional[str] = None):
+        """
+        The settings related to the multicast source.
+        :param str multicast_source_ip: The IP address of the source for source-specific multicast (SSM).
+        """
+        if multicast_source_ip is not None:
+            pulumi.set(__self__, "multicast_source_ip", multicast_source_ip)
+
+    @property
+    @pulumi.getter(name="multicastSourceIp")
+    def multicast_source_ip(self) -> Optional[str]:
+        """
+        The IP address of the source for source-specific multicast (SSM).
+        """
+        return pulumi.get(self, "multicast_source_ip")
+
+
+@pulumi.output_type
 class BridgeNetworkOutput(dict):
     """
     The output of the bridge. A network output is delivered to your premises.
@@ -379,6 +421,8 @@ class BridgeNetworkSource(dict):
             suggest = "multicast_ip"
         elif key == "networkName":
             suggest = "network_name"
+        elif key == "multicastSourceSettings":
+            suggest = "multicast_source_settings"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in BridgeNetworkSource. Access the value via the '{suggest}' property getter instead.")
@@ -396,7 +440,8 @@ class BridgeNetworkSource(dict):
                  name: str,
                  network_name: str,
                  port: int,
-                 protocol: 'BridgeProtocolEnum'):
+                 protocol: 'BridgeProtocolEnum',
+                 multicast_source_settings: Optional['outputs.BridgeMulticastSourceSettings'] = None):
         """
         The source of the bridge. A network source originates at your premises.
         :param str multicast_ip: The network source multicast IP.
@@ -404,12 +449,15 @@ class BridgeNetworkSource(dict):
         :param str network_name: The network source's gateway network name.
         :param int port: The network source port.
         :param 'BridgeProtocolEnum' protocol: The network source protocol.
+        :param 'BridgeMulticastSourceSettings' multicast_source_settings: The settings related to the multicast source.
         """
         pulumi.set(__self__, "multicast_ip", multicast_ip)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "network_name", network_name)
         pulumi.set(__self__, "port", port)
         pulumi.set(__self__, "protocol", protocol)
+        if multicast_source_settings is not None:
+            pulumi.set(__self__, "multicast_source_settings", multicast_source_settings)
 
     @property
     @pulumi.getter(name="multicastIp")
@@ -450,6 +498,14 @@ class BridgeNetworkSource(dict):
         The network source protocol.
         """
         return pulumi.get(self, "protocol")
+
+    @property
+    @pulumi.getter(name="multicastSourceSettings")
+    def multicast_source_settings(self) -> Optional['outputs.BridgeMulticastSourceSettings']:
+        """
+        The settings related to the multicast source.
+        """
+        return pulumi.get(self, "multicast_source_settings")
 
 
 @pulumi.output_type
@@ -696,6 +752,8 @@ class BridgeSourceBridgeNetworkSource(dict):
             suggest = "multicast_ip"
         elif key == "networkName":
             suggest = "network_name"
+        elif key == "multicastSourceSettings":
+            suggest = "multicast_source_settings"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in BridgeSourceBridgeNetworkSource. Access the value via the '{suggest}' property getter instead.")
@@ -712,18 +770,22 @@ class BridgeSourceBridgeNetworkSource(dict):
                  multicast_ip: str,
                  network_name: str,
                  port: int,
-                 protocol: 'BridgeSourceProtocolEnum'):
+                 protocol: 'BridgeSourceProtocolEnum',
+                 multicast_source_settings: Optional['outputs.BridgeSourceMulticastSourceSettings'] = None):
         """
         The source of the bridge. A network source originates at your premises.
         :param str multicast_ip: The network source multicast IP.
         :param str network_name: The network source's gateway network name.
         :param int port: The network source port.
         :param 'BridgeSourceProtocolEnum' protocol: The network source protocol.
+        :param 'BridgeSourceMulticastSourceSettings' multicast_source_settings: The settings related to the multicast source.
         """
         pulumi.set(__self__, "multicast_ip", multicast_ip)
         pulumi.set(__self__, "network_name", network_name)
         pulumi.set(__self__, "port", port)
         pulumi.set(__self__, "protocol", protocol)
+        if multicast_source_settings is not None:
+            pulumi.set(__self__, "multicast_source_settings", multicast_source_settings)
 
     @property
     @pulumi.getter(name="multicastIp")
@@ -756,6 +818,54 @@ class BridgeSourceBridgeNetworkSource(dict):
         The network source protocol.
         """
         return pulumi.get(self, "protocol")
+
+    @property
+    @pulumi.getter(name="multicastSourceSettings")
+    def multicast_source_settings(self) -> Optional['outputs.BridgeSourceMulticastSourceSettings']:
+        """
+        The settings related to the multicast source.
+        """
+        return pulumi.get(self, "multicast_source_settings")
+
+
+@pulumi.output_type
+class BridgeSourceMulticastSourceSettings(dict):
+    """
+    The settings related to the multicast source.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "multicastSourceIp":
+            suggest = "multicast_source_ip"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BridgeSourceMulticastSourceSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BridgeSourceMulticastSourceSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BridgeSourceMulticastSourceSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 multicast_source_ip: Optional[str] = None):
+        """
+        The settings related to the multicast source.
+        :param str multicast_source_ip: The IP address of the source for source-specific multicast (SSM).
+        """
+        if multicast_source_ip is not None:
+            pulumi.set(__self__, "multicast_source_ip", multicast_source_ip)
+
+    @property
+    @pulumi.getter(name="multicastSourceIp")
+    def multicast_source_ip(self) -> Optional[str]:
+        """
+        The IP address of the source for source-specific multicast (SSM).
+        """
+        return pulumi.get(self, "multicast_source_ip")
 
 
 @pulumi.output_type

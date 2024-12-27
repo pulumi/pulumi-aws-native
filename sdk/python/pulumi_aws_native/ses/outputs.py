@@ -47,6 +47,7 @@ __all__ = [
     'MailManagerRuleSetAnalysis',
     'MailManagerRuleSetArchiveAction',
     'MailManagerRuleSetDeliverToMailboxAction',
+    'MailManagerRuleSetDeliverToQBusinessAction',
     'MailManagerRuleSetDropAction',
     'MailManagerRuleSetRelayAction',
     'MailManagerRuleSetReplaceRecipientAction',
@@ -59,6 +60,7 @@ __all__ = [
     'MailManagerRuleSetRuleAction5Properties',
     'MailManagerRuleSetRuleAction6Properties',
     'MailManagerRuleSetRuleAction7Properties',
+    'MailManagerRuleSetRuleAction8Properties',
     'MailManagerRuleSetRuleBooleanExpression',
     'MailManagerRuleSetRuleBooleanToEvaluateProperties',
     'MailManagerRuleSetRuleCondition0Properties',
@@ -1441,6 +1443,63 @@ class MailManagerRuleSetDeliverToMailboxAction(dict):
 
 
 @pulumi.output_type
+class MailManagerRuleSetDeliverToQBusinessAction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "applicationId":
+            suggest = "application_id"
+        elif key == "indexId":
+            suggest = "index_id"
+        elif key == "roleArn":
+            suggest = "role_arn"
+        elif key == "actionFailurePolicy":
+            suggest = "action_failure_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MailManagerRuleSetDeliverToQBusinessAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MailManagerRuleSetDeliverToQBusinessAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MailManagerRuleSetDeliverToQBusinessAction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 application_id: str,
+                 index_id: str,
+                 role_arn: str,
+                 action_failure_policy: Optional['MailManagerRuleSetActionFailurePolicy'] = None):
+        pulumi.set(__self__, "application_id", application_id)
+        pulumi.set(__self__, "index_id", index_id)
+        pulumi.set(__self__, "role_arn", role_arn)
+        if action_failure_policy is not None:
+            pulumi.set(__self__, "action_failure_policy", action_failure_policy)
+
+    @property
+    @pulumi.getter(name="applicationId")
+    def application_id(self) -> str:
+        return pulumi.get(self, "application_id")
+
+    @property
+    @pulumi.getter(name="indexId")
+    def index_id(self) -> str:
+        return pulumi.get(self, "index_id")
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> str:
+        return pulumi.get(self, "role_arn")
+
+    @property
+    @pulumi.getter(name="actionFailurePolicy")
+    def action_failure_policy(self) -> Optional['MailManagerRuleSetActionFailurePolicy']:
+        return pulumi.get(self, "action_failure_policy")
+
+
+@pulumi.output_type
 class MailManagerRuleSetDropAction(dict):
     def __init__(__self__):
         pass
@@ -1531,7 +1590,7 @@ class MailManagerRuleSetRule(dict):
                  name: Optional[str] = None,
                  unless: Optional[Sequence[Any]] = None):
         """
-        :param Sequence[Union['MailManagerRuleSetRuleAction0Properties', 'MailManagerRuleSetRuleAction1Properties', 'MailManagerRuleSetRuleAction2Properties', 'MailManagerRuleSetRuleAction3Properties', 'MailManagerRuleSetRuleAction4Properties', 'MailManagerRuleSetRuleAction5Properties', 'MailManagerRuleSetRuleAction6Properties', 'MailManagerRuleSetRuleAction7Properties']] actions: The list of actions to execute when the conditions match the incoming email, and none of the "unless conditions" match.
+        :param Sequence[Union['MailManagerRuleSetRuleAction0Properties', 'MailManagerRuleSetRuleAction1Properties', 'MailManagerRuleSetRuleAction2Properties', 'MailManagerRuleSetRuleAction3Properties', 'MailManagerRuleSetRuleAction4Properties', 'MailManagerRuleSetRuleAction5Properties', 'MailManagerRuleSetRuleAction6Properties', 'MailManagerRuleSetRuleAction7Properties', 'MailManagerRuleSetRuleAction8Properties']] actions: The list of actions to execute when the conditions match the incoming email, and none of the "unless conditions" match.
         :param Sequence[Union['MailManagerRuleSetRuleCondition0Properties', 'MailManagerRuleSetRuleCondition1Properties', 'MailManagerRuleSetRuleCondition2Properties', 'MailManagerRuleSetRuleCondition3Properties', 'MailManagerRuleSetRuleCondition4Properties', 'MailManagerRuleSetRuleCondition5Properties']] conditions: The conditions of this rule. All conditions must match the email for the actions to be executed. An empty list of conditions means that all emails match, but are still subject to any "unless conditions"
         :param str name: The user-friendly name of the rule.
         :param Sequence[Union['MailManagerRuleSetRuleCondition0Properties', 'MailManagerRuleSetRuleCondition1Properties', 'MailManagerRuleSetRuleCondition2Properties', 'MailManagerRuleSetRuleCondition3Properties', 'MailManagerRuleSetRuleCondition4Properties', 'MailManagerRuleSetRuleCondition5Properties']] unless: The "unless conditions" of this rule. None of the conditions can match the email for the actions to be executed. If any of these conditions do match the email, then the actions are not executed.
@@ -1739,6 +1798,35 @@ class MailManagerRuleSetRuleAction7Properties(dict):
     @pulumi.getter(name="deliverToMailbox")
     def deliver_to_mailbox(self) -> 'outputs.MailManagerRuleSetDeliverToMailboxAction':
         return pulumi.get(self, "deliver_to_mailbox")
+
+
+@pulumi.output_type
+class MailManagerRuleSetRuleAction8Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deliverToQBusiness":
+            suggest = "deliver_to_q_business"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MailManagerRuleSetRuleAction8Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MailManagerRuleSetRuleAction8Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MailManagerRuleSetRuleAction8Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 deliver_to_q_business: 'outputs.MailManagerRuleSetDeliverToQBusinessAction'):
+        pulumi.set(__self__, "deliver_to_q_business", deliver_to_q_business)
+
+    @property
+    @pulumi.getter(name="deliverToQBusiness")
+    def deliver_to_q_business(self) -> 'outputs.MailManagerRuleSetDeliverToQBusinessAction':
+        return pulumi.get(self, "deliver_to_q_business")
 
 
 @pulumi.output_type

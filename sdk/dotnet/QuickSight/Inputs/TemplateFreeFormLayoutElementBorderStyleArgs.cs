@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         /// The border visibility of a free-form layout element.
         /// </summary>
         [Input("visibility")]
-        public Input<Pulumi.AwsNative.QuickSight.TemplateVisibility>? Visibility { get; set; }
+        public Input<object>? Visibility { get; set; }
 
         public TemplateFreeFormLayoutElementBorderStyleArgs()
         {

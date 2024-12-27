@@ -1163,6 +1163,9 @@ if not MYPY:
         The Amazon S3 bucket name.
         """
         bucket_owner: NotRequired[pulumi.Input[str]]
+        """
+        The AWS account ID of the bucket owner.
+        """
         key: NotRequired[pulumi.Input[str]]
         """
         The unique name of the object in the bucket.
@@ -1179,6 +1182,7 @@ class DatasetS3LocationArgs:
         """
         Input location
         :param pulumi.Input[str] bucket: The Amazon S3 bucket name.
+        :param pulumi.Input[str] bucket_owner: The AWS account ID of the bucket owner.
         :param pulumi.Input[str] key: The unique name of the object in the bucket.
         """
         pulumi.set(__self__, "bucket", bucket)
@@ -1202,6 +1206,9 @@ class DatasetS3LocationArgs:
     @property
     @pulumi.getter(name="bucketOwner")
     def bucket_owner(self) -> Optional[pulumi.Input[str]]:
+        """
+        The AWS account ID of the bucket owner.
+        """
         return pulumi.get(self, "bucket_owner")
 
     @bucket_owner.setter

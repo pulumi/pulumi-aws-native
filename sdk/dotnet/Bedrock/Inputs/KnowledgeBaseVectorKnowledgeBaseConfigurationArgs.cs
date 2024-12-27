@@ -27,6 +27,12 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
         [Input("embeddingModelConfiguration")]
         public Input<Inputs.KnowledgeBaseEmbeddingModelConfigurationArgs>? EmbeddingModelConfiguration { get; set; }
 
+        /// <summary>
+        /// If you include multimodal data from your data source, use this object to specify configurations for the storage location of the images extracted from your documents. These images can be retrieved and returned to the end user. They can also be used in generation when using [RetrieveAndGenerate](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html) .
+        /// </summary>
+        [Input("supplementalDataStorageConfiguration")]
+        public Input<Inputs.KnowledgeBaseSupplementalDataStorageConfigurationArgs>? SupplementalDataStorageConfiguration { get; set; }
+
         public KnowledgeBaseVectorKnowledgeBaseConfigurationArgs()
         {
         }

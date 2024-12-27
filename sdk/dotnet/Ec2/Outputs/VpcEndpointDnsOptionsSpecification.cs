@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Ec2.Outputs
     [OutputType]
     public sealed class VpcEndpointDnsOptionsSpecification
     {
+        /// <summary>
+        /// The DNS records created for the endpoint.
+        /// </summary>
         public readonly Pulumi.AwsNative.Ec2.VpcEndpointDnsOptionsSpecificationDnsRecordIpType? DnsRecordIpType;
+        /// <summary>
+        /// Indicates whether to enable private DNS only for inbound endpoints. This option is available only for services that support both gateway and interface endpoints. It routes traffic that originates from the VPC to the gateway endpoint and traffic that originates from on-premises to the interface endpoint.
+        /// </summary>
         public readonly Pulumi.AwsNative.Ec2.VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint? PrivateDnsOnlyForInboundResolverEndpoint;
 
         [OutputConstructor]

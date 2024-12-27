@@ -16,10 +16,10 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// <summary>
         /// Determines the visibility of the secondary value.
         /// </summary>
-        public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? Visibility;
+        public readonly object? Visibility;
 
         [OutputConstructor]
-        private TemplateSecondaryValueOptions(Pulumi.AwsNative.QuickSight.TemplateVisibility? visibility)
+        private TemplateSecondaryValueOptions(object? visibility)
         {
             Visibility = visibility;
         }

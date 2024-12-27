@@ -42,7 +42,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         /// Determines whether or not the legend is visible.
         /// </summary>
         [Input("visibility")]
-        public Input<Pulumi.AwsNative.QuickSight.TemplateVisibility>? Visibility { get; set; }
+        public Input<object>? Visibility { get; set; }
 
         /// <summary>
         /// String based length that is composed of value and unit in px

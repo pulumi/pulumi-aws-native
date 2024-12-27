@@ -24,17 +24,17 @@ class KnowledgeBaseArgs:
     def __init__(__self__, *,
                  knowledge_base_configuration: pulumi.Input['KnowledgeBaseConfigurationArgs'],
                  role_arn: pulumi.Input[str],
-                 storage_configuration: pulumi.Input['KnowledgeBaseStorageConfigurationArgs'],
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 storage_configuration: Optional[pulumi.Input['KnowledgeBaseStorageConfigurationArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a KnowledgeBase resource.
         :param pulumi.Input['KnowledgeBaseConfigurationArgs'] knowledge_base_configuration: Contains details about the embeddings configuration of the knowledge base.
         :param pulumi.Input[str] role_arn: The ARN of the IAM role with permissions to invoke API operations on the knowledge base. The ARN must begin with AmazonBedrockExecutionRoleForKnowledgeBase_
-        :param pulumi.Input['KnowledgeBaseStorageConfigurationArgs'] storage_configuration: Contains details about the storage configuration of the knowledge base.
         :param pulumi.Input[str] description: Description of the Resource.
         :param pulumi.Input[str] name: The name of the knowledge base.
+        :param pulumi.Input['KnowledgeBaseStorageConfigurationArgs'] storage_configuration: Contains details about the storage configuration of the knowledge base.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
                
                - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
@@ -42,11 +42,12 @@ class KnowledgeBaseArgs:
         """
         pulumi.set(__self__, "knowledge_base_configuration", knowledge_base_configuration)
         pulumi.set(__self__, "role_arn", role_arn)
-        pulumi.set(__self__, "storage_configuration", storage_configuration)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if storage_configuration is not None:
+            pulumi.set(__self__, "storage_configuration", storage_configuration)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -75,18 +76,6 @@ class KnowledgeBaseArgs:
         pulumi.set(self, "role_arn", value)
 
     @property
-    @pulumi.getter(name="storageConfiguration")
-    def storage_configuration(self) -> pulumi.Input['KnowledgeBaseStorageConfigurationArgs']:
-        """
-        Contains details about the storage configuration of the knowledge base.
-        """
-        return pulumi.get(self, "storage_configuration")
-
-    @storage_configuration.setter
-    def storage_configuration(self, value: pulumi.Input['KnowledgeBaseStorageConfigurationArgs']):
-        pulumi.set(self, "storage_configuration", value)
-
-    @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
@@ -109,6 +98,18 @@ class KnowledgeBaseArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="storageConfiguration")
+    def storage_configuration(self) -> Optional[pulumi.Input['KnowledgeBaseStorageConfigurationArgs']]:
+        """
+        Contains details about the storage configuration of the knowledge base.
+        """
+        return pulumi.get(self, "storage_configuration")
+
+    @storage_configuration.setter
+    def storage_configuration(self, value: Optional[pulumi.Input['KnowledgeBaseStorageConfigurationArgs']]):
+        pulumi.set(self, "storage_configuration", value)
 
     @property
     @pulumi.getter
@@ -200,8 +201,6 @@ class KnowledgeBase(pulumi.CustomResource):
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
             __props__.__dict__["role_arn"] = role_arn
-            if storage_configuration is None and not opts.urn:
-                raise TypeError("Missing required property 'storage_configuration'")
             __props__.__dict__["storage_configuration"] = storage_configuration
             __props__.__dict__["tags"] = tags
             __props__.__dict__["created_at"] = None
@@ -322,7 +321,7 @@ class KnowledgeBase(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="storageConfiguration")
-    def storage_configuration(self) -> pulumi.Output['outputs.KnowledgeBaseStorageConfiguration']:
+    def storage_configuration(self) -> pulumi.Output[Optional['outputs.KnowledgeBaseStorageConfiguration']]:
         """
         Contains details about the storage configuration of the knowledge base.
         """

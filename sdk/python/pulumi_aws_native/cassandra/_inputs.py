@@ -808,7 +808,13 @@ class TableTargetTrackingScalingPolicyConfigurationArgs:
 if not MYPY:
     class TypeFieldArgsDict(TypedDict):
         field_name: pulumi.Input[str]
+        """
+        The name of the field.
+        """
         field_type: pulumi.Input[str]
+        """
+        The data type of the field. This can be any Cassandra data type or another user-defined type.
+        """
 elif False:
     TypeFieldArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -817,12 +823,19 @@ class TypeFieldArgs:
     def __init__(__self__, *,
                  field_name: pulumi.Input[str],
                  field_type: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] field_name: The name of the field.
+        :param pulumi.Input[str] field_type: The data type of the field. This can be any Cassandra data type or another user-defined type.
+        """
         pulumi.set(__self__, "field_name", field_name)
         pulumi.set(__self__, "field_type", field_type)
 
     @property
     @pulumi.getter(name="fieldName")
     def field_name(self) -> pulumi.Input[str]:
+        """
+        The name of the field.
+        """
         return pulumi.get(self, "field_name")
 
     @field_name.setter
@@ -832,6 +845,9 @@ class TypeFieldArgs:
     @property
     @pulumi.getter(name="fieldType")
     def field_type(self) -> pulumi.Input[str]:
+        """
+        The data type of the field. This can be any Cassandra data type or another user-defined type.
+        """
         return pulumi.get(self, "field_type")
 
     @field_type.setter

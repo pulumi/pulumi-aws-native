@@ -261,7 +261,7 @@ type DbInstance struct {
 	//  This setting doesn't apply to Amazon Aurora DB instances. The DB subnet group is managed by the DB cluster. If specified, the setting must match the DB cluster setting.
 	DbSubnetGroupName pulumi.StringPtrOutput `pulumi:"dbSubnetGroupName"`
 	// The Oracle system identifier (SID), which is the name of the Oracle database instance that manages your database files. In this context, the term "Oracle database instance" refers exclusively to the system global area (SGA) and Oracle background processes. If you don't specify a SID, the value defaults to ``RDSCDB``. The Oracle SID is also the name of your CDB.
-	DbSystemId pulumi.StringOutput `pulumi:"dbSystemId"`
+	DbSystemId pulumi.StringPtrOutput `pulumi:"dbSystemId"`
 	// The AWS Region-unique, immutable identifier for the DB instance. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB instance is accessed.
 	DbiResourceId pulumi.StringOutput `pulumi:"dbiResourceId"`
 	// Indicates whether the DB instance has a dedicated log volume (DLV) enabled.
@@ -660,6 +660,7 @@ func NewDbInstance(ctx *pulumi.Context,
 		"dbInstanceIdentifier",
 		"dbName",
 		"dbSubnetGroupName",
+		"dbSystemId",
 		"kmsKeyId",
 		"masterUsername",
 		"ncharCharacterSetName",
@@ -922,6 +923,8 @@ type dbInstanceArgs struct {
 	//  For more information about using Amazon RDS in a VPC, see [Amazon VPC and Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html) in the *Amazon RDS User Guide*.
 	//  This setting doesn't apply to Amazon Aurora DB instances. The DB subnet group is managed by the DB cluster. If specified, the setting must match the DB cluster setting.
 	DbSubnetGroupName *string `pulumi:"dbSubnetGroupName"`
+	// The Oracle system identifier (SID), which is the name of the Oracle database instance that manages your database files. In this context, the term "Oracle database instance" refers exclusively to the system global area (SGA) and Oracle background processes. If you don't specify a SID, the value defaults to ``RDSCDB``. The Oracle SID is also the name of your CDB.
+	DbSystemId *string `pulumi:"dbSystemId"`
 	// Indicates whether the DB instance has a dedicated log volume (DLV) enabled.
 	DedicatedLogVolume *bool `pulumi:"dedicatedLogVolume"`
 	// A value that indicates whether to remove automated backups immediately after the DB instance is deleted. This parameter isn't case-sensitive. The default is to remove automated backups immediately after the DB instance is deleted.
@@ -1527,6 +1530,8 @@ type DbInstanceArgs struct {
 	//  For more information about using Amazon RDS in a VPC, see [Amazon VPC and Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html) in the *Amazon RDS User Guide*.
 	//  This setting doesn't apply to Amazon Aurora DB instances. The DB subnet group is managed by the DB cluster. If specified, the setting must match the DB cluster setting.
 	DbSubnetGroupName pulumi.StringPtrInput
+	// The Oracle system identifier (SID), which is the name of the Oracle database instance that manages your database files. In this context, the term "Oracle database instance" refers exclusively to the system global area (SGA) and Oracle background processes. If you don't specify a SID, the value defaults to ``RDSCDB``. The Oracle SID is also the name of your CDB.
+	DbSystemId pulumi.StringPtrInput
 	// Indicates whether the DB instance has a dedicated log volume (DLV) enabled.
 	DedicatedLogVolume pulumi.BoolPtrInput
 	// A value that indicates whether to remove automated backups immediately after the DB instance is deleted. This parameter isn't case-sensitive. The default is to remove automated backups immediately after the DB instance is deleted.
@@ -2260,8 +2265,8 @@ func (o DbInstanceOutput) DbSubnetGroupName() pulumi.StringPtrOutput {
 }
 
 // The Oracle system identifier (SID), which is the name of the Oracle database instance that manages your database files. In this context, the term "Oracle database instance" refers exclusively to the system global area (SGA) and Oracle background processes. If you don't specify a SID, the value defaults to “RDSCDB“. The Oracle SID is also the name of your CDB.
-func (o DbInstanceOutput) DbSystemId() pulumi.StringOutput {
-	return o.ApplyT(func(v *DbInstance) pulumi.StringOutput { return v.DbSystemId }).(pulumi.StringOutput)
+func (o DbInstanceOutput) DbSystemId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DbInstance) pulumi.StringPtrOutput { return v.DbSystemId }).(pulumi.StringPtrOutput)
 }
 
 // The AWS Region-unique, immutable identifier for the DB instance. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB instance is accessed.

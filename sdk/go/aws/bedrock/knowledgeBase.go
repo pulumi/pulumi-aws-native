@@ -35,7 +35,7 @@ type KnowledgeBase struct {
 	// The status of the knowledge base.
 	Status KnowledgeBaseStatusOutput `pulumi:"status"`
 	// Contains details about the storage configuration of the knowledge base.
-	StorageConfiguration KnowledgeBaseStorageConfigurationOutput `pulumi:"storageConfiguration"`
+	StorageConfiguration KnowledgeBaseStorageConfigurationPtrOutput `pulumi:"storageConfiguration"`
 	// Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
 	//
 	// - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
@@ -57,9 +57,6 @@ func NewKnowledgeBase(ctx *pulumi.Context,
 	}
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
-	}
-	if args.StorageConfiguration == nil {
-		return nil, errors.New("invalid value for required argument 'StorageConfiguration'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"knowledgeBaseConfiguration",
@@ -108,7 +105,7 @@ type knowledgeBaseArgs struct {
 	// The ARN of the IAM role with permissions to invoke API operations on the knowledge base. The ARN must begin with AmazonBedrockExecutionRoleForKnowledgeBase_
 	RoleArn string `pulumi:"roleArn"`
 	// Contains details about the storage configuration of the knowledge base.
-	StorageConfiguration KnowledgeBaseStorageConfiguration `pulumi:"storageConfiguration"`
+	StorageConfiguration *KnowledgeBaseStorageConfiguration `pulumi:"storageConfiguration"`
 	// Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
 	//
 	// - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
@@ -127,7 +124,7 @@ type KnowledgeBaseArgs struct {
 	// The ARN of the IAM role with permissions to invoke API operations on the knowledge base. The ARN must begin with AmazonBedrockExecutionRoleForKnowledgeBase_
 	RoleArn pulumi.StringInput
 	// Contains details about the storage configuration of the knowledge base.
-	StorageConfiguration KnowledgeBaseStorageConfigurationInput
+	StorageConfiguration KnowledgeBaseStorageConfigurationPtrInput
 	// Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
 	//
 	// - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
@@ -218,8 +215,8 @@ func (o KnowledgeBaseOutput) Status() KnowledgeBaseStatusOutput {
 }
 
 // Contains details about the storage configuration of the knowledge base.
-func (o KnowledgeBaseOutput) StorageConfiguration() KnowledgeBaseStorageConfigurationOutput {
-	return o.ApplyT(func(v *KnowledgeBase) KnowledgeBaseStorageConfigurationOutput { return v.StorageConfiguration }).(KnowledgeBaseStorageConfigurationOutput)
+func (o KnowledgeBaseOutput) StorageConfiguration() KnowledgeBaseStorageConfigurationPtrOutput {
+	return o.ApplyT(func(v *KnowledgeBase) KnowledgeBaseStorageConfigurationPtrOutput { return v.StorageConfiguration }).(KnowledgeBaseStorageConfigurationPtrOutput)
 }
 
 // Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:

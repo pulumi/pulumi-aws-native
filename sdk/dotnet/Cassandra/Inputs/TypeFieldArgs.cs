@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.Cassandra.Inputs
 
     public sealed class TypeFieldArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the field.
+        /// </summary>
         [Input("fieldName", required: true)]
         public Input<string> FieldName { get; set; } = null!;
 
+        /// <summary>
+        /// The data type of the field. This can be any Cassandra data type or another user-defined type.
+        /// </summary>
         [Input("fieldType", required: true)]
         public Input<string> FieldType { get; set; } = null!;
 

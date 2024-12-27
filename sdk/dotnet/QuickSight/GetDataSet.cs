@@ -131,6 +131,9 @@ namespace Pulumi.AwsNative.QuickSight
         ///             analyses, and dashboards.&lt;/p&gt;
         /// </summary>
         public readonly ImmutableArray<Outputs.DataSetOutputColumn> OutputColumns;
+        /// <summary>
+        /// The performance optimization configuration of a dataset.
+        /// </summary>
         public readonly Outputs.DataSetPerformanceConfiguration? PerformanceConfiguration;
         /// <summary>
         /// &lt;p&gt;A list of resource permissions on the dataset.&lt;/p&gt;

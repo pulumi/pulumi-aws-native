@@ -106,7 +106,7 @@ class StackArgs:
                Conditional: You must specify either the `TemplateBody` or the `TemplateURL` parameter, but not both.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CloudFormation::Stack` for more information about the expected schema for this property.
-        :param pulumi.Input[str] template_url: Location of file containing the template body. The URL must point to a template (max size: 460,800 bytes) that's located in an Amazon S3 bucket.
+        :param pulumi.Input[str] template_url: The URL of a file containing the template body. The URL must point to a template (max size: 1 MB) that's located in an Amazon S3 bucket. The location for an Amazon S3 bucket must start with `https://` .
                
                Whether an update causes interruptions depends on the resources that are being updated. An update never causes a nested stack to be replaced.
         :param pulumi.Input[int] timeout_in_minutes: The length of time, in minutes, that CloudFormation waits for the nested stack to reach the `CREATE_COMPLETE` state. The default is no timeout. When CloudFormation detects that the nested stack has reached the `CREATE_COMPLETE` state, it marks the nested stack resource as `CREATE_COMPLETE` in the parent stack and resumes creating the parent stack. If the timeout period expires before the nested stack reaches `CREATE_COMPLETE` , CloudFormation marks the nested stack as failed and rolls back both the nested stack and parent stack.
@@ -357,7 +357,7 @@ class StackArgs:
     @pulumi.getter(name="templateUrl")
     def template_url(self) -> Optional[pulumi.Input[str]]:
         """
-        Location of file containing the template body. The URL must point to a template (max size: 460,800 bytes) that's located in an Amazon S3 bucket.
+        The URL of a file containing the template body. The URL must point to a template (max size: 1 MB) that's located in an Amazon S3 bucket. The location for an Amazon S3 bucket must start with `https://` .
 
         Whether an update causes interruptions depends on the resources that are being updated. An update never causes a nested stack to be replaced.
         """
@@ -474,7 +474,7 @@ class Stack(pulumi.CustomResource):
                Conditional: You must specify either the `TemplateBody` or the `TemplateURL` parameter, but not both.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::CloudFormation::Stack` for more information about the expected schema for this property.
-        :param pulumi.Input[str] template_url: Location of file containing the template body. The URL must point to a template (max size: 460,800 bytes) that's located in an Amazon S3 bucket.
+        :param pulumi.Input[str] template_url: The URL of a file containing the template body. The URL must point to a template (max size: 1 MB) that's located in an Amazon S3 bucket. The location for an Amazon S3 bucket must start with `https://` .
                
                Whether an update causes interruptions depends on the resources that are being updated. An update never causes a nested stack to be replaced.
         :param pulumi.Input[int] timeout_in_minutes: The length of time, in minutes, that CloudFormation waits for the nested stack to reach the `CREATE_COMPLETE` state. The default is no timeout. When CloudFormation detects that the nested stack has reached the `CREATE_COMPLETE` state, it marks the nested stack resource as `CREATE_COMPLETE` in the parent stack and resumes creating the parent stack. If the timeout period expires before the nested stack reaches `CREATE_COMPLETE` , CloudFormation marks the nested stack as failed and rolls back both the nested stack and parent stack.
@@ -830,7 +830,7 @@ class Stack(pulumi.CustomResource):
     @pulumi.getter(name="templateUrl")
     def template_url(self) -> pulumi.Output[Optional[str]]:
         """
-        Location of file containing the template body. The URL must point to a template (max size: 460,800 bytes) that's located in an Amazon S3 bucket.
+        The URL of a file containing the template body. The URL must point to a template (max size: 1 MB) that's located in an Amazon S3 bucket. The location for an Amazon S3 bucket must start with `https://` .
 
         Whether an update causes interruptions depends on the resources that are being updated. An update never causes a nested stack to be replaced.
         """

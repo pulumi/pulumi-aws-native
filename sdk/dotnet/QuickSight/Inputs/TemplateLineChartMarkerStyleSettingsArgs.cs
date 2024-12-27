@@ -40,7 +40,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         /// Configuration option that determines whether to show the markers in the series.
         /// </summary>
         [Input("markerVisibility")]
-        public Input<Pulumi.AwsNative.QuickSight.TemplateVisibility>? MarkerVisibility { get; set; }
+        public Input<object>? MarkerVisibility { get; set; }
 
         public TemplateLineChartMarkerStyleSettingsArgs()
         {

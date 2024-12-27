@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.DataZone.Inputs
 {
 
     /// <summary>
-    /// Specifies the configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration.
+    /// Specifies the configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration or sageMakerRunConfiguration.
     /// </summary>
     public sealed class DataSourceConfigurationInput1PropertiesArgs : global::Pulumi.ResourceArgs
     {

@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         /// The visibility of `Show aggregations` .
         /// </summary>
         [Input("aggregationVisibility")]
-        public Input<Pulumi.AwsNative.QuickSight.TemplateVisibility>? AggregationVisibility { get; set; }
+        public Input<object>? AggregationVisibility { get; set; }
 
         [Input("tooltipFields")]
         private InputList<Inputs.TemplateTooltipItemArgs>? _tooltipFields;

@@ -37,18 +37,7 @@
     },
     "KMSKeyId" : {
       "type" : "string",
-      "description" : "An KMS key identifier for the key to use to encrypt the integration. If you don't specify an encryption key, the default AWS owned KMS key is used.",
-      "anyOf" : [ {
-        "relationshipRef" : {
-          "typeName" : "AWS::KMS::Key",
-          "propertyPath" : "/properties/Arn"
-        }
-      }, {
-        "relationshipRef" : {
-          "typeName" : "AWS::KMS::Key",
-          "propertyPath" : "/properties/KeyId"
-        }
-      } ]
+      "description" : "An KMS key identifier for the key to use to encrypt the integration. If you don't specify an encryption key, the default AWS owned KMS key is used."
     },
     "AdditionalEncryptionContext" : {
       "$ref" : "#/definitions/EncryptionContextMap"
@@ -107,13 +96,13 @@
   "primaryIdentifier" : [ "/properties/IntegrationArn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "redshift:CreateIntegration", "redshift:DescribeIntegrations", "redshift:CreateTags", "redshift:DescribeTags", "redshift:DescribeClusters", "kms:CreateGrant", "kms:DescribeKey", "redshift:CreateInboundIntegration" ]
+      "permissions" : [ "redshift:CreateIntegration", "redshift:DescribeIntegrations", "redshift:CreateTags", "redshift:DescribeTags", "redshift:DescribeClusters", "redshift:CreateInboundIntegration", "redshift-serverless:ListNamespaces", "kms:CreateGrant", "kms:DescribeKey" ]
     },
     "read" : {
       "permissions" : [ "redshift:DescribeIntegrations", "redshift:DescribeTags" ]
     },
     "update" : {
-      "permissions" : [ "redshift:DescribeIntegrations", "redshift:ModifyIntegration", "redshift:CreateTags", "redshift:DeleteTags", "redshift:DescribeClusters", "redshift:DescribeTags" ]
+      "permissions" : [ "redshift:DescribeIntegrations", "redshift:ModifyIntegration", "redshift:CreateTags", "redshift:DeleteTags", "redshift:DescribeClusters", "redshift:DescribeTags", "redshift-serverless:ListNamespaces" ]
     },
     "delete" : {
       "permissions" : [ "redshift:DeleteTags", "redshift:DeleteIntegration", "redshift:DescribeIntegrations" ]

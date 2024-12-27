@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         /// Determines whether or not a background for each small multiples panel is rendered.
         /// </summary>
         [Input("backgroundVisibility")]
-        public Input<Pulumi.AwsNative.QuickSight.TemplateVisibility>? BackgroundVisibility { get; set; }
+        public Input<object>? BackgroundVisibility { get; set; }
 
         /// <summary>
         /// Sets the line color of panel borders.
@@ -46,7 +46,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         /// Determines whether or not each panel displays a border.
         /// </summary>
         [Input("borderVisibility")]
-        public Input<Pulumi.AwsNative.QuickSight.TemplateVisibility>? BorderVisibility { get; set; }
+        public Input<object>? BorderVisibility { get; set; }
 
         /// <summary>
         /// String based length that is composed of value and unit in px
@@ -58,7 +58,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         /// Determines whether or not negative space between sibling panels is rendered.
         /// </summary>
         [Input("gutterVisibility")]
-        public Input<Pulumi.AwsNative.QuickSight.TemplateVisibility>? GutterVisibility { get; set; }
+        public Input<object>? GutterVisibility { get; set; }
 
         /// <summary>
         /// Configures the title display within each small multiples panel.

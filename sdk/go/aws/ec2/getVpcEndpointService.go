@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -38,6 +39,8 @@ type LookupVpcEndpointServiceResult struct {
 	PayerResponsibility *string `pulumi:"payerResponsibility"`
 	// The ID of the endpoint service.
 	ServiceId *string `pulumi:"serviceId"`
+	// The tags to add to the VPC endpoint service.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupVpcEndpointServiceOutput(ctx *pulumi.Context, args LookupVpcEndpointServiceOutputArgs, opts ...pulumi.InvokeOption) LookupVpcEndpointServiceResultOutput {
@@ -95,6 +98,11 @@ func (o LookupVpcEndpointServiceResultOutput) PayerResponsibility() pulumi.Strin
 // The ID of the endpoint service.
 func (o LookupVpcEndpointServiceResultOutput) ServiceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVpcEndpointServiceResult) *string { return v.ServiceId }).(pulumi.StringPtrOutput)
+}
+
+// The tags to add to the VPC endpoint service.
+func (o LookupVpcEndpointServiceResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupVpcEndpointServiceResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

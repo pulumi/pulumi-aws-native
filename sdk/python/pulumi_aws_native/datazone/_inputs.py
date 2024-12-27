@@ -20,6 +20,8 @@ __all__ = [
     'DataSourceConfigurationInput0PropertiesArgsDict',
     'DataSourceConfigurationInput1PropertiesArgs',
     'DataSourceConfigurationInput1PropertiesArgsDict',
+    'DataSourceConfigurationInput2PropertiesArgs',
+    'DataSourceConfigurationInput2PropertiesArgsDict',
     'DataSourceFilterExpressionArgs',
     'DataSourceFilterExpressionArgsDict',
     'DataSourceFormInputArgs',
@@ -42,6 +44,8 @@ __all__ = [
     'DataSourceRedshiftStorage1PropertiesArgsDict',
     'DataSourceRelationalFilterConfigurationArgs',
     'DataSourceRelationalFilterConfigurationArgsDict',
+    'DataSourceSageMakerRunConfigurationInputArgs',
+    'DataSourceSageMakerRunConfigurationInputArgsDict',
     'DataSourceScheduleConfigurationArgs',
     'DataSourceScheduleConfigurationArgsDict',
     'DomainSingleSignOnArgs',
@@ -67,7 +71,7 @@ MYPY = False
 if not MYPY:
     class DataSourceConfigurationInput0PropertiesArgsDict(TypedDict):
         """
-        Specifies the configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration.
+        Specifies the configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration or sageMakerRunConfiguration.
         """
         glue_run_configuration: NotRequired[pulumi.Input['DataSourceGlueRunConfigurationInputArgsDict']]
 elif False:
@@ -78,7 +82,7 @@ class DataSourceConfigurationInput0PropertiesArgs:
     def __init__(__self__, *,
                  glue_run_configuration: Optional[pulumi.Input['DataSourceGlueRunConfigurationInputArgs']] = None):
         """
-        Specifies the configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration.
+        Specifies the configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration or sageMakerRunConfiguration.
         """
         if glue_run_configuration is not None:
             pulumi.set(__self__, "glue_run_configuration", glue_run_configuration)
@@ -96,7 +100,7 @@ class DataSourceConfigurationInput0PropertiesArgs:
 if not MYPY:
     class DataSourceConfigurationInput1PropertiesArgsDict(TypedDict):
         """
-        Specifies the configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration.
+        Specifies the configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration or sageMakerRunConfiguration.
         """
         redshift_run_configuration: NotRequired[pulumi.Input['DataSourceRedshiftRunConfigurationInputArgsDict']]
 elif False:
@@ -107,7 +111,7 @@ class DataSourceConfigurationInput1PropertiesArgs:
     def __init__(__self__, *,
                  redshift_run_configuration: Optional[pulumi.Input['DataSourceRedshiftRunConfigurationInputArgs']] = None):
         """
-        Specifies the configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration.
+        Specifies the configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration or sageMakerRunConfiguration.
         """
         if redshift_run_configuration is not None:
             pulumi.set(__self__, "redshift_run_configuration", redshift_run_configuration)
@@ -120,6 +124,35 @@ class DataSourceConfigurationInput1PropertiesArgs:
     @redshift_run_configuration.setter
     def redshift_run_configuration(self, value: Optional[pulumi.Input['DataSourceRedshiftRunConfigurationInputArgs']]):
         pulumi.set(self, "redshift_run_configuration", value)
+
+
+if not MYPY:
+    class DataSourceConfigurationInput2PropertiesArgsDict(TypedDict):
+        """
+        Specifies the configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration or sageMakerRunConfiguration.
+        """
+        sage_maker_run_configuration: NotRequired[pulumi.Input['DataSourceSageMakerRunConfigurationInputArgsDict']]
+elif False:
+    DataSourceConfigurationInput2PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataSourceConfigurationInput2PropertiesArgs:
+    def __init__(__self__, *,
+                 sage_maker_run_configuration: Optional[pulumi.Input['DataSourceSageMakerRunConfigurationInputArgs']] = None):
+        """
+        Specifies the configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration or sageMakerRunConfiguration.
+        """
+        if sage_maker_run_configuration is not None:
+            pulumi.set(__self__, "sage_maker_run_configuration", sage_maker_run_configuration)
+
+    @property
+    @pulumi.getter(name="sageMakerRunConfiguration")
+    def sage_maker_run_configuration(self) -> Optional[pulumi.Input['DataSourceSageMakerRunConfigurationInputArgs']]:
+        return pulumi.get(self, "sage_maker_run_configuration")
+
+    @sage_maker_run_configuration.setter
+    def sage_maker_run_configuration(self, value: Optional[pulumi.Input['DataSourceSageMakerRunConfigurationInputArgs']]):
+        pulumi.set(self, "sage_maker_run_configuration", value)
 
 
 if not MYPY:
@@ -684,6 +717,41 @@ class DataSourceRelationalFilterConfigurationArgs:
     @schema_name.setter
     def schema_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "schema_name", value)
+
+
+if not MYPY:
+    class DataSourceSageMakerRunConfigurationInputArgsDict(TypedDict):
+        """
+        The configuration details of the Amazon SageMaker data source.
+        """
+        tracking_assets: pulumi.Input[Mapping[str, Any]]
+        """
+        The tracking assets of the Amazon SageMaker run.
+        """
+elif False:
+    DataSourceSageMakerRunConfigurationInputArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataSourceSageMakerRunConfigurationInputArgs:
+    def __init__(__self__, *,
+                 tracking_assets: pulumi.Input[Mapping[str, Any]]):
+        """
+        The configuration details of the Amazon SageMaker data source.
+        :param pulumi.Input[Mapping[str, Any]] tracking_assets: The tracking assets of the Amazon SageMaker run.
+        """
+        pulumi.set(__self__, "tracking_assets", tracking_assets)
+
+    @property
+    @pulumi.getter(name="trackingAssets")
+    def tracking_assets(self) -> pulumi.Input[Mapping[str, Any]]:
+        """
+        The tracking assets of the Amazon SageMaker run.
+        """
+        return pulumi.get(self, "tracking_assets")
+
+    @tracking_assets.setter
+    def tracking_assets(self, value: pulumi.Input[Mapping[str, Any]]):
+        pulumi.set(self, "tracking_assets", value)
 
 
 if not MYPY:

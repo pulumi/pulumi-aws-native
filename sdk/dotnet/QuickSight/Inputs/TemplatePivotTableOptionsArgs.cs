@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         /// The visibility setting of a pivot table's collapsed row dimension fields. If the value of this structure is `HIDDEN` , all collapsed columns in a pivot table are automatically hidden. The default value is `VISIBLE` .
         /// </summary>
         [Input("collapsedRowDimensionsVisibility")]
-        public Input<Pulumi.AwsNative.QuickSight.TemplateVisibility>? CollapsedRowDimensionsVisibility { get; set; }
+        public Input<object>? CollapsedRowDimensionsVisibility { get; set; }
 
         /// <summary>
         /// The table cell style of the column header.
@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         /// The visibility of the column names.
         /// </summary>
         [Input("columnNamesVisibility")]
-        public Input<Pulumi.AwsNative.QuickSight.TemplateVisibility>? ColumnNamesVisibility { get; set; }
+        public Input<object>? ColumnNamesVisibility { get; set; }
 
         /// <summary>
         /// String based length that is composed of value and unit in px
@@ -85,13 +85,13 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         /// The visibility of the single metric options.
         /// </summary>
         [Input("singleMetricVisibility")]
-        public Input<Pulumi.AwsNative.QuickSight.TemplateVisibility>? SingleMetricVisibility { get; set; }
+        public Input<object>? SingleMetricVisibility { get; set; }
 
         /// <summary>
         /// Determines the visibility of the pivot table.
         /// </summary>
         [Input("toggleButtonsVisibility")]
-        public Input<Pulumi.AwsNative.QuickSight.TemplateVisibility>? ToggleButtonsVisibility { get; set; }
+        public Input<object>? ToggleButtonsVisibility { get; set; }
 
         public TemplatePivotTableOptionsArgs()
         {

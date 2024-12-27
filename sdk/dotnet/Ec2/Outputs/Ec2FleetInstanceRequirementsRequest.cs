@@ -95,6 +95,9 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// Default: No minimum or maximum limits
         /// </summary>
         public readonly Outputs.Ec2FleetBaselineEbsBandwidthMbpsRequest? BaselineEbsBandwidthMbps;
+        /// <summary>
+        /// The baseline performance to consider, using an instance family as a baseline reference. The instance family establishes the lowest acceptable level of performance. Amazon EC2 uses this baseline to guide instance type selection, but there is no guarantee that the selected instance types will always exceed the baseline for every application. Currently, this parameter only supports CPU performance as a baseline performance factor. For more information, see [Performance protection](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-attribute-based-instance-type-selection.html#ec2fleet-abis-performance-protection) in the *Amazon EC2 User Guide* .
+        /// </summary>
         public readonly Outputs.Ec2FleetBaselinePerformanceFactorsRequest? BaselinePerformanceFactors;
         /// <summary>
         /// Indicates whether burstable performance T instance types are included, excluded, or required. For more information, see [Burstable performance instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html) .

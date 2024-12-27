@@ -55,7 +55,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// <summary>
         /// The menu options of a visual in a dashboard.
         /// </summary>
-        public readonly Outputs.DashboardVisualMenuOption? VisualMenuOption;
+        public readonly object? VisualMenuOption;
         /// <summary>
         /// The visual publish options of a visual in a dashboard.
         /// </summary>
@@ -81,7 +81,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Outputs.DashboardVisualAxisSortOption? visualAxisSortOption,
 
-            Outputs.DashboardVisualMenuOption? visualMenuOption,
+            object? visualMenuOption,
 
             Outputs.DashboardVisualPublishOptions? visualPublishOptions)
         {

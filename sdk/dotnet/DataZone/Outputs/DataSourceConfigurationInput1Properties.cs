@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.DataZone.Outputs
 {
 
     /// <summary>
-    /// Specifies the configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration.
+    /// Specifies the configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration or sageMakerRunConfiguration.
     /// </summary>
     [OutputType]
     public sealed class DataSourceConfigurationInput1Properties

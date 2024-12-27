@@ -58,7 +58,7 @@ export class Index extends pulumi.CustomResource {
      */
     public readonly documentMetadataConfigurations!: pulumi.Output<outputs.kendra.IndexDocumentMetadataConfiguration[] | undefined>;
     /**
-     * Indicates whether the index is a Enterprise Edition index or a Developer Edition index. Valid values are `DEVELOPER_EDITION` and `ENTERPRISE_EDITION` .
+     * Indicates whether the index is a Enterprise Edition index, a Developer Edition index, or a GenAI Enterprise Edition index.
      */
     public readonly edition!: pulumi.Output<enums.kendra.IndexEdition>;
     /**
@@ -161,7 +161,7 @@ export interface IndexArgs {
      */
     documentMetadataConfigurations?: pulumi.Input<pulumi.Input<inputs.kendra.IndexDocumentMetadataConfigurationArgs>[]>;
     /**
-     * Indicates whether the index is a Enterprise Edition index or a Developer Edition index. Valid values are `DEVELOPER_EDITION` and `ENTERPRISE_EDITION` .
+     * Indicates whether the index is a Enterprise Edition index, a Developer Edition index, or a GenAI Enterprise Edition index.
      */
     edition: pulumi.Input<enums.kendra.IndexEdition>;
     /**

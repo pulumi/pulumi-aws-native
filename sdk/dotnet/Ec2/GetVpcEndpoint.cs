@@ -95,11 +95,17 @@ namespace Pulumi.AwsNative.Ec2
         /// If you update the `PrivateDnsEnabled` or `SubnetIds` properties, the DNS entries in the list will change.
         /// </summary>
         public readonly ImmutableArray<string> DnsEntries;
+        /// <summary>
+        /// Describes the DNS options for an endpoint.
+        /// </summary>
         public readonly Outputs.VpcEndpointDnsOptionsSpecification? DnsOptions;
         /// <summary>
         /// The ID of the VPC endpoint.
         /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// The supported IP address types.
+        /// </summary>
         public readonly Pulumi.AwsNative.Ec2.VpcEndpointIpAddressType? IpAddressType;
         /// <summary>
         /// (Interface endpoints) The network interface IDs. If you update the `PrivateDnsEnabled` or `SubnetIds` properties, the items in this list might change.

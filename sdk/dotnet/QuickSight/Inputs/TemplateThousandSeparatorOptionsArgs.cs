@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         /// Determines the visibility of the thousands separator.
         /// </summary>
         [Input("visibility")]
-        public Input<Pulumi.AwsNative.QuickSight.TemplateVisibility>? Visibility { get; set; }
+        public Input<object>? Visibility { get; set; }
 
         public TemplateThousandSeparatorOptionsArgs()
         {

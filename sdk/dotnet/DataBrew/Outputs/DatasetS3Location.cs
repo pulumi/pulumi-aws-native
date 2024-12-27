@@ -20,6 +20,9 @@ namespace Pulumi.AwsNative.DataBrew.Outputs
         /// The Amazon S3 bucket name.
         /// </summary>
         public readonly string Bucket;
+        /// <summary>
+        /// The AWS account ID of the bucket owner.
+        /// </summary>
         public readonly string? BucketOwner;
         /// <summary>
         /// The unique name of the object in the bucket.

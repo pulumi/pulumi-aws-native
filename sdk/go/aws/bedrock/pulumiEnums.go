@@ -2714,11 +2714,176 @@ func (in *dataSourceDataDeletionPolicyPtr) ToDataSourceDataDeletionPolicyPtrOutp
 	return pulumi.ToOutputWithContext(ctx, in).(DataSourceDataDeletionPolicyPtrOutput)
 }
 
+// Determine how will parsed content be stored.
+type DataSourceParsingModality string
+
+const (
+	DataSourceParsingModalityMultimodal = DataSourceParsingModality("MULTIMODAL")
+)
+
+func (DataSourceParsingModality) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceParsingModality)(nil)).Elem()
+}
+
+func (e DataSourceParsingModality) ToDataSourceParsingModalityOutput() DataSourceParsingModalityOutput {
+	return pulumi.ToOutput(e).(DataSourceParsingModalityOutput)
+}
+
+func (e DataSourceParsingModality) ToDataSourceParsingModalityOutputWithContext(ctx context.Context) DataSourceParsingModalityOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DataSourceParsingModalityOutput)
+}
+
+func (e DataSourceParsingModality) ToDataSourceParsingModalityPtrOutput() DataSourceParsingModalityPtrOutput {
+	return e.ToDataSourceParsingModalityPtrOutputWithContext(context.Background())
+}
+
+func (e DataSourceParsingModality) ToDataSourceParsingModalityPtrOutputWithContext(ctx context.Context) DataSourceParsingModalityPtrOutput {
+	return DataSourceParsingModality(e).ToDataSourceParsingModalityOutputWithContext(ctx).ToDataSourceParsingModalityPtrOutputWithContext(ctx)
+}
+
+func (e DataSourceParsingModality) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataSourceParsingModality) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataSourceParsingModality) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DataSourceParsingModality) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DataSourceParsingModalityOutput struct{ *pulumi.OutputState }
+
+func (DataSourceParsingModalityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceParsingModality)(nil)).Elem()
+}
+
+func (o DataSourceParsingModalityOutput) ToDataSourceParsingModalityOutput() DataSourceParsingModalityOutput {
+	return o
+}
+
+func (o DataSourceParsingModalityOutput) ToDataSourceParsingModalityOutputWithContext(ctx context.Context) DataSourceParsingModalityOutput {
+	return o
+}
+
+func (o DataSourceParsingModalityOutput) ToDataSourceParsingModalityPtrOutput() DataSourceParsingModalityPtrOutput {
+	return o.ToDataSourceParsingModalityPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceParsingModalityOutput) ToDataSourceParsingModalityPtrOutputWithContext(ctx context.Context) DataSourceParsingModalityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceParsingModality) *DataSourceParsingModality {
+		return &v
+	}).(DataSourceParsingModalityPtrOutput)
+}
+
+func (o DataSourceParsingModalityOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DataSourceParsingModalityOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataSourceParsingModality) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DataSourceParsingModalityOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceParsingModalityOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataSourceParsingModality) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataSourceParsingModalityPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceParsingModalityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceParsingModality)(nil)).Elem()
+}
+
+func (o DataSourceParsingModalityPtrOutput) ToDataSourceParsingModalityPtrOutput() DataSourceParsingModalityPtrOutput {
+	return o
+}
+
+func (o DataSourceParsingModalityPtrOutput) ToDataSourceParsingModalityPtrOutputWithContext(ctx context.Context) DataSourceParsingModalityPtrOutput {
+	return o
+}
+
+func (o DataSourceParsingModalityPtrOutput) Elem() DataSourceParsingModalityOutput {
+	return o.ApplyT(func(v *DataSourceParsingModality) DataSourceParsingModality {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceParsingModality
+		return ret
+	}).(DataSourceParsingModalityOutput)
+}
+
+func (o DataSourceParsingModalityPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceParsingModalityPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DataSourceParsingModality) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DataSourceParsingModalityInput is an input type that accepts values of the DataSourceParsingModality enum
+// A concrete instance of `DataSourceParsingModalityInput` can be one of the following:
+//
+//	DataSourceParsingModalityMultimodal
+type DataSourceParsingModalityInput interface {
+	pulumi.Input
+
+	ToDataSourceParsingModalityOutput() DataSourceParsingModalityOutput
+	ToDataSourceParsingModalityOutputWithContext(context.Context) DataSourceParsingModalityOutput
+}
+
+var dataSourceParsingModalityPtrType = reflect.TypeOf((**DataSourceParsingModality)(nil)).Elem()
+
+type DataSourceParsingModalityPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceParsingModalityPtrOutput() DataSourceParsingModalityPtrOutput
+	ToDataSourceParsingModalityPtrOutputWithContext(context.Context) DataSourceParsingModalityPtrOutput
+}
+
+type dataSourceParsingModalityPtr string
+
+func DataSourceParsingModalityPtr(v string) DataSourceParsingModalityPtrInput {
+	return (*dataSourceParsingModalityPtr)(&v)
+}
+
+func (*dataSourceParsingModalityPtr) ElementType() reflect.Type {
+	return dataSourceParsingModalityPtrType
+}
+
+func (in *dataSourceParsingModalityPtr) ToDataSourceParsingModalityPtrOutput() DataSourceParsingModalityPtrOutput {
+	return pulumi.ToOutput(in).(DataSourceParsingModalityPtrOutput)
+}
+
+func (in *dataSourceParsingModalityPtr) ToDataSourceParsingModalityPtrOutputWithContext(ctx context.Context) DataSourceParsingModalityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DataSourceParsingModalityPtrOutput)
+}
+
 // The parsing strategy for the data source.
 type DataSourceParsingStrategy string
 
 const (
 	DataSourceParsingStrategyBedrockFoundationModel = DataSourceParsingStrategy("BEDROCK_FOUNDATION_MODEL")
+	DataSourceParsingStrategyBedrockDataAutomation  = DataSourceParsingStrategy("BEDROCK_DATA_AUTOMATION")
 )
 
 func (DataSourceParsingStrategy) ElementType() reflect.Type {
@@ -2844,6 +3009,7 @@ func (o DataSourceParsingStrategyPtrOutput) ToStringPtrOutputWithContext(ctx con
 // A concrete instance of `DataSourceParsingStrategyInput` can be one of the following:
 //
 //	DataSourceParsingStrategyBedrockFoundationModel
+//	DataSourceParsingStrategyBedrockDataAutomation
 type DataSourceParsingStrategyInput interface {
 	pulumi.Input
 
@@ -3635,6 +3801,7 @@ const (
 	DataSourceTypeSalesforce = DataSourceType("SALESFORCE")
 	DataSourceTypeSharepoint = DataSourceType("SHAREPOINT")
 	DataSourceTypeWeb        = DataSourceType("WEB")
+	DataSourceTypeCustom     = DataSourceType("CUSTOM")
 )
 
 func (DataSourceType) ElementType() reflect.Type {
@@ -3764,6 +3931,7 @@ func (o DataSourceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Contex
 //	DataSourceTypeSalesforce
 //	DataSourceTypeSharepoint
 //	DataSourceTypeWeb
+//	DataSourceTypeCustom
 type DataSourceTypeInput interface {
 	pulumi.Input
 
@@ -6802,11 +6970,176 @@ func (in *knowledgeBaseStorageTypePtr) ToKnowledgeBaseStorageTypePtrOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, in).(KnowledgeBaseStorageTypePtrOutput)
 }
 
+// Supplemental data storage location type.
+type KnowledgeBaseSupplementalDataStorageLocationType string
+
+const (
+	KnowledgeBaseSupplementalDataStorageLocationTypeS3 = KnowledgeBaseSupplementalDataStorageLocationType("S3")
+)
+
+func (KnowledgeBaseSupplementalDataStorageLocationType) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseSupplementalDataStorageLocationType)(nil)).Elem()
+}
+
+func (e KnowledgeBaseSupplementalDataStorageLocationType) ToKnowledgeBaseSupplementalDataStorageLocationTypeOutput() KnowledgeBaseSupplementalDataStorageLocationTypeOutput {
+	return pulumi.ToOutput(e).(KnowledgeBaseSupplementalDataStorageLocationTypeOutput)
+}
+
+func (e KnowledgeBaseSupplementalDataStorageLocationType) ToKnowledgeBaseSupplementalDataStorageLocationTypeOutputWithContext(ctx context.Context) KnowledgeBaseSupplementalDataStorageLocationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(KnowledgeBaseSupplementalDataStorageLocationTypeOutput)
+}
+
+func (e KnowledgeBaseSupplementalDataStorageLocationType) ToKnowledgeBaseSupplementalDataStorageLocationTypePtrOutput() KnowledgeBaseSupplementalDataStorageLocationTypePtrOutput {
+	return e.ToKnowledgeBaseSupplementalDataStorageLocationTypePtrOutputWithContext(context.Background())
+}
+
+func (e KnowledgeBaseSupplementalDataStorageLocationType) ToKnowledgeBaseSupplementalDataStorageLocationTypePtrOutputWithContext(ctx context.Context) KnowledgeBaseSupplementalDataStorageLocationTypePtrOutput {
+	return KnowledgeBaseSupplementalDataStorageLocationType(e).ToKnowledgeBaseSupplementalDataStorageLocationTypeOutputWithContext(ctx).ToKnowledgeBaseSupplementalDataStorageLocationTypePtrOutputWithContext(ctx)
+}
+
+func (e KnowledgeBaseSupplementalDataStorageLocationType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e KnowledgeBaseSupplementalDataStorageLocationType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e KnowledgeBaseSupplementalDataStorageLocationType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e KnowledgeBaseSupplementalDataStorageLocationType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type KnowledgeBaseSupplementalDataStorageLocationTypeOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseSupplementalDataStorageLocationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseSupplementalDataStorageLocationType)(nil)).Elem()
+}
+
+func (o KnowledgeBaseSupplementalDataStorageLocationTypeOutput) ToKnowledgeBaseSupplementalDataStorageLocationTypeOutput() KnowledgeBaseSupplementalDataStorageLocationTypeOutput {
+	return o
+}
+
+func (o KnowledgeBaseSupplementalDataStorageLocationTypeOutput) ToKnowledgeBaseSupplementalDataStorageLocationTypeOutputWithContext(ctx context.Context) KnowledgeBaseSupplementalDataStorageLocationTypeOutput {
+	return o
+}
+
+func (o KnowledgeBaseSupplementalDataStorageLocationTypeOutput) ToKnowledgeBaseSupplementalDataStorageLocationTypePtrOutput() KnowledgeBaseSupplementalDataStorageLocationTypePtrOutput {
+	return o.ToKnowledgeBaseSupplementalDataStorageLocationTypePtrOutputWithContext(context.Background())
+}
+
+func (o KnowledgeBaseSupplementalDataStorageLocationTypeOutput) ToKnowledgeBaseSupplementalDataStorageLocationTypePtrOutputWithContext(ctx context.Context) KnowledgeBaseSupplementalDataStorageLocationTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KnowledgeBaseSupplementalDataStorageLocationType) *KnowledgeBaseSupplementalDataStorageLocationType {
+		return &v
+	}).(KnowledgeBaseSupplementalDataStorageLocationTypePtrOutput)
+}
+
+func (o KnowledgeBaseSupplementalDataStorageLocationTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o KnowledgeBaseSupplementalDataStorageLocationTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e KnowledgeBaseSupplementalDataStorageLocationType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o KnowledgeBaseSupplementalDataStorageLocationTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o KnowledgeBaseSupplementalDataStorageLocationTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e KnowledgeBaseSupplementalDataStorageLocationType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type KnowledgeBaseSupplementalDataStorageLocationTypePtrOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseSupplementalDataStorageLocationTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KnowledgeBaseSupplementalDataStorageLocationType)(nil)).Elem()
+}
+
+func (o KnowledgeBaseSupplementalDataStorageLocationTypePtrOutput) ToKnowledgeBaseSupplementalDataStorageLocationTypePtrOutput() KnowledgeBaseSupplementalDataStorageLocationTypePtrOutput {
+	return o
+}
+
+func (o KnowledgeBaseSupplementalDataStorageLocationTypePtrOutput) ToKnowledgeBaseSupplementalDataStorageLocationTypePtrOutputWithContext(ctx context.Context) KnowledgeBaseSupplementalDataStorageLocationTypePtrOutput {
+	return o
+}
+
+func (o KnowledgeBaseSupplementalDataStorageLocationTypePtrOutput) Elem() KnowledgeBaseSupplementalDataStorageLocationTypeOutput {
+	return o.ApplyT(func(v *KnowledgeBaseSupplementalDataStorageLocationType) KnowledgeBaseSupplementalDataStorageLocationType {
+		if v != nil {
+			return *v
+		}
+		var ret KnowledgeBaseSupplementalDataStorageLocationType
+		return ret
+	}).(KnowledgeBaseSupplementalDataStorageLocationTypeOutput)
+}
+
+func (o KnowledgeBaseSupplementalDataStorageLocationTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o KnowledgeBaseSupplementalDataStorageLocationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *KnowledgeBaseSupplementalDataStorageLocationType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// KnowledgeBaseSupplementalDataStorageLocationTypeInput is an input type that accepts values of the KnowledgeBaseSupplementalDataStorageLocationType enum
+// A concrete instance of `KnowledgeBaseSupplementalDataStorageLocationTypeInput` can be one of the following:
+//
+//	KnowledgeBaseSupplementalDataStorageLocationTypeS3
+type KnowledgeBaseSupplementalDataStorageLocationTypeInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseSupplementalDataStorageLocationTypeOutput() KnowledgeBaseSupplementalDataStorageLocationTypeOutput
+	ToKnowledgeBaseSupplementalDataStorageLocationTypeOutputWithContext(context.Context) KnowledgeBaseSupplementalDataStorageLocationTypeOutput
+}
+
+var knowledgeBaseSupplementalDataStorageLocationTypePtrType = reflect.TypeOf((**KnowledgeBaseSupplementalDataStorageLocationType)(nil)).Elem()
+
+type KnowledgeBaseSupplementalDataStorageLocationTypePtrInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseSupplementalDataStorageLocationTypePtrOutput() KnowledgeBaseSupplementalDataStorageLocationTypePtrOutput
+	ToKnowledgeBaseSupplementalDataStorageLocationTypePtrOutputWithContext(context.Context) KnowledgeBaseSupplementalDataStorageLocationTypePtrOutput
+}
+
+type knowledgeBaseSupplementalDataStorageLocationTypePtr string
+
+func KnowledgeBaseSupplementalDataStorageLocationTypePtr(v string) KnowledgeBaseSupplementalDataStorageLocationTypePtrInput {
+	return (*knowledgeBaseSupplementalDataStorageLocationTypePtr)(&v)
+}
+
+func (*knowledgeBaseSupplementalDataStorageLocationTypePtr) ElementType() reflect.Type {
+	return knowledgeBaseSupplementalDataStorageLocationTypePtrType
+}
+
+func (in *knowledgeBaseSupplementalDataStorageLocationTypePtr) ToKnowledgeBaseSupplementalDataStorageLocationTypePtrOutput() KnowledgeBaseSupplementalDataStorageLocationTypePtrOutput {
+	return pulumi.ToOutput(in).(KnowledgeBaseSupplementalDataStorageLocationTypePtrOutput)
+}
+
+func (in *knowledgeBaseSupplementalDataStorageLocationTypePtr) ToKnowledgeBaseSupplementalDataStorageLocationTypePtrOutputWithContext(ctx context.Context) KnowledgeBaseSupplementalDataStorageLocationTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(KnowledgeBaseSupplementalDataStorageLocationTypePtrOutput)
+}
+
 // The type of a knowledge base.
 type KnowledgeBaseType string
 
 const (
 	KnowledgeBaseTypeVector = KnowledgeBaseType("VECTOR")
+	KnowledgeBaseTypeKendra = KnowledgeBaseType("KENDRA")
 )
 
 func (KnowledgeBaseType) ElementType() reflect.Type {
@@ -6932,6 +7265,7 @@ func (o KnowledgeBaseTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 // A concrete instance of `KnowledgeBaseTypeInput` can be one of the following:
 //
 //	KnowledgeBaseTypeVector
+//	KnowledgeBaseTypeKendra
 type KnowledgeBaseTypeInput interface {
 	pulumi.Input
 
@@ -7417,6 +7751,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceCrawlFilterConfigurationTypePtrInput)(nil)).Elem(), DataSourceCrawlFilterConfigurationType("PATTERN"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceDataDeletionPolicyInput)(nil)).Elem(), DataSourceDataDeletionPolicy("RETAIN"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceDataDeletionPolicyPtrInput)(nil)).Elem(), DataSourceDataDeletionPolicy("RETAIN"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceParsingModalityInput)(nil)).Elem(), DataSourceParsingModality("MULTIMODAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceParsingModalityPtrInput)(nil)).Elem(), DataSourceParsingModality("MULTIMODAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceParsingStrategyInput)(nil)).Elem(), DataSourceParsingStrategy("BEDROCK_FOUNDATION_MODEL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceParsingStrategyPtrInput)(nil)).Elem(), DataSourceParsingStrategy("BEDROCK_FOUNDATION_MODEL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceSalesforceSourceConfigurationAuthTypeInput)(nil)).Elem(), DataSourceSalesforceSourceConfigurationAuthType("OAUTH2_CLIENT_CREDENTIALS"))
@@ -7455,6 +7791,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailTopicTypePtrInput)(nil)).Elem(), GuardrailTopicType("DENY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseStorageTypeInput)(nil)).Elem(), KnowledgeBaseStorageType("OPENSEARCH_SERVERLESS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseStorageTypePtrInput)(nil)).Elem(), KnowledgeBaseStorageType("OPENSEARCH_SERVERLESS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseSupplementalDataStorageLocationTypeInput)(nil)).Elem(), KnowledgeBaseSupplementalDataStorageLocationType("S3"))
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseSupplementalDataStorageLocationTypePtrInput)(nil)).Elem(), KnowledgeBaseSupplementalDataStorageLocationType("S3"))
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseTypeInput)(nil)).Elem(), KnowledgeBaseType("VECTOR"))
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseTypePtrInput)(nil)).Elem(), KnowledgeBaseType("VECTOR"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PromptConversationRoleInput)(nil)).Elem(), PromptConversationRole("user"))
@@ -7497,6 +7835,8 @@ func init() {
 	pulumi.RegisterOutputType(DataSourceCrawlFilterConfigurationTypePtrOutput{})
 	pulumi.RegisterOutputType(DataSourceDataDeletionPolicyOutput{})
 	pulumi.RegisterOutputType(DataSourceDataDeletionPolicyPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceParsingModalityOutput{})
+	pulumi.RegisterOutputType(DataSourceParsingModalityPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceParsingStrategyOutput{})
 	pulumi.RegisterOutputType(DataSourceParsingStrategyPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceSalesforceSourceConfigurationAuthTypeOutput{})
@@ -7553,6 +7893,8 @@ func init() {
 	pulumi.RegisterOutputType(KnowledgeBaseStatusPtrOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseStorageTypeOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseStorageTypePtrOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseSupplementalDataStorageLocationTypeOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseSupplementalDataStorageLocationTypePtrOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseTypeOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseTypePtrOutput{})
 	pulumi.RegisterOutputType(PromptConversationRoleOutput{})

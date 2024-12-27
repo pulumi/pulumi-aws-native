@@ -58,7 +58,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         /// The visibility configuration for the total cells.
         /// </summary>
         [Input("totalsVisibility")]
-        public Input<Pulumi.AwsNative.QuickSight.TemplateVisibility>? TotalsVisibility { get; set; }
+        public Input<object>? TotalsVisibility { get; set; }
 
         /// <summary>
         /// The cell styling options for the totals of value cells.

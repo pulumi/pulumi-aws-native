@@ -19,7 +19,8 @@ namespace Pulumi.AwsNative.Ec2.Outputs
     {
         /// <summary>
         /// Indicates the instance's Capacity Reservation preferences. Possible preferences include:
-        ///   +   ``open`` - The instance can run in any ``open`` Capacity Reservation that has matching attributes (instance type, platform, Availability Zone).
+        ///   +   ``capacity-reservations-only`` - The instance will only run in a Capacity Reservation or Capacity Reservation group. If capacity isn't available, the instance will fail to launch.
+        ///   +   ``open`` - The instance can run in any ``open`` Capacity Reservation that has matching attributes (instance type, platform, Availability Zone, tenancy).
         ///   +   ``none`` - The instance avoids running in a Capacity Reservation even if one is available. The instance runs in On-Demand capacity.
         /// </summary>
         public readonly string? CapacityReservationPreference;

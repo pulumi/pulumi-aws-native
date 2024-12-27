@@ -24,6 +24,8 @@ __all__ = [
     'BridgeFlowSourceArgsDict',
     'BridgeIngressGatewayBridgeArgs',
     'BridgeIngressGatewayBridgeArgsDict',
+    'BridgeMulticastSourceSettingsArgs',
+    'BridgeMulticastSourceSettingsArgsDict',
     'BridgeNetworkOutputArgs',
     'BridgeNetworkOutputArgsDict',
     'BridgeNetworkSourceArgs',
@@ -36,6 +38,8 @@ __all__ = [
     'BridgeSourceBridgeFlowSourceArgsDict',
     'BridgeSourceBridgeNetworkSourceArgs',
     'BridgeSourceBridgeNetworkSourceArgsDict',
+    'BridgeSourceMulticastSourceSettingsArgs',
+    'BridgeSourceMulticastSourceSettingsArgsDict',
     'BridgeSourcePriorityArgs',
     'BridgeSourcePriorityArgsDict',
     'BridgeSourceVpcInterfaceAttachmentArgs',
@@ -331,6 +335,42 @@ class BridgeIngressGatewayBridgeArgs:
 
 
 if not MYPY:
+    class BridgeMulticastSourceSettingsArgsDict(TypedDict):
+        """
+        The settings related to the multicast source.
+        """
+        multicast_source_ip: NotRequired[pulumi.Input[str]]
+        """
+        The IP address of the source for source-specific multicast (SSM).
+        """
+elif False:
+    BridgeMulticastSourceSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class BridgeMulticastSourceSettingsArgs:
+    def __init__(__self__, *,
+                 multicast_source_ip: Optional[pulumi.Input[str]] = None):
+        """
+        The settings related to the multicast source.
+        :param pulumi.Input[str] multicast_source_ip: The IP address of the source for source-specific multicast (SSM).
+        """
+        if multicast_source_ip is not None:
+            pulumi.set(__self__, "multicast_source_ip", multicast_source_ip)
+
+    @property
+    @pulumi.getter(name="multicastSourceIp")
+    def multicast_source_ip(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IP address of the source for source-specific multicast (SSM).
+        """
+        return pulumi.get(self, "multicast_source_ip")
+
+    @multicast_source_ip.setter
+    def multicast_source_ip(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "multicast_source_ip", value)
+
+
+if not MYPY:
     class BridgeNetworkOutputArgsDict(TypedDict):
         """
         The output of the bridge. A network output is delivered to your premises.
@@ -485,6 +525,10 @@ if not MYPY:
         """
         The network source protocol.
         """
+        multicast_source_settings: NotRequired[pulumi.Input['BridgeMulticastSourceSettingsArgsDict']]
+        """
+        The settings related to the multicast source.
+        """
 elif False:
     BridgeNetworkSourceArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -495,7 +539,8 @@ class BridgeNetworkSourceArgs:
                  name: pulumi.Input[str],
                  network_name: pulumi.Input[str],
                  port: pulumi.Input[int],
-                 protocol: pulumi.Input['BridgeProtocolEnum']):
+                 protocol: pulumi.Input['BridgeProtocolEnum'],
+                 multicast_source_settings: Optional[pulumi.Input['BridgeMulticastSourceSettingsArgs']] = None):
         """
         The source of the bridge. A network source originates at your premises.
         :param pulumi.Input[str] multicast_ip: The network source multicast IP.
@@ -503,12 +548,15 @@ class BridgeNetworkSourceArgs:
         :param pulumi.Input[str] network_name: The network source's gateway network name.
         :param pulumi.Input[int] port: The network source port.
         :param pulumi.Input['BridgeProtocolEnum'] protocol: The network source protocol.
+        :param pulumi.Input['BridgeMulticastSourceSettingsArgs'] multicast_source_settings: The settings related to the multicast source.
         """
         pulumi.set(__self__, "multicast_ip", multicast_ip)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "network_name", network_name)
         pulumi.set(__self__, "port", port)
         pulumi.set(__self__, "protocol", protocol)
+        if multicast_source_settings is not None:
+            pulumi.set(__self__, "multicast_source_settings", multicast_source_settings)
 
     @property
     @pulumi.getter(name="multicastIp")
@@ -569,6 +617,18 @@ class BridgeNetworkSourceArgs:
     @protocol.setter
     def protocol(self, value: pulumi.Input['BridgeProtocolEnum']):
         pulumi.set(self, "protocol", value)
+
+    @property
+    @pulumi.getter(name="multicastSourceSettings")
+    def multicast_source_settings(self) -> Optional[pulumi.Input['BridgeMulticastSourceSettingsArgs']]:
+        """
+        The settings related to the multicast source.
+        """
+        return pulumi.get(self, "multicast_source_settings")
+
+    @multicast_source_settings.setter
+    def multicast_source_settings(self, value: Optional[pulumi.Input['BridgeMulticastSourceSettingsArgs']]):
+        pulumi.set(self, "multicast_source_settings", value)
 
 
 if not MYPY:
@@ -794,6 +854,10 @@ if not MYPY:
         """
         The network source protocol.
         """
+        multicast_source_settings: NotRequired[pulumi.Input['BridgeSourceMulticastSourceSettingsArgsDict']]
+        """
+        The settings related to the multicast source.
+        """
 elif False:
     BridgeSourceBridgeNetworkSourceArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -803,18 +867,22 @@ class BridgeSourceBridgeNetworkSourceArgs:
                  multicast_ip: pulumi.Input[str],
                  network_name: pulumi.Input[str],
                  port: pulumi.Input[int],
-                 protocol: pulumi.Input['BridgeSourceProtocolEnum']):
+                 protocol: pulumi.Input['BridgeSourceProtocolEnum'],
+                 multicast_source_settings: Optional[pulumi.Input['BridgeSourceMulticastSourceSettingsArgs']] = None):
         """
         The source of the bridge. A network source originates at your premises.
         :param pulumi.Input[str] multicast_ip: The network source multicast IP.
         :param pulumi.Input[str] network_name: The network source's gateway network name.
         :param pulumi.Input[int] port: The network source port.
         :param pulumi.Input['BridgeSourceProtocolEnum'] protocol: The network source protocol.
+        :param pulumi.Input['BridgeSourceMulticastSourceSettingsArgs'] multicast_source_settings: The settings related to the multicast source.
         """
         pulumi.set(__self__, "multicast_ip", multicast_ip)
         pulumi.set(__self__, "network_name", network_name)
         pulumi.set(__self__, "port", port)
         pulumi.set(__self__, "protocol", protocol)
+        if multicast_source_settings is not None:
+            pulumi.set(__self__, "multicast_source_settings", multicast_source_settings)
 
     @property
     @pulumi.getter(name="multicastIp")
@@ -863,6 +931,54 @@ class BridgeSourceBridgeNetworkSourceArgs:
     @protocol.setter
     def protocol(self, value: pulumi.Input['BridgeSourceProtocolEnum']):
         pulumi.set(self, "protocol", value)
+
+    @property
+    @pulumi.getter(name="multicastSourceSettings")
+    def multicast_source_settings(self) -> Optional[pulumi.Input['BridgeSourceMulticastSourceSettingsArgs']]:
+        """
+        The settings related to the multicast source.
+        """
+        return pulumi.get(self, "multicast_source_settings")
+
+    @multicast_source_settings.setter
+    def multicast_source_settings(self, value: Optional[pulumi.Input['BridgeSourceMulticastSourceSettingsArgs']]):
+        pulumi.set(self, "multicast_source_settings", value)
+
+
+if not MYPY:
+    class BridgeSourceMulticastSourceSettingsArgsDict(TypedDict):
+        """
+        The settings related to the multicast source.
+        """
+        multicast_source_ip: NotRequired[pulumi.Input[str]]
+        """
+        The IP address of the source for source-specific multicast (SSM).
+        """
+elif False:
+    BridgeSourceMulticastSourceSettingsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class BridgeSourceMulticastSourceSettingsArgs:
+    def __init__(__self__, *,
+                 multicast_source_ip: Optional[pulumi.Input[str]] = None):
+        """
+        The settings related to the multicast source.
+        :param pulumi.Input[str] multicast_source_ip: The IP address of the source for source-specific multicast (SSM).
+        """
+        if multicast_source_ip is not None:
+            pulumi.set(__self__, "multicast_source_ip", multicast_source_ip)
+
+    @property
+    @pulumi.getter(name="multicastSourceIp")
+    def multicast_source_ip(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IP address of the source for source-specific multicast (SSM).
+        """
+        return pulumi.get(self, "multicast_source_ip")
+
+    @multicast_source_ip.setter
+    def multicast_source_ip(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "multicast_source_ip", value)
 
 
 if not MYPY:

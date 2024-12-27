@@ -48,7 +48,7 @@ export class DataSource extends pulumi.CustomResource {
     /**
      * Configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration.
      */
-    public readonly configuration!: pulumi.Output<outputs.datazone.DataSourceConfigurationInput0Properties | outputs.datazone.DataSourceConfigurationInput1Properties | undefined>;
+    public readonly configuration!: pulumi.Output<outputs.datazone.DataSourceConfigurationInput0Properties | outputs.datazone.DataSourceConfigurationInput1Properties | outputs.datazone.DataSourceConfigurationInput2Properties | undefined>;
     /**
      * The timestamp of when the data source was created.
      */
@@ -213,7 +213,7 @@ export interface DataSourceArgs {
     /**
      * Configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration.
      */
-    configuration?: pulumi.Input<inputs.datazone.DataSourceConfigurationInput0PropertiesArgs | inputs.datazone.DataSourceConfigurationInput1PropertiesArgs>;
+    configuration?: pulumi.Input<inputs.datazone.DataSourceConfigurationInput0PropertiesArgs | inputs.datazone.DataSourceConfigurationInput1PropertiesArgs | inputs.datazone.DataSourceConfigurationInput2PropertiesArgs>;
     /**
      * The description of the data source.
      */

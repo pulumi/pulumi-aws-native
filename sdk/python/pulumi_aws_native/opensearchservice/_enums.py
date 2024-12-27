@@ -21,6 +21,9 @@ class ApplicationAppConfigType(str, Enum):
 
 
 class DomainNodeOptionNodeType(str, Enum):
+    """
+    Container for node type like coordinating.
+    """
     COORDINATOR = "coordinator"
 
 

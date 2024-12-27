@@ -578,6 +578,36 @@ namespace Pulumi.AwsNative.Bedrock
     }
 
     /// <summary>
+    /// Determine how will parsed content be stored.
+    /// </summary>
+    [EnumType]
+    public readonly struct DataSourceParsingModality : IEquatable<DataSourceParsingModality>
+    {
+        private readonly string _value;
+
+        private DataSourceParsingModality(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataSourceParsingModality Multimodal { get; } = new DataSourceParsingModality("MULTIMODAL");
+
+        public static bool operator ==(DataSourceParsingModality left, DataSourceParsingModality right) => left.Equals(right);
+        public static bool operator !=(DataSourceParsingModality left, DataSourceParsingModality right) => !left.Equals(right);
+
+        public static explicit operator string(DataSourceParsingModality value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataSourceParsingModality other && Equals(other);
+        public bool Equals(DataSourceParsingModality other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The parsing strategy for the data source.
     /// </summary>
     [EnumType]
@@ -591,6 +621,7 @@ namespace Pulumi.AwsNative.Bedrock
         }
 
         public static DataSourceParsingStrategy BedrockFoundationModel { get; } = new DataSourceParsingStrategy("BEDROCK_FOUNDATION_MODEL");
+        public static DataSourceParsingStrategy BedrockDataAutomation { get; } = new DataSourceParsingStrategy("BEDROCK_DATA_AUTOMATION");
 
         public static bool operator ==(DataSourceParsingStrategy left, DataSourceParsingStrategy right) => left.Equals(right);
         public static bool operator !=(DataSourceParsingStrategy left, DataSourceParsingStrategy right) => !left.Equals(right);
@@ -777,6 +808,7 @@ namespace Pulumi.AwsNative.Bedrock
         public static DataSourceType Salesforce { get; } = new DataSourceType("SALESFORCE");
         public static DataSourceType Sharepoint { get; } = new DataSourceType("SHAREPOINT");
         public static DataSourceType Web { get; } = new DataSourceType("WEB");
+        public static DataSourceType Custom { get; } = new DataSourceType("CUSTOM");
 
         public static bool operator ==(DataSourceType left, DataSourceType right) => left.Equals(right);
         public static bool operator !=(DataSourceType left, DataSourceType right) => !left.Equals(right);
@@ -1516,6 +1548,36 @@ namespace Pulumi.AwsNative.Bedrock
     }
 
     /// <summary>
+    /// Supplemental data storage location type.
+    /// </summary>
+    [EnumType]
+    public readonly struct KnowledgeBaseSupplementalDataStorageLocationType : IEquatable<KnowledgeBaseSupplementalDataStorageLocationType>
+    {
+        private readonly string _value;
+
+        private KnowledgeBaseSupplementalDataStorageLocationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static KnowledgeBaseSupplementalDataStorageLocationType S3 { get; } = new KnowledgeBaseSupplementalDataStorageLocationType("S3");
+
+        public static bool operator ==(KnowledgeBaseSupplementalDataStorageLocationType left, KnowledgeBaseSupplementalDataStorageLocationType right) => left.Equals(right);
+        public static bool operator !=(KnowledgeBaseSupplementalDataStorageLocationType left, KnowledgeBaseSupplementalDataStorageLocationType right) => !left.Equals(right);
+
+        public static explicit operator string(KnowledgeBaseSupplementalDataStorageLocationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is KnowledgeBaseSupplementalDataStorageLocationType other && Equals(other);
+        public bool Equals(KnowledgeBaseSupplementalDataStorageLocationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of a knowledge base.
     /// </summary>
     [EnumType]
@@ -1529,6 +1591,7 @@ namespace Pulumi.AwsNative.Bedrock
         }
 
         public static KnowledgeBaseType Vector { get; } = new KnowledgeBaseType("VECTOR");
+        public static KnowledgeBaseType Kendra { get; } = new KnowledgeBaseType("KENDRA");
 
         public static bool operator ==(KnowledgeBaseType left, KnowledgeBaseType right) => left.Equals(right);
         public static bool operator !=(KnowledgeBaseType left, KnowledgeBaseType right) => !left.Equals(right);

@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         /// Determines the visibility of the colors of alternatign bands in a radar chart.
         /// </summary>
         [Input("alternateBandColorsVisibility")]
-        public Input<Pulumi.AwsNative.QuickSight.TemplateVisibility>? AlternateBandColorsVisibility { get; set; }
+        public Input<object>? AlternateBandColorsVisibility { get; set; }
 
         /// <summary>
         /// The color of the even-numbered alternate bands of a radar chart.

@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Application{}
 	case "aws-native:appconfig:ConfigurationProfile":
 		r = &ConfigurationProfile{}
+	case "aws-native:appconfig:Deployment":
+		r = &Deployment{}
 	case "aws-native:appconfig:DeploymentStrategy":
 		r = &DeploymentStrategy{}
 	case "aws-native:appconfig:Environment":

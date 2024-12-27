@@ -16,10 +16,10 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// <summary>
         /// The visibility of the maximum label.
         /// </summary>
-        public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? Visibility;
+        public readonly object? Visibility;
 
         [OutputConstructor]
-        private TemplateMaximumLabelType(Pulumi.AwsNative.QuickSight.TemplateVisibility? visibility)
+        private TemplateMaximumLabelType(object? visibility)
         {
             Visibility = visibility;
         }

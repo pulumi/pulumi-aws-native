@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Ec2.Inputs
 {
 
+    /// <summary>
+    /// Specifies the CPU performance to consider when using an instance family as the baseline reference.
+    /// </summary>
     public sealed class LaunchTemplateCpuArgs : global::Pulumi.ResourceArgs
     {
         [Input("references")]

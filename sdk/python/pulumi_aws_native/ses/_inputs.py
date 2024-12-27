@@ -76,6 +76,8 @@ __all__ = [
     'MailManagerRuleSetArchiveActionArgsDict',
     'MailManagerRuleSetDeliverToMailboxActionArgs',
     'MailManagerRuleSetDeliverToMailboxActionArgsDict',
+    'MailManagerRuleSetDeliverToQBusinessActionArgs',
+    'MailManagerRuleSetDeliverToQBusinessActionArgsDict',
     'MailManagerRuleSetDropActionArgs',
     'MailManagerRuleSetDropActionArgsDict',
     'MailManagerRuleSetRelayActionArgs',
@@ -98,6 +100,8 @@ __all__ = [
     'MailManagerRuleSetRuleAction6PropertiesArgsDict',
     'MailManagerRuleSetRuleAction7PropertiesArgs',
     'MailManagerRuleSetRuleAction7PropertiesArgsDict',
+    'MailManagerRuleSetRuleAction8PropertiesArgs',
+    'MailManagerRuleSetRuleAction8PropertiesArgsDict',
     'MailManagerRuleSetRuleBooleanExpressionArgs',
     'MailManagerRuleSetRuleBooleanExpressionArgsDict',
     'MailManagerRuleSetRuleBooleanToEvaluatePropertiesArgs',
@@ -1518,6 +1522,65 @@ class MailManagerRuleSetDeliverToMailboxActionArgs:
 
 
 if not MYPY:
+    class MailManagerRuleSetDeliverToQBusinessActionArgsDict(TypedDict):
+        application_id: pulumi.Input[str]
+        index_id: pulumi.Input[str]
+        role_arn: pulumi.Input[str]
+        action_failure_policy: NotRequired[pulumi.Input['MailManagerRuleSetActionFailurePolicy']]
+elif False:
+    MailManagerRuleSetDeliverToQBusinessActionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MailManagerRuleSetDeliverToQBusinessActionArgs:
+    def __init__(__self__, *,
+                 application_id: pulumi.Input[str],
+                 index_id: pulumi.Input[str],
+                 role_arn: pulumi.Input[str],
+                 action_failure_policy: Optional[pulumi.Input['MailManagerRuleSetActionFailurePolicy']] = None):
+        pulumi.set(__self__, "application_id", application_id)
+        pulumi.set(__self__, "index_id", index_id)
+        pulumi.set(__self__, "role_arn", role_arn)
+        if action_failure_policy is not None:
+            pulumi.set(__self__, "action_failure_policy", action_failure_policy)
+
+    @property
+    @pulumi.getter(name="applicationId")
+    def application_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "application_id")
+
+    @application_id.setter
+    def application_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "application_id", value)
+
+    @property
+    @pulumi.getter(name="indexId")
+    def index_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "index_id")
+
+    @index_id.setter
+    def index_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "index_id", value)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "role_arn", value)
+
+    @property
+    @pulumi.getter(name="actionFailurePolicy")
+    def action_failure_policy(self) -> Optional[pulumi.Input['MailManagerRuleSetActionFailurePolicy']]:
+        return pulumi.get(self, "action_failure_policy")
+
+    @action_failure_policy.setter
+    def action_failure_policy(self, value: Optional[pulumi.Input['MailManagerRuleSetActionFailurePolicy']]):
+        pulumi.set(self, "action_failure_policy", value)
+
+
+if not MYPY:
     class MailManagerRuleSetDropActionArgsDict(TypedDict):
         pass
 elif False:
@@ -1774,6 +1837,28 @@ class MailManagerRuleSetRuleAction7PropertiesArgs:
     @deliver_to_mailbox.setter
     def deliver_to_mailbox(self, value: pulumi.Input['MailManagerRuleSetDeliverToMailboxActionArgs']):
         pulumi.set(self, "deliver_to_mailbox", value)
+
+
+if not MYPY:
+    class MailManagerRuleSetRuleAction8PropertiesArgsDict(TypedDict):
+        deliver_to_q_business: pulumi.Input['MailManagerRuleSetDeliverToQBusinessActionArgsDict']
+elif False:
+    MailManagerRuleSetRuleAction8PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MailManagerRuleSetRuleAction8PropertiesArgs:
+    def __init__(__self__, *,
+                 deliver_to_q_business: pulumi.Input['MailManagerRuleSetDeliverToQBusinessActionArgs']):
+        pulumi.set(__self__, "deliver_to_q_business", deliver_to_q_business)
+
+    @property
+    @pulumi.getter(name="deliverToQBusiness")
+    def deliver_to_q_business(self) -> pulumi.Input['MailManagerRuleSetDeliverToQBusinessActionArgs']:
+        return pulumi.get(self, "deliver_to_q_business")
+
+    @deliver_to_q_business.setter
+    def deliver_to_q_business(self, value: pulumi.Input['MailManagerRuleSetDeliverToQBusinessActionArgs']):
+        pulumi.set(self, "deliver_to_q_business", value)
 
 
 if not MYPY:
@@ -2316,7 +2401,7 @@ class MailManagerRuleSetRuleVerdictToEvaluate1PropertiesArgs:
 
 if not MYPY:
     class MailManagerRuleSetRuleArgsDict(TypedDict):
-        actions: pulumi.Input[Sequence[pulumi.Input[Union['MailManagerRuleSetRuleAction0PropertiesArgsDict', 'MailManagerRuleSetRuleAction1PropertiesArgsDict', 'MailManagerRuleSetRuleAction2PropertiesArgsDict', 'MailManagerRuleSetRuleAction3PropertiesArgsDict', 'MailManagerRuleSetRuleAction4PropertiesArgsDict', 'MailManagerRuleSetRuleAction5PropertiesArgsDict', 'MailManagerRuleSetRuleAction6PropertiesArgsDict', 'MailManagerRuleSetRuleAction7PropertiesArgsDict']]]]
+        actions: pulumi.Input[Sequence[pulumi.Input[Union['MailManagerRuleSetRuleAction0PropertiesArgsDict', 'MailManagerRuleSetRuleAction1PropertiesArgsDict', 'MailManagerRuleSetRuleAction2PropertiesArgsDict', 'MailManagerRuleSetRuleAction3PropertiesArgsDict', 'MailManagerRuleSetRuleAction4PropertiesArgsDict', 'MailManagerRuleSetRuleAction5PropertiesArgsDict', 'MailManagerRuleSetRuleAction6PropertiesArgsDict', 'MailManagerRuleSetRuleAction7PropertiesArgsDict', 'MailManagerRuleSetRuleAction8PropertiesArgsDict']]]]
         """
         The list of actions to execute when the conditions match the incoming email, and none of the "unless conditions" match.
         """
@@ -2338,12 +2423,12 @@ elif False:
 @pulumi.input_type
 class MailManagerRuleSetRuleArgs:
     def __init__(__self__, *,
-                 actions: pulumi.Input[Sequence[pulumi.Input[Union['MailManagerRuleSetRuleAction0PropertiesArgs', 'MailManagerRuleSetRuleAction1PropertiesArgs', 'MailManagerRuleSetRuleAction2PropertiesArgs', 'MailManagerRuleSetRuleAction3PropertiesArgs', 'MailManagerRuleSetRuleAction4PropertiesArgs', 'MailManagerRuleSetRuleAction5PropertiesArgs', 'MailManagerRuleSetRuleAction6PropertiesArgs', 'MailManagerRuleSetRuleAction7PropertiesArgs']]]],
+                 actions: pulumi.Input[Sequence[pulumi.Input[Union['MailManagerRuleSetRuleAction0PropertiesArgs', 'MailManagerRuleSetRuleAction1PropertiesArgs', 'MailManagerRuleSetRuleAction2PropertiesArgs', 'MailManagerRuleSetRuleAction3PropertiesArgs', 'MailManagerRuleSetRuleAction4PropertiesArgs', 'MailManagerRuleSetRuleAction5PropertiesArgs', 'MailManagerRuleSetRuleAction6PropertiesArgs', 'MailManagerRuleSetRuleAction7PropertiesArgs', 'MailManagerRuleSetRuleAction8PropertiesArgs']]]],
                  conditions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MailManagerRuleSetRuleCondition0PropertiesArgs', 'MailManagerRuleSetRuleCondition1PropertiesArgs', 'MailManagerRuleSetRuleCondition2PropertiesArgs', 'MailManagerRuleSetRuleCondition3PropertiesArgs', 'MailManagerRuleSetRuleCondition4PropertiesArgs', 'MailManagerRuleSetRuleCondition5PropertiesArgs']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  unless: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MailManagerRuleSetRuleCondition0PropertiesArgs', 'MailManagerRuleSetRuleCondition1PropertiesArgs', 'MailManagerRuleSetRuleCondition2PropertiesArgs', 'MailManagerRuleSetRuleCondition3PropertiesArgs', 'MailManagerRuleSetRuleCondition4PropertiesArgs', 'MailManagerRuleSetRuleCondition5PropertiesArgs']]]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MailManagerRuleSetRuleAction0PropertiesArgs', 'MailManagerRuleSetRuleAction1PropertiesArgs', 'MailManagerRuleSetRuleAction2PropertiesArgs', 'MailManagerRuleSetRuleAction3PropertiesArgs', 'MailManagerRuleSetRuleAction4PropertiesArgs', 'MailManagerRuleSetRuleAction5PropertiesArgs', 'MailManagerRuleSetRuleAction6PropertiesArgs', 'MailManagerRuleSetRuleAction7PropertiesArgs']]]] actions: The list of actions to execute when the conditions match the incoming email, and none of the "unless conditions" match.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MailManagerRuleSetRuleAction0PropertiesArgs', 'MailManagerRuleSetRuleAction1PropertiesArgs', 'MailManagerRuleSetRuleAction2PropertiesArgs', 'MailManagerRuleSetRuleAction3PropertiesArgs', 'MailManagerRuleSetRuleAction4PropertiesArgs', 'MailManagerRuleSetRuleAction5PropertiesArgs', 'MailManagerRuleSetRuleAction6PropertiesArgs', 'MailManagerRuleSetRuleAction7PropertiesArgs', 'MailManagerRuleSetRuleAction8PropertiesArgs']]]] actions: The list of actions to execute when the conditions match the incoming email, and none of the "unless conditions" match.
         :param pulumi.Input[Sequence[pulumi.Input[Union['MailManagerRuleSetRuleCondition0PropertiesArgs', 'MailManagerRuleSetRuleCondition1PropertiesArgs', 'MailManagerRuleSetRuleCondition2PropertiesArgs', 'MailManagerRuleSetRuleCondition3PropertiesArgs', 'MailManagerRuleSetRuleCondition4PropertiesArgs', 'MailManagerRuleSetRuleCondition5PropertiesArgs']]]] conditions: The conditions of this rule. All conditions must match the email for the actions to be executed. An empty list of conditions means that all emails match, but are still subject to any "unless conditions"
         :param pulumi.Input[str] name: The user-friendly name of the rule.
         :param pulumi.Input[Sequence[pulumi.Input[Union['MailManagerRuleSetRuleCondition0PropertiesArgs', 'MailManagerRuleSetRuleCondition1PropertiesArgs', 'MailManagerRuleSetRuleCondition2PropertiesArgs', 'MailManagerRuleSetRuleCondition3PropertiesArgs', 'MailManagerRuleSetRuleCondition4PropertiesArgs', 'MailManagerRuleSetRuleCondition5PropertiesArgs']]]] unless: The "unless conditions" of this rule. None of the conditions can match the email for the actions to be executed. If any of these conditions do match the email, then the actions are not executed.
@@ -2358,14 +2443,14 @@ class MailManagerRuleSetRuleArgs:
 
     @property
     @pulumi.getter
-    def actions(self) -> pulumi.Input[Sequence[pulumi.Input[Union['MailManagerRuleSetRuleAction0PropertiesArgs', 'MailManagerRuleSetRuleAction1PropertiesArgs', 'MailManagerRuleSetRuleAction2PropertiesArgs', 'MailManagerRuleSetRuleAction3PropertiesArgs', 'MailManagerRuleSetRuleAction4PropertiesArgs', 'MailManagerRuleSetRuleAction5PropertiesArgs', 'MailManagerRuleSetRuleAction6PropertiesArgs', 'MailManagerRuleSetRuleAction7PropertiesArgs']]]]:
+    def actions(self) -> pulumi.Input[Sequence[pulumi.Input[Union['MailManagerRuleSetRuleAction0PropertiesArgs', 'MailManagerRuleSetRuleAction1PropertiesArgs', 'MailManagerRuleSetRuleAction2PropertiesArgs', 'MailManagerRuleSetRuleAction3PropertiesArgs', 'MailManagerRuleSetRuleAction4PropertiesArgs', 'MailManagerRuleSetRuleAction5PropertiesArgs', 'MailManagerRuleSetRuleAction6PropertiesArgs', 'MailManagerRuleSetRuleAction7PropertiesArgs', 'MailManagerRuleSetRuleAction8PropertiesArgs']]]]:
         """
         The list of actions to execute when the conditions match the incoming email, and none of the "unless conditions" match.
         """
         return pulumi.get(self, "actions")
 
     @actions.setter
-    def actions(self, value: pulumi.Input[Sequence[pulumi.Input[Union['MailManagerRuleSetRuleAction0PropertiesArgs', 'MailManagerRuleSetRuleAction1PropertiesArgs', 'MailManagerRuleSetRuleAction2PropertiesArgs', 'MailManagerRuleSetRuleAction3PropertiesArgs', 'MailManagerRuleSetRuleAction4PropertiesArgs', 'MailManagerRuleSetRuleAction5PropertiesArgs', 'MailManagerRuleSetRuleAction6PropertiesArgs', 'MailManagerRuleSetRuleAction7PropertiesArgs']]]]):
+    def actions(self, value: pulumi.Input[Sequence[pulumi.Input[Union['MailManagerRuleSetRuleAction0PropertiesArgs', 'MailManagerRuleSetRuleAction1PropertiesArgs', 'MailManagerRuleSetRuleAction2PropertiesArgs', 'MailManagerRuleSetRuleAction3PropertiesArgs', 'MailManagerRuleSetRuleAction4PropertiesArgs', 'MailManagerRuleSetRuleAction5PropertiesArgs', 'MailManagerRuleSetRuleAction6PropertiesArgs', 'MailManagerRuleSetRuleAction7PropertiesArgs', 'MailManagerRuleSetRuleAction8PropertiesArgs']]]]):
         pulumi.set(self, "actions", value)
 
     @property

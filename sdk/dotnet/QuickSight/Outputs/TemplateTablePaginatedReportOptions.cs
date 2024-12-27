@@ -16,17 +16,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// <summary>
         /// The visibility of repeating header rows on each page.
         /// </summary>
-        public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? OverflowColumnHeaderVisibility;
+        public readonly object? OverflowColumnHeaderVisibility;
         /// <summary>
         /// The visibility of printing table overflow across pages.
         /// </summary>
-        public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? VerticalOverflowVisibility;
+        public readonly object? VerticalOverflowVisibility;
 
         [OutputConstructor]
         private TemplateTablePaginatedReportOptions(
-            Pulumi.AwsNative.QuickSight.TemplateVisibility? overflowColumnHeaderVisibility,
+            object? overflowColumnHeaderVisibility,
 
-            Pulumi.AwsNative.QuickSight.TemplateVisibility? verticalOverflowVisibility)
+            object? verticalOverflowVisibility)
         {
             OverflowColumnHeaderVisibility = overflowColumnHeaderVisibility;
             VerticalOverflowVisibility = verticalOverflowVisibility;

@@ -28,6 +28,9 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
         /// The parameters that the agent elicits from the user to fulfill the function.
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.AgentParameterDetail>? Parameters;
+        /// <summary>
+        /// Contains information if user confirmation is required to invoke the function.
+        /// </summary>
         public readonly Pulumi.AwsNative.Bedrock.AgentRequireConfirmation? RequireConfirmation;
 
         [OutputConstructor]

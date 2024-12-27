@@ -13,7 +13,7 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
-// Specifies the configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration.
+// Specifies the configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration or sageMakerRunConfiguration.
 type DataSourceConfigurationInput0Properties struct {
 	GlueRunConfiguration *DataSourceGlueRunConfigurationInput `pulumi:"glueRunConfiguration"`
 }
@@ -29,7 +29,7 @@ type DataSourceConfigurationInput0PropertiesInput interface {
 	ToDataSourceConfigurationInput0PropertiesOutputWithContext(context.Context) DataSourceConfigurationInput0PropertiesOutput
 }
 
-// Specifies the configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration.
+// Specifies the configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration or sageMakerRunConfiguration.
 type DataSourceConfigurationInput0PropertiesArgs struct {
 	GlueRunConfiguration DataSourceGlueRunConfigurationInputPtrInput `pulumi:"glueRunConfiguration"`
 }
@@ -87,7 +87,7 @@ func (i *dataSourceConfigurationInput0PropertiesPtrType) ToDataSourceConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfigurationInput0PropertiesPtrOutput)
 }
 
-// Specifies the configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration.
+// Specifies the configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration or sageMakerRunConfiguration.
 type DataSourceConfigurationInput0PropertiesOutput struct{ *pulumi.OutputState }
 
 func (DataSourceConfigurationInput0PropertiesOutput) ElementType() reflect.Type {
@@ -151,7 +151,7 @@ func (o DataSourceConfigurationInput0PropertiesPtrOutput) GlueRunConfiguration()
 	}).(DataSourceGlueRunConfigurationInputPtrOutput)
 }
 
-// Specifies the configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration.
+// Specifies the configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration or sageMakerRunConfiguration.
 type DataSourceConfigurationInput1Properties struct {
 	RedshiftRunConfiguration *DataSourceRedshiftRunConfigurationInput `pulumi:"redshiftRunConfiguration"`
 }
@@ -167,7 +167,7 @@ type DataSourceConfigurationInput1PropertiesInput interface {
 	ToDataSourceConfigurationInput1PropertiesOutputWithContext(context.Context) DataSourceConfigurationInput1PropertiesOutput
 }
 
-// Specifies the configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration.
+// Specifies the configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration or sageMakerRunConfiguration.
 type DataSourceConfigurationInput1PropertiesArgs struct {
 	RedshiftRunConfiguration DataSourceRedshiftRunConfigurationInputPtrInput `pulumi:"redshiftRunConfiguration"`
 }
@@ -225,7 +225,7 @@ func (i *dataSourceConfigurationInput1PropertiesPtrType) ToDataSourceConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfigurationInput1PropertiesPtrOutput)
 }
 
-// Specifies the configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration.
+// Specifies the configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration or sageMakerRunConfiguration.
 type DataSourceConfigurationInput1PropertiesOutput struct{ *pulumi.OutputState }
 
 func (DataSourceConfigurationInput1PropertiesOutput) ElementType() reflect.Type {
@@ -287,6 +287,144 @@ func (o DataSourceConfigurationInput1PropertiesPtrOutput) RedshiftRunConfigurati
 		}
 		return v.RedshiftRunConfiguration
 	}).(DataSourceRedshiftRunConfigurationInputPtrOutput)
+}
+
+// Specifies the configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration or sageMakerRunConfiguration.
+type DataSourceConfigurationInput2Properties struct {
+	SageMakerRunConfiguration *DataSourceSageMakerRunConfigurationInput `pulumi:"sageMakerRunConfiguration"`
+}
+
+// DataSourceConfigurationInput2PropertiesInput is an input type that accepts DataSourceConfigurationInput2PropertiesArgs and DataSourceConfigurationInput2PropertiesOutput values.
+// You can construct a concrete instance of `DataSourceConfigurationInput2PropertiesInput` via:
+//
+//	DataSourceConfigurationInput2PropertiesArgs{...}
+type DataSourceConfigurationInput2PropertiesInput interface {
+	pulumi.Input
+
+	ToDataSourceConfigurationInput2PropertiesOutput() DataSourceConfigurationInput2PropertiesOutput
+	ToDataSourceConfigurationInput2PropertiesOutputWithContext(context.Context) DataSourceConfigurationInput2PropertiesOutput
+}
+
+// Specifies the configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration or sageMakerRunConfiguration.
+type DataSourceConfigurationInput2PropertiesArgs struct {
+	SageMakerRunConfiguration DataSourceSageMakerRunConfigurationInputPtrInput `pulumi:"sageMakerRunConfiguration"`
+}
+
+func (DataSourceConfigurationInput2PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceConfigurationInput2Properties)(nil)).Elem()
+}
+
+func (i DataSourceConfigurationInput2PropertiesArgs) ToDataSourceConfigurationInput2PropertiesOutput() DataSourceConfigurationInput2PropertiesOutput {
+	return i.ToDataSourceConfigurationInput2PropertiesOutputWithContext(context.Background())
+}
+
+func (i DataSourceConfigurationInput2PropertiesArgs) ToDataSourceConfigurationInput2PropertiesOutputWithContext(ctx context.Context) DataSourceConfigurationInput2PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfigurationInput2PropertiesOutput)
+}
+
+func (i DataSourceConfigurationInput2PropertiesArgs) ToDataSourceConfigurationInput2PropertiesPtrOutput() DataSourceConfigurationInput2PropertiesPtrOutput {
+	return i.ToDataSourceConfigurationInput2PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceConfigurationInput2PropertiesArgs) ToDataSourceConfigurationInput2PropertiesPtrOutputWithContext(ctx context.Context) DataSourceConfigurationInput2PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfigurationInput2PropertiesOutput).ToDataSourceConfigurationInput2PropertiesPtrOutputWithContext(ctx)
+}
+
+// DataSourceConfigurationInput2PropertiesPtrInput is an input type that accepts DataSourceConfigurationInput2PropertiesArgs, DataSourceConfigurationInput2PropertiesPtr and DataSourceConfigurationInput2PropertiesPtrOutput values.
+// You can construct a concrete instance of `DataSourceConfigurationInput2PropertiesPtrInput` via:
+//
+//	        DataSourceConfigurationInput2PropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceConfigurationInput2PropertiesPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceConfigurationInput2PropertiesPtrOutput() DataSourceConfigurationInput2PropertiesPtrOutput
+	ToDataSourceConfigurationInput2PropertiesPtrOutputWithContext(context.Context) DataSourceConfigurationInput2PropertiesPtrOutput
+}
+
+type dataSourceConfigurationInput2PropertiesPtrType DataSourceConfigurationInput2PropertiesArgs
+
+func DataSourceConfigurationInput2PropertiesPtr(v *DataSourceConfigurationInput2PropertiesArgs) DataSourceConfigurationInput2PropertiesPtrInput {
+	return (*dataSourceConfigurationInput2PropertiesPtrType)(v)
+}
+
+func (*dataSourceConfigurationInput2PropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceConfigurationInput2Properties)(nil)).Elem()
+}
+
+func (i *dataSourceConfigurationInput2PropertiesPtrType) ToDataSourceConfigurationInput2PropertiesPtrOutput() DataSourceConfigurationInput2PropertiesPtrOutput {
+	return i.ToDataSourceConfigurationInput2PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceConfigurationInput2PropertiesPtrType) ToDataSourceConfigurationInput2PropertiesPtrOutputWithContext(ctx context.Context) DataSourceConfigurationInput2PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceConfigurationInput2PropertiesPtrOutput)
+}
+
+// Specifies the configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration or sageMakerRunConfiguration.
+type DataSourceConfigurationInput2PropertiesOutput struct{ *pulumi.OutputState }
+
+func (DataSourceConfigurationInput2PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceConfigurationInput2Properties)(nil)).Elem()
+}
+
+func (o DataSourceConfigurationInput2PropertiesOutput) ToDataSourceConfigurationInput2PropertiesOutput() DataSourceConfigurationInput2PropertiesOutput {
+	return o
+}
+
+func (o DataSourceConfigurationInput2PropertiesOutput) ToDataSourceConfigurationInput2PropertiesOutputWithContext(ctx context.Context) DataSourceConfigurationInput2PropertiesOutput {
+	return o
+}
+
+func (o DataSourceConfigurationInput2PropertiesOutput) ToDataSourceConfigurationInput2PropertiesPtrOutput() DataSourceConfigurationInput2PropertiesPtrOutput {
+	return o.ToDataSourceConfigurationInput2PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceConfigurationInput2PropertiesOutput) ToDataSourceConfigurationInput2PropertiesPtrOutputWithContext(ctx context.Context) DataSourceConfigurationInput2PropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceConfigurationInput2Properties) *DataSourceConfigurationInput2Properties {
+		return &v
+	}).(DataSourceConfigurationInput2PropertiesPtrOutput)
+}
+
+func (o DataSourceConfigurationInput2PropertiesOutput) SageMakerRunConfiguration() DataSourceSageMakerRunConfigurationInputPtrOutput {
+	return o.ApplyT(func(v DataSourceConfigurationInput2Properties) *DataSourceSageMakerRunConfigurationInput {
+		return v.SageMakerRunConfiguration
+	}).(DataSourceSageMakerRunConfigurationInputPtrOutput)
+}
+
+type DataSourceConfigurationInput2PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceConfigurationInput2PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceConfigurationInput2Properties)(nil)).Elem()
+}
+
+func (o DataSourceConfigurationInput2PropertiesPtrOutput) ToDataSourceConfigurationInput2PropertiesPtrOutput() DataSourceConfigurationInput2PropertiesPtrOutput {
+	return o
+}
+
+func (o DataSourceConfigurationInput2PropertiesPtrOutput) ToDataSourceConfigurationInput2PropertiesPtrOutputWithContext(ctx context.Context) DataSourceConfigurationInput2PropertiesPtrOutput {
+	return o
+}
+
+func (o DataSourceConfigurationInput2PropertiesPtrOutput) Elem() DataSourceConfigurationInput2PropertiesOutput {
+	return o.ApplyT(func(v *DataSourceConfigurationInput2Properties) DataSourceConfigurationInput2Properties {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceConfigurationInput2Properties
+		return ret
+	}).(DataSourceConfigurationInput2PropertiesOutput)
+}
+
+func (o DataSourceConfigurationInput2PropertiesPtrOutput) SageMakerRunConfiguration() DataSourceSageMakerRunConfigurationInputPtrOutput {
+	return o.ApplyT(func(v *DataSourceConfigurationInput2Properties) *DataSourceSageMakerRunConfigurationInput {
+		if v == nil {
+			return nil
+		}
+		return v.SageMakerRunConfiguration
+	}).(DataSourceSageMakerRunConfigurationInputPtrOutput)
 }
 
 // The search filter expression.
@@ -1849,6 +1987,146 @@ func (o DataSourceRelationalFilterConfigurationArrayOutput) Index(i pulumi.IntIn
 	}).(DataSourceRelationalFilterConfigurationOutput)
 }
 
+// The configuration details of the Amazon SageMaker data source.
+type DataSourceSageMakerRunConfigurationInput struct {
+	// The tracking assets of the Amazon SageMaker run.
+	TrackingAssets map[string]interface{} `pulumi:"trackingAssets"`
+}
+
+// DataSourceSageMakerRunConfigurationInputInput is an input type that accepts DataSourceSageMakerRunConfigurationInputArgs and DataSourceSageMakerRunConfigurationInputOutput values.
+// You can construct a concrete instance of `DataSourceSageMakerRunConfigurationInputInput` via:
+//
+//	DataSourceSageMakerRunConfigurationInputArgs{...}
+type DataSourceSageMakerRunConfigurationInputInput interface {
+	pulumi.Input
+
+	ToDataSourceSageMakerRunConfigurationInputOutput() DataSourceSageMakerRunConfigurationInputOutput
+	ToDataSourceSageMakerRunConfigurationInputOutputWithContext(context.Context) DataSourceSageMakerRunConfigurationInputOutput
+}
+
+// The configuration details of the Amazon SageMaker data source.
+type DataSourceSageMakerRunConfigurationInputArgs struct {
+	// The tracking assets of the Amazon SageMaker run.
+	TrackingAssets pulumi.MapInput `pulumi:"trackingAssets"`
+}
+
+func (DataSourceSageMakerRunConfigurationInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceSageMakerRunConfigurationInput)(nil)).Elem()
+}
+
+func (i DataSourceSageMakerRunConfigurationInputArgs) ToDataSourceSageMakerRunConfigurationInputOutput() DataSourceSageMakerRunConfigurationInputOutput {
+	return i.ToDataSourceSageMakerRunConfigurationInputOutputWithContext(context.Background())
+}
+
+func (i DataSourceSageMakerRunConfigurationInputArgs) ToDataSourceSageMakerRunConfigurationInputOutputWithContext(ctx context.Context) DataSourceSageMakerRunConfigurationInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceSageMakerRunConfigurationInputOutput)
+}
+
+func (i DataSourceSageMakerRunConfigurationInputArgs) ToDataSourceSageMakerRunConfigurationInputPtrOutput() DataSourceSageMakerRunConfigurationInputPtrOutput {
+	return i.ToDataSourceSageMakerRunConfigurationInputPtrOutputWithContext(context.Background())
+}
+
+func (i DataSourceSageMakerRunConfigurationInputArgs) ToDataSourceSageMakerRunConfigurationInputPtrOutputWithContext(ctx context.Context) DataSourceSageMakerRunConfigurationInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceSageMakerRunConfigurationInputOutput).ToDataSourceSageMakerRunConfigurationInputPtrOutputWithContext(ctx)
+}
+
+// DataSourceSageMakerRunConfigurationInputPtrInput is an input type that accepts DataSourceSageMakerRunConfigurationInputArgs, DataSourceSageMakerRunConfigurationInputPtr and DataSourceSageMakerRunConfigurationInputPtrOutput values.
+// You can construct a concrete instance of `DataSourceSageMakerRunConfigurationInputPtrInput` via:
+//
+//	        DataSourceSageMakerRunConfigurationInputArgs{...}
+//
+//	or:
+//
+//	        nil
+type DataSourceSageMakerRunConfigurationInputPtrInput interface {
+	pulumi.Input
+
+	ToDataSourceSageMakerRunConfigurationInputPtrOutput() DataSourceSageMakerRunConfigurationInputPtrOutput
+	ToDataSourceSageMakerRunConfigurationInputPtrOutputWithContext(context.Context) DataSourceSageMakerRunConfigurationInputPtrOutput
+}
+
+type dataSourceSageMakerRunConfigurationInputPtrType DataSourceSageMakerRunConfigurationInputArgs
+
+func DataSourceSageMakerRunConfigurationInputPtr(v *DataSourceSageMakerRunConfigurationInputArgs) DataSourceSageMakerRunConfigurationInputPtrInput {
+	return (*dataSourceSageMakerRunConfigurationInputPtrType)(v)
+}
+
+func (*dataSourceSageMakerRunConfigurationInputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceSageMakerRunConfigurationInput)(nil)).Elem()
+}
+
+func (i *dataSourceSageMakerRunConfigurationInputPtrType) ToDataSourceSageMakerRunConfigurationInputPtrOutput() DataSourceSageMakerRunConfigurationInputPtrOutput {
+	return i.ToDataSourceSageMakerRunConfigurationInputPtrOutputWithContext(context.Background())
+}
+
+func (i *dataSourceSageMakerRunConfigurationInputPtrType) ToDataSourceSageMakerRunConfigurationInputPtrOutputWithContext(ctx context.Context) DataSourceSageMakerRunConfigurationInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DataSourceSageMakerRunConfigurationInputPtrOutput)
+}
+
+// The configuration details of the Amazon SageMaker data source.
+type DataSourceSageMakerRunConfigurationInputOutput struct{ *pulumi.OutputState }
+
+func (DataSourceSageMakerRunConfigurationInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataSourceSageMakerRunConfigurationInput)(nil)).Elem()
+}
+
+func (o DataSourceSageMakerRunConfigurationInputOutput) ToDataSourceSageMakerRunConfigurationInputOutput() DataSourceSageMakerRunConfigurationInputOutput {
+	return o
+}
+
+func (o DataSourceSageMakerRunConfigurationInputOutput) ToDataSourceSageMakerRunConfigurationInputOutputWithContext(ctx context.Context) DataSourceSageMakerRunConfigurationInputOutput {
+	return o
+}
+
+func (o DataSourceSageMakerRunConfigurationInputOutput) ToDataSourceSageMakerRunConfigurationInputPtrOutput() DataSourceSageMakerRunConfigurationInputPtrOutput {
+	return o.ToDataSourceSageMakerRunConfigurationInputPtrOutputWithContext(context.Background())
+}
+
+func (o DataSourceSageMakerRunConfigurationInputOutput) ToDataSourceSageMakerRunConfigurationInputPtrOutputWithContext(ctx context.Context) DataSourceSageMakerRunConfigurationInputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceSageMakerRunConfigurationInput) *DataSourceSageMakerRunConfigurationInput {
+		return &v
+	}).(DataSourceSageMakerRunConfigurationInputPtrOutput)
+}
+
+// The tracking assets of the Amazon SageMaker run.
+func (o DataSourceSageMakerRunConfigurationInputOutput) TrackingAssets() pulumi.MapOutput {
+	return o.ApplyT(func(v DataSourceSageMakerRunConfigurationInput) map[string]interface{} { return v.TrackingAssets }).(pulumi.MapOutput)
+}
+
+type DataSourceSageMakerRunConfigurationInputPtrOutput struct{ *pulumi.OutputState }
+
+func (DataSourceSageMakerRunConfigurationInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataSourceSageMakerRunConfigurationInput)(nil)).Elem()
+}
+
+func (o DataSourceSageMakerRunConfigurationInputPtrOutput) ToDataSourceSageMakerRunConfigurationInputPtrOutput() DataSourceSageMakerRunConfigurationInputPtrOutput {
+	return o
+}
+
+func (o DataSourceSageMakerRunConfigurationInputPtrOutput) ToDataSourceSageMakerRunConfigurationInputPtrOutputWithContext(ctx context.Context) DataSourceSageMakerRunConfigurationInputPtrOutput {
+	return o
+}
+
+func (o DataSourceSageMakerRunConfigurationInputPtrOutput) Elem() DataSourceSageMakerRunConfigurationInputOutput {
+	return o.ApplyT(func(v *DataSourceSageMakerRunConfigurationInput) DataSourceSageMakerRunConfigurationInput {
+		if v != nil {
+			return *v
+		}
+		var ret DataSourceSageMakerRunConfigurationInput
+		return ret
+	}).(DataSourceSageMakerRunConfigurationInputOutput)
+}
+
+// The tracking assets of the Amazon SageMaker run.
+func (o DataSourceSageMakerRunConfigurationInputPtrOutput) TrackingAssets() pulumi.MapOutput {
+	return o.ApplyT(func(v *DataSourceSageMakerRunConfigurationInput) map[string]interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.TrackingAssets
+	}).(pulumi.MapOutput)
+}
+
 // The schedule of the data source runs.
 type DataSourceScheduleConfiguration struct {
 	// The schedule of the data source runs.
@@ -3115,6 +3393,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceConfigurationInput0PropertiesPtrInput)(nil)).Elem(), DataSourceConfigurationInput0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceConfigurationInput1PropertiesInput)(nil)).Elem(), DataSourceConfigurationInput1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceConfigurationInput1PropertiesPtrInput)(nil)).Elem(), DataSourceConfigurationInput1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceConfigurationInput2PropertiesInput)(nil)).Elem(), DataSourceConfigurationInput2PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceConfigurationInput2PropertiesPtrInput)(nil)).Elem(), DataSourceConfigurationInput2PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceFilterExpressionInput)(nil)).Elem(), DataSourceFilterExpressionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceFilterExpressionArrayInput)(nil)).Elem(), DataSourceFilterExpressionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceFormInputInput)(nil)).Elem(), DataSourceFormInputArgs{})
@@ -3137,6 +3417,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceRedshiftStorage1PropertiesPtrInput)(nil)).Elem(), DataSourceRedshiftStorage1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceRelationalFilterConfigurationInput)(nil)).Elem(), DataSourceRelationalFilterConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceRelationalFilterConfigurationArrayInput)(nil)).Elem(), DataSourceRelationalFilterConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceSageMakerRunConfigurationInputInput)(nil)).Elem(), DataSourceSageMakerRunConfigurationInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceSageMakerRunConfigurationInputPtrInput)(nil)).Elem(), DataSourceSageMakerRunConfigurationInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceScheduleConfigurationInput)(nil)).Elem(), DataSourceScheduleConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceScheduleConfigurationPtrInput)(nil)).Elem(), DataSourceScheduleConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainSingleSignOnInput)(nil)).Elem(), DomainSingleSignOnArgs{})
@@ -3157,6 +3439,8 @@ func init() {
 	pulumi.RegisterOutputType(DataSourceConfigurationInput0PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceConfigurationInput1PropertiesOutput{})
 	pulumi.RegisterOutputType(DataSourceConfigurationInput1PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(DataSourceConfigurationInput2PropertiesOutput{})
+	pulumi.RegisterOutputType(DataSourceConfigurationInput2PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceFilterExpressionOutput{})
 	pulumi.RegisterOutputType(DataSourceFilterExpressionArrayOutput{})
 	pulumi.RegisterOutputType(DataSourceFormInputOutput{})
@@ -3179,6 +3463,8 @@ func init() {
 	pulumi.RegisterOutputType(DataSourceRedshiftStorage1PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceRelationalFilterConfigurationOutput{})
 	pulumi.RegisterOutputType(DataSourceRelationalFilterConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(DataSourceSageMakerRunConfigurationInputOutput{})
+	pulumi.RegisterOutputType(DataSourceSageMakerRunConfigurationInputPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceScheduleConfigurationOutput{})
 	pulumi.RegisterOutputType(DataSourceScheduleConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DomainSingleSignOnOutput{})

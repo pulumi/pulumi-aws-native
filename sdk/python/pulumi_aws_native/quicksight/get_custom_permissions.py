@@ -40,16 +40,25 @@ class GetCustomPermissionsResult:
     @property
     @pulumi.getter
     def arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the custom permissions profile.
+        """
         return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
     def capabilities(self) -> Optional['outputs.CustomPermissionsCapabilities']:
+        """
+        A set of actions in the custom permissions profile.
+        """
         return pulumi.get(self, "capabilities")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        The tags to associate with the custom permissions profile.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -69,6 +78,10 @@ def get_custom_permissions(aws_account_id: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCustomPermissionsResult:
     """
     Definition of the AWS::QuickSight::CustomPermissions Resource Type.
+
+
+    :param str aws_account_id: The ID of the AWS account that contains the custom permission configuration that you want to update.
+    :param str custom_permissions_name: The name of the custom permissions profile.
     """
     __args__ = dict()
     __args__['awsAccountId'] = aws_account_id
@@ -85,6 +98,10 @@ def get_custom_permissions_output(aws_account_id: Optional[pulumi.Input[str]] = 
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCustomPermissionsResult]:
     """
     Definition of the AWS::QuickSight::CustomPermissions Resource Type.
+
+
+    :param str aws_account_id: The ID of the AWS account that contains the custom permission configuration that you want to update.
+    :param str custom_permissions_name: The name of the custom permissions profile.
     """
     __args__ = dict()
     __args__['awsAccountId'] = aws_account_id

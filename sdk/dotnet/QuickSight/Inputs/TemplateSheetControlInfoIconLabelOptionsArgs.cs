@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         /// The visibility configuration of info icon label options.
         /// </summary>
         [Input("visibility")]
-        public Input<Pulumi.AwsNative.QuickSight.TemplateVisibility>? Visibility { get; set; }
+        public Input<object>? Visibility { get; set; }
 
         public TemplateSheetControlInfoIconLabelOptionsArgs()
         {

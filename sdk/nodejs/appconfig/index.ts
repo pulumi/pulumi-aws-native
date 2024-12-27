@@ -15,6 +15,11 @@ export type ConfigurationProfile = import("./configurationProfile").Configuratio
 export const ConfigurationProfile: typeof import("./configurationProfile").ConfigurationProfile = null as any;
 utilities.lazyLoad(exports, ["ConfigurationProfile"], () => require("./configurationProfile"));
 
+export { DeploymentArgs } from "./deployment";
+export type Deployment = import("./deployment").Deployment;
+export const Deployment: typeof import("./deployment").Deployment = null as any;
+utilities.lazyLoad(exports, ["Deployment"], () => require("./deployment"));
+
 export { DeploymentStrategyArgs } from "./deploymentStrategy";
 export type DeploymentStrategy = import("./deploymentStrategy").DeploymentStrategy;
 export const DeploymentStrategy: typeof import("./deploymentStrategy").DeploymentStrategy = null as any;
@@ -44,6 +49,11 @@ export { GetConfigurationProfileArgs, GetConfigurationProfileResult, GetConfigur
 export const getConfigurationProfile: typeof import("./getConfigurationProfile").getConfigurationProfile = null as any;
 export const getConfigurationProfileOutput: typeof import("./getConfigurationProfile").getConfigurationProfileOutput = null as any;
 utilities.lazyLoad(exports, ["getConfigurationProfile","getConfigurationProfileOutput"], () => require("./getConfigurationProfile"));
+
+export { GetDeploymentArgs, GetDeploymentResult, GetDeploymentOutputArgs } from "./getDeployment";
+export const getDeployment: typeof import("./getDeployment").getDeployment = null as any;
+export const getDeploymentOutput: typeof import("./getDeployment").getDeploymentOutput = null as any;
+utilities.lazyLoad(exports, ["getDeployment","getDeploymentOutput"], () => require("./getDeployment"));
 
 export { GetDeploymentStrategyArgs, GetDeploymentStrategyResult, GetDeploymentStrategyOutputArgs } from "./getDeploymentStrategy";
 export const getDeploymentStrategy: typeof import("./getDeploymentStrategy").getDeploymentStrategy = null as any;
@@ -87,6 +97,8 @@ const _module = {
                 return new Application(name, <any>undefined, { urn })
             case "aws-native:appconfig:ConfigurationProfile":
                 return new ConfigurationProfile(name, <any>undefined, { urn })
+            case "aws-native:appconfig:Deployment":
+                return new Deployment(name, <any>undefined, { urn })
             case "aws-native:appconfig:DeploymentStrategy":
                 return new DeploymentStrategy(name, <any>undefined, { urn })
             case "aws-native:appconfig:Environment":

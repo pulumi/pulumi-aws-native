@@ -45,11 +45,17 @@ export interface GetVpcEndpointResult {
      * If you update the `PrivateDnsEnabled` or `SubnetIds` properties, the DNS entries in the list will change.
      */
     readonly dnsEntries?: string[];
+    /**
+     * Describes the DNS options for an endpoint.
+     */
     readonly dnsOptions?: outputs.ec2.VpcEndpointDnsOptionsSpecification;
     /**
      * The ID of the VPC endpoint.
      */
     readonly id?: string;
+    /**
+     * The supported IP address types.
+     */
     readonly ipAddressType?: enums.ec2.VpcEndpointIpAddressType;
     /**
      * (Interface endpoints) The network interface IDs. If you update the `PrivateDnsEnabled` or `SubnetIds` properties, the items in this list might change.

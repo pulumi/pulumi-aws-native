@@ -19,13 +19,28 @@ export function getCustomPermissions(args: GetCustomPermissionsArgs, opts?: pulu
 }
 
 export interface GetCustomPermissionsArgs {
+    /**
+     * The ID of the AWS account that contains the custom permission configuration that you want to update.
+     */
     awsAccountId: string;
+    /**
+     * The name of the custom permissions profile.
+     */
     customPermissionsName: string;
 }
 
 export interface GetCustomPermissionsResult {
+    /**
+     * The Amazon Resource Name (ARN) of the custom permissions profile.
+     */
     readonly arn?: string;
+    /**
+     * A set of actions in the custom permissions profile.
+     */
     readonly capabilities?: outputs.quicksight.CustomPermissionsCapabilities;
+    /**
+     * The tags to associate with the custom permissions profile.
+     */
     readonly tags?: outputs.Tag[];
 }
 /**
@@ -40,6 +55,12 @@ export function getCustomPermissionsOutput(args: GetCustomPermissionsOutputArgs,
 }
 
 export interface GetCustomPermissionsOutputArgs {
+    /**
+     * The ID of the AWS account that contains the custom permission configuration that you want to update.
+     */
     awsAccountId: pulumi.Input<string>;
+    /**
+     * The name of the custom permissions profile.
+     */
     customPermissionsName: pulumi.Input<string>;
 }

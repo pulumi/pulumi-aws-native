@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.OpenSearchService.Outputs
     [OutputType]
     public sealed class DomainNodeOption
     {
+        /// <summary>
+        /// Container for specifying configuration of any node type.
+        /// </summary>
         public readonly Outputs.DomainNodeConfig? NodeConfig;
+        /// <summary>
+        /// Container for node type like coordinating.
+        /// </summary>
         public readonly Pulumi.AwsNative.OpenSearchService.DomainNodeOptionNodeType? NodeType;
 
         [OutputConstructor]

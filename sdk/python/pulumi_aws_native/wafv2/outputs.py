@@ -2493,7 +2493,7 @@ class RuleGroupRateBasedStatement(dict):
                - `IP` - Aggregate the request counts on the IP address from the web request origin.
                
                To aggregate on a combination of the IP address with other aggregate keys, use `CUSTOM_KEYS` .
-        :param int limit: The limit on requests per 5-minute period for a single aggregation instance for the rate-based rule. If the rate-based statement includes a `ScopeDownStatement` , this limit is applied only to the requests that match the statement.
+        :param int limit: The limit on requests during the specified evaluation window for a single aggregation instance for the rate-based rule. If the rate-based statement includes a `ScopeDownStatement` , this limit is applied only to the requests that match the statement.
                
                Examples:
                
@@ -2554,7 +2554,7 @@ class RuleGroupRateBasedStatement(dict):
     @pulumi.getter
     def limit(self) -> int:
         """
-        The limit on requests per 5-minute period for a single aggregation instance for the rate-based rule. If the rate-based statement includes a `ScopeDownStatement` , this limit is applied only to the requests that match the statement.
+        The limit on requests during the specified evaluation window for a single aggregation instance for the rate-based rule. If the rate-based statement includes a `ScopeDownStatement` , this limit is applied only to the requests that match the statement.
 
         Examples:
 
@@ -6770,7 +6770,7 @@ class WebAclRateBasedStatement(dict):
                - `IP` - Aggregate the request counts on the IP address from the web request origin.
                
                To aggregate on a combination of the IP address with other aggregate keys, use `CUSTOM_KEYS` .
-        :param int limit: The limit on requests per 5-minute period for a single aggregation instance for the rate-based rule. If the rate-based statement includes a `ScopeDownStatement` , this limit is applied only to the requests that match the statement.
+        :param int limit: The limit on requests during the specified evaluation window for a single aggregation instance for the rate-based rule. If the rate-based statement includes a `ScopeDownStatement` , this limit is applied only to the requests that match the statement.
                
                Examples:
                
@@ -6831,7 +6831,7 @@ class WebAclRateBasedStatement(dict):
     @pulumi.getter
     def limit(self) -> int:
         """
-        The limit on requests per 5-minute period for a single aggregation instance for the rate-based rule. If the rate-based statement includes a `ScopeDownStatement` , this limit is applied only to the requests that match the statement.
+        The limit on requests during the specified evaluation window for a single aggregation instance for the rate-based rule. If the rate-based statement includes a `ScopeDownStatement` , this limit is applied only to the requests that match the statement.
 
         Examples:
 

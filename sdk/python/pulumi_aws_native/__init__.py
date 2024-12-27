@@ -794,6 +794,7 @@ _utilities.register(
   "classes": {
    "aws-native:appconfig:Application": "Application",
    "aws-native:appconfig:ConfigurationProfile": "ConfigurationProfile",
+   "aws-native:appconfig:Deployment": "Deployment",
    "aws-native:appconfig:DeploymentStrategy": "DeploymentStrategy",
    "aws-native:appconfig:Environment": "Environment",
    "aws-native:appconfig:Extension": "Extension",

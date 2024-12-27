@@ -2161,6 +2161,9 @@ namespace Pulumi.AwsNative.Ec2
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The DNS records created for the endpoint.
+    /// </summary>
     [EnumType]
     public readonly struct VpcEndpointDnsOptionsSpecificationDnsRecordIpType : IEquatable<VpcEndpointDnsOptionsSpecificationDnsRecordIpType>
     {
@@ -2192,6 +2195,9 @@ namespace Pulumi.AwsNative.Ec2
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Indicates whether to enable private DNS only for inbound endpoints. This option is available only for services that support both gateway and interface endpoints. It routes traffic that originates from the VPC to the gateway endpoint and traffic that originates from on-premises to the interface endpoint.
+    /// </summary>
     [EnumType]
     public readonly struct VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint : IEquatable<VpcEndpointDnsOptionsSpecificationPrivateDnsOnlyForInboundResolverEndpoint>
     {
@@ -2221,6 +2227,9 @@ namespace Pulumi.AwsNative.Ec2
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The supported IP address types.
+    /// </summary>
     [EnumType]
     public readonly struct VpcEndpointIpAddressType : IEquatable<VpcEndpointIpAddressType>
     {

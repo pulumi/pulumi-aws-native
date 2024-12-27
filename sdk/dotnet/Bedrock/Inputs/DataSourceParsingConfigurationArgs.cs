@@ -16,6 +16,12 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
     public sealed class DataSourceParsingConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// If you specify `BEDROCK_DATA_AUTOMATION` as the parsing strategy for ingesting your data source, use this object to modify configurations for using the Amazon Bedrock Data Automation parser.
+        /// </summary>
+        [Input("bedrockDataAutomationConfiguration")]
+        public Input<Inputs.DataSourceBedrockDataAutomationConfigurationArgs>? BedrockDataAutomationConfiguration { get; set; }
+
+        /// <summary>
         /// If you specify `BEDROCK_FOUNDATION_MODEL` as the parsing strategy for ingesting your data source, use this object to modify configurations for using a foundation model to parse documents.
         /// </summary>
         [Input("bedrockFoundationModelConfiguration")]

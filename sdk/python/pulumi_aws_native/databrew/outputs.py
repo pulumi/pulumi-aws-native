@@ -990,6 +990,7 @@ class DatasetS3Location(dict):
         """
         Input location
         :param str bucket: The Amazon S3 bucket name.
+        :param str bucket_owner: The AWS account ID of the bucket owner.
         :param str key: The unique name of the object in the bucket.
         """
         pulumi.set(__self__, "bucket", bucket)
@@ -1009,6 +1010,9 @@ class DatasetS3Location(dict):
     @property
     @pulumi.getter(name="bucketOwner")
     def bucket_owner(self) -> Optional[str]:
+        """
+        The AWS account ID of the bucket owner.
+        """
         return pulumi.get(self, "bucket_owner")
 
     @property

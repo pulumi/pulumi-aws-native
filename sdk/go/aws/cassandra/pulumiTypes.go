@@ -1803,7 +1803,9 @@ func (o TableTargetTrackingScalingPolicyConfigurationPtrOutput) TargetValue() pu
 }
 
 type TypeField struct {
+	// The name of the field.
 	FieldName string `pulumi:"fieldName"`
+	// The data type of the field. This can be any Cassandra data type or another user-defined type.
 	FieldType string `pulumi:"fieldType"`
 }
 
@@ -1819,7 +1821,9 @@ type TypeFieldInput interface {
 }
 
 type TypeFieldArgs struct {
+	// The name of the field.
 	FieldName pulumi.StringInput `pulumi:"fieldName"`
+	// The data type of the field. This can be any Cassandra data type or another user-defined type.
 	FieldType pulumi.StringInput `pulumi:"fieldType"`
 }
 
@@ -1874,10 +1878,12 @@ func (o TypeFieldOutput) ToTypeFieldOutputWithContext(ctx context.Context) TypeF
 	return o
 }
 
+// The name of the field.
 func (o TypeFieldOutput) FieldName() pulumi.StringOutput {
 	return o.ApplyT(func(v TypeField) string { return v.FieldName }).(pulumi.StringOutput)
 }
 
+// The data type of the field. This can be any Cassandra data type or another user-defined type.
 func (o TypeFieldOutput) FieldType() pulumi.StringOutput {
 	return o.ApplyT(func(v TypeField) string { return v.FieldType }).(pulumi.StringOutput)
 }

@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.MediaConnect.Inputs
         public Input<string> MulticastIp { get; set; } = null!;
 
         /// <summary>
+        /// The settings related to the multicast source.
+        /// </summary>
+        [Input("multicastSourceSettings")]
+        public Input<Inputs.BridgeSourceMulticastSourceSettingsArgs>? MulticastSourceSettings { get; set; }
+
+        /// <summary>
         /// The network source's gateway network name.
         /// </summary>
         [Input("networkName", required: true)]

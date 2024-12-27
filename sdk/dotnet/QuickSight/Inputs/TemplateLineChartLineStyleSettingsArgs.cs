@@ -36,7 +36,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         /// Configuration option that determines whether to show the line for the series.
         /// </summary>
         [Input("lineVisibility")]
-        public Input<Pulumi.AwsNative.QuickSight.TemplateVisibility>? LineVisibility { get; set; }
+        public Input<object>? LineVisibility { get; set; }
 
         /// <summary>
         /// String based length that is composed of value and unit in px

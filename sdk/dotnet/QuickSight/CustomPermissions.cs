@@ -15,18 +15,33 @@ namespace Pulumi.AwsNative.QuickSight
     [AwsNativeResourceType("aws-native:quicksight:CustomPermissions")]
     public partial class CustomPermissions : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the custom permissions profile.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the AWS account that contains the custom permission configuration that you want to update.
+        /// </summary>
         [Output("awsAccountId")]
         public Output<string> AwsAccountId { get; private set; } = null!;
 
+        /// <summary>
+        /// A set of actions in the custom permissions profile.
+        /// </summary>
         [Output("capabilities")]
         public Output<Outputs.CustomPermissionsCapabilities?> Capabilities { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the custom permissions profile.
+        /// </summary>
         [Output("customPermissionsName")]
         public Output<string> CustomPermissionsName { get; private set; } = null!;
 
+        /// <summary>
+        /// The tags to associate with the custom permissions profile.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -80,17 +95,30 @@ namespace Pulumi.AwsNative.QuickSight
 
     public sealed class CustomPermissionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ID of the AWS account that contains the custom permission configuration that you want to update.
+        /// </summary>
         [Input("awsAccountId", required: true)]
         public Input<string> AwsAccountId { get; set; } = null!;
 
+        /// <summary>
+        /// A set of actions in the custom permissions profile.
+        /// </summary>
         [Input("capabilities")]
         public Input<Inputs.CustomPermissionsCapabilitiesArgs>? Capabilities { get; set; }
 
+        /// <summary>
+        /// The name of the custom permissions profile.
+        /// </summary>
         [Input("customPermissionsName")]
         public Input<string>? CustomPermissionsName { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// The tags to associate with the custom permissions profile.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

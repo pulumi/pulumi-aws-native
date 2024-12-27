@@ -22,7 +22,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         /// The tooltip visibility of the sparkline.
         /// </summary>
         [Input("tooltipVisibility")]
-        public Input<Pulumi.AwsNative.QuickSight.TemplateVisibility>? TooltipVisibility { get; set; }
+        public Input<object>? TooltipVisibility { get; set; }
 
         /// <summary>
         /// The type of the sparkline.
@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         /// The visibility of the sparkline.
         /// </summary>
         [Input("visibility")]
-        public Input<Pulumi.AwsNative.QuickSight.TemplateVisibility>? Visibility { get; set; }
+        public Input<object>? Visibility { get; set; }
 
         public TemplateKpiSparklineOptionsArgs()
         {

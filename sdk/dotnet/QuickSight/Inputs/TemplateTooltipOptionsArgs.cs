@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         /// Determines whether or not the tooltip is visible.
         /// </summary>
         [Input("tooltipVisibility")]
-        public Input<Pulumi.AwsNative.QuickSight.TemplateVisibility>? TooltipVisibility { get; set; }
+        public Input<object>? TooltipVisibility { get; set; }
 
         public TemplateTooltipOptionsArgs()
         {

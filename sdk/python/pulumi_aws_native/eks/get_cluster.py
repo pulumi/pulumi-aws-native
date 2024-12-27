@@ -112,7 +112,7 @@ class GetClusterResult:
     @pulumi.getter(name="computeConfig")
     def compute_config(self) -> Optional['outputs.ClusterComputeConfig']:
         """
-        Indicates the current configuration of the compute capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your AWS account. For more information, see EKS Auto Mode compute capability in the EKS User Guide.
+        Indicates the current configuration of the compute capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your AWS account. For more information, see EKS Auto Mode compute capability in the *Amazon EKS User Guide* .
         """
         return pulumi.get(self, "compute_config")
 
@@ -168,7 +168,7 @@ class GetClusterResult:
     @pulumi.getter(name="storageConfig")
     def storage_config(self) -> Optional['outputs.ClusterStorageConfig']:
         """
-        Indicates the current configuration of the block storage capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the block storage capability is enabled, EKS Auto Mode will create and delete EBS volumes in your AWS account. For more information, see EKS Auto Mode block storage capability in the EKS User Guide.
+        Indicates the current configuration of the block storage capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the block storage capability is enabled, EKS Auto Mode will create and delete EBS volumes in your AWS account. For more information, see EKS Auto Mode block storage capability in the *Amazon EKS User Guide* .
         """
         return pulumi.get(self, "storage_config")
 
@@ -186,7 +186,7 @@ class GetClusterResult:
         """
         This value indicates if extended support is enabled or disabled for the cluster.
 
-        [Learn more about EKS Extended Support in the EKS User Guide.](https://docs.aws.amazon.com/eks/latest/userguide/extended-support-control.html)
+        [Learn more about EKS Extended Support in the *Amazon EKS User Guide* .](https://docs.aws.amazon.com/eks/latest/userguide/extended-support-control.html)
         """
         return pulumi.get(self, "upgrade_policy")
 

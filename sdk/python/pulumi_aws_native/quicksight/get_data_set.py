@@ -196,6 +196,9 @@ class GetDataSetResult:
     @property
     @pulumi.getter(name="performanceConfiguration")
     def performance_configuration(self) -> Optional['outputs.DataSetPerformanceConfiguration']:
+        """
+        The performance optimization configuration of a dataset.
+        """
         return pulumi.get(self, "performance_configuration")
 
     @property

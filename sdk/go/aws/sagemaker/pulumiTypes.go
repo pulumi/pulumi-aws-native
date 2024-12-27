@@ -5135,7 +5135,8 @@ func (o DomainCodeRepositoryArrayOutput) Index(i pulumi.IntInput) DomainCodeRepo
 
 type DomainCustomFileSystemConfig struct {
 	// The settings for a custom Amazon EFS file system.
-	EfsFileSystemConfig       *DomainEfsFileSystemConfig       `pulumi:"efsFileSystemConfig"`
+	EfsFileSystemConfig *DomainEfsFileSystemConfig `pulumi:"efsFileSystemConfig"`
+	// The settings for a custom Amazon FSx for Lustre file system.
 	FSxLustreFileSystemConfig *DomainFSxLustreFileSystemConfig `pulumi:"fSxLustreFileSystemConfig"`
 }
 
@@ -5152,7 +5153,8 @@ type DomainCustomFileSystemConfigInput interface {
 
 type DomainCustomFileSystemConfigArgs struct {
 	// The settings for a custom Amazon EFS file system.
-	EfsFileSystemConfig       DomainEfsFileSystemConfigPtrInput       `pulumi:"efsFileSystemConfig"`
+	EfsFileSystemConfig DomainEfsFileSystemConfigPtrInput `pulumi:"efsFileSystemConfig"`
+	// The settings for a custom Amazon FSx for Lustre file system.
 	FSxLustreFileSystemConfig DomainFSxLustreFileSystemConfigPtrInput `pulumi:"fSxLustreFileSystemConfig"`
 }
 
@@ -5212,6 +5214,7 @@ func (o DomainCustomFileSystemConfigOutput) EfsFileSystemConfig() DomainEfsFileS
 	return o.ApplyT(func(v DomainCustomFileSystemConfig) *DomainEfsFileSystemConfig { return v.EfsFileSystemConfig }).(DomainEfsFileSystemConfigPtrOutput)
 }
 
+// The settings for a custom Amazon FSx for Lustre file system.
 func (o DomainCustomFileSystemConfigOutput) FSxLustreFileSystemConfig() DomainFSxLustreFileSystemConfigPtrOutput {
 	return o.ApplyT(func(v DomainCustomFileSystemConfig) *DomainFSxLustreFileSystemConfig {
 		return v.FSxLustreFileSystemConfig
@@ -6402,7 +6405,9 @@ func (o DomainEfsFileSystemConfigPtrOutput) FileSystemPath() pulumi.StringPtrOut
 }
 
 type DomainFSxLustreFileSystemConfig struct {
-	FileSystemId   string  `pulumi:"fileSystemId"`
+	// The globally unique, 17-digit, ID of the file system, assigned by Amazon FSx for Lustre.
+	FileSystemId string `pulumi:"fileSystemId"`
+	// The path to the file system directory that is accessible in Amazon SageMaker Studio. Permitted users can access only this directory and below.
 	FileSystemPath *string `pulumi:"fileSystemPath"`
 }
 
@@ -6418,7 +6423,9 @@ type DomainFSxLustreFileSystemConfigInput interface {
 }
 
 type DomainFSxLustreFileSystemConfigArgs struct {
-	FileSystemId   pulumi.StringInput    `pulumi:"fileSystemId"`
+	// The globally unique, 17-digit, ID of the file system, assigned by Amazon FSx for Lustre.
+	FileSystemId pulumi.StringInput `pulumi:"fileSystemId"`
+	// The path to the file system directory that is accessible in Amazon SageMaker Studio. Permitted users can access only this directory and below.
 	FileSystemPath pulumi.StringPtrInput `pulumi:"fileSystemPath"`
 }
 
@@ -6499,10 +6506,12 @@ func (o DomainFSxLustreFileSystemConfigOutput) ToDomainFSxLustreFileSystemConfig
 	}).(DomainFSxLustreFileSystemConfigPtrOutput)
 }
 
+// The globally unique, 17-digit, ID of the file system, assigned by Amazon FSx for Lustre.
 func (o DomainFSxLustreFileSystemConfigOutput) FileSystemId() pulumi.StringOutput {
 	return o.ApplyT(func(v DomainFSxLustreFileSystemConfig) string { return v.FileSystemId }).(pulumi.StringOutput)
 }
 
+// The path to the file system directory that is accessible in Amazon SageMaker Studio. Permitted users can access only this directory and below.
 func (o DomainFSxLustreFileSystemConfigOutput) FileSystemPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainFSxLustreFileSystemConfig) *string { return v.FileSystemPath }).(pulumi.StringPtrOutput)
 }
@@ -6531,6 +6540,7 @@ func (o DomainFSxLustreFileSystemConfigPtrOutput) Elem() DomainFSxLustreFileSyst
 	}).(DomainFSxLustreFileSystemConfigOutput)
 }
 
+// The globally unique, 17-digit, ID of the file system, assigned by Amazon FSx for Lustre.
 func (o DomainFSxLustreFileSystemConfigPtrOutput) FileSystemId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainFSxLustreFileSystemConfig) *string {
 		if v == nil {
@@ -6540,6 +6550,7 @@ func (o DomainFSxLustreFileSystemConfigPtrOutput) FileSystemId() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+// The path to the file system directory that is accessible in Amazon SageMaker Studio. Permitted users can access only this directory and below.
 func (o DomainFSxLustreFileSystemConfigPtrOutput) FileSystemPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainFSxLustreFileSystemConfig) *string {
 		if v == nil {
@@ -34599,7 +34610,9 @@ func (o PartnerAppMaintenanceConfigPtrOutput) MaintenanceWindowStart() pulumi.St
 }
 
 type PartnerAppTag struct {
-	Key   string `pulumi:"key"`
+	// The tag key. Tag keys must be unique per resource.
+	Key string `pulumi:"key"`
+	// The tag value.
 	Value string `pulumi:"value"`
 }
 
@@ -37316,6 +37329,8 @@ func (o SpaceResourceSpecPtrOutput) SageMakerImageVersionArn() pulumi.StringPtrO
 // A collection of settings that apply to spaces of Amazon SageMaker Studio. These settings are specified when the CreateSpace API is called.
 type SpaceSettings struct {
 	// The type of app created within the space.
+	//
+	// If using the [UpdateSpace](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateSpace.html) API, you can't change the app type of your space by specifying a different value for this field.
 	AppType *SpaceAppType `pulumi:"appType"`
 	// The CodeEditor app settings.
 	CodeEditorAppSettings *SpaceCodeEditorAppSettings `pulumi:"codeEditorAppSettings"`
@@ -37345,6 +37360,8 @@ type SpaceSettingsInput interface {
 // A collection of settings that apply to spaces of Amazon SageMaker Studio. These settings are specified when the CreateSpace API is called.
 type SpaceSettingsArgs struct {
 	// The type of app created within the space.
+	//
+	// If using the [UpdateSpace](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateSpace.html) API, you can't change the app type of your space by specifying a different value for this field.
 	AppType SpaceAppTypePtrInput `pulumi:"appType"`
 	// The CodeEditor app settings.
 	CodeEditorAppSettings SpaceCodeEditorAppSettingsPtrInput `pulumi:"codeEditorAppSettings"`
@@ -37439,6 +37456,8 @@ func (o SpaceSettingsOutput) ToSpaceSettingsPtrOutputWithContext(ctx context.Con
 }
 
 // The type of app created within the space.
+//
+// If using the [UpdateSpace](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateSpace.html) API, you can't change the app type of your space by specifying a different value for this field.
 func (o SpaceSettingsOutput) AppType() SpaceAppTypePtrOutput {
 	return o.ApplyT(func(v SpaceSettings) *SpaceAppType { return v.AppType }).(SpaceAppTypePtrOutput)
 }
@@ -37498,6 +37517,8 @@ func (o SpaceSettingsPtrOutput) Elem() SpaceSettingsOutput {
 }
 
 // The type of app created within the space.
+//
+// If using the [UpdateSpace](https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateSpace.html) API, you can't change the app type of your space by specifying a different value for this field.
 func (o SpaceSettingsPtrOutput) AppType() SpaceAppTypePtrOutput {
 	return o.ApplyT(func(v *SpaceSettings) *SpaceAppType {
 		if v == nil {
@@ -38290,7 +38311,8 @@ func (o UserProfileCodeRepositoryArrayOutput) Index(i pulumi.IntInput) UserProfi
 
 type UserProfileCustomFileSystemConfig struct {
 	// The settings for a custom Amazon EFS file system.
-	EfsFileSystemConfig       *UserProfileEfsFileSystemConfig       `pulumi:"efsFileSystemConfig"`
+	EfsFileSystemConfig *UserProfileEfsFileSystemConfig `pulumi:"efsFileSystemConfig"`
+	// The settings for a custom Amazon FSx for Lustre file system.
 	FSxLustreFileSystemConfig *UserProfileFSxLustreFileSystemConfig `pulumi:"fSxLustreFileSystemConfig"`
 }
 
@@ -38307,7 +38329,8 @@ type UserProfileCustomFileSystemConfigInput interface {
 
 type UserProfileCustomFileSystemConfigArgs struct {
 	// The settings for a custom Amazon EFS file system.
-	EfsFileSystemConfig       UserProfileEfsFileSystemConfigPtrInput       `pulumi:"efsFileSystemConfig"`
+	EfsFileSystemConfig UserProfileEfsFileSystemConfigPtrInput `pulumi:"efsFileSystemConfig"`
+	// The settings for a custom Amazon FSx for Lustre file system.
 	FSxLustreFileSystemConfig UserProfileFSxLustreFileSystemConfigPtrInput `pulumi:"fSxLustreFileSystemConfig"`
 }
 
@@ -38369,6 +38392,7 @@ func (o UserProfileCustomFileSystemConfigOutput) EfsFileSystemConfig() UserProfi
 	}).(UserProfileEfsFileSystemConfigPtrOutput)
 }
 
+// The settings for a custom Amazon FSx for Lustre file system.
 func (o UserProfileCustomFileSystemConfigOutput) FSxLustreFileSystemConfig() UserProfileFSxLustreFileSystemConfigPtrOutput {
 	return o.ApplyT(func(v UserProfileCustomFileSystemConfig) *UserProfileFSxLustreFileSystemConfig {
 		return v.FSxLustreFileSystemConfig
@@ -39127,7 +39151,9 @@ func (o UserProfileEfsFileSystemConfigPtrOutput) FileSystemPath() pulumi.StringP
 }
 
 type UserProfileFSxLustreFileSystemConfig struct {
-	FileSystemId   string  `pulumi:"fileSystemId"`
+	// The globally unique, 17-digit, ID of the file system, assigned by Amazon FSx for Lustre.
+	FileSystemId string `pulumi:"fileSystemId"`
+	// The path to the file system directory that is accessible in Amazon SageMaker Studio. Permitted users can access only this directory and below.
 	FileSystemPath *string `pulumi:"fileSystemPath"`
 }
 
@@ -39143,7 +39169,9 @@ type UserProfileFSxLustreFileSystemConfigInput interface {
 }
 
 type UserProfileFSxLustreFileSystemConfigArgs struct {
-	FileSystemId   pulumi.StringInput    `pulumi:"fileSystemId"`
+	// The globally unique, 17-digit, ID of the file system, assigned by Amazon FSx for Lustre.
+	FileSystemId pulumi.StringInput `pulumi:"fileSystemId"`
+	// The path to the file system directory that is accessible in Amazon SageMaker Studio. Permitted users can access only this directory and below.
 	FileSystemPath pulumi.StringPtrInput `pulumi:"fileSystemPath"`
 }
 
@@ -39224,10 +39252,12 @@ func (o UserProfileFSxLustreFileSystemConfigOutput) ToUserProfileFSxLustreFileSy
 	}).(UserProfileFSxLustreFileSystemConfigPtrOutput)
 }
 
+// The globally unique, 17-digit, ID of the file system, assigned by Amazon FSx for Lustre.
 func (o UserProfileFSxLustreFileSystemConfigOutput) FileSystemId() pulumi.StringOutput {
 	return o.ApplyT(func(v UserProfileFSxLustreFileSystemConfig) string { return v.FileSystemId }).(pulumi.StringOutput)
 }
 
+// The path to the file system directory that is accessible in Amazon SageMaker Studio. Permitted users can access only this directory and below.
 func (o UserProfileFSxLustreFileSystemConfigOutput) FileSystemPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserProfileFSxLustreFileSystemConfig) *string { return v.FileSystemPath }).(pulumi.StringPtrOutput)
 }
@@ -39256,6 +39286,7 @@ func (o UserProfileFSxLustreFileSystemConfigPtrOutput) Elem() UserProfileFSxLust
 	}).(UserProfileFSxLustreFileSystemConfigOutput)
 }
 
+// The globally unique, 17-digit, ID of the file system, assigned by Amazon FSx for Lustre.
 func (o UserProfileFSxLustreFileSystemConfigPtrOutput) FileSystemId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserProfileFSxLustreFileSystemConfig) *string {
 		if v == nil {
@@ -39265,6 +39296,7 @@ func (o UserProfileFSxLustreFileSystemConfigPtrOutput) FileSystemId() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
+// The path to the file system directory that is accessible in Amazon SageMaker Studio. Permitted users can access only this directory and below.
 func (o UserProfileFSxLustreFileSystemConfigPtrOutput) FileSystemPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserProfileFSxLustreFileSystemConfig) *string {
 		if v == nil {

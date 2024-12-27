@@ -16,10 +16,10 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// <summary>
         /// The visibility of the range ends label.
         /// </summary>
-        public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? Visibility;
+        public readonly object? Visibility;
 
         [OutputConstructor]
-        private TemplateRangeEndsLabelType(Pulumi.AwsNative.QuickSight.TemplateVisibility? visibility)
+        private TemplateRangeEndsLabelType(object? visibility)
         {
             Visibility = visibility;
         }

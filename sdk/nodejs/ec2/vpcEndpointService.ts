@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -58,6 +61,10 @@ export class VpcEndpointService extends pulumi.CustomResource {
      * The ID of the endpoint service.
      */
     public /*out*/ readonly serviceId!: pulumi.Output<string>;
+    /**
+     * The tags to add to the VPC endpoint service.
+     */
+    public readonly tags!: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a VpcEndpointService resource with the given unique name, arguments, and options.
@@ -75,6 +82,7 @@ export class VpcEndpointService extends pulumi.CustomResource {
             resourceInputs["gatewayLoadBalancerArns"] = args ? args.gatewayLoadBalancerArns : undefined;
             resourceInputs["networkLoadBalancerArns"] = args ? args.networkLoadBalancerArns : undefined;
             resourceInputs["payerResponsibility"] = args ? args.payerResponsibility : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["serviceId"] = undefined /*out*/;
         } else {
             resourceInputs["acceptanceRequired"] = undefined /*out*/;
@@ -83,6 +91,7 @@ export class VpcEndpointService extends pulumi.CustomResource {
             resourceInputs["networkLoadBalancerArns"] = undefined /*out*/;
             resourceInputs["payerResponsibility"] = undefined /*out*/;
             resourceInputs["serviceId"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(VpcEndpointService.__pulumiType, name, resourceInputs, opts);
@@ -113,4 +122,8 @@ export interface VpcEndpointServiceArgs {
      * The entity that is responsible for the endpoint costs. The default is the endpoint owner. If you set the payer responsibility to the service owner, you cannot set it back to the endpoint owner.
      */
     payerResponsibility?: pulumi.Input<string>;
+    /**
+     * The tags to add to the VPC endpoint service.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[]>;
 }

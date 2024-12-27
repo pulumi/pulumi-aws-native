@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.Cassandra.Outputs
     [OutputType]
     public sealed class TypeField
     {
+        /// <summary>
+        /// The name of the field.
+        /// </summary>
         public readonly string FieldName;
+        /// <summary>
+        /// The data type of the field. This can be any Cassandra data type or another user-defined type.
+        /// </summary>
         public readonly string FieldType;
 
         [OutputConstructor]

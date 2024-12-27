@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         /// Determines whether or not the label is visible.
         /// </summary>
         [Input("visibility")]
-        public Input<Pulumi.AwsNative.QuickSight.TemplateVisibility>? Visibility { get; set; }
+        public Input<object>? Visibility { get; set; }
 
         public TemplateLabelOptionsArgs()
         {

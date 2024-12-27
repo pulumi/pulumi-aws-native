@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
     /// </summary>
     public sealed class PromptVariantArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies a generative AI resource with which to use the prompt.
+        /// </summary>
         [Input("genAiResource")]
         public Input<Inputs.PromptGenAiResourcePropertiesArgs>? GenAiResource { get; set; }
 

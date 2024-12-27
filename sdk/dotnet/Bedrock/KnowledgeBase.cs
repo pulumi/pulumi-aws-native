@@ -73,7 +73,7 @@ namespace Pulumi.AwsNative.Bedrock
         /// Contains details about the storage configuration of the knowledge base.
         /// </summary>
         [Output("storageConfiguration")]
-        public Output<Outputs.KnowledgeBaseStorageConfiguration> StorageConfiguration { get; private set; } = null!;
+        public Output<Outputs.KnowledgeBaseStorageConfiguration?> StorageConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// Metadata that you can assign to a resource as key-value pairs. For more information, see the following resources:
@@ -167,8 +167,8 @@ namespace Pulumi.AwsNative.Bedrock
         /// <summary>
         /// Contains details about the storage configuration of the knowledge base.
         /// </summary>
-        [Input("storageConfiguration", required: true)]
-        public Input<Inputs.KnowledgeBaseStorageConfigurationArgs> StorageConfiguration { get; set; } = null!;
+        [Input("storageConfiguration")]
+        public Input<Inputs.KnowledgeBaseStorageConfigurationArgs>? StorageConfiguration { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

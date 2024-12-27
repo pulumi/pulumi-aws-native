@@ -331,7 +331,7 @@ export class DbInstance extends pulumi.CustomResource {
     /**
      * The Oracle system identifier (SID), which is the name of the Oracle database instance that manages your database files. In this context, the term "Oracle database instance" refers exclusively to the system global area (SGA) and Oracle background processes. If you don't specify a SID, the value defaults to ``RDSCDB``. The Oracle SID is also the name of your CDB.
      */
-    public /*out*/ readonly dbSystemId!: pulumi.Output<string>;
+    public readonly dbSystemId!: pulumi.Output<string | undefined>;
     /**
      * The AWS Region-unique, immutable identifier for the DB instance. This identifier is found in AWS CloudTrail log entries whenever the AWS KMS key for the DB instance is accessed.
      */
@@ -857,6 +857,7 @@ export class DbInstance extends pulumi.CustomResource {
             resourceInputs["dbSecurityGroups"] = args ? args.dbSecurityGroups : undefined;
             resourceInputs["dbSnapshotIdentifier"] = args ? args.dbSnapshotIdentifier : undefined;
             resourceInputs["dbSubnetGroupName"] = args ? args.dbSubnetGroupName : undefined;
+            resourceInputs["dbSystemId"] = args ? args.dbSystemId : undefined;
             resourceInputs["dedicatedLogVolume"] = args ? args.dedicatedLogVolume : undefined;
             resourceInputs["deleteAutomatedBackups"] = args ? args.deleteAutomatedBackups : undefined;
             resourceInputs["deletionProtection"] = args ? args.deletionProtection : undefined;
@@ -913,7 +914,6 @@ export class DbInstance extends pulumi.CustomResource {
             resourceInputs["useLatestRestorableTime"] = args ? args.useLatestRestorableTime : undefined;
             resourceInputs["vpcSecurityGroups"] = args ? args.vpcSecurityGroups : undefined;
             resourceInputs["dbInstanceArn"] = undefined /*out*/;
-            resourceInputs["dbSystemId"] = undefined /*out*/;
             resourceInputs["dbiResourceId"] = undefined /*out*/;
         } else {
             resourceInputs["allocatedStorage"] = undefined /*out*/;
@@ -999,7 +999,7 @@ export class DbInstance extends pulumi.CustomResource {
             resourceInputs["vpcSecurityGroups"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["characterSetName", "customIamInstanceProfile", "dbClusterIdentifier", "dbInstanceIdentifier", "dbName", "dbSubnetGroupName", "kmsKeyId", "masterUsername", "ncharCharacterSetName", "sourceRegion", "storageEncrypted", "timezone"] };
+        const replaceOnChanges = { replaceOnChanges: ["characterSetName", "customIamInstanceProfile", "dbClusterIdentifier", "dbInstanceIdentifier", "dbName", "dbSubnetGroupName", "dbSystemId", "kmsKeyId", "masterUsername", "ncharCharacterSetName", "sourceRegion", "storageEncrypted", "timezone"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(DbInstance.__pulumiType, name, resourceInputs, opts);
     }
@@ -1276,6 +1276,10 @@ export interface DbInstanceArgs {
      *  This setting doesn't apply to Amazon Aurora DB instances. The DB subnet group is managed by the DB cluster. If specified, the setting must match the DB cluster setting.
      */
     dbSubnetGroupName?: pulumi.Input<string>;
+    /**
+     * The Oracle system identifier (SID), which is the name of the Oracle database instance that manages your database files. In this context, the term "Oracle database instance" refers exclusively to the system global area (SGA) and Oracle background processes. If you don't specify a SID, the value defaults to ``RDSCDB``. The Oracle SID is also the name of your CDB.
+     */
+    dbSystemId?: pulumi.Input<string>;
     /**
      * Indicates whether the DB instance has a dedicated log volume (DLV) enabled.
      */

@@ -24,23 +24,22 @@ __all__ = ['DataAccessorArgs', 'DataAccessor']
 class DataAccessorArgs:
     def __init__(__self__, *,
                  action_configurations: pulumi.Input[Sequence[pulumi.Input['DataAccessorActionConfigurationArgs']]],
+                 application_id: pulumi.Input[str],
                  display_name: pulumi.Input[str],
                  principal: pulumi.Input[str],
-                 application_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a DataAccessor resource.
         :param pulumi.Input[Sequence[pulumi.Input['DataAccessorActionConfigurationArgs']]] action_configurations: A list of action configurations specifying the allowed actions and any associated filters.
+        :param pulumi.Input[str] application_id: The unique identifier of the Amazon Q Business application.
         :param pulumi.Input[str] display_name: The friendly name of the data accessor.
         :param pulumi.Input[str] principal: The Amazon Resource Name (ARN) of the IAM role for the ISV associated with this data accessor.
-        :param pulumi.Input[str] application_id: The unique identifier of the Amazon Q Business application.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags to associate with the data accessor.
         """
         pulumi.set(__self__, "action_configurations", action_configurations)
+        pulumi.set(__self__, "application_id", application_id)
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "principal", principal)
-        if application_id is not None:
-            pulumi.set(__self__, "application_id", application_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -55,6 +54,18 @@ class DataAccessorArgs:
     @action_configurations.setter
     def action_configurations(self, value: pulumi.Input[Sequence[pulumi.Input['DataAccessorActionConfigurationArgs']]]):
         pulumi.set(self, "action_configurations", value)
+
+    @property
+    @pulumi.getter(name="applicationId")
+    def application_id(self) -> pulumi.Input[str]:
+        """
+        The unique identifier of the Amazon Q Business application.
+        """
+        return pulumi.get(self, "application_id")
+
+    @application_id.setter
+    def application_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "application_id", value)
 
     @property
     @pulumi.getter(name="displayName")
@@ -79,18 +90,6 @@ class DataAccessorArgs:
     @principal.setter
     def principal(self, value: pulumi.Input[str]):
         pulumi.set(self, "principal", value)
-
-    @property
-    @pulumi.getter(name="applicationId")
-    def application_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The unique identifier of the Amazon Q Business application.
-        """
-        return pulumi.get(self, "application_id")
-
-    @application_id.setter
-    def application_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "application_id", value)
 
     @property
     @pulumi.getter
@@ -168,6 +167,8 @@ class DataAccessor(pulumi.CustomResource):
             if action_configurations is None and not opts.urn:
                 raise TypeError("Missing required property 'action_configurations'")
             __props__.__dict__["action_configurations"] = action_configurations
+            if application_id is None and not opts.urn:
+                raise TypeError("Missing required property 'application_id'")
             __props__.__dict__["application_id"] = application_id
             if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
@@ -227,7 +228,7 @@ class DataAccessor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="applicationId")
-    def application_id(self) -> pulumi.Output[Optional[str]]:
+    def application_id(self) -> pulumi.Output[str]:
         """
         The unique identifier of the Amazon Q Business application.
         """

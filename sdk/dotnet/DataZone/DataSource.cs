@@ -31,7 +31,7 @@ namespace Pulumi.AwsNative.DataZone
         /// Configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration.
         /// </summary>
         [Output("configuration")]
-        public Output<Union<Outputs.DataSourceConfigurationInput0Properties, Outputs.DataSourceConfigurationInput1Properties>?> Configuration { get; private set; } = null!;
+        public Output<object?> Configuration { get; private set; } = null!;
 
         /// <summary>
         /// The timestamp of when the data source was created.
@@ -215,7 +215,7 @@ namespace Pulumi.AwsNative.DataZone
         /// Configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration.
         /// </summary>
         [Input("configuration")]
-        public InputUnion<Inputs.DataSourceConfigurationInput0PropertiesArgs, Inputs.DataSourceConfigurationInput1PropertiesArgs>? Configuration { get; set; }
+        public object? Configuration { get; set; }
 
         /// <summary>
         /// The description of the data source.

@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Ec2.Inputs
 
     public sealed class SpotFleetBaselinePerformanceFactorsRequestArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The CPU performance to consider, using an instance family as the baseline reference.
+        /// </summary>
         [Input("cpu")]
         public Input<Inputs.SpotFleetCpuPerformanceFactorRequestArgs>? Cpu { get; set; }
 

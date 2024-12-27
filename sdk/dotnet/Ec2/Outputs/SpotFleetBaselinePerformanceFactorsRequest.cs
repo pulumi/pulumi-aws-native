@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.Ec2.Outputs
     [OutputType]
     public sealed class SpotFleetBaselinePerformanceFactorsRequest
     {
+        /// <summary>
+        /// The CPU performance to consider, using an instance family as the baseline reference.
+        /// </summary>
         public readonly Outputs.SpotFleetCpuPerformanceFactorRequest? Cpu;
 
         [OutputConstructor]

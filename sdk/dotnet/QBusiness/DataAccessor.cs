@@ -25,7 +25,7 @@ namespace Pulumi.AwsNative.QBusiness
         /// The unique identifier of the Amazon Q Business application.
         /// </summary>
         [Output("applicationId")]
-        public Output<string?> ApplicationId { get; private set; } = null!;
+        public Output<string> ApplicationId { get; private set; } = null!;
 
         /// <summary>
         /// The timestamp when the data accessor was created.
@@ -140,8 +140,8 @@ namespace Pulumi.AwsNative.QBusiness
         /// <summary>
         /// The unique identifier of the Amazon Q Business application.
         /// </summary>
-        [Input("applicationId")]
-        public Input<string>? ApplicationId { get; set; }
+        [Input("applicationId", required: true)]
+        public Input<string> ApplicationId { get; set; } = null!;
 
         /// <summary>
         /// The friendly name of the data accessor.

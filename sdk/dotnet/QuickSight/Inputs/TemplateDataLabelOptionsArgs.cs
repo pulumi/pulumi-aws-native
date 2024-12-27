@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         /// Determines the visibility of the category field labels.
         /// </summary>
         [Input("categoryLabelVisibility")]
-        public Input<Pulumi.AwsNative.QuickSight.TemplateVisibility>? CategoryLabelVisibility { get; set; }
+        public Input<object>? CategoryLabelVisibility { get; set; }
 
         [Input("dataLabelTypes")]
         private InputList<Inputs.TemplateDataLabelTypeArgs>? _dataLabelTypes;
@@ -52,7 +52,7 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         /// Determines the visibility of the measure field labels.
         /// </summary>
         [Input("measureLabelVisibility")]
-        public Input<Pulumi.AwsNative.QuickSight.TemplateVisibility>? MeasureLabelVisibility { get; set; }
+        public Input<object>? MeasureLabelVisibility { get; set; }
 
         /// <summary>
         /// Determines whether overlap is enabled or disabled for the data labels.
@@ -70,13 +70,13 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         /// Determines the visibility of the total.
         /// </summary>
         [Input("totalsVisibility")]
-        public Input<Pulumi.AwsNative.QuickSight.TemplateVisibility>? TotalsVisibility { get; set; }
+        public Input<object>? TotalsVisibility { get; set; }
 
         /// <summary>
         /// Determines the visibility of the data labels.
         /// </summary>
         [Input("visibility")]
-        public Input<Pulumi.AwsNative.QuickSight.TemplateVisibility>? Visibility { get; set; }
+        public Input<object>? Visibility { get; set; }
 
         public TemplateDataLabelOptionsArgs()
         {

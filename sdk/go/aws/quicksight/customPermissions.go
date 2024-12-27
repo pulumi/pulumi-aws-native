@@ -17,11 +17,16 @@ import (
 type CustomPermissions struct {
 	pulumi.CustomResourceState
 
-	Arn                   pulumi.StringOutput                    `pulumi:"arn"`
-	AwsAccountId          pulumi.StringOutput                    `pulumi:"awsAccountId"`
-	Capabilities          CustomPermissionsCapabilitiesPtrOutput `pulumi:"capabilities"`
-	CustomPermissionsName pulumi.StringOutput                    `pulumi:"customPermissionsName"`
-	Tags                  aws.TagArrayOutput                     `pulumi:"tags"`
+	// The Amazon Resource Name (ARN) of the custom permissions profile.
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The ID of the AWS account that contains the custom permission configuration that you want to update.
+	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
+	// A set of actions in the custom permissions profile.
+	Capabilities CustomPermissionsCapabilitiesPtrOutput `pulumi:"capabilities"`
+	// The name of the custom permissions profile.
+	CustomPermissionsName pulumi.StringOutput `pulumi:"customPermissionsName"`
+	// The tags to associate with the custom permissions profile.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewCustomPermissions registers a new resource with the given unique name, arguments, and options.
@@ -72,18 +77,26 @@ func (CustomPermissionsState) ElementType() reflect.Type {
 }
 
 type customPermissionsArgs struct {
-	AwsAccountId          string                         `pulumi:"awsAccountId"`
-	Capabilities          *CustomPermissionsCapabilities `pulumi:"capabilities"`
-	CustomPermissionsName *string                        `pulumi:"customPermissionsName"`
-	Tags                  []aws.Tag                      `pulumi:"tags"`
+	// The ID of the AWS account that contains the custom permission configuration that you want to update.
+	AwsAccountId string `pulumi:"awsAccountId"`
+	// A set of actions in the custom permissions profile.
+	Capabilities *CustomPermissionsCapabilities `pulumi:"capabilities"`
+	// The name of the custom permissions profile.
+	CustomPermissionsName *string `pulumi:"customPermissionsName"`
+	// The tags to associate with the custom permissions profile.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a CustomPermissions resource.
 type CustomPermissionsArgs struct {
-	AwsAccountId          pulumi.StringInput
-	Capabilities          CustomPermissionsCapabilitiesPtrInput
+	// The ID of the AWS account that contains the custom permission configuration that you want to update.
+	AwsAccountId pulumi.StringInput
+	// A set of actions in the custom permissions profile.
+	Capabilities CustomPermissionsCapabilitiesPtrInput
+	// The name of the custom permissions profile.
 	CustomPermissionsName pulumi.StringPtrInput
-	Tags                  aws.TagArrayInput
+	// The tags to associate with the custom permissions profile.
+	Tags aws.TagArrayInput
 }
 
 func (CustomPermissionsArgs) ElementType() reflect.Type {
@@ -123,22 +136,27 @@ func (o CustomPermissionsOutput) ToCustomPermissionsOutputWithContext(ctx contex
 	return o
 }
 
+// The Amazon Resource Name (ARN) of the custom permissions profile.
 func (o CustomPermissionsOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomPermissions) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The ID of the AWS account that contains the custom permission configuration that you want to update.
 func (o CustomPermissionsOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomPermissions) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
 }
 
+// A set of actions in the custom permissions profile.
 func (o CustomPermissionsOutput) Capabilities() CustomPermissionsCapabilitiesPtrOutput {
 	return o.ApplyT(func(v *CustomPermissions) CustomPermissionsCapabilitiesPtrOutput { return v.Capabilities }).(CustomPermissionsCapabilitiesPtrOutput)
 }
 
+// The name of the custom permissions profile.
 func (o CustomPermissionsOutput) CustomPermissionsName() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomPermissions) pulumi.StringOutput { return v.CustomPermissionsName }).(pulumi.StringOutput)
 }
 
+// The tags to associate with the custom permissions profile.
 func (o CustomPermissionsOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *CustomPermissions) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

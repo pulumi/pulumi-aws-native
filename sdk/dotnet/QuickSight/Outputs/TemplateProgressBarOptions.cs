@@ -16,10 +16,10 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// <summary>
         /// The visibility of the progress bar.
         /// </summary>
-        public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? Visibility;
+        public readonly object? Visibility;
 
         [OutputConstructor]
-        private TemplateProgressBarOptions(Pulumi.AwsNative.QuickSight.TemplateVisibility? visibility)
+        private TemplateProgressBarOptions(object? visibility)
         {
             Visibility = visibility;
         }

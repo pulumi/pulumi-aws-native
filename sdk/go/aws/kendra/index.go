@@ -27,7 +27,7 @@ type Index struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Document metadata configurations
 	DocumentMetadataConfigurations IndexDocumentMetadataConfigurationArrayOutput `pulumi:"documentMetadataConfigurations"`
-	// Indicates whether the index is a Enterprise Edition index or a Developer Edition index. Valid values are `DEVELOPER_EDITION` and `ENTERPRISE_EDITION` .
+	// Indicates whether the index is a Enterprise Edition index, a Developer Edition index, or a GenAI Enterprise Edition index.
 	Edition IndexEditionOutput `pulumi:"edition"`
 	// The name of the index.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -108,7 +108,7 @@ type indexArgs struct {
 	Description *string `pulumi:"description"`
 	// Document metadata configurations
 	DocumentMetadataConfigurations []IndexDocumentMetadataConfiguration `pulumi:"documentMetadataConfigurations"`
-	// Indicates whether the index is a Enterprise Edition index or a Developer Edition index. Valid values are `DEVELOPER_EDITION` and `ENTERPRISE_EDITION` .
+	// Indicates whether the index is a Enterprise Edition index, a Developer Edition index, or a GenAI Enterprise Edition index.
 	Edition IndexEdition `pulumi:"edition"`
 	// The name of the index.
 	Name *string `pulumi:"name"`
@@ -140,7 +140,7 @@ type IndexArgs struct {
 	Description pulumi.StringPtrInput
 	// Document metadata configurations
 	DocumentMetadataConfigurations IndexDocumentMetadataConfigurationArrayInput
-	// Indicates whether the index is a Enterprise Edition index or a Developer Edition index. Valid values are `DEVELOPER_EDITION` and `ENTERPRISE_EDITION` .
+	// Indicates whether the index is a Enterprise Edition index, a Developer Edition index, or a GenAI Enterprise Edition index.
 	Edition IndexEditionInput
 	// The name of the index.
 	Name pulumi.StringPtrInput
@@ -226,7 +226,7 @@ func (o IndexOutput) DocumentMetadataConfigurations() IndexDocumentMetadataConfi
 	return o.ApplyT(func(v *Index) IndexDocumentMetadataConfigurationArrayOutput { return v.DocumentMetadataConfigurations }).(IndexDocumentMetadataConfigurationArrayOutput)
 }
 
-// Indicates whether the index is a Enterprise Edition index or a Developer Edition index. Valid values are `DEVELOPER_EDITION` and `ENTERPRISE_EDITION` .
+// Indicates whether the index is a Enterprise Edition index, a Developer Edition index, or a GenAI Enterprise Edition index.
 func (o IndexOutput) Edition() IndexEditionOutput {
 	return o.ApplyT(func(v *Index) IndexEditionOutput { return v.Edition }).(IndexEditionOutput)
 }

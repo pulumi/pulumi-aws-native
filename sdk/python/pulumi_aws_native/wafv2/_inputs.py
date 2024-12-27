@@ -3341,7 +3341,7 @@ if not MYPY:
         """
         limit: pulumi.Input[int]
         """
-        The limit on requests per 5-minute period for a single aggregation instance for the rate-based rule. If the rate-based statement includes a `ScopeDownStatement` , this limit is applied only to the requests that match the statement.
+        The limit on requests during the specified evaluation window for a single aggregation instance for the rate-based rule. If the rate-based statement includes a `ScopeDownStatement` , this limit is applied only to the requests that match the statement.
 
         Examples:
 
@@ -3405,7 +3405,7 @@ class RuleGroupRateBasedStatementArgs:
                - `IP` - Aggregate the request counts on the IP address from the web request origin.
                
                To aggregate on a combination of the IP address with other aggregate keys, use `CUSTOM_KEYS` .
-        :param pulumi.Input[int] limit: The limit on requests per 5-minute period for a single aggregation instance for the rate-based rule. If the rate-based statement includes a `ScopeDownStatement` , this limit is applied only to the requests that match the statement.
+        :param pulumi.Input[int] limit: The limit on requests during the specified evaluation window for a single aggregation instance for the rate-based rule. If the rate-based statement includes a `ScopeDownStatement` , this limit is applied only to the requests that match the statement.
                
                Examples:
                
@@ -3470,7 +3470,7 @@ class RuleGroupRateBasedStatementArgs:
     @pulumi.getter
     def limit(self) -> pulumi.Input[int]:
         """
-        The limit on requests per 5-minute period for a single aggregation instance for the rate-based rule. If the rate-based statement includes a `ScopeDownStatement` , this limit is applied only to the requests that match the statement.
+        The limit on requests during the specified evaluation window for a single aggregation instance for the rate-based rule. If the rate-based statement includes a `ScopeDownStatement` , this limit is applied only to the requests that match the statement.
 
         Examples:
 
@@ -8733,7 +8733,7 @@ if not MYPY:
         """
         limit: pulumi.Input[int]
         """
-        The limit on requests per 5-minute period for a single aggregation instance for the rate-based rule. If the rate-based statement includes a `ScopeDownStatement` , this limit is applied only to the requests that match the statement.
+        The limit on requests during the specified evaluation window for a single aggregation instance for the rate-based rule. If the rate-based statement includes a `ScopeDownStatement` , this limit is applied only to the requests that match the statement.
 
         Examples:
 
@@ -8797,7 +8797,7 @@ class WebAclRateBasedStatementArgs:
                - `IP` - Aggregate the request counts on the IP address from the web request origin.
                
                To aggregate on a combination of the IP address with other aggregate keys, use `CUSTOM_KEYS` .
-        :param pulumi.Input[int] limit: The limit on requests per 5-minute period for a single aggregation instance for the rate-based rule. If the rate-based statement includes a `ScopeDownStatement` , this limit is applied only to the requests that match the statement.
+        :param pulumi.Input[int] limit: The limit on requests during the specified evaluation window for a single aggregation instance for the rate-based rule. If the rate-based statement includes a `ScopeDownStatement` , this limit is applied only to the requests that match the statement.
                
                Examples:
                
@@ -8862,7 +8862,7 @@ class WebAclRateBasedStatementArgs:
     @pulumi.getter
     def limit(self) -> pulumi.Input[int]:
         """
-        The limit on requests per 5-minute period for a single aggregation instance for the rate-based rule. If the rate-based statement includes a `ScopeDownStatement` , this limit is applied only to the requests that match the statement.
+        The limit on requests during the specified evaluation window for a single aggregation instance for the rate-based rule. If the rate-based statement includes a `ScopeDownStatement` , this limit is applied only to the requests that match the statement.
 
         Examples:
 

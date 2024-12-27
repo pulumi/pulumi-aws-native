@@ -127,6 +127,9 @@ namespace Pulumi.AwsNative.QuickSight
         [Output("outputColumns")]
         public Output<ImmutableArray<Outputs.DataSetOutputColumn>> OutputColumns { get; private set; } = null!;
 
+        /// <summary>
+        /// The performance optimization configuration of a dataset.
+        /// </summary>
         [Output("performanceConfiguration")]
         public Output<Outputs.DataSetPerformanceConfiguration?> PerformanceConfiguration { get; private set; } = null!;
 
@@ -326,6 +329,9 @@ namespace Pulumi.AwsNative.QuickSight
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The performance optimization configuration of a dataset.
+        /// </summary>
         [Input("performanceConfiguration")]
         public Input<Inputs.DataSetPerformanceConfigurationArgs>? PerformanceConfiguration { get; set; }
 

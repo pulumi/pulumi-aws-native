@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
 
     public sealed class UserProfileFSxLustreFileSystemConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The globally unique, 17-digit, ID of the file system, assigned by Amazon FSx for Lustre.
+        /// </summary>
         [Input("fileSystemId", required: true)]
         public Input<string> FileSystemId { get; set; } = null!;
 
+        /// <summary>
+        /// The path to the file system directory that is accessible in Amazon SageMaker Studio. Permitted users can access only this directory and below.
+        /// </summary>
         [Input("fileSystemPath")]
         public Input<string>? FileSystemPath { get; set; }
 

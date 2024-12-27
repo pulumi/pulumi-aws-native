@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// <summary>
         /// Determines the visibility of the category field labels.
         /// </summary>
-        public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? CategoryLabelVisibility;
+        public readonly object? CategoryLabelVisibility;
         /// <summary>
         /// The option that determines the data label type.
         /// </summary>
@@ -36,7 +36,7 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// <summary>
         /// Determines the visibility of the measure field labels.
         /// </summary>
-        public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? MeasureLabelVisibility;
+        public readonly object? MeasureLabelVisibility;
         /// <summary>
         /// Determines whether overlap is enabled or disabled for the data labels.
         /// </summary>
@@ -48,15 +48,15 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// <summary>
         /// Determines the visibility of the total.
         /// </summary>
-        public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? TotalsVisibility;
+        public readonly object? TotalsVisibility;
         /// <summary>
         /// Determines the visibility of the data labels.
         /// </summary>
-        public readonly Pulumi.AwsNative.QuickSight.TemplateVisibility? Visibility;
+        public readonly object? Visibility;
 
         [OutputConstructor]
         private TemplateDataLabelOptions(
-            Pulumi.AwsNative.QuickSight.TemplateVisibility? categoryLabelVisibility,
+            object? categoryLabelVisibility,
 
             ImmutableArray<Outputs.TemplateDataLabelType> dataLabelTypes,
 
@@ -66,15 +66,15 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
 
             Outputs.TemplateFontConfiguration? labelFontConfiguration,
 
-            Pulumi.AwsNative.QuickSight.TemplateVisibility? measureLabelVisibility,
+            object? measureLabelVisibility,
 
             Pulumi.AwsNative.QuickSight.TemplateDataLabelOverlap? overlap,
 
             Pulumi.AwsNative.QuickSight.TemplateDataLabelPosition? position,
 
-            Pulumi.AwsNative.QuickSight.TemplateVisibility? totalsVisibility,
+            object? totalsVisibility,
 
-            Pulumi.AwsNative.QuickSight.TemplateVisibility? visibility)
+            object? visibility)
         {
             CategoryLabelVisibility = categoryLabelVisibility;
             DataLabelTypes = dataLabelTypes;

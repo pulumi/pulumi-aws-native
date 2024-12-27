@@ -734,17 +734,27 @@ class TypeField(dict):
     def __init__(__self__, *,
                  field_name: str,
                  field_type: str):
+        """
+        :param str field_name: The name of the field.
+        :param str field_type: The data type of the field. This can be any Cassandra data type or another user-defined type.
+        """
         pulumi.set(__self__, "field_name", field_name)
         pulumi.set(__self__, "field_type", field_type)
 
     @property
     @pulumi.getter(name="fieldName")
     def field_name(self) -> str:
+        """
+        The name of the field.
+        """
         return pulumi.get(self, "field_name")
 
     @property
     @pulumi.getter(name="fieldType")
     def field_type(self) -> str:
+        """
+        The data type of the field. This can be any Cassandra data type or another user-defined type.
+        """
         return pulumi.get(self, "field_type")
 
 

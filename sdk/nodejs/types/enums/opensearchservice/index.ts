@@ -16,6 +16,9 @@ export const DomainNodeOptionNodeType = {
     Coordinator: "coordinator",
 } as const;
 
+/**
+ * Container for node type like coordinating.
+ */
 export type DomainNodeOptionNodeType = (typeof DomainNodeOptionNodeType)[keyof typeof DomainNodeOptionNodeType];
 
 export const DomainRolesKeyIdcType = {

@@ -176,6 +176,7 @@ func (in *applicationAppConfigTypePtr) ToApplicationAppConfigTypePtrOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, in).(ApplicationAppConfigTypePtrOutput)
 }
 
+// Container for node type like coordinating.
 type DomainNodeOptionNodeType string
 
 const (

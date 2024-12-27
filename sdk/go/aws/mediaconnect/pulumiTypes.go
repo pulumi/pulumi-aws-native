@@ -662,6 +662,146 @@ func (o BridgeIngressGatewayBridgePtrOutput) MaxOutputs() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// The settings related to the multicast source.
+type BridgeMulticastSourceSettings struct {
+	// The IP address of the source for source-specific multicast (SSM).
+	MulticastSourceIp *string `pulumi:"multicastSourceIp"`
+}
+
+// BridgeMulticastSourceSettingsInput is an input type that accepts BridgeMulticastSourceSettingsArgs and BridgeMulticastSourceSettingsOutput values.
+// You can construct a concrete instance of `BridgeMulticastSourceSettingsInput` via:
+//
+//	BridgeMulticastSourceSettingsArgs{...}
+type BridgeMulticastSourceSettingsInput interface {
+	pulumi.Input
+
+	ToBridgeMulticastSourceSettingsOutput() BridgeMulticastSourceSettingsOutput
+	ToBridgeMulticastSourceSettingsOutputWithContext(context.Context) BridgeMulticastSourceSettingsOutput
+}
+
+// The settings related to the multicast source.
+type BridgeMulticastSourceSettingsArgs struct {
+	// The IP address of the source for source-specific multicast (SSM).
+	MulticastSourceIp pulumi.StringPtrInput `pulumi:"multicastSourceIp"`
+}
+
+func (BridgeMulticastSourceSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BridgeMulticastSourceSettings)(nil)).Elem()
+}
+
+func (i BridgeMulticastSourceSettingsArgs) ToBridgeMulticastSourceSettingsOutput() BridgeMulticastSourceSettingsOutput {
+	return i.ToBridgeMulticastSourceSettingsOutputWithContext(context.Background())
+}
+
+func (i BridgeMulticastSourceSettingsArgs) ToBridgeMulticastSourceSettingsOutputWithContext(ctx context.Context) BridgeMulticastSourceSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BridgeMulticastSourceSettingsOutput)
+}
+
+func (i BridgeMulticastSourceSettingsArgs) ToBridgeMulticastSourceSettingsPtrOutput() BridgeMulticastSourceSettingsPtrOutput {
+	return i.ToBridgeMulticastSourceSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i BridgeMulticastSourceSettingsArgs) ToBridgeMulticastSourceSettingsPtrOutputWithContext(ctx context.Context) BridgeMulticastSourceSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BridgeMulticastSourceSettingsOutput).ToBridgeMulticastSourceSettingsPtrOutputWithContext(ctx)
+}
+
+// BridgeMulticastSourceSettingsPtrInput is an input type that accepts BridgeMulticastSourceSettingsArgs, BridgeMulticastSourceSettingsPtr and BridgeMulticastSourceSettingsPtrOutput values.
+// You can construct a concrete instance of `BridgeMulticastSourceSettingsPtrInput` via:
+//
+//	        BridgeMulticastSourceSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type BridgeMulticastSourceSettingsPtrInput interface {
+	pulumi.Input
+
+	ToBridgeMulticastSourceSettingsPtrOutput() BridgeMulticastSourceSettingsPtrOutput
+	ToBridgeMulticastSourceSettingsPtrOutputWithContext(context.Context) BridgeMulticastSourceSettingsPtrOutput
+}
+
+type bridgeMulticastSourceSettingsPtrType BridgeMulticastSourceSettingsArgs
+
+func BridgeMulticastSourceSettingsPtr(v *BridgeMulticastSourceSettingsArgs) BridgeMulticastSourceSettingsPtrInput {
+	return (*bridgeMulticastSourceSettingsPtrType)(v)
+}
+
+func (*bridgeMulticastSourceSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BridgeMulticastSourceSettings)(nil)).Elem()
+}
+
+func (i *bridgeMulticastSourceSettingsPtrType) ToBridgeMulticastSourceSettingsPtrOutput() BridgeMulticastSourceSettingsPtrOutput {
+	return i.ToBridgeMulticastSourceSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *bridgeMulticastSourceSettingsPtrType) ToBridgeMulticastSourceSettingsPtrOutputWithContext(ctx context.Context) BridgeMulticastSourceSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BridgeMulticastSourceSettingsPtrOutput)
+}
+
+// The settings related to the multicast source.
+type BridgeMulticastSourceSettingsOutput struct{ *pulumi.OutputState }
+
+func (BridgeMulticastSourceSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BridgeMulticastSourceSettings)(nil)).Elem()
+}
+
+func (o BridgeMulticastSourceSettingsOutput) ToBridgeMulticastSourceSettingsOutput() BridgeMulticastSourceSettingsOutput {
+	return o
+}
+
+func (o BridgeMulticastSourceSettingsOutput) ToBridgeMulticastSourceSettingsOutputWithContext(ctx context.Context) BridgeMulticastSourceSettingsOutput {
+	return o
+}
+
+func (o BridgeMulticastSourceSettingsOutput) ToBridgeMulticastSourceSettingsPtrOutput() BridgeMulticastSourceSettingsPtrOutput {
+	return o.ToBridgeMulticastSourceSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o BridgeMulticastSourceSettingsOutput) ToBridgeMulticastSourceSettingsPtrOutputWithContext(ctx context.Context) BridgeMulticastSourceSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BridgeMulticastSourceSettings) *BridgeMulticastSourceSettings {
+		return &v
+	}).(BridgeMulticastSourceSettingsPtrOutput)
+}
+
+// The IP address of the source for source-specific multicast (SSM).
+func (o BridgeMulticastSourceSettingsOutput) MulticastSourceIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BridgeMulticastSourceSettings) *string { return v.MulticastSourceIp }).(pulumi.StringPtrOutput)
+}
+
+type BridgeMulticastSourceSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (BridgeMulticastSourceSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BridgeMulticastSourceSettings)(nil)).Elem()
+}
+
+func (o BridgeMulticastSourceSettingsPtrOutput) ToBridgeMulticastSourceSettingsPtrOutput() BridgeMulticastSourceSettingsPtrOutput {
+	return o
+}
+
+func (o BridgeMulticastSourceSettingsPtrOutput) ToBridgeMulticastSourceSettingsPtrOutputWithContext(ctx context.Context) BridgeMulticastSourceSettingsPtrOutput {
+	return o
+}
+
+func (o BridgeMulticastSourceSettingsPtrOutput) Elem() BridgeMulticastSourceSettingsOutput {
+	return o.ApplyT(func(v *BridgeMulticastSourceSettings) BridgeMulticastSourceSettings {
+		if v != nil {
+			return *v
+		}
+		var ret BridgeMulticastSourceSettings
+		return ret
+	}).(BridgeMulticastSourceSettingsOutput)
+}
+
+// The IP address of the source for source-specific multicast (SSM).
+func (o BridgeMulticastSourceSettingsPtrOutput) MulticastSourceIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BridgeMulticastSourceSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MulticastSourceIp
+	}).(pulumi.StringPtrOutput)
+}
+
 // The output of the bridge. A network output is delivered to your premises.
 type BridgeNetworkOutput struct {
 	// The network output IP Address.
@@ -901,6 +1041,8 @@ func (o BridgeNetworkOutputPtrOutput) Ttl() pulumi.IntPtrOutput {
 type BridgeNetworkSource struct {
 	// The network source multicast IP.
 	MulticastIp string `pulumi:"multicastIp"`
+	// The settings related to the multicast source.
+	MulticastSourceSettings *BridgeMulticastSourceSettings `pulumi:"multicastSourceSettings"`
 	// The name of the network source.
 	Name string `pulumi:"name"`
 	// The network source's gateway network name.
@@ -926,6 +1068,8 @@ type BridgeNetworkSourceInput interface {
 type BridgeNetworkSourceArgs struct {
 	// The network source multicast IP.
 	MulticastIp pulumi.StringInput `pulumi:"multicastIp"`
+	// The settings related to the multicast source.
+	MulticastSourceSettings BridgeMulticastSourceSettingsPtrInput `pulumi:"multicastSourceSettings"`
 	// The name of the network source.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The network source's gateway network name.
@@ -1019,6 +1163,11 @@ func (o BridgeNetworkSourceOutput) MulticastIp() pulumi.StringOutput {
 	return o.ApplyT(func(v BridgeNetworkSource) string { return v.MulticastIp }).(pulumi.StringOutput)
 }
 
+// The settings related to the multicast source.
+func (o BridgeNetworkSourceOutput) MulticastSourceSettings() BridgeMulticastSourceSettingsPtrOutput {
+	return o.ApplyT(func(v BridgeNetworkSource) *BridgeMulticastSourceSettings { return v.MulticastSourceSettings }).(BridgeMulticastSourceSettingsPtrOutput)
+}
+
 // The name of the network source.
 func (o BridgeNetworkSourceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v BridgeNetworkSource) string { return v.Name }).(pulumi.StringOutput)
@@ -1071,6 +1220,16 @@ func (o BridgeNetworkSourcePtrOutput) MulticastIp() pulumi.StringPtrOutput {
 		}
 		return &v.MulticastIp
 	}).(pulumi.StringPtrOutput)
+}
+
+// The settings related to the multicast source.
+func (o BridgeNetworkSourcePtrOutput) MulticastSourceSettings() BridgeMulticastSourceSettingsPtrOutput {
+	return o.ApplyT(func(v *BridgeNetworkSource) *BridgeMulticastSourceSettings {
+		if v == nil {
+			return nil
+		}
+		return v.MulticastSourceSettings
+	}).(BridgeMulticastSourceSettingsPtrOutput)
 }
 
 // The name of the network source.
@@ -1654,6 +1813,8 @@ func (o BridgeSourceBridgeFlowSourcePtrOutput) FlowVpcInterfaceAttachment() Brid
 type BridgeSourceBridgeNetworkSource struct {
 	// The network source multicast IP.
 	MulticastIp string `pulumi:"multicastIp"`
+	// The settings related to the multicast source.
+	MulticastSourceSettings *BridgeSourceMulticastSourceSettings `pulumi:"multicastSourceSettings"`
 	// The network source's gateway network name.
 	NetworkName string `pulumi:"networkName"`
 	// The network source port.
@@ -1677,6 +1838,8 @@ type BridgeSourceBridgeNetworkSourceInput interface {
 type BridgeSourceBridgeNetworkSourceArgs struct {
 	// The network source multicast IP.
 	MulticastIp pulumi.StringInput `pulumi:"multicastIp"`
+	// The settings related to the multicast source.
+	MulticastSourceSettings BridgeSourceMulticastSourceSettingsPtrInput `pulumi:"multicastSourceSettings"`
 	// The network source's gateway network name.
 	NetworkName pulumi.StringInput `pulumi:"networkName"`
 	// The network source port.
@@ -1768,6 +1931,13 @@ func (o BridgeSourceBridgeNetworkSourceOutput) MulticastIp() pulumi.StringOutput
 	return o.ApplyT(func(v BridgeSourceBridgeNetworkSource) string { return v.MulticastIp }).(pulumi.StringOutput)
 }
 
+// The settings related to the multicast source.
+func (o BridgeSourceBridgeNetworkSourceOutput) MulticastSourceSettings() BridgeSourceMulticastSourceSettingsPtrOutput {
+	return o.ApplyT(func(v BridgeSourceBridgeNetworkSource) *BridgeSourceMulticastSourceSettings {
+		return v.MulticastSourceSettings
+	}).(BridgeSourceMulticastSourceSettingsPtrOutput)
+}
+
 // The network source's gateway network name.
 func (o BridgeSourceBridgeNetworkSourceOutput) NetworkName() pulumi.StringOutput {
 	return o.ApplyT(func(v BridgeSourceBridgeNetworkSource) string { return v.NetworkName }).(pulumi.StringOutput)
@@ -1817,6 +1987,16 @@ func (o BridgeSourceBridgeNetworkSourcePtrOutput) MulticastIp() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// The settings related to the multicast source.
+func (o BridgeSourceBridgeNetworkSourcePtrOutput) MulticastSourceSettings() BridgeSourceMulticastSourceSettingsPtrOutput {
+	return o.ApplyT(func(v *BridgeSourceBridgeNetworkSource) *BridgeSourceMulticastSourceSettings {
+		if v == nil {
+			return nil
+		}
+		return v.MulticastSourceSettings
+	}).(BridgeSourceMulticastSourceSettingsPtrOutput)
+}
+
 // The network source's gateway network name.
 func (o BridgeSourceBridgeNetworkSourcePtrOutput) NetworkName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BridgeSourceBridgeNetworkSource) *string {
@@ -1845,6 +2025,146 @@ func (o BridgeSourceBridgeNetworkSourcePtrOutput) Protocol() BridgeSourceProtoco
 		}
 		return &v.Protocol
 	}).(BridgeSourceProtocolEnumPtrOutput)
+}
+
+// The settings related to the multicast source.
+type BridgeSourceMulticastSourceSettings struct {
+	// The IP address of the source for source-specific multicast (SSM).
+	MulticastSourceIp *string `pulumi:"multicastSourceIp"`
+}
+
+// BridgeSourceMulticastSourceSettingsInput is an input type that accepts BridgeSourceMulticastSourceSettingsArgs and BridgeSourceMulticastSourceSettingsOutput values.
+// You can construct a concrete instance of `BridgeSourceMulticastSourceSettingsInput` via:
+//
+//	BridgeSourceMulticastSourceSettingsArgs{...}
+type BridgeSourceMulticastSourceSettingsInput interface {
+	pulumi.Input
+
+	ToBridgeSourceMulticastSourceSettingsOutput() BridgeSourceMulticastSourceSettingsOutput
+	ToBridgeSourceMulticastSourceSettingsOutputWithContext(context.Context) BridgeSourceMulticastSourceSettingsOutput
+}
+
+// The settings related to the multicast source.
+type BridgeSourceMulticastSourceSettingsArgs struct {
+	// The IP address of the source for source-specific multicast (SSM).
+	MulticastSourceIp pulumi.StringPtrInput `pulumi:"multicastSourceIp"`
+}
+
+func (BridgeSourceMulticastSourceSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BridgeSourceMulticastSourceSettings)(nil)).Elem()
+}
+
+func (i BridgeSourceMulticastSourceSettingsArgs) ToBridgeSourceMulticastSourceSettingsOutput() BridgeSourceMulticastSourceSettingsOutput {
+	return i.ToBridgeSourceMulticastSourceSettingsOutputWithContext(context.Background())
+}
+
+func (i BridgeSourceMulticastSourceSettingsArgs) ToBridgeSourceMulticastSourceSettingsOutputWithContext(ctx context.Context) BridgeSourceMulticastSourceSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BridgeSourceMulticastSourceSettingsOutput)
+}
+
+func (i BridgeSourceMulticastSourceSettingsArgs) ToBridgeSourceMulticastSourceSettingsPtrOutput() BridgeSourceMulticastSourceSettingsPtrOutput {
+	return i.ToBridgeSourceMulticastSourceSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i BridgeSourceMulticastSourceSettingsArgs) ToBridgeSourceMulticastSourceSettingsPtrOutputWithContext(ctx context.Context) BridgeSourceMulticastSourceSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BridgeSourceMulticastSourceSettingsOutput).ToBridgeSourceMulticastSourceSettingsPtrOutputWithContext(ctx)
+}
+
+// BridgeSourceMulticastSourceSettingsPtrInput is an input type that accepts BridgeSourceMulticastSourceSettingsArgs, BridgeSourceMulticastSourceSettingsPtr and BridgeSourceMulticastSourceSettingsPtrOutput values.
+// You can construct a concrete instance of `BridgeSourceMulticastSourceSettingsPtrInput` via:
+//
+//	        BridgeSourceMulticastSourceSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type BridgeSourceMulticastSourceSettingsPtrInput interface {
+	pulumi.Input
+
+	ToBridgeSourceMulticastSourceSettingsPtrOutput() BridgeSourceMulticastSourceSettingsPtrOutput
+	ToBridgeSourceMulticastSourceSettingsPtrOutputWithContext(context.Context) BridgeSourceMulticastSourceSettingsPtrOutput
+}
+
+type bridgeSourceMulticastSourceSettingsPtrType BridgeSourceMulticastSourceSettingsArgs
+
+func BridgeSourceMulticastSourceSettingsPtr(v *BridgeSourceMulticastSourceSettingsArgs) BridgeSourceMulticastSourceSettingsPtrInput {
+	return (*bridgeSourceMulticastSourceSettingsPtrType)(v)
+}
+
+func (*bridgeSourceMulticastSourceSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BridgeSourceMulticastSourceSettings)(nil)).Elem()
+}
+
+func (i *bridgeSourceMulticastSourceSettingsPtrType) ToBridgeSourceMulticastSourceSettingsPtrOutput() BridgeSourceMulticastSourceSettingsPtrOutput {
+	return i.ToBridgeSourceMulticastSourceSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *bridgeSourceMulticastSourceSettingsPtrType) ToBridgeSourceMulticastSourceSettingsPtrOutputWithContext(ctx context.Context) BridgeSourceMulticastSourceSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BridgeSourceMulticastSourceSettingsPtrOutput)
+}
+
+// The settings related to the multicast source.
+type BridgeSourceMulticastSourceSettingsOutput struct{ *pulumi.OutputState }
+
+func (BridgeSourceMulticastSourceSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BridgeSourceMulticastSourceSettings)(nil)).Elem()
+}
+
+func (o BridgeSourceMulticastSourceSettingsOutput) ToBridgeSourceMulticastSourceSettingsOutput() BridgeSourceMulticastSourceSettingsOutput {
+	return o
+}
+
+func (o BridgeSourceMulticastSourceSettingsOutput) ToBridgeSourceMulticastSourceSettingsOutputWithContext(ctx context.Context) BridgeSourceMulticastSourceSettingsOutput {
+	return o
+}
+
+func (o BridgeSourceMulticastSourceSettingsOutput) ToBridgeSourceMulticastSourceSettingsPtrOutput() BridgeSourceMulticastSourceSettingsPtrOutput {
+	return o.ToBridgeSourceMulticastSourceSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o BridgeSourceMulticastSourceSettingsOutput) ToBridgeSourceMulticastSourceSettingsPtrOutputWithContext(ctx context.Context) BridgeSourceMulticastSourceSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BridgeSourceMulticastSourceSettings) *BridgeSourceMulticastSourceSettings {
+		return &v
+	}).(BridgeSourceMulticastSourceSettingsPtrOutput)
+}
+
+// The IP address of the source for source-specific multicast (SSM).
+func (o BridgeSourceMulticastSourceSettingsOutput) MulticastSourceIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BridgeSourceMulticastSourceSettings) *string { return v.MulticastSourceIp }).(pulumi.StringPtrOutput)
+}
+
+type BridgeSourceMulticastSourceSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (BridgeSourceMulticastSourceSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BridgeSourceMulticastSourceSettings)(nil)).Elem()
+}
+
+func (o BridgeSourceMulticastSourceSettingsPtrOutput) ToBridgeSourceMulticastSourceSettingsPtrOutput() BridgeSourceMulticastSourceSettingsPtrOutput {
+	return o
+}
+
+func (o BridgeSourceMulticastSourceSettingsPtrOutput) ToBridgeSourceMulticastSourceSettingsPtrOutputWithContext(ctx context.Context) BridgeSourceMulticastSourceSettingsPtrOutput {
+	return o
+}
+
+func (o BridgeSourceMulticastSourceSettingsPtrOutput) Elem() BridgeSourceMulticastSourceSettingsOutput {
+	return o.ApplyT(func(v *BridgeSourceMulticastSourceSettings) BridgeSourceMulticastSourceSettings {
+		if v != nil {
+			return *v
+		}
+		var ret BridgeSourceMulticastSourceSettings
+		return ret
+	}).(BridgeSourceMulticastSourceSettingsOutput)
+}
+
+// The IP address of the source for source-specific multicast (SSM).
+func (o BridgeSourceMulticastSourceSettingsPtrOutput) MulticastSourceIp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BridgeSourceMulticastSourceSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MulticastSourceIp
+	}).(pulumi.StringPtrOutput)
 }
 
 // The priority you want to assign to a source. You can have a primary stream and a backup stream or two equally prioritized streams.
@@ -6794,6 +7114,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BridgeFlowSourcePtrInput)(nil)).Elem(), BridgeFlowSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BridgeIngressGatewayBridgeInput)(nil)).Elem(), BridgeIngressGatewayBridgeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BridgeIngressGatewayBridgePtrInput)(nil)).Elem(), BridgeIngressGatewayBridgeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BridgeMulticastSourceSettingsInput)(nil)).Elem(), BridgeMulticastSourceSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BridgeMulticastSourceSettingsPtrInput)(nil)).Elem(), BridgeMulticastSourceSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BridgeNetworkOutputInput)(nil)).Elem(), BridgeNetworkOutputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BridgeNetworkOutputPtrInput)(nil)).Elem(), BridgeNetworkOutputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BridgeNetworkSourceInput)(nil)).Elem(), BridgeNetworkSourceArgs{})
@@ -6807,6 +7129,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BridgeSourceBridgeFlowSourcePtrInput)(nil)).Elem(), BridgeSourceBridgeFlowSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BridgeSourceBridgeNetworkSourceInput)(nil)).Elem(), BridgeSourceBridgeNetworkSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BridgeSourceBridgeNetworkSourcePtrInput)(nil)).Elem(), BridgeSourceBridgeNetworkSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BridgeSourceMulticastSourceSettingsInput)(nil)).Elem(), BridgeSourceMulticastSourceSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BridgeSourceMulticastSourceSettingsPtrInput)(nil)).Elem(), BridgeSourceMulticastSourceSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BridgeSourcePriorityInput)(nil)).Elem(), BridgeSourcePriorityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BridgeSourcePriorityPtrInput)(nil)).Elem(), BridgeSourcePriorityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BridgeSourceVpcInterfaceAttachmentInput)(nil)).Elem(), BridgeSourceVpcInterfaceAttachmentArgs{})
@@ -6870,6 +7194,8 @@ func init() {
 	pulumi.RegisterOutputType(BridgeFlowSourcePtrOutput{})
 	pulumi.RegisterOutputType(BridgeIngressGatewayBridgeOutput{})
 	pulumi.RegisterOutputType(BridgeIngressGatewayBridgePtrOutput{})
+	pulumi.RegisterOutputType(BridgeMulticastSourceSettingsOutput{})
+	pulumi.RegisterOutputType(BridgeMulticastSourceSettingsPtrOutput{})
 	pulumi.RegisterOutputType(BridgeNetworkOutputOutput{})
 	pulumi.RegisterOutputType(BridgeNetworkOutputPtrOutput{})
 	pulumi.RegisterOutputType(BridgeNetworkSourceOutput{})
@@ -6884,6 +7210,8 @@ func init() {
 	pulumi.RegisterOutputType(BridgeSourceBridgeFlowSourcePtrOutput{})
 	pulumi.RegisterOutputType(BridgeSourceBridgeNetworkSourceOutput{})
 	pulumi.RegisterOutputType(BridgeSourceBridgeNetworkSourcePtrOutput{})
+	pulumi.RegisterOutputType(BridgeSourceMulticastSourceSettingsOutput{})
+	pulumi.RegisterOutputType(BridgeSourceMulticastSourceSettingsPtrOutput{})
 	pulumi.RegisterOutputType(BridgeSourcePriorityOutput{})
 	pulumi.RegisterOutputType(BridgeSourcePriorityPtrOutput{})
 	pulumi.RegisterOutputType(BridgeSourceVpcInterfaceAttachmentOutput{})

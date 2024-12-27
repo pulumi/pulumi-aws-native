@@ -138,11 +138,134 @@ func (o ConfigurationProfileValidatorsArrayOutput) Index(i pulumi.IntInput) Conf
 	}).(ConfigurationProfileValidatorsOutput)
 }
 
+type DeploymentDynamicExtensionParameters struct {
+	// The ARN or ID of the extension for which you are inserting a dynamic parameter.
+	ExtensionReference *string `pulumi:"extensionReference"`
+	// The parameter name.
+	ParameterName *string `pulumi:"parameterName"`
+	// The parameter value.
+	ParameterValue *string `pulumi:"parameterValue"`
+}
+
+// DeploymentDynamicExtensionParametersInput is an input type that accepts DeploymentDynamicExtensionParametersArgs and DeploymentDynamicExtensionParametersOutput values.
+// You can construct a concrete instance of `DeploymentDynamicExtensionParametersInput` via:
+//
+//	DeploymentDynamicExtensionParametersArgs{...}
+type DeploymentDynamicExtensionParametersInput interface {
+	pulumi.Input
+
+	ToDeploymentDynamicExtensionParametersOutput() DeploymentDynamicExtensionParametersOutput
+	ToDeploymentDynamicExtensionParametersOutputWithContext(context.Context) DeploymentDynamicExtensionParametersOutput
+}
+
+type DeploymentDynamicExtensionParametersArgs struct {
+	// The ARN or ID of the extension for which you are inserting a dynamic parameter.
+	ExtensionReference pulumi.StringPtrInput `pulumi:"extensionReference"`
+	// The parameter name.
+	ParameterName pulumi.StringPtrInput `pulumi:"parameterName"`
+	// The parameter value.
+	ParameterValue pulumi.StringPtrInput `pulumi:"parameterValue"`
+}
+
+func (DeploymentDynamicExtensionParametersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentDynamicExtensionParameters)(nil)).Elem()
+}
+
+func (i DeploymentDynamicExtensionParametersArgs) ToDeploymentDynamicExtensionParametersOutput() DeploymentDynamicExtensionParametersOutput {
+	return i.ToDeploymentDynamicExtensionParametersOutputWithContext(context.Background())
+}
+
+func (i DeploymentDynamicExtensionParametersArgs) ToDeploymentDynamicExtensionParametersOutputWithContext(ctx context.Context) DeploymentDynamicExtensionParametersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentDynamicExtensionParametersOutput)
+}
+
+// DeploymentDynamicExtensionParametersArrayInput is an input type that accepts DeploymentDynamicExtensionParametersArray and DeploymentDynamicExtensionParametersArrayOutput values.
+// You can construct a concrete instance of `DeploymentDynamicExtensionParametersArrayInput` via:
+//
+//	DeploymentDynamicExtensionParametersArray{ DeploymentDynamicExtensionParametersArgs{...} }
+type DeploymentDynamicExtensionParametersArrayInput interface {
+	pulumi.Input
+
+	ToDeploymentDynamicExtensionParametersArrayOutput() DeploymentDynamicExtensionParametersArrayOutput
+	ToDeploymentDynamicExtensionParametersArrayOutputWithContext(context.Context) DeploymentDynamicExtensionParametersArrayOutput
+}
+
+type DeploymentDynamicExtensionParametersArray []DeploymentDynamicExtensionParametersInput
+
+func (DeploymentDynamicExtensionParametersArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeploymentDynamicExtensionParameters)(nil)).Elem()
+}
+
+func (i DeploymentDynamicExtensionParametersArray) ToDeploymentDynamicExtensionParametersArrayOutput() DeploymentDynamicExtensionParametersArrayOutput {
+	return i.ToDeploymentDynamicExtensionParametersArrayOutputWithContext(context.Background())
+}
+
+func (i DeploymentDynamicExtensionParametersArray) ToDeploymentDynamicExtensionParametersArrayOutputWithContext(ctx context.Context) DeploymentDynamicExtensionParametersArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DeploymentDynamicExtensionParametersArrayOutput)
+}
+
+type DeploymentDynamicExtensionParametersOutput struct{ *pulumi.OutputState }
+
+func (DeploymentDynamicExtensionParametersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DeploymentDynamicExtensionParameters)(nil)).Elem()
+}
+
+func (o DeploymentDynamicExtensionParametersOutput) ToDeploymentDynamicExtensionParametersOutput() DeploymentDynamicExtensionParametersOutput {
+	return o
+}
+
+func (o DeploymentDynamicExtensionParametersOutput) ToDeploymentDynamicExtensionParametersOutputWithContext(ctx context.Context) DeploymentDynamicExtensionParametersOutput {
+	return o
+}
+
+// The ARN or ID of the extension for which you are inserting a dynamic parameter.
+func (o DeploymentDynamicExtensionParametersOutput) ExtensionReference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentDynamicExtensionParameters) *string { return v.ExtensionReference }).(pulumi.StringPtrOutput)
+}
+
+// The parameter name.
+func (o DeploymentDynamicExtensionParametersOutput) ParameterName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentDynamicExtensionParameters) *string { return v.ParameterName }).(pulumi.StringPtrOutput)
+}
+
+// The parameter value.
+func (o DeploymentDynamicExtensionParametersOutput) ParameterValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DeploymentDynamicExtensionParameters) *string { return v.ParameterValue }).(pulumi.StringPtrOutput)
+}
+
+type DeploymentDynamicExtensionParametersArrayOutput struct{ *pulumi.OutputState }
+
+func (DeploymentDynamicExtensionParametersArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DeploymentDynamicExtensionParameters)(nil)).Elem()
+}
+
+func (o DeploymentDynamicExtensionParametersArrayOutput) ToDeploymentDynamicExtensionParametersArrayOutput() DeploymentDynamicExtensionParametersArrayOutput {
+	return o
+}
+
+func (o DeploymentDynamicExtensionParametersArrayOutput) ToDeploymentDynamicExtensionParametersArrayOutputWithContext(ctx context.Context) DeploymentDynamicExtensionParametersArrayOutput {
+	return o
+}
+
+func (o DeploymentDynamicExtensionParametersArrayOutput) Index(i pulumi.IntInput) DeploymentDynamicExtensionParametersOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeploymentDynamicExtensionParameters {
+		return vs[0].([]DeploymentDynamicExtensionParameters)[vs[1].(int)]
+	}).(DeploymentDynamicExtensionParametersOutput)
+}
+
 // Metadata to assign to the deployment strategy. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
 type DeploymentStrategyTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Key *string `pulumi:"key"`
 	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value *string `pulumi:"value"`
+}
+
+// Metadata to assign to the deployment. Tags help organize and categorize your AWS AppConfig resources. Each tag consists of a key and an optional value, both of which you define.
+type DeploymentTag struct {
+	// The key-value string map. The valid character set is [a-zA-Z1-9+-=._:/]. The tag key can be up to 128 characters and must not start with aws:.
+	Key *string `pulumi:"key"`
+	// The tag value can be up to 256 characters.
 	Value *string `pulumi:"value"`
 }
 
@@ -566,6 +689,8 @@ func (o ExtensionActionArrayMapOutput) MapIndex(k pulumi.StringInput) ExtensionA
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationProfileValidatorsInput)(nil)).Elem(), ConfigurationProfileValidatorsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationProfileValidatorsArrayInput)(nil)).Elem(), ConfigurationProfileValidatorsArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentDynamicExtensionParametersInput)(nil)).Elem(), DeploymentDynamicExtensionParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentDynamicExtensionParametersArrayInput)(nil)).Elem(), DeploymentDynamicExtensionParametersArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentMonitorInput)(nil)).Elem(), EnvironmentMonitorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentMonitorArrayInput)(nil)).Elem(), EnvironmentMonitorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExtensionActionInput)(nil)).Elem(), ExtensionActionArgs{})
@@ -575,6 +700,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ExtensionActionArrayMapInput)(nil)).Elem(), ExtensionActionArrayMap{})
 	pulumi.RegisterOutputType(ConfigurationProfileValidatorsOutput{})
 	pulumi.RegisterOutputType(ConfigurationProfileValidatorsArrayOutput{})
+	pulumi.RegisterOutputType(DeploymentDynamicExtensionParametersOutput{})
+	pulumi.RegisterOutputType(DeploymentDynamicExtensionParametersArrayOutput{})
 	pulumi.RegisterOutputType(EnvironmentMonitorOutput{})
 	pulumi.RegisterOutputType(EnvironmentMonitorArrayOutput{})
 	pulumi.RegisterOutputType(ExtensionActionOutput{})

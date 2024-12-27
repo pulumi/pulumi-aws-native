@@ -365,7 +365,8 @@ func (o IntegrationOpenSearchResourceConfigPtrOutput) RetentionDays() pulumi.Int
 }
 
 type LogGroupTag struct {
-	Key   string `pulumi:"key"`
+	Key string `pulumi:"key"`
+	// The value of this key-value pair.
 	Value string `pulumi:"value"`
 }
 

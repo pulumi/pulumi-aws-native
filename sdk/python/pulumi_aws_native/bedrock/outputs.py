@@ -35,6 +35,7 @@ __all__ = [
     'AgentS3Identifier',
     'ApplicationInferenceProfileInferenceProfileModel',
     'ApplicationInferenceProfileInferenceProfileModelSourceProperties',
+    'DataSourceBedrockDataAutomationConfiguration',
     'DataSourceBedrockFoundationModelConfiguration',
     'DataSourceChunkingConfiguration',
     'DataSourceConfiguration',
@@ -185,6 +186,7 @@ __all__ = [
     'KnowledgeBaseBedrockEmbeddingModelConfiguration',
     'KnowledgeBaseConfiguration',
     'KnowledgeBaseEmbeddingModelConfiguration',
+    'KnowledgeBaseKendraKnowledgeBaseConfiguration',
     'KnowledgeBaseMongoDbAtlasConfiguration',
     'KnowledgeBaseMongoDbAtlasFieldMapping',
     'KnowledgeBaseOpenSearchServerlessConfiguration',
@@ -193,7 +195,10 @@ __all__ = [
     'KnowledgeBasePineconeFieldMapping',
     'KnowledgeBaseRdsConfiguration',
     'KnowledgeBaseRdsFieldMapping',
+    'KnowledgeBaseS3Location',
     'KnowledgeBaseStorageConfiguration',
+    'KnowledgeBaseSupplementalDataStorageConfiguration',
+    'KnowledgeBaseSupplementalDataStorageLocation',
     'KnowledgeBaseVectorKnowledgeBaseConfiguration',
     'PromptAgentResource',
     'PromptAnyToolChoice',
@@ -619,6 +624,7 @@ class AgentFunction(dict):
         :param str name: Name for a resource.
         :param str description: Description of function
         :param Mapping[str, 'AgentParameterDetail'] parameters: The parameters that the agent elicits from the user to fulfill the function.
+        :param 'AgentRequireConfirmation' require_confirmation: Contains information if user confirmation is required to invoke the function.
         """
         pulumi.set(__self__, "name", name)
         if description is not None:
@@ -655,6 +661,9 @@ class AgentFunction(dict):
     @property
     @pulumi.getter(name="requireConfirmation")
     def require_confirmation(self) -> Optional['AgentRequireConfirmation']:
+        """
+        Contains information if user confirmation is required to invoke the function.
+        """
         return pulumi.get(self, "require_confirmation")
 
 
@@ -1247,6 +1256,46 @@ class ApplicationInferenceProfileInferenceProfileModelSourceProperties(dict):
 
 
 @pulumi.output_type
+class DataSourceBedrockDataAutomationConfiguration(dict):
+    """
+    Settings for a Bedrock Data Automation used to parse documents for a data source.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "parsingModality":
+            suggest = "parsing_modality"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataSourceBedrockDataAutomationConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataSourceBedrockDataAutomationConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataSourceBedrockDataAutomationConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 parsing_modality: Optional['DataSourceParsingModality'] = None):
+        """
+        Settings for a Bedrock Data Automation used to parse documents for a data source.
+        :param 'DataSourceParsingModality' parsing_modality: Specifies whether to enable parsing of multimodal data, including both text and/or images.
+        """
+        if parsing_modality is not None:
+            pulumi.set(__self__, "parsing_modality", parsing_modality)
+
+    @property
+    @pulumi.getter(name="parsingModality")
+    def parsing_modality(self) -> Optional['DataSourceParsingModality']:
+        """
+        Specifies whether to enable parsing of multimodal data, including both text and/or images.
+        """
+        return pulumi.get(self, "parsing_modality")
+
+
+@pulumi.output_type
 class DataSourceBedrockFoundationModelConfiguration(dict):
     """
     Settings for a foundation model used to parse documents for a data source.
@@ -1256,6 +1305,8 @@ class DataSourceBedrockFoundationModelConfiguration(dict):
         suggest = None
         if key == "modelArn":
             suggest = "model_arn"
+        elif key == "parsingModality":
+            suggest = "parsing_modality"
         elif key == "parsingPrompt":
             suggest = "parsing_prompt"
 
@@ -1272,13 +1323,17 @@ class DataSourceBedrockFoundationModelConfiguration(dict):
 
     def __init__(__self__, *,
                  model_arn: str,
+                 parsing_modality: Optional['DataSourceParsingModality'] = None,
                  parsing_prompt: Optional['outputs.DataSourceParsingPrompt'] = None):
         """
         Settings for a foundation model used to parse documents for a data source.
         :param str model_arn: The model's ARN.
+        :param 'DataSourceParsingModality' parsing_modality: Specifies whether to enable parsing of multimodal data, including both text and/or images.
         :param 'DataSourceParsingPrompt' parsing_prompt: Instructions for interpreting the contents of a document.
         """
         pulumi.set(__self__, "model_arn", model_arn)
+        if parsing_modality is not None:
+            pulumi.set(__self__, "parsing_modality", parsing_modality)
         if parsing_prompt is not None:
             pulumi.set(__self__, "parsing_prompt", parsing_prompt)
 
@@ -1289,6 +1344,14 @@ class DataSourceBedrockFoundationModelConfiguration(dict):
         The model's ARN.
         """
         return pulumi.get(self, "model_arn")
+
+    @property
+    @pulumi.getter(name="parsingModality")
+    def parsing_modality(self) -> Optional['DataSourceParsingModality']:
+        """
+        Specifies whether to enable parsing of multimodal data, including both text and/or images.
+        """
+        return pulumi.get(self, "parsing_modality")
 
     @property
     @pulumi.getter(name="parsingPrompt")
@@ -1977,6 +2040,8 @@ class DataSourceParsingConfiguration(dict):
         suggest = None
         if key == "parsingStrategy":
             suggest = "parsing_strategy"
+        elif key == "bedrockDataAutomationConfiguration":
+            suggest = "bedrock_data_automation_configuration"
         elif key == "bedrockFoundationModelConfiguration":
             suggest = "bedrock_foundation_model_configuration"
 
@@ -1993,13 +2058,17 @@ class DataSourceParsingConfiguration(dict):
 
     def __init__(__self__, *,
                  parsing_strategy: 'DataSourceParsingStrategy',
+                 bedrock_data_automation_configuration: Optional['outputs.DataSourceBedrockDataAutomationConfiguration'] = None,
                  bedrock_foundation_model_configuration: Optional['outputs.DataSourceBedrockFoundationModelConfiguration'] = None):
         """
         Settings for parsing document contents
         :param 'DataSourceParsingStrategy' parsing_strategy: The parsing strategy for the data source.
+        :param 'DataSourceBedrockDataAutomationConfiguration' bedrock_data_automation_configuration: If you specify `BEDROCK_DATA_AUTOMATION` as the parsing strategy for ingesting your data source, use this object to modify configurations for using the Amazon Bedrock Data Automation parser.
         :param 'DataSourceBedrockFoundationModelConfiguration' bedrock_foundation_model_configuration: If you specify `BEDROCK_FOUNDATION_MODEL` as the parsing strategy for ingesting your data source, use this object to modify configurations for using a foundation model to parse documents.
         """
         pulumi.set(__self__, "parsing_strategy", parsing_strategy)
+        if bedrock_data_automation_configuration is not None:
+            pulumi.set(__self__, "bedrock_data_automation_configuration", bedrock_data_automation_configuration)
         if bedrock_foundation_model_configuration is not None:
             pulumi.set(__self__, "bedrock_foundation_model_configuration", bedrock_foundation_model_configuration)
 
@@ -2010,6 +2079,14 @@ class DataSourceParsingConfiguration(dict):
         The parsing strategy for the data source.
         """
         return pulumi.get(self, "parsing_strategy")
+
+    @property
+    @pulumi.getter(name="bedrockDataAutomationConfiguration")
+    def bedrock_data_automation_configuration(self) -> Optional['outputs.DataSourceBedrockDataAutomationConfiguration']:
+        """
+        If you specify `BEDROCK_DATA_AUTOMATION` as the parsing strategy for ingesting your data source, use this object to modify configurations for using the Amazon Bedrock Data Automation parser.
+        """
+        return pulumi.get(self, "bedrock_data_automation_configuration")
 
     @property
     @pulumi.getter(name="bedrockFoundationModelConfiguration")
@@ -7089,7 +7166,9 @@ class KnowledgeBaseConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "vectorKnowledgeBaseConfiguration":
+        if key == "kendraKnowledgeBaseConfiguration":
+            suggest = "kendra_knowledge_base_configuration"
+        elif key == "vectorKnowledgeBaseConfiguration":
             suggest = "vector_knowledge_base_configuration"
 
         if suggest:
@@ -7105,14 +7184,19 @@ class KnowledgeBaseConfiguration(dict):
 
     def __init__(__self__, *,
                  type: 'KnowledgeBaseType',
-                 vector_knowledge_base_configuration: 'outputs.KnowledgeBaseVectorKnowledgeBaseConfiguration'):
+                 kendra_knowledge_base_configuration: Optional['outputs.KnowledgeBaseKendraKnowledgeBaseConfiguration'] = None,
+                 vector_knowledge_base_configuration: Optional['outputs.KnowledgeBaseVectorKnowledgeBaseConfiguration'] = None):
         """
         Contains details about the embeddings model used for the knowledge base.
         :param 'KnowledgeBaseType' type: The type of data that the data source is converted into for the knowledge base.
+        :param 'KnowledgeBaseKendraKnowledgeBaseConfiguration' kendra_knowledge_base_configuration: Settings for an Amazon Kendra knowledge base.
         :param 'KnowledgeBaseVectorKnowledgeBaseConfiguration' vector_knowledge_base_configuration: Contains details about the model that's used to convert the data source into vector embeddings.
         """
         pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "vector_knowledge_base_configuration", vector_knowledge_base_configuration)
+        if kendra_knowledge_base_configuration is not None:
+            pulumi.set(__self__, "kendra_knowledge_base_configuration", kendra_knowledge_base_configuration)
+        if vector_knowledge_base_configuration is not None:
+            pulumi.set(__self__, "vector_knowledge_base_configuration", vector_knowledge_base_configuration)
 
     @property
     @pulumi.getter
@@ -7123,8 +7207,16 @@ class KnowledgeBaseConfiguration(dict):
         return pulumi.get(self, "type")
 
     @property
+    @pulumi.getter(name="kendraKnowledgeBaseConfiguration")
+    def kendra_knowledge_base_configuration(self) -> Optional['outputs.KnowledgeBaseKendraKnowledgeBaseConfiguration']:
+        """
+        Settings for an Amazon Kendra knowledge base.
+        """
+        return pulumi.get(self, "kendra_knowledge_base_configuration")
+
+    @property
     @pulumi.getter(name="vectorKnowledgeBaseConfiguration")
-    def vector_knowledge_base_configuration(self) -> 'outputs.KnowledgeBaseVectorKnowledgeBaseConfiguration':
+    def vector_knowledge_base_configuration(self) -> Optional['outputs.KnowledgeBaseVectorKnowledgeBaseConfiguration']:
         """
         Contains details about the model that's used to convert the data source into vector embeddings.
         """
@@ -7169,6 +7261,45 @@ class KnowledgeBaseEmbeddingModelConfiguration(dict):
         The vector configuration details on the Bedrock embeddings model.
         """
         return pulumi.get(self, "bedrock_embedding_model_configuration")
+
+
+@pulumi.output_type
+class KnowledgeBaseKendraKnowledgeBaseConfiguration(dict):
+    """
+    Configurations for a Kendra knowledge base
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "kendraIndexArn":
+            suggest = "kendra_index_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KnowledgeBaseKendraKnowledgeBaseConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KnowledgeBaseKendraKnowledgeBaseConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KnowledgeBaseKendraKnowledgeBaseConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 kendra_index_arn: str):
+        """
+        Configurations for a Kendra knowledge base
+        :param str kendra_index_arn: The ARN of the Amazon Kendra index.
+        """
+        pulumi.set(__self__, "kendra_index_arn", kendra_index_arn)
+
+    @property
+    @pulumi.getter(name="kendraIndexArn")
+    def kendra_index_arn(self) -> str:
+        """
+        The ARN of the Amazon Kendra index.
+        """
+        return pulumi.get(self, "kendra_index_arn")
 
 
 @pulumi.output_type
@@ -7781,6 +7912,28 @@ class KnowledgeBaseRdsFieldMapping(dict):
 
 
 @pulumi.output_type
+class KnowledgeBaseS3Location(dict):
+    """
+    An Amazon S3 location.
+    """
+    def __init__(__self__, *,
+                 uri: str):
+        """
+        An Amazon S3 location.
+        :param str uri: The location's URI
+        """
+        pulumi.set(__self__, "uri", uri)
+
+    @property
+    @pulumi.getter
+    def uri(self) -> str:
+        """
+        The location's URI
+        """
+        return pulumi.get(self, "uri")
+
+
+@pulumi.output_type
 class KnowledgeBaseStorageConfiguration(dict):
     """
     The vector store service in which the knowledge base is stored.
@@ -7874,6 +8027,86 @@ class KnowledgeBaseStorageConfiguration(dict):
 
 
 @pulumi.output_type
+class KnowledgeBaseSupplementalDataStorageConfiguration(dict):
+    """
+    Configurations for supplemental data storage.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "supplementalDataStorageLocations":
+            suggest = "supplemental_data_storage_locations"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KnowledgeBaseSupplementalDataStorageConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KnowledgeBaseSupplementalDataStorageConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KnowledgeBaseSupplementalDataStorageConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 supplemental_data_storage_locations: Sequence['outputs.KnowledgeBaseSupplementalDataStorageLocation']):
+        """
+        Configurations for supplemental data storage.
+        """
+        pulumi.set(__self__, "supplemental_data_storage_locations", supplemental_data_storage_locations)
+
+    @property
+    @pulumi.getter(name="supplementalDataStorageLocations")
+    def supplemental_data_storage_locations(self) -> Sequence['outputs.KnowledgeBaseSupplementalDataStorageLocation']:
+        return pulumi.get(self, "supplemental_data_storage_locations")
+
+
+@pulumi.output_type
+class KnowledgeBaseSupplementalDataStorageLocation(dict):
+    """
+    Supplemental data storage location.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "supplementalDataStorageLocationType":
+            suggest = "supplemental_data_storage_location_type"
+        elif key == "s3Location":
+            suggest = "s3_location"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KnowledgeBaseSupplementalDataStorageLocation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KnowledgeBaseSupplementalDataStorageLocation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KnowledgeBaseSupplementalDataStorageLocation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 supplemental_data_storage_location_type: 'KnowledgeBaseSupplementalDataStorageLocationType',
+                 s3_location: Optional['outputs.KnowledgeBaseS3Location'] = None):
+        """
+        Supplemental data storage location.
+        """
+        pulumi.set(__self__, "supplemental_data_storage_location_type", supplemental_data_storage_location_type)
+        if s3_location is not None:
+            pulumi.set(__self__, "s3_location", s3_location)
+
+    @property
+    @pulumi.getter(name="supplementalDataStorageLocationType")
+    def supplemental_data_storage_location_type(self) -> 'KnowledgeBaseSupplementalDataStorageLocationType':
+        return pulumi.get(self, "supplemental_data_storage_location_type")
+
+    @property
+    @pulumi.getter(name="s3Location")
+    def s3_location(self) -> Optional['outputs.KnowledgeBaseS3Location']:
+        return pulumi.get(self, "s3_location")
+
+
+@pulumi.output_type
 class KnowledgeBaseVectorKnowledgeBaseConfiguration(dict):
     """
     Contains details about the model used to create vector embeddings for the knowledge base.
@@ -7885,6 +8118,8 @@ class KnowledgeBaseVectorKnowledgeBaseConfiguration(dict):
             suggest = "embedding_model_arn"
         elif key == "embeddingModelConfiguration":
             suggest = "embedding_model_configuration"
+        elif key == "supplementalDataStorageConfiguration":
+            suggest = "supplemental_data_storage_configuration"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in KnowledgeBaseVectorKnowledgeBaseConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -7899,15 +8134,19 @@ class KnowledgeBaseVectorKnowledgeBaseConfiguration(dict):
 
     def __init__(__self__, *,
                  embedding_model_arn: str,
-                 embedding_model_configuration: Optional['outputs.KnowledgeBaseEmbeddingModelConfiguration'] = None):
+                 embedding_model_configuration: Optional['outputs.KnowledgeBaseEmbeddingModelConfiguration'] = None,
+                 supplemental_data_storage_configuration: Optional['outputs.KnowledgeBaseSupplementalDataStorageConfiguration'] = None):
         """
         Contains details about the model used to create vector embeddings for the knowledge base.
         :param str embedding_model_arn: The ARN of the model used to create vector embeddings for the knowledge base.
         :param 'KnowledgeBaseEmbeddingModelConfiguration' embedding_model_configuration: The embeddings model configuration details for the vector model used in Knowledge Base.
+        :param 'KnowledgeBaseSupplementalDataStorageConfiguration' supplemental_data_storage_configuration: If you include multimodal data from your data source, use this object to specify configurations for the storage location of the images extracted from your documents. These images can be retrieved and returned to the end user. They can also be used in generation when using [RetrieveAndGenerate](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html) .
         """
         pulumi.set(__self__, "embedding_model_arn", embedding_model_arn)
         if embedding_model_configuration is not None:
             pulumi.set(__self__, "embedding_model_configuration", embedding_model_configuration)
+        if supplemental_data_storage_configuration is not None:
+            pulumi.set(__self__, "supplemental_data_storage_configuration", supplemental_data_storage_configuration)
 
     @property
     @pulumi.getter(name="embeddingModelArn")
@@ -7924,6 +8163,14 @@ class KnowledgeBaseVectorKnowledgeBaseConfiguration(dict):
         The embeddings model configuration details for the vector model used in Knowledge Base.
         """
         return pulumi.get(self, "embedding_model_configuration")
+
+    @property
+    @pulumi.getter(name="supplementalDataStorageConfiguration")
+    def supplemental_data_storage_configuration(self) -> Optional['outputs.KnowledgeBaseSupplementalDataStorageConfiguration']:
+        """
+        If you include multimodal data from your data source, use this object to specify configurations for the storage location of the images extracted from your documents. These images can be retrieved and returned to the end user. They can also be used in generation when using [RetrieveAndGenerate](https://docs.aws.amazon.com/bedrock/latest/APIReference/API_agent-runtime_RetrieveAndGenerate.html) .
+        """
+        return pulumi.get(self, "supplemental_data_storage_configuration")
 
 
 @pulumi.output_type
@@ -8689,6 +8936,7 @@ class PromptVariant(dict):
         :param str name: Name for a variant.
         :param Union['PromptTemplateConfiguration0Properties', 'PromptTemplateConfiguration1Properties'] template_configuration: Contains configurations for the prompt template.
         :param 'PromptTemplateType' template_type: The type of prompt template to use.
+        :param 'PromptGenAiResourceProperties' gen_ai_resource: Specifies a generative AI resource with which to use the prompt.
         :param 'PromptInferenceConfigurationProperties' inference_configuration: Contains inference configurations for the prompt variant.
         :param str model_id: ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
         """
@@ -8729,6 +8977,9 @@ class PromptVariant(dict):
     @property
     @pulumi.getter(name="genAiResource")
     def gen_ai_resource(self) -> Optional['outputs.PromptGenAiResourceProperties']:
+        """
+        Specifies a generative AI resource with which to use the prompt.
+        """
         return pulumi.get(self, "gen_ai_resource")
 
     @property

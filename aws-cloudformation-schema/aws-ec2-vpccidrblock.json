@@ -50,13 +50,17 @@
     "IpSource" : {
       "type" : "string",
       "description" : "The IP Source of an IPv6 VPC CIDR Block."
+    },
+    "Ipv6CidrBlockNetworkBorderGroup" : {
+      "type" : "string",
+      "description" : "The name of the location from which we advertise the IPV6 CIDR block."
     }
   },
   "tagging" : {
     "taggable" : false
   },
   "required" : [ "VpcId" ],
-  "createOnlyProperties" : [ "/properties/Ipv6Pool", "/properties/VpcId", "/properties/AmazonProvidedIpv6CidrBlock", "/properties/Ipv6CidrBlock", "/properties/CidrBlock", "/properties/Ipv4IpamPoolId", "/properties/Ipv4NetmaskLength", "/properties/Ipv6IpamPoolId", "/properties/Ipv6NetmaskLength" ],
+  "createOnlyProperties" : [ "/properties/Ipv6Pool", "/properties/VpcId", "/properties/AmazonProvidedIpv6CidrBlock", "/properties/Ipv6CidrBlock", "/properties/CidrBlock", "/properties/Ipv4IpamPoolId", "/properties/Ipv4NetmaskLength", "/properties/Ipv6IpamPoolId", "/properties/Ipv6NetmaskLength", "/properties/Ipv6CidrBlockNetworkBorderGroup" ],
   "primaryIdentifier" : [ "/properties/Id", "/properties/VpcId" ],
   "readOnlyProperties" : [ "/properties/Id", "/properties/Ipv6AddressAttribute", "/properties/IpSource" ],
   "writeOnlyProperties" : [ "/properties/Ipv4IpamPoolId", "/properties/Ipv4NetmaskLength", "/properties/Ipv6IpamPoolId", "/properties/Ipv6NetmaskLength" ],

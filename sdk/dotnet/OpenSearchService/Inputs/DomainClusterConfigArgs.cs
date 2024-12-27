@@ -56,6 +56,10 @@ namespace Pulumi.AwsNative.OpenSearchService.Inputs
 
         [Input("nodeOptions")]
         private InputList<Inputs.DomainNodeOptionArgs>? _nodeOptions;
+
+        /// <summary>
+        /// List of node options for the domain.
+        /// </summary>
         public InputList<Inputs.DomainNodeOptionArgs> NodeOptions
         {
             get => _nodeOptions ?? (_nodeOptions = new InputList<Inputs.DomainNodeOptionArgs>());
