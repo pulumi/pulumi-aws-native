@@ -1,8 +1,8 @@
 module github.com/pulumi/pulumi-aws-native/provider
 
-go 1.22
+go 1.23
 
-toolchain go1.23.3
+toolchain go1.23.4
 
 require (
 	github.com/apparentlymart/go-cidr v1.1.0
@@ -28,7 +28,7 @@ require (
 	github.com/mattbaird/jsonpatch v0.0.0-20200820163806-098863c1fc24
 	github.com/pkg/errors v0.9.1
 	github.com/pulumi/jsschema v0.0.0-20240222154951-2ba83b66ea54
-	github.com/pulumi/providertest v0.1.3
+	github.com/pulumi/providertest v0.1.4
 	github.com/pulumi/pulumi-go-provider v0.24.0
 	github.com/pulumi/pulumi/pkg/v3 v3.144.1
 	github.com/pulumi/pulumi/sdk/v3 v3.144.1
