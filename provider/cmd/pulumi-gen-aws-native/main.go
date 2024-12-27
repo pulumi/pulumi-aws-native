@@ -282,7 +282,7 @@ func readSupportedResourceTypes(outDir string) []string {
 	if err != nil {
 		panic(err)
 	}
-	return strings.Split(string(bytes), "\n")
+	return strings.Split(strings.Trim(string(bytes), "\n"), "\n")
 }
 
 func readAutonamingOverlay(file string) (map[string]AutoNamingOverlay, error) {
@@ -331,6 +331,10 @@ func writeSupportedResourceTypes(outDir string) error {
 		}
 	}
 
+	for _, t := range excludedTypes() {
+		supported.Delete(t)
+	}
+
 	// Load existing supported resources, check which are no longer supported,
 	// but don't remove support automatically - maintain previously supported list.
 	previouslySupported := codegen.NewStringSet(readSupportedResourceTypes(outDir)...)
@@ -342,7 +346,7 @@ func writeSupportedResourceTypes(outDir string) error {
 	}
 
 	stillSupported := supported.Union(previouslySupported)
-	supportedContent := strings.Join(stillSupported.SortedValues(), "\n")
+	supportedContent := strings.Join(stillSupported.SortedValues(), "\n") + "\n"
 	return emitFile(outDir, supportedResourcesFile, []byte(supportedContent))
 }
 
