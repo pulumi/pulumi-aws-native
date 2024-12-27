@@ -16,10 +16,6 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
-    'AnycastIpListTagsArgs',
-    'AnycastIpListTagsArgsDict',
-    'AnycastIpListTagArgs',
-    'AnycastIpListTagArgsDict',
     'CachePolicyConfigArgs',
     'CachePolicyConfigArgsDict',
     'CachePolicyCookiesConfigArgs',
@@ -167,101 +163,6 @@ __all__ = [
 ]
 
 MYPY = False
-
-if not MYPY:
-    class AnycastIpListTagsArgsDict(TypedDict):
-        items: NotRequired[pulumi.Input[Sequence[pulumi.Input['AnycastIpListTagArgsDict']]]]
-        """
-        A complex type that contains `Tag` elements.
-        """
-elif False:
-    AnycastIpListTagsArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class AnycastIpListTagsArgs:
-    def __init__(__self__, *,
-                 items: Optional[pulumi.Input[Sequence[pulumi.Input['AnycastIpListTagArgs']]]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input['AnycastIpListTagArgs']]] items: A complex type that contains `Tag` elements.
-        """
-        if items is not None:
-            pulumi.set(__self__, "items", items)
-
-    @property
-    @pulumi.getter
-    def items(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AnycastIpListTagArgs']]]]:
-        """
-        A complex type that contains `Tag` elements.
-        """
-        return pulumi.get(self, "items")
-
-    @items.setter
-    def items(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AnycastIpListTagArgs']]]]):
-        pulumi.set(self, "items", value)
-
-
-if not MYPY:
-    class AnycastIpListTagArgsDict(TypedDict):
-        key: pulumi.Input[str]
-        """
-        A string that contains `Tag` key.
-
-        The string length should be between 1 and 128 characters. Valid characters include `a-z` , `A-Z` , `0-9` , space, and the special characters `_ - . : / = + @` .
-        """
-        value: NotRequired[pulumi.Input[str]]
-        """
-        A string that contains an optional `Tag` value.
-
-        The string length should be between 0 and 256 characters. Valid characters include `a-z` , `A-Z` , `0-9` , space, and the special characters `_ - . : / = + @` .
-        """
-elif False:
-    AnycastIpListTagArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class AnycastIpListTagArgs:
-    def __init__(__self__, *,
-                 key: pulumi.Input[str],
-                 value: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] key: A string that contains `Tag` key.
-               
-               The string length should be between 1 and 128 characters. Valid characters include `a-z` , `A-Z` , `0-9` , space, and the special characters `_ - . : / = + @` .
-        :param pulumi.Input[str] value: A string that contains an optional `Tag` value.
-               
-               The string length should be between 0 and 256 characters. Valid characters include `a-z` , `A-Z` , `0-9` , space, and the special characters `_ - . : / = + @` .
-        """
-        pulumi.set(__self__, "key", key)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def key(self) -> pulumi.Input[str]:
-        """
-        A string that contains `Tag` key.
-
-        The string length should be between 1 and 128 characters. Valid characters include `a-z` , `A-Z` , `0-9` , space, and the special characters `_ - . : / = + @` .
-        """
-        return pulumi.get(self, "key")
-
-    @key.setter
-    def key(self, value: pulumi.Input[str]):
-        pulumi.set(self, "key", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[str]]:
-        """
-        A string that contains an optional `Tag` value.
-
-        The string length should be between 0 and 256 characters. Valid characters include `a-z` , `A-Z` , `0-9` , space, and the special characters `_ - . : / = + @` .
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "value", value)
-
 
 if not MYPY:
     class CachePolicyConfigArgsDict(TypedDict):

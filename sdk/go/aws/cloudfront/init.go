@@ -21,8 +21,6 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
-	case "aws-native:cloudfront:AnycastIpList":
-		r = &AnycastIpList{}
 	case "aws-native:cloudfront:CachePolicy":
 		r = &CachePolicy{}
 	case "aws-native:cloudfront:CloudFrontOriginAccessIdentity":

@@ -1102,7 +1102,6 @@ _utilities.register(
   "mod": "cloudfront",
   "fqn": "pulumi_aws_native.cloudfront",
   "classes": {
-   "aws-native:cloudfront:AnycastIpList": "AnycastIpList",
    "aws-native:cloudfront:CachePolicy": "CachePolicy",
    "aws-native:cloudfront:CloudFrontOriginAccessIdentity": "CloudFrontOriginAccessIdentity",
    "aws-native:cloudfront:ContinuousDeploymentPolicy": "ContinuousDeploymentPolicy",

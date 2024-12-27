@@ -6,13 +6,11 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
-from .anycast_ip_list import *
 from .cache_policy import *
 from .cloud_front_origin_access_identity import *
 from .continuous_deployment_policy import *
 from .distribution import *
 from .function import *
-from .get_anycast_ip_list import *
 from .get_cache_policy import *
 from .get_cloud_front_origin_access_identity import *
 from .get_continuous_deployment_policy import *

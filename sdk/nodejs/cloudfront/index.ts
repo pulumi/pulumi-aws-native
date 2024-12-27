@@ -5,11 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export { AnycastIpListArgs } from "./anycastIpList";
-export type AnycastIpList = import("./anycastIpList").AnycastIpList;
-export const AnycastIpList: typeof import("./anycastIpList").AnycastIpList = null as any;
-utilities.lazyLoad(exports, ["AnycastIpList"], () => require("./anycastIpList"));
-
 export { CachePolicyArgs } from "./cachePolicy";
 export type CachePolicy = import("./cachePolicy").CachePolicy;
 export const CachePolicy: typeof import("./cachePolicy").CachePolicy = null as any;
@@ -34,11 +29,6 @@ export { FunctionArgs } from "./function";
 export type Function = import("./function").Function;
 export const Function: typeof import("./function").Function = null as any;
 utilities.lazyLoad(exports, ["Function"], () => require("./function"));
-
-export { GetAnycastIpListArgs, GetAnycastIpListResult, GetAnycastIpListOutputArgs } from "./getAnycastIpList";
-export const getAnycastIpList: typeof import("./getAnycastIpList").getAnycastIpList = null as any;
-export const getAnycastIpListOutput: typeof import("./getAnycastIpList").getAnycastIpListOutput = null as any;
-utilities.lazyLoad(exports, ["getAnycastIpList","getAnycastIpListOutput"], () => require("./getAnycastIpList"));
 
 export { GetCachePolicyArgs, GetCachePolicyResult, GetCachePolicyOutputArgs } from "./getCachePolicy";
 export const getCachePolicy: typeof import("./getCachePolicy").getCachePolicy = null as any;
@@ -153,8 +143,6 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "aws-native:cloudfront:AnycastIpList":
-                return new AnycastIpList(name, <any>undefined, { urn })
             case "aws-native:cloudfront:CachePolicy":
                 return new CachePolicy(name, <any>undefined, { urn })
             case "aws-native:cloudfront:CloudFrontOriginAccessIdentity":
