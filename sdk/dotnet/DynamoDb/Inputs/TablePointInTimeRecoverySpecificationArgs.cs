@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.DynamoDb.Inputs
         [Input("pointInTimeRecoveryEnabled")]
         public Input<bool>? PointInTimeRecoveryEnabled { get; set; }
 
+        [Input("recoveryPeriodInDays")]
+        public Input<int>? RecoveryPeriodInDays { get; set; }
+
         public TablePointInTimeRecoverySpecificationArgs()
         {
         }

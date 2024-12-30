@@ -28,6 +28,7 @@ class GlobalTableArgs:
                  billing_mode: Optional[pulumi.Input[str]] = None,
                  global_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalTableGlobalSecondaryIndexArgs']]]] = None,
                  local_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input['GlobalTableLocalSecondaryIndexArgs']]]] = None,
+                 point_in_time_recovery_specification: Optional[pulumi.Input['GlobalTablePointInTimeRecoverySpecificationArgs']] = None,
                  sse_specification: Optional[pulumi.Input['GlobalTableSseSpecificationArgs']] = None,
                  stream_specification: Optional[pulumi.Input['GlobalTableStreamSpecificationArgs']] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
@@ -75,6 +76,8 @@ class GlobalTableArgs:
             pulumi.set(__self__, "global_secondary_indexes", global_secondary_indexes)
         if local_secondary_indexes is not None:
             pulumi.set(__self__, "local_secondary_indexes", local_secondary_indexes)
+        if point_in_time_recovery_specification is not None:
+            pulumi.set(__self__, "point_in_time_recovery_specification", point_in_time_recovery_specification)
         if sse_specification is not None:
             pulumi.set(__self__, "sse_specification", sse_specification)
         if stream_specification is not None:
@@ -176,6 +179,15 @@ class GlobalTableArgs:
         pulumi.set(self, "local_secondary_indexes", value)
 
     @property
+    @pulumi.getter(name="pointInTimeRecoverySpecification")
+    def point_in_time_recovery_specification(self) -> Optional[pulumi.Input['GlobalTablePointInTimeRecoverySpecificationArgs']]:
+        return pulumi.get(self, "point_in_time_recovery_specification")
+
+    @point_in_time_recovery_specification.setter
+    def point_in_time_recovery_specification(self, value: Optional[pulumi.Input['GlobalTablePointInTimeRecoverySpecificationArgs']]):
+        pulumi.set(self, "point_in_time_recovery_specification", value)
+
+    @property
     @pulumi.getter(name="sseSpecification")
     def sse_specification(self) -> Optional[pulumi.Input['GlobalTableSseSpecificationArgs']]:
         """
@@ -272,6 +284,7 @@ class GlobalTable(pulumi.CustomResource):
                  global_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableGlobalSecondaryIndexArgs', 'GlobalTableGlobalSecondaryIndexArgsDict']]]]] = None,
                  key_schema: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableKeySchemaArgs', 'GlobalTableKeySchemaArgsDict']]]]] = None,
                  local_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableLocalSecondaryIndexArgs', 'GlobalTableLocalSecondaryIndexArgsDict']]]]] = None,
+                 point_in_time_recovery_specification: Optional[pulumi.Input[Union['GlobalTablePointInTimeRecoverySpecificationArgs', 'GlobalTablePointInTimeRecoverySpecificationArgsDict']]] = None,
                  replicas: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableReplicaSpecificationArgs', 'GlobalTableReplicaSpecificationArgsDict']]]]] = None,
                  sse_specification: Optional[pulumi.Input[Union['GlobalTableSseSpecificationArgs', 'GlobalTableSseSpecificationArgsDict']]] = None,
                  stream_specification: Optional[pulumi.Input[Union['GlobalTableStreamSpecificationArgs', 'GlobalTableStreamSpecificationArgsDict']]] = None,
@@ -344,6 +357,7 @@ class GlobalTable(pulumi.CustomResource):
                  global_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableGlobalSecondaryIndexArgs', 'GlobalTableGlobalSecondaryIndexArgsDict']]]]] = None,
                  key_schema: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableKeySchemaArgs', 'GlobalTableKeySchemaArgsDict']]]]] = None,
                  local_secondary_indexes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableLocalSecondaryIndexArgs', 'GlobalTableLocalSecondaryIndexArgsDict']]]]] = None,
+                 point_in_time_recovery_specification: Optional[pulumi.Input[Union['GlobalTablePointInTimeRecoverySpecificationArgs', 'GlobalTablePointInTimeRecoverySpecificationArgsDict']]] = None,
                  replicas: Optional[pulumi.Input[Sequence[pulumi.Input[Union['GlobalTableReplicaSpecificationArgs', 'GlobalTableReplicaSpecificationArgsDict']]]]] = None,
                  sse_specification: Optional[pulumi.Input[Union['GlobalTableSseSpecificationArgs', 'GlobalTableSseSpecificationArgsDict']]] = None,
                  stream_specification: Optional[pulumi.Input[Union['GlobalTableStreamSpecificationArgs', 'GlobalTableStreamSpecificationArgsDict']]] = None,
@@ -370,6 +384,7 @@ class GlobalTable(pulumi.CustomResource):
                 raise TypeError("Missing required property 'key_schema'")
             __props__.__dict__["key_schema"] = key_schema
             __props__.__dict__["local_secondary_indexes"] = local_secondary_indexes
+            __props__.__dict__["point_in_time_recovery_specification"] = point_in_time_recovery_specification
             if replicas is None and not opts.urn:
                 raise TypeError("Missing required property 'replicas'")
             __props__.__dict__["replicas"] = replicas
@@ -413,6 +428,7 @@ class GlobalTable(pulumi.CustomResource):
         __props__.__dict__["global_secondary_indexes"] = None
         __props__.__dict__["key_schema"] = None
         __props__.__dict__["local_secondary_indexes"] = None
+        __props__.__dict__["point_in_time_recovery_specification"] = None
         __props__.__dict__["replicas"] = None
         __props__.__dict__["sse_specification"] = None
         __props__.__dict__["stream_arn"] = None
@@ -479,6 +495,11 @@ class GlobalTable(pulumi.CustomResource):
         Local secondary indexes to be created on the table. You can create up to five local secondary indexes. Each index is scoped to a given hash key value. The size of each hash key can be up to 10 gigabytes. Each replica in your global table will have the same local secondary index settings.
         """
         return pulumi.get(self, "local_secondary_indexes")
+
+    @property
+    @pulumi.getter(name="pointInTimeRecoverySpecification")
+    def point_in_time_recovery_specification(self) -> pulumi.Output[Optional['outputs.GlobalTablePointInTimeRecoverySpecification']]:
+        return pulumi.get(self, "point_in_time_recovery_specification")
 
     @property
     @pulumi.getter

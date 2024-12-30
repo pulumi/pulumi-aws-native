@@ -20,11 +20,16 @@ namespace Pulumi.AwsNative.DynamoDb.Outputs
         /// Indicates whether point in time recovery is enabled (true) or disabled (false) on the table.
         /// </summary>
         public readonly bool? PointInTimeRecoveryEnabled;
+        public readonly int? RecoveryPeriodInDays;
 
         [OutputConstructor]
-        private TablePointInTimeRecoverySpecification(bool? pointInTimeRecoveryEnabled)
+        private TablePointInTimeRecoverySpecification(
+            bool? pointInTimeRecoveryEnabled,
+
+            int? recoveryPeriodInDays)
         {
             PointInTimeRecoveryEnabled = pointInTimeRecoveryEnabled;
+            RecoveryPeriodInDays = recoveryPeriodInDays;
         }
     }
 }

@@ -2495,19 +2495,23 @@ if not MYPY:
         """
         Indicates whether point in time recovery is enabled (true) or disabled (false) on the table.
         """
+        recovery_period_in_days: NotRequired[pulumi.Input[int]]
 elif False:
     TablePointInTimeRecoverySpecificationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class TablePointInTimeRecoverySpecificationArgs:
     def __init__(__self__, *,
-                 point_in_time_recovery_enabled: Optional[pulumi.Input[bool]] = None):
+                 point_in_time_recovery_enabled: Optional[pulumi.Input[bool]] = None,
+                 recovery_period_in_days: Optional[pulumi.Input[int]] = None):
         """
         The settings used to enable point in time recovery.
         :param pulumi.Input[bool] point_in_time_recovery_enabled: Indicates whether point in time recovery is enabled (true) or disabled (false) on the table.
         """
         if point_in_time_recovery_enabled is not None:
             pulumi.set(__self__, "point_in_time_recovery_enabled", point_in_time_recovery_enabled)
+        if recovery_period_in_days is not None:
+            pulumi.set(__self__, "recovery_period_in_days", recovery_period_in_days)
 
     @property
     @pulumi.getter(name="pointInTimeRecoveryEnabled")
@@ -2520,6 +2524,15 @@ class TablePointInTimeRecoverySpecificationArgs:
     @point_in_time_recovery_enabled.setter
     def point_in_time_recovery_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "point_in_time_recovery_enabled", value)
+
+    @property
+    @pulumi.getter(name="recoveryPeriodInDays")
+    def recovery_period_in_days(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "recovery_period_in_days")
+
+    @recovery_period_in_days.setter
+    def recovery_period_in_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "recovery_period_in_days", value)
 
 
 if not MYPY:

@@ -2108,6 +2108,8 @@ class TablePointInTimeRecoverySpecification(dict):
         suggest = None
         if key == "pointInTimeRecoveryEnabled":
             suggest = "point_in_time_recovery_enabled"
+        elif key == "recoveryPeriodInDays":
+            suggest = "recovery_period_in_days"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in TablePointInTimeRecoverySpecification. Access the value via the '{suggest}' property getter instead.")
@@ -2121,13 +2123,16 @@ class TablePointInTimeRecoverySpecification(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 point_in_time_recovery_enabled: Optional[bool] = None):
+                 point_in_time_recovery_enabled: Optional[bool] = None,
+                 recovery_period_in_days: Optional[int] = None):
         """
         The settings used to enable point in time recovery.
         :param bool point_in_time_recovery_enabled: Indicates whether point in time recovery is enabled (true) or disabled (false) on the table.
         """
         if point_in_time_recovery_enabled is not None:
             pulumi.set(__self__, "point_in_time_recovery_enabled", point_in_time_recovery_enabled)
+        if recovery_period_in_days is not None:
+            pulumi.set(__self__, "recovery_period_in_days", recovery_period_in_days)
 
     @property
     @pulumi.getter(name="pointInTimeRecoveryEnabled")
@@ -2136,6 +2141,11 @@ class TablePointInTimeRecoverySpecification(dict):
         Indicates whether point in time recovery is enabled (true) or disabled (false) on the table.
         """
         return pulumi.get(self, "point_in_time_recovery_enabled")
+
+    @property
+    @pulumi.getter(name="recoveryPeriodInDays")
+    def recovery_period_in_days(self) -> Optional[int]:
+        return pulumi.get(self, "recovery_period_in_days")
 
 
 @pulumi.output_type

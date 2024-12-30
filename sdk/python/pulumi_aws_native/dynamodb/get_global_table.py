@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetGlobalTableResult:
-    def __init__(__self__, arn=None, attribute_definitions=None, billing_mode=None, global_secondary_indexes=None, replicas=None, sse_specification=None, stream_arn=None, stream_specification=None, table_id=None, time_to_live_specification=None, warm_throughput=None, write_on_demand_throughput_settings=None, write_provisioned_throughput_settings=None):
+    def __init__(__self__, arn=None, attribute_definitions=None, billing_mode=None, global_secondary_indexes=None, point_in_time_recovery_specification=None, replicas=None, sse_specification=None, stream_arn=None, stream_specification=None, table_id=None, time_to_live_specification=None, warm_throughput=None, write_on_demand_throughput_settings=None, write_provisioned_throughput_settings=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -38,6 +38,9 @@ class GetGlobalTableResult:
         if global_secondary_indexes and not isinstance(global_secondary_indexes, list):
             raise TypeError("Expected argument 'global_secondary_indexes' to be a list")
         pulumi.set(__self__, "global_secondary_indexes", global_secondary_indexes)
+        if point_in_time_recovery_specification and not isinstance(point_in_time_recovery_specification, dict):
+            raise TypeError("Expected argument 'point_in_time_recovery_specification' to be a dict")
+        pulumi.set(__self__, "point_in_time_recovery_specification", point_in_time_recovery_specification)
         if replicas and not isinstance(replicas, list):
             raise TypeError("Expected argument 'replicas' to be a list")
         pulumi.set(__self__, "replicas", replicas)
@@ -104,6 +107,11 @@ class GetGlobalTableResult:
         Since the backfilling of an index could take a long time, CloudFormation does not wait for the index to become active. If a stack operation rolls back, CloudFormation might not delete an index that has been added. In that case, you will need to delete the index manually.
         """
         return pulumi.get(self, "global_secondary_indexes")
+
+    @property
+    @pulumi.getter(name="pointInTimeRecoverySpecification")
+    def point_in_time_recovery_specification(self) -> Optional['outputs.GlobalTablePointInTimeRecoverySpecification']:
+        return pulumi.get(self, "point_in_time_recovery_specification")
 
     @property
     @pulumi.getter
@@ -196,6 +204,7 @@ class AwaitableGetGlobalTableResult(GetGlobalTableResult):
             attribute_definitions=self.attribute_definitions,
             billing_mode=self.billing_mode,
             global_secondary_indexes=self.global_secondary_indexes,
+            point_in_time_recovery_specification=self.point_in_time_recovery_specification,
             replicas=self.replicas,
             sse_specification=self.sse_specification,
             stream_arn=self.stream_arn,
@@ -227,6 +236,7 @@ def get_global_table(table_name: Optional[str] = None,
         attribute_definitions=pulumi.get(__ret__, 'attribute_definitions'),
         billing_mode=pulumi.get(__ret__, 'billing_mode'),
         global_secondary_indexes=pulumi.get(__ret__, 'global_secondary_indexes'),
+        point_in_time_recovery_specification=pulumi.get(__ret__, 'point_in_time_recovery_specification'),
         replicas=pulumi.get(__ret__, 'replicas'),
         sse_specification=pulumi.get(__ret__, 'sse_specification'),
         stream_arn=pulumi.get(__ret__, 'stream_arn'),
@@ -255,6 +265,7 @@ def get_global_table_output(table_name: Optional[pulumi.Input[str]] = None,
         attribute_definitions=pulumi.get(__response__, 'attribute_definitions'),
         billing_mode=pulumi.get(__response__, 'billing_mode'),
         global_secondary_indexes=pulumi.get(__response__, 'global_secondary_indexes'),
+        point_in_time_recovery_specification=pulumi.get(__response__, 'point_in_time_recovery_specification'),
         replicas=pulumi.get(__response__, 'replicas'),
         sse_specification=pulumi.get(__response__, 'sse_specification'),
         stream_arn=pulumi.get(__response__, 'stream_arn'),

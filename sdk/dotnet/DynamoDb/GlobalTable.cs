@@ -58,6 +58,9 @@ namespace Pulumi.AwsNative.DynamoDb
         [Output("localSecondaryIndexes")]
         public Output<ImmutableArray<Outputs.GlobalTableLocalSecondaryIndex>> LocalSecondaryIndexes { get; private set; } = null!;
 
+        [Output("pointInTimeRecoverySpecification")]
+        public Output<Outputs.GlobalTablePointInTimeRecoverySpecification?> PointInTimeRecoverySpecification { get; private set; } = null!;
+
         /// <summary>
         /// Specifies the list of replicas for your global table. The list must contain at least one element, the region where the stack defining the global table is deployed. For example, if you define your table in a stack deployed to us-east-1, you must have an entry in `Replicas` with the region us-east-1. You cannot remove the replica in the stack region.
         /// 
@@ -239,6 +242,9 @@ namespace Pulumi.AwsNative.DynamoDb
             get => _localSecondaryIndexes ?? (_localSecondaryIndexes = new InputList<Inputs.GlobalTableLocalSecondaryIndexArgs>());
             set => _localSecondaryIndexes = value;
         }
+
+        [Input("pointInTimeRecoverySpecification")]
+        public Input<Inputs.GlobalTablePointInTimeRecoverySpecificationArgs>? PointInTimeRecoverySpecification { get; set; }
 
         [Input("replicas", required: true)]
         private InputList<Inputs.GlobalTableReplicaSpecificationArgs>? _replicas;

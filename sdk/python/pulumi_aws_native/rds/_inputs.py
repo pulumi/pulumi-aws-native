@@ -406,9 +406,8 @@ if not MYPY:
         """
         seconds_until_auto_pause: NotRequired[pulumi.Input[int]]
         """
-        Specifies the number of seconds an Aurora Serverless v2 DB instance must be idle before Aurora attempts to automatically pause it.
-
-        Specify a value between 300 seconds (five minutes) and 86,400 seconds (one day). The default is 300 seconds.
+        Specifies the number of seconds an Aurora Serverless v2 DB instance must be idle before Aurora attempts to automatically pause it. 
+         Specify a value between 300 seconds (five minutes) and 86,400 seconds (one day). The default is 300 seconds.
         """
 elif False:
     DbClusterServerlessV2ScalingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
@@ -428,9 +427,8 @@ class DbClusterServerlessV2ScalingConfigurationArgs:
                 The maximum capacity must be higher than 0.5 ACUs. For more information, see [Choosing the maximum Aurora Serverless v2 capacity setting for a cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.setting-capacity.html#aurora-serverless-v2.max_capacity_considerations) in the *Amazon Aurora User Guide*.
                 Aurora automatically sets certain parameters for Aurora Serverless V2 DB instances to values that depend on the maximum ACU value in the capacity range. When you update the maximum capacity value, the ``ParameterApplyStatus`` value for the DB instance changes to ``pending-reboot``. You can update the parameter values by rebooting the DB instance after changing the capacity range.
         :param pulumi.Input[float] min_capacity: The minimum number of Aurora capacity units (ACUs) for a DB instance in an Aurora Serverless v2 cluster. You can specify ACU values in half-step increments, such as 8, 8.5, 9, and so on. For Aurora versions that support the Aurora Serverless v2 auto-pause feature, the smallest value that you can use is 0. For versions that don't support Aurora Serverless v2 auto-pause, the smallest value that you can use is 0.5.
-        :param pulumi.Input[int] seconds_until_auto_pause: Specifies the number of seconds an Aurora Serverless v2 DB instance must be idle before Aurora attempts to automatically pause it.
-               
-               Specify a value between 300 seconds (five minutes) and 86,400 seconds (one day). The default is 300 seconds.
+        :param pulumi.Input[int] seconds_until_auto_pause: Specifies the number of seconds an Aurora Serverless v2 DB instance must be idle before Aurora attempts to automatically pause it. 
+                Specify a value between 300 seconds (five minutes) and 86,400 seconds (one day). The default is 300 seconds.
         """
         if max_capacity is not None:
             pulumi.set(__self__, "max_capacity", max_capacity)
@@ -469,9 +467,8 @@ class DbClusterServerlessV2ScalingConfigurationArgs:
     @pulumi.getter(name="secondsUntilAutoPause")
     def seconds_until_auto_pause(self) -> Optional[pulumi.Input[int]]:
         """
-        Specifies the number of seconds an Aurora Serverless v2 DB instance must be idle before Aurora attempts to automatically pause it.
-
-        Specify a value between 300 seconds (five minutes) and 86,400 seconds (one day). The default is 300 seconds.
+        Specifies the number of seconds an Aurora Serverless v2 DB instance must be idle before Aurora attempts to automatically pause it. 
+         Specify a value between 300 seconds (five minutes) and 86,400 seconds (one day). The default is 300 seconds.
         """
         return pulumi.get(self, "seconds_until_auto_pause")
 

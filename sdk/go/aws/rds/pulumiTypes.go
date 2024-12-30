@@ -860,8 +860,7 @@ type DbClusterServerlessV2ScalingConfiguration struct {
 	// The minimum number of Aurora capacity units (ACUs) for a DB instance in an Aurora Serverless v2 cluster. You can specify ACU values in half-step increments, such as 8, 8.5, 9, and so on. For Aurora versions that support the Aurora Serverless v2 auto-pause feature, the smallest value that you can use is 0. For versions that don't support Aurora Serverless v2 auto-pause, the smallest value that you can use is 0.5.
 	MinCapacity *float64 `pulumi:"minCapacity"`
 	// Specifies the number of seconds an Aurora Serverless v2 DB instance must be idle before Aurora attempts to automatically pause it.
-	//
-	// Specify a value between 300 seconds (five minutes) and 86,400 seconds (one day). The default is 300 seconds.
+	//  Specify a value between 300 seconds (five minutes) and 86,400 seconds (one day). The default is 300 seconds.
 	SecondsUntilAutoPause *int `pulumi:"secondsUntilAutoPause"`
 }
 
@@ -889,8 +888,7 @@ type DbClusterServerlessV2ScalingConfigurationArgs struct {
 	// The minimum number of Aurora capacity units (ACUs) for a DB instance in an Aurora Serverless v2 cluster. You can specify ACU values in half-step increments, such as 8, 8.5, 9, and so on. For Aurora versions that support the Aurora Serverless v2 auto-pause feature, the smallest value that you can use is 0. For versions that don't support Aurora Serverless v2 auto-pause, the smallest value that you can use is 0.5.
 	MinCapacity pulumi.Float64PtrInput `pulumi:"minCapacity"`
 	// Specifies the number of seconds an Aurora Serverless v2 DB instance must be idle before Aurora attempts to automatically pause it.
-	//
-	// Specify a value between 300 seconds (five minutes) and 86,400 seconds (one day). The default is 300 seconds.
+	//  Specify a value between 300 seconds (five minutes) and 86,400 seconds (one day). The default is 300 seconds.
 	SecondsUntilAutoPause pulumi.IntPtrInput `pulumi:"secondsUntilAutoPause"`
 }
 
@@ -991,7 +989,7 @@ func (o DbClusterServerlessV2ScalingConfigurationOutput) MinCapacity() pulumi.Fl
 
 // Specifies the number of seconds an Aurora Serverless v2 DB instance must be idle before Aurora attempts to automatically pause it.
 //
-// Specify a value between 300 seconds (five minutes) and 86,400 seconds (one day). The default is 300 seconds.
+//	Specify a value between 300 seconds (five minutes) and 86,400 seconds (one day). The default is 300 seconds.
 func (o DbClusterServerlessV2ScalingConfigurationOutput) SecondsUntilAutoPause() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DbClusterServerlessV2ScalingConfiguration) *int { return v.SecondsUntilAutoPause }).(pulumi.IntPtrOutput)
 }
@@ -1045,7 +1043,7 @@ func (o DbClusterServerlessV2ScalingConfigurationPtrOutput) MinCapacity() pulumi
 
 // Specifies the number of seconds an Aurora Serverless v2 DB instance must be idle before Aurora attempts to automatically pause it.
 //
-// Specify a value between 300 seconds (five minutes) and 86,400 seconds (one day). The default is 300 seconds.
+//	Specify a value between 300 seconds (five minutes) and 86,400 seconds (one day). The default is 300 seconds.
 func (o DbClusterServerlessV2ScalingConfigurationPtrOutput) SecondsUntilAutoPause() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *DbClusterServerlessV2ScalingConfiguration) *int {
 		if v == nil {

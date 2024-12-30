@@ -5133,6 +5133,7 @@ func (o TableOnDemandThroughputPtrOutput) MaxWriteRequestUnits() pulumi.IntPtrOu
 type TablePointInTimeRecoverySpecification struct {
 	// Indicates whether point in time recovery is enabled (true) or disabled (false) on the table.
 	PointInTimeRecoveryEnabled *bool `pulumi:"pointInTimeRecoveryEnabled"`
+	RecoveryPeriodInDays       *int  `pulumi:"recoveryPeriodInDays"`
 }
 
 // TablePointInTimeRecoverySpecificationInput is an input type that accepts TablePointInTimeRecoverySpecificationArgs and TablePointInTimeRecoverySpecificationOutput values.
@@ -5150,6 +5151,7 @@ type TablePointInTimeRecoverySpecificationInput interface {
 type TablePointInTimeRecoverySpecificationArgs struct {
 	// Indicates whether point in time recovery is enabled (true) or disabled (false) on the table.
 	PointInTimeRecoveryEnabled pulumi.BoolPtrInput `pulumi:"pointInTimeRecoveryEnabled"`
+	RecoveryPeriodInDays       pulumi.IntPtrInput  `pulumi:"recoveryPeriodInDays"`
 }
 
 func (TablePointInTimeRecoverySpecificationArgs) ElementType() reflect.Type {
@@ -5235,6 +5237,10 @@ func (o TablePointInTimeRecoverySpecificationOutput) PointInTimeRecoveryEnabled(
 	return o.ApplyT(func(v TablePointInTimeRecoverySpecification) *bool { return v.PointInTimeRecoveryEnabled }).(pulumi.BoolPtrOutput)
 }
 
+func (o TablePointInTimeRecoverySpecificationOutput) RecoveryPeriodInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TablePointInTimeRecoverySpecification) *int { return v.RecoveryPeriodInDays }).(pulumi.IntPtrOutput)
+}
+
 type TablePointInTimeRecoverySpecificationPtrOutput struct{ *pulumi.OutputState }
 
 func (TablePointInTimeRecoverySpecificationPtrOutput) ElementType() reflect.Type {
@@ -5267,6 +5273,15 @@ func (o TablePointInTimeRecoverySpecificationPtrOutput) PointInTimeRecoveryEnabl
 		}
 		return v.PointInTimeRecoveryEnabled
 	}).(pulumi.BoolPtrOutput)
+}
+
+func (o TablePointInTimeRecoverySpecificationPtrOutput) RecoveryPeriodInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TablePointInTimeRecoverySpecification) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RecoveryPeriodInDays
+	}).(pulumi.IntPtrOutput)
 }
 
 // Represents attributes that are copied (projected) from the table into an index. These are in addition to the primary key attributes and index key attributes, which are automatically projected.

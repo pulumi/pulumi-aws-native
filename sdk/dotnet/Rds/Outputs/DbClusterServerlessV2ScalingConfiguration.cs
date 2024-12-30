@@ -30,9 +30,8 @@ namespace Pulumi.AwsNative.Rds.Outputs
         /// </summary>
         public readonly double? MinCapacity;
         /// <summary>
-        /// Specifies the number of seconds an Aurora Serverless v2 DB instance must be idle before Aurora attempts to automatically pause it.
-        /// 
-        /// Specify a value between 300 seconds (five minutes) and 86,400 seconds (one day). The default is 300 seconds.
+        /// Specifies the number of seconds an Aurora Serverless v2 DB instance must be idle before Aurora attempts to automatically pause it. 
+        ///  Specify a value between 300 seconds (five minutes) and 86,400 seconds (one day). The default is 300 seconds.
         /// </summary>
         public readonly int? SecondsUntilAutoPause;
 
