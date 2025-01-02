@@ -16,10 +16,28 @@ namespace Pulumi.AwsNative.Dms.Inputs
     public sealed class SettingsPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// DocDbSettings property identifier.
+        /// </summary>
+        [Input("docDbSettings")]
+        public Input<Inputs.SettingsPropertiesDocDbSettingsPropertiesArgs>? DocDbSettings { get; set; }
+
+        /// <summary>
+        /// MariaDbSettings property identifier.
+        /// </summary>
+        [Input("mariaDbSettings")]
+        public Input<Inputs.SettingsPropertiesMariaDbSettingsPropertiesArgs>? MariaDbSettings { get; set; }
+
+        /// <summary>
         /// MicrosoftSqlServerSettings property identifier.
         /// </summary>
         [Input("microsoftSqlServerSettings")]
         public Input<Inputs.SettingsPropertiesMicrosoftSqlServerSettingsPropertiesArgs>? MicrosoftSqlServerSettings { get; set; }
+
+        /// <summary>
+        /// MongoDbSettings property identifier.
+        /// </summary>
+        [Input("mongoDbSettings")]
+        public Input<Inputs.SettingsPropertiesMongoDbSettingsPropertiesArgs>? MongoDbSettings { get; set; }
 
         /// <summary>
         /// MySqlSettings property identifier.
@@ -38,6 +56,12 @@ namespace Pulumi.AwsNative.Dms.Inputs
         /// </summary>
         [Input("postgreSqlSettings")]
         public Input<Inputs.SettingsPropertiesPostgreSqlSettingsPropertiesArgs>? PostgreSqlSettings { get; set; }
+
+        /// <summary>
+        /// RedshiftSettings property identifier.
+        /// </summary>
+        [Input("redshiftSettings")]
+        public Input<Inputs.SettingsPropertiesRedshiftSettingsPropertiesArgs>? RedshiftSettings { get; set; }
 
         public SettingsPropertiesArgs()
         {

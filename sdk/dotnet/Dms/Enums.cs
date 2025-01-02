@@ -82,12 +82,16 @@ namespace Pulumi.AwsNative.Dms
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static DataProviderEngine Postgres { get; } = new DataProviderEngine("postgres");
-        public static DataProviderEngine Mysql { get; } = new DataProviderEngine("mysql");
-        public static DataProviderEngine Oracle { get; } = new DataProviderEngine("oracle");
-        public static DataProviderEngine Sqlserver { get; } = new DataProviderEngine("sqlserver");
         public static DataProviderEngine Aurora { get; } = new DataProviderEngine("aurora");
         public static DataProviderEngine AuroraPostgresql { get; } = new DataProviderEngine("aurora_postgresql");
+        public static DataProviderEngine Mysql { get; } = new DataProviderEngine("mysql");
+        public static DataProviderEngine Oracle { get; } = new DataProviderEngine("oracle");
+        public static DataProviderEngine Postgres { get; } = new DataProviderEngine("postgres");
+        public static DataProviderEngine Sqlserver { get; } = new DataProviderEngine("sqlserver");
+        public static DataProviderEngine Redshift { get; } = new DataProviderEngine("redshift");
+        public static DataProviderEngine Mariadb { get; } = new DataProviderEngine("mariadb");
+        public static DataProviderEngine Mongodb { get; } = new DataProviderEngine("mongodb");
+        public static DataProviderEngine Docdb { get; } = new DataProviderEngine("docdb");
 
         public static bool operator ==(DataProviderEngine left, DataProviderEngine right) => left.Equals(right);
         public static bool operator !=(DataProviderEngine left, DataProviderEngine right) => !left.Equals(right);
@@ -97,6 +101,92 @@ namespace Pulumi.AwsNative.Dms
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DataProviderEngine other && Equals(other);
         public bool Equals(DataProviderEngine other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DataProviderMongoDbAuthMechanism : IEquatable<DataProviderMongoDbAuthMechanism>
+    {
+        private readonly string _value;
+
+        private DataProviderMongoDbAuthMechanism(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataProviderMongoDbAuthMechanism Default { get; } = new DataProviderMongoDbAuthMechanism("default");
+        public static DataProviderMongoDbAuthMechanism MongodbCr { get; } = new DataProviderMongoDbAuthMechanism("mongodb_cr");
+        public static DataProviderMongoDbAuthMechanism ScramSha1 { get; } = new DataProviderMongoDbAuthMechanism("scram_sha_1");
+
+        public static bool operator ==(DataProviderMongoDbAuthMechanism left, DataProviderMongoDbAuthMechanism right) => left.Equals(right);
+        public static bool operator !=(DataProviderMongoDbAuthMechanism left, DataProviderMongoDbAuthMechanism right) => !left.Equals(right);
+
+        public static explicit operator string(DataProviderMongoDbAuthMechanism value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataProviderMongoDbAuthMechanism other && Equals(other);
+        public bool Equals(DataProviderMongoDbAuthMechanism other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DataProviderMongoDbAuthType : IEquatable<DataProviderMongoDbAuthType>
+    {
+        private readonly string _value;
+
+        private DataProviderMongoDbAuthType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataProviderMongoDbAuthType No { get; } = new DataProviderMongoDbAuthType("no");
+        public static DataProviderMongoDbAuthType Password { get; } = new DataProviderMongoDbAuthType("password");
+
+        public static bool operator ==(DataProviderMongoDbAuthType left, DataProviderMongoDbAuthType right) => left.Equals(right);
+        public static bool operator !=(DataProviderMongoDbAuthType left, DataProviderMongoDbAuthType right) => !left.Equals(right);
+
+        public static explicit operator string(DataProviderMongoDbAuthType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataProviderMongoDbAuthType other && Equals(other);
+        public bool Equals(DataProviderMongoDbAuthType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct DataProviderMongoDbSslModeValue : IEquatable<DataProviderMongoDbSslModeValue>
+    {
+        private readonly string _value;
+
+        private DataProviderMongoDbSslModeValue(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DataProviderMongoDbSslModeValue None { get; } = new DataProviderMongoDbSslModeValue("none");
+        public static DataProviderMongoDbSslModeValue Require { get; } = new DataProviderMongoDbSslModeValue("require");
+        public static DataProviderMongoDbSslModeValue VerifyFull { get; } = new DataProviderMongoDbSslModeValue("verify-full");
+
+        public static bool operator ==(DataProviderMongoDbSslModeValue left, DataProviderMongoDbSslModeValue right) => left.Equals(right);
+        public static bool operator !=(DataProviderMongoDbSslModeValue left, DataProviderMongoDbSslModeValue right) => !left.Equals(right);
+
+        public static explicit operator string(DataProviderMongoDbSslModeValue value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataProviderMongoDbSslModeValue other && Equals(other);
+        public bool Equals(DataProviderMongoDbSslModeValue other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

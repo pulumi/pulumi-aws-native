@@ -913,14 +913,22 @@ func (o SchemaConversionApplicationAttributesPropertiesPtrOutput) S3BucketRoleAr
 
 // The property identifies the exact type of settings for the data provider.
 type SettingsProperties struct {
+	// DocDbSettings property identifier.
+	DocDbSettings *SettingsPropertiesDocDbSettingsProperties `pulumi:"docDbSettings"`
+	// MariaDbSettings property identifier.
+	MariaDbSettings *SettingsPropertiesMariaDbSettingsProperties `pulumi:"mariaDbSettings"`
 	// MicrosoftSqlServerSettings property identifier.
 	MicrosoftSqlServerSettings *SettingsPropertiesMicrosoftSqlServerSettingsProperties `pulumi:"microsoftSqlServerSettings"`
+	// MongoDbSettings property identifier.
+	MongoDbSettings *SettingsPropertiesMongoDbSettingsProperties `pulumi:"mongoDbSettings"`
 	// MySqlSettings property identifier.
 	MySqlSettings *SettingsPropertiesMySqlSettingsProperties `pulumi:"mySqlSettings"`
 	// OracleSettings property identifier.
 	OracleSettings *SettingsPropertiesOracleSettingsProperties `pulumi:"oracleSettings"`
 	// PostgreSqlSettings property identifier.
 	PostgreSqlSettings *SettingsPropertiesPostgreSqlSettingsProperties `pulumi:"postgreSqlSettings"`
+	// RedshiftSettings property identifier.
+	RedshiftSettings *SettingsPropertiesRedshiftSettingsProperties `pulumi:"redshiftSettings"`
 }
 
 // SettingsPropertiesInput is an input type that accepts SettingsPropertiesArgs and SettingsPropertiesOutput values.
@@ -936,14 +944,22 @@ type SettingsPropertiesInput interface {
 
 // The property identifies the exact type of settings for the data provider.
 type SettingsPropertiesArgs struct {
+	// DocDbSettings property identifier.
+	DocDbSettings SettingsPropertiesDocDbSettingsPropertiesPtrInput `pulumi:"docDbSettings"`
+	// MariaDbSettings property identifier.
+	MariaDbSettings SettingsPropertiesMariaDbSettingsPropertiesPtrInput `pulumi:"mariaDbSettings"`
 	// MicrosoftSqlServerSettings property identifier.
 	MicrosoftSqlServerSettings SettingsPropertiesMicrosoftSqlServerSettingsPropertiesPtrInput `pulumi:"microsoftSqlServerSettings"`
+	// MongoDbSettings property identifier.
+	MongoDbSettings SettingsPropertiesMongoDbSettingsPropertiesPtrInput `pulumi:"mongoDbSettings"`
 	// MySqlSettings property identifier.
 	MySqlSettings SettingsPropertiesMySqlSettingsPropertiesPtrInput `pulumi:"mySqlSettings"`
 	// OracleSettings property identifier.
 	OracleSettings SettingsPropertiesOracleSettingsPropertiesPtrInput `pulumi:"oracleSettings"`
 	// PostgreSqlSettings property identifier.
 	PostgreSqlSettings SettingsPropertiesPostgreSqlSettingsPropertiesPtrInput `pulumi:"postgreSqlSettings"`
+	// RedshiftSettings property identifier.
+	RedshiftSettings SettingsPropertiesRedshiftSettingsPropertiesPtrInput `pulumi:"redshiftSettings"`
 }
 
 func (SettingsPropertiesArgs) ElementType() reflect.Type {
@@ -1024,11 +1040,26 @@ func (o SettingsPropertiesOutput) ToSettingsPropertiesPtrOutputWithContext(ctx c
 	}).(SettingsPropertiesPtrOutput)
 }
 
+// DocDbSettings property identifier.
+func (o SettingsPropertiesOutput) DocDbSettings() SettingsPropertiesDocDbSettingsPropertiesPtrOutput {
+	return o.ApplyT(func(v SettingsProperties) *SettingsPropertiesDocDbSettingsProperties { return v.DocDbSettings }).(SettingsPropertiesDocDbSettingsPropertiesPtrOutput)
+}
+
+// MariaDbSettings property identifier.
+func (o SettingsPropertiesOutput) MariaDbSettings() SettingsPropertiesMariaDbSettingsPropertiesPtrOutput {
+	return o.ApplyT(func(v SettingsProperties) *SettingsPropertiesMariaDbSettingsProperties { return v.MariaDbSettings }).(SettingsPropertiesMariaDbSettingsPropertiesPtrOutput)
+}
+
 // MicrosoftSqlServerSettings property identifier.
 func (o SettingsPropertiesOutput) MicrosoftSqlServerSettings() SettingsPropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput {
 	return o.ApplyT(func(v SettingsProperties) *SettingsPropertiesMicrosoftSqlServerSettingsProperties {
 		return v.MicrosoftSqlServerSettings
 	}).(SettingsPropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput)
+}
+
+// MongoDbSettings property identifier.
+func (o SettingsPropertiesOutput) MongoDbSettings() SettingsPropertiesMongoDbSettingsPropertiesPtrOutput {
+	return o.ApplyT(func(v SettingsProperties) *SettingsPropertiesMongoDbSettingsProperties { return v.MongoDbSettings }).(SettingsPropertiesMongoDbSettingsPropertiesPtrOutput)
 }
 
 // MySqlSettings property identifier.
@@ -1046,6 +1077,11 @@ func (o SettingsPropertiesOutput) PostgreSqlSettings() SettingsPropertiesPostgre
 	return o.ApplyT(func(v SettingsProperties) *SettingsPropertiesPostgreSqlSettingsProperties {
 		return v.PostgreSqlSettings
 	}).(SettingsPropertiesPostgreSqlSettingsPropertiesPtrOutput)
+}
+
+// RedshiftSettings property identifier.
+func (o SettingsPropertiesOutput) RedshiftSettings() SettingsPropertiesRedshiftSettingsPropertiesPtrOutput {
+	return o.ApplyT(func(v SettingsProperties) *SettingsPropertiesRedshiftSettingsProperties { return v.RedshiftSettings }).(SettingsPropertiesRedshiftSettingsPropertiesPtrOutput)
 }
 
 type SettingsPropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -1072,6 +1108,26 @@ func (o SettingsPropertiesPtrOutput) Elem() SettingsPropertiesOutput {
 	}).(SettingsPropertiesOutput)
 }
 
+// DocDbSettings property identifier.
+func (o SettingsPropertiesPtrOutput) DocDbSettings() SettingsPropertiesDocDbSettingsPropertiesPtrOutput {
+	return o.ApplyT(func(v *SettingsProperties) *SettingsPropertiesDocDbSettingsProperties {
+		if v == nil {
+			return nil
+		}
+		return v.DocDbSettings
+	}).(SettingsPropertiesDocDbSettingsPropertiesPtrOutput)
+}
+
+// MariaDbSettings property identifier.
+func (o SettingsPropertiesPtrOutput) MariaDbSettings() SettingsPropertiesMariaDbSettingsPropertiesPtrOutput {
+	return o.ApplyT(func(v *SettingsProperties) *SettingsPropertiesMariaDbSettingsProperties {
+		if v == nil {
+			return nil
+		}
+		return v.MariaDbSettings
+	}).(SettingsPropertiesMariaDbSettingsPropertiesPtrOutput)
+}
+
 // MicrosoftSqlServerSettings property identifier.
 func (o SettingsPropertiesPtrOutput) MicrosoftSqlServerSettings() SettingsPropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput {
 	return o.ApplyT(func(v *SettingsProperties) *SettingsPropertiesMicrosoftSqlServerSettingsProperties {
@@ -1080,6 +1136,16 @@ func (o SettingsPropertiesPtrOutput) MicrosoftSqlServerSettings() SettingsProper
 		}
 		return v.MicrosoftSqlServerSettings
 	}).(SettingsPropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput)
+}
+
+// MongoDbSettings property identifier.
+func (o SettingsPropertiesPtrOutput) MongoDbSettings() SettingsPropertiesMongoDbSettingsPropertiesPtrOutput {
+	return o.ApplyT(func(v *SettingsProperties) *SettingsPropertiesMongoDbSettingsProperties {
+		if v == nil {
+			return nil
+		}
+		return v.MongoDbSettings
+	}).(SettingsPropertiesMongoDbSettingsPropertiesPtrOutput)
 }
 
 // MySqlSettings property identifier.
@@ -1110,6 +1176,393 @@ func (o SettingsPropertiesPtrOutput) PostgreSqlSettings() SettingsPropertiesPost
 		}
 		return v.PostgreSqlSettings
 	}).(SettingsPropertiesPostgreSqlSettingsPropertiesPtrOutput)
+}
+
+// RedshiftSettings property identifier.
+func (o SettingsPropertiesPtrOutput) RedshiftSettings() SettingsPropertiesRedshiftSettingsPropertiesPtrOutput {
+	return o.ApplyT(func(v *SettingsProperties) *SettingsPropertiesRedshiftSettingsProperties {
+		if v == nil {
+			return nil
+		}
+		return v.RedshiftSettings
+	}).(SettingsPropertiesRedshiftSettingsPropertiesPtrOutput)
+}
+
+// DocDbSettings property identifier.
+type SettingsPropertiesDocDbSettingsProperties struct {
+	CertificateArn *string                          `pulumi:"certificateArn"`
+	DatabaseName   string                           `pulumi:"databaseName"`
+	Port           int                              `pulumi:"port"`
+	ServerName     string                           `pulumi:"serverName"`
+	SslMode        *DataProviderMongoDbSslModeValue `pulumi:"sslMode"`
+}
+
+// SettingsPropertiesDocDbSettingsPropertiesInput is an input type that accepts SettingsPropertiesDocDbSettingsPropertiesArgs and SettingsPropertiesDocDbSettingsPropertiesOutput values.
+// You can construct a concrete instance of `SettingsPropertiesDocDbSettingsPropertiesInput` via:
+//
+//	SettingsPropertiesDocDbSettingsPropertiesArgs{...}
+type SettingsPropertiesDocDbSettingsPropertiesInput interface {
+	pulumi.Input
+
+	ToSettingsPropertiesDocDbSettingsPropertiesOutput() SettingsPropertiesDocDbSettingsPropertiesOutput
+	ToSettingsPropertiesDocDbSettingsPropertiesOutputWithContext(context.Context) SettingsPropertiesDocDbSettingsPropertiesOutput
+}
+
+// DocDbSettings property identifier.
+type SettingsPropertiesDocDbSettingsPropertiesArgs struct {
+	CertificateArn pulumi.StringPtrInput                   `pulumi:"certificateArn"`
+	DatabaseName   pulumi.StringInput                      `pulumi:"databaseName"`
+	Port           pulumi.IntInput                         `pulumi:"port"`
+	ServerName     pulumi.StringInput                      `pulumi:"serverName"`
+	SslMode        DataProviderMongoDbSslModeValuePtrInput `pulumi:"sslMode"`
+}
+
+func (SettingsPropertiesDocDbSettingsPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SettingsPropertiesDocDbSettingsProperties)(nil)).Elem()
+}
+
+func (i SettingsPropertiesDocDbSettingsPropertiesArgs) ToSettingsPropertiesDocDbSettingsPropertiesOutput() SettingsPropertiesDocDbSettingsPropertiesOutput {
+	return i.ToSettingsPropertiesDocDbSettingsPropertiesOutputWithContext(context.Background())
+}
+
+func (i SettingsPropertiesDocDbSettingsPropertiesArgs) ToSettingsPropertiesDocDbSettingsPropertiesOutputWithContext(ctx context.Context) SettingsPropertiesDocDbSettingsPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SettingsPropertiesDocDbSettingsPropertiesOutput)
+}
+
+func (i SettingsPropertiesDocDbSettingsPropertiesArgs) ToSettingsPropertiesDocDbSettingsPropertiesPtrOutput() SettingsPropertiesDocDbSettingsPropertiesPtrOutput {
+	return i.ToSettingsPropertiesDocDbSettingsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i SettingsPropertiesDocDbSettingsPropertiesArgs) ToSettingsPropertiesDocDbSettingsPropertiesPtrOutputWithContext(ctx context.Context) SettingsPropertiesDocDbSettingsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SettingsPropertiesDocDbSettingsPropertiesOutput).ToSettingsPropertiesDocDbSettingsPropertiesPtrOutputWithContext(ctx)
+}
+
+// SettingsPropertiesDocDbSettingsPropertiesPtrInput is an input type that accepts SettingsPropertiesDocDbSettingsPropertiesArgs, SettingsPropertiesDocDbSettingsPropertiesPtr and SettingsPropertiesDocDbSettingsPropertiesPtrOutput values.
+// You can construct a concrete instance of `SettingsPropertiesDocDbSettingsPropertiesPtrInput` via:
+//
+//	        SettingsPropertiesDocDbSettingsPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type SettingsPropertiesDocDbSettingsPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToSettingsPropertiesDocDbSettingsPropertiesPtrOutput() SettingsPropertiesDocDbSettingsPropertiesPtrOutput
+	ToSettingsPropertiesDocDbSettingsPropertiesPtrOutputWithContext(context.Context) SettingsPropertiesDocDbSettingsPropertiesPtrOutput
+}
+
+type settingsPropertiesDocDbSettingsPropertiesPtrType SettingsPropertiesDocDbSettingsPropertiesArgs
+
+func SettingsPropertiesDocDbSettingsPropertiesPtr(v *SettingsPropertiesDocDbSettingsPropertiesArgs) SettingsPropertiesDocDbSettingsPropertiesPtrInput {
+	return (*settingsPropertiesDocDbSettingsPropertiesPtrType)(v)
+}
+
+func (*settingsPropertiesDocDbSettingsPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SettingsPropertiesDocDbSettingsProperties)(nil)).Elem()
+}
+
+func (i *settingsPropertiesDocDbSettingsPropertiesPtrType) ToSettingsPropertiesDocDbSettingsPropertiesPtrOutput() SettingsPropertiesDocDbSettingsPropertiesPtrOutput {
+	return i.ToSettingsPropertiesDocDbSettingsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *settingsPropertiesDocDbSettingsPropertiesPtrType) ToSettingsPropertiesDocDbSettingsPropertiesPtrOutputWithContext(ctx context.Context) SettingsPropertiesDocDbSettingsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SettingsPropertiesDocDbSettingsPropertiesPtrOutput)
+}
+
+// DocDbSettings property identifier.
+type SettingsPropertiesDocDbSettingsPropertiesOutput struct{ *pulumi.OutputState }
+
+func (SettingsPropertiesDocDbSettingsPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SettingsPropertiesDocDbSettingsProperties)(nil)).Elem()
+}
+
+func (o SettingsPropertiesDocDbSettingsPropertiesOutput) ToSettingsPropertiesDocDbSettingsPropertiesOutput() SettingsPropertiesDocDbSettingsPropertiesOutput {
+	return o
+}
+
+func (o SettingsPropertiesDocDbSettingsPropertiesOutput) ToSettingsPropertiesDocDbSettingsPropertiesOutputWithContext(ctx context.Context) SettingsPropertiesDocDbSettingsPropertiesOutput {
+	return o
+}
+
+func (o SettingsPropertiesDocDbSettingsPropertiesOutput) ToSettingsPropertiesDocDbSettingsPropertiesPtrOutput() SettingsPropertiesDocDbSettingsPropertiesPtrOutput {
+	return o.ToSettingsPropertiesDocDbSettingsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o SettingsPropertiesDocDbSettingsPropertiesOutput) ToSettingsPropertiesDocDbSettingsPropertiesPtrOutputWithContext(ctx context.Context) SettingsPropertiesDocDbSettingsPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SettingsPropertiesDocDbSettingsProperties) *SettingsPropertiesDocDbSettingsProperties {
+		return &v
+	}).(SettingsPropertiesDocDbSettingsPropertiesPtrOutput)
+}
+
+func (o SettingsPropertiesDocDbSettingsPropertiesOutput) CertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SettingsPropertiesDocDbSettingsProperties) *string { return v.CertificateArn }).(pulumi.StringPtrOutput)
+}
+
+func (o SettingsPropertiesDocDbSettingsPropertiesOutput) DatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v SettingsPropertiesDocDbSettingsProperties) string { return v.DatabaseName }).(pulumi.StringOutput)
+}
+
+func (o SettingsPropertiesDocDbSettingsPropertiesOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v SettingsPropertiesDocDbSettingsProperties) int { return v.Port }).(pulumi.IntOutput)
+}
+
+func (o SettingsPropertiesDocDbSettingsPropertiesOutput) ServerName() pulumi.StringOutput {
+	return o.ApplyT(func(v SettingsPropertiesDocDbSettingsProperties) string { return v.ServerName }).(pulumi.StringOutput)
+}
+
+func (o SettingsPropertiesDocDbSettingsPropertiesOutput) SslMode() DataProviderMongoDbSslModeValuePtrOutput {
+	return o.ApplyT(func(v SettingsPropertiesDocDbSettingsProperties) *DataProviderMongoDbSslModeValue { return v.SslMode }).(DataProviderMongoDbSslModeValuePtrOutput)
+}
+
+type SettingsPropertiesDocDbSettingsPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (SettingsPropertiesDocDbSettingsPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SettingsPropertiesDocDbSettingsProperties)(nil)).Elem()
+}
+
+func (o SettingsPropertiesDocDbSettingsPropertiesPtrOutput) ToSettingsPropertiesDocDbSettingsPropertiesPtrOutput() SettingsPropertiesDocDbSettingsPropertiesPtrOutput {
+	return o
+}
+
+func (o SettingsPropertiesDocDbSettingsPropertiesPtrOutput) ToSettingsPropertiesDocDbSettingsPropertiesPtrOutputWithContext(ctx context.Context) SettingsPropertiesDocDbSettingsPropertiesPtrOutput {
+	return o
+}
+
+func (o SettingsPropertiesDocDbSettingsPropertiesPtrOutput) Elem() SettingsPropertiesDocDbSettingsPropertiesOutput {
+	return o.ApplyT(func(v *SettingsPropertiesDocDbSettingsProperties) SettingsPropertiesDocDbSettingsProperties {
+		if v != nil {
+			return *v
+		}
+		var ret SettingsPropertiesDocDbSettingsProperties
+		return ret
+	}).(SettingsPropertiesDocDbSettingsPropertiesOutput)
+}
+
+func (o SettingsPropertiesDocDbSettingsPropertiesPtrOutput) CertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SettingsPropertiesDocDbSettingsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CertificateArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SettingsPropertiesDocDbSettingsPropertiesPtrOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SettingsPropertiesDocDbSettingsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DatabaseName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SettingsPropertiesDocDbSettingsPropertiesPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SettingsPropertiesDocDbSettingsProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Port
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o SettingsPropertiesDocDbSettingsPropertiesPtrOutput) ServerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SettingsPropertiesDocDbSettingsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ServerName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SettingsPropertiesDocDbSettingsPropertiesPtrOutput) SslMode() DataProviderMongoDbSslModeValuePtrOutput {
+	return o.ApplyT(func(v *SettingsPropertiesDocDbSettingsProperties) *DataProviderMongoDbSslModeValue {
+		if v == nil {
+			return nil
+		}
+		return v.SslMode
+	}).(DataProviderMongoDbSslModeValuePtrOutput)
+}
+
+// MariaDbSettings property identifier.
+type SettingsPropertiesMariaDbSettingsProperties struct {
+	CertificateArn *string                     `pulumi:"certificateArn"`
+	Port           int                         `pulumi:"port"`
+	ServerName     string                      `pulumi:"serverName"`
+	SslMode        DataProviderDmsSslModeValue `pulumi:"sslMode"`
+}
+
+// SettingsPropertiesMariaDbSettingsPropertiesInput is an input type that accepts SettingsPropertiesMariaDbSettingsPropertiesArgs and SettingsPropertiesMariaDbSettingsPropertiesOutput values.
+// You can construct a concrete instance of `SettingsPropertiesMariaDbSettingsPropertiesInput` via:
+//
+//	SettingsPropertiesMariaDbSettingsPropertiesArgs{...}
+type SettingsPropertiesMariaDbSettingsPropertiesInput interface {
+	pulumi.Input
+
+	ToSettingsPropertiesMariaDbSettingsPropertiesOutput() SettingsPropertiesMariaDbSettingsPropertiesOutput
+	ToSettingsPropertiesMariaDbSettingsPropertiesOutputWithContext(context.Context) SettingsPropertiesMariaDbSettingsPropertiesOutput
+}
+
+// MariaDbSettings property identifier.
+type SettingsPropertiesMariaDbSettingsPropertiesArgs struct {
+	CertificateArn pulumi.StringPtrInput            `pulumi:"certificateArn"`
+	Port           pulumi.IntInput                  `pulumi:"port"`
+	ServerName     pulumi.StringInput               `pulumi:"serverName"`
+	SslMode        DataProviderDmsSslModeValueInput `pulumi:"sslMode"`
+}
+
+func (SettingsPropertiesMariaDbSettingsPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SettingsPropertiesMariaDbSettingsProperties)(nil)).Elem()
+}
+
+func (i SettingsPropertiesMariaDbSettingsPropertiesArgs) ToSettingsPropertiesMariaDbSettingsPropertiesOutput() SettingsPropertiesMariaDbSettingsPropertiesOutput {
+	return i.ToSettingsPropertiesMariaDbSettingsPropertiesOutputWithContext(context.Background())
+}
+
+func (i SettingsPropertiesMariaDbSettingsPropertiesArgs) ToSettingsPropertiesMariaDbSettingsPropertiesOutputWithContext(ctx context.Context) SettingsPropertiesMariaDbSettingsPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SettingsPropertiesMariaDbSettingsPropertiesOutput)
+}
+
+func (i SettingsPropertiesMariaDbSettingsPropertiesArgs) ToSettingsPropertiesMariaDbSettingsPropertiesPtrOutput() SettingsPropertiesMariaDbSettingsPropertiesPtrOutput {
+	return i.ToSettingsPropertiesMariaDbSettingsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i SettingsPropertiesMariaDbSettingsPropertiesArgs) ToSettingsPropertiesMariaDbSettingsPropertiesPtrOutputWithContext(ctx context.Context) SettingsPropertiesMariaDbSettingsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SettingsPropertiesMariaDbSettingsPropertiesOutput).ToSettingsPropertiesMariaDbSettingsPropertiesPtrOutputWithContext(ctx)
+}
+
+// SettingsPropertiesMariaDbSettingsPropertiesPtrInput is an input type that accepts SettingsPropertiesMariaDbSettingsPropertiesArgs, SettingsPropertiesMariaDbSettingsPropertiesPtr and SettingsPropertiesMariaDbSettingsPropertiesPtrOutput values.
+// You can construct a concrete instance of `SettingsPropertiesMariaDbSettingsPropertiesPtrInput` via:
+//
+//	        SettingsPropertiesMariaDbSettingsPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type SettingsPropertiesMariaDbSettingsPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToSettingsPropertiesMariaDbSettingsPropertiesPtrOutput() SettingsPropertiesMariaDbSettingsPropertiesPtrOutput
+	ToSettingsPropertiesMariaDbSettingsPropertiesPtrOutputWithContext(context.Context) SettingsPropertiesMariaDbSettingsPropertiesPtrOutput
+}
+
+type settingsPropertiesMariaDbSettingsPropertiesPtrType SettingsPropertiesMariaDbSettingsPropertiesArgs
+
+func SettingsPropertiesMariaDbSettingsPropertiesPtr(v *SettingsPropertiesMariaDbSettingsPropertiesArgs) SettingsPropertiesMariaDbSettingsPropertiesPtrInput {
+	return (*settingsPropertiesMariaDbSettingsPropertiesPtrType)(v)
+}
+
+func (*settingsPropertiesMariaDbSettingsPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SettingsPropertiesMariaDbSettingsProperties)(nil)).Elem()
+}
+
+func (i *settingsPropertiesMariaDbSettingsPropertiesPtrType) ToSettingsPropertiesMariaDbSettingsPropertiesPtrOutput() SettingsPropertiesMariaDbSettingsPropertiesPtrOutput {
+	return i.ToSettingsPropertiesMariaDbSettingsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *settingsPropertiesMariaDbSettingsPropertiesPtrType) ToSettingsPropertiesMariaDbSettingsPropertiesPtrOutputWithContext(ctx context.Context) SettingsPropertiesMariaDbSettingsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SettingsPropertiesMariaDbSettingsPropertiesPtrOutput)
+}
+
+// MariaDbSettings property identifier.
+type SettingsPropertiesMariaDbSettingsPropertiesOutput struct{ *pulumi.OutputState }
+
+func (SettingsPropertiesMariaDbSettingsPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SettingsPropertiesMariaDbSettingsProperties)(nil)).Elem()
+}
+
+func (o SettingsPropertiesMariaDbSettingsPropertiesOutput) ToSettingsPropertiesMariaDbSettingsPropertiesOutput() SettingsPropertiesMariaDbSettingsPropertiesOutput {
+	return o
+}
+
+func (o SettingsPropertiesMariaDbSettingsPropertiesOutput) ToSettingsPropertiesMariaDbSettingsPropertiesOutputWithContext(ctx context.Context) SettingsPropertiesMariaDbSettingsPropertiesOutput {
+	return o
+}
+
+func (o SettingsPropertiesMariaDbSettingsPropertiesOutput) ToSettingsPropertiesMariaDbSettingsPropertiesPtrOutput() SettingsPropertiesMariaDbSettingsPropertiesPtrOutput {
+	return o.ToSettingsPropertiesMariaDbSettingsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o SettingsPropertiesMariaDbSettingsPropertiesOutput) ToSettingsPropertiesMariaDbSettingsPropertiesPtrOutputWithContext(ctx context.Context) SettingsPropertiesMariaDbSettingsPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SettingsPropertiesMariaDbSettingsProperties) *SettingsPropertiesMariaDbSettingsProperties {
+		return &v
+	}).(SettingsPropertiesMariaDbSettingsPropertiesPtrOutput)
+}
+
+func (o SettingsPropertiesMariaDbSettingsPropertiesOutput) CertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SettingsPropertiesMariaDbSettingsProperties) *string { return v.CertificateArn }).(pulumi.StringPtrOutput)
+}
+
+func (o SettingsPropertiesMariaDbSettingsPropertiesOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v SettingsPropertiesMariaDbSettingsProperties) int { return v.Port }).(pulumi.IntOutput)
+}
+
+func (o SettingsPropertiesMariaDbSettingsPropertiesOutput) ServerName() pulumi.StringOutput {
+	return o.ApplyT(func(v SettingsPropertiesMariaDbSettingsProperties) string { return v.ServerName }).(pulumi.StringOutput)
+}
+
+func (o SettingsPropertiesMariaDbSettingsPropertiesOutput) SslMode() DataProviderDmsSslModeValueOutput {
+	return o.ApplyT(func(v SettingsPropertiesMariaDbSettingsProperties) DataProviderDmsSslModeValue { return v.SslMode }).(DataProviderDmsSslModeValueOutput)
+}
+
+type SettingsPropertiesMariaDbSettingsPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (SettingsPropertiesMariaDbSettingsPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SettingsPropertiesMariaDbSettingsProperties)(nil)).Elem()
+}
+
+func (o SettingsPropertiesMariaDbSettingsPropertiesPtrOutput) ToSettingsPropertiesMariaDbSettingsPropertiesPtrOutput() SettingsPropertiesMariaDbSettingsPropertiesPtrOutput {
+	return o
+}
+
+func (o SettingsPropertiesMariaDbSettingsPropertiesPtrOutput) ToSettingsPropertiesMariaDbSettingsPropertiesPtrOutputWithContext(ctx context.Context) SettingsPropertiesMariaDbSettingsPropertiesPtrOutput {
+	return o
+}
+
+func (o SettingsPropertiesMariaDbSettingsPropertiesPtrOutput) Elem() SettingsPropertiesMariaDbSettingsPropertiesOutput {
+	return o.ApplyT(func(v *SettingsPropertiesMariaDbSettingsProperties) SettingsPropertiesMariaDbSettingsProperties {
+		if v != nil {
+			return *v
+		}
+		var ret SettingsPropertiesMariaDbSettingsProperties
+		return ret
+	}).(SettingsPropertiesMariaDbSettingsPropertiesOutput)
+}
+
+func (o SettingsPropertiesMariaDbSettingsPropertiesPtrOutput) CertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SettingsPropertiesMariaDbSettingsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CertificateArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SettingsPropertiesMariaDbSettingsPropertiesPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SettingsPropertiesMariaDbSettingsProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Port
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o SettingsPropertiesMariaDbSettingsPropertiesPtrOutput) ServerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SettingsPropertiesMariaDbSettingsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ServerName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SettingsPropertiesMariaDbSettingsPropertiesPtrOutput) SslMode() DataProviderDmsSslModeValuePtrOutput {
+	return o.ApplyT(func(v *SettingsPropertiesMariaDbSettingsProperties) *DataProviderDmsSslModeValue {
+		if v == nil {
+			return nil
+		}
+		return &v.SslMode
+	}).(DataProviderDmsSslModeValuePtrOutput)
 }
 
 // MicrosoftSqlServerSettings property identifier.
@@ -1308,6 +1761,249 @@ func (o SettingsPropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput) SslMode
 		}
 		return &v.SslMode
 	}).(DataProviderDmsSslModeValuePtrOutput)
+}
+
+// MongoDbSettings property identifier.
+type SettingsPropertiesMongoDbSettingsProperties struct {
+	AuthMechanism  *DataProviderMongoDbAuthMechanism `pulumi:"authMechanism"`
+	AuthSource     *string                           `pulumi:"authSource"`
+	AuthType       *DataProviderMongoDbAuthType      `pulumi:"authType"`
+	CertificateArn *string                           `pulumi:"certificateArn"`
+	DatabaseName   *string                           `pulumi:"databaseName"`
+	Port           int                               `pulumi:"port"`
+	ServerName     string                            `pulumi:"serverName"`
+	SslMode        *DataProviderMongoDbSslModeValue  `pulumi:"sslMode"`
+}
+
+// SettingsPropertiesMongoDbSettingsPropertiesInput is an input type that accepts SettingsPropertiesMongoDbSettingsPropertiesArgs and SettingsPropertiesMongoDbSettingsPropertiesOutput values.
+// You can construct a concrete instance of `SettingsPropertiesMongoDbSettingsPropertiesInput` via:
+//
+//	SettingsPropertiesMongoDbSettingsPropertiesArgs{...}
+type SettingsPropertiesMongoDbSettingsPropertiesInput interface {
+	pulumi.Input
+
+	ToSettingsPropertiesMongoDbSettingsPropertiesOutput() SettingsPropertiesMongoDbSettingsPropertiesOutput
+	ToSettingsPropertiesMongoDbSettingsPropertiesOutputWithContext(context.Context) SettingsPropertiesMongoDbSettingsPropertiesOutput
+}
+
+// MongoDbSettings property identifier.
+type SettingsPropertiesMongoDbSettingsPropertiesArgs struct {
+	AuthMechanism  DataProviderMongoDbAuthMechanismPtrInput `pulumi:"authMechanism"`
+	AuthSource     pulumi.StringPtrInput                    `pulumi:"authSource"`
+	AuthType       DataProviderMongoDbAuthTypePtrInput      `pulumi:"authType"`
+	CertificateArn pulumi.StringPtrInput                    `pulumi:"certificateArn"`
+	DatabaseName   pulumi.StringPtrInput                    `pulumi:"databaseName"`
+	Port           pulumi.IntInput                          `pulumi:"port"`
+	ServerName     pulumi.StringInput                       `pulumi:"serverName"`
+	SslMode        DataProviderMongoDbSslModeValuePtrInput  `pulumi:"sslMode"`
+}
+
+func (SettingsPropertiesMongoDbSettingsPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SettingsPropertiesMongoDbSettingsProperties)(nil)).Elem()
+}
+
+func (i SettingsPropertiesMongoDbSettingsPropertiesArgs) ToSettingsPropertiesMongoDbSettingsPropertiesOutput() SettingsPropertiesMongoDbSettingsPropertiesOutput {
+	return i.ToSettingsPropertiesMongoDbSettingsPropertiesOutputWithContext(context.Background())
+}
+
+func (i SettingsPropertiesMongoDbSettingsPropertiesArgs) ToSettingsPropertiesMongoDbSettingsPropertiesOutputWithContext(ctx context.Context) SettingsPropertiesMongoDbSettingsPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SettingsPropertiesMongoDbSettingsPropertiesOutput)
+}
+
+func (i SettingsPropertiesMongoDbSettingsPropertiesArgs) ToSettingsPropertiesMongoDbSettingsPropertiesPtrOutput() SettingsPropertiesMongoDbSettingsPropertiesPtrOutput {
+	return i.ToSettingsPropertiesMongoDbSettingsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i SettingsPropertiesMongoDbSettingsPropertiesArgs) ToSettingsPropertiesMongoDbSettingsPropertiesPtrOutputWithContext(ctx context.Context) SettingsPropertiesMongoDbSettingsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SettingsPropertiesMongoDbSettingsPropertiesOutput).ToSettingsPropertiesMongoDbSettingsPropertiesPtrOutputWithContext(ctx)
+}
+
+// SettingsPropertiesMongoDbSettingsPropertiesPtrInput is an input type that accepts SettingsPropertiesMongoDbSettingsPropertiesArgs, SettingsPropertiesMongoDbSettingsPropertiesPtr and SettingsPropertiesMongoDbSettingsPropertiesPtrOutput values.
+// You can construct a concrete instance of `SettingsPropertiesMongoDbSettingsPropertiesPtrInput` via:
+//
+//	        SettingsPropertiesMongoDbSettingsPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type SettingsPropertiesMongoDbSettingsPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToSettingsPropertiesMongoDbSettingsPropertiesPtrOutput() SettingsPropertiesMongoDbSettingsPropertiesPtrOutput
+	ToSettingsPropertiesMongoDbSettingsPropertiesPtrOutputWithContext(context.Context) SettingsPropertiesMongoDbSettingsPropertiesPtrOutput
+}
+
+type settingsPropertiesMongoDbSettingsPropertiesPtrType SettingsPropertiesMongoDbSettingsPropertiesArgs
+
+func SettingsPropertiesMongoDbSettingsPropertiesPtr(v *SettingsPropertiesMongoDbSettingsPropertiesArgs) SettingsPropertiesMongoDbSettingsPropertiesPtrInput {
+	return (*settingsPropertiesMongoDbSettingsPropertiesPtrType)(v)
+}
+
+func (*settingsPropertiesMongoDbSettingsPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SettingsPropertiesMongoDbSettingsProperties)(nil)).Elem()
+}
+
+func (i *settingsPropertiesMongoDbSettingsPropertiesPtrType) ToSettingsPropertiesMongoDbSettingsPropertiesPtrOutput() SettingsPropertiesMongoDbSettingsPropertiesPtrOutput {
+	return i.ToSettingsPropertiesMongoDbSettingsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *settingsPropertiesMongoDbSettingsPropertiesPtrType) ToSettingsPropertiesMongoDbSettingsPropertiesPtrOutputWithContext(ctx context.Context) SettingsPropertiesMongoDbSettingsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SettingsPropertiesMongoDbSettingsPropertiesPtrOutput)
+}
+
+// MongoDbSettings property identifier.
+type SettingsPropertiesMongoDbSettingsPropertiesOutput struct{ *pulumi.OutputState }
+
+func (SettingsPropertiesMongoDbSettingsPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SettingsPropertiesMongoDbSettingsProperties)(nil)).Elem()
+}
+
+func (o SettingsPropertiesMongoDbSettingsPropertiesOutput) ToSettingsPropertiesMongoDbSettingsPropertiesOutput() SettingsPropertiesMongoDbSettingsPropertiesOutput {
+	return o
+}
+
+func (o SettingsPropertiesMongoDbSettingsPropertiesOutput) ToSettingsPropertiesMongoDbSettingsPropertiesOutputWithContext(ctx context.Context) SettingsPropertiesMongoDbSettingsPropertiesOutput {
+	return o
+}
+
+func (o SettingsPropertiesMongoDbSettingsPropertiesOutput) ToSettingsPropertiesMongoDbSettingsPropertiesPtrOutput() SettingsPropertiesMongoDbSettingsPropertiesPtrOutput {
+	return o.ToSettingsPropertiesMongoDbSettingsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o SettingsPropertiesMongoDbSettingsPropertiesOutput) ToSettingsPropertiesMongoDbSettingsPropertiesPtrOutputWithContext(ctx context.Context) SettingsPropertiesMongoDbSettingsPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SettingsPropertiesMongoDbSettingsProperties) *SettingsPropertiesMongoDbSettingsProperties {
+		return &v
+	}).(SettingsPropertiesMongoDbSettingsPropertiesPtrOutput)
+}
+
+func (o SettingsPropertiesMongoDbSettingsPropertiesOutput) AuthMechanism() DataProviderMongoDbAuthMechanismPtrOutput {
+	return o.ApplyT(func(v SettingsPropertiesMongoDbSettingsProperties) *DataProviderMongoDbAuthMechanism {
+		return v.AuthMechanism
+	}).(DataProviderMongoDbAuthMechanismPtrOutput)
+}
+
+func (o SettingsPropertiesMongoDbSettingsPropertiesOutput) AuthSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SettingsPropertiesMongoDbSettingsProperties) *string { return v.AuthSource }).(pulumi.StringPtrOutput)
+}
+
+func (o SettingsPropertiesMongoDbSettingsPropertiesOutput) AuthType() DataProviderMongoDbAuthTypePtrOutput {
+	return o.ApplyT(func(v SettingsPropertiesMongoDbSettingsProperties) *DataProviderMongoDbAuthType { return v.AuthType }).(DataProviderMongoDbAuthTypePtrOutput)
+}
+
+func (o SettingsPropertiesMongoDbSettingsPropertiesOutput) CertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SettingsPropertiesMongoDbSettingsProperties) *string { return v.CertificateArn }).(pulumi.StringPtrOutput)
+}
+
+func (o SettingsPropertiesMongoDbSettingsPropertiesOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SettingsPropertiesMongoDbSettingsProperties) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
+}
+
+func (o SettingsPropertiesMongoDbSettingsPropertiesOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v SettingsPropertiesMongoDbSettingsProperties) int { return v.Port }).(pulumi.IntOutput)
+}
+
+func (o SettingsPropertiesMongoDbSettingsPropertiesOutput) ServerName() pulumi.StringOutput {
+	return o.ApplyT(func(v SettingsPropertiesMongoDbSettingsProperties) string { return v.ServerName }).(pulumi.StringOutput)
+}
+
+func (o SettingsPropertiesMongoDbSettingsPropertiesOutput) SslMode() DataProviderMongoDbSslModeValuePtrOutput {
+	return o.ApplyT(func(v SettingsPropertiesMongoDbSettingsProperties) *DataProviderMongoDbSslModeValue { return v.SslMode }).(DataProviderMongoDbSslModeValuePtrOutput)
+}
+
+type SettingsPropertiesMongoDbSettingsPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (SettingsPropertiesMongoDbSettingsPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SettingsPropertiesMongoDbSettingsProperties)(nil)).Elem()
+}
+
+func (o SettingsPropertiesMongoDbSettingsPropertiesPtrOutput) ToSettingsPropertiesMongoDbSettingsPropertiesPtrOutput() SettingsPropertiesMongoDbSettingsPropertiesPtrOutput {
+	return o
+}
+
+func (o SettingsPropertiesMongoDbSettingsPropertiesPtrOutput) ToSettingsPropertiesMongoDbSettingsPropertiesPtrOutputWithContext(ctx context.Context) SettingsPropertiesMongoDbSettingsPropertiesPtrOutput {
+	return o
+}
+
+func (o SettingsPropertiesMongoDbSettingsPropertiesPtrOutput) Elem() SettingsPropertiesMongoDbSettingsPropertiesOutput {
+	return o.ApplyT(func(v *SettingsPropertiesMongoDbSettingsProperties) SettingsPropertiesMongoDbSettingsProperties {
+		if v != nil {
+			return *v
+		}
+		var ret SettingsPropertiesMongoDbSettingsProperties
+		return ret
+	}).(SettingsPropertiesMongoDbSettingsPropertiesOutput)
+}
+
+func (o SettingsPropertiesMongoDbSettingsPropertiesPtrOutput) AuthMechanism() DataProviderMongoDbAuthMechanismPtrOutput {
+	return o.ApplyT(func(v *SettingsPropertiesMongoDbSettingsProperties) *DataProviderMongoDbAuthMechanism {
+		if v == nil {
+			return nil
+		}
+		return v.AuthMechanism
+	}).(DataProviderMongoDbAuthMechanismPtrOutput)
+}
+
+func (o SettingsPropertiesMongoDbSettingsPropertiesPtrOutput) AuthSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SettingsPropertiesMongoDbSettingsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AuthSource
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SettingsPropertiesMongoDbSettingsPropertiesPtrOutput) AuthType() DataProviderMongoDbAuthTypePtrOutput {
+	return o.ApplyT(func(v *SettingsPropertiesMongoDbSettingsProperties) *DataProviderMongoDbAuthType {
+		if v == nil {
+			return nil
+		}
+		return v.AuthType
+	}).(DataProviderMongoDbAuthTypePtrOutput)
+}
+
+func (o SettingsPropertiesMongoDbSettingsPropertiesPtrOutput) CertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SettingsPropertiesMongoDbSettingsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CertificateArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SettingsPropertiesMongoDbSettingsPropertiesPtrOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SettingsPropertiesMongoDbSettingsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DatabaseName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SettingsPropertiesMongoDbSettingsPropertiesPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SettingsPropertiesMongoDbSettingsProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Port
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o SettingsPropertiesMongoDbSettingsPropertiesPtrOutput) ServerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SettingsPropertiesMongoDbSettingsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ServerName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SettingsPropertiesMongoDbSettingsPropertiesPtrOutput) SslMode() DataProviderMongoDbSslModeValuePtrOutput {
+	return o.ApplyT(func(v *SettingsPropertiesMongoDbSettingsProperties) *DataProviderMongoDbSslModeValue {
+		if v == nil {
+			return nil
+		}
+		return v.SslMode
+	}).(DataProviderMongoDbSslModeValuePtrOutput)
 }
 
 // MySqlSettings property identifier.
@@ -1964,6 +2660,172 @@ func (o SettingsPropertiesPostgreSqlSettingsPropertiesPtrOutput) SslMode() DataP
 	}).(DataProviderDmsSslModeValuePtrOutput)
 }
 
+// RedshiftSettings property identifier.
+type SettingsPropertiesRedshiftSettingsProperties struct {
+	DatabaseName string `pulumi:"databaseName"`
+	Port         int    `pulumi:"port"`
+	ServerName   string `pulumi:"serverName"`
+}
+
+// SettingsPropertiesRedshiftSettingsPropertiesInput is an input type that accepts SettingsPropertiesRedshiftSettingsPropertiesArgs and SettingsPropertiesRedshiftSettingsPropertiesOutput values.
+// You can construct a concrete instance of `SettingsPropertiesRedshiftSettingsPropertiesInput` via:
+//
+//	SettingsPropertiesRedshiftSettingsPropertiesArgs{...}
+type SettingsPropertiesRedshiftSettingsPropertiesInput interface {
+	pulumi.Input
+
+	ToSettingsPropertiesRedshiftSettingsPropertiesOutput() SettingsPropertiesRedshiftSettingsPropertiesOutput
+	ToSettingsPropertiesRedshiftSettingsPropertiesOutputWithContext(context.Context) SettingsPropertiesRedshiftSettingsPropertiesOutput
+}
+
+// RedshiftSettings property identifier.
+type SettingsPropertiesRedshiftSettingsPropertiesArgs struct {
+	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
+	Port         pulumi.IntInput    `pulumi:"port"`
+	ServerName   pulumi.StringInput `pulumi:"serverName"`
+}
+
+func (SettingsPropertiesRedshiftSettingsPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SettingsPropertiesRedshiftSettingsProperties)(nil)).Elem()
+}
+
+func (i SettingsPropertiesRedshiftSettingsPropertiesArgs) ToSettingsPropertiesRedshiftSettingsPropertiesOutput() SettingsPropertiesRedshiftSettingsPropertiesOutput {
+	return i.ToSettingsPropertiesRedshiftSettingsPropertiesOutputWithContext(context.Background())
+}
+
+func (i SettingsPropertiesRedshiftSettingsPropertiesArgs) ToSettingsPropertiesRedshiftSettingsPropertiesOutputWithContext(ctx context.Context) SettingsPropertiesRedshiftSettingsPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SettingsPropertiesRedshiftSettingsPropertiesOutput)
+}
+
+func (i SettingsPropertiesRedshiftSettingsPropertiesArgs) ToSettingsPropertiesRedshiftSettingsPropertiesPtrOutput() SettingsPropertiesRedshiftSettingsPropertiesPtrOutput {
+	return i.ToSettingsPropertiesRedshiftSettingsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i SettingsPropertiesRedshiftSettingsPropertiesArgs) ToSettingsPropertiesRedshiftSettingsPropertiesPtrOutputWithContext(ctx context.Context) SettingsPropertiesRedshiftSettingsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SettingsPropertiesRedshiftSettingsPropertiesOutput).ToSettingsPropertiesRedshiftSettingsPropertiesPtrOutputWithContext(ctx)
+}
+
+// SettingsPropertiesRedshiftSettingsPropertiesPtrInput is an input type that accepts SettingsPropertiesRedshiftSettingsPropertiesArgs, SettingsPropertiesRedshiftSettingsPropertiesPtr and SettingsPropertiesRedshiftSettingsPropertiesPtrOutput values.
+// You can construct a concrete instance of `SettingsPropertiesRedshiftSettingsPropertiesPtrInput` via:
+//
+//	        SettingsPropertiesRedshiftSettingsPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type SettingsPropertiesRedshiftSettingsPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToSettingsPropertiesRedshiftSettingsPropertiesPtrOutput() SettingsPropertiesRedshiftSettingsPropertiesPtrOutput
+	ToSettingsPropertiesRedshiftSettingsPropertiesPtrOutputWithContext(context.Context) SettingsPropertiesRedshiftSettingsPropertiesPtrOutput
+}
+
+type settingsPropertiesRedshiftSettingsPropertiesPtrType SettingsPropertiesRedshiftSettingsPropertiesArgs
+
+func SettingsPropertiesRedshiftSettingsPropertiesPtr(v *SettingsPropertiesRedshiftSettingsPropertiesArgs) SettingsPropertiesRedshiftSettingsPropertiesPtrInput {
+	return (*settingsPropertiesRedshiftSettingsPropertiesPtrType)(v)
+}
+
+func (*settingsPropertiesRedshiftSettingsPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SettingsPropertiesRedshiftSettingsProperties)(nil)).Elem()
+}
+
+func (i *settingsPropertiesRedshiftSettingsPropertiesPtrType) ToSettingsPropertiesRedshiftSettingsPropertiesPtrOutput() SettingsPropertiesRedshiftSettingsPropertiesPtrOutput {
+	return i.ToSettingsPropertiesRedshiftSettingsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *settingsPropertiesRedshiftSettingsPropertiesPtrType) ToSettingsPropertiesRedshiftSettingsPropertiesPtrOutputWithContext(ctx context.Context) SettingsPropertiesRedshiftSettingsPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SettingsPropertiesRedshiftSettingsPropertiesPtrOutput)
+}
+
+// RedshiftSettings property identifier.
+type SettingsPropertiesRedshiftSettingsPropertiesOutput struct{ *pulumi.OutputState }
+
+func (SettingsPropertiesRedshiftSettingsPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SettingsPropertiesRedshiftSettingsProperties)(nil)).Elem()
+}
+
+func (o SettingsPropertiesRedshiftSettingsPropertiesOutput) ToSettingsPropertiesRedshiftSettingsPropertiesOutput() SettingsPropertiesRedshiftSettingsPropertiesOutput {
+	return o
+}
+
+func (o SettingsPropertiesRedshiftSettingsPropertiesOutput) ToSettingsPropertiesRedshiftSettingsPropertiesOutputWithContext(ctx context.Context) SettingsPropertiesRedshiftSettingsPropertiesOutput {
+	return o
+}
+
+func (o SettingsPropertiesRedshiftSettingsPropertiesOutput) ToSettingsPropertiesRedshiftSettingsPropertiesPtrOutput() SettingsPropertiesRedshiftSettingsPropertiesPtrOutput {
+	return o.ToSettingsPropertiesRedshiftSettingsPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o SettingsPropertiesRedshiftSettingsPropertiesOutput) ToSettingsPropertiesRedshiftSettingsPropertiesPtrOutputWithContext(ctx context.Context) SettingsPropertiesRedshiftSettingsPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SettingsPropertiesRedshiftSettingsProperties) *SettingsPropertiesRedshiftSettingsProperties {
+		return &v
+	}).(SettingsPropertiesRedshiftSettingsPropertiesPtrOutput)
+}
+
+func (o SettingsPropertiesRedshiftSettingsPropertiesOutput) DatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v SettingsPropertiesRedshiftSettingsProperties) string { return v.DatabaseName }).(pulumi.StringOutput)
+}
+
+func (o SettingsPropertiesRedshiftSettingsPropertiesOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v SettingsPropertiesRedshiftSettingsProperties) int { return v.Port }).(pulumi.IntOutput)
+}
+
+func (o SettingsPropertiesRedshiftSettingsPropertiesOutput) ServerName() pulumi.StringOutput {
+	return o.ApplyT(func(v SettingsPropertiesRedshiftSettingsProperties) string { return v.ServerName }).(pulumi.StringOutput)
+}
+
+type SettingsPropertiesRedshiftSettingsPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (SettingsPropertiesRedshiftSettingsPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SettingsPropertiesRedshiftSettingsProperties)(nil)).Elem()
+}
+
+func (o SettingsPropertiesRedshiftSettingsPropertiesPtrOutput) ToSettingsPropertiesRedshiftSettingsPropertiesPtrOutput() SettingsPropertiesRedshiftSettingsPropertiesPtrOutput {
+	return o
+}
+
+func (o SettingsPropertiesRedshiftSettingsPropertiesPtrOutput) ToSettingsPropertiesRedshiftSettingsPropertiesPtrOutputWithContext(ctx context.Context) SettingsPropertiesRedshiftSettingsPropertiesPtrOutput {
+	return o
+}
+
+func (o SettingsPropertiesRedshiftSettingsPropertiesPtrOutput) Elem() SettingsPropertiesRedshiftSettingsPropertiesOutput {
+	return o.ApplyT(func(v *SettingsPropertiesRedshiftSettingsProperties) SettingsPropertiesRedshiftSettingsProperties {
+		if v != nil {
+			return *v
+		}
+		var ret SettingsPropertiesRedshiftSettingsProperties
+		return ret
+	}).(SettingsPropertiesRedshiftSettingsPropertiesOutput)
+}
+
+func (o SettingsPropertiesRedshiftSettingsPropertiesPtrOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SettingsPropertiesRedshiftSettingsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DatabaseName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o SettingsPropertiesRedshiftSettingsPropertiesPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *SettingsPropertiesRedshiftSettingsProperties) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Port
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o SettingsPropertiesRedshiftSettingsPropertiesPtrOutput) ServerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SettingsPropertiesRedshiftSettingsProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ServerName
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataMigrationSettingsInput)(nil)).Elem(), DataMigrationSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataMigrationSettingsPtrInput)(nil)).Elem(), DataMigrationSettingsArgs{})
@@ -1976,14 +2838,22 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaConversionApplicationAttributesPropertiesPtrInput)(nil)).Elem(), SchemaConversionApplicationAttributesPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SettingsPropertiesInput)(nil)).Elem(), SettingsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SettingsPropertiesPtrInput)(nil)).Elem(), SettingsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SettingsPropertiesDocDbSettingsPropertiesInput)(nil)).Elem(), SettingsPropertiesDocDbSettingsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SettingsPropertiesDocDbSettingsPropertiesPtrInput)(nil)).Elem(), SettingsPropertiesDocDbSettingsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SettingsPropertiesMariaDbSettingsPropertiesInput)(nil)).Elem(), SettingsPropertiesMariaDbSettingsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SettingsPropertiesMariaDbSettingsPropertiesPtrInput)(nil)).Elem(), SettingsPropertiesMariaDbSettingsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SettingsPropertiesMicrosoftSqlServerSettingsPropertiesInput)(nil)).Elem(), SettingsPropertiesMicrosoftSqlServerSettingsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SettingsPropertiesMicrosoftSqlServerSettingsPropertiesPtrInput)(nil)).Elem(), SettingsPropertiesMicrosoftSqlServerSettingsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SettingsPropertiesMongoDbSettingsPropertiesInput)(nil)).Elem(), SettingsPropertiesMongoDbSettingsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SettingsPropertiesMongoDbSettingsPropertiesPtrInput)(nil)).Elem(), SettingsPropertiesMongoDbSettingsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SettingsPropertiesMySqlSettingsPropertiesInput)(nil)).Elem(), SettingsPropertiesMySqlSettingsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SettingsPropertiesMySqlSettingsPropertiesPtrInput)(nil)).Elem(), SettingsPropertiesMySqlSettingsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SettingsPropertiesOracleSettingsPropertiesInput)(nil)).Elem(), SettingsPropertiesOracleSettingsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SettingsPropertiesOracleSettingsPropertiesPtrInput)(nil)).Elem(), SettingsPropertiesOracleSettingsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SettingsPropertiesPostgreSqlSettingsPropertiesInput)(nil)).Elem(), SettingsPropertiesPostgreSqlSettingsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SettingsPropertiesPostgreSqlSettingsPropertiesPtrInput)(nil)).Elem(), SettingsPropertiesPostgreSqlSettingsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SettingsPropertiesRedshiftSettingsPropertiesInput)(nil)).Elem(), SettingsPropertiesRedshiftSettingsPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SettingsPropertiesRedshiftSettingsPropertiesPtrInput)(nil)).Elem(), SettingsPropertiesRedshiftSettingsPropertiesArgs{})
 	pulumi.RegisterOutputType(DataMigrationSettingsOutput{})
 	pulumi.RegisterOutputType(DataMigrationSettingsPtrOutput{})
 	pulumi.RegisterOutputType(DataMigrationSourceDataSettingsOutput{})
@@ -1996,12 +2866,20 @@ func init() {
 	pulumi.RegisterOutputType(SchemaConversionApplicationAttributesPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(SettingsPropertiesOutput{})
 	pulumi.RegisterOutputType(SettingsPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(SettingsPropertiesDocDbSettingsPropertiesOutput{})
+	pulumi.RegisterOutputType(SettingsPropertiesDocDbSettingsPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(SettingsPropertiesMariaDbSettingsPropertiesOutput{})
+	pulumi.RegisterOutputType(SettingsPropertiesMariaDbSettingsPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(SettingsPropertiesMicrosoftSqlServerSettingsPropertiesOutput{})
 	pulumi.RegisterOutputType(SettingsPropertiesMicrosoftSqlServerSettingsPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(SettingsPropertiesMongoDbSettingsPropertiesOutput{})
+	pulumi.RegisterOutputType(SettingsPropertiesMongoDbSettingsPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(SettingsPropertiesMySqlSettingsPropertiesOutput{})
 	pulumi.RegisterOutputType(SettingsPropertiesMySqlSettingsPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(SettingsPropertiesOracleSettingsPropertiesOutput{})
 	pulumi.RegisterOutputType(SettingsPropertiesOracleSettingsPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(SettingsPropertiesPostgreSqlSettingsPropertiesOutput{})
 	pulumi.RegisterOutputType(SettingsPropertiesPostgreSqlSettingsPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(SettingsPropertiesRedshiftSettingsPropertiesOutput{})
+	pulumi.RegisterOutputType(SettingsPropertiesRedshiftSettingsPropertiesPtrOutput{})
 }

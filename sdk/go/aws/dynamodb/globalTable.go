@@ -34,7 +34,8 @@ type GlobalTable struct {
 	// Specifies the attributes that make up the primary key for the table. The attributes in the `KeySchema` property must also be defined in the `AttributeDefinitions` property.
 	KeySchema GlobalTableKeySchemaArrayOutput `pulumi:"keySchema"`
 	// Local secondary indexes to be created on the table. You can create up to five local secondary indexes. Each index is scoped to a given hash key value. The size of each hash key can be up to 10 gigabytes. Each replica in your global table will have the same local secondary index settings.
-	LocalSecondaryIndexes            GlobalTableLocalSecondaryIndexArrayOutput            `pulumi:"localSecondaryIndexes"`
+	LocalSecondaryIndexes GlobalTableLocalSecondaryIndexArrayOutput `pulumi:"localSecondaryIndexes"`
+	// Represents the settings used to enable point in time recovery.
 	PointInTimeRecoverySpecification GlobalTablePointInTimeRecoverySpecificationPtrOutput `pulumi:"pointInTimeRecoverySpecification"`
 	// Specifies the list of replicas for your global table. The list must contain at least one element, the region where the stack defining the global table is deployed. For example, if you define your table in a stack deployed to us-east-1, you must have an entry in `Replicas` with the region us-east-1. You cannot remove the replica in the stack region.
 	//
@@ -139,7 +140,8 @@ type globalTableArgs struct {
 	// Specifies the attributes that make up the primary key for the table. The attributes in the `KeySchema` property must also be defined in the `AttributeDefinitions` property.
 	KeySchema []GlobalTableKeySchema `pulumi:"keySchema"`
 	// Local secondary indexes to be created on the table. You can create up to five local secondary indexes. Each index is scoped to a given hash key value. The size of each hash key can be up to 10 gigabytes. Each replica in your global table will have the same local secondary index settings.
-	LocalSecondaryIndexes            []GlobalTableLocalSecondaryIndex             `pulumi:"localSecondaryIndexes"`
+	LocalSecondaryIndexes []GlobalTableLocalSecondaryIndex `pulumi:"localSecondaryIndexes"`
+	// Represents the settings used to enable point in time recovery.
 	PointInTimeRecoverySpecification *GlobalTablePointInTimeRecoverySpecification `pulumi:"pointInTimeRecoverySpecification"`
 	// Specifies the list of replicas for your global table. The list must contain at least one element, the region where the stack defining the global table is deployed. For example, if you define your table in a stack deployed to us-east-1, you must have an entry in `Replicas` with the region us-east-1. You cannot remove the replica in the stack region.
 	//
@@ -185,7 +187,8 @@ type GlobalTableArgs struct {
 	// Specifies the attributes that make up the primary key for the table. The attributes in the `KeySchema` property must also be defined in the `AttributeDefinitions` property.
 	KeySchema GlobalTableKeySchemaArrayInput
 	// Local secondary indexes to be created on the table. You can create up to five local secondary indexes. Each index is scoped to a given hash key value. The size of each hash key can be up to 10 gigabytes. Each replica in your global table will have the same local secondary index settings.
-	LocalSecondaryIndexes            GlobalTableLocalSecondaryIndexArrayInput
+	LocalSecondaryIndexes GlobalTableLocalSecondaryIndexArrayInput
+	// Represents the settings used to enable point in time recovery.
 	PointInTimeRecoverySpecification GlobalTablePointInTimeRecoverySpecificationPtrInput
 	// Specifies the list of replicas for your global table. The list must contain at least one element, the region where the stack defining the global table is deployed. For example, if you define your table in a stack deployed to us-east-1, you must have an entry in `Replicas` with the region us-east-1. You cannot remove the replica in the stack region.
 	//
@@ -287,6 +290,7 @@ func (o GlobalTableOutput) LocalSecondaryIndexes() GlobalTableLocalSecondaryInde
 	return o.ApplyT(func(v *GlobalTable) GlobalTableLocalSecondaryIndexArrayOutput { return v.LocalSecondaryIndexes }).(GlobalTableLocalSecondaryIndexArrayOutput)
 }
 
+// Represents the settings used to enable point in time recovery.
 func (o GlobalTableOutput) PointInTimeRecoverySpecification() GlobalTablePointInTimeRecoverySpecificationPtrOutput {
 	return o.ApplyT(func(v *GlobalTable) GlobalTablePointInTimeRecoverySpecificationPtrOutput {
 		return v.PointInTimeRecoverySpecification

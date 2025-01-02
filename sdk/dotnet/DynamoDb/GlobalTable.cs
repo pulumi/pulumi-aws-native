@@ -58,6 +58,9 @@ namespace Pulumi.AwsNative.DynamoDb
         [Output("localSecondaryIndexes")]
         public Output<ImmutableArray<Outputs.GlobalTableLocalSecondaryIndex>> LocalSecondaryIndexes { get; private set; } = null!;
 
+        /// <summary>
+        /// Represents the settings used to enable point in time recovery.
+        /// </summary>
         [Output("pointInTimeRecoverySpecification")]
         public Output<Outputs.GlobalTablePointInTimeRecoverySpecification?> PointInTimeRecoverySpecification { get; private set; } = null!;
 
@@ -243,6 +246,9 @@ namespace Pulumi.AwsNative.DynamoDb
             set => _localSecondaryIndexes = value;
         }
 
+        /// <summary>
+        /// Represents the settings used to enable point in time recovery.
+        /// </summary>
         [Input("pointInTimeRecoverySpecification")]
         public Input<Inputs.GlobalTablePointInTimeRecoverySpecificationArgs>? PointInTimeRecoverySpecification { get; set; }
 

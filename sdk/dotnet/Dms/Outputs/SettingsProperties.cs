@@ -17,9 +17,21 @@ namespace Pulumi.AwsNative.Dms.Outputs
     public sealed class SettingsProperties
     {
         /// <summary>
+        /// DocDbSettings property identifier.
+        /// </summary>
+        public readonly Outputs.SettingsPropertiesDocDbSettingsProperties? DocDbSettings;
+        /// <summary>
+        /// MariaDbSettings property identifier.
+        /// </summary>
+        public readonly Outputs.SettingsPropertiesMariaDbSettingsProperties? MariaDbSettings;
+        /// <summary>
         /// MicrosoftSqlServerSettings property identifier.
         /// </summary>
         public readonly Outputs.SettingsPropertiesMicrosoftSqlServerSettingsProperties? MicrosoftSqlServerSettings;
+        /// <summary>
+        /// MongoDbSettings property identifier.
+        /// </summary>
+        public readonly Outputs.SettingsPropertiesMongoDbSettingsProperties? MongoDbSettings;
         /// <summary>
         /// MySqlSettings property identifier.
         /// </summary>
@@ -32,21 +44,37 @@ namespace Pulumi.AwsNative.Dms.Outputs
         /// PostgreSqlSettings property identifier.
         /// </summary>
         public readonly Outputs.SettingsPropertiesPostgreSqlSettingsProperties? PostgreSqlSettings;
+        /// <summary>
+        /// RedshiftSettings property identifier.
+        /// </summary>
+        public readonly Outputs.SettingsPropertiesRedshiftSettingsProperties? RedshiftSettings;
 
         [OutputConstructor]
         private SettingsProperties(
+            Outputs.SettingsPropertiesDocDbSettingsProperties? docDbSettings,
+
+            Outputs.SettingsPropertiesMariaDbSettingsProperties? mariaDbSettings,
+
             Outputs.SettingsPropertiesMicrosoftSqlServerSettingsProperties? microsoftSqlServerSettings,
+
+            Outputs.SettingsPropertiesMongoDbSettingsProperties? mongoDbSettings,
 
             Outputs.SettingsPropertiesMySqlSettingsProperties? mySqlSettings,
 
             Outputs.SettingsPropertiesOracleSettingsProperties? oracleSettings,
 
-            Outputs.SettingsPropertiesPostgreSqlSettingsProperties? postgreSqlSettings)
+            Outputs.SettingsPropertiesPostgreSqlSettingsProperties? postgreSqlSettings,
+
+            Outputs.SettingsPropertiesRedshiftSettingsProperties? redshiftSettings)
         {
+            DocDbSettings = docDbSettings;
+            MariaDbSettings = mariaDbSettings;
             MicrosoftSqlServerSettings = microsoftSqlServerSettings;
+            MongoDbSettings = mongoDbSettings;
             MySqlSettings = mySqlSettings;
             OracleSettings = oracleSettings;
             PostgreSqlSettings = postgreSqlSettings;
+            RedshiftSettings = redshiftSettings;
         }
     }
 }

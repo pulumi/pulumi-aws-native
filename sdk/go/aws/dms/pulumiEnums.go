@@ -351,12 +351,16 @@ func (in *dataProviderDmsSslModeValuePtr) ToDataProviderDmsSslModeValuePtrOutput
 type DataProviderEngine string
 
 const (
-	DataProviderEnginePostgres         = DataProviderEngine("postgres")
-	DataProviderEngineMysql            = DataProviderEngine("mysql")
-	DataProviderEngineOracle           = DataProviderEngine("oracle")
-	DataProviderEngineSqlserver        = DataProviderEngine("sqlserver")
 	DataProviderEngineAurora           = DataProviderEngine("aurora")
 	DataProviderEngineAuroraPostgresql = DataProviderEngine("aurora_postgresql")
+	DataProviderEngineMysql            = DataProviderEngine("mysql")
+	DataProviderEngineOracle           = DataProviderEngine("oracle")
+	DataProviderEnginePostgres         = DataProviderEngine("postgres")
+	DataProviderEngineSqlserver        = DataProviderEngine("sqlserver")
+	DataProviderEngineRedshift         = DataProviderEngine("redshift")
+	DataProviderEngineMariadb          = DataProviderEngine("mariadb")
+	DataProviderEngineMongodb          = DataProviderEngine("mongodb")
+	DataProviderEngineDocdb            = DataProviderEngine("docdb")
 )
 
 func (DataProviderEngine) ElementType() reflect.Type {
@@ -481,12 +485,16 @@ func (o DataProviderEnginePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 // DataProviderEngineInput is an input type that accepts values of the DataProviderEngine enum
 // A concrete instance of `DataProviderEngineInput` can be one of the following:
 //
-//	DataProviderEnginePostgres
-//	DataProviderEngineMysql
-//	DataProviderEngineOracle
-//	DataProviderEngineSqlserver
 //	DataProviderEngineAurora
 //	DataProviderEngineAuroraPostgresql
+//	DataProviderEngineMysql
+//	DataProviderEngineOracle
+//	DataProviderEnginePostgres
+//	DataProviderEngineSqlserver
+//	DataProviderEngineRedshift
+//	DataProviderEngineMariadb
+//	DataProviderEngineMongodb
+//	DataProviderEngineDocdb
 type DataProviderEngineInput interface {
 	pulumi.Input
 
@@ -519,6 +527,505 @@ func (in *dataProviderEnginePtr) ToDataProviderEnginePtrOutput() DataProviderEng
 
 func (in *dataProviderEnginePtr) ToDataProviderEnginePtrOutputWithContext(ctx context.Context) DataProviderEnginePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DataProviderEnginePtrOutput)
+}
+
+type DataProviderMongoDbAuthMechanism string
+
+const (
+	DataProviderMongoDbAuthMechanismDefault   = DataProviderMongoDbAuthMechanism("default")
+	DataProviderMongoDbAuthMechanismMongodbCr = DataProviderMongoDbAuthMechanism("mongodb_cr")
+	DataProviderMongoDbAuthMechanismScramSha1 = DataProviderMongoDbAuthMechanism("scram_sha_1")
+)
+
+func (DataProviderMongoDbAuthMechanism) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataProviderMongoDbAuthMechanism)(nil)).Elem()
+}
+
+func (e DataProviderMongoDbAuthMechanism) ToDataProviderMongoDbAuthMechanismOutput() DataProviderMongoDbAuthMechanismOutput {
+	return pulumi.ToOutput(e).(DataProviderMongoDbAuthMechanismOutput)
+}
+
+func (e DataProviderMongoDbAuthMechanism) ToDataProviderMongoDbAuthMechanismOutputWithContext(ctx context.Context) DataProviderMongoDbAuthMechanismOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DataProviderMongoDbAuthMechanismOutput)
+}
+
+func (e DataProviderMongoDbAuthMechanism) ToDataProviderMongoDbAuthMechanismPtrOutput() DataProviderMongoDbAuthMechanismPtrOutput {
+	return e.ToDataProviderMongoDbAuthMechanismPtrOutputWithContext(context.Background())
+}
+
+func (e DataProviderMongoDbAuthMechanism) ToDataProviderMongoDbAuthMechanismPtrOutputWithContext(ctx context.Context) DataProviderMongoDbAuthMechanismPtrOutput {
+	return DataProviderMongoDbAuthMechanism(e).ToDataProviderMongoDbAuthMechanismOutputWithContext(ctx).ToDataProviderMongoDbAuthMechanismPtrOutputWithContext(ctx)
+}
+
+func (e DataProviderMongoDbAuthMechanism) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataProviderMongoDbAuthMechanism) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataProviderMongoDbAuthMechanism) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DataProviderMongoDbAuthMechanism) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DataProviderMongoDbAuthMechanismOutput struct{ *pulumi.OutputState }
+
+func (DataProviderMongoDbAuthMechanismOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataProviderMongoDbAuthMechanism)(nil)).Elem()
+}
+
+func (o DataProviderMongoDbAuthMechanismOutput) ToDataProviderMongoDbAuthMechanismOutput() DataProviderMongoDbAuthMechanismOutput {
+	return o
+}
+
+func (o DataProviderMongoDbAuthMechanismOutput) ToDataProviderMongoDbAuthMechanismOutputWithContext(ctx context.Context) DataProviderMongoDbAuthMechanismOutput {
+	return o
+}
+
+func (o DataProviderMongoDbAuthMechanismOutput) ToDataProviderMongoDbAuthMechanismPtrOutput() DataProviderMongoDbAuthMechanismPtrOutput {
+	return o.ToDataProviderMongoDbAuthMechanismPtrOutputWithContext(context.Background())
+}
+
+func (o DataProviderMongoDbAuthMechanismOutput) ToDataProviderMongoDbAuthMechanismPtrOutputWithContext(ctx context.Context) DataProviderMongoDbAuthMechanismPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataProviderMongoDbAuthMechanism) *DataProviderMongoDbAuthMechanism {
+		return &v
+	}).(DataProviderMongoDbAuthMechanismPtrOutput)
+}
+
+func (o DataProviderMongoDbAuthMechanismOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DataProviderMongoDbAuthMechanismOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataProviderMongoDbAuthMechanism) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DataProviderMongoDbAuthMechanismOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataProviderMongoDbAuthMechanismOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataProviderMongoDbAuthMechanism) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataProviderMongoDbAuthMechanismPtrOutput struct{ *pulumi.OutputState }
+
+func (DataProviderMongoDbAuthMechanismPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataProviderMongoDbAuthMechanism)(nil)).Elem()
+}
+
+func (o DataProviderMongoDbAuthMechanismPtrOutput) ToDataProviderMongoDbAuthMechanismPtrOutput() DataProviderMongoDbAuthMechanismPtrOutput {
+	return o
+}
+
+func (o DataProviderMongoDbAuthMechanismPtrOutput) ToDataProviderMongoDbAuthMechanismPtrOutputWithContext(ctx context.Context) DataProviderMongoDbAuthMechanismPtrOutput {
+	return o
+}
+
+func (o DataProviderMongoDbAuthMechanismPtrOutput) Elem() DataProviderMongoDbAuthMechanismOutput {
+	return o.ApplyT(func(v *DataProviderMongoDbAuthMechanism) DataProviderMongoDbAuthMechanism {
+		if v != nil {
+			return *v
+		}
+		var ret DataProviderMongoDbAuthMechanism
+		return ret
+	}).(DataProviderMongoDbAuthMechanismOutput)
+}
+
+func (o DataProviderMongoDbAuthMechanismPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataProviderMongoDbAuthMechanismPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DataProviderMongoDbAuthMechanism) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DataProviderMongoDbAuthMechanismInput is an input type that accepts values of the DataProviderMongoDbAuthMechanism enum
+// A concrete instance of `DataProviderMongoDbAuthMechanismInput` can be one of the following:
+//
+//	DataProviderMongoDbAuthMechanismDefault
+//	DataProviderMongoDbAuthMechanismMongodbCr
+//	DataProviderMongoDbAuthMechanismScramSha1
+type DataProviderMongoDbAuthMechanismInput interface {
+	pulumi.Input
+
+	ToDataProviderMongoDbAuthMechanismOutput() DataProviderMongoDbAuthMechanismOutput
+	ToDataProviderMongoDbAuthMechanismOutputWithContext(context.Context) DataProviderMongoDbAuthMechanismOutput
+}
+
+var dataProviderMongoDbAuthMechanismPtrType = reflect.TypeOf((**DataProviderMongoDbAuthMechanism)(nil)).Elem()
+
+type DataProviderMongoDbAuthMechanismPtrInput interface {
+	pulumi.Input
+
+	ToDataProviderMongoDbAuthMechanismPtrOutput() DataProviderMongoDbAuthMechanismPtrOutput
+	ToDataProviderMongoDbAuthMechanismPtrOutputWithContext(context.Context) DataProviderMongoDbAuthMechanismPtrOutput
+}
+
+type dataProviderMongoDbAuthMechanismPtr string
+
+func DataProviderMongoDbAuthMechanismPtr(v string) DataProviderMongoDbAuthMechanismPtrInput {
+	return (*dataProviderMongoDbAuthMechanismPtr)(&v)
+}
+
+func (*dataProviderMongoDbAuthMechanismPtr) ElementType() reflect.Type {
+	return dataProviderMongoDbAuthMechanismPtrType
+}
+
+func (in *dataProviderMongoDbAuthMechanismPtr) ToDataProviderMongoDbAuthMechanismPtrOutput() DataProviderMongoDbAuthMechanismPtrOutput {
+	return pulumi.ToOutput(in).(DataProviderMongoDbAuthMechanismPtrOutput)
+}
+
+func (in *dataProviderMongoDbAuthMechanismPtr) ToDataProviderMongoDbAuthMechanismPtrOutputWithContext(ctx context.Context) DataProviderMongoDbAuthMechanismPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DataProviderMongoDbAuthMechanismPtrOutput)
+}
+
+type DataProviderMongoDbAuthType string
+
+const (
+	DataProviderMongoDbAuthTypeNo       = DataProviderMongoDbAuthType("no")
+	DataProviderMongoDbAuthTypePassword = DataProviderMongoDbAuthType("password")
+)
+
+func (DataProviderMongoDbAuthType) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataProviderMongoDbAuthType)(nil)).Elem()
+}
+
+func (e DataProviderMongoDbAuthType) ToDataProviderMongoDbAuthTypeOutput() DataProviderMongoDbAuthTypeOutput {
+	return pulumi.ToOutput(e).(DataProviderMongoDbAuthTypeOutput)
+}
+
+func (e DataProviderMongoDbAuthType) ToDataProviderMongoDbAuthTypeOutputWithContext(ctx context.Context) DataProviderMongoDbAuthTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DataProviderMongoDbAuthTypeOutput)
+}
+
+func (e DataProviderMongoDbAuthType) ToDataProviderMongoDbAuthTypePtrOutput() DataProviderMongoDbAuthTypePtrOutput {
+	return e.ToDataProviderMongoDbAuthTypePtrOutputWithContext(context.Background())
+}
+
+func (e DataProviderMongoDbAuthType) ToDataProviderMongoDbAuthTypePtrOutputWithContext(ctx context.Context) DataProviderMongoDbAuthTypePtrOutput {
+	return DataProviderMongoDbAuthType(e).ToDataProviderMongoDbAuthTypeOutputWithContext(ctx).ToDataProviderMongoDbAuthTypePtrOutputWithContext(ctx)
+}
+
+func (e DataProviderMongoDbAuthType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataProviderMongoDbAuthType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataProviderMongoDbAuthType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DataProviderMongoDbAuthType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DataProviderMongoDbAuthTypeOutput struct{ *pulumi.OutputState }
+
+func (DataProviderMongoDbAuthTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataProviderMongoDbAuthType)(nil)).Elem()
+}
+
+func (o DataProviderMongoDbAuthTypeOutput) ToDataProviderMongoDbAuthTypeOutput() DataProviderMongoDbAuthTypeOutput {
+	return o
+}
+
+func (o DataProviderMongoDbAuthTypeOutput) ToDataProviderMongoDbAuthTypeOutputWithContext(ctx context.Context) DataProviderMongoDbAuthTypeOutput {
+	return o
+}
+
+func (o DataProviderMongoDbAuthTypeOutput) ToDataProviderMongoDbAuthTypePtrOutput() DataProviderMongoDbAuthTypePtrOutput {
+	return o.ToDataProviderMongoDbAuthTypePtrOutputWithContext(context.Background())
+}
+
+func (o DataProviderMongoDbAuthTypeOutput) ToDataProviderMongoDbAuthTypePtrOutputWithContext(ctx context.Context) DataProviderMongoDbAuthTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataProviderMongoDbAuthType) *DataProviderMongoDbAuthType {
+		return &v
+	}).(DataProviderMongoDbAuthTypePtrOutput)
+}
+
+func (o DataProviderMongoDbAuthTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DataProviderMongoDbAuthTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataProviderMongoDbAuthType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DataProviderMongoDbAuthTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataProviderMongoDbAuthTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataProviderMongoDbAuthType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataProviderMongoDbAuthTypePtrOutput struct{ *pulumi.OutputState }
+
+func (DataProviderMongoDbAuthTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataProviderMongoDbAuthType)(nil)).Elem()
+}
+
+func (o DataProviderMongoDbAuthTypePtrOutput) ToDataProviderMongoDbAuthTypePtrOutput() DataProviderMongoDbAuthTypePtrOutput {
+	return o
+}
+
+func (o DataProviderMongoDbAuthTypePtrOutput) ToDataProviderMongoDbAuthTypePtrOutputWithContext(ctx context.Context) DataProviderMongoDbAuthTypePtrOutput {
+	return o
+}
+
+func (o DataProviderMongoDbAuthTypePtrOutput) Elem() DataProviderMongoDbAuthTypeOutput {
+	return o.ApplyT(func(v *DataProviderMongoDbAuthType) DataProviderMongoDbAuthType {
+		if v != nil {
+			return *v
+		}
+		var ret DataProviderMongoDbAuthType
+		return ret
+	}).(DataProviderMongoDbAuthTypeOutput)
+}
+
+func (o DataProviderMongoDbAuthTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataProviderMongoDbAuthTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DataProviderMongoDbAuthType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DataProviderMongoDbAuthTypeInput is an input type that accepts values of the DataProviderMongoDbAuthType enum
+// A concrete instance of `DataProviderMongoDbAuthTypeInput` can be one of the following:
+//
+//	DataProviderMongoDbAuthTypeNo
+//	DataProviderMongoDbAuthTypePassword
+type DataProviderMongoDbAuthTypeInput interface {
+	pulumi.Input
+
+	ToDataProviderMongoDbAuthTypeOutput() DataProviderMongoDbAuthTypeOutput
+	ToDataProviderMongoDbAuthTypeOutputWithContext(context.Context) DataProviderMongoDbAuthTypeOutput
+}
+
+var dataProviderMongoDbAuthTypePtrType = reflect.TypeOf((**DataProviderMongoDbAuthType)(nil)).Elem()
+
+type DataProviderMongoDbAuthTypePtrInput interface {
+	pulumi.Input
+
+	ToDataProviderMongoDbAuthTypePtrOutput() DataProviderMongoDbAuthTypePtrOutput
+	ToDataProviderMongoDbAuthTypePtrOutputWithContext(context.Context) DataProviderMongoDbAuthTypePtrOutput
+}
+
+type dataProviderMongoDbAuthTypePtr string
+
+func DataProviderMongoDbAuthTypePtr(v string) DataProviderMongoDbAuthTypePtrInput {
+	return (*dataProviderMongoDbAuthTypePtr)(&v)
+}
+
+func (*dataProviderMongoDbAuthTypePtr) ElementType() reflect.Type {
+	return dataProviderMongoDbAuthTypePtrType
+}
+
+func (in *dataProviderMongoDbAuthTypePtr) ToDataProviderMongoDbAuthTypePtrOutput() DataProviderMongoDbAuthTypePtrOutput {
+	return pulumi.ToOutput(in).(DataProviderMongoDbAuthTypePtrOutput)
+}
+
+func (in *dataProviderMongoDbAuthTypePtr) ToDataProviderMongoDbAuthTypePtrOutputWithContext(ctx context.Context) DataProviderMongoDbAuthTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DataProviderMongoDbAuthTypePtrOutput)
+}
+
+type DataProviderMongoDbSslModeValue string
+
+const (
+	DataProviderMongoDbSslModeValueNone       = DataProviderMongoDbSslModeValue("none")
+	DataProviderMongoDbSslModeValueRequire    = DataProviderMongoDbSslModeValue("require")
+	DataProviderMongoDbSslModeValueVerifyFull = DataProviderMongoDbSslModeValue("verify-full")
+)
+
+func (DataProviderMongoDbSslModeValue) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataProviderMongoDbSslModeValue)(nil)).Elem()
+}
+
+func (e DataProviderMongoDbSslModeValue) ToDataProviderMongoDbSslModeValueOutput() DataProviderMongoDbSslModeValueOutput {
+	return pulumi.ToOutput(e).(DataProviderMongoDbSslModeValueOutput)
+}
+
+func (e DataProviderMongoDbSslModeValue) ToDataProviderMongoDbSslModeValueOutputWithContext(ctx context.Context) DataProviderMongoDbSslModeValueOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(DataProviderMongoDbSslModeValueOutput)
+}
+
+func (e DataProviderMongoDbSslModeValue) ToDataProviderMongoDbSslModeValuePtrOutput() DataProviderMongoDbSslModeValuePtrOutput {
+	return e.ToDataProviderMongoDbSslModeValuePtrOutputWithContext(context.Background())
+}
+
+func (e DataProviderMongoDbSslModeValue) ToDataProviderMongoDbSslModeValuePtrOutputWithContext(ctx context.Context) DataProviderMongoDbSslModeValuePtrOutput {
+	return DataProviderMongoDbSslModeValue(e).ToDataProviderMongoDbSslModeValueOutputWithContext(ctx).ToDataProviderMongoDbSslModeValuePtrOutputWithContext(ctx)
+}
+
+func (e DataProviderMongoDbSslModeValue) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataProviderMongoDbSslModeValue) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e DataProviderMongoDbSslModeValue) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e DataProviderMongoDbSslModeValue) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type DataProviderMongoDbSslModeValueOutput struct{ *pulumi.OutputState }
+
+func (DataProviderMongoDbSslModeValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataProviderMongoDbSslModeValue)(nil)).Elem()
+}
+
+func (o DataProviderMongoDbSslModeValueOutput) ToDataProviderMongoDbSslModeValueOutput() DataProviderMongoDbSslModeValueOutput {
+	return o
+}
+
+func (o DataProviderMongoDbSslModeValueOutput) ToDataProviderMongoDbSslModeValueOutputWithContext(ctx context.Context) DataProviderMongoDbSslModeValueOutput {
+	return o
+}
+
+func (o DataProviderMongoDbSslModeValueOutput) ToDataProviderMongoDbSslModeValuePtrOutput() DataProviderMongoDbSslModeValuePtrOutput {
+	return o.ToDataProviderMongoDbSslModeValuePtrOutputWithContext(context.Background())
+}
+
+func (o DataProviderMongoDbSslModeValueOutput) ToDataProviderMongoDbSslModeValuePtrOutputWithContext(ctx context.Context) DataProviderMongoDbSslModeValuePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataProviderMongoDbSslModeValue) *DataProviderMongoDbSslModeValue {
+		return &v
+	}).(DataProviderMongoDbSslModeValuePtrOutput)
+}
+
+func (o DataProviderMongoDbSslModeValueOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o DataProviderMongoDbSslModeValueOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataProviderMongoDbSslModeValue) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o DataProviderMongoDbSslModeValueOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataProviderMongoDbSslModeValueOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e DataProviderMongoDbSslModeValue) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type DataProviderMongoDbSslModeValuePtrOutput struct{ *pulumi.OutputState }
+
+func (DataProviderMongoDbSslModeValuePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DataProviderMongoDbSslModeValue)(nil)).Elem()
+}
+
+func (o DataProviderMongoDbSslModeValuePtrOutput) ToDataProviderMongoDbSslModeValuePtrOutput() DataProviderMongoDbSslModeValuePtrOutput {
+	return o
+}
+
+func (o DataProviderMongoDbSslModeValuePtrOutput) ToDataProviderMongoDbSslModeValuePtrOutputWithContext(ctx context.Context) DataProviderMongoDbSslModeValuePtrOutput {
+	return o
+}
+
+func (o DataProviderMongoDbSslModeValuePtrOutput) Elem() DataProviderMongoDbSslModeValueOutput {
+	return o.ApplyT(func(v *DataProviderMongoDbSslModeValue) DataProviderMongoDbSslModeValue {
+		if v != nil {
+			return *v
+		}
+		var ret DataProviderMongoDbSslModeValue
+		return ret
+	}).(DataProviderMongoDbSslModeValueOutput)
+}
+
+func (o DataProviderMongoDbSslModeValuePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o DataProviderMongoDbSslModeValuePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *DataProviderMongoDbSslModeValue) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// DataProviderMongoDbSslModeValueInput is an input type that accepts values of the DataProviderMongoDbSslModeValue enum
+// A concrete instance of `DataProviderMongoDbSslModeValueInput` can be one of the following:
+//
+//	DataProviderMongoDbSslModeValueNone
+//	DataProviderMongoDbSslModeValueRequire
+//	DataProviderMongoDbSslModeValueVerifyFull
+type DataProviderMongoDbSslModeValueInput interface {
+	pulumi.Input
+
+	ToDataProviderMongoDbSslModeValueOutput() DataProviderMongoDbSslModeValueOutput
+	ToDataProviderMongoDbSslModeValueOutputWithContext(context.Context) DataProviderMongoDbSslModeValueOutput
+}
+
+var dataProviderMongoDbSslModeValuePtrType = reflect.TypeOf((**DataProviderMongoDbSslModeValue)(nil)).Elem()
+
+type DataProviderMongoDbSslModeValuePtrInput interface {
+	pulumi.Input
+
+	ToDataProviderMongoDbSslModeValuePtrOutput() DataProviderMongoDbSslModeValuePtrOutput
+	ToDataProviderMongoDbSslModeValuePtrOutputWithContext(context.Context) DataProviderMongoDbSslModeValuePtrOutput
+}
+
+type dataProviderMongoDbSslModeValuePtr string
+
+func DataProviderMongoDbSslModeValuePtr(v string) DataProviderMongoDbSslModeValuePtrInput {
+	return (*dataProviderMongoDbSslModeValuePtr)(&v)
+}
+
+func (*dataProviderMongoDbSslModeValuePtr) ElementType() reflect.Type {
+	return dataProviderMongoDbSslModeValuePtrType
+}
+
+func (in *dataProviderMongoDbSslModeValuePtr) ToDataProviderMongoDbSslModeValuePtrOutput() DataProviderMongoDbSslModeValuePtrOutput {
+	return pulumi.ToOutput(in).(DataProviderMongoDbSslModeValuePtrOutput)
+}
+
+func (in *dataProviderMongoDbSslModeValuePtr) ToDataProviderMongoDbSslModeValuePtrOutputWithContext(ctx context.Context) DataProviderMongoDbSslModeValuePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(DataProviderMongoDbSslModeValuePtrOutput)
 }
 
 // The property describes a network type for the instance profile.
@@ -860,8 +1367,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataMigrationTypePtrInput)(nil)).Elem(), DataMigrationType("full-load"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataProviderDmsSslModeValueInput)(nil)).Elem(), DataProviderDmsSslModeValue("none"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataProviderDmsSslModeValuePtrInput)(nil)).Elem(), DataProviderDmsSslModeValue("none"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DataProviderEngineInput)(nil)).Elem(), DataProviderEngine("postgres"))
-	pulumi.RegisterInputType(reflect.TypeOf((*DataProviderEnginePtrInput)(nil)).Elem(), DataProviderEngine("postgres"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataProviderEngineInput)(nil)).Elem(), DataProviderEngine("aurora"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataProviderEnginePtrInput)(nil)).Elem(), DataProviderEngine("aurora"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataProviderMongoDbAuthMechanismInput)(nil)).Elem(), DataProviderMongoDbAuthMechanism("default"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataProviderMongoDbAuthMechanismPtrInput)(nil)).Elem(), DataProviderMongoDbAuthMechanism("default"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataProviderMongoDbAuthTypeInput)(nil)).Elem(), DataProviderMongoDbAuthType("no"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataProviderMongoDbAuthTypePtrInput)(nil)).Elem(), DataProviderMongoDbAuthType("no"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataProviderMongoDbSslModeValueInput)(nil)).Elem(), DataProviderMongoDbSslModeValue("none"))
+	pulumi.RegisterInputType(reflect.TypeOf((*DataProviderMongoDbSslModeValuePtrInput)(nil)).Elem(), DataProviderMongoDbSslModeValue("none"))
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceProfileNetworkTypeInput)(nil)).Elem(), InstanceProfileNetworkType("IPV4"))
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceProfileNetworkTypePtrInput)(nil)).Elem(), InstanceProfileNetworkType("IPV4"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigReplicationTypeInput)(nil)).Elem(), ReplicationConfigReplicationType("full-load"))
@@ -872,6 +1385,12 @@ func init() {
 	pulumi.RegisterOutputType(DataProviderDmsSslModeValuePtrOutput{})
 	pulumi.RegisterOutputType(DataProviderEngineOutput{})
 	pulumi.RegisterOutputType(DataProviderEnginePtrOutput{})
+	pulumi.RegisterOutputType(DataProviderMongoDbAuthMechanismOutput{})
+	pulumi.RegisterOutputType(DataProviderMongoDbAuthMechanismPtrOutput{})
+	pulumi.RegisterOutputType(DataProviderMongoDbAuthTypeOutput{})
+	pulumi.RegisterOutputType(DataProviderMongoDbAuthTypePtrOutput{})
+	pulumi.RegisterOutputType(DataProviderMongoDbSslModeValueOutput{})
+	pulumi.RegisterOutputType(DataProviderMongoDbSslModeValuePtrOutput{})
 	pulumi.RegisterOutputType(InstanceProfileNetworkTypeOutput{})
 	pulumi.RegisterOutputType(InstanceProfileNetworkTypePtrOutput{})
 	pulumi.RegisterOutputType(ReplicationConfigReplicationTypeOutput{})

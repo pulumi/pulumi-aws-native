@@ -1089,6 +1089,8 @@ func (o CanaryVisualReferencePtrOutput) BaseScreenshots() CanaryBaseScreenshotAr
 }
 
 type CanaryVpcConfig struct {
+	// Allow outbound IPv6 traffic on VPC canaries that are connected to dual-stack subnets if set to true
+	Ipv6AllowedForDualStack *bool `pulumi:"ipv6AllowedForDualStack"`
 	// The IDs of the security groups for this canary.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// The IDs of the subnets where this canary is to run.
@@ -1109,6 +1111,8 @@ type CanaryVpcConfigInput interface {
 }
 
 type CanaryVpcConfigArgs struct {
+	// Allow outbound IPv6 traffic on VPC canaries that are connected to dual-stack subnets if set to true
+	Ipv6AllowedForDualStack pulumi.BoolPtrInput `pulumi:"ipv6AllowedForDualStack"`
 	// The IDs of the security groups for this canary.
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
 	// The IDs of the subnets where this canary is to run.
@@ -1194,6 +1198,11 @@ func (o CanaryVpcConfigOutput) ToCanaryVpcConfigPtrOutputWithContext(ctx context
 	}).(CanaryVpcConfigPtrOutput)
 }
 
+// Allow outbound IPv6 traffic on VPC canaries that are connected to dual-stack subnets if set to true
+func (o CanaryVpcConfigOutput) Ipv6AllowedForDualStack() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CanaryVpcConfig) *bool { return v.Ipv6AllowedForDualStack }).(pulumi.BoolPtrOutput)
+}
+
 // The IDs of the security groups for this canary.
 func (o CanaryVpcConfigOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CanaryVpcConfig) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
@@ -1231,6 +1240,16 @@ func (o CanaryVpcConfigPtrOutput) Elem() CanaryVpcConfigOutput {
 		var ret CanaryVpcConfig
 		return ret
 	}).(CanaryVpcConfigOutput)
+}
+
+// Allow outbound IPv6 traffic on VPC canaries that are connected to dual-stack subnets if set to true
+func (o CanaryVpcConfigPtrOutput) Ipv6AllowedForDualStack() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CanaryVpcConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Ipv6AllowedForDualStack
+	}).(pulumi.BoolPtrOutput)
 }
 
 // The IDs of the security groups for this canary.

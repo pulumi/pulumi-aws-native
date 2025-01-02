@@ -111,6 +111,9 @@ class GetGlobalTableResult:
     @property
     @pulumi.getter(name="pointInTimeRecoverySpecification")
     def point_in_time_recovery_specification(self) -> Optional['outputs.GlobalTablePointInTimeRecoverySpecification']:
+        """
+        Represents the settings used to enable point in time recovery.
+        """
         return pulumi.get(self, "point_in_time_recovery_specification")
 
     @property

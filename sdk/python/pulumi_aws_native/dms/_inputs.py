@@ -26,14 +26,22 @@ __all__ = [
     'ReplicationConfigComputeConfigArgsDict',
     'SchemaConversionApplicationAttributesPropertiesArgs',
     'SchemaConversionApplicationAttributesPropertiesArgsDict',
+    'SettingsPropertiesDocDbSettingsPropertiesArgs',
+    'SettingsPropertiesDocDbSettingsPropertiesArgsDict',
+    'SettingsPropertiesMariaDbSettingsPropertiesArgs',
+    'SettingsPropertiesMariaDbSettingsPropertiesArgsDict',
     'SettingsPropertiesMicrosoftSqlServerSettingsPropertiesArgs',
     'SettingsPropertiesMicrosoftSqlServerSettingsPropertiesArgsDict',
+    'SettingsPropertiesMongoDbSettingsPropertiesArgs',
+    'SettingsPropertiesMongoDbSettingsPropertiesArgsDict',
     'SettingsPropertiesMySqlSettingsPropertiesArgs',
     'SettingsPropertiesMySqlSettingsPropertiesArgsDict',
     'SettingsPropertiesOracleSettingsPropertiesArgs',
     'SettingsPropertiesOracleSettingsPropertiesArgsDict',
     'SettingsPropertiesPostgreSqlSettingsPropertiesArgs',
     'SettingsPropertiesPostgreSqlSettingsPropertiesArgsDict',
+    'SettingsPropertiesRedshiftSettingsPropertiesArgs',
+    'SettingsPropertiesRedshiftSettingsPropertiesArgsDict',
     'SettingsPropertiesArgs',
     'SettingsPropertiesArgsDict',
 ]
@@ -575,6 +583,149 @@ class SchemaConversionApplicationAttributesPropertiesArgs:
 
 
 if not MYPY:
+    class SettingsPropertiesDocDbSettingsPropertiesArgsDict(TypedDict):
+        """
+        DocDbSettings property identifier.
+        """
+        database_name: pulumi.Input[str]
+        port: pulumi.Input[int]
+        server_name: pulumi.Input[str]
+        certificate_arn: NotRequired[pulumi.Input[str]]
+        ssl_mode: NotRequired[pulumi.Input['DataProviderMongoDbSslModeValue']]
+elif False:
+    SettingsPropertiesDocDbSettingsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SettingsPropertiesDocDbSettingsPropertiesArgs:
+    def __init__(__self__, *,
+                 database_name: pulumi.Input[str],
+                 port: pulumi.Input[int],
+                 server_name: pulumi.Input[str],
+                 certificate_arn: Optional[pulumi.Input[str]] = None,
+                 ssl_mode: Optional[pulumi.Input['DataProviderMongoDbSslModeValue']] = None):
+        """
+        DocDbSettings property identifier.
+        """
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "server_name", server_name)
+        if certificate_arn is not None:
+            pulumi.set(__self__, "certificate_arn", certificate_arn)
+        if ssl_mode is not None:
+            pulumi.set(__self__, "ssl_mode", ssl_mode)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "database_name", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: pulumi.Input[int]):
+        pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "server_name")
+
+    @server_name.setter
+    def server_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "server_name", value)
+
+    @property
+    @pulumi.getter(name="certificateArn")
+    def certificate_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "certificate_arn")
+
+    @certificate_arn.setter
+    def certificate_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate_arn", value)
+
+    @property
+    @pulumi.getter(name="sslMode")
+    def ssl_mode(self) -> Optional[pulumi.Input['DataProviderMongoDbSslModeValue']]:
+        return pulumi.get(self, "ssl_mode")
+
+    @ssl_mode.setter
+    def ssl_mode(self, value: Optional[pulumi.Input['DataProviderMongoDbSslModeValue']]):
+        pulumi.set(self, "ssl_mode", value)
+
+
+if not MYPY:
+    class SettingsPropertiesMariaDbSettingsPropertiesArgsDict(TypedDict):
+        """
+        MariaDbSettings property identifier.
+        """
+        port: pulumi.Input[int]
+        server_name: pulumi.Input[str]
+        ssl_mode: pulumi.Input['DataProviderDmsSslModeValue']
+        certificate_arn: NotRequired[pulumi.Input[str]]
+elif False:
+    SettingsPropertiesMariaDbSettingsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SettingsPropertiesMariaDbSettingsPropertiesArgs:
+    def __init__(__self__, *,
+                 port: pulumi.Input[int],
+                 server_name: pulumi.Input[str],
+                 ssl_mode: pulumi.Input['DataProviderDmsSslModeValue'],
+                 certificate_arn: Optional[pulumi.Input[str]] = None):
+        """
+        MariaDbSettings property identifier.
+        """
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "server_name", server_name)
+        pulumi.set(__self__, "ssl_mode", ssl_mode)
+        if certificate_arn is not None:
+            pulumi.set(__self__, "certificate_arn", certificate_arn)
+
+    @property
+    @pulumi.getter
+    def port(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: pulumi.Input[int]):
+        pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "server_name")
+
+    @server_name.setter
+    def server_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "server_name", value)
+
+    @property
+    @pulumi.getter(name="sslMode")
+    def ssl_mode(self) -> pulumi.Input['DataProviderDmsSslModeValue']:
+        return pulumi.get(self, "ssl_mode")
+
+    @ssl_mode.setter
+    def ssl_mode(self, value: pulumi.Input['DataProviderDmsSslModeValue']):
+        pulumi.set(self, "ssl_mode", value)
+
+    @property
+    @pulumi.getter(name="certificateArn")
+    def certificate_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "certificate_arn")
+
+    @certificate_arn.setter
+    def certificate_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate_arn", value)
+
+
+if not MYPY:
     class SettingsPropertiesMicrosoftSqlServerSettingsPropertiesArgsDict(TypedDict):
         """
         MicrosoftSqlServerSettings property identifier.
@@ -649,6 +800,124 @@ class SettingsPropertiesMicrosoftSqlServerSettingsPropertiesArgs:
     @certificate_arn.setter
     def certificate_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "certificate_arn", value)
+
+
+if not MYPY:
+    class SettingsPropertiesMongoDbSettingsPropertiesArgsDict(TypedDict):
+        """
+        MongoDbSettings property identifier.
+        """
+        port: pulumi.Input[int]
+        server_name: pulumi.Input[str]
+        auth_mechanism: NotRequired[pulumi.Input['DataProviderMongoDbAuthMechanism']]
+        auth_source: NotRequired[pulumi.Input[str]]
+        auth_type: NotRequired[pulumi.Input['DataProviderMongoDbAuthType']]
+        certificate_arn: NotRequired[pulumi.Input[str]]
+        database_name: NotRequired[pulumi.Input[str]]
+        ssl_mode: NotRequired[pulumi.Input['DataProviderMongoDbSslModeValue']]
+elif False:
+    SettingsPropertiesMongoDbSettingsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SettingsPropertiesMongoDbSettingsPropertiesArgs:
+    def __init__(__self__, *,
+                 port: pulumi.Input[int],
+                 server_name: pulumi.Input[str],
+                 auth_mechanism: Optional[pulumi.Input['DataProviderMongoDbAuthMechanism']] = None,
+                 auth_source: Optional[pulumi.Input[str]] = None,
+                 auth_type: Optional[pulumi.Input['DataProviderMongoDbAuthType']] = None,
+                 certificate_arn: Optional[pulumi.Input[str]] = None,
+                 database_name: Optional[pulumi.Input[str]] = None,
+                 ssl_mode: Optional[pulumi.Input['DataProviderMongoDbSslModeValue']] = None):
+        """
+        MongoDbSettings property identifier.
+        """
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "server_name", server_name)
+        if auth_mechanism is not None:
+            pulumi.set(__self__, "auth_mechanism", auth_mechanism)
+        if auth_source is not None:
+            pulumi.set(__self__, "auth_source", auth_source)
+        if auth_type is not None:
+            pulumi.set(__self__, "auth_type", auth_type)
+        if certificate_arn is not None:
+            pulumi.set(__self__, "certificate_arn", certificate_arn)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if ssl_mode is not None:
+            pulumi.set(__self__, "ssl_mode", ssl_mode)
+
+    @property
+    @pulumi.getter
+    def port(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: pulumi.Input[int]):
+        pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "server_name")
+
+    @server_name.setter
+    def server_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "server_name", value)
+
+    @property
+    @pulumi.getter(name="authMechanism")
+    def auth_mechanism(self) -> Optional[pulumi.Input['DataProviderMongoDbAuthMechanism']]:
+        return pulumi.get(self, "auth_mechanism")
+
+    @auth_mechanism.setter
+    def auth_mechanism(self, value: Optional[pulumi.Input['DataProviderMongoDbAuthMechanism']]):
+        pulumi.set(self, "auth_mechanism", value)
+
+    @property
+    @pulumi.getter(name="authSource")
+    def auth_source(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "auth_source")
+
+    @auth_source.setter
+    def auth_source(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "auth_source", value)
+
+    @property
+    @pulumi.getter(name="authType")
+    def auth_type(self) -> Optional[pulumi.Input['DataProviderMongoDbAuthType']]:
+        return pulumi.get(self, "auth_type")
+
+    @auth_type.setter
+    def auth_type(self, value: Optional[pulumi.Input['DataProviderMongoDbAuthType']]):
+        pulumi.set(self, "auth_type", value)
+
+    @property
+    @pulumi.getter(name="certificateArn")
+    def certificate_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "certificate_arn")
+
+    @certificate_arn.setter
+    def certificate_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate_arn", value)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "database_name", value)
+
+    @property
+    @pulumi.getter(name="sslMode")
+    def ssl_mode(self) -> Optional[pulumi.Input['DataProviderMongoDbSslModeValue']]:
+        return pulumi.get(self, "ssl_mode")
+
+    @ssl_mode.setter
+    def ssl_mode(self, value: Optional[pulumi.Input['DataProviderMongoDbSslModeValue']]):
+        pulumi.set(self, "ssl_mode", value)
 
 
 if not MYPY:
@@ -936,13 +1205,77 @@ class SettingsPropertiesPostgreSqlSettingsPropertiesArgs:
 
 
 if not MYPY:
+    class SettingsPropertiesRedshiftSettingsPropertiesArgsDict(TypedDict):
+        """
+        RedshiftSettings property identifier.
+        """
+        database_name: pulumi.Input[str]
+        port: pulumi.Input[int]
+        server_name: pulumi.Input[str]
+elif False:
+    SettingsPropertiesRedshiftSettingsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SettingsPropertiesRedshiftSettingsPropertiesArgs:
+    def __init__(__self__, *,
+                 database_name: pulumi.Input[str],
+                 port: pulumi.Input[int],
+                 server_name: pulumi.Input[str]):
+        """
+        RedshiftSettings property identifier.
+        """
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "server_name", server_name)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "database_name", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: pulumi.Input[int]):
+        pulumi.set(self, "port", value)
+
+    @property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "server_name")
+
+    @server_name.setter
+    def server_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "server_name", value)
+
+
+if not MYPY:
     class SettingsPropertiesArgsDict(TypedDict):
         """
         The property identifies the exact type of settings for the data provider.
         """
+        doc_db_settings: NotRequired[pulumi.Input['SettingsPropertiesDocDbSettingsPropertiesArgsDict']]
+        """
+        DocDbSettings property identifier.
+        """
+        maria_db_settings: NotRequired[pulumi.Input['SettingsPropertiesMariaDbSettingsPropertiesArgsDict']]
+        """
+        MariaDbSettings property identifier.
+        """
         microsoft_sql_server_settings: NotRequired[pulumi.Input['SettingsPropertiesMicrosoftSqlServerSettingsPropertiesArgsDict']]
         """
         MicrosoftSqlServerSettings property identifier.
+        """
+        mongo_db_settings: NotRequired[pulumi.Input['SettingsPropertiesMongoDbSettingsPropertiesArgsDict']]
+        """
+        MongoDbSettings property identifier.
         """
         my_sql_settings: NotRequired[pulumi.Input['SettingsPropertiesMySqlSettingsPropertiesArgsDict']]
         """
@@ -956,31 +1289,75 @@ if not MYPY:
         """
         PostgreSqlSettings property identifier.
         """
+        redshift_settings: NotRequired[pulumi.Input['SettingsPropertiesRedshiftSettingsPropertiesArgsDict']]
+        """
+        RedshiftSettings property identifier.
+        """
 elif False:
     SettingsPropertiesArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class SettingsPropertiesArgs:
     def __init__(__self__, *,
+                 doc_db_settings: Optional[pulumi.Input['SettingsPropertiesDocDbSettingsPropertiesArgs']] = None,
+                 maria_db_settings: Optional[pulumi.Input['SettingsPropertiesMariaDbSettingsPropertiesArgs']] = None,
                  microsoft_sql_server_settings: Optional[pulumi.Input['SettingsPropertiesMicrosoftSqlServerSettingsPropertiesArgs']] = None,
+                 mongo_db_settings: Optional[pulumi.Input['SettingsPropertiesMongoDbSettingsPropertiesArgs']] = None,
                  my_sql_settings: Optional[pulumi.Input['SettingsPropertiesMySqlSettingsPropertiesArgs']] = None,
                  oracle_settings: Optional[pulumi.Input['SettingsPropertiesOracleSettingsPropertiesArgs']] = None,
-                 postgre_sql_settings: Optional[pulumi.Input['SettingsPropertiesPostgreSqlSettingsPropertiesArgs']] = None):
+                 postgre_sql_settings: Optional[pulumi.Input['SettingsPropertiesPostgreSqlSettingsPropertiesArgs']] = None,
+                 redshift_settings: Optional[pulumi.Input['SettingsPropertiesRedshiftSettingsPropertiesArgs']] = None):
         """
         The property identifies the exact type of settings for the data provider.
+        :param pulumi.Input['SettingsPropertiesDocDbSettingsPropertiesArgs'] doc_db_settings: DocDbSettings property identifier.
+        :param pulumi.Input['SettingsPropertiesMariaDbSettingsPropertiesArgs'] maria_db_settings: MariaDbSettings property identifier.
         :param pulumi.Input['SettingsPropertiesMicrosoftSqlServerSettingsPropertiesArgs'] microsoft_sql_server_settings: MicrosoftSqlServerSettings property identifier.
+        :param pulumi.Input['SettingsPropertiesMongoDbSettingsPropertiesArgs'] mongo_db_settings: MongoDbSettings property identifier.
         :param pulumi.Input['SettingsPropertiesMySqlSettingsPropertiesArgs'] my_sql_settings: MySqlSettings property identifier.
         :param pulumi.Input['SettingsPropertiesOracleSettingsPropertiesArgs'] oracle_settings: OracleSettings property identifier.
         :param pulumi.Input['SettingsPropertiesPostgreSqlSettingsPropertiesArgs'] postgre_sql_settings: PostgreSqlSettings property identifier.
+        :param pulumi.Input['SettingsPropertiesRedshiftSettingsPropertiesArgs'] redshift_settings: RedshiftSettings property identifier.
         """
+        if doc_db_settings is not None:
+            pulumi.set(__self__, "doc_db_settings", doc_db_settings)
+        if maria_db_settings is not None:
+            pulumi.set(__self__, "maria_db_settings", maria_db_settings)
         if microsoft_sql_server_settings is not None:
             pulumi.set(__self__, "microsoft_sql_server_settings", microsoft_sql_server_settings)
+        if mongo_db_settings is not None:
+            pulumi.set(__self__, "mongo_db_settings", mongo_db_settings)
         if my_sql_settings is not None:
             pulumi.set(__self__, "my_sql_settings", my_sql_settings)
         if oracle_settings is not None:
             pulumi.set(__self__, "oracle_settings", oracle_settings)
         if postgre_sql_settings is not None:
             pulumi.set(__self__, "postgre_sql_settings", postgre_sql_settings)
+        if redshift_settings is not None:
+            pulumi.set(__self__, "redshift_settings", redshift_settings)
+
+    @property
+    @pulumi.getter(name="docDbSettings")
+    def doc_db_settings(self) -> Optional[pulumi.Input['SettingsPropertiesDocDbSettingsPropertiesArgs']]:
+        """
+        DocDbSettings property identifier.
+        """
+        return pulumi.get(self, "doc_db_settings")
+
+    @doc_db_settings.setter
+    def doc_db_settings(self, value: Optional[pulumi.Input['SettingsPropertiesDocDbSettingsPropertiesArgs']]):
+        pulumi.set(self, "doc_db_settings", value)
+
+    @property
+    @pulumi.getter(name="mariaDbSettings")
+    def maria_db_settings(self) -> Optional[pulumi.Input['SettingsPropertiesMariaDbSettingsPropertiesArgs']]:
+        """
+        MariaDbSettings property identifier.
+        """
+        return pulumi.get(self, "maria_db_settings")
+
+    @maria_db_settings.setter
+    def maria_db_settings(self, value: Optional[pulumi.Input['SettingsPropertiesMariaDbSettingsPropertiesArgs']]):
+        pulumi.set(self, "maria_db_settings", value)
 
     @property
     @pulumi.getter(name="microsoftSqlServerSettings")
@@ -993,6 +1370,18 @@ class SettingsPropertiesArgs:
     @microsoft_sql_server_settings.setter
     def microsoft_sql_server_settings(self, value: Optional[pulumi.Input['SettingsPropertiesMicrosoftSqlServerSettingsPropertiesArgs']]):
         pulumi.set(self, "microsoft_sql_server_settings", value)
+
+    @property
+    @pulumi.getter(name="mongoDbSettings")
+    def mongo_db_settings(self) -> Optional[pulumi.Input['SettingsPropertiesMongoDbSettingsPropertiesArgs']]:
+        """
+        MongoDbSettings property identifier.
+        """
+        return pulumi.get(self, "mongo_db_settings")
+
+    @mongo_db_settings.setter
+    def mongo_db_settings(self, value: Optional[pulumi.Input['SettingsPropertiesMongoDbSettingsPropertiesArgs']]):
+        pulumi.set(self, "mongo_db_settings", value)
 
     @property
     @pulumi.getter(name="mySqlSettings")
@@ -1029,5 +1418,17 @@ class SettingsPropertiesArgs:
     @postgre_sql_settings.setter
     def postgre_sql_settings(self, value: Optional[pulumi.Input['SettingsPropertiesPostgreSqlSettingsPropertiesArgs']]):
         pulumi.set(self, "postgre_sql_settings", value)
+
+    @property
+    @pulumi.getter(name="redshiftSettings")
+    def redshift_settings(self) -> Optional[pulumi.Input['SettingsPropertiesRedshiftSettingsPropertiesArgs']]:
+        """
+        RedshiftSettings property identifier.
+        """
+        return pulumi.get(self, "redshift_settings")
+
+    @redshift_settings.setter
+    def redshift_settings(self, value: Optional[pulumi.Input['SettingsPropertiesRedshiftSettingsPropertiesArgs']]):
+        pulumi.set(self, "redshift_settings", value)
 
 

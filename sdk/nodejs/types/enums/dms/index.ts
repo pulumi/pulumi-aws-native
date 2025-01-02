@@ -23,18 +23,45 @@ export const DataProviderDmsSslModeValue = {
 export type DataProviderDmsSslModeValue = (typeof DataProviderDmsSslModeValue)[keyof typeof DataProviderDmsSslModeValue];
 
 export const DataProviderEngine = {
-    Postgres: "postgres",
-    Mysql: "mysql",
-    Oracle: "oracle",
-    Sqlserver: "sqlserver",
     Aurora: "aurora",
     AuroraPostgresql: "aurora_postgresql",
+    Mysql: "mysql",
+    Oracle: "oracle",
+    Postgres: "postgres",
+    Sqlserver: "sqlserver",
+    Redshift: "redshift",
+    Mariadb: "mariadb",
+    Mongodb: "mongodb",
+    Docdb: "docdb",
 } as const;
 
 /**
  * The property describes a data engine for the data provider.
  */
 export type DataProviderEngine = (typeof DataProviderEngine)[keyof typeof DataProviderEngine];
+
+export const DataProviderMongoDbAuthMechanism = {
+    Default: "default",
+    MongodbCr: "mongodb_cr",
+    ScramSha1: "scram_sha_1",
+} as const;
+
+export type DataProviderMongoDbAuthMechanism = (typeof DataProviderMongoDbAuthMechanism)[keyof typeof DataProviderMongoDbAuthMechanism];
+
+export const DataProviderMongoDbAuthType = {
+    No: "no",
+    Password: "password",
+} as const;
+
+export type DataProviderMongoDbAuthType = (typeof DataProviderMongoDbAuthType)[keyof typeof DataProviderMongoDbAuthType];
+
+export const DataProviderMongoDbSslModeValue = {
+    None: "none",
+    Require: "require",
+    VerifyFull: "verify-full",
+} as const;
+
+export type DataProviderMongoDbSslModeValue = (typeof DataProviderMongoDbSslModeValue)[keyof typeof DataProviderMongoDbSslModeValue];
 
 export const InstanceProfileNetworkType = {
     Ipv4: "IPV4",

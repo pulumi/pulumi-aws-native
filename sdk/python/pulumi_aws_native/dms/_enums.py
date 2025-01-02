@@ -8,6 +8,9 @@ __all__ = [
     'DataMigrationType',
     'DataProviderDmsSslModeValue',
     'DataProviderEngine',
+    'DataProviderMongoDbAuthMechanism',
+    'DataProviderMongoDbAuthType',
+    'DataProviderMongoDbSslModeValue',
     'InstanceProfileNetworkType',
     'ReplicationConfigReplicationType',
 ]
@@ -33,12 +36,33 @@ class DataProviderEngine(str, Enum):
     """
     The property describes a data engine for the data provider.
     """
-    POSTGRES = "postgres"
-    MYSQL = "mysql"
-    ORACLE = "oracle"
-    SQLSERVER = "sqlserver"
     AURORA = "aurora"
     AURORA_POSTGRESQL = "aurora_postgresql"
+    MYSQL = "mysql"
+    ORACLE = "oracle"
+    POSTGRES = "postgres"
+    SQLSERVER = "sqlserver"
+    REDSHIFT = "redshift"
+    MARIADB = "mariadb"
+    MONGODB = "mongodb"
+    DOCDB = "docdb"
+
+
+class DataProviderMongoDbAuthMechanism(str, Enum):
+    DEFAULT = "default"
+    MONGODB_CR = "mongodb_cr"
+    SCRAM_SHA1 = "scram_sha_1"
+
+
+class DataProviderMongoDbAuthType(str, Enum):
+    NO = "no"
+    PASSWORD = "password"
+
+
+class DataProviderMongoDbSslModeValue(str, Enum):
+    NONE = "none"
+    REQUIRE = "require"
+    VERIFY_FULL = "verify-full"
 
 
 class InstanceProfileNetworkType(str, Enum):

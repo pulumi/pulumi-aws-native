@@ -875,6 +875,8 @@ class DomainConfigurationServerCertificateConfig(dict):
                  ocsp_lambda_arn: Optional[str] = None):
         """
         :param bool enable_ocsp_check: A Boolean value that indicates whether Online Certificate Status Protocol (OCSP) server certificate check is enabled or not. For more information, see [Configurable endpoints](https://docs.aws.amazon.com//iot/latest/developerguide/iot-custom-endpoints-configurable.html) from the AWS IoT Core Developer Guide.
+        :param str ocsp_authorized_responder_arn: The Amazon Resource Name (ARN) for an X.509 certificate stored in ACM. If provided, AWS IoT Core will use this certificate to validate the signature of the received OCSP response. The OCSP responder must sign responses using either this authorized responder certificate or the issuing certificate, depending on whether the ARN is provided or not. The certificate must be in the same account and region as the domain configuration.
+        :param str ocsp_lambda_arn: The Amazon Resource Name (ARN) for a Lambda function that acts as a Request for Comments (RFC) 6960-compliant Online Certificate Status Protocol (OCSP) responder, supporting basic OCSP responses. The Lambda function accepts a base64-encoding of the OCSP request in the Distinguished Encoding Rules (DER) format. The Lambda function's response is also a base64-encoded OCSP response in the DER format. The response size must not exceed 4 kilobytes (KiB). The Lambda function must be in the same account and region as the domain configuration.
         """
         if enable_ocsp_check is not None:
             pulumi.set(__self__, "enable_ocsp_check", enable_ocsp_check)
@@ -894,11 +896,17 @@ class DomainConfigurationServerCertificateConfig(dict):
     @property
     @pulumi.getter(name="ocspAuthorizedResponderArn")
     def ocsp_authorized_responder_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) for an X.509 certificate stored in ACM. If provided, AWS IoT Core will use this certificate to validate the signature of the received OCSP response. The OCSP responder must sign responses using either this authorized responder certificate or the issuing certificate, depending on whether the ARN is provided or not. The certificate must be in the same account and region as the domain configuration.
+        """
         return pulumi.get(self, "ocsp_authorized_responder_arn")
 
     @property
     @pulumi.getter(name="ocspLambdaArn")
     def ocsp_lambda_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) for a Lambda function that acts as a Request for Comments (RFC) 6960-compliant Online Certificate Status Protocol (OCSP) responder, supporting basic OCSP responses. The Lambda function accepts a base64-encoding of the OCSP request in the Distinguished Encoding Rules (DER) format. The Lambda function's response is also a base64-encoded OCSP response in the DER format. The response size must not exceed 4 kilobytes (KiB). The Lambda function must be in the same account and region as the domain configuration.
+        """
         return pulumi.get(self, "ocsp_lambda_arn")
 
 

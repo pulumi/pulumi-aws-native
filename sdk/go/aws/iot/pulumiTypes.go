@@ -2164,9 +2164,11 @@ func (o DomainConfigurationClientCertificateConfigPtrOutput) ClientCertificateCa
 
 type DomainConfigurationServerCertificateConfig struct {
 	// A Boolean value that indicates whether Online Certificate Status Protocol (OCSP) server certificate check is enabled or not. For more information, see [Configurable endpoints](https://docs.aws.amazon.com//iot/latest/developerguide/iot-custom-endpoints-configurable.html) from the AWS IoT Core Developer Guide.
-	EnableOcspCheck            *bool   `pulumi:"enableOcspCheck"`
+	EnableOcspCheck *bool `pulumi:"enableOcspCheck"`
+	// The Amazon Resource Name (ARN) for an X.509 certificate stored in ACM. If provided, AWS IoT Core will use this certificate to validate the signature of the received OCSP response. The OCSP responder must sign responses using either this authorized responder certificate or the issuing certificate, depending on whether the ARN is provided or not. The certificate must be in the same account and region as the domain configuration.
 	OcspAuthorizedResponderArn *string `pulumi:"ocspAuthorizedResponderArn"`
-	OcspLambdaArn              *string `pulumi:"ocspLambdaArn"`
+	// The Amazon Resource Name (ARN) for a Lambda function that acts as a Request for Comments (RFC) 6960-compliant Online Certificate Status Protocol (OCSP) responder, supporting basic OCSP responses. The Lambda function accepts a base64-encoding of the OCSP request in the Distinguished Encoding Rules (DER) format. The Lambda function's response is also a base64-encoded OCSP response in the DER format. The response size must not exceed 4 kilobytes (KiB). The Lambda function must be in the same account and region as the domain configuration.
+	OcspLambdaArn *string `pulumi:"ocspLambdaArn"`
 }
 
 // DomainConfigurationServerCertificateConfigInput is an input type that accepts DomainConfigurationServerCertificateConfigArgs and DomainConfigurationServerCertificateConfigOutput values.
@@ -2182,9 +2184,11 @@ type DomainConfigurationServerCertificateConfigInput interface {
 
 type DomainConfigurationServerCertificateConfigArgs struct {
 	// A Boolean value that indicates whether Online Certificate Status Protocol (OCSP) server certificate check is enabled or not. For more information, see [Configurable endpoints](https://docs.aws.amazon.com//iot/latest/developerguide/iot-custom-endpoints-configurable.html) from the AWS IoT Core Developer Guide.
-	EnableOcspCheck            pulumi.BoolPtrInput   `pulumi:"enableOcspCheck"`
+	EnableOcspCheck pulumi.BoolPtrInput `pulumi:"enableOcspCheck"`
+	// The Amazon Resource Name (ARN) for an X.509 certificate stored in ACM. If provided, AWS IoT Core will use this certificate to validate the signature of the received OCSP response. The OCSP responder must sign responses using either this authorized responder certificate or the issuing certificate, depending on whether the ARN is provided or not. The certificate must be in the same account and region as the domain configuration.
 	OcspAuthorizedResponderArn pulumi.StringPtrInput `pulumi:"ocspAuthorizedResponderArn"`
-	OcspLambdaArn              pulumi.StringPtrInput `pulumi:"ocspLambdaArn"`
+	// The Amazon Resource Name (ARN) for a Lambda function that acts as a Request for Comments (RFC) 6960-compliant Online Certificate Status Protocol (OCSP) responder, supporting basic OCSP responses. The Lambda function accepts a base64-encoding of the OCSP request in the Distinguished Encoding Rules (DER) format. The Lambda function's response is also a base64-encoded OCSP response in the DER format. The response size must not exceed 4 kilobytes (KiB). The Lambda function must be in the same account and region as the domain configuration.
+	OcspLambdaArn pulumi.StringPtrInput `pulumi:"ocspLambdaArn"`
 }
 
 func (DomainConfigurationServerCertificateConfigArgs) ElementType() reflect.Type {
@@ -2269,10 +2273,12 @@ func (o DomainConfigurationServerCertificateConfigOutput) EnableOcspCheck() pulu
 	return o.ApplyT(func(v DomainConfigurationServerCertificateConfig) *bool { return v.EnableOcspCheck }).(pulumi.BoolPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) for an X.509 certificate stored in ACM. If provided, AWS IoT Core will use this certificate to validate the signature of the received OCSP response. The OCSP responder must sign responses using either this authorized responder certificate or the issuing certificate, depending on whether the ARN is provided or not. The certificate must be in the same account and region as the domain configuration.
 func (o DomainConfigurationServerCertificateConfigOutput) OcspAuthorizedResponderArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainConfigurationServerCertificateConfig) *string { return v.OcspAuthorizedResponderArn }).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) for a Lambda function that acts as a Request for Comments (RFC) 6960-compliant Online Certificate Status Protocol (OCSP) responder, supporting basic OCSP responses. The Lambda function accepts a base64-encoding of the OCSP request in the Distinguished Encoding Rules (DER) format. The Lambda function's response is also a base64-encoded OCSP response in the DER format. The response size must not exceed 4 kilobytes (KiB). The Lambda function must be in the same account and region as the domain configuration.
 func (o DomainConfigurationServerCertificateConfigOutput) OcspLambdaArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainConfigurationServerCertificateConfig) *string { return v.OcspLambdaArn }).(pulumi.StringPtrOutput)
 }
@@ -2311,6 +2317,7 @@ func (o DomainConfigurationServerCertificateConfigPtrOutput) EnableOcspCheck() p
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) for an X.509 certificate stored in ACM. If provided, AWS IoT Core will use this certificate to validate the signature of the received OCSP response. The OCSP responder must sign responses using either this authorized responder certificate or the issuing certificate, depending on whether the ARN is provided or not. The certificate must be in the same account and region as the domain configuration.
 func (o DomainConfigurationServerCertificateConfigPtrOutput) OcspAuthorizedResponderArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainConfigurationServerCertificateConfig) *string {
 		if v == nil {
@@ -2320,6 +2327,7 @@ func (o DomainConfigurationServerCertificateConfigPtrOutput) OcspAuthorizedRespo
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) for a Lambda function that acts as a Request for Comments (RFC) 6960-compliant Online Certificate Status Protocol (OCSP) responder, supporting basic OCSP responses. The Lambda function accepts a base64-encoding of the OCSP request in the Distinguished Encoding Rules (DER) format. The Lambda function's response is also a base64-encoded OCSP response in the DER format. The response size must not exceed 4 kilobytes (KiB). The Lambda function must be in the same account and region as the domain configuration.
 func (o DomainConfigurationServerCertificateConfigPtrOutput) OcspLambdaArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainConfigurationServerCertificateConfig) *string {
 		if v == nil {

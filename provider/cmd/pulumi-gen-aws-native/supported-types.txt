@@ -1243,6 +1243,16 @@ MongoDB::Atlas::ThirdPartyIntegration
 MongoDB::Atlas::Trigger
 MongoDB::Atlas::X509AuthenticationDatabaseUser
 MongoDb::Atlas::AwsIamDatabaseUser
+NetApp::FSxN::CifsShare
+NetApp::FSxN::ClusterPeer
+NetApp::FSxN::ExportPolicy
+NetApp::FSxN::IGroup
+NetApp::FSxN::Lun
+NetApp::FSxN::SnapMirror
+NetApp::FSxN::Snapshot
+NetApp::FSxN::SnapshotPolicy
+NetApp::FSxN::SvmPeer
+NetApp::FSxN::Volume
 NewRelic::Agent::Configuration
 NewRelic::Alert::AlertsPolicy
 NewRelic::Alert::NrqlConditionStatic
