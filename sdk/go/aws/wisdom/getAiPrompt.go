@@ -37,7 +37,8 @@ type LookupAiPromptResult struct {
 	// The Amazon Resource Name (ARN) of the Amazon Q in Connect assistant.
 	AssistantArn *string `pulumi:"assistantArn"`
 	// The description of the AI Prompt.
-	Description *string `pulumi:"description"`
+	Description         *string  `pulumi:"description"`
+	ModifiedTimeSeconds *float64 `pulumi:"modifiedTimeSeconds"`
 	// The configuration of the prompt template for this AI Prompt.
 	TemplateConfiguration *AiPromptAiPromptTemplateConfiguration `pulumi:"templateConfiguration"`
 }
@@ -94,6 +95,10 @@ func (o LookupAiPromptResultOutput) AssistantArn() pulumi.StringPtrOutput {
 // The description of the AI Prompt.
 func (o LookupAiPromptResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAiPromptResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupAiPromptResultOutput) ModifiedTimeSeconds() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v LookupAiPromptResult) *float64 { return v.ModifiedTimeSeconds }).(pulumi.Float64PtrOutput)
 }
 
 // The configuration of the prompt template for this AI Prompt.

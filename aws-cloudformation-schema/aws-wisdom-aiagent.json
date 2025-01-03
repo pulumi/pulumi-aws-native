@@ -298,10 +298,13 @@
     },
     "Type" : {
       "$ref" : "#/definitions/AIAgentType"
+    },
+    "ModifiedTimeSeconds" : {
+      "type" : "number"
     }
   },
   "required" : [ "AssistantId", "Configuration", "Type" ],
-  "readOnlyProperties" : [ "/properties/AIAgentArn", "/properties/AIAgentId", "/properties/AssistantArn" ],
+  "readOnlyProperties" : [ "/properties/AIAgentArn", "/properties/AIAgentId", "/properties/AssistantArn", "/properties/ModifiedTimeSeconds" ],
   "createOnlyProperties" : [ "/properties/AssistantId", "/properties/Name", "/properties/Tags", "/properties/Type" ],
   "primaryIdentifier" : [ "/properties/AIAgentId", "/properties/AssistantId" ],
   "additionalIdentifiers" : [ [ "/properties/AIAgentArn", "/properties/AssistantArn" ] ],

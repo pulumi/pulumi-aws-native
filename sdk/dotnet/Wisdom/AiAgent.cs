@@ -51,6 +51,9 @@ namespace Pulumi.AwsNative.Wisdom
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        [Output("modifiedTimeSeconds")]
+        public Output<double> ModifiedTimeSeconds { get; private set; } = null!;
+
         /// <summary>
         /// The name of the AI Agent.
         /// </summary>

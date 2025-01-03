@@ -39,7 +39,8 @@ type LookupAiAgentResult struct {
 	// Configuration for the AI Agent.
 	Configuration interface{} `pulumi:"configuration"`
 	// The description of the AI Agent.
-	Description *string `pulumi:"description"`
+	Description         *string  `pulumi:"description"`
+	ModifiedTimeSeconds *float64 `pulumi:"modifiedTimeSeconds"`
 }
 
 func LookupAiAgentOutput(ctx *pulumi.Context, args LookupAiAgentOutputArgs, opts ...pulumi.InvokeOption) LookupAiAgentResultOutput {
@@ -99,6 +100,10 @@ func (o LookupAiAgentResultOutput) Configuration() pulumi.AnyOutput {
 // The description of the AI Agent.
 func (o LookupAiAgentResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAiAgentResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupAiAgentResultOutput) ModifiedTimeSeconds() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v LookupAiAgentResult) *float64 { return v.ModifiedTimeSeconds }).(pulumi.Float64PtrOutput)
 }
 
 func init() {

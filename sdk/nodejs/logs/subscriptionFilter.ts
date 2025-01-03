@@ -44,9 +44,8 @@ export class SubscriptionFilter extends pulumi.CustomResource {
     }
 
     /**
-     * This parameter is valid only for log groups that have an active log transformer. For more information about log transformers, see [PutTransformer](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutTransformer.html) .
-     *
-     * If this value is `true` , the subscription filter is applied on the transformed version of the log events instead of the original ingested log events.
+     * This parameter is valid only for log groups that have an active log transformer. For more information about log transformers, see [PutTransformer](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutTransformer.html).
+     *  If this value is ``true``, the subscription filter is applied on the transformed version of the log events instead of the original ingested log events.
      */
     public readonly applyOnTransformedLogs!: pulumi.Output<boolean | undefined>;
     /**
@@ -122,9 +121,8 @@ export class SubscriptionFilter extends pulumi.CustomResource {
  */
 export interface SubscriptionFilterArgs {
     /**
-     * This parameter is valid only for log groups that have an active log transformer. For more information about log transformers, see [PutTransformer](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutTransformer.html) .
-     *
-     * If this value is `true` , the subscription filter is applied on the transformed version of the log events instead of the original ingested log events.
+     * This parameter is valid only for log groups that have an active log transformer. For more information about log transformers, see [PutTransformer](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutTransformer.html).
+     *  If this value is ``true``, the subscription filter is applied on the transformed version of the log events instead of the original ingested log events.
      */
     applyOnTransformedLogs?: pulumi.Input<boolean>;
     /**

@@ -27,7 +27,8 @@ type AiAgent struct {
 	// Configuration for the AI Agent.
 	Configuration pulumi.AnyOutput `pulumi:"configuration"`
 	// The description of the AI Agent.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
+	Description         pulumi.StringPtrOutput `pulumi:"description"`
+	ModifiedTimeSeconds pulumi.Float64Output   `pulumi:"modifiedTimeSeconds"`
 	// The name of the AI Agent.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// The tags used to organize, track, or control access for this resource.
@@ -187,6 +188,10 @@ func (o AiAgentOutput) Configuration() pulumi.AnyOutput {
 // The description of the AI Agent.
 func (o AiAgentOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AiAgent) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o AiAgentOutput) ModifiedTimeSeconds() pulumi.Float64Output {
+	return o.ApplyT(func(v *AiAgent) pulumi.Float64Output { return v.ModifiedTimeSeconds }).(pulumi.Float64Output)
 }
 
 // The name of the AI Agent.

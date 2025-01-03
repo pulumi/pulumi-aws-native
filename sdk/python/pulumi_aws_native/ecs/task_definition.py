@@ -57,7 +57,7 @@ class TaskDefinitionArgs:
                 This option requires Linux platform ``1.4.0`` or later.
                  +  16384 (16vCPU) - Available ``memory`` values: 32GB and 120 GB in 8 GB increments
                 This option requires Linux platform ``1.4.0`` or later.
-        :param pulumi.Input[bool] enable_fault_injection: Enables fault injection and allows for fault injection requests to be accepted from the task's containers. The default value is `false` .
+        :param pulumi.Input[bool] enable_fault_injection: Enables fault injection and allows for fault injection requests to be accepted from the task's containers. The default value is ``false``.
         :param pulumi.Input['TaskDefinitionEphemeralStorageArgs'] ephemeral_storage: The ephemeral storage settings to use for tasks run with the task definition.
         :param pulumi.Input[str] execution_role_arn: The Amazon Resource Name (ARN) of the task execution role that grants the Amazon ECS container agent permission to make AWS API calls on your behalf. For informationabout the required IAM roles for Amazon ECS, see [IAM roles for Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/security-ecs-iam-role-overview.html) in the *Amazon Elastic Container Service Developer Guide*.
         :param pulumi.Input[str] family: The name of a family that this task definition is registered to. Up to 255 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed.
@@ -193,7 +193,7 @@ class TaskDefinitionArgs:
     @pulumi.getter(name="enableFaultInjection")
     def enable_fault_injection(self) -> Optional[pulumi.Input[bool]]:
         """
-        Enables fault injection and allows for fault injection requests to be accepted from the task's containers. The default value is `false` .
+        Enables fault injection and allows for fault injection requests to be accepted from the task's containers. The default value is ``false``.
         """
         return pulumi.get(self, "enable_fault_injection")
 
@@ -645,7 +645,7 @@ class TaskDefinition(pulumi.CustomResource):
                 This option requires Linux platform ``1.4.0`` or later.
                  +  16384 (16vCPU) - Available ``memory`` values: 32GB and 120 GB in 8 GB increments
                 This option requires Linux platform ``1.4.0`` or later.
-        :param pulumi.Input[bool] enable_fault_injection: Enables fault injection and allows for fault injection requests to be accepted from the task's containers. The default value is `false` .
+        :param pulumi.Input[bool] enable_fault_injection: Enables fault injection and allows for fault injection requests to be accepted from the task's containers. The default value is ``false``.
         :param pulumi.Input[Union['TaskDefinitionEphemeralStorageArgs', 'TaskDefinitionEphemeralStorageArgsDict']] ephemeral_storage: The ephemeral storage settings to use for tasks run with the task definition.
         :param pulumi.Input[str] execution_role_arn: The Amazon Resource Name (ARN) of the task execution role that grants the Amazon ECS container agent permission to make AWS API calls on your behalf. For informationabout the required IAM roles for Amazon ECS, see [IAM roles for Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/security-ecs-iam-role-overview.html) in the *Amazon Elastic Container Service Developer Guide*.
         :param pulumi.Input[str] family: The name of a family that this task definition is registered to. Up to 255 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed.
@@ -1029,7 +1029,7 @@ class TaskDefinition(pulumi.CustomResource):
     @pulumi.getter(name="enableFaultInjection")
     def enable_fault_injection(self) -> pulumi.Output[Optional[bool]]:
         """
-        Enables fault injection and allows for fault injection requests to be accepted from the task's containers. The default value is `false` .
+        Enables fault injection and allows for fault injection requests to be accepted from the task's containers. The default value is ``false``.
         """
         return pulumi.get(self, "enable_fault_injection")
 

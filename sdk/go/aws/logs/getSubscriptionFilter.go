@@ -40,9 +40,8 @@ type LookupSubscriptionFilterArgs struct {
 }
 
 type LookupSubscriptionFilterResult struct {
-	// This parameter is valid only for log groups that have an active log transformer. For more information about log transformers, see [PutTransformer](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutTransformer.html) .
-	//
-	// If this value is `true` , the subscription filter is applied on the transformed version of the log events instead of the original ingested log events.
+	// This parameter is valid only for log groups that have an active log transformer. For more information about log transformers, see [PutTransformer](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutTransformer.html).
+	//  If this value is ``true``, the subscription filter is applied on the transformed version of the log events instead of the original ingested log events.
 	ApplyOnTransformedLogs *bool `pulumi:"applyOnTransformedLogs"`
 	// The Amazon Resource Name (ARN) of the destination.
 	DestinationArn *string `pulumi:"destinationArn"`
@@ -88,9 +87,9 @@ func (o LookupSubscriptionFilterResultOutput) ToLookupSubscriptionFilterResultOu
 	return o
 }
 
-// This parameter is valid only for log groups that have an active log transformer. For more information about log transformers, see [PutTransformer](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutTransformer.html) .
+// This parameter is valid only for log groups that have an active log transformer. For more information about log transformers, see [PutTransformer](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutTransformer.html).
 //
-// If this value is `true` , the subscription filter is applied on the transformed version of the log events instead of the original ingested log events.
+//	If this value is ``true``, the subscription filter is applied on the transformed version of the log events instead of the original ingested log events.
 func (o LookupSubscriptionFilterResultOutput) ApplyOnTransformedLogs() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupSubscriptionFilterResult) *bool { return v.ApplyOnTransformedLogs }).(pulumi.BoolPtrOutput)
 }

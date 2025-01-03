@@ -65,6 +65,7 @@ export class AiPrompt extends pulumi.CustomResource {
      * The identifier of the model used for this AI Prompt. Model Ids supported are: `CLAUDE_3_HAIKU_20240307_V1` .
      */
     public readonly modelId!: pulumi.Output<string>;
+    public /*out*/ readonly modifiedTimeSeconds!: pulumi.Output<number>;
     /**
      * The name of the AI Prompt
      */
@@ -124,6 +125,7 @@ export class AiPrompt extends pulumi.CustomResource {
             resourceInputs["aiPromptArn"] = undefined /*out*/;
             resourceInputs["aiPromptId"] = undefined /*out*/;
             resourceInputs["assistantArn"] = undefined /*out*/;
+            resourceInputs["modifiedTimeSeconds"] = undefined /*out*/;
         } else {
             resourceInputs["aiPromptArn"] = undefined /*out*/;
             resourceInputs["aiPromptId"] = undefined /*out*/;
@@ -132,6 +134,7 @@ export class AiPrompt extends pulumi.CustomResource {
             resourceInputs["assistantId"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["modelId"] = undefined /*out*/;
+            resourceInputs["modifiedTimeSeconds"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["templateConfiguration"] = undefined /*out*/;

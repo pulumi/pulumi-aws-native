@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetAiAgentResult:
-    def __init__(__self__, ai_agent_arn=None, ai_agent_id=None, assistant_arn=None, configuration=None, description=None):
+    def __init__(__self__, ai_agent_arn=None, ai_agent_id=None, assistant_arn=None, configuration=None, description=None, modified_time_seconds=None):
         if ai_agent_arn and not isinstance(ai_agent_arn, str):
             raise TypeError("Expected argument 'ai_agent_arn' to be a str")
         pulumi.set(__self__, "ai_agent_arn", ai_agent_arn)
@@ -41,6 +41,9 @@ class GetAiAgentResult:
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if modified_time_seconds and not isinstance(modified_time_seconds, float):
+            raise TypeError("Expected argument 'modified_time_seconds' to be a float")
+        pulumi.set(__self__, "modified_time_seconds", modified_time_seconds)
 
     @property
     @pulumi.getter(name="aiAgentArn")
@@ -82,6 +85,11 @@ class GetAiAgentResult:
         """
         return pulumi.get(self, "description")
 
+    @property
+    @pulumi.getter(name="modifiedTimeSeconds")
+    def modified_time_seconds(self) -> Optional[float]:
+        return pulumi.get(self, "modified_time_seconds")
+
 
 class AwaitableGetAiAgentResult(GetAiAgentResult):
     # pylint: disable=using-constant-test
@@ -93,7 +101,8 @@ class AwaitableGetAiAgentResult(GetAiAgentResult):
             ai_agent_id=self.ai_agent_id,
             assistant_arn=self.assistant_arn,
             configuration=self.configuration,
-            description=self.description)
+            description=self.description,
+            modified_time_seconds=self.modified_time_seconds)
 
 
 def get_ai_agent(ai_agent_id: Optional[str] = None,
@@ -117,7 +126,8 @@ def get_ai_agent(ai_agent_id: Optional[str] = None,
         ai_agent_id=pulumi.get(__ret__, 'ai_agent_id'),
         assistant_arn=pulumi.get(__ret__, 'assistant_arn'),
         configuration=pulumi.get(__ret__, 'configuration'),
-        description=pulumi.get(__ret__, 'description'))
+        description=pulumi.get(__ret__, 'description'),
+        modified_time_seconds=pulumi.get(__ret__, 'modified_time_seconds'))
 def get_ai_agent_output(ai_agent_id: Optional[pulumi.Input[str]] = None,
                         assistant_id: Optional[pulumi.Input[str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAiAgentResult]:
@@ -138,4 +148,5 @@ def get_ai_agent_output(ai_agent_id: Optional[pulumi.Input[str]] = None,
         ai_agent_id=pulumi.get(__response__, 'ai_agent_id'),
         assistant_arn=pulumi.get(__response__, 'assistant_arn'),
         configuration=pulumi.get(__response__, 'configuration'),
-        description=pulumi.get(__response__, 'description')))
+        description=pulumi.get(__response__, 'description'),
+        modified_time_seconds=pulumi.get(__response__, 'modified_time_seconds')))

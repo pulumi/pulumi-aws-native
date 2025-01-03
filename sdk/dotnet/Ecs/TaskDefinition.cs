@@ -333,7 +333,7 @@ namespace Pulumi.AwsNative.Ecs
         public Output<string?> Cpu { get; private set; } = null!;
 
         /// <summary>
-        /// Enables fault injection and allows for fault injection requests to be accepted from the task's containers. The default value is `false` .
+        /// Enables fault injection and allows for fault injection requests to be accepted from the task's containers. The default value is ``false``.
         /// </summary>
         [Output("enableFaultInjection")]
         public Output<bool?> EnableFaultInjection { get; private set; } = null!;
@@ -572,7 +572,7 @@ namespace Pulumi.AwsNative.Ecs
         public Input<string>? Cpu { get; set; }
 
         /// <summary>
-        /// Enables fault injection and allows for fault injection requests to be accepted from the task's containers. The default value is `false` .
+        /// Enables fault injection and allows for fault injection requests to be accepted from the task's containers. The default value is ``false``.
         /// </summary>
         [Input("enableFaultInjection")]
         public Input<bool>? EnableFaultInjection { get; set; }

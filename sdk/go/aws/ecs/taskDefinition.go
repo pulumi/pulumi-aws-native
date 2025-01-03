@@ -302,7 +302,7 @@ type TaskDefinition struct {
 	//   +  16384 (16vCPU) - Available ``memory`` values: 32GB and 120 GB in 8 GB increments
 	//       This option requires Linux platform ``1.4.0`` or later.
 	Cpu pulumi.StringPtrOutput `pulumi:"cpu"`
-	// Enables fault injection and allows for fault injection requests to be accepted from the task's containers. The default value is `false` .
+	// Enables fault injection and allows for fault injection requests to be accepted from the task's containers. The default value is ``false``.
 	EnableFaultInjection pulumi.BoolPtrOutput `pulumi:"enableFaultInjection"`
 	// The ephemeral storage settings to use for tasks run with the task definition.
 	EphemeralStorage TaskDefinitionEphemeralStoragePtrOutput `pulumi:"ephemeralStorage"`
@@ -456,7 +456,7 @@ type taskDefinitionArgs struct {
 	//   +  16384 (16vCPU) - Available ``memory`` values: 32GB and 120 GB in 8 GB increments
 	//       This option requires Linux platform ``1.4.0`` or later.
 	Cpu *string `pulumi:"cpu"`
-	// Enables fault injection and allows for fault injection requests to be accepted from the task's containers. The default value is `false` .
+	// Enables fault injection and allows for fault injection requests to be accepted from the task's containers. The default value is ``false``.
 	EnableFaultInjection *bool `pulumi:"enableFaultInjection"`
 	// The ephemeral storage settings to use for tasks run with the task definition.
 	EphemeralStorage *TaskDefinitionEphemeralStorage `pulumi:"ephemeralStorage"`
@@ -550,7 +550,7 @@ type TaskDefinitionArgs struct {
 	//   +  16384 (16vCPU) - Available ``memory`` values: 32GB and 120 GB in 8 GB increments
 	//       This option requires Linux platform ``1.4.0`` or later.
 	Cpu pulumi.StringPtrInput
-	// Enables fault injection and allows for fault injection requests to be accepted from the task's containers. The default value is `false` .
+	// Enables fault injection and allows for fault injection requests to be accepted from the task's containers. The default value is ``false``.
 	EnableFaultInjection pulumi.BoolPtrInput
 	// The ephemeral storage settings to use for tasks run with the task definition.
 	EphemeralStorage TaskDefinitionEphemeralStoragePtrInput
@@ -686,7 +686,7 @@ func (o TaskDefinitionOutput) Cpu() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskDefinition) pulumi.StringPtrOutput { return v.Cpu }).(pulumi.StringPtrOutput)
 }
 
-// Enables fault injection and allows for fault injection requests to be accepted from the task's containers. The default value is `false` .
+// Enables fault injection and allows for fault injection requests to be accepted from the task's containers. The default value is “false“.
 func (o TaskDefinitionOutput) EnableFaultInjection() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TaskDefinition) pulumi.BoolPtrOutput { return v.EnableFaultInjection }).(pulumi.BoolPtrOutput)
 }

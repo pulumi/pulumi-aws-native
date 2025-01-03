@@ -61,6 +61,7 @@ export class AiAgent extends pulumi.CustomResource {
      * The description of the AI Agent.
      */
     public readonly description!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly modifiedTimeSeconds!: pulumi.Output<number>;
     /**
      * The name of the AI Agent.
      */
@@ -103,6 +104,7 @@ export class AiAgent extends pulumi.CustomResource {
             resourceInputs["aiAgentArn"] = undefined /*out*/;
             resourceInputs["aiAgentId"] = undefined /*out*/;
             resourceInputs["assistantArn"] = undefined /*out*/;
+            resourceInputs["modifiedTimeSeconds"] = undefined /*out*/;
         } else {
             resourceInputs["aiAgentArn"] = undefined /*out*/;
             resourceInputs["aiAgentId"] = undefined /*out*/;
@@ -110,6 +112,7 @@ export class AiAgent extends pulumi.CustomResource {
             resourceInputs["assistantId"] = undefined /*out*/;
             resourceInputs["configuration"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["modifiedTimeSeconds"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

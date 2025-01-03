@@ -260,6 +260,7 @@ class AiPrompt(pulumi.CustomResource):
             __props__.__dict__["ai_prompt_arn"] = None
             __props__.__dict__["ai_prompt_id"] = None
             __props__.__dict__["assistant_arn"] = None
+            __props__.__dict__["modified_time_seconds"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["apiFormat", "assistantId", "modelId", "name", "tags.*", "templateType", "type"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(AiPrompt, __self__).__init__(
@@ -291,6 +292,7 @@ class AiPrompt(pulumi.CustomResource):
         __props__.__dict__["assistant_id"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["model_id"] = None
+        __props__.__dict__["modified_time_seconds"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["template_configuration"] = None
@@ -353,6 +355,11 @@ class AiPrompt(pulumi.CustomResource):
         The identifier of the model used for this AI Prompt. Model Ids supported are: `CLAUDE_3_HAIKU_20240307_V1` .
         """
         return pulumi.get(self, "model_id")
+
+    @property
+    @pulumi.getter(name="modifiedTimeSeconds")
+    def modified_time_seconds(self) -> pulumi.Output[float]:
+        return pulumi.get(self, "modified_time_seconds")
 
     @property
     @pulumi.getter

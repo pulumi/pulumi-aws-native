@@ -22,9 +22,8 @@ namespace Pulumi.AwsNative.Logs
     public partial class SubscriptionFilter : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// This parameter is valid only for log groups that have an active log transformer. For more information about log transformers, see [PutTransformer](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutTransformer.html) .
-        /// 
-        /// If this value is `true` , the subscription filter is applied on the transformed version of the log events instead of the original ingested log events.
+        /// This parameter is valid only for log groups that have an active log transformer. For more information about log transformers, see [PutTransformer](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutTransformer.html).
+        ///  If this value is ``true``, the subscription filter is applied on the transformed version of the log events instead of the original ingested log events.
         /// </summary>
         [Output("applyOnTransformedLogs")]
         public Output<bool?> ApplyOnTransformedLogs { get; private set; } = null!;
@@ -116,9 +115,8 @@ namespace Pulumi.AwsNative.Logs
     public sealed class SubscriptionFilterArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// This parameter is valid only for log groups that have an active log transformer. For more information about log transformers, see [PutTransformer](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutTransformer.html) .
-        /// 
-        /// If this value is `true` , the subscription filter is applied on the transformed version of the log events instead of the original ingested log events.
+        /// This parameter is valid only for log groups that have an active log transformer. For more information about log transformers, see [PutTransformer](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutTransformer.html).
+        ///  If this value is ``true``, the subscription filter is applied on the transformed version of the log events instead of the original ingested log events.
         /// </summary>
         [Input("applyOnTransformedLogs")]
         public Input<bool>? ApplyOnTransformedLogs { get; set; }

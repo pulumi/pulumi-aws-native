@@ -32,9 +32,8 @@ type LookupMetricFilterArgs struct {
 }
 
 type LookupMetricFilterResult struct {
-	// This parameter is valid only for log groups that have an active log transformer. For more information about log transformers, see [PutTransformer](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutTransformer.html) .
-	//
-	// If this value is `true` , the metric filter is applied on the transformed version of the log events instead of the original ingested log events.
+	// This parameter is valid only for log groups that have an active log transformer. For more information about log transformers, see [PutTransformer](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutTransformer.html).
+	//  If this value is ``true``, the metric filter is applied on the transformed version of the log events instead of the original ingested log events.
 	ApplyOnTransformedLogs *bool `pulumi:"applyOnTransformedLogs"`
 	// A filter pattern for extracting metric data out of ingested log events. For more information, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
 	FilterPattern *string `pulumi:"filterPattern"`
@@ -76,9 +75,9 @@ func (o LookupMetricFilterResultOutput) ToLookupMetricFilterResultOutputWithCont
 	return o
 }
 
-// This parameter is valid only for log groups that have an active log transformer. For more information about log transformers, see [PutTransformer](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutTransformer.html) .
+// This parameter is valid only for log groups that have an active log transformer. For more information about log transformers, see [PutTransformer](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutTransformer.html).
 //
-// If this value is `true` , the metric filter is applied on the transformed version of the log events instead of the original ingested log events.
+//	If this value is ``true``, the metric filter is applied on the transformed version of the log events instead of the original ingested log events.
 func (o LookupMetricFilterResultOutput) ApplyOnTransformedLogs() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupMetricFilterResult) *bool { return v.ApplyOnTransformedLogs }).(pulumi.BoolPtrOutput)
 }

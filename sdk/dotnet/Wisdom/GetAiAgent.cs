@@ -95,6 +95,7 @@ namespace Pulumi.AwsNative.Wisdom
         /// The description of the AI Agent.
         /// </summary>
         public readonly string? Description;
+        public readonly double? ModifiedTimeSeconds;
 
         [OutputConstructor]
         private GetAiAgentResult(
@@ -106,13 +107,16 @@ namespace Pulumi.AwsNative.Wisdom
 
             object? configuration,
 
-            string? description)
+            string? description,
+
+            double? modifiedTimeSeconds)
         {
             AiAgentArn = aiAgentArn;
             AiAgentId = aiAgentId;
             AssistantArn = assistantArn;
             Configuration = configuration;
             Description = description;
+            ModifiedTimeSeconds = modifiedTimeSeconds;
         }
     }
 }

@@ -29,7 +29,8 @@ type AiPrompt struct {
 	// The description of the AI Prompt.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The identifier of the model used for this AI Prompt. Model Ids supported are: `CLAUDE_3_HAIKU_20240307_V1` .
-	ModelId pulumi.StringOutput `pulumi:"modelId"`
+	ModelId             pulumi.StringOutput  `pulumi:"modelId"`
+	ModifiedTimeSeconds pulumi.Float64Output `pulumi:"modifiedTimeSeconds"`
 	// The name of the AI Prompt
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// The tags used to organize, track, or control access for this resource.
@@ -219,6 +220,10 @@ func (o AiPromptOutput) Description() pulumi.StringPtrOutput {
 // The identifier of the model used for this AI Prompt. Model Ids supported are: `CLAUDE_3_HAIKU_20240307_V1` .
 func (o AiPromptOutput) ModelId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AiPrompt) pulumi.StringOutput { return v.ModelId }).(pulumi.StringOutput)
+}
+
+func (o AiPromptOutput) ModifiedTimeSeconds() pulumi.Float64Output {
+	return o.ApplyT(func(v *AiPrompt) pulumi.Float64Output { return v.ModifiedTimeSeconds }).(pulumi.Float64Output)
 }
 
 // The name of the AI Prompt

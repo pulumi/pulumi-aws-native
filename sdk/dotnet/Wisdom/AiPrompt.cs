@@ -57,6 +57,9 @@ namespace Pulumi.AwsNative.Wisdom
         [Output("modelId")]
         public Output<string> ModelId { get; private set; } = null!;
 
+        [Output("modifiedTimeSeconds")]
+        public Output<double> ModifiedTimeSeconds { get; private set; } = null!;
+
         /// <summary>
         /// The name of the AI Prompt
         /// </summary>

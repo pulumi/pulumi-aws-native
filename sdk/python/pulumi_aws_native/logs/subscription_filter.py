@@ -32,9 +32,8 @@ class SubscriptionFilterArgs:
         :param pulumi.Input[str] destination_arn: The Amazon Resource Name (ARN) of the destination.
         :param pulumi.Input[str] filter_pattern: The filtering expressions that restrict what gets delivered to the destination AWS resource. For more information about the filter pattern syntax, see [Filter and Pattern Syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html).
         :param pulumi.Input[str] log_group_name: The log group to associate with the subscription filter. All log events that are uploaded to this log group are filtered and delivered to the specified AWS resource if the filter pattern matches the log events.
-        :param pulumi.Input[bool] apply_on_transformed_logs: This parameter is valid only for log groups that have an active log transformer. For more information about log transformers, see [PutTransformer](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutTransformer.html) .
-               
-               If this value is `true` , the subscription filter is applied on the transformed version of the log events instead of the original ingested log events.
+        :param pulumi.Input[bool] apply_on_transformed_logs: This parameter is valid only for log groups that have an active log transformer. For more information about log transformers, see [PutTransformer](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutTransformer.html).
+                If this value is ``true``, the subscription filter is applied on the transformed version of the log events instead of the original ingested log events.
         :param pulumi.Input['SubscriptionFilterDistribution'] distribution: The method used to distribute log data to the destination, which can be either random or grouped by log stream.
         :param pulumi.Input[str] filter_name: The name of the subscription filter.
         :param pulumi.Input[str] role_arn: The ARN of an IAM role that grants CWL permissions to deliver ingested log events to the destination stream. You don't need to provide the ARN when you are working with a logical destination for cross-account delivery.
@@ -91,9 +90,8 @@ class SubscriptionFilterArgs:
     @pulumi.getter(name="applyOnTransformedLogs")
     def apply_on_transformed_logs(self) -> Optional[pulumi.Input[bool]]:
         """
-        This parameter is valid only for log groups that have an active log transformer. For more information about log transformers, see [PutTransformer](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutTransformer.html) .
-
-        If this value is `true` , the subscription filter is applied on the transformed version of the log events instead of the original ingested log events.
+        This parameter is valid only for log groups that have an active log transformer. For more information about log transformers, see [PutTransformer](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutTransformer.html).
+         If this value is ``true``, the subscription filter is applied on the transformed version of the log events instead of the original ingested log events.
         """
         return pulumi.get(self, "apply_on_transformed_logs")
 
@@ -162,9 +160,8 @@ class SubscriptionFilter(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] apply_on_transformed_logs: This parameter is valid only for log groups that have an active log transformer. For more information about log transformers, see [PutTransformer](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutTransformer.html) .
-               
-               If this value is `true` , the subscription filter is applied on the transformed version of the log events instead of the original ingested log events.
+        :param pulumi.Input[bool] apply_on_transformed_logs: This parameter is valid only for log groups that have an active log transformer. For more information about log transformers, see [PutTransformer](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutTransformer.html).
+                If this value is ``true``, the subscription filter is applied on the transformed version of the log events instead of the original ingested log events.
         :param pulumi.Input[str] destination_arn: The Amazon Resource Name (ARN) of the destination.
         :param pulumi.Input['SubscriptionFilterDistribution'] distribution: The method used to distribute log data to the destination, which can be either random or grouped by log stream.
         :param pulumi.Input[str] filter_name: The name of the subscription filter.
@@ -268,9 +265,8 @@ class SubscriptionFilter(pulumi.CustomResource):
     @pulumi.getter(name="applyOnTransformedLogs")
     def apply_on_transformed_logs(self) -> pulumi.Output[Optional[bool]]:
         """
-        This parameter is valid only for log groups that have an active log transformer. For more information about log transformers, see [PutTransformer](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutTransformer.html) .
-
-        If this value is `true` , the subscription filter is applied on the transformed version of the log events instead of the original ingested log events.
+        This parameter is valid only for log groups that have an active log transformer. For more information about log transformers, see [PutTransformer](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutTransformer.html).
+         If this value is ``true``, the subscription filter is applied on the transformed version of the log events instead of the original ingested log events.
         """
         return pulumi.get(self, "apply_on_transformed_logs")
 

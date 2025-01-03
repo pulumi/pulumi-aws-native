@@ -24,7 +24,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetAiPromptResult:
-    def __init__(__self__, ai_prompt_arn=None, ai_prompt_id=None, assistant_arn=None, description=None, template_configuration=None):
+    def __init__(__self__, ai_prompt_arn=None, ai_prompt_id=None, assistant_arn=None, description=None, modified_time_seconds=None, template_configuration=None):
         if ai_prompt_arn and not isinstance(ai_prompt_arn, str):
             raise TypeError("Expected argument 'ai_prompt_arn' to be a str")
         pulumi.set(__self__, "ai_prompt_arn", ai_prompt_arn)
@@ -37,6 +37,9 @@ class GetAiPromptResult:
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if modified_time_seconds and not isinstance(modified_time_seconds, float):
+            raise TypeError("Expected argument 'modified_time_seconds' to be a float")
+        pulumi.set(__self__, "modified_time_seconds", modified_time_seconds)
         if template_configuration and not isinstance(template_configuration, dict):
             raise TypeError("Expected argument 'template_configuration' to be a dict")
         pulumi.set(__self__, "template_configuration", template_configuration)
@@ -74,6 +77,11 @@ class GetAiPromptResult:
         return pulumi.get(self, "description")
 
     @property
+    @pulumi.getter(name="modifiedTimeSeconds")
+    def modified_time_seconds(self) -> Optional[float]:
+        return pulumi.get(self, "modified_time_seconds")
+
+    @property
     @pulumi.getter(name="templateConfiguration")
     def template_configuration(self) -> Optional['outputs.AiPromptAiPromptTemplateConfiguration']:
         """
@@ -92,6 +100,7 @@ class AwaitableGetAiPromptResult(GetAiPromptResult):
             ai_prompt_id=self.ai_prompt_id,
             assistant_arn=self.assistant_arn,
             description=self.description,
+            modified_time_seconds=self.modified_time_seconds,
             template_configuration=self.template_configuration)
 
 
@@ -116,6 +125,7 @@ def get_ai_prompt(ai_prompt_id: Optional[str] = None,
         ai_prompt_id=pulumi.get(__ret__, 'ai_prompt_id'),
         assistant_arn=pulumi.get(__ret__, 'assistant_arn'),
         description=pulumi.get(__ret__, 'description'),
+        modified_time_seconds=pulumi.get(__ret__, 'modified_time_seconds'),
         template_configuration=pulumi.get(__ret__, 'template_configuration'))
 def get_ai_prompt_output(ai_prompt_id: Optional[pulumi.Input[str]] = None,
                          assistant_id: Optional[pulumi.Input[str]] = None,
@@ -137,4 +147,5 @@ def get_ai_prompt_output(ai_prompt_id: Optional[pulumi.Input[str]] = None,
         ai_prompt_id=pulumi.get(__response__, 'ai_prompt_id'),
         assistant_arn=pulumi.get(__response__, 'assistant_arn'),
         description=pulumi.get(__response__, 'description'),
+        modified_time_seconds=pulumi.get(__response__, 'modified_time_seconds'),
         template_configuration=pulumi.get(__response__, 'template_configuration')))

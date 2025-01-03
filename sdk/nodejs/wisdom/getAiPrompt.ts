@@ -46,6 +46,7 @@ export interface GetAiPromptResult {
      * The description of the AI Prompt.
      */
     readonly description?: string;
+    readonly modifiedTimeSeconds?: number;
     /**
      * The configuration of the prompt template for this AI Prompt.
      */

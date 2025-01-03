@@ -239,7 +239,7 @@ export class TaskDefinition extends pulumi.CustomResource {
      */
     public readonly cpu!: pulumi.Output<string | undefined>;
     /**
-     * Enables fault injection and allows for fault injection requests to be accepted from the task's containers. The default value is `false` .
+     * Enables fault injection and allows for fault injection requests to be accepted from the task's containers. The default value is ``false``.
      */
     public readonly enableFaultInjection!: pulumi.Output<boolean | undefined>;
     /**
@@ -432,7 +432,7 @@ export interface TaskDefinitionArgs {
      */
     cpu?: pulumi.Input<string>;
     /**
-     * Enables fault injection and allows for fault injection requests to be accepted from the task's containers. The default value is `false` .
+     * Enables fault injection and allows for fault injection requests to be accepted from the task's containers. The default value is ``false``.
      */
     enableFaultInjection?: pulumi.Input<boolean>;
     /**

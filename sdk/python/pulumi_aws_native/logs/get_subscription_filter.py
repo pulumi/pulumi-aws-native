@@ -45,9 +45,8 @@ class GetSubscriptionFilterResult:
     @pulumi.getter(name="applyOnTransformedLogs")
     def apply_on_transformed_logs(self) -> Optional[bool]:
         """
-        This parameter is valid only for log groups that have an active log transformer. For more information about log transformers, see [PutTransformer](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutTransformer.html) .
-
-        If this value is `true` , the subscription filter is applied on the transformed version of the log events instead of the original ingested log events.
+        This parameter is valid only for log groups that have an active log transformer. For more information about log transformers, see [PutTransformer](https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutTransformer.html).
+         If this value is ``true``, the subscription filter is applied on the transformed version of the log events instead of the original ingested log events.
         """
         return pulumi.get(self, "apply_on_transformed_logs")
 

@@ -50,6 +50,7 @@ export interface GetAiAgentResult {
      * The description of the AI Agent.
      */
     readonly description?: string;
+    readonly modifiedTimeSeconds?: number;
 }
 /**
  * Definition of AWS::Wisdom::AIAgent Resource Type

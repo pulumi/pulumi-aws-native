@@ -91,6 +91,7 @@ namespace Pulumi.AwsNative.Wisdom
         /// The description of the AI Prompt.
         /// </summary>
         public readonly string? Description;
+        public readonly double? ModifiedTimeSeconds;
         /// <summary>
         /// The configuration of the prompt template for this AI Prompt.
         /// </summary>
@@ -106,12 +107,15 @@ namespace Pulumi.AwsNative.Wisdom
 
             string? description,
 
+            double? modifiedTimeSeconds,
+
             Outputs.AiPromptAiPromptTemplateConfiguration? templateConfiguration)
         {
             AiPromptArn = aiPromptArn;
             AiPromptId = aiPromptId;
             AssistantArn = assistantArn;
             Description = description;
+            ModifiedTimeSeconds = modifiedTimeSeconds;
             TemplateConfiguration = templateConfiguration;
         }
     }

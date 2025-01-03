@@ -198,6 +198,7 @@ class AiAgent(pulumi.CustomResource):
             __props__.__dict__["ai_agent_arn"] = None
             __props__.__dict__["ai_agent_id"] = None
             __props__.__dict__["assistant_arn"] = None
+            __props__.__dict__["modified_time_seconds"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["assistantId", "name", "tags.*", "type"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(AiAgent, __self__).__init__(
@@ -228,6 +229,7 @@ class AiAgent(pulumi.CustomResource):
         __props__.__dict__["assistant_id"] = None
         __props__.__dict__["configuration"] = None
         __props__.__dict__["description"] = None
+        __props__.__dict__["modified_time_seconds"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
@@ -280,6 +282,11 @@ class AiAgent(pulumi.CustomResource):
         The description of the AI Agent.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="modifiedTimeSeconds")
+    def modified_time_seconds(self) -> pulumi.Output[float]:
+        return pulumi.get(self, "modified_time_seconds")
 
     @property
     @pulumi.getter
