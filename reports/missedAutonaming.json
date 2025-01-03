@@ -6510,7 +6510,7 @@
       },
       "enableFaultInjection": {
         "type": "boolean",
-        "description": "Enables fault injection and allows for fault injection requests to be accepted from the task's containers. The default value is `false` ."
+        "description": "Enables fault injection and allows for fault injection requests to be accepted from the task's containers. The default value is ``false``."
       },
       "ephemeralStorage": {
         "$ref": "#/types/aws-native:ecs:TaskDefinitionEphemeralStorage",
