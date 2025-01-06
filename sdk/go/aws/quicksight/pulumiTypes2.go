@@ -14,8 +14,10 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type DashboardSheetImageTooltipConfiguration struct {
+	// The text that appears in the tooltip.
 	TooltipText *DashboardSheetImageTooltipText `pulumi:"tooltipText"`
-	Visibility  *DashboardVisibility            `pulumi:"visibility"`
+	// The visibility of the tooltip.
+	Visibility *DashboardVisibility `pulumi:"visibility"`
 }
 
 // DashboardSheetImageTooltipConfigurationInput is an input type that accepts DashboardSheetImageTooltipConfigurationArgs and DashboardSheetImageTooltipConfigurationOutput values.
@@ -30,8 +32,10 @@ type DashboardSheetImageTooltipConfigurationInput interface {
 }
 
 type DashboardSheetImageTooltipConfigurationArgs struct {
+	// The text that appears in the tooltip.
 	TooltipText DashboardSheetImageTooltipTextPtrInput `pulumi:"tooltipText"`
-	Visibility  DashboardVisibilityPtrInput            `pulumi:"visibility"`
+	// The visibility of the tooltip.
+	Visibility DashboardVisibilityPtrInput `pulumi:"visibility"`
 }
 
 func (DashboardSheetImageTooltipConfigurationArgs) ElementType() reflect.Type {
@@ -111,10 +115,12 @@ func (o DashboardSheetImageTooltipConfigurationOutput) ToDashboardSheetImageTool
 	}).(DashboardSheetImageTooltipConfigurationPtrOutput)
 }
 
+// The text that appears in the tooltip.
 func (o DashboardSheetImageTooltipConfigurationOutput) TooltipText() DashboardSheetImageTooltipTextPtrOutput {
 	return o.ApplyT(func(v DashboardSheetImageTooltipConfiguration) *DashboardSheetImageTooltipText { return v.TooltipText }).(DashboardSheetImageTooltipTextPtrOutput)
 }
 
+// The visibility of the tooltip.
 func (o DashboardSheetImageTooltipConfigurationOutput) Visibility() DashboardVisibilityPtrOutput {
 	return o.ApplyT(func(v DashboardSheetImageTooltipConfiguration) *DashboardVisibility { return v.Visibility }).(DashboardVisibilityPtrOutput)
 }
@@ -143,6 +149,7 @@ func (o DashboardSheetImageTooltipConfigurationPtrOutput) Elem() DashboardSheetI
 	}).(DashboardSheetImageTooltipConfigurationOutput)
 }
 
+// The text that appears in the tooltip.
 func (o DashboardSheetImageTooltipConfigurationPtrOutput) TooltipText() DashboardSheetImageTooltipTextPtrOutput {
 	return o.ApplyT(func(v *DashboardSheetImageTooltipConfiguration) *DashboardSheetImageTooltipText {
 		if v == nil {
@@ -152,6 +159,7 @@ func (o DashboardSheetImageTooltipConfigurationPtrOutput) TooltipText() Dashboar
 	}).(DashboardSheetImageTooltipTextPtrOutput)
 }
 
+// The visibility of the tooltip.
 func (o DashboardSheetImageTooltipConfigurationPtrOutput) Visibility() DashboardVisibilityPtrOutput {
 	return o.ApplyT(func(v *DashboardSheetImageTooltipConfiguration) *DashboardVisibility {
 		if v == nil {
@@ -162,6 +170,7 @@ func (o DashboardSheetImageTooltipConfigurationPtrOutput) Visibility() Dashboard
 }
 
 type DashboardSheetImageTooltipText struct {
+	// The plain text format.
 	PlainText *string `pulumi:"plainText"`
 }
 
@@ -177,6 +186,7 @@ type DashboardSheetImageTooltipTextInput interface {
 }
 
 type DashboardSheetImageTooltipTextArgs struct {
+	// The plain text format.
 	PlainText pulumi.StringPtrInput `pulumi:"plainText"`
 }
 
@@ -257,6 +267,7 @@ func (o DashboardSheetImageTooltipTextOutput) ToDashboardSheetImageTooltipTextPt
 	}).(DashboardSheetImageTooltipTextPtrOutput)
 }
 
+// The plain text format.
 func (o DashboardSheetImageTooltipTextOutput) PlainText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardSheetImageTooltipText) *string { return v.PlainText }).(pulumi.StringPtrOutput)
 }
@@ -285,6 +296,7 @@ func (o DashboardSheetImageTooltipTextPtrOutput) Elem() DashboardSheetImageToolt
 	}).(DashboardSheetImageTooltipTextOutput)
 }
 
+// The plain text format.
 func (o DashboardSheetImageTooltipTextPtrOutput) PlainText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardSheetImageTooltipText) *string {
 		if v == nil {
@@ -2133,8 +2145,10 @@ func (o DashboardSpacingPtrOutput) Top() pulumi.StringPtrOutput {
 }
 
 type DashboardSpatialStaticFile struct {
-	Source       *DashboardStaticFileSource `pulumi:"source"`
-	StaticFileId string                     `pulumi:"staticFileId"`
+	// The source of the spatial static file.
+	Source *DashboardStaticFileSource `pulumi:"source"`
+	// The ID of the spatial static file.
+	StaticFileId string `pulumi:"staticFileId"`
 }
 
 // DashboardSpatialStaticFileInput is an input type that accepts DashboardSpatialStaticFileArgs and DashboardSpatialStaticFileOutput values.
@@ -2149,8 +2163,10 @@ type DashboardSpatialStaticFileInput interface {
 }
 
 type DashboardSpatialStaticFileArgs struct {
-	Source       DashboardStaticFileSourcePtrInput `pulumi:"source"`
-	StaticFileId pulumi.StringInput                `pulumi:"staticFileId"`
+	// The source of the spatial static file.
+	Source DashboardStaticFileSourcePtrInput `pulumi:"source"`
+	// The ID of the spatial static file.
+	StaticFileId pulumi.StringInput `pulumi:"staticFileId"`
 }
 
 func (DashboardSpatialStaticFileArgs) ElementType() reflect.Type {
@@ -2230,10 +2246,12 @@ func (o DashboardSpatialStaticFileOutput) ToDashboardSpatialStaticFilePtrOutputW
 	}).(DashboardSpatialStaticFilePtrOutput)
 }
 
+// The source of the spatial static file.
 func (o DashboardSpatialStaticFileOutput) Source() DashboardStaticFileSourcePtrOutput {
 	return o.ApplyT(func(v DashboardSpatialStaticFile) *DashboardStaticFileSource { return v.Source }).(DashboardStaticFileSourcePtrOutput)
 }
 
+// The ID of the spatial static file.
 func (o DashboardSpatialStaticFileOutput) StaticFileId() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardSpatialStaticFile) string { return v.StaticFileId }).(pulumi.StringOutput)
 }
@@ -2262,6 +2280,7 @@ func (o DashboardSpatialStaticFilePtrOutput) Elem() DashboardSpatialStaticFileOu
 	}).(DashboardSpatialStaticFileOutput)
 }
 
+// The source of the spatial static file.
 func (o DashboardSpatialStaticFilePtrOutput) Source() DashboardStaticFileSourcePtrOutput {
 	return o.ApplyT(func(v *DashboardSpatialStaticFile) *DashboardStaticFileSource {
 		if v == nil {
@@ -2271,6 +2290,7 @@ func (o DashboardSpatialStaticFilePtrOutput) Source() DashboardStaticFileSourceP
 	}).(DashboardStaticFileSourcePtrOutput)
 }
 
+// The ID of the spatial static file.
 func (o DashboardSpatialStaticFilePtrOutput) StaticFileId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardSpatialStaticFile) *string {
 		if v == nil {
@@ -2281,7 +2301,9 @@ func (o DashboardSpatialStaticFilePtrOutput) StaticFileId() pulumi.StringPtrOutp
 }
 
 type DashboardStaticFile struct {
-	ImageStaticFile   *DashboardImageStaticFile   `pulumi:"imageStaticFile"`
+	// The image static file.
+	ImageStaticFile *DashboardImageStaticFile `pulumi:"imageStaticFile"`
+	// The spacial static file.
 	SpatialStaticFile *DashboardSpatialStaticFile `pulumi:"spatialStaticFile"`
 }
 
@@ -2297,7 +2319,9 @@ type DashboardStaticFileInput interface {
 }
 
 type DashboardStaticFileArgs struct {
-	ImageStaticFile   DashboardImageStaticFilePtrInput   `pulumi:"imageStaticFile"`
+	// The image static file.
+	ImageStaticFile DashboardImageStaticFilePtrInput `pulumi:"imageStaticFile"`
+	// The spacial static file.
 	SpatialStaticFile DashboardSpatialStaticFilePtrInput `pulumi:"spatialStaticFile"`
 }
 
@@ -2352,10 +2376,12 @@ func (o DashboardStaticFileOutput) ToDashboardStaticFileOutputWithContext(ctx co
 	return o
 }
 
+// The image static file.
 func (o DashboardStaticFileOutput) ImageStaticFile() DashboardImageStaticFilePtrOutput {
 	return o.ApplyT(func(v DashboardStaticFile) *DashboardImageStaticFile { return v.ImageStaticFile }).(DashboardImageStaticFilePtrOutput)
 }
 
+// The spacial static file.
 func (o DashboardStaticFileOutput) SpatialStaticFile() DashboardSpatialStaticFilePtrOutput {
 	return o.ApplyT(func(v DashboardStaticFile) *DashboardSpatialStaticFile { return v.SpatialStaticFile }).(DashboardSpatialStaticFilePtrOutput)
 }
@@ -2381,9 +2407,12 @@ func (o DashboardStaticFileArrayOutput) Index(i pulumi.IntInput) DashboardStatic
 }
 
 type DashboardStaticFileS3SourceOptions struct {
+	// The name of the Amazon S3 bucket.
 	BucketName string `pulumi:"bucketName"`
-	ObjectKey  string `pulumi:"objectKey"`
-	Region     string `pulumi:"region"`
+	// The identifier of the static file in the Amazon S3 bucket.
+	ObjectKey string `pulumi:"objectKey"`
+	// The Region of the Amazon S3 account that contains the bucket.
+	Region string `pulumi:"region"`
 }
 
 // DashboardStaticFileS3SourceOptionsInput is an input type that accepts DashboardStaticFileS3SourceOptionsArgs and DashboardStaticFileS3SourceOptionsOutput values.
@@ -2398,9 +2427,12 @@ type DashboardStaticFileS3SourceOptionsInput interface {
 }
 
 type DashboardStaticFileS3SourceOptionsArgs struct {
+	// The name of the Amazon S3 bucket.
 	BucketName pulumi.StringInput `pulumi:"bucketName"`
-	ObjectKey  pulumi.StringInput `pulumi:"objectKey"`
-	Region     pulumi.StringInput `pulumi:"region"`
+	// The identifier of the static file in the Amazon S3 bucket.
+	ObjectKey pulumi.StringInput `pulumi:"objectKey"`
+	// The Region of the Amazon S3 account that contains the bucket.
+	Region pulumi.StringInput `pulumi:"region"`
 }
 
 func (DashboardStaticFileS3SourceOptionsArgs) ElementType() reflect.Type {
@@ -2480,14 +2512,17 @@ func (o DashboardStaticFileS3SourceOptionsOutput) ToDashboardStaticFileS3SourceO
 	}).(DashboardStaticFileS3SourceOptionsPtrOutput)
 }
 
+// The name of the Amazon S3 bucket.
 func (o DashboardStaticFileS3SourceOptionsOutput) BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardStaticFileS3SourceOptions) string { return v.BucketName }).(pulumi.StringOutput)
 }
 
+// The identifier of the static file in the Amazon S3 bucket.
 func (o DashboardStaticFileS3SourceOptionsOutput) ObjectKey() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardStaticFileS3SourceOptions) string { return v.ObjectKey }).(pulumi.StringOutput)
 }
 
+// The Region of the Amazon S3 account that contains the bucket.
 func (o DashboardStaticFileS3SourceOptionsOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardStaticFileS3SourceOptions) string { return v.Region }).(pulumi.StringOutput)
 }
@@ -2516,6 +2551,7 @@ func (o DashboardStaticFileS3SourceOptionsPtrOutput) Elem() DashboardStaticFileS
 	}).(DashboardStaticFileS3SourceOptionsOutput)
 }
 
+// The name of the Amazon S3 bucket.
 func (o DashboardStaticFileS3SourceOptionsPtrOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardStaticFileS3SourceOptions) *string {
 		if v == nil {
@@ -2525,6 +2561,7 @@ func (o DashboardStaticFileS3SourceOptionsPtrOutput) BucketName() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
+// The identifier of the static file in the Amazon S3 bucket.
 func (o DashboardStaticFileS3SourceOptionsPtrOutput) ObjectKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardStaticFileS3SourceOptions) *string {
 		if v == nil {
@@ -2534,6 +2571,7 @@ func (o DashboardStaticFileS3SourceOptionsPtrOutput) ObjectKey() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Region of the Amazon S3 account that contains the bucket.
 func (o DashboardStaticFileS3SourceOptionsPtrOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardStaticFileS3SourceOptions) *string {
 		if v == nil {
@@ -2544,7 +2582,9 @@ func (o DashboardStaticFileS3SourceOptionsPtrOutput) Region() pulumi.StringPtrOu
 }
 
 type DashboardStaticFileSource struct {
-	S3Options  *DashboardStaticFileS3SourceOptions  `pulumi:"s3Options"`
+	// The structure that contains the Amazon S3 location to download the static file from.
+	S3Options *DashboardStaticFileS3SourceOptions `pulumi:"s3Options"`
+	// The structure that contains the URL to download the static file from.
 	UrlOptions *DashboardStaticFileUrlSourceOptions `pulumi:"urlOptions"`
 }
 
@@ -2560,7 +2600,9 @@ type DashboardStaticFileSourceInput interface {
 }
 
 type DashboardStaticFileSourceArgs struct {
-	S3Options  DashboardStaticFileS3SourceOptionsPtrInput  `pulumi:"s3Options"`
+	// The structure that contains the Amazon S3 location to download the static file from.
+	S3Options DashboardStaticFileS3SourceOptionsPtrInput `pulumi:"s3Options"`
+	// The structure that contains the URL to download the static file from.
 	UrlOptions DashboardStaticFileUrlSourceOptionsPtrInput `pulumi:"urlOptions"`
 }
 
@@ -2641,10 +2683,12 @@ func (o DashboardStaticFileSourceOutput) ToDashboardStaticFileSourcePtrOutputWit
 	}).(DashboardStaticFileSourcePtrOutput)
 }
 
+// The structure that contains the Amazon S3 location to download the static file from.
 func (o DashboardStaticFileSourceOutput) S3Options() DashboardStaticFileS3SourceOptionsPtrOutput {
 	return o.ApplyT(func(v DashboardStaticFileSource) *DashboardStaticFileS3SourceOptions { return v.S3Options }).(DashboardStaticFileS3SourceOptionsPtrOutput)
 }
 
+// The structure that contains the URL to download the static file from.
 func (o DashboardStaticFileSourceOutput) UrlOptions() DashboardStaticFileUrlSourceOptionsPtrOutput {
 	return o.ApplyT(func(v DashboardStaticFileSource) *DashboardStaticFileUrlSourceOptions { return v.UrlOptions }).(DashboardStaticFileUrlSourceOptionsPtrOutput)
 }
@@ -2673,6 +2717,7 @@ func (o DashboardStaticFileSourcePtrOutput) Elem() DashboardStaticFileSourceOutp
 	}).(DashboardStaticFileSourceOutput)
 }
 
+// The structure that contains the Amazon S3 location to download the static file from.
 func (o DashboardStaticFileSourcePtrOutput) S3Options() DashboardStaticFileS3SourceOptionsPtrOutput {
 	return o.ApplyT(func(v *DashboardStaticFileSource) *DashboardStaticFileS3SourceOptions {
 		if v == nil {
@@ -2682,6 +2727,7 @@ func (o DashboardStaticFileSourcePtrOutput) S3Options() DashboardStaticFileS3Sou
 	}).(DashboardStaticFileS3SourceOptionsPtrOutput)
 }
 
+// The structure that contains the URL to download the static file from.
 func (o DashboardStaticFileSourcePtrOutput) UrlOptions() DashboardStaticFileUrlSourceOptionsPtrOutput {
 	return o.ApplyT(func(v *DashboardStaticFileSource) *DashboardStaticFileUrlSourceOptions {
 		if v == nil {
@@ -2692,6 +2738,7 @@ func (o DashboardStaticFileSourcePtrOutput) UrlOptions() DashboardStaticFileUrlS
 }
 
 type DashboardStaticFileUrlSourceOptions struct {
+	// The URL to download the static file from.
 	Url string `pulumi:"url"`
 }
 
@@ -2707,6 +2754,7 @@ type DashboardStaticFileUrlSourceOptionsInput interface {
 }
 
 type DashboardStaticFileUrlSourceOptionsArgs struct {
+	// The URL to download the static file from.
 	Url pulumi.StringInput `pulumi:"url"`
 }
 
@@ -2787,6 +2835,7 @@ func (o DashboardStaticFileUrlSourceOptionsOutput) ToDashboardStaticFileUrlSourc
 	}).(DashboardStaticFileUrlSourceOptionsPtrOutput)
 }
 
+// The URL to download the static file from.
 func (o DashboardStaticFileUrlSourceOptionsOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v DashboardStaticFileUrlSourceOptions) string { return v.Url }).(pulumi.StringOutput)
 }
@@ -2815,6 +2864,7 @@ func (o DashboardStaticFileUrlSourceOptionsPtrOutput) Elem() DashboardStaticFile
 	}).(DashboardStaticFileUrlSourceOptionsOutput)
 }
 
+// The URL to download the static file from.
 func (o DashboardStaticFileUrlSourceOptionsPtrOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardStaticFileUrlSourceOptions) *string {
 		if v == nil {
@@ -8060,8 +8110,9 @@ type DashboardTableVisual struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle *DashboardVisualSubtitleLabelOptions `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                *DashboardVisualTitleLabelOptions `pulumi:"title"`
-	VisualContentAltText *string                           `pulumi:"visualContentAltText"`
+	Title *DashboardVisualTitleLabelOptions `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText *string `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..
 	VisualId string `pulumi:"visualId"`
 }
@@ -8087,8 +8138,9 @@ type DashboardTableVisualArgs struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle DashboardVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                DashboardVisualTitleLabelOptionsPtrInput `pulumi:"title"`
-	VisualContentAltText pulumi.StringPtrInput                    `pulumi:"visualContentAltText"`
+	Title DashboardVisualTitleLabelOptionsPtrInput `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText pulumi.StringPtrInput `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..
 	VisualId pulumi.StringInput `pulumi:"visualId"`
 }
@@ -8195,6 +8247,7 @@ func (o DashboardTableVisualOutput) Title() DashboardVisualTitleLabelOptionsPtrO
 	return o.ApplyT(func(v DashboardTableVisual) *DashboardVisualTitleLabelOptions { return v.Title }).(DashboardVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o DashboardTableVisualOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardTableVisual) *string { return v.VisualContentAltText }).(pulumi.StringPtrOutput)
 }
@@ -8278,6 +8331,7 @@ func (o DashboardTableVisualPtrOutput) Title() DashboardVisualTitleLabelOptionsP
 	}).(DashboardVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o DashboardTableVisualPtrOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardTableVisual) *string {
 		if v == nil {
@@ -12765,8 +12819,9 @@ type DashboardTreeMapVisual struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle *DashboardVisualSubtitleLabelOptions `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                *DashboardVisualTitleLabelOptions `pulumi:"title"`
-	VisualContentAltText *string                           `pulumi:"visualContentAltText"`
+	Title *DashboardVisualTitleLabelOptions `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText *string `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..
 	VisualId string `pulumi:"visualId"`
 }
@@ -12792,8 +12847,9 @@ type DashboardTreeMapVisualArgs struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle DashboardVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                DashboardVisualTitleLabelOptionsPtrInput `pulumi:"title"`
-	VisualContentAltText pulumi.StringPtrInput                    `pulumi:"visualContentAltText"`
+	Title DashboardVisualTitleLabelOptionsPtrInput `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText pulumi.StringPtrInput `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..
 	VisualId pulumi.StringInput `pulumi:"visualId"`
 }
@@ -12900,6 +12956,7 @@ func (o DashboardTreeMapVisualOutput) Title() DashboardVisualTitleLabelOptionsPt
 	return o.ApplyT(func(v DashboardTreeMapVisual) *DashboardVisualTitleLabelOptions { return v.Title }).(DashboardVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o DashboardTreeMapVisualOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardTreeMapVisual) *string { return v.VisualContentAltText }).(pulumi.StringPtrOutput)
 }
@@ -12983,6 +13040,7 @@ func (o DashboardTreeMapVisualPtrOutput) Title() DashboardVisualTitleLabelOption
 	}).(DashboardVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o DashboardTreeMapVisualPtrOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardTreeMapVisual) *string {
 		if v == nil {
@@ -13911,8 +13969,9 @@ type DashboardVersionDefinition struct {
 	// For more information, see [Parameters in Amazon QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/parameters-in-quicksight.html) in the *Amazon QuickSight User Guide* .
 	ParameterDeclarations []DashboardParameterDeclaration `pulumi:"parameterDeclarations"`
 	// An array of sheet definitions for a dashboard.
-	Sheets      []DashboardSheetDefinition `pulumi:"sheets"`
-	StaticFiles []DashboardStaticFile      `pulumi:"staticFiles"`
+	Sheets []DashboardSheetDefinition `pulumi:"sheets"`
+	// The static files for the definition.
+	StaticFiles []DashboardStaticFile `pulumi:"staticFiles"`
 }
 
 // DashboardVersionDefinitionInput is an input type that accepts DashboardVersionDefinitionArgs and DashboardVersionDefinitionOutput values.
@@ -13945,8 +14004,9 @@ type DashboardVersionDefinitionArgs struct {
 	// For more information, see [Parameters in Amazon QuickSight](https://docs.aws.amazon.com/quicksight/latest/user/parameters-in-quicksight.html) in the *Amazon QuickSight User Guide* .
 	ParameterDeclarations DashboardParameterDeclarationArrayInput `pulumi:"parameterDeclarations"`
 	// An array of sheet definitions for a dashboard.
-	Sheets      DashboardSheetDefinitionArrayInput `pulumi:"sheets"`
-	StaticFiles DashboardStaticFileArrayInput      `pulumi:"staticFiles"`
+	Sheets DashboardSheetDefinitionArrayInput `pulumi:"sheets"`
+	// The static files for the definition.
+	StaticFiles DashboardStaticFileArrayInput `pulumi:"staticFiles"`
 }
 
 func (DashboardVersionDefinitionArgs) ElementType() reflect.Type {
@@ -14071,6 +14131,7 @@ func (o DashboardVersionDefinitionOutput) Sheets() DashboardSheetDefinitionArray
 	return o.ApplyT(func(v DashboardVersionDefinition) []DashboardSheetDefinition { return v.Sheets }).(DashboardSheetDefinitionArrayOutput)
 }
 
+// The static files for the definition.
 func (o DashboardVersionDefinitionOutput) StaticFiles() DashboardStaticFileArrayOutput {
 	return o.ApplyT(func(v DashboardVersionDefinition) []DashboardStaticFile { return v.StaticFiles }).(DashboardStaticFileArrayOutput)
 }
@@ -14182,6 +14243,7 @@ func (o DashboardVersionDefinitionPtrOutput) Sheets() DashboardSheetDefinitionAr
 	}).(DashboardSheetDefinitionArrayOutput)
 }
 
+// The static files for the definition.
 func (o DashboardVersionDefinitionPtrOutput) StaticFiles() DashboardStaticFileArrayOutput {
 	return o.ApplyT(func(v *DashboardVersionDefinition) []DashboardStaticFile {
 		if v == nil {
@@ -14378,7 +14440,8 @@ type DashboardVisual struct {
 	// A key performance indicator (KPI).
 	//
 	// For more information, see [Using KPIs](https://docs.aws.amazon.com/quicksight/latest/user/kpi.html) in the *Amazon QuickSight User Guide* .
-	KpiVisual      *DashboardKpiVisual      `pulumi:"kpiVisual"`
+	KpiVisual *DashboardKpiVisual `pulumi:"kpiVisual"`
+	// The properties for a layer map visual
 	LayerMapVisual *DashboardLayerMapVisual `pulumi:"layerMapVisual"`
 	// A line chart.
 	//
@@ -14392,7 +14455,8 @@ type DashboardVisual struct {
 	//
 	// For more information, see [Using pivot tables](https://docs.aws.amazon.com/quicksight/latest/user/pivot-table.html) in the *Amazon QuickSight User Guide* .
 	PivotTableVisual *DashboardPivotTableVisual `pulumi:"pivotTableVisual"`
-	PluginVisual     *DashboardPluginVisual     `pulumi:"pluginVisual"`
+	// The custom plugin visual type.
+	PluginVisual *DashboardPluginVisual `pulumi:"pluginVisual"`
 	// A radar chart visual.
 	//
 	// For more information, see [Using radar charts](https://docs.aws.amazon.com/quicksight/latest/user/radar-chart.html) in the *Amazon QuickSight User Guide* .
@@ -14484,7 +14548,8 @@ type DashboardVisualArgs struct {
 	// A key performance indicator (KPI).
 	//
 	// For more information, see [Using KPIs](https://docs.aws.amazon.com/quicksight/latest/user/kpi.html) in the *Amazon QuickSight User Guide* .
-	KpiVisual      DashboardKpiVisualPtrInput      `pulumi:"kpiVisual"`
+	KpiVisual DashboardKpiVisualPtrInput `pulumi:"kpiVisual"`
+	// The properties for a layer map visual
 	LayerMapVisual DashboardLayerMapVisualPtrInput `pulumi:"layerMapVisual"`
 	// A line chart.
 	//
@@ -14498,7 +14563,8 @@ type DashboardVisualArgs struct {
 	//
 	// For more information, see [Using pivot tables](https://docs.aws.amazon.com/quicksight/latest/user/pivot-table.html) in the *Amazon QuickSight User Guide* .
 	PivotTableVisual DashboardPivotTableVisualPtrInput `pulumi:"pivotTableVisual"`
-	PluginVisual     DashboardPluginVisualPtrInput     `pulumi:"pluginVisual"`
+	// The custom plugin visual type.
+	PluginVisual DashboardPluginVisualPtrInput `pulumi:"pluginVisual"`
 	// A radar chart visual.
 	//
 	// For more information, see [Using radar charts](https://docs.aws.amazon.com/quicksight/latest/user/radar-chart.html) in the *Amazon QuickSight User Guide* .
@@ -14669,6 +14735,7 @@ func (o DashboardVisualOutput) KpiVisual() DashboardKpiVisualPtrOutput {
 	return o.ApplyT(func(v DashboardVisual) *DashboardKpiVisual { return v.KpiVisual }).(DashboardKpiVisualPtrOutput)
 }
 
+// The properties for a layer map visual
 func (o DashboardVisualOutput) LayerMapVisual() DashboardLayerMapVisualPtrOutput {
 	return o.ApplyT(func(v DashboardVisual) *DashboardLayerMapVisual { return v.LayerMapVisual }).(DashboardLayerMapVisualPtrOutput)
 }
@@ -14694,6 +14761,7 @@ func (o DashboardVisualOutput) PivotTableVisual() DashboardPivotTableVisualPtrOu
 	return o.ApplyT(func(v DashboardVisual) *DashboardPivotTableVisual { return v.PivotTableVisual }).(DashboardPivotTableVisualPtrOutput)
 }
 
+// The custom plugin visual type.
 func (o DashboardVisualOutput) PluginVisual() DashboardPluginVisualPtrOutput {
 	return o.ApplyT(func(v DashboardVisual) *DashboardPluginVisual { return v.PluginVisual }).(DashboardPluginVisualPtrOutput)
 }
@@ -17072,8 +17140,9 @@ type DashboardWaterfallVisual struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle *DashboardVisualSubtitleLabelOptions `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                *DashboardVisualTitleLabelOptions `pulumi:"title"`
-	VisualContentAltText *string                           `pulumi:"visualContentAltText"`
+	Title *DashboardVisualTitleLabelOptions `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText *string `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
 	VisualId string `pulumi:"visualId"`
 }
@@ -17099,8 +17168,9 @@ type DashboardWaterfallVisualArgs struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle DashboardVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                DashboardVisualTitleLabelOptionsPtrInput `pulumi:"title"`
-	VisualContentAltText pulumi.StringPtrInput                    `pulumi:"visualContentAltText"`
+	Title DashboardVisualTitleLabelOptionsPtrInput `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText pulumi.StringPtrInput `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
 	VisualId pulumi.StringInput `pulumi:"visualId"`
 }
@@ -17207,6 +17277,7 @@ func (o DashboardWaterfallVisualOutput) Title() DashboardVisualTitleLabelOptions
 	return o.ApplyT(func(v DashboardWaterfallVisual) *DashboardVisualTitleLabelOptions { return v.Title }).(DashboardVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o DashboardWaterfallVisualOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWaterfallVisual) *string { return v.VisualContentAltText }).(pulumi.StringPtrOutput)
 }
@@ -17290,6 +17361,7 @@ func (o DashboardWaterfallVisualPtrOutput) Title() DashboardVisualTitleLabelOpti
 	}).(DashboardVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o DashboardWaterfallVisualPtrOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWaterfallVisual) *string {
 		if v == nil {
@@ -18533,8 +18605,9 @@ type DashboardWordCloudVisual struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle *DashboardVisualSubtitleLabelOptions `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                *DashboardVisualTitleLabelOptions `pulumi:"title"`
-	VisualContentAltText *string                           `pulumi:"visualContentAltText"`
+	Title *DashboardVisualTitleLabelOptions `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText *string `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..
 	VisualId string `pulumi:"visualId"`
 }
@@ -18560,8 +18633,9 @@ type DashboardWordCloudVisualArgs struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle DashboardVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                DashboardVisualTitleLabelOptionsPtrInput `pulumi:"title"`
-	VisualContentAltText pulumi.StringPtrInput                    `pulumi:"visualContentAltText"`
+	Title DashboardVisualTitleLabelOptionsPtrInput `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText pulumi.StringPtrInput `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..
 	VisualId pulumi.StringInput `pulumi:"visualId"`
 }
@@ -18668,6 +18742,7 @@ func (o DashboardWordCloudVisualOutput) Title() DashboardVisualTitleLabelOptions
 	return o.ApplyT(func(v DashboardWordCloudVisual) *DashboardVisualTitleLabelOptions { return v.Title }).(DashboardVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o DashboardWordCloudVisualOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DashboardWordCloudVisual) *string { return v.VisualContentAltText }).(pulumi.StringPtrOutput)
 }
@@ -18751,6 +18826,7 @@ func (o DashboardWordCloudVisualPtrOutput) Title() DashboardVisualTitleLabelOpti
 	}).(DashboardVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o DashboardWordCloudVisualPtrOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DashboardWordCloudVisual) *string {
 		if v == nil {
@@ -37538,8 +37614,9 @@ type TemplateBarChartVisual struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle *TemplateVisualSubtitleLabelOptions `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                *TemplateVisualTitleLabelOptions `pulumi:"title"`
-	VisualContentAltText *string                          `pulumi:"visualContentAltText"`
+	Title *TemplateVisualTitleLabelOptions `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText *string `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
 	VisualId string `pulumi:"visualId"`
 }
@@ -37565,8 +37642,9 @@ type TemplateBarChartVisualArgs struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle TemplateVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                TemplateVisualTitleLabelOptionsPtrInput `pulumi:"title"`
-	VisualContentAltText pulumi.StringPtrInput                   `pulumi:"visualContentAltText"`
+	Title TemplateVisualTitleLabelOptionsPtrInput `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText pulumi.StringPtrInput `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
 	VisualId pulumi.StringInput `pulumi:"visualId"`
 }
@@ -37673,6 +37751,7 @@ func (o TemplateBarChartVisualOutput) Title() TemplateVisualTitleLabelOptionsPtr
 	return o.ApplyT(func(v TemplateBarChartVisual) *TemplateVisualTitleLabelOptions { return v.Title }).(TemplateVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o TemplateBarChartVisualOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplateBarChartVisual) *string { return v.VisualContentAltText }).(pulumi.StringPtrOutput)
 }
@@ -37756,6 +37835,7 @@ func (o TemplateBarChartVisualPtrOutput) Title() TemplateVisualTitleLabelOptions
 	}).(TemplateVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o TemplateBarChartVisualPtrOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplateBarChartVisual) *string {
 		if v == nil {
@@ -39352,8 +39432,9 @@ type TemplateBoxPlotVisual struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle *TemplateVisualSubtitleLabelOptions `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                *TemplateVisualTitleLabelOptions `pulumi:"title"`
-	VisualContentAltText *string                          `pulumi:"visualContentAltText"`
+	Title *TemplateVisualTitleLabelOptions `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText *string `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..
 	VisualId string `pulumi:"visualId"`
 }
@@ -39379,8 +39460,9 @@ type TemplateBoxPlotVisualArgs struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle TemplateVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                TemplateVisualTitleLabelOptionsPtrInput `pulumi:"title"`
-	VisualContentAltText pulumi.StringPtrInput                   `pulumi:"visualContentAltText"`
+	Title TemplateVisualTitleLabelOptionsPtrInput `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText pulumi.StringPtrInput `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..
 	VisualId pulumi.StringInput `pulumi:"visualId"`
 }
@@ -39487,6 +39569,7 @@ func (o TemplateBoxPlotVisualOutput) Title() TemplateVisualTitleLabelOptionsPtrO
 	return o.ApplyT(func(v TemplateBoxPlotVisual) *TemplateVisualTitleLabelOptions { return v.Title }).(TemplateVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o TemplateBoxPlotVisualOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplateBoxPlotVisual) *string { return v.VisualContentAltText }).(pulumi.StringPtrOutput)
 }
@@ -39570,6 +39653,7 @@ func (o TemplateBoxPlotVisualPtrOutput) Title() TemplateVisualTitleLabelOptionsP
 	}).(TemplateVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o TemplateBoxPlotVisualPtrOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplateBoxPlotVisual) *string {
 		if v == nil {
@@ -44141,8 +44225,9 @@ type TemplateComboChartVisual struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle *TemplateVisualSubtitleLabelOptions `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                *TemplateVisualTitleLabelOptions `pulumi:"title"`
-	VisualContentAltText *string                          `pulumi:"visualContentAltText"`
+	Title *TemplateVisualTitleLabelOptions `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText *string `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
 	VisualId string `pulumi:"visualId"`
 }
@@ -44168,8 +44253,9 @@ type TemplateComboChartVisualArgs struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle TemplateVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                TemplateVisualTitleLabelOptionsPtrInput `pulumi:"title"`
-	VisualContentAltText pulumi.StringPtrInput                   `pulumi:"visualContentAltText"`
+	Title TemplateVisualTitleLabelOptionsPtrInput `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText pulumi.StringPtrInput `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
 	VisualId pulumi.StringInput `pulumi:"visualId"`
 }
@@ -44276,6 +44362,7 @@ func (o TemplateComboChartVisualOutput) Title() TemplateVisualTitleLabelOptionsP
 	return o.ApplyT(func(v TemplateComboChartVisual) *TemplateVisualTitleLabelOptions { return v.Title }).(TemplateVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o TemplateComboChartVisualOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplateComboChartVisual) *string { return v.VisualContentAltText }).(pulumi.StringPtrOutput)
 }
@@ -44359,6 +44446,7 @@ func (o TemplateComboChartVisualPtrOutput) Title() TemplateVisualTitleLabelOptio
 	}).(TemplateVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o TemplateComboChartVisualPtrOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplateComboChartVisual) *string {
 		if v == nil {
@@ -47473,8 +47561,9 @@ type TemplateCustomContentVisual struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle *TemplateVisualSubtitleLabelOptions `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                *TemplateVisualTitleLabelOptions `pulumi:"title"`
-	VisualContentAltText *string                          `pulumi:"visualContentAltText"`
+	Title *TemplateVisualTitleLabelOptions `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText *string `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
 	VisualId string `pulumi:"visualId"`
 }
@@ -47500,8 +47589,9 @@ type TemplateCustomContentVisualArgs struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle TemplateVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                TemplateVisualTitleLabelOptionsPtrInput `pulumi:"title"`
-	VisualContentAltText pulumi.StringPtrInput                   `pulumi:"visualContentAltText"`
+	Title TemplateVisualTitleLabelOptionsPtrInput `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText pulumi.StringPtrInput `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
 	VisualId pulumi.StringInput `pulumi:"visualId"`
 }
@@ -47608,6 +47698,7 @@ func (o TemplateCustomContentVisualOutput) Title() TemplateVisualTitleLabelOptio
 	return o.ApplyT(func(v TemplateCustomContentVisual) *TemplateVisualTitleLabelOptions { return v.Title }).(TemplateVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o TemplateCustomContentVisualOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplateCustomContentVisual) *string { return v.VisualContentAltText }).(pulumi.StringPtrOutput)
 }
@@ -47691,6 +47782,7 @@ func (o TemplateCustomContentVisualPtrOutput) Title() TemplateVisualTitleLabelOp
 	}).(TemplateVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o TemplateCustomContentVisualPtrOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplateCustomContentVisual) *string {
 		if v == nil {
@@ -59388,8 +59480,9 @@ type TemplateFilledMapVisual struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle *TemplateVisualSubtitleLabelOptions `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                *TemplateVisualTitleLabelOptions `pulumi:"title"`
-	VisualContentAltText *string                          `pulumi:"visualContentAltText"`
+	Title *TemplateVisualTitleLabelOptions `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText *string `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..
 	VisualId string `pulumi:"visualId"`
 }
@@ -59417,8 +59510,9 @@ type TemplateFilledMapVisualArgs struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle TemplateVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                TemplateVisualTitleLabelOptionsPtrInput `pulumi:"title"`
-	VisualContentAltText pulumi.StringPtrInput                   `pulumi:"visualContentAltText"`
+	Title TemplateVisualTitleLabelOptionsPtrInput `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText pulumi.StringPtrInput `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..
 	VisualId pulumi.StringInput `pulumi:"visualId"`
 }
@@ -59532,6 +59626,7 @@ func (o TemplateFilledMapVisualOutput) Title() TemplateVisualTitleLabelOptionsPt
 	return o.ApplyT(func(v TemplateFilledMapVisual) *TemplateVisualTitleLabelOptions { return v.Title }).(TemplateVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o TemplateFilledMapVisualOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplateFilledMapVisual) *string { return v.VisualContentAltText }).(pulumi.StringPtrOutput)
 }
@@ -59625,6 +59720,7 @@ func (o TemplateFilledMapVisualPtrOutput) Title() TemplateVisualTitleLabelOption
 	}).(TemplateVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o TemplateFilledMapVisualPtrOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplateFilledMapVisual) *string {
 		if v == nil {
@@ -66083,8 +66179,9 @@ type TemplateFunnelChartVisual struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle *TemplateVisualSubtitleLabelOptions `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                *TemplateVisualTitleLabelOptions `pulumi:"title"`
-	VisualContentAltText *string                          `pulumi:"visualContentAltText"`
+	Title *TemplateVisualTitleLabelOptions `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText *string `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..
 	VisualId string `pulumi:"visualId"`
 }
@@ -66110,8 +66207,9 @@ type TemplateFunnelChartVisualArgs struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle TemplateVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                TemplateVisualTitleLabelOptionsPtrInput `pulumi:"title"`
-	VisualContentAltText pulumi.StringPtrInput                   `pulumi:"visualContentAltText"`
+	Title TemplateVisualTitleLabelOptionsPtrInput `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText pulumi.StringPtrInput `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..
 	VisualId pulumi.StringInput `pulumi:"visualId"`
 }
@@ -66218,6 +66316,7 @@ func (o TemplateFunnelChartVisualOutput) Title() TemplateVisualTitleLabelOptions
 	return o.ApplyT(func(v TemplateFunnelChartVisual) *TemplateVisualTitleLabelOptions { return v.Title }).(TemplateVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o TemplateFunnelChartVisualOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplateFunnelChartVisual) *string { return v.VisualContentAltText }).(pulumi.StringPtrOutput)
 }
@@ -66301,6 +66400,7 @@ func (o TemplateFunnelChartVisualPtrOutput) Title() TemplateVisualTitleLabelOpti
 	}).(TemplateVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o TemplateFunnelChartVisualPtrOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplateFunnelChartVisual) *string {
 		if v == nil {
@@ -67460,8 +67560,9 @@ type TemplateGaugeChartVisual struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle *TemplateVisualSubtitleLabelOptions `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                *TemplateVisualTitleLabelOptions `pulumi:"title"`
-	VisualContentAltText *string                          `pulumi:"visualContentAltText"`
+	Title *TemplateVisualTitleLabelOptions `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText *string `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
 	VisualId string `pulumi:"visualId"`
 }
@@ -67487,8 +67588,9 @@ type TemplateGaugeChartVisualArgs struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle TemplateVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                TemplateVisualTitleLabelOptionsPtrInput `pulumi:"title"`
-	VisualContentAltText pulumi.StringPtrInput                   `pulumi:"visualContentAltText"`
+	Title TemplateVisualTitleLabelOptionsPtrInput `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText pulumi.StringPtrInput `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
 	VisualId pulumi.StringInput `pulumi:"visualId"`
 }
@@ -67597,6 +67699,7 @@ func (o TemplateGaugeChartVisualOutput) Title() TemplateVisualTitleLabelOptionsP
 	return o.ApplyT(func(v TemplateGaugeChartVisual) *TemplateVisualTitleLabelOptions { return v.Title }).(TemplateVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o TemplateGaugeChartVisualOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplateGaugeChartVisual) *string { return v.VisualContentAltText }).(pulumi.StringPtrOutput)
 }
@@ -67680,6 +67783,7 @@ func (o TemplateGaugeChartVisualPtrOutput) Title() TemplateVisualTitleLabelOptio
 	}).(TemplateVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o TemplateGaugeChartVisualPtrOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplateGaugeChartVisual) *string {
 		if v == nil {
@@ -68978,8 +69082,9 @@ type TemplateGeospatialMapVisual struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle *TemplateVisualSubtitleLabelOptions `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                *TemplateVisualTitleLabelOptions `pulumi:"title"`
-	VisualContentAltText *string                          `pulumi:"visualContentAltText"`
+	Title *TemplateVisualTitleLabelOptions `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText *string `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..
 	VisualId string `pulumi:"visualId"`
 }
@@ -69005,8 +69110,9 @@ type TemplateGeospatialMapVisualArgs struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle TemplateVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                TemplateVisualTitleLabelOptionsPtrInput `pulumi:"title"`
-	VisualContentAltText pulumi.StringPtrInput                   `pulumi:"visualContentAltText"`
+	Title TemplateVisualTitleLabelOptionsPtrInput `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText pulumi.StringPtrInput `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..
 	VisualId pulumi.StringInput `pulumi:"visualId"`
 }
@@ -69113,6 +69219,7 @@ func (o TemplateGeospatialMapVisualOutput) Title() TemplateVisualTitleLabelOptio
 	return o.ApplyT(func(v TemplateGeospatialMapVisual) *TemplateVisualTitleLabelOptions { return v.Title }).(TemplateVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o TemplateGeospatialMapVisualOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplateGeospatialMapVisual) *string { return v.VisualContentAltText }).(pulumi.StringPtrOutput)
 }
@@ -69196,6 +69303,7 @@ func (o TemplateGeospatialMapVisualPtrOutput) Title() TemplateVisualTitleLabelOp
 	}).(TemplateVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o TemplateGeospatialMapVisualPtrOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplateGeospatialMapVisual) *string {
 		if v == nil {
@@ -71683,8 +71791,9 @@ type TemplateHeatMapVisual struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle *TemplateVisualSubtitleLabelOptions `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                *TemplateVisualTitleLabelOptions `pulumi:"title"`
-	VisualContentAltText *string                          `pulumi:"visualContentAltText"`
+	Title *TemplateVisualTitleLabelOptions `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText *string `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
 	VisualId string `pulumi:"visualId"`
 }
@@ -71710,8 +71819,9 @@ type TemplateHeatMapVisualArgs struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle TemplateVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                TemplateVisualTitleLabelOptionsPtrInput `pulumi:"title"`
-	VisualContentAltText pulumi.StringPtrInput                   `pulumi:"visualContentAltText"`
+	Title TemplateVisualTitleLabelOptionsPtrInput `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText pulumi.StringPtrInput `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
 	VisualId pulumi.StringInput `pulumi:"visualId"`
 }
@@ -71818,6 +71928,7 @@ func (o TemplateHeatMapVisualOutput) Title() TemplateVisualTitleLabelOptionsPtrO
 	return o.ApplyT(func(v TemplateHeatMapVisual) *TemplateVisualTitleLabelOptions { return v.Title }).(TemplateVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o TemplateHeatMapVisualOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplateHeatMapVisual) *string { return v.VisualContentAltText }).(pulumi.StringPtrOutput)
 }
@@ -71901,6 +72012,7 @@ func (o TemplateHeatMapVisualPtrOutput) Title() TemplateVisualTitleLabelOptionsP
 	}).(TemplateVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o TemplateHeatMapVisualPtrOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplateHeatMapVisual) *string {
 		if v == nil {
@@ -72668,8 +72780,9 @@ type TemplateHistogramVisual struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle *TemplateVisualSubtitleLabelOptions `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                *TemplateVisualTitleLabelOptions `pulumi:"title"`
-	VisualContentAltText *string                          `pulumi:"visualContentAltText"`
+	Title *TemplateVisualTitleLabelOptions `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText *string `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
 	VisualId string `pulumi:"visualId"`
 }
@@ -72693,8 +72806,9 @@ type TemplateHistogramVisualArgs struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle TemplateVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                TemplateVisualTitleLabelOptionsPtrInput `pulumi:"title"`
-	VisualContentAltText pulumi.StringPtrInput                   `pulumi:"visualContentAltText"`
+	Title TemplateVisualTitleLabelOptionsPtrInput `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText pulumi.StringPtrInput `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
 	VisualId pulumi.StringInput `pulumi:"visualId"`
 }
@@ -72796,6 +72910,7 @@ func (o TemplateHistogramVisualOutput) Title() TemplateVisualTitleLabelOptionsPt
 	return o.ApplyT(func(v TemplateHistogramVisual) *TemplateVisualTitleLabelOptions { return v.Title }).(TemplateVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o TemplateHistogramVisualOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplateHistogramVisual) *string { return v.VisualContentAltText }).(pulumi.StringPtrOutput)
 }
@@ -72869,6 +72984,7 @@ func (o TemplateHistogramVisualPtrOutput) Title() TemplateVisualTitleLabelOption
 	}).(TemplateVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o TemplateHistogramVisualPtrOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplateHistogramVisual) *string {
 		if v == nil {
@@ -72889,11 +73005,23 @@ func (o TemplateHistogramVisualPtrOutput) VisualId() pulumi.StringPtrOutput {
 }
 
 type TemplateImageCustomAction struct {
+	// A list of `ImageCustomActionOperations` .
+	//
+	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 	ActionOperations []TemplateImageCustomActionOperation `pulumi:"actionOperations"`
-	CustomActionId   string                               `pulumi:"customActionId"`
-	Name             string                               `pulumi:"name"`
-	Status           *TemplateWidgetStatus                `pulumi:"status"`
-	Trigger          TemplateImageCustomActionTrigger     `pulumi:"trigger"`
+	// The ID of the custom action.
+	CustomActionId string `pulumi:"customActionId"`
+	// The name of the custom action.
+	Name string `pulumi:"name"`
+	// The status of the custom action.
+	Status *TemplateWidgetStatus `pulumi:"status"`
+	// The trigger of the `VisualCustomAction` .
+	//
+	// Valid values are defined as follows:
+	//
+	// - `CLICK` : Initiates a custom action by a left pointer click on a data point.
+	// - `MENU` : Initiates a custom action by right pointer click from the menu.
+	Trigger TemplateImageCustomActionTrigger `pulumi:"trigger"`
 }
 
 // TemplateImageCustomActionInput is an input type that accepts TemplateImageCustomActionArgs and TemplateImageCustomActionOutput values.
@@ -72908,11 +73036,23 @@ type TemplateImageCustomActionInput interface {
 }
 
 type TemplateImageCustomActionArgs struct {
+	// A list of `ImageCustomActionOperations` .
+	//
+	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 	ActionOperations TemplateImageCustomActionOperationArrayInput `pulumi:"actionOperations"`
-	CustomActionId   pulumi.StringInput                           `pulumi:"customActionId"`
-	Name             pulumi.StringInput                           `pulumi:"name"`
-	Status           TemplateWidgetStatusPtrInput                 `pulumi:"status"`
-	Trigger          TemplateImageCustomActionTriggerInput        `pulumi:"trigger"`
+	// The ID of the custom action.
+	CustomActionId pulumi.StringInput `pulumi:"customActionId"`
+	// The name of the custom action.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The status of the custom action.
+	Status TemplateWidgetStatusPtrInput `pulumi:"status"`
+	// The trigger of the `VisualCustomAction` .
+	//
+	// Valid values are defined as follows:
+	//
+	// - `CLICK` : Initiates a custom action by a left pointer click on a data point.
+	// - `MENU` : Initiates a custom action by right pointer click from the menu.
+	Trigger TemplateImageCustomActionTriggerInput `pulumi:"trigger"`
 }
 
 func (TemplateImageCustomActionArgs) ElementType() reflect.Type {
@@ -72966,22 +73106,34 @@ func (o TemplateImageCustomActionOutput) ToTemplateImageCustomActionOutputWithCo
 	return o
 }
 
+// A list of `ImageCustomActionOperations` .
+//
+// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 func (o TemplateImageCustomActionOutput) ActionOperations() TemplateImageCustomActionOperationArrayOutput {
 	return o.ApplyT(func(v TemplateImageCustomAction) []TemplateImageCustomActionOperation { return v.ActionOperations }).(TemplateImageCustomActionOperationArrayOutput)
 }
 
+// The ID of the custom action.
 func (o TemplateImageCustomActionOutput) CustomActionId() pulumi.StringOutput {
 	return o.ApplyT(func(v TemplateImageCustomAction) string { return v.CustomActionId }).(pulumi.StringOutput)
 }
 
+// The name of the custom action.
 func (o TemplateImageCustomActionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v TemplateImageCustomAction) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The status of the custom action.
 func (o TemplateImageCustomActionOutput) Status() TemplateWidgetStatusPtrOutput {
 	return o.ApplyT(func(v TemplateImageCustomAction) *TemplateWidgetStatus { return v.Status }).(TemplateWidgetStatusPtrOutput)
 }
 
+// The trigger of the `VisualCustomAction` .
+//
+// Valid values are defined as follows:
+//
+// - `CLICK` : Initiates a custom action by a left pointer click on a data point.
+// - `MENU` : Initiates a custom action by right pointer click from the menu.
 func (o TemplateImageCustomActionOutput) Trigger() TemplateImageCustomActionTriggerOutput {
 	return o.ApplyT(func(v TemplateImageCustomAction) TemplateImageCustomActionTrigger { return v.Trigger }).(TemplateImageCustomActionTriggerOutput)
 }
@@ -73117,6 +73269,7 @@ func (o TemplateImageCustomActionOperationArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type TemplateImageInteractionOptions struct {
+	// The menu options for the image.
 	ImageMenuOption *TemplateImageMenuOption `pulumi:"imageMenuOption"`
 }
 
@@ -73132,6 +73285,7 @@ type TemplateImageInteractionOptionsInput interface {
 }
 
 type TemplateImageInteractionOptionsArgs struct {
+	// The menu options for the image.
 	ImageMenuOption TemplateImageMenuOptionPtrInput `pulumi:"imageMenuOption"`
 }
 
@@ -73212,6 +73366,7 @@ func (o TemplateImageInteractionOptionsOutput) ToTemplateImageInteractionOptions
 	}).(TemplateImageInteractionOptionsPtrOutput)
 }
 
+// The menu options for the image.
 func (o TemplateImageInteractionOptionsOutput) ImageMenuOption() TemplateImageMenuOptionPtrOutput {
 	return o.ApplyT(func(v TemplateImageInteractionOptions) *TemplateImageMenuOption { return v.ImageMenuOption }).(TemplateImageMenuOptionPtrOutput)
 }
@@ -73240,6 +73395,7 @@ func (o TemplateImageInteractionOptionsPtrOutput) Elem() TemplateImageInteractio
 	}).(TemplateImageInteractionOptionsOutput)
 }
 
+// The menu options for the image.
 func (o TemplateImageInteractionOptionsPtrOutput) ImageMenuOption() TemplateImageMenuOptionPtrOutput {
 	return o.ApplyT(func(v *TemplateImageInteractionOptions) *TemplateImageMenuOption {
 		if v == nil {
@@ -73250,6 +73406,7 @@ func (o TemplateImageInteractionOptionsPtrOutput) ImageMenuOption() TemplateImag
 }
 
 type TemplateImageMenuOption struct {
+	// The availability status of the image menu. If the value of this property is set to `ENABLED` , dashboard readers can interact with the image menu.
 	AvailabilityStatus interface{} `pulumi:"availabilityStatus"`
 }
 
@@ -73265,6 +73422,7 @@ type TemplateImageMenuOptionInput interface {
 }
 
 type TemplateImageMenuOptionArgs struct {
+	// The availability status of the image menu. If the value of this property is set to `ENABLED` , dashboard readers can interact with the image menu.
 	AvailabilityStatus pulumi.Input `pulumi:"availabilityStatus"`
 }
 
@@ -73345,6 +73503,7 @@ func (o TemplateImageMenuOptionOutput) ToTemplateImageMenuOptionPtrOutputWithCon
 	}).(TemplateImageMenuOptionPtrOutput)
 }
 
+// The availability status of the image menu. If the value of this property is set to `ENABLED` , dashboard readers can interact with the image menu.
 func (o TemplateImageMenuOptionOutput) AvailabilityStatus() pulumi.AnyOutput {
 	return o.ApplyT(func(v TemplateImageMenuOption) interface{} { return v.AvailabilityStatus }).(pulumi.AnyOutput)
 }
@@ -73373,6 +73532,7 @@ func (o TemplateImageMenuOptionPtrOutput) Elem() TemplateImageMenuOptionOutput {
 	}).(TemplateImageMenuOptionOutput)
 }
 
+// The availability status of the image menu. If the value of this property is set to `ENABLED` , dashboard readers can interact with the image menu.
 func (o TemplateImageMenuOptionPtrOutput) AvailabilityStatus() pulumi.AnyOutput {
 	return o.ApplyT(func(v *TemplateImageMenuOption) interface{} {
 		if v == nil {
@@ -73685,8 +73845,9 @@ type TemplateInsightVisual struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle *TemplateVisualSubtitleLabelOptions `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                *TemplateVisualTitleLabelOptions `pulumi:"title"`
-	VisualContentAltText *string                          `pulumi:"visualContentAltText"`
+	Title *TemplateVisualTitleLabelOptions `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText *string `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
 	VisualId string `pulumi:"visualId"`
 }
@@ -73712,8 +73873,9 @@ type TemplateInsightVisualArgs struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle TemplateVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                TemplateVisualTitleLabelOptionsPtrInput `pulumi:"title"`
-	VisualContentAltText pulumi.StringPtrInput                   `pulumi:"visualContentAltText"`
+	Title TemplateVisualTitleLabelOptionsPtrInput `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText pulumi.StringPtrInput `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
 	VisualId pulumi.StringInput `pulumi:"visualId"`
 }
@@ -73820,6 +73982,7 @@ func (o TemplateInsightVisualOutput) Title() TemplateVisualTitleLabelOptionsPtrO
 	return o.ApplyT(func(v TemplateInsightVisual) *TemplateVisualTitleLabelOptions { return v.Title }).(TemplateVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o TemplateInsightVisualOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplateInsightVisual) *string { return v.VisualContentAltText }).(pulumi.StringPtrOutput)
 }
@@ -73903,6 +74066,7 @@ func (o TemplateInsightVisualPtrOutput) Title() TemplateVisualTitleLabelOptionsP
 	}).(TemplateVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o TemplateInsightVisualPtrOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplateInsightVisual) *string {
 		if v == nil {
@@ -76497,8 +76661,9 @@ type TemplateKpiVisual struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle *TemplateVisualSubtitleLabelOptions `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                *TemplateVisualTitleLabelOptions `pulumi:"title"`
-	VisualContentAltText *string                          `pulumi:"visualContentAltText"`
+	Title *TemplateVisualTitleLabelOptions `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText *string `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
 	VisualId string `pulumi:"visualId"`
 }
@@ -76526,8 +76691,9 @@ type TemplateKpiVisualArgs struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle TemplateVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                TemplateVisualTitleLabelOptionsPtrInput `pulumi:"title"`
-	VisualContentAltText pulumi.StringPtrInput                   `pulumi:"visualContentAltText"`
+	Title TemplateVisualTitleLabelOptionsPtrInput `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText pulumi.StringPtrInput `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
 	VisualId pulumi.StringInput `pulumi:"visualId"`
 }
@@ -76639,6 +76805,7 @@ func (o TemplateKpiVisualOutput) Title() TemplateVisualTitleLabelOptionsPtrOutpu
 	return o.ApplyT(func(v TemplateKpiVisual) *TemplateVisualTitleLabelOptions { return v.Title }).(TemplateVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o TemplateKpiVisualOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplateKpiVisual) *string { return v.VisualContentAltText }).(pulumi.StringPtrOutput)
 }
@@ -76732,6 +76899,7 @@ func (o TemplateKpiVisualPtrOutput) Title() TemplateVisualTitleLabelOptionsPtrOu
 	}).(TemplateVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o TemplateKpiVisualPtrOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplateKpiVisual) *string {
 		if v == nil {
@@ -79470,8 +79638,9 @@ type TemplateLineChartVisual struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle *TemplateVisualSubtitleLabelOptions `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                *TemplateVisualTitleLabelOptions `pulumi:"title"`
-	VisualContentAltText *string                          `pulumi:"visualContentAltText"`
+	Title *TemplateVisualTitleLabelOptions `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText *string `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
 	VisualId string `pulumi:"visualId"`
 }
@@ -79497,8 +79666,9 @@ type TemplateLineChartVisualArgs struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle TemplateVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                TemplateVisualTitleLabelOptionsPtrInput `pulumi:"title"`
-	VisualContentAltText pulumi.StringPtrInput                   `pulumi:"visualContentAltText"`
+	Title TemplateVisualTitleLabelOptionsPtrInput `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText pulumi.StringPtrInput `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
 	VisualId pulumi.StringInput `pulumi:"visualId"`
 }
@@ -79605,6 +79775,7 @@ func (o TemplateLineChartVisualOutput) Title() TemplateVisualTitleLabelOptionsPt
 	return o.ApplyT(func(v TemplateLineChartVisual) *TemplateVisualTitleLabelOptions { return v.Title }).(TemplateVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o TemplateLineChartVisualOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplateLineChartVisual) *string { return v.VisualContentAltText }).(pulumi.StringPtrOutput)
 }
@@ -79688,6 +79859,7 @@ func (o TemplateLineChartVisualPtrOutput) Title() TemplateVisualTitleLabelOption
 	}).(TemplateVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o TemplateLineChartVisualPtrOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplateLineChartVisual) *string {
 		if v == nil {

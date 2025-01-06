@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateSheetImageTooltipConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The text that appears in the tooltip.
+        /// </summary>
         [Input("tooltipText")]
         public Input<Inputs.TemplateSheetImageTooltipTextArgs>? TooltipText { get; set; }
 
+        /// <summary>
+        /// The visibility of the tooltip.
+        /// </summary>
         [Input("visibility")]
         public Input<object>? Visibility { get; set; }
 

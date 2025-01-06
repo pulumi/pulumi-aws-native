@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardGeospatialMapStyleArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The background color and opacity values for a map.
+        /// </summary>
         [Input("backgroundColor")]
         public Input<string>? BackgroundColor { get; set; }
 
+        /// <summary>
+        /// The selected base map style.
+        /// </summary>
         [Input("baseMapStyle")]
         public Input<Pulumi.AwsNative.QuickSight.DashboardBaseMapStyleType>? BaseMapStyle { get; set; }
 
+        /// <summary>
+        /// The state of visibility for the base map.
+        /// </summary>
         [Input("baseMapVisibility")]
         public Input<Pulumi.AwsNative.QuickSight.DashboardVisibility>? BaseMapVisibility { get; set; }
 

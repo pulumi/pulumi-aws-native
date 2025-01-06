@@ -13,12 +13,33 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisSheetImage
     {
+        /// <summary>
+        /// A list of custom actions that are configured for an image.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisImageCustomAction> Actions;
+        /// <summary>
+        /// The alt text for the image.
+        /// </summary>
         public readonly string? ImageContentAltText;
+        /// <summary>
+        /// The general image interactions setup for an image.
+        /// </summary>
         public readonly Outputs.AnalysisImageInteractionOptions? Interactions;
+        /// <summary>
+        /// Determines how the image is scaled.
+        /// </summary>
         public readonly Outputs.AnalysisSheetImageScalingConfiguration? Scaling;
+        /// <summary>
+        /// The ID of the sheet image.
+        /// </summary>
         public readonly string SheetImageId;
+        /// <summary>
+        /// The source of the image.
+        /// </summary>
         public readonly Outputs.AnalysisSheetImageSource Source;
+        /// <summary>
+        /// The tooltip to be shown when hovering over the image.
+        /// </summary>
         public readonly Outputs.AnalysisSheetImageTooltipConfiguration? Tooltip;
 
         [OutputConstructor]

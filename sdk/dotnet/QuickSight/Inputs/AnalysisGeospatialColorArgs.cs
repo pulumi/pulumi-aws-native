@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisGeospatialColorArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The visualization properties for the categorical color.
+        /// </summary>
         [Input("categorical")]
         public Input<Inputs.AnalysisGeospatialCategoricalColorArgs>? Categorical { get; set; }
 
+        /// <summary>
+        /// The visualization properties for the gradient color.
+        /// </summary>
         [Input("gradient")]
         public Input<Inputs.AnalysisGeospatialGradientColorArgs>? Gradient { get; set; }
 
+        /// <summary>
+        /// The visualization properties for the solid color.
+        /// </summary>
         [Input("solid")]
         public Input<Inputs.AnalysisGeospatialSolidColorArgs>? Solid { get; set; }
 

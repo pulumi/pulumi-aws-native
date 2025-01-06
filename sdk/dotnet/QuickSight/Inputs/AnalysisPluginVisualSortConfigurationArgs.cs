@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisPluginVisualSortConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The table query sorting options for the plugin visual.
+        /// </summary>
         [Input("pluginVisualTableQuerySort")]
         public Input<Inputs.AnalysisPluginVisualTableQuerySortArgs>? PluginVisualTableQuerySort { get; set; }
 

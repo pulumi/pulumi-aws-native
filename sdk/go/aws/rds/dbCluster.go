@@ -64,6 +64,10 @@ type DbCluster struct {
 	// A value that indicates whether to copy all tags from the DB cluster to snapshots of the DB cluster. The default is not to copy them.
 	//  Valid for: Aurora DB clusters and Multi-AZ DB clusters
 	CopyTagsToSnapshot pulumi.BoolPtrOutput `pulumi:"copyTagsToSnapshot"`
+	// The mode of Database Insights to enable for the DB cluster.
+	//  If you set this value to ``advanced``, you must also set the ``PerformanceInsightsEnabled`` parameter to ``true`` and the ``PerformanceInsightsRetentionPeriod`` parameter to 465.
+	//  Valid for Cluster Type: Aurora DB clusters only
+	DatabaseInsightsMode pulumi.StringPtrOutput `pulumi:"databaseInsightsMode"`
 	// The name of your database. If you don't provide a name, then Amazon RDS won't create a database in this DB cluster. For naming constraints, see [Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_Limits.html#RDS_Limits.Constraints) in the *Amazon Aurora User Guide*.
 	//  Valid for: Aurora DB clusters and Multi-AZ DB clusters
 	DatabaseName pulumi.StringPtrOutput `pulumi:"databaseName"`
@@ -499,6 +503,10 @@ type dbClusterArgs struct {
 	// A value that indicates whether to copy all tags from the DB cluster to snapshots of the DB cluster. The default is not to copy them.
 	//  Valid for: Aurora DB clusters and Multi-AZ DB clusters
 	CopyTagsToSnapshot *bool `pulumi:"copyTagsToSnapshot"`
+	// The mode of Database Insights to enable for the DB cluster.
+	//  If you set this value to ``advanced``, you must also set the ``PerformanceInsightsEnabled`` parameter to ``true`` and the ``PerformanceInsightsRetentionPeriod`` parameter to 465.
+	//  Valid for Cluster Type: Aurora DB clusters only
+	DatabaseInsightsMode *string `pulumi:"databaseInsightsMode"`
 	// The name of your database. If you don't provide a name, then Amazon RDS won't create a database in this DB cluster. For naming constraints, see [Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_Limits.html#RDS_Limits.Constraints) in the *Amazon Aurora User Guide*.
 	//  Valid for: Aurora DB clusters and Multi-AZ DB clusters
 	DatabaseName *string `pulumi:"databaseName"`
@@ -868,6 +876,10 @@ type DbClusterArgs struct {
 	// A value that indicates whether to copy all tags from the DB cluster to snapshots of the DB cluster. The default is not to copy them.
 	//  Valid for: Aurora DB clusters and Multi-AZ DB clusters
 	CopyTagsToSnapshot pulumi.BoolPtrInput
+	// The mode of Database Insights to enable for the DB cluster.
+	//  If you set this value to ``advanced``, you must also set the ``PerformanceInsightsEnabled`` parameter to ``true`` and the ``PerformanceInsightsRetentionPeriod`` parameter to 465.
+	//  Valid for Cluster Type: Aurora DB clusters only
+	DatabaseInsightsMode pulumi.StringPtrInput
 	// The name of your database. If you don't provide a name, then Amazon RDS won't create a database in this DB cluster. For naming constraints, see [Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_Limits.html#RDS_Limits.Constraints) in the *Amazon Aurora User Guide*.
 	//  Valid for: Aurora DB clusters and Multi-AZ DB clusters
 	DatabaseName pulumi.StringPtrInput
@@ -1301,6 +1313,14 @@ func (o DbClusterOutput) ClusterScalabilityType() pulumi.StringPtrOutput {
 //	Valid for: Aurora DB clusters and Multi-AZ DB clusters
 func (o DbClusterOutput) CopyTagsToSnapshot() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DbCluster) pulumi.BoolPtrOutput { return v.CopyTagsToSnapshot }).(pulumi.BoolPtrOutput)
+}
+
+// The mode of Database Insights to enable for the DB cluster.
+//
+//	If you set this value to ``advanced``, you must also set the ``PerformanceInsightsEnabled`` parameter to ``true`` and the ``PerformanceInsightsRetentionPeriod`` parameter to 465.
+//	Valid for Cluster Type: Aurora DB clusters only
+func (o DbClusterOutput) DatabaseInsightsMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DbCluster) pulumi.StringPtrOutput { return v.DatabaseInsightsMode }).(pulumi.StringPtrOutput)
 }
 
 // The name of your database. If you don't provide a name, then Amazon RDS won't create a database in this DB cluster. For naming constraints, see [Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_Limits.html#RDS_Limits.Constraints) in the *Amazon Aurora User Guide*.

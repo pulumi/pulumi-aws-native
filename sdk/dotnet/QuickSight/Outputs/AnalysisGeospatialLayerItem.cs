@@ -13,14 +13,38 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisGeospatialLayerItem
     {
+        /// <summary>
+        /// A list of custom actions for a layer.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisLayerCustomAction> Actions;
+        /// <summary>
+        /// The data source for the layer.
+        /// </summary>
         public readonly Outputs.AnalysisGeospatialDataSourceItem? DataSource;
+        /// <summary>
+        /// The join definition properties for a layer.
+        /// </summary>
         public readonly Outputs.AnalysisGeospatialLayerJoinDefinition? JoinDefinition;
+        /// <summary>
+        /// The label that is displayed for the layer.
+        /// </summary>
         public readonly string? Label;
+        /// <summary>
+        /// The definition properties for a layer.
+        /// </summary>
         public readonly Outputs.AnalysisGeospatialLayerDefinition? LayerDefinition;
+        /// <summary>
+        /// The ID of the layer.
+        /// </summary>
         public readonly string LayerId;
+        /// <summary>
+        /// The layer type.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisGeospatialLayerType? LayerType;
         public readonly Outputs.AnalysisTooltipOptions? Tooltip;
+        /// <summary>
+        /// The state of visibility for the layer.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisVisibility? Visibility;
 
         [OutputConstructor]

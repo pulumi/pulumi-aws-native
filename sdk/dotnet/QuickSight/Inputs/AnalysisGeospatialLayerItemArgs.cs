@@ -14,33 +14,58 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     {
         [Input("actions")]
         private InputList<Inputs.AnalysisLayerCustomActionArgs>? _actions;
+
+        /// <summary>
+        /// A list of custom actions for a layer.
+        /// </summary>
         public InputList<Inputs.AnalysisLayerCustomActionArgs> Actions
         {
             get => _actions ?? (_actions = new InputList<Inputs.AnalysisLayerCustomActionArgs>());
             set => _actions = value;
         }
 
+        /// <summary>
+        /// The data source for the layer.
+        /// </summary>
         [Input("dataSource")]
         public Input<Inputs.AnalysisGeospatialDataSourceItemArgs>? DataSource { get; set; }
 
+        /// <summary>
+        /// The join definition properties for a layer.
+        /// </summary>
         [Input("joinDefinition")]
         public Input<Inputs.AnalysisGeospatialLayerJoinDefinitionArgs>? JoinDefinition { get; set; }
 
+        /// <summary>
+        /// The label that is displayed for the layer.
+        /// </summary>
         [Input("label")]
         public Input<string>? Label { get; set; }
 
+        /// <summary>
+        /// The definition properties for a layer.
+        /// </summary>
         [Input("layerDefinition")]
         public Input<Inputs.AnalysisGeospatialLayerDefinitionArgs>? LayerDefinition { get; set; }
 
+        /// <summary>
+        /// The ID of the layer.
+        /// </summary>
         [Input("layerId", required: true)]
         public Input<string> LayerId { get; set; } = null!;
 
+        /// <summary>
+        /// The layer type.
+        /// </summary>
         [Input("layerType")]
         public Input<Pulumi.AwsNative.QuickSight.AnalysisGeospatialLayerType>? LayerType { get; set; }
 
         [Input("tooltip")]
         public Input<Inputs.AnalysisTooltipOptionsArgs>? Tooltip { get; set; }
 
+        /// <summary>
+        /// The state of visibility for the layer.
+        /// </summary>
         [Input("visibility")]
         public Input<Pulumi.AwsNative.QuickSight.AnalysisVisibility>? Visibility { get; set; }
 

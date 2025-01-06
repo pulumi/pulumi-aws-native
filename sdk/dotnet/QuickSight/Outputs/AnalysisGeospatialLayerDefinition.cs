@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisGeospatialLayerDefinition
     {
+        /// <summary>
+        /// The definition for a line layer.
+        /// </summary>
         public readonly Outputs.AnalysisGeospatialLineLayer? LineLayer;
+        /// <summary>
+        /// The definition for a point layer.
+        /// </summary>
         public readonly Outputs.AnalysisGeospatialPointLayer? PointLayer;
+        /// <summary>
+        /// The definition for a polygon layer.
+        /// </summary>
         public readonly Outputs.AnalysisGeospatialPolygonLayer? PolygonLayer;
 
         [OutputConstructor]

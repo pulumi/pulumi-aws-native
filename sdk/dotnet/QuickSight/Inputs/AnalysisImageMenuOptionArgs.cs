@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisImageMenuOptionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The availability status of the image menu. If the value of this property is set to `ENABLED` , dashboard readers can interact with the image menu.
+        /// </summary>
         [Input("availabilityStatus")]
         public Input<object>? AvailabilityStatus { get; set; }
 

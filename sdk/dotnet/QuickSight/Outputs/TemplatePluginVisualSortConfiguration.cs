@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplatePluginVisualSortConfiguration
     {
+        /// <summary>
+        /// The table query sorting options for the plugin visual.
+        /// </summary>
         public readonly Outputs.TemplatePluginVisualTableQuerySort? PluginVisualTableQuerySort;
 
         [OutputConstructor]

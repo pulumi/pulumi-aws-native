@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardSheetImageTooltipText
     {
+        /// <summary>
+        /// The plain text format.
+        /// </summary>
         public readonly string? PlainText;
 
         [OutputConstructor]

@@ -17,6 +17,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// The field wells of the visual.
         /// </summary>
         public readonly Outputs.AnalysisGeospatialMapFieldWells? FieldWells;
+        /// <summary>
+        /// The general visual interactions setup for a visual.
+        /// </summary>
         public readonly object? Interactions;
         /// <summary>
         /// The legend display setup of the visual.

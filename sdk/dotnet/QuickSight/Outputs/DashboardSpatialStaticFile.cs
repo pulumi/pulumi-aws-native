@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardSpatialStaticFile
     {
+        /// <summary>
+        /// The source of the spatial static file.
+        /// </summary>
         public readonly Outputs.DashboardStaticFileSource? Source;
+        /// <summary>
+        /// The ID of the spatial static file.
+        /// </summary>
         public readonly string StaticFileId;
 
         [OutputConstructor]

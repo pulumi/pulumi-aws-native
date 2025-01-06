@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisPluginVisualProperty
     {
+        /// <summary>
+        /// The name of the plugin visual property.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// The value of the plugin visual property.
+        /// </summary>
         public readonly string? Value;
 
         [OutputConstructor]

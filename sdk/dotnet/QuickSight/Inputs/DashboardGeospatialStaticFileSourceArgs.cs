@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardGeospatialStaticFileSourceArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ID of the static file.
+        /// </summary>
         [Input("staticFileId", required: true)]
         public Input<string> StaticFileId { get; set; } = null!;
 

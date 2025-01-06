@@ -46,6 +46,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// An array of sheet definitions for a dashboard.
         /// </summary>
         public readonly ImmutableArray<Outputs.DashboardSheetDefinition> Sheets;
+        /// <summary>
+        /// The static files for the definition.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardStaticFile> StaticFiles;
 
         [OutputConstructor]

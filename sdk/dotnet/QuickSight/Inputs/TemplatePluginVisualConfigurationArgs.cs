@@ -14,15 +14,25 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     {
         [Input("fieldWells")]
         private InputList<Inputs.TemplatePluginVisualFieldWellArgs>? _fieldWells;
+
+        /// <summary>
+        /// The field wells configuration of the plugin visual.
+        /// </summary>
         public InputList<Inputs.TemplatePluginVisualFieldWellArgs> FieldWells
         {
             get => _fieldWells ?? (_fieldWells = new InputList<Inputs.TemplatePluginVisualFieldWellArgs>());
             set => _fieldWells = value;
         }
 
+        /// <summary>
+        /// The sort configuration of the plugin visual.
+        /// </summary>
         [Input("sortConfiguration")]
         public Input<Inputs.TemplatePluginVisualSortConfigurationArgs>? SortConfiguration { get; set; }
 
+        /// <summary>
+        /// The persisted properties of the plugin visual.
+        /// </summary>
         [Input("visualOptions")]
         public Input<Inputs.TemplatePluginVisualOptionsArgs>? VisualOptions { get; set; }
 

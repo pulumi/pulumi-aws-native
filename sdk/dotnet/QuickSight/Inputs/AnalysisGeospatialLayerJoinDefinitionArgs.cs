@@ -12,12 +12,18 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisGeospatialLayerJoinDefinitionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The geospatial color field for the join definition.
+        /// </summary>
         [Input("colorField")]
         public Input<Inputs.AnalysisGeospatialLayerColorFieldArgs>? ColorField { get; set; }
 
         [Input("datasetKeyField")]
         public Input<Inputs.AnalysisUnaggregatedFieldArgs>? DatasetKeyField { get; set; }
 
+        /// <summary>
+        /// The name of the field or property in the geospatial data source.
+        /// </summary>
         [Input("shapeKeyField")]
         public Input<string>? ShapeKeyField { get; set; }
 

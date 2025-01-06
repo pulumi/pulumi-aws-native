@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardSheetImageTooltipTextArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The plain text format.
+        /// </summary>
         [Input("plainText")]
         public Input<string>? PlainText { get; set; }
 

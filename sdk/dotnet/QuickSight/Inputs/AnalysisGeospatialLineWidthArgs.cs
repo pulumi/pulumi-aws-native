@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisGeospatialLineWidthArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The positive value for the width of a line.
+        /// </summary>
         [Input("lineWidth")]
         public Input<double>? LineWidth { get; set; }
 

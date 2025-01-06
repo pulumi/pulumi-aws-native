@@ -101,6 +101,12 @@ export class DbCluster extends pulumi.CustomResource {
      */
     public readonly copyTagsToSnapshot!: pulumi.Output<boolean | undefined>;
     /**
+     * The mode of Database Insights to enable for the DB cluster.
+     *  If you set this value to ``advanced``, you must also set the ``PerformanceInsightsEnabled`` parameter to ``true`` and the ``PerformanceInsightsRetentionPeriod`` parameter to 465.
+     *  Valid for Cluster Type: Aurora DB clusters only
+     */
+    public readonly databaseInsightsMode!: pulumi.Output<string | undefined>;
+    /**
      * The name of your database. If you don't provide a name, then Amazon RDS won't create a database in this DB cluster. For naming constraints, see [Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_Limits.html#RDS_Limits.Constraints) in the *Amazon Aurora User Guide*. 
      *  Valid for: Aurora DB clusters and Multi-AZ DB clusters
      */
@@ -570,6 +576,7 @@ export class DbCluster extends pulumi.CustomResource {
             resourceInputs["backupRetentionPeriod"] = args ? args.backupRetentionPeriod : undefined;
             resourceInputs["clusterScalabilityType"] = args ? args.clusterScalabilityType : undefined;
             resourceInputs["copyTagsToSnapshot"] = args ? args.copyTagsToSnapshot : undefined;
+            resourceInputs["databaseInsightsMode"] = args ? args.databaseInsightsMode : undefined;
             resourceInputs["databaseName"] = args ? args.databaseName : undefined;
             resourceInputs["dbClusterIdentifier"] = args ? args.dbClusterIdentifier : undefined;
             resourceInputs["dbClusterInstanceClass"] = args ? args.dbClusterInstanceClass : undefined;
@@ -633,6 +640,7 @@ export class DbCluster extends pulumi.CustomResource {
             resourceInputs["backupRetentionPeriod"] = undefined /*out*/;
             resourceInputs["clusterScalabilityType"] = undefined /*out*/;
             resourceInputs["copyTagsToSnapshot"] = undefined /*out*/;
+            resourceInputs["databaseInsightsMode"] = undefined /*out*/;
             resourceInputs["databaseName"] = undefined /*out*/;
             resourceInputs["dbClusterArn"] = undefined /*out*/;
             resourceInputs["dbClusterIdentifier"] = undefined /*out*/;
@@ -746,6 +754,12 @@ export interface DbClusterArgs {
      *  Valid for: Aurora DB clusters and Multi-AZ DB clusters
      */
     copyTagsToSnapshot?: pulumi.Input<boolean>;
+    /**
+     * The mode of Database Insights to enable for the DB cluster.
+     *  If you set this value to ``advanced``, you must also set the ``PerformanceInsightsEnabled`` parameter to ``true`` and the ``PerformanceInsightsRetentionPeriod`` parameter to 465.
+     *  Valid for Cluster Type: Aurora DB clusters only
+     */
+    databaseInsightsMode?: pulumi.Input<string>;
     /**
      * The name of your database. If you don't provide a name, then Amazon RDS won't create a database in this DB cluster. For naming constraints, see [Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_Limits.html#RDS_Limits.Constraints) in the *Amazon Aurora User Guide*. 
      *  Valid for: Aurora DB clusters and Multi-AZ DB clusters

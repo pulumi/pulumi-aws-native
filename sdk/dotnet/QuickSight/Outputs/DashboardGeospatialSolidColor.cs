@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardGeospatialSolidColor
     {
+        /// <summary>
+        /// The color and opacity values for the color.
+        /// </summary>
         public readonly string Color;
+        /// <summary>
+        /// Enables and disables the view state of the color.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardGeospatialColorState? State;
 
         [OutputConstructor]

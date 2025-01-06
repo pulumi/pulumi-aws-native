@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplateSheetImageSourceArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The source of the static file that contains the image.
+        /// </summary>
         [Input("sheetImageStaticFileSource")]
         public Input<Inputs.TemplateSheetImageStaticFileSourceArgs>? SheetImageStaticFileSource { get; set; }
 

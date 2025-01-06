@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardGeospatialCategoricalDataColorArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The color and opacity values for the category data color.
+        /// </summary>
         [Input("color", required: true)]
         public Input<string> Color { get; set; } = null!;
 
+        /// <summary>
+        /// The data value for the category data color.
+        /// </summary>
         [Input("dataValue", required: true)]
         public Input<string> DataValue { get; set; } = null!;
 

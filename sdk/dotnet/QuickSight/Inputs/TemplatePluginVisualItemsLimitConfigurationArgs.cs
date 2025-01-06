@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplatePluginVisualItemsLimitConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Determines how many values are be fetched at once.
+        /// </summary>
         [Input("itemsLimit")]
         public Input<double>? ItemsLimit { get; set; }
 

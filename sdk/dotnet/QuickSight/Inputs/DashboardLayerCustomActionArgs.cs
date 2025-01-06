@@ -14,21 +14,44 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     {
         [Input("actionOperations", required: true)]
         private InputList<Inputs.DashboardLayerCustomActionOperationArgs>? _actionOperations;
+
+        /// <summary>
+        /// A list of `LayerCustomActionOperations` .
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         public InputList<Inputs.DashboardLayerCustomActionOperationArgs> ActionOperations
         {
             get => _actionOperations ?? (_actionOperations = new InputList<Inputs.DashboardLayerCustomActionOperationArgs>());
             set => _actionOperations = value;
         }
 
+        /// <summary>
+        /// The ID of the custom action.
+        /// </summary>
         [Input("customActionId", required: true)]
         public Input<string> CustomActionId { get; set; } = null!;
 
+        /// <summary>
+        /// The name of the custom action.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The status of the `LayerCustomAction` .
+        /// </summary>
         [Input("status")]
         public Input<Pulumi.AwsNative.QuickSight.DashboardWidgetStatus>? Status { get; set; }
 
+        /// <summary>
+        /// The trigger of the `LayerCustomAction` .
+        /// 
+        /// Valid values are defined as follows:
+        /// 
+        /// - `DATA_POINT_CLICK` : Initiates a custom action by a left pointer click on a data point.
+        /// - `DATA_POINT_MENU` : Initiates a custom action by right pointer click from the menu.
+        /// </summary>
         [Input("trigger", required: true)]
         public Input<Pulumi.AwsNative.QuickSight.DashboardLayerCustomActionTrigger> Trigger { get; set; } = null!;
 

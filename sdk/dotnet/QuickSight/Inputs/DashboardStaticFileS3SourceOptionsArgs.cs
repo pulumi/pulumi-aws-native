@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardStaticFileS3SourceOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the Amazon S3 bucket.
+        /// </summary>
         [Input("bucketName", required: true)]
         public Input<string> BucketName { get; set; } = null!;
 
+        /// <summary>
+        /// The identifier of the static file in the Amazon S3 bucket.
+        /// </summary>
         [Input("objectKey", required: true)]
         public Input<string> ObjectKey { get; set; } = null!;
 
+        /// <summary>
+        /// The Region of the Amazon S3 account that contains the bucket.
+        /// </summary>
         [Input("region", required: true)]
         public Input<string> Region { get; set; } = null!;
 

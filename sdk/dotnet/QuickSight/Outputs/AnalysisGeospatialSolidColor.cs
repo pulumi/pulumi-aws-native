@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisGeospatialSolidColor
     {
+        /// <summary>
+        /// The color and opacity values for the color.
+        /// </summary>
         public readonly string Color;
+        /// <summary>
+        /// Enables and disables the view state of the color.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisGeospatialColorState? State;
 
         [OutputConstructor]

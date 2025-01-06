@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardGeospatialMapStyle
     {
+        /// <summary>
+        /// The background color and opacity values for a map.
+        /// </summary>
         public readonly string? BackgroundColor;
+        /// <summary>
+        /// The selected base map style.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardBaseMapStyleType? BaseMapStyle;
+        /// <summary>
+        /// The state of visibility for the base map.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardVisibility? BaseMapVisibility;
 
         [OutputConstructor]

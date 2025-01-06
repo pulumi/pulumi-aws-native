@@ -138,6 +138,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("pivotTableVisual")]
         public Input<Inputs.TemplatePivotTableVisualArgs>? PivotTableVisual { get; set; }
 
+        /// <summary>
+        /// The custom plugin visual type.
+        /// </summary>
         [Input("pluginVisual")]
         public Input<Inputs.TemplatePluginVisualArgs>? PluginVisual { get; set; }
 

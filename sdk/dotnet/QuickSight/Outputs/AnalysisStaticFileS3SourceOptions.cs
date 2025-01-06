@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisStaticFileS3SourceOptions
     {
+        /// <summary>
+        /// The name of the Amazon S3 bucket.
+        /// </summary>
         public readonly string BucketName;
+        /// <summary>
+        /// The identifier of the static file in the Amazon S3 bucket.
+        /// </summary>
         public readonly string ObjectKey;
+        /// <summary>
+        /// The Region of the Amazon S3 account that contains the bucket.
+        /// </summary>
         public readonly string Region;
 
         [OutputConstructor]

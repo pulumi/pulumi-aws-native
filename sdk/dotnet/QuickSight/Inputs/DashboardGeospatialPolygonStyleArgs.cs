@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardGeospatialPolygonStyleArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The polygon symbol style for a polygon layer.
+        /// </summary>
         [Input("polygonSymbolStyle")]
         public Input<Inputs.DashboardGeospatialPolygonSymbolStyleArgs>? PolygonSymbolStyle { get; set; }
 

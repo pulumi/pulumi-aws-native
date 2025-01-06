@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardGeospatialLineWidth
     {
+        /// <summary>
+        /// The positive value for the width of a line.
+        /// </summary>
         public readonly double? LineWidth;
 
         [OutputConstructor]

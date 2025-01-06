@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisPluginVisualTableQuerySort
     {
+        /// <summary>
+        /// The maximum amount of data to be returned by a query.
+        /// </summary>
         public readonly Outputs.AnalysisPluginVisualItemsLimitConfiguration? ItemsLimitConfiguration;
+        /// <summary>
+        /// Determines how data is sorted in the response.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisFieldSortOptions> RowSort;
 
         [OutputConstructor]

@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisGeospatialNullDataSettings
     {
+        /// <summary>
+        /// The symbol style for null data.
+        /// </summary>
         public readonly Outputs.AnalysisGeospatialNullSymbolStyle SymbolStyle;
 
         [OutputConstructor]

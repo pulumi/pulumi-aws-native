@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisGeospatialDataSourceItem
     {
+        /// <summary>
+        /// The static file data source properties for the geospatial data.
+        /// </summary>
         public readonly Outputs.AnalysisGeospatialStaticFileSource? StaticFileDataSource;
 
         [OutputConstructor]

@@ -14,27 +14,49 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     {
         [Input("actions")]
         private InputList<Inputs.AnalysisImageCustomActionArgs>? _actions;
+
+        /// <summary>
+        /// A list of custom actions that are configured for an image.
+        /// </summary>
         public InputList<Inputs.AnalysisImageCustomActionArgs> Actions
         {
             get => _actions ?? (_actions = new InputList<Inputs.AnalysisImageCustomActionArgs>());
             set => _actions = value;
         }
 
+        /// <summary>
+        /// The alt text for the image.
+        /// </summary>
         [Input("imageContentAltText")]
         public Input<string>? ImageContentAltText { get; set; }
 
+        /// <summary>
+        /// The general image interactions setup for an image.
+        /// </summary>
         [Input("interactions")]
         public Input<Inputs.AnalysisImageInteractionOptionsArgs>? Interactions { get; set; }
 
+        /// <summary>
+        /// Determines how the image is scaled.
+        /// </summary>
         [Input("scaling")]
         public Input<Inputs.AnalysisSheetImageScalingConfigurationArgs>? Scaling { get; set; }
 
+        /// <summary>
+        /// The ID of the sheet image.
+        /// </summary>
         [Input("sheetImageId", required: true)]
         public Input<string> SheetImageId { get; set; } = null!;
 
+        /// <summary>
+        /// The source of the image.
+        /// </summary>
         [Input("source", required: true)]
         public Input<Inputs.AnalysisSheetImageSourceArgs> Source { get; set; } = null!;
 
+        /// <summary>
+        /// The tooltip to be shown when hovering over the image.
+        /// </summary>
         [Input("tooltip")]
         public Input<Inputs.AnalysisSheetImageTooltipConfigurationArgs>? Tooltip { get; set; }
 

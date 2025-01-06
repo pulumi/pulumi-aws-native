@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardGeospatialLineSymbolStyleArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The color and opacity values for the fill color.
+        /// </summary>
         [Input("fillColor")]
         public Input<Inputs.DashboardGeospatialColorArgs>? FillColor { get; set; }
 
+        /// <summary>
+        /// The width value for a line.
+        /// </summary>
         [Input("lineWidth")]
         public Input<Inputs.DashboardGeospatialLineWidthArgs>? LineWidth { get; set; }
 

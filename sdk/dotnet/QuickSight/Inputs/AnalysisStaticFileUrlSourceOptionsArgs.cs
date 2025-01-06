@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisStaticFileUrlSourceOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The URL to download the static file from.
+        /// </summary>
         [Input("url", required: true)]
         public Input<string> Url { get; set; } = null!;
 

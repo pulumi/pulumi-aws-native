@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplatePluginVisualConfiguration
     {
+        /// <summary>
+        /// The field wells configuration of the plugin visual.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TemplatePluginVisualFieldWell> FieldWells;
+        /// <summary>
+        /// The sort configuration of the plugin visual.
+        /// </summary>
         public readonly Outputs.TemplatePluginVisualSortConfiguration? SortConfiguration;
+        /// <summary>
+        /// The persisted properties of the plugin visual.
+        /// </summary>
         public readonly Outputs.TemplatePluginVisualOptions? VisualOptions;
 
         [OutputConstructor]

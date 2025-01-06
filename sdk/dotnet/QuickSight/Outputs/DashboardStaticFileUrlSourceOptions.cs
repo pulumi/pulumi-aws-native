@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardStaticFileUrlSourceOptions
     {
+        /// <summary>
+        /// The URL to download the static file from.
+        /// </summary>
         public readonly string Url;
 
         [OutputConstructor]

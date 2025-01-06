@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisPluginVisualPropertyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the plugin visual property.
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The value of the plugin visual property.
+        /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }
 

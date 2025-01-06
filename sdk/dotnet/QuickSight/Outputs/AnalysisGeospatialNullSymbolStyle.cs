@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisGeospatialNullSymbolStyle
     {
+        /// <summary>
+        /// The color and opacity values for the fill color.
+        /// </summary>
         public readonly string? FillColor;
+        /// <summary>
+        /// The color and opacity values for the stroke color.
+        /// </summary>
         public readonly string? StrokeColor;
+        /// <summary>
+        /// The width of the border stroke.
+        /// </summary>
         public readonly double? StrokeWidth;
 
         [OutputConstructor]

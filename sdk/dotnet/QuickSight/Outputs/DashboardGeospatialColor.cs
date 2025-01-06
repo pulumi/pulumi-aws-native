@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardGeospatialColor
     {
+        /// <summary>
+        /// The visualization properties for the categorical color.
+        /// </summary>
         public readonly Outputs.DashboardGeospatialCategoricalColor? Categorical;
+        /// <summary>
+        /// The visualization properties for the gradient color.
+        /// </summary>
         public readonly Outputs.DashboardGeospatialGradientColor? Gradient;
+        /// <summary>
+        /// The visualization properties for the solid color.
+        /// </summary>
         public readonly Outputs.DashboardGeospatialSolidColor? Solid;
 
         [OutputConstructor]

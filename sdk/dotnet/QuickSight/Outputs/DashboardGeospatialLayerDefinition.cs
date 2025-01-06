@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardGeospatialLayerDefinition
     {
+        /// <summary>
+        /// The definition for a line layer.
+        /// </summary>
         public readonly Outputs.DashboardGeospatialLineLayer? LineLayer;
+        /// <summary>
+        /// The definition for a point layer.
+        /// </summary>
         public readonly Outputs.DashboardGeospatialPointLayer? PointLayer;
+        /// <summary>
+        /// The definition for a polygon layer.
+        /// </summary>
         public readonly Outputs.DashboardGeospatialPolygonLayer? PolygonLayer;
 
         [OutputConstructor]

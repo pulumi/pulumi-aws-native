@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardGeospatialDataSourceItemArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The static file data source properties for the geospatial data.
+        /// </summary>
         [Input("staticFileDataSource")]
         public Input<Inputs.DashboardGeospatialStaticFileSourceArgs>? StaticFileDataSource { get; set; }
 

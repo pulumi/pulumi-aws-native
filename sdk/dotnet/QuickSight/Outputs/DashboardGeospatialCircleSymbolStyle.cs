@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardGeospatialCircleSymbolStyle
     {
+        /// <summary>
+        /// The radius of the circle.
+        /// </summary>
         public readonly Outputs.DashboardGeospatialCircleRadius? CircleRadius;
+        /// <summary>
+        /// The color and opacity values for the fill color.
+        /// </summary>
         public readonly Outputs.DashboardGeospatialColor? FillColor;
+        /// <summary>
+        /// The color and opacity values for the stroke color.
+        /// </summary>
         public readonly Outputs.DashboardGeospatialColor? StrokeColor;
+        /// <summary>
+        /// The width of the stroke (border).
+        /// </summary>
         public readonly Outputs.DashboardGeospatialLineWidth? StrokeWidth;
 
         [OutputConstructor]

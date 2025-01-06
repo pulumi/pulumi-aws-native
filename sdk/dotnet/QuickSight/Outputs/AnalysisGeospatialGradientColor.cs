@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisGeospatialGradientColor
     {
+        /// <summary>
+        /// The default opacity for the gradient color.
+        /// </summary>
         public readonly double? DefaultOpacity;
+        /// <summary>
+        /// The null data visualization settings.
+        /// </summary>
         public readonly Outputs.AnalysisGeospatialNullDataSettings? NullDataSettings;
+        /// <summary>
+        /// The state of visibility for null data.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisVisibility? NullDataVisibility;
+        /// <summary>
+        /// A list of gradient step colors for the gradient.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisGeospatialGradientStepColor> StepColors;
 
         [OutputConstructor]

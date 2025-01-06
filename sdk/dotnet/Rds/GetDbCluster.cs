@@ -164,6 +164,12 @@ namespace Pulumi.AwsNative.Rds
         /// </summary>
         public readonly bool? CopyTagsToSnapshot;
         /// <summary>
+        /// The mode of Database Insights to enable for the DB cluster.
+        ///  If you set this value to ``advanced``, you must also set the ``PerformanceInsightsEnabled`` parameter to ``true`` and the ``PerformanceInsightsRetentionPeriod`` parameter to 465.
+        ///  Valid for Cluster Type: Aurora DB clusters only
+        /// </summary>
+        public readonly string? DatabaseInsightsMode;
+        /// <summary>
         /// The Amazon Resource Name (ARN) for the DB cluster.
         /// </summary>
         public readonly string? DbClusterArn;
@@ -482,6 +488,8 @@ namespace Pulumi.AwsNative.Rds
 
             bool? copyTagsToSnapshot,
 
+            string? databaseInsightsMode,
+
             string? dbClusterArn,
 
             string? dbClusterInstanceClass,
@@ -564,6 +572,7 @@ namespace Pulumi.AwsNative.Rds
             BacktrackWindow = backtrackWindow;
             BackupRetentionPeriod = backupRetentionPeriod;
             CopyTagsToSnapshot = copyTagsToSnapshot;
+            DatabaseInsightsMode = databaseInsightsMode;
             DbClusterArn = dbClusterArn;
             DbClusterInstanceClass = dbClusterInstanceClass;
             DbClusterParameterGroupName = dbClusterParameterGroupName;

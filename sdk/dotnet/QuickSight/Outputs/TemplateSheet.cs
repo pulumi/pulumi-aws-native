@@ -20,6 +20,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateSheet
     {
+        /// <summary>
+        /// A list of images on a sheet.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TemplateSheetImage> Images;
         /// <summary>
         /// &lt;p&gt;The name of a sheet. This name is displayed on the sheet's tab in the Amazon QuickSight

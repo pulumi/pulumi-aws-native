@@ -226,6 +226,14 @@ namespace Pulumi.AwsNative.Rds
         /// </summary>
         public readonly bool? CopyTagsToSnapshot;
         /// <summary>
+        /// The mode of Database Insights to enable for the DB instance.
+        /// 
+        /// This setting only applies to Amazon Aurora DB instances.
+        /// 
+        /// &gt; Currently, this value is inherited from the DB cluster and can't be changed.
+        /// </summary>
+        public readonly string? DatabaseInsightsMode;
+        /// <summary>
         /// The identifier for the Multi-AZ DB cluster snapshot to restore from.
         ///  For more information on Multi-AZ DB clusters, see [Multi-AZ DB cluster deployments](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html) in the *Amazon RDS User Guide*.
         ///  Constraints:
@@ -647,6 +655,8 @@ namespace Pulumi.AwsNative.Rds
 
             bool? copyTagsToSnapshot,
 
+            string? databaseInsightsMode,
+
             string? dbClusterSnapshotIdentifier,
 
             string? dbInstanceArn,
@@ -748,6 +758,7 @@ namespace Pulumi.AwsNative.Rds
             CaCertificateIdentifier = caCertificateIdentifier;
             CertificateDetails = certificateDetails;
             CopyTagsToSnapshot = copyTagsToSnapshot;
+            DatabaseInsightsMode = databaseInsightsMode;
             DbClusterSnapshotIdentifier = dbClusterSnapshotIdentifier;
             DbInstanceArn = dbInstanceArn;
             DbInstanceClass = dbInstanceClass;

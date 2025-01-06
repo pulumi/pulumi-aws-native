@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardImageStaticFileArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The source of the image static file.
+        /// </summary>
         [Input("source")]
         public Input<Inputs.DashboardStaticFileSourceArgs>? Source { get; set; }
 
+        /// <summary>
+        /// The ID of the static file that contains an image.
+        /// </summary>
         [Input("staticFileId", required: true)]
         public Input<string> StaticFileId { get; set; } = null!;
 

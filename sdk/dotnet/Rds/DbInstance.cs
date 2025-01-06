@@ -199,6 +199,16 @@ namespace Pulumi.AwsNative.Rds
         public Output<string?> CustomIamInstanceProfile { get; private set; } = null!;
 
         /// <summary>
+        /// The mode of Database Insights to enable for the DB instance.
+        /// 
+        /// This setting only applies to Amazon Aurora DB instances.
+        /// 
+        /// &gt; Currently, this value is inherited from the DB cluster and can't be changed.
+        /// </summary>
+        [Output("databaseInsightsMode")]
+        public Output<string> DatabaseInsightsMode { get; private set; } = null!;
+
+        /// <summary>
         /// The identifier of the DB cluster that this DB instance will belong to.
         ///  This setting doesn't apply to RDS Custom DB instances.
         /// </summary>

@@ -13,10 +13,32 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardLayerCustomAction
     {
+        /// <summary>
+        /// A list of `LayerCustomActionOperations` .
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardLayerCustomActionOperation> ActionOperations;
+        /// <summary>
+        /// The ID of the custom action.
+        /// </summary>
         public readonly string CustomActionId;
+        /// <summary>
+        /// The name of the custom action.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The status of the `LayerCustomAction` .
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardWidgetStatus? Status;
+        /// <summary>
+        /// The trigger of the `LayerCustomAction` .
+        /// 
+        /// Valid values are defined as follows:
+        /// 
+        /// - `DATA_POINT_CLICK` : Initiates a custom action by a left pointer click on a data point.
+        /// - `DATA_POINT_MENU` : Initiates a custom action by right pointer click from the menu.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardLayerCustomActionTrigger Trigger;
 
         [OutputConstructor]

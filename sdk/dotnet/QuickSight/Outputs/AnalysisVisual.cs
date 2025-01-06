@@ -89,6 +89,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// For more information, see [Using KPIs](https://docs.aws.amazon.com/quicksight/latest/user/kpi.html) in the *Amazon QuickSight User Guide* .
         /// </summary>
         public readonly Outputs.AnalysisKpiVisual? KpiVisual;
+        /// <summary>
+        /// The properties for a layer map visual
+        /// </summary>
         public readonly Outputs.AnalysisLayerMapVisual? LayerMapVisual;
         /// <summary>
         /// A line chart.
@@ -108,6 +111,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// For more information, see [Using pivot tables](https://docs.aws.amazon.com/quicksight/latest/user/pivot-table.html) in the *Amazon QuickSight User Guide* .
         /// </summary>
         public readonly Outputs.AnalysisPivotTableVisual? PivotTableVisual;
+        /// <summary>
+        /// The custom plugin visual type.
+        /// </summary>
         public readonly Outputs.AnalysisPluginVisual? PluginVisual;
         /// <summary>
         /// A radar chart visual.

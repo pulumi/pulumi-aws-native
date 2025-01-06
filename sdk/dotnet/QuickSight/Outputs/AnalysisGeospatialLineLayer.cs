@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisGeospatialLineLayer
     {
+        /// <summary>
+        /// The visualization style for a line layer.
+        /// </summary>
         public readonly Outputs.AnalysisGeospatialLineStyle Style;
 
         [OutputConstructor]

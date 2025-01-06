@@ -13,11 +13,23 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardPluginVisual
     {
+        /// <summary>
+        /// A description of the plugin field wells and their persisted properties.
+        /// </summary>
         public readonly Outputs.DashboardPluginVisualConfiguration? ChartConfiguration;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) that reflects the plugin and version.
+        /// </summary>
         public readonly string PluginArn;
         public readonly Outputs.DashboardVisualSubtitleLabelOptions? Subtitle;
         public readonly Outputs.DashboardVisualTitleLabelOptions? Title;
+        /// <summary>
+        /// The alt text for the visual.
+        /// </summary>
         public readonly string? VisualContentAltText;
+        /// <summary>
+        /// The ID of the visual that you want to use.
+        /// </summary>
         public readonly string VisualId;
 
         [OutputConstructor]

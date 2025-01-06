@@ -3025,6 +3025,7 @@ class DbInstance(pulumi.CustomResource):
             __props__.__dict__["use_default_processor_features"] = use_default_processor_features
             __props__.__dict__["use_latest_restorable_time"] = use_latest_restorable_time
             __props__.__dict__["vpc_security_groups"] = vpc_security_groups
+            __props__.__dict__["database_insights_mode"] = None
             __props__.__dict__["db_instance_arn"] = None
             __props__.__dict__["dbi_resource_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["characterSetName", "customIamInstanceProfile", "dbClusterIdentifier", "dbInstanceIdentifier", "dbName", "dbSubnetGroupName", "dbSystemId", "kmsKeyId", "masterUsername", "ncharCharacterSetName", "sourceRegion", "storageEncrypted", "timezone"])
@@ -3065,6 +3066,7 @@ class DbInstance(pulumi.CustomResource):
         __props__.__dict__["character_set_name"] = None
         __props__.__dict__["copy_tags_to_snapshot"] = None
         __props__.__dict__["custom_iam_instance_profile"] = None
+        __props__.__dict__["database_insights_mode"] = None
         __props__.__dict__["db_cluster_identifier"] = None
         __props__.__dict__["db_cluster_snapshot_identifier"] = None
         __props__.__dict__["db_instance_arn"] = None
@@ -3324,6 +3326,18 @@ class DbInstance(pulumi.CustomResource):
          For the list of permissions required for the IAM role, see [Configure IAM and your VPC](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-setup-orcl.html#custom-setup-orcl.iam-vpc) in the *Amazon RDS User Guide*.
         """
         return pulumi.get(self, "custom_iam_instance_profile")
+
+    @property
+    @pulumi.getter(name="databaseInsightsMode")
+    def database_insights_mode(self) -> pulumi.Output[str]:
+        """
+        The mode of Database Insights to enable for the DB instance.
+
+        This setting only applies to Amazon Aurora DB instances.
+
+        > Currently, this value is inherited from the DB cluster and can't be changed.
+        """
+        return pulumi.get(self, "database_insights_mode")
 
     @property
     @pulumi.getter(name="dbClusterIdentifier")

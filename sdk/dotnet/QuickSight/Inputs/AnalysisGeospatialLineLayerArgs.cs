@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisGeospatialLineLayerArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The visualization style for a line layer.
+        /// </summary>
         [Input("style", required: true)]
         public Input<Inputs.AnalysisGeospatialLineStyleArgs> Style { get; set; } = null!;
 

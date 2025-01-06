@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardGeospatialLineSymbolStyle
     {
+        /// <summary>
+        /// The color and opacity values for the fill color.
+        /// </summary>
         public readonly Outputs.DashboardGeospatialColor? FillColor;
+        /// <summary>
+        /// The width value for a line.
+        /// </summary>
         public readonly Outputs.DashboardGeospatialLineWidth? LineWidth;
 
         [OutputConstructor]

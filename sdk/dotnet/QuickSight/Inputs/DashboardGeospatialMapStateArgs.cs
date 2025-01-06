@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("bounds")]
         public Input<Inputs.DashboardGeospatialCoordinateBoundsArgs>? Bounds { get; set; }
 
+        /// <summary>
+        /// Enables or disables map navigation for a map.
+        /// </summary>
         [Input("mapNavigation")]
         public Input<Pulumi.AwsNative.QuickSight.DashboardGeospatialMapNavigation>? MapNavigation { get; set; }
 

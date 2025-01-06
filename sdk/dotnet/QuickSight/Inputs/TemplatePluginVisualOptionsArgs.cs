@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     {
         [Input("visualProperties")]
         private InputList<Inputs.TemplatePluginVisualPropertyArgs>? _visualProperties;
+
+        /// <summary>
+        /// The persisted properties and their values.
+        /// </summary>
         public InputList<Inputs.TemplatePluginVisualPropertyArgs> VisualProperties
         {
             get => _visualProperties ?? (_visualProperties = new InputList<Inputs.TemplatePluginVisualPropertyArgs>());

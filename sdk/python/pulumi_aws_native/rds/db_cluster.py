@@ -31,6 +31,7 @@ class DbClusterArgs:
                  backup_retention_period: Optional[pulumi.Input[int]] = None,
                  cluster_scalability_type: Optional[pulumi.Input[str]] = None,
                  copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
+                 database_insights_mode: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  db_cluster_identifier: Optional[pulumi.Input[str]] = None,
                  db_cluster_instance_class: Optional[pulumi.Input[str]] = None,
@@ -106,6 +107,9 @@ class DbClusterArgs:
         :param pulumi.Input[str] cluster_scalability_type: Specifies the scalability mode of the Aurora DB cluster. When set to ``limitless``, the cluster operates as an Aurora Limitless Database, allowing you to create a DB shard group for horizontal scaling (sharding) capabilities. When set to ``standard`` (the default), the cluster uses normal DB instance creation.
         :param pulumi.Input[bool] copy_tags_to_snapshot: A value that indicates whether to copy all tags from the DB cluster to snapshots of the DB cluster. The default is not to copy them.
                 Valid for: Aurora DB clusters and Multi-AZ DB clusters
+        :param pulumi.Input[str] database_insights_mode: The mode of Database Insights to enable for the DB cluster.
+                If you set this value to ``advanced``, you must also set the ``PerformanceInsightsEnabled`` parameter to ``true`` and the ``PerformanceInsightsRetentionPeriod`` parameter to 465.
+                Valid for Cluster Type: Aurora DB clusters only
         :param pulumi.Input[str] database_name: The name of your database. If you don't provide a name, then Amazon RDS won't create a database in this DB cluster. For naming constraints, see [Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_Limits.html#RDS_Limits.Constraints) in the *Amazon Aurora User Guide*. 
                 Valid for: Aurora DB clusters and Multi-AZ DB clusters
         :param pulumi.Input[str] db_cluster_identifier: The DB cluster identifier. This parameter is stored as a lowercase string.
@@ -408,6 +412,8 @@ class DbClusterArgs:
             pulumi.set(__self__, "cluster_scalability_type", cluster_scalability_type)
         if copy_tags_to_snapshot is not None:
             pulumi.set(__self__, "copy_tags_to_snapshot", copy_tags_to_snapshot)
+        if database_insights_mode is not None:
+            pulumi.set(__self__, "database_insights_mode", database_insights_mode)
         if database_name is not None:
             pulumi.set(__self__, "database_name", database_name)
         if db_cluster_identifier is not None:
@@ -619,6 +625,20 @@ class DbClusterArgs:
     @copy_tags_to_snapshot.setter
     def copy_tags_to_snapshot(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "copy_tags_to_snapshot", value)
+
+    @property
+    @pulumi.getter(name="databaseInsightsMode")
+    def database_insights_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        The mode of Database Insights to enable for the DB cluster.
+         If you set this value to ``advanced``, you must also set the ``PerformanceInsightsEnabled`` parameter to ``true`` and the ``PerformanceInsightsRetentionPeriod`` parameter to 465.
+         Valid for Cluster Type: Aurora DB clusters only
+        """
+        return pulumi.get(self, "database_insights_mode")
+
+    @database_insights_mode.setter
+    def database_insights_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "database_insights_mode", value)
 
     @property
     @pulumi.getter(name="databaseName")
@@ -1469,6 +1489,7 @@ class DbCluster(pulumi.CustomResource):
                  backup_retention_period: Optional[pulumi.Input[int]] = None,
                  cluster_scalability_type: Optional[pulumi.Input[str]] = None,
                  copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
+                 database_insights_mode: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  db_cluster_identifier: Optional[pulumi.Input[str]] = None,
                  db_cluster_instance_class: Optional[pulumi.Input[str]] = None,
@@ -1564,6 +1585,9 @@ class DbCluster(pulumi.CustomResource):
         :param pulumi.Input[str] cluster_scalability_type: Specifies the scalability mode of the Aurora DB cluster. When set to ``limitless``, the cluster operates as an Aurora Limitless Database, allowing you to create a DB shard group for horizontal scaling (sharding) capabilities. When set to ``standard`` (the default), the cluster uses normal DB instance creation.
         :param pulumi.Input[bool] copy_tags_to_snapshot: A value that indicates whether to copy all tags from the DB cluster to snapshots of the DB cluster. The default is not to copy them.
                 Valid for: Aurora DB clusters and Multi-AZ DB clusters
+        :param pulumi.Input[str] database_insights_mode: The mode of Database Insights to enable for the DB cluster.
+                If you set this value to ``advanced``, you must also set the ``PerformanceInsightsEnabled`` parameter to ``true`` and the ``PerformanceInsightsRetentionPeriod`` parameter to 465.
+                Valid for Cluster Type: Aurora DB clusters only
         :param pulumi.Input[str] database_name: The name of your database. If you don't provide a name, then Amazon RDS won't create a database in this DB cluster. For naming constraints, see [Naming Constraints](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_Limits.html#RDS_Limits.Constraints) in the *Amazon Aurora User Guide*. 
                 Valid for: Aurora DB clusters and Multi-AZ DB clusters
         :param pulumi.Input[str] db_cluster_identifier: The DB cluster identifier. This parameter is stored as a lowercase string.
@@ -1898,6 +1922,7 @@ class DbCluster(pulumi.CustomResource):
                  backup_retention_period: Optional[pulumi.Input[int]] = None,
                  cluster_scalability_type: Optional[pulumi.Input[str]] = None,
                  copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
+                 database_insights_mode: Optional[pulumi.Input[str]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  db_cluster_identifier: Optional[pulumi.Input[str]] = None,
                  db_cluster_instance_class: Optional[pulumi.Input[str]] = None,
@@ -1965,6 +1990,7 @@ class DbCluster(pulumi.CustomResource):
             __props__.__dict__["backup_retention_period"] = backup_retention_period
             __props__.__dict__["cluster_scalability_type"] = cluster_scalability_type
             __props__.__dict__["copy_tags_to_snapshot"] = copy_tags_to_snapshot
+            __props__.__dict__["database_insights_mode"] = database_insights_mode
             __props__.__dict__["database_name"] = database_name
             __props__.__dict__["db_cluster_identifier"] = db_cluster_identifier
             __props__.__dict__["db_cluster_instance_class"] = db_cluster_instance_class
@@ -2051,6 +2077,7 @@ class DbCluster(pulumi.CustomResource):
         __props__.__dict__["backup_retention_period"] = None
         __props__.__dict__["cluster_scalability_type"] = None
         __props__.__dict__["copy_tags_to_snapshot"] = None
+        __props__.__dict__["database_insights_mode"] = None
         __props__.__dict__["database_name"] = None
         __props__.__dict__["db_cluster_arn"] = None
         __props__.__dict__["db_cluster_identifier"] = None
@@ -2185,6 +2212,16 @@ class DbCluster(pulumi.CustomResource):
          Valid for: Aurora DB clusters and Multi-AZ DB clusters
         """
         return pulumi.get(self, "copy_tags_to_snapshot")
+
+    @property
+    @pulumi.getter(name="databaseInsightsMode")
+    def database_insights_mode(self) -> pulumi.Output[Optional[str]]:
+        """
+        The mode of Database Insights to enable for the DB cluster.
+         If you set this value to ``advanced``, you must also set the ``PerformanceInsightsEnabled`` parameter to ``true`` and the ``PerformanceInsightsRetentionPeriod`` parameter to 465.
+         Valid for Cluster Type: Aurora DB clusters only
+        """
+        return pulumi.get(self, "database_insights_mode")
 
     @property
     @pulumi.getter(name="databaseName")

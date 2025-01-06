@@ -14,6 +14,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class AnalysisGeospatialMapState
     {
         public readonly Outputs.AnalysisGeospatialCoordinateBounds? Bounds;
+        /// <summary>
+        /// Enables or disables map navigation for a map.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisGeospatialMapNavigation? MapNavigation;
 
         [OutputConstructor]

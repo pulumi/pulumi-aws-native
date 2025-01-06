@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisPluginVisualOptions
     {
+        /// <summary>
+        /// The persisted properties and their values.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisPluginVisualProperty> VisualProperties;
 
         [OutputConstructor]

@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisStaticFileArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The image static file.
+        /// </summary>
         [Input("imageStaticFile")]
         public Input<Inputs.AnalysisImageStaticFileArgs>? ImageStaticFile { get; set; }
 
+        /// <summary>
+        /// The spacial static file.
+        /// </summary>
         [Input("spatialStaticFile")]
         public Input<Inputs.AnalysisSpatialStaticFileArgs>? SpatialStaticFile { get; set; }
 

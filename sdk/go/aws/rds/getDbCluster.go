@@ -79,6 +79,10 @@ type LookupDbClusterResult struct {
 	// A value that indicates whether to copy all tags from the DB cluster to snapshots of the DB cluster. The default is not to copy them.
 	//  Valid for: Aurora DB clusters and Multi-AZ DB clusters
 	CopyTagsToSnapshot *bool `pulumi:"copyTagsToSnapshot"`
+	// The mode of Database Insights to enable for the DB cluster.
+	//  If you set this value to ``advanced``, you must also set the ``PerformanceInsightsEnabled`` parameter to ``true`` and the ``PerformanceInsightsRetentionPeriod`` parameter to 465.
+	//  Valid for Cluster Type: Aurora DB clusters only
+	DatabaseInsightsMode *string `pulumi:"databaseInsightsMode"`
 	// The Amazon Resource Name (ARN) for the DB cluster.
 	DbClusterArn *string `pulumi:"dbClusterArn"`
 	// The compute and memory capacity of each DB instance in the Multi-AZ DB cluster, for example ``db.m6gd.xlarge``. Not all DB instance classes are available in all AWS-Regions, or for all database engines.
@@ -397,6 +401,14 @@ func (o LookupDbClusterResultOutput) BackupRetentionPeriod() pulumi.IntPtrOutput
 //	Valid for: Aurora DB clusters and Multi-AZ DB clusters
 func (o LookupDbClusterResultOutput) CopyTagsToSnapshot() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupDbClusterResult) *bool { return v.CopyTagsToSnapshot }).(pulumi.BoolPtrOutput)
+}
+
+// The mode of Database Insights to enable for the DB cluster.
+//
+//	If you set this value to ``advanced``, you must also set the ``PerformanceInsightsEnabled`` parameter to ``true`` and the ``PerformanceInsightsRetentionPeriod`` parameter to 465.
+//	Valid for Cluster Type: Aurora DB clusters only
+func (o LookupDbClusterResultOutput) DatabaseInsightsMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDbClusterResult) *string { return v.DatabaseInsightsMode }).(pulumi.StringPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) for the DB cluster.

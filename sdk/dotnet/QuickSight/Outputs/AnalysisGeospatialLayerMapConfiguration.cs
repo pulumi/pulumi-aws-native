@@ -15,8 +15,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     {
         public readonly object? Interactions;
         public readonly Outputs.AnalysisLegendOptions? Legend;
+        /// <summary>
+        /// The geospatial layers to visualize on the map.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisGeospatialLayerItem> MapLayers;
+        /// <summary>
+        /// The map state properties for the map.
+        /// </summary>
         public readonly Outputs.AnalysisGeospatialMapState? MapState;
+        /// <summary>
+        /// The map style properties for the map.
+        /// </summary>
         public readonly Outputs.AnalysisGeospatialMapStyle? MapStyle;
 
         [OutputConstructor]

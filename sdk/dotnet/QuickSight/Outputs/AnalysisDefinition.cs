@@ -49,6 +49,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// An array of sheet definitions for an analysis. Each `SheetDefinition` provides detailed information about a sheet within this analysis.
         /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisSheetDefinition> Sheets;
+        /// <summary>
+        /// The static files for the definition.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisStaticFile> StaticFiles;
 
         [OutputConstructor]

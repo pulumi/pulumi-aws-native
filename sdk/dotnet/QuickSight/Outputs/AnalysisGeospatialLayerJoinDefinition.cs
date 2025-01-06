@@ -13,8 +13,14 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisGeospatialLayerJoinDefinition
     {
+        /// <summary>
+        /// The geospatial color field for the join definition.
+        /// </summary>
         public readonly Outputs.AnalysisGeospatialLayerColorField? ColorField;
         public readonly Outputs.AnalysisUnaggregatedField? DatasetKeyField;
+        /// <summary>
+        /// The name of the field or property in the geospatial data source.
+        /// </summary>
         public readonly string? ShapeKeyField;
 
         [OutputConstructor]

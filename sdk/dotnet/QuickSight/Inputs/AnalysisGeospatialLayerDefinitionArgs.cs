@@ -12,12 +12,21 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisGeospatialLayerDefinitionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The definition for a line layer.
+        /// </summary>
         [Input("lineLayer")]
         public Input<Inputs.AnalysisGeospatialLineLayerArgs>? LineLayer { get; set; }
 
+        /// <summary>
+        /// The definition for a point layer.
+        /// </summary>
         [Input("pointLayer")]
         public Input<Inputs.AnalysisGeospatialPointLayerArgs>? PointLayer { get; set; }
 
+        /// <summary>
+        /// The definition for a polygon layer.
+        /// </summary>
         [Input("polygonLayer")]
         public Input<Inputs.AnalysisGeospatialPolygonLayerArgs>? PolygonLayer { get; set; }
 

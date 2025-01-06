@@ -20,15 +20,25 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("mapLayers")]
         private InputList<Inputs.DashboardGeospatialLayerItemArgs>? _mapLayers;
+
+        /// <summary>
+        /// The geospatial layers to visualize on the map.
+        /// </summary>
         public InputList<Inputs.DashboardGeospatialLayerItemArgs> MapLayers
         {
             get => _mapLayers ?? (_mapLayers = new InputList<Inputs.DashboardGeospatialLayerItemArgs>());
             set => _mapLayers = value;
         }
 
+        /// <summary>
+        /// The map state properties for the map.
+        /// </summary>
         [Input("mapState")]
         public Input<Inputs.DashboardGeospatialMapStateArgs>? MapState { get; set; }
 
+        /// <summary>
+        /// The map style properties for the map.
+        /// </summary>
         [Input("mapStyle")]
         public Input<Inputs.DashboardGeospatialMapStyleArgs>? MapStyle { get; set; }
 

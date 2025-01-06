@@ -198,9 +198,6 @@
         "ReplicationUser" : {
           "type" : "boolean"
         },
-        "ConsoleAccess" : {
-          "type" : "boolean"
-        },
         "Username" : {
           "type" : "string"
         },
@@ -210,6 +207,12 @@
           "items" : {
             "type" : "string"
           }
+        },
+        "ConsoleAccess" : {
+          "type" : "boolean"
+        },
+        "JolokiaApiAccess" : {
+          "type" : "string"
         },
         "Password" : {
           "type" : "string"

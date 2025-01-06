@@ -13,11 +13,23 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisLayerMapVisual
     {
+        /// <summary>
+        /// The configuration settings of the visual.
+        /// </summary>
         public readonly Outputs.AnalysisGeospatialLayerMapConfiguration? ChartConfiguration;
+        /// <summary>
+        /// The dataset that is used to create the layer map visual. You can't create a visual without a dataset.
+        /// </summary>
         public readonly string DataSetIdentifier;
         public readonly Outputs.AnalysisVisualSubtitleLabelOptions? Subtitle;
         public readonly Outputs.AnalysisVisualTitleLabelOptions? Title;
+        /// <summary>
+        /// The alt text for the visual.
+        /// </summary>
         public readonly string? VisualContentAltText;
+        /// <summary>
+        /// The ID of the visual.
+        /// </summary>
         public readonly string VisualId;
 
         [OutputConstructor]

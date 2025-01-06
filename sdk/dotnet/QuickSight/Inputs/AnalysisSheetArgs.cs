@@ -21,6 +21,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     {
         [Input("images")]
         private InputList<Inputs.AnalysisSheetImageArgs>? _images;
+
+        /// <summary>
+        /// A list of images on a sheet.
+        /// </summary>
         public InputList<Inputs.AnalysisSheetImageArgs> Images
         {
             get => _images ?? (_images = new InputList<Inputs.AnalysisSheetImageArgs>());

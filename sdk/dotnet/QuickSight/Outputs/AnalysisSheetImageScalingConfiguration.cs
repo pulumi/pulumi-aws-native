@@ -13,6 +13,16 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisSheetImageScalingConfiguration
     {
+        /// <summary>
+        /// The scaling option to use when fitting the image inside the container.
+        /// 
+        /// Valid values are defined as follows:
+        /// 
+        /// - `SCALE_TO_WIDTH` : The image takes up the entire width of the container. The image aspect ratio is preserved.
+        /// - `SCALE_TO_HEIGHT` : The image takes up the entire height of the container. The image aspect ratio is preserved.
+        /// - `SCALE_TO_CONTAINER` : The image takes up the entire width and height of the container. The image aspect ratio is not preserved.
+        /// - `SCALE_NONE` : The image is displayed in its original size and is not scaled to the container.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisSheetImageScalingType? ScalingType;
 
         [OutputConstructor]

@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisGeospatialCircleRadius
     {
+        /// <summary>
+        /// The positive value for the radius of a circle.
+        /// </summary>
         public readonly double? Radius;
 
         [OutputConstructor]

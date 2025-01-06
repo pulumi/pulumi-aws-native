@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisGeospatialPolygonLayerArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The visualization style for a polygon layer.
+        /// </summary>
         [Input("style", required: true)]
         public Input<Inputs.AnalysisGeospatialPolygonStyleArgs> Style { get; set; } = null!;
 

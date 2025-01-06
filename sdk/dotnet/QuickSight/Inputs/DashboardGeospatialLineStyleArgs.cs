@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardGeospatialLineStyleArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The symbol style for a line style.
+        /// </summary>
         [Input("lineSymbolStyle")]
         public Input<Inputs.DashboardGeospatialLineSymbolStyleArgs>? LineSymbolStyle { get; set; }
 

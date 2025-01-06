@@ -87,6 +87,12 @@ export interface GetDbClusterResult {
      */
     readonly copyTagsToSnapshot?: boolean;
     /**
+     * The mode of Database Insights to enable for the DB cluster.
+     *  If you set this value to ``advanced``, you must also set the ``PerformanceInsightsEnabled`` parameter to ``true`` and the ``PerformanceInsightsRetentionPeriod`` parameter to 465.
+     *  Valid for Cluster Type: Aurora DB clusters only
+     */
+    readonly databaseInsightsMode?: string;
+    /**
      * The Amazon Resource Name (ARN) for the DB cluster.
      */
     readonly dbClusterArn?: string;

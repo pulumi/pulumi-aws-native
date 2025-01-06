@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisGeospatialPointLayer
     {
+        /// <summary>
+        /// The visualization style for a point layer.
+        /// </summary>
         public readonly Outputs.AnalysisGeospatialPointStyle Style;
 
         [OutputConstructor]

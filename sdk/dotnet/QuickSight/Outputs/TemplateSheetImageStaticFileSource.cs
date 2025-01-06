@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateSheetImageStaticFileSource
     {
+        /// <summary>
+        /// The ID of the static file that contains the image.
+        /// </summary>
         public readonly string StaticFileId;
 
         [OutputConstructor]

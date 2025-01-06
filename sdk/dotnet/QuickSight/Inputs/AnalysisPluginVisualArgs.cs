@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisPluginVisualArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// A description of the plugin field wells and their persisted properties.
+        /// </summary>
         [Input("chartConfiguration")]
         public Input<Inputs.AnalysisPluginVisualConfigurationArgs>? ChartConfiguration { get; set; }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) that reflects the plugin and version.
+        /// </summary>
         [Input("pluginArn", required: true)]
         public Input<string> PluginArn { get; set; } = null!;
 
@@ -24,9 +30,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("title")]
         public Input<Inputs.AnalysisVisualTitleLabelOptionsArgs>? Title { get; set; }
 
+        /// <summary>
+        /// The alt text for the visual.
+        /// </summary>
         [Input("visualContentAltText")]
         public Input<string>? VisualContentAltText { get; set; }
 
+        /// <summary>
+        /// The ID of the visual that you want to use.
+        /// </summary>
         [Input("visualId", required: true)]
         public Input<string> VisualId { get; set; } = null!;
 

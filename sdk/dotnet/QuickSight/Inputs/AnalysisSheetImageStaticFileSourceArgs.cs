@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisSheetImageStaticFileSourceArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ID of the static file that contains the image.
+        /// </summary>
         [Input("staticFileId", required: true)]
         public Input<string> StaticFileId { get; set; } = null!;
 

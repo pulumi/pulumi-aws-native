@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     /// </summary>
     public sealed class AnalysisGeospatialSolidColorArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The color and opacity values for the color.
+        /// </summary>
         [Input("color", required: true)]
         public Input<string> Color { get; set; } = null!;
 
+        /// <summary>
+        /// Enables and disables the view state of the color.
+        /// </summary>
         [Input("state")]
         public Input<Pulumi.AwsNative.QuickSight.AnalysisGeospatialColorState>? State { get; set; }
 

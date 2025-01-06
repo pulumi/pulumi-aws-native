@@ -146,6 +146,14 @@ export interface GetDbInstanceResult {
      */
     readonly copyTagsToSnapshot?: boolean;
     /**
+     * The mode of Database Insights to enable for the DB instance.
+     *
+     * This setting only applies to Amazon Aurora DB instances.
+     *
+     * > Currently, this value is inherited from the DB cluster and can't be changed.
+     */
+    readonly databaseInsightsMode?: string;
+    /**
      * The identifier for the Multi-AZ DB cluster snapshot to restore from.
      *  For more information on Multi-AZ DB clusters, see [Multi-AZ DB cluster deployments](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html) in the *Amazon RDS User Guide*.
      *  Constraints:

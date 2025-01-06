@@ -14,6 +14,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     {
         [Input("colorDimensionsFields")]
         private InputList<Inputs.DashboardDimensionFieldArgs>? _colorDimensionsFields;
+
+        /// <summary>
+        /// A list of color dimension fields.
+        /// </summary>
         public InputList<Inputs.DashboardDimensionFieldArgs> ColorDimensionsFields
         {
             get => _colorDimensionsFields ?? (_colorDimensionsFields = new InputList<Inputs.DashboardDimensionFieldArgs>());
@@ -22,6 +26,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("colorValuesFields")]
         private InputList<Inputs.DashboardMeasureFieldArgs>? _colorValuesFields;
+
+        /// <summary>
+        /// A list of color measure fields.
+        /// </summary>
         public InputList<Inputs.DashboardMeasureFieldArgs> ColorValuesFields
         {
             get => _colorValuesFields ?? (_colorValuesFields = new InputList<Inputs.DashboardMeasureFieldArgs>());

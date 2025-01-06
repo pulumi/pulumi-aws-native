@@ -193,6 +193,14 @@ export class DbInstance extends pulumi.CustomResource {
      */
     public readonly customIamInstanceProfile!: pulumi.Output<string | undefined>;
     /**
+     * The mode of Database Insights to enable for the DB instance.
+     *
+     * This setting only applies to Amazon Aurora DB instances.
+     *
+     * > Currently, this value is inherited from the DB cluster and can't be changed.
+     */
+    public /*out*/ readonly databaseInsightsMode!: pulumi.Output<string>;
+    /**
      * The identifier of the DB cluster that this DB instance will belong to.
      *  This setting doesn't apply to RDS Custom DB instances.
      */
@@ -913,6 +921,7 @@ export class DbInstance extends pulumi.CustomResource {
             resourceInputs["useDefaultProcessorFeatures"] = args ? args.useDefaultProcessorFeatures : undefined;
             resourceInputs["useLatestRestorableTime"] = args ? args.useLatestRestorableTime : undefined;
             resourceInputs["vpcSecurityGroups"] = args ? args.vpcSecurityGroups : undefined;
+            resourceInputs["databaseInsightsMode"] = undefined /*out*/;
             resourceInputs["dbInstanceArn"] = undefined /*out*/;
             resourceInputs["dbiResourceId"] = undefined /*out*/;
         } else {
@@ -930,6 +939,7 @@ export class DbInstance extends pulumi.CustomResource {
             resourceInputs["characterSetName"] = undefined /*out*/;
             resourceInputs["copyTagsToSnapshot"] = undefined /*out*/;
             resourceInputs["customIamInstanceProfile"] = undefined /*out*/;
+            resourceInputs["databaseInsightsMode"] = undefined /*out*/;
             resourceInputs["dbClusterIdentifier"] = undefined /*out*/;
             resourceInputs["dbClusterSnapshotIdentifier"] = undefined /*out*/;
             resourceInputs["dbInstanceArn"] = undefined /*out*/;

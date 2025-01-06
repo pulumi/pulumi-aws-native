@@ -107,6 +107,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// For more information, see [Using pivot tables](https://docs.aws.amazon.com/quicksight/latest/user/pivot-table.html) in the *Amazon QuickSight User Guide* .
         /// </summary>
         public readonly Outputs.TemplatePivotTableVisual? PivotTableVisual;
+        /// <summary>
+        /// The custom plugin visual type.
+        /// </summary>
         public readonly Outputs.TemplatePluginVisual? PluginVisual;
         /// <summary>
         /// A radar chart visual.

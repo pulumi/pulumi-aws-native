@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDbClusterResult:
-    def __init__(__self__, allocated_storage=None, associated_roles=None, auto_minor_version_upgrade=None, backtrack_window=None, backup_retention_period=None, copy_tags_to_snapshot=None, db_cluster_arn=None, db_cluster_instance_class=None, db_cluster_parameter_group_name=None, db_cluster_resource_id=None, deletion_protection=None, domain=None, domain_iam_role_name=None, enable_cloudwatch_logs_exports=None, enable_global_write_forwarding=None, enable_http_endpoint=None, enable_iam_database_authentication=None, enable_local_write_forwarding=None, endpoint=None, engine=None, engine_lifecycle_support=None, engine_version=None, global_cluster_identifier=None, iops=None, manage_master_user_password=None, master_user_secret=None, master_username=None, monitoring_interval=None, monitoring_role_arn=None, network_type=None, performance_insights_enabled=None, performance_insights_kms_key_id=None, performance_insights_retention_period=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, read_endpoint=None, replication_source_identifier=None, scaling_configuration=None, serverless_v2_scaling_configuration=None, storage_throughput=None, storage_type=None, tags=None, vpc_security_group_ids=None):
+    def __init__(__self__, allocated_storage=None, associated_roles=None, auto_minor_version_upgrade=None, backtrack_window=None, backup_retention_period=None, copy_tags_to_snapshot=None, database_insights_mode=None, db_cluster_arn=None, db_cluster_instance_class=None, db_cluster_parameter_group_name=None, db_cluster_resource_id=None, deletion_protection=None, domain=None, domain_iam_role_name=None, enable_cloudwatch_logs_exports=None, enable_global_write_forwarding=None, enable_http_endpoint=None, enable_iam_database_authentication=None, enable_local_write_forwarding=None, endpoint=None, engine=None, engine_lifecycle_support=None, engine_version=None, global_cluster_identifier=None, iops=None, manage_master_user_password=None, master_user_secret=None, master_username=None, monitoring_interval=None, monitoring_role_arn=None, network_type=None, performance_insights_enabled=None, performance_insights_kms_key_id=None, performance_insights_retention_period=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, read_endpoint=None, replication_source_identifier=None, scaling_configuration=None, serverless_v2_scaling_configuration=None, storage_throughput=None, storage_type=None, tags=None, vpc_security_group_ids=None):
         if allocated_storage and not isinstance(allocated_storage, int):
             raise TypeError("Expected argument 'allocated_storage' to be a int")
         pulumi.set(__self__, "allocated_storage", allocated_storage)
@@ -44,6 +44,9 @@ class GetDbClusterResult:
         if copy_tags_to_snapshot and not isinstance(copy_tags_to_snapshot, bool):
             raise TypeError("Expected argument 'copy_tags_to_snapshot' to be a bool")
         pulumi.set(__self__, "copy_tags_to_snapshot", copy_tags_to_snapshot)
+        if database_insights_mode and not isinstance(database_insights_mode, str):
+            raise TypeError("Expected argument 'database_insights_mode' to be a str")
+        pulumi.set(__self__, "database_insights_mode", database_insights_mode)
         if db_cluster_arn and not isinstance(db_cluster_arn, str):
             raise TypeError("Expected argument 'db_cluster_arn' to be a str")
         pulumi.set(__self__, "db_cluster_arn", db_cluster_arn)
@@ -220,6 +223,16 @@ class GetDbClusterResult:
          Valid for: Aurora DB clusters and Multi-AZ DB clusters
         """
         return pulumi.get(self, "copy_tags_to_snapshot")
+
+    @property
+    @pulumi.getter(name="databaseInsightsMode")
+    def database_insights_mode(self) -> Optional[str]:
+        """
+        The mode of Database Insights to enable for the DB cluster.
+         If you set this value to ``advanced``, you must also set the ``PerformanceInsightsEnabled`` parameter to ``true`` and the ``PerformanceInsightsRetentionPeriod`` parameter to 465.
+         Valid for Cluster Type: Aurora DB clusters only
+        """
+        return pulumi.get(self, "database_insights_mode")
 
     @property
     @pulumi.getter(name="dbClusterArn")
@@ -690,6 +703,7 @@ class AwaitableGetDbClusterResult(GetDbClusterResult):
             backtrack_window=self.backtrack_window,
             backup_retention_period=self.backup_retention_period,
             copy_tags_to_snapshot=self.copy_tags_to_snapshot,
+            database_insights_mode=self.database_insights_mode,
             db_cluster_arn=self.db_cluster_arn,
             db_cluster_instance_class=self.db_cluster_instance_class,
             db_cluster_parameter_group_name=self.db_cluster_parameter_group_name,
@@ -773,6 +787,7 @@ def get_db_cluster(db_cluster_identifier: Optional[str] = None,
         backtrack_window=pulumi.get(__ret__, 'backtrack_window'),
         backup_retention_period=pulumi.get(__ret__, 'backup_retention_period'),
         copy_tags_to_snapshot=pulumi.get(__ret__, 'copy_tags_to_snapshot'),
+        database_insights_mode=pulumi.get(__ret__, 'database_insights_mode'),
         db_cluster_arn=pulumi.get(__ret__, 'db_cluster_arn'),
         db_cluster_instance_class=pulumi.get(__ret__, 'db_cluster_instance_class'),
         db_cluster_parameter_group_name=pulumi.get(__ret__, 'db_cluster_parameter_group_name'),
@@ -853,6 +868,7 @@ def get_db_cluster_output(db_cluster_identifier: Optional[pulumi.Input[str]] = N
         backtrack_window=pulumi.get(__response__, 'backtrack_window'),
         backup_retention_period=pulumi.get(__response__, 'backup_retention_period'),
         copy_tags_to_snapshot=pulumi.get(__response__, 'copy_tags_to_snapshot'),
+        database_insights_mode=pulumi.get(__response__, 'database_insights_mode'),
         db_cluster_arn=pulumi.get(__response__, 'db_cluster_arn'),
         db_cluster_instance_class=pulumi.get(__response__, 'db_cluster_instance_class'),
         db_cluster_parameter_group_name=pulumi.get(__response__, 'db_cluster_parameter_group_name'),

@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisImageInteractionOptionsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The menu options for the image.
+        /// </summary>
         [Input("imageMenuOption")]
         public Input<Inputs.AnalysisImageMenuOptionArgs>? ImageMenuOption { get; set; }
 

@@ -12,15 +12,27 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardGeospatialCircleSymbolStyleArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The radius of the circle.
+        /// </summary>
         [Input("circleRadius")]
         public Input<Inputs.DashboardGeospatialCircleRadiusArgs>? CircleRadius { get; set; }
 
+        /// <summary>
+        /// The color and opacity values for the fill color.
+        /// </summary>
         [Input("fillColor")]
         public Input<Inputs.DashboardGeospatialColorArgs>? FillColor { get; set; }
 
+        /// <summary>
+        /// The color and opacity values for the stroke color.
+        /// </summary>
         [Input("strokeColor")]
         public Input<Inputs.DashboardGeospatialColorArgs>? StrokeColor { get; set; }
 
+        /// <summary>
+        /// The width of the stroke (border).
+        /// </summary>
         [Input("strokeWidth")]
         public Input<Inputs.DashboardGeospatialLineWidthArgs>? StrokeWidth { get; set; }
 

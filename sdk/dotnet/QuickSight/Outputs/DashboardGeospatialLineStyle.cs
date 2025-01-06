@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardGeospatialLineStyle
     {
+        /// <summary>
+        /// The symbol style for a line style.
+        /// </summary>
         public readonly Outputs.DashboardGeospatialLineSymbolStyle? LineSymbolStyle;
 
         [OutputConstructor]

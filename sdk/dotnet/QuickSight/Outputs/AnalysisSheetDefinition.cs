@@ -30,6 +30,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
         /// For more information, see [Adding filter controls to analysis sheets](https://docs.aws.amazon.com/quicksight/latest/user/filter-controls.html) in the *Amazon QuickSight User Guide* .
         /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisFilterControl> FilterControls;
+        /// <summary>
+        /// A list of images on a sheet.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisSheetImage> Images;
         /// <summary>
         /// Layouts define how the components of a sheet are arranged.

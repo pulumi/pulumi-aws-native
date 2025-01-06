@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDbInstanceResult:
-    def __init__(__self__, allocated_storage=None, associated_roles=None, auto_minor_version_upgrade=None, automatic_backup_replication_region=None, availability_zone=None, backup_retention_period=None, ca_certificate_identifier=None, certificate_details=None, copy_tags_to_snapshot=None, db_cluster_snapshot_identifier=None, db_instance_arn=None, db_instance_class=None, db_parameter_group_name=None, db_security_groups=None, dbi_resource_id=None, dedicated_log_volume=None, deletion_protection=None, domain=None, domain_auth_secret_arn=None, domain_dns_ips=None, domain_fqdn=None, domain_iam_role_name=None, domain_ou=None, enable_cloudwatch_logs_exports=None, enable_iam_database_authentication=None, enable_performance_insights=None, endpoint=None, engine=None, engine_lifecycle_support=None, engine_version=None, iops=None, license_model=None, manage_master_user_password=None, master_user_secret=None, max_allocated_storage=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, network_type=None, option_group_name=None, performance_insights_kms_key_id=None, performance_insights_retention_period=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, processor_features=None, promotion_tier=None, publicly_accessible=None, replica_mode=None, source_db_cluster_identifier=None, storage_throughput=None, storage_type=None, tags=None, tde_credential_arn=None, vpc_security_groups=None):
+    def __init__(__self__, allocated_storage=None, associated_roles=None, auto_minor_version_upgrade=None, automatic_backup_replication_region=None, availability_zone=None, backup_retention_period=None, ca_certificate_identifier=None, certificate_details=None, copy_tags_to_snapshot=None, database_insights_mode=None, db_cluster_snapshot_identifier=None, db_instance_arn=None, db_instance_class=None, db_parameter_group_name=None, db_security_groups=None, dbi_resource_id=None, dedicated_log_volume=None, deletion_protection=None, domain=None, domain_auth_secret_arn=None, domain_dns_ips=None, domain_fqdn=None, domain_iam_role_name=None, domain_ou=None, enable_cloudwatch_logs_exports=None, enable_iam_database_authentication=None, enable_performance_insights=None, endpoint=None, engine=None, engine_lifecycle_support=None, engine_version=None, iops=None, license_model=None, manage_master_user_password=None, master_user_secret=None, max_allocated_storage=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, network_type=None, option_group_name=None, performance_insights_kms_key_id=None, performance_insights_retention_period=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, processor_features=None, promotion_tier=None, publicly_accessible=None, replica_mode=None, source_db_cluster_identifier=None, storage_throughput=None, storage_type=None, tags=None, tde_credential_arn=None, vpc_security_groups=None):
         if allocated_storage and not isinstance(allocated_storage, str):
             raise TypeError("Expected argument 'allocated_storage' to be a str")
         pulumi.set(__self__, "allocated_storage", allocated_storage)
@@ -54,6 +54,9 @@ class GetDbInstanceResult:
         if copy_tags_to_snapshot and not isinstance(copy_tags_to_snapshot, bool):
             raise TypeError("Expected argument 'copy_tags_to_snapshot' to be a bool")
         pulumi.set(__self__, "copy_tags_to_snapshot", copy_tags_to_snapshot)
+        if database_insights_mode and not isinstance(database_insights_mode, str):
+            raise TypeError("Expected argument 'database_insights_mode' to be a str")
+        pulumi.set(__self__, "database_insights_mode", database_insights_mode)
         if db_cluster_snapshot_identifier and not isinstance(db_cluster_snapshot_identifier, str):
             raise TypeError("Expected argument 'db_cluster_snapshot_identifier' to be a str")
         pulumi.set(__self__, "db_cluster_snapshot_identifier", db_cluster_snapshot_identifier)
@@ -326,6 +329,18 @@ class GetDbInstanceResult:
          This setting doesn't apply to Amazon Aurora DB instances. Copying tags to snapshots is managed by the DB cluster. Setting this value for an Aurora DB instance has no effect on the DB cluster setting.
         """
         return pulumi.get(self, "copy_tags_to_snapshot")
+
+    @property
+    @pulumi.getter(name="databaseInsightsMode")
+    def database_insights_mode(self) -> Optional[str]:
+        """
+        The mode of Database Insights to enable for the DB instance.
+
+        This setting only applies to Amazon Aurora DB instances.
+
+        > Currently, this value is inherited from the DB cluster and can't be changed.
+        """
+        return pulumi.get(self, "database_insights_mode")
 
     @property
     @pulumi.getter(name="dbClusterSnapshotIdentifier")
@@ -928,6 +943,7 @@ class AwaitableGetDbInstanceResult(GetDbInstanceResult):
             ca_certificate_identifier=self.ca_certificate_identifier,
             certificate_details=self.certificate_details,
             copy_tags_to_snapshot=self.copy_tags_to_snapshot,
+            database_insights_mode=self.database_insights_mode,
             db_cluster_snapshot_identifier=self.db_cluster_snapshot_identifier,
             db_instance_arn=self.db_instance_arn,
             db_instance_class=self.db_instance_class,
@@ -1021,6 +1037,7 @@ def get_db_instance(db_instance_identifier: Optional[str] = None,
         ca_certificate_identifier=pulumi.get(__ret__, 'ca_certificate_identifier'),
         certificate_details=pulumi.get(__ret__, 'certificate_details'),
         copy_tags_to_snapshot=pulumi.get(__ret__, 'copy_tags_to_snapshot'),
+        database_insights_mode=pulumi.get(__ret__, 'database_insights_mode'),
         db_cluster_snapshot_identifier=pulumi.get(__ret__, 'db_cluster_snapshot_identifier'),
         db_instance_arn=pulumi.get(__ret__, 'db_instance_arn'),
         db_instance_class=pulumi.get(__ret__, 'db_instance_class'),
@@ -1111,6 +1128,7 @@ def get_db_instance_output(db_instance_identifier: Optional[pulumi.Input[str]] =
         ca_certificate_identifier=pulumi.get(__response__, 'ca_certificate_identifier'),
         certificate_details=pulumi.get(__response__, 'certificate_details'),
         copy_tags_to_snapshot=pulumi.get(__response__, 'copy_tags_to_snapshot'),
+        database_insights_mode=pulumi.get(__response__, 'database_insights_mode'),
         db_cluster_snapshot_identifier=pulumi.get(__response__, 'db_cluster_snapshot_identifier'),
         db_instance_arn=pulumi.get(__response__, 'db_instance_arn'),
         db_instance_class=pulumi.get(__response__, 'db_instance_class'),

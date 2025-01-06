@@ -3161,8 +3161,9 @@ type TemplatePieChartVisual struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle *TemplateVisualSubtitleLabelOptions `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                *TemplateVisualTitleLabelOptions `pulumi:"title"`
-	VisualContentAltText *string                          `pulumi:"visualContentAltText"`
+	Title *TemplateVisualTitleLabelOptions `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText *string `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
 	VisualId string `pulumi:"visualId"`
 }
@@ -3188,8 +3189,9 @@ type TemplatePieChartVisualArgs struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle TemplateVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                TemplateVisualTitleLabelOptionsPtrInput `pulumi:"title"`
-	VisualContentAltText pulumi.StringPtrInput                   `pulumi:"visualContentAltText"`
+	Title TemplateVisualTitleLabelOptionsPtrInput `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText pulumi.StringPtrInput `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
 	VisualId pulumi.StringInput `pulumi:"visualId"`
 }
@@ -3296,6 +3298,7 @@ func (o TemplatePieChartVisualOutput) Title() TemplateVisualTitleLabelOptionsPtr
 	return o.ApplyT(func(v TemplatePieChartVisual) *TemplateVisualTitleLabelOptions { return v.Title }).(TemplateVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o TemplatePieChartVisualOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplatePieChartVisual) *string { return v.VisualContentAltText }).(pulumi.StringPtrOutput)
 }
@@ -3379,6 +3382,7 @@ func (o TemplatePieChartVisualPtrOutput) Title() TemplateVisualTitleLabelOptions
 	}).(TemplateVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o TemplatePieChartVisualPtrOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplatePieChartVisual) *string {
 		if v == nil {
@@ -6453,8 +6457,9 @@ type TemplatePivotTableVisual struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle *TemplateVisualSubtitleLabelOptions `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                *TemplateVisualTitleLabelOptions `pulumi:"title"`
-	VisualContentAltText *string                          `pulumi:"visualContentAltText"`
+	Title *TemplateVisualTitleLabelOptions `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText *string `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..
 	VisualId string `pulumi:"visualId"`
 }
@@ -6480,8 +6485,9 @@ type TemplatePivotTableVisualArgs struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle TemplateVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                TemplateVisualTitleLabelOptionsPtrInput `pulumi:"title"`
-	VisualContentAltText pulumi.StringPtrInput                   `pulumi:"visualContentAltText"`
+	Title TemplateVisualTitleLabelOptionsPtrInput `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText pulumi.StringPtrInput `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..
 	VisualId pulumi.StringInput `pulumi:"visualId"`
 }
@@ -6590,6 +6596,7 @@ func (o TemplatePivotTableVisualOutput) Title() TemplateVisualTitleLabelOptionsP
 	return o.ApplyT(func(v TemplatePivotTableVisual) *TemplateVisualTitleLabelOptions { return v.Title }).(TemplateVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o TemplatePivotTableVisualOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplatePivotTableVisual) *string { return v.VisualContentAltText }).(pulumi.StringPtrOutput)
 }
@@ -6673,6 +6680,7 @@ func (o TemplatePivotTableVisualPtrOutput) Title() TemplateVisualTitleLabelOptio
 	}).(TemplateVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o TemplatePivotTableVisualPtrOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplatePivotTableVisual) *string {
 		if v == nil {
@@ -6963,12 +6971,16 @@ func (o TemplatePivotTotalOptionsPtrOutput) ValueCellStyle() TemplateTableCellSt
 }
 
 type TemplatePluginVisual struct {
-	ChartConfiguration   *TemplatePluginVisualConfiguration  `pulumi:"chartConfiguration"`
-	PluginArn            string                              `pulumi:"pluginArn"`
-	Subtitle             *TemplateVisualSubtitleLabelOptions `pulumi:"subtitle"`
-	Title                *TemplateVisualTitleLabelOptions    `pulumi:"title"`
-	VisualContentAltText *string                             `pulumi:"visualContentAltText"`
-	VisualId             string                              `pulumi:"visualId"`
+	// A description of the plugin field wells and their persisted properties.
+	ChartConfiguration *TemplatePluginVisualConfiguration `pulumi:"chartConfiguration"`
+	// The Amazon Resource Name (ARN) that reflects the plugin and version.
+	PluginArn string                              `pulumi:"pluginArn"`
+	Subtitle  *TemplateVisualSubtitleLabelOptions `pulumi:"subtitle"`
+	Title     *TemplateVisualTitleLabelOptions    `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText *string `pulumi:"visualContentAltText"`
+	// The ID of the visual that you want to use.
+	VisualId string `pulumi:"visualId"`
 }
 
 // TemplatePluginVisualInput is an input type that accepts TemplatePluginVisualArgs and TemplatePluginVisualOutput values.
@@ -6983,12 +6995,16 @@ type TemplatePluginVisualInput interface {
 }
 
 type TemplatePluginVisualArgs struct {
-	ChartConfiguration   TemplatePluginVisualConfigurationPtrInput  `pulumi:"chartConfiguration"`
-	PluginArn            pulumi.StringInput                         `pulumi:"pluginArn"`
-	Subtitle             TemplateVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
-	Title                TemplateVisualTitleLabelOptionsPtrInput    `pulumi:"title"`
-	VisualContentAltText pulumi.StringPtrInput                      `pulumi:"visualContentAltText"`
-	VisualId             pulumi.StringInput                         `pulumi:"visualId"`
+	// A description of the plugin field wells and their persisted properties.
+	ChartConfiguration TemplatePluginVisualConfigurationPtrInput `pulumi:"chartConfiguration"`
+	// The Amazon Resource Name (ARN) that reflects the plugin and version.
+	PluginArn pulumi.StringInput                         `pulumi:"pluginArn"`
+	Subtitle  TemplateVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
+	Title     TemplateVisualTitleLabelOptionsPtrInput    `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText pulumi.StringPtrInput `pulumi:"visualContentAltText"`
+	// The ID of the visual that you want to use.
+	VisualId pulumi.StringInput `pulumi:"visualId"`
 }
 
 func (TemplatePluginVisualArgs) ElementType() reflect.Type {
@@ -7068,10 +7084,12 @@ func (o TemplatePluginVisualOutput) ToTemplatePluginVisualPtrOutputWithContext(c
 	}).(TemplatePluginVisualPtrOutput)
 }
 
+// A description of the plugin field wells and their persisted properties.
 func (o TemplatePluginVisualOutput) ChartConfiguration() TemplatePluginVisualConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplatePluginVisual) *TemplatePluginVisualConfiguration { return v.ChartConfiguration }).(TemplatePluginVisualConfigurationPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) that reflects the plugin and version.
 func (o TemplatePluginVisualOutput) PluginArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TemplatePluginVisual) string { return v.PluginArn }).(pulumi.StringOutput)
 }
@@ -7084,10 +7102,12 @@ func (o TemplatePluginVisualOutput) Title() TemplateVisualTitleLabelOptionsPtrOu
 	return o.ApplyT(func(v TemplatePluginVisual) *TemplateVisualTitleLabelOptions { return v.Title }).(TemplateVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o TemplatePluginVisualOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplatePluginVisual) *string { return v.VisualContentAltText }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the visual that you want to use.
 func (o TemplatePluginVisualOutput) VisualId() pulumi.StringOutput {
 	return o.ApplyT(func(v TemplatePluginVisual) string { return v.VisualId }).(pulumi.StringOutput)
 }
@@ -7116,6 +7136,7 @@ func (o TemplatePluginVisualPtrOutput) Elem() TemplatePluginVisualOutput {
 	}).(TemplatePluginVisualOutput)
 }
 
+// A description of the plugin field wells and their persisted properties.
 func (o TemplatePluginVisualPtrOutput) ChartConfiguration() TemplatePluginVisualConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplatePluginVisual) *TemplatePluginVisualConfiguration {
 		if v == nil {
@@ -7125,6 +7146,7 @@ func (o TemplatePluginVisualPtrOutput) ChartConfiguration() TemplatePluginVisual
 	}).(TemplatePluginVisualConfigurationPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) that reflects the plugin and version.
 func (o TemplatePluginVisualPtrOutput) PluginArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplatePluginVisual) *string {
 		if v == nil {
@@ -7152,6 +7174,7 @@ func (o TemplatePluginVisualPtrOutput) Title() TemplateVisualTitleLabelOptionsPt
 	}).(TemplateVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o TemplatePluginVisualPtrOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplatePluginVisual) *string {
 		if v == nil {
@@ -7161,6 +7184,7 @@ func (o TemplatePluginVisualPtrOutput) VisualContentAltText() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ID of the visual that you want to use.
 func (o TemplatePluginVisualPtrOutput) VisualId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplatePluginVisual) *string {
 		if v == nil {
@@ -7171,9 +7195,12 @@ func (o TemplatePluginVisualPtrOutput) VisualId() pulumi.StringPtrOutput {
 }
 
 type TemplatePluginVisualConfiguration struct {
-	FieldWells        []TemplatePluginVisualFieldWell        `pulumi:"fieldWells"`
+	// The field wells configuration of the plugin visual.
+	FieldWells []TemplatePluginVisualFieldWell `pulumi:"fieldWells"`
+	// The sort configuration of the plugin visual.
 	SortConfiguration *TemplatePluginVisualSortConfiguration `pulumi:"sortConfiguration"`
-	VisualOptions     *TemplatePluginVisualOptions           `pulumi:"visualOptions"`
+	// The persisted properties of the plugin visual.
+	VisualOptions *TemplatePluginVisualOptions `pulumi:"visualOptions"`
 }
 
 // TemplatePluginVisualConfigurationInput is an input type that accepts TemplatePluginVisualConfigurationArgs and TemplatePluginVisualConfigurationOutput values.
@@ -7188,9 +7215,12 @@ type TemplatePluginVisualConfigurationInput interface {
 }
 
 type TemplatePluginVisualConfigurationArgs struct {
-	FieldWells        TemplatePluginVisualFieldWellArrayInput       `pulumi:"fieldWells"`
+	// The field wells configuration of the plugin visual.
+	FieldWells TemplatePluginVisualFieldWellArrayInput `pulumi:"fieldWells"`
+	// The sort configuration of the plugin visual.
 	SortConfiguration TemplatePluginVisualSortConfigurationPtrInput `pulumi:"sortConfiguration"`
-	VisualOptions     TemplatePluginVisualOptionsPtrInput           `pulumi:"visualOptions"`
+	// The persisted properties of the plugin visual.
+	VisualOptions TemplatePluginVisualOptionsPtrInput `pulumi:"visualOptions"`
 }
 
 func (TemplatePluginVisualConfigurationArgs) ElementType() reflect.Type {
@@ -7270,16 +7300,19 @@ func (o TemplatePluginVisualConfigurationOutput) ToTemplatePluginVisualConfigura
 	}).(TemplatePluginVisualConfigurationPtrOutput)
 }
 
+// The field wells configuration of the plugin visual.
 func (o TemplatePluginVisualConfigurationOutput) FieldWells() TemplatePluginVisualFieldWellArrayOutput {
 	return o.ApplyT(func(v TemplatePluginVisualConfiguration) []TemplatePluginVisualFieldWell { return v.FieldWells }).(TemplatePluginVisualFieldWellArrayOutput)
 }
 
+// The sort configuration of the plugin visual.
 func (o TemplatePluginVisualConfigurationOutput) SortConfiguration() TemplatePluginVisualSortConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplatePluginVisualConfiguration) *TemplatePluginVisualSortConfiguration {
 		return v.SortConfiguration
 	}).(TemplatePluginVisualSortConfigurationPtrOutput)
 }
 
+// The persisted properties of the plugin visual.
 func (o TemplatePluginVisualConfigurationOutput) VisualOptions() TemplatePluginVisualOptionsPtrOutput {
 	return o.ApplyT(func(v TemplatePluginVisualConfiguration) *TemplatePluginVisualOptions { return v.VisualOptions }).(TemplatePluginVisualOptionsPtrOutput)
 }
@@ -7308,6 +7341,7 @@ func (o TemplatePluginVisualConfigurationPtrOutput) Elem() TemplatePluginVisualC
 	}).(TemplatePluginVisualConfigurationOutput)
 }
 
+// The field wells configuration of the plugin visual.
 func (o TemplatePluginVisualConfigurationPtrOutput) FieldWells() TemplatePluginVisualFieldWellArrayOutput {
 	return o.ApplyT(func(v *TemplatePluginVisualConfiguration) []TemplatePluginVisualFieldWell {
 		if v == nil {
@@ -7317,6 +7351,7 @@ func (o TemplatePluginVisualConfigurationPtrOutput) FieldWells() TemplatePluginV
 	}).(TemplatePluginVisualFieldWellArrayOutput)
 }
 
+// The sort configuration of the plugin visual.
 func (o TemplatePluginVisualConfigurationPtrOutput) SortConfiguration() TemplatePluginVisualSortConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplatePluginVisualConfiguration) *TemplatePluginVisualSortConfiguration {
 		if v == nil {
@@ -7326,6 +7361,7 @@ func (o TemplatePluginVisualConfigurationPtrOutput) SortConfiguration() Template
 	}).(TemplatePluginVisualSortConfigurationPtrOutput)
 }
 
+// The persisted properties of the plugin visual.
 func (o TemplatePluginVisualConfigurationPtrOutput) VisualOptions() TemplatePluginVisualOptionsPtrOutput {
 	return o.ApplyT(func(v *TemplatePluginVisualConfiguration) *TemplatePluginVisualOptions {
 		if v == nil {
@@ -7336,10 +7372,14 @@ func (o TemplatePluginVisualConfigurationPtrOutput) VisualOptions() TemplatePlug
 }
 
 type TemplatePluginVisualFieldWell struct {
-	AxisName     *TemplatePluginVisualAxisName `pulumi:"axisName"`
-	Dimensions   []TemplateDimensionField      `pulumi:"dimensions"`
-	Measures     []TemplateMeasureField        `pulumi:"measures"`
-	Unaggregated []TemplateUnaggregatedField   `pulumi:"unaggregated"`
+	// The semantic axis name for the field well.
+	AxisName *TemplatePluginVisualAxisName `pulumi:"axisName"`
+	// A list of dimensions for the field well.
+	Dimensions []TemplateDimensionField `pulumi:"dimensions"`
+	// A list of measures that exist in the field well.
+	Measures []TemplateMeasureField `pulumi:"measures"`
+	// A list of unaggregated fields that exist in the field well.
+	Unaggregated []TemplateUnaggregatedField `pulumi:"unaggregated"`
 }
 
 // TemplatePluginVisualFieldWellInput is an input type that accepts TemplatePluginVisualFieldWellArgs and TemplatePluginVisualFieldWellOutput values.
@@ -7354,10 +7394,14 @@ type TemplatePluginVisualFieldWellInput interface {
 }
 
 type TemplatePluginVisualFieldWellArgs struct {
-	AxisName     TemplatePluginVisualAxisNamePtrInput `pulumi:"axisName"`
-	Dimensions   TemplateDimensionFieldArrayInput     `pulumi:"dimensions"`
-	Measures     TemplateMeasureFieldArrayInput       `pulumi:"measures"`
-	Unaggregated TemplateUnaggregatedFieldArrayInput  `pulumi:"unaggregated"`
+	// The semantic axis name for the field well.
+	AxisName TemplatePluginVisualAxisNamePtrInput `pulumi:"axisName"`
+	// A list of dimensions for the field well.
+	Dimensions TemplateDimensionFieldArrayInput `pulumi:"dimensions"`
+	// A list of measures that exist in the field well.
+	Measures TemplateMeasureFieldArrayInput `pulumi:"measures"`
+	// A list of unaggregated fields that exist in the field well.
+	Unaggregated TemplateUnaggregatedFieldArrayInput `pulumi:"unaggregated"`
 }
 
 func (TemplatePluginVisualFieldWellArgs) ElementType() reflect.Type {
@@ -7411,18 +7455,22 @@ func (o TemplatePluginVisualFieldWellOutput) ToTemplatePluginVisualFieldWellOutp
 	return o
 }
 
+// The semantic axis name for the field well.
 func (o TemplatePluginVisualFieldWellOutput) AxisName() TemplatePluginVisualAxisNamePtrOutput {
 	return o.ApplyT(func(v TemplatePluginVisualFieldWell) *TemplatePluginVisualAxisName { return v.AxisName }).(TemplatePluginVisualAxisNamePtrOutput)
 }
 
+// A list of dimensions for the field well.
 func (o TemplatePluginVisualFieldWellOutput) Dimensions() TemplateDimensionFieldArrayOutput {
 	return o.ApplyT(func(v TemplatePluginVisualFieldWell) []TemplateDimensionField { return v.Dimensions }).(TemplateDimensionFieldArrayOutput)
 }
 
+// A list of measures that exist in the field well.
 func (o TemplatePluginVisualFieldWellOutput) Measures() TemplateMeasureFieldArrayOutput {
 	return o.ApplyT(func(v TemplatePluginVisualFieldWell) []TemplateMeasureField { return v.Measures }).(TemplateMeasureFieldArrayOutput)
 }
 
+// A list of unaggregated fields that exist in the field well.
 func (o TemplatePluginVisualFieldWellOutput) Unaggregated() TemplateUnaggregatedFieldArrayOutput {
 	return o.ApplyT(func(v TemplatePluginVisualFieldWell) []TemplateUnaggregatedField { return v.Unaggregated }).(TemplateUnaggregatedFieldArrayOutput)
 }
@@ -7448,6 +7496,7 @@ func (o TemplatePluginVisualFieldWellArrayOutput) Index(i pulumi.IntInput) Templ
 }
 
 type TemplatePluginVisualItemsLimitConfiguration struct {
+	// Determines how many values are be fetched at once.
 	ItemsLimit *float64 `pulumi:"itemsLimit"`
 }
 
@@ -7463,6 +7512,7 @@ type TemplatePluginVisualItemsLimitConfigurationInput interface {
 }
 
 type TemplatePluginVisualItemsLimitConfigurationArgs struct {
+	// Determines how many values are be fetched at once.
 	ItemsLimit pulumi.Float64PtrInput `pulumi:"itemsLimit"`
 }
 
@@ -7543,6 +7593,7 @@ func (o TemplatePluginVisualItemsLimitConfigurationOutput) ToTemplatePluginVisua
 	}).(TemplatePluginVisualItemsLimitConfigurationPtrOutput)
 }
 
+// Determines how many values are be fetched at once.
 func (o TemplatePluginVisualItemsLimitConfigurationOutput) ItemsLimit() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v TemplatePluginVisualItemsLimitConfiguration) *float64 { return v.ItemsLimit }).(pulumi.Float64PtrOutput)
 }
@@ -7571,6 +7622,7 @@ func (o TemplatePluginVisualItemsLimitConfigurationPtrOutput) Elem() TemplatePlu
 	}).(TemplatePluginVisualItemsLimitConfigurationOutput)
 }
 
+// Determines how many values are be fetched at once.
 func (o TemplatePluginVisualItemsLimitConfigurationPtrOutput) ItemsLimit() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *TemplatePluginVisualItemsLimitConfiguration) *float64 {
 		if v == nil {
@@ -7581,6 +7633,7 @@ func (o TemplatePluginVisualItemsLimitConfigurationPtrOutput) ItemsLimit() pulum
 }
 
 type TemplatePluginVisualOptions struct {
+	// The persisted properties and their values.
 	VisualProperties []TemplatePluginVisualProperty `pulumi:"visualProperties"`
 }
 
@@ -7596,6 +7649,7 @@ type TemplatePluginVisualOptionsInput interface {
 }
 
 type TemplatePluginVisualOptionsArgs struct {
+	// The persisted properties and their values.
 	VisualProperties TemplatePluginVisualPropertyArrayInput `pulumi:"visualProperties"`
 }
 
@@ -7676,6 +7730,7 @@ func (o TemplatePluginVisualOptionsOutput) ToTemplatePluginVisualOptionsPtrOutpu
 	}).(TemplatePluginVisualOptionsPtrOutput)
 }
 
+// The persisted properties and their values.
 func (o TemplatePluginVisualOptionsOutput) VisualProperties() TemplatePluginVisualPropertyArrayOutput {
 	return o.ApplyT(func(v TemplatePluginVisualOptions) []TemplatePluginVisualProperty { return v.VisualProperties }).(TemplatePluginVisualPropertyArrayOutput)
 }
@@ -7704,6 +7759,7 @@ func (o TemplatePluginVisualOptionsPtrOutput) Elem() TemplatePluginVisualOptions
 	}).(TemplatePluginVisualOptionsOutput)
 }
 
+// The persisted properties and their values.
 func (o TemplatePluginVisualOptionsPtrOutput) VisualProperties() TemplatePluginVisualPropertyArrayOutput {
 	return o.ApplyT(func(v *TemplatePluginVisualOptions) []TemplatePluginVisualProperty {
 		if v == nil {
@@ -7714,7 +7770,9 @@ func (o TemplatePluginVisualOptionsPtrOutput) VisualProperties() TemplatePluginV
 }
 
 type TemplatePluginVisualProperty struct {
-	Name  *string `pulumi:"name"`
+	// The name of the plugin visual property.
+	Name *string `pulumi:"name"`
+	// The value of the plugin visual property.
 	Value *string `pulumi:"value"`
 }
 
@@ -7730,7 +7788,9 @@ type TemplatePluginVisualPropertyInput interface {
 }
 
 type TemplatePluginVisualPropertyArgs struct {
-	Name  pulumi.StringPtrInput `pulumi:"name"`
+	// The name of the plugin visual property.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The value of the plugin visual property.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -7785,10 +7845,12 @@ func (o TemplatePluginVisualPropertyOutput) ToTemplatePluginVisualPropertyOutput
 	return o
 }
 
+// The name of the plugin visual property.
 func (o TemplatePluginVisualPropertyOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplatePluginVisualProperty) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The value of the plugin visual property.
 func (o TemplatePluginVisualPropertyOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplatePluginVisualProperty) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -7814,6 +7876,7 @@ func (o TemplatePluginVisualPropertyArrayOutput) Index(i pulumi.IntInput) Templa
 }
 
 type TemplatePluginVisualSortConfiguration struct {
+	// The table query sorting options for the plugin visual.
 	PluginVisualTableQuerySort *TemplatePluginVisualTableQuerySort `pulumi:"pluginVisualTableQuerySort"`
 }
 
@@ -7829,6 +7892,7 @@ type TemplatePluginVisualSortConfigurationInput interface {
 }
 
 type TemplatePluginVisualSortConfigurationArgs struct {
+	// The table query sorting options for the plugin visual.
 	PluginVisualTableQuerySort TemplatePluginVisualTableQuerySortPtrInput `pulumi:"pluginVisualTableQuerySort"`
 }
 
@@ -7909,6 +7973,7 @@ func (o TemplatePluginVisualSortConfigurationOutput) ToTemplatePluginVisualSortC
 	}).(TemplatePluginVisualSortConfigurationPtrOutput)
 }
 
+// The table query sorting options for the plugin visual.
 func (o TemplatePluginVisualSortConfigurationOutput) PluginVisualTableQuerySort() TemplatePluginVisualTableQuerySortPtrOutput {
 	return o.ApplyT(func(v TemplatePluginVisualSortConfiguration) *TemplatePluginVisualTableQuerySort {
 		return v.PluginVisualTableQuerySort
@@ -7939,6 +8004,7 @@ func (o TemplatePluginVisualSortConfigurationPtrOutput) Elem() TemplatePluginVis
 	}).(TemplatePluginVisualSortConfigurationOutput)
 }
 
+// The table query sorting options for the plugin visual.
 func (o TemplatePluginVisualSortConfigurationPtrOutput) PluginVisualTableQuerySort() TemplatePluginVisualTableQuerySortPtrOutput {
 	return o.ApplyT(func(v *TemplatePluginVisualSortConfiguration) *TemplatePluginVisualTableQuerySort {
 		if v == nil {
@@ -7949,8 +8015,10 @@ func (o TemplatePluginVisualSortConfigurationPtrOutput) PluginVisualTableQuerySo
 }
 
 type TemplatePluginVisualTableQuerySort struct {
+	// The maximum amount of data to be returned by a query.
 	ItemsLimitConfiguration *TemplatePluginVisualItemsLimitConfiguration `pulumi:"itemsLimitConfiguration"`
-	RowSort                 []TemplateFieldSortOptions                   `pulumi:"rowSort"`
+	// Determines how data is sorted in the response.
+	RowSort []TemplateFieldSortOptions `pulumi:"rowSort"`
 }
 
 // TemplatePluginVisualTableQuerySortInput is an input type that accepts TemplatePluginVisualTableQuerySortArgs and TemplatePluginVisualTableQuerySortOutput values.
@@ -7965,8 +8033,10 @@ type TemplatePluginVisualTableQuerySortInput interface {
 }
 
 type TemplatePluginVisualTableQuerySortArgs struct {
+	// The maximum amount of data to be returned by a query.
 	ItemsLimitConfiguration TemplatePluginVisualItemsLimitConfigurationPtrInput `pulumi:"itemsLimitConfiguration"`
-	RowSort                 TemplateFieldSortOptionsArrayInput                  `pulumi:"rowSort"`
+	// Determines how data is sorted in the response.
+	RowSort TemplateFieldSortOptionsArrayInput `pulumi:"rowSort"`
 }
 
 func (TemplatePluginVisualTableQuerySortArgs) ElementType() reflect.Type {
@@ -8046,12 +8116,14 @@ func (o TemplatePluginVisualTableQuerySortOutput) ToTemplatePluginVisualTableQue
 	}).(TemplatePluginVisualTableQuerySortPtrOutput)
 }
 
+// The maximum amount of data to be returned by a query.
 func (o TemplatePluginVisualTableQuerySortOutput) ItemsLimitConfiguration() TemplatePluginVisualItemsLimitConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplatePluginVisualTableQuerySort) *TemplatePluginVisualItemsLimitConfiguration {
 		return v.ItemsLimitConfiguration
 	}).(TemplatePluginVisualItemsLimitConfigurationPtrOutput)
 }
 
+// Determines how data is sorted in the response.
 func (o TemplatePluginVisualTableQuerySortOutput) RowSort() TemplateFieldSortOptionsArrayOutput {
 	return o.ApplyT(func(v TemplatePluginVisualTableQuerySort) []TemplateFieldSortOptions { return v.RowSort }).(TemplateFieldSortOptionsArrayOutput)
 }
@@ -8080,6 +8152,7 @@ func (o TemplatePluginVisualTableQuerySortPtrOutput) Elem() TemplatePluginVisual
 	}).(TemplatePluginVisualTableQuerySortOutput)
 }
 
+// The maximum amount of data to be returned by a query.
 func (o TemplatePluginVisualTableQuerySortPtrOutput) ItemsLimitConfiguration() TemplatePluginVisualItemsLimitConfigurationPtrOutput {
 	return o.ApplyT(func(v *TemplatePluginVisualTableQuerySort) *TemplatePluginVisualItemsLimitConfiguration {
 		if v == nil {
@@ -8089,6 +8162,7 @@ func (o TemplatePluginVisualTableQuerySortPtrOutput) ItemsLimitConfiguration() T
 	}).(TemplatePluginVisualItemsLimitConfigurationPtrOutput)
 }
 
+// Determines how data is sorted in the response.
 func (o TemplatePluginVisualTableQuerySortPtrOutput) RowSort() TemplateFieldSortOptionsArrayOutput {
 	return o.ApplyT(func(v *TemplatePluginVisualTableQuerySort) []TemplateFieldSortOptions {
 		if v == nil {
@@ -9748,8 +9822,9 @@ type TemplateRadarChartVisual struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle *TemplateVisualSubtitleLabelOptions `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                *TemplateVisualTitleLabelOptions `pulumi:"title"`
-	VisualContentAltText *string                          `pulumi:"visualContentAltText"`
+	Title *TemplateVisualTitleLabelOptions `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText *string `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
 	VisualId string `pulumi:"visualId"`
 }
@@ -9775,8 +9850,9 @@ type TemplateRadarChartVisualArgs struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle TemplateVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                TemplateVisualTitleLabelOptionsPtrInput `pulumi:"title"`
-	VisualContentAltText pulumi.StringPtrInput                   `pulumi:"visualContentAltText"`
+	Title TemplateVisualTitleLabelOptionsPtrInput `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText pulumi.StringPtrInput `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
 	VisualId pulumi.StringInput `pulumi:"visualId"`
 }
@@ -9883,6 +9959,7 @@ func (o TemplateRadarChartVisualOutput) Title() TemplateVisualTitleLabelOptionsP
 	return o.ApplyT(func(v TemplateRadarChartVisual) *TemplateVisualTitleLabelOptions { return v.Title }).(TemplateVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o TemplateRadarChartVisualOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplateRadarChartVisual) *string { return v.VisualContentAltText }).(pulumi.StringPtrOutput)
 }
@@ -9966,6 +10043,7 @@ func (o TemplateRadarChartVisualPtrOutput) Title() TemplateVisualTitleLabelOptio
 	}).(TemplateVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o TemplateRadarChartVisualPtrOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplateRadarChartVisual) *string {
 		if v == nil {
@@ -13304,8 +13382,9 @@ type TemplateSankeyDiagramVisual struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle *TemplateVisualSubtitleLabelOptions `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                *TemplateVisualTitleLabelOptions `pulumi:"title"`
-	VisualContentAltText *string                          `pulumi:"visualContentAltText"`
+	Title *TemplateVisualTitleLabelOptions `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText *string `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
 	VisualId string `pulumi:"visualId"`
 }
@@ -13329,8 +13408,9 @@ type TemplateSankeyDiagramVisualArgs struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle TemplateVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                TemplateVisualTitleLabelOptionsPtrInput `pulumi:"title"`
-	VisualContentAltText pulumi.StringPtrInput                   `pulumi:"visualContentAltText"`
+	Title TemplateVisualTitleLabelOptionsPtrInput `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText pulumi.StringPtrInput `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
 	VisualId pulumi.StringInput `pulumi:"visualId"`
 }
@@ -13434,6 +13514,7 @@ func (o TemplateSankeyDiagramVisualOutput) Title() TemplateVisualTitleLabelOptio
 	return o.ApplyT(func(v TemplateSankeyDiagramVisual) *TemplateVisualTitleLabelOptions { return v.Title }).(TemplateVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o TemplateSankeyDiagramVisualOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplateSankeyDiagramVisual) *string { return v.VisualContentAltText }).(pulumi.StringPtrOutput)
 }
@@ -13507,6 +13588,7 @@ func (o TemplateSankeyDiagramVisualPtrOutput) Title() TemplateVisualTitleLabelOp
 	}).(TemplateVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o TemplateSankeyDiagramVisualPtrOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplateSankeyDiagramVisual) *string {
 		if v == nil {
@@ -14445,8 +14527,9 @@ type TemplateScatterPlotVisual struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle *TemplateVisualSubtitleLabelOptions `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                *TemplateVisualTitleLabelOptions `pulumi:"title"`
-	VisualContentAltText *string                          `pulumi:"visualContentAltText"`
+	Title *TemplateVisualTitleLabelOptions `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText *string `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
 	VisualId string `pulumi:"visualId"`
 }
@@ -14472,8 +14555,9 @@ type TemplateScatterPlotVisualArgs struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle TemplateVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                TemplateVisualTitleLabelOptionsPtrInput `pulumi:"title"`
-	VisualContentAltText pulumi.StringPtrInput                   `pulumi:"visualContentAltText"`
+	Title TemplateVisualTitleLabelOptionsPtrInput `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText pulumi.StringPtrInput `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
 	VisualId pulumi.StringInput `pulumi:"visualId"`
 }
@@ -14580,6 +14664,7 @@ func (o TemplateScatterPlotVisualOutput) Title() TemplateVisualTitleLabelOptions
 	return o.ApplyT(func(v TemplateScatterPlotVisual) *TemplateVisualTitleLabelOptions { return v.Title }).(TemplateVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o TemplateScatterPlotVisualOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplateScatterPlotVisual) *string { return v.VisualContentAltText }).(pulumi.StringPtrOutput)
 }
@@ -14663,6 +14748,7 @@ func (o TemplateScatterPlotVisualPtrOutput) Title() TemplateVisualTitleLabelOpti
 	}).(TemplateVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o TemplateScatterPlotVisualPtrOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplateScatterPlotVisual) *string {
 		if v == nil {
@@ -16576,6 +16662,7 @@ func (o TemplateShapeConditionalFormatPtrOutput) BackgroundColor() TemplateCondi
 //	example a chart, pivot table, or narrative insight. Sheets can be associated with other
 //	components, such as controls, filters, and so on.</p>
 type TemplateSheet struct {
+	// A list of images on a sheet.
 	Images []TemplateSheetImage `pulumi:"images"`
 	// <p>The name of a sheet. This name is displayed on the sheet's tab in the Amazon QuickSight
 	//             console.</p>
@@ -16604,6 +16691,7 @@ func (o TemplateSheetOutput) ToTemplateSheetOutputWithContext(ctx context.Contex
 	return o
 }
 
+// A list of images on a sheet.
 func (o TemplateSheetOutput) Images() TemplateSheetImageArrayOutput {
 	return o.ApplyT(func(v TemplateSheet) []TemplateSheetImage { return v.Images }).(TemplateSheetImageArrayOutput)
 }
@@ -16957,7 +17045,8 @@ type TemplateSheetDefinition struct {
 	//
 	// For more information, see [Adding filter controls to analysis sheets](https://docs.aws.amazon.com/quicksight/latest/user/filter-controls.html) in the *Amazon QuickSight User Guide* .
 	FilterControls []TemplateFilterControl `pulumi:"filterControls"`
-	Images         []TemplateSheetImage    `pulumi:"images"`
+	// A list of images on a sheet.
+	Images []TemplateSheetImage `pulumi:"images"`
 	// Layouts define how the components of a sheet are arranged.
 	//
 	// For more information, see [Types of layout](https://docs.aws.amazon.com/quicksight/latest/user/types-of-layout.html) in the *Amazon QuickSight User Guide* .
@@ -17003,7 +17092,8 @@ type TemplateSheetDefinitionArgs struct {
 	//
 	// For more information, see [Adding filter controls to analysis sheets](https://docs.aws.amazon.com/quicksight/latest/user/filter-controls.html) in the *Amazon QuickSight User Guide* .
 	FilterControls TemplateFilterControlArrayInput `pulumi:"filterControls"`
-	Images         TemplateSheetImageArrayInput    `pulumi:"images"`
+	// A list of images on a sheet.
+	Images TemplateSheetImageArrayInput `pulumi:"images"`
 	// Layouts define how the components of a sheet are arranged.
 	//
 	// For more information, see [Types of layout](https://docs.aws.amazon.com/quicksight/latest/user/types-of-layout.html) in the *Amazon QuickSight User Guide* .
@@ -17097,6 +17187,7 @@ func (o TemplateSheetDefinitionOutput) FilterControls() TemplateFilterControlArr
 	return o.ApplyT(func(v TemplateSheetDefinition) []TemplateFilterControl { return v.FilterControls }).(TemplateFilterControlArrayOutput)
 }
 
+// A list of images on a sheet.
 func (o TemplateSheetDefinitionOutput) Images() TemplateSheetImageArrayOutput {
 	return o.ApplyT(func(v TemplateSheetDefinition) []TemplateSheetImage { return v.Images }).(TemplateSheetImageArrayOutput)
 }
@@ -17335,13 +17426,20 @@ func (o TemplateSheetElementRenderingRuleArrayOutput) Index(i pulumi.IntInput) T
 }
 
 type TemplateSheetImage struct {
-	Actions             []TemplateImageCustomAction             `pulumi:"actions"`
-	ImageContentAltText *string                                 `pulumi:"imageContentAltText"`
-	Interactions        *TemplateImageInteractionOptions        `pulumi:"interactions"`
-	Scaling             *TemplateSheetImageScalingConfiguration `pulumi:"scaling"`
-	SheetImageId        string                                  `pulumi:"sheetImageId"`
-	Source              TemplateSheetImageSource                `pulumi:"source"`
-	Tooltip             *TemplateSheetImageTooltipConfiguration `pulumi:"tooltip"`
+	// A list of custom actions that are configured for an image.
+	Actions []TemplateImageCustomAction `pulumi:"actions"`
+	// The alt text for the image.
+	ImageContentAltText *string `pulumi:"imageContentAltText"`
+	// The general image interactions setup for an image.
+	Interactions *TemplateImageInteractionOptions `pulumi:"interactions"`
+	// Determines how the image is scaled.
+	Scaling *TemplateSheetImageScalingConfiguration `pulumi:"scaling"`
+	// The ID of the sheet image.
+	SheetImageId string `pulumi:"sheetImageId"`
+	// The source of the image.
+	Source TemplateSheetImageSource `pulumi:"source"`
+	// The tooltip to be shown when hovering over the image.
+	Tooltip *TemplateSheetImageTooltipConfiguration `pulumi:"tooltip"`
 }
 
 // TemplateSheetImageInput is an input type that accepts TemplateSheetImageArgs and TemplateSheetImageOutput values.
@@ -17356,13 +17454,20 @@ type TemplateSheetImageInput interface {
 }
 
 type TemplateSheetImageArgs struct {
-	Actions             TemplateImageCustomActionArrayInput            `pulumi:"actions"`
-	ImageContentAltText pulumi.StringPtrInput                          `pulumi:"imageContentAltText"`
-	Interactions        TemplateImageInteractionOptionsPtrInput        `pulumi:"interactions"`
-	Scaling             TemplateSheetImageScalingConfigurationPtrInput `pulumi:"scaling"`
-	SheetImageId        pulumi.StringInput                             `pulumi:"sheetImageId"`
-	Source              TemplateSheetImageSourceInput                  `pulumi:"source"`
-	Tooltip             TemplateSheetImageTooltipConfigurationPtrInput `pulumi:"tooltip"`
+	// A list of custom actions that are configured for an image.
+	Actions TemplateImageCustomActionArrayInput `pulumi:"actions"`
+	// The alt text for the image.
+	ImageContentAltText pulumi.StringPtrInput `pulumi:"imageContentAltText"`
+	// The general image interactions setup for an image.
+	Interactions TemplateImageInteractionOptionsPtrInput `pulumi:"interactions"`
+	// Determines how the image is scaled.
+	Scaling TemplateSheetImageScalingConfigurationPtrInput `pulumi:"scaling"`
+	// The ID of the sheet image.
+	SheetImageId pulumi.StringInput `pulumi:"sheetImageId"`
+	// The source of the image.
+	Source TemplateSheetImageSourceInput `pulumi:"source"`
+	// The tooltip to be shown when hovering over the image.
+	Tooltip TemplateSheetImageTooltipConfigurationPtrInput `pulumi:"tooltip"`
 }
 
 func (TemplateSheetImageArgs) ElementType() reflect.Type {
@@ -17416,30 +17521,37 @@ func (o TemplateSheetImageOutput) ToTemplateSheetImageOutputWithContext(ctx cont
 	return o
 }
 
+// A list of custom actions that are configured for an image.
 func (o TemplateSheetImageOutput) Actions() TemplateImageCustomActionArrayOutput {
 	return o.ApplyT(func(v TemplateSheetImage) []TemplateImageCustomAction { return v.Actions }).(TemplateImageCustomActionArrayOutput)
 }
 
+// The alt text for the image.
 func (o TemplateSheetImageOutput) ImageContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplateSheetImage) *string { return v.ImageContentAltText }).(pulumi.StringPtrOutput)
 }
 
+// The general image interactions setup for an image.
 func (o TemplateSheetImageOutput) Interactions() TemplateImageInteractionOptionsPtrOutput {
 	return o.ApplyT(func(v TemplateSheetImage) *TemplateImageInteractionOptions { return v.Interactions }).(TemplateImageInteractionOptionsPtrOutput)
 }
 
+// Determines how the image is scaled.
 func (o TemplateSheetImageOutput) Scaling() TemplateSheetImageScalingConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateSheetImage) *TemplateSheetImageScalingConfiguration { return v.Scaling }).(TemplateSheetImageScalingConfigurationPtrOutput)
 }
 
+// The ID of the sheet image.
 func (o TemplateSheetImageOutput) SheetImageId() pulumi.StringOutput {
 	return o.ApplyT(func(v TemplateSheetImage) string { return v.SheetImageId }).(pulumi.StringOutput)
 }
 
+// The source of the image.
 func (o TemplateSheetImageOutput) Source() TemplateSheetImageSourceOutput {
 	return o.ApplyT(func(v TemplateSheetImage) TemplateSheetImageSource { return v.Source }).(TemplateSheetImageSourceOutput)
 }
 
+// The tooltip to be shown when hovering over the image.
 func (o TemplateSheetImageOutput) Tooltip() TemplateSheetImageTooltipConfigurationPtrOutput {
 	return o.ApplyT(func(v TemplateSheetImage) *TemplateSheetImageTooltipConfiguration { return v.Tooltip }).(TemplateSheetImageTooltipConfigurationPtrOutput)
 }
@@ -17465,6 +17577,14 @@ func (o TemplateSheetImageArrayOutput) Index(i pulumi.IntInput) TemplateSheetIma
 }
 
 type TemplateSheetImageScalingConfiguration struct {
+	// The scaling option to use when fitting the image inside the container.
+	//
+	// Valid values are defined as follows:
+	//
+	// - `SCALE_TO_WIDTH` : The image takes up the entire width of the container. The image aspect ratio is preserved.
+	// - `SCALE_TO_HEIGHT` : The image takes up the entire height of the container. The image aspect ratio is preserved.
+	// - `SCALE_TO_CONTAINER` : The image takes up the entire width and height of the container. The image aspect ratio is not preserved.
+	// - `SCALE_NONE` : The image is displayed in its original size and is not scaled to the container.
 	ScalingType *TemplateSheetImageScalingType `pulumi:"scalingType"`
 }
 
@@ -17480,6 +17600,14 @@ type TemplateSheetImageScalingConfigurationInput interface {
 }
 
 type TemplateSheetImageScalingConfigurationArgs struct {
+	// The scaling option to use when fitting the image inside the container.
+	//
+	// Valid values are defined as follows:
+	//
+	// - `SCALE_TO_WIDTH` : The image takes up the entire width of the container. The image aspect ratio is preserved.
+	// - `SCALE_TO_HEIGHT` : The image takes up the entire height of the container. The image aspect ratio is preserved.
+	// - `SCALE_TO_CONTAINER` : The image takes up the entire width and height of the container. The image aspect ratio is not preserved.
+	// - `SCALE_NONE` : The image is displayed in its original size and is not scaled to the container.
 	ScalingType TemplateSheetImageScalingTypePtrInput `pulumi:"scalingType"`
 }
 
@@ -17560,6 +17688,14 @@ func (o TemplateSheetImageScalingConfigurationOutput) ToTemplateSheetImageScalin
 	}).(TemplateSheetImageScalingConfigurationPtrOutput)
 }
 
+// The scaling option to use when fitting the image inside the container.
+//
+// Valid values are defined as follows:
+//
+// - `SCALE_TO_WIDTH` : The image takes up the entire width of the container. The image aspect ratio is preserved.
+// - `SCALE_TO_HEIGHT` : The image takes up the entire height of the container. The image aspect ratio is preserved.
+// - `SCALE_TO_CONTAINER` : The image takes up the entire width and height of the container. The image aspect ratio is not preserved.
+// - `SCALE_NONE` : The image is displayed in its original size and is not scaled to the container.
 func (o TemplateSheetImageScalingConfigurationOutput) ScalingType() TemplateSheetImageScalingTypePtrOutput {
 	return o.ApplyT(func(v TemplateSheetImageScalingConfiguration) *TemplateSheetImageScalingType { return v.ScalingType }).(TemplateSheetImageScalingTypePtrOutput)
 }
@@ -17588,6 +17724,14 @@ func (o TemplateSheetImageScalingConfigurationPtrOutput) Elem() TemplateSheetIma
 	}).(TemplateSheetImageScalingConfigurationOutput)
 }
 
+// The scaling option to use when fitting the image inside the container.
+//
+// Valid values are defined as follows:
+//
+// - `SCALE_TO_WIDTH` : The image takes up the entire width of the container. The image aspect ratio is preserved.
+// - `SCALE_TO_HEIGHT` : The image takes up the entire height of the container. The image aspect ratio is preserved.
+// - `SCALE_TO_CONTAINER` : The image takes up the entire width and height of the container. The image aspect ratio is not preserved.
+// - `SCALE_NONE` : The image is displayed in its original size and is not scaled to the container.
 func (o TemplateSheetImageScalingConfigurationPtrOutput) ScalingType() TemplateSheetImageScalingTypePtrOutput {
 	return o.ApplyT(func(v *TemplateSheetImageScalingConfiguration) *TemplateSheetImageScalingType {
 		if v == nil {
@@ -17598,6 +17742,7 @@ func (o TemplateSheetImageScalingConfigurationPtrOutput) ScalingType() TemplateS
 }
 
 type TemplateSheetImageSource struct {
+	// The source of the static file that contains the image.
 	SheetImageStaticFileSource *TemplateSheetImageStaticFileSource `pulumi:"sheetImageStaticFileSource"`
 }
 
@@ -17613,6 +17758,7 @@ type TemplateSheetImageSourceInput interface {
 }
 
 type TemplateSheetImageSourceArgs struct {
+	// The source of the static file that contains the image.
 	SheetImageStaticFileSource TemplateSheetImageStaticFileSourcePtrInput `pulumi:"sheetImageStaticFileSource"`
 }
 
@@ -17642,6 +17788,7 @@ func (o TemplateSheetImageSourceOutput) ToTemplateSheetImageSourceOutputWithCont
 	return o
 }
 
+// The source of the static file that contains the image.
 func (o TemplateSheetImageSourceOutput) SheetImageStaticFileSource() TemplateSheetImageStaticFileSourcePtrOutput {
 	return o.ApplyT(func(v TemplateSheetImageSource) *TemplateSheetImageStaticFileSource {
 		return v.SheetImageStaticFileSource
@@ -17649,6 +17796,7 @@ func (o TemplateSheetImageSourceOutput) SheetImageStaticFileSource() TemplateShe
 }
 
 type TemplateSheetImageStaticFileSource struct {
+	// The ID of the static file that contains the image.
 	StaticFileId string `pulumi:"staticFileId"`
 }
 
@@ -17664,6 +17812,7 @@ type TemplateSheetImageStaticFileSourceInput interface {
 }
 
 type TemplateSheetImageStaticFileSourceArgs struct {
+	// The ID of the static file that contains the image.
 	StaticFileId pulumi.StringInput `pulumi:"staticFileId"`
 }
 
@@ -17744,6 +17893,7 @@ func (o TemplateSheetImageStaticFileSourceOutput) ToTemplateSheetImageStaticFile
 	}).(TemplateSheetImageStaticFileSourcePtrOutput)
 }
 
+// The ID of the static file that contains the image.
 func (o TemplateSheetImageStaticFileSourceOutput) StaticFileId() pulumi.StringOutput {
 	return o.ApplyT(func(v TemplateSheetImageStaticFileSource) string { return v.StaticFileId }).(pulumi.StringOutput)
 }
@@ -17772,6 +17922,7 @@ func (o TemplateSheetImageStaticFileSourcePtrOutput) Elem() TemplateSheetImageSt
 	}).(TemplateSheetImageStaticFileSourceOutput)
 }
 
+// The ID of the static file that contains the image.
 func (o TemplateSheetImageStaticFileSourcePtrOutput) StaticFileId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplateSheetImageStaticFileSource) *string {
 		if v == nil {
@@ -17782,8 +17933,10 @@ func (o TemplateSheetImageStaticFileSourcePtrOutput) StaticFileId() pulumi.Strin
 }
 
 type TemplateSheetImageTooltipConfiguration struct {
+	// The text that appears in the tooltip.
 	TooltipText *TemplateSheetImageTooltipText `pulumi:"tooltipText"`
-	Visibility  interface{}                    `pulumi:"visibility"`
+	// The visibility of the tooltip.
+	Visibility interface{} `pulumi:"visibility"`
 }
 
 // TemplateSheetImageTooltipConfigurationInput is an input type that accepts TemplateSheetImageTooltipConfigurationArgs and TemplateSheetImageTooltipConfigurationOutput values.
@@ -17798,8 +17951,10 @@ type TemplateSheetImageTooltipConfigurationInput interface {
 }
 
 type TemplateSheetImageTooltipConfigurationArgs struct {
+	// The text that appears in the tooltip.
 	TooltipText TemplateSheetImageTooltipTextPtrInput `pulumi:"tooltipText"`
-	Visibility  pulumi.Input                          `pulumi:"visibility"`
+	// The visibility of the tooltip.
+	Visibility pulumi.Input `pulumi:"visibility"`
 }
 
 func (TemplateSheetImageTooltipConfigurationArgs) ElementType() reflect.Type {
@@ -17879,10 +18034,12 @@ func (o TemplateSheetImageTooltipConfigurationOutput) ToTemplateSheetImageToolti
 	}).(TemplateSheetImageTooltipConfigurationPtrOutput)
 }
 
+// The text that appears in the tooltip.
 func (o TemplateSheetImageTooltipConfigurationOutput) TooltipText() TemplateSheetImageTooltipTextPtrOutput {
 	return o.ApplyT(func(v TemplateSheetImageTooltipConfiguration) *TemplateSheetImageTooltipText { return v.TooltipText }).(TemplateSheetImageTooltipTextPtrOutput)
 }
 
+// The visibility of the tooltip.
 func (o TemplateSheetImageTooltipConfigurationOutput) Visibility() pulumi.AnyOutput {
 	return o.ApplyT(func(v TemplateSheetImageTooltipConfiguration) interface{} { return v.Visibility }).(pulumi.AnyOutput)
 }
@@ -17911,6 +18068,7 @@ func (o TemplateSheetImageTooltipConfigurationPtrOutput) Elem() TemplateSheetIma
 	}).(TemplateSheetImageTooltipConfigurationOutput)
 }
 
+// The text that appears in the tooltip.
 func (o TemplateSheetImageTooltipConfigurationPtrOutput) TooltipText() TemplateSheetImageTooltipTextPtrOutput {
 	return o.ApplyT(func(v *TemplateSheetImageTooltipConfiguration) *TemplateSheetImageTooltipText {
 		if v == nil {
@@ -17920,6 +18078,7 @@ func (o TemplateSheetImageTooltipConfigurationPtrOutput) TooltipText() TemplateS
 	}).(TemplateSheetImageTooltipTextPtrOutput)
 }
 
+// The visibility of the tooltip.
 func (o TemplateSheetImageTooltipConfigurationPtrOutput) Visibility() pulumi.AnyOutput {
 	return o.ApplyT(func(v *TemplateSheetImageTooltipConfiguration) interface{} {
 		if v == nil {
@@ -17930,6 +18089,7 @@ func (o TemplateSheetImageTooltipConfigurationPtrOutput) Visibility() pulumi.Any
 }
 
 type TemplateSheetImageTooltipText struct {
+	// The plain text format.
 	PlainText *string `pulumi:"plainText"`
 }
 
@@ -17945,6 +18105,7 @@ type TemplateSheetImageTooltipTextInput interface {
 }
 
 type TemplateSheetImageTooltipTextArgs struct {
+	// The plain text format.
 	PlainText pulumi.StringPtrInput `pulumi:"plainText"`
 }
 
@@ -18025,6 +18186,7 @@ func (o TemplateSheetImageTooltipTextOutput) ToTemplateSheetImageTooltipTextPtrO
 	}).(TemplateSheetImageTooltipTextPtrOutput)
 }
 
+// The plain text format.
 func (o TemplateSheetImageTooltipTextOutput) PlainText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplateSheetImageTooltipText) *string { return v.PlainText }).(pulumi.StringPtrOutput)
 }
@@ -18053,6 +18215,7 @@ func (o TemplateSheetImageTooltipTextPtrOutput) Elem() TemplateSheetImageTooltip
 	}).(TemplateSheetImageTooltipTextOutput)
 }
 
+// The plain text format.
 func (o TemplateSheetImageTooltipTextPtrOutput) PlainText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplateSheetImageTooltipText) *string {
 		if v == nil {
@@ -25042,8 +25205,9 @@ type TemplateTableVisual struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle *TemplateVisualSubtitleLabelOptions `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                *TemplateVisualTitleLabelOptions `pulumi:"title"`
-	VisualContentAltText *string                          `pulumi:"visualContentAltText"`
+	Title *TemplateVisualTitleLabelOptions `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText *string `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..
 	VisualId string `pulumi:"visualId"`
 }
@@ -25069,8 +25233,9 @@ type TemplateTableVisualArgs struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle TemplateVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                TemplateVisualTitleLabelOptionsPtrInput `pulumi:"title"`
-	VisualContentAltText pulumi.StringPtrInput                   `pulumi:"visualContentAltText"`
+	Title TemplateVisualTitleLabelOptionsPtrInput `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText pulumi.StringPtrInput `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..
 	VisualId pulumi.StringInput `pulumi:"visualId"`
 }
@@ -25177,6 +25342,7 @@ func (o TemplateTableVisualOutput) Title() TemplateVisualTitleLabelOptionsPtrOut
 	return o.ApplyT(func(v TemplateTableVisual) *TemplateVisualTitleLabelOptions { return v.Title }).(TemplateVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o TemplateTableVisualOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplateTableVisual) *string { return v.VisualContentAltText }).(pulumi.StringPtrOutput)
 }
@@ -25260,6 +25426,7 @@ func (o TemplateTableVisualPtrOutput) Title() TemplateVisualTitleLabelOptionsPtr
 	}).(TemplateVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o TemplateTableVisualPtrOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplateTableVisual) *string {
 		if v == nil {
@@ -29747,8 +29914,9 @@ type TemplateTreeMapVisual struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle *TemplateVisualSubtitleLabelOptions `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                *TemplateVisualTitleLabelOptions `pulumi:"title"`
-	VisualContentAltText *string                          `pulumi:"visualContentAltText"`
+	Title *TemplateVisualTitleLabelOptions `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText *string `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..
 	VisualId string `pulumi:"visualId"`
 }
@@ -29774,8 +29942,9 @@ type TemplateTreeMapVisualArgs struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle TemplateVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                TemplateVisualTitleLabelOptionsPtrInput `pulumi:"title"`
-	VisualContentAltText pulumi.StringPtrInput                   `pulumi:"visualContentAltText"`
+	Title TemplateVisualTitleLabelOptionsPtrInput `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText pulumi.StringPtrInput `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..
 	VisualId pulumi.StringInput `pulumi:"visualId"`
 }
@@ -29882,6 +30051,7 @@ func (o TemplateTreeMapVisualOutput) Title() TemplateVisualTitleLabelOptionsPtrO
 	return o.ApplyT(func(v TemplateTreeMapVisual) *TemplateVisualTitleLabelOptions { return v.Title }).(TemplateVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o TemplateTreeMapVisualOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplateTreeMapVisual) *string { return v.VisualContentAltText }).(pulumi.StringPtrOutput)
 }
@@ -29965,6 +30135,7 @@ func (o TemplateTreeMapVisualPtrOutput) Title() TemplateVisualTitleLabelOptionsP
 	}).(TemplateVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o TemplateTreeMapVisualPtrOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplateTreeMapVisual) *string {
 		if v == nil {
@@ -31289,7 +31460,8 @@ type TemplateVisual struct {
 	//
 	// For more information, see [Using pivot tables](https://docs.aws.amazon.com/quicksight/latest/user/pivot-table.html) in the *Amazon QuickSight User Guide* .
 	PivotTableVisual *TemplatePivotTableVisual `pulumi:"pivotTableVisual"`
-	PluginVisual     *TemplatePluginVisual     `pulumi:"pluginVisual"`
+	// The custom plugin visual type.
+	PluginVisual *TemplatePluginVisual `pulumi:"pluginVisual"`
 	// A radar chart visual.
 	//
 	// For more information, see [Using radar charts](https://docs.aws.amazon.com/quicksight/latest/user/radar-chart.html) in the *Amazon QuickSight User Guide* .
@@ -31394,7 +31566,8 @@ type TemplateVisualArgs struct {
 	//
 	// For more information, see [Using pivot tables](https://docs.aws.amazon.com/quicksight/latest/user/pivot-table.html) in the *Amazon QuickSight User Guide* .
 	PivotTableVisual TemplatePivotTableVisualPtrInput `pulumi:"pivotTableVisual"`
-	PluginVisual     TemplatePluginVisualPtrInput     `pulumi:"pluginVisual"`
+	// The custom plugin visual type.
+	PluginVisual TemplatePluginVisualPtrInput `pulumi:"pluginVisual"`
 	// A radar chart visual.
 	//
 	// For more information, see [Using radar charts](https://docs.aws.amazon.com/quicksight/latest/user/radar-chart.html) in the *Amazon QuickSight User Guide* .
@@ -31586,6 +31759,7 @@ func (o TemplateVisualOutput) PivotTableVisual() TemplatePivotTableVisualPtrOutp
 	return o.ApplyT(func(v TemplateVisual) *TemplatePivotTableVisual { return v.PivotTableVisual }).(TemplatePivotTableVisualPtrOutput)
 }
 
+// The custom plugin visual type.
 func (o TemplateVisualOutput) PluginVisual() TemplatePluginVisualPtrOutput {
 	return o.ApplyT(func(v TemplateVisual) *TemplatePluginVisual { return v.PluginVisual }).(TemplatePluginVisualPtrOutput)
 }
@@ -33685,8 +33859,9 @@ type TemplateWaterfallVisual struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle *TemplateVisualSubtitleLabelOptions `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                *TemplateVisualTitleLabelOptions `pulumi:"title"`
-	VisualContentAltText *string                          `pulumi:"visualContentAltText"`
+	Title *TemplateVisualTitleLabelOptions `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText *string `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
 	VisualId string `pulumi:"visualId"`
 }
@@ -33712,8 +33887,9 @@ type TemplateWaterfallVisualArgs struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle TemplateVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                TemplateVisualTitleLabelOptionsPtrInput `pulumi:"title"`
-	VisualContentAltText pulumi.StringPtrInput                   `pulumi:"visualContentAltText"`
+	Title TemplateVisualTitleLabelOptionsPtrInput `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText pulumi.StringPtrInput `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
 	VisualId pulumi.StringInput `pulumi:"visualId"`
 }
@@ -33820,6 +33996,7 @@ func (o TemplateWaterfallVisualOutput) Title() TemplateVisualTitleLabelOptionsPt
 	return o.ApplyT(func(v TemplateWaterfallVisual) *TemplateVisualTitleLabelOptions { return v.Title }).(TemplateVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o TemplateWaterfallVisualOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplateWaterfallVisual) *string { return v.VisualContentAltText }).(pulumi.StringPtrOutput)
 }
@@ -33903,6 +34080,7 @@ func (o TemplateWaterfallVisualPtrOutput) Title() TemplateVisualTitleLabelOption
 	}).(TemplateVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o TemplateWaterfallVisualPtrOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplateWaterfallVisual) *string {
 		if v == nil {
@@ -35146,8 +35324,9 @@ type TemplateWordCloudVisual struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle *TemplateVisualSubtitleLabelOptions `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                *TemplateVisualTitleLabelOptions `pulumi:"title"`
-	VisualContentAltText *string                          `pulumi:"visualContentAltText"`
+	Title *TemplateVisualTitleLabelOptions `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText *string `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..
 	VisualId string `pulumi:"visualId"`
 }
@@ -35173,8 +35352,9 @@ type TemplateWordCloudVisualArgs struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle TemplateVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                TemplateVisualTitleLabelOptionsPtrInput `pulumi:"title"`
-	VisualContentAltText pulumi.StringPtrInput                   `pulumi:"visualContentAltText"`
+	Title TemplateVisualTitleLabelOptionsPtrInput `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText pulumi.StringPtrInput `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..
 	VisualId pulumi.StringInput `pulumi:"visualId"`
 }
@@ -35281,6 +35461,7 @@ func (o TemplateWordCloudVisualOutput) Title() TemplateVisualTitleLabelOptionsPt
 	return o.ApplyT(func(v TemplateWordCloudVisual) *TemplateVisualTitleLabelOptions { return v.Title }).(TemplateVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o TemplateWordCloudVisualOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TemplateWordCloudVisual) *string { return v.VisualContentAltText }).(pulumi.StringPtrOutput)
 }
@@ -35364,6 +35545,7 @@ func (o TemplateWordCloudVisualPtrOutput) Title() TemplateVisualTitleLabelOption
 	}).(TemplateVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o TemplateWordCloudVisualPtrOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TemplateWordCloudVisual) *string {
 		if v == nil {

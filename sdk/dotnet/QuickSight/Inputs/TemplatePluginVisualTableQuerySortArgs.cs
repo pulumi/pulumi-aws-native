@@ -12,11 +12,18 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class TemplatePluginVisualTableQuerySortArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The maximum amount of data to be returned by a query.
+        /// </summary>
         [Input("itemsLimitConfiguration")]
         public Input<Inputs.TemplatePluginVisualItemsLimitConfigurationArgs>? ItemsLimitConfiguration { get; set; }
 
         [Input("rowSort")]
         private InputList<Inputs.TemplateFieldSortOptionsArgs>? _rowSort;
+
+        /// <summary>
+        /// Determines how data is sorted in the response.
+        /// </summary>
         public InputList<Inputs.TemplateFieldSortOptionsArgs> RowSort
         {
             get => _rowSort ?? (_rowSort = new InputList<Inputs.TemplateFieldSortOptionsArgs>());

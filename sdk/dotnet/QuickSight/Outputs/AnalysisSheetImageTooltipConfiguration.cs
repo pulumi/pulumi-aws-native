@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisSheetImageTooltipConfiguration
     {
+        /// <summary>
+        /// The text that appears in the tooltip.
+        /// </summary>
         public readonly Outputs.AnalysisSheetImageTooltipText? TooltipText;
+        /// <summary>
+        /// The visibility of the tooltip.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.AnalysisVisibility? Visibility;
 
         [OutputConstructor]

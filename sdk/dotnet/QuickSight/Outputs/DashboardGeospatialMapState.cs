@@ -14,6 +14,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     public sealed class DashboardGeospatialMapState
     {
         public readonly Outputs.DashboardGeospatialCoordinateBounds? Bounds;
+        /// <summary>
+        /// Enables or disables map navigation for a map.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardGeospatialMapNavigation? MapNavigation;
 
         [OutputConstructor]

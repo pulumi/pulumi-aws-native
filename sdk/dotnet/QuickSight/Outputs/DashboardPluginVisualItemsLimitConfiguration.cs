@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardPluginVisualItemsLimitConfiguration
     {
+        /// <summary>
+        /// Determines how many values are be fetched at once.
+        /// </summary>
         public readonly double? ItemsLimit;
 
         [OutputConstructor]

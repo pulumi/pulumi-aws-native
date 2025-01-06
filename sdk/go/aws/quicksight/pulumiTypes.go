@@ -4289,8 +4289,9 @@ type AnalysisBarChartVisual struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle *AnalysisVisualSubtitleLabelOptions `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                *AnalysisVisualTitleLabelOptions `pulumi:"title"`
-	VisualContentAltText *string                          `pulumi:"visualContentAltText"`
+	Title *AnalysisVisualTitleLabelOptions `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText *string `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
 	VisualId string `pulumi:"visualId"`
 }
@@ -4316,8 +4317,9 @@ type AnalysisBarChartVisualArgs struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle AnalysisVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                AnalysisVisualTitleLabelOptionsPtrInput `pulumi:"title"`
-	VisualContentAltText pulumi.StringPtrInput                   `pulumi:"visualContentAltText"`
+	Title AnalysisVisualTitleLabelOptionsPtrInput `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText pulumi.StringPtrInput `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
 	VisualId pulumi.StringInput `pulumi:"visualId"`
 }
@@ -4424,6 +4426,7 @@ func (o AnalysisBarChartVisualOutput) Title() AnalysisVisualTitleLabelOptionsPtr
 	return o.ApplyT(func(v AnalysisBarChartVisual) *AnalysisVisualTitleLabelOptions { return v.Title }).(AnalysisVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o AnalysisBarChartVisualOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnalysisBarChartVisual) *string { return v.VisualContentAltText }).(pulumi.StringPtrOutput)
 }
@@ -4507,6 +4510,7 @@ func (o AnalysisBarChartVisualPtrOutput) Title() AnalysisVisualTitleLabelOptions
 	}).(AnalysisVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o AnalysisBarChartVisualPtrOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalysisBarChartVisual) *string {
 		if v == nil {
@@ -6103,8 +6107,9 @@ type AnalysisBoxPlotVisual struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle *AnalysisVisualSubtitleLabelOptions `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                *AnalysisVisualTitleLabelOptions `pulumi:"title"`
-	VisualContentAltText *string                          `pulumi:"visualContentAltText"`
+	Title *AnalysisVisualTitleLabelOptions `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText *string `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..
 	VisualId string `pulumi:"visualId"`
 }
@@ -6130,8 +6135,9 @@ type AnalysisBoxPlotVisualArgs struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle AnalysisVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                AnalysisVisualTitleLabelOptionsPtrInput `pulumi:"title"`
-	VisualContentAltText pulumi.StringPtrInput                   `pulumi:"visualContentAltText"`
+	Title AnalysisVisualTitleLabelOptionsPtrInput `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText pulumi.StringPtrInput `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..
 	VisualId pulumi.StringInput `pulumi:"visualId"`
 }
@@ -6238,6 +6244,7 @@ func (o AnalysisBoxPlotVisualOutput) Title() AnalysisVisualTitleLabelOptionsPtrO
 	return o.ApplyT(func(v AnalysisBoxPlotVisual) *AnalysisVisualTitleLabelOptions { return v.Title }).(AnalysisVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o AnalysisBoxPlotVisualOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnalysisBoxPlotVisual) *string { return v.VisualContentAltText }).(pulumi.StringPtrOutput)
 }
@@ -6321,6 +6328,7 @@ func (o AnalysisBoxPlotVisualPtrOutput) Title() AnalysisVisualTitleLabelOptionsP
 	}).(AnalysisVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o AnalysisBoxPlotVisualPtrOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalysisBoxPlotVisual) *string {
 		if v == nil {
@@ -10563,8 +10571,9 @@ type AnalysisComboChartVisual struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle *AnalysisVisualSubtitleLabelOptions `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                *AnalysisVisualTitleLabelOptions `pulumi:"title"`
-	VisualContentAltText *string                          `pulumi:"visualContentAltText"`
+	Title *AnalysisVisualTitleLabelOptions `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText *string `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
 	VisualId string `pulumi:"visualId"`
 }
@@ -10590,8 +10599,9 @@ type AnalysisComboChartVisualArgs struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle AnalysisVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                AnalysisVisualTitleLabelOptionsPtrInput `pulumi:"title"`
-	VisualContentAltText pulumi.StringPtrInput                   `pulumi:"visualContentAltText"`
+	Title AnalysisVisualTitleLabelOptionsPtrInput `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText pulumi.StringPtrInput `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
 	VisualId pulumi.StringInput `pulumi:"visualId"`
 }
@@ -10698,6 +10708,7 @@ func (o AnalysisComboChartVisualOutput) Title() AnalysisVisualTitleLabelOptionsP
 	return o.ApplyT(func(v AnalysisComboChartVisual) *AnalysisVisualTitleLabelOptions { return v.Title }).(AnalysisVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o AnalysisComboChartVisualOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnalysisComboChartVisual) *string { return v.VisualContentAltText }).(pulumi.StringPtrOutput)
 }
@@ -10781,6 +10792,7 @@ func (o AnalysisComboChartVisualPtrOutput) Title() AnalysisVisualTitleLabelOptio
 	}).(AnalysisVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o AnalysisComboChartVisualPtrOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalysisComboChartVisual) *string {
 		if v == nil {
@@ -13895,8 +13907,9 @@ type AnalysisCustomContentVisual struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle *AnalysisVisualSubtitleLabelOptions `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                *AnalysisVisualTitleLabelOptions `pulumi:"title"`
-	VisualContentAltText *string                          `pulumi:"visualContentAltText"`
+	Title *AnalysisVisualTitleLabelOptions `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText *string `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
 	VisualId string `pulumi:"visualId"`
 }
@@ -13922,8 +13935,9 @@ type AnalysisCustomContentVisualArgs struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle AnalysisVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                AnalysisVisualTitleLabelOptionsPtrInput `pulumi:"title"`
-	VisualContentAltText pulumi.StringPtrInput                   `pulumi:"visualContentAltText"`
+	Title AnalysisVisualTitleLabelOptionsPtrInput `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText pulumi.StringPtrInput `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
 	VisualId pulumi.StringInput `pulumi:"visualId"`
 }
@@ -14030,6 +14044,7 @@ func (o AnalysisCustomContentVisualOutput) Title() AnalysisVisualTitleLabelOptio
 	return o.ApplyT(func(v AnalysisCustomContentVisual) *AnalysisVisualTitleLabelOptions { return v.Title }).(AnalysisVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o AnalysisCustomContentVisualOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnalysisCustomContentVisual) *string { return v.VisualContentAltText }).(pulumi.StringPtrOutput)
 }
@@ -14113,6 +14128,7 @@ func (o AnalysisCustomContentVisualPtrOutput) Title() AnalysisVisualTitleLabelOp
 	}).(AnalysisVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o AnalysisCustomContentVisualPtrOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalysisCustomContentVisual) *string {
 		if v == nil {
@@ -22335,8 +22351,9 @@ type AnalysisDefinition struct {
 	ParameterDeclarations []AnalysisParameterDeclaration `pulumi:"parameterDeclarations"`
 	QueryExecutionOptions *AnalysisQueryExecutionOptions `pulumi:"queryExecutionOptions"`
 	// An array of sheet definitions for an analysis. Each `SheetDefinition` provides detailed information about a sheet within this analysis.
-	Sheets      []AnalysisSheetDefinition `pulumi:"sheets"`
-	StaticFiles []AnalysisStaticFile      `pulumi:"staticFiles"`
+	Sheets []AnalysisSheetDefinition `pulumi:"sheets"`
+	// The static files for the definition.
+	StaticFiles []AnalysisStaticFile `pulumi:"staticFiles"`
 }
 
 // AnalysisDefinitionInput is an input type that accepts AnalysisDefinitionArgs and AnalysisDefinitionOutput values.
@@ -22372,8 +22389,9 @@ type AnalysisDefinitionArgs struct {
 	ParameterDeclarations AnalysisParameterDeclarationArrayInput `pulumi:"parameterDeclarations"`
 	QueryExecutionOptions AnalysisQueryExecutionOptionsPtrInput  `pulumi:"queryExecutionOptions"`
 	// An array of sheet definitions for an analysis. Each `SheetDefinition` provides detailed information about a sheet within this analysis.
-	Sheets      AnalysisSheetDefinitionArrayInput `pulumi:"sheets"`
-	StaticFiles AnalysisStaticFileArrayInput      `pulumi:"staticFiles"`
+	Sheets AnalysisSheetDefinitionArrayInput `pulumi:"sheets"`
+	// The static files for the definition.
+	StaticFiles AnalysisStaticFileArrayInput `pulumi:"staticFiles"`
 }
 
 func (AnalysisDefinitionArgs) ElementType() reflect.Type {
@@ -22504,6 +22522,7 @@ func (o AnalysisDefinitionOutput) Sheets() AnalysisSheetDefinitionArrayOutput {
 	return o.ApplyT(func(v AnalysisDefinition) []AnalysisSheetDefinition { return v.Sheets }).(AnalysisSheetDefinitionArrayOutput)
 }
 
+// The static files for the definition.
 func (o AnalysisDefinitionOutput) StaticFiles() AnalysisStaticFileArrayOutput {
 	return o.ApplyT(func(v AnalysisDefinition) []AnalysisStaticFile { return v.StaticFiles }).(AnalysisStaticFileArrayOutput)
 }
@@ -22626,6 +22645,7 @@ func (o AnalysisDefinitionPtrOutput) Sheets() AnalysisSheetDefinitionArrayOutput
 	}).(AnalysisSheetDefinitionArrayOutput)
 }
 
+// The static files for the definition.
 func (o AnalysisDefinitionPtrOutput) StaticFiles() AnalysisStaticFileArrayOutput {
 	return o.ApplyT(func(v *AnalysisDefinition) []AnalysisStaticFile {
 		if v == nil {
@@ -26446,8 +26466,9 @@ type AnalysisFilledMapVisual struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle *AnalysisVisualSubtitleLabelOptions `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                *AnalysisVisualTitleLabelOptions `pulumi:"title"`
-	VisualContentAltText *string                          `pulumi:"visualContentAltText"`
+	Title *AnalysisVisualTitleLabelOptions `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText *string `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..
 	VisualId string `pulumi:"visualId"`
 }
@@ -26475,8 +26496,9 @@ type AnalysisFilledMapVisualArgs struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle AnalysisVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                AnalysisVisualTitleLabelOptionsPtrInput `pulumi:"title"`
-	VisualContentAltText pulumi.StringPtrInput                   `pulumi:"visualContentAltText"`
+	Title AnalysisVisualTitleLabelOptionsPtrInput `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText pulumi.StringPtrInput `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..
 	VisualId pulumi.StringInput `pulumi:"visualId"`
 }
@@ -26590,6 +26612,7 @@ func (o AnalysisFilledMapVisualOutput) Title() AnalysisVisualTitleLabelOptionsPt
 	return o.ApplyT(func(v AnalysisFilledMapVisual) *AnalysisVisualTitleLabelOptions { return v.Title }).(AnalysisVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o AnalysisFilledMapVisualOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnalysisFilledMapVisual) *string { return v.VisualContentAltText }).(pulumi.StringPtrOutput)
 }
@@ -26683,6 +26706,7 @@ func (o AnalysisFilledMapVisualPtrOutput) Title() AnalysisVisualTitleLabelOption
 	}).(AnalysisVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o AnalysisFilledMapVisualPtrOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalysisFilledMapVisual) *string {
 		if v == nil {
@@ -33160,8 +33184,9 @@ type AnalysisFunnelChartVisual struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle *AnalysisVisualSubtitleLabelOptions `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                *AnalysisVisualTitleLabelOptions `pulumi:"title"`
-	VisualContentAltText *string                          `pulumi:"visualContentAltText"`
+	Title *AnalysisVisualTitleLabelOptions `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText *string `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..
 	VisualId string `pulumi:"visualId"`
 }
@@ -33187,8 +33212,9 @@ type AnalysisFunnelChartVisualArgs struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle AnalysisVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                AnalysisVisualTitleLabelOptionsPtrInput `pulumi:"title"`
-	VisualContentAltText pulumi.StringPtrInput                   `pulumi:"visualContentAltText"`
+	Title AnalysisVisualTitleLabelOptionsPtrInput `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText pulumi.StringPtrInput `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..
 	VisualId pulumi.StringInput `pulumi:"visualId"`
 }
@@ -33295,6 +33321,7 @@ func (o AnalysisFunnelChartVisualOutput) Title() AnalysisVisualTitleLabelOptions
 	return o.ApplyT(func(v AnalysisFunnelChartVisual) *AnalysisVisualTitleLabelOptions { return v.Title }).(AnalysisVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o AnalysisFunnelChartVisualOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnalysisFunnelChartVisual) *string { return v.VisualContentAltText }).(pulumi.StringPtrOutput)
 }
@@ -33378,6 +33405,7 @@ func (o AnalysisFunnelChartVisualPtrOutput) Title() AnalysisVisualTitleLabelOpti
 	}).(AnalysisVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o AnalysisFunnelChartVisualPtrOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalysisFunnelChartVisual) *string {
 		if v == nil {
@@ -34537,8 +34565,9 @@ type AnalysisGaugeChartVisual struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle *AnalysisVisualSubtitleLabelOptions `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                *AnalysisVisualTitleLabelOptions `pulumi:"title"`
-	VisualContentAltText *string                          `pulumi:"visualContentAltText"`
+	Title *AnalysisVisualTitleLabelOptions `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText *string `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
 	VisualId string `pulumi:"visualId"`
 }
@@ -34564,8 +34593,9 @@ type AnalysisGaugeChartVisualArgs struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle AnalysisVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                AnalysisVisualTitleLabelOptionsPtrInput `pulumi:"title"`
-	VisualContentAltText pulumi.StringPtrInput                   `pulumi:"visualContentAltText"`
+	Title AnalysisVisualTitleLabelOptionsPtrInput `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText pulumi.StringPtrInput `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
 	VisualId pulumi.StringInput `pulumi:"visualId"`
 }
@@ -34674,6 +34704,7 @@ func (o AnalysisGaugeChartVisualOutput) Title() AnalysisVisualTitleLabelOptionsP
 	return o.ApplyT(func(v AnalysisGaugeChartVisual) *AnalysisVisualTitleLabelOptions { return v.Title }).(AnalysisVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o AnalysisGaugeChartVisualOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnalysisGaugeChartVisual) *string { return v.VisualContentAltText }).(pulumi.StringPtrOutput)
 }
@@ -34757,6 +34788,7 @@ func (o AnalysisGaugeChartVisualPtrOutput) Title() AnalysisVisualTitleLabelOptio
 	}).(AnalysisVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o AnalysisGaugeChartVisualPtrOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalysisGaugeChartVisual) *string {
 		if v == nil {
@@ -34777,10 +34809,14 @@ func (o AnalysisGaugeChartVisualPtrOutput) VisualId() pulumi.StringPtrOutput {
 }
 
 type AnalysisGeospatialCategoricalColor struct {
+	// A list of categorical data colors for each category.
 	CategoryDataColors []AnalysisGeospatialCategoricalDataColor `pulumi:"categoryDataColors"`
-	DefaultOpacity     *float64                                 `pulumi:"defaultOpacity"`
-	NullDataSettings   *AnalysisGeospatialNullDataSettings      `pulumi:"nullDataSettings"`
-	NullDataVisibility *AnalysisVisibility                      `pulumi:"nullDataVisibility"`
+	// The default opacity of a categorical color.
+	DefaultOpacity *float64 `pulumi:"defaultOpacity"`
+	// The null data visualization settings.
+	NullDataSettings *AnalysisGeospatialNullDataSettings `pulumi:"nullDataSettings"`
+	// The state of visibility for null data.
+	NullDataVisibility *AnalysisVisibility `pulumi:"nullDataVisibility"`
 }
 
 // AnalysisGeospatialCategoricalColorInput is an input type that accepts AnalysisGeospatialCategoricalColorArgs and AnalysisGeospatialCategoricalColorOutput values.
@@ -34795,10 +34831,14 @@ type AnalysisGeospatialCategoricalColorInput interface {
 }
 
 type AnalysisGeospatialCategoricalColorArgs struct {
+	// A list of categorical data colors for each category.
 	CategoryDataColors AnalysisGeospatialCategoricalDataColorArrayInput `pulumi:"categoryDataColors"`
-	DefaultOpacity     pulumi.Float64PtrInput                           `pulumi:"defaultOpacity"`
-	NullDataSettings   AnalysisGeospatialNullDataSettingsPtrInput       `pulumi:"nullDataSettings"`
-	NullDataVisibility AnalysisVisibilityPtrInput                       `pulumi:"nullDataVisibility"`
+	// The default opacity of a categorical color.
+	DefaultOpacity pulumi.Float64PtrInput `pulumi:"defaultOpacity"`
+	// The null data visualization settings.
+	NullDataSettings AnalysisGeospatialNullDataSettingsPtrInput `pulumi:"nullDataSettings"`
+	// The state of visibility for null data.
+	NullDataVisibility AnalysisVisibilityPtrInput `pulumi:"nullDataVisibility"`
 }
 
 func (AnalysisGeospatialCategoricalColorArgs) ElementType() reflect.Type {
@@ -34878,22 +34918,26 @@ func (o AnalysisGeospatialCategoricalColorOutput) ToAnalysisGeospatialCategorica
 	}).(AnalysisGeospatialCategoricalColorPtrOutput)
 }
 
+// A list of categorical data colors for each category.
 func (o AnalysisGeospatialCategoricalColorOutput) CategoryDataColors() AnalysisGeospatialCategoricalDataColorArrayOutput {
 	return o.ApplyT(func(v AnalysisGeospatialCategoricalColor) []AnalysisGeospatialCategoricalDataColor {
 		return v.CategoryDataColors
 	}).(AnalysisGeospatialCategoricalDataColorArrayOutput)
 }
 
+// The default opacity of a categorical color.
 func (o AnalysisGeospatialCategoricalColorOutput) DefaultOpacity() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v AnalysisGeospatialCategoricalColor) *float64 { return v.DefaultOpacity }).(pulumi.Float64PtrOutput)
 }
 
+// The null data visualization settings.
 func (o AnalysisGeospatialCategoricalColorOutput) NullDataSettings() AnalysisGeospatialNullDataSettingsPtrOutput {
 	return o.ApplyT(func(v AnalysisGeospatialCategoricalColor) *AnalysisGeospatialNullDataSettings {
 		return v.NullDataSettings
 	}).(AnalysisGeospatialNullDataSettingsPtrOutput)
 }
 
+// The state of visibility for null data.
 func (o AnalysisGeospatialCategoricalColorOutput) NullDataVisibility() AnalysisVisibilityPtrOutput {
 	return o.ApplyT(func(v AnalysisGeospatialCategoricalColor) *AnalysisVisibility { return v.NullDataVisibility }).(AnalysisVisibilityPtrOutput)
 }
@@ -34922,6 +34966,7 @@ func (o AnalysisGeospatialCategoricalColorPtrOutput) Elem() AnalysisGeospatialCa
 	}).(AnalysisGeospatialCategoricalColorOutput)
 }
 
+// A list of categorical data colors for each category.
 func (o AnalysisGeospatialCategoricalColorPtrOutput) CategoryDataColors() AnalysisGeospatialCategoricalDataColorArrayOutput {
 	return o.ApplyT(func(v *AnalysisGeospatialCategoricalColor) []AnalysisGeospatialCategoricalDataColor {
 		if v == nil {
@@ -34931,6 +34976,7 @@ func (o AnalysisGeospatialCategoricalColorPtrOutput) CategoryDataColors() Analys
 	}).(AnalysisGeospatialCategoricalDataColorArrayOutput)
 }
 
+// The default opacity of a categorical color.
 func (o AnalysisGeospatialCategoricalColorPtrOutput) DefaultOpacity() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *AnalysisGeospatialCategoricalColor) *float64 {
 		if v == nil {
@@ -34940,6 +34986,7 @@ func (o AnalysisGeospatialCategoricalColorPtrOutput) DefaultOpacity() pulumi.Flo
 	}).(pulumi.Float64PtrOutput)
 }
 
+// The null data visualization settings.
 func (o AnalysisGeospatialCategoricalColorPtrOutput) NullDataSettings() AnalysisGeospatialNullDataSettingsPtrOutput {
 	return o.ApplyT(func(v *AnalysisGeospatialCategoricalColor) *AnalysisGeospatialNullDataSettings {
 		if v == nil {
@@ -34949,6 +34996,7 @@ func (o AnalysisGeospatialCategoricalColorPtrOutput) NullDataSettings() Analysis
 	}).(AnalysisGeospatialNullDataSettingsPtrOutput)
 }
 
+// The state of visibility for null data.
 func (o AnalysisGeospatialCategoricalColorPtrOutput) NullDataVisibility() AnalysisVisibilityPtrOutput {
 	return o.ApplyT(func(v *AnalysisGeospatialCategoricalColor) *AnalysisVisibility {
 		if v == nil {
@@ -34959,7 +35007,9 @@ func (o AnalysisGeospatialCategoricalColorPtrOutput) NullDataVisibility() Analys
 }
 
 type AnalysisGeospatialCategoricalDataColor struct {
-	Color     string `pulumi:"color"`
+	// The color and opacity values for the category data color.
+	Color string `pulumi:"color"`
+	// The data value for the category data color.
 	DataValue string `pulumi:"dataValue"`
 }
 
@@ -34975,7 +35025,9 @@ type AnalysisGeospatialCategoricalDataColorInput interface {
 }
 
 type AnalysisGeospatialCategoricalDataColorArgs struct {
-	Color     pulumi.StringInput `pulumi:"color"`
+	// The color and opacity values for the category data color.
+	Color pulumi.StringInput `pulumi:"color"`
+	// The data value for the category data color.
 	DataValue pulumi.StringInput `pulumi:"dataValue"`
 }
 
@@ -35030,10 +35082,12 @@ func (o AnalysisGeospatialCategoricalDataColorOutput) ToAnalysisGeospatialCatego
 	return o
 }
 
+// The color and opacity values for the category data color.
 func (o AnalysisGeospatialCategoricalDataColorOutput) Color() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalysisGeospatialCategoricalDataColor) string { return v.Color }).(pulumi.StringOutput)
 }
 
+// The data value for the category data color.
 func (o AnalysisGeospatialCategoricalDataColorOutput) DataValue() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalysisGeospatialCategoricalDataColor) string { return v.DataValue }).(pulumi.StringOutput)
 }
@@ -35059,6 +35113,7 @@ func (o AnalysisGeospatialCategoricalDataColorArrayOutput) Index(i pulumi.IntInp
 }
 
 type AnalysisGeospatialCircleRadius struct {
+	// The positive value for the radius of a circle.
 	Radius *float64 `pulumi:"radius"`
 }
 
@@ -35074,6 +35129,7 @@ type AnalysisGeospatialCircleRadiusInput interface {
 }
 
 type AnalysisGeospatialCircleRadiusArgs struct {
+	// The positive value for the radius of a circle.
 	Radius pulumi.Float64PtrInput `pulumi:"radius"`
 }
 
@@ -35154,6 +35210,7 @@ func (o AnalysisGeospatialCircleRadiusOutput) ToAnalysisGeospatialCircleRadiusPt
 	}).(AnalysisGeospatialCircleRadiusPtrOutput)
 }
 
+// The positive value for the radius of a circle.
 func (o AnalysisGeospatialCircleRadiusOutput) Radius() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v AnalysisGeospatialCircleRadius) *float64 { return v.Radius }).(pulumi.Float64PtrOutput)
 }
@@ -35182,6 +35239,7 @@ func (o AnalysisGeospatialCircleRadiusPtrOutput) Elem() AnalysisGeospatialCircle
 	}).(AnalysisGeospatialCircleRadiusOutput)
 }
 
+// The positive value for the radius of a circle.
 func (o AnalysisGeospatialCircleRadiusPtrOutput) Radius() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *AnalysisGeospatialCircleRadius) *float64 {
 		if v == nil {
@@ -35192,10 +35250,14 @@ func (o AnalysisGeospatialCircleRadiusPtrOutput) Radius() pulumi.Float64PtrOutpu
 }
 
 type AnalysisGeospatialCircleSymbolStyle struct {
+	// The radius of the circle.
 	CircleRadius *AnalysisGeospatialCircleRadius `pulumi:"circleRadius"`
-	FillColor    *AnalysisGeospatialColor        `pulumi:"fillColor"`
-	StrokeColor  *AnalysisGeospatialColor        `pulumi:"strokeColor"`
-	StrokeWidth  *AnalysisGeospatialLineWidth    `pulumi:"strokeWidth"`
+	// The color and opacity values for the fill color.
+	FillColor *AnalysisGeospatialColor `pulumi:"fillColor"`
+	// The color and opacity values for the stroke color.
+	StrokeColor *AnalysisGeospatialColor `pulumi:"strokeColor"`
+	// The width of the stroke (border).
+	StrokeWidth *AnalysisGeospatialLineWidth `pulumi:"strokeWidth"`
 }
 
 // AnalysisGeospatialCircleSymbolStyleInput is an input type that accepts AnalysisGeospatialCircleSymbolStyleArgs and AnalysisGeospatialCircleSymbolStyleOutput values.
@@ -35210,10 +35272,14 @@ type AnalysisGeospatialCircleSymbolStyleInput interface {
 }
 
 type AnalysisGeospatialCircleSymbolStyleArgs struct {
+	// The radius of the circle.
 	CircleRadius AnalysisGeospatialCircleRadiusPtrInput `pulumi:"circleRadius"`
-	FillColor    AnalysisGeospatialColorPtrInput        `pulumi:"fillColor"`
-	StrokeColor  AnalysisGeospatialColorPtrInput        `pulumi:"strokeColor"`
-	StrokeWidth  AnalysisGeospatialLineWidthPtrInput    `pulumi:"strokeWidth"`
+	// The color and opacity values for the fill color.
+	FillColor AnalysisGeospatialColorPtrInput `pulumi:"fillColor"`
+	// The color and opacity values for the stroke color.
+	StrokeColor AnalysisGeospatialColorPtrInput `pulumi:"strokeColor"`
+	// The width of the stroke (border).
+	StrokeWidth AnalysisGeospatialLineWidthPtrInput `pulumi:"strokeWidth"`
 }
 
 func (AnalysisGeospatialCircleSymbolStyleArgs) ElementType() reflect.Type {
@@ -35293,18 +35359,22 @@ func (o AnalysisGeospatialCircleSymbolStyleOutput) ToAnalysisGeospatialCircleSym
 	}).(AnalysisGeospatialCircleSymbolStylePtrOutput)
 }
 
+// The radius of the circle.
 func (o AnalysisGeospatialCircleSymbolStyleOutput) CircleRadius() AnalysisGeospatialCircleRadiusPtrOutput {
 	return o.ApplyT(func(v AnalysisGeospatialCircleSymbolStyle) *AnalysisGeospatialCircleRadius { return v.CircleRadius }).(AnalysisGeospatialCircleRadiusPtrOutput)
 }
 
+// The color and opacity values for the fill color.
 func (o AnalysisGeospatialCircleSymbolStyleOutput) FillColor() AnalysisGeospatialColorPtrOutput {
 	return o.ApplyT(func(v AnalysisGeospatialCircleSymbolStyle) *AnalysisGeospatialColor { return v.FillColor }).(AnalysisGeospatialColorPtrOutput)
 }
 
+// The color and opacity values for the stroke color.
 func (o AnalysisGeospatialCircleSymbolStyleOutput) StrokeColor() AnalysisGeospatialColorPtrOutput {
 	return o.ApplyT(func(v AnalysisGeospatialCircleSymbolStyle) *AnalysisGeospatialColor { return v.StrokeColor }).(AnalysisGeospatialColorPtrOutput)
 }
 
+// The width of the stroke (border).
 func (o AnalysisGeospatialCircleSymbolStyleOutput) StrokeWidth() AnalysisGeospatialLineWidthPtrOutput {
 	return o.ApplyT(func(v AnalysisGeospatialCircleSymbolStyle) *AnalysisGeospatialLineWidth { return v.StrokeWidth }).(AnalysisGeospatialLineWidthPtrOutput)
 }
@@ -35333,6 +35403,7 @@ func (o AnalysisGeospatialCircleSymbolStylePtrOutput) Elem() AnalysisGeospatialC
 	}).(AnalysisGeospatialCircleSymbolStyleOutput)
 }
 
+// The radius of the circle.
 func (o AnalysisGeospatialCircleSymbolStylePtrOutput) CircleRadius() AnalysisGeospatialCircleRadiusPtrOutput {
 	return o.ApplyT(func(v *AnalysisGeospatialCircleSymbolStyle) *AnalysisGeospatialCircleRadius {
 		if v == nil {
@@ -35342,6 +35413,7 @@ func (o AnalysisGeospatialCircleSymbolStylePtrOutput) CircleRadius() AnalysisGeo
 	}).(AnalysisGeospatialCircleRadiusPtrOutput)
 }
 
+// The color and opacity values for the fill color.
 func (o AnalysisGeospatialCircleSymbolStylePtrOutput) FillColor() AnalysisGeospatialColorPtrOutput {
 	return o.ApplyT(func(v *AnalysisGeospatialCircleSymbolStyle) *AnalysisGeospatialColor {
 		if v == nil {
@@ -35351,6 +35423,7 @@ func (o AnalysisGeospatialCircleSymbolStylePtrOutput) FillColor() AnalysisGeospa
 	}).(AnalysisGeospatialColorPtrOutput)
 }
 
+// The color and opacity values for the stroke color.
 func (o AnalysisGeospatialCircleSymbolStylePtrOutput) StrokeColor() AnalysisGeospatialColorPtrOutput {
 	return o.ApplyT(func(v *AnalysisGeospatialCircleSymbolStyle) *AnalysisGeospatialColor {
 		if v == nil {
@@ -35360,6 +35433,7 @@ func (o AnalysisGeospatialCircleSymbolStylePtrOutput) StrokeColor() AnalysisGeos
 	}).(AnalysisGeospatialColorPtrOutput)
 }
 
+// The width of the stroke (border).
 func (o AnalysisGeospatialCircleSymbolStylePtrOutput) StrokeWidth() AnalysisGeospatialLineWidthPtrOutput {
 	return o.ApplyT(func(v *AnalysisGeospatialCircleSymbolStyle) *AnalysisGeospatialLineWidth {
 		if v == nil {
@@ -35370,9 +35444,12 @@ func (o AnalysisGeospatialCircleSymbolStylePtrOutput) StrokeWidth() AnalysisGeos
 }
 
 type AnalysisGeospatialColor struct {
+	// The visualization properties for the categorical color.
 	Categorical *AnalysisGeospatialCategoricalColor `pulumi:"categorical"`
-	Gradient    *AnalysisGeospatialGradientColor    `pulumi:"gradient"`
-	Solid       *AnalysisGeospatialSolidColor       `pulumi:"solid"`
+	// The visualization properties for the gradient color.
+	Gradient *AnalysisGeospatialGradientColor `pulumi:"gradient"`
+	// The visualization properties for the solid color.
+	Solid *AnalysisGeospatialSolidColor `pulumi:"solid"`
 }
 
 // AnalysisGeospatialColorInput is an input type that accepts AnalysisGeospatialColorArgs and AnalysisGeospatialColorOutput values.
@@ -35387,9 +35464,12 @@ type AnalysisGeospatialColorInput interface {
 }
 
 type AnalysisGeospatialColorArgs struct {
+	// The visualization properties for the categorical color.
 	Categorical AnalysisGeospatialCategoricalColorPtrInput `pulumi:"categorical"`
-	Gradient    AnalysisGeospatialGradientColorPtrInput    `pulumi:"gradient"`
-	Solid       AnalysisGeospatialSolidColorPtrInput       `pulumi:"solid"`
+	// The visualization properties for the gradient color.
+	Gradient AnalysisGeospatialGradientColorPtrInput `pulumi:"gradient"`
+	// The visualization properties for the solid color.
+	Solid AnalysisGeospatialSolidColorPtrInput `pulumi:"solid"`
 }
 
 func (AnalysisGeospatialColorArgs) ElementType() reflect.Type {
@@ -35469,14 +35549,17 @@ func (o AnalysisGeospatialColorOutput) ToAnalysisGeospatialColorPtrOutputWithCon
 	}).(AnalysisGeospatialColorPtrOutput)
 }
 
+// The visualization properties for the categorical color.
 func (o AnalysisGeospatialColorOutput) Categorical() AnalysisGeospatialCategoricalColorPtrOutput {
 	return o.ApplyT(func(v AnalysisGeospatialColor) *AnalysisGeospatialCategoricalColor { return v.Categorical }).(AnalysisGeospatialCategoricalColorPtrOutput)
 }
 
+// The visualization properties for the gradient color.
 func (o AnalysisGeospatialColorOutput) Gradient() AnalysisGeospatialGradientColorPtrOutput {
 	return o.ApplyT(func(v AnalysisGeospatialColor) *AnalysisGeospatialGradientColor { return v.Gradient }).(AnalysisGeospatialGradientColorPtrOutput)
 }
 
+// The visualization properties for the solid color.
 func (o AnalysisGeospatialColorOutput) Solid() AnalysisGeospatialSolidColorPtrOutput {
 	return o.ApplyT(func(v AnalysisGeospatialColor) *AnalysisGeospatialSolidColor { return v.Solid }).(AnalysisGeospatialSolidColorPtrOutput)
 }
@@ -35505,6 +35588,7 @@ func (o AnalysisGeospatialColorPtrOutput) Elem() AnalysisGeospatialColorOutput {
 	}).(AnalysisGeospatialColorOutput)
 }
 
+// The visualization properties for the categorical color.
 func (o AnalysisGeospatialColorPtrOutput) Categorical() AnalysisGeospatialCategoricalColorPtrOutput {
 	return o.ApplyT(func(v *AnalysisGeospatialColor) *AnalysisGeospatialCategoricalColor {
 		if v == nil {
@@ -35514,6 +35598,7 @@ func (o AnalysisGeospatialColorPtrOutput) Categorical() AnalysisGeospatialCatego
 	}).(AnalysisGeospatialCategoricalColorPtrOutput)
 }
 
+// The visualization properties for the gradient color.
 func (o AnalysisGeospatialColorPtrOutput) Gradient() AnalysisGeospatialGradientColorPtrOutput {
 	return o.ApplyT(func(v *AnalysisGeospatialColor) *AnalysisGeospatialGradientColor {
 		if v == nil {
@@ -35523,6 +35608,7 @@ func (o AnalysisGeospatialColorPtrOutput) Gradient() AnalysisGeospatialGradientC
 	}).(AnalysisGeospatialGradientColorPtrOutput)
 }
 
+// The visualization properties for the solid color.
 func (o AnalysisGeospatialColorPtrOutput) Solid() AnalysisGeospatialSolidColorPtrOutput {
 	return o.ApplyT(func(v *AnalysisGeospatialColor) *AnalysisGeospatialSolidColor {
 		if v == nil {
@@ -35727,6 +35813,7 @@ func (o AnalysisGeospatialCoordinateBoundsPtrOutput) West() pulumi.Float64PtrOut
 }
 
 type AnalysisGeospatialDataSourceItem struct {
+	// The static file data source properties for the geospatial data.
 	StaticFileDataSource *AnalysisGeospatialStaticFileSource `pulumi:"staticFileDataSource"`
 }
 
@@ -35742,6 +35829,7 @@ type AnalysisGeospatialDataSourceItemInput interface {
 }
 
 type AnalysisGeospatialDataSourceItemArgs struct {
+	// The static file data source properties for the geospatial data.
 	StaticFileDataSource AnalysisGeospatialStaticFileSourcePtrInput `pulumi:"staticFileDataSource"`
 }
 
@@ -35822,6 +35910,7 @@ func (o AnalysisGeospatialDataSourceItemOutput) ToAnalysisGeospatialDataSourceIt
 	}).(AnalysisGeospatialDataSourceItemPtrOutput)
 }
 
+// The static file data source properties for the geospatial data.
 func (o AnalysisGeospatialDataSourceItemOutput) StaticFileDataSource() AnalysisGeospatialStaticFileSourcePtrOutput {
 	return o.ApplyT(func(v AnalysisGeospatialDataSourceItem) *AnalysisGeospatialStaticFileSource {
 		return v.StaticFileDataSource
@@ -35852,6 +35941,7 @@ func (o AnalysisGeospatialDataSourceItemPtrOutput) Elem() AnalysisGeospatialData
 	}).(AnalysisGeospatialDataSourceItemOutput)
 }
 
+// The static file data source properties for the geospatial data.
 func (o AnalysisGeospatialDataSourceItemPtrOutput) StaticFileDataSource() AnalysisGeospatialStaticFileSourcePtrOutput {
 	return o.ApplyT(func(v *AnalysisGeospatialDataSourceItem) *AnalysisGeospatialStaticFileSource {
 		if v == nil {
@@ -35862,10 +35952,14 @@ func (o AnalysisGeospatialDataSourceItemPtrOutput) StaticFileDataSource() Analys
 }
 
 type AnalysisGeospatialGradientColor struct {
-	DefaultOpacity     *float64                              `pulumi:"defaultOpacity"`
-	NullDataSettings   *AnalysisGeospatialNullDataSettings   `pulumi:"nullDataSettings"`
-	NullDataVisibility *AnalysisVisibility                   `pulumi:"nullDataVisibility"`
-	StepColors         []AnalysisGeospatialGradientStepColor `pulumi:"stepColors"`
+	// The default opacity for the gradient color.
+	DefaultOpacity *float64 `pulumi:"defaultOpacity"`
+	// The null data visualization settings.
+	NullDataSettings *AnalysisGeospatialNullDataSettings `pulumi:"nullDataSettings"`
+	// The state of visibility for null data.
+	NullDataVisibility *AnalysisVisibility `pulumi:"nullDataVisibility"`
+	// A list of gradient step colors for the gradient.
+	StepColors []AnalysisGeospatialGradientStepColor `pulumi:"stepColors"`
 }
 
 // AnalysisGeospatialGradientColorInput is an input type that accepts AnalysisGeospatialGradientColorArgs and AnalysisGeospatialGradientColorOutput values.
@@ -35880,10 +35974,14 @@ type AnalysisGeospatialGradientColorInput interface {
 }
 
 type AnalysisGeospatialGradientColorArgs struct {
-	DefaultOpacity     pulumi.Float64PtrInput                        `pulumi:"defaultOpacity"`
-	NullDataSettings   AnalysisGeospatialNullDataSettingsPtrInput    `pulumi:"nullDataSettings"`
-	NullDataVisibility AnalysisVisibilityPtrInput                    `pulumi:"nullDataVisibility"`
-	StepColors         AnalysisGeospatialGradientStepColorArrayInput `pulumi:"stepColors"`
+	// The default opacity for the gradient color.
+	DefaultOpacity pulumi.Float64PtrInput `pulumi:"defaultOpacity"`
+	// The null data visualization settings.
+	NullDataSettings AnalysisGeospatialNullDataSettingsPtrInput `pulumi:"nullDataSettings"`
+	// The state of visibility for null data.
+	NullDataVisibility AnalysisVisibilityPtrInput `pulumi:"nullDataVisibility"`
+	// A list of gradient step colors for the gradient.
+	StepColors AnalysisGeospatialGradientStepColorArrayInput `pulumi:"stepColors"`
 }
 
 func (AnalysisGeospatialGradientColorArgs) ElementType() reflect.Type {
@@ -35963,18 +36061,22 @@ func (o AnalysisGeospatialGradientColorOutput) ToAnalysisGeospatialGradientColor
 	}).(AnalysisGeospatialGradientColorPtrOutput)
 }
 
+// The default opacity for the gradient color.
 func (o AnalysisGeospatialGradientColorOutput) DefaultOpacity() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v AnalysisGeospatialGradientColor) *float64 { return v.DefaultOpacity }).(pulumi.Float64PtrOutput)
 }
 
+// The null data visualization settings.
 func (o AnalysisGeospatialGradientColorOutput) NullDataSettings() AnalysisGeospatialNullDataSettingsPtrOutput {
 	return o.ApplyT(func(v AnalysisGeospatialGradientColor) *AnalysisGeospatialNullDataSettings { return v.NullDataSettings }).(AnalysisGeospatialNullDataSettingsPtrOutput)
 }
 
+// The state of visibility for null data.
 func (o AnalysisGeospatialGradientColorOutput) NullDataVisibility() AnalysisVisibilityPtrOutput {
 	return o.ApplyT(func(v AnalysisGeospatialGradientColor) *AnalysisVisibility { return v.NullDataVisibility }).(AnalysisVisibilityPtrOutput)
 }
 
+// A list of gradient step colors for the gradient.
 func (o AnalysisGeospatialGradientColorOutput) StepColors() AnalysisGeospatialGradientStepColorArrayOutput {
 	return o.ApplyT(func(v AnalysisGeospatialGradientColor) []AnalysisGeospatialGradientStepColor { return v.StepColors }).(AnalysisGeospatialGradientStepColorArrayOutput)
 }
@@ -36003,6 +36105,7 @@ func (o AnalysisGeospatialGradientColorPtrOutput) Elem() AnalysisGeospatialGradi
 	}).(AnalysisGeospatialGradientColorOutput)
 }
 
+// The default opacity for the gradient color.
 func (o AnalysisGeospatialGradientColorPtrOutput) DefaultOpacity() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *AnalysisGeospatialGradientColor) *float64 {
 		if v == nil {
@@ -36012,6 +36115,7 @@ func (o AnalysisGeospatialGradientColorPtrOutput) DefaultOpacity() pulumi.Float6
 	}).(pulumi.Float64PtrOutput)
 }
 
+// The null data visualization settings.
 func (o AnalysisGeospatialGradientColorPtrOutput) NullDataSettings() AnalysisGeospatialNullDataSettingsPtrOutput {
 	return o.ApplyT(func(v *AnalysisGeospatialGradientColor) *AnalysisGeospatialNullDataSettings {
 		if v == nil {
@@ -36021,6 +36125,7 @@ func (o AnalysisGeospatialGradientColorPtrOutput) NullDataSettings() AnalysisGeo
 	}).(AnalysisGeospatialNullDataSettingsPtrOutput)
 }
 
+// The state of visibility for null data.
 func (o AnalysisGeospatialGradientColorPtrOutput) NullDataVisibility() AnalysisVisibilityPtrOutput {
 	return o.ApplyT(func(v *AnalysisGeospatialGradientColor) *AnalysisVisibility {
 		if v == nil {
@@ -36030,6 +36135,7 @@ func (o AnalysisGeospatialGradientColorPtrOutput) NullDataVisibility() AnalysisV
 	}).(AnalysisVisibilityPtrOutput)
 }
 
+// A list of gradient step colors for the gradient.
 func (o AnalysisGeospatialGradientColorPtrOutput) StepColors() AnalysisGeospatialGradientStepColorArrayOutput {
 	return o.ApplyT(func(v *AnalysisGeospatialGradientColor) []AnalysisGeospatialGradientStepColor {
 		if v == nil {
@@ -36040,7 +36146,9 @@ func (o AnalysisGeospatialGradientColorPtrOutput) StepColors() AnalysisGeospatia
 }
 
 type AnalysisGeospatialGradientStepColor struct {
-	Color     string  `pulumi:"color"`
+	// The color and opacity values for the gradient step color.
+	Color string `pulumi:"color"`
+	// The data value for the gradient step color.
 	DataValue float64 `pulumi:"dataValue"`
 }
 
@@ -36056,7 +36164,9 @@ type AnalysisGeospatialGradientStepColorInput interface {
 }
 
 type AnalysisGeospatialGradientStepColorArgs struct {
-	Color     pulumi.StringInput  `pulumi:"color"`
+	// The color and opacity values for the gradient step color.
+	Color pulumi.StringInput `pulumi:"color"`
+	// The data value for the gradient step color.
 	DataValue pulumi.Float64Input `pulumi:"dataValue"`
 }
 
@@ -36111,10 +36221,12 @@ func (o AnalysisGeospatialGradientStepColorOutput) ToAnalysisGeospatialGradientS
 	return o
 }
 
+// The color and opacity values for the gradient step color.
 func (o AnalysisGeospatialGradientStepColorOutput) Color() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalysisGeospatialGradientStepColor) string { return v.Color }).(pulumi.StringOutput)
 }
 
+// The data value for the gradient step color.
 func (o AnalysisGeospatialGradientStepColorOutput) DataValue() pulumi.Float64Output {
 	return o.ApplyT(func(v AnalysisGeospatialGradientStepColor) float64 { return v.DataValue }).(pulumi.Float64Output)
 }
@@ -36513,8 +36625,10 @@ func (o AnalysisGeospatialHeatmapDataColorArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type AnalysisGeospatialLayerColorField struct {
+	// A list of color dimension fields.
 	ColorDimensionsFields []AnalysisDimensionField `pulumi:"colorDimensionsFields"`
-	ColorValuesFields     []AnalysisMeasureField   `pulumi:"colorValuesFields"`
+	// A list of color measure fields.
+	ColorValuesFields []AnalysisMeasureField `pulumi:"colorValuesFields"`
 }
 
 // AnalysisGeospatialLayerColorFieldInput is an input type that accepts AnalysisGeospatialLayerColorFieldArgs and AnalysisGeospatialLayerColorFieldOutput values.
@@ -36529,8 +36643,10 @@ type AnalysisGeospatialLayerColorFieldInput interface {
 }
 
 type AnalysisGeospatialLayerColorFieldArgs struct {
+	// A list of color dimension fields.
 	ColorDimensionsFields AnalysisDimensionFieldArrayInput `pulumi:"colorDimensionsFields"`
-	ColorValuesFields     AnalysisMeasureFieldArrayInput   `pulumi:"colorValuesFields"`
+	// A list of color measure fields.
+	ColorValuesFields AnalysisMeasureFieldArrayInput `pulumi:"colorValuesFields"`
 }
 
 func (AnalysisGeospatialLayerColorFieldArgs) ElementType() reflect.Type {
@@ -36610,10 +36726,12 @@ func (o AnalysisGeospatialLayerColorFieldOutput) ToAnalysisGeospatialLayerColorF
 	}).(AnalysisGeospatialLayerColorFieldPtrOutput)
 }
 
+// A list of color dimension fields.
 func (o AnalysisGeospatialLayerColorFieldOutput) ColorDimensionsFields() AnalysisDimensionFieldArrayOutput {
 	return o.ApplyT(func(v AnalysisGeospatialLayerColorField) []AnalysisDimensionField { return v.ColorDimensionsFields }).(AnalysisDimensionFieldArrayOutput)
 }
 
+// A list of color measure fields.
 func (o AnalysisGeospatialLayerColorFieldOutput) ColorValuesFields() AnalysisMeasureFieldArrayOutput {
 	return o.ApplyT(func(v AnalysisGeospatialLayerColorField) []AnalysisMeasureField { return v.ColorValuesFields }).(AnalysisMeasureFieldArrayOutput)
 }
@@ -36642,6 +36760,7 @@ func (o AnalysisGeospatialLayerColorFieldPtrOutput) Elem() AnalysisGeospatialLay
 	}).(AnalysisGeospatialLayerColorFieldOutput)
 }
 
+// A list of color dimension fields.
 func (o AnalysisGeospatialLayerColorFieldPtrOutput) ColorDimensionsFields() AnalysisDimensionFieldArrayOutput {
 	return o.ApplyT(func(v *AnalysisGeospatialLayerColorField) []AnalysisDimensionField {
 		if v == nil {
@@ -36651,6 +36770,7 @@ func (o AnalysisGeospatialLayerColorFieldPtrOutput) ColorDimensionsFields() Anal
 	}).(AnalysisDimensionFieldArrayOutput)
 }
 
+// A list of color measure fields.
 func (o AnalysisGeospatialLayerColorFieldPtrOutput) ColorValuesFields() AnalysisMeasureFieldArrayOutput {
 	return o.ApplyT(func(v *AnalysisGeospatialLayerColorField) []AnalysisMeasureField {
 		if v == nil {
@@ -36661,8 +36781,11 @@ func (o AnalysisGeospatialLayerColorFieldPtrOutput) ColorValuesFields() Analysis
 }
 
 type AnalysisGeospatialLayerDefinition struct {
-	LineLayer    *AnalysisGeospatialLineLayer    `pulumi:"lineLayer"`
-	PointLayer   *AnalysisGeospatialPointLayer   `pulumi:"pointLayer"`
+	// The definition for a line layer.
+	LineLayer *AnalysisGeospatialLineLayer `pulumi:"lineLayer"`
+	// The definition for a point layer.
+	PointLayer *AnalysisGeospatialPointLayer `pulumi:"pointLayer"`
+	// The definition for a polygon layer.
 	PolygonLayer *AnalysisGeospatialPolygonLayer `pulumi:"polygonLayer"`
 }
 
@@ -36678,8 +36801,11 @@ type AnalysisGeospatialLayerDefinitionInput interface {
 }
 
 type AnalysisGeospatialLayerDefinitionArgs struct {
-	LineLayer    AnalysisGeospatialLineLayerPtrInput    `pulumi:"lineLayer"`
-	PointLayer   AnalysisGeospatialPointLayerPtrInput   `pulumi:"pointLayer"`
+	// The definition for a line layer.
+	LineLayer AnalysisGeospatialLineLayerPtrInput `pulumi:"lineLayer"`
+	// The definition for a point layer.
+	PointLayer AnalysisGeospatialPointLayerPtrInput `pulumi:"pointLayer"`
+	// The definition for a polygon layer.
 	PolygonLayer AnalysisGeospatialPolygonLayerPtrInput `pulumi:"polygonLayer"`
 }
 
@@ -36760,14 +36886,17 @@ func (o AnalysisGeospatialLayerDefinitionOutput) ToAnalysisGeospatialLayerDefini
 	}).(AnalysisGeospatialLayerDefinitionPtrOutput)
 }
 
+// The definition for a line layer.
 func (o AnalysisGeospatialLayerDefinitionOutput) LineLayer() AnalysisGeospatialLineLayerPtrOutput {
 	return o.ApplyT(func(v AnalysisGeospatialLayerDefinition) *AnalysisGeospatialLineLayer { return v.LineLayer }).(AnalysisGeospatialLineLayerPtrOutput)
 }
 
+// The definition for a point layer.
 func (o AnalysisGeospatialLayerDefinitionOutput) PointLayer() AnalysisGeospatialPointLayerPtrOutput {
 	return o.ApplyT(func(v AnalysisGeospatialLayerDefinition) *AnalysisGeospatialPointLayer { return v.PointLayer }).(AnalysisGeospatialPointLayerPtrOutput)
 }
 
+// The definition for a polygon layer.
 func (o AnalysisGeospatialLayerDefinitionOutput) PolygonLayer() AnalysisGeospatialPolygonLayerPtrOutput {
 	return o.ApplyT(func(v AnalysisGeospatialLayerDefinition) *AnalysisGeospatialPolygonLayer { return v.PolygonLayer }).(AnalysisGeospatialPolygonLayerPtrOutput)
 }
@@ -36796,6 +36925,7 @@ func (o AnalysisGeospatialLayerDefinitionPtrOutput) Elem() AnalysisGeospatialLay
 	}).(AnalysisGeospatialLayerDefinitionOutput)
 }
 
+// The definition for a line layer.
 func (o AnalysisGeospatialLayerDefinitionPtrOutput) LineLayer() AnalysisGeospatialLineLayerPtrOutput {
 	return o.ApplyT(func(v *AnalysisGeospatialLayerDefinition) *AnalysisGeospatialLineLayer {
 		if v == nil {
@@ -36805,6 +36935,7 @@ func (o AnalysisGeospatialLayerDefinitionPtrOutput) LineLayer() AnalysisGeospati
 	}).(AnalysisGeospatialLineLayerPtrOutput)
 }
 
+// The definition for a point layer.
 func (o AnalysisGeospatialLayerDefinitionPtrOutput) PointLayer() AnalysisGeospatialPointLayerPtrOutput {
 	return o.ApplyT(func(v *AnalysisGeospatialLayerDefinition) *AnalysisGeospatialPointLayer {
 		if v == nil {
@@ -36814,6 +36945,7 @@ func (o AnalysisGeospatialLayerDefinitionPtrOutput) PointLayer() AnalysisGeospat
 	}).(AnalysisGeospatialPointLayerPtrOutput)
 }
 
+// The definition for a polygon layer.
 func (o AnalysisGeospatialLayerDefinitionPtrOutput) PolygonLayer() AnalysisGeospatialPolygonLayerPtrOutput {
 	return o.ApplyT(func(v *AnalysisGeospatialLayerDefinition) *AnalysisGeospatialPolygonLayer {
 		if v == nil {
@@ -36824,15 +36956,23 @@ func (o AnalysisGeospatialLayerDefinitionPtrOutput) PolygonLayer() AnalysisGeosp
 }
 
 type AnalysisGeospatialLayerItem struct {
-	Actions         []AnalysisLayerCustomAction            `pulumi:"actions"`
-	DataSource      *AnalysisGeospatialDataSourceItem      `pulumi:"dataSource"`
-	JoinDefinition  *AnalysisGeospatialLayerJoinDefinition `pulumi:"joinDefinition"`
-	Label           *string                                `pulumi:"label"`
-	LayerDefinition *AnalysisGeospatialLayerDefinition     `pulumi:"layerDefinition"`
-	LayerId         string                                 `pulumi:"layerId"`
-	LayerType       *AnalysisGeospatialLayerType           `pulumi:"layerType"`
-	Tooltip         *AnalysisTooltipOptions                `pulumi:"tooltip"`
-	Visibility      *AnalysisVisibility                    `pulumi:"visibility"`
+	// A list of custom actions for a layer.
+	Actions []AnalysisLayerCustomAction `pulumi:"actions"`
+	// The data source for the layer.
+	DataSource *AnalysisGeospatialDataSourceItem `pulumi:"dataSource"`
+	// The join definition properties for a layer.
+	JoinDefinition *AnalysisGeospatialLayerJoinDefinition `pulumi:"joinDefinition"`
+	// The label that is displayed for the layer.
+	Label *string `pulumi:"label"`
+	// The definition properties for a layer.
+	LayerDefinition *AnalysisGeospatialLayerDefinition `pulumi:"layerDefinition"`
+	// The ID of the layer.
+	LayerId string `pulumi:"layerId"`
+	// The layer type.
+	LayerType *AnalysisGeospatialLayerType `pulumi:"layerType"`
+	Tooltip   *AnalysisTooltipOptions      `pulumi:"tooltip"`
+	// The state of visibility for the layer.
+	Visibility *AnalysisVisibility `pulumi:"visibility"`
 }
 
 // AnalysisGeospatialLayerItemInput is an input type that accepts AnalysisGeospatialLayerItemArgs and AnalysisGeospatialLayerItemOutput values.
@@ -36847,15 +36987,23 @@ type AnalysisGeospatialLayerItemInput interface {
 }
 
 type AnalysisGeospatialLayerItemArgs struct {
-	Actions         AnalysisLayerCustomActionArrayInput           `pulumi:"actions"`
-	DataSource      AnalysisGeospatialDataSourceItemPtrInput      `pulumi:"dataSource"`
-	JoinDefinition  AnalysisGeospatialLayerJoinDefinitionPtrInput `pulumi:"joinDefinition"`
-	Label           pulumi.StringPtrInput                         `pulumi:"label"`
-	LayerDefinition AnalysisGeospatialLayerDefinitionPtrInput     `pulumi:"layerDefinition"`
-	LayerId         pulumi.StringInput                            `pulumi:"layerId"`
-	LayerType       AnalysisGeospatialLayerTypePtrInput           `pulumi:"layerType"`
-	Tooltip         AnalysisTooltipOptionsPtrInput                `pulumi:"tooltip"`
-	Visibility      AnalysisVisibilityPtrInput                    `pulumi:"visibility"`
+	// A list of custom actions for a layer.
+	Actions AnalysisLayerCustomActionArrayInput `pulumi:"actions"`
+	// The data source for the layer.
+	DataSource AnalysisGeospatialDataSourceItemPtrInput `pulumi:"dataSource"`
+	// The join definition properties for a layer.
+	JoinDefinition AnalysisGeospatialLayerJoinDefinitionPtrInput `pulumi:"joinDefinition"`
+	// The label that is displayed for the layer.
+	Label pulumi.StringPtrInput `pulumi:"label"`
+	// The definition properties for a layer.
+	LayerDefinition AnalysisGeospatialLayerDefinitionPtrInput `pulumi:"layerDefinition"`
+	// The ID of the layer.
+	LayerId pulumi.StringInput `pulumi:"layerId"`
+	// The layer type.
+	LayerType AnalysisGeospatialLayerTypePtrInput `pulumi:"layerType"`
+	Tooltip   AnalysisTooltipOptionsPtrInput      `pulumi:"tooltip"`
+	// The state of visibility for the layer.
+	Visibility AnalysisVisibilityPtrInput `pulumi:"visibility"`
 }
 
 func (AnalysisGeospatialLayerItemArgs) ElementType() reflect.Type {
@@ -36909,30 +37057,37 @@ func (o AnalysisGeospatialLayerItemOutput) ToAnalysisGeospatialLayerItemOutputWi
 	return o
 }
 
+// A list of custom actions for a layer.
 func (o AnalysisGeospatialLayerItemOutput) Actions() AnalysisLayerCustomActionArrayOutput {
 	return o.ApplyT(func(v AnalysisGeospatialLayerItem) []AnalysisLayerCustomAction { return v.Actions }).(AnalysisLayerCustomActionArrayOutput)
 }
 
+// The data source for the layer.
 func (o AnalysisGeospatialLayerItemOutput) DataSource() AnalysisGeospatialDataSourceItemPtrOutput {
 	return o.ApplyT(func(v AnalysisGeospatialLayerItem) *AnalysisGeospatialDataSourceItem { return v.DataSource }).(AnalysisGeospatialDataSourceItemPtrOutput)
 }
 
+// The join definition properties for a layer.
 func (o AnalysisGeospatialLayerItemOutput) JoinDefinition() AnalysisGeospatialLayerJoinDefinitionPtrOutput {
 	return o.ApplyT(func(v AnalysisGeospatialLayerItem) *AnalysisGeospatialLayerJoinDefinition { return v.JoinDefinition }).(AnalysisGeospatialLayerJoinDefinitionPtrOutput)
 }
 
+// The label that is displayed for the layer.
 func (o AnalysisGeospatialLayerItemOutput) Label() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnalysisGeospatialLayerItem) *string { return v.Label }).(pulumi.StringPtrOutput)
 }
 
+// The definition properties for a layer.
 func (o AnalysisGeospatialLayerItemOutput) LayerDefinition() AnalysisGeospatialLayerDefinitionPtrOutput {
 	return o.ApplyT(func(v AnalysisGeospatialLayerItem) *AnalysisGeospatialLayerDefinition { return v.LayerDefinition }).(AnalysisGeospatialLayerDefinitionPtrOutput)
 }
 
+// The ID of the layer.
 func (o AnalysisGeospatialLayerItemOutput) LayerId() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalysisGeospatialLayerItem) string { return v.LayerId }).(pulumi.StringOutput)
 }
 
+// The layer type.
 func (o AnalysisGeospatialLayerItemOutput) LayerType() AnalysisGeospatialLayerTypePtrOutput {
 	return o.ApplyT(func(v AnalysisGeospatialLayerItem) *AnalysisGeospatialLayerType { return v.LayerType }).(AnalysisGeospatialLayerTypePtrOutput)
 }
@@ -36941,6 +37096,7 @@ func (o AnalysisGeospatialLayerItemOutput) Tooltip() AnalysisTooltipOptionsPtrOu
 	return o.ApplyT(func(v AnalysisGeospatialLayerItem) *AnalysisTooltipOptions { return v.Tooltip }).(AnalysisTooltipOptionsPtrOutput)
 }
 
+// The state of visibility for the layer.
 func (o AnalysisGeospatialLayerItemOutput) Visibility() AnalysisVisibilityPtrOutput {
 	return o.ApplyT(func(v AnalysisGeospatialLayerItem) *AnalysisVisibility { return v.Visibility }).(AnalysisVisibilityPtrOutput)
 }
@@ -36966,9 +37122,11 @@ func (o AnalysisGeospatialLayerItemArrayOutput) Index(i pulumi.IntInput) Analysi
 }
 
 type AnalysisGeospatialLayerJoinDefinition struct {
+	// The geospatial color field for the join definition.
 	ColorField      *AnalysisGeospatialLayerColorField `pulumi:"colorField"`
 	DatasetKeyField *AnalysisUnaggregatedField         `pulumi:"datasetKeyField"`
-	ShapeKeyField   *string                            `pulumi:"shapeKeyField"`
+	// The name of the field or property in the geospatial data source.
+	ShapeKeyField *string `pulumi:"shapeKeyField"`
 }
 
 // AnalysisGeospatialLayerJoinDefinitionInput is an input type that accepts AnalysisGeospatialLayerJoinDefinitionArgs and AnalysisGeospatialLayerJoinDefinitionOutput values.
@@ -36983,9 +37141,11 @@ type AnalysisGeospatialLayerJoinDefinitionInput interface {
 }
 
 type AnalysisGeospatialLayerJoinDefinitionArgs struct {
+	// The geospatial color field for the join definition.
 	ColorField      AnalysisGeospatialLayerColorFieldPtrInput `pulumi:"colorField"`
 	DatasetKeyField AnalysisUnaggregatedFieldPtrInput         `pulumi:"datasetKeyField"`
-	ShapeKeyField   pulumi.StringPtrInput                     `pulumi:"shapeKeyField"`
+	// The name of the field or property in the geospatial data source.
+	ShapeKeyField pulumi.StringPtrInput `pulumi:"shapeKeyField"`
 }
 
 func (AnalysisGeospatialLayerJoinDefinitionArgs) ElementType() reflect.Type {
@@ -37065,6 +37225,7 @@ func (o AnalysisGeospatialLayerJoinDefinitionOutput) ToAnalysisGeospatialLayerJo
 	}).(AnalysisGeospatialLayerJoinDefinitionPtrOutput)
 }
 
+// The geospatial color field for the join definition.
 func (o AnalysisGeospatialLayerJoinDefinitionOutput) ColorField() AnalysisGeospatialLayerColorFieldPtrOutput {
 	return o.ApplyT(func(v AnalysisGeospatialLayerJoinDefinition) *AnalysisGeospatialLayerColorField { return v.ColorField }).(AnalysisGeospatialLayerColorFieldPtrOutput)
 }
@@ -37073,6 +37234,7 @@ func (o AnalysisGeospatialLayerJoinDefinitionOutput) DatasetKeyField() AnalysisU
 	return o.ApplyT(func(v AnalysisGeospatialLayerJoinDefinition) *AnalysisUnaggregatedField { return v.DatasetKeyField }).(AnalysisUnaggregatedFieldPtrOutput)
 }
 
+// The name of the field or property in the geospatial data source.
 func (o AnalysisGeospatialLayerJoinDefinitionOutput) ShapeKeyField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnalysisGeospatialLayerJoinDefinition) *string { return v.ShapeKeyField }).(pulumi.StringPtrOutput)
 }
@@ -37101,6 +37263,7 @@ func (o AnalysisGeospatialLayerJoinDefinitionPtrOutput) Elem() AnalysisGeospatia
 	}).(AnalysisGeospatialLayerJoinDefinitionOutput)
 }
 
+// The geospatial color field for the join definition.
 func (o AnalysisGeospatialLayerJoinDefinitionPtrOutput) ColorField() AnalysisGeospatialLayerColorFieldPtrOutput {
 	return o.ApplyT(func(v *AnalysisGeospatialLayerJoinDefinition) *AnalysisGeospatialLayerColorField {
 		if v == nil {
@@ -37119,6 +37282,7 @@ func (o AnalysisGeospatialLayerJoinDefinitionPtrOutput) DatasetKeyField() Analys
 	}).(AnalysisUnaggregatedFieldPtrOutput)
 }
 
+// The name of the field or property in the geospatial data source.
 func (o AnalysisGeospatialLayerJoinDefinitionPtrOutput) ShapeKeyField() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalysisGeospatialLayerJoinDefinition) *string {
 		if v == nil {
@@ -37129,11 +37293,14 @@ func (o AnalysisGeospatialLayerJoinDefinitionPtrOutput) ShapeKeyField() pulumi.S
 }
 
 type AnalysisGeospatialLayerMapConfiguration struct {
-	Interactions interface{}                   `pulumi:"interactions"`
-	Legend       *AnalysisLegendOptions        `pulumi:"legend"`
-	MapLayers    []AnalysisGeospatialLayerItem `pulumi:"mapLayers"`
-	MapState     *AnalysisGeospatialMapState   `pulumi:"mapState"`
-	MapStyle     *AnalysisGeospatialMapStyle   `pulumi:"mapStyle"`
+	Interactions interface{}            `pulumi:"interactions"`
+	Legend       *AnalysisLegendOptions `pulumi:"legend"`
+	// The geospatial layers to visualize on the map.
+	MapLayers []AnalysisGeospatialLayerItem `pulumi:"mapLayers"`
+	// The map state properties for the map.
+	MapState *AnalysisGeospatialMapState `pulumi:"mapState"`
+	// The map style properties for the map.
+	MapStyle *AnalysisGeospatialMapStyle `pulumi:"mapStyle"`
 }
 
 // AnalysisGeospatialLayerMapConfigurationInput is an input type that accepts AnalysisGeospatialLayerMapConfigurationArgs and AnalysisGeospatialLayerMapConfigurationOutput values.
@@ -37148,11 +37315,14 @@ type AnalysisGeospatialLayerMapConfigurationInput interface {
 }
 
 type AnalysisGeospatialLayerMapConfigurationArgs struct {
-	Interactions pulumi.Input                          `pulumi:"interactions"`
-	Legend       AnalysisLegendOptionsPtrInput         `pulumi:"legend"`
-	MapLayers    AnalysisGeospatialLayerItemArrayInput `pulumi:"mapLayers"`
-	MapState     AnalysisGeospatialMapStatePtrInput    `pulumi:"mapState"`
-	MapStyle     AnalysisGeospatialMapStylePtrInput    `pulumi:"mapStyle"`
+	Interactions pulumi.Input                  `pulumi:"interactions"`
+	Legend       AnalysisLegendOptionsPtrInput `pulumi:"legend"`
+	// The geospatial layers to visualize on the map.
+	MapLayers AnalysisGeospatialLayerItemArrayInput `pulumi:"mapLayers"`
+	// The map state properties for the map.
+	MapState AnalysisGeospatialMapStatePtrInput `pulumi:"mapState"`
+	// The map style properties for the map.
+	MapStyle AnalysisGeospatialMapStylePtrInput `pulumi:"mapStyle"`
 }
 
 func (AnalysisGeospatialLayerMapConfigurationArgs) ElementType() reflect.Type {
@@ -37240,14 +37410,17 @@ func (o AnalysisGeospatialLayerMapConfigurationOutput) Legend() AnalysisLegendOp
 	return o.ApplyT(func(v AnalysisGeospatialLayerMapConfiguration) *AnalysisLegendOptions { return v.Legend }).(AnalysisLegendOptionsPtrOutput)
 }
 
+// The geospatial layers to visualize on the map.
 func (o AnalysisGeospatialLayerMapConfigurationOutput) MapLayers() AnalysisGeospatialLayerItemArrayOutput {
 	return o.ApplyT(func(v AnalysisGeospatialLayerMapConfiguration) []AnalysisGeospatialLayerItem { return v.MapLayers }).(AnalysisGeospatialLayerItemArrayOutput)
 }
 
+// The map state properties for the map.
 func (o AnalysisGeospatialLayerMapConfigurationOutput) MapState() AnalysisGeospatialMapStatePtrOutput {
 	return o.ApplyT(func(v AnalysisGeospatialLayerMapConfiguration) *AnalysisGeospatialMapState { return v.MapState }).(AnalysisGeospatialMapStatePtrOutput)
 }
 
+// The map style properties for the map.
 func (o AnalysisGeospatialLayerMapConfigurationOutput) MapStyle() AnalysisGeospatialMapStylePtrOutput {
 	return o.ApplyT(func(v AnalysisGeospatialLayerMapConfiguration) *AnalysisGeospatialMapStyle { return v.MapStyle }).(AnalysisGeospatialMapStylePtrOutput)
 }
@@ -37294,6 +37467,7 @@ func (o AnalysisGeospatialLayerMapConfigurationPtrOutput) Legend() AnalysisLegen
 	}).(AnalysisLegendOptionsPtrOutput)
 }
 
+// The geospatial layers to visualize on the map.
 func (o AnalysisGeospatialLayerMapConfigurationPtrOutput) MapLayers() AnalysisGeospatialLayerItemArrayOutput {
 	return o.ApplyT(func(v *AnalysisGeospatialLayerMapConfiguration) []AnalysisGeospatialLayerItem {
 		if v == nil {
@@ -37303,6 +37477,7 @@ func (o AnalysisGeospatialLayerMapConfigurationPtrOutput) MapLayers() AnalysisGe
 	}).(AnalysisGeospatialLayerItemArrayOutput)
 }
 
+// The map state properties for the map.
 func (o AnalysisGeospatialLayerMapConfigurationPtrOutput) MapState() AnalysisGeospatialMapStatePtrOutput {
 	return o.ApplyT(func(v *AnalysisGeospatialLayerMapConfiguration) *AnalysisGeospatialMapState {
 		if v == nil {
@@ -37312,6 +37487,7 @@ func (o AnalysisGeospatialLayerMapConfigurationPtrOutput) MapState() AnalysisGeo
 	}).(AnalysisGeospatialMapStatePtrOutput)
 }
 
+// The map style properties for the map.
 func (o AnalysisGeospatialLayerMapConfigurationPtrOutput) MapStyle() AnalysisGeospatialMapStylePtrOutput {
 	return o.ApplyT(func(v *AnalysisGeospatialLayerMapConfiguration) *AnalysisGeospatialMapStyle {
 		if v == nil {
@@ -37322,6 +37498,7 @@ func (o AnalysisGeospatialLayerMapConfigurationPtrOutput) MapStyle() AnalysisGeo
 }
 
 type AnalysisGeospatialLineLayer struct {
+	// The visualization style for a line layer.
 	Style AnalysisGeospatialLineStyle `pulumi:"style"`
 }
 
@@ -37337,6 +37514,7 @@ type AnalysisGeospatialLineLayerInput interface {
 }
 
 type AnalysisGeospatialLineLayerArgs struct {
+	// The visualization style for a line layer.
 	Style AnalysisGeospatialLineStyleInput `pulumi:"style"`
 }
 
@@ -37417,6 +37595,7 @@ func (o AnalysisGeospatialLineLayerOutput) ToAnalysisGeospatialLineLayerPtrOutpu
 	}).(AnalysisGeospatialLineLayerPtrOutput)
 }
 
+// The visualization style for a line layer.
 func (o AnalysisGeospatialLineLayerOutput) Style() AnalysisGeospatialLineStyleOutput {
 	return o.ApplyT(func(v AnalysisGeospatialLineLayer) AnalysisGeospatialLineStyle { return v.Style }).(AnalysisGeospatialLineStyleOutput)
 }
@@ -37445,6 +37624,7 @@ func (o AnalysisGeospatialLineLayerPtrOutput) Elem() AnalysisGeospatialLineLayer
 	}).(AnalysisGeospatialLineLayerOutput)
 }
 
+// The visualization style for a line layer.
 func (o AnalysisGeospatialLineLayerPtrOutput) Style() AnalysisGeospatialLineStylePtrOutput {
 	return o.ApplyT(func(v *AnalysisGeospatialLineLayer) *AnalysisGeospatialLineStyle {
 		if v == nil {
@@ -37455,6 +37635,7 @@ func (o AnalysisGeospatialLineLayerPtrOutput) Style() AnalysisGeospatialLineStyl
 }
 
 type AnalysisGeospatialLineStyle struct {
+	// The symbol style for a line style.
 	LineSymbolStyle *AnalysisGeospatialLineSymbolStyle `pulumi:"lineSymbolStyle"`
 }
 
@@ -37470,6 +37651,7 @@ type AnalysisGeospatialLineStyleInput interface {
 }
 
 type AnalysisGeospatialLineStyleArgs struct {
+	// The symbol style for a line style.
 	LineSymbolStyle AnalysisGeospatialLineSymbolStylePtrInput `pulumi:"lineSymbolStyle"`
 }
 
@@ -37550,6 +37732,7 @@ func (o AnalysisGeospatialLineStyleOutput) ToAnalysisGeospatialLineStylePtrOutpu
 	}).(AnalysisGeospatialLineStylePtrOutput)
 }
 
+// The symbol style for a line style.
 func (o AnalysisGeospatialLineStyleOutput) LineSymbolStyle() AnalysisGeospatialLineSymbolStylePtrOutput {
 	return o.ApplyT(func(v AnalysisGeospatialLineStyle) *AnalysisGeospatialLineSymbolStyle { return v.LineSymbolStyle }).(AnalysisGeospatialLineSymbolStylePtrOutput)
 }
@@ -37578,6 +37761,7 @@ func (o AnalysisGeospatialLineStylePtrOutput) Elem() AnalysisGeospatialLineStyle
 	}).(AnalysisGeospatialLineStyleOutput)
 }
 
+// The symbol style for a line style.
 func (o AnalysisGeospatialLineStylePtrOutput) LineSymbolStyle() AnalysisGeospatialLineSymbolStylePtrOutput {
 	return o.ApplyT(func(v *AnalysisGeospatialLineStyle) *AnalysisGeospatialLineSymbolStyle {
 		if v == nil {
@@ -37588,7 +37772,9 @@ func (o AnalysisGeospatialLineStylePtrOutput) LineSymbolStyle() AnalysisGeospati
 }
 
 type AnalysisGeospatialLineSymbolStyle struct {
-	FillColor *AnalysisGeospatialColor     `pulumi:"fillColor"`
+	// The color and opacity values for the fill color.
+	FillColor *AnalysisGeospatialColor `pulumi:"fillColor"`
+	// The width value for a line.
 	LineWidth *AnalysisGeospatialLineWidth `pulumi:"lineWidth"`
 }
 
@@ -37604,7 +37790,9 @@ type AnalysisGeospatialLineSymbolStyleInput interface {
 }
 
 type AnalysisGeospatialLineSymbolStyleArgs struct {
-	FillColor AnalysisGeospatialColorPtrInput     `pulumi:"fillColor"`
+	// The color and opacity values for the fill color.
+	FillColor AnalysisGeospatialColorPtrInput `pulumi:"fillColor"`
+	// The width value for a line.
 	LineWidth AnalysisGeospatialLineWidthPtrInput `pulumi:"lineWidth"`
 }
 
@@ -37685,10 +37873,12 @@ func (o AnalysisGeospatialLineSymbolStyleOutput) ToAnalysisGeospatialLineSymbolS
 	}).(AnalysisGeospatialLineSymbolStylePtrOutput)
 }
 
+// The color and opacity values for the fill color.
 func (o AnalysisGeospatialLineSymbolStyleOutput) FillColor() AnalysisGeospatialColorPtrOutput {
 	return o.ApplyT(func(v AnalysisGeospatialLineSymbolStyle) *AnalysisGeospatialColor { return v.FillColor }).(AnalysisGeospatialColorPtrOutput)
 }
 
+// The width value for a line.
 func (o AnalysisGeospatialLineSymbolStyleOutput) LineWidth() AnalysisGeospatialLineWidthPtrOutput {
 	return o.ApplyT(func(v AnalysisGeospatialLineSymbolStyle) *AnalysisGeospatialLineWidth { return v.LineWidth }).(AnalysisGeospatialLineWidthPtrOutput)
 }
@@ -37717,6 +37907,7 @@ func (o AnalysisGeospatialLineSymbolStylePtrOutput) Elem() AnalysisGeospatialLin
 	}).(AnalysisGeospatialLineSymbolStyleOutput)
 }
 
+// The color and opacity values for the fill color.
 func (o AnalysisGeospatialLineSymbolStylePtrOutput) FillColor() AnalysisGeospatialColorPtrOutput {
 	return o.ApplyT(func(v *AnalysisGeospatialLineSymbolStyle) *AnalysisGeospatialColor {
 		if v == nil {
@@ -37726,6 +37917,7 @@ func (o AnalysisGeospatialLineSymbolStylePtrOutput) FillColor() AnalysisGeospati
 	}).(AnalysisGeospatialColorPtrOutput)
 }
 
+// The width value for a line.
 func (o AnalysisGeospatialLineSymbolStylePtrOutput) LineWidth() AnalysisGeospatialLineWidthPtrOutput {
 	return o.ApplyT(func(v *AnalysisGeospatialLineSymbolStyle) *AnalysisGeospatialLineWidth {
 		if v == nil {
@@ -37736,6 +37928,7 @@ func (o AnalysisGeospatialLineSymbolStylePtrOutput) LineWidth() AnalysisGeospati
 }
 
 type AnalysisGeospatialLineWidth struct {
+	// The positive value for the width of a line.
 	LineWidth *float64 `pulumi:"lineWidth"`
 }
 
@@ -37751,6 +37944,7 @@ type AnalysisGeospatialLineWidthInput interface {
 }
 
 type AnalysisGeospatialLineWidthArgs struct {
+	// The positive value for the width of a line.
 	LineWidth pulumi.Float64PtrInput `pulumi:"lineWidth"`
 }
 
@@ -37831,6 +38025,7 @@ func (o AnalysisGeospatialLineWidthOutput) ToAnalysisGeospatialLineWidthPtrOutpu
 	}).(AnalysisGeospatialLineWidthPtrOutput)
 }
 
+// The positive value for the width of a line.
 func (o AnalysisGeospatialLineWidthOutput) LineWidth() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v AnalysisGeospatialLineWidth) *float64 { return v.LineWidth }).(pulumi.Float64PtrOutput)
 }
@@ -37859,6 +38054,7 @@ func (o AnalysisGeospatialLineWidthPtrOutput) Elem() AnalysisGeospatialLineWidth
 	}).(AnalysisGeospatialLineWidthOutput)
 }
 
+// The positive value for the width of a line.
 func (o AnalysisGeospatialLineWidthPtrOutput) LineWidth() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *AnalysisGeospatialLineWidth) *float64 {
 		if v == nil {
@@ -38045,8 +38241,9 @@ func (o AnalysisGeospatialMapAggregatedFieldWellsPtrOutput) Values() AnalysisMea
 
 type AnalysisGeospatialMapConfiguration struct {
 	// The field wells of the visual.
-	FieldWells   *AnalysisGeospatialMapFieldWells `pulumi:"fieldWells"`
-	Interactions interface{}                      `pulumi:"interactions"`
+	FieldWells *AnalysisGeospatialMapFieldWells `pulumi:"fieldWells"`
+	// The general visual interactions setup for a visual.
+	Interactions interface{} `pulumi:"interactions"`
 	// The legend display setup of the visual.
 	Legend *AnalysisLegendOptions `pulumi:"legend"`
 	// The map style options of the geospatial map.
@@ -38073,8 +38270,9 @@ type AnalysisGeospatialMapConfigurationInput interface {
 
 type AnalysisGeospatialMapConfigurationArgs struct {
 	// The field wells of the visual.
-	FieldWells   AnalysisGeospatialMapFieldWellsPtrInput `pulumi:"fieldWells"`
-	Interactions pulumi.Input                            `pulumi:"interactions"`
+	FieldWells AnalysisGeospatialMapFieldWellsPtrInput `pulumi:"fieldWells"`
+	// The general visual interactions setup for a visual.
+	Interactions pulumi.Input `pulumi:"interactions"`
 	// The legend display setup of the visual.
 	Legend AnalysisLegendOptionsPtrInput `pulumi:"legend"`
 	// The map style options of the geospatial map.
@@ -38170,6 +38368,7 @@ func (o AnalysisGeospatialMapConfigurationOutput) FieldWells() AnalysisGeospatia
 	return o.ApplyT(func(v AnalysisGeospatialMapConfiguration) *AnalysisGeospatialMapFieldWells { return v.FieldWells }).(AnalysisGeospatialMapFieldWellsPtrOutput)
 }
 
+// The general visual interactions setup for a visual.
 func (o AnalysisGeospatialMapConfigurationOutput) Interactions() pulumi.AnyOutput {
 	return o.ApplyT(func(v AnalysisGeospatialMapConfiguration) interface{} { return v.Interactions }).(pulumi.AnyOutput)
 }
@@ -38241,6 +38440,7 @@ func (o AnalysisGeospatialMapConfigurationPtrOutput) FieldWells() AnalysisGeospa
 	}).(AnalysisGeospatialMapFieldWellsPtrOutput)
 }
 
+// The general visual interactions setup for a visual.
 func (o AnalysisGeospatialMapConfigurationPtrOutput) Interactions() pulumi.AnyOutput {
 	return o.ApplyT(func(v *AnalysisGeospatialMapConfiguration) interface{} {
 		if v == nil {
@@ -38449,8 +38649,9 @@ func (o AnalysisGeospatialMapFieldWellsPtrOutput) GeospatialMapAggregatedFieldWe
 }
 
 type AnalysisGeospatialMapState struct {
-	Bounds        *AnalysisGeospatialCoordinateBounds `pulumi:"bounds"`
-	MapNavigation *AnalysisGeospatialMapNavigation    `pulumi:"mapNavigation"`
+	Bounds *AnalysisGeospatialCoordinateBounds `pulumi:"bounds"`
+	// Enables or disables map navigation for a map.
+	MapNavigation *AnalysisGeospatialMapNavigation `pulumi:"mapNavigation"`
 }
 
 // AnalysisGeospatialMapStateInput is an input type that accepts AnalysisGeospatialMapStateArgs and AnalysisGeospatialMapStateOutput values.
@@ -38465,8 +38666,9 @@ type AnalysisGeospatialMapStateInput interface {
 }
 
 type AnalysisGeospatialMapStateArgs struct {
-	Bounds        AnalysisGeospatialCoordinateBoundsPtrInput `pulumi:"bounds"`
-	MapNavigation AnalysisGeospatialMapNavigationPtrInput    `pulumi:"mapNavigation"`
+	Bounds AnalysisGeospatialCoordinateBoundsPtrInput `pulumi:"bounds"`
+	// Enables or disables map navigation for a map.
+	MapNavigation AnalysisGeospatialMapNavigationPtrInput `pulumi:"mapNavigation"`
 }
 
 func (AnalysisGeospatialMapStateArgs) ElementType() reflect.Type {
@@ -38550,6 +38752,7 @@ func (o AnalysisGeospatialMapStateOutput) Bounds() AnalysisGeospatialCoordinateB
 	return o.ApplyT(func(v AnalysisGeospatialMapState) *AnalysisGeospatialCoordinateBounds { return v.Bounds }).(AnalysisGeospatialCoordinateBoundsPtrOutput)
 }
 
+// Enables or disables map navigation for a map.
 func (o AnalysisGeospatialMapStateOutput) MapNavigation() AnalysisGeospatialMapNavigationPtrOutput {
 	return o.ApplyT(func(v AnalysisGeospatialMapState) *AnalysisGeospatialMapNavigation { return v.MapNavigation }).(AnalysisGeospatialMapNavigationPtrOutput)
 }
@@ -38587,6 +38790,7 @@ func (o AnalysisGeospatialMapStatePtrOutput) Bounds() AnalysisGeospatialCoordina
 	}).(AnalysisGeospatialCoordinateBoundsPtrOutput)
 }
 
+// Enables or disables map navigation for a map.
 func (o AnalysisGeospatialMapStatePtrOutput) MapNavigation() AnalysisGeospatialMapNavigationPtrOutput {
 	return o.ApplyT(func(v *AnalysisGeospatialMapState) *AnalysisGeospatialMapNavigation {
 		if v == nil {
@@ -38597,9 +38801,12 @@ func (o AnalysisGeospatialMapStatePtrOutput) MapNavigation() AnalysisGeospatialM
 }
 
 type AnalysisGeospatialMapStyle struct {
-	BackgroundColor   *string                   `pulumi:"backgroundColor"`
-	BaseMapStyle      *AnalysisBaseMapStyleType `pulumi:"baseMapStyle"`
-	BaseMapVisibility *AnalysisVisibility       `pulumi:"baseMapVisibility"`
+	// The background color and opacity values for a map.
+	BackgroundColor *string `pulumi:"backgroundColor"`
+	// The selected base map style.
+	BaseMapStyle *AnalysisBaseMapStyleType `pulumi:"baseMapStyle"`
+	// The state of visibility for the base map.
+	BaseMapVisibility *AnalysisVisibility `pulumi:"baseMapVisibility"`
 }
 
 // AnalysisGeospatialMapStyleInput is an input type that accepts AnalysisGeospatialMapStyleArgs and AnalysisGeospatialMapStyleOutput values.
@@ -38614,9 +38821,12 @@ type AnalysisGeospatialMapStyleInput interface {
 }
 
 type AnalysisGeospatialMapStyleArgs struct {
-	BackgroundColor   pulumi.StringPtrInput            `pulumi:"backgroundColor"`
-	BaseMapStyle      AnalysisBaseMapStyleTypePtrInput `pulumi:"baseMapStyle"`
-	BaseMapVisibility AnalysisVisibilityPtrInput       `pulumi:"baseMapVisibility"`
+	// The background color and opacity values for a map.
+	BackgroundColor pulumi.StringPtrInput `pulumi:"backgroundColor"`
+	// The selected base map style.
+	BaseMapStyle AnalysisBaseMapStyleTypePtrInput `pulumi:"baseMapStyle"`
+	// The state of visibility for the base map.
+	BaseMapVisibility AnalysisVisibilityPtrInput `pulumi:"baseMapVisibility"`
 }
 
 func (AnalysisGeospatialMapStyleArgs) ElementType() reflect.Type {
@@ -38696,14 +38906,17 @@ func (o AnalysisGeospatialMapStyleOutput) ToAnalysisGeospatialMapStylePtrOutputW
 	}).(AnalysisGeospatialMapStylePtrOutput)
 }
 
+// The background color and opacity values for a map.
 func (o AnalysisGeospatialMapStyleOutput) BackgroundColor() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnalysisGeospatialMapStyle) *string { return v.BackgroundColor }).(pulumi.StringPtrOutput)
 }
 
+// The selected base map style.
 func (o AnalysisGeospatialMapStyleOutput) BaseMapStyle() AnalysisBaseMapStyleTypePtrOutput {
 	return o.ApplyT(func(v AnalysisGeospatialMapStyle) *AnalysisBaseMapStyleType { return v.BaseMapStyle }).(AnalysisBaseMapStyleTypePtrOutput)
 }
 
+// The state of visibility for the base map.
 func (o AnalysisGeospatialMapStyleOutput) BaseMapVisibility() AnalysisVisibilityPtrOutput {
 	return o.ApplyT(func(v AnalysisGeospatialMapStyle) *AnalysisVisibility { return v.BaseMapVisibility }).(AnalysisVisibilityPtrOutput)
 }
@@ -38732,6 +38945,7 @@ func (o AnalysisGeospatialMapStylePtrOutput) Elem() AnalysisGeospatialMapStyleOu
 	}).(AnalysisGeospatialMapStyleOutput)
 }
 
+// The background color and opacity values for a map.
 func (o AnalysisGeospatialMapStylePtrOutput) BackgroundColor() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalysisGeospatialMapStyle) *string {
 		if v == nil {
@@ -38741,6 +38955,7 @@ func (o AnalysisGeospatialMapStylePtrOutput) BackgroundColor() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// The selected base map style.
 func (o AnalysisGeospatialMapStylePtrOutput) BaseMapStyle() AnalysisBaseMapStyleTypePtrOutput {
 	return o.ApplyT(func(v *AnalysisGeospatialMapStyle) *AnalysisBaseMapStyleType {
 		if v == nil {
@@ -38750,6 +38965,7 @@ func (o AnalysisGeospatialMapStylePtrOutput) BaseMapStyle() AnalysisBaseMapStyle
 	}).(AnalysisBaseMapStyleTypePtrOutput)
 }
 
+// The state of visibility for the base map.
 func (o AnalysisGeospatialMapStylePtrOutput) BaseMapVisibility() AnalysisVisibilityPtrOutput {
 	return o.ApplyT(func(v *AnalysisGeospatialMapStyle) *AnalysisVisibility {
 		if v == nil {
@@ -38906,8 +39122,9 @@ type AnalysisGeospatialMapVisual struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle *AnalysisVisualSubtitleLabelOptions `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                *AnalysisVisualTitleLabelOptions `pulumi:"title"`
-	VisualContentAltText *string                          `pulumi:"visualContentAltText"`
+	Title *AnalysisVisualTitleLabelOptions `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText *string `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..
 	VisualId string `pulumi:"visualId"`
 }
@@ -38933,8 +39150,9 @@ type AnalysisGeospatialMapVisualArgs struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle AnalysisVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                AnalysisVisualTitleLabelOptionsPtrInput `pulumi:"title"`
-	VisualContentAltText pulumi.StringPtrInput                   `pulumi:"visualContentAltText"`
+	Title AnalysisVisualTitleLabelOptionsPtrInput `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText pulumi.StringPtrInput `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..
 	VisualId pulumi.StringInput `pulumi:"visualId"`
 }
@@ -39041,6 +39259,7 @@ func (o AnalysisGeospatialMapVisualOutput) Title() AnalysisVisualTitleLabelOptio
 	return o.ApplyT(func(v AnalysisGeospatialMapVisual) *AnalysisVisualTitleLabelOptions { return v.Title }).(AnalysisVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o AnalysisGeospatialMapVisualOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnalysisGeospatialMapVisual) *string { return v.VisualContentAltText }).(pulumi.StringPtrOutput)
 }
@@ -39124,6 +39343,7 @@ func (o AnalysisGeospatialMapVisualPtrOutput) Title() AnalysisVisualTitleLabelOp
 	}).(AnalysisVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o AnalysisGeospatialMapVisualPtrOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalysisGeospatialMapVisual) *string {
 		if v == nil {
@@ -39144,6 +39364,7 @@ func (o AnalysisGeospatialMapVisualPtrOutput) VisualId() pulumi.StringPtrOutput 
 }
 
 type AnalysisGeospatialNullDataSettings struct {
+	// The symbol style for null data.
 	SymbolStyle AnalysisGeospatialNullSymbolStyle `pulumi:"symbolStyle"`
 }
 
@@ -39159,6 +39380,7 @@ type AnalysisGeospatialNullDataSettingsInput interface {
 }
 
 type AnalysisGeospatialNullDataSettingsArgs struct {
+	// The symbol style for null data.
 	SymbolStyle AnalysisGeospatialNullSymbolStyleInput `pulumi:"symbolStyle"`
 }
 
@@ -39239,6 +39461,7 @@ func (o AnalysisGeospatialNullDataSettingsOutput) ToAnalysisGeospatialNullDataSe
 	}).(AnalysisGeospatialNullDataSettingsPtrOutput)
 }
 
+// The symbol style for null data.
 func (o AnalysisGeospatialNullDataSettingsOutput) SymbolStyle() AnalysisGeospatialNullSymbolStyleOutput {
 	return o.ApplyT(func(v AnalysisGeospatialNullDataSettings) AnalysisGeospatialNullSymbolStyle { return v.SymbolStyle }).(AnalysisGeospatialNullSymbolStyleOutput)
 }
@@ -39267,6 +39490,7 @@ func (o AnalysisGeospatialNullDataSettingsPtrOutput) Elem() AnalysisGeospatialNu
 	}).(AnalysisGeospatialNullDataSettingsOutput)
 }
 
+// The symbol style for null data.
 func (o AnalysisGeospatialNullDataSettingsPtrOutput) SymbolStyle() AnalysisGeospatialNullSymbolStylePtrOutput {
 	return o.ApplyT(func(v *AnalysisGeospatialNullDataSettings) *AnalysisGeospatialNullSymbolStyle {
 		if v == nil {
@@ -39277,8 +39501,11 @@ func (o AnalysisGeospatialNullDataSettingsPtrOutput) SymbolStyle() AnalysisGeosp
 }
 
 type AnalysisGeospatialNullSymbolStyle struct {
-	FillColor   *string  `pulumi:"fillColor"`
-	StrokeColor *string  `pulumi:"strokeColor"`
+	// The color and opacity values for the fill color.
+	FillColor *string `pulumi:"fillColor"`
+	// The color and opacity values for the stroke color.
+	StrokeColor *string `pulumi:"strokeColor"`
+	// The width of the border stroke.
 	StrokeWidth *float64 `pulumi:"strokeWidth"`
 }
 
@@ -39294,8 +39521,11 @@ type AnalysisGeospatialNullSymbolStyleInput interface {
 }
 
 type AnalysisGeospatialNullSymbolStyleArgs struct {
-	FillColor   pulumi.StringPtrInput  `pulumi:"fillColor"`
-	StrokeColor pulumi.StringPtrInput  `pulumi:"strokeColor"`
+	// The color and opacity values for the fill color.
+	FillColor pulumi.StringPtrInput `pulumi:"fillColor"`
+	// The color and opacity values for the stroke color.
+	StrokeColor pulumi.StringPtrInput `pulumi:"strokeColor"`
+	// The width of the border stroke.
 	StrokeWidth pulumi.Float64PtrInput `pulumi:"strokeWidth"`
 }
 
@@ -39376,14 +39606,17 @@ func (o AnalysisGeospatialNullSymbolStyleOutput) ToAnalysisGeospatialNullSymbolS
 	}).(AnalysisGeospatialNullSymbolStylePtrOutput)
 }
 
+// The color and opacity values for the fill color.
 func (o AnalysisGeospatialNullSymbolStyleOutput) FillColor() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnalysisGeospatialNullSymbolStyle) *string { return v.FillColor }).(pulumi.StringPtrOutput)
 }
 
+// The color and opacity values for the stroke color.
 func (o AnalysisGeospatialNullSymbolStyleOutput) StrokeColor() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnalysisGeospatialNullSymbolStyle) *string { return v.StrokeColor }).(pulumi.StringPtrOutput)
 }
 
+// The width of the border stroke.
 func (o AnalysisGeospatialNullSymbolStyleOutput) StrokeWidth() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v AnalysisGeospatialNullSymbolStyle) *float64 { return v.StrokeWidth }).(pulumi.Float64PtrOutput)
 }
@@ -39412,6 +39645,7 @@ func (o AnalysisGeospatialNullSymbolStylePtrOutput) Elem() AnalysisGeospatialNul
 	}).(AnalysisGeospatialNullSymbolStyleOutput)
 }
 
+// The color and opacity values for the fill color.
 func (o AnalysisGeospatialNullSymbolStylePtrOutput) FillColor() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalysisGeospatialNullSymbolStyle) *string {
 		if v == nil {
@@ -39421,6 +39655,7 @@ func (o AnalysisGeospatialNullSymbolStylePtrOutput) FillColor() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// The color and opacity values for the stroke color.
 func (o AnalysisGeospatialNullSymbolStylePtrOutput) StrokeColor() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalysisGeospatialNullSymbolStyle) *string {
 		if v == nil {
@@ -39430,6 +39665,7 @@ func (o AnalysisGeospatialNullSymbolStylePtrOutput) StrokeColor() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
+// The width of the border stroke.
 func (o AnalysisGeospatialNullSymbolStylePtrOutput) StrokeWidth() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *AnalysisGeospatialNullSymbolStyle) *float64 {
 		if v == nil {
@@ -39440,6 +39676,7 @@ func (o AnalysisGeospatialNullSymbolStylePtrOutput) StrokeWidth() pulumi.Float64
 }
 
 type AnalysisGeospatialPointLayer struct {
+	// The visualization style for a point layer.
 	Style AnalysisGeospatialPointStyle `pulumi:"style"`
 }
 
@@ -39455,6 +39692,7 @@ type AnalysisGeospatialPointLayerInput interface {
 }
 
 type AnalysisGeospatialPointLayerArgs struct {
+	// The visualization style for a point layer.
 	Style AnalysisGeospatialPointStyleInput `pulumi:"style"`
 }
 
@@ -39535,6 +39773,7 @@ func (o AnalysisGeospatialPointLayerOutput) ToAnalysisGeospatialPointLayerPtrOut
 	}).(AnalysisGeospatialPointLayerPtrOutput)
 }
 
+// The visualization style for a point layer.
 func (o AnalysisGeospatialPointLayerOutput) Style() AnalysisGeospatialPointStyleOutput {
 	return o.ApplyT(func(v AnalysisGeospatialPointLayer) AnalysisGeospatialPointStyle { return v.Style }).(AnalysisGeospatialPointStyleOutput)
 }
@@ -39563,6 +39802,7 @@ func (o AnalysisGeospatialPointLayerPtrOutput) Elem() AnalysisGeospatialPointLay
 	}).(AnalysisGeospatialPointLayerOutput)
 }
 
+// The visualization style for a point layer.
 func (o AnalysisGeospatialPointLayerPtrOutput) Style() AnalysisGeospatialPointStylePtrOutput {
 	return o.ApplyT(func(v *AnalysisGeospatialPointLayer) *AnalysisGeospatialPointStyle {
 		if v == nil {
@@ -39573,6 +39813,7 @@ func (o AnalysisGeospatialPointLayerPtrOutput) Style() AnalysisGeospatialPointSt
 }
 
 type AnalysisGeospatialPointStyle struct {
+	// The circle symbol style for a point layer.
 	CircleSymbolStyle *AnalysisGeospatialCircleSymbolStyle `pulumi:"circleSymbolStyle"`
 }
 
@@ -39588,6 +39829,7 @@ type AnalysisGeospatialPointStyleInput interface {
 }
 
 type AnalysisGeospatialPointStyleArgs struct {
+	// The circle symbol style for a point layer.
 	CircleSymbolStyle AnalysisGeospatialCircleSymbolStylePtrInput `pulumi:"circleSymbolStyle"`
 }
 
@@ -39668,6 +39910,7 @@ func (o AnalysisGeospatialPointStyleOutput) ToAnalysisGeospatialPointStylePtrOut
 	}).(AnalysisGeospatialPointStylePtrOutput)
 }
 
+// The circle symbol style for a point layer.
 func (o AnalysisGeospatialPointStyleOutput) CircleSymbolStyle() AnalysisGeospatialCircleSymbolStylePtrOutput {
 	return o.ApplyT(func(v AnalysisGeospatialPointStyle) *AnalysisGeospatialCircleSymbolStyle { return v.CircleSymbolStyle }).(AnalysisGeospatialCircleSymbolStylePtrOutput)
 }
@@ -39696,6 +39939,7 @@ func (o AnalysisGeospatialPointStylePtrOutput) Elem() AnalysisGeospatialPointSty
 	}).(AnalysisGeospatialPointStyleOutput)
 }
 
+// The circle symbol style for a point layer.
 func (o AnalysisGeospatialPointStylePtrOutput) CircleSymbolStyle() AnalysisGeospatialCircleSymbolStylePtrOutput {
 	return o.ApplyT(func(v *AnalysisGeospatialPointStyle) *AnalysisGeospatialCircleSymbolStyle {
 		if v == nil {
@@ -39887,6 +40131,7 @@ func (o AnalysisGeospatialPointStyleOptionsPtrOutput) SelectedPointStyle() Analy
 }
 
 type AnalysisGeospatialPolygonLayer struct {
+	// The visualization style for a polygon layer.
 	Style AnalysisGeospatialPolygonStyle `pulumi:"style"`
 }
 
@@ -39902,6 +40147,7 @@ type AnalysisGeospatialPolygonLayerInput interface {
 }
 
 type AnalysisGeospatialPolygonLayerArgs struct {
+	// The visualization style for a polygon layer.
 	Style AnalysisGeospatialPolygonStyleInput `pulumi:"style"`
 }
 
@@ -39982,6 +40228,7 @@ func (o AnalysisGeospatialPolygonLayerOutput) ToAnalysisGeospatialPolygonLayerPt
 	}).(AnalysisGeospatialPolygonLayerPtrOutput)
 }
 
+// The visualization style for a polygon layer.
 func (o AnalysisGeospatialPolygonLayerOutput) Style() AnalysisGeospatialPolygonStyleOutput {
 	return o.ApplyT(func(v AnalysisGeospatialPolygonLayer) AnalysisGeospatialPolygonStyle { return v.Style }).(AnalysisGeospatialPolygonStyleOutput)
 }
@@ -40010,6 +40257,7 @@ func (o AnalysisGeospatialPolygonLayerPtrOutput) Elem() AnalysisGeospatialPolygo
 	}).(AnalysisGeospatialPolygonLayerOutput)
 }
 
+// The visualization style for a polygon layer.
 func (o AnalysisGeospatialPolygonLayerPtrOutput) Style() AnalysisGeospatialPolygonStylePtrOutput {
 	return o.ApplyT(func(v *AnalysisGeospatialPolygonLayer) *AnalysisGeospatialPolygonStyle {
 		if v == nil {
@@ -40020,6 +40268,7 @@ func (o AnalysisGeospatialPolygonLayerPtrOutput) Style() AnalysisGeospatialPolyg
 }
 
 type AnalysisGeospatialPolygonStyle struct {
+	// The polygon symbol style for a polygon layer.
 	PolygonSymbolStyle *AnalysisGeospatialPolygonSymbolStyle `pulumi:"polygonSymbolStyle"`
 }
 
@@ -40035,6 +40284,7 @@ type AnalysisGeospatialPolygonStyleInput interface {
 }
 
 type AnalysisGeospatialPolygonStyleArgs struct {
+	// The polygon symbol style for a polygon layer.
 	PolygonSymbolStyle AnalysisGeospatialPolygonSymbolStylePtrInput `pulumi:"polygonSymbolStyle"`
 }
 
@@ -40115,6 +40365,7 @@ func (o AnalysisGeospatialPolygonStyleOutput) ToAnalysisGeospatialPolygonStylePt
 	}).(AnalysisGeospatialPolygonStylePtrOutput)
 }
 
+// The polygon symbol style for a polygon layer.
 func (o AnalysisGeospatialPolygonStyleOutput) PolygonSymbolStyle() AnalysisGeospatialPolygonSymbolStylePtrOutput {
 	return o.ApplyT(func(v AnalysisGeospatialPolygonStyle) *AnalysisGeospatialPolygonSymbolStyle {
 		return v.PolygonSymbolStyle
@@ -40145,6 +40396,7 @@ func (o AnalysisGeospatialPolygonStylePtrOutput) Elem() AnalysisGeospatialPolygo
 	}).(AnalysisGeospatialPolygonStyleOutput)
 }
 
+// The polygon symbol style for a polygon layer.
 func (o AnalysisGeospatialPolygonStylePtrOutput) PolygonSymbolStyle() AnalysisGeospatialPolygonSymbolStylePtrOutput {
 	return o.ApplyT(func(v *AnalysisGeospatialPolygonStyle) *AnalysisGeospatialPolygonSymbolStyle {
 		if v == nil {
@@ -40155,8 +40407,11 @@ func (o AnalysisGeospatialPolygonStylePtrOutput) PolygonSymbolStyle() AnalysisGe
 }
 
 type AnalysisGeospatialPolygonSymbolStyle struct {
-	FillColor   *AnalysisGeospatialColor     `pulumi:"fillColor"`
-	StrokeColor *AnalysisGeospatialColor     `pulumi:"strokeColor"`
+	// The color and opacity values for the fill color.
+	FillColor *AnalysisGeospatialColor `pulumi:"fillColor"`
+	// The color and opacity values for the stroke color.
+	StrokeColor *AnalysisGeospatialColor `pulumi:"strokeColor"`
+	// The width of the border stroke.
 	StrokeWidth *AnalysisGeospatialLineWidth `pulumi:"strokeWidth"`
 }
 
@@ -40172,8 +40427,11 @@ type AnalysisGeospatialPolygonSymbolStyleInput interface {
 }
 
 type AnalysisGeospatialPolygonSymbolStyleArgs struct {
-	FillColor   AnalysisGeospatialColorPtrInput     `pulumi:"fillColor"`
-	StrokeColor AnalysisGeospatialColorPtrInput     `pulumi:"strokeColor"`
+	// The color and opacity values for the fill color.
+	FillColor AnalysisGeospatialColorPtrInput `pulumi:"fillColor"`
+	// The color and opacity values for the stroke color.
+	StrokeColor AnalysisGeospatialColorPtrInput `pulumi:"strokeColor"`
+	// The width of the border stroke.
 	StrokeWidth AnalysisGeospatialLineWidthPtrInput `pulumi:"strokeWidth"`
 }
 
@@ -40254,14 +40512,17 @@ func (o AnalysisGeospatialPolygonSymbolStyleOutput) ToAnalysisGeospatialPolygonS
 	}).(AnalysisGeospatialPolygonSymbolStylePtrOutput)
 }
 
+// The color and opacity values for the fill color.
 func (o AnalysisGeospatialPolygonSymbolStyleOutput) FillColor() AnalysisGeospatialColorPtrOutput {
 	return o.ApplyT(func(v AnalysisGeospatialPolygonSymbolStyle) *AnalysisGeospatialColor { return v.FillColor }).(AnalysisGeospatialColorPtrOutput)
 }
 
+// The color and opacity values for the stroke color.
 func (o AnalysisGeospatialPolygonSymbolStyleOutput) StrokeColor() AnalysisGeospatialColorPtrOutput {
 	return o.ApplyT(func(v AnalysisGeospatialPolygonSymbolStyle) *AnalysisGeospatialColor { return v.StrokeColor }).(AnalysisGeospatialColorPtrOutput)
 }
 
+// The width of the border stroke.
 func (o AnalysisGeospatialPolygonSymbolStyleOutput) StrokeWidth() AnalysisGeospatialLineWidthPtrOutput {
 	return o.ApplyT(func(v AnalysisGeospatialPolygonSymbolStyle) *AnalysisGeospatialLineWidth { return v.StrokeWidth }).(AnalysisGeospatialLineWidthPtrOutput)
 }
@@ -40290,6 +40551,7 @@ func (o AnalysisGeospatialPolygonSymbolStylePtrOutput) Elem() AnalysisGeospatial
 	}).(AnalysisGeospatialPolygonSymbolStyleOutput)
 }
 
+// The color and opacity values for the fill color.
 func (o AnalysisGeospatialPolygonSymbolStylePtrOutput) FillColor() AnalysisGeospatialColorPtrOutput {
 	return o.ApplyT(func(v *AnalysisGeospatialPolygonSymbolStyle) *AnalysisGeospatialColor {
 		if v == nil {
@@ -40299,6 +40561,7 @@ func (o AnalysisGeospatialPolygonSymbolStylePtrOutput) FillColor() AnalysisGeosp
 	}).(AnalysisGeospatialColorPtrOutput)
 }
 
+// The color and opacity values for the stroke color.
 func (o AnalysisGeospatialPolygonSymbolStylePtrOutput) StrokeColor() AnalysisGeospatialColorPtrOutput {
 	return o.ApplyT(func(v *AnalysisGeospatialPolygonSymbolStyle) *AnalysisGeospatialColor {
 		if v == nil {
@@ -40308,6 +40571,7 @@ func (o AnalysisGeospatialPolygonSymbolStylePtrOutput) StrokeColor() AnalysisGeo
 	}).(AnalysisGeospatialColorPtrOutput)
 }
 
+// The width of the border stroke.
 func (o AnalysisGeospatialPolygonSymbolStylePtrOutput) StrokeWidth() AnalysisGeospatialLineWidthPtrOutput {
 	return o.ApplyT(func(v *AnalysisGeospatialPolygonSymbolStyle) *AnalysisGeospatialLineWidth {
 		if v == nil {
@@ -40319,7 +40583,9 @@ func (o AnalysisGeospatialPolygonSymbolStylePtrOutput) StrokeWidth() AnalysisGeo
 
 // Describes the properties for a solid color
 type AnalysisGeospatialSolidColor struct {
-	Color string                        `pulumi:"color"`
+	// The color and opacity values for the color.
+	Color string `pulumi:"color"`
+	// Enables and disables the view state of the color.
 	State *AnalysisGeospatialColorState `pulumi:"state"`
 }
 
@@ -40336,7 +40602,9 @@ type AnalysisGeospatialSolidColorInput interface {
 
 // Describes the properties for a solid color
 type AnalysisGeospatialSolidColorArgs struct {
-	Color pulumi.StringInput                   `pulumi:"color"`
+	// The color and opacity values for the color.
+	Color pulumi.StringInput `pulumi:"color"`
+	// Enables and disables the view state of the color.
 	State AnalysisGeospatialColorStatePtrInput `pulumi:"state"`
 }
 
@@ -40418,10 +40686,12 @@ func (o AnalysisGeospatialSolidColorOutput) ToAnalysisGeospatialSolidColorPtrOut
 	}).(AnalysisGeospatialSolidColorPtrOutput)
 }
 
+// The color and opacity values for the color.
 func (o AnalysisGeospatialSolidColorOutput) Color() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalysisGeospatialSolidColor) string { return v.Color }).(pulumi.StringOutput)
 }
 
+// Enables and disables the view state of the color.
 func (o AnalysisGeospatialSolidColorOutput) State() AnalysisGeospatialColorStatePtrOutput {
 	return o.ApplyT(func(v AnalysisGeospatialSolidColor) *AnalysisGeospatialColorState { return v.State }).(AnalysisGeospatialColorStatePtrOutput)
 }
@@ -40450,6 +40720,7 @@ func (o AnalysisGeospatialSolidColorPtrOutput) Elem() AnalysisGeospatialSolidCol
 	}).(AnalysisGeospatialSolidColorOutput)
 }
 
+// The color and opacity values for the color.
 func (o AnalysisGeospatialSolidColorPtrOutput) Color() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalysisGeospatialSolidColor) *string {
 		if v == nil {
@@ -40459,6 +40730,7 @@ func (o AnalysisGeospatialSolidColorPtrOutput) Color() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Enables and disables the view state of the color.
 func (o AnalysisGeospatialSolidColorPtrOutput) State() AnalysisGeospatialColorStatePtrOutput {
 	return o.ApplyT(func(v *AnalysisGeospatialSolidColor) *AnalysisGeospatialColorState {
 		if v == nil {
@@ -40469,6 +40741,7 @@ func (o AnalysisGeospatialSolidColorPtrOutput) State() AnalysisGeospatialColorSt
 }
 
 type AnalysisGeospatialStaticFileSource struct {
+	// The ID of the static file.
 	StaticFileId string `pulumi:"staticFileId"`
 }
 
@@ -40484,6 +40757,7 @@ type AnalysisGeospatialStaticFileSourceInput interface {
 }
 
 type AnalysisGeospatialStaticFileSourceArgs struct {
+	// The ID of the static file.
 	StaticFileId pulumi.StringInput `pulumi:"staticFileId"`
 }
 
@@ -40564,6 +40838,7 @@ func (o AnalysisGeospatialStaticFileSourceOutput) ToAnalysisGeospatialStaticFile
 	}).(AnalysisGeospatialStaticFileSourcePtrOutput)
 }
 
+// The ID of the static file.
 func (o AnalysisGeospatialStaticFileSourceOutput) StaticFileId() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalysisGeospatialStaticFileSource) string { return v.StaticFileId }).(pulumi.StringOutput)
 }
@@ -40592,6 +40867,7 @@ func (o AnalysisGeospatialStaticFileSourcePtrOutput) Elem() AnalysisGeospatialSt
 	}).(AnalysisGeospatialStaticFileSourceOutput)
 }
 
+// The ID of the static file.
 func (o AnalysisGeospatialStaticFileSourcePtrOutput) StaticFileId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalysisGeospatialStaticFileSource) *string {
 		if v == nil {
@@ -42888,8 +43164,9 @@ type AnalysisHeatMapVisual struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle *AnalysisVisualSubtitleLabelOptions `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                *AnalysisVisualTitleLabelOptions `pulumi:"title"`
-	VisualContentAltText *string                          `pulumi:"visualContentAltText"`
+	Title *AnalysisVisualTitleLabelOptions `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText *string `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
 	VisualId string `pulumi:"visualId"`
 }
@@ -42915,8 +43192,9 @@ type AnalysisHeatMapVisualArgs struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle AnalysisVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                AnalysisVisualTitleLabelOptionsPtrInput `pulumi:"title"`
-	VisualContentAltText pulumi.StringPtrInput                   `pulumi:"visualContentAltText"`
+	Title AnalysisVisualTitleLabelOptionsPtrInput `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText pulumi.StringPtrInput `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
 	VisualId pulumi.StringInput `pulumi:"visualId"`
 }
@@ -43023,6 +43301,7 @@ func (o AnalysisHeatMapVisualOutput) Title() AnalysisVisualTitleLabelOptionsPtrO
 	return o.ApplyT(func(v AnalysisHeatMapVisual) *AnalysisVisualTitleLabelOptions { return v.Title }).(AnalysisVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o AnalysisHeatMapVisualOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnalysisHeatMapVisual) *string { return v.VisualContentAltText }).(pulumi.StringPtrOutput)
 }
@@ -43106,6 +43385,7 @@ func (o AnalysisHeatMapVisualPtrOutput) Title() AnalysisVisualTitleLabelOptionsP
 	}).(AnalysisVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o AnalysisHeatMapVisualPtrOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalysisHeatMapVisual) *string {
 		if v == nil {
@@ -43873,8 +44153,9 @@ type AnalysisHistogramVisual struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle *AnalysisVisualSubtitleLabelOptions `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                *AnalysisVisualTitleLabelOptions `pulumi:"title"`
-	VisualContentAltText *string                          `pulumi:"visualContentAltText"`
+	Title *AnalysisVisualTitleLabelOptions `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText *string `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
 	VisualId string `pulumi:"visualId"`
 }
@@ -43898,8 +44179,9 @@ type AnalysisHistogramVisualArgs struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle AnalysisVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                AnalysisVisualTitleLabelOptionsPtrInput `pulumi:"title"`
-	VisualContentAltText pulumi.StringPtrInput                   `pulumi:"visualContentAltText"`
+	Title AnalysisVisualTitleLabelOptionsPtrInput `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText pulumi.StringPtrInput `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
 	VisualId pulumi.StringInput `pulumi:"visualId"`
 }
@@ -44001,6 +44283,7 @@ func (o AnalysisHistogramVisualOutput) Title() AnalysisVisualTitleLabelOptionsPt
 	return o.ApplyT(func(v AnalysisHistogramVisual) *AnalysisVisualTitleLabelOptions { return v.Title }).(AnalysisVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o AnalysisHistogramVisualOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnalysisHistogramVisual) *string { return v.VisualContentAltText }).(pulumi.StringPtrOutput)
 }
@@ -44074,6 +44357,7 @@ func (o AnalysisHistogramVisualPtrOutput) Title() AnalysisVisualTitleLabelOption
 	}).(AnalysisVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o AnalysisHistogramVisualPtrOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalysisHistogramVisual) *string {
 		if v == nil {
@@ -44094,11 +44378,23 @@ func (o AnalysisHistogramVisualPtrOutput) VisualId() pulumi.StringPtrOutput {
 }
 
 type AnalysisImageCustomAction struct {
+	// A list of `ImageCustomActionOperations` .
+	//
+	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 	ActionOperations []AnalysisImageCustomActionOperation `pulumi:"actionOperations"`
-	CustomActionId   string                               `pulumi:"customActionId"`
-	Name             string                               `pulumi:"name"`
-	Status           *AnalysisWidgetStatus                `pulumi:"status"`
-	Trigger          AnalysisImageCustomActionTrigger     `pulumi:"trigger"`
+	// The ID of the custom action.
+	CustomActionId string `pulumi:"customActionId"`
+	// The name of the custom action.
+	Name string `pulumi:"name"`
+	// The status of the custom action.
+	Status *AnalysisWidgetStatus `pulumi:"status"`
+	// The trigger of the `VisualCustomAction` .
+	//
+	// Valid values are defined as follows:
+	//
+	// - `CLICK` : Initiates a custom action by a left pointer click on a data point.
+	// - `MENU` : Initiates a custom action by right pointer click from the menu.
+	Trigger AnalysisImageCustomActionTrigger `pulumi:"trigger"`
 }
 
 // AnalysisImageCustomActionInput is an input type that accepts AnalysisImageCustomActionArgs and AnalysisImageCustomActionOutput values.
@@ -44113,11 +44409,23 @@ type AnalysisImageCustomActionInput interface {
 }
 
 type AnalysisImageCustomActionArgs struct {
+	// A list of `ImageCustomActionOperations` .
+	//
+	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 	ActionOperations AnalysisImageCustomActionOperationArrayInput `pulumi:"actionOperations"`
-	CustomActionId   pulumi.StringInput                           `pulumi:"customActionId"`
-	Name             pulumi.StringInput                           `pulumi:"name"`
-	Status           AnalysisWidgetStatusPtrInput                 `pulumi:"status"`
-	Trigger          AnalysisImageCustomActionTriggerInput        `pulumi:"trigger"`
+	// The ID of the custom action.
+	CustomActionId pulumi.StringInput `pulumi:"customActionId"`
+	// The name of the custom action.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The status of the custom action.
+	Status AnalysisWidgetStatusPtrInput `pulumi:"status"`
+	// The trigger of the `VisualCustomAction` .
+	//
+	// Valid values are defined as follows:
+	//
+	// - `CLICK` : Initiates a custom action by a left pointer click on a data point.
+	// - `MENU` : Initiates a custom action by right pointer click from the menu.
+	Trigger AnalysisImageCustomActionTriggerInput `pulumi:"trigger"`
 }
 
 func (AnalysisImageCustomActionArgs) ElementType() reflect.Type {
@@ -44171,22 +44479,34 @@ func (o AnalysisImageCustomActionOutput) ToAnalysisImageCustomActionOutputWithCo
 	return o
 }
 
+// A list of `ImageCustomActionOperations` .
+//
+// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 func (o AnalysisImageCustomActionOutput) ActionOperations() AnalysisImageCustomActionOperationArrayOutput {
 	return o.ApplyT(func(v AnalysisImageCustomAction) []AnalysisImageCustomActionOperation { return v.ActionOperations }).(AnalysisImageCustomActionOperationArrayOutput)
 }
 
+// The ID of the custom action.
 func (o AnalysisImageCustomActionOutput) CustomActionId() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalysisImageCustomAction) string { return v.CustomActionId }).(pulumi.StringOutput)
 }
 
+// The name of the custom action.
 func (o AnalysisImageCustomActionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalysisImageCustomAction) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The status of the custom action.
 func (o AnalysisImageCustomActionOutput) Status() AnalysisWidgetStatusPtrOutput {
 	return o.ApplyT(func(v AnalysisImageCustomAction) *AnalysisWidgetStatus { return v.Status }).(AnalysisWidgetStatusPtrOutput)
 }
 
+// The trigger of the `VisualCustomAction` .
+//
+// Valid values are defined as follows:
+//
+// - `CLICK` : Initiates a custom action by a left pointer click on a data point.
+// - `MENU` : Initiates a custom action by right pointer click from the menu.
 func (o AnalysisImageCustomActionOutput) Trigger() AnalysisImageCustomActionTriggerOutput {
 	return o.ApplyT(func(v AnalysisImageCustomAction) AnalysisImageCustomActionTrigger { return v.Trigger }).(AnalysisImageCustomActionTriggerOutput)
 }
@@ -44322,6 +44642,7 @@ func (o AnalysisImageCustomActionOperationArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type AnalysisImageInteractionOptions struct {
+	// The menu options for the image.
 	ImageMenuOption *AnalysisImageMenuOption `pulumi:"imageMenuOption"`
 }
 
@@ -44337,6 +44658,7 @@ type AnalysisImageInteractionOptionsInput interface {
 }
 
 type AnalysisImageInteractionOptionsArgs struct {
+	// The menu options for the image.
 	ImageMenuOption AnalysisImageMenuOptionPtrInput `pulumi:"imageMenuOption"`
 }
 
@@ -44417,6 +44739,7 @@ func (o AnalysisImageInteractionOptionsOutput) ToAnalysisImageInteractionOptions
 	}).(AnalysisImageInteractionOptionsPtrOutput)
 }
 
+// The menu options for the image.
 func (o AnalysisImageInteractionOptionsOutput) ImageMenuOption() AnalysisImageMenuOptionPtrOutput {
 	return o.ApplyT(func(v AnalysisImageInteractionOptions) *AnalysisImageMenuOption { return v.ImageMenuOption }).(AnalysisImageMenuOptionPtrOutput)
 }
@@ -44445,6 +44768,7 @@ func (o AnalysisImageInteractionOptionsPtrOutput) Elem() AnalysisImageInteractio
 	}).(AnalysisImageInteractionOptionsOutput)
 }
 
+// The menu options for the image.
 func (o AnalysisImageInteractionOptionsPtrOutput) ImageMenuOption() AnalysisImageMenuOptionPtrOutput {
 	return o.ApplyT(func(v *AnalysisImageInteractionOptions) *AnalysisImageMenuOption {
 		if v == nil {
@@ -44455,6 +44779,7 @@ func (o AnalysisImageInteractionOptionsPtrOutput) ImageMenuOption() AnalysisImag
 }
 
 type AnalysisImageMenuOption struct {
+	// The availability status of the image menu. If the value of this property is set to `ENABLED` , dashboard readers can interact with the image menu.
 	AvailabilityStatus interface{} `pulumi:"availabilityStatus"`
 }
 
@@ -44470,6 +44795,7 @@ type AnalysisImageMenuOptionInput interface {
 }
 
 type AnalysisImageMenuOptionArgs struct {
+	// The availability status of the image menu. If the value of this property is set to `ENABLED` , dashboard readers can interact with the image menu.
 	AvailabilityStatus pulumi.Input `pulumi:"availabilityStatus"`
 }
 
@@ -44550,6 +44876,7 @@ func (o AnalysisImageMenuOptionOutput) ToAnalysisImageMenuOptionPtrOutputWithCon
 	}).(AnalysisImageMenuOptionPtrOutput)
 }
 
+// The availability status of the image menu. If the value of this property is set to `ENABLED` , dashboard readers can interact with the image menu.
 func (o AnalysisImageMenuOptionOutput) AvailabilityStatus() pulumi.AnyOutput {
 	return o.ApplyT(func(v AnalysisImageMenuOption) interface{} { return v.AvailabilityStatus }).(pulumi.AnyOutput)
 }
@@ -44578,6 +44905,7 @@ func (o AnalysisImageMenuOptionPtrOutput) Elem() AnalysisImageMenuOptionOutput {
 	}).(AnalysisImageMenuOptionOutput)
 }
 
+// The availability status of the image menu. If the value of this property is set to `ENABLED` , dashboard readers can interact with the image menu.
 func (o AnalysisImageMenuOptionPtrOutput) AvailabilityStatus() pulumi.AnyOutput {
 	return o.ApplyT(func(v *AnalysisImageMenuOption) interface{} {
 		if v == nil {
@@ -44588,8 +44916,10 @@ func (o AnalysisImageMenuOptionPtrOutput) AvailabilityStatus() pulumi.AnyOutput 
 }
 
 type AnalysisImageStaticFile struct {
-	Source       *AnalysisStaticFileSource `pulumi:"source"`
-	StaticFileId string                    `pulumi:"staticFileId"`
+	// The source of the image static file.
+	Source *AnalysisStaticFileSource `pulumi:"source"`
+	// The ID of the static file that contains an image.
+	StaticFileId string `pulumi:"staticFileId"`
 }
 
 // AnalysisImageStaticFileInput is an input type that accepts AnalysisImageStaticFileArgs and AnalysisImageStaticFileOutput values.
@@ -44604,8 +44934,10 @@ type AnalysisImageStaticFileInput interface {
 }
 
 type AnalysisImageStaticFileArgs struct {
-	Source       AnalysisStaticFileSourcePtrInput `pulumi:"source"`
-	StaticFileId pulumi.StringInput               `pulumi:"staticFileId"`
+	// The source of the image static file.
+	Source AnalysisStaticFileSourcePtrInput `pulumi:"source"`
+	// The ID of the static file that contains an image.
+	StaticFileId pulumi.StringInput `pulumi:"staticFileId"`
 }
 
 func (AnalysisImageStaticFileArgs) ElementType() reflect.Type {
@@ -44685,10 +45017,12 @@ func (o AnalysisImageStaticFileOutput) ToAnalysisImageStaticFilePtrOutputWithCon
 	}).(AnalysisImageStaticFilePtrOutput)
 }
 
+// The source of the image static file.
 func (o AnalysisImageStaticFileOutput) Source() AnalysisStaticFileSourcePtrOutput {
 	return o.ApplyT(func(v AnalysisImageStaticFile) *AnalysisStaticFileSource { return v.Source }).(AnalysisStaticFileSourcePtrOutput)
 }
 
+// The ID of the static file that contains an image.
 func (o AnalysisImageStaticFileOutput) StaticFileId() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalysisImageStaticFile) string { return v.StaticFileId }).(pulumi.StringOutput)
 }
@@ -44717,6 +45051,7 @@ func (o AnalysisImageStaticFilePtrOutput) Elem() AnalysisImageStaticFileOutput {
 	}).(AnalysisImageStaticFileOutput)
 }
 
+// The source of the image static file.
 func (o AnalysisImageStaticFilePtrOutput) Source() AnalysisStaticFileSourcePtrOutput {
 	return o.ApplyT(func(v *AnalysisImageStaticFile) *AnalysisStaticFileSource {
 		if v == nil {
@@ -44726,6 +45061,7 @@ func (o AnalysisImageStaticFilePtrOutput) Source() AnalysisStaticFileSourcePtrOu
 	}).(AnalysisStaticFileSourcePtrOutput)
 }
 
+// The ID of the static file that contains an image.
 func (o AnalysisImageStaticFilePtrOutput) StaticFileId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalysisImageStaticFile) *string {
 		if v == nil {
@@ -45038,8 +45374,9 @@ type AnalysisInsightVisual struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle *AnalysisVisualSubtitleLabelOptions `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                *AnalysisVisualTitleLabelOptions `pulumi:"title"`
-	VisualContentAltText *string                          `pulumi:"visualContentAltText"`
+	Title *AnalysisVisualTitleLabelOptions `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText *string `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
 	VisualId string `pulumi:"visualId"`
 }
@@ -45065,8 +45402,9 @@ type AnalysisInsightVisualArgs struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle AnalysisVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                AnalysisVisualTitleLabelOptionsPtrInput `pulumi:"title"`
-	VisualContentAltText pulumi.StringPtrInput                   `pulumi:"visualContentAltText"`
+	Title AnalysisVisualTitleLabelOptionsPtrInput `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText pulumi.StringPtrInput `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
 	VisualId pulumi.StringInput `pulumi:"visualId"`
 }
@@ -45173,6 +45511,7 @@ func (o AnalysisInsightVisualOutput) Title() AnalysisVisualTitleLabelOptionsPtrO
 	return o.ApplyT(func(v AnalysisInsightVisual) *AnalysisVisualTitleLabelOptions { return v.Title }).(AnalysisVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o AnalysisInsightVisualOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnalysisInsightVisual) *string { return v.VisualContentAltText }).(pulumi.StringPtrOutput)
 }
@@ -45256,6 +45595,7 @@ func (o AnalysisInsightVisualPtrOutput) Title() AnalysisVisualTitleLabelOptionsP
 	}).(AnalysisVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o AnalysisInsightVisualPtrOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalysisInsightVisual) *string {
 		if v == nil {
@@ -47959,8 +48299,9 @@ type AnalysisKpiVisual struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle *AnalysisVisualSubtitleLabelOptions `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                *AnalysisVisualTitleLabelOptions `pulumi:"title"`
-	VisualContentAltText *string                          `pulumi:"visualContentAltText"`
+	Title *AnalysisVisualTitleLabelOptions `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText *string `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
 	VisualId string `pulumi:"visualId"`
 }
@@ -47988,8 +48329,9 @@ type AnalysisKpiVisualArgs struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle AnalysisVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                AnalysisVisualTitleLabelOptionsPtrInput `pulumi:"title"`
-	VisualContentAltText pulumi.StringPtrInput                   `pulumi:"visualContentAltText"`
+	Title AnalysisVisualTitleLabelOptionsPtrInput `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText pulumi.StringPtrInput `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
 	VisualId pulumi.StringInput `pulumi:"visualId"`
 }
@@ -48101,6 +48443,7 @@ func (o AnalysisKpiVisualOutput) Title() AnalysisVisualTitleLabelOptionsPtrOutpu
 	return o.ApplyT(func(v AnalysisKpiVisual) *AnalysisVisualTitleLabelOptions { return v.Title }).(AnalysisVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o AnalysisKpiVisualOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnalysisKpiVisual) *string { return v.VisualContentAltText }).(pulumi.StringPtrOutput)
 }
@@ -48194,6 +48537,7 @@ func (o AnalysisKpiVisualPtrOutput) Title() AnalysisVisualTitleLabelOptionsPtrOu
 	}).(AnalysisVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o AnalysisKpiVisualPtrOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalysisKpiVisual) *string {
 		if v == nil {
@@ -48663,11 +49007,23 @@ func (o AnalysisLabelOptionsPtrOutput) Visibility() AnalysisVisibilityPtrOutput 
 }
 
 type AnalysisLayerCustomAction struct {
+	// A list of `LayerCustomActionOperations` .
+	//
+	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 	ActionOperations []AnalysisLayerCustomActionOperation `pulumi:"actionOperations"`
-	CustomActionId   string                               `pulumi:"customActionId"`
-	Name             string                               `pulumi:"name"`
-	Status           *AnalysisWidgetStatus                `pulumi:"status"`
-	Trigger          AnalysisLayerCustomActionTrigger     `pulumi:"trigger"`
+	// The ID of the custom action.
+	CustomActionId string `pulumi:"customActionId"`
+	// The name of the custom action.
+	Name string `pulumi:"name"`
+	// The status of the `LayerCustomAction` .
+	Status *AnalysisWidgetStatus `pulumi:"status"`
+	// The trigger of the `LayerCustomAction` .
+	//
+	// Valid values are defined as follows:
+	//
+	// - `DATA_POINT_CLICK` : Initiates a custom action by a left pointer click on a data point.
+	// - `DATA_POINT_MENU` : Initiates a custom action by right pointer click from the menu.
+	Trigger AnalysisLayerCustomActionTrigger `pulumi:"trigger"`
 }
 
 // AnalysisLayerCustomActionInput is an input type that accepts AnalysisLayerCustomActionArgs and AnalysisLayerCustomActionOutput values.
@@ -48682,11 +49038,23 @@ type AnalysisLayerCustomActionInput interface {
 }
 
 type AnalysisLayerCustomActionArgs struct {
+	// A list of `LayerCustomActionOperations` .
+	//
+	// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 	ActionOperations AnalysisLayerCustomActionOperationArrayInput `pulumi:"actionOperations"`
-	CustomActionId   pulumi.StringInput                           `pulumi:"customActionId"`
-	Name             pulumi.StringInput                           `pulumi:"name"`
-	Status           AnalysisWidgetStatusPtrInput                 `pulumi:"status"`
-	Trigger          AnalysisLayerCustomActionTriggerInput        `pulumi:"trigger"`
+	// The ID of the custom action.
+	CustomActionId pulumi.StringInput `pulumi:"customActionId"`
+	// The name of the custom action.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The status of the `LayerCustomAction` .
+	Status AnalysisWidgetStatusPtrInput `pulumi:"status"`
+	// The trigger of the `LayerCustomAction` .
+	//
+	// Valid values are defined as follows:
+	//
+	// - `DATA_POINT_CLICK` : Initiates a custom action by a left pointer click on a data point.
+	// - `DATA_POINT_MENU` : Initiates a custom action by right pointer click from the menu.
+	Trigger AnalysisLayerCustomActionTriggerInput `pulumi:"trigger"`
 }
 
 func (AnalysisLayerCustomActionArgs) ElementType() reflect.Type {
@@ -48740,22 +49108,34 @@ func (o AnalysisLayerCustomActionOutput) ToAnalysisLayerCustomActionOutputWithCo
 	return o
 }
 
+// A list of `LayerCustomActionOperations` .
+//
+// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
 func (o AnalysisLayerCustomActionOutput) ActionOperations() AnalysisLayerCustomActionOperationArrayOutput {
 	return o.ApplyT(func(v AnalysisLayerCustomAction) []AnalysisLayerCustomActionOperation { return v.ActionOperations }).(AnalysisLayerCustomActionOperationArrayOutput)
 }
 
+// The ID of the custom action.
 func (o AnalysisLayerCustomActionOutput) CustomActionId() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalysisLayerCustomAction) string { return v.CustomActionId }).(pulumi.StringOutput)
 }
 
+// The name of the custom action.
 func (o AnalysisLayerCustomActionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalysisLayerCustomAction) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The status of the `LayerCustomAction` .
 func (o AnalysisLayerCustomActionOutput) Status() AnalysisWidgetStatusPtrOutput {
 	return o.ApplyT(func(v AnalysisLayerCustomAction) *AnalysisWidgetStatus { return v.Status }).(AnalysisWidgetStatusPtrOutput)
 }
 
+// The trigger of the `LayerCustomAction` .
+//
+// Valid values are defined as follows:
+//
+// - `DATA_POINT_CLICK` : Initiates a custom action by a left pointer click on a data point.
+// - `DATA_POINT_MENU` : Initiates a custom action by right pointer click from the menu.
 func (o AnalysisLayerCustomActionOutput) Trigger() AnalysisLayerCustomActionTriggerOutput {
 	return o.ApplyT(func(v AnalysisLayerCustomAction) AnalysisLayerCustomActionTrigger { return v.Trigger }).(AnalysisLayerCustomActionTriggerOutput)
 }
@@ -48899,12 +49279,16 @@ func (o AnalysisLayerCustomActionOperationArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type AnalysisLayerMapVisual struct {
-	ChartConfiguration   *AnalysisGeospatialLayerMapConfiguration `pulumi:"chartConfiguration"`
-	DataSetIdentifier    string                                   `pulumi:"dataSetIdentifier"`
-	Subtitle             *AnalysisVisualSubtitleLabelOptions      `pulumi:"subtitle"`
-	Title                *AnalysisVisualTitleLabelOptions         `pulumi:"title"`
-	VisualContentAltText *string                                  `pulumi:"visualContentAltText"`
-	VisualId             string                                   `pulumi:"visualId"`
+	// The configuration settings of the visual.
+	ChartConfiguration *AnalysisGeospatialLayerMapConfiguration `pulumi:"chartConfiguration"`
+	// The dataset that is used to create the layer map visual. You can't create a visual without a dataset.
+	DataSetIdentifier string                              `pulumi:"dataSetIdentifier"`
+	Subtitle          *AnalysisVisualSubtitleLabelOptions `pulumi:"subtitle"`
+	Title             *AnalysisVisualTitleLabelOptions    `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText *string `pulumi:"visualContentAltText"`
+	// The ID of the visual.
+	VisualId string `pulumi:"visualId"`
 }
 
 // AnalysisLayerMapVisualInput is an input type that accepts AnalysisLayerMapVisualArgs and AnalysisLayerMapVisualOutput values.
@@ -48919,12 +49303,16 @@ type AnalysisLayerMapVisualInput interface {
 }
 
 type AnalysisLayerMapVisualArgs struct {
-	ChartConfiguration   AnalysisGeospatialLayerMapConfigurationPtrInput `pulumi:"chartConfiguration"`
-	DataSetIdentifier    pulumi.StringInput                              `pulumi:"dataSetIdentifier"`
-	Subtitle             AnalysisVisualSubtitleLabelOptionsPtrInput      `pulumi:"subtitle"`
-	Title                AnalysisVisualTitleLabelOptionsPtrInput         `pulumi:"title"`
-	VisualContentAltText pulumi.StringPtrInput                           `pulumi:"visualContentAltText"`
-	VisualId             pulumi.StringInput                              `pulumi:"visualId"`
+	// The configuration settings of the visual.
+	ChartConfiguration AnalysisGeospatialLayerMapConfigurationPtrInput `pulumi:"chartConfiguration"`
+	// The dataset that is used to create the layer map visual. You can't create a visual without a dataset.
+	DataSetIdentifier pulumi.StringInput                         `pulumi:"dataSetIdentifier"`
+	Subtitle          AnalysisVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
+	Title             AnalysisVisualTitleLabelOptionsPtrInput    `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText pulumi.StringPtrInput `pulumi:"visualContentAltText"`
+	// The ID of the visual.
+	VisualId pulumi.StringInput `pulumi:"visualId"`
 }
 
 func (AnalysisLayerMapVisualArgs) ElementType() reflect.Type {
@@ -49004,10 +49392,12 @@ func (o AnalysisLayerMapVisualOutput) ToAnalysisLayerMapVisualPtrOutputWithConte
 	}).(AnalysisLayerMapVisualPtrOutput)
 }
 
+// The configuration settings of the visual.
 func (o AnalysisLayerMapVisualOutput) ChartConfiguration() AnalysisGeospatialLayerMapConfigurationPtrOutput {
 	return o.ApplyT(func(v AnalysisLayerMapVisual) *AnalysisGeospatialLayerMapConfiguration { return v.ChartConfiguration }).(AnalysisGeospatialLayerMapConfigurationPtrOutput)
 }
 
+// The dataset that is used to create the layer map visual. You can't create a visual without a dataset.
 func (o AnalysisLayerMapVisualOutput) DataSetIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalysisLayerMapVisual) string { return v.DataSetIdentifier }).(pulumi.StringOutput)
 }
@@ -49020,10 +49410,12 @@ func (o AnalysisLayerMapVisualOutput) Title() AnalysisVisualTitleLabelOptionsPtr
 	return o.ApplyT(func(v AnalysisLayerMapVisual) *AnalysisVisualTitleLabelOptions { return v.Title }).(AnalysisVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o AnalysisLayerMapVisualOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnalysisLayerMapVisual) *string { return v.VisualContentAltText }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the visual.
 func (o AnalysisLayerMapVisualOutput) VisualId() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalysisLayerMapVisual) string { return v.VisualId }).(pulumi.StringOutput)
 }
@@ -49052,6 +49444,7 @@ func (o AnalysisLayerMapVisualPtrOutput) Elem() AnalysisLayerMapVisualOutput {
 	}).(AnalysisLayerMapVisualOutput)
 }
 
+// The configuration settings of the visual.
 func (o AnalysisLayerMapVisualPtrOutput) ChartConfiguration() AnalysisGeospatialLayerMapConfigurationPtrOutput {
 	return o.ApplyT(func(v *AnalysisLayerMapVisual) *AnalysisGeospatialLayerMapConfiguration {
 		if v == nil {
@@ -49061,6 +49454,7 @@ func (o AnalysisLayerMapVisualPtrOutput) ChartConfiguration() AnalysisGeospatial
 	}).(AnalysisGeospatialLayerMapConfigurationPtrOutput)
 }
 
+// The dataset that is used to create the layer map visual. You can't create a visual without a dataset.
 func (o AnalysisLayerMapVisualPtrOutput) DataSetIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalysisLayerMapVisual) *string {
 		if v == nil {
@@ -49088,6 +49482,7 @@ func (o AnalysisLayerMapVisualPtrOutput) Title() AnalysisVisualTitleLabelOptions
 	}).(AnalysisVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o AnalysisLayerMapVisualPtrOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalysisLayerMapVisual) *string {
 		if v == nil {
@@ -49097,6 +49492,7 @@ func (o AnalysisLayerMapVisualPtrOutput) VisualContentAltText() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ID of the visual.
 func (o AnalysisLayerMapVisualPtrOutput) VisualId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalysisLayerMapVisual) *string {
 		if v == nil {
@@ -51376,8 +51772,9 @@ type AnalysisLineChartVisual struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle *AnalysisVisualSubtitleLabelOptions `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                *AnalysisVisualTitleLabelOptions `pulumi:"title"`
-	VisualContentAltText *string                          `pulumi:"visualContentAltText"`
+	Title *AnalysisVisualTitleLabelOptions `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText *string `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
 	VisualId string `pulumi:"visualId"`
 }
@@ -51403,8 +51800,9 @@ type AnalysisLineChartVisualArgs struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle AnalysisVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                AnalysisVisualTitleLabelOptionsPtrInput `pulumi:"title"`
-	VisualContentAltText pulumi.StringPtrInput                   `pulumi:"visualContentAltText"`
+	Title AnalysisVisualTitleLabelOptionsPtrInput `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText pulumi.StringPtrInput `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
 	VisualId pulumi.StringInput `pulumi:"visualId"`
 }
@@ -51511,6 +51909,7 @@ func (o AnalysisLineChartVisualOutput) Title() AnalysisVisualTitleLabelOptionsPt
 	return o.ApplyT(func(v AnalysisLineChartVisual) *AnalysisVisualTitleLabelOptions { return v.Title }).(AnalysisVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o AnalysisLineChartVisualOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnalysisLineChartVisual) *string { return v.VisualContentAltText }).(pulumi.StringPtrOutput)
 }
@@ -51594,6 +51993,7 @@ func (o AnalysisLineChartVisualPtrOutput) Title() AnalysisVisualTitleLabelOption
 	}).(AnalysisVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o AnalysisLineChartVisualPtrOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalysisLineChartVisual) *string {
 		if v == nil {
@@ -61196,8 +61596,9 @@ type AnalysisPieChartVisual struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle *AnalysisVisualSubtitleLabelOptions `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                *AnalysisVisualTitleLabelOptions `pulumi:"title"`
-	VisualContentAltText *string                          `pulumi:"visualContentAltText"`
+	Title *AnalysisVisualTitleLabelOptions `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText *string `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
 	VisualId string `pulumi:"visualId"`
 }
@@ -61223,8 +61624,9 @@ type AnalysisPieChartVisualArgs struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle AnalysisVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                AnalysisVisualTitleLabelOptionsPtrInput `pulumi:"title"`
-	VisualContentAltText pulumi.StringPtrInput                   `pulumi:"visualContentAltText"`
+	Title AnalysisVisualTitleLabelOptionsPtrInput `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText pulumi.StringPtrInput `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
 	VisualId pulumi.StringInput `pulumi:"visualId"`
 }
@@ -61331,6 +61733,7 @@ func (o AnalysisPieChartVisualOutput) Title() AnalysisVisualTitleLabelOptionsPtr
 	return o.ApplyT(func(v AnalysisPieChartVisual) *AnalysisVisualTitleLabelOptions { return v.Title }).(AnalysisVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o AnalysisPieChartVisualOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnalysisPieChartVisual) *string { return v.VisualContentAltText }).(pulumi.StringPtrOutput)
 }
@@ -61414,6 +61817,7 @@ func (o AnalysisPieChartVisualPtrOutput) Title() AnalysisVisualTitleLabelOptions
 	}).(AnalysisVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o AnalysisPieChartVisualPtrOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalysisPieChartVisual) *string {
 		if v == nil {
@@ -64492,8 +64896,9 @@ type AnalysisPivotTableVisual struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle *AnalysisVisualSubtitleLabelOptions `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                *AnalysisVisualTitleLabelOptions `pulumi:"title"`
-	VisualContentAltText *string                          `pulumi:"visualContentAltText"`
+	Title *AnalysisVisualTitleLabelOptions `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText *string `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..
 	VisualId string `pulumi:"visualId"`
 }
@@ -64519,8 +64924,9 @@ type AnalysisPivotTableVisualArgs struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle AnalysisVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                AnalysisVisualTitleLabelOptionsPtrInput `pulumi:"title"`
-	VisualContentAltText pulumi.StringPtrInput                   `pulumi:"visualContentAltText"`
+	Title AnalysisVisualTitleLabelOptionsPtrInput `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText pulumi.StringPtrInput `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..
 	VisualId pulumi.StringInput `pulumi:"visualId"`
 }
@@ -64629,6 +65035,7 @@ func (o AnalysisPivotTableVisualOutput) Title() AnalysisVisualTitleLabelOptionsP
 	return o.ApplyT(func(v AnalysisPivotTableVisual) *AnalysisVisualTitleLabelOptions { return v.Title }).(AnalysisVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o AnalysisPivotTableVisualOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnalysisPivotTableVisual) *string { return v.VisualContentAltText }).(pulumi.StringPtrOutput)
 }
@@ -64712,6 +65119,7 @@ func (o AnalysisPivotTableVisualPtrOutput) Title() AnalysisVisualTitleLabelOptio
 	}).(AnalysisVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o AnalysisPivotTableVisualPtrOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalysisPivotTableVisual) *string {
 		if v == nil {
@@ -65002,12 +65410,16 @@ func (o AnalysisPivotTotalOptionsPtrOutput) ValueCellStyle() AnalysisTableCellSt
 }
 
 type AnalysisPluginVisual struct {
-	ChartConfiguration   *AnalysisPluginVisualConfiguration  `pulumi:"chartConfiguration"`
-	PluginArn            string                              `pulumi:"pluginArn"`
-	Subtitle             *AnalysisVisualSubtitleLabelOptions `pulumi:"subtitle"`
-	Title                *AnalysisVisualTitleLabelOptions    `pulumi:"title"`
-	VisualContentAltText *string                             `pulumi:"visualContentAltText"`
-	VisualId             string                              `pulumi:"visualId"`
+	// A description of the plugin field wells and their persisted properties.
+	ChartConfiguration *AnalysisPluginVisualConfiguration `pulumi:"chartConfiguration"`
+	// The Amazon Resource Name (ARN) that reflects the plugin and version.
+	PluginArn string                              `pulumi:"pluginArn"`
+	Subtitle  *AnalysisVisualSubtitleLabelOptions `pulumi:"subtitle"`
+	Title     *AnalysisVisualTitleLabelOptions    `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText *string `pulumi:"visualContentAltText"`
+	// The ID of the visual that you want to use.
+	VisualId string `pulumi:"visualId"`
 }
 
 // AnalysisPluginVisualInput is an input type that accepts AnalysisPluginVisualArgs and AnalysisPluginVisualOutput values.
@@ -65022,12 +65434,16 @@ type AnalysisPluginVisualInput interface {
 }
 
 type AnalysisPluginVisualArgs struct {
-	ChartConfiguration   AnalysisPluginVisualConfigurationPtrInput  `pulumi:"chartConfiguration"`
-	PluginArn            pulumi.StringInput                         `pulumi:"pluginArn"`
-	Subtitle             AnalysisVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
-	Title                AnalysisVisualTitleLabelOptionsPtrInput    `pulumi:"title"`
-	VisualContentAltText pulumi.StringPtrInput                      `pulumi:"visualContentAltText"`
-	VisualId             pulumi.StringInput                         `pulumi:"visualId"`
+	// A description of the plugin field wells and their persisted properties.
+	ChartConfiguration AnalysisPluginVisualConfigurationPtrInput `pulumi:"chartConfiguration"`
+	// The Amazon Resource Name (ARN) that reflects the plugin and version.
+	PluginArn pulumi.StringInput                         `pulumi:"pluginArn"`
+	Subtitle  AnalysisVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
+	Title     AnalysisVisualTitleLabelOptionsPtrInput    `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText pulumi.StringPtrInput `pulumi:"visualContentAltText"`
+	// The ID of the visual that you want to use.
+	VisualId pulumi.StringInput `pulumi:"visualId"`
 }
 
 func (AnalysisPluginVisualArgs) ElementType() reflect.Type {
@@ -65107,10 +65523,12 @@ func (o AnalysisPluginVisualOutput) ToAnalysisPluginVisualPtrOutputWithContext(c
 	}).(AnalysisPluginVisualPtrOutput)
 }
 
+// A description of the plugin field wells and their persisted properties.
 func (o AnalysisPluginVisualOutput) ChartConfiguration() AnalysisPluginVisualConfigurationPtrOutput {
 	return o.ApplyT(func(v AnalysisPluginVisual) *AnalysisPluginVisualConfiguration { return v.ChartConfiguration }).(AnalysisPluginVisualConfigurationPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) that reflects the plugin and version.
 func (o AnalysisPluginVisualOutput) PluginArn() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalysisPluginVisual) string { return v.PluginArn }).(pulumi.StringOutput)
 }
@@ -65123,10 +65541,12 @@ func (o AnalysisPluginVisualOutput) Title() AnalysisVisualTitleLabelOptionsPtrOu
 	return o.ApplyT(func(v AnalysisPluginVisual) *AnalysisVisualTitleLabelOptions { return v.Title }).(AnalysisVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o AnalysisPluginVisualOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnalysisPluginVisual) *string { return v.VisualContentAltText }).(pulumi.StringPtrOutput)
 }
 
+// The ID of the visual that you want to use.
 func (o AnalysisPluginVisualOutput) VisualId() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalysisPluginVisual) string { return v.VisualId }).(pulumi.StringOutput)
 }
@@ -65155,6 +65575,7 @@ func (o AnalysisPluginVisualPtrOutput) Elem() AnalysisPluginVisualOutput {
 	}).(AnalysisPluginVisualOutput)
 }
 
+// A description of the plugin field wells and their persisted properties.
 func (o AnalysisPluginVisualPtrOutput) ChartConfiguration() AnalysisPluginVisualConfigurationPtrOutput {
 	return o.ApplyT(func(v *AnalysisPluginVisual) *AnalysisPluginVisualConfiguration {
 		if v == nil {
@@ -65164,6 +65585,7 @@ func (o AnalysisPluginVisualPtrOutput) ChartConfiguration() AnalysisPluginVisual
 	}).(AnalysisPluginVisualConfigurationPtrOutput)
 }
 
+// The Amazon Resource Name (ARN) that reflects the plugin and version.
 func (o AnalysisPluginVisualPtrOutput) PluginArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalysisPluginVisual) *string {
 		if v == nil {
@@ -65191,6 +65613,7 @@ func (o AnalysisPluginVisualPtrOutput) Title() AnalysisVisualTitleLabelOptionsPt
 	}).(AnalysisVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o AnalysisPluginVisualPtrOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalysisPluginVisual) *string {
 		if v == nil {
@@ -65200,6 +65623,7 @@ func (o AnalysisPluginVisualPtrOutput) VisualContentAltText() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
+// The ID of the visual that you want to use.
 func (o AnalysisPluginVisualPtrOutput) VisualId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalysisPluginVisual) *string {
 		if v == nil {
@@ -65210,9 +65634,12 @@ func (o AnalysisPluginVisualPtrOutput) VisualId() pulumi.StringPtrOutput {
 }
 
 type AnalysisPluginVisualConfiguration struct {
-	FieldWells        []AnalysisPluginVisualFieldWell        `pulumi:"fieldWells"`
+	// The field wells configuration of the plugin visual.
+	FieldWells []AnalysisPluginVisualFieldWell `pulumi:"fieldWells"`
+	// The sort configuration of the plugin visual.
 	SortConfiguration *AnalysisPluginVisualSortConfiguration `pulumi:"sortConfiguration"`
-	VisualOptions     *AnalysisPluginVisualOptions           `pulumi:"visualOptions"`
+	// The persisted properties of the plugin visual.
+	VisualOptions *AnalysisPluginVisualOptions `pulumi:"visualOptions"`
 }
 
 // AnalysisPluginVisualConfigurationInput is an input type that accepts AnalysisPluginVisualConfigurationArgs and AnalysisPluginVisualConfigurationOutput values.
@@ -65227,9 +65654,12 @@ type AnalysisPluginVisualConfigurationInput interface {
 }
 
 type AnalysisPluginVisualConfigurationArgs struct {
-	FieldWells        AnalysisPluginVisualFieldWellArrayInput       `pulumi:"fieldWells"`
+	// The field wells configuration of the plugin visual.
+	FieldWells AnalysisPluginVisualFieldWellArrayInput `pulumi:"fieldWells"`
+	// The sort configuration of the plugin visual.
 	SortConfiguration AnalysisPluginVisualSortConfigurationPtrInput `pulumi:"sortConfiguration"`
-	VisualOptions     AnalysisPluginVisualOptionsPtrInput           `pulumi:"visualOptions"`
+	// The persisted properties of the plugin visual.
+	VisualOptions AnalysisPluginVisualOptionsPtrInput `pulumi:"visualOptions"`
 }
 
 func (AnalysisPluginVisualConfigurationArgs) ElementType() reflect.Type {
@@ -65309,16 +65739,19 @@ func (o AnalysisPluginVisualConfigurationOutput) ToAnalysisPluginVisualConfigura
 	}).(AnalysisPluginVisualConfigurationPtrOutput)
 }
 
+// The field wells configuration of the plugin visual.
 func (o AnalysisPluginVisualConfigurationOutput) FieldWells() AnalysisPluginVisualFieldWellArrayOutput {
 	return o.ApplyT(func(v AnalysisPluginVisualConfiguration) []AnalysisPluginVisualFieldWell { return v.FieldWells }).(AnalysisPluginVisualFieldWellArrayOutput)
 }
 
+// The sort configuration of the plugin visual.
 func (o AnalysisPluginVisualConfigurationOutput) SortConfiguration() AnalysisPluginVisualSortConfigurationPtrOutput {
 	return o.ApplyT(func(v AnalysisPluginVisualConfiguration) *AnalysisPluginVisualSortConfiguration {
 		return v.SortConfiguration
 	}).(AnalysisPluginVisualSortConfigurationPtrOutput)
 }
 
+// The persisted properties of the plugin visual.
 func (o AnalysisPluginVisualConfigurationOutput) VisualOptions() AnalysisPluginVisualOptionsPtrOutput {
 	return o.ApplyT(func(v AnalysisPluginVisualConfiguration) *AnalysisPluginVisualOptions { return v.VisualOptions }).(AnalysisPluginVisualOptionsPtrOutput)
 }
@@ -65347,6 +65780,7 @@ func (o AnalysisPluginVisualConfigurationPtrOutput) Elem() AnalysisPluginVisualC
 	}).(AnalysisPluginVisualConfigurationOutput)
 }
 
+// The field wells configuration of the plugin visual.
 func (o AnalysisPluginVisualConfigurationPtrOutput) FieldWells() AnalysisPluginVisualFieldWellArrayOutput {
 	return o.ApplyT(func(v *AnalysisPluginVisualConfiguration) []AnalysisPluginVisualFieldWell {
 		if v == nil {
@@ -65356,6 +65790,7 @@ func (o AnalysisPluginVisualConfigurationPtrOutput) FieldWells() AnalysisPluginV
 	}).(AnalysisPluginVisualFieldWellArrayOutput)
 }
 
+// The sort configuration of the plugin visual.
 func (o AnalysisPluginVisualConfigurationPtrOutput) SortConfiguration() AnalysisPluginVisualSortConfigurationPtrOutput {
 	return o.ApplyT(func(v *AnalysisPluginVisualConfiguration) *AnalysisPluginVisualSortConfiguration {
 		if v == nil {
@@ -65365,6 +65800,7 @@ func (o AnalysisPluginVisualConfigurationPtrOutput) SortConfiguration() Analysis
 	}).(AnalysisPluginVisualSortConfigurationPtrOutput)
 }
 
+// The persisted properties of the plugin visual.
 func (o AnalysisPluginVisualConfigurationPtrOutput) VisualOptions() AnalysisPluginVisualOptionsPtrOutput {
 	return o.ApplyT(func(v *AnalysisPluginVisualConfiguration) *AnalysisPluginVisualOptions {
 		if v == nil {
@@ -65375,10 +65811,14 @@ func (o AnalysisPluginVisualConfigurationPtrOutput) VisualOptions() AnalysisPlug
 }
 
 type AnalysisPluginVisualFieldWell struct {
-	AxisName     *AnalysisPluginVisualAxisName `pulumi:"axisName"`
-	Dimensions   []AnalysisDimensionField      `pulumi:"dimensions"`
-	Measures     []AnalysisMeasureField        `pulumi:"measures"`
-	Unaggregated []AnalysisUnaggregatedField   `pulumi:"unaggregated"`
+	// The semantic axis name for the field well.
+	AxisName *AnalysisPluginVisualAxisName `pulumi:"axisName"`
+	// A list of dimensions for the field well.
+	Dimensions []AnalysisDimensionField `pulumi:"dimensions"`
+	// A list of measures that exist in the field well.
+	Measures []AnalysisMeasureField `pulumi:"measures"`
+	// A list of unaggregated fields that exist in the field well.
+	Unaggregated []AnalysisUnaggregatedField `pulumi:"unaggregated"`
 }
 
 // AnalysisPluginVisualFieldWellInput is an input type that accepts AnalysisPluginVisualFieldWellArgs and AnalysisPluginVisualFieldWellOutput values.
@@ -65393,10 +65833,14 @@ type AnalysisPluginVisualFieldWellInput interface {
 }
 
 type AnalysisPluginVisualFieldWellArgs struct {
-	AxisName     AnalysisPluginVisualAxisNamePtrInput `pulumi:"axisName"`
-	Dimensions   AnalysisDimensionFieldArrayInput     `pulumi:"dimensions"`
-	Measures     AnalysisMeasureFieldArrayInput       `pulumi:"measures"`
-	Unaggregated AnalysisUnaggregatedFieldArrayInput  `pulumi:"unaggregated"`
+	// The semantic axis name for the field well.
+	AxisName AnalysisPluginVisualAxisNamePtrInput `pulumi:"axisName"`
+	// A list of dimensions for the field well.
+	Dimensions AnalysisDimensionFieldArrayInput `pulumi:"dimensions"`
+	// A list of measures that exist in the field well.
+	Measures AnalysisMeasureFieldArrayInput `pulumi:"measures"`
+	// A list of unaggregated fields that exist in the field well.
+	Unaggregated AnalysisUnaggregatedFieldArrayInput `pulumi:"unaggregated"`
 }
 
 func (AnalysisPluginVisualFieldWellArgs) ElementType() reflect.Type {
@@ -65450,18 +65894,22 @@ func (o AnalysisPluginVisualFieldWellOutput) ToAnalysisPluginVisualFieldWellOutp
 	return o
 }
 
+// The semantic axis name for the field well.
 func (o AnalysisPluginVisualFieldWellOutput) AxisName() AnalysisPluginVisualAxisNamePtrOutput {
 	return o.ApplyT(func(v AnalysisPluginVisualFieldWell) *AnalysisPluginVisualAxisName { return v.AxisName }).(AnalysisPluginVisualAxisNamePtrOutput)
 }
 
+// A list of dimensions for the field well.
 func (o AnalysisPluginVisualFieldWellOutput) Dimensions() AnalysisDimensionFieldArrayOutput {
 	return o.ApplyT(func(v AnalysisPluginVisualFieldWell) []AnalysisDimensionField { return v.Dimensions }).(AnalysisDimensionFieldArrayOutput)
 }
 
+// A list of measures that exist in the field well.
 func (o AnalysisPluginVisualFieldWellOutput) Measures() AnalysisMeasureFieldArrayOutput {
 	return o.ApplyT(func(v AnalysisPluginVisualFieldWell) []AnalysisMeasureField { return v.Measures }).(AnalysisMeasureFieldArrayOutput)
 }
 
+// A list of unaggregated fields that exist in the field well.
 func (o AnalysisPluginVisualFieldWellOutput) Unaggregated() AnalysisUnaggregatedFieldArrayOutput {
 	return o.ApplyT(func(v AnalysisPluginVisualFieldWell) []AnalysisUnaggregatedField { return v.Unaggregated }).(AnalysisUnaggregatedFieldArrayOutput)
 }
@@ -65487,6 +65935,7 @@ func (o AnalysisPluginVisualFieldWellArrayOutput) Index(i pulumi.IntInput) Analy
 }
 
 type AnalysisPluginVisualItemsLimitConfiguration struct {
+	// Determines how many values are be fetched at once.
 	ItemsLimit *float64 `pulumi:"itemsLimit"`
 }
 
@@ -65502,6 +65951,7 @@ type AnalysisPluginVisualItemsLimitConfigurationInput interface {
 }
 
 type AnalysisPluginVisualItemsLimitConfigurationArgs struct {
+	// Determines how many values are be fetched at once.
 	ItemsLimit pulumi.Float64PtrInput `pulumi:"itemsLimit"`
 }
 
@@ -65582,6 +66032,7 @@ func (o AnalysisPluginVisualItemsLimitConfigurationOutput) ToAnalysisPluginVisua
 	}).(AnalysisPluginVisualItemsLimitConfigurationPtrOutput)
 }
 
+// Determines how many values are be fetched at once.
 func (o AnalysisPluginVisualItemsLimitConfigurationOutput) ItemsLimit() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v AnalysisPluginVisualItemsLimitConfiguration) *float64 { return v.ItemsLimit }).(pulumi.Float64PtrOutput)
 }
@@ -65610,6 +66061,7 @@ func (o AnalysisPluginVisualItemsLimitConfigurationPtrOutput) Elem() AnalysisPlu
 	}).(AnalysisPluginVisualItemsLimitConfigurationOutput)
 }
 
+// Determines how many values are be fetched at once.
 func (o AnalysisPluginVisualItemsLimitConfigurationPtrOutput) ItemsLimit() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *AnalysisPluginVisualItemsLimitConfiguration) *float64 {
 		if v == nil {
@@ -65620,6 +66072,7 @@ func (o AnalysisPluginVisualItemsLimitConfigurationPtrOutput) ItemsLimit() pulum
 }
 
 type AnalysisPluginVisualOptions struct {
+	// The persisted properties and their values.
 	VisualProperties []AnalysisPluginVisualProperty `pulumi:"visualProperties"`
 }
 
@@ -65635,6 +66088,7 @@ type AnalysisPluginVisualOptionsInput interface {
 }
 
 type AnalysisPluginVisualOptionsArgs struct {
+	// The persisted properties and their values.
 	VisualProperties AnalysisPluginVisualPropertyArrayInput `pulumi:"visualProperties"`
 }
 
@@ -65715,6 +66169,7 @@ func (o AnalysisPluginVisualOptionsOutput) ToAnalysisPluginVisualOptionsPtrOutpu
 	}).(AnalysisPluginVisualOptionsPtrOutput)
 }
 
+// The persisted properties and their values.
 func (o AnalysisPluginVisualOptionsOutput) VisualProperties() AnalysisPluginVisualPropertyArrayOutput {
 	return o.ApplyT(func(v AnalysisPluginVisualOptions) []AnalysisPluginVisualProperty { return v.VisualProperties }).(AnalysisPluginVisualPropertyArrayOutput)
 }
@@ -65743,6 +66198,7 @@ func (o AnalysisPluginVisualOptionsPtrOutput) Elem() AnalysisPluginVisualOptions
 	}).(AnalysisPluginVisualOptionsOutput)
 }
 
+// The persisted properties and their values.
 func (o AnalysisPluginVisualOptionsPtrOutput) VisualProperties() AnalysisPluginVisualPropertyArrayOutput {
 	return o.ApplyT(func(v *AnalysisPluginVisualOptions) []AnalysisPluginVisualProperty {
 		if v == nil {
@@ -65753,7 +66209,9 @@ func (o AnalysisPluginVisualOptionsPtrOutput) VisualProperties() AnalysisPluginV
 }
 
 type AnalysisPluginVisualProperty struct {
-	Name  *string `pulumi:"name"`
+	// The name of the plugin visual property.
+	Name *string `pulumi:"name"`
+	// The value of the plugin visual property.
 	Value *string `pulumi:"value"`
 }
 
@@ -65769,7 +66227,9 @@ type AnalysisPluginVisualPropertyInput interface {
 }
 
 type AnalysisPluginVisualPropertyArgs struct {
-	Name  pulumi.StringPtrInput `pulumi:"name"`
+	// The name of the plugin visual property.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The value of the plugin visual property.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
@@ -65824,10 +66284,12 @@ func (o AnalysisPluginVisualPropertyOutput) ToAnalysisPluginVisualPropertyOutput
 	return o
 }
 
+// The name of the plugin visual property.
 func (o AnalysisPluginVisualPropertyOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnalysisPluginVisualProperty) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// The value of the plugin visual property.
 func (o AnalysisPluginVisualPropertyOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnalysisPluginVisualProperty) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
@@ -65853,6 +66315,7 @@ func (o AnalysisPluginVisualPropertyArrayOutput) Index(i pulumi.IntInput) Analys
 }
 
 type AnalysisPluginVisualSortConfiguration struct {
+	// The table query sorting options for the plugin visual.
 	PluginVisualTableQuerySort *AnalysisPluginVisualTableQuerySort `pulumi:"pluginVisualTableQuerySort"`
 }
 
@@ -65868,6 +66331,7 @@ type AnalysisPluginVisualSortConfigurationInput interface {
 }
 
 type AnalysisPluginVisualSortConfigurationArgs struct {
+	// The table query sorting options for the plugin visual.
 	PluginVisualTableQuerySort AnalysisPluginVisualTableQuerySortPtrInput `pulumi:"pluginVisualTableQuerySort"`
 }
 
@@ -65948,6 +66412,7 @@ func (o AnalysisPluginVisualSortConfigurationOutput) ToAnalysisPluginVisualSortC
 	}).(AnalysisPluginVisualSortConfigurationPtrOutput)
 }
 
+// The table query sorting options for the plugin visual.
 func (o AnalysisPluginVisualSortConfigurationOutput) PluginVisualTableQuerySort() AnalysisPluginVisualTableQuerySortPtrOutput {
 	return o.ApplyT(func(v AnalysisPluginVisualSortConfiguration) *AnalysisPluginVisualTableQuerySort {
 		return v.PluginVisualTableQuerySort
@@ -65978,6 +66443,7 @@ func (o AnalysisPluginVisualSortConfigurationPtrOutput) Elem() AnalysisPluginVis
 	}).(AnalysisPluginVisualSortConfigurationOutput)
 }
 
+// The table query sorting options for the plugin visual.
 func (o AnalysisPluginVisualSortConfigurationPtrOutput) PluginVisualTableQuerySort() AnalysisPluginVisualTableQuerySortPtrOutput {
 	return o.ApplyT(func(v *AnalysisPluginVisualSortConfiguration) *AnalysisPluginVisualTableQuerySort {
 		if v == nil {
@@ -65988,8 +66454,10 @@ func (o AnalysisPluginVisualSortConfigurationPtrOutput) PluginVisualTableQuerySo
 }
 
 type AnalysisPluginVisualTableQuerySort struct {
+	// The maximum amount of data to be returned by a query.
 	ItemsLimitConfiguration *AnalysisPluginVisualItemsLimitConfiguration `pulumi:"itemsLimitConfiguration"`
-	RowSort                 []AnalysisFieldSortOptions                   `pulumi:"rowSort"`
+	// Determines how data is sorted in the response.
+	RowSort []AnalysisFieldSortOptions `pulumi:"rowSort"`
 }
 
 // AnalysisPluginVisualTableQuerySortInput is an input type that accepts AnalysisPluginVisualTableQuerySortArgs and AnalysisPluginVisualTableQuerySortOutput values.
@@ -66004,8 +66472,10 @@ type AnalysisPluginVisualTableQuerySortInput interface {
 }
 
 type AnalysisPluginVisualTableQuerySortArgs struct {
+	// The maximum amount of data to be returned by a query.
 	ItemsLimitConfiguration AnalysisPluginVisualItemsLimitConfigurationPtrInput `pulumi:"itemsLimitConfiguration"`
-	RowSort                 AnalysisFieldSortOptionsArrayInput                  `pulumi:"rowSort"`
+	// Determines how data is sorted in the response.
+	RowSort AnalysisFieldSortOptionsArrayInput `pulumi:"rowSort"`
 }
 
 func (AnalysisPluginVisualTableQuerySortArgs) ElementType() reflect.Type {
@@ -66085,12 +66555,14 @@ func (o AnalysisPluginVisualTableQuerySortOutput) ToAnalysisPluginVisualTableQue
 	}).(AnalysisPluginVisualTableQuerySortPtrOutput)
 }
 
+// The maximum amount of data to be returned by a query.
 func (o AnalysisPluginVisualTableQuerySortOutput) ItemsLimitConfiguration() AnalysisPluginVisualItemsLimitConfigurationPtrOutput {
 	return o.ApplyT(func(v AnalysisPluginVisualTableQuerySort) *AnalysisPluginVisualItemsLimitConfiguration {
 		return v.ItemsLimitConfiguration
 	}).(AnalysisPluginVisualItemsLimitConfigurationPtrOutput)
 }
 
+// Determines how data is sorted in the response.
 func (o AnalysisPluginVisualTableQuerySortOutput) RowSort() AnalysisFieldSortOptionsArrayOutput {
 	return o.ApplyT(func(v AnalysisPluginVisualTableQuerySort) []AnalysisFieldSortOptions { return v.RowSort }).(AnalysisFieldSortOptionsArrayOutput)
 }
@@ -66119,6 +66591,7 @@ func (o AnalysisPluginVisualTableQuerySortPtrOutput) Elem() AnalysisPluginVisual
 	}).(AnalysisPluginVisualTableQuerySortOutput)
 }
 
+// The maximum amount of data to be returned by a query.
 func (o AnalysisPluginVisualTableQuerySortPtrOutput) ItemsLimitConfiguration() AnalysisPluginVisualItemsLimitConfigurationPtrOutput {
 	return o.ApplyT(func(v *AnalysisPluginVisualTableQuerySort) *AnalysisPluginVisualItemsLimitConfiguration {
 		if v == nil {
@@ -66128,6 +66601,7 @@ func (o AnalysisPluginVisualTableQuerySortPtrOutput) ItemsLimitConfiguration() A
 	}).(AnalysisPluginVisualItemsLimitConfigurationPtrOutput)
 }
 
+// Determines how data is sorted in the response.
 func (o AnalysisPluginVisualTableQuerySortPtrOutput) RowSort() AnalysisFieldSortOptionsArrayOutput {
 	return o.ApplyT(func(v *AnalysisPluginVisualTableQuerySort) []AnalysisFieldSortOptions {
 		if v == nil {
@@ -67787,8 +68261,9 @@ type AnalysisRadarChartVisual struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle *AnalysisVisualSubtitleLabelOptions `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                *AnalysisVisualTitleLabelOptions `pulumi:"title"`
-	VisualContentAltText *string                          `pulumi:"visualContentAltText"`
+	Title *AnalysisVisualTitleLabelOptions `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText *string `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
 	VisualId string `pulumi:"visualId"`
 }
@@ -67814,8 +68289,9 @@ type AnalysisRadarChartVisualArgs struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle AnalysisVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                AnalysisVisualTitleLabelOptionsPtrInput `pulumi:"title"`
-	VisualContentAltText pulumi.StringPtrInput                   `pulumi:"visualContentAltText"`
+	Title AnalysisVisualTitleLabelOptionsPtrInput `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText pulumi.StringPtrInput `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
 	VisualId pulumi.StringInput `pulumi:"visualId"`
 }
@@ -67922,6 +68398,7 @@ func (o AnalysisRadarChartVisualOutput) Title() AnalysisVisualTitleLabelOptionsP
 	return o.ApplyT(func(v AnalysisRadarChartVisual) *AnalysisVisualTitleLabelOptions { return v.Title }).(AnalysisVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o AnalysisRadarChartVisualOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnalysisRadarChartVisual) *string { return v.VisualContentAltText }).(pulumi.StringPtrOutput)
 }
@@ -68005,6 +68482,7 @@ func (o AnalysisRadarChartVisualPtrOutput) Title() AnalysisVisualTitleLabelOptio
 	}).(AnalysisVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o AnalysisRadarChartVisualPtrOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalysisRadarChartVisual) *string {
 		if v == nil {
@@ -71343,8 +71821,9 @@ type AnalysisSankeyDiagramVisual struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle *AnalysisVisualSubtitleLabelOptions `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                *AnalysisVisualTitleLabelOptions `pulumi:"title"`
-	VisualContentAltText *string                          `pulumi:"visualContentAltText"`
+	Title *AnalysisVisualTitleLabelOptions `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText *string `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
 	VisualId string `pulumi:"visualId"`
 }
@@ -71368,8 +71847,9 @@ type AnalysisSankeyDiagramVisualArgs struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle AnalysisVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                AnalysisVisualTitleLabelOptionsPtrInput `pulumi:"title"`
-	VisualContentAltText pulumi.StringPtrInput                   `pulumi:"visualContentAltText"`
+	Title AnalysisVisualTitleLabelOptionsPtrInput `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText pulumi.StringPtrInput `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
 	VisualId pulumi.StringInput `pulumi:"visualId"`
 }
@@ -71473,6 +71953,7 @@ func (o AnalysisSankeyDiagramVisualOutput) Title() AnalysisVisualTitleLabelOptio
 	return o.ApplyT(func(v AnalysisSankeyDiagramVisual) *AnalysisVisualTitleLabelOptions { return v.Title }).(AnalysisVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o AnalysisSankeyDiagramVisualOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnalysisSankeyDiagramVisual) *string { return v.VisualContentAltText }).(pulumi.StringPtrOutput)
 }
@@ -71546,6 +72027,7 @@ func (o AnalysisSankeyDiagramVisualPtrOutput) Title() AnalysisVisualTitleLabelOp
 	}).(AnalysisVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o AnalysisSankeyDiagramVisualPtrOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalysisSankeyDiagramVisual) *string {
 		if v == nil {
@@ -72484,8 +72966,9 @@ type AnalysisScatterPlotVisual struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle *AnalysisVisualSubtitleLabelOptions `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                *AnalysisVisualTitleLabelOptions `pulumi:"title"`
-	VisualContentAltText *string                          `pulumi:"visualContentAltText"`
+	Title *AnalysisVisualTitleLabelOptions `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText *string `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
 	VisualId string `pulumi:"visualId"`
 }
@@ -72511,8 +72994,9 @@ type AnalysisScatterPlotVisualArgs struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle AnalysisVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                AnalysisVisualTitleLabelOptionsPtrInput `pulumi:"title"`
-	VisualContentAltText pulumi.StringPtrInput                   `pulumi:"visualContentAltText"`
+	Title AnalysisVisualTitleLabelOptionsPtrInput `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText pulumi.StringPtrInput `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers.
 	VisualId pulumi.StringInput `pulumi:"visualId"`
 }
@@ -72619,6 +73103,7 @@ func (o AnalysisScatterPlotVisualOutput) Title() AnalysisVisualTitleLabelOptions
 	return o.ApplyT(func(v AnalysisScatterPlotVisual) *AnalysisVisualTitleLabelOptions { return v.Title }).(AnalysisVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o AnalysisScatterPlotVisualOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnalysisScatterPlotVisual) *string { return v.VisualContentAltText }).(pulumi.StringPtrOutput)
 }
@@ -72702,6 +73187,7 @@ func (o AnalysisScatterPlotVisualPtrOutput) Title() AnalysisVisualTitleLabelOpti
 	}).(AnalysisVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o AnalysisScatterPlotVisualPtrOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalysisScatterPlotVisual) *string {
 		if v == nil {
@@ -74615,6 +75101,7 @@ func (o AnalysisShapeConditionalFormatPtrOutput) BackgroundColor() AnalysisCondi
 //	example a chart, pivot table, or narrative insight. Sheets can be associated with other
 //	components, such as controls, filters, and so on.</p>
 type AnalysisSheet struct {
+	// A list of images on a sheet.
 	Images []AnalysisSheetImage `pulumi:"images"`
 	// <p>The name of a sheet. This name is displayed on the sheet's tab in the Amazon QuickSight
 	//             console.</p>
@@ -74641,6 +75128,7 @@ type AnalysisSheetInput interface {
 //	example a chart, pivot table, or narrative insight. Sheets can be associated with other
 //	components, such as controls, filters, and so on.</p>
 type AnalysisSheetArgs struct {
+	// A list of images on a sheet.
 	Images AnalysisSheetImageArrayInput `pulumi:"images"`
 	// <p>The name of a sheet. This name is displayed on the sheet's tab in the Amazon QuickSight
 	//             console.</p>
@@ -74706,6 +75194,7 @@ func (o AnalysisSheetOutput) ToAnalysisSheetOutputWithContext(ctx context.Contex
 	return o
 }
 
+// A list of images on a sheet.
 func (o AnalysisSheetOutput) Images() AnalysisSheetImageArrayOutput {
 	return o.ApplyT(func(v AnalysisSheet) []AnalysisSheetImage { return v.Images }).(AnalysisSheetImageArrayOutput)
 }
@@ -75059,7 +75548,8 @@ type AnalysisSheetDefinition struct {
 	//
 	// For more information, see [Adding filter controls to analysis sheets](https://docs.aws.amazon.com/quicksight/latest/user/filter-controls.html) in the *Amazon QuickSight User Guide* .
 	FilterControls []AnalysisFilterControl `pulumi:"filterControls"`
-	Images         []AnalysisSheetImage    `pulumi:"images"`
+	// A list of images on a sheet.
+	Images []AnalysisSheetImage `pulumi:"images"`
 	// Layouts define how the components of a sheet are arranged.
 	//
 	// For more information, see [Types of layout](https://docs.aws.amazon.com/quicksight/latest/user/types-of-layout.html) in the *Amazon QuickSight User Guide* .
@@ -75105,7 +75595,8 @@ type AnalysisSheetDefinitionArgs struct {
 	//
 	// For more information, see [Adding filter controls to analysis sheets](https://docs.aws.amazon.com/quicksight/latest/user/filter-controls.html) in the *Amazon QuickSight User Guide* .
 	FilterControls AnalysisFilterControlArrayInput `pulumi:"filterControls"`
-	Images         AnalysisSheetImageArrayInput    `pulumi:"images"`
+	// A list of images on a sheet.
+	Images AnalysisSheetImageArrayInput `pulumi:"images"`
 	// Layouts define how the components of a sheet are arranged.
 	//
 	// For more information, see [Types of layout](https://docs.aws.amazon.com/quicksight/latest/user/types-of-layout.html) in the *Amazon QuickSight User Guide* .
@@ -75199,6 +75690,7 @@ func (o AnalysisSheetDefinitionOutput) FilterControls() AnalysisFilterControlArr
 	return o.ApplyT(func(v AnalysisSheetDefinition) []AnalysisFilterControl { return v.FilterControls }).(AnalysisFilterControlArrayOutput)
 }
 
+// A list of images on a sheet.
 func (o AnalysisSheetDefinitionOutput) Images() AnalysisSheetImageArrayOutput {
 	return o.ApplyT(func(v AnalysisSheetDefinition) []AnalysisSheetImage { return v.Images }).(AnalysisSheetImageArrayOutput)
 }
@@ -75437,13 +75929,20 @@ func (o AnalysisSheetElementRenderingRuleArrayOutput) Index(i pulumi.IntInput) A
 }
 
 type AnalysisSheetImage struct {
-	Actions             []AnalysisImageCustomAction             `pulumi:"actions"`
-	ImageContentAltText *string                                 `pulumi:"imageContentAltText"`
-	Interactions        *AnalysisImageInteractionOptions        `pulumi:"interactions"`
-	Scaling             *AnalysisSheetImageScalingConfiguration `pulumi:"scaling"`
-	SheetImageId        string                                  `pulumi:"sheetImageId"`
-	Source              AnalysisSheetImageSource                `pulumi:"source"`
-	Tooltip             *AnalysisSheetImageTooltipConfiguration `pulumi:"tooltip"`
+	// A list of custom actions that are configured for an image.
+	Actions []AnalysisImageCustomAction `pulumi:"actions"`
+	// The alt text for the image.
+	ImageContentAltText *string `pulumi:"imageContentAltText"`
+	// The general image interactions setup for an image.
+	Interactions *AnalysisImageInteractionOptions `pulumi:"interactions"`
+	// Determines how the image is scaled.
+	Scaling *AnalysisSheetImageScalingConfiguration `pulumi:"scaling"`
+	// The ID of the sheet image.
+	SheetImageId string `pulumi:"sheetImageId"`
+	// The source of the image.
+	Source AnalysisSheetImageSource `pulumi:"source"`
+	// The tooltip to be shown when hovering over the image.
+	Tooltip *AnalysisSheetImageTooltipConfiguration `pulumi:"tooltip"`
 }
 
 // AnalysisSheetImageInput is an input type that accepts AnalysisSheetImageArgs and AnalysisSheetImageOutput values.
@@ -75458,13 +75957,20 @@ type AnalysisSheetImageInput interface {
 }
 
 type AnalysisSheetImageArgs struct {
-	Actions             AnalysisImageCustomActionArrayInput            `pulumi:"actions"`
-	ImageContentAltText pulumi.StringPtrInput                          `pulumi:"imageContentAltText"`
-	Interactions        AnalysisImageInteractionOptionsPtrInput        `pulumi:"interactions"`
-	Scaling             AnalysisSheetImageScalingConfigurationPtrInput `pulumi:"scaling"`
-	SheetImageId        pulumi.StringInput                             `pulumi:"sheetImageId"`
-	Source              AnalysisSheetImageSourceInput                  `pulumi:"source"`
-	Tooltip             AnalysisSheetImageTooltipConfigurationPtrInput `pulumi:"tooltip"`
+	// A list of custom actions that are configured for an image.
+	Actions AnalysisImageCustomActionArrayInput `pulumi:"actions"`
+	// The alt text for the image.
+	ImageContentAltText pulumi.StringPtrInput `pulumi:"imageContentAltText"`
+	// The general image interactions setup for an image.
+	Interactions AnalysisImageInteractionOptionsPtrInput `pulumi:"interactions"`
+	// Determines how the image is scaled.
+	Scaling AnalysisSheetImageScalingConfigurationPtrInput `pulumi:"scaling"`
+	// The ID of the sheet image.
+	SheetImageId pulumi.StringInput `pulumi:"sheetImageId"`
+	// The source of the image.
+	Source AnalysisSheetImageSourceInput `pulumi:"source"`
+	// The tooltip to be shown when hovering over the image.
+	Tooltip AnalysisSheetImageTooltipConfigurationPtrInput `pulumi:"tooltip"`
 }
 
 func (AnalysisSheetImageArgs) ElementType() reflect.Type {
@@ -75518,30 +76024,37 @@ func (o AnalysisSheetImageOutput) ToAnalysisSheetImageOutputWithContext(ctx cont
 	return o
 }
 
+// A list of custom actions that are configured for an image.
 func (o AnalysisSheetImageOutput) Actions() AnalysisImageCustomActionArrayOutput {
 	return o.ApplyT(func(v AnalysisSheetImage) []AnalysisImageCustomAction { return v.Actions }).(AnalysisImageCustomActionArrayOutput)
 }
 
+// The alt text for the image.
 func (o AnalysisSheetImageOutput) ImageContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnalysisSheetImage) *string { return v.ImageContentAltText }).(pulumi.StringPtrOutput)
 }
 
+// The general image interactions setup for an image.
 func (o AnalysisSheetImageOutput) Interactions() AnalysisImageInteractionOptionsPtrOutput {
 	return o.ApplyT(func(v AnalysisSheetImage) *AnalysisImageInteractionOptions { return v.Interactions }).(AnalysisImageInteractionOptionsPtrOutput)
 }
 
+// Determines how the image is scaled.
 func (o AnalysisSheetImageOutput) Scaling() AnalysisSheetImageScalingConfigurationPtrOutput {
 	return o.ApplyT(func(v AnalysisSheetImage) *AnalysisSheetImageScalingConfiguration { return v.Scaling }).(AnalysisSheetImageScalingConfigurationPtrOutput)
 }
 
+// The ID of the sheet image.
 func (o AnalysisSheetImageOutput) SheetImageId() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalysisSheetImage) string { return v.SheetImageId }).(pulumi.StringOutput)
 }
 
+// The source of the image.
 func (o AnalysisSheetImageOutput) Source() AnalysisSheetImageSourceOutput {
 	return o.ApplyT(func(v AnalysisSheetImage) AnalysisSheetImageSource { return v.Source }).(AnalysisSheetImageSourceOutput)
 }
 
+// The tooltip to be shown when hovering over the image.
 func (o AnalysisSheetImageOutput) Tooltip() AnalysisSheetImageTooltipConfigurationPtrOutput {
 	return o.ApplyT(func(v AnalysisSheetImage) *AnalysisSheetImageTooltipConfiguration { return v.Tooltip }).(AnalysisSheetImageTooltipConfigurationPtrOutput)
 }
@@ -75567,6 +76080,14 @@ func (o AnalysisSheetImageArrayOutput) Index(i pulumi.IntInput) AnalysisSheetIma
 }
 
 type AnalysisSheetImageScalingConfiguration struct {
+	// The scaling option to use when fitting the image inside the container.
+	//
+	// Valid values are defined as follows:
+	//
+	// - `SCALE_TO_WIDTH` : The image takes up the entire width of the container. The image aspect ratio is preserved.
+	// - `SCALE_TO_HEIGHT` : The image takes up the entire height of the container. The image aspect ratio is preserved.
+	// - `SCALE_TO_CONTAINER` : The image takes up the entire width and height of the container. The image aspect ratio is not preserved.
+	// - `SCALE_NONE` : The image is displayed in its original size and is not scaled to the container.
 	ScalingType *AnalysisSheetImageScalingType `pulumi:"scalingType"`
 }
 
@@ -75582,6 +76103,14 @@ type AnalysisSheetImageScalingConfigurationInput interface {
 }
 
 type AnalysisSheetImageScalingConfigurationArgs struct {
+	// The scaling option to use when fitting the image inside the container.
+	//
+	// Valid values are defined as follows:
+	//
+	// - `SCALE_TO_WIDTH` : The image takes up the entire width of the container. The image aspect ratio is preserved.
+	// - `SCALE_TO_HEIGHT` : The image takes up the entire height of the container. The image aspect ratio is preserved.
+	// - `SCALE_TO_CONTAINER` : The image takes up the entire width and height of the container. The image aspect ratio is not preserved.
+	// - `SCALE_NONE` : The image is displayed in its original size and is not scaled to the container.
 	ScalingType AnalysisSheetImageScalingTypePtrInput `pulumi:"scalingType"`
 }
 
@@ -75662,6 +76191,14 @@ func (o AnalysisSheetImageScalingConfigurationOutput) ToAnalysisSheetImageScalin
 	}).(AnalysisSheetImageScalingConfigurationPtrOutput)
 }
 
+// The scaling option to use when fitting the image inside the container.
+//
+// Valid values are defined as follows:
+//
+// - `SCALE_TO_WIDTH` : The image takes up the entire width of the container. The image aspect ratio is preserved.
+// - `SCALE_TO_HEIGHT` : The image takes up the entire height of the container. The image aspect ratio is preserved.
+// - `SCALE_TO_CONTAINER` : The image takes up the entire width and height of the container. The image aspect ratio is not preserved.
+// - `SCALE_NONE` : The image is displayed in its original size and is not scaled to the container.
 func (o AnalysisSheetImageScalingConfigurationOutput) ScalingType() AnalysisSheetImageScalingTypePtrOutput {
 	return o.ApplyT(func(v AnalysisSheetImageScalingConfiguration) *AnalysisSheetImageScalingType { return v.ScalingType }).(AnalysisSheetImageScalingTypePtrOutput)
 }
@@ -75690,6 +76227,14 @@ func (o AnalysisSheetImageScalingConfigurationPtrOutput) Elem() AnalysisSheetIma
 	}).(AnalysisSheetImageScalingConfigurationOutput)
 }
 
+// The scaling option to use when fitting the image inside the container.
+//
+// Valid values are defined as follows:
+//
+// - `SCALE_TO_WIDTH` : The image takes up the entire width of the container. The image aspect ratio is preserved.
+// - `SCALE_TO_HEIGHT` : The image takes up the entire height of the container. The image aspect ratio is preserved.
+// - `SCALE_TO_CONTAINER` : The image takes up the entire width and height of the container. The image aspect ratio is not preserved.
+// - `SCALE_NONE` : The image is displayed in its original size and is not scaled to the container.
 func (o AnalysisSheetImageScalingConfigurationPtrOutput) ScalingType() AnalysisSheetImageScalingTypePtrOutput {
 	return o.ApplyT(func(v *AnalysisSheetImageScalingConfiguration) *AnalysisSheetImageScalingType {
 		if v == nil {
@@ -75700,6 +76245,7 @@ func (o AnalysisSheetImageScalingConfigurationPtrOutput) ScalingType() AnalysisS
 }
 
 type AnalysisSheetImageSource struct {
+	// The source of the static file that contains the image.
 	SheetImageStaticFileSource *AnalysisSheetImageStaticFileSource `pulumi:"sheetImageStaticFileSource"`
 }
 
@@ -75715,6 +76261,7 @@ type AnalysisSheetImageSourceInput interface {
 }
 
 type AnalysisSheetImageSourceArgs struct {
+	// The source of the static file that contains the image.
 	SheetImageStaticFileSource AnalysisSheetImageStaticFileSourcePtrInput `pulumi:"sheetImageStaticFileSource"`
 }
 
@@ -75744,6 +76291,7 @@ func (o AnalysisSheetImageSourceOutput) ToAnalysisSheetImageSourceOutputWithCont
 	return o
 }
 
+// The source of the static file that contains the image.
 func (o AnalysisSheetImageSourceOutput) SheetImageStaticFileSource() AnalysisSheetImageStaticFileSourcePtrOutput {
 	return o.ApplyT(func(v AnalysisSheetImageSource) *AnalysisSheetImageStaticFileSource {
 		return v.SheetImageStaticFileSource
@@ -75751,6 +76299,7 @@ func (o AnalysisSheetImageSourceOutput) SheetImageStaticFileSource() AnalysisShe
 }
 
 type AnalysisSheetImageStaticFileSource struct {
+	// The ID of the static file that contains the image.
 	StaticFileId string `pulumi:"staticFileId"`
 }
 
@@ -75766,6 +76315,7 @@ type AnalysisSheetImageStaticFileSourceInput interface {
 }
 
 type AnalysisSheetImageStaticFileSourceArgs struct {
+	// The ID of the static file that contains the image.
 	StaticFileId pulumi.StringInput `pulumi:"staticFileId"`
 }
 
@@ -75846,6 +76396,7 @@ func (o AnalysisSheetImageStaticFileSourceOutput) ToAnalysisSheetImageStaticFile
 	}).(AnalysisSheetImageStaticFileSourcePtrOutput)
 }
 
+// The ID of the static file that contains the image.
 func (o AnalysisSheetImageStaticFileSourceOutput) StaticFileId() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalysisSheetImageStaticFileSource) string { return v.StaticFileId }).(pulumi.StringOutput)
 }
@@ -75874,6 +76425,7 @@ func (o AnalysisSheetImageStaticFileSourcePtrOutput) Elem() AnalysisSheetImageSt
 	}).(AnalysisSheetImageStaticFileSourceOutput)
 }
 
+// The ID of the static file that contains the image.
 func (o AnalysisSheetImageStaticFileSourcePtrOutput) StaticFileId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalysisSheetImageStaticFileSource) *string {
 		if v == nil {
@@ -75884,8 +76436,10 @@ func (o AnalysisSheetImageStaticFileSourcePtrOutput) StaticFileId() pulumi.Strin
 }
 
 type AnalysisSheetImageTooltipConfiguration struct {
+	// The text that appears in the tooltip.
 	TooltipText *AnalysisSheetImageTooltipText `pulumi:"tooltipText"`
-	Visibility  *AnalysisVisibility            `pulumi:"visibility"`
+	// The visibility of the tooltip.
+	Visibility *AnalysisVisibility `pulumi:"visibility"`
 }
 
 // AnalysisSheetImageTooltipConfigurationInput is an input type that accepts AnalysisSheetImageTooltipConfigurationArgs and AnalysisSheetImageTooltipConfigurationOutput values.
@@ -75900,8 +76454,10 @@ type AnalysisSheetImageTooltipConfigurationInput interface {
 }
 
 type AnalysisSheetImageTooltipConfigurationArgs struct {
+	// The text that appears in the tooltip.
 	TooltipText AnalysisSheetImageTooltipTextPtrInput `pulumi:"tooltipText"`
-	Visibility  AnalysisVisibilityPtrInput            `pulumi:"visibility"`
+	// The visibility of the tooltip.
+	Visibility AnalysisVisibilityPtrInput `pulumi:"visibility"`
 }
 
 func (AnalysisSheetImageTooltipConfigurationArgs) ElementType() reflect.Type {
@@ -75981,10 +76537,12 @@ func (o AnalysisSheetImageTooltipConfigurationOutput) ToAnalysisSheetImageToolti
 	}).(AnalysisSheetImageTooltipConfigurationPtrOutput)
 }
 
+// The text that appears in the tooltip.
 func (o AnalysisSheetImageTooltipConfigurationOutput) TooltipText() AnalysisSheetImageTooltipTextPtrOutput {
 	return o.ApplyT(func(v AnalysisSheetImageTooltipConfiguration) *AnalysisSheetImageTooltipText { return v.TooltipText }).(AnalysisSheetImageTooltipTextPtrOutput)
 }
 
+// The visibility of the tooltip.
 func (o AnalysisSheetImageTooltipConfigurationOutput) Visibility() AnalysisVisibilityPtrOutput {
 	return o.ApplyT(func(v AnalysisSheetImageTooltipConfiguration) *AnalysisVisibility { return v.Visibility }).(AnalysisVisibilityPtrOutput)
 }
@@ -76013,6 +76571,7 @@ func (o AnalysisSheetImageTooltipConfigurationPtrOutput) Elem() AnalysisSheetIma
 	}).(AnalysisSheetImageTooltipConfigurationOutput)
 }
 
+// The text that appears in the tooltip.
 func (o AnalysisSheetImageTooltipConfigurationPtrOutput) TooltipText() AnalysisSheetImageTooltipTextPtrOutput {
 	return o.ApplyT(func(v *AnalysisSheetImageTooltipConfiguration) *AnalysisSheetImageTooltipText {
 		if v == nil {
@@ -76022,6 +76581,7 @@ func (o AnalysisSheetImageTooltipConfigurationPtrOutput) TooltipText() AnalysisS
 	}).(AnalysisSheetImageTooltipTextPtrOutput)
 }
 
+// The visibility of the tooltip.
 func (o AnalysisSheetImageTooltipConfigurationPtrOutput) Visibility() AnalysisVisibilityPtrOutput {
 	return o.ApplyT(func(v *AnalysisSheetImageTooltipConfiguration) *AnalysisVisibility {
 		if v == nil {
@@ -76032,6 +76592,7 @@ func (o AnalysisSheetImageTooltipConfigurationPtrOutput) Visibility() AnalysisVi
 }
 
 type AnalysisSheetImageTooltipText struct {
+	// The plain text format.
 	PlainText *string `pulumi:"plainText"`
 }
 
@@ -76047,6 +76608,7 @@ type AnalysisSheetImageTooltipTextInput interface {
 }
 
 type AnalysisSheetImageTooltipTextArgs struct {
+	// The plain text format.
 	PlainText pulumi.StringPtrInput `pulumi:"plainText"`
 }
 
@@ -76127,6 +76689,7 @@ func (o AnalysisSheetImageTooltipTextOutput) ToAnalysisSheetImageTooltipTextPtrO
 	}).(AnalysisSheetImageTooltipTextPtrOutput)
 }
 
+// The plain text format.
 func (o AnalysisSheetImageTooltipTextOutput) PlainText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnalysisSheetImageTooltipText) *string { return v.PlainText }).(pulumi.StringPtrOutput)
 }
@@ -76155,6 +76718,7 @@ func (o AnalysisSheetImageTooltipTextPtrOutput) Elem() AnalysisSheetImageTooltip
 	}).(AnalysisSheetImageTooltipTextOutput)
 }
 
+// The plain text format.
 func (o AnalysisSheetImageTooltipTextPtrOutput) PlainText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalysisSheetImageTooltipText) *string {
 		if v == nil {
@@ -77861,8 +78425,10 @@ func (o AnalysisSpacingPtrOutput) Top() pulumi.StringPtrOutput {
 }
 
 type AnalysisSpatialStaticFile struct {
-	Source       *AnalysisStaticFileSource `pulumi:"source"`
-	StaticFileId string                    `pulumi:"staticFileId"`
+	// The source of the spatial static file.
+	Source *AnalysisStaticFileSource `pulumi:"source"`
+	// The ID of the spatial static file.
+	StaticFileId string `pulumi:"staticFileId"`
 }
 
 // AnalysisSpatialStaticFileInput is an input type that accepts AnalysisSpatialStaticFileArgs and AnalysisSpatialStaticFileOutput values.
@@ -77877,8 +78443,10 @@ type AnalysisSpatialStaticFileInput interface {
 }
 
 type AnalysisSpatialStaticFileArgs struct {
-	Source       AnalysisStaticFileSourcePtrInput `pulumi:"source"`
-	StaticFileId pulumi.StringInput               `pulumi:"staticFileId"`
+	// The source of the spatial static file.
+	Source AnalysisStaticFileSourcePtrInput `pulumi:"source"`
+	// The ID of the spatial static file.
+	StaticFileId pulumi.StringInput `pulumi:"staticFileId"`
 }
 
 func (AnalysisSpatialStaticFileArgs) ElementType() reflect.Type {
@@ -77958,10 +78526,12 @@ func (o AnalysisSpatialStaticFileOutput) ToAnalysisSpatialStaticFilePtrOutputWit
 	}).(AnalysisSpatialStaticFilePtrOutput)
 }
 
+// The source of the spatial static file.
 func (o AnalysisSpatialStaticFileOutput) Source() AnalysisStaticFileSourcePtrOutput {
 	return o.ApplyT(func(v AnalysisSpatialStaticFile) *AnalysisStaticFileSource { return v.Source }).(AnalysisStaticFileSourcePtrOutput)
 }
 
+// The ID of the spatial static file.
 func (o AnalysisSpatialStaticFileOutput) StaticFileId() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalysisSpatialStaticFile) string { return v.StaticFileId }).(pulumi.StringOutput)
 }
@@ -77990,6 +78560,7 @@ func (o AnalysisSpatialStaticFilePtrOutput) Elem() AnalysisSpatialStaticFileOutp
 	}).(AnalysisSpatialStaticFileOutput)
 }
 
+// The source of the spatial static file.
 func (o AnalysisSpatialStaticFilePtrOutput) Source() AnalysisStaticFileSourcePtrOutput {
 	return o.ApplyT(func(v *AnalysisSpatialStaticFile) *AnalysisStaticFileSource {
 		if v == nil {
@@ -77999,6 +78570,7 @@ func (o AnalysisSpatialStaticFilePtrOutput) Source() AnalysisStaticFileSourcePtr
 	}).(AnalysisStaticFileSourcePtrOutput)
 }
 
+// The ID of the spatial static file.
 func (o AnalysisSpatialStaticFilePtrOutput) StaticFileId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalysisSpatialStaticFile) *string {
 		if v == nil {
@@ -78009,7 +78581,9 @@ func (o AnalysisSpatialStaticFilePtrOutput) StaticFileId() pulumi.StringPtrOutpu
 }
 
 type AnalysisStaticFile struct {
-	ImageStaticFile   *AnalysisImageStaticFile   `pulumi:"imageStaticFile"`
+	// The image static file.
+	ImageStaticFile *AnalysisImageStaticFile `pulumi:"imageStaticFile"`
+	// The spacial static file.
 	SpatialStaticFile *AnalysisSpatialStaticFile `pulumi:"spatialStaticFile"`
 }
 
@@ -78025,7 +78599,9 @@ type AnalysisStaticFileInput interface {
 }
 
 type AnalysisStaticFileArgs struct {
-	ImageStaticFile   AnalysisImageStaticFilePtrInput   `pulumi:"imageStaticFile"`
+	// The image static file.
+	ImageStaticFile AnalysisImageStaticFilePtrInput `pulumi:"imageStaticFile"`
+	// The spacial static file.
 	SpatialStaticFile AnalysisSpatialStaticFilePtrInput `pulumi:"spatialStaticFile"`
 }
 
@@ -78080,10 +78656,12 @@ func (o AnalysisStaticFileOutput) ToAnalysisStaticFileOutputWithContext(ctx cont
 	return o
 }
 
+// The image static file.
 func (o AnalysisStaticFileOutput) ImageStaticFile() AnalysisImageStaticFilePtrOutput {
 	return o.ApplyT(func(v AnalysisStaticFile) *AnalysisImageStaticFile { return v.ImageStaticFile }).(AnalysisImageStaticFilePtrOutput)
 }
 
+// The spacial static file.
 func (o AnalysisStaticFileOutput) SpatialStaticFile() AnalysisSpatialStaticFilePtrOutput {
 	return o.ApplyT(func(v AnalysisStaticFile) *AnalysisSpatialStaticFile { return v.SpatialStaticFile }).(AnalysisSpatialStaticFilePtrOutput)
 }
@@ -78109,9 +78687,12 @@ func (o AnalysisStaticFileArrayOutput) Index(i pulumi.IntInput) AnalysisStaticFi
 }
 
 type AnalysisStaticFileS3SourceOptions struct {
+	// The name of the Amazon S3 bucket.
 	BucketName string `pulumi:"bucketName"`
-	ObjectKey  string `pulumi:"objectKey"`
-	Region     string `pulumi:"region"`
+	// The identifier of the static file in the Amazon S3 bucket.
+	ObjectKey string `pulumi:"objectKey"`
+	// The Region of the Amazon S3 account that contains the bucket.
+	Region string `pulumi:"region"`
 }
 
 // AnalysisStaticFileS3SourceOptionsInput is an input type that accepts AnalysisStaticFileS3SourceOptionsArgs and AnalysisStaticFileS3SourceOptionsOutput values.
@@ -78126,9 +78707,12 @@ type AnalysisStaticFileS3SourceOptionsInput interface {
 }
 
 type AnalysisStaticFileS3SourceOptionsArgs struct {
+	// The name of the Amazon S3 bucket.
 	BucketName pulumi.StringInput `pulumi:"bucketName"`
-	ObjectKey  pulumi.StringInput `pulumi:"objectKey"`
-	Region     pulumi.StringInput `pulumi:"region"`
+	// The identifier of the static file in the Amazon S3 bucket.
+	ObjectKey pulumi.StringInput `pulumi:"objectKey"`
+	// The Region of the Amazon S3 account that contains the bucket.
+	Region pulumi.StringInput `pulumi:"region"`
 }
 
 func (AnalysisStaticFileS3SourceOptionsArgs) ElementType() reflect.Type {
@@ -78208,14 +78792,17 @@ func (o AnalysisStaticFileS3SourceOptionsOutput) ToAnalysisStaticFileS3SourceOpt
 	}).(AnalysisStaticFileS3SourceOptionsPtrOutput)
 }
 
+// The name of the Amazon S3 bucket.
 func (o AnalysisStaticFileS3SourceOptionsOutput) BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalysisStaticFileS3SourceOptions) string { return v.BucketName }).(pulumi.StringOutput)
 }
 
+// The identifier of the static file in the Amazon S3 bucket.
 func (o AnalysisStaticFileS3SourceOptionsOutput) ObjectKey() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalysisStaticFileS3SourceOptions) string { return v.ObjectKey }).(pulumi.StringOutput)
 }
 
+// The Region of the Amazon S3 account that contains the bucket.
 func (o AnalysisStaticFileS3SourceOptionsOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalysisStaticFileS3SourceOptions) string { return v.Region }).(pulumi.StringOutput)
 }
@@ -78244,6 +78831,7 @@ func (o AnalysisStaticFileS3SourceOptionsPtrOutput) Elem() AnalysisStaticFileS3S
 	}).(AnalysisStaticFileS3SourceOptionsOutput)
 }
 
+// The name of the Amazon S3 bucket.
 func (o AnalysisStaticFileS3SourceOptionsPtrOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalysisStaticFileS3SourceOptions) *string {
 		if v == nil {
@@ -78253,6 +78841,7 @@ func (o AnalysisStaticFileS3SourceOptionsPtrOutput) BucketName() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+// The identifier of the static file in the Amazon S3 bucket.
 func (o AnalysisStaticFileS3SourceOptionsPtrOutput) ObjectKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalysisStaticFileS3SourceOptions) *string {
 		if v == nil {
@@ -78262,6 +78851,7 @@ func (o AnalysisStaticFileS3SourceOptionsPtrOutput) ObjectKey() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Region of the Amazon S3 account that contains the bucket.
 func (o AnalysisStaticFileS3SourceOptionsPtrOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalysisStaticFileS3SourceOptions) *string {
 		if v == nil {
@@ -78272,7 +78862,9 @@ func (o AnalysisStaticFileS3SourceOptionsPtrOutput) Region() pulumi.StringPtrOut
 }
 
 type AnalysisStaticFileSource struct {
-	S3Options  *AnalysisStaticFileS3SourceOptions  `pulumi:"s3Options"`
+	// The structure that contains the Amazon S3 location to download the static file from.
+	S3Options *AnalysisStaticFileS3SourceOptions `pulumi:"s3Options"`
+	// The structure that contains the URL to download the static file from.
 	UrlOptions *AnalysisStaticFileUrlSourceOptions `pulumi:"urlOptions"`
 }
 
@@ -78288,7 +78880,9 @@ type AnalysisStaticFileSourceInput interface {
 }
 
 type AnalysisStaticFileSourceArgs struct {
-	S3Options  AnalysisStaticFileS3SourceOptionsPtrInput  `pulumi:"s3Options"`
+	// The structure that contains the Amazon S3 location to download the static file from.
+	S3Options AnalysisStaticFileS3SourceOptionsPtrInput `pulumi:"s3Options"`
+	// The structure that contains the URL to download the static file from.
 	UrlOptions AnalysisStaticFileUrlSourceOptionsPtrInput `pulumi:"urlOptions"`
 }
 
@@ -78369,10 +78963,12 @@ func (o AnalysisStaticFileSourceOutput) ToAnalysisStaticFileSourcePtrOutputWithC
 	}).(AnalysisStaticFileSourcePtrOutput)
 }
 
+// The structure that contains the Amazon S3 location to download the static file from.
 func (o AnalysisStaticFileSourceOutput) S3Options() AnalysisStaticFileS3SourceOptionsPtrOutput {
 	return o.ApplyT(func(v AnalysisStaticFileSource) *AnalysisStaticFileS3SourceOptions { return v.S3Options }).(AnalysisStaticFileS3SourceOptionsPtrOutput)
 }
 
+// The structure that contains the URL to download the static file from.
 func (o AnalysisStaticFileSourceOutput) UrlOptions() AnalysisStaticFileUrlSourceOptionsPtrOutput {
 	return o.ApplyT(func(v AnalysisStaticFileSource) *AnalysisStaticFileUrlSourceOptions { return v.UrlOptions }).(AnalysisStaticFileUrlSourceOptionsPtrOutput)
 }
@@ -78401,6 +78997,7 @@ func (o AnalysisStaticFileSourcePtrOutput) Elem() AnalysisStaticFileSourceOutput
 	}).(AnalysisStaticFileSourceOutput)
 }
 
+// The structure that contains the Amazon S3 location to download the static file from.
 func (o AnalysisStaticFileSourcePtrOutput) S3Options() AnalysisStaticFileS3SourceOptionsPtrOutput {
 	return o.ApplyT(func(v *AnalysisStaticFileSource) *AnalysisStaticFileS3SourceOptions {
 		if v == nil {
@@ -78410,6 +79007,7 @@ func (o AnalysisStaticFileSourcePtrOutput) S3Options() AnalysisStaticFileS3Sourc
 	}).(AnalysisStaticFileS3SourceOptionsPtrOutput)
 }
 
+// The structure that contains the URL to download the static file from.
 func (o AnalysisStaticFileSourcePtrOutput) UrlOptions() AnalysisStaticFileUrlSourceOptionsPtrOutput {
 	return o.ApplyT(func(v *AnalysisStaticFileSource) *AnalysisStaticFileUrlSourceOptions {
 		if v == nil {
@@ -78420,6 +79018,7 @@ func (o AnalysisStaticFileSourcePtrOutput) UrlOptions() AnalysisStaticFileUrlSou
 }
 
 type AnalysisStaticFileUrlSourceOptions struct {
+	// The URL to download the static file from.
 	Url string `pulumi:"url"`
 }
 
@@ -78435,6 +79034,7 @@ type AnalysisStaticFileUrlSourceOptionsInput interface {
 }
 
 type AnalysisStaticFileUrlSourceOptionsArgs struct {
+	// The URL to download the static file from.
 	Url pulumi.StringInput `pulumi:"url"`
 }
 
@@ -78515,6 +79115,7 @@ func (o AnalysisStaticFileUrlSourceOptionsOutput) ToAnalysisStaticFileUrlSourceO
 	}).(AnalysisStaticFileUrlSourceOptionsPtrOutput)
 }
 
+// The URL to download the static file from.
 func (o AnalysisStaticFileUrlSourceOptionsOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v AnalysisStaticFileUrlSourceOptions) string { return v.Url }).(pulumi.StringOutput)
 }
@@ -78543,6 +79144,7 @@ func (o AnalysisStaticFileUrlSourceOptionsPtrOutput) Elem() AnalysisStaticFileUr
 	}).(AnalysisStaticFileUrlSourceOptionsOutput)
 }
 
+// The URL to download the static file from.
 func (o AnalysisStaticFileUrlSourceOptionsPtrOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalysisStaticFileUrlSourceOptions) *string {
 		if v == nil {
@@ -83782,8 +84384,9 @@ type AnalysisTableVisual struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle *AnalysisVisualSubtitleLabelOptions `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                *AnalysisVisualTitleLabelOptions `pulumi:"title"`
-	VisualContentAltText *string                          `pulumi:"visualContentAltText"`
+	Title *AnalysisVisualTitleLabelOptions `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText *string `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..
 	VisualId string `pulumi:"visualId"`
 }
@@ -83809,8 +84412,9 @@ type AnalysisTableVisualArgs struct {
 	// The subtitle that is displayed on the visual.
 	Subtitle AnalysisVisualSubtitleLabelOptionsPtrInput `pulumi:"subtitle"`
 	// The title that is displayed on the visual.
-	Title                AnalysisVisualTitleLabelOptionsPtrInput `pulumi:"title"`
-	VisualContentAltText pulumi.StringPtrInput                   `pulumi:"visualContentAltText"`
+	Title AnalysisVisualTitleLabelOptionsPtrInput `pulumi:"title"`
+	// The alt text for the visual.
+	VisualContentAltText pulumi.StringPtrInput `pulumi:"visualContentAltText"`
 	// The unique identifier of a visual. This identifier must be unique within the context of a dashboard, template, or analysis. Two dashboards, analyses, or templates can have visuals with the same identifiers..
 	VisualId pulumi.StringInput `pulumi:"visualId"`
 }
@@ -83917,6 +84521,7 @@ func (o AnalysisTableVisualOutput) Title() AnalysisVisualTitleLabelOptionsPtrOut
 	return o.ApplyT(func(v AnalysisTableVisual) *AnalysisVisualTitleLabelOptions { return v.Title }).(AnalysisVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o AnalysisTableVisualOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AnalysisTableVisual) *string { return v.VisualContentAltText }).(pulumi.StringPtrOutput)
 }
@@ -84000,6 +84605,7 @@ func (o AnalysisTableVisualPtrOutput) Title() AnalysisVisualTitleLabelOptionsPtr
 	}).(AnalysisVisualTitleLabelOptionsPtrOutput)
 }
 
+// The alt text for the visual.
 func (o AnalysisTableVisualPtrOutput) VisualContentAltText() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AnalysisTableVisual) *string {
 		if v == nil {

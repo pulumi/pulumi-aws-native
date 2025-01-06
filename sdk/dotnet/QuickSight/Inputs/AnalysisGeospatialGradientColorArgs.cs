@@ -12,17 +12,30 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisGeospatialGradientColorArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The default opacity for the gradient color.
+        /// </summary>
         [Input("defaultOpacity")]
         public Input<double>? DefaultOpacity { get; set; }
 
+        /// <summary>
+        /// The null data visualization settings.
+        /// </summary>
         [Input("nullDataSettings")]
         public Input<Inputs.AnalysisGeospatialNullDataSettingsArgs>? NullDataSettings { get; set; }
 
+        /// <summary>
+        /// The state of visibility for null data.
+        /// </summary>
         [Input("nullDataVisibility")]
         public Input<Pulumi.AwsNative.QuickSight.AnalysisVisibility>? NullDataVisibility { get; set; }
 
         [Input("stepColors", required: true)]
         private InputList<Inputs.AnalysisGeospatialGradientStepColorArgs>? _stepColors;
+
+        /// <summary>
+        /// A list of gradient step colors for the gradient.
+        /// </summary>
         public InputList<Inputs.AnalysisGeospatialGradientStepColorArgs> StepColors
         {
             get => _stepColors ?? (_stepColors = new InputList<Inputs.AnalysisGeospatialGradientStepColorArgs>());

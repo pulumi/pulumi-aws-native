@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardGeospatialNullDataSettingsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The symbol style for null data.
+        /// </summary>
         [Input("symbolStyle", required: true)]
         public Input<Inputs.DashboardGeospatialNullSymbolStyleArgs> SymbolStyle { get; set; } = null!;
 

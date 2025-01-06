@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardImageInteractionOptions
     {
+        /// <summary>
+        /// The menu options for the image.
+        /// </summary>
         public readonly Outputs.DashboardImageMenuOption? ImageMenuOption;
 
         [OutputConstructor]

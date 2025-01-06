@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisGeospatialGradientStepColorArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The color and opacity values for the gradient step color.
+        /// </summary>
         [Input("color", required: true)]
         public Input<string> Color { get; set; } = null!;
 
+        /// <summary>
+        /// The data value for the gradient step color.
+        /// </summary>
         [Input("dataValue", required: true)]
         public Input<double> DataValue { get; set; } = null!;
 

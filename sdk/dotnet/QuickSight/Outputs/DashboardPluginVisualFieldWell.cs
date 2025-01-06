@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardPluginVisualFieldWell
     {
+        /// <summary>
+        /// The semantic axis name for the field well.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardPluginVisualAxisName? AxisName;
+        /// <summary>
+        /// A list of dimensions for the field well.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardDimensionField> Dimensions;
+        /// <summary>
+        /// A list of measures that exist in the field well.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardMeasureField> Measures;
+        /// <summary>
+        /// A list of unaggregated fields that exist in the field well.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardUnaggregatedField> Unaggregated;
 
         [OutputConstructor]

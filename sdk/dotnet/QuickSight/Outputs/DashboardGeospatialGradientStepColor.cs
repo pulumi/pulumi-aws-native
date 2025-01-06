@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardGeospatialGradientStepColor
     {
+        /// <summary>
+        /// The color and opacity values for the gradient step color.
+        /// </summary>
         public readonly string Color;
+        /// <summary>
+        /// The data value for the gradient step color.
+        /// </summary>
         public readonly double DataValue;
 
         [OutputConstructor]

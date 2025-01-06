@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisGeospatialCategoricalDataColor
     {
+        /// <summary>
+        /// The color and opacity values for the category data color.
+        /// </summary>
         public readonly string Color;
+        /// <summary>
+        /// The data value for the category data color.
+        /// </summary>
         public readonly string DataValue;
 
         [OutputConstructor]

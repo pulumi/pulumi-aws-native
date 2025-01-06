@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardSheetImageSource
     {
+        /// <summary>
+        /// The source of the static file that contains the image.
+        /// </summary>
         public readonly Outputs.DashboardSheetImageStaticFileSource? SheetImageStaticFileSource;
 
         [OutputConstructor]

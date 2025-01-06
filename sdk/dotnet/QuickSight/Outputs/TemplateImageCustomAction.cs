@@ -13,10 +13,32 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplateImageCustomAction
     {
+        /// <summary>
+        /// A list of `ImageCustomActionOperations` .
+        /// 
+        /// This is a union type structure. For this structure to be valid, only one of the attributes can be defined.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TemplateImageCustomActionOperation> ActionOperations;
+        /// <summary>
+        /// The ID of the custom action.
+        /// </summary>
         public readonly string CustomActionId;
+        /// <summary>
+        /// The name of the custom action.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The status of the custom action.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateWidgetStatus? Status;
+        /// <summary>
+        /// The trigger of the `VisualCustomAction` .
+        /// 
+        /// Valid values are defined as follows:
+        /// 
+        /// - `CLICK` : Initiates a custom action by a left pointer click on a data point.
+        /// - `MENU` : Initiates a custom action by right pointer click from the menu.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.TemplateImageCustomActionTrigger Trigger;
 
         [OutputConstructor]

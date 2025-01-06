@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisStaticFileSource
     {
+        /// <summary>
+        /// The structure that contains the Amazon S3 location to download the static file from.
+        /// </summary>
         public readonly Outputs.AnalysisStaticFileS3SourceOptions? S3Options;
+        /// <summary>
+        /// The structure that contains the URL to download the static file from.
+        /// </summary>
         public readonly Outputs.AnalysisStaticFileUrlSourceOptions? UrlOptions;
 
         [OutputConstructor]

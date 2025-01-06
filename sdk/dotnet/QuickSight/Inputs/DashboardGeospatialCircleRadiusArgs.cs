@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardGeospatialCircleRadiusArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The positive value for the radius of a circle.
+        /// </summary>
         [Input("radius")]
         public Input<double>? Radius { get; set; }
 

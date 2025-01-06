@@ -13,9 +13,21 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardGeospatialCategoricalColor
     {
+        /// <summary>
+        /// A list of categorical data colors for each category.
+        /// </summary>
         public readonly ImmutableArray<Outputs.DashboardGeospatialCategoricalDataColor> CategoryDataColors;
+        /// <summary>
+        /// The default opacity of a categorical color.
+        /// </summary>
         public readonly double? DefaultOpacity;
+        /// <summary>
+        /// The null data visualization settings.
+        /// </summary>
         public readonly Outputs.DashboardGeospatialNullDataSettings? NullDataSettings;
+        /// <summary>
+        /// The state of visibility for null data.
+        /// </summary>
         public readonly Pulumi.AwsNative.QuickSight.DashboardVisibility? NullDataVisibility;
 
         [OutputConstructor]

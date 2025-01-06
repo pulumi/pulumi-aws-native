@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisGeospatialColor
     {
+        /// <summary>
+        /// The visualization properties for the categorical color.
+        /// </summary>
         public readonly Outputs.AnalysisGeospatialCategoricalColor? Categorical;
+        /// <summary>
+        /// The visualization properties for the gradient color.
+        /// </summary>
         public readonly Outputs.AnalysisGeospatialGradientColor? Gradient;
+        /// <summary>
+        /// The visualization properties for the solid color.
+        /// </summary>
         public readonly Outputs.AnalysisGeospatialSolidColor? Solid;
 
         [OutputConstructor]

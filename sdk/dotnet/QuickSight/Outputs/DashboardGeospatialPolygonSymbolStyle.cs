@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardGeospatialPolygonSymbolStyle
     {
+        /// <summary>
+        /// The color and opacity values for the fill color.
+        /// </summary>
         public readonly Outputs.DashboardGeospatialColor? FillColor;
+        /// <summary>
+        /// The color and opacity values for the stroke color.
+        /// </summary>
         public readonly Outputs.DashboardGeospatialColor? StrokeColor;
+        /// <summary>
+        /// The width of the border stroke.
+        /// </summary>
         public readonly Outputs.DashboardGeospatialLineWidth? StrokeWidth;
 
         [OutputConstructor]

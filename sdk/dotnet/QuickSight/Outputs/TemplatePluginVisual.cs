@@ -13,11 +13,23 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class TemplatePluginVisual
     {
+        /// <summary>
+        /// A description of the plugin field wells and their persisted properties.
+        /// </summary>
         public readonly Outputs.TemplatePluginVisualConfiguration? ChartConfiguration;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) that reflects the plugin and version.
+        /// </summary>
         public readonly string PluginArn;
         public readonly Outputs.TemplateVisualSubtitleLabelOptions? Subtitle;
         public readonly Outputs.TemplateVisualTitleLabelOptions? Title;
+        /// <summary>
+        /// The alt text for the visual.
+        /// </summary>
         public readonly string? VisualContentAltText;
+        /// <summary>
+        /// The ID of the visual that you want to use.
+        /// </summary>
         public readonly string VisualId;
 
         [OutputConstructor]

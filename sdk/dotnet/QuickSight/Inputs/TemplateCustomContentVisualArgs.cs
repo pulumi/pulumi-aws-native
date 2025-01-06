@@ -48,6 +48,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("title")]
         public Input<Inputs.TemplateVisualTitleLabelOptionsArgs>? Title { get; set; }
 
+        /// <summary>
+        /// The alt text for the visual.
+        /// </summary>
         [Input("visualContentAltText")]
         public Input<string>? VisualContentAltText { get; set; }
 

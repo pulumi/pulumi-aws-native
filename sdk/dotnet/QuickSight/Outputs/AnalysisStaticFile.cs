@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisStaticFile
     {
+        /// <summary>
+        /// The image static file.
+        /// </summary>
         public readonly Outputs.AnalysisImageStaticFile? ImageStaticFile;
+        /// <summary>
+        /// The spacial static file.
+        /// </summary>
         public readonly Outputs.AnalysisSpatialStaticFile? SpatialStaticFile;
 
         [OutputConstructor]

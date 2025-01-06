@@ -14,18 +14,31 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
     {
         [Input("categoryDataColors", required: true)]
         private InputList<Inputs.AnalysisGeospatialCategoricalDataColorArgs>? _categoryDataColors;
+
+        /// <summary>
+        /// A list of categorical data colors for each category.
+        /// </summary>
         public InputList<Inputs.AnalysisGeospatialCategoricalDataColorArgs> CategoryDataColors
         {
             get => _categoryDataColors ?? (_categoryDataColors = new InputList<Inputs.AnalysisGeospatialCategoricalDataColorArgs>());
             set => _categoryDataColors = value;
         }
 
+        /// <summary>
+        /// The default opacity of a categorical color.
+        /// </summary>
         [Input("defaultOpacity")]
         public Input<double>? DefaultOpacity { get; set; }
 
+        /// <summary>
+        /// The null data visualization settings.
+        /// </summary>
         [Input("nullDataSettings")]
         public Input<Inputs.AnalysisGeospatialNullDataSettingsArgs>? NullDataSettings { get; set; }
 
+        /// <summary>
+        /// The state of visibility for null data.
+        /// </summary>
         [Input("nullDataVisibility")]
         public Input<Pulumi.AwsNative.QuickSight.AnalysisVisibility>? NullDataVisibility { get; set; }
 

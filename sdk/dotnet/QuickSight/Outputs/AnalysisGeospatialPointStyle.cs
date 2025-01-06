@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisGeospatialPointStyle
     {
+        /// <summary>
+        /// The circle symbol style for a point layer.
+        /// </summary>
         public readonly Outputs.AnalysisGeospatialCircleSymbolStyle? CircleSymbolStyle;
 
         [OutputConstructor]

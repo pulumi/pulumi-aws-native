@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisGeospatialPointStyleArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The circle symbol style for a point layer.
+        /// </summary>
         [Input("circleSymbolStyle")]
         public Input<Inputs.AnalysisGeospatialCircleSymbolStyleArgs>? CircleSymbolStyle { get; set; }
 

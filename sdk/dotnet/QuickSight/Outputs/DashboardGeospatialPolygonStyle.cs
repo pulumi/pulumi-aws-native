@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class DashboardGeospatialPolygonStyle
     {
+        /// <summary>
+        /// The polygon symbol style for a polygon layer.
+        /// </summary>
         public readonly Outputs.DashboardGeospatialPolygonSymbolStyle? PolygonSymbolStyle;
 
         [OutputConstructor]

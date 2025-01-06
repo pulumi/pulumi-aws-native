@@ -12,11 +12,18 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class AnalysisPluginVisualFieldWellArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The semantic axis name for the field well.
+        /// </summary>
         [Input("axisName")]
         public Input<Pulumi.AwsNative.QuickSight.AnalysisPluginVisualAxisName>? AxisName { get; set; }
 
         [Input("dimensions")]
         private InputList<Inputs.AnalysisDimensionFieldArgs>? _dimensions;
+
+        /// <summary>
+        /// A list of dimensions for the field well.
+        /// </summary>
         public InputList<Inputs.AnalysisDimensionFieldArgs> Dimensions
         {
             get => _dimensions ?? (_dimensions = new InputList<Inputs.AnalysisDimensionFieldArgs>());
@@ -25,6 +32,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("measures")]
         private InputList<Inputs.AnalysisMeasureFieldArgs>? _measures;
+
+        /// <summary>
+        /// A list of measures that exist in the field well.
+        /// </summary>
         public InputList<Inputs.AnalysisMeasureFieldArgs> Measures
         {
             get => _measures ?? (_measures = new InputList<Inputs.AnalysisMeasureFieldArgs>());
@@ -33,6 +44,10 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
         [Input("unaggregated")]
         private InputList<Inputs.AnalysisUnaggregatedFieldArgs>? _unaggregated;
+
+        /// <summary>
+        /// A list of unaggregated fields that exist in the field well.
+        /// </summary>
         public InputList<Inputs.AnalysisUnaggregatedFieldArgs> Unaggregated
         {
             get => _unaggregated ?? (_unaggregated = new InputList<Inputs.AnalysisUnaggregatedFieldArgs>());

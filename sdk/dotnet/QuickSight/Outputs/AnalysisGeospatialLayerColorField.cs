@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisGeospatialLayerColorField
     {
+        /// <summary>
+        /// A list of color dimension fields.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisDimensionField> ColorDimensionsFields;
+        /// <summary>
+        /// A list of color measure fields.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisMeasureField> ColorValuesFields;
 
         [OutputConstructor]

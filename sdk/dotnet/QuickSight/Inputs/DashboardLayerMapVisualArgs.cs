@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
 
     public sealed class DashboardLayerMapVisualArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The configuration settings of the visual.
+        /// </summary>
         [Input("chartConfiguration")]
         public Input<Inputs.DashboardGeospatialLayerMapConfigurationArgs>? ChartConfiguration { get; set; }
 
+        /// <summary>
+        /// The dataset that is used to create the layer map visual. You can't create a visual without a dataset.
+        /// </summary>
         [Input("dataSetIdentifier", required: true)]
         public Input<string> DataSetIdentifier { get; set; } = null!;
 
@@ -24,9 +30,15 @@ namespace Pulumi.AwsNative.QuickSight.Inputs
         [Input("title")]
         public Input<Inputs.DashboardVisualTitleLabelOptionsArgs>? Title { get; set; }
 
+        /// <summary>
+        /// The alt text for the visual.
+        /// </summary>
         [Input("visualContentAltText")]
         public Input<string>? VisualContentAltText { get; set; }
 
+        /// <summary>
+        /// The ID of the visual.
+        /// </summary>
         [Input("visualId", required: true)]
         public Input<string> VisualId { get; set; } = null!;
 

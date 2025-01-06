@@ -13,8 +13,17 @@ namespace Pulumi.AwsNative.QuickSight.Outputs
     [OutputType]
     public sealed class AnalysisPluginVisualConfiguration
     {
+        /// <summary>
+        /// The field wells configuration of the plugin visual.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AnalysisPluginVisualFieldWell> FieldWells;
+        /// <summary>
+        /// The sort configuration of the plugin visual.
+        /// </summary>
         public readonly Outputs.AnalysisPluginVisualSortConfiguration? SortConfiguration;
+        /// <summary>
+        /// The persisted properties of the plugin visual.
+        /// </summary>
         public readonly Outputs.AnalysisPluginVisualOptions? VisualOptions;
 
         [OutputConstructor]
