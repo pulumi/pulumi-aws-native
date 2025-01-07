@@ -10,7 +10,7 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/ssm v1.56.1
 	github.com/pulumi/providertest v0.1.4
 	github.com/pulumi/pulumi/pkg/v3 v3.144.1
-	github.com/pulumi/pulumi/sdk/v3 v3.144.1
+	github.com/pulumi/pulumi/sdk/v3 v3.145.0
 	github.com/stretchr/testify v1.9.0
 )
 
@@ -99,6 +99,7 @@ require (
 	github.com/hashicorp/hcl/v2 v2.22.0 // indirect
 	github.com/hashicorp/vault/api v1.12.0 // indirect
 	github.com/inconshreveable/mousetrap v1.1.0 // indirect
+	github.com/iwdgo/sigintwindows v0.2.2 // indirect
 	github.com/jbenet/go-context v0.0.0-20150711004518-d14ea06fba99 // indirect
 	github.com/jmespath/go-jmespath v0.4.0 // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
