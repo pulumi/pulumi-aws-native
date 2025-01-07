@@ -10,6 +10,7 @@ import (
 	"github.com/aws/aws-lambda-go/cfn"
 	"github.com/golang/glog"
 	"github.com/google/uuid"
+	"github.com/pulumi/pulumi-aws-native/provider/pkg/autonaming"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/client"
 	"github.com/pulumi/pulumi-aws-native/provider/pkg/naming"
 	"github.com/pulumi/pulumi-go-provider/resourcex"
@@ -232,7 +233,7 @@ type customResourceInvokeData struct {
 
 // Check validates the inputs of the resource and applies default values if necessary.
 // It returns the inputs, validation failures, and an error if the inputs cannot be unmarshalled.
-func (c *cfnCustomResource) Check(ctx context.Context, urn urn.URN, randomSeed []byte, inputs resource.PropertyMap, state resource.PropertyMap, defaultTags map[string]string) (resource.PropertyMap, []ValidationFailure, error) {
+func (c *cfnCustomResource) Check(ctx context.Context, urn urn.URN, _ autonaming.EngineAutoNamingConfig, inputs resource.PropertyMap, state resource.PropertyMap, defaultTags map[string]string) (resource.PropertyMap, []ValidationFailure, error) {
 	var typedInputs CfnCustomResourceInputs
 	_, err := resourcex.Unmarshal(&typedInputs, inputs, resourcex.UnmarshalOptions{})
 	if err != nil {

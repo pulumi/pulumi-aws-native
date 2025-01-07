@@ -14,6 +14,7 @@ import (
 	reflect "reflect"
 	time "time"
 
+	autonaming "github.com/pulumi/pulumi-aws-native/provider/pkg/autonaming"
 	resource "github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	gomock "go.uber.org/mock/gomock"
 )
@@ -43,9 +44,9 @@ func (m *MockCustomResource) EXPECT() *MockCustomResourceMockRecorder {
 }
 
 // Check mocks base method.
-func (m *MockCustomResource) Check(ctx context.Context, urn resource.URN, randomSeed []byte, inputs, state resource.PropertyMap, defaultTags map[string]string) (resource.PropertyMap, []ValidationFailure, error) {
+func (m *MockCustomResource) Check(ctx context.Context, urn resource.URN, engineAutonaming autonaming.EngineAutoNamingConfig, inputs, state resource.PropertyMap, defaultTags map[string]string) (resource.PropertyMap, []ValidationFailure, error) {
 	m.ctrl.T.Helper()
-	ret := m.ctrl.Call(m, "Check", ctx, urn, randomSeed, inputs, state, defaultTags)
+	ret := m.ctrl.Call(m, "Check", ctx, urn, engineAutonaming, inputs, state, defaultTags)
 	ret0, _ := ret[0].(resource.PropertyMap)
 	ret1, _ := ret[1].([]ValidationFailure)
 	ret2, _ := ret[2].(error)
@@ -53,9 +54,9 @@ func (m *MockCustomResource) Check(ctx context.Context, urn resource.URN, random
 }
 
 // Check indicates an expected call of Check.
-func (mr *MockCustomResourceMockRecorder) Check(ctx, urn, randomSeed, inputs, state, defaultTags any) *gomock.Call {
+func (mr *MockCustomResourceMockRecorder) Check(ctx, urn, engineAutonaming, inputs, state, defaultTags any) *gomock.Call {
 	mr.mock.ctrl.T.Helper()
-	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Check", reflect.TypeOf((*MockCustomResource)(nil).Check), ctx, urn, randomSeed, inputs, state, defaultTags)
+	return mr.mock.ctrl.RecordCallWithMethodType(mr.mock, "Check", reflect.TypeOf((*MockCustomResource)(nil).Check), ctx, urn, engineAutonaming, inputs, state, defaultTags)
 }
 
 // Create mocks base method.

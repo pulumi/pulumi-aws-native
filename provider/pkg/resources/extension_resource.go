@@ -45,7 +45,9 @@ func NewExtensionResource(client client.CloudControlClient) *extensionResource {
 	}
 }
 
-func (r *extensionResource) Check(ctx context.Context, urn resource.URN, randomSeed []byte, inputs, state resource.PropertyMap, defaultTags map[string]string) (resource.PropertyMap, []ValidationFailure, error) {
+func (r *extensionResource) Check(ctx context.Context, urn resource.URN,
+	engineAutonaming autonaming.EngineAutoNamingConfig, inputs, state resource.PropertyMap,
+	defaultTags map[string]string) (resource.PropertyMap, []ValidationFailure, error) {
 	var typedInputs ExtensionResourceInputs
 	_, err := resourcex.Unmarshal(&typedInputs, inputs, resourcex.UnmarshalOptions{})
 	if err != nil {
@@ -64,7 +66,7 @@ func (r *extensionResource) Check(ctx context.Context, urn resource.URN, randomS
 			SdkName:   typedInputs.AutoNaming.PropertyName,
 			MinLength: typedInputs.AutoNaming.MinLength,
 			MaxLength: typedInputs.AutoNaming.MaxLength,
-		}, urn, randomSeed, state, inputs, nil); err != nil {
+		}, urn, engineAutonaming, nil, state, inputs); err != nil {
 			return nil, nil, fmt.Errorf("failed to apply auto-naming: %w", err)
 		}
 	}
