@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.Cognito.Outputs
     public sealed class UserPoolAdvancedSecurityAdditionalFlows
     {
         /// <summary>
-        /// The operating mode of advanced security features in custom authentication with [Custom authentication challenge Lambda triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-challenge.html) .
+        /// The operating mode of threat protection in custom authentication with [Custom authentication challenge Lambda triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-challenge.html) .
         /// </summary>
         public readonly string? CustomAuthMode;
 

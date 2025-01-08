@@ -90,7 +90,7 @@ namespace Pulumi.AwsNative.Sso
         /// </summary>
         public readonly object? InlinePolicy;
         /// <summary>
-        /// A structure that stores the details of the AWS managed policy.
+        /// A structure that stores a list of managed policy ARNs that describe the associated AWS managed policy.
         /// </summary>
         public readonly ImmutableArray<string> ManagedPolicies;
         /// <summary>

@@ -13,13 +13,13 @@ namespace Pulumi.AwsNative.Cognito.Inputs
     public sealed class UserPoolAddOnsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Advanced security configuration options for additional authentication types in your user pool, including custom authentication.
+        /// Threat protection configuration options for additional authentication types in your user pool, including custom authentication.
         /// </summary>
         [Input("advancedSecurityAdditionalFlows")]
         public Input<Inputs.UserPoolAdvancedSecurityAdditionalFlowsArgs>? AdvancedSecurityAdditionalFlows { get; set; }
 
         /// <summary>
-        /// The operating mode of advanced security features for standard authentication types in your user pool, including username-password and secure remote password (SRP) authentication.
+        /// The operating mode of threat protection for standard authentication types in your user pool, including username-password and secure remote password (SRP) authentication.
         /// </summary>
         [Input("advancedSecurityMode")]
         public Input<string>? AdvancedSecurityMode { get; set; }

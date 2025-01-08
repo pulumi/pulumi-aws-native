@@ -39,7 +39,7 @@ type LookupPermissionSetResult struct {
 	//
 	// Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSO::PermissionSet` for more information about the expected schema for this property.
 	InlinePolicy interface{} `pulumi:"inlinePolicy"`
-	// A structure that stores the details of the AWS managed policy.
+	// A structure that stores a list of managed policy ARNs that describe the associated AWS managed policy.
 	ManagedPolicies []string `pulumi:"managedPolicies"`
 	// The permission set that the policy will be attached to
 	PermissionSetArn *string `pulumi:"permissionSetArn"`
@@ -108,7 +108,7 @@ func (o LookupPermissionSetResultOutput) InlinePolicy() pulumi.AnyOutput {
 	return o.ApplyT(func(v LookupPermissionSetResult) interface{} { return v.InlinePolicy }).(pulumi.AnyOutput)
 }
 
-// A structure that stores the details of the AWS managed policy.
+// A structure that stores a list of managed policy ARNs that describe the associated AWS managed policy.
 func (o LookupPermissionSetResultOutput) ManagedPolicies() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupPermissionSetResult) []string { return v.ManagedPolicies }).(pulumi.StringArrayOutput)
 }

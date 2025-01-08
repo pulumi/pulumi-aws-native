@@ -731,6 +731,8 @@ class ConfigurationSetTrackingOptions(dict):
         suggest = None
         if key == "customRedirectDomain":
             suggest = "custom_redirect_domain"
+        elif key == "httpsPolicy":
+            suggest = "https_policy"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ConfigurationSetTrackingOptions. Access the value via the '{suggest}' property getter instead.")
@@ -744,13 +746,17 @@ class ConfigurationSetTrackingOptions(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 custom_redirect_domain: Optional[str] = None):
+                 custom_redirect_domain: Optional[str] = None,
+                 https_policy: Optional[str] = None):
         """
         An object that defines the open and click tracking options for emails that you send using the configuration set.
         :param str custom_redirect_domain: The domain to use for tracking open and click events.
+        :param str https_policy: The https policy to use for tracking open and click events.
         """
         if custom_redirect_domain is not None:
             pulumi.set(__self__, "custom_redirect_domain", custom_redirect_domain)
+        if https_policy is not None:
+            pulumi.set(__self__, "https_policy", https_policy)
 
     @property
     @pulumi.getter(name="customRedirectDomain")
@@ -759,6 +765,14 @@ class ConfigurationSetTrackingOptions(dict):
         The domain to use for tracking open and click events.
         """
         return pulumi.get(self, "custom_redirect_domain")
+
+    @property
+    @pulumi.getter(name="httpsPolicy")
+    def https_policy(self) -> Optional[str]:
+        """
+        The https policy to use for tracking open and click events.
+        """
+        return pulumi.get(self, "https_policy")
 
 
 @pulumi.output_type

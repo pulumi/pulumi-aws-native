@@ -77,6 +77,7 @@ export class Bot extends pulumi.CustomResource {
      * The name of the bot locale.
      */
     public readonly name!: pulumi.Output<string>;
+    public readonly replication!: pulumi.Output<outputs.lex.BotReplication | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role used to build and run the bot.
      */
@@ -118,6 +119,7 @@ export class Bot extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["idleSessionTtlInSeconds"] = args ? args.idleSessionTtlInSeconds : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["replication"] = args ? args.replication : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
             resourceInputs["testBotAliasSettings"] = args ? args.testBotAliasSettings : undefined;
             resourceInputs["testBotAliasTags"] = args ? args.testBotAliasTags : undefined;
@@ -134,6 +136,7 @@ export class Bot extends pulumi.CustomResource {
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["idleSessionTtlInSeconds"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["replication"] = undefined /*out*/;
             resourceInputs["roleArn"] = undefined /*out*/;
             resourceInputs["testBotAliasSettings"] = undefined /*out*/;
             resourceInputs["testBotAliasTags"] = undefined /*out*/;
@@ -179,6 +182,7 @@ export interface BotArgs {
      * The name of the bot locale.
      */
     name?: pulumi.Input<string>;
+    replication?: pulumi.Input<inputs.lex.BotReplicationArgs>;
     /**
      * The Amazon Resource Name (ARN) of the IAM role used to build and run the bot.
      */

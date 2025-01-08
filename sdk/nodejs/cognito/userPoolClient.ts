@@ -50,28 +50,28 @@ export class UserPoolClient extends pulumi.CustomResource {
      */
     public readonly accessTokenValidity!: pulumi.Output<number | undefined>;
     /**
-     * The OAuth grant types that you want your app client to generate. To create an app client that generates client credentials grants, you must add `client_credentials` as the only allowed OAuth flow.
+     * The OAuth grant types that you want your app client to generate for clients in managed login authentication. To create an app client that generates client credentials grants, you must add `client_credentials` as the only allowed OAuth flow.
      *
      * - **code** - Use a code grant flow, which provides an authorization code as the response. This code can be exchanged for access tokens with the `/oauth2/token` endpoint.
-     * - **implicit** - Issue the access token (and, optionally, ID token, based on scopes) directly to your user.
-     * - **client_credentials** - Issue the access token from the `/oauth2/token` endpoint directly to a non-person user using a combination of the client ID and client secret.
+     * - **implicit** - Issue the access token, and the ID token when scopes like `openid` and `profile` are requested, directly to your user.
+     * - **client_credentials** - Issue the access token from the `/oauth2/token` endpoint directly to a non-person user, authorized by a combination of the client ID and client secret.
      */
     public readonly allowedOAuthFlows!: pulumi.Output<string[] | undefined>;
     /**
-     * Set to `true` to use OAuth 2.0 features in your user pool app client.
+     * Set to `true` to use OAuth 2.0 authorization server features in your app client.
      *
-     * `AllowedOAuthFlowsUserPoolClient` must be `true` before you can configure the following features in your app client.
+     * This parameter must have a value of `true` before you can configure the following features in your app client.
      *
      * - `CallBackURLs` : Callback URLs.
      * - `LogoutURLs` : Sign-out redirect URLs.
      * - `AllowedOAuthScopes` : OAuth 2.0 scopes.
      * - `AllowedOAuthFlows` : Support for authorization code, implicit, and client credentials OAuth 2.0 grants.
      *
-     * To use OAuth 2.0 features, configure one of these features in the Amazon Cognito console or set `AllowedOAuthFlowsUserPoolClient` to `true` in a `CreateUserPoolClient` or `UpdateUserPoolClient` API request. If you don't set a value for `AllowedOAuthFlowsUserPoolClient` in a request with the AWS CLI or SDKs, it defaults to `false` .
+     * To use authorization server features, configure one of these features in the Amazon Cognito console or set `AllowedOAuthFlowsUserPoolClient` to `true` in a `CreateUserPoolClient` or `UpdateUserPoolClient` API request. If you don't set a value for `AllowedOAuthFlowsUserPoolClient` in a request with the AWS CLI or SDKs, it defaults to `false` . When `false` , only SDK-based API sign-in is permitted.
      */
     public readonly allowedOAuthFlowsUserPoolClient!: pulumi.Output<boolean | undefined>;
     /**
-     * The OAuth 2.0 scopes that you want to permit your app client to authorize. Scopes govern access control to user pool self-service API operations, user data from the `userInfo` endpoint, and third-party APIs. Possible values provided by OAuth are `phone` , `email` , `openid` , and `profile` . Possible values provided by AWS are `aws.cognito.signin.user.admin` . Custom scopes created in Resource Servers are also supported.
+     * The OAuth, OpenID Connect (OIDC), and custom scopes that you want to permit your app client to authorize access with. Scopes govern access control to user pool self-service API operations, user data from the `userInfo` endpoint, and third-party APIs. Scope values include `phone` , `email` , `openid` , and `profile` . The `aws.cognito.signin.user.admin` scope authorizes user self-service operations. Custom scopes with resource servers authorize access to external APIs.
      */
     public readonly allowedOAuthScopes!: pulumi.Output<string[] | undefined>;
     /**
@@ -85,9 +85,9 @@ export class UserPoolClient extends pulumi.CustomResource {
      */
     public readonly authSessionValidity!: pulumi.Output<number | undefined>;
     /**
-     * A list of allowed redirect (callback) URLs for the IdPs.
+     * A list of allowed redirect, or callback, URLs for managed login authentication. These URLs are the paths where you want to send your users' browsers after they complete authentication with managed login or a third-party IdP. Typically, callback URLs are the home of an application that uses OAuth or OIDC libraries to process authentication outcomes.
      *
-     * A redirect URI must:
+     * A redirect URI must meet the following requirements:
      *
      * - Be an absolute URI.
      * - Be registered with the authorization server. Amazon Cognito doesn't accept authorization requests with `redirect_uri` values that aren't in the list of `CallbackURLs` that you provide in this parameter.
@@ -114,21 +114,23 @@ export class UserPoolClient extends pulumi.CustomResource {
      */
     public readonly defaultRedirectUri!: pulumi.Output<string | undefined>;
     /**
-     * Activates the propagation of additional user context data. For more information about propagation of user context data, see [Adding advanced security to a user pool](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-threat-protection.html) . If you don’t include this parameter, you can't send device fingerprint information, including source IP address, to Amazon Cognito advanced security. You can only activate `EnablePropagateAdditionalUserContextData` in an app client that has a client secret.
+     * When `true` , your application can include additional `UserContextData` in authentication requests. This data includes the IP address, and contributes to analysis by threat protection features. For more information about propagation of user context data, see [Adding session data to API requests](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-adaptive-authentication.html#user-pool-settings-adaptive-authentication-device-fingerprint) . If you don’t include this parameter, you can't send the source IP address to Amazon Cognito threat protection features. You can only activate `EnablePropagateAdditionalUserContextData` in an app client that has a client secret.
      */
     public readonly enablePropagateAdditionalUserContextData!: pulumi.Output<boolean | undefined>;
     /**
-     * Activates or deactivates token revocation. For more information about revoking tokens, see [RevokeToken](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_RevokeToken.html) .
+     * Activates or deactivates [token revocation](https://docs.aws.amazon.com/cognito/latest/developerguide/token-revocation.html) in the target app client.
+     *
+     * Revoke tokens with `API_RevokeToken` .
      *
      * If you don't include this parameter, token revocation is automatically activated for the new user pool client.
      */
     public readonly enableTokenRevocation!: pulumi.Output<boolean | undefined>;
     /**
-     * The authentication flows that you want your user pool client to support. For each app client in your user pool, you can sign in your users with any combination of one or more flows, including with a user name and Secure Remote Password (SRP), a user name and password, or a custom authentication process that you define with Lambda functions.
+     * The [authentication flows](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-authentication-flow-methods.html) that you want your user pool client to support. For each app client in your user pool, you can sign in your users with any combination of one or more flows, including with a user name and Secure Remote Password (SRP), a user name and password, or a custom authentication process that you define with Lambda functions.
      *
-     * > If you don't specify a value for `ExplicitAuthFlows` , your user client supports `ALLOW_REFRESH_TOKEN_AUTH` , `ALLOW_USER_SRP_AUTH` , and `ALLOW_CUSTOM_AUTH` . 
+     * > If you don't specify a value for `ExplicitAuthFlows` , your app client supports `ALLOW_REFRESH_TOKEN_AUTH` , `ALLOW_USER_SRP_AUTH` , and `ALLOW_CUSTOM_AUTH` . 
      *
-     * Valid values include:
+     * The values for authentication flow options include the following.
      *
      * - `ALLOW_USER_AUTH` : Enable selection-based sign-in with `USER_AUTH` . This setting covers username-password, secure remote password (SRP), passwordless, and passkey authentication. This authentiation flow can do username-password and SRP authentication without other `ExplicitAuthFlows` permitting them. For example users can complete an SRP challenge through `USER_AUTH` without the flow `USER_SRP_AUTH` being active for the app client. This flow doesn't include `CUSTOM_AUTH` .
      *
@@ -144,7 +146,7 @@ export class UserPoolClient extends pulumi.CustomResource {
      */
     public readonly explicitAuthFlows!: pulumi.Output<string[] | undefined>;
     /**
-     * When `true` , generates a client secret for the app client. Client secrets are used with server-side and machine-to-machine applications. For more information, see [App client types](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-client-apps.html#user-pool-settings-client-app-client-types) .
+     * When `true` , generates a client secret for the app client. Client secrets are used with server-side and machine-to-machine applications. Client secrets are automatically generated; you can't specify a secret value. For more information, see [App client types](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-client-apps.html#user-pool-settings-client-app-client-types) .
      */
     public readonly generateSecret!: pulumi.Output<boolean | undefined>;
     /**
@@ -159,7 +161,7 @@ export class UserPoolClient extends pulumi.CustomResource {
      */
     public readonly idTokenValidity!: pulumi.Output<number | undefined>;
     /**
-     * A list of allowed logout URLs for managed login authentication. For more information, see [Logout endpoint](https://docs.aws.amazon.com/cognito/latest/developerguide/logout-endpoint.html) .
+     * A list of allowed logout URLs for managed login authentication. When you pass `logout_uri` and `client_id` parameters to `/logout` , Amazon Cognito signs out your user and redirects them to the logout URL. This parameter describes the URLs that you want to be the permitted targets of `logout_uri` . A typical use of these URLs is when a user selects "Sign out" and you redirect them to your public homepage. For more information, see [Logout endpoint](https://docs.aws.amazon.com/cognito/latest/developerguide/logout-endpoint.html) .
      */
     public readonly logoutUrls!: pulumi.Output<string[] | undefined>;
     public /*out*/ readonly name!: pulumi.Output<string>;
@@ -175,9 +177,11 @@ export class UserPoolClient extends pulumi.CustomResource {
      */
     public readonly preventUserExistenceErrors!: pulumi.Output<string | undefined>;
     /**
-     * The list of user attributes that you want your app client to have read access to. After your user authenticates in your app, their access token authorizes them to read their own attribute value for any attribute in this list. An example of this kind of activity is when your user selects a link to view their profile information. Your app makes a [GetUser](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_GetUser.html) API request to retrieve and display your user's profile data.
+     * The list of user attributes that you want your app client to have read access to. After your user authenticates in your app, their access token authorizes them to read their own attribute value for any attribute in this list.
      *
-     * When you don't specify the `ReadAttributes` for your app client, your app can read the values of `email_verified` , `phone_number_verified` , and the Standard attributes of your user pool. When your user pool app client has read access to these default attributes, `ReadAttributes` doesn't return any information. Amazon Cognito only populates `ReadAttributes` in the API response if you have specified your own custom set of read attributes.
+     * An example of this kind of activity is when your user selects a link to view their profile information. Your app makes a `API_GetUser` API request to retrieve and display your user's profile data.
+     *
+     * When you don't specify the `ReadAttributes` for your app client, your app can read the values of `email_verified` , `phone_number_verified` , and the standard attributes of your user pool. When your user pool app client has read access to these default attributes, `ReadAttributes` doesn't return any information. Amazon Cognito only populates `ReadAttributes` in the API response if you have specified your own custom set of read attributes.
      */
     public readonly readAttributes!: pulumi.Output<string[] | undefined>;
     /**
@@ -195,7 +199,7 @@ export class UserPoolClient extends pulumi.CustomResource {
     /**
      * A list of provider names for the identity providers (IdPs) that are supported on this client. The following are supported: `COGNITO` , `Facebook` , `Google` , `SignInWithApple` , and `LoginWithAmazon` . You can also specify the names that you configured for the SAML and OIDC IdPs in your user pool, for example `MySAMLIdP` or `MyOIDCIdP` .
      *
-     * This setting applies to providers that you can access with [managed login](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html) . The removal of `COGNITO` from this list doesn't prevent authentication operations for local users with the user pools API in an AWS SDK. The only way to prevent API-based authentication is to block access with a [AWS WAF rule](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-waf.html) .
+     * This parameter sets the IdPs that [managed login](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html) will display on the login page for your app client. The removal of `COGNITO` from this list doesn't prevent authentication operations for local users with the user pools API in an AWS SDK. The only way to prevent SDK-based authentication is to block access with a [AWS WAF rule](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-waf.html) .
      */
     public readonly supportedIdentityProviders!: pulumi.Output<string[] | undefined>;
     /**
@@ -207,7 +211,9 @@ export class UserPoolClient extends pulumi.CustomResource {
      */
     public readonly userPoolId!: pulumi.Output<string>;
     /**
-     * The list of user attributes that you want your app client to have write access to. After your user authenticates in your app, their access token authorizes them to set or modify their own attribute value for any attribute in this list. An example of this kind of activity is when you present your user with a form to update their profile information and they change their last name. Your app then makes an [UpdateUserAttributes](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserAttributes.html) API request and sets `family_name` to the new value.
+     * The list of user attributes that you want your app client to have write access to. After your user authenticates in your app, their access token authorizes them to set or modify their own attribute value for any attribute in this list.
+     *
+     * An example of this kind of activity is when you present your user with a form to update their profile information and they change their last name. Your app then makes an `API_UpdateUserAttributes` API request and sets `family_name` to the new value.
      *
      * When you don't specify the `WriteAttributes` for your app client, your app can write the values of the Standard attributes of your user pool. When your user pool has write access to these default attributes, `WriteAttributes` doesn't return any information. Amazon Cognito only populates `WriteAttributes` in the API response if you have specified your own custom set of write attributes.
      *
@@ -305,28 +311,28 @@ export interface UserPoolClientArgs {
      */
     accessTokenValidity?: pulumi.Input<number>;
     /**
-     * The OAuth grant types that you want your app client to generate. To create an app client that generates client credentials grants, you must add `client_credentials` as the only allowed OAuth flow.
+     * The OAuth grant types that you want your app client to generate for clients in managed login authentication. To create an app client that generates client credentials grants, you must add `client_credentials` as the only allowed OAuth flow.
      *
      * - **code** - Use a code grant flow, which provides an authorization code as the response. This code can be exchanged for access tokens with the `/oauth2/token` endpoint.
-     * - **implicit** - Issue the access token (and, optionally, ID token, based on scopes) directly to your user.
-     * - **client_credentials** - Issue the access token from the `/oauth2/token` endpoint directly to a non-person user using a combination of the client ID and client secret.
+     * - **implicit** - Issue the access token, and the ID token when scopes like `openid` and `profile` are requested, directly to your user.
+     * - **client_credentials** - Issue the access token from the `/oauth2/token` endpoint directly to a non-person user, authorized by a combination of the client ID and client secret.
      */
     allowedOAuthFlows?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Set to `true` to use OAuth 2.0 features in your user pool app client.
+     * Set to `true` to use OAuth 2.0 authorization server features in your app client.
      *
-     * `AllowedOAuthFlowsUserPoolClient` must be `true` before you can configure the following features in your app client.
+     * This parameter must have a value of `true` before you can configure the following features in your app client.
      *
      * - `CallBackURLs` : Callback URLs.
      * - `LogoutURLs` : Sign-out redirect URLs.
      * - `AllowedOAuthScopes` : OAuth 2.0 scopes.
      * - `AllowedOAuthFlows` : Support for authorization code, implicit, and client credentials OAuth 2.0 grants.
      *
-     * To use OAuth 2.0 features, configure one of these features in the Amazon Cognito console or set `AllowedOAuthFlowsUserPoolClient` to `true` in a `CreateUserPoolClient` or `UpdateUserPoolClient` API request. If you don't set a value for `AllowedOAuthFlowsUserPoolClient` in a request with the AWS CLI or SDKs, it defaults to `false` .
+     * To use authorization server features, configure one of these features in the Amazon Cognito console or set `AllowedOAuthFlowsUserPoolClient` to `true` in a `CreateUserPoolClient` or `UpdateUserPoolClient` API request. If you don't set a value for `AllowedOAuthFlowsUserPoolClient` in a request with the AWS CLI or SDKs, it defaults to `false` . When `false` , only SDK-based API sign-in is permitted.
      */
     allowedOAuthFlowsUserPoolClient?: pulumi.Input<boolean>;
     /**
-     * The OAuth 2.0 scopes that you want to permit your app client to authorize. Scopes govern access control to user pool self-service API operations, user data from the `userInfo` endpoint, and third-party APIs. Possible values provided by OAuth are `phone` , `email` , `openid` , and `profile` . Possible values provided by AWS are `aws.cognito.signin.user.admin` . Custom scopes created in Resource Servers are also supported.
+     * The OAuth, OpenID Connect (OIDC), and custom scopes that you want to permit your app client to authorize access with. Scopes govern access control to user pool self-service API operations, user data from the `userInfo` endpoint, and third-party APIs. Scope values include `phone` , `email` , `openid` , and `profile` . The `aws.cognito.signin.user.admin` scope authorizes user self-service operations. Custom scopes with resource servers authorize access to external APIs.
      */
     allowedOAuthScopes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -340,9 +346,9 @@ export interface UserPoolClientArgs {
      */
     authSessionValidity?: pulumi.Input<number>;
     /**
-     * A list of allowed redirect (callback) URLs for the IdPs.
+     * A list of allowed redirect, or callback, URLs for managed login authentication. These URLs are the paths where you want to send your users' browsers after they complete authentication with managed login or a third-party IdP. Typically, callback URLs are the home of an application that uses OAuth or OIDC libraries to process authentication outcomes.
      *
-     * A redirect URI must:
+     * A redirect URI must meet the following requirements:
      *
      * - Be an absolute URI.
      * - Be registered with the authorization server. Amazon Cognito doesn't accept authorization requests with `redirect_uri` values that aren't in the list of `CallbackURLs` that you provide in this parameter.
@@ -364,21 +370,23 @@ export interface UserPoolClientArgs {
      */
     defaultRedirectUri?: pulumi.Input<string>;
     /**
-     * Activates the propagation of additional user context data. For more information about propagation of user context data, see [Adding advanced security to a user pool](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-threat-protection.html) . If you don’t include this parameter, you can't send device fingerprint information, including source IP address, to Amazon Cognito advanced security. You can only activate `EnablePropagateAdditionalUserContextData` in an app client that has a client secret.
+     * When `true` , your application can include additional `UserContextData` in authentication requests. This data includes the IP address, and contributes to analysis by threat protection features. For more information about propagation of user context data, see [Adding session data to API requests](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-adaptive-authentication.html#user-pool-settings-adaptive-authentication-device-fingerprint) . If you don’t include this parameter, you can't send the source IP address to Amazon Cognito threat protection features. You can only activate `EnablePropagateAdditionalUserContextData` in an app client that has a client secret.
      */
     enablePropagateAdditionalUserContextData?: pulumi.Input<boolean>;
     /**
-     * Activates or deactivates token revocation. For more information about revoking tokens, see [RevokeToken](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_RevokeToken.html) .
+     * Activates or deactivates [token revocation](https://docs.aws.amazon.com/cognito/latest/developerguide/token-revocation.html) in the target app client.
+     *
+     * Revoke tokens with `API_RevokeToken` .
      *
      * If you don't include this parameter, token revocation is automatically activated for the new user pool client.
      */
     enableTokenRevocation?: pulumi.Input<boolean>;
     /**
-     * The authentication flows that you want your user pool client to support. For each app client in your user pool, you can sign in your users with any combination of one or more flows, including with a user name and Secure Remote Password (SRP), a user name and password, or a custom authentication process that you define with Lambda functions.
+     * The [authentication flows](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-authentication-flow-methods.html) that you want your user pool client to support. For each app client in your user pool, you can sign in your users with any combination of one or more flows, including with a user name and Secure Remote Password (SRP), a user name and password, or a custom authentication process that you define with Lambda functions.
      *
-     * > If you don't specify a value for `ExplicitAuthFlows` , your user client supports `ALLOW_REFRESH_TOKEN_AUTH` , `ALLOW_USER_SRP_AUTH` , and `ALLOW_CUSTOM_AUTH` . 
+     * > If you don't specify a value for `ExplicitAuthFlows` , your app client supports `ALLOW_REFRESH_TOKEN_AUTH` , `ALLOW_USER_SRP_AUTH` , and `ALLOW_CUSTOM_AUTH` . 
      *
-     * Valid values include:
+     * The values for authentication flow options include the following.
      *
      * - `ALLOW_USER_AUTH` : Enable selection-based sign-in with `USER_AUTH` . This setting covers username-password, secure remote password (SRP), passwordless, and passkey authentication. This authentiation flow can do username-password and SRP authentication without other `ExplicitAuthFlows` permitting them. For example users can complete an SRP challenge through `USER_AUTH` without the flow `USER_SRP_AUTH` being active for the app client. This flow doesn't include `CUSTOM_AUTH` .
      *
@@ -394,7 +402,7 @@ export interface UserPoolClientArgs {
      */
     explicitAuthFlows?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * When `true` , generates a client secret for the app client. Client secrets are used with server-side and machine-to-machine applications. For more information, see [App client types](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-client-apps.html#user-pool-settings-client-app-client-types) .
+     * When `true` , generates a client secret for the app client. Client secrets are used with server-side and machine-to-machine applications. Client secrets are automatically generated; you can't specify a secret value. For more information, see [App client types](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-client-apps.html#user-pool-settings-client-app-client-types) .
      */
     generateSecret?: pulumi.Input<boolean>;
     /**
@@ -409,7 +417,7 @@ export interface UserPoolClientArgs {
      */
     idTokenValidity?: pulumi.Input<number>;
     /**
-     * A list of allowed logout URLs for managed login authentication. For more information, see [Logout endpoint](https://docs.aws.amazon.com/cognito/latest/developerguide/logout-endpoint.html) .
+     * A list of allowed logout URLs for managed login authentication. When you pass `logout_uri` and `client_id` parameters to `/logout` , Amazon Cognito signs out your user and redirects them to the logout URL. This parameter describes the URLs that you want to be the permitted targets of `logout_uri` . A typical use of these URLs is when a user selects "Sign out" and you redirect them to your public homepage. For more information, see [Logout endpoint](https://docs.aws.amazon.com/cognito/latest/developerguide/logout-endpoint.html) .
      */
     logoutUrls?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -424,9 +432,11 @@ export interface UserPoolClientArgs {
      */
     preventUserExistenceErrors?: pulumi.Input<string>;
     /**
-     * The list of user attributes that you want your app client to have read access to. After your user authenticates in your app, their access token authorizes them to read their own attribute value for any attribute in this list. An example of this kind of activity is when your user selects a link to view their profile information. Your app makes a [GetUser](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_GetUser.html) API request to retrieve and display your user's profile data.
+     * The list of user attributes that you want your app client to have read access to. After your user authenticates in your app, their access token authorizes them to read their own attribute value for any attribute in this list.
      *
-     * When you don't specify the `ReadAttributes` for your app client, your app can read the values of `email_verified` , `phone_number_verified` , and the Standard attributes of your user pool. When your user pool app client has read access to these default attributes, `ReadAttributes` doesn't return any information. Amazon Cognito only populates `ReadAttributes` in the API response if you have specified your own custom set of read attributes.
+     * An example of this kind of activity is when your user selects a link to view their profile information. Your app makes a `API_GetUser` API request to retrieve and display your user's profile data.
+     *
+     * When you don't specify the `ReadAttributes` for your app client, your app can read the values of `email_verified` , `phone_number_verified` , and the standard attributes of your user pool. When your user pool app client has read access to these default attributes, `ReadAttributes` doesn't return any information. Amazon Cognito only populates `ReadAttributes` in the API response if you have specified your own custom set of read attributes.
      */
     readAttributes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -444,7 +454,7 @@ export interface UserPoolClientArgs {
     /**
      * A list of provider names for the identity providers (IdPs) that are supported on this client. The following are supported: `COGNITO` , `Facebook` , `Google` , `SignInWithApple` , and `LoginWithAmazon` . You can also specify the names that you configured for the SAML and OIDC IdPs in your user pool, for example `MySAMLIdP` or `MyOIDCIdP` .
      *
-     * This setting applies to providers that you can access with [managed login](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html) . The removal of `COGNITO` from this list doesn't prevent authentication operations for local users with the user pools API in an AWS SDK. The only way to prevent API-based authentication is to block access with a [AWS WAF rule](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-waf.html) .
+     * This parameter sets the IdPs that [managed login](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html) will display on the login page for your app client. The removal of `COGNITO` from this list doesn't prevent authentication operations for local users with the user pools API in an AWS SDK. The only way to prevent SDK-based authentication is to block access with a [AWS WAF rule](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-waf.html) .
      */
     supportedIdentityProviders?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -456,7 +466,9 @@ export interface UserPoolClientArgs {
      */
     userPoolId: pulumi.Input<string>;
     /**
-     * The list of user attributes that you want your app client to have write access to. After your user authenticates in your app, their access token authorizes them to set or modify their own attribute value for any attribute in this list. An example of this kind of activity is when you present your user with a form to update their profile information and they change their last name. Your app then makes an [UpdateUserAttributes](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserAttributes.html) API request and sets `family_name` to the new value.
+     * The list of user attributes that you want your app client to have write access to. After your user authenticates in your app, their access token authorizes them to set or modify their own attribute value for any attribute in this list.
+     *
+     * An example of this kind of activity is when you present your user with a form to update their profile information and they change their last name. Your app then makes an `API_UpdateUserAttributes` API request and sets `family_name` to the new value.
      *
      * When you don't specify the `WriteAttributes` for your app client, your app can write the values of the Standard attributes of your user pool. When your user pool has write access to these default attributes, `WriteAttributes` doesn't return any information. Amazon Cognito only populates `WriteAttributes` in the API response if you have specified your own custom set of write attributes.
      *

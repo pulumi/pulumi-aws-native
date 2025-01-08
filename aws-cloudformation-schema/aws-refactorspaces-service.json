@@ -133,7 +133,7 @@
       "permissions" : [ "refactor-spaces:CreateService", "refactor-spaces:GetService", "refactor-spaces:TagResource", "ec2:DescribeVpcs", "ec2:DescribeSubnets", "ec2:DescribeRouteTables", "ec2:CreateTags", "ec2:CreateTransitGatewayVpcAttachment", "ec2:DescribeTransitGatewayVpcAttachments", "ec2:CreateSecurityGroup", "ec2:AuthorizeSecurityGroupIngress", "ec2:CreateRoute", "lambda:GetFunctionConfiguration" ]
     },
     "read" : {
-      "permissions" : [ "refactor-spacess:GetService", "refactor-spaces:ListTagsForResource" ]
+      "permissions" : [ "refactor-spaces:GetService", "refactor-spaces:ListTagsForResource" ]
     },
     "delete" : {
       "permissions" : [ "refactor-spaces:DeleteService", "refactor-spaces:GetService", "refactor-spaces:UntagResource", "ram:DisassociateResourceShare", "ec2:DescribeNetworkInterfaces", "ec2:DescribeRouteTables", "ec2:DescribeTransitGatewayVpcAttachments", "ec2:DescribeSecurityGroups", "ec2:DeleteSecurityGroup", "ec2:DeleteRoute", "ec2:RevokeSecurityGroupIngress", "ec2:DeleteTransitGatewayVpcAttachment", "ec2:DeleteTags" ]

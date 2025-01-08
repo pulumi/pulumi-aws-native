@@ -64,9 +64,21 @@ namespace Pulumi.AwsNative.VoiceId
     public sealed class GetDomainResult
     {
         /// <summary>
+        /// The description of the domain.
+        /// </summary>
+        public readonly string? Description;
+        /// <summary>
         /// The identifier of the domain.
         /// </summary>
         public readonly string? DomainId;
+        /// <summary>
+        /// The name for the domain.
+        /// </summary>
+        public readonly string? Name;
+        /// <summary>
+        /// The server-side encryption configuration containing the KMS key identifier you want Voice ID to use to encrypt your data.
+        /// </summary>
+        public readonly Outputs.DomainServerSideEncryptionConfiguration? ServerSideEncryptionConfiguration;
         /// <summary>
         /// The tags used to organize, track, or control access for this resource.
         /// </summary>
@@ -74,11 +86,20 @@ namespace Pulumi.AwsNative.VoiceId
 
         [OutputConstructor]
         private GetDomainResult(
+            string? description,
+
             string? domainId,
+
+            string? name,
+
+            Outputs.DomainServerSideEncryptionConfiguration? serverSideEncryptionConfiguration,
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
+            Description = description;
             DomainId = domainId;
+            Name = name;
+            ServerSideEncryptionConfiguration = serverSideEncryptionConfiguration;
             Tags = tags;
         }
     }

@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.CleanRooms.Inputs
 
     public sealed class MembershipPaymentConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        [Input("machineLearning")]
+        public Input<Inputs.MembershipMlPaymentConfigArgs>? MachineLearning { get; set; }
+
         /// <summary>
         /// The payment responsibilities accepted by the collaboration member for query compute costs.
         /// </summary>

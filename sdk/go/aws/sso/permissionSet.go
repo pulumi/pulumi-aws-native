@@ -27,7 +27,7 @@ type PermissionSet struct {
 	InlinePolicy pulumi.AnyOutput `pulumi:"inlinePolicy"`
 	// The sso instance arn that the permission set is owned.
 	InstanceArn pulumi.StringOutput `pulumi:"instanceArn"`
-	// A structure that stores the details of the AWS managed policy.
+	// A structure that stores a list of managed policy ARNs that describe the associated AWS managed policy.
 	ManagedPolicies pulumi.StringArrayOutput `pulumi:"managedPolicies"`
 	// The name you want to assign to this permission set.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -103,7 +103,7 @@ type permissionSetArgs struct {
 	InlinePolicy interface{} `pulumi:"inlinePolicy"`
 	// The sso instance arn that the permission set is owned.
 	InstanceArn string `pulumi:"instanceArn"`
-	// A structure that stores the details of the AWS managed policy.
+	// A structure that stores a list of managed policy ARNs that describe the associated AWS managed policy.
 	ManagedPolicies []string `pulumi:"managedPolicies"`
 	// The name you want to assign to this permission set.
 	Name *string `pulumi:"name"`
@@ -131,7 +131,7 @@ type PermissionSetArgs struct {
 	InlinePolicy pulumi.Input
 	// The sso instance arn that the permission set is owned.
 	InstanceArn pulumi.StringInput
-	// A structure that stores the details of the AWS managed policy.
+	// A structure that stores a list of managed policy ARNs that describe the associated AWS managed policy.
 	ManagedPolicies pulumi.StringArrayInput
 	// The name you want to assign to this permission set.
 	Name pulumi.StringPtrInput
@@ -208,7 +208,7 @@ func (o PermissionSetOutput) InstanceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *PermissionSet) pulumi.StringOutput { return v.InstanceArn }).(pulumi.StringOutput)
 }
 
-// A structure that stores the details of the AWS managed policy.
+// A structure that stores a list of managed policy ARNs that describe the associated AWS managed policy.
 func (o PermissionSetOutput) ManagedPolicies() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PermissionSet) pulumi.StringArrayOutput { return v.ManagedPolicies }).(pulumi.StringArrayOutput)
 }

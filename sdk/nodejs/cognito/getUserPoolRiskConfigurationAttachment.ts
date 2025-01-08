@@ -31,11 +31,11 @@ export interface GetUserPoolRiskConfigurationAttachmentArgs {
 
 export interface GetUserPoolRiskConfigurationAttachmentResult {
     /**
-     * The settings for automated responses and notification templates for adaptive authentication with advanced security features.
+     * The settings for automated responses and notification templates for adaptive authentication with threat protection.
      */
     readonly accountTakeoverRiskConfiguration?: outputs.cognito.UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationType;
     /**
-     * Settings for compromised-credentials actions and authentication types with advanced security features in full-function `ENFORCED` mode.
+     * Settings for compromised-credentials actions and authentication types with threat protection in full-function `ENFORCED` mode.
      */
     readonly compromisedCredentialsRiskConfiguration?: outputs.cognito.UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationType;
     /**

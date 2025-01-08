@@ -105,6 +105,52 @@ export const EventStreamStatus = {
  */
 export type EventStreamStatus = (typeof EventStreamStatus)[keyof typeof EventStreamStatus];
 
+export const EventTriggerLogicalOperator = {
+    Any: "ANY",
+    All: "ALL",
+    None: "NONE",
+} as const;
+
+/**
+ * The operator used to combine multiple dimensions.
+ */
+export type EventTriggerLogicalOperator = (typeof EventTriggerLogicalOperator)[keyof typeof EventTriggerLogicalOperator];
+
+export const EventTriggerObjectAttributeComparisonOperator = {
+    Inclusive: "INCLUSIVE",
+    Exclusive: "EXCLUSIVE",
+    Contains: "CONTAINS",
+    BeginsWith: "BEGINS_WITH",
+    EndsWith: "ENDS_WITH",
+    GreaterThan: "GREATER_THAN",
+    LessThan: "LESS_THAN",
+    GreaterThanOrEqual: "GREATER_THAN_OR_EQUAL",
+    LessThanOrEqual: "LESS_THAN_OR_EQUAL",
+    Equal: "EQUAL",
+    Before: "BEFORE",
+    After: "AFTER",
+    On: "ON",
+    Between: "BETWEEN",
+    NotBetween: "NOT_BETWEEN",
+} as const;
+
+/**
+ * The operator used to compare an attribute against a list of values.
+ */
+export type EventTriggerObjectAttributeComparisonOperator = (typeof EventTriggerObjectAttributeComparisonOperator)[keyof typeof EventTriggerObjectAttributeComparisonOperator];
+
+export const EventTriggerPeriodUnit = {
+    Hours: "HOURS",
+    Days: "DAYS",
+    Weeks: "WEEKS",
+    Months: "MONTHS",
+} as const;
+
+/**
+ * The unit of time.
+ */
+export type EventTriggerPeriodUnit = (typeof EventTriggerPeriodUnit)[keyof typeof EventTriggerPeriodUnit];
+
 export const IntegrationConnectorType = {
     Salesforce: "Salesforce",
     Marketo: "Marketo",

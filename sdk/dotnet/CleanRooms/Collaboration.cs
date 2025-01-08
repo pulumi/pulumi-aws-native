@@ -52,6 +52,12 @@ namespace Pulumi.AwsNative.CleanRooms
         public Output<ImmutableArray<Pulumi.AwsNative.CleanRooms.CollaborationMemberAbility>> CreatorMemberAbilities { get; private set; } = null!;
 
         /// <summary>
+        /// The ML member abilities for a collaboration member.
+        /// </summary>
+        [Output("creatorMlMemberAbilities")]
+        public Output<Outputs.CollaborationMlMemberAbilities?> CreatorMlMemberAbilities { get; private set; } = null!;
+
+        /// <summary>
         /// An object representing the collaboration member's payment responsibilities set by the collaboration creator.
         /// </summary>
         [Output("creatorPaymentConfiguration")]
@@ -121,6 +127,7 @@ namespace Pulumi.AwsNative.CleanRooms
                     "analyticsEngine",
                     "creatorDisplayName",
                     "creatorMemberAbilities[*]",
+                    "creatorMlMemberAbilities",
                     "creatorPaymentConfiguration",
                     "dataEncryptionMetadata",
                     "members[*]",
@@ -173,6 +180,12 @@ namespace Pulumi.AwsNative.CleanRooms
             get => _creatorMemberAbilities ?? (_creatorMemberAbilities = new InputList<Pulumi.AwsNative.CleanRooms.CollaborationMemberAbility>());
             set => _creatorMemberAbilities = value;
         }
+
+        /// <summary>
+        /// The ML member abilities for a collaboration member.
+        /// </summary>
+        [Input("creatorMlMemberAbilities")]
+        public Input<Inputs.CollaborationMlMemberAbilitiesArgs>? CreatorMlMemberAbilities { get; set; }
 
         /// <summary>
         /// An object representing the collaboration member's payment responsibilities set by the collaboration creator.

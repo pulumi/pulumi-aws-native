@@ -136,6 +136,8 @@ __all__ = [
     'BotPromptAttemptSpecificationArgsDict',
     'BotPromptSpecificationArgs',
     'BotPromptSpecificationArgsDict',
+    'BotReplicationArgs',
+    'BotReplicationArgsDict',
     'BotResponseSpecificationArgs',
     'BotResponseSpecificationArgsDict',
     'BotS3BucketLogDestinationArgs',
@@ -4562,6 +4564,41 @@ class BotPromptSpecificationArgs:
     @prompt_attempts_specification.setter
     def prompt_attempts_specification(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['BotPromptAttemptSpecificationArgs']]]]):
         pulumi.set(self, "prompt_attempts_specification", value)
+
+
+if not MYPY:
+    class BotReplicationArgsDict(TypedDict):
+        """
+        Parameter used to create a replication of the source bot in the secondary region.
+        """
+        replica_regions: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        List of secondary regions for bot replication.
+        """
+elif False:
+    BotReplicationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class BotReplicationArgs:
+    def __init__(__self__, *,
+                 replica_regions: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        Parameter used to create a replication of the source bot in the secondary region.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] replica_regions: List of secondary regions for bot replication.
+        """
+        pulumi.set(__self__, "replica_regions", replica_regions)
+
+    @property
+    @pulumi.getter(name="replicaRegions")
+    def replica_regions(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        List of secondary regions for bot replication.
+        """
+        return pulumi.get(self, "replica_regions")
+
+    @replica_regions.setter
+    def replica_regions(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "replica_regions", value)
 
 
 if not MYPY:

@@ -20,6 +20,11 @@ export type EventStream = import("./eventStream").EventStream;
 export const EventStream: typeof import("./eventStream").EventStream = null as any;
 utilities.lazyLoad(exports, ["EventStream"], () => require("./eventStream"));
 
+export { EventTriggerArgs } from "./eventTrigger";
+export type EventTrigger = import("./eventTrigger").EventTrigger;
+export const EventTrigger: typeof import("./eventTrigger").EventTrigger = null as any;
+utilities.lazyLoad(exports, ["EventTrigger"], () => require("./eventTrigger"));
+
 export { GetCalculatedAttributeDefinitionArgs, GetCalculatedAttributeDefinitionResult, GetCalculatedAttributeDefinitionOutputArgs } from "./getCalculatedAttributeDefinition";
 export const getCalculatedAttributeDefinition: typeof import("./getCalculatedAttributeDefinition").getCalculatedAttributeDefinition = null as any;
 export const getCalculatedAttributeDefinitionOutput: typeof import("./getCalculatedAttributeDefinition").getCalculatedAttributeDefinitionOutput = null as any;
@@ -34,6 +39,11 @@ export { GetEventStreamArgs, GetEventStreamResult, GetEventStreamOutputArgs } fr
 export const getEventStream: typeof import("./getEventStream").getEventStream = null as any;
 export const getEventStreamOutput: typeof import("./getEventStream").getEventStreamOutput = null as any;
 utilities.lazyLoad(exports, ["getEventStream","getEventStreamOutput"], () => require("./getEventStream"));
+
+export { GetEventTriggerArgs, GetEventTriggerResult, GetEventTriggerOutputArgs } from "./getEventTrigger";
+export const getEventTrigger: typeof import("./getEventTrigger").getEventTrigger = null as any;
+export const getEventTriggerOutput: typeof import("./getEventTrigger").getEventTriggerOutput = null as any;
+utilities.lazyLoad(exports, ["getEventTrigger","getEventTriggerOutput"], () => require("./getEventTrigger"));
 
 export { GetIntegrationArgs, GetIntegrationResult, GetIntegrationOutputArgs } from "./getIntegration";
 export const getIntegration: typeof import("./getIntegration").getIntegration = null as any;
@@ -79,6 +89,8 @@ const _module = {
                 return new Domain(name, <any>undefined, { urn })
             case "aws-native:customerprofiles:EventStream":
                 return new EventStream(name, <any>undefined, { urn })
+            case "aws-native:customerprofiles:EventTrigger":
+                return new EventTrigger(name, <any>undefined, { urn })
             case "aws-native:customerprofiles:Integration":
                 return new Integration(name, <any>undefined, { urn })
             case "aws-native:customerprofiles:ObjectType":

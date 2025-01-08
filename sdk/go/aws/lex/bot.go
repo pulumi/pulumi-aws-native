@@ -35,7 +35,8 @@ type Bot struct {
 	// IdleSessionTTLInSeconds of the resource
 	IdleSessionTtlInSeconds pulumi.IntOutput `pulumi:"idleSessionTtlInSeconds"`
 	// The name of the bot locale.
-	Name pulumi.StringOutput `pulumi:"name"`
+	Name        pulumi.StringOutput     `pulumi:"name"`
+	Replication BotReplicationPtrOutput `pulumi:"replication"`
 	// The Amazon Resource Name (ARN) of the IAM role used to build and run the bot.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// Specifies configuration settings for the alias used to test the bot. If the `TestBotAliasSettings` property is not specified, the settings are configured with default values.
@@ -108,7 +109,8 @@ type botArgs struct {
 	// IdleSessionTTLInSeconds of the resource
 	IdleSessionTtlInSeconds int `pulumi:"idleSessionTtlInSeconds"`
 	// The name of the bot locale.
-	Name *string `pulumi:"name"`
+	Name        *string         `pulumi:"name"`
+	Replication *BotReplication `pulumi:"replication"`
 	// The Amazon Resource Name (ARN) of the IAM role used to build and run the bot.
 	RoleArn string `pulumi:"roleArn"`
 	// Specifies configuration settings for the alias used to test the bot. If the `TestBotAliasSettings` property is not specified, the settings are configured with default values.
@@ -134,7 +136,8 @@ type BotArgs struct {
 	// IdleSessionTTLInSeconds of the resource
 	IdleSessionTtlInSeconds pulumi.IntInput
 	// The name of the bot locale.
-	Name pulumi.StringPtrInput
+	Name        pulumi.StringPtrInput
+	Replication BotReplicationPtrInput
 	// The Amazon Resource Name (ARN) of the IAM role used to build and run the bot.
 	RoleArn pulumi.StringInput
 	// Specifies configuration settings for the alias used to test the bot. If the `TestBotAliasSettings` property is not specified, the settings are configured with default values.
@@ -228,6 +231,10 @@ func (o BotOutput) IdleSessionTtlInSeconds() pulumi.IntOutput {
 // The name of the bot locale.
 func (o BotOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Bot) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o BotOutput) Replication() BotReplicationPtrOutput {
+	return o.ApplyT(func(v *Bot) BotReplicationPtrOutput { return v.Replication }).(BotReplicationPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the IAM role used to build and run the bot.

@@ -39,7 +39,7 @@ class GetUserPoolRiskConfigurationAttachmentResult:
     @pulumi.getter(name="accountTakeoverRiskConfiguration")
     def account_takeover_risk_configuration(self) -> Optional['outputs.UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationType']:
         """
-        The settings for automated responses and notification templates for adaptive authentication with advanced security features.
+        The settings for automated responses and notification templates for adaptive authentication with threat protection.
         """
         return pulumi.get(self, "account_takeover_risk_configuration")
 
@@ -47,7 +47,7 @@ class GetUserPoolRiskConfigurationAttachmentResult:
     @pulumi.getter(name="compromisedCredentialsRiskConfiguration")
     def compromised_credentials_risk_configuration(self) -> Optional['outputs.UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationType']:
         """
-        Settings for compromised-credentials actions and authentication types with advanced security features in full-function `ENFORCED` mode.
+        Settings for compromised-credentials actions and authentication types with threat protection in full-function `ENFORCED` mode.
         """
         return pulumi.get(self, "compromised_credentials_risk_configuration")
 

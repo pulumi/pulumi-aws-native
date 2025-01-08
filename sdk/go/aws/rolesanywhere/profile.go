@@ -53,6 +53,10 @@ func NewProfile(ctx *pulumi.Context,
 	if args.RoleArns == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArns'")
 	}
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"requireInstanceProperties",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Profile
 	err := ctx.RegisterResource("aws-native:rolesanywhere:Profile", name, args, &resource, opts...)

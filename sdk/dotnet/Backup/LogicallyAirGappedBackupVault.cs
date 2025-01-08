@@ -65,13 +65,13 @@ namespace Pulumi.AwsNative.Backup
         /// The current state of the vault.
         /// </summary>
         [Output("vaultState")]
-        public Output<string?> VaultState { get; private set; } = null!;
+        public Output<string> VaultState { get; private set; } = null!;
 
         /// <summary>
         /// The type of vault described.
         /// </summary>
         [Output("vaultType")]
-        public Output<string?> VaultType { get; private set; } = null!;
+        public Output<string> VaultType { get; private set; } = null!;
 
 
         /// <summary>
@@ -169,18 +169,6 @@ namespace Pulumi.AwsNative.Backup
         /// </summary>
         [Input("notifications")]
         public Input<Inputs.LogicallyAirGappedBackupVaultNotificationObjectTypeArgs>? Notifications { get; set; }
-
-        /// <summary>
-        /// The current state of the vault.
-        /// </summary>
-        [Input("vaultState")]
-        public Input<string>? VaultState { get; set; }
-
-        /// <summary>
-        /// The type of vault described.
-        /// </summary>
-        [Input("vaultType")]
-        public Input<string>? VaultType { get; set; }
 
         public LogicallyAirGappedBackupVaultArgs()
         {

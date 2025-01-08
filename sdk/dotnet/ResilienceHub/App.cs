@@ -64,6 +64,12 @@ namespace Pulumi.AwsNative.ResilienceHub
         public Output<Outputs.AppPermissionModel?> PermissionModel { get; private set; } = null!;
 
         /// <summary>
+        /// Amazon Resource Name (ARN) of the Regulatory Policy.
+        /// </summary>
+        [Output("regulatoryPolicyArn")]
+        public Output<string?> RegulatoryPolicyArn { get; private set; } = null!;
+
+        /// <summary>
         /// Amazon Resource Name (ARN) of the Resiliency Policy.
         /// </summary>
         [Output("resiliencyPolicyArn")]
@@ -171,6 +177,12 @@ namespace Pulumi.AwsNative.ResilienceHub
         /// </summary>
         [Input("permissionModel")]
         public Input<Inputs.AppPermissionModelArgs>? PermissionModel { get; set; }
+
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the Regulatory Policy.
+        /// </summary>
+        [Input("regulatoryPolicyArn")]
+        public Input<string>? RegulatoryPolicyArn { get; set; }
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the Resiliency Policy.

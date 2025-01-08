@@ -70,11 +70,11 @@ export class LogicallyAirGappedBackupVault extends pulumi.CustomResource {
     /**
      * The current state of the vault.
      */
-    public readonly vaultState!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly vaultState!: pulumi.Output<string>;
     /**
      * The type of vault described.
      */
-    public readonly vaultType!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly vaultType!: pulumi.Output<string>;
 
     /**
      * Create a LogicallyAirGappedBackupVault resource with the given unique name, arguments, and options.
@@ -99,10 +99,10 @@ export class LogicallyAirGappedBackupVault extends pulumi.CustomResource {
             resourceInputs["maxRetentionDays"] = args ? args.maxRetentionDays : undefined;
             resourceInputs["minRetentionDays"] = args ? args.minRetentionDays : undefined;
             resourceInputs["notifications"] = args ? args.notifications : undefined;
-            resourceInputs["vaultState"] = args ? args.vaultState : undefined;
-            resourceInputs["vaultType"] = args ? args.vaultType : undefined;
             resourceInputs["backupVaultArn"] = undefined /*out*/;
             resourceInputs["encryptionKeyArn"] = undefined /*out*/;
+            resourceInputs["vaultState"] = undefined /*out*/;
+            resourceInputs["vaultType"] = undefined /*out*/;
         } else {
             resourceInputs["accessPolicy"] = undefined /*out*/;
             resourceInputs["backupVaultArn"] = undefined /*out*/;
@@ -154,12 +154,4 @@ export interface LogicallyAirGappedBackupVaultArgs {
      * Returns event notifications for the specified backup vault.
      */
     notifications?: pulumi.Input<inputs.backup.LogicallyAirGappedBackupVaultNotificationObjectTypeArgs>;
-    /**
-     * The current state of the vault.
-     */
-    vaultState?: pulumi.Input<string>;
-    /**
-     * The type of vault described.
-     */
-    vaultType?: pulumi.Input<string>;
 }

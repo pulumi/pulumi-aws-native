@@ -42,7 +42,7 @@ namespace Pulumi.AwsNative.Sso
         public Output<string> InstanceArn { get; private set; } = null!;
 
         /// <summary>
-        /// A structure that stores the details of the AWS managed policy.
+        /// A structure that stores a list of managed policy ARNs that describe the associated AWS managed policy.
         /// </summary>
         [Output("managedPolicies")]
         public Output<ImmutableArray<string>> ManagedPolicies { get; private set; } = null!;
@@ -171,7 +171,7 @@ namespace Pulumi.AwsNative.Sso
         private InputList<string>? _managedPolicies;
 
         /// <summary>
-        /// A structure that stores the details of the AWS managed policy.
+        /// A structure that stores a list of managed policy ARNs that describe the associated AWS managed policy.
         /// </summary>
         public InputList<string> ManagedPolicies
         {

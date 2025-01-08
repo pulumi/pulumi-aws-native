@@ -58,10 +58,6 @@ export interface GetProfileResult {
      */
     readonly profileId?: string;
     /**
-     * Specifies whether instance properties are required in CreateSession requests with this profile.
-     */
-    readonly requireInstanceProperties?: boolean;
-    /**
      * A list of IAM role ARNs that can be assumed when this profile is specified in a CreateSession request.
      */
     readonly roleArns?: string[];

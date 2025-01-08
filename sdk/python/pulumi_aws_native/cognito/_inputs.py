@@ -711,11 +711,11 @@ if not MYPY:
     class UserPoolAddOnsArgsDict(TypedDict):
         advanced_security_additional_flows: NotRequired[pulumi.Input['UserPoolAdvancedSecurityAdditionalFlowsArgsDict']]
         """
-        Advanced security configuration options for additional authentication types in your user pool, including custom authentication.
+        Threat protection configuration options for additional authentication types in your user pool, including custom authentication.
         """
         advanced_security_mode: NotRequired[pulumi.Input[str]]
         """
-        The operating mode of advanced security features for standard authentication types in your user pool, including username-password and secure remote password (SRP) authentication.
+        The operating mode of threat protection for standard authentication types in your user pool, including username-password and secure remote password (SRP) authentication.
         """
 elif False:
     UserPoolAddOnsArgsDict: TypeAlias = Mapping[str, Any]
@@ -726,8 +726,8 @@ class UserPoolAddOnsArgs:
                  advanced_security_additional_flows: Optional[pulumi.Input['UserPoolAdvancedSecurityAdditionalFlowsArgs']] = None,
                  advanced_security_mode: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input['UserPoolAdvancedSecurityAdditionalFlowsArgs'] advanced_security_additional_flows: Advanced security configuration options for additional authentication types in your user pool, including custom authentication.
-        :param pulumi.Input[str] advanced_security_mode: The operating mode of advanced security features for standard authentication types in your user pool, including username-password and secure remote password (SRP) authentication.
+        :param pulumi.Input['UserPoolAdvancedSecurityAdditionalFlowsArgs'] advanced_security_additional_flows: Threat protection configuration options for additional authentication types in your user pool, including custom authentication.
+        :param pulumi.Input[str] advanced_security_mode: The operating mode of threat protection for standard authentication types in your user pool, including username-password and secure remote password (SRP) authentication.
         """
         if advanced_security_additional_flows is not None:
             pulumi.set(__self__, "advanced_security_additional_flows", advanced_security_additional_flows)
@@ -738,7 +738,7 @@ class UserPoolAddOnsArgs:
     @pulumi.getter(name="advancedSecurityAdditionalFlows")
     def advanced_security_additional_flows(self) -> Optional[pulumi.Input['UserPoolAdvancedSecurityAdditionalFlowsArgs']]:
         """
-        Advanced security configuration options for additional authentication types in your user pool, including custom authentication.
+        Threat protection configuration options for additional authentication types in your user pool, including custom authentication.
         """
         return pulumi.get(self, "advanced_security_additional_flows")
 
@@ -750,7 +750,7 @@ class UserPoolAddOnsArgs:
     @pulumi.getter(name="advancedSecurityMode")
     def advanced_security_mode(self) -> Optional[pulumi.Input[str]]:
         """
-        The operating mode of advanced security features for standard authentication types in your user pool, including username-password and secure remote password (SRP) authentication.
+        The operating mode of threat protection for standard authentication types in your user pool, including username-password and secure remote password (SRP) authentication.
         """
         return pulumi.get(self, "advanced_security_mode")
 
@@ -763,7 +763,7 @@ if not MYPY:
     class UserPoolAdminCreateUserConfigArgsDict(TypedDict):
         allow_admin_create_user_only: NotRequired[pulumi.Input[bool]]
         """
-        The setting for allowing self-service sign-up. When `true` , only administrators can create new user profiles. When `false` , users can register themselves and create a new user profile with the [SignUp](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SignUp.html) operation.
+        The setting for allowing self-service sign-up. When `true` , only administrators can create new user profiles. When `false` , users can register themselves and create a new user profile with the `SignUp` operation.
         """
         invite_message_template: NotRequired[pulumi.Input['UserPoolInviteMessageTemplateArgsDict']]
         """
@@ -773,7 +773,9 @@ if not MYPY:
         """
         unused_account_validity_days: NotRequired[pulumi.Input[int]]
         """
-        This parameter is no longer in use. Configure the duration of temporary passwords with the `TemporaryPasswordValidityDays` parameter of [PasswordPolicyType](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_PasswordPolicyType.html) . For older user pools that have a `UnusedAccountValidityDays` configuration, that value is effective until you set a value for `TemporaryPasswordValidityDays` .
+        This parameter is no longer in use.
+
+        Configure the duration of temporary passwords with the `TemporaryPasswordValidityDays` parameter of `API_PasswordPolicyType` . For older user pools that have a `UnusedAccountValidityDays` configuration, that value is effective until you set a value for `TemporaryPasswordValidityDays` .
 
         The password expiration limit in days for administrator-created users. When this time expires, the user can't sign in with their temporary password. To reset the account after that time limit, you must call `AdminCreateUser` again, specifying `RESEND` for the `MessageAction` parameter.
 
@@ -789,11 +791,13 @@ class UserPoolAdminCreateUserConfigArgs:
                  invite_message_template: Optional[pulumi.Input['UserPoolInviteMessageTemplateArgs']] = None,
                  unused_account_validity_days: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[bool] allow_admin_create_user_only: The setting for allowing self-service sign-up. When `true` , only administrators can create new user profiles. When `false` , users can register themselves and create a new user profile with the [SignUp](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SignUp.html) operation.
+        :param pulumi.Input[bool] allow_admin_create_user_only: The setting for allowing self-service sign-up. When `true` , only administrators can create new user profiles. When `false` , users can register themselves and create a new user profile with the `SignUp` operation.
         :param pulumi.Input['UserPoolInviteMessageTemplateArgs'] invite_message_template: The template for the welcome message to new users. This template must include the `{####}` temporary password placeholder if you are creating users with passwords. If your users don't have passwords, you can omit the placeholder.
                
                See also [Customizing User Invitation Messages](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-message-customizations.html#cognito-user-pool-settings-user-invitation-message-customization) .
-        :param pulumi.Input[int] unused_account_validity_days: This parameter is no longer in use. Configure the duration of temporary passwords with the `TemporaryPasswordValidityDays` parameter of [PasswordPolicyType](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_PasswordPolicyType.html) . For older user pools that have a `UnusedAccountValidityDays` configuration, that value is effective until you set a value for `TemporaryPasswordValidityDays` .
+        :param pulumi.Input[int] unused_account_validity_days: This parameter is no longer in use.
+               
+               Configure the duration of temporary passwords with the `TemporaryPasswordValidityDays` parameter of `API_PasswordPolicyType` . For older user pools that have a `UnusedAccountValidityDays` configuration, that value is effective until you set a value for `TemporaryPasswordValidityDays` .
                
                The password expiration limit in days for administrator-created users. When this time expires, the user can't sign in with their temporary password. To reset the account after that time limit, you must call `AdminCreateUser` again, specifying `RESEND` for the `MessageAction` parameter.
                
@@ -810,7 +814,7 @@ class UserPoolAdminCreateUserConfigArgs:
     @pulumi.getter(name="allowAdminCreateUserOnly")
     def allow_admin_create_user_only(self) -> Optional[pulumi.Input[bool]]:
         """
-        The setting for allowing self-service sign-up. When `true` , only administrators can create new user profiles. When `false` , users can register themselves and create a new user profile with the [SignUp](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SignUp.html) operation.
+        The setting for allowing self-service sign-up. When `true` , only administrators can create new user profiles. When `false` , users can register themselves and create a new user profile with the `SignUp` operation.
         """
         return pulumi.get(self, "allow_admin_create_user_only")
 
@@ -836,7 +840,9 @@ class UserPoolAdminCreateUserConfigArgs:
     @pulumi.getter(name="unusedAccountValidityDays")
     def unused_account_validity_days(self) -> Optional[pulumi.Input[int]]:
         """
-        This parameter is no longer in use. Configure the duration of temporary passwords with the `TemporaryPasswordValidityDays` parameter of [PasswordPolicyType](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_PasswordPolicyType.html) . For older user pools that have a `UnusedAccountValidityDays` configuration, that value is effective until you set a value for `TemporaryPasswordValidityDays` .
+        This parameter is no longer in use.
+
+        Configure the duration of temporary passwords with the `TemporaryPasswordValidityDays` parameter of `API_PasswordPolicyType` . For older user pools that have a `UnusedAccountValidityDays` configuration, that value is effective until you set a value for `TemporaryPasswordValidityDays` .
 
         The password expiration limit in days for administrator-created users. When this time expires, the user can't sign in with their temporary password. To reset the account after that time limit, you must call `AdminCreateUser` again, specifying `RESEND` for the `MessageAction` parameter.
 
@@ -853,7 +859,7 @@ if not MYPY:
     class UserPoolAdvancedSecurityAdditionalFlowsArgsDict(TypedDict):
         custom_auth_mode: NotRequired[pulumi.Input[str]]
         """
-        The operating mode of advanced security features in custom authentication with [Custom authentication challenge Lambda triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-challenge.html) .
+        The operating mode of threat protection in custom authentication with [Custom authentication challenge Lambda triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-challenge.html) .
         """
 elif False:
     UserPoolAdvancedSecurityAdditionalFlowsArgsDict: TypeAlias = Mapping[str, Any]
@@ -863,7 +869,7 @@ class UserPoolAdvancedSecurityAdditionalFlowsArgs:
     def __init__(__self__, *,
                  custom_auth_mode: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] custom_auth_mode: The operating mode of advanced security features in custom authentication with [Custom authentication challenge Lambda triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-challenge.html) .
+        :param pulumi.Input[str] custom_auth_mode: The operating mode of threat protection in custom authentication with [Custom authentication challenge Lambda triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-challenge.html) .
         """
         if custom_auth_mode is not None:
             pulumi.set(__self__, "custom_auth_mode", custom_auth_mode)
@@ -872,7 +878,7 @@ class UserPoolAdvancedSecurityAdditionalFlowsArgs:
     @pulumi.getter(name="customAuthMode")
     def custom_auth_mode(self) -> Optional[pulumi.Input[str]]:
         """
-        The operating mode of advanced security features in custom authentication with [Custom authentication challenge Lambda triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-challenge.html) .
+        The operating mode of threat protection in custom authentication with [Custom authentication challenge Lambda triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-challenge.html) .
         """
         return pulumi.get(self, "custom_auth_mode")
 
@@ -1191,7 +1197,7 @@ if not MYPY:
         """
         device_only_remembered_on_user_prompt: NotRequired[pulumi.Input[bool]]
         """
-        When true, Amazon Cognito doesn't automatically remember a user's device when your app sends a [ConfirmDevice](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ConfirmDevice.html) API request. In your app, create a prompt for your user to choose whether they want to remember their device. Return the user's choice in an [UpdateDeviceStatus](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateDeviceStatus.html) API request.
+        When true, Amazon Cognito doesn't automatically remember a user's device when your app sends a `ConfirmDevice` API request. In your app, create a prompt for your user to choose whether they want to remember their device. Return the user's choice in an `UpdateDeviceStatus` API request.
 
         When `DeviceOnlyRememberedOnUserPrompt` is `false` , Amazon Cognito immediately remembers devices that you register in a `ConfirmDevice` API request.
         """
@@ -1207,7 +1213,7 @@ class UserPoolDeviceConfigurationArgs:
         :param pulumi.Input[bool] challenge_required_on_new_device: When true, a remembered device can sign in with device authentication instead of SMS and time-based one-time password (TOTP) factors for multi-factor authentication (MFA).
                
                > Whether or not `ChallengeRequiredOnNewDevice` is true, users who sign in with devices that have not been confirmed or remembered must still provide a second factor in a user pool that requires MFA.
-        :param pulumi.Input[bool] device_only_remembered_on_user_prompt: When true, Amazon Cognito doesn't automatically remember a user's device when your app sends a [ConfirmDevice](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ConfirmDevice.html) API request. In your app, create a prompt for your user to choose whether they want to remember their device. Return the user's choice in an [UpdateDeviceStatus](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateDeviceStatus.html) API request.
+        :param pulumi.Input[bool] device_only_remembered_on_user_prompt: When true, Amazon Cognito doesn't automatically remember a user's device when your app sends a `ConfirmDevice` API request. In your app, create a prompt for your user to choose whether they want to remember their device. Return the user's choice in an `UpdateDeviceStatus` API request.
                
                When `DeviceOnlyRememberedOnUserPrompt` is `false` , Amazon Cognito immediately remembers devices that you register in a `ConfirmDevice` API request.
         """
@@ -1234,7 +1240,7 @@ class UserPoolDeviceConfigurationArgs:
     @pulumi.getter(name="deviceOnlyRememberedOnUserPrompt")
     def device_only_remembered_on_user_prompt(self) -> Optional[pulumi.Input[bool]]:
         """
-        When true, Amazon Cognito doesn't automatically remember a user's device when your app sends a [ConfirmDevice](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ConfirmDevice.html) API request. In your app, create a prompt for your user to choose whether they want to remember their device. Return the user's choice in an [UpdateDeviceStatus](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateDeviceStatus.html) API request.
+        When true, Amazon Cognito doesn't automatically remember a user's device when your app sends a `ConfirmDevice` API request. In your app, create a prompt for your user to choose whether they want to remember their device. Return the user's choice in an `UpdateDeviceStatus` API request.
 
         When `DeviceOnlyRememberedOnUserPrompt` is `false` , Amazon Cognito immediately remembers devices that you register in a `ConfirmDevice` API request.
         """
@@ -1878,7 +1884,7 @@ if not MYPY:
         """
         The number of previous passwords that you want Amazon Cognito to restrict each user from reusing. Users can't set a password that matches any of `n` previous passwords, where `n` is the value of `PasswordHistorySize` .
 
-        Password history isn't enforced and isn't displayed in [DescribeUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html) responses when you set this value to `0` or don't provide it. To activate this setting, your user pool must be in the [Essentials tier](https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html) or higher.
+        Password history isn't enforced and isn't displayed in `API_DescribeUserPool` responses when you set this value to `0` or don't provide it. To activate this setting, your user pool must be in the [Essentials tier](https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html) or higher.
         """
         require_lowercase: NotRequired[pulumi.Input[bool]]
         """
@@ -1919,7 +1925,7 @@ class UserPoolPasswordPolicyArgs:
         :param pulumi.Input[int] minimum_length: The minimum length of the password in the policy that you have set. This value can't be less than 6.
         :param pulumi.Input[int] password_history_size: The number of previous passwords that you want Amazon Cognito to restrict each user from reusing. Users can't set a password that matches any of `n` previous passwords, where `n` is the value of `PasswordHistorySize` .
                
-               Password history isn't enforced and isn't displayed in [DescribeUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html) responses when you set this value to `0` or don't provide it. To activate this setting, your user pool must be in the [Essentials tier](https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html) or higher.
+               Password history isn't enforced and isn't displayed in `API_DescribeUserPool` responses when you set this value to `0` or don't provide it. To activate this setting, your user pool must be in the [Essentials tier](https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html) or higher.
         :param pulumi.Input[bool] require_lowercase: The requirement in a password policy that users must include at least one lowercase letter in their password.
         :param pulumi.Input[bool] require_numbers: The requirement in a password policy that users must include at least one number in their password.
         :param pulumi.Input[bool] require_symbols: The requirement in a password policy that users must include at least one symbol in their password.
@@ -1961,7 +1967,7 @@ class UserPoolPasswordPolicyArgs:
         """
         The number of previous passwords that you want Amazon Cognito to restrict each user from reusing. Users can't set a password that matches any of `n` previous passwords, where `n` is the value of `PasswordHistorySize` .
 
-        Password history isn't enforced and isn't displayed in [DescribeUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html) responses when you set this value to `0` or don't provide it. To activate this setting, your user pool must be in the [Essentials tier](https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html) or higher.
+        Password history isn't enforced and isn't displayed in `API_DescribeUserPool` responses when you set this value to `0` or don't provide it. To activate this setting, your user pool must be in the [Essentials tier](https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html) or higher.
         """
         return pulumi.get(self, "password_history_size")
 
@@ -2042,7 +2048,7 @@ if not MYPY:
         """
         The policy for allowed types of authentication in a user pool. To activate this setting, your user pool must be in the [Essentials tier](https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html) or higher.
 
-        This data type is a request and response parameter of [CreateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.html) and [UpdateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.html) , and a response parameter of [DescribeUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html) .
+        This data type is a request and response parameter of `API_CreateUserPool` and `API_UpdateUserPool` , and a response parameter of `API_DescribeUserPool` .
         """
 elif False:
     UserPoolPoliciesArgsDict: TypeAlias = Mapping[str, Any]
@@ -2056,7 +2062,7 @@ class UserPoolPoliciesArgs:
         :param pulumi.Input['UserPoolPasswordPolicyArgs'] password_policy: The password policy settings for a user pool, including complexity, history, and length requirements.
         :param pulumi.Input['UserPoolSignInPolicyArgs'] sign_in_policy: The policy for allowed types of authentication in a user pool. To activate this setting, your user pool must be in the [Essentials tier](https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html) or higher.
                
-               This data type is a request and response parameter of [CreateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.html) and [UpdateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.html) , and a response parameter of [DescribeUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html) .
+               This data type is a request and response parameter of `API_CreateUserPool` and `API_UpdateUserPool` , and a response parameter of `API_DescribeUserPool` .
         """
         if password_policy is not None:
             pulumi.set(__self__, "password_policy", password_policy)
@@ -2081,7 +2087,7 @@ class UserPoolPoliciesArgs:
         """
         The policy for allowed types of authentication in a user pool. To activate this setting, your user pool must be in the [Essentials tier](https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html) or higher.
 
-        This data type is a request and response parameter of [CreateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.html) and [UpdateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.html) , and a response parameter of [DescribeUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html) .
+        This data type is a request and response parameter of `API_CreateUserPool` and `API_UpdateUserPool` , and a response parameter of `API_DescribeUserPool` .
         """
         return pulumi.get(self, "sign_in_policy")
 
@@ -2319,15 +2325,15 @@ if not MYPY:
     class UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypeArgsDict(TypedDict):
         high_action: NotRequired[pulumi.Input['UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypeArgsDict']]
         """
-        The action that you assign to a high-risk assessment by advanced security features.
+        The action that you assign to a high-risk assessment by threat protection.
         """
         low_action: NotRequired[pulumi.Input['UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypeArgsDict']]
         """
-        The action that you assign to a low-risk assessment by advanced security features.
+        The action that you assign to a low-risk assessment by threat protection.
         """
         medium_action: NotRequired[pulumi.Input['UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypeArgsDict']]
         """
-        The action that you assign to a medium-risk assessment by advanced security features.
+        The action that you assign to a medium-risk assessment by threat protection.
         """
 elif False:
     UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypeArgsDict: TypeAlias = Mapping[str, Any]
@@ -2339,9 +2345,9 @@ class UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypeArgs:
                  low_action: Optional[pulumi.Input['UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypeArgs']] = None,
                  medium_action: Optional[pulumi.Input['UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypeArgs']] = None):
         """
-        :param pulumi.Input['UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypeArgs'] high_action: The action that you assign to a high-risk assessment by advanced security features.
-        :param pulumi.Input['UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypeArgs'] low_action: The action that you assign to a low-risk assessment by advanced security features.
-        :param pulumi.Input['UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypeArgs'] medium_action: The action that you assign to a medium-risk assessment by advanced security features.
+        :param pulumi.Input['UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypeArgs'] high_action: The action that you assign to a high-risk assessment by threat protection.
+        :param pulumi.Input['UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypeArgs'] low_action: The action that you assign to a low-risk assessment by threat protection.
+        :param pulumi.Input['UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypeArgs'] medium_action: The action that you assign to a medium-risk assessment by threat protection.
         """
         if high_action is not None:
             pulumi.set(__self__, "high_action", high_action)
@@ -2354,7 +2360,7 @@ class UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypeArgs:
     @pulumi.getter(name="highAction")
     def high_action(self) -> Optional[pulumi.Input['UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypeArgs']]:
         """
-        The action that you assign to a high-risk assessment by advanced security features.
+        The action that you assign to a high-risk assessment by threat protection.
         """
         return pulumi.get(self, "high_action")
 
@@ -2366,7 +2372,7 @@ class UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypeArgs:
     @pulumi.getter(name="lowAction")
     def low_action(self) -> Optional[pulumi.Input['UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypeArgs']]:
         """
-        The action that you assign to a low-risk assessment by advanced security features.
+        The action that you assign to a low-risk assessment by threat protection.
         """
         return pulumi.get(self, "low_action")
 
@@ -2378,7 +2384,7 @@ class UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypeArgs:
     @pulumi.getter(name="mediumAction")
     def medium_action(self) -> Optional[pulumi.Input['UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypeArgs']]:
         """
-        The action that you assign to a medium-risk assessment by advanced security features.
+        The action that you assign to a medium-risk assessment by threat protection.
         """
         return pulumi.get(self, "medium_action")
 
@@ -2391,11 +2397,11 @@ if not MYPY:
     class UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeArgsDict(TypedDict):
         actions: pulumi.Input['UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypeArgsDict']
         """
-        A list of account-takeover actions for each level of risk that Amazon Cognito might assess with advanced security features.
+        A list of account-takeover actions for each level of risk that Amazon Cognito might assess with threat protection.
         """
         notify_configuration: NotRequired[pulumi.Input['UserPoolRiskConfigurationAttachmentNotifyConfigurationTypeArgsDict']]
         """
-        The settings for composing and sending an email message when advanced security features assesses a risk level with adaptive authentication. When you choose to notify users in `AccountTakeoverRiskConfiguration` , Amazon Cognito sends an email message using the method and template that you set with this data type.
+        The settings for composing and sending an email message when threat protection assesses a risk level with adaptive authentication. When you choose to notify users in `AccountTakeoverRiskConfiguration` , Amazon Cognito sends an email message using the method and template that you set with this data type.
         """
 elif False:
     UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeArgsDict: TypeAlias = Mapping[str, Any]
@@ -2406,8 +2412,8 @@ class UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeArg
                  actions: pulumi.Input['UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypeArgs'],
                  notify_configuration: Optional[pulumi.Input['UserPoolRiskConfigurationAttachmentNotifyConfigurationTypeArgs']] = None):
         """
-        :param pulumi.Input['UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypeArgs'] actions: A list of account-takeover actions for each level of risk that Amazon Cognito might assess with advanced security features.
-        :param pulumi.Input['UserPoolRiskConfigurationAttachmentNotifyConfigurationTypeArgs'] notify_configuration: The settings for composing and sending an email message when advanced security features assesses a risk level with adaptive authentication. When you choose to notify users in `AccountTakeoverRiskConfiguration` , Amazon Cognito sends an email message using the method and template that you set with this data type.
+        :param pulumi.Input['UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypeArgs'] actions: A list of account-takeover actions for each level of risk that Amazon Cognito might assess with threat protection.
+        :param pulumi.Input['UserPoolRiskConfigurationAttachmentNotifyConfigurationTypeArgs'] notify_configuration: The settings for composing and sending an email message when threat protection assesses a risk level with adaptive authentication. When you choose to notify users in `AccountTakeoverRiskConfiguration` , Amazon Cognito sends an email message using the method and template that you set with this data type.
         """
         pulumi.set(__self__, "actions", actions)
         if notify_configuration is not None:
@@ -2417,7 +2423,7 @@ class UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeArg
     @pulumi.getter
     def actions(self) -> pulumi.Input['UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypeArgs']:
         """
-        A list of account-takeover actions for each level of risk that Amazon Cognito might assess with advanced security features.
+        A list of account-takeover actions for each level of risk that Amazon Cognito might assess with threat protection.
         """
         return pulumi.get(self, "actions")
 
@@ -2429,7 +2435,7 @@ class UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeArg
     @pulumi.getter(name="notifyConfiguration")
     def notify_configuration(self) -> Optional[pulumi.Input['UserPoolRiskConfigurationAttachmentNotifyConfigurationTypeArgs']]:
         """
-        The settings for composing and sending an email message when advanced security features assesses a risk level with adaptive authentication. When you choose to notify users in `AccountTakeoverRiskConfiguration` , Amazon Cognito sends an email message using the method and template that you set with this data type.
+        The settings for composing and sending an email message when threat protection assesses a risk level with adaptive authentication. When you choose to notify users in `AccountTakeoverRiskConfiguration` , Amazon Cognito sends an email message using the method and template that you set with this data type.
         """
         return pulumi.get(self, "notify_configuration")
 
@@ -3170,7 +3176,7 @@ if not MYPY:
         """
         Requires that your user verifies their email address, phone number, or both before Amazon Cognito updates the value of that attribute. When you update a user attribute that has this option activated, Amazon Cognito sends a verification message to the new phone number or email address. Amazon Cognito doesn’t change the value of the attribute until your user responds to the verification message and confirms the new value.
 
-        You can verify an updated email address or phone number with a [VerifyUserAttribute](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerifyUserAttribute.html) API request. You can also call the [AdminUpdateUserAttributes](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminUpdateUserAttributes.html) API and set `email_verified` or `phone_number_verified` to true.
+        You can verify an updated email address or phone number with a `API_VerifyUserAttribute` API request. You can also call the `API_AdminUpdateUserAttributes` API and set `email_verified` or `phone_number_verified` to true.
 
         When `AttributesRequireVerificationBeforeUpdate` is false, your user pool doesn't require that your users verify attribute changes before Amazon Cognito updates them. In a user pool where `AttributesRequireVerificationBeforeUpdate` is false, API operations that change attribute values can immediately update a user’s `email` or `phone_number` attribute.
         """
@@ -3184,7 +3190,7 @@ class UserPoolUserAttributeUpdateSettingsArgs:
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] attributes_require_verification_before_update: Requires that your user verifies their email address, phone number, or both before Amazon Cognito updates the value of that attribute. When you update a user attribute that has this option activated, Amazon Cognito sends a verification message to the new phone number or email address. Amazon Cognito doesn’t change the value of the attribute until your user responds to the verification message and confirms the new value.
                
-               You can verify an updated email address or phone number with a [VerifyUserAttribute](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerifyUserAttribute.html) API request. You can also call the [AdminUpdateUserAttributes](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminUpdateUserAttributes.html) API and set `email_verified` or `phone_number_verified` to true.
+               You can verify an updated email address or phone number with a `API_VerifyUserAttribute` API request. You can also call the `API_AdminUpdateUserAttributes` API and set `email_verified` or `phone_number_verified` to true.
                
                When `AttributesRequireVerificationBeforeUpdate` is false, your user pool doesn't require that your users verify attribute changes before Amazon Cognito updates them. In a user pool where `AttributesRequireVerificationBeforeUpdate` is false, API operations that change attribute values can immediately update a user’s `email` or `phone_number` attribute.
         """
@@ -3196,7 +3202,7 @@ class UserPoolUserAttributeUpdateSettingsArgs:
         """
         Requires that your user verifies their email address, phone number, or both before Amazon Cognito updates the value of that attribute. When you update a user attribute that has this option activated, Amazon Cognito sends a verification message to the new phone number or email address. Amazon Cognito doesn’t change the value of the attribute until your user responds to the verification message and confirms the new value.
 
-        You can verify an updated email address or phone number with a [VerifyUserAttribute](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerifyUserAttribute.html) API request. You can also call the [AdminUpdateUserAttributes](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminUpdateUserAttributes.html) API and set `email_verified` or `phone_number_verified` to true.
+        You can verify an updated email address or phone number with a `API_VerifyUserAttribute` API request. You can also call the `API_AdminUpdateUserAttributes` API and set `email_verified` or `phone_number_verified` to true.
 
         When `AttributesRequireVerificationBeforeUpdate` is false, your user pool doesn't require that your users verify attribute changes before Amazon Cognito updates them. In a user pool where `AttributesRequireVerificationBeforeUpdate` is false, API operations that change attribute values can immediately update a user’s `email` or `phone_number` attribute.
         """

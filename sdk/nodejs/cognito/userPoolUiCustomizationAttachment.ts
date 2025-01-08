@@ -39,11 +39,11 @@ export class UserPoolUiCustomizationAttachment extends pulumi.CustomResource {
      */
     public readonly clientId!: pulumi.Output<string>;
     /**
-     * The CSS values in the UI customization.
+     * A plaintext CSS file that contains the custom fields that you want to apply to your user pool or app client. To download a template, go to the Amazon Cognito console. Navigate to your user pool *App clients* tab, select *Login pages* , edit *Hosted UI (classic) style* , and select the link to `CSS template.css` .
      */
     public readonly css!: pulumi.Output<string | undefined>;
     /**
-     * The ID of the user pool.
+     * The ID of the user pool where you want to apply branding to the classic hosted UI.
      */
     public readonly userPoolId!: pulumi.Output<string>;
 
@@ -88,11 +88,11 @@ export interface UserPoolUiCustomizationAttachmentArgs {
      */
     clientId: pulumi.Input<string>;
     /**
-     * The CSS values in the UI customization.
+     * A plaintext CSS file that contains the custom fields that you want to apply to your user pool or app client. To download a template, go to the Amazon Cognito console. Navigate to your user pool *App clients* tab, select *Login pages* , edit *Hosted UI (classic) style* , and select the link to `CSS template.css` .
      */
     css?: pulumi.Input<string>;
     /**
-     * The ID of the user pool.
+     * The ID of the user pool where you want to apply branding to the classic hosted UI.
      */
     userPoolId: pulumi.Input<string>;
 }

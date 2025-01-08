@@ -42,6 +42,8 @@ type LookupAppResult struct {
 	EventSubscriptions []AppEventSubscription `pulumi:"eventSubscriptions"`
 	// Defines the roles and credentials that AWS Resilience Hub would use while creating the application, importing its resources, and running an assessment.
 	PermissionModel *AppPermissionModel `pulumi:"permissionModel"`
+	// Amazon Resource Name (ARN) of the Regulatory Policy.
+	RegulatoryPolicyArn *string `pulumi:"regulatoryPolicyArn"`
 	// Amazon Resource Name (ARN) of the Resiliency Policy.
 	ResiliencyPolicyArn *string `pulumi:"resiliencyPolicyArn"`
 	// An array of ResourceMapping objects.
@@ -115,6 +117,11 @@ func (o LookupAppResultOutput) EventSubscriptions() AppEventSubscriptionArrayOut
 // Defines the roles and credentials that AWS Resilience Hub would use while creating the application, importing its resources, and running an assessment.
 func (o LookupAppResultOutput) PermissionModel() AppPermissionModelPtrOutput {
 	return o.ApplyT(func(v LookupAppResult) *AppPermissionModel { return v.PermissionModel }).(AppPermissionModelPtrOutput)
+}
+
+// Amazon Resource Name (ARN) of the Regulatory Policy.
+func (o LookupAppResultOutput) RegulatoryPolicyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupAppResult) *string { return v.RegulatoryPolicyArn }).(pulumi.StringPtrOutput)
 }
 
 // Amazon Resource Name (ARN) of the Resiliency Policy.

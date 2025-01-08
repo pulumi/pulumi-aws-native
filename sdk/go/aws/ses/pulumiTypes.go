@@ -1810,6 +1810,8 @@ func (o ConfigurationSetSuppressionOptionsPtrOutput) SuppressedReasons() pulumi.
 type ConfigurationSetTrackingOptions struct {
 	// The domain to use for tracking open and click events.
 	CustomRedirectDomain *string `pulumi:"customRedirectDomain"`
+	// The https policy to use for tracking open and click events.
+	HttpsPolicy *string `pulumi:"httpsPolicy"`
 }
 
 // ConfigurationSetTrackingOptionsInput is an input type that accepts ConfigurationSetTrackingOptionsArgs and ConfigurationSetTrackingOptionsOutput values.
@@ -1827,6 +1829,8 @@ type ConfigurationSetTrackingOptionsInput interface {
 type ConfigurationSetTrackingOptionsArgs struct {
 	// The domain to use for tracking open and click events.
 	CustomRedirectDomain pulumi.StringPtrInput `pulumi:"customRedirectDomain"`
+	// The https policy to use for tracking open and click events.
+	HttpsPolicy pulumi.StringPtrInput `pulumi:"httpsPolicy"`
 }
 
 func (ConfigurationSetTrackingOptionsArgs) ElementType() reflect.Type {
@@ -1912,6 +1916,11 @@ func (o ConfigurationSetTrackingOptionsOutput) CustomRedirectDomain() pulumi.Str
 	return o.ApplyT(func(v ConfigurationSetTrackingOptions) *string { return v.CustomRedirectDomain }).(pulumi.StringPtrOutput)
 }
 
+// The https policy to use for tracking open and click events.
+func (o ConfigurationSetTrackingOptionsOutput) HttpsPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConfigurationSetTrackingOptions) *string { return v.HttpsPolicy }).(pulumi.StringPtrOutput)
+}
+
 type ConfigurationSetTrackingOptionsPtrOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationSetTrackingOptionsPtrOutput) ElementType() reflect.Type {
@@ -1943,6 +1952,16 @@ func (o ConfigurationSetTrackingOptionsPtrOutput) CustomRedirectDomain() pulumi.
 			return nil
 		}
 		return v.CustomRedirectDomain
+	}).(pulumi.StringPtrOutput)
+}
+
+// The https policy to use for tracking open and click events.
+func (o ConfigurationSetTrackingOptionsPtrOutput) HttpsPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationSetTrackingOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HttpsPolicy
 	}).(pulumi.StringPtrOutput)
 }
 

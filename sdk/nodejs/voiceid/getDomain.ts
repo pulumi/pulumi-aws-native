@@ -26,9 +26,21 @@ export interface GetDomainArgs {
 
 export interface GetDomainResult {
     /**
+     * The description of the domain.
+     */
+    readonly description?: string;
+    /**
      * The identifier of the domain.
      */
     readonly domainId?: string;
+    /**
+     * The name for the domain.
+     */
+    readonly name?: string;
+    /**
+     * The server-side encryption configuration containing the KMS key identifier you want Voice ID to use to encrypt your data.
+     */
+    readonly serverSideEncryptionConfiguration?: outputs.voiceid.DomainServerSideEncryptionConfiguration;
     /**
      * The tags used to organize, track, or control access for this resource.
      */

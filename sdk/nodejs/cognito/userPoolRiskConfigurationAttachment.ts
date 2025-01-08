@@ -38,7 +38,7 @@ export class UserPoolRiskConfigurationAttachment extends pulumi.CustomResource {
     }
 
     /**
-     * The settings for automated responses and notification templates for adaptive authentication with advanced security features.
+     * The settings for automated responses and notification templates for adaptive authentication with threat protection.
      */
     public readonly accountTakeoverRiskConfiguration!: pulumi.Output<outputs.cognito.UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationType | undefined>;
     /**
@@ -46,7 +46,7 @@ export class UserPoolRiskConfigurationAttachment extends pulumi.CustomResource {
      */
     public readonly clientId!: pulumi.Output<string>;
     /**
-     * Settings for compromised-credentials actions and authentication types with advanced security features in full-function `ENFORCED` mode.
+     * Settings for compromised-credentials actions and authentication types with threat protection in full-function `ENFORCED` mode.
      */
     public readonly compromisedCredentialsRiskConfiguration!: pulumi.Output<outputs.cognito.UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationType | undefined>;
     /**
@@ -99,7 +99,7 @@ export class UserPoolRiskConfigurationAttachment extends pulumi.CustomResource {
  */
 export interface UserPoolRiskConfigurationAttachmentArgs {
     /**
-     * The settings for automated responses and notification templates for adaptive authentication with advanced security features.
+     * The settings for automated responses and notification templates for adaptive authentication with threat protection.
      */
     accountTakeoverRiskConfiguration?: pulumi.Input<inputs.cognito.UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeArgs>;
     /**
@@ -107,7 +107,7 @@ export interface UserPoolRiskConfigurationAttachmentArgs {
      */
     clientId: pulumi.Input<string>;
     /**
-     * Settings for compromised-credentials actions and authentication types with advanced security features in full-function `ENFORCED` mode.
+     * Settings for compromised-credentials actions and authentication types with threat protection in full-function `ENFORCED` mode.
      */
     compromisedCredentialsRiskConfiguration?: pulumi.Input<inputs.cognito.UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypeArgs>;
     /**

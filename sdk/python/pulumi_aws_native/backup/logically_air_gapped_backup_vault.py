@@ -26,9 +26,7 @@ class LogicallyAirGappedBackupVaultArgs:
                  access_policy: Optional[Any] = None,
                  backup_vault_name: Optional[pulumi.Input[str]] = None,
                  backup_vault_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 notifications: Optional[pulumi.Input['LogicallyAirGappedBackupVaultNotificationObjectTypeArgs']] = None,
-                 vault_state: Optional[pulumi.Input[str]] = None,
-                 vault_type: Optional[pulumi.Input[str]] = None):
+                 notifications: Optional[pulumi.Input['LogicallyAirGappedBackupVaultNotificationObjectTypeArgs']] = None):
         """
         The set of arguments for constructing a LogicallyAirGappedBackupVault resource.
         :param pulumi.Input[int] max_retention_days: The maximum retention period that the vault retains its recovery points.
@@ -41,8 +39,6 @@ class LogicallyAirGappedBackupVaultArgs:
         :param pulumi.Input[str] backup_vault_name: The name of a logical container where backups are stored. Logically air-gapped backup vaults are identified by names that are unique to the account used to create them and the Region where they are created.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] backup_vault_tags: The tags to assign to the vault.
         :param pulumi.Input['LogicallyAirGappedBackupVaultNotificationObjectTypeArgs'] notifications: Returns event notifications for the specified backup vault.
-        :param pulumi.Input[str] vault_state: The current state of the vault.
-        :param pulumi.Input[str] vault_type: The type of vault described.
         """
         pulumi.set(__self__, "max_retention_days", max_retention_days)
         pulumi.set(__self__, "min_retention_days", min_retention_days)
@@ -54,10 +50,6 @@ class LogicallyAirGappedBackupVaultArgs:
             pulumi.set(__self__, "backup_vault_tags", backup_vault_tags)
         if notifications is not None:
             pulumi.set(__self__, "notifications", notifications)
-        if vault_state is not None:
-            pulumi.set(__self__, "vault_state", vault_state)
-        if vault_type is not None:
-            pulumi.set(__self__, "vault_type", vault_type)
 
     @property
     @pulumi.getter(name="maxRetentionDays")
@@ -135,30 +127,6 @@ class LogicallyAirGappedBackupVaultArgs:
     def notifications(self, value: Optional[pulumi.Input['LogicallyAirGappedBackupVaultNotificationObjectTypeArgs']]):
         pulumi.set(self, "notifications", value)
 
-    @property
-    @pulumi.getter(name="vaultState")
-    def vault_state(self) -> Optional[pulumi.Input[str]]:
-        """
-        The current state of the vault.
-        """
-        return pulumi.get(self, "vault_state")
-
-    @vault_state.setter
-    def vault_state(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "vault_state", value)
-
-    @property
-    @pulumi.getter(name="vaultType")
-    def vault_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        The type of vault described.
-        """
-        return pulumi.get(self, "vault_type")
-
-    @vault_type.setter
-    def vault_type(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "vault_type", value)
-
 
 class LogicallyAirGappedBackupVault(pulumi.CustomResource):
     @overload
@@ -171,8 +139,6 @@ class LogicallyAirGappedBackupVault(pulumi.CustomResource):
                  max_retention_days: Optional[pulumi.Input[int]] = None,
                  min_retention_days: Optional[pulumi.Input[int]] = None,
                  notifications: Optional[pulumi.Input[Union['LogicallyAirGappedBackupVaultNotificationObjectTypeArgs', 'LogicallyAirGappedBackupVaultNotificationObjectTypeArgsDict']]] = None,
-                 vault_state: Optional[pulumi.Input[str]] = None,
-                 vault_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Backup::LogicallyAirGappedBackupVault
@@ -189,8 +155,6 @@ class LogicallyAirGappedBackupVault(pulumi.CustomResource):
                
                The minimum value accepted is 7 days.
         :param pulumi.Input[Union['LogicallyAirGappedBackupVaultNotificationObjectTypeArgs', 'LogicallyAirGappedBackupVaultNotificationObjectTypeArgsDict']] notifications: Returns event notifications for the specified backup vault.
-        :param pulumi.Input[str] vault_state: The current state of the vault.
-        :param pulumi.Input[str] vault_type: The type of vault described.
         """
         ...
     @overload
@@ -222,8 +186,6 @@ class LogicallyAirGappedBackupVault(pulumi.CustomResource):
                  max_retention_days: Optional[pulumi.Input[int]] = None,
                  min_retention_days: Optional[pulumi.Input[int]] = None,
                  notifications: Optional[pulumi.Input[Union['LogicallyAirGappedBackupVaultNotificationObjectTypeArgs', 'LogicallyAirGappedBackupVaultNotificationObjectTypeArgsDict']]] = None,
-                 vault_state: Optional[pulumi.Input[str]] = None,
-                 vault_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -243,10 +205,10 @@ class LogicallyAirGappedBackupVault(pulumi.CustomResource):
                 raise TypeError("Missing required property 'min_retention_days'")
             __props__.__dict__["min_retention_days"] = min_retention_days
             __props__.__dict__["notifications"] = notifications
-            __props__.__dict__["vault_state"] = vault_state
-            __props__.__dict__["vault_type"] = vault_type
             __props__.__dict__["backup_vault_arn"] = None
             __props__.__dict__["encryption_key_arn"] = None
+            __props__.__dict__["vault_state"] = None
+            __props__.__dict__["vault_type"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["backupVaultName", "maxRetentionDays", "minRetentionDays"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(LogicallyAirGappedBackupVault, __self__).__init__(
@@ -347,7 +309,7 @@ class LogicallyAirGappedBackupVault(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vaultState")
-    def vault_state(self) -> pulumi.Output[Optional[str]]:
+    def vault_state(self) -> pulumi.Output[str]:
         """
         The current state of the vault.
         """
@@ -355,7 +317,7 @@ class LogicallyAirGappedBackupVault(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="vaultType")
-    def vault_type(self) -> pulumi.Output[Optional[str]]:
+    def vault_type(self) -> pulumi.Output[str]:
         """
         The type of vault described.
         """

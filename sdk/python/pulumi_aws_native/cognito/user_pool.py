@@ -56,9 +56,9 @@ class UserPoolArgs:
         :param pulumi.Input['UserPoolAccountRecoverySettingArgs'] account_recovery_setting: The available verified method a user can use to recover their password when they call `ForgotPassword` . You can use this setting to define a preferred method when a user has more than one method available. With this setting, SMS doesn't qualify for a valid password recovery mechanism if the user also has SMS multi-factor authentication (MFA) activated. In the absence of this setting, Amazon Cognito uses the legacy behavior to determine the recovery method where SMS is preferred through email.
         :param pulumi.Input['UserPoolAdminCreateUserConfigArgs'] admin_create_user_config: The settings for administrator creation of users in a user pool. Contains settings for allowing user sign-up, customizing invitation messages to new users, and the amount of time before temporary passwords expire.
                
-               This data type is a request and response parameter of [CreateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.html) and [UpdateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.html) , and a response parameter of [DescribeUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html) .
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] alias_attributes: Attributes supported as an alias for this user pool. Possible values: *phone_number* , *email* , or *preferred_username* . For more information about alias attributes, see [Customizing sign-in attributes](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#user-pool-settings-aliases) .
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] auto_verified_attributes: The attributes that you want your user pool to automatically verify. Possible values: *email* , *phone_number* . For more information see [Verifying contact information at sign-up](https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#allowing-users-to-sign-up-and-confirm-themselves) .
+               This data type is a request and response parameter of `API_CreateUserPool` and `API_UpdateUserPool` , and a response parameter of `API_DescribeUserPool` .
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] alias_attributes: Attributes supported as an alias for this user pool. For more information about alias attributes, see [Customizing sign-in attributes](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#user-pool-settings-aliases) .
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] auto_verified_attributes: The attributes that you want your user pool to automatically verify. For more information, see [Verifying contact information at sign-up](https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#allowing-users-to-sign-up-and-confirm-themselves) .
         :param pulumi.Input[str] deletion_protection: When active, `DeletionProtection` prevents accidental deletion of your user
                pool. Before you can delete a user pool that you have protected against deletion, you
                must deactivate this feature.
@@ -78,25 +78,23 @@ class UserPoolArgs:
                
                Allowed values: `SMS_MFA` | `SOFTWARE_TOKEN_MFA` | `EMAIL_OTP`
         :param pulumi.Input['UserPoolLambdaConfigArgs'] lambda_config: A collection of user pool Lambda triggers. Amazon Cognito invokes triggers at several possible stages of authentication operations. Triggers can modify the outcome of the operations that invoked them.
-        :param pulumi.Input[str] mfa_configuration: The multi-factor authentication (MFA) configuration. Valid values include:
+        :param pulumi.Input[str] mfa_configuration: Displays the state of multi-factor authentication (MFA) as on, off, or optional. When `ON` , all users must set up MFA before they can sign in. When `OPTIONAL` , your application must make a client-side determination of whether a user wants to register an MFA device. For user pools with adaptive authentication with threat protection, choose `OPTIONAL` .
                
-               - `OFF` MFA won't be used for any users.
-               - `ON` MFA is required for all users to sign in.
-               - `OPTIONAL` MFA will be required only for individual users who have an MFA factor activated.
+               When `MfaConfiguration` is `OPTIONAL` , managed login doesn't automatically prompt users to set up MFA. Amazon Cognito generates MFA prompts in API responses and in managed login for users who have chosen and configured a preferred MFA factor.
         :param pulumi.Input['UserPoolPoliciesArgs'] policies: A list of user pool policies. Contains the policy that sets password-complexity requirements.
                
-               This data type is a request and response parameter of [CreateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.html) and [UpdateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.html) , and a response parameter of [DescribeUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html) .
+               This data type is a request and response parameter of `API_CreateUserPool` and `API_UpdateUserPool` , and a response parameter of `API_DescribeUserPool` .
         :param pulumi.Input[Sequence[pulumi.Input['UserPoolSchemaAttributeArgs']]] schema: An array of attributes for the new user pool. You can add custom attributes and modify the properties of default attributes. The specifications in this parameter set the required attributes in your user pool. For more information, see [Working with user attributes](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html) .
         :param pulumi.Input[str] sms_authentication_message: The contents of the SMS authentication message.
-        :param pulumi.Input['UserPoolSmsConfigurationArgs'] sms_configuration: The SMS configuration with the settings that your Amazon Cognito user pool must use to send an SMS message from your AWS account through Amazon Simple Notification Service. To send SMS messages with Amazon SNS in the AWS Region that you want, the Amazon Cognito user pool uses an AWS Identity and Access Management (IAM) role in your AWS account . For more information see [SMS message settings](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html) .
+        :param pulumi.Input['UserPoolSmsConfigurationArgs'] sms_configuration: The settings for your Amazon Cognito user pool to send SMS messages with Amazon Simple Notification Service. To send SMS messages with Amazon SNS in the AWS Region that you want, the Amazon Cognito user pool uses an AWS Identity and Access Management (IAM) role in your AWS account . For more information see [SMS message settings](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html) .
         :param pulumi.Input[str] sms_verification_message: This parameter is no longer used. See [VerificationMessageTemplateType](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-verificationmessagetemplate.html) .
         :param pulumi.Input['UserPoolUserAttributeUpdateSettingsArgs'] user_attribute_update_settings: The settings for updates to user attributes. These settings include the property `AttributesRequireVerificationBeforeUpdate` ,
                a user-pool setting that tells Amazon Cognito how to handle changes to the value of your users' email address and phone number attributes. For
                more information, see [Verifying updates to email addresses and phone numbers](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html#user-pool-settings-verifications-verify-attribute-updates) .
-        :param pulumi.Input['UserPoolAddOnsArgs'] user_pool_add_ons: User pool add-ons. Contains settings for activation of threat protection. To log user security information but take no action, set to `AUDIT` . To configure automatic security responses to risky traffic to your user pool, set to `ENFORCED` .
+        :param pulumi.Input['UserPoolAddOnsArgs'] user_pool_add_ons: Contains settings for activation of threat protection, including the operating mode and additional authentication types. To log user security information but take no action, set to `AUDIT` . To configure automatic security responses to potentially unwanted traffic to your user pool, set to `ENFORCED` .
                
                For more information, see [Adding advanced security to a user pool](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-advanced-security.html) . To activate this setting, your user pool must be on the [Plus tier](https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-plus.html) .
-        :param pulumi.Input[str] user_pool_name: A friendlhy name for your user pool.
+        :param pulumi.Input[str] user_pool_name: A friendly name for your user pool.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] user_pool_tags: The tag keys and values to assign to the user pool. A tag is a label that you can use to categorize and manage user pools in different ways, such as by purpose, owner, environment, or other criteria.
         :param pulumi.Input['UserPoolTier'] user_pool_tier: The user pool [feature plan](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-sign-in-feature-plans.html) , or tier. This parameter determines the eligibility of the user pool for features like managed login, access-token customization, and threat protection. Defaults to `ESSENTIALS` .
         :param pulumi.Input[Sequence[pulumi.Input[str]]] username_attributes: Specifies whether a user can use an email address or phone number as a username when they sign up.
@@ -194,7 +192,7 @@ class UserPoolArgs:
         """
         The settings for administrator creation of users in a user pool. Contains settings for allowing user sign-up, customizing invitation messages to new users, and the amount of time before temporary passwords expire.
 
-        This data type is a request and response parameter of [CreateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.html) and [UpdateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.html) , and a response parameter of [DescribeUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html) .
+        This data type is a request and response parameter of `API_CreateUserPool` and `API_UpdateUserPool` , and a response parameter of `API_DescribeUserPool` .
         """
         return pulumi.get(self, "admin_create_user_config")
 
@@ -206,7 +204,7 @@ class UserPoolArgs:
     @pulumi.getter(name="aliasAttributes")
     def alias_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Attributes supported as an alias for this user pool. Possible values: *phone_number* , *email* , or *preferred_username* . For more information about alias attributes, see [Customizing sign-in attributes](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#user-pool-settings-aliases) .
+        Attributes supported as an alias for this user pool. For more information about alias attributes, see [Customizing sign-in attributes](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#user-pool-settings-aliases) .
         """
         return pulumi.get(self, "alias_attributes")
 
@@ -218,7 +216,7 @@ class UserPoolArgs:
     @pulumi.getter(name="autoVerifiedAttributes")
     def auto_verified_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The attributes that you want your user pool to automatically verify. Possible values: *email* , *phone_number* . For more information see [Verifying contact information at sign-up](https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#allowing-users-to-sign-up-and-confirm-themselves) .
+        The attributes that you want your user pool to automatically verify. For more information, see [Verifying contact information at sign-up](https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#allowing-users-to-sign-up-and-confirm-themselves) .
         """
         return pulumi.get(self, "auto_verified_attributes")
 
@@ -344,11 +342,9 @@ class UserPoolArgs:
     @pulumi.getter(name="mfaConfiguration")
     def mfa_configuration(self) -> Optional[pulumi.Input[str]]:
         """
-        The multi-factor authentication (MFA) configuration. Valid values include:
+        Displays the state of multi-factor authentication (MFA) as on, off, or optional. When `ON` , all users must set up MFA before they can sign in. When `OPTIONAL` , your application must make a client-side determination of whether a user wants to register an MFA device. For user pools with adaptive authentication with threat protection, choose `OPTIONAL` .
 
-        - `OFF` MFA won't be used for any users.
-        - `ON` MFA is required for all users to sign in.
-        - `OPTIONAL` MFA will be required only for individual users who have an MFA factor activated.
+        When `MfaConfiguration` is `OPTIONAL` , managed login doesn't automatically prompt users to set up MFA. Amazon Cognito generates MFA prompts in API responses and in managed login for users who have chosen and configured a preferred MFA factor.
         """
         return pulumi.get(self, "mfa_configuration")
 
@@ -362,7 +358,7 @@ class UserPoolArgs:
         """
         A list of user pool policies. Contains the policy that sets password-complexity requirements.
 
-        This data type is a request and response parameter of [CreateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.html) and [UpdateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.html) , and a response parameter of [DescribeUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html) .
+        This data type is a request and response parameter of `API_CreateUserPool` and `API_UpdateUserPool` , and a response parameter of `API_DescribeUserPool` .
         """
         return pulumi.get(self, "policies")
 
@@ -398,7 +394,7 @@ class UserPoolArgs:
     @pulumi.getter(name="smsConfiguration")
     def sms_configuration(self) -> Optional[pulumi.Input['UserPoolSmsConfigurationArgs']]:
         """
-        The SMS configuration with the settings that your Amazon Cognito user pool must use to send an SMS message from your AWS account through Amazon Simple Notification Service. To send SMS messages with Amazon SNS in the AWS Region that you want, the Amazon Cognito user pool uses an AWS Identity and Access Management (IAM) role in your AWS account . For more information see [SMS message settings](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html) .
+        The settings for your Amazon Cognito user pool to send SMS messages with Amazon Simple Notification Service. To send SMS messages with Amazon SNS in the AWS Region that you want, the Amazon Cognito user pool uses an AWS Identity and Access Management (IAM) role in your AWS account . For more information see [SMS message settings](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html) .
         """
         return pulumi.get(self, "sms_configuration")
 
@@ -436,7 +432,7 @@ class UserPoolArgs:
     @pulumi.getter(name="userPoolAddOns")
     def user_pool_add_ons(self) -> Optional[pulumi.Input['UserPoolAddOnsArgs']]:
         """
-        User pool add-ons. Contains settings for activation of threat protection. To log user security information but take no action, set to `AUDIT` . To configure automatic security responses to risky traffic to your user pool, set to `ENFORCED` .
+        Contains settings for activation of threat protection, including the operating mode and additional authentication types. To log user security information but take no action, set to `AUDIT` . To configure automatic security responses to potentially unwanted traffic to your user pool, set to `ENFORCED` .
 
         For more information, see [Adding advanced security to a user pool](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-advanced-security.html) . To activate this setting, your user pool must be on the [Plus tier](https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-plus.html) .
         """
@@ -450,7 +446,7 @@ class UserPoolArgs:
     @pulumi.getter(name="userPoolName")
     def user_pool_name(self) -> Optional[pulumi.Input[str]]:
         """
-        A friendlhy name for your user pool.
+        A friendly name for your user pool.
         """
         return pulumi.get(self, "user_pool_name")
 
@@ -598,9 +594,9 @@ class UserPool(pulumi.CustomResource):
         :param pulumi.Input[Union['UserPoolAccountRecoverySettingArgs', 'UserPoolAccountRecoverySettingArgsDict']] account_recovery_setting: The available verified method a user can use to recover their password when they call `ForgotPassword` . You can use this setting to define a preferred method when a user has more than one method available. With this setting, SMS doesn't qualify for a valid password recovery mechanism if the user also has SMS multi-factor authentication (MFA) activated. In the absence of this setting, Amazon Cognito uses the legacy behavior to determine the recovery method where SMS is preferred through email.
         :param pulumi.Input[Union['UserPoolAdminCreateUserConfigArgs', 'UserPoolAdminCreateUserConfigArgsDict']] admin_create_user_config: The settings for administrator creation of users in a user pool. Contains settings for allowing user sign-up, customizing invitation messages to new users, and the amount of time before temporary passwords expire.
                
-               This data type is a request and response parameter of [CreateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.html) and [UpdateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.html) , and a response parameter of [DescribeUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html) .
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] alias_attributes: Attributes supported as an alias for this user pool. Possible values: *phone_number* , *email* , or *preferred_username* . For more information about alias attributes, see [Customizing sign-in attributes](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#user-pool-settings-aliases) .
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] auto_verified_attributes: The attributes that you want your user pool to automatically verify. Possible values: *email* , *phone_number* . For more information see [Verifying contact information at sign-up](https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#allowing-users-to-sign-up-and-confirm-themselves) .
+               This data type is a request and response parameter of `API_CreateUserPool` and `API_UpdateUserPool` , and a response parameter of `API_DescribeUserPool` .
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] alias_attributes: Attributes supported as an alias for this user pool. For more information about alias attributes, see [Customizing sign-in attributes](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#user-pool-settings-aliases) .
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] auto_verified_attributes: The attributes that you want your user pool to automatically verify. For more information, see [Verifying contact information at sign-up](https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#allowing-users-to-sign-up-and-confirm-themselves) .
         :param pulumi.Input[str] deletion_protection: When active, `DeletionProtection` prevents accidental deletion of your user
                pool. Before you can delete a user pool that you have protected against deletion, you
                must deactivate this feature.
@@ -620,25 +616,23 @@ class UserPool(pulumi.CustomResource):
                
                Allowed values: `SMS_MFA` | `SOFTWARE_TOKEN_MFA` | `EMAIL_OTP`
         :param pulumi.Input[Union['UserPoolLambdaConfigArgs', 'UserPoolLambdaConfigArgsDict']] lambda_config: A collection of user pool Lambda triggers. Amazon Cognito invokes triggers at several possible stages of authentication operations. Triggers can modify the outcome of the operations that invoked them.
-        :param pulumi.Input[str] mfa_configuration: The multi-factor authentication (MFA) configuration. Valid values include:
+        :param pulumi.Input[str] mfa_configuration: Displays the state of multi-factor authentication (MFA) as on, off, or optional. When `ON` , all users must set up MFA before they can sign in. When `OPTIONAL` , your application must make a client-side determination of whether a user wants to register an MFA device. For user pools with adaptive authentication with threat protection, choose `OPTIONAL` .
                
-               - `OFF` MFA won't be used for any users.
-               - `ON` MFA is required for all users to sign in.
-               - `OPTIONAL` MFA will be required only for individual users who have an MFA factor activated.
+               When `MfaConfiguration` is `OPTIONAL` , managed login doesn't automatically prompt users to set up MFA. Amazon Cognito generates MFA prompts in API responses and in managed login for users who have chosen and configured a preferred MFA factor.
         :param pulumi.Input[Union['UserPoolPoliciesArgs', 'UserPoolPoliciesArgsDict']] policies: A list of user pool policies. Contains the policy that sets password-complexity requirements.
                
-               This data type is a request and response parameter of [CreateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.html) and [UpdateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.html) , and a response parameter of [DescribeUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html) .
+               This data type is a request and response parameter of `API_CreateUserPool` and `API_UpdateUserPool` , and a response parameter of `API_DescribeUserPool` .
         :param pulumi.Input[Sequence[pulumi.Input[Union['UserPoolSchemaAttributeArgs', 'UserPoolSchemaAttributeArgsDict']]]] schema: An array of attributes for the new user pool. You can add custom attributes and modify the properties of default attributes. The specifications in this parameter set the required attributes in your user pool. For more information, see [Working with user attributes](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html) .
         :param pulumi.Input[str] sms_authentication_message: The contents of the SMS authentication message.
-        :param pulumi.Input[Union['UserPoolSmsConfigurationArgs', 'UserPoolSmsConfigurationArgsDict']] sms_configuration: The SMS configuration with the settings that your Amazon Cognito user pool must use to send an SMS message from your AWS account through Amazon Simple Notification Service. To send SMS messages with Amazon SNS in the AWS Region that you want, the Amazon Cognito user pool uses an AWS Identity and Access Management (IAM) role in your AWS account . For more information see [SMS message settings](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html) .
+        :param pulumi.Input[Union['UserPoolSmsConfigurationArgs', 'UserPoolSmsConfigurationArgsDict']] sms_configuration: The settings for your Amazon Cognito user pool to send SMS messages with Amazon Simple Notification Service. To send SMS messages with Amazon SNS in the AWS Region that you want, the Amazon Cognito user pool uses an AWS Identity and Access Management (IAM) role in your AWS account . For more information see [SMS message settings](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html) .
         :param pulumi.Input[str] sms_verification_message: This parameter is no longer used. See [VerificationMessageTemplateType](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-verificationmessagetemplate.html) .
         :param pulumi.Input[Union['UserPoolUserAttributeUpdateSettingsArgs', 'UserPoolUserAttributeUpdateSettingsArgsDict']] user_attribute_update_settings: The settings for updates to user attributes. These settings include the property `AttributesRequireVerificationBeforeUpdate` ,
                a user-pool setting that tells Amazon Cognito how to handle changes to the value of your users' email address and phone number attributes. For
                more information, see [Verifying updates to email addresses and phone numbers](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html#user-pool-settings-verifications-verify-attribute-updates) .
-        :param pulumi.Input[Union['UserPoolAddOnsArgs', 'UserPoolAddOnsArgsDict']] user_pool_add_ons: User pool add-ons. Contains settings for activation of threat protection. To log user security information but take no action, set to `AUDIT` . To configure automatic security responses to risky traffic to your user pool, set to `ENFORCED` .
+        :param pulumi.Input[Union['UserPoolAddOnsArgs', 'UserPoolAddOnsArgsDict']] user_pool_add_ons: Contains settings for activation of threat protection, including the operating mode and additional authentication types. To log user security information but take no action, set to `AUDIT` . To configure automatic security responses to potentially unwanted traffic to your user pool, set to `ENFORCED` .
                
                For more information, see [Adding advanced security to a user pool](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-advanced-security.html) . To activate this setting, your user pool must be on the [Plus tier](https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-plus.html) .
-        :param pulumi.Input[str] user_pool_name: A friendlhy name for your user pool.
+        :param pulumi.Input[str] user_pool_name: A friendly name for your user pool.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] user_pool_tags: The tag keys and values to assign to the user pool. A tag is a label that you can use to categorize and manage user pools in different ways, such as by purpose, owner, environment, or other criteria.
         :param pulumi.Input['UserPoolTier'] user_pool_tier: The user pool [feature plan](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-sign-in-feature-plans.html) , or tier. This parameter determines the eligibility of the user pool for features like managed login, access-token customization, and threat protection. Defaults to `ESSENTIALS` .
         :param pulumi.Input[Sequence[pulumi.Input[str]]] username_attributes: Specifies whether a user can use an email address or phone number as a username when they sign up.
@@ -825,7 +819,7 @@ class UserPool(pulumi.CustomResource):
         """
         The settings for administrator creation of users in a user pool. Contains settings for allowing user sign-up, customizing invitation messages to new users, and the amount of time before temporary passwords expire.
 
-        This data type is a request and response parameter of [CreateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.html) and [UpdateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.html) , and a response parameter of [DescribeUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html) .
+        This data type is a request and response parameter of `API_CreateUserPool` and `API_UpdateUserPool` , and a response parameter of `API_DescribeUserPool` .
         """
         return pulumi.get(self, "admin_create_user_config")
 
@@ -833,7 +827,7 @@ class UserPool(pulumi.CustomResource):
     @pulumi.getter(name="aliasAttributes")
     def alias_attributes(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        Attributes supported as an alias for this user pool. Possible values: *phone_number* , *email* , or *preferred_username* . For more information about alias attributes, see [Customizing sign-in attributes](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#user-pool-settings-aliases) .
+        Attributes supported as an alias for this user pool. For more information about alias attributes, see [Customizing sign-in attributes](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#user-pool-settings-aliases) .
         """
         return pulumi.get(self, "alias_attributes")
 
@@ -849,7 +843,7 @@ class UserPool(pulumi.CustomResource):
     @pulumi.getter(name="autoVerifiedAttributes")
     def auto_verified_attributes(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        The attributes that you want your user pool to automatically verify. Possible values: *email* , *phone_number* . For more information see [Verifying contact information at sign-up](https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#allowing-users-to-sign-up-and-confirm-themselves) .
+        The attributes that you want your user pool to automatically verify. For more information, see [Verifying contact information at sign-up](https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#allowing-users-to-sign-up-and-confirm-themselves) .
         """
         return pulumi.get(self, "auto_verified_attributes")
 
@@ -935,11 +929,9 @@ class UserPool(pulumi.CustomResource):
     @pulumi.getter(name="mfaConfiguration")
     def mfa_configuration(self) -> pulumi.Output[Optional[str]]:
         """
-        The multi-factor authentication (MFA) configuration. Valid values include:
+        Displays the state of multi-factor authentication (MFA) as on, off, or optional. When `ON` , all users must set up MFA before they can sign in. When `OPTIONAL` , your application must make a client-side determination of whether a user wants to register an MFA device. For user pools with adaptive authentication with threat protection, choose `OPTIONAL` .
 
-        - `OFF` MFA won't be used for any users.
-        - `ON` MFA is required for all users to sign in.
-        - `OPTIONAL` MFA will be required only for individual users who have an MFA factor activated.
+        When `MfaConfiguration` is `OPTIONAL` , managed login doesn't automatically prompt users to set up MFA. Amazon Cognito generates MFA prompts in API responses and in managed login for users who have chosen and configured a preferred MFA factor.
         """
         return pulumi.get(self, "mfa_configuration")
 
@@ -949,7 +941,7 @@ class UserPool(pulumi.CustomResource):
         """
         A list of user pool policies. Contains the policy that sets password-complexity requirements.
 
-        This data type is a request and response parameter of [CreateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.html) and [UpdateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.html) , and a response parameter of [DescribeUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html) .
+        This data type is a request and response parameter of `API_CreateUserPool` and `API_UpdateUserPool` , and a response parameter of `API_DescribeUserPool` .
         """
         return pulumi.get(self, "policies")
 
@@ -989,7 +981,7 @@ class UserPool(pulumi.CustomResource):
     @pulumi.getter(name="smsConfiguration")
     def sms_configuration(self) -> pulumi.Output[Optional['outputs.UserPoolSmsConfiguration']]:
         """
-        The SMS configuration with the settings that your Amazon Cognito user pool must use to send an SMS message from your AWS account through Amazon Simple Notification Service. To send SMS messages with Amazon SNS in the AWS Region that you want, the Amazon Cognito user pool uses an AWS Identity and Access Management (IAM) role in your AWS account . For more information see [SMS message settings](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html) .
+        The settings for your Amazon Cognito user pool to send SMS messages with Amazon Simple Notification Service. To send SMS messages with Amazon SNS in the AWS Region that you want, the Amazon Cognito user pool uses an AWS Identity and Access Management (IAM) role in your AWS account . For more information see [SMS message settings](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html) .
         """
         return pulumi.get(self, "sms_configuration")
 
@@ -1015,7 +1007,7 @@ class UserPool(pulumi.CustomResource):
     @pulumi.getter(name="userPoolAddOns")
     def user_pool_add_ons(self) -> pulumi.Output[Optional['outputs.UserPoolAddOns']]:
         """
-        User pool add-ons. Contains settings for activation of threat protection. To log user security information but take no action, set to `AUDIT` . To configure automatic security responses to risky traffic to your user pool, set to `ENFORCED` .
+        Contains settings for activation of threat protection, including the operating mode and additional authentication types. To log user security information but take no action, set to `AUDIT` . To configure automatic security responses to potentially unwanted traffic to your user pool, set to `ENFORCED` .
 
         For more information, see [Adding advanced security to a user pool](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-advanced-security.html) . To activate this setting, your user pool must be on the [Plus tier](https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-plus.html) .
         """
@@ -1033,7 +1025,7 @@ class UserPool(pulumi.CustomResource):
     @pulumi.getter(name="userPoolName")
     def user_pool_name(self) -> pulumi.Output[Optional[str]]:
         """
-        A friendlhy name for your user pool.
+        A friendly name for your user pool.
         """
         return pulumi.get(self, "user_pool_name")
 

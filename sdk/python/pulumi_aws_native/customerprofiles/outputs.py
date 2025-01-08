@@ -34,6 +34,11 @@ __all__ = [
     'DomainRuleBasedMatching',
     'DomainS3ExportingConfig',
     'DomainStats',
+    'EventTriggerCondition',
+    'EventTriggerDimension',
+    'EventTriggerLimits',
+    'EventTriggerObjectAttribute',
+    'EventTriggerPeriod',
     'IntegrationConnectorOperator',
     'IntegrationFlowDefinition',
     'IntegrationIncrementalPullConfig',
@@ -985,6 +990,279 @@ class DomainStats(dict):
         The total size, in bytes, of all objects in the domain.
         """
         return pulumi.get(self, "total_size")
+
+
+@pulumi.output_type
+class EventTriggerCondition(dict):
+    """
+    Specifies the circumstances under which the event should trigger the destination.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "eventTriggerDimensions":
+            suggest = "event_trigger_dimensions"
+        elif key == "logicalOperator":
+            suggest = "logical_operator"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventTriggerCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventTriggerCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventTriggerCondition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 event_trigger_dimensions: Sequence['outputs.EventTriggerDimension'],
+                 logical_operator: 'EventTriggerLogicalOperator'):
+        """
+        Specifies the circumstances under which the event should trigger the destination.
+        """
+        pulumi.set(__self__, "event_trigger_dimensions", event_trigger_dimensions)
+        pulumi.set(__self__, "logical_operator", logical_operator)
+
+    @property
+    @pulumi.getter(name="eventTriggerDimensions")
+    def event_trigger_dimensions(self) -> Sequence['outputs.EventTriggerDimension']:
+        return pulumi.get(self, "event_trigger_dimensions")
+
+    @property
+    @pulumi.getter(name="logicalOperator")
+    def logical_operator(self) -> 'EventTriggerLogicalOperator':
+        return pulumi.get(self, "logical_operator")
+
+
+@pulumi.output_type
+class EventTriggerDimension(dict):
+    """
+    A specific event dimension to be assessed.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "objectAttributes":
+            suggest = "object_attributes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventTriggerDimension. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventTriggerDimension.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventTriggerDimension.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 object_attributes: Sequence['outputs.EventTriggerObjectAttribute']):
+        """
+        A specific event dimension to be assessed.
+        """
+        pulumi.set(__self__, "object_attributes", object_attributes)
+
+    @property
+    @pulumi.getter(name="objectAttributes")
+    def object_attributes(self) -> Sequence['outputs.EventTriggerObjectAttribute']:
+        return pulumi.get(self, "object_attributes")
+
+
+@pulumi.output_type
+class EventTriggerLimits(dict):
+    """
+    Defines limits controlling whether an event triggers the destination, based on ingestion latency and the number of invocations per profile over specific time periods.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "eventExpiration":
+            suggest = "event_expiration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventTriggerLimits. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventTriggerLimits.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventTriggerLimits.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 event_expiration: Optional[int] = None,
+                 periods: Optional[Sequence['outputs.EventTriggerPeriod']] = None):
+        """
+        Defines limits controlling whether an event triggers the destination, based on ingestion latency and the number of invocations per profile over specific time periods.
+        """
+        if event_expiration is not None:
+            pulumi.set(__self__, "event_expiration", event_expiration)
+        if periods is not None:
+            pulumi.set(__self__, "periods", periods)
+
+    @property
+    @pulumi.getter(name="eventExpiration")
+    def event_expiration(self) -> Optional[int]:
+        return pulumi.get(self, "event_expiration")
+
+    @property
+    @pulumi.getter
+    def periods(self) -> Optional[Sequence['outputs.EventTriggerPeriod']]:
+        return pulumi.get(self, "periods")
+
+
+@pulumi.output_type
+class EventTriggerObjectAttribute(dict):
+    """
+    The criteria that a specific object attribute must meet to trigger the destination.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "comparisonOperator":
+            suggest = "comparison_operator"
+        elif key == "fieldName":
+            suggest = "field_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventTriggerObjectAttribute. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventTriggerObjectAttribute.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventTriggerObjectAttribute.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 comparison_operator: 'EventTriggerObjectAttributeComparisonOperator',
+                 values: Sequence[str],
+                 field_name: Optional[str] = None,
+                 source: Optional[str] = None):
+        """
+        The criteria that a specific object attribute must meet to trigger the destination.
+        :param 'EventTriggerObjectAttributeComparisonOperator' comparison_operator: The operator used to compare an attribute against a list of values.
+        :param Sequence[str] values: A list of attribute values used for comparison.
+        :param str field_name: A field defined within an object type.
+        :param str source: An attribute contained within a source object.
+        """
+        pulumi.set(__self__, "comparison_operator", comparison_operator)
+        pulumi.set(__self__, "values", values)
+        if field_name is not None:
+            pulumi.set(__self__, "field_name", field_name)
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+
+    @property
+    @pulumi.getter(name="comparisonOperator")
+    def comparison_operator(self) -> 'EventTriggerObjectAttributeComparisonOperator':
+        """
+        The operator used to compare an attribute against a list of values.
+        """
+        return pulumi.get(self, "comparison_operator")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        A list of attribute values used for comparison.
+        """
+        return pulumi.get(self, "values")
+
+    @property
+    @pulumi.getter(name="fieldName")
+    def field_name(self) -> Optional[str]:
+        """
+        A field defined within an object type.
+        """
+        return pulumi.get(self, "field_name")
+
+    @property
+    @pulumi.getter
+    def source(self) -> Optional[str]:
+        """
+        An attribute contained within a source object.
+        """
+        return pulumi.get(self, "source")
+
+
+@pulumi.output_type
+class EventTriggerPeriod(dict):
+    """
+    Defines a limit and the time period during which it is enforced.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxInvocationsPerProfile":
+            suggest = "max_invocations_per_profile"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EventTriggerPeriod. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EventTriggerPeriod.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EventTriggerPeriod.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 unit: 'EventTriggerPeriodUnit',
+                 value: int,
+                 max_invocations_per_profile: Optional[int] = None,
+                 unlimited: Optional[bool] = None):
+        """
+        Defines a limit and the time period during which it is enforced.
+        :param 'EventTriggerPeriodUnit' unit: The unit of time.
+        :param int value: The amount of time of the specified unit.
+        :param int max_invocations_per_profile: The maximum allowed number of destination invocations per profile.
+        :param bool unlimited: If set to true, there is no limit on the number of destination invocations per profile. The default is false.
+        """
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
+        if max_invocations_per_profile is not None:
+            pulumi.set(__self__, "max_invocations_per_profile", max_invocations_per_profile)
+        if unlimited is not None:
+            pulumi.set(__self__, "unlimited", unlimited)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> 'EventTriggerPeriodUnit':
+        """
+        The unit of time.
+        """
+        return pulumi.get(self, "unit")
+
+    @property
+    @pulumi.getter
+    def value(self) -> int:
+        """
+        The amount of time of the specified unit.
+        """
+        return pulumi.get(self, "value")
+
+    @property
+    @pulumi.getter(name="maxInvocationsPerProfile")
+    def max_invocations_per_profile(self) -> Optional[int]:
+        """
+        The maximum allowed number of destination invocations per profile.
+        """
+        return pulumi.get(self, "max_invocations_per_profile")
+
+    @property
+    @pulumi.getter
+    def unlimited(self) -> Optional[bool]:
+        """
+        If set to true, there is no limit on the number of destination invocations per profile. The default is false.
+        """
+        return pulumi.get(self, "unlimited")
 
 
 @pulumi.output_type

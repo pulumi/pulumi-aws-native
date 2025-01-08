@@ -28,6 +28,10 @@ namespace Pulumi.AwsNative.CleanRooms.Outputs
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.CleanRooms.CollaborationMemberAbility> MemberAbilities;
         /// <summary>
+        /// The ML abilities granted to the collaboration member.
+        /// </summary>
+        public readonly Outputs.CollaborationMlMemberAbilities? MlMemberAbilities;
+        /// <summary>
         /// The collaboration member's payment responsibilities set by the collaboration creator.
         /// 
         /// If the collaboration creator hasn't speciﬁed anyone as the member paying for query compute costs, then the member who can query is the default payer.
@@ -42,11 +46,14 @@ namespace Pulumi.AwsNative.CleanRooms.Outputs
 
             ImmutableArray<Pulumi.AwsNative.CleanRooms.CollaborationMemberAbility> memberAbilities,
 
+            Outputs.CollaborationMlMemberAbilities? mlMemberAbilities,
+
             Outputs.CollaborationPaymentConfiguration? paymentConfiguration)
         {
             AccountId = accountId;
             DisplayName = displayName;
             MemberAbilities = memberAbilities;
+            MlMemberAbilities = mlMemberAbilities;
             PaymentConfiguration = paymentConfiguration;
         }
     }

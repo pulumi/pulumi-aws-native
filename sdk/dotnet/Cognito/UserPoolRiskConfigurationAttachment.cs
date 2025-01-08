@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.Cognito
     public partial class UserPoolRiskConfigurationAttachment : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The settings for automated responses and notification templates for adaptive authentication with advanced security features.
+        /// The settings for automated responses and notification templates for adaptive authentication with threat protection.
         /// </summary>
         [Output("accountTakeoverRiskConfiguration")]
         public Output<Outputs.UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationType?> AccountTakeoverRiskConfiguration { get; private set; } = null!;
@@ -28,7 +28,7 @@ namespace Pulumi.AwsNative.Cognito
         public Output<string> ClientId { get; private set; } = null!;
 
         /// <summary>
-        /// Settings for compromised-credentials actions and authentication types with advanced security features in full-function `ENFORCED` mode.
+        /// Settings for compromised-credentials actions and authentication types with threat protection in full-function `ENFORCED` mode.
         /// </summary>
         [Output("compromisedCredentialsRiskConfiguration")]
         public Output<Outputs.UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationType?> CompromisedCredentialsRiskConfiguration { get; private set; } = null!;
@@ -96,7 +96,7 @@ namespace Pulumi.AwsNative.Cognito
     public sealed class UserPoolRiskConfigurationAttachmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The settings for automated responses and notification templates for adaptive authentication with advanced security features.
+        /// The settings for automated responses and notification templates for adaptive authentication with threat protection.
         /// </summary>
         [Input("accountTakeoverRiskConfiguration")]
         public Input<Inputs.UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeArgs>? AccountTakeoverRiskConfiguration { get; set; }
@@ -108,7 +108,7 @@ namespace Pulumi.AwsNative.Cognito
         public Input<string> ClientId { get; set; } = null!;
 
         /// <summary>
-        /// Settings for compromised-credentials actions and authentication types with advanced security features in full-function `ENFORCED` mode.
+        /// Settings for compromised-credentials actions and authentication types with threat protection in full-function `ENFORCED` mode.
         /// </summary>
         [Input("compromisedCredentialsRiskConfiguration")]
         public Input<Inputs.UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypeArgs>? CompromisedCredentialsRiskConfiguration { get; set; }

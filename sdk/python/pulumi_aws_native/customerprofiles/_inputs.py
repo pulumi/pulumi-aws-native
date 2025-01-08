@@ -46,6 +46,16 @@ __all__ = [
     'DomainRuleBasedMatchingArgsDict',
     'DomainS3ExportingConfigArgs',
     'DomainS3ExportingConfigArgsDict',
+    'EventTriggerConditionArgs',
+    'EventTriggerConditionArgsDict',
+    'EventTriggerDimensionArgs',
+    'EventTriggerDimensionArgsDict',
+    'EventTriggerLimitsArgs',
+    'EventTriggerLimitsArgsDict',
+    'EventTriggerObjectAttributeArgs',
+    'EventTriggerObjectAttributeArgsDict',
+    'EventTriggerPeriodArgs',
+    'EventTriggerPeriodArgsDict',
     'IntegrationConnectorOperatorArgs',
     'IntegrationConnectorOperatorArgsDict',
     'IntegrationFlowDefinitionArgs',
@@ -1105,6 +1115,304 @@ class DomainS3ExportingConfigArgs:
     @s3_key_name.setter
     def s3_key_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "s3_key_name", value)
+
+
+if not MYPY:
+    class EventTriggerConditionArgsDict(TypedDict):
+        """
+        Specifies the circumstances under which the event should trigger the destination.
+        """
+        event_trigger_dimensions: pulumi.Input[Sequence[pulumi.Input['EventTriggerDimensionArgsDict']]]
+        logical_operator: pulumi.Input['EventTriggerLogicalOperator']
+elif False:
+    EventTriggerConditionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class EventTriggerConditionArgs:
+    def __init__(__self__, *,
+                 event_trigger_dimensions: pulumi.Input[Sequence[pulumi.Input['EventTriggerDimensionArgs']]],
+                 logical_operator: pulumi.Input['EventTriggerLogicalOperator']):
+        """
+        Specifies the circumstances under which the event should trigger the destination.
+        """
+        pulumi.set(__self__, "event_trigger_dimensions", event_trigger_dimensions)
+        pulumi.set(__self__, "logical_operator", logical_operator)
+
+    @property
+    @pulumi.getter(name="eventTriggerDimensions")
+    def event_trigger_dimensions(self) -> pulumi.Input[Sequence[pulumi.Input['EventTriggerDimensionArgs']]]:
+        return pulumi.get(self, "event_trigger_dimensions")
+
+    @event_trigger_dimensions.setter
+    def event_trigger_dimensions(self, value: pulumi.Input[Sequence[pulumi.Input['EventTriggerDimensionArgs']]]):
+        pulumi.set(self, "event_trigger_dimensions", value)
+
+    @property
+    @pulumi.getter(name="logicalOperator")
+    def logical_operator(self) -> pulumi.Input['EventTriggerLogicalOperator']:
+        return pulumi.get(self, "logical_operator")
+
+    @logical_operator.setter
+    def logical_operator(self, value: pulumi.Input['EventTriggerLogicalOperator']):
+        pulumi.set(self, "logical_operator", value)
+
+
+if not MYPY:
+    class EventTriggerDimensionArgsDict(TypedDict):
+        """
+        A specific event dimension to be assessed.
+        """
+        object_attributes: pulumi.Input[Sequence[pulumi.Input['EventTriggerObjectAttributeArgsDict']]]
+elif False:
+    EventTriggerDimensionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class EventTriggerDimensionArgs:
+    def __init__(__self__, *,
+                 object_attributes: pulumi.Input[Sequence[pulumi.Input['EventTriggerObjectAttributeArgs']]]):
+        """
+        A specific event dimension to be assessed.
+        """
+        pulumi.set(__self__, "object_attributes", object_attributes)
+
+    @property
+    @pulumi.getter(name="objectAttributes")
+    def object_attributes(self) -> pulumi.Input[Sequence[pulumi.Input['EventTriggerObjectAttributeArgs']]]:
+        return pulumi.get(self, "object_attributes")
+
+    @object_attributes.setter
+    def object_attributes(self, value: pulumi.Input[Sequence[pulumi.Input['EventTriggerObjectAttributeArgs']]]):
+        pulumi.set(self, "object_attributes", value)
+
+
+if not MYPY:
+    class EventTriggerLimitsArgsDict(TypedDict):
+        """
+        Defines limits controlling whether an event triggers the destination, based on ingestion latency and the number of invocations per profile over specific time periods.
+        """
+        event_expiration: NotRequired[pulumi.Input[int]]
+        periods: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventTriggerPeriodArgsDict']]]]
+elif False:
+    EventTriggerLimitsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class EventTriggerLimitsArgs:
+    def __init__(__self__, *,
+                 event_expiration: Optional[pulumi.Input[int]] = None,
+                 periods: Optional[pulumi.Input[Sequence[pulumi.Input['EventTriggerPeriodArgs']]]] = None):
+        """
+        Defines limits controlling whether an event triggers the destination, based on ingestion latency and the number of invocations per profile over specific time periods.
+        """
+        if event_expiration is not None:
+            pulumi.set(__self__, "event_expiration", event_expiration)
+        if periods is not None:
+            pulumi.set(__self__, "periods", periods)
+
+    @property
+    @pulumi.getter(name="eventExpiration")
+    def event_expiration(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "event_expiration")
+
+    @event_expiration.setter
+    def event_expiration(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "event_expiration", value)
+
+    @property
+    @pulumi.getter
+    def periods(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventTriggerPeriodArgs']]]]:
+        return pulumi.get(self, "periods")
+
+    @periods.setter
+    def periods(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventTriggerPeriodArgs']]]]):
+        pulumi.set(self, "periods", value)
+
+
+if not MYPY:
+    class EventTriggerObjectAttributeArgsDict(TypedDict):
+        """
+        The criteria that a specific object attribute must meet to trigger the destination.
+        """
+        comparison_operator: pulumi.Input['EventTriggerObjectAttributeComparisonOperator']
+        """
+        The operator used to compare an attribute against a list of values.
+        """
+        values: pulumi.Input[Sequence[pulumi.Input[str]]]
+        """
+        A list of attribute values used for comparison.
+        """
+        field_name: NotRequired[pulumi.Input[str]]
+        """
+        A field defined within an object type.
+        """
+        source: NotRequired[pulumi.Input[str]]
+        """
+        An attribute contained within a source object.
+        """
+elif False:
+    EventTriggerObjectAttributeArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class EventTriggerObjectAttributeArgs:
+    def __init__(__self__, *,
+                 comparison_operator: pulumi.Input['EventTriggerObjectAttributeComparisonOperator'],
+                 values: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 field_name: Optional[pulumi.Input[str]] = None,
+                 source: Optional[pulumi.Input[str]] = None):
+        """
+        The criteria that a specific object attribute must meet to trigger the destination.
+        :param pulumi.Input['EventTriggerObjectAttributeComparisonOperator'] comparison_operator: The operator used to compare an attribute against a list of values.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] values: A list of attribute values used for comparison.
+        :param pulumi.Input[str] field_name: A field defined within an object type.
+        :param pulumi.Input[str] source: An attribute contained within a source object.
+        """
+        pulumi.set(__self__, "comparison_operator", comparison_operator)
+        pulumi.set(__self__, "values", values)
+        if field_name is not None:
+            pulumi.set(__self__, "field_name", field_name)
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+
+    @property
+    @pulumi.getter(name="comparisonOperator")
+    def comparison_operator(self) -> pulumi.Input['EventTriggerObjectAttributeComparisonOperator']:
+        """
+        The operator used to compare an attribute against a list of values.
+        """
+        return pulumi.get(self, "comparison_operator")
+
+    @comparison_operator.setter
+    def comparison_operator(self, value: pulumi.Input['EventTriggerObjectAttributeComparisonOperator']):
+        pulumi.set(self, "comparison_operator", value)
+
+    @property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of attribute values used for comparison.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "values", value)
+
+    @property
+    @pulumi.getter(name="fieldName")
+    def field_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        A field defined within an object type.
+        """
+        return pulumi.get(self, "field_name")
+
+    @field_name.setter
+    def field_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "field_name", value)
+
+    @property
+    @pulumi.getter
+    def source(self) -> Optional[pulumi.Input[str]]:
+        """
+        An attribute contained within a source object.
+        """
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source", value)
+
+
+if not MYPY:
+    class EventTriggerPeriodArgsDict(TypedDict):
+        """
+        Defines a limit and the time period during which it is enforced.
+        """
+        unit: pulumi.Input['EventTriggerPeriodUnit']
+        """
+        The unit of time.
+        """
+        value: pulumi.Input[int]
+        """
+        The amount of time of the specified unit.
+        """
+        max_invocations_per_profile: NotRequired[pulumi.Input[int]]
+        """
+        The maximum allowed number of destination invocations per profile.
+        """
+        unlimited: NotRequired[pulumi.Input[bool]]
+        """
+        If set to true, there is no limit on the number of destination invocations per profile. The default is false.
+        """
+elif False:
+    EventTriggerPeriodArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class EventTriggerPeriodArgs:
+    def __init__(__self__, *,
+                 unit: pulumi.Input['EventTriggerPeriodUnit'],
+                 value: pulumi.Input[int],
+                 max_invocations_per_profile: Optional[pulumi.Input[int]] = None,
+                 unlimited: Optional[pulumi.Input[bool]] = None):
+        """
+        Defines a limit and the time period during which it is enforced.
+        :param pulumi.Input['EventTriggerPeriodUnit'] unit: The unit of time.
+        :param pulumi.Input[int] value: The amount of time of the specified unit.
+        :param pulumi.Input[int] max_invocations_per_profile: The maximum allowed number of destination invocations per profile.
+        :param pulumi.Input[bool] unlimited: If set to true, there is no limit on the number of destination invocations per profile. The default is false.
+        """
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
+        if max_invocations_per_profile is not None:
+            pulumi.set(__self__, "max_invocations_per_profile", max_invocations_per_profile)
+        if unlimited is not None:
+            pulumi.set(__self__, "unlimited", unlimited)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> pulumi.Input['EventTriggerPeriodUnit']:
+        """
+        The unit of time.
+        """
+        return pulumi.get(self, "unit")
+
+    @unit.setter
+    def unit(self, value: pulumi.Input['EventTriggerPeriodUnit']):
+        pulumi.set(self, "unit", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[int]:
+        """
+        The amount of time of the specified unit.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[int]):
+        pulumi.set(self, "value", value)
+
+    @property
+    @pulumi.getter(name="maxInvocationsPerProfile")
+    def max_invocations_per_profile(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum allowed number of destination invocations per profile.
+        """
+        return pulumi.get(self, "max_invocations_per_profile")
+
+    @max_invocations_per_profile.setter
+    def max_invocations_per_profile(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_invocations_per_profile", value)
+
+    @property
+    @pulumi.getter
+    def unlimited(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If set to true, there is no limit on the number of destination invocations per profile. The default is false.
+        """
+        return pulumi.get(self, "unlimited")
+
+    @unlimited.setter
+    def unlimited(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "unlimited", value)
 
 
 if not MYPY:

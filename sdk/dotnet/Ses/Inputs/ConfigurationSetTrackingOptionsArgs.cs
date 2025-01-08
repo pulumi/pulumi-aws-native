@@ -21,6 +21,12 @@ namespace Pulumi.AwsNative.Ses.Inputs
         [Input("customRedirectDomain")]
         public Input<string>? CustomRedirectDomain { get; set; }
 
+        /// <summary>
+        /// The https policy to use for tracking open and click events.
+        /// </summary>
+        [Input("httpsPolicy")]
+        public Input<string>? HttpsPolicy { get; set; }
+
         public ConfigurationSetTrackingOptionsArgs()
         {
         }

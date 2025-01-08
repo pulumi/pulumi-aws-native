@@ -25,12 +25,12 @@ func LookupUserPoolUiCustomizationAttachment(ctx *pulumi.Context, args *LookupUs
 type LookupUserPoolUiCustomizationAttachmentArgs struct {
 	// The app client ID for your UI customization. When this value isn't present, the customization applies to all user pool app clients that don't have client-level settings..
 	ClientId string `pulumi:"clientId"`
-	// The ID of the user pool.
+	// The ID of the user pool where you want to apply branding to the classic hosted UI.
 	UserPoolId string `pulumi:"userPoolId"`
 }
 
 type LookupUserPoolUiCustomizationAttachmentResult struct {
-	// The CSS values in the UI customization.
+	// A plaintext CSS file that contains the custom fields that you want to apply to your user pool or app client. To download a template, go to the Amazon Cognito console. Navigate to your user pool *App clients* tab, select *Login pages* , edit *Hosted UI (classic) style* , and select the link to `CSS template.css` .
 	Css *string `pulumi:"css"`
 }
 
@@ -46,7 +46,7 @@ func LookupUserPoolUiCustomizationAttachmentOutput(ctx *pulumi.Context, args Loo
 type LookupUserPoolUiCustomizationAttachmentOutputArgs struct {
 	// The app client ID for your UI customization. When this value isn't present, the customization applies to all user pool app clients that don't have client-level settings..
 	ClientId pulumi.StringInput `pulumi:"clientId"`
-	// The ID of the user pool.
+	// The ID of the user pool where you want to apply branding to the classic hosted UI.
 	UserPoolId pulumi.StringInput `pulumi:"userPoolId"`
 }
 
@@ -68,7 +68,7 @@ func (o LookupUserPoolUiCustomizationAttachmentResultOutput) ToLookupUserPoolUiC
 	return o
 }
 
-// The CSS values in the UI customization.
+// A plaintext CSS file that contains the custom fields that you want to apply to your user pool or app client. To download a template, go to the Amazon Cognito console. Navigate to your user pool *App clients* tab, select *Login pages* , edit *Hosted UI (classic) style* , and select the link to `CSS template.css` .
 func (o LookupUserPoolUiCustomizationAttachmentResultOutput) Css() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupUserPoolUiCustomizationAttachmentResult) *string { return v.Css }).(pulumi.StringPtrOutput)
 }

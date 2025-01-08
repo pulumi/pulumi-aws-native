@@ -14,6 +14,9 @@ __all__ = [
     'DomainRuleBasedMatchingStatus',
     'EventStreamState',
     'EventStreamStatus',
+    'EventTriggerLogicalOperator',
+    'EventTriggerObjectAttributeComparisonOperator',
+    'EventTriggerPeriodUnit',
     'IntegrationConnectorType',
     'IntegrationMarketoConnectorOperator',
     'IntegrationOperatorPropertiesKeys',
@@ -117,6 +120,46 @@ class EventStreamStatus(str, Enum):
     """
     HEALTHY = "HEALTHY"
     UNHEALTHY = "UNHEALTHY"
+
+
+class EventTriggerLogicalOperator(str, Enum):
+    """
+    The operator used to combine multiple dimensions.
+    """
+    ANY = "ANY"
+    ALL = "ALL"
+    NONE = "NONE"
+
+
+class EventTriggerObjectAttributeComparisonOperator(str, Enum):
+    """
+    The operator used to compare an attribute against a list of values.
+    """
+    INCLUSIVE = "INCLUSIVE"
+    EXCLUSIVE = "EXCLUSIVE"
+    CONTAINS = "CONTAINS"
+    BEGINS_WITH = "BEGINS_WITH"
+    ENDS_WITH = "ENDS_WITH"
+    GREATER_THAN = "GREATER_THAN"
+    LESS_THAN = "LESS_THAN"
+    GREATER_THAN_OR_EQUAL = "GREATER_THAN_OR_EQUAL"
+    LESS_THAN_OR_EQUAL = "LESS_THAN_OR_EQUAL"
+    EQUAL = "EQUAL"
+    BEFORE = "BEFORE"
+    AFTER = "AFTER"
+    ON = "ON"
+    BETWEEN = "BETWEEN"
+    NOT_BETWEEN = "NOT_BETWEEN"
+
+
+class EventTriggerPeriodUnit(str, Enum):
+    """
+    The unit of time.
+    """
+    HOURS = "HOURS"
+    DAYS = "DAYS"
+    WEEKS = "WEEKS"
+    MONTHS = "MONTHS"
 
 
 class IntegrationConnectorType(str, Enum):

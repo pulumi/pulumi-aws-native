@@ -40,7 +40,7 @@ namespace Pulumi.AwsNative.Cognito
         public string ClientId { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the user pool.
+        /// The ID of the user pool where you want to apply branding to the classic hosted UI.
         /// </summary>
         [Input("userPoolId", required: true)]
         public string UserPoolId { get; set; } = null!;
@@ -60,7 +60,7 @@ namespace Pulumi.AwsNative.Cognito
         public Input<string> ClientId { get; set; } = null!;
 
         /// <summary>
-        /// The ID of the user pool.
+        /// The ID of the user pool where you want to apply branding to the classic hosted UI.
         /// </summary>
         [Input("userPoolId", required: true)]
         public Input<string> UserPoolId { get; set; } = null!;
@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.Cognito
     public sealed class GetUserPoolUiCustomizationAttachmentResult
     {
         /// <summary>
-        /// The CSS values in the UI customization.
+        /// A plaintext CSS file that contains the custom fields that you want to apply to your user pool or app client. To download a template, go to the Amazon Cognito console. Navigate to your user pool *App clients* tab, select *Login pages* , edit *Hosted UI (classic) style* , and select the link to `CSS template.css` .
         /// </summary>
         public readonly string? Css;
 

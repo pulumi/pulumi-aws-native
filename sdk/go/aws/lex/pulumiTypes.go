@@ -8899,6 +8899,146 @@ func (o BotPromptSpecificationPtrOutput) PromptAttemptsSpecification() BotPrompt
 	}).(BotPromptAttemptSpecificationMapOutput)
 }
 
+// Parameter used to create a replication of the source bot in the secondary region.
+type BotReplication struct {
+	// List of secondary regions for bot replication.
+	ReplicaRegions []string `pulumi:"replicaRegions"`
+}
+
+// BotReplicationInput is an input type that accepts BotReplicationArgs and BotReplicationOutput values.
+// You can construct a concrete instance of `BotReplicationInput` via:
+//
+//	BotReplicationArgs{...}
+type BotReplicationInput interface {
+	pulumi.Input
+
+	ToBotReplicationOutput() BotReplicationOutput
+	ToBotReplicationOutputWithContext(context.Context) BotReplicationOutput
+}
+
+// Parameter used to create a replication of the source bot in the secondary region.
+type BotReplicationArgs struct {
+	// List of secondary regions for bot replication.
+	ReplicaRegions pulumi.StringArrayInput `pulumi:"replicaRegions"`
+}
+
+func (BotReplicationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotReplication)(nil)).Elem()
+}
+
+func (i BotReplicationArgs) ToBotReplicationOutput() BotReplicationOutput {
+	return i.ToBotReplicationOutputWithContext(context.Background())
+}
+
+func (i BotReplicationArgs) ToBotReplicationOutputWithContext(ctx context.Context) BotReplicationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotReplicationOutput)
+}
+
+func (i BotReplicationArgs) ToBotReplicationPtrOutput() BotReplicationPtrOutput {
+	return i.ToBotReplicationPtrOutputWithContext(context.Background())
+}
+
+func (i BotReplicationArgs) ToBotReplicationPtrOutputWithContext(ctx context.Context) BotReplicationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotReplicationOutput).ToBotReplicationPtrOutputWithContext(ctx)
+}
+
+// BotReplicationPtrInput is an input type that accepts BotReplicationArgs, BotReplicationPtr and BotReplicationPtrOutput values.
+// You can construct a concrete instance of `BotReplicationPtrInput` via:
+//
+//	        BotReplicationArgs{...}
+//
+//	or:
+//
+//	        nil
+type BotReplicationPtrInput interface {
+	pulumi.Input
+
+	ToBotReplicationPtrOutput() BotReplicationPtrOutput
+	ToBotReplicationPtrOutputWithContext(context.Context) BotReplicationPtrOutput
+}
+
+type botReplicationPtrType BotReplicationArgs
+
+func BotReplicationPtr(v *BotReplicationArgs) BotReplicationPtrInput {
+	return (*botReplicationPtrType)(v)
+}
+
+func (*botReplicationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotReplication)(nil)).Elem()
+}
+
+func (i *botReplicationPtrType) ToBotReplicationPtrOutput() BotReplicationPtrOutput {
+	return i.ToBotReplicationPtrOutputWithContext(context.Background())
+}
+
+func (i *botReplicationPtrType) ToBotReplicationPtrOutputWithContext(ctx context.Context) BotReplicationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BotReplicationPtrOutput)
+}
+
+// Parameter used to create a replication of the source bot in the secondary region.
+type BotReplicationOutput struct{ *pulumi.OutputState }
+
+func (BotReplicationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BotReplication)(nil)).Elem()
+}
+
+func (o BotReplicationOutput) ToBotReplicationOutput() BotReplicationOutput {
+	return o
+}
+
+func (o BotReplicationOutput) ToBotReplicationOutputWithContext(ctx context.Context) BotReplicationOutput {
+	return o
+}
+
+func (o BotReplicationOutput) ToBotReplicationPtrOutput() BotReplicationPtrOutput {
+	return o.ToBotReplicationPtrOutputWithContext(context.Background())
+}
+
+func (o BotReplicationOutput) ToBotReplicationPtrOutputWithContext(ctx context.Context) BotReplicationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotReplication) *BotReplication {
+		return &v
+	}).(BotReplicationPtrOutput)
+}
+
+// List of secondary regions for bot replication.
+func (o BotReplicationOutput) ReplicaRegions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BotReplication) []string { return v.ReplicaRegions }).(pulumi.StringArrayOutput)
+}
+
+type BotReplicationPtrOutput struct{ *pulumi.OutputState }
+
+func (BotReplicationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BotReplication)(nil)).Elem()
+}
+
+func (o BotReplicationPtrOutput) ToBotReplicationPtrOutput() BotReplicationPtrOutput {
+	return o
+}
+
+func (o BotReplicationPtrOutput) ToBotReplicationPtrOutputWithContext(ctx context.Context) BotReplicationPtrOutput {
+	return o
+}
+
+func (o BotReplicationPtrOutput) Elem() BotReplicationOutput {
+	return o.ApplyT(func(v *BotReplication) BotReplication {
+		if v != nil {
+			return *v
+		}
+		var ret BotReplication
+		return ret
+	}).(BotReplicationOutput)
+}
+
+// List of secondary regions for bot replication.
+func (o BotReplicationPtrOutput) ReplicaRegions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BotReplication) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ReplicaRegions
+	}).(pulumi.StringArrayOutput)
+}
+
 // A list of message groups that Amazon Lex uses to respond the user input.
 type BotResponseSpecification struct {
 	// Indicates whether the user can interrupt a speech prompt from the bot.
@@ -13580,6 +13720,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BotPromptAttemptSpecificationMapInput)(nil)).Elem(), BotPromptAttemptSpecificationMap{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotPromptSpecificationInput)(nil)).Elem(), BotPromptSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotPromptSpecificationPtrInput)(nil)).Elem(), BotPromptSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotReplicationInput)(nil)).Elem(), BotReplicationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotReplicationPtrInput)(nil)).Elem(), BotReplicationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotResponseSpecificationInput)(nil)).Elem(), BotResponseSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotResponseSpecificationPtrInput)(nil)).Elem(), BotResponseSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotS3BucketLogDestinationInput)(nil)).Elem(), BotS3BucketLogDestinationArgs{})
@@ -13754,6 +13896,8 @@ func init() {
 	pulumi.RegisterOutputType(BotPromptAttemptSpecificationMapOutput{})
 	pulumi.RegisterOutputType(BotPromptSpecificationOutput{})
 	pulumi.RegisterOutputType(BotPromptSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(BotReplicationOutput{})
+	pulumi.RegisterOutputType(BotReplicationPtrOutput{})
 	pulumi.RegisterOutputType(BotResponseSpecificationOutput{})
 	pulumi.RegisterOutputType(BotResponseSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(BotS3BucketLogDestinationOutput{})

@@ -1329,6 +1329,7 @@ _utilities.register(
    "aws-native:customerprofiles:CalculatedAttributeDefinition": "CalculatedAttributeDefinition",
    "aws-native:customerprofiles:Domain": "Domain",
    "aws-native:customerprofiles:EventStream": "EventStream",
+   "aws-native:customerprofiles:EventTrigger": "EventTrigger",
    "aws-native:customerprofiles:Integration": "Integration",
    "aws-native:customerprofiles:ObjectType": "ObjectType",
    "aws-native:customerprofiles:SegmentDefinition": "SegmentDefinition"

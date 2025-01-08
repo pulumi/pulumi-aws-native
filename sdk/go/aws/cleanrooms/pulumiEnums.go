@@ -557,6 +557,216 @@ func (in *collaborationAnalyticsEnginePtr) ToCollaborationAnalyticsEnginePtrOutp
 	return pulumi.ToOutputWithContext(ctx, in).(CollaborationAnalyticsEnginePtrOutput)
 }
 
+type CollaborationCustomMlMemberAbility string
+
+const (
+	CollaborationCustomMlMemberAbilityCanReceiveModelOutput     = CollaborationCustomMlMemberAbility("CAN_RECEIVE_MODEL_OUTPUT")
+	CollaborationCustomMlMemberAbilityCanReceiveInferenceOutput = CollaborationCustomMlMemberAbility("CAN_RECEIVE_INFERENCE_OUTPUT")
+)
+
+func (CollaborationCustomMlMemberAbility) ElementType() reflect.Type {
+	return reflect.TypeOf((*CollaborationCustomMlMemberAbility)(nil)).Elem()
+}
+
+func (e CollaborationCustomMlMemberAbility) ToCollaborationCustomMlMemberAbilityOutput() CollaborationCustomMlMemberAbilityOutput {
+	return pulumi.ToOutput(e).(CollaborationCustomMlMemberAbilityOutput)
+}
+
+func (e CollaborationCustomMlMemberAbility) ToCollaborationCustomMlMemberAbilityOutputWithContext(ctx context.Context) CollaborationCustomMlMemberAbilityOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CollaborationCustomMlMemberAbilityOutput)
+}
+
+func (e CollaborationCustomMlMemberAbility) ToCollaborationCustomMlMemberAbilityPtrOutput() CollaborationCustomMlMemberAbilityPtrOutput {
+	return e.ToCollaborationCustomMlMemberAbilityPtrOutputWithContext(context.Background())
+}
+
+func (e CollaborationCustomMlMemberAbility) ToCollaborationCustomMlMemberAbilityPtrOutputWithContext(ctx context.Context) CollaborationCustomMlMemberAbilityPtrOutput {
+	return CollaborationCustomMlMemberAbility(e).ToCollaborationCustomMlMemberAbilityOutputWithContext(ctx).ToCollaborationCustomMlMemberAbilityPtrOutputWithContext(ctx)
+}
+
+func (e CollaborationCustomMlMemberAbility) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CollaborationCustomMlMemberAbility) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CollaborationCustomMlMemberAbility) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CollaborationCustomMlMemberAbility) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type CollaborationCustomMlMemberAbilityOutput struct{ *pulumi.OutputState }
+
+func (CollaborationCustomMlMemberAbilityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CollaborationCustomMlMemberAbility)(nil)).Elem()
+}
+
+func (o CollaborationCustomMlMemberAbilityOutput) ToCollaborationCustomMlMemberAbilityOutput() CollaborationCustomMlMemberAbilityOutput {
+	return o
+}
+
+func (o CollaborationCustomMlMemberAbilityOutput) ToCollaborationCustomMlMemberAbilityOutputWithContext(ctx context.Context) CollaborationCustomMlMemberAbilityOutput {
+	return o
+}
+
+func (o CollaborationCustomMlMemberAbilityOutput) ToCollaborationCustomMlMemberAbilityPtrOutput() CollaborationCustomMlMemberAbilityPtrOutput {
+	return o.ToCollaborationCustomMlMemberAbilityPtrOutputWithContext(context.Background())
+}
+
+func (o CollaborationCustomMlMemberAbilityOutput) ToCollaborationCustomMlMemberAbilityPtrOutputWithContext(ctx context.Context) CollaborationCustomMlMemberAbilityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CollaborationCustomMlMemberAbility) *CollaborationCustomMlMemberAbility {
+		return &v
+	}).(CollaborationCustomMlMemberAbilityPtrOutput)
+}
+
+func (o CollaborationCustomMlMemberAbilityOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CollaborationCustomMlMemberAbilityOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CollaborationCustomMlMemberAbility) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CollaborationCustomMlMemberAbilityOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CollaborationCustomMlMemberAbilityOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CollaborationCustomMlMemberAbility) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CollaborationCustomMlMemberAbilityPtrOutput struct{ *pulumi.OutputState }
+
+func (CollaborationCustomMlMemberAbilityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CollaborationCustomMlMemberAbility)(nil)).Elem()
+}
+
+func (o CollaborationCustomMlMemberAbilityPtrOutput) ToCollaborationCustomMlMemberAbilityPtrOutput() CollaborationCustomMlMemberAbilityPtrOutput {
+	return o
+}
+
+func (o CollaborationCustomMlMemberAbilityPtrOutput) ToCollaborationCustomMlMemberAbilityPtrOutputWithContext(ctx context.Context) CollaborationCustomMlMemberAbilityPtrOutput {
+	return o
+}
+
+func (o CollaborationCustomMlMemberAbilityPtrOutput) Elem() CollaborationCustomMlMemberAbilityOutput {
+	return o.ApplyT(func(v *CollaborationCustomMlMemberAbility) CollaborationCustomMlMemberAbility {
+		if v != nil {
+			return *v
+		}
+		var ret CollaborationCustomMlMemberAbility
+		return ret
+	}).(CollaborationCustomMlMemberAbilityOutput)
+}
+
+func (o CollaborationCustomMlMemberAbilityPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CollaborationCustomMlMemberAbilityPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CollaborationCustomMlMemberAbility) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// CollaborationCustomMlMemberAbilityInput is an input type that accepts values of the CollaborationCustomMlMemberAbility enum
+// A concrete instance of `CollaborationCustomMlMemberAbilityInput` can be one of the following:
+//
+//	CollaborationCustomMlMemberAbilityCanReceiveModelOutput
+//	CollaborationCustomMlMemberAbilityCanReceiveInferenceOutput
+type CollaborationCustomMlMemberAbilityInput interface {
+	pulumi.Input
+
+	ToCollaborationCustomMlMemberAbilityOutput() CollaborationCustomMlMemberAbilityOutput
+	ToCollaborationCustomMlMemberAbilityOutputWithContext(context.Context) CollaborationCustomMlMemberAbilityOutput
+}
+
+var collaborationCustomMlMemberAbilityPtrType = reflect.TypeOf((**CollaborationCustomMlMemberAbility)(nil)).Elem()
+
+type CollaborationCustomMlMemberAbilityPtrInput interface {
+	pulumi.Input
+
+	ToCollaborationCustomMlMemberAbilityPtrOutput() CollaborationCustomMlMemberAbilityPtrOutput
+	ToCollaborationCustomMlMemberAbilityPtrOutputWithContext(context.Context) CollaborationCustomMlMemberAbilityPtrOutput
+}
+
+type collaborationCustomMlMemberAbilityPtr string
+
+func CollaborationCustomMlMemberAbilityPtr(v string) CollaborationCustomMlMemberAbilityPtrInput {
+	return (*collaborationCustomMlMemberAbilityPtr)(&v)
+}
+
+func (*collaborationCustomMlMemberAbilityPtr) ElementType() reflect.Type {
+	return collaborationCustomMlMemberAbilityPtrType
+}
+
+func (in *collaborationCustomMlMemberAbilityPtr) ToCollaborationCustomMlMemberAbilityPtrOutput() CollaborationCustomMlMemberAbilityPtrOutput {
+	return pulumi.ToOutput(in).(CollaborationCustomMlMemberAbilityPtrOutput)
+}
+
+func (in *collaborationCustomMlMemberAbilityPtr) ToCollaborationCustomMlMemberAbilityPtrOutputWithContext(ctx context.Context) CollaborationCustomMlMemberAbilityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CollaborationCustomMlMemberAbilityPtrOutput)
+}
+
+// CollaborationCustomMlMemberAbilityArrayInput is an input type that accepts CollaborationCustomMlMemberAbilityArray and CollaborationCustomMlMemberAbilityArrayOutput values.
+// You can construct a concrete instance of `CollaborationCustomMlMemberAbilityArrayInput` via:
+//
+//	CollaborationCustomMlMemberAbilityArray{ CollaborationCustomMlMemberAbilityArgs{...} }
+type CollaborationCustomMlMemberAbilityArrayInput interface {
+	pulumi.Input
+
+	ToCollaborationCustomMlMemberAbilityArrayOutput() CollaborationCustomMlMemberAbilityArrayOutput
+	ToCollaborationCustomMlMemberAbilityArrayOutputWithContext(context.Context) CollaborationCustomMlMemberAbilityArrayOutput
+}
+
+type CollaborationCustomMlMemberAbilityArray []CollaborationCustomMlMemberAbility
+
+func (CollaborationCustomMlMemberAbilityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CollaborationCustomMlMemberAbility)(nil)).Elem()
+}
+
+func (i CollaborationCustomMlMemberAbilityArray) ToCollaborationCustomMlMemberAbilityArrayOutput() CollaborationCustomMlMemberAbilityArrayOutput {
+	return i.ToCollaborationCustomMlMemberAbilityArrayOutputWithContext(context.Background())
+}
+
+func (i CollaborationCustomMlMemberAbilityArray) ToCollaborationCustomMlMemberAbilityArrayOutputWithContext(ctx context.Context) CollaborationCustomMlMemberAbilityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CollaborationCustomMlMemberAbilityArrayOutput)
+}
+
+type CollaborationCustomMlMemberAbilityArrayOutput struct{ *pulumi.OutputState }
+
+func (CollaborationCustomMlMemberAbilityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CollaborationCustomMlMemberAbility)(nil)).Elem()
+}
+
+func (o CollaborationCustomMlMemberAbilityArrayOutput) ToCollaborationCustomMlMemberAbilityArrayOutput() CollaborationCustomMlMemberAbilityArrayOutput {
+	return o
+}
+
+func (o CollaborationCustomMlMemberAbilityArrayOutput) ToCollaborationCustomMlMemberAbilityArrayOutputWithContext(ctx context.Context) CollaborationCustomMlMemberAbilityArrayOutput {
+	return o
+}
+
+func (o CollaborationCustomMlMemberAbilityArrayOutput) Index(i pulumi.IntInput) CollaborationCustomMlMemberAbilityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CollaborationCustomMlMemberAbility {
+		return vs[0].([]CollaborationCustomMlMemberAbility)[vs[1].(int)]
+	}).(CollaborationCustomMlMemberAbilityOutput)
+}
+
 type CollaborationMemberAbility string
 
 const (
@@ -3408,6 +3618,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AnalysisTemplateFormatPtrInput)(nil)).Elem(), AnalysisTemplateFormat("SQL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationAnalyticsEngineInput)(nil)).Elem(), CollaborationAnalyticsEngine("CLEAN_ROOMS_SQL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationAnalyticsEnginePtrInput)(nil)).Elem(), CollaborationAnalyticsEngine("CLEAN_ROOMS_SQL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationCustomMlMemberAbilityInput)(nil)).Elem(), CollaborationCustomMlMemberAbility("CAN_RECEIVE_MODEL_OUTPUT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationCustomMlMemberAbilityPtrInput)(nil)).Elem(), CollaborationCustomMlMemberAbility("CAN_RECEIVE_MODEL_OUTPUT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationCustomMlMemberAbilityArrayInput)(nil)).Elem(), CollaborationCustomMlMemberAbilityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationMemberAbilityInput)(nil)).Elem(), CollaborationMemberAbility("CAN_QUERY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationMemberAbilityPtrInput)(nil)).Elem(), CollaborationMemberAbility("CAN_QUERY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationMemberAbilityArrayInput)(nil)).Elem(), CollaborationMemberAbilityArray{})
@@ -3447,6 +3660,9 @@ func init() {
 	pulumi.RegisterOutputType(AnalysisTemplateFormatPtrOutput{})
 	pulumi.RegisterOutputType(CollaborationAnalyticsEngineOutput{})
 	pulumi.RegisterOutputType(CollaborationAnalyticsEnginePtrOutput{})
+	pulumi.RegisterOutputType(CollaborationCustomMlMemberAbilityOutput{})
+	pulumi.RegisterOutputType(CollaborationCustomMlMemberAbilityPtrOutput{})
+	pulumi.RegisterOutputType(CollaborationCustomMlMemberAbilityArrayOutput{})
 	pulumi.RegisterOutputType(CollaborationMemberAbilityOutput{})
 	pulumi.RegisterOutputType(CollaborationMemberAbilityPtrOutput{})
 	pulumi.RegisterOutputType(CollaborationMemberAbilityArrayOutput{})

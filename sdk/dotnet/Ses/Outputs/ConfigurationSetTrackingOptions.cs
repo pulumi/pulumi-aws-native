@@ -20,11 +20,19 @@ namespace Pulumi.AwsNative.Ses.Outputs
         /// The domain to use for tracking open and click events.
         /// </summary>
         public readonly string? CustomRedirectDomain;
+        /// <summary>
+        /// The https policy to use for tracking open and click events.
+        /// </summary>
+        public readonly string? HttpsPolicy;
 
         [OutputConstructor]
-        private ConfigurationSetTrackingOptions(string? customRedirectDomain)
+        private ConfigurationSetTrackingOptions(
+            string? customRedirectDomain,
+
+            string? httpsPolicy)
         {
             CustomRedirectDomain = customRedirectDomain;
+            HttpsPolicy = httpsPolicy;
         }
     }
 }

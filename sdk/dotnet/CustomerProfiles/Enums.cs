@@ -299,6 +299,115 @@ namespace Pulumi.AwsNative.CustomerProfiles
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The operator used to combine multiple dimensions.
+    /// </summary>
+    [EnumType]
+    public readonly struct EventTriggerLogicalOperator : IEquatable<EventTriggerLogicalOperator>
+    {
+        private readonly string _value;
+
+        private EventTriggerLogicalOperator(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EventTriggerLogicalOperator Any { get; } = new EventTriggerLogicalOperator("ANY");
+        public static EventTriggerLogicalOperator All { get; } = new EventTriggerLogicalOperator("ALL");
+        public static EventTriggerLogicalOperator None { get; } = new EventTriggerLogicalOperator("NONE");
+
+        public static bool operator ==(EventTriggerLogicalOperator left, EventTriggerLogicalOperator right) => left.Equals(right);
+        public static bool operator !=(EventTriggerLogicalOperator left, EventTriggerLogicalOperator right) => !left.Equals(right);
+
+        public static explicit operator string(EventTriggerLogicalOperator value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EventTriggerLogicalOperator other && Equals(other);
+        public bool Equals(EventTriggerLogicalOperator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The operator used to compare an attribute against a list of values.
+    /// </summary>
+    [EnumType]
+    public readonly struct EventTriggerObjectAttributeComparisonOperator : IEquatable<EventTriggerObjectAttributeComparisonOperator>
+    {
+        private readonly string _value;
+
+        private EventTriggerObjectAttributeComparisonOperator(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EventTriggerObjectAttributeComparisonOperator Inclusive { get; } = new EventTriggerObjectAttributeComparisonOperator("INCLUSIVE");
+        public static EventTriggerObjectAttributeComparisonOperator Exclusive { get; } = new EventTriggerObjectAttributeComparisonOperator("EXCLUSIVE");
+        public static EventTriggerObjectAttributeComparisonOperator Contains { get; } = new EventTriggerObjectAttributeComparisonOperator("CONTAINS");
+        public static EventTriggerObjectAttributeComparisonOperator BeginsWith { get; } = new EventTriggerObjectAttributeComparisonOperator("BEGINS_WITH");
+        public static EventTriggerObjectAttributeComparisonOperator EndsWith { get; } = new EventTriggerObjectAttributeComparisonOperator("ENDS_WITH");
+        public static EventTriggerObjectAttributeComparisonOperator GreaterThan { get; } = new EventTriggerObjectAttributeComparisonOperator("GREATER_THAN");
+        public static EventTriggerObjectAttributeComparisonOperator LessThan { get; } = new EventTriggerObjectAttributeComparisonOperator("LESS_THAN");
+        public static EventTriggerObjectAttributeComparisonOperator GreaterThanOrEqual { get; } = new EventTriggerObjectAttributeComparisonOperator("GREATER_THAN_OR_EQUAL");
+        public static EventTriggerObjectAttributeComparisonOperator LessThanOrEqual { get; } = new EventTriggerObjectAttributeComparisonOperator("LESS_THAN_OR_EQUAL");
+        public static EventTriggerObjectAttributeComparisonOperator Equal { get; } = new EventTriggerObjectAttributeComparisonOperator("EQUAL");
+        public static EventTriggerObjectAttributeComparisonOperator Before { get; } = new EventTriggerObjectAttributeComparisonOperator("BEFORE");
+        public static EventTriggerObjectAttributeComparisonOperator After { get; } = new EventTriggerObjectAttributeComparisonOperator("AFTER");
+        public static EventTriggerObjectAttributeComparisonOperator On { get; } = new EventTriggerObjectAttributeComparisonOperator("ON");
+        public static EventTriggerObjectAttributeComparisonOperator Between { get; } = new EventTriggerObjectAttributeComparisonOperator("BETWEEN");
+        public static EventTriggerObjectAttributeComparisonOperator NotBetween { get; } = new EventTriggerObjectAttributeComparisonOperator("NOT_BETWEEN");
+
+        public static bool operator ==(EventTriggerObjectAttributeComparisonOperator left, EventTriggerObjectAttributeComparisonOperator right) => left.Equals(right);
+        public static bool operator !=(EventTriggerObjectAttributeComparisonOperator left, EventTriggerObjectAttributeComparisonOperator right) => !left.Equals(right);
+
+        public static explicit operator string(EventTriggerObjectAttributeComparisonOperator value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EventTriggerObjectAttributeComparisonOperator other && Equals(other);
+        public bool Equals(EventTriggerObjectAttributeComparisonOperator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The unit of time.
+    /// </summary>
+    [EnumType]
+    public readonly struct EventTriggerPeriodUnit : IEquatable<EventTriggerPeriodUnit>
+    {
+        private readonly string _value;
+
+        private EventTriggerPeriodUnit(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EventTriggerPeriodUnit Hours { get; } = new EventTriggerPeriodUnit("HOURS");
+        public static EventTriggerPeriodUnit Days { get; } = new EventTriggerPeriodUnit("DAYS");
+        public static EventTriggerPeriodUnit Weeks { get; } = new EventTriggerPeriodUnit("WEEKS");
+        public static EventTriggerPeriodUnit Months { get; } = new EventTriggerPeriodUnit("MONTHS");
+
+        public static bool operator ==(EventTriggerPeriodUnit left, EventTriggerPeriodUnit right) => left.Equals(right);
+        public static bool operator !=(EventTriggerPeriodUnit left, EventTriggerPeriodUnit right) => !left.Equals(right);
+
+        public static explicit operator string(EventTriggerPeriodUnit value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EventTriggerPeriodUnit other && Equals(other);
+        public bool Equals(EventTriggerPeriodUnit other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct IntegrationConnectorType : IEquatable<IntegrationConnectorType>
     {

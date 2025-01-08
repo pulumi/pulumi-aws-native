@@ -30,9 +30,9 @@ type LookupUserPoolRiskConfigurationAttachmentArgs struct {
 }
 
 type LookupUserPoolRiskConfigurationAttachmentResult struct {
-	// The settings for automated responses and notification templates for adaptive authentication with advanced security features.
+	// The settings for automated responses and notification templates for adaptive authentication with threat protection.
 	AccountTakeoverRiskConfiguration *UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationType `pulumi:"accountTakeoverRiskConfiguration"`
-	// Settings for compromised-credentials actions and authentication types with advanced security features in full-function `ENFORCED` mode.
+	// Settings for compromised-credentials actions and authentication types with threat protection in full-function `ENFORCED` mode.
 	CompromisedCredentialsRiskConfiguration *UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationType `pulumi:"compromisedCredentialsRiskConfiguration"`
 	// Exceptions to the risk evaluation configuration, including always-allow and always-block IP address ranges.
 	RiskExceptionConfiguration *UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationType `pulumi:"riskExceptionConfiguration"`
@@ -72,14 +72,14 @@ func (o LookupUserPoolRiskConfigurationAttachmentResultOutput) ToLookupUserPoolR
 	return o
 }
 
-// The settings for automated responses and notification templates for adaptive authentication with advanced security features.
+// The settings for automated responses and notification templates for adaptive authentication with threat protection.
 func (o LookupUserPoolRiskConfigurationAttachmentResultOutput) AccountTakeoverRiskConfiguration() UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypePtrOutput {
 	return o.ApplyT(func(v LookupUserPoolRiskConfigurationAttachmentResult) *UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationType {
 		return v.AccountTakeoverRiskConfiguration
 	}).(UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypePtrOutput)
 }
 
-// Settings for compromised-credentials actions and authentication types with advanced security features in full-function `ENFORCED` mode.
+// Settings for compromised-credentials actions and authentication types with threat protection in full-function `ENFORCED` mode.
 func (o LookupUserPoolRiskConfigurationAttachmentResultOutput) CompromisedCredentialsRiskConfiguration() UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationTypePtrOutput {
 	return o.ApplyT(func(v LookupUserPoolRiskConfigurationAttachmentResult) *UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationType {
 		return v.CompromisedCredentialsRiskConfiguration

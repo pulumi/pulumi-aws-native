@@ -39,6 +39,12 @@ namespace Pulumi.AwsNative.CleanRooms.Inputs
         }
 
         /// <summary>
+        /// The ML abilities granted to the collaboration member.
+        /// </summary>
+        [Input("mlMemberAbilities")]
+        public Input<Inputs.CollaborationMlMemberAbilitiesArgs>? MlMemberAbilities { get; set; }
+
+        /// <summary>
         /// The collaboration member's payment responsibilities set by the collaboration creator.
         /// 
         /// If the collaboration creator hasn't speciﬁed anyone as the member paying for query compute costs, then the member who can query is the default payer.

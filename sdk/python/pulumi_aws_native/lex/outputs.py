@@ -77,6 +77,7 @@ __all__ = [
     'BotPostFulfillmentStatusSpecification',
     'BotPromptAttemptSpecification',
     'BotPromptSpecification',
+    'BotReplication',
     'BotResponseSpecification',
     'BotS3BucketLogDestination',
     'BotS3Location',
@@ -3783,6 +3784,45 @@ class BotPromptSpecification(dict):
         Specifies the advanced settings on each attempt of the prompt.
         """
         return pulumi.get(self, "prompt_attempts_specification")
+
+
+@pulumi.output_type
+class BotReplication(dict):
+    """
+    Parameter used to create a replication of the source bot in the secondary region.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "replicaRegions":
+            suggest = "replica_regions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BotReplication. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BotReplication.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BotReplication.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 replica_regions: Sequence[str]):
+        """
+        Parameter used to create a replication of the source bot in the secondary region.
+        :param Sequence[str] replica_regions: List of secondary regions for bot replication.
+        """
+        pulumi.set(__self__, "replica_regions", replica_regions)
+
+    @property
+    @pulumi.getter(name="replicaRegions")
+    def replica_regions(self) -> Sequence[str]:
+        """
+        List of secondary regions for bot replication.
+        """
+        return pulumi.get(self, "replica_regions")
 
 
 @pulumi.output_type

@@ -32,7 +32,7 @@ class GetUserPoolUiCustomizationAttachmentResult:
     @pulumi.getter
     def css(self) -> Optional[str]:
         """
-        The CSS values in the UI customization.
+        A plaintext CSS file that contains the custom fields that you want to apply to your user pool or app client. To download a template, go to the Amazon Cognito console. Navigate to your user pool *App clients* tab, select *Login pages* , edit *Hosted UI (classic) style* , and select the link to `CSS template.css` .
         """
         return pulumi.get(self, "css")
 
@@ -54,7 +54,7 @@ def get_user_pool_ui_customization_attachment(client_id: Optional[str] = None,
 
 
     :param str client_id: The app client ID for your UI customization. When this value isn't present, the customization applies to all user pool app clients that don't have client-level settings..
-    :param str user_pool_id: The ID of the user pool.
+    :param str user_pool_id: The ID of the user pool where you want to apply branding to the classic hosted UI.
     """
     __args__ = dict()
     __args__['clientId'] = client_id
@@ -72,7 +72,7 @@ def get_user_pool_ui_customization_attachment_output(client_id: Optional[pulumi.
 
 
     :param str client_id: The app client ID for your UI customization. When this value isn't present, the customization applies to all user pool app clients that don't have client-level settings..
-    :param str user_pool_id: The ID of the user pool.
+    :param str user_pool_id: The ID of the user pool where you want to apply branding to the classic hosted UI.
     """
     __args__ = dict()
     __args__['clientId'] = client_id

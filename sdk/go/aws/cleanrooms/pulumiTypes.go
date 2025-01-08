@@ -448,6 +448,8 @@ type CollaborationMemberSpecification struct {
 	//
 	// *Allowed Values* : `CAN_QUERY` | `CAN_RECEIVE_RESULTS`
 	MemberAbilities []CollaborationMemberAbility `pulumi:"memberAbilities"`
+	// The ML abilities granted to the collaboration member.
+	MlMemberAbilities *CollaborationMlMemberAbilities `pulumi:"mlMemberAbilities"`
 	// The collaboration member's payment responsibilities set by the collaboration creator.
 	//
 	// If the collaboration creator hasn't speciﬁed anyone as the member paying for query compute costs, then the member who can query is the default payer.
@@ -474,6 +476,8 @@ type CollaborationMemberSpecificationArgs struct {
 	//
 	// *Allowed Values* : `CAN_QUERY` | `CAN_RECEIVE_RESULTS`
 	MemberAbilities CollaborationMemberAbilityArrayInput `pulumi:"memberAbilities"`
+	// The ML abilities granted to the collaboration member.
+	MlMemberAbilities CollaborationMlMemberAbilitiesPtrInput `pulumi:"mlMemberAbilities"`
 	// The collaboration member's payment responsibilities set by the collaboration creator.
 	//
 	// If the collaboration creator hasn't speciﬁed anyone as the member paying for query compute costs, then the member who can query is the default payer.
@@ -548,6 +552,11 @@ func (o CollaborationMemberSpecificationOutput) MemberAbilities() CollaborationM
 	return o.ApplyT(func(v CollaborationMemberSpecification) []CollaborationMemberAbility { return v.MemberAbilities }).(CollaborationMemberAbilityArrayOutput)
 }
 
+// The ML abilities granted to the collaboration member.
+func (o CollaborationMemberSpecificationOutput) MlMemberAbilities() CollaborationMlMemberAbilitiesPtrOutput {
+	return o.ApplyT(func(v CollaborationMemberSpecification) *CollaborationMlMemberAbilities { return v.MlMemberAbilities }).(CollaborationMlMemberAbilitiesPtrOutput)
+}
+
 // The collaboration member's payment responsibilities set by the collaboration creator.
 //
 // If the collaboration creator hasn't speciﬁed anyone as the member paying for query compute costs, then the member who can query is the default payer.
@@ -577,7 +586,612 @@ func (o CollaborationMemberSpecificationArrayOutput) Index(i pulumi.IntInput) Co
 	}).(CollaborationMemberSpecificationOutput)
 }
 
+type CollaborationMlMemberAbilities struct {
+	// The custom ML member abilities for a collaboration member.
+	CustomMlMemberAbilities []CollaborationCustomMlMemberAbility `pulumi:"customMlMemberAbilities"`
+}
+
+// CollaborationMlMemberAbilitiesInput is an input type that accepts CollaborationMlMemberAbilitiesArgs and CollaborationMlMemberAbilitiesOutput values.
+// You can construct a concrete instance of `CollaborationMlMemberAbilitiesInput` via:
+//
+//	CollaborationMlMemberAbilitiesArgs{...}
+type CollaborationMlMemberAbilitiesInput interface {
+	pulumi.Input
+
+	ToCollaborationMlMemberAbilitiesOutput() CollaborationMlMemberAbilitiesOutput
+	ToCollaborationMlMemberAbilitiesOutputWithContext(context.Context) CollaborationMlMemberAbilitiesOutput
+}
+
+type CollaborationMlMemberAbilitiesArgs struct {
+	// The custom ML member abilities for a collaboration member.
+	CustomMlMemberAbilities CollaborationCustomMlMemberAbilityArrayInput `pulumi:"customMlMemberAbilities"`
+}
+
+func (CollaborationMlMemberAbilitiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CollaborationMlMemberAbilities)(nil)).Elem()
+}
+
+func (i CollaborationMlMemberAbilitiesArgs) ToCollaborationMlMemberAbilitiesOutput() CollaborationMlMemberAbilitiesOutput {
+	return i.ToCollaborationMlMemberAbilitiesOutputWithContext(context.Background())
+}
+
+func (i CollaborationMlMemberAbilitiesArgs) ToCollaborationMlMemberAbilitiesOutputWithContext(ctx context.Context) CollaborationMlMemberAbilitiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CollaborationMlMemberAbilitiesOutput)
+}
+
+func (i CollaborationMlMemberAbilitiesArgs) ToCollaborationMlMemberAbilitiesPtrOutput() CollaborationMlMemberAbilitiesPtrOutput {
+	return i.ToCollaborationMlMemberAbilitiesPtrOutputWithContext(context.Background())
+}
+
+func (i CollaborationMlMemberAbilitiesArgs) ToCollaborationMlMemberAbilitiesPtrOutputWithContext(ctx context.Context) CollaborationMlMemberAbilitiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CollaborationMlMemberAbilitiesOutput).ToCollaborationMlMemberAbilitiesPtrOutputWithContext(ctx)
+}
+
+// CollaborationMlMemberAbilitiesPtrInput is an input type that accepts CollaborationMlMemberAbilitiesArgs, CollaborationMlMemberAbilitiesPtr and CollaborationMlMemberAbilitiesPtrOutput values.
+// You can construct a concrete instance of `CollaborationMlMemberAbilitiesPtrInput` via:
+//
+//	        CollaborationMlMemberAbilitiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type CollaborationMlMemberAbilitiesPtrInput interface {
+	pulumi.Input
+
+	ToCollaborationMlMemberAbilitiesPtrOutput() CollaborationMlMemberAbilitiesPtrOutput
+	ToCollaborationMlMemberAbilitiesPtrOutputWithContext(context.Context) CollaborationMlMemberAbilitiesPtrOutput
+}
+
+type collaborationMlMemberAbilitiesPtrType CollaborationMlMemberAbilitiesArgs
+
+func CollaborationMlMemberAbilitiesPtr(v *CollaborationMlMemberAbilitiesArgs) CollaborationMlMemberAbilitiesPtrInput {
+	return (*collaborationMlMemberAbilitiesPtrType)(v)
+}
+
+func (*collaborationMlMemberAbilitiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CollaborationMlMemberAbilities)(nil)).Elem()
+}
+
+func (i *collaborationMlMemberAbilitiesPtrType) ToCollaborationMlMemberAbilitiesPtrOutput() CollaborationMlMemberAbilitiesPtrOutput {
+	return i.ToCollaborationMlMemberAbilitiesPtrOutputWithContext(context.Background())
+}
+
+func (i *collaborationMlMemberAbilitiesPtrType) ToCollaborationMlMemberAbilitiesPtrOutputWithContext(ctx context.Context) CollaborationMlMemberAbilitiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CollaborationMlMemberAbilitiesPtrOutput)
+}
+
+type CollaborationMlMemberAbilitiesOutput struct{ *pulumi.OutputState }
+
+func (CollaborationMlMemberAbilitiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CollaborationMlMemberAbilities)(nil)).Elem()
+}
+
+func (o CollaborationMlMemberAbilitiesOutput) ToCollaborationMlMemberAbilitiesOutput() CollaborationMlMemberAbilitiesOutput {
+	return o
+}
+
+func (o CollaborationMlMemberAbilitiesOutput) ToCollaborationMlMemberAbilitiesOutputWithContext(ctx context.Context) CollaborationMlMemberAbilitiesOutput {
+	return o
+}
+
+func (o CollaborationMlMemberAbilitiesOutput) ToCollaborationMlMemberAbilitiesPtrOutput() CollaborationMlMemberAbilitiesPtrOutput {
+	return o.ToCollaborationMlMemberAbilitiesPtrOutputWithContext(context.Background())
+}
+
+func (o CollaborationMlMemberAbilitiesOutput) ToCollaborationMlMemberAbilitiesPtrOutputWithContext(ctx context.Context) CollaborationMlMemberAbilitiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CollaborationMlMemberAbilities) *CollaborationMlMemberAbilities {
+		return &v
+	}).(CollaborationMlMemberAbilitiesPtrOutput)
+}
+
+// The custom ML member abilities for a collaboration member.
+func (o CollaborationMlMemberAbilitiesOutput) CustomMlMemberAbilities() CollaborationCustomMlMemberAbilityArrayOutput {
+	return o.ApplyT(func(v CollaborationMlMemberAbilities) []CollaborationCustomMlMemberAbility {
+		return v.CustomMlMemberAbilities
+	}).(CollaborationCustomMlMemberAbilityArrayOutput)
+}
+
+type CollaborationMlMemberAbilitiesPtrOutput struct{ *pulumi.OutputState }
+
+func (CollaborationMlMemberAbilitiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CollaborationMlMemberAbilities)(nil)).Elem()
+}
+
+func (o CollaborationMlMemberAbilitiesPtrOutput) ToCollaborationMlMemberAbilitiesPtrOutput() CollaborationMlMemberAbilitiesPtrOutput {
+	return o
+}
+
+func (o CollaborationMlMemberAbilitiesPtrOutput) ToCollaborationMlMemberAbilitiesPtrOutputWithContext(ctx context.Context) CollaborationMlMemberAbilitiesPtrOutput {
+	return o
+}
+
+func (o CollaborationMlMemberAbilitiesPtrOutput) Elem() CollaborationMlMemberAbilitiesOutput {
+	return o.ApplyT(func(v *CollaborationMlMemberAbilities) CollaborationMlMemberAbilities {
+		if v != nil {
+			return *v
+		}
+		var ret CollaborationMlMemberAbilities
+		return ret
+	}).(CollaborationMlMemberAbilitiesOutput)
+}
+
+// The custom ML member abilities for a collaboration member.
+func (o CollaborationMlMemberAbilitiesPtrOutput) CustomMlMemberAbilities() CollaborationCustomMlMemberAbilityArrayOutput {
+	return o.ApplyT(func(v *CollaborationMlMemberAbilities) []CollaborationCustomMlMemberAbility {
+		if v == nil {
+			return nil
+		}
+		return v.CustomMlMemberAbilities
+	}).(CollaborationCustomMlMemberAbilityArrayOutput)
+}
+
+type CollaborationMlPaymentConfig struct {
+	// The payment responsibilities accepted by the member for model inference.
+	ModelInference *CollaborationModelInferencePaymentConfig `pulumi:"modelInference"`
+	// The payment responsibilities accepted by the member for model training.
+	ModelTraining *CollaborationModelTrainingPaymentConfig `pulumi:"modelTraining"`
+}
+
+// CollaborationMlPaymentConfigInput is an input type that accepts CollaborationMlPaymentConfigArgs and CollaborationMlPaymentConfigOutput values.
+// You can construct a concrete instance of `CollaborationMlPaymentConfigInput` via:
+//
+//	CollaborationMlPaymentConfigArgs{...}
+type CollaborationMlPaymentConfigInput interface {
+	pulumi.Input
+
+	ToCollaborationMlPaymentConfigOutput() CollaborationMlPaymentConfigOutput
+	ToCollaborationMlPaymentConfigOutputWithContext(context.Context) CollaborationMlPaymentConfigOutput
+}
+
+type CollaborationMlPaymentConfigArgs struct {
+	// The payment responsibilities accepted by the member for model inference.
+	ModelInference CollaborationModelInferencePaymentConfigPtrInput `pulumi:"modelInference"`
+	// The payment responsibilities accepted by the member for model training.
+	ModelTraining CollaborationModelTrainingPaymentConfigPtrInput `pulumi:"modelTraining"`
+}
+
+func (CollaborationMlPaymentConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CollaborationMlPaymentConfig)(nil)).Elem()
+}
+
+func (i CollaborationMlPaymentConfigArgs) ToCollaborationMlPaymentConfigOutput() CollaborationMlPaymentConfigOutput {
+	return i.ToCollaborationMlPaymentConfigOutputWithContext(context.Background())
+}
+
+func (i CollaborationMlPaymentConfigArgs) ToCollaborationMlPaymentConfigOutputWithContext(ctx context.Context) CollaborationMlPaymentConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CollaborationMlPaymentConfigOutput)
+}
+
+func (i CollaborationMlPaymentConfigArgs) ToCollaborationMlPaymentConfigPtrOutput() CollaborationMlPaymentConfigPtrOutput {
+	return i.ToCollaborationMlPaymentConfigPtrOutputWithContext(context.Background())
+}
+
+func (i CollaborationMlPaymentConfigArgs) ToCollaborationMlPaymentConfigPtrOutputWithContext(ctx context.Context) CollaborationMlPaymentConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CollaborationMlPaymentConfigOutput).ToCollaborationMlPaymentConfigPtrOutputWithContext(ctx)
+}
+
+// CollaborationMlPaymentConfigPtrInput is an input type that accepts CollaborationMlPaymentConfigArgs, CollaborationMlPaymentConfigPtr and CollaborationMlPaymentConfigPtrOutput values.
+// You can construct a concrete instance of `CollaborationMlPaymentConfigPtrInput` via:
+//
+//	        CollaborationMlPaymentConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type CollaborationMlPaymentConfigPtrInput interface {
+	pulumi.Input
+
+	ToCollaborationMlPaymentConfigPtrOutput() CollaborationMlPaymentConfigPtrOutput
+	ToCollaborationMlPaymentConfigPtrOutputWithContext(context.Context) CollaborationMlPaymentConfigPtrOutput
+}
+
+type collaborationMlPaymentConfigPtrType CollaborationMlPaymentConfigArgs
+
+func CollaborationMlPaymentConfigPtr(v *CollaborationMlPaymentConfigArgs) CollaborationMlPaymentConfigPtrInput {
+	return (*collaborationMlPaymentConfigPtrType)(v)
+}
+
+func (*collaborationMlPaymentConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CollaborationMlPaymentConfig)(nil)).Elem()
+}
+
+func (i *collaborationMlPaymentConfigPtrType) ToCollaborationMlPaymentConfigPtrOutput() CollaborationMlPaymentConfigPtrOutput {
+	return i.ToCollaborationMlPaymentConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *collaborationMlPaymentConfigPtrType) ToCollaborationMlPaymentConfigPtrOutputWithContext(ctx context.Context) CollaborationMlPaymentConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CollaborationMlPaymentConfigPtrOutput)
+}
+
+type CollaborationMlPaymentConfigOutput struct{ *pulumi.OutputState }
+
+func (CollaborationMlPaymentConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CollaborationMlPaymentConfig)(nil)).Elem()
+}
+
+func (o CollaborationMlPaymentConfigOutput) ToCollaborationMlPaymentConfigOutput() CollaborationMlPaymentConfigOutput {
+	return o
+}
+
+func (o CollaborationMlPaymentConfigOutput) ToCollaborationMlPaymentConfigOutputWithContext(ctx context.Context) CollaborationMlPaymentConfigOutput {
+	return o
+}
+
+func (o CollaborationMlPaymentConfigOutput) ToCollaborationMlPaymentConfigPtrOutput() CollaborationMlPaymentConfigPtrOutput {
+	return o.ToCollaborationMlPaymentConfigPtrOutputWithContext(context.Background())
+}
+
+func (o CollaborationMlPaymentConfigOutput) ToCollaborationMlPaymentConfigPtrOutputWithContext(ctx context.Context) CollaborationMlPaymentConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CollaborationMlPaymentConfig) *CollaborationMlPaymentConfig {
+		return &v
+	}).(CollaborationMlPaymentConfigPtrOutput)
+}
+
+// The payment responsibilities accepted by the member for model inference.
+func (o CollaborationMlPaymentConfigOutput) ModelInference() CollaborationModelInferencePaymentConfigPtrOutput {
+	return o.ApplyT(func(v CollaborationMlPaymentConfig) *CollaborationModelInferencePaymentConfig {
+		return v.ModelInference
+	}).(CollaborationModelInferencePaymentConfigPtrOutput)
+}
+
+// The payment responsibilities accepted by the member for model training.
+func (o CollaborationMlPaymentConfigOutput) ModelTraining() CollaborationModelTrainingPaymentConfigPtrOutput {
+	return o.ApplyT(func(v CollaborationMlPaymentConfig) *CollaborationModelTrainingPaymentConfig { return v.ModelTraining }).(CollaborationModelTrainingPaymentConfigPtrOutput)
+}
+
+type CollaborationMlPaymentConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (CollaborationMlPaymentConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CollaborationMlPaymentConfig)(nil)).Elem()
+}
+
+func (o CollaborationMlPaymentConfigPtrOutput) ToCollaborationMlPaymentConfigPtrOutput() CollaborationMlPaymentConfigPtrOutput {
+	return o
+}
+
+func (o CollaborationMlPaymentConfigPtrOutput) ToCollaborationMlPaymentConfigPtrOutputWithContext(ctx context.Context) CollaborationMlPaymentConfigPtrOutput {
+	return o
+}
+
+func (o CollaborationMlPaymentConfigPtrOutput) Elem() CollaborationMlPaymentConfigOutput {
+	return o.ApplyT(func(v *CollaborationMlPaymentConfig) CollaborationMlPaymentConfig {
+		if v != nil {
+			return *v
+		}
+		var ret CollaborationMlPaymentConfig
+		return ret
+	}).(CollaborationMlPaymentConfigOutput)
+}
+
+// The payment responsibilities accepted by the member for model inference.
+func (o CollaborationMlPaymentConfigPtrOutput) ModelInference() CollaborationModelInferencePaymentConfigPtrOutput {
+	return o.ApplyT(func(v *CollaborationMlPaymentConfig) *CollaborationModelInferencePaymentConfig {
+		if v == nil {
+			return nil
+		}
+		return v.ModelInference
+	}).(CollaborationModelInferencePaymentConfigPtrOutput)
+}
+
+// The payment responsibilities accepted by the member for model training.
+func (o CollaborationMlPaymentConfigPtrOutput) ModelTraining() CollaborationModelTrainingPaymentConfigPtrOutput {
+	return o.ApplyT(func(v *CollaborationMlPaymentConfig) *CollaborationModelTrainingPaymentConfig {
+		if v == nil {
+			return nil
+		}
+		return v.ModelTraining
+	}).(CollaborationModelTrainingPaymentConfigPtrOutput)
+}
+
+type CollaborationModelInferencePaymentConfig struct {
+	// Indicates whether the collaboration creator has configured the collaboration member to pay for model inference costs ( `TRUE` ) or has not configured the collaboration member to pay for model inference costs ( `FALSE` ).
+	//
+	// Exactly one member can be configured to pay for model inference costs. An error is returned if the collaboration creator sets a `TRUE` value for more than one member in the collaboration.
+	//
+	// If the collaboration creator hasn't specified anyone as the member paying for model inference costs, then the member who can query is the default payer. An error is returned if the collaboration creator sets a `FALSE` value for the member who can query.
+	IsResponsible bool `pulumi:"isResponsible"`
+}
+
+// CollaborationModelInferencePaymentConfigInput is an input type that accepts CollaborationModelInferencePaymentConfigArgs and CollaborationModelInferencePaymentConfigOutput values.
+// You can construct a concrete instance of `CollaborationModelInferencePaymentConfigInput` via:
+//
+//	CollaborationModelInferencePaymentConfigArgs{...}
+type CollaborationModelInferencePaymentConfigInput interface {
+	pulumi.Input
+
+	ToCollaborationModelInferencePaymentConfigOutput() CollaborationModelInferencePaymentConfigOutput
+	ToCollaborationModelInferencePaymentConfigOutputWithContext(context.Context) CollaborationModelInferencePaymentConfigOutput
+}
+
+type CollaborationModelInferencePaymentConfigArgs struct {
+	// Indicates whether the collaboration creator has configured the collaboration member to pay for model inference costs ( `TRUE` ) or has not configured the collaboration member to pay for model inference costs ( `FALSE` ).
+	//
+	// Exactly one member can be configured to pay for model inference costs. An error is returned if the collaboration creator sets a `TRUE` value for more than one member in the collaboration.
+	//
+	// If the collaboration creator hasn't specified anyone as the member paying for model inference costs, then the member who can query is the default payer. An error is returned if the collaboration creator sets a `FALSE` value for the member who can query.
+	IsResponsible pulumi.BoolInput `pulumi:"isResponsible"`
+}
+
+func (CollaborationModelInferencePaymentConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CollaborationModelInferencePaymentConfig)(nil)).Elem()
+}
+
+func (i CollaborationModelInferencePaymentConfigArgs) ToCollaborationModelInferencePaymentConfigOutput() CollaborationModelInferencePaymentConfigOutput {
+	return i.ToCollaborationModelInferencePaymentConfigOutputWithContext(context.Background())
+}
+
+func (i CollaborationModelInferencePaymentConfigArgs) ToCollaborationModelInferencePaymentConfigOutputWithContext(ctx context.Context) CollaborationModelInferencePaymentConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CollaborationModelInferencePaymentConfigOutput)
+}
+
+func (i CollaborationModelInferencePaymentConfigArgs) ToCollaborationModelInferencePaymentConfigPtrOutput() CollaborationModelInferencePaymentConfigPtrOutput {
+	return i.ToCollaborationModelInferencePaymentConfigPtrOutputWithContext(context.Background())
+}
+
+func (i CollaborationModelInferencePaymentConfigArgs) ToCollaborationModelInferencePaymentConfigPtrOutputWithContext(ctx context.Context) CollaborationModelInferencePaymentConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CollaborationModelInferencePaymentConfigOutput).ToCollaborationModelInferencePaymentConfigPtrOutputWithContext(ctx)
+}
+
+// CollaborationModelInferencePaymentConfigPtrInput is an input type that accepts CollaborationModelInferencePaymentConfigArgs, CollaborationModelInferencePaymentConfigPtr and CollaborationModelInferencePaymentConfigPtrOutput values.
+// You can construct a concrete instance of `CollaborationModelInferencePaymentConfigPtrInput` via:
+//
+//	        CollaborationModelInferencePaymentConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type CollaborationModelInferencePaymentConfigPtrInput interface {
+	pulumi.Input
+
+	ToCollaborationModelInferencePaymentConfigPtrOutput() CollaborationModelInferencePaymentConfigPtrOutput
+	ToCollaborationModelInferencePaymentConfigPtrOutputWithContext(context.Context) CollaborationModelInferencePaymentConfigPtrOutput
+}
+
+type collaborationModelInferencePaymentConfigPtrType CollaborationModelInferencePaymentConfigArgs
+
+func CollaborationModelInferencePaymentConfigPtr(v *CollaborationModelInferencePaymentConfigArgs) CollaborationModelInferencePaymentConfigPtrInput {
+	return (*collaborationModelInferencePaymentConfigPtrType)(v)
+}
+
+func (*collaborationModelInferencePaymentConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CollaborationModelInferencePaymentConfig)(nil)).Elem()
+}
+
+func (i *collaborationModelInferencePaymentConfigPtrType) ToCollaborationModelInferencePaymentConfigPtrOutput() CollaborationModelInferencePaymentConfigPtrOutput {
+	return i.ToCollaborationModelInferencePaymentConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *collaborationModelInferencePaymentConfigPtrType) ToCollaborationModelInferencePaymentConfigPtrOutputWithContext(ctx context.Context) CollaborationModelInferencePaymentConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CollaborationModelInferencePaymentConfigPtrOutput)
+}
+
+type CollaborationModelInferencePaymentConfigOutput struct{ *pulumi.OutputState }
+
+func (CollaborationModelInferencePaymentConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CollaborationModelInferencePaymentConfig)(nil)).Elem()
+}
+
+func (o CollaborationModelInferencePaymentConfigOutput) ToCollaborationModelInferencePaymentConfigOutput() CollaborationModelInferencePaymentConfigOutput {
+	return o
+}
+
+func (o CollaborationModelInferencePaymentConfigOutput) ToCollaborationModelInferencePaymentConfigOutputWithContext(ctx context.Context) CollaborationModelInferencePaymentConfigOutput {
+	return o
+}
+
+func (o CollaborationModelInferencePaymentConfigOutput) ToCollaborationModelInferencePaymentConfigPtrOutput() CollaborationModelInferencePaymentConfigPtrOutput {
+	return o.ToCollaborationModelInferencePaymentConfigPtrOutputWithContext(context.Background())
+}
+
+func (o CollaborationModelInferencePaymentConfigOutput) ToCollaborationModelInferencePaymentConfigPtrOutputWithContext(ctx context.Context) CollaborationModelInferencePaymentConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CollaborationModelInferencePaymentConfig) *CollaborationModelInferencePaymentConfig {
+		return &v
+	}).(CollaborationModelInferencePaymentConfigPtrOutput)
+}
+
+// Indicates whether the collaboration creator has configured the collaboration member to pay for model inference costs ( `TRUE` ) or has not configured the collaboration member to pay for model inference costs ( `FALSE` ).
+//
+// Exactly one member can be configured to pay for model inference costs. An error is returned if the collaboration creator sets a `TRUE` value for more than one member in the collaboration.
+//
+// If the collaboration creator hasn't specified anyone as the member paying for model inference costs, then the member who can query is the default payer. An error is returned if the collaboration creator sets a `FALSE` value for the member who can query.
+func (o CollaborationModelInferencePaymentConfigOutput) IsResponsible() pulumi.BoolOutput {
+	return o.ApplyT(func(v CollaborationModelInferencePaymentConfig) bool { return v.IsResponsible }).(pulumi.BoolOutput)
+}
+
+type CollaborationModelInferencePaymentConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (CollaborationModelInferencePaymentConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CollaborationModelInferencePaymentConfig)(nil)).Elem()
+}
+
+func (o CollaborationModelInferencePaymentConfigPtrOutput) ToCollaborationModelInferencePaymentConfigPtrOutput() CollaborationModelInferencePaymentConfigPtrOutput {
+	return o
+}
+
+func (o CollaborationModelInferencePaymentConfigPtrOutput) ToCollaborationModelInferencePaymentConfigPtrOutputWithContext(ctx context.Context) CollaborationModelInferencePaymentConfigPtrOutput {
+	return o
+}
+
+func (o CollaborationModelInferencePaymentConfigPtrOutput) Elem() CollaborationModelInferencePaymentConfigOutput {
+	return o.ApplyT(func(v *CollaborationModelInferencePaymentConfig) CollaborationModelInferencePaymentConfig {
+		if v != nil {
+			return *v
+		}
+		var ret CollaborationModelInferencePaymentConfig
+		return ret
+	}).(CollaborationModelInferencePaymentConfigOutput)
+}
+
+// Indicates whether the collaboration creator has configured the collaboration member to pay for model inference costs ( `TRUE` ) or has not configured the collaboration member to pay for model inference costs ( `FALSE` ).
+//
+// Exactly one member can be configured to pay for model inference costs. An error is returned if the collaboration creator sets a `TRUE` value for more than one member in the collaboration.
+//
+// If the collaboration creator hasn't specified anyone as the member paying for model inference costs, then the member who can query is the default payer. An error is returned if the collaboration creator sets a `FALSE` value for the member who can query.
+func (o CollaborationModelInferencePaymentConfigPtrOutput) IsResponsible() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CollaborationModelInferencePaymentConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.IsResponsible
+	}).(pulumi.BoolPtrOutput)
+}
+
+type CollaborationModelTrainingPaymentConfig struct {
+	// Indicates whether the collaboration creator has configured the collaboration member to pay for model training costs ( `TRUE` ) or has not configured the collaboration member to pay for model training costs ( `FALSE` ).
+	//
+	// Exactly one member can be configured to pay for model training costs. An error is returned if the collaboration creator sets a `TRUE` value for more than one member in the collaboration.
+	//
+	// If the collaboration creator hasn't specified anyone as the member paying for model training costs, then the member who can query is the default payer. An error is returned if the collaboration creator sets a `FALSE` value for the member who can query.
+	IsResponsible bool `pulumi:"isResponsible"`
+}
+
+// CollaborationModelTrainingPaymentConfigInput is an input type that accepts CollaborationModelTrainingPaymentConfigArgs and CollaborationModelTrainingPaymentConfigOutput values.
+// You can construct a concrete instance of `CollaborationModelTrainingPaymentConfigInput` via:
+//
+//	CollaborationModelTrainingPaymentConfigArgs{...}
+type CollaborationModelTrainingPaymentConfigInput interface {
+	pulumi.Input
+
+	ToCollaborationModelTrainingPaymentConfigOutput() CollaborationModelTrainingPaymentConfigOutput
+	ToCollaborationModelTrainingPaymentConfigOutputWithContext(context.Context) CollaborationModelTrainingPaymentConfigOutput
+}
+
+type CollaborationModelTrainingPaymentConfigArgs struct {
+	// Indicates whether the collaboration creator has configured the collaboration member to pay for model training costs ( `TRUE` ) or has not configured the collaboration member to pay for model training costs ( `FALSE` ).
+	//
+	// Exactly one member can be configured to pay for model training costs. An error is returned if the collaboration creator sets a `TRUE` value for more than one member in the collaboration.
+	//
+	// If the collaboration creator hasn't specified anyone as the member paying for model training costs, then the member who can query is the default payer. An error is returned if the collaboration creator sets a `FALSE` value for the member who can query.
+	IsResponsible pulumi.BoolInput `pulumi:"isResponsible"`
+}
+
+func (CollaborationModelTrainingPaymentConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CollaborationModelTrainingPaymentConfig)(nil)).Elem()
+}
+
+func (i CollaborationModelTrainingPaymentConfigArgs) ToCollaborationModelTrainingPaymentConfigOutput() CollaborationModelTrainingPaymentConfigOutput {
+	return i.ToCollaborationModelTrainingPaymentConfigOutputWithContext(context.Background())
+}
+
+func (i CollaborationModelTrainingPaymentConfigArgs) ToCollaborationModelTrainingPaymentConfigOutputWithContext(ctx context.Context) CollaborationModelTrainingPaymentConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CollaborationModelTrainingPaymentConfigOutput)
+}
+
+func (i CollaborationModelTrainingPaymentConfigArgs) ToCollaborationModelTrainingPaymentConfigPtrOutput() CollaborationModelTrainingPaymentConfigPtrOutput {
+	return i.ToCollaborationModelTrainingPaymentConfigPtrOutputWithContext(context.Background())
+}
+
+func (i CollaborationModelTrainingPaymentConfigArgs) ToCollaborationModelTrainingPaymentConfigPtrOutputWithContext(ctx context.Context) CollaborationModelTrainingPaymentConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CollaborationModelTrainingPaymentConfigOutput).ToCollaborationModelTrainingPaymentConfigPtrOutputWithContext(ctx)
+}
+
+// CollaborationModelTrainingPaymentConfigPtrInput is an input type that accepts CollaborationModelTrainingPaymentConfigArgs, CollaborationModelTrainingPaymentConfigPtr and CollaborationModelTrainingPaymentConfigPtrOutput values.
+// You can construct a concrete instance of `CollaborationModelTrainingPaymentConfigPtrInput` via:
+//
+//	        CollaborationModelTrainingPaymentConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type CollaborationModelTrainingPaymentConfigPtrInput interface {
+	pulumi.Input
+
+	ToCollaborationModelTrainingPaymentConfigPtrOutput() CollaborationModelTrainingPaymentConfigPtrOutput
+	ToCollaborationModelTrainingPaymentConfigPtrOutputWithContext(context.Context) CollaborationModelTrainingPaymentConfigPtrOutput
+}
+
+type collaborationModelTrainingPaymentConfigPtrType CollaborationModelTrainingPaymentConfigArgs
+
+func CollaborationModelTrainingPaymentConfigPtr(v *CollaborationModelTrainingPaymentConfigArgs) CollaborationModelTrainingPaymentConfigPtrInput {
+	return (*collaborationModelTrainingPaymentConfigPtrType)(v)
+}
+
+func (*collaborationModelTrainingPaymentConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CollaborationModelTrainingPaymentConfig)(nil)).Elem()
+}
+
+func (i *collaborationModelTrainingPaymentConfigPtrType) ToCollaborationModelTrainingPaymentConfigPtrOutput() CollaborationModelTrainingPaymentConfigPtrOutput {
+	return i.ToCollaborationModelTrainingPaymentConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *collaborationModelTrainingPaymentConfigPtrType) ToCollaborationModelTrainingPaymentConfigPtrOutputWithContext(ctx context.Context) CollaborationModelTrainingPaymentConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CollaborationModelTrainingPaymentConfigPtrOutput)
+}
+
+type CollaborationModelTrainingPaymentConfigOutput struct{ *pulumi.OutputState }
+
+func (CollaborationModelTrainingPaymentConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CollaborationModelTrainingPaymentConfig)(nil)).Elem()
+}
+
+func (o CollaborationModelTrainingPaymentConfigOutput) ToCollaborationModelTrainingPaymentConfigOutput() CollaborationModelTrainingPaymentConfigOutput {
+	return o
+}
+
+func (o CollaborationModelTrainingPaymentConfigOutput) ToCollaborationModelTrainingPaymentConfigOutputWithContext(ctx context.Context) CollaborationModelTrainingPaymentConfigOutput {
+	return o
+}
+
+func (o CollaborationModelTrainingPaymentConfigOutput) ToCollaborationModelTrainingPaymentConfigPtrOutput() CollaborationModelTrainingPaymentConfigPtrOutput {
+	return o.ToCollaborationModelTrainingPaymentConfigPtrOutputWithContext(context.Background())
+}
+
+func (o CollaborationModelTrainingPaymentConfigOutput) ToCollaborationModelTrainingPaymentConfigPtrOutputWithContext(ctx context.Context) CollaborationModelTrainingPaymentConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CollaborationModelTrainingPaymentConfig) *CollaborationModelTrainingPaymentConfig {
+		return &v
+	}).(CollaborationModelTrainingPaymentConfigPtrOutput)
+}
+
+// Indicates whether the collaboration creator has configured the collaboration member to pay for model training costs ( `TRUE` ) or has not configured the collaboration member to pay for model training costs ( `FALSE` ).
+//
+// Exactly one member can be configured to pay for model training costs. An error is returned if the collaboration creator sets a `TRUE` value for more than one member in the collaboration.
+//
+// If the collaboration creator hasn't specified anyone as the member paying for model training costs, then the member who can query is the default payer. An error is returned if the collaboration creator sets a `FALSE` value for the member who can query.
+func (o CollaborationModelTrainingPaymentConfigOutput) IsResponsible() pulumi.BoolOutput {
+	return o.ApplyT(func(v CollaborationModelTrainingPaymentConfig) bool { return v.IsResponsible }).(pulumi.BoolOutput)
+}
+
+type CollaborationModelTrainingPaymentConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (CollaborationModelTrainingPaymentConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CollaborationModelTrainingPaymentConfig)(nil)).Elem()
+}
+
+func (o CollaborationModelTrainingPaymentConfigPtrOutput) ToCollaborationModelTrainingPaymentConfigPtrOutput() CollaborationModelTrainingPaymentConfigPtrOutput {
+	return o
+}
+
+func (o CollaborationModelTrainingPaymentConfigPtrOutput) ToCollaborationModelTrainingPaymentConfigPtrOutputWithContext(ctx context.Context) CollaborationModelTrainingPaymentConfigPtrOutput {
+	return o
+}
+
+func (o CollaborationModelTrainingPaymentConfigPtrOutput) Elem() CollaborationModelTrainingPaymentConfigOutput {
+	return o.ApplyT(func(v *CollaborationModelTrainingPaymentConfig) CollaborationModelTrainingPaymentConfig {
+		if v != nil {
+			return *v
+		}
+		var ret CollaborationModelTrainingPaymentConfig
+		return ret
+	}).(CollaborationModelTrainingPaymentConfigOutput)
+}
+
+// Indicates whether the collaboration creator has configured the collaboration member to pay for model training costs ( `TRUE` ) or has not configured the collaboration member to pay for model training costs ( `FALSE` ).
+//
+// Exactly one member can be configured to pay for model training costs. An error is returned if the collaboration creator sets a `TRUE` value for more than one member in the collaboration.
+//
+// If the collaboration creator hasn't specified anyone as the member paying for model training costs, then the member who can query is the default payer. An error is returned if the collaboration creator sets a `FALSE` value for the member who can query.
+func (o CollaborationModelTrainingPaymentConfigPtrOutput) IsResponsible() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CollaborationModelTrainingPaymentConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.IsResponsible
+	}).(pulumi.BoolPtrOutput)
+}
+
 type CollaborationPaymentConfiguration struct {
+	// An object representing the collaboration member's machine learning payment responsibilities set by the collaboration creator.
+	MachineLearning *CollaborationMlPaymentConfig `pulumi:"machineLearning"`
 	// The collaboration member's payment responsibilities set by the collaboration creator for query compute costs.
 	QueryCompute CollaborationQueryComputePaymentConfig `pulumi:"queryCompute"`
 }
@@ -594,6 +1208,8 @@ type CollaborationPaymentConfigurationInput interface {
 }
 
 type CollaborationPaymentConfigurationArgs struct {
+	// An object representing the collaboration member's machine learning payment responsibilities set by the collaboration creator.
+	MachineLearning CollaborationMlPaymentConfigPtrInput `pulumi:"machineLearning"`
 	// The collaboration member's payment responsibilities set by the collaboration creator for query compute costs.
 	QueryCompute CollaborationQueryComputePaymentConfigInput `pulumi:"queryCompute"`
 }
@@ -675,6 +1291,11 @@ func (o CollaborationPaymentConfigurationOutput) ToCollaborationPaymentConfigura
 	}).(CollaborationPaymentConfigurationPtrOutput)
 }
 
+// An object representing the collaboration member's machine learning payment responsibilities set by the collaboration creator.
+func (o CollaborationPaymentConfigurationOutput) MachineLearning() CollaborationMlPaymentConfigPtrOutput {
+	return o.ApplyT(func(v CollaborationPaymentConfiguration) *CollaborationMlPaymentConfig { return v.MachineLearning }).(CollaborationMlPaymentConfigPtrOutput)
+}
+
 // The collaboration member's payment responsibilities set by the collaboration creator for query compute costs.
 func (o CollaborationPaymentConfigurationOutput) QueryCompute() CollaborationQueryComputePaymentConfigOutput {
 	return o.ApplyT(func(v CollaborationPaymentConfiguration) CollaborationQueryComputePaymentConfig {
@@ -704,6 +1325,16 @@ func (o CollaborationPaymentConfigurationPtrOutput) Elem() CollaborationPaymentC
 		var ret CollaborationPaymentConfiguration
 		return ret
 	}).(CollaborationPaymentConfigurationOutput)
+}
+
+// An object representing the collaboration member's machine learning payment responsibilities set by the collaboration creator.
+func (o CollaborationPaymentConfigurationPtrOutput) MachineLearning() CollaborationMlPaymentConfigPtrOutput {
+	return o.ApplyT(func(v *CollaborationPaymentConfiguration) *CollaborationMlPaymentConfig {
+		if v == nil {
+			return nil
+		}
+		return v.MachineLearning
+	}).(CollaborationMlPaymentConfigPtrOutput)
 }
 
 // The collaboration member's payment responsibilities set by the collaboration creator for query compute costs.
@@ -3390,7 +4021,422 @@ type IdNamespaceAssociationTag struct {
 	Value string `pulumi:"value"`
 }
 
+type MembershipMlPaymentConfig struct {
+	ModelInference *MembershipModelInferencePaymentConfig `pulumi:"modelInference"`
+	ModelTraining  *MembershipModelTrainingPaymentConfig  `pulumi:"modelTraining"`
+}
+
+// MembershipMlPaymentConfigInput is an input type that accepts MembershipMlPaymentConfigArgs and MembershipMlPaymentConfigOutput values.
+// You can construct a concrete instance of `MembershipMlPaymentConfigInput` via:
+//
+//	MembershipMlPaymentConfigArgs{...}
+type MembershipMlPaymentConfigInput interface {
+	pulumi.Input
+
+	ToMembershipMlPaymentConfigOutput() MembershipMlPaymentConfigOutput
+	ToMembershipMlPaymentConfigOutputWithContext(context.Context) MembershipMlPaymentConfigOutput
+}
+
+type MembershipMlPaymentConfigArgs struct {
+	ModelInference MembershipModelInferencePaymentConfigPtrInput `pulumi:"modelInference"`
+	ModelTraining  MembershipModelTrainingPaymentConfigPtrInput  `pulumi:"modelTraining"`
+}
+
+func (MembershipMlPaymentConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MembershipMlPaymentConfig)(nil)).Elem()
+}
+
+func (i MembershipMlPaymentConfigArgs) ToMembershipMlPaymentConfigOutput() MembershipMlPaymentConfigOutput {
+	return i.ToMembershipMlPaymentConfigOutputWithContext(context.Background())
+}
+
+func (i MembershipMlPaymentConfigArgs) ToMembershipMlPaymentConfigOutputWithContext(ctx context.Context) MembershipMlPaymentConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MembershipMlPaymentConfigOutput)
+}
+
+func (i MembershipMlPaymentConfigArgs) ToMembershipMlPaymentConfigPtrOutput() MembershipMlPaymentConfigPtrOutput {
+	return i.ToMembershipMlPaymentConfigPtrOutputWithContext(context.Background())
+}
+
+func (i MembershipMlPaymentConfigArgs) ToMembershipMlPaymentConfigPtrOutputWithContext(ctx context.Context) MembershipMlPaymentConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MembershipMlPaymentConfigOutput).ToMembershipMlPaymentConfigPtrOutputWithContext(ctx)
+}
+
+// MembershipMlPaymentConfigPtrInput is an input type that accepts MembershipMlPaymentConfigArgs, MembershipMlPaymentConfigPtr and MembershipMlPaymentConfigPtrOutput values.
+// You can construct a concrete instance of `MembershipMlPaymentConfigPtrInput` via:
+//
+//	        MembershipMlPaymentConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type MembershipMlPaymentConfigPtrInput interface {
+	pulumi.Input
+
+	ToMembershipMlPaymentConfigPtrOutput() MembershipMlPaymentConfigPtrOutput
+	ToMembershipMlPaymentConfigPtrOutputWithContext(context.Context) MembershipMlPaymentConfigPtrOutput
+}
+
+type membershipMlPaymentConfigPtrType MembershipMlPaymentConfigArgs
+
+func MembershipMlPaymentConfigPtr(v *MembershipMlPaymentConfigArgs) MembershipMlPaymentConfigPtrInput {
+	return (*membershipMlPaymentConfigPtrType)(v)
+}
+
+func (*membershipMlPaymentConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MembershipMlPaymentConfig)(nil)).Elem()
+}
+
+func (i *membershipMlPaymentConfigPtrType) ToMembershipMlPaymentConfigPtrOutput() MembershipMlPaymentConfigPtrOutput {
+	return i.ToMembershipMlPaymentConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *membershipMlPaymentConfigPtrType) ToMembershipMlPaymentConfigPtrOutputWithContext(ctx context.Context) MembershipMlPaymentConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MembershipMlPaymentConfigPtrOutput)
+}
+
+type MembershipMlPaymentConfigOutput struct{ *pulumi.OutputState }
+
+func (MembershipMlPaymentConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MembershipMlPaymentConfig)(nil)).Elem()
+}
+
+func (o MembershipMlPaymentConfigOutput) ToMembershipMlPaymentConfigOutput() MembershipMlPaymentConfigOutput {
+	return o
+}
+
+func (o MembershipMlPaymentConfigOutput) ToMembershipMlPaymentConfigOutputWithContext(ctx context.Context) MembershipMlPaymentConfigOutput {
+	return o
+}
+
+func (o MembershipMlPaymentConfigOutput) ToMembershipMlPaymentConfigPtrOutput() MembershipMlPaymentConfigPtrOutput {
+	return o.ToMembershipMlPaymentConfigPtrOutputWithContext(context.Background())
+}
+
+func (o MembershipMlPaymentConfigOutput) ToMembershipMlPaymentConfigPtrOutputWithContext(ctx context.Context) MembershipMlPaymentConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MembershipMlPaymentConfig) *MembershipMlPaymentConfig {
+		return &v
+	}).(MembershipMlPaymentConfigPtrOutput)
+}
+
+func (o MembershipMlPaymentConfigOutput) ModelInference() MembershipModelInferencePaymentConfigPtrOutput {
+	return o.ApplyT(func(v MembershipMlPaymentConfig) *MembershipModelInferencePaymentConfig { return v.ModelInference }).(MembershipModelInferencePaymentConfigPtrOutput)
+}
+
+func (o MembershipMlPaymentConfigOutput) ModelTraining() MembershipModelTrainingPaymentConfigPtrOutput {
+	return o.ApplyT(func(v MembershipMlPaymentConfig) *MembershipModelTrainingPaymentConfig { return v.ModelTraining }).(MembershipModelTrainingPaymentConfigPtrOutput)
+}
+
+type MembershipMlPaymentConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (MembershipMlPaymentConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MembershipMlPaymentConfig)(nil)).Elem()
+}
+
+func (o MembershipMlPaymentConfigPtrOutput) ToMembershipMlPaymentConfigPtrOutput() MembershipMlPaymentConfigPtrOutput {
+	return o
+}
+
+func (o MembershipMlPaymentConfigPtrOutput) ToMembershipMlPaymentConfigPtrOutputWithContext(ctx context.Context) MembershipMlPaymentConfigPtrOutput {
+	return o
+}
+
+func (o MembershipMlPaymentConfigPtrOutput) Elem() MembershipMlPaymentConfigOutput {
+	return o.ApplyT(func(v *MembershipMlPaymentConfig) MembershipMlPaymentConfig {
+		if v != nil {
+			return *v
+		}
+		var ret MembershipMlPaymentConfig
+		return ret
+	}).(MembershipMlPaymentConfigOutput)
+}
+
+func (o MembershipMlPaymentConfigPtrOutput) ModelInference() MembershipModelInferencePaymentConfigPtrOutput {
+	return o.ApplyT(func(v *MembershipMlPaymentConfig) *MembershipModelInferencePaymentConfig {
+		if v == nil {
+			return nil
+		}
+		return v.ModelInference
+	}).(MembershipModelInferencePaymentConfigPtrOutput)
+}
+
+func (o MembershipMlPaymentConfigPtrOutput) ModelTraining() MembershipModelTrainingPaymentConfigPtrOutput {
+	return o.ApplyT(func(v *MembershipMlPaymentConfig) *MembershipModelTrainingPaymentConfig {
+		if v == nil {
+			return nil
+		}
+		return v.ModelTraining
+	}).(MembershipModelTrainingPaymentConfigPtrOutput)
+}
+
+type MembershipModelInferencePaymentConfig struct {
+	IsResponsible bool `pulumi:"isResponsible"`
+}
+
+// MembershipModelInferencePaymentConfigInput is an input type that accepts MembershipModelInferencePaymentConfigArgs and MembershipModelInferencePaymentConfigOutput values.
+// You can construct a concrete instance of `MembershipModelInferencePaymentConfigInput` via:
+//
+//	MembershipModelInferencePaymentConfigArgs{...}
+type MembershipModelInferencePaymentConfigInput interface {
+	pulumi.Input
+
+	ToMembershipModelInferencePaymentConfigOutput() MembershipModelInferencePaymentConfigOutput
+	ToMembershipModelInferencePaymentConfigOutputWithContext(context.Context) MembershipModelInferencePaymentConfigOutput
+}
+
+type MembershipModelInferencePaymentConfigArgs struct {
+	IsResponsible pulumi.BoolInput `pulumi:"isResponsible"`
+}
+
+func (MembershipModelInferencePaymentConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MembershipModelInferencePaymentConfig)(nil)).Elem()
+}
+
+func (i MembershipModelInferencePaymentConfigArgs) ToMembershipModelInferencePaymentConfigOutput() MembershipModelInferencePaymentConfigOutput {
+	return i.ToMembershipModelInferencePaymentConfigOutputWithContext(context.Background())
+}
+
+func (i MembershipModelInferencePaymentConfigArgs) ToMembershipModelInferencePaymentConfigOutputWithContext(ctx context.Context) MembershipModelInferencePaymentConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MembershipModelInferencePaymentConfigOutput)
+}
+
+func (i MembershipModelInferencePaymentConfigArgs) ToMembershipModelInferencePaymentConfigPtrOutput() MembershipModelInferencePaymentConfigPtrOutput {
+	return i.ToMembershipModelInferencePaymentConfigPtrOutputWithContext(context.Background())
+}
+
+func (i MembershipModelInferencePaymentConfigArgs) ToMembershipModelInferencePaymentConfigPtrOutputWithContext(ctx context.Context) MembershipModelInferencePaymentConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MembershipModelInferencePaymentConfigOutput).ToMembershipModelInferencePaymentConfigPtrOutputWithContext(ctx)
+}
+
+// MembershipModelInferencePaymentConfigPtrInput is an input type that accepts MembershipModelInferencePaymentConfigArgs, MembershipModelInferencePaymentConfigPtr and MembershipModelInferencePaymentConfigPtrOutput values.
+// You can construct a concrete instance of `MembershipModelInferencePaymentConfigPtrInput` via:
+//
+//	        MembershipModelInferencePaymentConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type MembershipModelInferencePaymentConfigPtrInput interface {
+	pulumi.Input
+
+	ToMembershipModelInferencePaymentConfigPtrOutput() MembershipModelInferencePaymentConfigPtrOutput
+	ToMembershipModelInferencePaymentConfigPtrOutputWithContext(context.Context) MembershipModelInferencePaymentConfigPtrOutput
+}
+
+type membershipModelInferencePaymentConfigPtrType MembershipModelInferencePaymentConfigArgs
+
+func MembershipModelInferencePaymentConfigPtr(v *MembershipModelInferencePaymentConfigArgs) MembershipModelInferencePaymentConfigPtrInput {
+	return (*membershipModelInferencePaymentConfigPtrType)(v)
+}
+
+func (*membershipModelInferencePaymentConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MembershipModelInferencePaymentConfig)(nil)).Elem()
+}
+
+func (i *membershipModelInferencePaymentConfigPtrType) ToMembershipModelInferencePaymentConfigPtrOutput() MembershipModelInferencePaymentConfigPtrOutput {
+	return i.ToMembershipModelInferencePaymentConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *membershipModelInferencePaymentConfigPtrType) ToMembershipModelInferencePaymentConfigPtrOutputWithContext(ctx context.Context) MembershipModelInferencePaymentConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MembershipModelInferencePaymentConfigPtrOutput)
+}
+
+type MembershipModelInferencePaymentConfigOutput struct{ *pulumi.OutputState }
+
+func (MembershipModelInferencePaymentConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MembershipModelInferencePaymentConfig)(nil)).Elem()
+}
+
+func (o MembershipModelInferencePaymentConfigOutput) ToMembershipModelInferencePaymentConfigOutput() MembershipModelInferencePaymentConfigOutput {
+	return o
+}
+
+func (o MembershipModelInferencePaymentConfigOutput) ToMembershipModelInferencePaymentConfigOutputWithContext(ctx context.Context) MembershipModelInferencePaymentConfigOutput {
+	return o
+}
+
+func (o MembershipModelInferencePaymentConfigOutput) ToMembershipModelInferencePaymentConfigPtrOutput() MembershipModelInferencePaymentConfigPtrOutput {
+	return o.ToMembershipModelInferencePaymentConfigPtrOutputWithContext(context.Background())
+}
+
+func (o MembershipModelInferencePaymentConfigOutput) ToMembershipModelInferencePaymentConfigPtrOutputWithContext(ctx context.Context) MembershipModelInferencePaymentConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MembershipModelInferencePaymentConfig) *MembershipModelInferencePaymentConfig {
+		return &v
+	}).(MembershipModelInferencePaymentConfigPtrOutput)
+}
+
+func (o MembershipModelInferencePaymentConfigOutput) IsResponsible() pulumi.BoolOutput {
+	return o.ApplyT(func(v MembershipModelInferencePaymentConfig) bool { return v.IsResponsible }).(pulumi.BoolOutput)
+}
+
+type MembershipModelInferencePaymentConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (MembershipModelInferencePaymentConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MembershipModelInferencePaymentConfig)(nil)).Elem()
+}
+
+func (o MembershipModelInferencePaymentConfigPtrOutput) ToMembershipModelInferencePaymentConfigPtrOutput() MembershipModelInferencePaymentConfigPtrOutput {
+	return o
+}
+
+func (o MembershipModelInferencePaymentConfigPtrOutput) ToMembershipModelInferencePaymentConfigPtrOutputWithContext(ctx context.Context) MembershipModelInferencePaymentConfigPtrOutput {
+	return o
+}
+
+func (o MembershipModelInferencePaymentConfigPtrOutput) Elem() MembershipModelInferencePaymentConfigOutput {
+	return o.ApplyT(func(v *MembershipModelInferencePaymentConfig) MembershipModelInferencePaymentConfig {
+		if v != nil {
+			return *v
+		}
+		var ret MembershipModelInferencePaymentConfig
+		return ret
+	}).(MembershipModelInferencePaymentConfigOutput)
+}
+
+func (o MembershipModelInferencePaymentConfigPtrOutput) IsResponsible() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MembershipModelInferencePaymentConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.IsResponsible
+	}).(pulumi.BoolPtrOutput)
+}
+
+type MembershipModelTrainingPaymentConfig struct {
+	IsResponsible bool `pulumi:"isResponsible"`
+}
+
+// MembershipModelTrainingPaymentConfigInput is an input type that accepts MembershipModelTrainingPaymentConfigArgs and MembershipModelTrainingPaymentConfigOutput values.
+// You can construct a concrete instance of `MembershipModelTrainingPaymentConfigInput` via:
+//
+//	MembershipModelTrainingPaymentConfigArgs{...}
+type MembershipModelTrainingPaymentConfigInput interface {
+	pulumi.Input
+
+	ToMembershipModelTrainingPaymentConfigOutput() MembershipModelTrainingPaymentConfigOutput
+	ToMembershipModelTrainingPaymentConfigOutputWithContext(context.Context) MembershipModelTrainingPaymentConfigOutput
+}
+
+type MembershipModelTrainingPaymentConfigArgs struct {
+	IsResponsible pulumi.BoolInput `pulumi:"isResponsible"`
+}
+
+func (MembershipModelTrainingPaymentConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MembershipModelTrainingPaymentConfig)(nil)).Elem()
+}
+
+func (i MembershipModelTrainingPaymentConfigArgs) ToMembershipModelTrainingPaymentConfigOutput() MembershipModelTrainingPaymentConfigOutput {
+	return i.ToMembershipModelTrainingPaymentConfigOutputWithContext(context.Background())
+}
+
+func (i MembershipModelTrainingPaymentConfigArgs) ToMembershipModelTrainingPaymentConfigOutputWithContext(ctx context.Context) MembershipModelTrainingPaymentConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MembershipModelTrainingPaymentConfigOutput)
+}
+
+func (i MembershipModelTrainingPaymentConfigArgs) ToMembershipModelTrainingPaymentConfigPtrOutput() MembershipModelTrainingPaymentConfigPtrOutput {
+	return i.ToMembershipModelTrainingPaymentConfigPtrOutputWithContext(context.Background())
+}
+
+func (i MembershipModelTrainingPaymentConfigArgs) ToMembershipModelTrainingPaymentConfigPtrOutputWithContext(ctx context.Context) MembershipModelTrainingPaymentConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MembershipModelTrainingPaymentConfigOutput).ToMembershipModelTrainingPaymentConfigPtrOutputWithContext(ctx)
+}
+
+// MembershipModelTrainingPaymentConfigPtrInput is an input type that accepts MembershipModelTrainingPaymentConfigArgs, MembershipModelTrainingPaymentConfigPtr and MembershipModelTrainingPaymentConfigPtrOutput values.
+// You can construct a concrete instance of `MembershipModelTrainingPaymentConfigPtrInput` via:
+//
+//	        MembershipModelTrainingPaymentConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type MembershipModelTrainingPaymentConfigPtrInput interface {
+	pulumi.Input
+
+	ToMembershipModelTrainingPaymentConfigPtrOutput() MembershipModelTrainingPaymentConfigPtrOutput
+	ToMembershipModelTrainingPaymentConfigPtrOutputWithContext(context.Context) MembershipModelTrainingPaymentConfigPtrOutput
+}
+
+type membershipModelTrainingPaymentConfigPtrType MembershipModelTrainingPaymentConfigArgs
+
+func MembershipModelTrainingPaymentConfigPtr(v *MembershipModelTrainingPaymentConfigArgs) MembershipModelTrainingPaymentConfigPtrInput {
+	return (*membershipModelTrainingPaymentConfigPtrType)(v)
+}
+
+func (*membershipModelTrainingPaymentConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MembershipModelTrainingPaymentConfig)(nil)).Elem()
+}
+
+func (i *membershipModelTrainingPaymentConfigPtrType) ToMembershipModelTrainingPaymentConfigPtrOutput() MembershipModelTrainingPaymentConfigPtrOutput {
+	return i.ToMembershipModelTrainingPaymentConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *membershipModelTrainingPaymentConfigPtrType) ToMembershipModelTrainingPaymentConfigPtrOutputWithContext(ctx context.Context) MembershipModelTrainingPaymentConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MembershipModelTrainingPaymentConfigPtrOutput)
+}
+
+type MembershipModelTrainingPaymentConfigOutput struct{ *pulumi.OutputState }
+
+func (MembershipModelTrainingPaymentConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MembershipModelTrainingPaymentConfig)(nil)).Elem()
+}
+
+func (o MembershipModelTrainingPaymentConfigOutput) ToMembershipModelTrainingPaymentConfigOutput() MembershipModelTrainingPaymentConfigOutput {
+	return o
+}
+
+func (o MembershipModelTrainingPaymentConfigOutput) ToMembershipModelTrainingPaymentConfigOutputWithContext(ctx context.Context) MembershipModelTrainingPaymentConfigOutput {
+	return o
+}
+
+func (o MembershipModelTrainingPaymentConfigOutput) ToMembershipModelTrainingPaymentConfigPtrOutput() MembershipModelTrainingPaymentConfigPtrOutput {
+	return o.ToMembershipModelTrainingPaymentConfigPtrOutputWithContext(context.Background())
+}
+
+func (o MembershipModelTrainingPaymentConfigOutput) ToMembershipModelTrainingPaymentConfigPtrOutputWithContext(ctx context.Context) MembershipModelTrainingPaymentConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MembershipModelTrainingPaymentConfig) *MembershipModelTrainingPaymentConfig {
+		return &v
+	}).(MembershipModelTrainingPaymentConfigPtrOutput)
+}
+
+func (o MembershipModelTrainingPaymentConfigOutput) IsResponsible() pulumi.BoolOutput {
+	return o.ApplyT(func(v MembershipModelTrainingPaymentConfig) bool { return v.IsResponsible }).(pulumi.BoolOutput)
+}
+
+type MembershipModelTrainingPaymentConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (MembershipModelTrainingPaymentConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MembershipModelTrainingPaymentConfig)(nil)).Elem()
+}
+
+func (o MembershipModelTrainingPaymentConfigPtrOutput) ToMembershipModelTrainingPaymentConfigPtrOutput() MembershipModelTrainingPaymentConfigPtrOutput {
+	return o
+}
+
+func (o MembershipModelTrainingPaymentConfigPtrOutput) ToMembershipModelTrainingPaymentConfigPtrOutputWithContext(ctx context.Context) MembershipModelTrainingPaymentConfigPtrOutput {
+	return o
+}
+
+func (o MembershipModelTrainingPaymentConfigPtrOutput) Elem() MembershipModelTrainingPaymentConfigOutput {
+	return o.ApplyT(func(v *MembershipModelTrainingPaymentConfig) MembershipModelTrainingPaymentConfig {
+		if v != nil {
+			return *v
+		}
+		var ret MembershipModelTrainingPaymentConfig
+		return ret
+	}).(MembershipModelTrainingPaymentConfigOutput)
+}
+
+func (o MembershipModelTrainingPaymentConfigPtrOutput) IsResponsible() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MembershipModelTrainingPaymentConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.IsResponsible
+	}).(pulumi.BoolPtrOutput)
+}
+
 type MembershipPaymentConfiguration struct {
+	MachineLearning *MembershipMlPaymentConfig `pulumi:"machineLearning"`
 	// The payment responsibilities accepted by the collaboration member for query compute costs.
 	QueryCompute MembershipQueryComputePaymentConfig `pulumi:"queryCompute"`
 }
@@ -3407,6 +4453,7 @@ type MembershipPaymentConfigurationInput interface {
 }
 
 type MembershipPaymentConfigurationArgs struct {
+	MachineLearning MembershipMlPaymentConfigPtrInput `pulumi:"machineLearning"`
 	// The payment responsibilities accepted by the collaboration member for query compute costs.
 	QueryCompute MembershipQueryComputePaymentConfigInput `pulumi:"queryCompute"`
 }
@@ -3488,6 +4535,10 @@ func (o MembershipPaymentConfigurationOutput) ToMembershipPaymentConfigurationPt
 	}).(MembershipPaymentConfigurationPtrOutput)
 }
 
+func (o MembershipPaymentConfigurationOutput) MachineLearning() MembershipMlPaymentConfigPtrOutput {
+	return o.ApplyT(func(v MembershipPaymentConfiguration) *MembershipMlPaymentConfig { return v.MachineLearning }).(MembershipMlPaymentConfigPtrOutput)
+}
+
 // The payment responsibilities accepted by the collaboration member for query compute costs.
 func (o MembershipPaymentConfigurationOutput) QueryCompute() MembershipQueryComputePaymentConfigOutput {
 	return o.ApplyT(func(v MembershipPaymentConfiguration) MembershipQueryComputePaymentConfig { return v.QueryCompute }).(MembershipQueryComputePaymentConfigOutput)
@@ -3515,6 +4566,15 @@ func (o MembershipPaymentConfigurationPtrOutput) Elem() MembershipPaymentConfigu
 		var ret MembershipPaymentConfiguration
 		return ret
 	}).(MembershipPaymentConfigurationOutput)
+}
+
+func (o MembershipPaymentConfigurationPtrOutput) MachineLearning() MembershipMlPaymentConfigPtrOutput {
+	return o.ApplyT(func(v *MembershipPaymentConfiguration) *MembershipMlPaymentConfig {
+		if v == nil {
+			return nil
+		}
+		return v.MachineLearning
+	}).(MembershipMlPaymentConfigPtrOutput)
 }
 
 // The payment responsibilities accepted by the collaboration member for query compute costs.
@@ -4317,6 +5377,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationDataEncryptionMetadataPtrInput)(nil)).Elem(), CollaborationDataEncryptionMetadataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationMemberSpecificationInput)(nil)).Elem(), CollaborationMemberSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationMemberSpecificationArrayInput)(nil)).Elem(), CollaborationMemberSpecificationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationMlMemberAbilitiesInput)(nil)).Elem(), CollaborationMlMemberAbilitiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationMlMemberAbilitiesPtrInput)(nil)).Elem(), CollaborationMlMemberAbilitiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationMlPaymentConfigInput)(nil)).Elem(), CollaborationMlPaymentConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationMlPaymentConfigPtrInput)(nil)).Elem(), CollaborationMlPaymentConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationModelInferencePaymentConfigInput)(nil)).Elem(), CollaborationModelInferencePaymentConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationModelInferencePaymentConfigPtrInput)(nil)).Elem(), CollaborationModelInferencePaymentConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationModelTrainingPaymentConfigInput)(nil)).Elem(), CollaborationModelTrainingPaymentConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationModelTrainingPaymentConfigPtrInput)(nil)).Elem(), CollaborationModelTrainingPaymentConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationPaymentConfigurationInput)(nil)).Elem(), CollaborationPaymentConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationPaymentConfigurationPtrInput)(nil)).Elem(), CollaborationPaymentConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CollaborationQueryComputePaymentConfigInput)(nil)).Elem(), CollaborationQueryComputePaymentConfigArgs{})
@@ -4360,6 +5428,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IdNamespaceAssociationIdMappingConfigInput)(nil)).Elem(), IdNamespaceAssociationIdMappingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdNamespaceAssociationIdMappingConfigPtrInput)(nil)).Elem(), IdNamespaceAssociationIdMappingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdNamespaceAssociationInputReferenceConfigInput)(nil)).Elem(), IdNamespaceAssociationInputReferenceConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MembershipMlPaymentConfigInput)(nil)).Elem(), MembershipMlPaymentConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MembershipMlPaymentConfigPtrInput)(nil)).Elem(), MembershipMlPaymentConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MembershipModelInferencePaymentConfigInput)(nil)).Elem(), MembershipModelInferencePaymentConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MembershipModelInferencePaymentConfigPtrInput)(nil)).Elem(), MembershipModelInferencePaymentConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MembershipModelTrainingPaymentConfigInput)(nil)).Elem(), MembershipModelTrainingPaymentConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MembershipModelTrainingPaymentConfigPtrInput)(nil)).Elem(), MembershipModelTrainingPaymentConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MembershipPaymentConfigurationInput)(nil)).Elem(), MembershipPaymentConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MembershipPaymentConfigurationPtrInput)(nil)).Elem(), MembershipPaymentConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MembershipProtectedQueryOutputConfigurationInput)(nil)).Elem(), MembershipProtectedQueryOutputConfigurationArgs{})
@@ -4380,6 +5454,14 @@ func init() {
 	pulumi.RegisterOutputType(CollaborationDataEncryptionMetadataPtrOutput{})
 	pulumi.RegisterOutputType(CollaborationMemberSpecificationOutput{})
 	pulumi.RegisterOutputType(CollaborationMemberSpecificationArrayOutput{})
+	pulumi.RegisterOutputType(CollaborationMlMemberAbilitiesOutput{})
+	pulumi.RegisterOutputType(CollaborationMlMemberAbilitiesPtrOutput{})
+	pulumi.RegisterOutputType(CollaborationMlPaymentConfigOutput{})
+	pulumi.RegisterOutputType(CollaborationMlPaymentConfigPtrOutput{})
+	pulumi.RegisterOutputType(CollaborationModelInferencePaymentConfigOutput{})
+	pulumi.RegisterOutputType(CollaborationModelInferencePaymentConfigPtrOutput{})
+	pulumi.RegisterOutputType(CollaborationModelTrainingPaymentConfigOutput{})
+	pulumi.RegisterOutputType(CollaborationModelTrainingPaymentConfigPtrOutput{})
 	pulumi.RegisterOutputType(CollaborationPaymentConfigurationOutput{})
 	pulumi.RegisterOutputType(CollaborationPaymentConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(CollaborationQueryComputePaymentConfigOutput{})
@@ -4431,6 +5513,12 @@ func init() {
 	pulumi.RegisterOutputType(IdNamespaceAssociationInputReferenceConfigOutput{})
 	pulumi.RegisterOutputType(IdNamespaceAssociationInputReferencePropertiesOutput{})
 	pulumi.RegisterOutputType(IdNamespaceAssociationInputReferencePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(MembershipMlPaymentConfigOutput{})
+	pulumi.RegisterOutputType(MembershipMlPaymentConfigPtrOutput{})
+	pulumi.RegisterOutputType(MembershipModelInferencePaymentConfigOutput{})
+	pulumi.RegisterOutputType(MembershipModelInferencePaymentConfigPtrOutput{})
+	pulumi.RegisterOutputType(MembershipModelTrainingPaymentConfigOutput{})
+	pulumi.RegisterOutputType(MembershipModelTrainingPaymentConfigPtrOutput{})
 	pulumi.RegisterOutputType(MembershipPaymentConfigurationOutput{})
 	pulumi.RegisterOutputType(MembershipPaymentConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(MembershipProtectedQueryOutputConfigurationOutput{})

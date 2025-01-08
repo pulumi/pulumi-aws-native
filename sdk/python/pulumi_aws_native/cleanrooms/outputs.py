@@ -22,6 +22,10 @@ __all__ = [
     'AnalysisTemplateAnalysisSource',
     'CollaborationDataEncryptionMetadata',
     'CollaborationMemberSpecification',
+    'CollaborationMlMemberAbilities',
+    'CollaborationMlPaymentConfig',
+    'CollaborationModelInferencePaymentConfig',
+    'CollaborationModelTrainingPaymentConfig',
     'CollaborationPaymentConfiguration',
     'CollaborationQueryComputePaymentConfig',
     'ConfiguredTableAggregateColumn',
@@ -59,6 +63,9 @@ __all__ = [
     'IdNamespaceAssociationIdMappingConfig',
     'IdNamespaceAssociationInputReferenceConfig',
     'IdNamespaceAssociationInputReferenceProperties',
+    'MembershipMlPaymentConfig',
+    'MembershipModelInferencePaymentConfig',
+    'MembershipModelTrainingPaymentConfig',
     'MembershipPaymentConfiguration',
     'MembershipProtectedQueryOutputConfiguration',
     'MembershipProtectedQueryResultConfiguration',
@@ -263,6 +270,8 @@ class CollaborationMemberSpecification(dict):
             suggest = "display_name"
         elif key == "memberAbilities":
             suggest = "member_abilities"
+        elif key == "mlMemberAbilities":
+            suggest = "ml_member_abilities"
         elif key == "paymentConfiguration":
             suggest = "payment_configuration"
 
@@ -281,6 +290,7 @@ class CollaborationMemberSpecification(dict):
                  account_id: str,
                  display_name: str,
                  member_abilities: Sequence['CollaborationMemberAbility'],
+                 ml_member_abilities: Optional['outputs.CollaborationMlMemberAbilities'] = None,
                  payment_configuration: Optional['outputs.CollaborationPaymentConfiguration'] = None):
         """
         :param str account_id: The identifier used to reference members of the collaboration. Currently only supports AWS account ID.
@@ -288,6 +298,7 @@ class CollaborationMemberSpecification(dict):
         :param Sequence['CollaborationMemberAbility'] member_abilities: The abilities granted to the collaboration member.
                
                *Allowed Values* : `CAN_QUERY` | `CAN_RECEIVE_RESULTS`
+        :param 'CollaborationMlMemberAbilities' ml_member_abilities: The ML abilities granted to the collaboration member.
         :param 'CollaborationPaymentConfiguration' payment_configuration: The collaboration member's payment responsibilities set by the collaboration creator.
                
                If the collaboration creator hasn't speciﬁed anyone as the member paying for query compute costs, then the member who can query is the default payer.
@@ -295,6 +306,8 @@ class CollaborationMemberSpecification(dict):
         pulumi.set(__self__, "account_id", account_id)
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "member_abilities", member_abilities)
+        if ml_member_abilities is not None:
+            pulumi.set(__self__, "ml_member_abilities", ml_member_abilities)
         if payment_configuration is not None:
             pulumi.set(__self__, "payment_configuration", payment_configuration)
 
@@ -325,6 +338,14 @@ class CollaborationMemberSpecification(dict):
         return pulumi.get(self, "member_abilities")
 
     @property
+    @pulumi.getter(name="mlMemberAbilities")
+    def ml_member_abilities(self) -> Optional['outputs.CollaborationMlMemberAbilities']:
+        """
+        The ML abilities granted to the collaboration member.
+        """
+        return pulumi.get(self, "ml_member_abilities")
+
+    @property
     @pulumi.getter(name="paymentConfiguration")
     def payment_configuration(self) -> Optional['outputs.CollaborationPaymentConfiguration']:
         """
@@ -336,12 +357,185 @@ class CollaborationMemberSpecification(dict):
 
 
 @pulumi.output_type
+class CollaborationMlMemberAbilities(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "customMlMemberAbilities":
+            suggest = "custom_ml_member_abilities"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CollaborationMlMemberAbilities. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CollaborationMlMemberAbilities.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CollaborationMlMemberAbilities.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 custom_ml_member_abilities: Sequence['CollaborationCustomMlMemberAbility']):
+        """
+        :param Sequence['CollaborationCustomMlMemberAbility'] custom_ml_member_abilities: The custom ML member abilities for a collaboration member.
+        """
+        pulumi.set(__self__, "custom_ml_member_abilities", custom_ml_member_abilities)
+
+    @property
+    @pulumi.getter(name="customMlMemberAbilities")
+    def custom_ml_member_abilities(self) -> Sequence['CollaborationCustomMlMemberAbility']:
+        """
+        The custom ML member abilities for a collaboration member.
+        """
+        return pulumi.get(self, "custom_ml_member_abilities")
+
+
+@pulumi.output_type
+class CollaborationMlPaymentConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "modelInference":
+            suggest = "model_inference"
+        elif key == "modelTraining":
+            suggest = "model_training"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CollaborationMlPaymentConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CollaborationMlPaymentConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CollaborationMlPaymentConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 model_inference: Optional['outputs.CollaborationModelInferencePaymentConfig'] = None,
+                 model_training: Optional['outputs.CollaborationModelTrainingPaymentConfig'] = None):
+        """
+        :param 'CollaborationModelInferencePaymentConfig' model_inference: The payment responsibilities accepted by the member for model inference.
+        :param 'CollaborationModelTrainingPaymentConfig' model_training: The payment responsibilities accepted by the member for model training.
+        """
+        if model_inference is not None:
+            pulumi.set(__self__, "model_inference", model_inference)
+        if model_training is not None:
+            pulumi.set(__self__, "model_training", model_training)
+
+    @property
+    @pulumi.getter(name="modelInference")
+    def model_inference(self) -> Optional['outputs.CollaborationModelInferencePaymentConfig']:
+        """
+        The payment responsibilities accepted by the member for model inference.
+        """
+        return pulumi.get(self, "model_inference")
+
+    @property
+    @pulumi.getter(name="modelTraining")
+    def model_training(self) -> Optional['outputs.CollaborationModelTrainingPaymentConfig']:
+        """
+        The payment responsibilities accepted by the member for model training.
+        """
+        return pulumi.get(self, "model_training")
+
+
+@pulumi.output_type
+class CollaborationModelInferencePaymentConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isResponsible":
+            suggest = "is_responsible"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CollaborationModelInferencePaymentConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CollaborationModelInferencePaymentConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CollaborationModelInferencePaymentConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 is_responsible: bool):
+        """
+        :param bool is_responsible: Indicates whether the collaboration creator has configured the collaboration member to pay for model inference costs ( `TRUE` ) or has not configured the collaboration member to pay for model inference costs ( `FALSE` ).
+               
+               Exactly one member can be configured to pay for model inference costs. An error is returned if the collaboration creator sets a `TRUE` value for more than one member in the collaboration.
+               
+               If the collaboration creator hasn't specified anyone as the member paying for model inference costs, then the member who can query is the default payer. An error is returned if the collaboration creator sets a `FALSE` value for the member who can query.
+        """
+        pulumi.set(__self__, "is_responsible", is_responsible)
+
+    @property
+    @pulumi.getter(name="isResponsible")
+    def is_responsible(self) -> bool:
+        """
+        Indicates whether the collaboration creator has configured the collaboration member to pay for model inference costs ( `TRUE` ) or has not configured the collaboration member to pay for model inference costs ( `FALSE` ).
+
+        Exactly one member can be configured to pay for model inference costs. An error is returned if the collaboration creator sets a `TRUE` value for more than one member in the collaboration.
+
+        If the collaboration creator hasn't specified anyone as the member paying for model inference costs, then the member who can query is the default payer. An error is returned if the collaboration creator sets a `FALSE` value for the member who can query.
+        """
+        return pulumi.get(self, "is_responsible")
+
+
+@pulumi.output_type
+class CollaborationModelTrainingPaymentConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isResponsible":
+            suggest = "is_responsible"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CollaborationModelTrainingPaymentConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CollaborationModelTrainingPaymentConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CollaborationModelTrainingPaymentConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 is_responsible: bool):
+        """
+        :param bool is_responsible: Indicates whether the collaboration creator has configured the collaboration member to pay for model training costs ( `TRUE` ) or has not configured the collaboration member to pay for model training costs ( `FALSE` ).
+               
+               Exactly one member can be configured to pay for model training costs. An error is returned if the collaboration creator sets a `TRUE` value for more than one member in the collaboration.
+               
+               If the collaboration creator hasn't specified anyone as the member paying for model training costs, then the member who can query is the default payer. An error is returned if the collaboration creator sets a `FALSE` value for the member who can query.
+        """
+        pulumi.set(__self__, "is_responsible", is_responsible)
+
+    @property
+    @pulumi.getter(name="isResponsible")
+    def is_responsible(self) -> bool:
+        """
+        Indicates whether the collaboration creator has configured the collaboration member to pay for model training costs ( `TRUE` ) or has not configured the collaboration member to pay for model training costs ( `FALSE` ).
+
+        Exactly one member can be configured to pay for model training costs. An error is returned if the collaboration creator sets a `TRUE` value for more than one member in the collaboration.
+
+        If the collaboration creator hasn't specified anyone as the member paying for model training costs, then the member who can query is the default payer. An error is returned if the collaboration creator sets a `FALSE` value for the member who can query.
+        """
+        return pulumi.get(self, "is_responsible")
+
+
+@pulumi.output_type
 class CollaborationPaymentConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
         if key == "queryCompute":
             suggest = "query_compute"
+        elif key == "machineLearning":
+            suggest = "machine_learning"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in CollaborationPaymentConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -355,11 +549,15 @@ class CollaborationPaymentConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 query_compute: 'outputs.CollaborationQueryComputePaymentConfig'):
+                 query_compute: 'outputs.CollaborationQueryComputePaymentConfig',
+                 machine_learning: Optional['outputs.CollaborationMlPaymentConfig'] = None):
         """
         :param 'CollaborationQueryComputePaymentConfig' query_compute: The collaboration member's payment responsibilities set by the collaboration creator for query compute costs.
+        :param 'CollaborationMlPaymentConfig' machine_learning: An object representing the collaboration member's machine learning payment responsibilities set by the collaboration creator.
         """
         pulumi.set(__self__, "query_compute", query_compute)
+        if machine_learning is not None:
+            pulumi.set(__self__, "machine_learning", machine_learning)
 
     @property
     @pulumi.getter(name="queryCompute")
@@ -368,6 +566,14 @@ class CollaborationPaymentConfiguration(dict):
         The collaboration member's payment responsibilities set by the collaboration creator for query compute costs.
         """
         return pulumi.get(self, "query_compute")
+
+    @property
+    @pulumi.getter(name="machineLearning")
+    def machine_learning(self) -> Optional['outputs.CollaborationMlPaymentConfig']:
+        """
+        An object representing the collaboration member's machine learning payment responsibilities set by the collaboration creator.
+        """
+        return pulumi.get(self, "machine_learning")
 
 
 @pulumi.output_type
@@ -1560,12 +1766,112 @@ class IdNamespaceAssociationInputReferenceProperties(dict):
 
 
 @pulumi.output_type
+class MembershipMlPaymentConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "modelInference":
+            suggest = "model_inference"
+        elif key == "modelTraining":
+            suggest = "model_training"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MembershipMlPaymentConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MembershipMlPaymentConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MembershipMlPaymentConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 model_inference: Optional['outputs.MembershipModelInferencePaymentConfig'] = None,
+                 model_training: Optional['outputs.MembershipModelTrainingPaymentConfig'] = None):
+        if model_inference is not None:
+            pulumi.set(__self__, "model_inference", model_inference)
+        if model_training is not None:
+            pulumi.set(__self__, "model_training", model_training)
+
+    @property
+    @pulumi.getter(name="modelInference")
+    def model_inference(self) -> Optional['outputs.MembershipModelInferencePaymentConfig']:
+        return pulumi.get(self, "model_inference")
+
+    @property
+    @pulumi.getter(name="modelTraining")
+    def model_training(self) -> Optional['outputs.MembershipModelTrainingPaymentConfig']:
+        return pulumi.get(self, "model_training")
+
+
+@pulumi.output_type
+class MembershipModelInferencePaymentConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isResponsible":
+            suggest = "is_responsible"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MembershipModelInferencePaymentConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MembershipModelInferencePaymentConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MembershipModelInferencePaymentConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 is_responsible: bool):
+        pulumi.set(__self__, "is_responsible", is_responsible)
+
+    @property
+    @pulumi.getter(name="isResponsible")
+    def is_responsible(self) -> bool:
+        return pulumi.get(self, "is_responsible")
+
+
+@pulumi.output_type
+class MembershipModelTrainingPaymentConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isResponsible":
+            suggest = "is_responsible"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MembershipModelTrainingPaymentConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MembershipModelTrainingPaymentConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MembershipModelTrainingPaymentConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 is_responsible: bool):
+        pulumi.set(__self__, "is_responsible", is_responsible)
+
+    @property
+    @pulumi.getter(name="isResponsible")
+    def is_responsible(self) -> bool:
+        return pulumi.get(self, "is_responsible")
+
+
+@pulumi.output_type
 class MembershipPaymentConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
         if key == "queryCompute":
             suggest = "query_compute"
+        elif key == "machineLearning":
+            suggest = "machine_learning"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in MembershipPaymentConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -1579,11 +1885,14 @@ class MembershipPaymentConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 query_compute: 'outputs.MembershipQueryComputePaymentConfig'):
+                 query_compute: 'outputs.MembershipQueryComputePaymentConfig',
+                 machine_learning: Optional['outputs.MembershipMlPaymentConfig'] = None):
         """
         :param 'MembershipQueryComputePaymentConfig' query_compute: The payment responsibilities accepted by the collaboration member for query compute costs.
         """
         pulumi.set(__self__, "query_compute", query_compute)
+        if machine_learning is not None:
+            pulumi.set(__self__, "machine_learning", machine_learning)
 
     @property
     @pulumi.getter(name="queryCompute")
@@ -1592,6 +1901,11 @@ class MembershipPaymentConfiguration(dict):
         The payment responsibilities accepted by the collaboration member for query compute costs.
         """
         return pulumi.get(self, "query_compute")
+
+    @property
+    @pulumi.getter(name="machineLearning")
+    def machine_learning(self) -> Optional['outputs.MembershipMlPaymentConfig']:
+        return pulumi.get(self, "machine_learning")
 
 
 @pulumi.output_type

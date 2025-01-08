@@ -54,6 +54,13 @@ export const CollaborationAnalyticsEngine = {
 
 export type CollaborationAnalyticsEngine = (typeof CollaborationAnalyticsEngine)[keyof typeof CollaborationAnalyticsEngine];
 
+export const CollaborationCustomMlMemberAbility = {
+    CanReceiveModelOutput: "CAN_RECEIVE_MODEL_OUTPUT",
+    CanReceiveInferenceOutput: "CAN_RECEIVE_INFERENCE_OUTPUT",
+} as const;
+
+export type CollaborationCustomMlMemberAbility = (typeof CollaborationCustomMlMemberAbility)[keyof typeof CollaborationCustomMlMemberAbility];
+
 export const CollaborationMemberAbility = {
     CanQuery: "CAN_QUERY",
     CanReceiveResults: "CAN_RECEIVE_RESULTS",

@@ -25,8 +25,8 @@ class UserPoolUiCustomizationAttachmentArgs:
         """
         The set of arguments for constructing a UserPoolUiCustomizationAttachment resource.
         :param pulumi.Input[str] client_id: The app client ID for your UI customization. When this value isn't present, the customization applies to all user pool app clients that don't have client-level settings..
-        :param pulumi.Input[str] user_pool_id: The ID of the user pool.
-        :param pulumi.Input[str] css: The CSS values in the UI customization.
+        :param pulumi.Input[str] user_pool_id: The ID of the user pool where you want to apply branding to the classic hosted UI.
+        :param pulumi.Input[str] css: A plaintext CSS file that contains the custom fields that you want to apply to your user pool or app client. To download a template, go to the Amazon Cognito console. Navigate to your user pool *App clients* tab, select *Login pages* , edit *Hosted UI (classic) style* , and select the link to `CSS template.css` .
         """
         pulumi.set(__self__, "client_id", client_id)
         pulumi.set(__self__, "user_pool_id", user_pool_id)
@@ -49,7 +49,7 @@ class UserPoolUiCustomizationAttachmentArgs:
     @pulumi.getter(name="userPoolId")
     def user_pool_id(self) -> pulumi.Input[str]:
         """
-        The ID of the user pool.
+        The ID of the user pool where you want to apply branding to the classic hosted UI.
         """
         return pulumi.get(self, "user_pool_id")
 
@@ -61,7 +61,7 @@ class UserPoolUiCustomizationAttachmentArgs:
     @pulumi.getter
     def css(self) -> Optional[pulumi.Input[str]]:
         """
-        The CSS values in the UI customization.
+        A plaintext CSS file that contains the custom fields that you want to apply to your user pool or app client. To download a template, go to the Amazon Cognito console. Navigate to your user pool *App clients* tab, select *Login pages* , edit *Hosted UI (classic) style* , and select the link to `CSS template.css` .
         """
         return pulumi.get(self, "css")
 
@@ -85,8 +85,8 @@ class UserPoolUiCustomizationAttachment(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] client_id: The app client ID for your UI customization. When this value isn't present, the customization applies to all user pool app clients that don't have client-level settings..
-        :param pulumi.Input[str] css: The CSS values in the UI customization.
-        :param pulumi.Input[str] user_pool_id: The ID of the user pool.
+        :param pulumi.Input[str] css: A plaintext CSS file that contains the custom fields that you want to apply to your user pool or app client. To download a template, go to the Amazon Cognito console. Navigate to your user pool *App clients* tab, select *Login pages* , edit *Hosted UI (classic) style* , and select the link to `CSS template.css` .
+        :param pulumi.Input[str] user_pool_id: The ID of the user pool where you want to apply branding to the classic hosted UI.
         """
         ...
     @overload
@@ -172,7 +172,7 @@ class UserPoolUiCustomizationAttachment(pulumi.CustomResource):
     @pulumi.getter
     def css(self) -> pulumi.Output[Optional[str]]:
         """
-        The CSS values in the UI customization.
+        A plaintext CSS file that contains the custom fields that you want to apply to your user pool or app client. To download a template, go to the Amazon Cognito console. Navigate to your user pool *App clients* tab, select *Login pages* , edit *Hosted UI (classic) style* , and select the link to `CSS template.css` .
         """
         return pulumi.get(self, "css")
 
@@ -180,7 +180,7 @@ class UserPoolUiCustomizationAttachment(pulumi.CustomResource):
     @pulumi.getter(name="userPoolId")
     def user_pool_id(self) -> pulumi.Output[str]:
         """
-        The ID of the user pool.
+        The ID of the user pool where you want to apply branding to the classic hosted UI.
         """
         return pulumi.get(self, "user_pool_id")
 

@@ -29,8 +29,14 @@ type LookupDomainArgs struct {
 }
 
 type LookupDomainResult struct {
+	// The description of the domain.
+	Description *string `pulumi:"description"`
 	// The identifier of the domain.
 	DomainId *string `pulumi:"domainId"`
+	// The name for the domain.
+	Name *string `pulumi:"name"`
+	// The server-side encryption configuration containing the KMS key identifier you want Voice ID to use to encrypt your data.
+	ServerSideEncryptionConfiguration *DomainServerSideEncryptionConfiguration `pulumi:"serverSideEncryptionConfiguration"`
 	// The tags used to organize, track, or control access for this resource.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -67,9 +73,26 @@ func (o LookupDomainResultOutput) ToLookupDomainResultOutputWithContext(ctx cont
 	return o
 }
 
+// The description of the domain.
+func (o LookupDomainResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDomainResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
 // The identifier of the domain.
 func (o LookupDomainResultOutput) DomainId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDomainResult) *string { return v.DomainId }).(pulumi.StringPtrOutput)
+}
+
+// The name for the domain.
+func (o LookupDomainResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDomainResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The server-side encryption configuration containing the KMS key identifier you want Voice ID to use to encrypt your data.
+func (o LookupDomainResultOutput) ServerSideEncryptionConfiguration() DomainServerSideEncryptionConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupDomainResult) *DomainServerSideEncryptionConfiguration {
+		return v.ServerSideEncryptionConfiguration
+	}).(DomainServerSideEncryptionConfigurationPtrOutput)
 }
 
 // The tags used to organize, track, or control access for this resource.

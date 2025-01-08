@@ -18,9 +18,9 @@ type UserPoolUiCustomizationAttachment struct {
 
 	// The app client ID for your UI customization. When this value isn't present, the customization applies to all user pool app clients that don't have client-level settings..
 	ClientId pulumi.StringOutput `pulumi:"clientId"`
-	// The CSS values in the UI customization.
+	// A plaintext CSS file that contains the custom fields that you want to apply to your user pool or app client. To download a template, go to the Amazon Cognito console. Navigate to your user pool *App clients* tab, select *Login pages* , edit *Hosted UI (classic) style* , and select the link to `CSS template.css` .
 	Css pulumi.StringPtrOutput `pulumi:"css"`
-	// The ID of the user pool.
+	// The ID of the user pool where you want to apply branding to the classic hosted UI.
 	UserPoolId pulumi.StringOutput `pulumi:"userPoolId"`
 }
 
@@ -77,9 +77,9 @@ func (UserPoolUiCustomizationAttachmentState) ElementType() reflect.Type {
 type userPoolUiCustomizationAttachmentArgs struct {
 	// The app client ID for your UI customization. When this value isn't present, the customization applies to all user pool app clients that don't have client-level settings..
 	ClientId string `pulumi:"clientId"`
-	// The CSS values in the UI customization.
+	// A plaintext CSS file that contains the custom fields that you want to apply to your user pool or app client. To download a template, go to the Amazon Cognito console. Navigate to your user pool *App clients* tab, select *Login pages* , edit *Hosted UI (classic) style* , and select the link to `CSS template.css` .
 	Css *string `pulumi:"css"`
-	// The ID of the user pool.
+	// The ID of the user pool where you want to apply branding to the classic hosted UI.
 	UserPoolId string `pulumi:"userPoolId"`
 }
 
@@ -87,9 +87,9 @@ type userPoolUiCustomizationAttachmentArgs struct {
 type UserPoolUiCustomizationAttachmentArgs struct {
 	// The app client ID for your UI customization. When this value isn't present, the customization applies to all user pool app clients that don't have client-level settings..
 	ClientId pulumi.StringInput
-	// The CSS values in the UI customization.
+	// A plaintext CSS file that contains the custom fields that you want to apply to your user pool or app client. To download a template, go to the Amazon Cognito console. Navigate to your user pool *App clients* tab, select *Login pages* , edit *Hosted UI (classic) style* , and select the link to `CSS template.css` .
 	Css pulumi.StringPtrInput
-	// The ID of the user pool.
+	// The ID of the user pool where you want to apply branding to the classic hosted UI.
 	UserPoolId pulumi.StringInput
 }
 
@@ -135,12 +135,12 @@ func (o UserPoolUiCustomizationAttachmentOutput) ClientId() pulumi.StringOutput 
 	return o.ApplyT(func(v *UserPoolUiCustomizationAttachment) pulumi.StringOutput { return v.ClientId }).(pulumi.StringOutput)
 }
 
-// The CSS values in the UI customization.
+// A plaintext CSS file that contains the custom fields that you want to apply to your user pool or app client. To download a template, go to the Amazon Cognito console. Navigate to your user pool *App clients* tab, select *Login pages* , edit *Hosted UI (classic) style* , and select the link to `CSS template.css` .
 func (o UserPoolUiCustomizationAttachmentOutput) Css() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolUiCustomizationAttachment) pulumi.StringPtrOutput { return v.Css }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the user pool.
+// The ID of the user pool where you want to apply branding to the classic hosted UI.
 func (o UserPoolUiCustomizationAttachmentOutput) UserPoolId() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserPoolUiCustomizationAttachment) pulumi.StringOutput { return v.UserPoolId }).(pulumi.StringOutput)
 }

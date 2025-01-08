@@ -127,6 +127,8 @@ export class Profile extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["requireInstanceProperties"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Profile.__pulumiType, name, resourceInputs, opts);
     }
 }

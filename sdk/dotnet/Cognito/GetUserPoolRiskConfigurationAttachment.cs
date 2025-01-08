@@ -76,11 +76,11 @@ namespace Pulumi.AwsNative.Cognito
     public sealed class GetUserPoolRiskConfigurationAttachmentResult
     {
         /// <summary>
-        /// The settings for automated responses and notification templates for adaptive authentication with advanced security features.
+        /// The settings for automated responses and notification templates for adaptive authentication with threat protection.
         /// </summary>
         public readonly Outputs.UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationType? AccountTakeoverRiskConfiguration;
         /// <summary>
-        /// Settings for compromised-credentials actions and authentication types with advanced security features in full-function `ENFORCED` mode.
+        /// Settings for compromised-credentials actions and authentication types with threat protection in full-function `ENFORCED` mode.
         /// </summary>
         public readonly Outputs.UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationType? CompromisedCredentialsRiskConfiguration;
         /// <summary>

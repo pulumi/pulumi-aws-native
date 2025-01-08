@@ -112,5 +112,8 @@
       "permissions" : [ "s3:ListAccessPoints" ]
     }
   },
+  "tagging" : {
+    "taggable" : false
+  },
   "additionalProperties" : false
 }

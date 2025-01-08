@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Domain{}
 	case "aws-native:customerprofiles:EventStream":
 		r = &EventStream{}
+	case "aws-native:customerprofiles:EventTrigger":
+		r = &EventTrigger{}
 	case "aws-native:customerprofiles:Integration":
 		r = &Integration{}
 	case "aws-native:customerprofiles:ObjectType":

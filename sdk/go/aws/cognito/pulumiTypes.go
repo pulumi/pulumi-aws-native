@@ -1619,9 +1619,9 @@ func (o UserPoolAccountRecoverySettingPtrOutput) RecoveryMechanisms() UserPoolRe
 }
 
 type UserPoolAddOns struct {
-	// Advanced security configuration options for additional authentication types in your user pool, including custom authentication.
+	// Threat protection configuration options for additional authentication types in your user pool, including custom authentication.
 	AdvancedSecurityAdditionalFlows *UserPoolAdvancedSecurityAdditionalFlows `pulumi:"advancedSecurityAdditionalFlows"`
-	// The operating mode of advanced security features for standard authentication types in your user pool, including username-password and secure remote password (SRP) authentication.
+	// The operating mode of threat protection for standard authentication types in your user pool, including username-password and secure remote password (SRP) authentication.
 	AdvancedSecurityMode *string `pulumi:"advancedSecurityMode"`
 }
 
@@ -1637,9 +1637,9 @@ type UserPoolAddOnsInput interface {
 }
 
 type UserPoolAddOnsArgs struct {
-	// Advanced security configuration options for additional authentication types in your user pool, including custom authentication.
+	// Threat protection configuration options for additional authentication types in your user pool, including custom authentication.
 	AdvancedSecurityAdditionalFlows UserPoolAdvancedSecurityAdditionalFlowsPtrInput `pulumi:"advancedSecurityAdditionalFlows"`
-	// The operating mode of advanced security features for standard authentication types in your user pool, including username-password and secure remote password (SRP) authentication.
+	// The operating mode of threat protection for standard authentication types in your user pool, including username-password and secure remote password (SRP) authentication.
 	AdvancedSecurityMode pulumi.StringPtrInput `pulumi:"advancedSecurityMode"`
 }
 
@@ -1720,14 +1720,14 @@ func (o UserPoolAddOnsOutput) ToUserPoolAddOnsPtrOutputWithContext(ctx context.C
 	}).(UserPoolAddOnsPtrOutput)
 }
 
-// Advanced security configuration options for additional authentication types in your user pool, including custom authentication.
+// Threat protection configuration options for additional authentication types in your user pool, including custom authentication.
 func (o UserPoolAddOnsOutput) AdvancedSecurityAdditionalFlows() UserPoolAdvancedSecurityAdditionalFlowsPtrOutput {
 	return o.ApplyT(func(v UserPoolAddOns) *UserPoolAdvancedSecurityAdditionalFlows {
 		return v.AdvancedSecurityAdditionalFlows
 	}).(UserPoolAdvancedSecurityAdditionalFlowsPtrOutput)
 }
 
-// The operating mode of advanced security features for standard authentication types in your user pool, including username-password and secure remote password (SRP) authentication.
+// The operating mode of threat protection for standard authentication types in your user pool, including username-password and secure remote password (SRP) authentication.
 func (o UserPoolAddOnsOutput) AdvancedSecurityMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolAddOns) *string { return v.AdvancedSecurityMode }).(pulumi.StringPtrOutput)
 }
@@ -1756,7 +1756,7 @@ func (o UserPoolAddOnsPtrOutput) Elem() UserPoolAddOnsOutput {
 	}).(UserPoolAddOnsOutput)
 }
 
-// Advanced security configuration options for additional authentication types in your user pool, including custom authentication.
+// Threat protection configuration options for additional authentication types in your user pool, including custom authentication.
 func (o UserPoolAddOnsPtrOutput) AdvancedSecurityAdditionalFlows() UserPoolAdvancedSecurityAdditionalFlowsPtrOutput {
 	return o.ApplyT(func(v *UserPoolAddOns) *UserPoolAdvancedSecurityAdditionalFlows {
 		if v == nil {
@@ -1766,7 +1766,7 @@ func (o UserPoolAddOnsPtrOutput) AdvancedSecurityAdditionalFlows() UserPoolAdvan
 	}).(UserPoolAdvancedSecurityAdditionalFlowsPtrOutput)
 }
 
-// The operating mode of advanced security features for standard authentication types in your user pool, including username-password and secure remote password (SRP) authentication.
+// The operating mode of threat protection for standard authentication types in your user pool, including username-password and secure remote password (SRP) authentication.
 func (o UserPoolAddOnsPtrOutput) AdvancedSecurityMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolAddOns) *string {
 		if v == nil {
@@ -1777,13 +1777,15 @@ func (o UserPoolAddOnsPtrOutput) AdvancedSecurityMode() pulumi.StringPtrOutput {
 }
 
 type UserPoolAdminCreateUserConfig struct {
-	// The setting for allowing self-service sign-up. When `true` , only administrators can create new user profiles. When `false` , users can register themselves and create a new user profile with the [SignUp](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SignUp.html) operation.
+	// The setting for allowing self-service sign-up. When `true` , only administrators can create new user profiles. When `false` , users can register themselves and create a new user profile with the `SignUp` operation.
 	AllowAdminCreateUserOnly *bool `pulumi:"allowAdminCreateUserOnly"`
 	// The template for the welcome message to new users. This template must include the `{####}` temporary password placeholder if you are creating users with passwords. If your users don't have passwords, you can omit the placeholder.
 	//
 	// See also [Customizing User Invitation Messages](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-message-customizations.html#cognito-user-pool-settings-user-invitation-message-customization) .
 	InviteMessageTemplate *UserPoolInviteMessageTemplate `pulumi:"inviteMessageTemplate"`
-	// This parameter is no longer in use. Configure the duration of temporary passwords with the `TemporaryPasswordValidityDays` parameter of [PasswordPolicyType](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_PasswordPolicyType.html) . For older user pools that have a `UnusedAccountValidityDays` configuration, that value is effective until you set a value for `TemporaryPasswordValidityDays` .
+	// This parameter is no longer in use.
+	//
+	// Configure the duration of temporary passwords with the `TemporaryPasswordValidityDays` parameter of `API_PasswordPolicyType` . For older user pools that have a `UnusedAccountValidityDays` configuration, that value is effective until you set a value for `TemporaryPasswordValidityDays` .
 	//
 	// The password expiration limit in days for administrator-created users. When this time expires, the user can't sign in with their temporary password. To reset the account after that time limit, you must call `AdminCreateUser` again, specifying `RESEND` for the `MessageAction` parameter.
 	//
@@ -1803,13 +1805,15 @@ type UserPoolAdminCreateUserConfigInput interface {
 }
 
 type UserPoolAdminCreateUserConfigArgs struct {
-	// The setting for allowing self-service sign-up. When `true` , only administrators can create new user profiles. When `false` , users can register themselves and create a new user profile with the [SignUp](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SignUp.html) operation.
+	// The setting for allowing self-service sign-up. When `true` , only administrators can create new user profiles. When `false` , users can register themselves and create a new user profile with the `SignUp` operation.
 	AllowAdminCreateUserOnly pulumi.BoolPtrInput `pulumi:"allowAdminCreateUserOnly"`
 	// The template for the welcome message to new users. This template must include the `{####}` temporary password placeholder if you are creating users with passwords. If your users don't have passwords, you can omit the placeholder.
 	//
 	// See also [Customizing User Invitation Messages](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-message-customizations.html#cognito-user-pool-settings-user-invitation-message-customization) .
 	InviteMessageTemplate UserPoolInviteMessageTemplatePtrInput `pulumi:"inviteMessageTemplate"`
-	// This parameter is no longer in use. Configure the duration of temporary passwords with the `TemporaryPasswordValidityDays` parameter of [PasswordPolicyType](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_PasswordPolicyType.html) . For older user pools that have a `UnusedAccountValidityDays` configuration, that value is effective until you set a value for `TemporaryPasswordValidityDays` .
+	// This parameter is no longer in use.
+	//
+	// Configure the duration of temporary passwords with the `TemporaryPasswordValidityDays` parameter of `API_PasswordPolicyType` . For older user pools that have a `UnusedAccountValidityDays` configuration, that value is effective until you set a value for `TemporaryPasswordValidityDays` .
 	//
 	// The password expiration limit in days for administrator-created users. When this time expires, the user can't sign in with their temporary password. To reset the account after that time limit, you must call `AdminCreateUser` again, specifying `RESEND` for the `MessageAction` parameter.
 	//
@@ -1894,7 +1898,7 @@ func (o UserPoolAdminCreateUserConfigOutput) ToUserPoolAdminCreateUserConfigPtrO
 	}).(UserPoolAdminCreateUserConfigPtrOutput)
 }
 
-// The setting for allowing self-service sign-up. When `true` , only administrators can create new user profiles. When `false` , users can register themselves and create a new user profile with the [SignUp](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SignUp.html) operation.
+// The setting for allowing self-service sign-up. When `true` , only administrators can create new user profiles. When `false` , users can register themselves and create a new user profile with the `SignUp` operation.
 func (o UserPoolAdminCreateUserConfigOutput) AllowAdminCreateUserOnly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v UserPoolAdminCreateUserConfig) *bool { return v.AllowAdminCreateUserOnly }).(pulumi.BoolPtrOutput)
 }
@@ -1906,7 +1910,9 @@ func (o UserPoolAdminCreateUserConfigOutput) InviteMessageTemplate() UserPoolInv
 	return o.ApplyT(func(v UserPoolAdminCreateUserConfig) *UserPoolInviteMessageTemplate { return v.InviteMessageTemplate }).(UserPoolInviteMessageTemplatePtrOutput)
 }
 
-// This parameter is no longer in use. Configure the duration of temporary passwords with the `TemporaryPasswordValidityDays` parameter of [PasswordPolicyType](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_PasswordPolicyType.html) . For older user pools that have a `UnusedAccountValidityDays` configuration, that value is effective until you set a value for `TemporaryPasswordValidityDays` .
+// This parameter is no longer in use.
+//
+// Configure the duration of temporary passwords with the `TemporaryPasswordValidityDays` parameter of `API_PasswordPolicyType` . For older user pools that have a `UnusedAccountValidityDays` configuration, that value is effective until you set a value for `TemporaryPasswordValidityDays` .
 //
 // The password expiration limit in days for administrator-created users. When this time expires, the user can't sign in with their temporary password. To reset the account after that time limit, you must call `AdminCreateUser` again, specifying `RESEND` for the `MessageAction` parameter.
 //
@@ -1939,7 +1945,7 @@ func (o UserPoolAdminCreateUserConfigPtrOutput) Elem() UserPoolAdminCreateUserCo
 	}).(UserPoolAdminCreateUserConfigOutput)
 }
 
-// The setting for allowing self-service sign-up. When `true` , only administrators can create new user profiles. When `false` , users can register themselves and create a new user profile with the [SignUp](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SignUp.html) operation.
+// The setting for allowing self-service sign-up. When `true` , only administrators can create new user profiles. When `false` , users can register themselves and create a new user profile with the `SignUp` operation.
 func (o UserPoolAdminCreateUserConfigPtrOutput) AllowAdminCreateUserOnly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *UserPoolAdminCreateUserConfig) *bool {
 		if v == nil {
@@ -1961,7 +1967,9 @@ func (o UserPoolAdminCreateUserConfigPtrOutput) InviteMessageTemplate() UserPool
 	}).(UserPoolInviteMessageTemplatePtrOutput)
 }
 
-// This parameter is no longer in use. Configure the duration of temporary passwords with the `TemporaryPasswordValidityDays` parameter of [PasswordPolicyType](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_PasswordPolicyType.html) . For older user pools that have a `UnusedAccountValidityDays` configuration, that value is effective until you set a value for `TemporaryPasswordValidityDays` .
+// This parameter is no longer in use.
+//
+// Configure the duration of temporary passwords with the `TemporaryPasswordValidityDays` parameter of `API_PasswordPolicyType` . For older user pools that have a `UnusedAccountValidityDays` configuration, that value is effective until you set a value for `TemporaryPasswordValidityDays` .
 //
 // The password expiration limit in days for administrator-created users. When this time expires, the user can't sign in with their temporary password. To reset the account after that time limit, you must call `AdminCreateUser` again, specifying `RESEND` for the `MessageAction` parameter.
 //
@@ -1976,7 +1984,7 @@ func (o UserPoolAdminCreateUserConfigPtrOutput) UnusedAccountValidityDays() pulu
 }
 
 type UserPoolAdvancedSecurityAdditionalFlows struct {
-	// The operating mode of advanced security features in custom authentication with [Custom authentication challenge Lambda triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-challenge.html) .
+	// The operating mode of threat protection in custom authentication with [Custom authentication challenge Lambda triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-challenge.html) .
 	CustomAuthMode *string `pulumi:"customAuthMode"`
 }
 
@@ -1992,7 +2000,7 @@ type UserPoolAdvancedSecurityAdditionalFlowsInput interface {
 }
 
 type UserPoolAdvancedSecurityAdditionalFlowsArgs struct {
-	// The operating mode of advanced security features in custom authentication with [Custom authentication challenge Lambda triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-challenge.html) .
+	// The operating mode of threat protection in custom authentication with [Custom authentication challenge Lambda triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-challenge.html) .
 	CustomAuthMode pulumi.StringPtrInput `pulumi:"customAuthMode"`
 }
 
@@ -2073,7 +2081,7 @@ func (o UserPoolAdvancedSecurityAdditionalFlowsOutput) ToUserPoolAdvancedSecurit
 	}).(UserPoolAdvancedSecurityAdditionalFlowsPtrOutput)
 }
 
-// The operating mode of advanced security features in custom authentication with [Custom authentication challenge Lambda triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-challenge.html) .
+// The operating mode of threat protection in custom authentication with [Custom authentication challenge Lambda triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-challenge.html) .
 func (o UserPoolAdvancedSecurityAdditionalFlowsOutput) CustomAuthMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolAdvancedSecurityAdditionalFlows) *string { return v.CustomAuthMode }).(pulumi.StringPtrOutput)
 }
@@ -2102,7 +2110,7 @@ func (o UserPoolAdvancedSecurityAdditionalFlowsPtrOutput) Elem() UserPoolAdvance
 	}).(UserPoolAdvancedSecurityAdditionalFlowsOutput)
 }
 
-// The operating mode of advanced security features in custom authentication with [Custom authentication challenge Lambda triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-challenge.html) .
+// The operating mode of threat protection in custom authentication with [Custom authentication challenge Lambda triggers](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-lambda-challenge.html) .
 func (o UserPoolAdvancedSecurityAdditionalFlowsPtrOutput) CustomAuthMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolAdvancedSecurityAdditionalFlows) *string {
 		if v == nil {
@@ -2833,7 +2841,7 @@ type UserPoolDeviceConfiguration struct {
 	//
 	// > Whether or not `ChallengeRequiredOnNewDevice` is true, users who sign in with devices that have not been confirmed or remembered must still provide a second factor in a user pool that requires MFA.
 	ChallengeRequiredOnNewDevice *bool `pulumi:"challengeRequiredOnNewDevice"`
-	// When true, Amazon Cognito doesn't automatically remember a user's device when your app sends a [ConfirmDevice](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ConfirmDevice.html) API request. In your app, create a prompt for your user to choose whether they want to remember their device. Return the user's choice in an [UpdateDeviceStatus](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateDeviceStatus.html) API request.
+	// When true, Amazon Cognito doesn't automatically remember a user's device when your app sends a `ConfirmDevice` API request. In your app, create a prompt for your user to choose whether they want to remember their device. Return the user's choice in an `UpdateDeviceStatus` API request.
 	//
 	// When `DeviceOnlyRememberedOnUserPrompt` is `false` , Amazon Cognito immediately remembers devices that you register in a `ConfirmDevice` API request.
 	DeviceOnlyRememberedOnUserPrompt *bool `pulumi:"deviceOnlyRememberedOnUserPrompt"`
@@ -2855,7 +2863,7 @@ type UserPoolDeviceConfigurationArgs struct {
 	//
 	// > Whether or not `ChallengeRequiredOnNewDevice` is true, users who sign in with devices that have not been confirmed or remembered must still provide a second factor in a user pool that requires MFA.
 	ChallengeRequiredOnNewDevice pulumi.BoolPtrInput `pulumi:"challengeRequiredOnNewDevice"`
-	// When true, Amazon Cognito doesn't automatically remember a user's device when your app sends a [ConfirmDevice](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ConfirmDevice.html) API request. In your app, create a prompt for your user to choose whether they want to remember their device. Return the user's choice in an [UpdateDeviceStatus](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateDeviceStatus.html) API request.
+	// When true, Amazon Cognito doesn't automatically remember a user's device when your app sends a `ConfirmDevice` API request. In your app, create a prompt for your user to choose whether they want to remember their device. Return the user's choice in an `UpdateDeviceStatus` API request.
 	//
 	// When `DeviceOnlyRememberedOnUserPrompt` is `false` , Amazon Cognito immediately remembers devices that you register in a `ConfirmDevice` API request.
 	DeviceOnlyRememberedOnUserPrompt pulumi.BoolPtrInput `pulumi:"deviceOnlyRememberedOnUserPrompt"`
@@ -2945,7 +2953,7 @@ func (o UserPoolDeviceConfigurationOutput) ChallengeRequiredOnNewDevice() pulumi
 	return o.ApplyT(func(v UserPoolDeviceConfiguration) *bool { return v.ChallengeRequiredOnNewDevice }).(pulumi.BoolPtrOutput)
 }
 
-// When true, Amazon Cognito doesn't automatically remember a user's device when your app sends a [ConfirmDevice](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ConfirmDevice.html) API request. In your app, create a prompt for your user to choose whether they want to remember their device. Return the user's choice in an [UpdateDeviceStatus](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateDeviceStatus.html) API request.
+// When true, Amazon Cognito doesn't automatically remember a user's device when your app sends a `ConfirmDevice` API request. In your app, create a prompt for your user to choose whether they want to remember their device. Return the user's choice in an `UpdateDeviceStatus` API request.
 //
 // When `DeviceOnlyRememberedOnUserPrompt` is `false` , Amazon Cognito immediately remembers devices that you register in a `ConfirmDevice` API request.
 func (o UserPoolDeviceConfigurationOutput) DeviceOnlyRememberedOnUserPrompt() pulumi.BoolPtrOutput {
@@ -2988,7 +2996,7 @@ func (o UserPoolDeviceConfigurationPtrOutput) ChallengeRequiredOnNewDevice() pul
 	}).(pulumi.BoolPtrOutput)
 }
 
-// When true, Amazon Cognito doesn't automatically remember a user's device when your app sends a [ConfirmDevice](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ConfirmDevice.html) API request. In your app, create a prompt for your user to choose whether they want to remember their device. Return the user's choice in an [UpdateDeviceStatus](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateDeviceStatus.html) API request.
+// When true, Amazon Cognito doesn't automatically remember a user's device when your app sends a `ConfirmDevice` API request. In your app, create a prompt for your user to choose whether they want to remember their device. Return the user's choice in an `UpdateDeviceStatus` API request.
 //
 // When `DeviceOnlyRememberedOnUserPrompt` is `false` , Amazon Cognito immediately remembers devices that you register in a `ConfirmDevice` API request.
 func (o UserPoolDeviceConfigurationPtrOutput) DeviceOnlyRememberedOnUserPrompt() pulumi.BoolPtrOutput {
@@ -4154,7 +4162,7 @@ type UserPoolPasswordPolicy struct {
 	MinimumLength *int `pulumi:"minimumLength"`
 	// The number of previous passwords that you want Amazon Cognito to restrict each user from reusing. Users can't set a password that matches any of `n` previous passwords, where `n` is the value of `PasswordHistorySize` .
 	//
-	// Password history isn't enforced and isn't displayed in [DescribeUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html) responses when you set this value to `0` or don't provide it. To activate this setting, your user pool must be in the [Essentials tier](https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html) or higher.
+	// Password history isn't enforced and isn't displayed in `API_DescribeUserPool` responses when you set this value to `0` or don't provide it. To activate this setting, your user pool must be in the [Essentials tier](https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html) or higher.
 	PasswordHistorySize *int `pulumi:"passwordHistorySize"`
 	// The requirement in a password policy that users must include at least one lowercase letter in their password.
 	RequireLowercase *bool `pulumi:"requireLowercase"`
@@ -4186,7 +4194,7 @@ type UserPoolPasswordPolicyArgs struct {
 	MinimumLength pulumi.IntPtrInput `pulumi:"minimumLength"`
 	// The number of previous passwords that you want Amazon Cognito to restrict each user from reusing. Users can't set a password that matches any of `n` previous passwords, where `n` is the value of `PasswordHistorySize` .
 	//
-	// Password history isn't enforced and isn't displayed in [DescribeUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html) responses when you set this value to `0` or don't provide it. To activate this setting, your user pool must be in the [Essentials tier](https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html) or higher.
+	// Password history isn't enforced and isn't displayed in `API_DescribeUserPool` responses when you set this value to `0` or don't provide it. To activate this setting, your user pool must be in the [Essentials tier](https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html) or higher.
 	PasswordHistorySize pulumi.IntPtrInput `pulumi:"passwordHistorySize"`
 	// The requirement in a password policy that users must include at least one lowercase letter in their password.
 	RequireLowercase pulumi.BoolPtrInput `pulumi:"requireLowercase"`
@@ -4286,7 +4294,7 @@ func (o UserPoolPasswordPolicyOutput) MinimumLength() pulumi.IntPtrOutput {
 
 // The number of previous passwords that you want Amazon Cognito to restrict each user from reusing. Users can't set a password that matches any of `n` previous passwords, where `n` is the value of `PasswordHistorySize` .
 //
-// Password history isn't enforced and isn't displayed in [DescribeUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html) responses when you set this value to `0` or don't provide it. To activate this setting, your user pool must be in the [Essentials tier](https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html) or higher.
+// Password history isn't enforced and isn't displayed in `API_DescribeUserPool` responses when you set this value to `0` or don't provide it. To activate this setting, your user pool must be in the [Essentials tier](https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html) or higher.
 func (o UserPoolPasswordPolicyOutput) PasswordHistorySize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v UserPoolPasswordPolicy) *int { return v.PasswordHistorySize }).(pulumi.IntPtrOutput)
 }
@@ -4354,7 +4362,7 @@ func (o UserPoolPasswordPolicyPtrOutput) MinimumLength() pulumi.IntPtrOutput {
 
 // The number of previous passwords that you want Amazon Cognito to restrict each user from reusing. Users can't set a password that matches any of `n` previous passwords, where `n` is the value of `PasswordHistorySize` .
 //
-// Password history isn't enforced and isn't displayed in [DescribeUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html) responses when you set this value to `0` or don't provide it. To activate this setting, your user pool must be in the [Essentials tier](https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html) or higher.
+// Password history isn't enforced and isn't displayed in `API_DescribeUserPool` responses when you set this value to `0` or don't provide it. To activate this setting, your user pool must be in the [Essentials tier](https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html) or higher.
 func (o UserPoolPasswordPolicyPtrOutput) PasswordHistorySize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *UserPoolPasswordPolicy) *int {
 		if v == nil {
@@ -4421,7 +4429,7 @@ type UserPoolPolicies struct {
 	PasswordPolicy *UserPoolPasswordPolicy `pulumi:"passwordPolicy"`
 	// The policy for allowed types of authentication in a user pool. To activate this setting, your user pool must be in the [Essentials tier](https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html) or higher.
 	//
-	// This data type is a request and response parameter of [CreateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.html) and [UpdateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.html) , and a response parameter of [DescribeUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html) .
+	// This data type is a request and response parameter of `API_CreateUserPool` and `API_UpdateUserPool` , and a response parameter of `API_DescribeUserPool` .
 	SignInPolicy *UserPoolSignInPolicy `pulumi:"signInPolicy"`
 }
 
@@ -4441,7 +4449,7 @@ type UserPoolPoliciesArgs struct {
 	PasswordPolicy UserPoolPasswordPolicyPtrInput `pulumi:"passwordPolicy"`
 	// The policy for allowed types of authentication in a user pool. To activate this setting, your user pool must be in the [Essentials tier](https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html) or higher.
 	//
-	// This data type is a request and response parameter of [CreateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.html) and [UpdateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.html) , and a response parameter of [DescribeUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html) .
+	// This data type is a request and response parameter of `API_CreateUserPool` and `API_UpdateUserPool` , and a response parameter of `API_DescribeUserPool` .
 	SignInPolicy UserPoolSignInPolicyPtrInput `pulumi:"signInPolicy"`
 }
 
@@ -4529,7 +4537,7 @@ func (o UserPoolPoliciesOutput) PasswordPolicy() UserPoolPasswordPolicyPtrOutput
 
 // The policy for allowed types of authentication in a user pool. To activate this setting, your user pool must be in the [Essentials tier](https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html) or higher.
 //
-// This data type is a request and response parameter of [CreateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.html) and [UpdateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.html) , and a response parameter of [DescribeUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html) .
+// This data type is a request and response parameter of `API_CreateUserPool` and `API_UpdateUserPool` , and a response parameter of `API_DescribeUserPool` .
 func (o UserPoolPoliciesOutput) SignInPolicy() UserPoolSignInPolicyPtrOutput {
 	return o.ApplyT(func(v UserPoolPolicies) *UserPoolSignInPolicy { return v.SignInPolicy }).(UserPoolSignInPolicyPtrOutput)
 }
@@ -4570,7 +4578,7 @@ func (o UserPoolPoliciesPtrOutput) PasswordPolicy() UserPoolPasswordPolicyPtrOut
 
 // The policy for allowed types of authentication in a user pool. To activate this setting, your user pool must be in the [Essentials tier](https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html) or higher.
 //
-// This data type is a request and response parameter of [CreateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.html) and [UpdateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.html) , and a response parameter of [DescribeUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html) .
+// This data type is a request and response parameter of `API_CreateUserPool` and `API_UpdateUserPool` , and a response parameter of `API_DescribeUserPool` .
 func (o UserPoolPoliciesPtrOutput) SignInPolicy() UserPoolSignInPolicyPtrOutput {
 	return o.ApplyT(func(v *UserPoolPolicies) *UserPoolSignInPolicy {
 		if v == nil {
@@ -5133,11 +5141,11 @@ func (o UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypePtrOutput) N
 }
 
 type UserPoolRiskConfigurationAttachmentAccountTakeoverActionsType struct {
-	// The action that you assign to a high-risk assessment by advanced security features.
+	// The action that you assign to a high-risk assessment by threat protection.
 	HighAction *UserPoolRiskConfigurationAttachmentAccountTakeoverActionType `pulumi:"highAction"`
-	// The action that you assign to a low-risk assessment by advanced security features.
+	// The action that you assign to a low-risk assessment by threat protection.
 	LowAction *UserPoolRiskConfigurationAttachmentAccountTakeoverActionType `pulumi:"lowAction"`
-	// The action that you assign to a medium-risk assessment by advanced security features.
+	// The action that you assign to a medium-risk assessment by threat protection.
 	MediumAction *UserPoolRiskConfigurationAttachmentAccountTakeoverActionType `pulumi:"mediumAction"`
 }
 
@@ -5153,11 +5161,11 @@ type UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypeInput interfac
 }
 
 type UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypeArgs struct {
-	// The action that you assign to a high-risk assessment by advanced security features.
+	// The action that you assign to a high-risk assessment by threat protection.
 	HighAction UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypePtrInput `pulumi:"highAction"`
-	// The action that you assign to a low-risk assessment by advanced security features.
+	// The action that you assign to a low-risk assessment by threat protection.
 	LowAction UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypePtrInput `pulumi:"lowAction"`
-	// The action that you assign to a medium-risk assessment by advanced security features.
+	// The action that you assign to a medium-risk assessment by threat protection.
 	MediumAction UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypePtrInput `pulumi:"mediumAction"`
 }
 
@@ -5238,21 +5246,21 @@ func (o UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypeOutput) ToU
 	}).(UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypePtrOutput)
 }
 
-// The action that you assign to a high-risk assessment by advanced security features.
+// The action that you assign to a high-risk assessment by threat protection.
 func (o UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypeOutput) HighAction() UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypePtrOutput {
 	return o.ApplyT(func(v UserPoolRiskConfigurationAttachmentAccountTakeoverActionsType) *UserPoolRiskConfigurationAttachmentAccountTakeoverActionType {
 		return v.HighAction
 	}).(UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypePtrOutput)
 }
 
-// The action that you assign to a low-risk assessment by advanced security features.
+// The action that you assign to a low-risk assessment by threat protection.
 func (o UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypeOutput) LowAction() UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypePtrOutput {
 	return o.ApplyT(func(v UserPoolRiskConfigurationAttachmentAccountTakeoverActionsType) *UserPoolRiskConfigurationAttachmentAccountTakeoverActionType {
 		return v.LowAction
 	}).(UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypePtrOutput)
 }
 
-// The action that you assign to a medium-risk assessment by advanced security features.
+// The action that you assign to a medium-risk assessment by threat protection.
 func (o UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypeOutput) MediumAction() UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypePtrOutput {
 	return o.ApplyT(func(v UserPoolRiskConfigurationAttachmentAccountTakeoverActionsType) *UserPoolRiskConfigurationAttachmentAccountTakeoverActionType {
 		return v.MediumAction
@@ -5283,7 +5291,7 @@ func (o UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypePtrOutput) 
 	}).(UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypeOutput)
 }
 
-// The action that you assign to a high-risk assessment by advanced security features.
+// The action that you assign to a high-risk assessment by threat protection.
 func (o UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypePtrOutput) HighAction() UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypePtrOutput {
 	return o.ApplyT(func(v *UserPoolRiskConfigurationAttachmentAccountTakeoverActionsType) *UserPoolRiskConfigurationAttachmentAccountTakeoverActionType {
 		if v == nil {
@@ -5293,7 +5301,7 @@ func (o UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypePtrOutput) 
 	}).(UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypePtrOutput)
 }
 
-// The action that you assign to a low-risk assessment by advanced security features.
+// The action that you assign to a low-risk assessment by threat protection.
 func (o UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypePtrOutput) LowAction() UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypePtrOutput {
 	return o.ApplyT(func(v *UserPoolRiskConfigurationAttachmentAccountTakeoverActionsType) *UserPoolRiskConfigurationAttachmentAccountTakeoverActionType {
 		if v == nil {
@@ -5303,7 +5311,7 @@ func (o UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypePtrOutput) 
 	}).(UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypePtrOutput)
 }
 
-// The action that you assign to a medium-risk assessment by advanced security features.
+// The action that you assign to a medium-risk assessment by threat protection.
 func (o UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypePtrOutput) MediumAction() UserPoolRiskConfigurationAttachmentAccountTakeoverActionTypePtrOutput {
 	return o.ApplyT(func(v *UserPoolRiskConfigurationAttachmentAccountTakeoverActionsType) *UserPoolRiskConfigurationAttachmentAccountTakeoverActionType {
 		if v == nil {
@@ -5314,9 +5322,9 @@ func (o UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypePtrOutput) 
 }
 
 type UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationType struct {
-	// A list of account-takeover actions for each level of risk that Amazon Cognito might assess with advanced security features.
+	// A list of account-takeover actions for each level of risk that Amazon Cognito might assess with threat protection.
 	Actions UserPoolRiskConfigurationAttachmentAccountTakeoverActionsType `pulumi:"actions"`
-	// The settings for composing and sending an email message when advanced security features assesses a risk level with adaptive authentication. When you choose to notify users in `AccountTakeoverRiskConfiguration` , Amazon Cognito sends an email message using the method and template that you set with this data type.
+	// The settings for composing and sending an email message when threat protection assesses a risk level with adaptive authentication. When you choose to notify users in `AccountTakeoverRiskConfiguration` , Amazon Cognito sends an email message using the method and template that you set with this data type.
 	NotifyConfiguration *UserPoolRiskConfigurationAttachmentNotifyConfigurationType `pulumi:"notifyConfiguration"`
 }
 
@@ -5332,9 +5340,9 @@ type UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeInpu
 }
 
 type UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeArgs struct {
-	// A list of account-takeover actions for each level of risk that Amazon Cognito might assess with advanced security features.
+	// A list of account-takeover actions for each level of risk that Amazon Cognito might assess with threat protection.
 	Actions UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypeInput `pulumi:"actions"`
-	// The settings for composing and sending an email message when advanced security features assesses a risk level with adaptive authentication. When you choose to notify users in `AccountTakeoverRiskConfiguration` , Amazon Cognito sends an email message using the method and template that you set with this data type.
+	// The settings for composing and sending an email message when threat protection assesses a risk level with adaptive authentication. When you choose to notify users in `AccountTakeoverRiskConfiguration` , Amazon Cognito sends an email message using the method and template that you set with this data type.
 	NotifyConfiguration UserPoolRiskConfigurationAttachmentNotifyConfigurationTypePtrInput `pulumi:"notifyConfiguration"`
 }
 
@@ -5415,14 +5423,14 @@ func (o UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeO
 	}).(UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypePtrOutput)
 }
 
-// A list of account-takeover actions for each level of risk that Amazon Cognito might assess with advanced security features.
+// A list of account-takeover actions for each level of risk that Amazon Cognito might assess with threat protection.
 func (o UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeOutput) Actions() UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypeOutput {
 	return o.ApplyT(func(v UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationType) UserPoolRiskConfigurationAttachmentAccountTakeoverActionsType {
 		return v.Actions
 	}).(UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypeOutput)
 }
 
-// The settings for composing and sending an email message when advanced security features assesses a risk level with adaptive authentication. When you choose to notify users in `AccountTakeoverRiskConfiguration` , Amazon Cognito sends an email message using the method and template that you set with this data type.
+// The settings for composing and sending an email message when threat protection assesses a risk level with adaptive authentication. When you choose to notify users in `AccountTakeoverRiskConfiguration` , Amazon Cognito sends an email message using the method and template that you set with this data type.
 func (o UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeOutput) NotifyConfiguration() UserPoolRiskConfigurationAttachmentNotifyConfigurationTypePtrOutput {
 	return o.ApplyT(func(v UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationType) *UserPoolRiskConfigurationAttachmentNotifyConfigurationType {
 		return v.NotifyConfiguration
@@ -5453,7 +5461,7 @@ func (o UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeP
 	}).(UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeOutput)
 }
 
-// A list of account-takeover actions for each level of risk that Amazon Cognito might assess with advanced security features.
+// A list of account-takeover actions for each level of risk that Amazon Cognito might assess with threat protection.
 func (o UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypePtrOutput) Actions() UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypePtrOutput {
 	return o.ApplyT(func(v *UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationType) *UserPoolRiskConfigurationAttachmentAccountTakeoverActionsType {
 		if v == nil {
@@ -5463,7 +5471,7 @@ func (o UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypeP
 	}).(UserPoolRiskConfigurationAttachmentAccountTakeoverActionsTypePtrOutput)
 }
 
-// The settings for composing and sending an email message when advanced security features assesses a risk level with adaptive authentication. When you choose to notify users in `AccountTakeoverRiskConfiguration` , Amazon Cognito sends an email message using the method and template that you set with this data type.
+// The settings for composing and sending an email message when threat protection assesses a risk level with adaptive authentication. When you choose to notify users in `AccountTakeoverRiskConfiguration` , Amazon Cognito sends an email message using the method and template that you set with this data type.
 func (o UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationTypePtrOutput) NotifyConfiguration() UserPoolRiskConfigurationAttachmentNotifyConfigurationTypePtrOutput {
 	return o.ApplyT(func(v *UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationType) *UserPoolRiskConfigurationAttachmentNotifyConfigurationType {
 		if v == nil {
@@ -7113,7 +7121,7 @@ func (o UserPoolUserAttributeTypeArrayOutput) Index(i pulumi.IntInput) UserPoolU
 type UserPoolUserAttributeUpdateSettings struct {
 	// Requires that your user verifies their email address, phone number, or both before Amazon Cognito updates the value of that attribute. When you update a user attribute that has this option activated, Amazon Cognito sends a verification message to the new phone number or email address. Amazon Cognito doesn’t change the value of the attribute until your user responds to the verification message and confirms the new value.
 	//
-	// You can verify an updated email address or phone number with a [VerifyUserAttribute](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerifyUserAttribute.html) API request. You can also call the [AdminUpdateUserAttributes](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminUpdateUserAttributes.html) API and set `email_verified` or `phone_number_verified` to true.
+	// You can verify an updated email address or phone number with a `API_VerifyUserAttribute` API request. You can also call the `API_AdminUpdateUserAttributes` API and set `email_verified` or `phone_number_verified` to true.
 	//
 	// When `AttributesRequireVerificationBeforeUpdate` is false, your user pool doesn't require that your users verify attribute changes before Amazon Cognito updates them. In a user pool where `AttributesRequireVerificationBeforeUpdate` is false, API operations that change attribute values can immediately update a user’s `email` or `phone_number` attribute.
 	AttributesRequireVerificationBeforeUpdate []string `pulumi:"attributesRequireVerificationBeforeUpdate"`
@@ -7133,7 +7141,7 @@ type UserPoolUserAttributeUpdateSettingsInput interface {
 type UserPoolUserAttributeUpdateSettingsArgs struct {
 	// Requires that your user verifies their email address, phone number, or both before Amazon Cognito updates the value of that attribute. When you update a user attribute that has this option activated, Amazon Cognito sends a verification message to the new phone number or email address. Amazon Cognito doesn’t change the value of the attribute until your user responds to the verification message and confirms the new value.
 	//
-	// You can verify an updated email address or phone number with a [VerifyUserAttribute](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerifyUserAttribute.html) API request. You can also call the [AdminUpdateUserAttributes](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminUpdateUserAttributes.html) API and set `email_verified` or `phone_number_verified` to true.
+	// You can verify an updated email address or phone number with a `API_VerifyUserAttribute` API request. You can also call the `API_AdminUpdateUserAttributes` API and set `email_verified` or `phone_number_verified` to true.
 	//
 	// When `AttributesRequireVerificationBeforeUpdate` is false, your user pool doesn't require that your users verify attribute changes before Amazon Cognito updates them. In a user pool where `AttributesRequireVerificationBeforeUpdate` is false, API operations that change attribute values can immediately update a user’s `email` or `phone_number` attribute.
 	AttributesRequireVerificationBeforeUpdate pulumi.StringArrayInput `pulumi:"attributesRequireVerificationBeforeUpdate"`
@@ -7218,7 +7226,7 @@ func (o UserPoolUserAttributeUpdateSettingsOutput) ToUserPoolUserAttributeUpdate
 
 // Requires that your user verifies their email address, phone number, or both before Amazon Cognito updates the value of that attribute. When you update a user attribute that has this option activated, Amazon Cognito sends a verification message to the new phone number or email address. Amazon Cognito doesn’t change the value of the attribute until your user responds to the verification message and confirms the new value.
 //
-// You can verify an updated email address or phone number with a [VerifyUserAttribute](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerifyUserAttribute.html) API request. You can also call the [AdminUpdateUserAttributes](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminUpdateUserAttributes.html) API and set `email_verified` or `phone_number_verified` to true.
+// You can verify an updated email address or phone number with a `API_VerifyUserAttribute` API request. You can also call the `API_AdminUpdateUserAttributes` API and set `email_verified` or `phone_number_verified` to true.
 //
 // When `AttributesRequireVerificationBeforeUpdate` is false, your user pool doesn't require that your users verify attribute changes before Amazon Cognito updates them. In a user pool where `AttributesRequireVerificationBeforeUpdate` is false, API operations that change attribute values can immediately update a user’s `email` or `phone_number` attribute.
 func (o UserPoolUserAttributeUpdateSettingsOutput) AttributesRequireVerificationBeforeUpdate() pulumi.StringArrayOutput {
@@ -7253,7 +7261,7 @@ func (o UserPoolUserAttributeUpdateSettingsPtrOutput) Elem() UserPoolUserAttribu
 
 // Requires that your user verifies their email address, phone number, or both before Amazon Cognito updates the value of that attribute. When you update a user attribute that has this option activated, Amazon Cognito sends a verification message to the new phone number or email address. Amazon Cognito doesn’t change the value of the attribute until your user responds to the verification message and confirms the new value.
 //
-// You can verify an updated email address or phone number with a [VerifyUserAttribute](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_VerifyUserAttribute.html) API request. You can also call the [AdminUpdateUserAttributes](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminUpdateUserAttributes.html) API and set `email_verified` or `phone_number_verified` to true.
+// You can verify an updated email address or phone number with a `API_VerifyUserAttribute` API request. You can also call the `API_AdminUpdateUserAttributes` API and set `email_verified` or `phone_number_verified` to true.
 //
 // When `AttributesRequireVerificationBeforeUpdate` is false, your user pool doesn't require that your users verify attribute changes before Amazon Cognito updates them. In a user pool where `AttributesRequireVerificationBeforeUpdate` is false, API operations that change attribute values can immediately update a user’s `email` or `phone_number` attribute.
 func (o UserPoolUserAttributeUpdateSettingsPtrOutput) AttributesRequireVerificationBeforeUpdate() pulumi.StringArrayOutput {

@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetProfileResult:
-    def __init__(__self__, accept_role_session_name=None, attribute_mappings=None, duration_seconds=None, enabled=None, managed_policy_arns=None, name=None, profile_arn=None, profile_id=None, require_instance_properties=None, role_arns=None, session_policy=None, tags=None):
+    def __init__(__self__, accept_role_session_name=None, attribute_mappings=None, duration_seconds=None, enabled=None, managed_policy_arns=None, name=None, profile_arn=None, profile_id=None, role_arns=None, session_policy=None, tags=None):
         if accept_role_session_name and not isinstance(accept_role_session_name, bool):
             raise TypeError("Expected argument 'accept_role_session_name' to be a bool")
         pulumi.set(__self__, "accept_role_session_name", accept_role_session_name)
@@ -51,9 +51,6 @@ class GetProfileResult:
         if profile_id and not isinstance(profile_id, str):
             raise TypeError("Expected argument 'profile_id' to be a str")
         pulumi.set(__self__, "profile_id", profile_id)
-        if require_instance_properties and not isinstance(require_instance_properties, bool):
-            raise TypeError("Expected argument 'require_instance_properties' to be a bool")
-        pulumi.set(__self__, "require_instance_properties", require_instance_properties)
         if role_arns and not isinstance(role_arns, list):
             raise TypeError("Expected argument 'role_arns' to be a list")
         pulumi.set(__self__, "role_arns", role_arns)
@@ -129,14 +126,6 @@ class GetProfileResult:
         return pulumi.get(self, "profile_id")
 
     @property
-    @pulumi.getter(name="requireInstanceProperties")
-    def require_instance_properties(self) -> Optional[bool]:
-        """
-        Specifies whether instance properties are required in CreateSession requests with this profile.
-        """
-        return pulumi.get(self, "require_instance_properties")
-
-    @property
     @pulumi.getter(name="roleArns")
     def role_arns(self) -> Optional[Sequence[str]]:
         """
@@ -175,7 +164,6 @@ class AwaitableGetProfileResult(GetProfileResult):
             name=self.name,
             profile_arn=self.profile_arn,
             profile_id=self.profile_id,
-            require_instance_properties=self.require_instance_properties,
             role_arns=self.role_arns,
             session_policy=self.session_policy,
             tags=self.tags)
@@ -203,7 +191,6 @@ def get_profile(profile_id: Optional[str] = None,
         name=pulumi.get(__ret__, 'name'),
         profile_arn=pulumi.get(__ret__, 'profile_arn'),
         profile_id=pulumi.get(__ret__, 'profile_id'),
-        require_instance_properties=pulumi.get(__ret__, 'require_instance_properties'),
         role_arns=pulumi.get(__ret__, 'role_arns'),
         session_policy=pulumi.get(__ret__, 'session_policy'),
         tags=pulumi.get(__ret__, 'tags'))
@@ -228,7 +215,6 @@ def get_profile_output(profile_id: Optional[pulumi.Input[str]] = None,
         name=pulumi.get(__response__, 'name'),
         profile_arn=pulumi.get(__response__, 'profile_arn'),
         profile_id=pulumi.get(__response__, 'profile_id'),
-        require_instance_properties=pulumi.get(__response__, 'require_instance_properties'),
         role_arns=pulumi.get(__response__, 'role_arns'),
         session_policy=pulumi.get(__response__, 'session_policy'),
         tags=pulumi.get(__response__, 'tags')))

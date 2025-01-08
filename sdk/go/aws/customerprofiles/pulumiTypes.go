@@ -2652,6 +2652,621 @@ type EventStreamTag struct {
 	Value string `pulumi:"value"`
 }
 
+// Specifies the circumstances under which the event should trigger the destination.
+type EventTriggerCondition struct {
+	EventTriggerDimensions []EventTriggerDimension     `pulumi:"eventTriggerDimensions"`
+	LogicalOperator        EventTriggerLogicalOperator `pulumi:"logicalOperator"`
+}
+
+// EventTriggerConditionInput is an input type that accepts EventTriggerConditionArgs and EventTriggerConditionOutput values.
+// You can construct a concrete instance of `EventTriggerConditionInput` via:
+//
+//	EventTriggerConditionArgs{...}
+type EventTriggerConditionInput interface {
+	pulumi.Input
+
+	ToEventTriggerConditionOutput() EventTriggerConditionOutput
+	ToEventTriggerConditionOutputWithContext(context.Context) EventTriggerConditionOutput
+}
+
+// Specifies the circumstances under which the event should trigger the destination.
+type EventTriggerConditionArgs struct {
+	EventTriggerDimensions EventTriggerDimensionArrayInput  `pulumi:"eventTriggerDimensions"`
+	LogicalOperator        EventTriggerLogicalOperatorInput `pulumi:"logicalOperator"`
+}
+
+func (EventTriggerConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventTriggerCondition)(nil)).Elem()
+}
+
+func (i EventTriggerConditionArgs) ToEventTriggerConditionOutput() EventTriggerConditionOutput {
+	return i.ToEventTriggerConditionOutputWithContext(context.Background())
+}
+
+func (i EventTriggerConditionArgs) ToEventTriggerConditionOutputWithContext(ctx context.Context) EventTriggerConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventTriggerConditionOutput)
+}
+
+// EventTriggerConditionArrayInput is an input type that accepts EventTriggerConditionArray and EventTriggerConditionArrayOutput values.
+// You can construct a concrete instance of `EventTriggerConditionArrayInput` via:
+//
+//	EventTriggerConditionArray{ EventTriggerConditionArgs{...} }
+type EventTriggerConditionArrayInput interface {
+	pulumi.Input
+
+	ToEventTriggerConditionArrayOutput() EventTriggerConditionArrayOutput
+	ToEventTriggerConditionArrayOutputWithContext(context.Context) EventTriggerConditionArrayOutput
+}
+
+type EventTriggerConditionArray []EventTriggerConditionInput
+
+func (EventTriggerConditionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventTriggerCondition)(nil)).Elem()
+}
+
+func (i EventTriggerConditionArray) ToEventTriggerConditionArrayOutput() EventTriggerConditionArrayOutput {
+	return i.ToEventTriggerConditionArrayOutputWithContext(context.Background())
+}
+
+func (i EventTriggerConditionArray) ToEventTriggerConditionArrayOutputWithContext(ctx context.Context) EventTriggerConditionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventTriggerConditionArrayOutput)
+}
+
+// Specifies the circumstances under which the event should trigger the destination.
+type EventTriggerConditionOutput struct{ *pulumi.OutputState }
+
+func (EventTriggerConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventTriggerCondition)(nil)).Elem()
+}
+
+func (o EventTriggerConditionOutput) ToEventTriggerConditionOutput() EventTriggerConditionOutput {
+	return o
+}
+
+func (o EventTriggerConditionOutput) ToEventTriggerConditionOutputWithContext(ctx context.Context) EventTriggerConditionOutput {
+	return o
+}
+
+func (o EventTriggerConditionOutput) EventTriggerDimensions() EventTriggerDimensionArrayOutput {
+	return o.ApplyT(func(v EventTriggerCondition) []EventTriggerDimension { return v.EventTriggerDimensions }).(EventTriggerDimensionArrayOutput)
+}
+
+func (o EventTriggerConditionOutput) LogicalOperator() EventTriggerLogicalOperatorOutput {
+	return o.ApplyT(func(v EventTriggerCondition) EventTriggerLogicalOperator { return v.LogicalOperator }).(EventTriggerLogicalOperatorOutput)
+}
+
+type EventTriggerConditionArrayOutput struct{ *pulumi.OutputState }
+
+func (EventTriggerConditionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventTriggerCondition)(nil)).Elem()
+}
+
+func (o EventTriggerConditionArrayOutput) ToEventTriggerConditionArrayOutput() EventTriggerConditionArrayOutput {
+	return o
+}
+
+func (o EventTriggerConditionArrayOutput) ToEventTriggerConditionArrayOutputWithContext(ctx context.Context) EventTriggerConditionArrayOutput {
+	return o
+}
+
+func (o EventTriggerConditionArrayOutput) Index(i pulumi.IntInput) EventTriggerConditionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventTriggerCondition {
+		return vs[0].([]EventTriggerCondition)[vs[1].(int)]
+	}).(EventTriggerConditionOutput)
+}
+
+// A specific event dimension to be assessed.
+type EventTriggerDimension struct {
+	ObjectAttributes []EventTriggerObjectAttribute `pulumi:"objectAttributes"`
+}
+
+// EventTriggerDimensionInput is an input type that accepts EventTriggerDimensionArgs and EventTriggerDimensionOutput values.
+// You can construct a concrete instance of `EventTriggerDimensionInput` via:
+//
+//	EventTriggerDimensionArgs{...}
+type EventTriggerDimensionInput interface {
+	pulumi.Input
+
+	ToEventTriggerDimensionOutput() EventTriggerDimensionOutput
+	ToEventTriggerDimensionOutputWithContext(context.Context) EventTriggerDimensionOutput
+}
+
+// A specific event dimension to be assessed.
+type EventTriggerDimensionArgs struct {
+	ObjectAttributes EventTriggerObjectAttributeArrayInput `pulumi:"objectAttributes"`
+}
+
+func (EventTriggerDimensionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventTriggerDimension)(nil)).Elem()
+}
+
+func (i EventTriggerDimensionArgs) ToEventTriggerDimensionOutput() EventTriggerDimensionOutput {
+	return i.ToEventTriggerDimensionOutputWithContext(context.Background())
+}
+
+func (i EventTriggerDimensionArgs) ToEventTriggerDimensionOutputWithContext(ctx context.Context) EventTriggerDimensionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventTriggerDimensionOutput)
+}
+
+// EventTriggerDimensionArrayInput is an input type that accepts EventTriggerDimensionArray and EventTriggerDimensionArrayOutput values.
+// You can construct a concrete instance of `EventTriggerDimensionArrayInput` via:
+//
+//	EventTriggerDimensionArray{ EventTriggerDimensionArgs{...} }
+type EventTriggerDimensionArrayInput interface {
+	pulumi.Input
+
+	ToEventTriggerDimensionArrayOutput() EventTriggerDimensionArrayOutput
+	ToEventTriggerDimensionArrayOutputWithContext(context.Context) EventTriggerDimensionArrayOutput
+}
+
+type EventTriggerDimensionArray []EventTriggerDimensionInput
+
+func (EventTriggerDimensionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventTriggerDimension)(nil)).Elem()
+}
+
+func (i EventTriggerDimensionArray) ToEventTriggerDimensionArrayOutput() EventTriggerDimensionArrayOutput {
+	return i.ToEventTriggerDimensionArrayOutputWithContext(context.Background())
+}
+
+func (i EventTriggerDimensionArray) ToEventTriggerDimensionArrayOutputWithContext(ctx context.Context) EventTriggerDimensionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventTriggerDimensionArrayOutput)
+}
+
+// A specific event dimension to be assessed.
+type EventTriggerDimensionOutput struct{ *pulumi.OutputState }
+
+func (EventTriggerDimensionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventTriggerDimension)(nil)).Elem()
+}
+
+func (o EventTriggerDimensionOutput) ToEventTriggerDimensionOutput() EventTriggerDimensionOutput {
+	return o
+}
+
+func (o EventTriggerDimensionOutput) ToEventTriggerDimensionOutputWithContext(ctx context.Context) EventTriggerDimensionOutput {
+	return o
+}
+
+func (o EventTriggerDimensionOutput) ObjectAttributes() EventTriggerObjectAttributeArrayOutput {
+	return o.ApplyT(func(v EventTriggerDimension) []EventTriggerObjectAttribute { return v.ObjectAttributes }).(EventTriggerObjectAttributeArrayOutput)
+}
+
+type EventTriggerDimensionArrayOutput struct{ *pulumi.OutputState }
+
+func (EventTriggerDimensionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventTriggerDimension)(nil)).Elem()
+}
+
+func (o EventTriggerDimensionArrayOutput) ToEventTriggerDimensionArrayOutput() EventTriggerDimensionArrayOutput {
+	return o
+}
+
+func (o EventTriggerDimensionArrayOutput) ToEventTriggerDimensionArrayOutputWithContext(ctx context.Context) EventTriggerDimensionArrayOutput {
+	return o
+}
+
+func (o EventTriggerDimensionArrayOutput) Index(i pulumi.IntInput) EventTriggerDimensionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventTriggerDimension {
+		return vs[0].([]EventTriggerDimension)[vs[1].(int)]
+	}).(EventTriggerDimensionOutput)
+}
+
+// Defines limits controlling whether an event triggers the destination, based on ingestion latency and the number of invocations per profile over specific time periods.
+type EventTriggerLimits struct {
+	EventExpiration *int                 `pulumi:"eventExpiration"`
+	Periods         []EventTriggerPeriod `pulumi:"periods"`
+}
+
+// EventTriggerLimitsInput is an input type that accepts EventTriggerLimitsArgs and EventTriggerLimitsOutput values.
+// You can construct a concrete instance of `EventTriggerLimitsInput` via:
+//
+//	EventTriggerLimitsArgs{...}
+type EventTriggerLimitsInput interface {
+	pulumi.Input
+
+	ToEventTriggerLimitsOutput() EventTriggerLimitsOutput
+	ToEventTriggerLimitsOutputWithContext(context.Context) EventTriggerLimitsOutput
+}
+
+// Defines limits controlling whether an event triggers the destination, based on ingestion latency and the number of invocations per profile over specific time periods.
+type EventTriggerLimitsArgs struct {
+	EventExpiration pulumi.IntPtrInput           `pulumi:"eventExpiration"`
+	Periods         EventTriggerPeriodArrayInput `pulumi:"periods"`
+}
+
+func (EventTriggerLimitsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventTriggerLimits)(nil)).Elem()
+}
+
+func (i EventTriggerLimitsArgs) ToEventTriggerLimitsOutput() EventTriggerLimitsOutput {
+	return i.ToEventTriggerLimitsOutputWithContext(context.Background())
+}
+
+func (i EventTriggerLimitsArgs) ToEventTriggerLimitsOutputWithContext(ctx context.Context) EventTriggerLimitsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventTriggerLimitsOutput)
+}
+
+func (i EventTriggerLimitsArgs) ToEventTriggerLimitsPtrOutput() EventTriggerLimitsPtrOutput {
+	return i.ToEventTriggerLimitsPtrOutputWithContext(context.Background())
+}
+
+func (i EventTriggerLimitsArgs) ToEventTriggerLimitsPtrOutputWithContext(ctx context.Context) EventTriggerLimitsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventTriggerLimitsOutput).ToEventTriggerLimitsPtrOutputWithContext(ctx)
+}
+
+// EventTriggerLimitsPtrInput is an input type that accepts EventTriggerLimitsArgs, EventTriggerLimitsPtr and EventTriggerLimitsPtrOutput values.
+// You can construct a concrete instance of `EventTriggerLimitsPtrInput` via:
+//
+//	        EventTriggerLimitsArgs{...}
+//
+//	or:
+//
+//	        nil
+type EventTriggerLimitsPtrInput interface {
+	pulumi.Input
+
+	ToEventTriggerLimitsPtrOutput() EventTriggerLimitsPtrOutput
+	ToEventTriggerLimitsPtrOutputWithContext(context.Context) EventTriggerLimitsPtrOutput
+}
+
+type eventTriggerLimitsPtrType EventTriggerLimitsArgs
+
+func EventTriggerLimitsPtr(v *EventTriggerLimitsArgs) EventTriggerLimitsPtrInput {
+	return (*eventTriggerLimitsPtrType)(v)
+}
+
+func (*eventTriggerLimitsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventTriggerLimits)(nil)).Elem()
+}
+
+func (i *eventTriggerLimitsPtrType) ToEventTriggerLimitsPtrOutput() EventTriggerLimitsPtrOutput {
+	return i.ToEventTriggerLimitsPtrOutputWithContext(context.Background())
+}
+
+func (i *eventTriggerLimitsPtrType) ToEventTriggerLimitsPtrOutputWithContext(ctx context.Context) EventTriggerLimitsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventTriggerLimitsPtrOutput)
+}
+
+// Defines limits controlling whether an event triggers the destination, based on ingestion latency and the number of invocations per profile over specific time periods.
+type EventTriggerLimitsOutput struct{ *pulumi.OutputState }
+
+func (EventTriggerLimitsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventTriggerLimits)(nil)).Elem()
+}
+
+func (o EventTriggerLimitsOutput) ToEventTriggerLimitsOutput() EventTriggerLimitsOutput {
+	return o
+}
+
+func (o EventTriggerLimitsOutput) ToEventTriggerLimitsOutputWithContext(ctx context.Context) EventTriggerLimitsOutput {
+	return o
+}
+
+func (o EventTriggerLimitsOutput) ToEventTriggerLimitsPtrOutput() EventTriggerLimitsPtrOutput {
+	return o.ToEventTriggerLimitsPtrOutputWithContext(context.Background())
+}
+
+func (o EventTriggerLimitsOutput) ToEventTriggerLimitsPtrOutputWithContext(ctx context.Context) EventTriggerLimitsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventTriggerLimits) *EventTriggerLimits {
+		return &v
+	}).(EventTriggerLimitsPtrOutput)
+}
+
+func (o EventTriggerLimitsOutput) EventExpiration() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EventTriggerLimits) *int { return v.EventExpiration }).(pulumi.IntPtrOutput)
+}
+
+func (o EventTriggerLimitsOutput) Periods() EventTriggerPeriodArrayOutput {
+	return o.ApplyT(func(v EventTriggerLimits) []EventTriggerPeriod { return v.Periods }).(EventTriggerPeriodArrayOutput)
+}
+
+type EventTriggerLimitsPtrOutput struct{ *pulumi.OutputState }
+
+func (EventTriggerLimitsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventTriggerLimits)(nil)).Elem()
+}
+
+func (o EventTriggerLimitsPtrOutput) ToEventTriggerLimitsPtrOutput() EventTriggerLimitsPtrOutput {
+	return o
+}
+
+func (o EventTriggerLimitsPtrOutput) ToEventTriggerLimitsPtrOutputWithContext(ctx context.Context) EventTriggerLimitsPtrOutput {
+	return o
+}
+
+func (o EventTriggerLimitsPtrOutput) Elem() EventTriggerLimitsOutput {
+	return o.ApplyT(func(v *EventTriggerLimits) EventTriggerLimits {
+		if v != nil {
+			return *v
+		}
+		var ret EventTriggerLimits
+		return ret
+	}).(EventTriggerLimitsOutput)
+}
+
+func (o EventTriggerLimitsPtrOutput) EventExpiration() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EventTriggerLimits) *int {
+		if v == nil {
+			return nil
+		}
+		return v.EventExpiration
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o EventTriggerLimitsPtrOutput) Periods() EventTriggerPeriodArrayOutput {
+	return o.ApplyT(func(v *EventTriggerLimits) []EventTriggerPeriod {
+		if v == nil {
+			return nil
+		}
+		return v.Periods
+	}).(EventTriggerPeriodArrayOutput)
+}
+
+// The criteria that a specific object attribute must meet to trigger the destination.
+type EventTriggerObjectAttribute struct {
+	// The operator used to compare an attribute against a list of values.
+	ComparisonOperator EventTriggerObjectAttributeComparisonOperator `pulumi:"comparisonOperator"`
+	// A field defined within an object type.
+	FieldName *string `pulumi:"fieldName"`
+	// An attribute contained within a source object.
+	Source *string `pulumi:"source"`
+	// A list of attribute values used for comparison.
+	Values []string `pulumi:"values"`
+}
+
+// EventTriggerObjectAttributeInput is an input type that accepts EventTriggerObjectAttributeArgs and EventTriggerObjectAttributeOutput values.
+// You can construct a concrete instance of `EventTriggerObjectAttributeInput` via:
+//
+//	EventTriggerObjectAttributeArgs{...}
+type EventTriggerObjectAttributeInput interface {
+	pulumi.Input
+
+	ToEventTriggerObjectAttributeOutput() EventTriggerObjectAttributeOutput
+	ToEventTriggerObjectAttributeOutputWithContext(context.Context) EventTriggerObjectAttributeOutput
+}
+
+// The criteria that a specific object attribute must meet to trigger the destination.
+type EventTriggerObjectAttributeArgs struct {
+	// The operator used to compare an attribute against a list of values.
+	ComparisonOperator EventTriggerObjectAttributeComparisonOperatorInput `pulumi:"comparisonOperator"`
+	// A field defined within an object type.
+	FieldName pulumi.StringPtrInput `pulumi:"fieldName"`
+	// An attribute contained within a source object.
+	Source pulumi.StringPtrInput `pulumi:"source"`
+	// A list of attribute values used for comparison.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (EventTriggerObjectAttributeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventTriggerObjectAttribute)(nil)).Elem()
+}
+
+func (i EventTriggerObjectAttributeArgs) ToEventTriggerObjectAttributeOutput() EventTriggerObjectAttributeOutput {
+	return i.ToEventTriggerObjectAttributeOutputWithContext(context.Background())
+}
+
+func (i EventTriggerObjectAttributeArgs) ToEventTriggerObjectAttributeOutputWithContext(ctx context.Context) EventTriggerObjectAttributeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventTriggerObjectAttributeOutput)
+}
+
+// EventTriggerObjectAttributeArrayInput is an input type that accepts EventTriggerObjectAttributeArray and EventTriggerObjectAttributeArrayOutput values.
+// You can construct a concrete instance of `EventTriggerObjectAttributeArrayInput` via:
+//
+//	EventTriggerObjectAttributeArray{ EventTriggerObjectAttributeArgs{...} }
+type EventTriggerObjectAttributeArrayInput interface {
+	pulumi.Input
+
+	ToEventTriggerObjectAttributeArrayOutput() EventTriggerObjectAttributeArrayOutput
+	ToEventTriggerObjectAttributeArrayOutputWithContext(context.Context) EventTriggerObjectAttributeArrayOutput
+}
+
+type EventTriggerObjectAttributeArray []EventTriggerObjectAttributeInput
+
+func (EventTriggerObjectAttributeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventTriggerObjectAttribute)(nil)).Elem()
+}
+
+func (i EventTriggerObjectAttributeArray) ToEventTriggerObjectAttributeArrayOutput() EventTriggerObjectAttributeArrayOutput {
+	return i.ToEventTriggerObjectAttributeArrayOutputWithContext(context.Background())
+}
+
+func (i EventTriggerObjectAttributeArray) ToEventTriggerObjectAttributeArrayOutputWithContext(ctx context.Context) EventTriggerObjectAttributeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventTriggerObjectAttributeArrayOutput)
+}
+
+// The criteria that a specific object attribute must meet to trigger the destination.
+type EventTriggerObjectAttributeOutput struct{ *pulumi.OutputState }
+
+func (EventTriggerObjectAttributeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventTriggerObjectAttribute)(nil)).Elem()
+}
+
+func (o EventTriggerObjectAttributeOutput) ToEventTriggerObjectAttributeOutput() EventTriggerObjectAttributeOutput {
+	return o
+}
+
+func (o EventTriggerObjectAttributeOutput) ToEventTriggerObjectAttributeOutputWithContext(ctx context.Context) EventTriggerObjectAttributeOutput {
+	return o
+}
+
+// The operator used to compare an attribute against a list of values.
+func (o EventTriggerObjectAttributeOutput) ComparisonOperator() EventTriggerObjectAttributeComparisonOperatorOutput {
+	return o.ApplyT(func(v EventTriggerObjectAttribute) EventTriggerObjectAttributeComparisonOperator {
+		return v.ComparisonOperator
+	}).(EventTriggerObjectAttributeComparisonOperatorOutput)
+}
+
+// A field defined within an object type.
+func (o EventTriggerObjectAttributeOutput) FieldName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventTriggerObjectAttribute) *string { return v.FieldName }).(pulumi.StringPtrOutput)
+}
+
+// An attribute contained within a source object.
+func (o EventTriggerObjectAttributeOutput) Source() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventTriggerObjectAttribute) *string { return v.Source }).(pulumi.StringPtrOutput)
+}
+
+// A list of attribute values used for comparison.
+func (o EventTriggerObjectAttributeOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EventTriggerObjectAttribute) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type EventTriggerObjectAttributeArrayOutput struct{ *pulumi.OutputState }
+
+func (EventTriggerObjectAttributeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventTriggerObjectAttribute)(nil)).Elem()
+}
+
+func (o EventTriggerObjectAttributeArrayOutput) ToEventTriggerObjectAttributeArrayOutput() EventTriggerObjectAttributeArrayOutput {
+	return o
+}
+
+func (o EventTriggerObjectAttributeArrayOutput) ToEventTriggerObjectAttributeArrayOutputWithContext(ctx context.Context) EventTriggerObjectAttributeArrayOutput {
+	return o
+}
+
+func (o EventTriggerObjectAttributeArrayOutput) Index(i pulumi.IntInput) EventTriggerObjectAttributeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventTriggerObjectAttribute {
+		return vs[0].([]EventTriggerObjectAttribute)[vs[1].(int)]
+	}).(EventTriggerObjectAttributeOutput)
+}
+
+// Defines a limit and the time period during which it is enforced.
+type EventTriggerPeriod struct {
+	// The maximum allowed number of destination invocations per profile.
+	MaxInvocationsPerProfile *int `pulumi:"maxInvocationsPerProfile"`
+	// The unit of time.
+	Unit EventTriggerPeriodUnit `pulumi:"unit"`
+	// If set to true, there is no limit on the number of destination invocations per profile. The default is false.
+	Unlimited *bool `pulumi:"unlimited"`
+	// The amount of time of the specified unit.
+	Value int `pulumi:"value"`
+}
+
+// EventTriggerPeriodInput is an input type that accepts EventTriggerPeriodArgs and EventTriggerPeriodOutput values.
+// You can construct a concrete instance of `EventTriggerPeriodInput` via:
+//
+//	EventTriggerPeriodArgs{...}
+type EventTriggerPeriodInput interface {
+	pulumi.Input
+
+	ToEventTriggerPeriodOutput() EventTriggerPeriodOutput
+	ToEventTriggerPeriodOutputWithContext(context.Context) EventTriggerPeriodOutput
+}
+
+// Defines a limit and the time period during which it is enforced.
+type EventTriggerPeriodArgs struct {
+	// The maximum allowed number of destination invocations per profile.
+	MaxInvocationsPerProfile pulumi.IntPtrInput `pulumi:"maxInvocationsPerProfile"`
+	// The unit of time.
+	Unit EventTriggerPeriodUnitInput `pulumi:"unit"`
+	// If set to true, there is no limit on the number of destination invocations per profile. The default is false.
+	Unlimited pulumi.BoolPtrInput `pulumi:"unlimited"`
+	// The amount of time of the specified unit.
+	Value pulumi.IntInput `pulumi:"value"`
+}
+
+func (EventTriggerPeriodArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventTriggerPeriod)(nil)).Elem()
+}
+
+func (i EventTriggerPeriodArgs) ToEventTriggerPeriodOutput() EventTriggerPeriodOutput {
+	return i.ToEventTriggerPeriodOutputWithContext(context.Background())
+}
+
+func (i EventTriggerPeriodArgs) ToEventTriggerPeriodOutputWithContext(ctx context.Context) EventTriggerPeriodOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventTriggerPeriodOutput)
+}
+
+// EventTriggerPeriodArrayInput is an input type that accepts EventTriggerPeriodArray and EventTriggerPeriodArrayOutput values.
+// You can construct a concrete instance of `EventTriggerPeriodArrayInput` via:
+//
+//	EventTriggerPeriodArray{ EventTriggerPeriodArgs{...} }
+type EventTriggerPeriodArrayInput interface {
+	pulumi.Input
+
+	ToEventTriggerPeriodArrayOutput() EventTriggerPeriodArrayOutput
+	ToEventTriggerPeriodArrayOutputWithContext(context.Context) EventTriggerPeriodArrayOutput
+}
+
+type EventTriggerPeriodArray []EventTriggerPeriodInput
+
+func (EventTriggerPeriodArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventTriggerPeriod)(nil)).Elem()
+}
+
+func (i EventTriggerPeriodArray) ToEventTriggerPeriodArrayOutput() EventTriggerPeriodArrayOutput {
+	return i.ToEventTriggerPeriodArrayOutputWithContext(context.Background())
+}
+
+func (i EventTriggerPeriodArray) ToEventTriggerPeriodArrayOutputWithContext(ctx context.Context) EventTriggerPeriodArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventTriggerPeriodArrayOutput)
+}
+
+// Defines a limit and the time period during which it is enforced.
+type EventTriggerPeriodOutput struct{ *pulumi.OutputState }
+
+func (EventTriggerPeriodOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventTriggerPeriod)(nil)).Elem()
+}
+
+func (o EventTriggerPeriodOutput) ToEventTriggerPeriodOutput() EventTriggerPeriodOutput {
+	return o
+}
+
+func (o EventTriggerPeriodOutput) ToEventTriggerPeriodOutputWithContext(ctx context.Context) EventTriggerPeriodOutput {
+	return o
+}
+
+// The maximum allowed number of destination invocations per profile.
+func (o EventTriggerPeriodOutput) MaxInvocationsPerProfile() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EventTriggerPeriod) *int { return v.MaxInvocationsPerProfile }).(pulumi.IntPtrOutput)
+}
+
+// The unit of time.
+func (o EventTriggerPeriodOutput) Unit() EventTriggerPeriodUnitOutput {
+	return o.ApplyT(func(v EventTriggerPeriod) EventTriggerPeriodUnit { return v.Unit }).(EventTriggerPeriodUnitOutput)
+}
+
+// If set to true, there is no limit on the number of destination invocations per profile. The default is false.
+func (o EventTriggerPeriodOutput) Unlimited() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EventTriggerPeriod) *bool { return v.Unlimited }).(pulumi.BoolPtrOutput)
+}
+
+// The amount of time of the specified unit.
+func (o EventTriggerPeriodOutput) Value() pulumi.IntOutput {
+	return o.ApplyT(func(v EventTriggerPeriod) int { return v.Value }).(pulumi.IntOutput)
+}
+
+type EventTriggerPeriodArrayOutput struct{ *pulumi.OutputState }
+
+func (EventTriggerPeriodArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EventTriggerPeriod)(nil)).Elem()
+}
+
+func (o EventTriggerPeriodArrayOutput) ToEventTriggerPeriodArrayOutput() EventTriggerPeriodArrayOutput {
+	return o
+}
+
+func (o EventTriggerPeriodArrayOutput) ToEventTriggerPeriodArrayOutputWithContext(ctx context.Context) EventTriggerPeriodArrayOutput {
+	return o
+}
+
+func (o EventTriggerPeriodArrayOutput) Index(i pulumi.IntInput) EventTriggerPeriodOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventTriggerPeriod {
+		return vs[0].([]EventTriggerPeriod)[vs[1].(int)]
+	}).(EventTriggerPeriodOutput)
+}
+
+// A key-value pair to associate with a resource.
+type EventTriggerTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
 type IntegrationConnectorOperator struct {
 	// The operation to be performed on the provided Marketo source fields.
 	Marketo *IntegrationMarketoConnectorOperator `pulumi:"marketo"`
@@ -7613,6 +8228,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainRuleBasedMatchingPtrInput)(nil)).Elem(), DomainRuleBasedMatchingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainS3ExportingConfigInput)(nil)).Elem(), DomainS3ExportingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainS3ExportingConfigPtrInput)(nil)).Elem(), DomainS3ExportingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventTriggerConditionInput)(nil)).Elem(), EventTriggerConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventTriggerConditionArrayInput)(nil)).Elem(), EventTriggerConditionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventTriggerDimensionInput)(nil)).Elem(), EventTriggerDimensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventTriggerDimensionArrayInput)(nil)).Elem(), EventTriggerDimensionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventTriggerLimitsInput)(nil)).Elem(), EventTriggerLimitsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventTriggerLimitsPtrInput)(nil)).Elem(), EventTriggerLimitsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventTriggerObjectAttributeInput)(nil)).Elem(), EventTriggerObjectAttributeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventTriggerObjectAttributeArrayInput)(nil)).Elem(), EventTriggerObjectAttributeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventTriggerPeriodInput)(nil)).Elem(), EventTriggerPeriodArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventTriggerPeriodArrayInput)(nil)).Elem(), EventTriggerPeriodArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationConnectorOperatorInput)(nil)).Elem(), IntegrationConnectorOperatorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationConnectorOperatorPtrInput)(nil)).Elem(), IntegrationConnectorOperatorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationFlowDefinitionInput)(nil)).Elem(), IntegrationFlowDefinitionArgs{})
@@ -7711,6 +8336,16 @@ func init() {
 	pulumi.RegisterOutputType(DomainS3ExportingConfigPtrOutput{})
 	pulumi.RegisterOutputType(DomainStatsOutput{})
 	pulumi.RegisterOutputType(DomainStatsPtrOutput{})
+	pulumi.RegisterOutputType(EventTriggerConditionOutput{})
+	pulumi.RegisterOutputType(EventTriggerConditionArrayOutput{})
+	pulumi.RegisterOutputType(EventTriggerDimensionOutput{})
+	pulumi.RegisterOutputType(EventTriggerDimensionArrayOutput{})
+	pulumi.RegisterOutputType(EventTriggerLimitsOutput{})
+	pulumi.RegisterOutputType(EventTriggerLimitsPtrOutput{})
+	pulumi.RegisterOutputType(EventTriggerObjectAttributeOutput{})
+	pulumi.RegisterOutputType(EventTriggerObjectAttributeArrayOutput{})
+	pulumi.RegisterOutputType(EventTriggerPeriodOutput{})
+	pulumi.RegisterOutputType(EventTriggerPeriodArrayOutput{})
 	pulumi.RegisterOutputType(IntegrationConnectorOperatorOutput{})
 	pulumi.RegisterOutputType(IntegrationConnectorOperatorPtrOutput{})
 	pulumi.RegisterOutputType(IntegrationFlowDefinitionOutput{})

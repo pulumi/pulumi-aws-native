@@ -33,6 +33,8 @@ type Collaboration struct {
 	//
 	// *Allowed values* `CAN_QUERY` | `CAN_RECEIVE_RESULTS`
 	CreatorMemberAbilities CollaborationMemberAbilityArrayOutput `pulumi:"creatorMemberAbilities"`
+	// The ML member abilities for a collaboration member.
+	CreatorMlMemberAbilities CollaborationMlMemberAbilitiesPtrOutput `pulumi:"creatorMlMemberAbilities"`
 	// An object representing the collaboration member's payment responsibilities set by the collaboration creator.
 	CreatorPaymentConfiguration CollaborationPaymentConfigurationPtrOutput `pulumi:"creatorPaymentConfiguration"`
 	// The settings for client-side encryption for cryptographic computing.
@@ -75,6 +77,7 @@ func NewCollaboration(ctx *pulumi.Context,
 		"analyticsEngine",
 		"creatorDisplayName",
 		"creatorMemberAbilities[*]",
+		"creatorMlMemberAbilities",
 		"creatorPaymentConfiguration",
 		"dataEncryptionMetadata",
 		"members[*]",
@@ -122,6 +125,8 @@ type collaborationArgs struct {
 	//
 	// *Allowed values* `CAN_QUERY` | `CAN_RECEIVE_RESULTS`
 	CreatorMemberAbilities []CollaborationMemberAbility `pulumi:"creatorMemberAbilities"`
+	// The ML member abilities for a collaboration member.
+	CreatorMlMemberAbilities *CollaborationMlMemberAbilities `pulumi:"creatorMlMemberAbilities"`
 	// An object representing the collaboration member's payment responsibilities set by the collaboration creator.
 	CreatorPaymentConfiguration *CollaborationPaymentConfiguration `pulumi:"creatorPaymentConfiguration"`
 	// The settings for client-side encryption for cryptographic computing.
@@ -148,6 +153,8 @@ type CollaborationArgs struct {
 	//
 	// *Allowed values* `CAN_QUERY` | `CAN_RECEIVE_RESULTS`
 	CreatorMemberAbilities CollaborationMemberAbilityArrayInput
+	// The ML member abilities for a collaboration member.
+	CreatorMlMemberAbilities CollaborationMlMemberAbilitiesPtrInput
 	// An object representing the collaboration member's payment responsibilities set by the collaboration creator.
 	CreatorPaymentConfiguration CollaborationPaymentConfigurationPtrInput
 	// The settings for client-side encryption for cryptographic computing.
@@ -230,6 +237,11 @@ func (o CollaborationOutput) CreatorDisplayName() pulumi.StringOutput {
 // *Allowed values* `CAN_QUERY` | `CAN_RECEIVE_RESULTS`
 func (o CollaborationOutput) CreatorMemberAbilities() CollaborationMemberAbilityArrayOutput {
 	return o.ApplyT(func(v *Collaboration) CollaborationMemberAbilityArrayOutput { return v.CreatorMemberAbilities }).(CollaborationMemberAbilityArrayOutput)
+}
+
+// The ML member abilities for a collaboration member.
+func (o CollaborationOutput) CreatorMlMemberAbilities() CollaborationMlMemberAbilitiesPtrOutput {
+	return o.ApplyT(func(v *Collaboration) CollaborationMlMemberAbilitiesPtrOutput { return v.CreatorMlMemberAbilities }).(CollaborationMlMemberAbilitiesPtrOutput)
 }
 
 // An object representing the collaboration member's payment responsibilities set by the collaboration creator.

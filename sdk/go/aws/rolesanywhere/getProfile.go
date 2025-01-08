@@ -45,8 +45,6 @@ type LookupProfileResult struct {
 	ProfileArn *string `pulumi:"profileArn"`
 	// The unique primary identifier of the Profile
 	ProfileId *string `pulumi:"profileId"`
-	// Specifies whether instance properties are required in CreateSession requests with this profile.
-	RequireInstanceProperties *bool `pulumi:"requireInstanceProperties"`
 	// A list of IAM role ARNs that can be assumed when this profile is specified in a CreateSession request.
 	RoleArns []string `pulumi:"roleArns"`
 	// A session policy that will applied to the trust boundary of the vended session credentials.
@@ -125,11 +123,6 @@ func (o LookupProfileResultOutput) ProfileArn() pulumi.StringPtrOutput {
 // The unique primary identifier of the Profile
 func (o LookupProfileResultOutput) ProfileId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupProfileResult) *string { return v.ProfileId }).(pulumi.StringPtrOutput)
-}
-
-// Specifies whether instance properties are required in CreateSession requests with this profile.
-func (o LookupProfileResultOutput) RequireInstanceProperties() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v LookupProfileResult) *bool { return v.RequireInstanceProperties }).(pulumi.BoolPtrOutput)
 }
 
 // A list of IAM role ARNs that can be assumed when this profile is specified in a CreateSession request.

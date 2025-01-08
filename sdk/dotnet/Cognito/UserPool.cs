@@ -24,13 +24,13 @@ namespace Pulumi.AwsNative.Cognito
         /// <summary>
         /// The settings for administrator creation of users in a user pool. Contains settings for allowing user sign-up, customizing invitation messages to new users, and the amount of time before temporary passwords expire.
         /// 
-        /// This data type is a request and response parameter of [CreateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.html) and [UpdateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.html) , and a response parameter of [DescribeUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html) .
+        /// This data type is a request and response parameter of `API_CreateUserPool` and `API_UpdateUserPool` , and a response parameter of `API_DescribeUserPool` .
         /// </summary>
         [Output("adminCreateUserConfig")]
         public Output<Outputs.UserPoolAdminCreateUserConfig?> AdminCreateUserConfig { get; private set; } = null!;
 
         /// <summary>
-        /// Attributes supported as an alias for this user pool. Possible values: *phone_number* , *email* , or *preferred_username* . For more information about alias attributes, see [Customizing sign-in attributes](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#user-pool-settings-aliases) .
+        /// Attributes supported as an alias for this user pool. For more information about alias attributes, see [Customizing sign-in attributes](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#user-pool-settings-aliases) .
         /// </summary>
         [Output("aliasAttributes")]
         public Output<ImmutableArray<string>> AliasAttributes { get; private set; } = null!;
@@ -42,7 +42,7 @@ namespace Pulumi.AwsNative.Cognito
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The attributes that you want your user pool to automatically verify. Possible values: *email* , *phone_number* . For more information see [Verifying contact information at sign-up](https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#allowing-users-to-sign-up-and-confirm-themselves) .
+        /// The attributes that you want your user pool to automatically verify. For more information, see [Verifying contact information at sign-up](https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#allowing-users-to-sign-up-and-confirm-themselves) .
         /// </summary>
         [Output("autoVerifiedAttributes")]
         public Output<ImmutableArray<string>> AutoVerifiedAttributes { get; private set; } = null!;
@@ -108,11 +108,9 @@ namespace Pulumi.AwsNative.Cognito
         public Output<Outputs.UserPoolLambdaConfig?> LambdaConfig { get; private set; } = null!;
 
         /// <summary>
-        /// The multi-factor authentication (MFA) configuration. Valid values include:
+        /// Displays the state of multi-factor authentication (MFA) as on, off, or optional. When `ON` , all users must set up MFA before they can sign in. When `OPTIONAL` , your application must make a client-side determination of whether a user wants to register an MFA device. For user pools with adaptive authentication with threat protection, choose `OPTIONAL` .
         /// 
-        /// - `OFF` MFA won't be used for any users.
-        /// - `ON` MFA is required for all users to sign in.
-        /// - `OPTIONAL` MFA will be required only for individual users who have an MFA factor activated.
+        /// When `MfaConfiguration` is `OPTIONAL` , managed login doesn't automatically prompt users to set up MFA. Amazon Cognito generates MFA prompts in API responses and in managed login for users who have chosen and configured a preferred MFA factor.
         /// </summary>
         [Output("mfaConfiguration")]
         public Output<string?> MfaConfiguration { get; private set; } = null!;
@@ -120,7 +118,7 @@ namespace Pulumi.AwsNative.Cognito
         /// <summary>
         /// A list of user pool policies. Contains the policy that sets password-complexity requirements.
         /// 
-        /// This data type is a request and response parameter of [CreateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.html) and [UpdateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.html) , and a response parameter of [DescribeUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html) .
+        /// This data type is a request and response parameter of `API_CreateUserPool` and `API_UpdateUserPool` , and a response parameter of `API_DescribeUserPool` .
         /// </summary>
         [Output("policies")]
         public Output<Outputs.UserPoolPolicies?> Policies { get; private set; } = null!;
@@ -150,7 +148,7 @@ namespace Pulumi.AwsNative.Cognito
         public Output<string?> SmsAuthenticationMessage { get; private set; } = null!;
 
         /// <summary>
-        /// The SMS configuration with the settings that your Amazon Cognito user pool must use to send an SMS message from your AWS account through Amazon Simple Notification Service. To send SMS messages with Amazon SNS in the AWS Region that you want, the Amazon Cognito user pool uses an AWS Identity and Access Management (IAM) role in your AWS account . For more information see [SMS message settings](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html) .
+        /// The settings for your Amazon Cognito user pool to send SMS messages with Amazon Simple Notification Service. To send SMS messages with Amazon SNS in the AWS Region that you want, the Amazon Cognito user pool uses an AWS Identity and Access Management (IAM) role in your AWS account . For more information see [SMS message settings](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html) .
         /// </summary>
         [Output("smsConfiguration")]
         public Output<Outputs.UserPoolSmsConfiguration?> SmsConfiguration { get; private set; } = null!;
@@ -170,7 +168,7 @@ namespace Pulumi.AwsNative.Cognito
         public Output<Outputs.UserPoolUserAttributeUpdateSettings?> UserAttributeUpdateSettings { get; private set; } = null!;
 
         /// <summary>
-        /// User pool add-ons. Contains settings for activation of threat protection. To log user security information but take no action, set to `AUDIT` . To configure automatic security responses to risky traffic to your user pool, set to `ENFORCED` .
+        /// Contains settings for activation of threat protection, including the operating mode and additional authentication types. To log user security information but take no action, set to `AUDIT` . To configure automatic security responses to potentially unwanted traffic to your user pool, set to `ENFORCED` .
         /// 
         /// For more information, see [Adding advanced security to a user pool](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-advanced-security.html) . To activate this setting, your user pool must be on the [Plus tier](https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-plus.html) .
         /// </summary>
@@ -184,7 +182,7 @@ namespace Pulumi.AwsNative.Cognito
         public Output<string> UserPoolId { get; private set; } = null!;
 
         /// <summary>
-        /// A friendlhy name for your user pool.
+        /// A friendly name for your user pool.
         /// </summary>
         [Output("userPoolName")]
         public Output<string?> UserPoolName { get; private set; } = null!;
@@ -297,7 +295,7 @@ namespace Pulumi.AwsNative.Cognito
         /// <summary>
         /// The settings for administrator creation of users in a user pool. Contains settings for allowing user sign-up, customizing invitation messages to new users, and the amount of time before temporary passwords expire.
         /// 
-        /// This data type is a request and response parameter of [CreateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.html) and [UpdateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.html) , and a response parameter of [DescribeUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html) .
+        /// This data type is a request and response parameter of `API_CreateUserPool` and `API_UpdateUserPool` , and a response parameter of `API_DescribeUserPool` .
         /// </summary>
         [Input("adminCreateUserConfig")]
         public Input<Inputs.UserPoolAdminCreateUserConfigArgs>? AdminCreateUserConfig { get; set; }
@@ -306,7 +304,7 @@ namespace Pulumi.AwsNative.Cognito
         private InputList<string>? _aliasAttributes;
 
         /// <summary>
-        /// Attributes supported as an alias for this user pool. Possible values: *phone_number* , *email* , or *preferred_username* . For more information about alias attributes, see [Customizing sign-in attributes](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#user-pool-settings-aliases) .
+        /// Attributes supported as an alias for this user pool. For more information about alias attributes, see [Customizing sign-in attributes](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#user-pool-settings-aliases) .
         /// </summary>
         public InputList<string> AliasAttributes
         {
@@ -318,7 +316,7 @@ namespace Pulumi.AwsNative.Cognito
         private InputList<string>? _autoVerifiedAttributes;
 
         /// <summary>
-        /// The attributes that you want your user pool to automatically verify. Possible values: *email* , *phone_number* . For more information see [Verifying contact information at sign-up](https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#allowing-users-to-sign-up-and-confirm-themselves) .
+        /// The attributes that you want your user pool to automatically verify. For more information, see [Verifying contact information at sign-up](https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#allowing-users-to-sign-up-and-confirm-themselves) .
         /// </summary>
         public InputList<string> AutoVerifiedAttributes
         {
@@ -393,11 +391,9 @@ namespace Pulumi.AwsNative.Cognito
         public Input<Inputs.UserPoolLambdaConfigArgs>? LambdaConfig { get; set; }
 
         /// <summary>
-        /// The multi-factor authentication (MFA) configuration. Valid values include:
+        /// Displays the state of multi-factor authentication (MFA) as on, off, or optional. When `ON` , all users must set up MFA before they can sign in. When `OPTIONAL` , your application must make a client-side determination of whether a user wants to register an MFA device. For user pools with adaptive authentication with threat protection, choose `OPTIONAL` .
         /// 
-        /// - `OFF` MFA won't be used for any users.
-        /// - `ON` MFA is required for all users to sign in.
-        /// - `OPTIONAL` MFA will be required only for individual users who have an MFA factor activated.
+        /// When `MfaConfiguration` is `OPTIONAL` , managed login doesn't automatically prompt users to set up MFA. Amazon Cognito generates MFA prompts in API responses and in managed login for users who have chosen and configured a preferred MFA factor.
         /// </summary>
         [Input("mfaConfiguration")]
         public Input<string>? MfaConfiguration { get; set; }
@@ -405,7 +401,7 @@ namespace Pulumi.AwsNative.Cognito
         /// <summary>
         /// A list of user pool policies. Contains the policy that sets password-complexity requirements.
         /// 
-        /// This data type is a request and response parameter of [CreateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateUserPool.html) and [UpdateUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UpdateUserPool.html) , and a response parameter of [DescribeUserPool](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html) .
+        /// This data type is a request and response parameter of `API_CreateUserPool` and `API_UpdateUserPool` , and a response parameter of `API_DescribeUserPool` .
         /// </summary>
         [Input("policies")]
         public Input<Inputs.UserPoolPoliciesArgs>? Policies { get; set; }
@@ -429,7 +425,7 @@ namespace Pulumi.AwsNative.Cognito
         public Input<string>? SmsAuthenticationMessage { get; set; }
 
         /// <summary>
-        /// The SMS configuration with the settings that your Amazon Cognito user pool must use to send an SMS message from your AWS account through Amazon Simple Notification Service. To send SMS messages with Amazon SNS in the AWS Region that you want, the Amazon Cognito user pool uses an AWS Identity and Access Management (IAM) role in your AWS account . For more information see [SMS message settings](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html) .
+        /// The settings for your Amazon Cognito user pool to send SMS messages with Amazon Simple Notification Service. To send SMS messages with Amazon SNS in the AWS Region that you want, the Amazon Cognito user pool uses an AWS Identity and Access Management (IAM) role in your AWS account . For more information see [SMS message settings](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html) .
         /// </summary>
         [Input("smsConfiguration")]
         public Input<Inputs.UserPoolSmsConfigurationArgs>? SmsConfiguration { get; set; }
@@ -449,7 +445,7 @@ namespace Pulumi.AwsNative.Cognito
         public Input<Inputs.UserPoolUserAttributeUpdateSettingsArgs>? UserAttributeUpdateSettings { get; set; }
 
         /// <summary>
-        /// User pool add-ons. Contains settings for activation of threat protection. To log user security information but take no action, set to `AUDIT` . To configure automatic security responses to risky traffic to your user pool, set to `ENFORCED` .
+        /// Contains settings for activation of threat protection, including the operating mode and additional authentication types. To log user security information but take no action, set to `AUDIT` . To configure automatic security responses to potentially unwanted traffic to your user pool, set to `ENFORCED` .
         /// 
         /// For more information, see [Adding advanced security to a user pool](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-advanced-security.html) . To activate this setting, your user pool must be on the [Plus tier](https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-plus.html) .
         /// </summary>
@@ -457,7 +453,7 @@ namespace Pulumi.AwsNative.Cognito
         public Input<Inputs.UserPoolAddOnsArgs>? UserPoolAddOns { get; set; }
 
         /// <summary>
-        /// A friendlhy name for your user pool.
+        /// A friendly name for your user pool.
         /// </summary>
         [Input("userPoolName")]
         public Input<string>? UserPoolName { get; set; }

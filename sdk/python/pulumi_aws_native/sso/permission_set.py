@@ -41,7 +41,7 @@ class PermissionSetArgs:
         :param Any inline_policy: The inline policy to put in permission set.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSO::PermissionSet` for more information about the expected schema for this property.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] managed_policies: A structure that stores the details of the AWS managed policy.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] managed_policies: A structure that stores a list of managed policy ARNs that describe the associated AWS managed policy.
         :param pulumi.Input[str] name: The name you want to assign to this permission set.
         :param pulumi.Input['PermissionSetPermissionsBoundaryArgs'] permissions_boundary: Specifies the configuration of the AWS managed or customer managed policy that you want to set as a permissions boundary. Specify either `CustomerManagedPolicyReference` to use the name and path of a customer managed policy, or `ManagedPolicyArn` to use the ARN of an AWS managed policy. A permissions boundary represents the maximum permissions that any policy can grant your role. For more information, see [Permissions boundaries for IAM entities](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html) in the *IAM User Guide* .
                
@@ -124,7 +124,7 @@ class PermissionSetArgs:
     @pulumi.getter(name="managedPolicies")
     def managed_policies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A structure that stores the details of the AWS managed policy.
+        A structure that stores a list of managed policy ARNs that describe the associated AWS managed policy.
         """
         return pulumi.get(self, "managed_policies")
 
@@ -222,7 +222,7 @@ class PermissionSet(pulumi.CustomResource):
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSO::PermissionSet` for more information about the expected schema for this property.
         :param pulumi.Input[str] instance_arn: The sso instance arn that the permission set is owned.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] managed_policies: A structure that stores the details of the AWS managed policy.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] managed_policies: A structure that stores a list of managed policy ARNs that describe the associated AWS managed policy.
         :param pulumi.Input[str] name: The name you want to assign to this permission set.
         :param pulumi.Input[Union['PermissionSetPermissionsBoundaryArgs', 'PermissionSetPermissionsBoundaryArgsDict']] permissions_boundary: Specifies the configuration of the AWS managed or customer managed policy that you want to set as a permissions boundary. Specify either `CustomerManagedPolicyReference` to use the name and path of a customer managed policy, or `ManagedPolicyArn` to use the ARN of an AWS managed policy. A permissions boundary represents the maximum permissions that any policy can grant your role. For more information, see [Permissions boundaries for IAM entities](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html) in the *IAM User Guide* .
                
@@ -362,7 +362,7 @@ class PermissionSet(pulumi.CustomResource):
     @pulumi.getter(name="managedPolicies")
     def managed_policies(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        A structure that stores the details of the AWS managed policy.
+        A structure that stores a list of managed policy ARNs that describe the associated AWS managed policy.
         """
         return pulumi.get(self, "managed_policies")
 

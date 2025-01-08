@@ -65,6 +65,40 @@ func (o DomainServerSideEncryptionConfigurationOutput) KmsKeyId() pulumi.StringO
 	return o.ApplyT(func(v DomainServerSideEncryptionConfiguration) string { return v.KmsKeyId }).(pulumi.StringOutput)
 }
 
+type DomainServerSideEncryptionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainServerSideEncryptionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainServerSideEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o DomainServerSideEncryptionConfigurationPtrOutput) ToDomainServerSideEncryptionConfigurationPtrOutput() DomainServerSideEncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o DomainServerSideEncryptionConfigurationPtrOutput) ToDomainServerSideEncryptionConfigurationPtrOutputWithContext(ctx context.Context) DomainServerSideEncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o DomainServerSideEncryptionConfigurationPtrOutput) Elem() DomainServerSideEncryptionConfigurationOutput {
+	return o.ApplyT(func(v *DomainServerSideEncryptionConfiguration) DomainServerSideEncryptionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret DomainServerSideEncryptionConfiguration
+		return ret
+	}).(DomainServerSideEncryptionConfigurationOutput)
+}
+
+// The identifier of the KMS key to use to encrypt data stored by Voice ID. Voice ID doesn't support asymmetric customer managed keys.
+func (o DomainServerSideEncryptionConfigurationPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainServerSideEncryptionConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
 type DomainTag struct {
 	// The first part of a key:value pair that forms a tag associated with a given resource. For example, in the tag 'Department':'Sales', the key is 'Department'.
 	Key string `pulumi:"key"`
@@ -75,4 +109,5 @@ type DomainTag struct {
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainServerSideEncryptionConfigurationInput)(nil)).Elem(), DomainServerSideEncryptionConfigurationArgs{})
 	pulumi.RegisterOutputType(DomainServerSideEncryptionConfigurationOutput{})
+	pulumi.RegisterOutputType(DomainServerSideEncryptionConfigurationPtrOutput{})
 }

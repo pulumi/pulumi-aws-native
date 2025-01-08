@@ -32,6 +32,8 @@ type App struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Defines the roles and credentials that AWS Resilience Hub would use while creating the application, importing its resources, and running an assessment.
 	PermissionModel AppPermissionModelPtrOutput `pulumi:"permissionModel"`
+	// Amazon Resource Name (ARN) of the Regulatory Policy.
+	RegulatoryPolicyArn pulumi.StringPtrOutput `pulumi:"regulatoryPolicyArn"`
 	// Amazon Resource Name (ARN) of the Resiliency Policy.
 	ResiliencyPolicyArn pulumi.StringPtrOutput `pulumi:"resiliencyPolicyArn"`
 	// An array of ResourceMapping objects.
@@ -102,6 +104,8 @@ type appArgs struct {
 	Name *string `pulumi:"name"`
 	// Defines the roles and credentials that AWS Resilience Hub would use while creating the application, importing its resources, and running an assessment.
 	PermissionModel *AppPermissionModel `pulumi:"permissionModel"`
+	// Amazon Resource Name (ARN) of the Regulatory Policy.
+	RegulatoryPolicyArn *string `pulumi:"regulatoryPolicyArn"`
 	// Amazon Resource Name (ARN) of the Resiliency Policy.
 	ResiliencyPolicyArn *string `pulumi:"resiliencyPolicyArn"`
 	// An array of ResourceMapping objects.
@@ -124,6 +128,8 @@ type AppArgs struct {
 	Name pulumi.StringPtrInput
 	// Defines the roles and credentials that AWS Resilience Hub would use while creating the application, importing its resources, and running an assessment.
 	PermissionModel AppPermissionModelPtrInput
+	// Amazon Resource Name (ARN) of the Regulatory Policy.
+	RegulatoryPolicyArn pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of the Resiliency Policy.
 	ResiliencyPolicyArn pulumi.StringPtrInput
 	// An array of ResourceMapping objects.
@@ -207,6 +213,11 @@ func (o AppOutput) Name() pulumi.StringOutput {
 // Defines the roles and credentials that AWS Resilience Hub would use while creating the application, importing its resources, and running an assessment.
 func (o AppOutput) PermissionModel() AppPermissionModelPtrOutput {
 	return o.ApplyT(func(v *App) AppPermissionModelPtrOutput { return v.PermissionModel }).(AppPermissionModelPtrOutput)
+}
+
+// Amazon Resource Name (ARN) of the Regulatory Policy.
+func (o AppOutput) RegulatoryPolicyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *App) pulumi.StringPtrOutput { return v.RegulatoryPolicyArn }).(pulumi.StringPtrOutput)
 }
 
 // Amazon Resource Name (ARN) of the Resiliency Policy.

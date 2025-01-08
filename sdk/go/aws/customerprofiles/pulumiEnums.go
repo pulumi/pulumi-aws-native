@@ -1380,6 +1380,536 @@ func (o EventStreamStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 	}).(pulumi.StringPtrOutput)
 }
 
+// The operator used to combine multiple dimensions.
+type EventTriggerLogicalOperator string
+
+const (
+	EventTriggerLogicalOperatorAny  = EventTriggerLogicalOperator("ANY")
+	EventTriggerLogicalOperatorAll  = EventTriggerLogicalOperator("ALL")
+	EventTriggerLogicalOperatorNone = EventTriggerLogicalOperator("NONE")
+)
+
+func (EventTriggerLogicalOperator) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventTriggerLogicalOperator)(nil)).Elem()
+}
+
+func (e EventTriggerLogicalOperator) ToEventTriggerLogicalOperatorOutput() EventTriggerLogicalOperatorOutput {
+	return pulumi.ToOutput(e).(EventTriggerLogicalOperatorOutput)
+}
+
+func (e EventTriggerLogicalOperator) ToEventTriggerLogicalOperatorOutputWithContext(ctx context.Context) EventTriggerLogicalOperatorOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(EventTriggerLogicalOperatorOutput)
+}
+
+func (e EventTriggerLogicalOperator) ToEventTriggerLogicalOperatorPtrOutput() EventTriggerLogicalOperatorPtrOutput {
+	return e.ToEventTriggerLogicalOperatorPtrOutputWithContext(context.Background())
+}
+
+func (e EventTriggerLogicalOperator) ToEventTriggerLogicalOperatorPtrOutputWithContext(ctx context.Context) EventTriggerLogicalOperatorPtrOutput {
+	return EventTriggerLogicalOperator(e).ToEventTriggerLogicalOperatorOutputWithContext(ctx).ToEventTriggerLogicalOperatorPtrOutputWithContext(ctx)
+}
+
+func (e EventTriggerLogicalOperator) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EventTriggerLogicalOperator) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EventTriggerLogicalOperator) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EventTriggerLogicalOperator) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type EventTriggerLogicalOperatorOutput struct{ *pulumi.OutputState }
+
+func (EventTriggerLogicalOperatorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventTriggerLogicalOperator)(nil)).Elem()
+}
+
+func (o EventTriggerLogicalOperatorOutput) ToEventTriggerLogicalOperatorOutput() EventTriggerLogicalOperatorOutput {
+	return o
+}
+
+func (o EventTriggerLogicalOperatorOutput) ToEventTriggerLogicalOperatorOutputWithContext(ctx context.Context) EventTriggerLogicalOperatorOutput {
+	return o
+}
+
+func (o EventTriggerLogicalOperatorOutput) ToEventTriggerLogicalOperatorPtrOutput() EventTriggerLogicalOperatorPtrOutput {
+	return o.ToEventTriggerLogicalOperatorPtrOutputWithContext(context.Background())
+}
+
+func (o EventTriggerLogicalOperatorOutput) ToEventTriggerLogicalOperatorPtrOutputWithContext(ctx context.Context) EventTriggerLogicalOperatorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventTriggerLogicalOperator) *EventTriggerLogicalOperator {
+		return &v
+	}).(EventTriggerLogicalOperatorPtrOutput)
+}
+
+func (o EventTriggerLogicalOperatorOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o EventTriggerLogicalOperatorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EventTriggerLogicalOperator) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o EventTriggerLogicalOperatorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EventTriggerLogicalOperatorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EventTriggerLogicalOperator) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type EventTriggerLogicalOperatorPtrOutput struct{ *pulumi.OutputState }
+
+func (EventTriggerLogicalOperatorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventTriggerLogicalOperator)(nil)).Elem()
+}
+
+func (o EventTriggerLogicalOperatorPtrOutput) ToEventTriggerLogicalOperatorPtrOutput() EventTriggerLogicalOperatorPtrOutput {
+	return o
+}
+
+func (o EventTriggerLogicalOperatorPtrOutput) ToEventTriggerLogicalOperatorPtrOutputWithContext(ctx context.Context) EventTriggerLogicalOperatorPtrOutput {
+	return o
+}
+
+func (o EventTriggerLogicalOperatorPtrOutput) Elem() EventTriggerLogicalOperatorOutput {
+	return o.ApplyT(func(v *EventTriggerLogicalOperator) EventTriggerLogicalOperator {
+		if v != nil {
+			return *v
+		}
+		var ret EventTriggerLogicalOperator
+		return ret
+	}).(EventTriggerLogicalOperatorOutput)
+}
+
+func (o EventTriggerLogicalOperatorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EventTriggerLogicalOperatorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EventTriggerLogicalOperator) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// EventTriggerLogicalOperatorInput is an input type that accepts values of the EventTriggerLogicalOperator enum
+// A concrete instance of `EventTriggerLogicalOperatorInput` can be one of the following:
+//
+//	EventTriggerLogicalOperatorAny
+//	EventTriggerLogicalOperatorAll
+//	EventTriggerLogicalOperatorNone
+type EventTriggerLogicalOperatorInput interface {
+	pulumi.Input
+
+	ToEventTriggerLogicalOperatorOutput() EventTriggerLogicalOperatorOutput
+	ToEventTriggerLogicalOperatorOutputWithContext(context.Context) EventTriggerLogicalOperatorOutput
+}
+
+var eventTriggerLogicalOperatorPtrType = reflect.TypeOf((**EventTriggerLogicalOperator)(nil)).Elem()
+
+type EventTriggerLogicalOperatorPtrInput interface {
+	pulumi.Input
+
+	ToEventTriggerLogicalOperatorPtrOutput() EventTriggerLogicalOperatorPtrOutput
+	ToEventTriggerLogicalOperatorPtrOutputWithContext(context.Context) EventTriggerLogicalOperatorPtrOutput
+}
+
+type eventTriggerLogicalOperatorPtr string
+
+func EventTriggerLogicalOperatorPtr(v string) EventTriggerLogicalOperatorPtrInput {
+	return (*eventTriggerLogicalOperatorPtr)(&v)
+}
+
+func (*eventTriggerLogicalOperatorPtr) ElementType() reflect.Type {
+	return eventTriggerLogicalOperatorPtrType
+}
+
+func (in *eventTriggerLogicalOperatorPtr) ToEventTriggerLogicalOperatorPtrOutput() EventTriggerLogicalOperatorPtrOutput {
+	return pulumi.ToOutput(in).(EventTriggerLogicalOperatorPtrOutput)
+}
+
+func (in *eventTriggerLogicalOperatorPtr) ToEventTriggerLogicalOperatorPtrOutputWithContext(ctx context.Context) EventTriggerLogicalOperatorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(EventTriggerLogicalOperatorPtrOutput)
+}
+
+// The operator used to compare an attribute against a list of values.
+type EventTriggerObjectAttributeComparisonOperator string
+
+const (
+	EventTriggerObjectAttributeComparisonOperatorInclusive          = EventTriggerObjectAttributeComparisonOperator("INCLUSIVE")
+	EventTriggerObjectAttributeComparisonOperatorExclusive          = EventTriggerObjectAttributeComparisonOperator("EXCLUSIVE")
+	EventTriggerObjectAttributeComparisonOperatorContains           = EventTriggerObjectAttributeComparisonOperator("CONTAINS")
+	EventTriggerObjectAttributeComparisonOperatorBeginsWith         = EventTriggerObjectAttributeComparisonOperator("BEGINS_WITH")
+	EventTriggerObjectAttributeComparisonOperatorEndsWith           = EventTriggerObjectAttributeComparisonOperator("ENDS_WITH")
+	EventTriggerObjectAttributeComparisonOperatorGreaterThan        = EventTriggerObjectAttributeComparisonOperator("GREATER_THAN")
+	EventTriggerObjectAttributeComparisonOperatorLessThan           = EventTriggerObjectAttributeComparisonOperator("LESS_THAN")
+	EventTriggerObjectAttributeComparisonOperatorGreaterThanOrEqual = EventTriggerObjectAttributeComparisonOperator("GREATER_THAN_OR_EQUAL")
+	EventTriggerObjectAttributeComparisonOperatorLessThanOrEqual    = EventTriggerObjectAttributeComparisonOperator("LESS_THAN_OR_EQUAL")
+	EventTriggerObjectAttributeComparisonOperatorEqual              = EventTriggerObjectAttributeComparisonOperator("EQUAL")
+	EventTriggerObjectAttributeComparisonOperatorBefore             = EventTriggerObjectAttributeComparisonOperator("BEFORE")
+	EventTriggerObjectAttributeComparisonOperatorAfter              = EventTriggerObjectAttributeComparisonOperator("AFTER")
+	EventTriggerObjectAttributeComparisonOperatorOn                 = EventTriggerObjectAttributeComparisonOperator("ON")
+	EventTriggerObjectAttributeComparisonOperatorBetween            = EventTriggerObjectAttributeComparisonOperator("BETWEEN")
+	EventTriggerObjectAttributeComparisonOperatorNotBetween         = EventTriggerObjectAttributeComparisonOperator("NOT_BETWEEN")
+)
+
+func (EventTriggerObjectAttributeComparisonOperator) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventTriggerObjectAttributeComparisonOperator)(nil)).Elem()
+}
+
+func (e EventTriggerObjectAttributeComparisonOperator) ToEventTriggerObjectAttributeComparisonOperatorOutput() EventTriggerObjectAttributeComparisonOperatorOutput {
+	return pulumi.ToOutput(e).(EventTriggerObjectAttributeComparisonOperatorOutput)
+}
+
+func (e EventTriggerObjectAttributeComparisonOperator) ToEventTriggerObjectAttributeComparisonOperatorOutputWithContext(ctx context.Context) EventTriggerObjectAttributeComparisonOperatorOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(EventTriggerObjectAttributeComparisonOperatorOutput)
+}
+
+func (e EventTriggerObjectAttributeComparisonOperator) ToEventTriggerObjectAttributeComparisonOperatorPtrOutput() EventTriggerObjectAttributeComparisonOperatorPtrOutput {
+	return e.ToEventTriggerObjectAttributeComparisonOperatorPtrOutputWithContext(context.Background())
+}
+
+func (e EventTriggerObjectAttributeComparisonOperator) ToEventTriggerObjectAttributeComparisonOperatorPtrOutputWithContext(ctx context.Context) EventTriggerObjectAttributeComparisonOperatorPtrOutput {
+	return EventTriggerObjectAttributeComparisonOperator(e).ToEventTriggerObjectAttributeComparisonOperatorOutputWithContext(ctx).ToEventTriggerObjectAttributeComparisonOperatorPtrOutputWithContext(ctx)
+}
+
+func (e EventTriggerObjectAttributeComparisonOperator) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EventTriggerObjectAttributeComparisonOperator) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EventTriggerObjectAttributeComparisonOperator) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EventTriggerObjectAttributeComparisonOperator) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type EventTriggerObjectAttributeComparisonOperatorOutput struct{ *pulumi.OutputState }
+
+func (EventTriggerObjectAttributeComparisonOperatorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventTriggerObjectAttributeComparisonOperator)(nil)).Elem()
+}
+
+func (o EventTriggerObjectAttributeComparisonOperatorOutput) ToEventTriggerObjectAttributeComparisonOperatorOutput() EventTriggerObjectAttributeComparisonOperatorOutput {
+	return o
+}
+
+func (o EventTriggerObjectAttributeComparisonOperatorOutput) ToEventTriggerObjectAttributeComparisonOperatorOutputWithContext(ctx context.Context) EventTriggerObjectAttributeComparisonOperatorOutput {
+	return o
+}
+
+func (o EventTriggerObjectAttributeComparisonOperatorOutput) ToEventTriggerObjectAttributeComparisonOperatorPtrOutput() EventTriggerObjectAttributeComparisonOperatorPtrOutput {
+	return o.ToEventTriggerObjectAttributeComparisonOperatorPtrOutputWithContext(context.Background())
+}
+
+func (o EventTriggerObjectAttributeComparisonOperatorOutput) ToEventTriggerObjectAttributeComparisonOperatorPtrOutputWithContext(ctx context.Context) EventTriggerObjectAttributeComparisonOperatorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventTriggerObjectAttributeComparisonOperator) *EventTriggerObjectAttributeComparisonOperator {
+		return &v
+	}).(EventTriggerObjectAttributeComparisonOperatorPtrOutput)
+}
+
+func (o EventTriggerObjectAttributeComparisonOperatorOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o EventTriggerObjectAttributeComparisonOperatorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EventTriggerObjectAttributeComparisonOperator) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o EventTriggerObjectAttributeComparisonOperatorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EventTriggerObjectAttributeComparisonOperatorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EventTriggerObjectAttributeComparisonOperator) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type EventTriggerObjectAttributeComparisonOperatorPtrOutput struct{ *pulumi.OutputState }
+
+func (EventTriggerObjectAttributeComparisonOperatorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventTriggerObjectAttributeComparisonOperator)(nil)).Elem()
+}
+
+func (o EventTriggerObjectAttributeComparisonOperatorPtrOutput) ToEventTriggerObjectAttributeComparisonOperatorPtrOutput() EventTriggerObjectAttributeComparisonOperatorPtrOutput {
+	return o
+}
+
+func (o EventTriggerObjectAttributeComparisonOperatorPtrOutput) ToEventTriggerObjectAttributeComparisonOperatorPtrOutputWithContext(ctx context.Context) EventTriggerObjectAttributeComparisonOperatorPtrOutput {
+	return o
+}
+
+func (o EventTriggerObjectAttributeComparisonOperatorPtrOutput) Elem() EventTriggerObjectAttributeComparisonOperatorOutput {
+	return o.ApplyT(func(v *EventTriggerObjectAttributeComparisonOperator) EventTriggerObjectAttributeComparisonOperator {
+		if v != nil {
+			return *v
+		}
+		var ret EventTriggerObjectAttributeComparisonOperator
+		return ret
+	}).(EventTriggerObjectAttributeComparisonOperatorOutput)
+}
+
+func (o EventTriggerObjectAttributeComparisonOperatorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EventTriggerObjectAttributeComparisonOperatorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EventTriggerObjectAttributeComparisonOperator) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// EventTriggerObjectAttributeComparisonOperatorInput is an input type that accepts values of the EventTriggerObjectAttributeComparisonOperator enum
+// A concrete instance of `EventTriggerObjectAttributeComparisonOperatorInput` can be one of the following:
+//
+//	EventTriggerObjectAttributeComparisonOperatorInclusive
+//	EventTriggerObjectAttributeComparisonOperatorExclusive
+//	EventTriggerObjectAttributeComparisonOperatorContains
+//	EventTriggerObjectAttributeComparisonOperatorBeginsWith
+//	EventTriggerObjectAttributeComparisonOperatorEndsWith
+//	EventTriggerObjectAttributeComparisonOperatorGreaterThan
+//	EventTriggerObjectAttributeComparisonOperatorLessThan
+//	EventTriggerObjectAttributeComparisonOperatorGreaterThanOrEqual
+//	EventTriggerObjectAttributeComparisonOperatorLessThanOrEqual
+//	EventTriggerObjectAttributeComparisonOperatorEqual
+//	EventTriggerObjectAttributeComparisonOperatorBefore
+//	EventTriggerObjectAttributeComparisonOperatorAfter
+//	EventTriggerObjectAttributeComparisonOperatorOn
+//	EventTriggerObjectAttributeComparisonOperatorBetween
+//	EventTriggerObjectAttributeComparisonOperatorNotBetween
+type EventTriggerObjectAttributeComparisonOperatorInput interface {
+	pulumi.Input
+
+	ToEventTriggerObjectAttributeComparisonOperatorOutput() EventTriggerObjectAttributeComparisonOperatorOutput
+	ToEventTriggerObjectAttributeComparisonOperatorOutputWithContext(context.Context) EventTriggerObjectAttributeComparisonOperatorOutput
+}
+
+var eventTriggerObjectAttributeComparisonOperatorPtrType = reflect.TypeOf((**EventTriggerObjectAttributeComparisonOperator)(nil)).Elem()
+
+type EventTriggerObjectAttributeComparisonOperatorPtrInput interface {
+	pulumi.Input
+
+	ToEventTriggerObjectAttributeComparisonOperatorPtrOutput() EventTriggerObjectAttributeComparisonOperatorPtrOutput
+	ToEventTriggerObjectAttributeComparisonOperatorPtrOutputWithContext(context.Context) EventTriggerObjectAttributeComparisonOperatorPtrOutput
+}
+
+type eventTriggerObjectAttributeComparisonOperatorPtr string
+
+func EventTriggerObjectAttributeComparisonOperatorPtr(v string) EventTriggerObjectAttributeComparisonOperatorPtrInput {
+	return (*eventTriggerObjectAttributeComparisonOperatorPtr)(&v)
+}
+
+func (*eventTriggerObjectAttributeComparisonOperatorPtr) ElementType() reflect.Type {
+	return eventTriggerObjectAttributeComparisonOperatorPtrType
+}
+
+func (in *eventTriggerObjectAttributeComparisonOperatorPtr) ToEventTriggerObjectAttributeComparisonOperatorPtrOutput() EventTriggerObjectAttributeComparisonOperatorPtrOutput {
+	return pulumi.ToOutput(in).(EventTriggerObjectAttributeComparisonOperatorPtrOutput)
+}
+
+func (in *eventTriggerObjectAttributeComparisonOperatorPtr) ToEventTriggerObjectAttributeComparisonOperatorPtrOutputWithContext(ctx context.Context) EventTriggerObjectAttributeComparisonOperatorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(EventTriggerObjectAttributeComparisonOperatorPtrOutput)
+}
+
+// The unit of time.
+type EventTriggerPeriodUnit string
+
+const (
+	EventTriggerPeriodUnitHours  = EventTriggerPeriodUnit("HOURS")
+	EventTriggerPeriodUnitDays   = EventTriggerPeriodUnit("DAYS")
+	EventTriggerPeriodUnitWeeks  = EventTriggerPeriodUnit("WEEKS")
+	EventTriggerPeriodUnitMonths = EventTriggerPeriodUnit("MONTHS")
+)
+
+func (EventTriggerPeriodUnit) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventTriggerPeriodUnit)(nil)).Elem()
+}
+
+func (e EventTriggerPeriodUnit) ToEventTriggerPeriodUnitOutput() EventTriggerPeriodUnitOutput {
+	return pulumi.ToOutput(e).(EventTriggerPeriodUnitOutput)
+}
+
+func (e EventTriggerPeriodUnit) ToEventTriggerPeriodUnitOutputWithContext(ctx context.Context) EventTriggerPeriodUnitOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(EventTriggerPeriodUnitOutput)
+}
+
+func (e EventTriggerPeriodUnit) ToEventTriggerPeriodUnitPtrOutput() EventTriggerPeriodUnitPtrOutput {
+	return e.ToEventTriggerPeriodUnitPtrOutputWithContext(context.Background())
+}
+
+func (e EventTriggerPeriodUnit) ToEventTriggerPeriodUnitPtrOutputWithContext(ctx context.Context) EventTriggerPeriodUnitPtrOutput {
+	return EventTriggerPeriodUnit(e).ToEventTriggerPeriodUnitOutputWithContext(ctx).ToEventTriggerPeriodUnitPtrOutputWithContext(ctx)
+}
+
+func (e EventTriggerPeriodUnit) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EventTriggerPeriodUnit) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EventTriggerPeriodUnit) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EventTriggerPeriodUnit) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type EventTriggerPeriodUnitOutput struct{ *pulumi.OutputState }
+
+func (EventTriggerPeriodUnitOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventTriggerPeriodUnit)(nil)).Elem()
+}
+
+func (o EventTriggerPeriodUnitOutput) ToEventTriggerPeriodUnitOutput() EventTriggerPeriodUnitOutput {
+	return o
+}
+
+func (o EventTriggerPeriodUnitOutput) ToEventTriggerPeriodUnitOutputWithContext(ctx context.Context) EventTriggerPeriodUnitOutput {
+	return o
+}
+
+func (o EventTriggerPeriodUnitOutput) ToEventTriggerPeriodUnitPtrOutput() EventTriggerPeriodUnitPtrOutput {
+	return o.ToEventTriggerPeriodUnitPtrOutputWithContext(context.Background())
+}
+
+func (o EventTriggerPeriodUnitOutput) ToEventTriggerPeriodUnitPtrOutputWithContext(ctx context.Context) EventTriggerPeriodUnitPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventTriggerPeriodUnit) *EventTriggerPeriodUnit {
+		return &v
+	}).(EventTriggerPeriodUnitPtrOutput)
+}
+
+func (o EventTriggerPeriodUnitOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o EventTriggerPeriodUnitOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EventTriggerPeriodUnit) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o EventTriggerPeriodUnitOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EventTriggerPeriodUnitOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EventTriggerPeriodUnit) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type EventTriggerPeriodUnitPtrOutput struct{ *pulumi.OutputState }
+
+func (EventTriggerPeriodUnitPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventTriggerPeriodUnit)(nil)).Elem()
+}
+
+func (o EventTriggerPeriodUnitPtrOutput) ToEventTriggerPeriodUnitPtrOutput() EventTriggerPeriodUnitPtrOutput {
+	return o
+}
+
+func (o EventTriggerPeriodUnitPtrOutput) ToEventTriggerPeriodUnitPtrOutputWithContext(ctx context.Context) EventTriggerPeriodUnitPtrOutput {
+	return o
+}
+
+func (o EventTriggerPeriodUnitPtrOutput) Elem() EventTriggerPeriodUnitOutput {
+	return o.ApplyT(func(v *EventTriggerPeriodUnit) EventTriggerPeriodUnit {
+		if v != nil {
+			return *v
+		}
+		var ret EventTriggerPeriodUnit
+		return ret
+	}).(EventTriggerPeriodUnitOutput)
+}
+
+func (o EventTriggerPeriodUnitPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EventTriggerPeriodUnitPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EventTriggerPeriodUnit) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// EventTriggerPeriodUnitInput is an input type that accepts values of the EventTriggerPeriodUnit enum
+// A concrete instance of `EventTriggerPeriodUnitInput` can be one of the following:
+//
+//	EventTriggerPeriodUnitHours
+//	EventTriggerPeriodUnitDays
+//	EventTriggerPeriodUnitWeeks
+//	EventTriggerPeriodUnitMonths
+type EventTriggerPeriodUnitInput interface {
+	pulumi.Input
+
+	ToEventTriggerPeriodUnitOutput() EventTriggerPeriodUnitOutput
+	ToEventTriggerPeriodUnitOutputWithContext(context.Context) EventTriggerPeriodUnitOutput
+}
+
+var eventTriggerPeriodUnitPtrType = reflect.TypeOf((**EventTriggerPeriodUnit)(nil)).Elem()
+
+type EventTriggerPeriodUnitPtrInput interface {
+	pulumi.Input
+
+	ToEventTriggerPeriodUnitPtrOutput() EventTriggerPeriodUnitPtrOutput
+	ToEventTriggerPeriodUnitPtrOutputWithContext(context.Context) EventTriggerPeriodUnitPtrOutput
+}
+
+type eventTriggerPeriodUnitPtr string
+
+func EventTriggerPeriodUnitPtr(v string) EventTriggerPeriodUnitPtrInput {
+	return (*eventTriggerPeriodUnitPtr)(&v)
+}
+
+func (*eventTriggerPeriodUnitPtr) ElementType() reflect.Type {
+	return eventTriggerPeriodUnitPtrType
+}
+
+func (in *eventTriggerPeriodUnitPtr) ToEventTriggerPeriodUnitPtrOutput() EventTriggerPeriodUnitPtrOutput {
+	return pulumi.ToOutput(in).(EventTriggerPeriodUnitPtrOutput)
+}
+
+func (in *eventTriggerPeriodUnitPtr) ToEventTriggerPeriodUnitPtrOutputWithContext(ctx context.Context) EventTriggerPeriodUnitPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(EventTriggerPeriodUnitPtrOutput)
+}
+
 type IntegrationConnectorType string
 
 const (
@@ -4514,6 +5044,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainJobScheduleDayOfTheWeekPtrInput)(nil)).Elem(), DomainJobScheduleDayOfTheWeek("SUNDAY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainRuleBasedMatchingStatusInput)(nil)).Elem(), DomainRuleBasedMatchingStatus("PENDING"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainRuleBasedMatchingStatusPtrInput)(nil)).Elem(), DomainRuleBasedMatchingStatus("PENDING"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EventTriggerLogicalOperatorInput)(nil)).Elem(), EventTriggerLogicalOperator("ANY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EventTriggerLogicalOperatorPtrInput)(nil)).Elem(), EventTriggerLogicalOperator("ANY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EventTriggerObjectAttributeComparisonOperatorInput)(nil)).Elem(), EventTriggerObjectAttributeComparisonOperator("INCLUSIVE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EventTriggerObjectAttributeComparisonOperatorPtrInput)(nil)).Elem(), EventTriggerObjectAttributeComparisonOperator("INCLUSIVE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EventTriggerPeriodUnitInput)(nil)).Elem(), EventTriggerPeriodUnit("HOURS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EventTriggerPeriodUnitPtrInput)(nil)).Elem(), EventTriggerPeriodUnit("HOURS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationConnectorTypeInput)(nil)).Elem(), IntegrationConnectorType("Salesforce"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationConnectorTypePtrInput)(nil)).Elem(), IntegrationConnectorType("Salesforce"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationMarketoConnectorOperatorInput)(nil)).Elem(), IntegrationMarketoConnectorOperator("PROJECTION"))
@@ -4567,6 +5103,12 @@ func init() {
 	pulumi.RegisterOutputType(EventStreamStateEnumPtrOutput{})
 	pulumi.RegisterOutputType(EventStreamStatusOutput{})
 	pulumi.RegisterOutputType(EventStreamStatusPtrOutput{})
+	pulumi.RegisterOutputType(EventTriggerLogicalOperatorOutput{})
+	pulumi.RegisterOutputType(EventTriggerLogicalOperatorPtrOutput{})
+	pulumi.RegisterOutputType(EventTriggerObjectAttributeComparisonOperatorOutput{})
+	pulumi.RegisterOutputType(EventTriggerObjectAttributeComparisonOperatorPtrOutput{})
+	pulumi.RegisterOutputType(EventTriggerPeriodUnitOutput{})
+	pulumi.RegisterOutputType(EventTriggerPeriodUnitPtrOutput{})
 	pulumi.RegisterOutputType(IntegrationConnectorTypeOutput{})
 	pulumi.RegisterOutputType(IntegrationConnectorTypePtrOutput{})
 	pulumi.RegisterOutputType(IntegrationMarketoConnectorOperatorOutput{})

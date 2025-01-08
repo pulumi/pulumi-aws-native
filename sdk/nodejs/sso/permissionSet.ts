@@ -56,7 +56,7 @@ export class PermissionSet extends pulumi.CustomResource {
      */
     public readonly instanceArn!: pulumi.Output<string>;
     /**
-     * A structure that stores the details of the AWS managed policy.
+     * A structure that stores a list of managed policy ARNs that describe the associated AWS managed policy.
      */
     public readonly managedPolicies!: pulumi.Output<string[] | undefined>;
     /**
@@ -154,7 +154,7 @@ export interface PermissionSetArgs {
      */
     instanceArn: pulumi.Input<string>;
     /**
-     * A structure that stores the details of the AWS managed policy.
+     * A structure that stores a list of managed policy ARNs that describe the associated AWS managed policy.
      */
     managedPolicies?: pulumi.Input<pulumi.Input<string>[]>;
     /**

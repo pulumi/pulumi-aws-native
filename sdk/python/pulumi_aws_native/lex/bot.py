@@ -31,6 +31,7 @@ class BotArgs:
                  bot_tags: Optional[pulumi.Input[Sequence[pulumi.Input['BotTagArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 replication: Optional[pulumi.Input['BotReplicationArgs']] = None,
                  test_bot_alias_settings: Optional[pulumi.Input['BotTestBotAliasSettingsArgs']] = None,
                  test_bot_alias_tags: Optional[pulumi.Input[Sequence[pulumi.Input['BotTagArgs']]]] = None):
         """
@@ -62,6 +63,8 @@ class BotArgs:
             pulumi.set(__self__, "description", description)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if replication is not None:
+            pulumi.set(__self__, "replication", replication)
         if test_bot_alias_settings is not None:
             pulumi.set(__self__, "test_bot_alias_settings", test_bot_alias_settings)
         if test_bot_alias_tags is not None:
@@ -176,6 +179,15 @@ class BotArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter
+    def replication(self) -> Optional[pulumi.Input['BotReplicationArgs']]:
+        return pulumi.get(self, "replication")
+
+    @replication.setter
+    def replication(self, value: Optional[pulumi.Input['BotReplicationArgs']]):
+        pulumi.set(self, "replication", value)
+
+    @property
     @pulumi.getter(name="testBotAliasSettings")
     def test_bot_alias_settings(self) -> Optional[pulumi.Input['BotTestBotAliasSettingsArgs']]:
         """
@@ -213,6 +225,7 @@ class Bot(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  idle_session_ttl_in_seconds: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 replication: Optional[pulumi.Input[Union['BotReplicationArgs', 'BotReplicationArgsDict']]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  test_bot_alias_settings: Optional[pulumi.Input[Union['BotTestBotAliasSettingsArgs', 'BotTestBotAliasSettingsArgsDict']]] = None,
                  test_bot_alias_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BotTagArgs', 'BotTagArgsDict']]]]] = None,
@@ -266,6 +279,7 @@ class Bot(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  idle_session_ttl_in_seconds: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 replication: Optional[pulumi.Input[Union['BotReplicationArgs', 'BotReplicationArgsDict']]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  test_bot_alias_settings: Optional[pulumi.Input[Union['BotTestBotAliasSettingsArgs', 'BotTestBotAliasSettingsArgsDict']]] = None,
                  test_bot_alias_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['BotTagArgs', 'BotTagArgsDict']]]]] = None,
@@ -290,6 +304,7 @@ class Bot(pulumi.CustomResource):
                 raise TypeError("Missing required property 'idle_session_ttl_in_seconds'")
             __props__.__dict__["idle_session_ttl_in_seconds"] = idle_session_ttl_in_seconds
             __props__.__dict__["name"] = name
+            __props__.__dict__["replication"] = replication
             if role_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'role_arn'")
             __props__.__dict__["role_arn"] = role_arn
@@ -329,6 +344,7 @@ class Bot(pulumi.CustomResource):
         __props__.__dict__["description"] = None
         __props__.__dict__["idle_session_ttl_in_seconds"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["replication"] = None
         __props__.__dict__["role_arn"] = None
         __props__.__dict__["test_bot_alias_settings"] = None
         __props__.__dict__["test_bot_alias_tags"] = None
@@ -413,6 +429,11 @@ class Bot(pulumi.CustomResource):
         The name of the bot locale.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def replication(self) -> pulumi.Output[Optional['outputs.BotReplication']]:
+        return pulumi.get(self, "replication")
 
     @property
     @pulumi.getter(name="roleArn")

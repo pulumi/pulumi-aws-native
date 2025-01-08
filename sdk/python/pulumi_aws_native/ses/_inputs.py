@@ -837,19 +837,27 @@ if not MYPY:
         """
         The domain to use for tracking open and click events.
         """
+        https_policy: NotRequired[pulumi.Input[str]]
+        """
+        The https policy to use for tracking open and click events.
+        """
 elif False:
     ConfigurationSetTrackingOptionsArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class ConfigurationSetTrackingOptionsArgs:
     def __init__(__self__, *,
-                 custom_redirect_domain: Optional[pulumi.Input[str]] = None):
+                 custom_redirect_domain: Optional[pulumi.Input[str]] = None,
+                 https_policy: Optional[pulumi.Input[str]] = None):
         """
         An object that defines the open and click tracking options for emails that you send using the configuration set.
         :param pulumi.Input[str] custom_redirect_domain: The domain to use for tracking open and click events.
+        :param pulumi.Input[str] https_policy: The https policy to use for tracking open and click events.
         """
         if custom_redirect_domain is not None:
             pulumi.set(__self__, "custom_redirect_domain", custom_redirect_domain)
+        if https_policy is not None:
+            pulumi.set(__self__, "https_policy", https_policy)
 
     @property
     @pulumi.getter(name="customRedirectDomain")
@@ -862,6 +870,18 @@ class ConfigurationSetTrackingOptionsArgs:
     @custom_redirect_domain.setter
     def custom_redirect_domain(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "custom_redirect_domain", value)
+
+    @property
+    @pulumi.getter(name="httpsPolicy")
+    def https_policy(self) -> Optional[pulumi.Input[str]]:
+        """
+        The https policy to use for tracking open and click events.
+        """
+        return pulumi.get(self, "https_policy")
+
+    @https_policy.setter
+    def https_policy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "https_policy", value)
 
 
 if not MYPY:

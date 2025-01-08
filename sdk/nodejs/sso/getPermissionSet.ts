@@ -45,7 +45,7 @@ export interface GetPermissionSetResult {
      */
     readonly inlinePolicy?: any;
     /**
-     * A structure that stores the details of the AWS managed policy.
+     * A structure that stores a list of managed policy ARNs that describe the associated AWS managed policy.
      */
     readonly managedPolicies?: string[];
     /**

@@ -29,6 +29,7 @@ class AppArgs:
                  event_subscriptions: Optional[pulumi.Input[Sequence[pulumi.Input['AppEventSubscriptionArgs']]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  permission_model: Optional[pulumi.Input['AppPermissionModelArgs']] = None,
+                 regulatory_policy_arn: Optional[pulumi.Input[str]] = None,
                  resiliency_policy_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -40,6 +41,7 @@ class AppArgs:
         :param pulumi.Input[Sequence[pulumi.Input['AppEventSubscriptionArgs']]] event_subscriptions: The list of events you would like to subscribe and get notification for.
         :param pulumi.Input[str] name: Name of the app.
         :param pulumi.Input['AppPermissionModelArgs'] permission_model: Defines the roles and credentials that AWS Resilience Hub would use while creating the application, importing its resources, and running an assessment.
+        :param pulumi.Input[str] regulatory_policy_arn: Amazon Resource Name (ARN) of the Regulatory Policy.
         :param pulumi.Input[str] resiliency_policy_arn: Amazon Resource Name (ARN) of the Resiliency Policy.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags assigned to the resource. A tag is a label that you assign to an AWS resource. Each tag consists of a key/value pair.
         """
@@ -55,6 +57,8 @@ class AppArgs:
             pulumi.set(__self__, "name", name)
         if permission_model is not None:
             pulumi.set(__self__, "permission_model", permission_model)
+        if regulatory_policy_arn is not None:
+            pulumi.set(__self__, "regulatory_policy_arn", regulatory_policy_arn)
         if resiliency_policy_arn is not None:
             pulumi.set(__self__, "resiliency_policy_arn", resiliency_policy_arn)
         if tags is not None:
@@ -145,6 +149,18 @@ class AppArgs:
         pulumi.set(self, "permission_model", value)
 
     @property
+    @pulumi.getter(name="regulatoryPolicyArn")
+    def regulatory_policy_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name (ARN) of the Regulatory Policy.
+        """
+        return pulumi.get(self, "regulatory_policy_arn")
+
+    @regulatory_policy_arn.setter
+    def regulatory_policy_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "regulatory_policy_arn", value)
+
+    @property
     @pulumi.getter(name="resiliencyPolicyArn")
     def resiliency_policy_arn(self) -> Optional[pulumi.Input[str]]:
         """
@@ -180,6 +196,7 @@ class App(pulumi.CustomResource):
                  event_subscriptions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppEventSubscriptionArgs', 'AppEventSubscriptionArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  permission_model: Optional[pulumi.Input[Union['AppPermissionModelArgs', 'AppPermissionModelArgsDict']]] = None,
+                 regulatory_policy_arn: Optional[pulumi.Input[str]] = None,
                  resiliency_policy_arn: Optional[pulumi.Input[str]] = None,
                  resource_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppResourceMappingArgs', 'AppResourceMappingArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -195,6 +212,7 @@ class App(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['AppEventSubscriptionArgs', 'AppEventSubscriptionArgsDict']]]] event_subscriptions: The list of events you would like to subscribe and get notification for.
         :param pulumi.Input[str] name: Name of the app.
         :param pulumi.Input[Union['AppPermissionModelArgs', 'AppPermissionModelArgsDict']] permission_model: Defines the roles and credentials that AWS Resilience Hub would use while creating the application, importing its resources, and running an assessment.
+        :param pulumi.Input[str] regulatory_policy_arn: Amazon Resource Name (ARN) of the Regulatory Policy.
         :param pulumi.Input[str] resiliency_policy_arn: Amazon Resource Name (ARN) of the Resiliency Policy.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AppResourceMappingArgs', 'AppResourceMappingArgsDict']]]] resource_mappings: An array of ResourceMapping objects.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tags assigned to the resource. A tag is a label that you assign to an AWS resource. Each tag consists of a key/value pair.
@@ -229,6 +247,7 @@ class App(pulumi.CustomResource):
                  event_subscriptions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppEventSubscriptionArgs', 'AppEventSubscriptionArgsDict']]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  permission_model: Optional[pulumi.Input[Union['AppPermissionModelArgs', 'AppPermissionModelArgsDict']]] = None,
+                 regulatory_policy_arn: Optional[pulumi.Input[str]] = None,
                  resiliency_policy_arn: Optional[pulumi.Input[str]] = None,
                  resource_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AppResourceMappingArgs', 'AppResourceMappingArgsDict']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -249,6 +268,7 @@ class App(pulumi.CustomResource):
             __props__.__dict__["event_subscriptions"] = event_subscriptions
             __props__.__dict__["name"] = name
             __props__.__dict__["permission_model"] = permission_model
+            __props__.__dict__["regulatory_policy_arn"] = regulatory_policy_arn
             __props__.__dict__["resiliency_policy_arn"] = resiliency_policy_arn
             if resource_mappings is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_mappings'")
@@ -288,6 +308,7 @@ class App(pulumi.CustomResource):
         __props__.__dict__["event_subscriptions"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["permission_model"] = None
+        __props__.__dict__["regulatory_policy_arn"] = None
         __props__.__dict__["resiliency_policy_arn"] = None
         __props__.__dict__["resource_mappings"] = None
         __props__.__dict__["tags"] = None
@@ -356,6 +377,14 @@ class App(pulumi.CustomResource):
         Defines the roles and credentials that AWS Resilience Hub would use while creating the application, importing its resources, and running an assessment.
         """
         return pulumi.get(self, "permission_model")
+
+    @property
+    @pulumi.getter(name="regulatoryPolicyArn")
+    def regulatory_policy_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        Amazon Resource Name (ARN) of the Regulatory Policy.
+        """
+        return pulumi.get(self, "regulatory_policy_arn")
 
     @property
     @pulumi.getter(name="resiliencyPolicyArn")

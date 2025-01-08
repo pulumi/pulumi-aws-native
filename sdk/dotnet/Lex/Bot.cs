@@ -75,6 +75,9 @@ namespace Pulumi.AwsNative.Lex
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        [Output("replication")]
+        public Output<Outputs.BotReplication?> Replication { get; private set; } = null!;
+
         /// <summary>
         /// The Amazon Resource Name (ARN) of the IAM role used to build and run the bot.
         /// </summary>
@@ -197,6 +200,9 @@ namespace Pulumi.AwsNative.Lex
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("replication")]
+        public Input<Inputs.BotReplicationArgs>? Replication { get; set; }
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the IAM role used to build and run the bot.

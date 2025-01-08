@@ -123,6 +123,34 @@ namespace Pulumi.AwsNative.CleanRooms
     }
 
     [EnumType]
+    public readonly struct CollaborationCustomMlMemberAbility : IEquatable<CollaborationCustomMlMemberAbility>
+    {
+        private readonly string _value;
+
+        private CollaborationCustomMlMemberAbility(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CollaborationCustomMlMemberAbility CanReceiveModelOutput { get; } = new CollaborationCustomMlMemberAbility("CAN_RECEIVE_MODEL_OUTPUT");
+        public static CollaborationCustomMlMemberAbility CanReceiveInferenceOutput { get; } = new CollaborationCustomMlMemberAbility("CAN_RECEIVE_INFERENCE_OUTPUT");
+
+        public static bool operator ==(CollaborationCustomMlMemberAbility left, CollaborationCustomMlMemberAbility right) => left.Equals(right);
+        public static bool operator !=(CollaborationCustomMlMemberAbility left, CollaborationCustomMlMemberAbility right) => !left.Equals(right);
+
+        public static explicit operator string(CollaborationCustomMlMemberAbility value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CollaborationCustomMlMemberAbility other && Equals(other);
+        public bool Equals(CollaborationCustomMlMemberAbility other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct CollaborationMemberAbility : IEquatable<CollaborationMemberAbility>
     {
         private readonly string _value;

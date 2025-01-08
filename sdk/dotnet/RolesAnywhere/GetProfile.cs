@@ -96,10 +96,6 @@ namespace Pulumi.AwsNative.RolesAnywhere
         /// </summary>
         public readonly string? ProfileId;
         /// <summary>
-        /// Specifies whether instance properties are required in CreateSession requests with this profile.
-        /// </summary>
-        public readonly bool? RequireInstanceProperties;
-        /// <summary>
         /// A list of IAM role ARNs that can be assumed when this profile is specified in a CreateSession request.
         /// </summary>
         public readonly ImmutableArray<string> RoleArns;
@@ -130,8 +126,6 @@ namespace Pulumi.AwsNative.RolesAnywhere
 
             string? profileId,
 
-            bool? requireInstanceProperties,
-
             ImmutableArray<string> roleArns,
 
             string? sessionPolicy,
@@ -146,7 +140,6 @@ namespace Pulumi.AwsNative.RolesAnywhere
             Name = name;
             ProfileArn = profileArn;
             ProfileId = profileId;
-            RequireInstanceProperties = requireInstanceProperties;
             RoleArns = roleArns;
             SessionPolicy = sessionPolicy;
             Tags = tags;

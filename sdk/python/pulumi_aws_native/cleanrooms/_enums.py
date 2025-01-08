@@ -8,6 +8,7 @@ __all__ = [
     'AnalysisTemplateAnalysisParameterType',
     'AnalysisTemplateFormat',
     'CollaborationAnalyticsEngine',
+    'CollaborationCustomMlMemberAbility',
     'CollaborationMemberAbility',
     'CollaborationQueryLogStatus',
     'ConfiguredTableAdditionalAnalyses',
@@ -72,6 +73,11 @@ class AnalysisTemplateFormat(str, Enum):
 class CollaborationAnalyticsEngine(str, Enum):
     CLEAN_ROOMS_SQL = "CLEAN_ROOMS_SQL"
     SPARK = "SPARK"
+
+
+class CollaborationCustomMlMemberAbility(str, Enum):
+    CAN_RECEIVE_MODEL_OUTPUT = "CAN_RECEIVE_MODEL_OUTPUT"
+    CAN_RECEIVE_INFERENCE_OUTPUT = "CAN_RECEIVE_INFERENCE_OUTPUT"
 
 
 class CollaborationMemberAbility(str, Enum):

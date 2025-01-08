@@ -84,7 +84,7 @@ class GetPermissionSetResult:
     @pulumi.getter(name="managedPolicies")
     def managed_policies(self) -> Optional[Sequence[str]]:
         """
-        A structure that stores the details of the AWS managed policy.
+        A structure that stores a list of managed policy ARNs that describe the associated AWS managed policy.
         """
         return pulumi.get(self, "managed_policies")
 
