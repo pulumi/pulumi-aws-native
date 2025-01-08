@@ -75,7 +75,7 @@
   },
   "required" : [ "BackupVaultName", "MinRetentionDays", "MaxRetentionDays" ],
   "createOnlyProperties" : [ "/properties/BackupVaultName", "/properties/MinRetentionDays", "/properties/MaxRetentionDays" ],
-  "readOnlyProperties" : [ "/properties/BackupVaultArn", "/properties/EncryptionKeyArn" ],
+  "readOnlyProperties" : [ "/properties/BackupVaultArn", "/properties/EncryptionKeyArn", "/properties/VaultState", "/properties/VaultType" ],
   "primaryIdentifier" : [ "/properties/BackupVaultName" ],
   "handlers" : {
     "create" : {

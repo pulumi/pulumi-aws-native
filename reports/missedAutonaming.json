@@ -2263,11 +2263,11 @@
     "properties": {
       "customDomainConfig": {
         "$ref": "#/types/aws-native:cognito:UserPoolDomainCustomDomainConfigType",
-        "description": "The configuration for a custom domain that hosts the sign-up and sign-in pages for your application. Use this object to specify an SSL certificate that is managed by ACM.\n\nWhen you create a custom domain, the passkey RP ID defaults to the custom domain. If you had a prefix domain active, this will cause passkey integration for your prefix domain to stop working due to a mismatch in RP ID. To keep the prefix domain passkey integration working, you can explicitly set RP ID to the prefix domain. Update the RP ID in a [SetUserPoolMfaConfig](https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SetUserPoolMfaConfig.html) request."
+        "description": "The configuration for a custom domain that hosts managed login for your application. In an `UpdateUserPoolDomain` request, this parameter specifies an SSL certificate for the managed login hosted webserver. The certificate must be an ACM ARN in `us-east-1` .\n\nWhen you create a custom domain, the passkey RP ID defaults to the custom domain. If you had a prefix domain active, this will cause passkey integration for your prefix domain to stop working due to a mismatch in RP ID. To keep the prefix domain passkey integration working, you can explicitly set RP ID to the prefix domain.\n\nUpdate the RP ID in a `API_SetUserPoolMfaConfig` request."
       },
       "domain": {
         "type": "string",
-        "description": "The domain name for the custom domain that hosts the sign-up and sign-in pages for your application. One example might be `auth.example.com` .\n\nThis string can include only lowercase letters, numbers, and hyphens. Don't use a hyphen for the first or last character. Use periods to separate subdomain names."
+        "description": "The name of the domain that you want to update. For custom domains, this is the fully-qualified domain name, for example `auth.example.com` . For prefix domains, this is the prefix alone, such as `myprefix` ."
       },
       "managedLoginVersion": {
         "type": "integer",
@@ -2275,7 +2275,7 @@
       },
       "userPoolId": {
         "type": "string",
-        "description": "The ID of the user pool that is associated with the custom domain whose certificate you're updating."
+        "description": "The ID of the user pool that is associated with the domain you're updating."
       }
     }
   },
@@ -2284,7 +2284,7 @@
     "properties": {
       "accountTakeoverRiskConfiguration": {
         "$ref": "#/types/aws-native:cognito:UserPoolRiskConfigurationAttachmentAccountTakeoverRiskConfigurationType",
-        "description": "The settings for automated responses and notification templates for adaptive authentication with advanced security features."
+        "description": "The settings for automated responses and notification templates for adaptive authentication with threat protection."
       },
       "clientId": {
         "type": "string",
@@ -2292,7 +2292,7 @@
       },
       "compromisedCredentialsRiskConfiguration": {
         "$ref": "#/types/aws-native:cognito:UserPoolRiskConfigurationAttachmentCompromisedCredentialsRiskConfigurationType",
-        "description": "Settings for compromised-credentials actions and authentication types with advanced security features in full-function `ENFORCED` mode."
+        "description": "Settings for compromised-credentials actions and authentication types with threat protection in full-function `ENFORCED` mode."
       },
       "riskExceptionConfiguration": {
         "$ref": "#/types/aws-native:cognito:UserPoolRiskConfigurationAttachmentRiskExceptionConfigurationType",
@@ -2313,11 +2313,11 @@
       },
       "css": {
         "type": "string",
-        "description": "The CSS values in the UI customization."
+        "description": "A plaintext CSS file that contains the custom fields that you want to apply to your user pool or app client. To download a template, go to the Amazon Cognito console. Navigate to your user pool *App clients* tab, select *Login pages* , edit *Hosted UI (classic) style* , and select the link to `CSS template.css` ."
       },
       "userPoolId": {
         "type": "string",
-        "description": "The ID of the user pool."
+        "description": "The ID of the user pool where you want to apply branding to the classic hosted UI."
       }
     }
   },

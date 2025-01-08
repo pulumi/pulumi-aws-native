@@ -68,14 +68,14 @@
   },
   "required" : [ "Name", "ServerSideEncryptionConfiguration" ],
   "readOnlyProperties" : [ "/properties/DomainId" ],
-  "writeOnlyProperties" : [ "/properties/Description", "/properties/Name", "/properties/ServerSideEncryptionConfiguration" ],
   "primaryIdentifier" : [ "/properties/DomainId" ],
   "tagging" : {
     "taggable" : true,
     "tagOnCreate" : true,
     "tagUpdatable" : true,
     "cloudFormationSystemTags" : true,
-    "tagProperty" : "#/properties/Tags"
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "voiceid:TagResource", "voiceid:UntagResource" ]
   },
   "handlers" : {
     "create" : {

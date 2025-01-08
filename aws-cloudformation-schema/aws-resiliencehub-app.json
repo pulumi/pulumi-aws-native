@@ -145,6 +145,11 @@
       "description" : "Amazon Resource Name (ARN) of the Resiliency Policy.",
       "pattern" : "^arn:(aws|aws-cn|aws-iso|aws-iso-[a-z]{1}|aws-us-gov):[A-Za-z0-9][A-Za-z0-9_/.-]{0,62}:([a-z]{2}-((iso[a-z]{0,1}-)|(gov-)){0,1}[a-z]+-[0-9]):[0-9]{12}:[A-Za-z0-9][A-Za-z0-9:_/+=,@.-]{0,1023}$"
     },
+    "RegulatoryPolicyArn" : {
+      "type" : "string",
+      "description" : "Amazon Resource Name (ARN) of the Regulatory Policy.",
+      "pattern" : "^arn:(aws|aws-cn|aws-iso|aws-iso-[a-z]{1}|aws-us-gov):[A-Za-z0-9][A-Za-z0-9_/.-]{0,62}:([a-z]{2}-((iso[a-z]{0,1}-)|(gov-)){0,1}[a-z]+-[0-9]):[0-9]{12}:[A-Za-z0-9][A-Za-z0-9:_/+=,@.-]{0,1023}$"
+    },
     "Tags" : {
       "$ref" : "#/definitions/TagMap"
     },
@@ -192,7 +197,8 @@
     "tagOnCreate" : true,
     "tagUpdatable" : true,
     "cloudFormationSystemTags" : true,
-    "tagProperty" : "/properties/Tags"
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "resiliencehub:TagResource", "resiliencehub:ListTagsForResource", "resiliencehub:UntagResource" ]
   },
   "additionalProperties" : false,
   "required" : [ "Name", "AppTemplateBody", "ResourceMappings" ],
@@ -201,13 +207,13 @@
   "primaryIdentifier" : [ "/properties/AppArn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "cloudformation:DescribeStacks", "cloudformation:ListStackResources", "s3:GetBucketLocation", "s3:GetObject", "s3:ListAllMyBuckets", "autoscaling:DescribeAutoScalingGroups", "apigateway:GET", "ec2:Describe*", "ecs:DescribeServices", "eks:DescribeCluster", "elasticfilesystem:DescribeFileSystems", "elasticloadbalancing:DescribeLoadBalancers", "lambda:GetFunction*", "rds:Describe*", "dynamodb:Describe*", "sqs:GetQueueAttributes", "sns:GetTopicAttributes", "route53:List*", "iam:PassRole", "resiliencehub:*" ]
+      "permissions" : [ "cloudformation:DescribeStacks", "cloudformation:ListStackResources", "s3:GetBucketLocation", "s3:GetObject", "s3:ListAllMyBuckets", "autoscaling:DescribeAutoScalingGroups", "apigateway:GET", "ec2:Describe*", "ecs:DescribeServices", "eks:DescribeCluster", "elasticfilesystem:DescribeFileSystems", "elasticloadbalancing:DescribeLoadBalancers", "lambda:GetFunction*", "rds:Describe*", "dynamodb:Describe*", "sqs:GetQueueAttributes", "sns:GetTopicAttributes", "route53:List*", "iam:PassRole", "resiliencehub:CreateApp", "resiliencehub:DescribeApp", "resiliencehub:DescribeAppVersionTemplate", "resiliencehub:PutDraftAppVersionTemplate", "resiliencehub:AddDraftAppVersionResourceMappings", "resiliencehub:ListAppVersionResourceMappings", "resiliencehub:ListAppVersions", "resiliencehub:PublishAppVersion", "resiliencehub:ListTagsForResource", "resiliencehub:TagResource", "resiliencehub:UntagResource" ]
     },
     "read" : {
       "permissions" : [ "resiliencehub:DescribeApp", "resiliencehub:DescribeAppVersionTemplate", "resiliencehub:ListAppVersionResourceMappings", "resiliencehub:ListTagsForResource", "resiliencehub:ListAppVersions" ]
     },
     "update" : {
-      "permissions" : [ "cloudformation:DescribeStacks", "cloudformation:ListStackResources", "s3:GetBucketLocation", "s3:GetObject", "s3:ListAllMyBuckets", "autoscaling:DescribeAutoScalingGroups", "apigateway:GET", "ec2:Describe*", "ecs:DescribeServices", "eks:DescribeCluster", "elasticfilesystem:DescribeFileSystems", "elasticloadbalancing:DescribeLoadBalancers", "lambda:GetFunction*", "rds:Describe*", "dynamodb:Describe*", "sqs:GetQueueAttributes", "sns:GetTopicAttributes", "route53:List*", "iam:PassRole", "resiliencehub:*" ]
+      "permissions" : [ "cloudformation:DescribeStacks", "cloudformation:ListStackResources", "s3:GetBucketLocation", "s3:GetObject", "s3:ListAllMyBuckets", "autoscaling:DescribeAutoScalingGroups", "apigateway:GET", "ec2:Describe*", "ecs:DescribeServices", "eks:DescribeCluster", "elasticfilesystem:DescribeFileSystems", "elasticloadbalancing:DescribeLoadBalancers", "lambda:GetFunction*", "rds:Describe*", "dynamodb:Describe*", "sqs:GetQueueAttributes", "sns:GetTopicAttributes", "route53:List*", "iam:PassRole", "resiliencehub:UpdateApp", "resiliencehub:DescribeApp", "resiliencehub:DescribeAppVersionTemplate", "resiliencehub:PutDraftAppVersionTemplate", "resiliencehub:AddDraftAppVersionResourceMappings", "resiliencehub:RemoveDraftAppVersionResourceMappings", "resiliencehub:ListAppVersionResourceMappings", "resiliencehub:ListAppVersions", "resiliencehub:PublishAppVersion", "resiliencehub:ListTagsForResource", "resiliencehub:TagResource", "resiliencehub:UntagResource" ]
     },
     "delete" : {
       "permissions" : [ "resiliencehub:DeleteApp", "resiliencehub:UntagResource", "resiliencehub:ListApps" ]
