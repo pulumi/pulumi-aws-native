@@ -48,6 +48,10 @@
     "description": "Asia Pacific (Malaysia)"
   },
   {
+    "name": "ap-southeast-7",
+    "description": "Asia Pacific (Thailand)"
+  },
+  {
     "name": "ca-central-1",
     "description": "Canada (Central)"
   },
