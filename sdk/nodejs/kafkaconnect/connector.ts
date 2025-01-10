@@ -160,7 +160,7 @@ export class Connector extends pulumi.CustomResource {
             resourceInputs["workerConfiguration"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["connectorConfiguration.*", "connectorDescription", "connectorName", "kafkaCluster", "kafkaClusterClientAuthentication", "kafkaClusterEncryptionInTransit", "kafkaConnectVersion", "logDelivery", "plugins[*]", "serviceExecutionRoleArn", "workerConfiguration"] };
+        const replaceOnChanges = { replaceOnChanges: ["connectorDescription", "connectorName", "kafkaCluster", "kafkaClusterClientAuthentication", "kafkaClusterEncryptionInTransit", "kafkaConnectVersion", "logDelivery", "plugins[*]", "serviceExecutionRoleArn", "workerConfiguration"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Connector.__pulumiType, name, resourceInputs, opts);
     }

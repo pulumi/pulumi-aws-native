@@ -79,13 +79,7 @@ namespace Pulumi.AwsNative.Backup
         /// Returns event notifications for the specified backup vault.
         /// </summary>
         public readonly Outputs.LogicallyAirGappedBackupVaultNotificationObjectType? Notifications;
-        /// <summary>
-        /// The current state of the vault.
-        /// </summary>
         public readonly string? VaultState;
-        /// <summary>
-        /// The type of vault described.
-        /// </summary>
         public readonly string? VaultType;
 
         [OutputConstructor]

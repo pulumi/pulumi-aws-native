@@ -12,9 +12,15 @@ namespace Pulumi.AwsNative.CleanRooms.Inputs
 
     public sealed class MembershipMlPaymentConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The payment responsibilities accepted by the member for model inference.
+        /// </summary>
         [Input("modelInference")]
         public Input<Inputs.MembershipModelInferencePaymentConfigArgs>? ModelInference { get; set; }
 
+        /// <summary>
+        /// The payment responsibilities accepted by the member for model training.
+        /// </summary>
         [Input("modelTraining")]
         public Input<Inputs.MembershipModelTrainingPaymentConfigArgs>? ModelTraining { get; set; }
 

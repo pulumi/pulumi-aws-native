@@ -124,7 +124,6 @@ namespace Pulumi.AwsNative.KafkaConnect
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
-                    "connectorConfiguration.*",
                     "connectorDescription",
                     "connectorName",
                     "kafkaCluster",

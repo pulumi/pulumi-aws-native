@@ -4022,8 +4022,10 @@ type IdNamespaceAssociationTag struct {
 }
 
 type MembershipMlPaymentConfig struct {
+	// The payment responsibilities accepted by the member for model inference.
 	ModelInference *MembershipModelInferencePaymentConfig `pulumi:"modelInference"`
-	ModelTraining  *MembershipModelTrainingPaymentConfig  `pulumi:"modelTraining"`
+	// The payment responsibilities accepted by the member for model training.
+	ModelTraining *MembershipModelTrainingPaymentConfig `pulumi:"modelTraining"`
 }
 
 // MembershipMlPaymentConfigInput is an input type that accepts MembershipMlPaymentConfigArgs and MembershipMlPaymentConfigOutput values.
@@ -4038,8 +4040,10 @@ type MembershipMlPaymentConfigInput interface {
 }
 
 type MembershipMlPaymentConfigArgs struct {
+	// The payment responsibilities accepted by the member for model inference.
 	ModelInference MembershipModelInferencePaymentConfigPtrInput `pulumi:"modelInference"`
-	ModelTraining  MembershipModelTrainingPaymentConfigPtrInput  `pulumi:"modelTraining"`
+	// The payment responsibilities accepted by the member for model training.
+	ModelTraining MembershipModelTrainingPaymentConfigPtrInput `pulumi:"modelTraining"`
 }
 
 func (MembershipMlPaymentConfigArgs) ElementType() reflect.Type {
@@ -4119,10 +4123,12 @@ func (o MembershipMlPaymentConfigOutput) ToMembershipMlPaymentConfigPtrOutputWit
 	}).(MembershipMlPaymentConfigPtrOutput)
 }
 
+// The payment responsibilities accepted by the member for model inference.
 func (o MembershipMlPaymentConfigOutput) ModelInference() MembershipModelInferencePaymentConfigPtrOutput {
 	return o.ApplyT(func(v MembershipMlPaymentConfig) *MembershipModelInferencePaymentConfig { return v.ModelInference }).(MembershipModelInferencePaymentConfigPtrOutput)
 }
 
+// The payment responsibilities accepted by the member for model training.
 func (o MembershipMlPaymentConfigOutput) ModelTraining() MembershipModelTrainingPaymentConfigPtrOutput {
 	return o.ApplyT(func(v MembershipMlPaymentConfig) *MembershipModelTrainingPaymentConfig { return v.ModelTraining }).(MembershipModelTrainingPaymentConfigPtrOutput)
 }
@@ -4151,6 +4157,7 @@ func (o MembershipMlPaymentConfigPtrOutput) Elem() MembershipMlPaymentConfigOutp
 	}).(MembershipMlPaymentConfigOutput)
 }
 
+// The payment responsibilities accepted by the member for model inference.
 func (o MembershipMlPaymentConfigPtrOutput) ModelInference() MembershipModelInferencePaymentConfigPtrOutput {
 	return o.ApplyT(func(v *MembershipMlPaymentConfig) *MembershipModelInferencePaymentConfig {
 		if v == nil {
@@ -4160,6 +4167,7 @@ func (o MembershipMlPaymentConfigPtrOutput) ModelInference() MembershipModelInfe
 	}).(MembershipModelInferencePaymentConfigPtrOutput)
 }
 
+// The payment responsibilities accepted by the member for model training.
 func (o MembershipMlPaymentConfigPtrOutput) ModelTraining() MembershipModelTrainingPaymentConfigPtrOutput {
 	return o.ApplyT(func(v *MembershipMlPaymentConfig) *MembershipModelTrainingPaymentConfig {
 		if v == nil {
@@ -4170,6 +4178,14 @@ func (o MembershipMlPaymentConfigPtrOutput) ModelTraining() MembershipModelTrain
 }
 
 type MembershipModelInferencePaymentConfig struct {
+	// Indicates whether the collaboration member has accepted to pay for model inference costs ( `TRUE` ) or has not accepted to pay for model inference costs ( `FALSE` ).
+	//
+	// If the collaboration creator has not specified anyone to pay for model inference costs, then the member who can query is the default payer.
+	//
+	// An error message is returned for the following reasons:
+	//
+	// - If you set the value to `FALSE` but you are responsible to pay for model inference costs.
+	// - If you set the value to `TRUE` but you are not responsible to pay for model inference costs.
 	IsResponsible bool `pulumi:"isResponsible"`
 }
 
@@ -4185,6 +4201,14 @@ type MembershipModelInferencePaymentConfigInput interface {
 }
 
 type MembershipModelInferencePaymentConfigArgs struct {
+	// Indicates whether the collaboration member has accepted to pay for model inference costs ( `TRUE` ) or has not accepted to pay for model inference costs ( `FALSE` ).
+	//
+	// If the collaboration creator has not specified anyone to pay for model inference costs, then the member who can query is the default payer.
+	//
+	// An error message is returned for the following reasons:
+	//
+	// - If you set the value to `FALSE` but you are responsible to pay for model inference costs.
+	// - If you set the value to `TRUE` but you are not responsible to pay for model inference costs.
 	IsResponsible pulumi.BoolInput `pulumi:"isResponsible"`
 }
 
@@ -4265,6 +4289,14 @@ func (o MembershipModelInferencePaymentConfigOutput) ToMembershipModelInferenceP
 	}).(MembershipModelInferencePaymentConfigPtrOutput)
 }
 
+// Indicates whether the collaboration member has accepted to pay for model inference costs ( `TRUE` ) or has not accepted to pay for model inference costs ( `FALSE` ).
+//
+// If the collaboration creator has not specified anyone to pay for model inference costs, then the member who can query is the default payer.
+//
+// An error message is returned for the following reasons:
+//
+// - If you set the value to `FALSE` but you are responsible to pay for model inference costs.
+// - If you set the value to `TRUE` but you are not responsible to pay for model inference costs.
 func (o MembershipModelInferencePaymentConfigOutput) IsResponsible() pulumi.BoolOutput {
 	return o.ApplyT(func(v MembershipModelInferencePaymentConfig) bool { return v.IsResponsible }).(pulumi.BoolOutput)
 }
@@ -4293,6 +4325,14 @@ func (o MembershipModelInferencePaymentConfigPtrOutput) Elem() MembershipModelIn
 	}).(MembershipModelInferencePaymentConfigOutput)
 }
 
+// Indicates whether the collaboration member has accepted to pay for model inference costs ( `TRUE` ) or has not accepted to pay for model inference costs ( `FALSE` ).
+//
+// If the collaboration creator has not specified anyone to pay for model inference costs, then the member who can query is the default payer.
+//
+// An error message is returned for the following reasons:
+//
+// - If you set the value to `FALSE` but you are responsible to pay for model inference costs.
+// - If you set the value to `TRUE` but you are not responsible to pay for model inference costs.
 func (o MembershipModelInferencePaymentConfigPtrOutput) IsResponsible() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *MembershipModelInferencePaymentConfig) *bool {
 		if v == nil {
@@ -4303,6 +4343,14 @@ func (o MembershipModelInferencePaymentConfigPtrOutput) IsResponsible() pulumi.B
 }
 
 type MembershipModelTrainingPaymentConfig struct {
+	// Indicates whether the collaboration member has accepted to pay for model training costs ( `TRUE` ) or has not accepted to pay for model training costs ( `FALSE` ).
+	//
+	// If the collaboration creator has not specified anyone to pay for model training costs, then the member who can query is the default payer.
+	//
+	// An error message is returned for the following reasons:
+	//
+	// - If you set the value to `FALSE` but you are responsible to pay for model training costs.
+	// - If you set the value to `TRUE` but you are not responsible to pay for model training costs.
 	IsResponsible bool `pulumi:"isResponsible"`
 }
 
@@ -4318,6 +4366,14 @@ type MembershipModelTrainingPaymentConfigInput interface {
 }
 
 type MembershipModelTrainingPaymentConfigArgs struct {
+	// Indicates whether the collaboration member has accepted to pay for model training costs ( `TRUE` ) or has not accepted to pay for model training costs ( `FALSE` ).
+	//
+	// If the collaboration creator has not specified anyone to pay for model training costs, then the member who can query is the default payer.
+	//
+	// An error message is returned for the following reasons:
+	//
+	// - If you set the value to `FALSE` but you are responsible to pay for model training costs.
+	// - If you set the value to `TRUE` but you are not responsible to pay for model training costs.
 	IsResponsible pulumi.BoolInput `pulumi:"isResponsible"`
 }
 
@@ -4398,6 +4454,14 @@ func (o MembershipModelTrainingPaymentConfigOutput) ToMembershipModelTrainingPay
 	}).(MembershipModelTrainingPaymentConfigPtrOutput)
 }
 
+// Indicates whether the collaboration member has accepted to pay for model training costs ( `TRUE` ) or has not accepted to pay for model training costs ( `FALSE` ).
+//
+// If the collaboration creator has not specified anyone to pay for model training costs, then the member who can query is the default payer.
+//
+// An error message is returned for the following reasons:
+//
+// - If you set the value to `FALSE` but you are responsible to pay for model training costs.
+// - If you set the value to `TRUE` but you are not responsible to pay for model training costs.
 func (o MembershipModelTrainingPaymentConfigOutput) IsResponsible() pulumi.BoolOutput {
 	return o.ApplyT(func(v MembershipModelTrainingPaymentConfig) bool { return v.IsResponsible }).(pulumi.BoolOutput)
 }
@@ -4426,6 +4490,14 @@ func (o MembershipModelTrainingPaymentConfigPtrOutput) Elem() MembershipModelTra
 	}).(MembershipModelTrainingPaymentConfigOutput)
 }
 
+// Indicates whether the collaboration member has accepted to pay for model training costs ( `TRUE` ) or has not accepted to pay for model training costs ( `FALSE` ).
+//
+// If the collaboration creator has not specified anyone to pay for model training costs, then the member who can query is the default payer.
+//
+// An error message is returned for the following reasons:
+//
+// - If you set the value to `FALSE` but you are responsible to pay for model training costs.
+// - If you set the value to `TRUE` but you are not responsible to pay for model training costs.
 func (o MembershipModelTrainingPaymentConfigPtrOutput) IsResponsible() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *MembershipModelTrainingPaymentConfig) *bool {
 		if v == nil {
@@ -4436,6 +4508,7 @@ func (o MembershipModelTrainingPaymentConfigPtrOutput) IsResponsible() pulumi.Bo
 }
 
 type MembershipPaymentConfiguration struct {
+	// The payment responsibilities accepted by the collaboration member for machine learning costs.
 	MachineLearning *MembershipMlPaymentConfig `pulumi:"machineLearning"`
 	// The payment responsibilities accepted by the collaboration member for query compute costs.
 	QueryCompute MembershipQueryComputePaymentConfig `pulumi:"queryCompute"`
@@ -4453,6 +4526,7 @@ type MembershipPaymentConfigurationInput interface {
 }
 
 type MembershipPaymentConfigurationArgs struct {
+	// The payment responsibilities accepted by the collaboration member for machine learning costs.
 	MachineLearning MembershipMlPaymentConfigPtrInput `pulumi:"machineLearning"`
 	// The payment responsibilities accepted by the collaboration member for query compute costs.
 	QueryCompute MembershipQueryComputePaymentConfigInput `pulumi:"queryCompute"`
@@ -4535,6 +4609,7 @@ func (o MembershipPaymentConfigurationOutput) ToMembershipPaymentConfigurationPt
 	}).(MembershipPaymentConfigurationPtrOutput)
 }
 
+// The payment responsibilities accepted by the collaboration member for machine learning costs.
 func (o MembershipPaymentConfigurationOutput) MachineLearning() MembershipMlPaymentConfigPtrOutput {
 	return o.ApplyT(func(v MembershipPaymentConfiguration) *MembershipMlPaymentConfig { return v.MachineLearning }).(MembershipMlPaymentConfigPtrOutput)
 }
@@ -4568,6 +4643,7 @@ func (o MembershipPaymentConfigurationPtrOutput) Elem() MembershipPaymentConfigu
 	}).(MembershipPaymentConfigurationOutput)
 }
 
+// The payment responsibilities accepted by the collaboration member for machine learning costs.
 func (o MembershipPaymentConfigurationPtrOutput) MachineLearning() MembershipMlPaymentConfigPtrOutput {
 	return o.ApplyT(func(v *MembershipPaymentConfiguration) *MembershipMlPaymentConfig {
 		if v == nil {

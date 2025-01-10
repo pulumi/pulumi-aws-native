@@ -67,13 +67,7 @@ export class LogicallyAirGappedBackupVault extends pulumi.CustomResource {
      * Returns event notifications for the specified backup vault.
      */
     public readonly notifications!: pulumi.Output<outputs.backup.LogicallyAirGappedBackupVaultNotificationObjectType | undefined>;
-    /**
-     * The current state of the vault.
-     */
     public /*out*/ readonly vaultState!: pulumi.Output<string>;
-    /**
-     * The type of vault described.
-     */
     public /*out*/ readonly vaultType!: pulumi.Output<string>;
 
     /**

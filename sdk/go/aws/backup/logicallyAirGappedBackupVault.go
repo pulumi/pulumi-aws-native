@@ -34,10 +34,8 @@ type LogicallyAirGappedBackupVault struct {
 	MinRetentionDays pulumi.IntOutput `pulumi:"minRetentionDays"`
 	// Returns event notifications for the specified backup vault.
 	Notifications LogicallyAirGappedBackupVaultNotificationObjectTypePtrOutput `pulumi:"notifications"`
-	// The current state of the vault.
-	VaultState pulumi.StringOutput `pulumi:"vaultState"`
-	// The type of vault described.
-	VaultType pulumi.StringOutput `pulumi:"vaultType"`
+	VaultState    pulumi.StringOutput                                          `pulumi:"vaultState"`
+	VaultType     pulumi.StringOutput                                          `pulumi:"vaultType"`
 }
 
 // NewLogicallyAirGappedBackupVault registers a new resource with the given unique name, arguments, and options.
@@ -211,12 +209,10 @@ func (o LogicallyAirGappedBackupVaultOutput) Notifications() LogicallyAirGappedB
 	}).(LogicallyAirGappedBackupVaultNotificationObjectTypePtrOutput)
 }
 
-// The current state of the vault.
 func (o LogicallyAirGappedBackupVaultOutput) VaultState() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogicallyAirGappedBackupVault) pulumi.StringOutput { return v.VaultState }).(pulumi.StringOutput)
 }
 
-// The type of vault described.
 func (o LogicallyAirGappedBackupVaultOutput) VaultType() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogicallyAirGappedBackupVault) pulumi.StringOutput { return v.VaultType }).(pulumi.StringOutput)
 }

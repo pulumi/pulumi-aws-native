@@ -1328,8 +1328,9 @@ class Ec2FleetInstanceRequirementsRequest(dict):
                Default: No minimum or maximum limits
         :param Sequence['Ec2FleetInstanceRequirementsRequestAcceleratorTypesItem'] accelerator_types: The accelerator types that must be on the instance type.
                
-               - To include instance types with GPU hardware, specify `gpu` .
-               - To include instance types with FPGA hardware, specify `fpga` .
+               - For instance types with FPGA accelerators, specify `fpga` .
+               - For instance types with GPU accelerators, specify `gpu` .
+               - For instance types with Inference accelerators, specify `inference` .
                
                Default: Any accelerator type
         :param Sequence[str] allowed_instance_types: The instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes.
@@ -1565,8 +1566,9 @@ class Ec2FleetInstanceRequirementsRequest(dict):
         """
         The accelerator types that must be on the instance type.
 
-        - To include instance types with GPU hardware, specify `gpu` .
-        - To include instance types with FPGA hardware, specify `fpga` .
+        - For instance types with FPGA accelerators, specify `fpga` .
+        - For instance types with GPU accelerators, specify `gpu` .
+        - For instance types with Inference accelerators, specify `inference` .
 
         Default: Any accelerator type
         """
@@ -11511,8 +11513,9 @@ class SpotFleetInstanceRequirementsRequest(dict):
                Default: No minimum or maximum limits
         :param Sequence['SpotFleetInstanceRequirementsRequestAcceleratorTypesItem'] accelerator_types: The accelerator types that must be on the instance type.
                
-               - To include instance types with GPU hardware, specify `gpu` .
-               - To include instance types with FPGA hardware, specify `fpga` .
+               - For instance types with FPGA accelerators, specify `fpga` .
+               - For instance types with GPU accelerators, specify `gpu` .
+               - For instance types with Inference accelerators, specify `inference` .
                
                Default: Any accelerator type
         :param Sequence[str] allowed_instance_types: The instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes.
@@ -11748,8 +11751,9 @@ class SpotFleetInstanceRequirementsRequest(dict):
         """
         The accelerator types that must be on the instance type.
 
-        - To include instance types with GPU hardware, specify `gpu` .
-        - To include instance types with FPGA hardware, specify `fpga` .
+        - For instance types with FPGA accelerators, specify `fpga` .
+        - For instance types with GPU accelerators, specify `gpu` .
+        - For instance types with Inference accelerators, specify `inference` .
 
         Default: Any accelerator type
         """

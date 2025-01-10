@@ -86,17 +86,11 @@ class GetLogicallyAirGappedBackupVaultResult:
     @property
     @pulumi.getter(name="vaultState")
     def vault_state(self) -> Optional[str]:
-        """
-        The current state of the vault.
-        """
         return pulumi.get(self, "vault_state")
 
     @property
     @pulumi.getter(name="vaultType")
     def vault_type(self) -> Optional[str]:
-        """
-        The type of vault described.
-        """
         return pulumi.get(self, "vault_type")
 
 

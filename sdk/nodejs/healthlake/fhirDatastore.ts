@@ -51,7 +51,7 @@ export class FhirDatastore extends pulumi.CustomResource {
      */
     public /*out*/ readonly datastoreId!: pulumi.Output<string>;
     /**
-     * The user generated name for the data store.
+     * The data store name (user-generated).
      */
     public readonly datastoreName!: pulumi.Output<string | undefined>;
     /**
@@ -59,19 +59,19 @@ export class FhirDatastore extends pulumi.CustomResource {
      */
     public /*out*/ readonly datastoreStatus!: pulumi.Output<enums.healthlake.FhirDatastoreDatastoreStatus>;
     /**
-     * The FHIR version of the data store. The only supported version is R4.
+     * The FHIR release version supported by the data store. Current support is for version `R4` .
      */
     public readonly datastoreTypeVersion!: pulumi.Output<enums.healthlake.FhirDatastoreDatastoreTypeVersion>;
     /**
-     * The identity provider configuration that you gave when the data store was created.
+     * The identity provider configuration selected when the data store was created.
      */
     public readonly identityProviderConfiguration!: pulumi.Output<outputs.healthlake.FhirDatastoreIdentityProviderConfiguration | undefined>;
     /**
-     * The preloaded data configuration for the data store. Only data preloaded from Synthea is supported.
+     * The preloaded Synthea data configuration for the data store.
      */
     public readonly preloadDataConfig!: pulumi.Output<outputs.healthlake.FhirDatastorePreloadDataConfig | undefined>;
     /**
-     * The server-side encryption key configuration for a customer provided encryption key specified for creating a data store.
+     * The server-side encryption key configuration for a customer-provided encryption key specified for creating a data store.
      */
     public readonly sseConfiguration!: pulumi.Output<outputs.healthlake.FhirDatastoreSseConfiguration | undefined>;
     /**
@@ -131,23 +131,23 @@ export class FhirDatastore extends pulumi.CustomResource {
  */
 export interface FhirDatastoreArgs {
     /**
-     * The user generated name for the data store.
+     * The data store name (user-generated).
      */
     datastoreName?: pulumi.Input<string>;
     /**
-     * The FHIR version of the data store. The only supported version is R4.
+     * The FHIR release version supported by the data store. Current support is for version `R4` .
      */
     datastoreTypeVersion: pulumi.Input<enums.healthlake.FhirDatastoreDatastoreTypeVersion>;
     /**
-     * The identity provider configuration that you gave when the data store was created.
+     * The identity provider configuration selected when the data store was created.
      */
     identityProviderConfiguration?: pulumi.Input<inputs.healthlake.FhirDatastoreIdentityProviderConfigurationArgs>;
     /**
-     * The preloaded data configuration for the data store. Only data preloaded from Synthea is supported.
+     * The preloaded Synthea data configuration for the data store.
      */
     preloadDataConfig?: pulumi.Input<inputs.healthlake.FhirDatastorePreloadDataConfigArgs>;
     /**
-     * The server-side encryption key configuration for a customer provided encryption key specified for creating a data store.
+     * The server-side encryption key configuration for a customer-provided encryption key specified for creating a data store.
      */
     sseConfiguration?: pulumi.Input<inputs.healthlake.FhirDatastoreSseConfigurationArgs>;
     /**

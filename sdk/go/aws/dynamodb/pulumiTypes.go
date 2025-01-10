@@ -1071,6 +1071,8 @@ func (o GlobalTableLocalSecondaryIndexArrayOutput) Index(i pulumi.IntInput) Glob
 type GlobalTablePointInTimeRecoverySpecification struct {
 	// Indicates whether point in time recovery is enabled (true) or disabled (false) on the table.
 	PointInTimeRecoveryEnabled *bool `pulumi:"pointInTimeRecoveryEnabled"`
+	// The number of preceding days for which continuous backups are taken and maintained. Your table data is only recoverable to any point-in-time from within the configured recovery period. This parameter is optional. If no value is provided, the value will default to 35.
+	RecoveryPeriodInDays *int `pulumi:"recoveryPeriodInDays"`
 }
 
 // GlobalTablePointInTimeRecoverySpecificationInput is an input type that accepts GlobalTablePointInTimeRecoverySpecificationArgs and GlobalTablePointInTimeRecoverySpecificationOutput values.
@@ -1087,6 +1089,8 @@ type GlobalTablePointInTimeRecoverySpecificationInput interface {
 type GlobalTablePointInTimeRecoverySpecificationArgs struct {
 	// Indicates whether point in time recovery is enabled (true) or disabled (false) on the table.
 	PointInTimeRecoveryEnabled pulumi.BoolPtrInput `pulumi:"pointInTimeRecoveryEnabled"`
+	// The number of preceding days for which continuous backups are taken and maintained. Your table data is only recoverable to any point-in-time from within the configured recovery period. This parameter is optional. If no value is provided, the value will default to 35.
+	RecoveryPeriodInDays pulumi.IntPtrInput `pulumi:"recoveryPeriodInDays"`
 }
 
 func (GlobalTablePointInTimeRecoverySpecificationArgs) ElementType() reflect.Type {
@@ -1171,6 +1175,11 @@ func (o GlobalTablePointInTimeRecoverySpecificationOutput) PointInTimeRecoveryEn
 	return o.ApplyT(func(v GlobalTablePointInTimeRecoverySpecification) *bool { return v.PointInTimeRecoveryEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// The number of preceding days for which continuous backups are taken and maintained. Your table data is only recoverable to any point-in-time from within the configured recovery period. This parameter is optional. If no value is provided, the value will default to 35.
+func (o GlobalTablePointInTimeRecoverySpecificationOutput) RecoveryPeriodInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GlobalTablePointInTimeRecoverySpecification) *int { return v.RecoveryPeriodInDays }).(pulumi.IntPtrOutput)
+}
+
 type GlobalTablePointInTimeRecoverySpecificationPtrOutput struct{ *pulumi.OutputState }
 
 func (GlobalTablePointInTimeRecoverySpecificationPtrOutput) ElementType() reflect.Type {
@@ -1203,6 +1212,16 @@ func (o GlobalTablePointInTimeRecoverySpecificationPtrOutput) PointInTimeRecover
 		}
 		return v.PointInTimeRecoveryEnabled
 	}).(pulumi.BoolPtrOutput)
+}
+
+// The number of preceding days for which continuous backups are taken and maintained. Your table data is only recoverable to any point-in-time from within the configured recovery period. This parameter is optional. If no value is provided, the value will default to 35.
+func (o GlobalTablePointInTimeRecoverySpecificationPtrOutput) RecoveryPeriodInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GlobalTablePointInTimeRecoverySpecification) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RecoveryPeriodInDays
+	}).(pulumi.IntPtrOutput)
 }
 
 type GlobalTableProjection struct {
@@ -5133,7 +5152,8 @@ func (o TableOnDemandThroughputPtrOutput) MaxWriteRequestUnits() pulumi.IntPtrOu
 type TablePointInTimeRecoverySpecification struct {
 	// Indicates whether point in time recovery is enabled (true) or disabled (false) on the table.
 	PointInTimeRecoveryEnabled *bool `pulumi:"pointInTimeRecoveryEnabled"`
-	RecoveryPeriodInDays       *int  `pulumi:"recoveryPeriodInDays"`
+	// The number of preceding days for which continuous backups are taken and maintained. Your table data is only recoverable to any point-in-time from within the configured recovery period. This parameter is optional. If no value is provided, the value will default to 35.
+	RecoveryPeriodInDays *int `pulumi:"recoveryPeriodInDays"`
 }
 
 // TablePointInTimeRecoverySpecificationInput is an input type that accepts TablePointInTimeRecoverySpecificationArgs and TablePointInTimeRecoverySpecificationOutput values.
@@ -5151,7 +5171,8 @@ type TablePointInTimeRecoverySpecificationInput interface {
 type TablePointInTimeRecoverySpecificationArgs struct {
 	// Indicates whether point in time recovery is enabled (true) or disabled (false) on the table.
 	PointInTimeRecoveryEnabled pulumi.BoolPtrInput `pulumi:"pointInTimeRecoveryEnabled"`
-	RecoveryPeriodInDays       pulumi.IntPtrInput  `pulumi:"recoveryPeriodInDays"`
+	// The number of preceding days for which continuous backups are taken and maintained. Your table data is only recoverable to any point-in-time from within the configured recovery period. This parameter is optional. If no value is provided, the value will default to 35.
+	RecoveryPeriodInDays pulumi.IntPtrInput `pulumi:"recoveryPeriodInDays"`
 }
 
 func (TablePointInTimeRecoverySpecificationArgs) ElementType() reflect.Type {
@@ -5237,6 +5258,7 @@ func (o TablePointInTimeRecoverySpecificationOutput) PointInTimeRecoveryEnabled(
 	return o.ApplyT(func(v TablePointInTimeRecoverySpecification) *bool { return v.PointInTimeRecoveryEnabled }).(pulumi.BoolPtrOutput)
 }
 
+// The number of preceding days for which continuous backups are taken and maintained. Your table data is only recoverable to any point-in-time from within the configured recovery period. This parameter is optional. If no value is provided, the value will default to 35.
 func (o TablePointInTimeRecoverySpecificationOutput) RecoveryPeriodInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TablePointInTimeRecoverySpecification) *int { return v.RecoveryPeriodInDays }).(pulumi.IntPtrOutput)
 }
@@ -5275,6 +5297,7 @@ func (o TablePointInTimeRecoverySpecificationPtrOutput) PointInTimeRecoveryEnabl
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The number of preceding days for which continuous backups are taken and maintained. Your table data is only recoverable to any point-in-time from within the configured recovery period. This parameter is optional. If no value is provided, the value will default to 35.
 func (o TablePointInTimeRecoverySpecificationPtrOutput) RecoveryPeriodInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TablePointInTimeRecoverySpecification) *int {
 		if v == nil {

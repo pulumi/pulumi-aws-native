@@ -33,6 +33,8 @@ type LookupConnectorResult struct {
 	Capacity *ConnectorCapacity `pulumi:"capacity"`
 	// Amazon Resource Name for the created Connector.
 	ConnectorArn *string `pulumi:"connectorArn"`
+	// The configuration for the connector.
+	ConnectorConfiguration map[string]string `pulumi:"connectorConfiguration"`
 	// A collection of tags associated with a resource
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -77,6 +79,11 @@ func (o LookupConnectorResultOutput) Capacity() ConnectorCapacityPtrOutput {
 // Amazon Resource Name for the created Connector.
 func (o LookupConnectorResultOutput) ConnectorArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupConnectorResult) *string { return v.ConnectorArn }).(pulumi.StringPtrOutput)
+}
+
+// The configuration for the connector.
+func (o LookupConnectorResultOutput) ConnectorConfiguration() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupConnectorResult) map[string]string { return v.ConnectorConfiguration }).(pulumi.StringMapOutput)
 }
 
 // A collection of tags associated with a resource

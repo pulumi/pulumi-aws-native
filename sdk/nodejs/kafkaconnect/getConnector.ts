@@ -34,6 +34,10 @@ export interface GetConnectorResult {
      */
     readonly connectorArn?: string;
     /**
+     * The configuration for the connector.
+     */
+    readonly connectorConfiguration?: {[key: string]: string};
+    /**
      * A collection of tags associated with a resource
      */
     readonly tags?: outputs.Tag[];

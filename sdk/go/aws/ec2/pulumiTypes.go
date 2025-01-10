@@ -2799,8 +2799,9 @@ type Ec2FleetInstanceRequirementsRequest struct {
 	AcceleratorTotalMemoryMiB *Ec2FleetAcceleratorTotalMemoryMiBRequest `pulumi:"acceleratorTotalMemoryMiB"`
 	// The accelerator types that must be on the instance type.
 	//
-	// - To include instance types with GPU hardware, specify `gpu` .
-	// - To include instance types with FPGA hardware, specify `fpga` .
+	// - For instance types with FPGA accelerators, specify `fpga` .
+	// - For instance types with GPU accelerators, specify `gpu` .
+	// - For instance types with Inference accelerators, specify `inference` .
 	//
 	// Default: Any accelerator type
 	AcceleratorTypes []Ec2FleetInstanceRequirementsRequestAcceleratorTypesItem `pulumi:"acceleratorTypes"`
@@ -2991,8 +2992,9 @@ type Ec2FleetInstanceRequirementsRequestArgs struct {
 	AcceleratorTotalMemoryMiB Ec2FleetAcceleratorTotalMemoryMiBRequestPtrInput `pulumi:"acceleratorTotalMemoryMiB"`
 	// The accelerator types that must be on the instance type.
 	//
-	// - To include instance types with GPU hardware, specify `gpu` .
-	// - To include instance types with FPGA hardware, specify `fpga` .
+	// - For instance types with FPGA accelerators, specify `fpga` .
+	// - For instance types with GPU accelerators, specify `gpu` .
+	// - For instance types with Inference accelerators, specify `inference` .
 	//
 	// Default: Any accelerator type
 	AcceleratorTypes Ec2FleetInstanceRequirementsRequestAcceleratorTypesItemArrayInput `pulumi:"acceleratorTypes"`
@@ -3268,8 +3270,9 @@ func (o Ec2FleetInstanceRequirementsRequestOutput) AcceleratorTotalMemoryMiB() E
 
 // The accelerator types that must be on the instance type.
 //
-// - To include instance types with GPU hardware, specify `gpu` .
-// - To include instance types with FPGA hardware, specify `fpga` .
+// - For instance types with FPGA accelerators, specify `fpga` .
+// - For instance types with GPU accelerators, specify `gpu` .
+// - For instance types with Inference accelerators, specify `inference` .
 //
 // Default: Any accelerator type
 func (o Ec2FleetInstanceRequirementsRequestOutput) AcceleratorTypes() Ec2FleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput {
@@ -3593,8 +3596,9 @@ func (o Ec2FleetInstanceRequirementsRequestPtrOutput) AcceleratorTotalMemoryMiB(
 
 // The accelerator types that must be on the instance type.
 //
-// - To include instance types with GPU hardware, specify `gpu` .
-// - To include instance types with FPGA hardware, specify `fpga` .
+// - For instance types with FPGA accelerators, specify `fpga` .
+// - For instance types with GPU accelerators, specify `gpu` .
+// - For instance types with Inference accelerators, specify `inference` .
 //
 // Default: Any accelerator type
 func (o Ec2FleetInstanceRequirementsRequestPtrOutput) AcceleratorTypes() Ec2FleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput {
@@ -24829,8 +24833,9 @@ type SpotFleetInstanceRequirementsRequest struct {
 	AcceleratorTotalMemoryMiB *SpotFleetAcceleratorTotalMemoryMiBRequest `pulumi:"acceleratorTotalMemoryMiB"`
 	// The accelerator types that must be on the instance type.
 	//
-	// - To include instance types with GPU hardware, specify `gpu` .
-	// - To include instance types with FPGA hardware, specify `fpga` .
+	// - For instance types with FPGA accelerators, specify `fpga` .
+	// - For instance types with GPU accelerators, specify `gpu` .
+	// - For instance types with Inference accelerators, specify `inference` .
 	//
 	// Default: Any accelerator type
 	AcceleratorTypes []SpotFleetInstanceRequirementsRequestAcceleratorTypesItem `pulumi:"acceleratorTypes"`
@@ -25021,8 +25026,9 @@ type SpotFleetInstanceRequirementsRequestArgs struct {
 	AcceleratorTotalMemoryMiB SpotFleetAcceleratorTotalMemoryMiBRequestPtrInput `pulumi:"acceleratorTotalMemoryMiB"`
 	// The accelerator types that must be on the instance type.
 	//
-	// - To include instance types with GPU hardware, specify `gpu` .
-	// - To include instance types with FPGA hardware, specify `fpga` .
+	// - For instance types with FPGA accelerators, specify `fpga` .
+	// - For instance types with GPU accelerators, specify `gpu` .
+	// - For instance types with Inference accelerators, specify `inference` .
 	//
 	// Default: Any accelerator type
 	AcceleratorTypes SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArrayInput `pulumi:"acceleratorTypes"`
@@ -25298,8 +25304,9 @@ func (o SpotFleetInstanceRequirementsRequestOutput) AcceleratorTotalMemoryMiB() 
 
 // The accelerator types that must be on the instance type.
 //
-// - To include instance types with GPU hardware, specify `gpu` .
-// - To include instance types with FPGA hardware, specify `fpga` .
+// - For instance types with FPGA accelerators, specify `fpga` .
+// - For instance types with GPU accelerators, specify `gpu` .
+// - For instance types with Inference accelerators, specify `inference` .
 //
 // Default: Any accelerator type
 func (o SpotFleetInstanceRequirementsRequestOutput) AcceleratorTypes() SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput {
@@ -25623,8 +25630,9 @@ func (o SpotFleetInstanceRequirementsRequestPtrOutput) AcceleratorTotalMemoryMiB
 
 // The accelerator types that must be on the instance type.
 //
-// - To include instance types with GPU hardware, specify `gpu` .
-// - To include instance types with FPGA hardware, specify `fpga` .
+// - For instance types with FPGA accelerators, specify `fpga` .
+// - For instance types with GPU accelerators, specify `gpu` .
+// - For instance types with Inference accelerators, specify `inference` .
 //
 // Default: Any accelerator type
 func (o SpotFleetInstanceRequirementsRequestPtrOutput) AcceleratorTypes() SpotFleetInstanceRequirementsRequestAcceleratorTypesItemArrayOutput {

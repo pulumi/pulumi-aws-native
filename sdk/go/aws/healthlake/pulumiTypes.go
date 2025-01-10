@@ -592,7 +592,7 @@ func (o FhirDatastorePreloadDataConfigPtrOutput) PreloadDataType() FhirDatastore
 
 // The server-side encryption key configuration for a customer provided encryption key.
 type FhirDatastoreSseConfiguration struct {
-	// The server-side encryption key configuration for a customer provided encryption key (CMK).
+	// The server-side encryption key configuration for a customer provided encryption key.
 	KmsEncryptionConfig FhirDatastoreKmsEncryptionConfig `pulumi:"kmsEncryptionConfig"`
 }
 
@@ -609,7 +609,7 @@ type FhirDatastoreSseConfigurationInput interface {
 
 // The server-side encryption key configuration for a customer provided encryption key.
 type FhirDatastoreSseConfigurationArgs struct {
-	// The server-side encryption key configuration for a customer provided encryption key (CMK).
+	// The server-side encryption key configuration for a customer provided encryption key.
 	KmsEncryptionConfig FhirDatastoreKmsEncryptionConfigInput `pulumi:"kmsEncryptionConfig"`
 }
 
@@ -691,7 +691,7 @@ func (o FhirDatastoreSseConfigurationOutput) ToFhirDatastoreSseConfigurationPtrO
 	}).(FhirDatastoreSseConfigurationPtrOutput)
 }
 
-// The server-side encryption key configuration for a customer provided encryption key (CMK).
+// The server-side encryption key configuration for a customer provided encryption key.
 func (o FhirDatastoreSseConfigurationOutput) KmsEncryptionConfig() FhirDatastoreKmsEncryptionConfigOutput {
 	return o.ApplyT(func(v FhirDatastoreSseConfiguration) FhirDatastoreKmsEncryptionConfig { return v.KmsEncryptionConfig }).(FhirDatastoreKmsEncryptionConfigOutput)
 }
@@ -720,7 +720,7 @@ func (o FhirDatastoreSseConfigurationPtrOutput) Elem() FhirDatastoreSseConfigura
 	}).(FhirDatastoreSseConfigurationOutput)
 }
 
-// The server-side encryption key configuration for a customer provided encryption key (CMK).
+// The server-side encryption key configuration for a customer provided encryption key.
 func (o FhirDatastoreSseConfigurationPtrOutput) KmsEncryptionConfig() FhirDatastoreKmsEncryptionConfigPtrOutput {
 	return o.ApplyT(func(v *FhirDatastoreSseConfiguration) *FhirDatastoreKmsEncryptionConfig {
 		if v == nil {

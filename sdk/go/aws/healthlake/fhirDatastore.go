@@ -24,17 +24,17 @@ type FhirDatastore struct {
 	DatastoreEndpoint pulumi.StringOutput `pulumi:"datastoreEndpoint"`
 	// The Amazon generated Data Store id. This id is in the output from the initial Data Store creation call.
 	DatastoreId pulumi.StringOutput `pulumi:"datastoreId"`
-	// The user generated name for the data store.
+	// The data store name (user-generated).
 	DatastoreName pulumi.StringPtrOutput `pulumi:"datastoreName"`
 	// The status of the FHIR Data Store. Possible statuses are ‘CREATING’, ‘ACTIVE’, ‘DELETING’, ‘DELETED’.
 	DatastoreStatus FhirDatastoreDatastoreStatusOutput `pulumi:"datastoreStatus"`
-	// The FHIR version of the data store. The only supported version is R4.
+	// The FHIR release version supported by the data store. Current support is for version `R4` .
 	DatastoreTypeVersion FhirDatastoreDatastoreTypeVersionOutput `pulumi:"datastoreTypeVersion"`
-	// The identity provider configuration that you gave when the data store was created.
+	// The identity provider configuration selected when the data store was created.
 	IdentityProviderConfiguration FhirDatastoreIdentityProviderConfigurationPtrOutput `pulumi:"identityProviderConfiguration"`
-	// The preloaded data configuration for the data store. Only data preloaded from Synthea is supported.
+	// The preloaded Synthea data configuration for the data store.
 	PreloadDataConfig FhirDatastorePreloadDataConfigPtrOutput `pulumi:"preloadDataConfig"`
-	// The server-side encryption key configuration for a customer provided encryption key specified for creating a data store.
+	// The server-side encryption key configuration for a customer-provided encryption key specified for creating a data store.
 	SseConfiguration FhirDatastoreSseConfigurationPtrOutput `pulumi:"sseConfiguration"`
 	// An array of key-value pairs to apply to this resource.
 	//
@@ -93,15 +93,15 @@ func (FhirDatastoreState) ElementType() reflect.Type {
 }
 
 type fhirDatastoreArgs struct {
-	// The user generated name for the data store.
+	// The data store name (user-generated).
 	DatastoreName *string `pulumi:"datastoreName"`
-	// The FHIR version of the data store. The only supported version is R4.
+	// The FHIR release version supported by the data store. Current support is for version `R4` .
 	DatastoreTypeVersion FhirDatastoreDatastoreTypeVersion `pulumi:"datastoreTypeVersion"`
-	// The identity provider configuration that you gave when the data store was created.
+	// The identity provider configuration selected when the data store was created.
 	IdentityProviderConfiguration *FhirDatastoreIdentityProviderConfiguration `pulumi:"identityProviderConfiguration"`
-	// The preloaded data configuration for the data store. Only data preloaded from Synthea is supported.
+	// The preloaded Synthea data configuration for the data store.
 	PreloadDataConfig *FhirDatastorePreloadDataConfig `pulumi:"preloadDataConfig"`
-	// The server-side encryption key configuration for a customer provided encryption key specified for creating a data store.
+	// The server-side encryption key configuration for a customer-provided encryption key specified for creating a data store.
 	SseConfiguration *FhirDatastoreSseConfiguration `pulumi:"sseConfiguration"`
 	// An array of key-value pairs to apply to this resource.
 	//
@@ -111,15 +111,15 @@ type fhirDatastoreArgs struct {
 
 // The set of arguments for constructing a FhirDatastore resource.
 type FhirDatastoreArgs struct {
-	// The user generated name for the data store.
+	// The data store name (user-generated).
 	DatastoreName pulumi.StringPtrInput
-	// The FHIR version of the data store. The only supported version is R4.
+	// The FHIR release version supported by the data store. Current support is for version `R4` .
 	DatastoreTypeVersion FhirDatastoreDatastoreTypeVersionInput
-	// The identity provider configuration that you gave when the data store was created.
+	// The identity provider configuration selected when the data store was created.
 	IdentityProviderConfiguration FhirDatastoreIdentityProviderConfigurationPtrInput
-	// The preloaded data configuration for the data store. Only data preloaded from Synthea is supported.
+	// The preloaded Synthea data configuration for the data store.
 	PreloadDataConfig FhirDatastorePreloadDataConfigPtrInput
-	// The server-side encryption key configuration for a customer provided encryption key specified for creating a data store.
+	// The server-side encryption key configuration for a customer-provided encryption key specified for creating a data store.
 	SseConfiguration FhirDatastoreSseConfigurationPtrInput
 	// An array of key-value pairs to apply to this resource.
 	//
@@ -183,7 +183,7 @@ func (o FhirDatastoreOutput) DatastoreId() pulumi.StringOutput {
 	return o.ApplyT(func(v *FhirDatastore) pulumi.StringOutput { return v.DatastoreId }).(pulumi.StringOutput)
 }
 
-// The user generated name for the data store.
+// The data store name (user-generated).
 func (o FhirDatastoreOutput) DatastoreName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FhirDatastore) pulumi.StringPtrOutput { return v.DatastoreName }).(pulumi.StringPtrOutput)
 }
@@ -193,24 +193,24 @@ func (o FhirDatastoreOutput) DatastoreStatus() FhirDatastoreDatastoreStatusOutpu
 	return o.ApplyT(func(v *FhirDatastore) FhirDatastoreDatastoreStatusOutput { return v.DatastoreStatus }).(FhirDatastoreDatastoreStatusOutput)
 }
 
-// The FHIR version of the data store. The only supported version is R4.
+// The FHIR release version supported by the data store. Current support is for version `R4` .
 func (o FhirDatastoreOutput) DatastoreTypeVersion() FhirDatastoreDatastoreTypeVersionOutput {
 	return o.ApplyT(func(v *FhirDatastore) FhirDatastoreDatastoreTypeVersionOutput { return v.DatastoreTypeVersion }).(FhirDatastoreDatastoreTypeVersionOutput)
 }
 
-// The identity provider configuration that you gave when the data store was created.
+// The identity provider configuration selected when the data store was created.
 func (o FhirDatastoreOutput) IdentityProviderConfiguration() FhirDatastoreIdentityProviderConfigurationPtrOutput {
 	return o.ApplyT(func(v *FhirDatastore) FhirDatastoreIdentityProviderConfigurationPtrOutput {
 		return v.IdentityProviderConfiguration
 	}).(FhirDatastoreIdentityProviderConfigurationPtrOutput)
 }
 
-// The preloaded data configuration for the data store. Only data preloaded from Synthea is supported.
+// The preloaded Synthea data configuration for the data store.
 func (o FhirDatastoreOutput) PreloadDataConfig() FhirDatastorePreloadDataConfigPtrOutput {
 	return o.ApplyT(func(v *FhirDatastore) FhirDatastorePreloadDataConfigPtrOutput { return v.PreloadDataConfig }).(FhirDatastorePreloadDataConfigPtrOutput)
 }
 
-// The server-side encryption key configuration for a customer provided encryption key specified for creating a data store.
+// The server-side encryption key configuration for a customer-provided encryption key specified for creating a data store.
 func (o FhirDatastoreOutput) SseConfiguration() FhirDatastoreSseConfigurationPtrOutput {
 	return o.ApplyT(func(v *FhirDatastore) FhirDatastoreSseConfigurationPtrOutput { return v.SseConfiguration }).(FhirDatastoreSseConfigurationPtrOutput)
 }

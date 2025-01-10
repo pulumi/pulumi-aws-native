@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.HealthLake
         public Output<string> DatastoreId { get; private set; } = null!;
 
         /// <summary>
-        /// The user generated name for the data store.
+        /// The data store name (user-generated).
         /// </summary>
         [Output("datastoreName")]
         public Output<string?> DatastoreName { get; private set; } = null!;
@@ -49,25 +49,25 @@ namespace Pulumi.AwsNative.HealthLake
         public Output<Pulumi.AwsNative.HealthLake.FhirDatastoreDatastoreStatus> DatastoreStatus { get; private set; } = null!;
 
         /// <summary>
-        /// The FHIR version of the data store. The only supported version is R4.
+        /// The FHIR release version supported by the data store. Current support is for version `R4` .
         /// </summary>
         [Output("datastoreTypeVersion")]
         public Output<Pulumi.AwsNative.HealthLake.FhirDatastoreDatastoreTypeVersion> DatastoreTypeVersion { get; private set; } = null!;
 
         /// <summary>
-        /// The identity provider configuration that you gave when the data store was created.
+        /// The identity provider configuration selected when the data store was created.
         /// </summary>
         [Output("identityProviderConfiguration")]
         public Output<Outputs.FhirDatastoreIdentityProviderConfiguration?> IdentityProviderConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// The preloaded data configuration for the data store. Only data preloaded from Synthea is supported.
+        /// The preloaded Synthea data configuration for the data store.
         /// </summary>
         [Output("preloadDataConfig")]
         public Output<Outputs.FhirDatastorePreloadDataConfig?> PreloadDataConfig { get; private set; } = null!;
 
         /// <summary>
-        /// The server-side encryption key configuration for a customer provided encryption key specified for creating a data store.
+        /// The server-side encryption key configuration for a customer-provided encryption key specified for creating a data store.
         /// </summary>
         [Output("sseConfiguration")]
         public Output<Outputs.FhirDatastoreSseConfiguration?> SseConfiguration { get; private set; } = null!;
@@ -134,31 +134,31 @@ namespace Pulumi.AwsNative.HealthLake
     public sealed class FhirDatastoreArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The user generated name for the data store.
+        /// The data store name (user-generated).
         /// </summary>
         [Input("datastoreName")]
         public Input<string>? DatastoreName { get; set; }
 
         /// <summary>
-        /// The FHIR version of the data store. The only supported version is R4.
+        /// The FHIR release version supported by the data store. Current support is for version `R4` .
         /// </summary>
         [Input("datastoreTypeVersion", required: true)]
         public Input<Pulumi.AwsNative.HealthLake.FhirDatastoreDatastoreTypeVersion> DatastoreTypeVersion { get; set; } = null!;
 
         /// <summary>
-        /// The identity provider configuration that you gave when the data store was created.
+        /// The identity provider configuration selected when the data store was created.
         /// </summary>
         [Input("identityProviderConfiguration")]
         public Input<Inputs.FhirDatastoreIdentityProviderConfigurationArgs>? IdentityProviderConfiguration { get; set; }
 
         /// <summary>
-        /// The preloaded data configuration for the data store. Only data preloaded from Synthea is supported.
+        /// The preloaded Synthea data configuration for the data store.
         /// </summary>
         [Input("preloadDataConfig")]
         public Input<Inputs.FhirDatastorePreloadDataConfigArgs>? PreloadDataConfig { get; set; }
 
         /// <summary>
-        /// The server-side encryption key configuration for a customer provided encryption key specified for creating a data store.
+        /// The server-side encryption key configuration for a customer-provided encryption key specified for creating a data store.
         /// </summary>
         [Input("sseConfiguration")]
         public Input<Inputs.FhirDatastoreSseConfigurationArgs>? SseConfiguration { get; set; }

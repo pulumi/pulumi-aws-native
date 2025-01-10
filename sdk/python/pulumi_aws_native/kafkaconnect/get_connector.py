@@ -25,13 +25,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetConnectorResult:
-    def __init__(__self__, capacity=None, connector_arn=None, tags=None):
+    def __init__(__self__, capacity=None, connector_arn=None, connector_configuration=None, tags=None):
         if capacity and not isinstance(capacity, dict):
             raise TypeError("Expected argument 'capacity' to be a dict")
         pulumi.set(__self__, "capacity", capacity)
         if connector_arn and not isinstance(connector_arn, str):
             raise TypeError("Expected argument 'connector_arn' to be a str")
         pulumi.set(__self__, "connector_arn", connector_arn)
+        if connector_configuration and not isinstance(connector_configuration, dict):
+            raise TypeError("Expected argument 'connector_configuration' to be a dict")
+        pulumi.set(__self__, "connector_configuration", connector_configuration)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -53,6 +56,14 @@ class GetConnectorResult:
         return pulumi.get(self, "connector_arn")
 
     @property
+    @pulumi.getter(name="connectorConfiguration")
+    def connector_configuration(self) -> Optional[Mapping[str, str]]:
+        """
+        The configuration for the connector.
+        """
+        return pulumi.get(self, "connector_configuration")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
@@ -69,6 +80,7 @@ class AwaitableGetConnectorResult(GetConnectorResult):
         return GetConnectorResult(
             capacity=self.capacity,
             connector_arn=self.connector_arn,
+            connector_configuration=self.connector_configuration,
             tags=self.tags)
 
 
@@ -88,6 +100,7 @@ def get_connector(connector_arn: Optional[str] = None,
     return AwaitableGetConnectorResult(
         capacity=pulumi.get(__ret__, 'capacity'),
         connector_arn=pulumi.get(__ret__, 'connector_arn'),
+        connector_configuration=pulumi.get(__ret__, 'connector_configuration'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_connector_output(connector_arn: Optional[pulumi.Input[str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectorResult]:
@@ -104,4 +117,5 @@ def get_connector_output(connector_arn: Optional[pulumi.Input[str]] = None,
     return __ret__.apply(lambda __response__: GetConnectorResult(
         capacity=pulumi.get(__response__, 'capacity'),
         connector_arn=pulumi.get(__response__, 'connector_arn'),
+        connector_configuration=pulumi.get(__response__, 'connector_configuration'),
         tags=pulumi.get(__response__, 'tags')))

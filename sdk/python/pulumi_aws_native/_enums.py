@@ -61,6 +61,10 @@ class Region(str, Enum):
     """
     Asia Pacific (Malaysia)
     """
+    AP_SOUTHEAST7 = "ap-southeast-7"
+    """
+    Asia Pacific (Thailand)
+    """
     CA_CENTRAL1 = "ca-central-1"
     """
     Canada (Central)

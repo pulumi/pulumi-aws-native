@@ -79,7 +79,6 @@ func NewConnector(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ServiceExecutionRoleArn'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
-		"connectorConfiguration.*",
 		"connectorDescription",
 		"connectorName",
 		"kafkaCluster",

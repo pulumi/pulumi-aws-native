@@ -668,18 +668,26 @@ if not MYPY:
         """
         Indicates whether point in time recovery is enabled (true) or disabled (false) on the table.
         """
+        recovery_period_in_days: NotRequired[pulumi.Input[int]]
+        """
+        The number of preceding days for which continuous backups are taken and maintained. Your table data is only recoverable to any point-in-time from within the configured recovery period. This parameter is optional. If no value is provided, the value will default to 35.
+        """
 elif False:
     GlobalTablePointInTimeRecoverySpecificationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class GlobalTablePointInTimeRecoverySpecificationArgs:
     def __init__(__self__, *,
-                 point_in_time_recovery_enabled: Optional[pulumi.Input[bool]] = None):
+                 point_in_time_recovery_enabled: Optional[pulumi.Input[bool]] = None,
+                 recovery_period_in_days: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[bool] point_in_time_recovery_enabled: Indicates whether point in time recovery is enabled (true) or disabled (false) on the table.
+        :param pulumi.Input[int] recovery_period_in_days: The number of preceding days for which continuous backups are taken and maintained. Your table data is only recoverable to any point-in-time from within the configured recovery period. This parameter is optional. If no value is provided, the value will default to 35.
         """
         if point_in_time_recovery_enabled is not None:
             pulumi.set(__self__, "point_in_time_recovery_enabled", point_in_time_recovery_enabled)
+        if recovery_period_in_days is not None:
+            pulumi.set(__self__, "recovery_period_in_days", recovery_period_in_days)
 
     @property
     @pulumi.getter(name="pointInTimeRecoveryEnabled")
@@ -692,6 +700,18 @@ class GlobalTablePointInTimeRecoverySpecificationArgs:
     @point_in_time_recovery_enabled.setter
     def point_in_time_recovery_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "point_in_time_recovery_enabled", value)
+
+    @property
+    @pulumi.getter(name="recoveryPeriodInDays")
+    def recovery_period_in_days(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of preceding days for which continuous backups are taken and maintained. Your table data is only recoverable to any point-in-time from within the configured recovery period. This parameter is optional. If no value is provided, the value will default to 35.
+        """
+        return pulumi.get(self, "recovery_period_in_days")
+
+    @recovery_period_in_days.setter
+    def recovery_period_in_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "recovery_period_in_days", value)
 
 
 if not MYPY:
@@ -2496,6 +2516,9 @@ if not MYPY:
         Indicates whether point in time recovery is enabled (true) or disabled (false) on the table.
         """
         recovery_period_in_days: NotRequired[pulumi.Input[int]]
+        """
+        The number of preceding days for which continuous backups are taken and maintained. Your table data is only recoverable to any point-in-time from within the configured recovery period. This parameter is optional. If no value is provided, the value will default to 35.
+        """
 elif False:
     TablePointInTimeRecoverySpecificationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2507,6 +2530,7 @@ class TablePointInTimeRecoverySpecificationArgs:
         """
         The settings used to enable point in time recovery.
         :param pulumi.Input[bool] point_in_time_recovery_enabled: Indicates whether point in time recovery is enabled (true) or disabled (false) on the table.
+        :param pulumi.Input[int] recovery_period_in_days: The number of preceding days for which continuous backups are taken and maintained. Your table data is only recoverable to any point-in-time from within the configured recovery period. This parameter is optional. If no value is provided, the value will default to 35.
         """
         if point_in_time_recovery_enabled is not None:
             pulumi.set(__self__, "point_in_time_recovery_enabled", point_in_time_recovery_enabled)
@@ -2528,6 +2552,9 @@ class TablePointInTimeRecoverySpecificationArgs:
     @property
     @pulumi.getter(name="recoveryPeriodInDays")
     def recovery_period_in_days(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of preceding days for which continuous backups are taken and maintained. Your table data is only recoverable to any point-in-time from within the configured recovery period. This parameter is optional. If no value is provided, the value will default to 35.
+        """
         return pulumi.get(self, "recovery_period_in_days")
 
     @recovery_period_in_days.setter

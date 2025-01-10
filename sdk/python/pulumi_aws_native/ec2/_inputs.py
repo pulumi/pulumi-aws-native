@@ -1699,8 +1699,9 @@ if not MYPY:
         """
         The accelerator types that must be on the instance type.
 
-        - To include instance types with GPU hardware, specify `gpu` .
-        - To include instance types with FPGA hardware, specify `fpga` .
+        - For instance types with FPGA accelerators, specify `fpga` .
+        - For instance types with GPU accelerators, specify `gpu` .
+        - For instance types with Inference accelerators, specify `inference` .
 
         Default: Any accelerator type
         """
@@ -1945,8 +1946,9 @@ class Ec2FleetInstanceRequirementsRequestArgs:
                Default: No minimum or maximum limits
         :param pulumi.Input[Sequence[pulumi.Input['Ec2FleetInstanceRequirementsRequestAcceleratorTypesItem']]] accelerator_types: The accelerator types that must be on the instance type.
                
-               - To include instance types with GPU hardware, specify `gpu` .
-               - To include instance types with FPGA hardware, specify `fpga` .
+               - For instance types with FPGA accelerators, specify `fpga` .
+               - For instance types with GPU accelerators, specify `gpu` .
+               - For instance types with Inference accelerators, specify `inference` .
                
                Default: Any accelerator type
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_instance_types: The instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes.
@@ -2198,8 +2200,9 @@ class Ec2FleetInstanceRequirementsRequestArgs:
         """
         The accelerator types that must be on the instance type.
 
-        - To include instance types with GPU hardware, specify `gpu` .
-        - To include instance types with FPGA hardware, specify `fpga` .
+        - For instance types with FPGA accelerators, specify `fpga` .
+        - For instance types with GPU accelerators, specify `gpu` .
+        - For instance types with Inference accelerators, specify `inference` .
 
         Default: Any accelerator type
         """
@@ -12417,8 +12420,9 @@ if not MYPY:
         """
         The accelerator types that must be on the instance type.
 
-        - To include instance types with GPU hardware, specify `gpu` .
-        - To include instance types with FPGA hardware, specify `fpga` .
+        - For instance types with FPGA accelerators, specify `fpga` .
+        - For instance types with GPU accelerators, specify `gpu` .
+        - For instance types with Inference accelerators, specify `inference` .
 
         Default: Any accelerator type
         """
@@ -12663,8 +12667,9 @@ class SpotFleetInstanceRequirementsRequestArgs:
                Default: No minimum or maximum limits
         :param pulumi.Input[Sequence[pulumi.Input['SpotFleetInstanceRequirementsRequestAcceleratorTypesItem']]] accelerator_types: The accelerator types that must be on the instance type.
                
-               - To include instance types with GPU hardware, specify `gpu` .
-               - To include instance types with FPGA hardware, specify `fpga` .
+               - For instance types with FPGA accelerators, specify `fpga` .
+               - For instance types with GPU accelerators, specify `gpu` .
+               - For instance types with Inference accelerators, specify `inference` .
                
                Default: Any accelerator type
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_instance_types: The instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes.
@@ -12916,8 +12921,9 @@ class SpotFleetInstanceRequirementsRequestArgs:
         """
         The accelerator types that must be on the instance type.
 
-        - To include instance types with GPU hardware, specify `gpu` .
-        - To include instance types with FPGA hardware, specify `fpga` .
+        - For instance types with FPGA accelerators, specify `fpga` .
+        - For instance types with GPU accelerators, specify `gpu` .
+        - For instance types with Inference accelerators, specify `inference` .
 
         Default: Any accelerator type
         """

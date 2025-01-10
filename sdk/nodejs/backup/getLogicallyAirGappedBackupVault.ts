@@ -41,13 +41,7 @@ export interface GetLogicallyAirGappedBackupVaultResult {
      * Returns event notifications for the specified backup vault.
      */
     readonly notifications?: outputs.backup.LogicallyAirGappedBackupVaultNotificationObjectType;
-    /**
-     * The current state of the vault.
-     */
     readonly vaultState?: string;
-    /**
-     * The type of vault described.
-     */
     readonly vaultType?: string;
 }
 /**

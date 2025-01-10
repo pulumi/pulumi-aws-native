@@ -17,7 +17,7 @@ namespace Pulumi.AwsNative.HealthLake.Outputs
     public sealed class FhirDatastoreSseConfiguration
     {
         /// <summary>
-        /// The server-side encryption key configuration for a customer provided encryption key (CMK).
+        /// The server-side encryption key configuration for a customer provided encryption key.
         /// </summary>
         public readonly Outputs.FhirDatastoreKmsEncryptionConfig KmsEncryptionConfig;
 

@@ -1911,7 +1911,13 @@ class IdNamespaceAssociationInputReferenceConfigArgs:
 if not MYPY:
     class MembershipMlPaymentConfigArgsDict(TypedDict):
         model_inference: NotRequired[pulumi.Input['MembershipModelInferencePaymentConfigArgsDict']]
+        """
+        The payment responsibilities accepted by the member for model inference.
+        """
         model_training: NotRequired[pulumi.Input['MembershipModelTrainingPaymentConfigArgsDict']]
+        """
+        The payment responsibilities accepted by the member for model training.
+        """
 elif False:
     MembershipMlPaymentConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1920,6 +1926,10 @@ class MembershipMlPaymentConfigArgs:
     def __init__(__self__, *,
                  model_inference: Optional[pulumi.Input['MembershipModelInferencePaymentConfigArgs']] = None,
                  model_training: Optional[pulumi.Input['MembershipModelTrainingPaymentConfigArgs']] = None):
+        """
+        :param pulumi.Input['MembershipModelInferencePaymentConfigArgs'] model_inference: The payment responsibilities accepted by the member for model inference.
+        :param pulumi.Input['MembershipModelTrainingPaymentConfigArgs'] model_training: The payment responsibilities accepted by the member for model training.
+        """
         if model_inference is not None:
             pulumi.set(__self__, "model_inference", model_inference)
         if model_training is not None:
@@ -1928,6 +1938,9 @@ class MembershipMlPaymentConfigArgs:
     @property
     @pulumi.getter(name="modelInference")
     def model_inference(self) -> Optional[pulumi.Input['MembershipModelInferencePaymentConfigArgs']]:
+        """
+        The payment responsibilities accepted by the member for model inference.
+        """
         return pulumi.get(self, "model_inference")
 
     @model_inference.setter
@@ -1937,6 +1950,9 @@ class MembershipMlPaymentConfigArgs:
     @property
     @pulumi.getter(name="modelTraining")
     def model_training(self) -> Optional[pulumi.Input['MembershipModelTrainingPaymentConfigArgs']]:
+        """
+        The payment responsibilities accepted by the member for model training.
+        """
         return pulumi.get(self, "model_training")
 
     @model_training.setter
@@ -1947,6 +1963,16 @@ class MembershipMlPaymentConfigArgs:
 if not MYPY:
     class MembershipModelInferencePaymentConfigArgsDict(TypedDict):
         is_responsible: pulumi.Input[bool]
+        """
+        Indicates whether the collaboration member has accepted to pay for model inference costs ( `TRUE` ) or has not accepted to pay for model inference costs ( `FALSE` ).
+
+        If the collaboration creator has not specified anyone to pay for model inference costs, then the member who can query is the default payer.
+
+        An error message is returned for the following reasons:
+
+        - If you set the value to `FALSE` but you are responsible to pay for model inference costs.
+        - If you set the value to `TRUE` but you are not responsible to pay for model inference costs.
+        """
 elif False:
     MembershipModelInferencePaymentConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1954,11 +1980,31 @@ elif False:
 class MembershipModelInferencePaymentConfigArgs:
     def __init__(__self__, *,
                  is_responsible: pulumi.Input[bool]):
+        """
+        :param pulumi.Input[bool] is_responsible: Indicates whether the collaboration member has accepted to pay for model inference costs ( `TRUE` ) or has not accepted to pay for model inference costs ( `FALSE` ).
+               
+               If the collaboration creator has not specified anyone to pay for model inference costs, then the member who can query is the default payer.
+               
+               An error message is returned for the following reasons:
+               
+               - If you set the value to `FALSE` but you are responsible to pay for model inference costs.
+               - If you set the value to `TRUE` but you are not responsible to pay for model inference costs.
+        """
         pulumi.set(__self__, "is_responsible", is_responsible)
 
     @property
     @pulumi.getter(name="isResponsible")
     def is_responsible(self) -> pulumi.Input[bool]:
+        """
+        Indicates whether the collaboration member has accepted to pay for model inference costs ( `TRUE` ) or has not accepted to pay for model inference costs ( `FALSE` ).
+
+        If the collaboration creator has not specified anyone to pay for model inference costs, then the member who can query is the default payer.
+
+        An error message is returned for the following reasons:
+
+        - If you set the value to `FALSE` but you are responsible to pay for model inference costs.
+        - If you set the value to `TRUE` but you are not responsible to pay for model inference costs.
+        """
         return pulumi.get(self, "is_responsible")
 
     @is_responsible.setter
@@ -1969,6 +2015,16 @@ class MembershipModelInferencePaymentConfigArgs:
 if not MYPY:
     class MembershipModelTrainingPaymentConfigArgsDict(TypedDict):
         is_responsible: pulumi.Input[bool]
+        """
+        Indicates whether the collaboration member has accepted to pay for model training costs ( `TRUE` ) or has not accepted to pay for model training costs ( `FALSE` ).
+
+        If the collaboration creator has not specified anyone to pay for model training costs, then the member who can query is the default payer.
+
+        An error message is returned for the following reasons:
+
+        - If you set the value to `FALSE` but you are responsible to pay for model training costs.
+        - If you set the value to `TRUE` but you are not responsible to pay for model training costs.
+        """
 elif False:
     MembershipModelTrainingPaymentConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1976,11 +2032,31 @@ elif False:
 class MembershipModelTrainingPaymentConfigArgs:
     def __init__(__self__, *,
                  is_responsible: pulumi.Input[bool]):
+        """
+        :param pulumi.Input[bool] is_responsible: Indicates whether the collaboration member has accepted to pay for model training costs ( `TRUE` ) or has not accepted to pay for model training costs ( `FALSE` ).
+               
+               If the collaboration creator has not specified anyone to pay for model training costs, then the member who can query is the default payer.
+               
+               An error message is returned for the following reasons:
+               
+               - If you set the value to `FALSE` but you are responsible to pay for model training costs.
+               - If you set the value to `TRUE` but you are not responsible to pay for model training costs.
+        """
         pulumi.set(__self__, "is_responsible", is_responsible)
 
     @property
     @pulumi.getter(name="isResponsible")
     def is_responsible(self) -> pulumi.Input[bool]:
+        """
+        Indicates whether the collaboration member has accepted to pay for model training costs ( `TRUE` ) or has not accepted to pay for model training costs ( `FALSE` ).
+
+        If the collaboration creator has not specified anyone to pay for model training costs, then the member who can query is the default payer.
+
+        An error message is returned for the following reasons:
+
+        - If you set the value to `FALSE` but you are responsible to pay for model training costs.
+        - If you set the value to `TRUE` but you are not responsible to pay for model training costs.
+        """
         return pulumi.get(self, "is_responsible")
 
     @is_responsible.setter
@@ -1995,6 +2071,9 @@ if not MYPY:
         The payment responsibilities accepted by the collaboration member for query compute costs.
         """
         machine_learning: NotRequired[pulumi.Input['MembershipMlPaymentConfigArgsDict']]
+        """
+        The payment responsibilities accepted by the collaboration member for machine learning costs.
+        """
 elif False:
     MembershipPaymentConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -2005,6 +2084,7 @@ class MembershipPaymentConfigurationArgs:
                  machine_learning: Optional[pulumi.Input['MembershipMlPaymentConfigArgs']] = None):
         """
         :param pulumi.Input['MembershipQueryComputePaymentConfigArgs'] query_compute: The payment responsibilities accepted by the collaboration member for query compute costs.
+        :param pulumi.Input['MembershipMlPaymentConfigArgs'] machine_learning: The payment responsibilities accepted by the collaboration member for machine learning costs.
         """
         pulumi.set(__self__, "query_compute", query_compute)
         if machine_learning is not None:
@@ -2025,6 +2105,9 @@ class MembershipPaymentConfigurationArgs:
     @property
     @pulumi.getter(name="machineLearning")
     def machine_learning(self) -> Optional[pulumi.Input['MembershipMlPaymentConfigArgs']]:
+        """
+        The payment responsibilities accepted by the collaboration member for machine learning costs.
+        """
         return pulumi.get(self, "machine_learning")
 
     @machine_learning.setter

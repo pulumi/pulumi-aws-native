@@ -402,6 +402,10 @@ export const Region = {
      */
     ApSoutheast5: "ap-southeast-5",
     /**
+     * Asia Pacific (Thailand)
+     */
+    ApSoutheast7: "ap-southeast-7",
+    /**
      * Canada (Central)
      */
     CaCentral1: "ca-central-1",

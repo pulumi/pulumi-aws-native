@@ -13,6 +13,9 @@ namespace Pulumi.AwsNative.CleanRooms.Outputs
     [OutputType]
     public sealed class MembershipPaymentConfiguration
     {
+        /// <summary>
+        /// The payment responsibilities accepted by the collaboration member for machine learning costs.
+        /// </summary>
         public readonly Outputs.MembershipMlPaymentConfig? MachineLearning;
         /// <summary>
         /// The payment responsibilities accepted by the collaboration member for query compute costs.

@@ -38,10 +38,8 @@ type LookupLogicallyAirGappedBackupVaultResult struct {
 	EncryptionKeyArn *string           `pulumi:"encryptionKeyArn"`
 	// Returns event notifications for the specified backup vault.
 	Notifications *LogicallyAirGappedBackupVaultNotificationObjectType `pulumi:"notifications"`
-	// The current state of the vault.
-	VaultState *string `pulumi:"vaultState"`
-	// The type of vault described.
-	VaultType *string `pulumi:"vaultType"`
+	VaultState    *string                                              `pulumi:"vaultState"`
+	VaultType     *string                                              `pulumi:"vaultType"`
 }
 
 func LookupLogicallyAirGappedBackupVaultOutput(ctx *pulumi.Context, args LookupLogicallyAirGappedBackupVaultOutputArgs, opts ...pulumi.InvokeOption) LookupLogicallyAirGappedBackupVaultResultOutput {
@@ -103,12 +101,10 @@ func (o LookupLogicallyAirGappedBackupVaultResultOutput) Notifications() Logical
 	}).(LogicallyAirGappedBackupVaultNotificationObjectTypePtrOutput)
 }
 
-// The current state of the vault.
 func (o LookupLogicallyAirGappedBackupVaultResultOutput) VaultState() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLogicallyAirGappedBackupVaultResult) *string { return v.VaultState }).(pulumi.StringPtrOutput)
 }
 
-// The type of vault described.
 func (o LookupLogicallyAirGappedBackupVaultResultOutput) VaultType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLogicallyAirGappedBackupVaultResult) *string { return v.VaultType }).(pulumi.StringPtrOutput)
 }

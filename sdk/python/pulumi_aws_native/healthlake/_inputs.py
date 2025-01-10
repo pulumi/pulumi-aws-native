@@ -220,7 +220,7 @@ if not MYPY:
         """
         kms_encryption_config: pulumi.Input['FhirDatastoreKmsEncryptionConfigArgsDict']
         """
-        The server-side encryption key configuration for a customer provided encryption key (CMK).
+        The server-side encryption key configuration for a customer provided encryption key.
         """
 elif False:
     FhirDatastoreSseConfigurationArgsDict: TypeAlias = Mapping[str, Any]
@@ -231,7 +231,7 @@ class FhirDatastoreSseConfigurationArgs:
                  kms_encryption_config: pulumi.Input['FhirDatastoreKmsEncryptionConfigArgs']):
         """
         The server-side encryption key configuration for a customer provided encryption key.
-        :param pulumi.Input['FhirDatastoreKmsEncryptionConfigArgs'] kms_encryption_config: The server-side encryption key configuration for a customer provided encryption key (CMK).
+        :param pulumi.Input['FhirDatastoreKmsEncryptionConfigArgs'] kms_encryption_config: The server-side encryption key configuration for a customer provided encryption key.
         """
         pulumi.set(__self__, "kms_encryption_config", kms_encryption_config)
 
@@ -239,7 +239,7 @@ class FhirDatastoreSseConfigurationArgs:
     @pulumi.getter(name="kmsEncryptionConfig")
     def kms_encryption_config(self) -> pulumi.Input['FhirDatastoreKmsEncryptionConfigArgs']:
         """
-        The server-side encryption key configuration for a customer provided encryption key (CMK).
+        The server-side encryption key configuration for a customer provided encryption key.
         """
         return pulumi.get(self, "kms_encryption_config")
 

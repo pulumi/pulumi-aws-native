@@ -13,7 +13,13 @@ namespace Pulumi.AwsNative.CleanRooms.Outputs
     [OutputType]
     public sealed class MembershipMlPaymentConfig
     {
+        /// <summary>
+        /// The payment responsibilities accepted by the member for model inference.
+        /// </summary>
         public readonly Outputs.MembershipModelInferencePaymentConfig? ModelInference;
+        /// <summary>
+        /// The payment responsibilities accepted by the member for model training.
+        /// </summary>
         public readonly Outputs.MembershipModelTrainingPaymentConfig? ModelTraining;
 
         [OutputConstructor]

@@ -72,6 +72,10 @@ namespace Pulumi.AwsNative.KafkaConnect
         /// </summary>
         public readonly string? ConnectorArn;
         /// <summary>
+        /// The configuration for the connector.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string>? ConnectorConfiguration;
+        /// <summary>
         /// A collection of tags associated with a resource
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
@@ -82,10 +86,13 @@ namespace Pulumi.AwsNative.KafkaConnect
 
             string? connectorArn,
 
+            ImmutableDictionary<string, string>? connectorConfiguration,
+
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Capacity = capacity;
             ConnectorArn = connectorArn;
+            ConnectorConfiguration = connectorConfiguration;
             Tags = tags;
         }
     }
