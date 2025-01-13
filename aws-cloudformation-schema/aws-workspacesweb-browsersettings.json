@@ -93,7 +93,7 @@
       "permissions" : [ "workspaces-web:GetBrowserSettings", "workspaces-web:DeleteBrowserSettings", "kms:CreateGrant", "kms:DescribeKey", "kms:GenerateDataKey", "kms:Decrypt" ]
     },
     "list" : {
-      "permissions" : [ "workspaces-web:ListBrowserSettings" ]
+      "permissions" : [ "workspaces-web:ListBrowserSettings", "kms:Decrypt", "kms:DescribeKey" ]
     }
   },
   "tagging" : {

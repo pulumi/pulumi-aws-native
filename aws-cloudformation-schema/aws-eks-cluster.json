@@ -466,7 +466,7 @@
   "additionalProperties" : false,
   "required" : [ "RoleArn", "ResourcesVpcConfig" ],
   "primaryIdentifier" : [ "/properties/Name" ],
-  "createOnlyProperties" : [ "/properties/OutpostConfig", "/properties/EncryptionConfig", "/properties/KubernetesNetworkConfig", "/properties/AccessConfig/BootstrapClusterCreatorAdminPermissions", "/properties/Name", "/properties/RoleArn", "/properties/BootstrapSelfManagedAddons", "/properties/RemoteNetworkConfig" ],
+  "createOnlyProperties" : [ "/properties/OutpostConfig", "/properties/EncryptionConfig", "/properties/KubernetesNetworkConfig/IpFamily", "/properties/KubernetesNetworkConfig/ServiceIpv4Cidr", "/properties/AccessConfig/BootstrapClusterCreatorAdminPermissions", "/properties/Name", "/properties/RoleArn", "/properties/BootstrapSelfManagedAddons", "/properties/RemoteNetworkConfig" ],
   "readOnlyProperties" : [ "/properties/Id", "/properties/Arn", "/properties/Endpoint", "/properties/CertificateAuthorityData", "/properties/ClusterSecurityGroupId", "/properties/EncryptionConfigKeyArn", "/properties/OpenIdConnectIssuerUrl", "/properties/KubernetesNetworkConfig/ServiceIpv6Cidr" ],
   "writeOnlyProperties" : [ "/properties/AccessConfig/BootstrapClusterCreatorAdminPermissions", "/properties/BootstrapSelfManagedAddons" ],
   "handlers" : {

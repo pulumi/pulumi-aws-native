@@ -9,19 +9,19 @@
   },
   "handlers" : {
     "read" : {
-      "permissions" : [ "apigateway:*" ]
+      "permissions" : [ "apigateway:GET" ]
     },
     "create" : {
-      "permissions" : [ "apigateway:*" ]
+      "permissions" : [ "apigateway:POST", "apigateway:PUT", "apigateway:GET" ]
     },
     "update" : {
-      "permissions" : [ "apigateway:*" ]
+      "permissions" : [ "apigateway:GET", "apigateway:PUT", "apigateway:PATCH" ]
     },
     "list" : {
-      "permissions" : [ "apigateway:*" ]
+      "permissions" : [ "apigateway:GET" ]
     },
     "delete" : {
-      "permissions" : [ "apigateway:*" ]
+      "permissions" : [ "apigateway:GET", "apigateway:DELETE" ]
     }
   },
   "typeName" : "AWS::ApiGateway::DomainName",
