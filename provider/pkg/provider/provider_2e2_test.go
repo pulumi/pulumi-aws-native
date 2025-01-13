@@ -41,7 +41,9 @@ func TestAutonaming(t *testing.T) {
 	assert.Contains(t, logGroupName, "autonaming-log-") // project + name + random suffix
 	fifoQueueName, ok := up.Outputs["fifoQueueName"].Value.(string)
 	assert.True(t, ok)
-	assert.Contains(t, fifoQueueName, "queue.fifo") // verbatim name + resource's autonaming trivia suffix
+
+	// Check that the queue name matches pattern: ${name}-${alphanum(6)}.fifo (.fifo is the resource's autonaming trivia suffix)
+	assert.Regexp(t, `^queue-[a-zA-Z0-9]{6}\.fifo$`, fifoQueueName)
 }
 
 func testUpgradeFrom(t *testing.T, test *pulumitest.PulumiTest, version string) {

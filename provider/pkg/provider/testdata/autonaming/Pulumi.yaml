@@ -9,7 +9,7 @@ config:
           pattern: ${project}-${name}-${alphanum(6)}
           resources:
             aws-native:sqs:Queue:
-              pattern: ${name}
+              pattern: ${name}-${alphanum(6)}
 resources:
   log:
     type: aws-native:logs:LogGroup
