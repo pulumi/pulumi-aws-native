@@ -45,12 +45,10 @@ type UserPoolUser struct {
 	//
 	// You must also provide an email address or phone number when you expect the user to do passwordless sign-in with an email or SMS OTP. These attributes must be provided when passwordless options are the only available, or when you don't submit a `TemporaryPassword` .
 	//
-	// In your `AdminCreateUser` request, you can set the `email_verified` and `phone_number_verified` attributes to `true` . The following conditions apply:
+	// In your call to `AdminCreateUser` , you can set the `email_verified` attribute to `True` , and you can set the `phone_number_verified` attribute to `True` .
 	//
-	// - **email** - The email address where you want the user to receive their confirmation code and username. You must provide a value for the `email` when you want to set `email_verified` to `true` , or if you set `EMAIL` in the `DesiredDeliveryMediums` parameter.
-	// - **phone_number** - The phone number where you want the user to receive their confirmation code and username. You must provide a value for the `email` when you want to set `phone_number` to `true` , or if you set `SMS` in the `DesiredDeliveryMediums` parameter.
-	//
-	// You can also set attributes verified with `API_AdminUpdateUserAttributes` .
+	// - *email* : The email address of the user to whom the message that contains the code and username will be sent. Required if the `email_verified` attribute is set to `True` , or if `"EMAIL"` is specified in the `DesiredDeliveryMediums` parameter.
+	// - *phone_number* : The phone number of the user to whom the message that contains the code and username will be sent. Required if the `phone_number_verified` attribute is set to `True` , or if `"SMS"` is specified in the `DesiredDeliveryMediums` parameter.
 	UserAttributes UserPoolUserAttributeTypeArrayOutput `pulumi:"userAttributes"`
 	// The ID of the user pool where you want to create a user.
 	UserPoolId pulumi.StringOutput `pulumi:"userPoolId"`
@@ -151,12 +149,10 @@ type userPoolUserArgs struct {
 	//
 	// You must also provide an email address or phone number when you expect the user to do passwordless sign-in with an email or SMS OTP. These attributes must be provided when passwordless options are the only available, or when you don't submit a `TemporaryPassword` .
 	//
-	// In your `AdminCreateUser` request, you can set the `email_verified` and `phone_number_verified` attributes to `true` . The following conditions apply:
+	// In your call to `AdminCreateUser` , you can set the `email_verified` attribute to `True` , and you can set the `phone_number_verified` attribute to `True` .
 	//
-	// - **email** - The email address where you want the user to receive their confirmation code and username. You must provide a value for the `email` when you want to set `email_verified` to `true` , or if you set `EMAIL` in the `DesiredDeliveryMediums` parameter.
-	// - **phone_number** - The phone number where you want the user to receive their confirmation code and username. You must provide a value for the `email` when you want to set `phone_number` to `true` , or if you set `SMS` in the `DesiredDeliveryMediums` parameter.
-	//
-	// You can also set attributes verified with `API_AdminUpdateUserAttributes` .
+	// - *email* : The email address of the user to whom the message that contains the code and username will be sent. Required if the `email_verified` attribute is set to `True` , or if `"EMAIL"` is specified in the `DesiredDeliveryMediums` parameter.
+	// - *phone_number* : The phone number of the user to whom the message that contains the code and username will be sent. Required if the `phone_number_verified` attribute is set to `True` , or if `"SMS"` is specified in the `DesiredDeliveryMediums` parameter.
 	UserAttributes []UserPoolUserAttributeType `pulumi:"userAttributes"`
 	// The ID of the user pool where you want to create a user.
 	UserPoolId string `pulumi:"userPoolId"`
@@ -205,12 +201,10 @@ type UserPoolUserArgs struct {
 	//
 	// You must also provide an email address or phone number when you expect the user to do passwordless sign-in with an email or SMS OTP. These attributes must be provided when passwordless options are the only available, or when you don't submit a `TemporaryPassword` .
 	//
-	// In your `AdminCreateUser` request, you can set the `email_verified` and `phone_number_verified` attributes to `true` . The following conditions apply:
+	// In your call to `AdminCreateUser` , you can set the `email_verified` attribute to `True` , and you can set the `phone_number_verified` attribute to `True` .
 	//
-	// - **email** - The email address where you want the user to receive their confirmation code and username. You must provide a value for the `email` when you want to set `email_verified` to `true` , or if you set `EMAIL` in the `DesiredDeliveryMediums` parameter.
-	// - **phone_number** - The phone number where you want the user to receive their confirmation code and username. You must provide a value for the `email` when you want to set `phone_number` to `true` , or if you set `SMS` in the `DesiredDeliveryMediums` parameter.
-	//
-	// You can also set attributes verified with `API_AdminUpdateUserAttributes` .
+	// - *email* : The email address of the user to whom the message that contains the code and username will be sent. Required if the `email_verified` attribute is set to `True` , or if `"EMAIL"` is specified in the `DesiredDeliveryMediums` parameter.
+	// - *phone_number* : The phone number of the user to whom the message that contains the code and username will be sent. Required if the `phone_number_verified` attribute is set to `True` , or if `"SMS"` is specified in the `DesiredDeliveryMediums` parameter.
 	UserAttributes UserPoolUserAttributeTypeArrayInput
 	// The ID of the user pool where you want to create a user.
 	UserPoolId pulumi.StringInput
@@ -306,12 +300,10 @@ func (o UserPoolUserOutput) MessageAction() pulumi.StringPtrOutput {
 //
 // You must also provide an email address or phone number when you expect the user to do passwordless sign-in with an email or SMS OTP. These attributes must be provided when passwordless options are the only available, or when you don't submit a `TemporaryPassword` .
 //
-// In your `AdminCreateUser` request, you can set the `email_verified` and `phone_number_verified` attributes to `true` . The following conditions apply:
+// In your call to `AdminCreateUser` , you can set the `email_verified` attribute to `True` , and you can set the `phone_number_verified` attribute to `True` .
 //
-// - **email** - The email address where you want the user to receive their confirmation code and username. You must provide a value for the `email` when you want to set `email_verified` to `true` , or if you set `EMAIL` in the `DesiredDeliveryMediums` parameter.
-// - **phone_number** - The phone number where you want the user to receive their confirmation code and username. You must provide a value for the `email` when you want to set `phone_number` to `true` , or if you set `SMS` in the `DesiredDeliveryMediums` parameter.
-//
-// You can also set attributes verified with `API_AdminUpdateUserAttributes` .
+// - *email* : The email address of the user to whom the message that contains the code and username will be sent. Required if the `email_verified` attribute is set to `True` , or if `"EMAIL"` is specified in the `DesiredDeliveryMediums` parameter.
+// - *phone_number* : The phone number of the user to whom the message that contains the code and username will be sent. Required if the `phone_number_verified` attribute is set to `True` , or if `"SMS"` is specified in the `DesiredDeliveryMediums` parameter.
 func (o UserPoolUserOutput) UserAttributes() UserPoolUserAttributeTypeArrayOutput {
 	return o.ApplyT(func(v *UserPoolUser) UserPoolUserAttributeTypeArrayOutput { return v.UserAttributes }).(UserPoolUserAttributeTypeArrayOutput)
 }

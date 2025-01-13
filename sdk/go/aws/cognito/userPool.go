@@ -18,8 +18,6 @@ type UserPool struct {
 	// The available verified method a user can use to recover their password when they call `ForgotPassword` . You can use this setting to define a preferred method when a user has more than one method available. With this setting, SMS doesn't qualify for a valid password recovery mechanism if the user also has SMS multi-factor authentication (MFA) activated. In the absence of this setting, Amazon Cognito uses the legacy behavior to determine the recovery method where SMS is preferred through email.
 	AccountRecoverySetting UserPoolAccountRecoverySettingPtrOutput `pulumi:"accountRecoverySetting"`
 	// The settings for administrator creation of users in a user pool. Contains settings for allowing user sign-up, customizing invitation messages to new users, and the amount of time before temporary passwords expire.
-	//
-	// This data type is a request and response parameter of `API_CreateUserPool` and `API_UpdateUserPool` , and a response parameter of `API_DescribeUserPool` .
 	AdminCreateUserConfig UserPoolAdminCreateUserConfigPtrOutput `pulumi:"adminCreateUserConfig"`
 	// Attributes supported as an alias for this user pool. For more information about alias attributes, see [Customizing sign-in attributes](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#user-pool-settings-aliases) .
 	AliasAttributes pulumi.StringArrayOutput `pulumi:"aliasAttributes"`
@@ -60,8 +58,6 @@ type UserPool struct {
 	// When `MfaConfiguration` is `OPTIONAL` , managed login doesn't automatically prompt users to set up MFA. Amazon Cognito generates MFA prompts in API responses and in managed login for users who have chosen and configured a preferred MFA factor.
 	MfaConfiguration pulumi.StringPtrOutput `pulumi:"mfaConfiguration"`
 	// A list of user pool policies. Contains the policy that sets password-complexity requirements.
-	//
-	// This data type is a request and response parameter of `API_CreateUserPool` and `API_UpdateUserPool` , and a response parameter of `API_DescribeUserPool` .
 	Policies UserPoolPoliciesPtrOutput `pulumi:"policies"`
 	// A friendly name for the IdP.
 	ProviderName pulumi.StringOutput `pulumi:"providerName"`
@@ -158,8 +154,6 @@ type userPoolArgs struct {
 	// The available verified method a user can use to recover their password when they call `ForgotPassword` . You can use this setting to define a preferred method when a user has more than one method available. With this setting, SMS doesn't qualify for a valid password recovery mechanism if the user also has SMS multi-factor authentication (MFA) activated. In the absence of this setting, Amazon Cognito uses the legacy behavior to determine the recovery method where SMS is preferred through email.
 	AccountRecoverySetting *UserPoolAccountRecoverySetting `pulumi:"accountRecoverySetting"`
 	// The settings for administrator creation of users in a user pool. Contains settings for allowing user sign-up, customizing invitation messages to new users, and the amount of time before temporary passwords expire.
-	//
-	// This data type is a request and response parameter of `API_CreateUserPool` and `API_UpdateUserPool` , and a response parameter of `API_DescribeUserPool` .
 	AdminCreateUserConfig *UserPoolAdminCreateUserConfig `pulumi:"adminCreateUserConfig"`
 	// Attributes supported as an alias for this user pool. For more information about alias attributes, see [Customizing sign-in attributes](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#user-pool-settings-aliases) .
 	AliasAttributes []string `pulumi:"aliasAttributes"`
@@ -198,8 +192,6 @@ type userPoolArgs struct {
 	// When `MfaConfiguration` is `OPTIONAL` , managed login doesn't automatically prompt users to set up MFA. Amazon Cognito generates MFA prompts in API responses and in managed login for users who have chosen and configured a preferred MFA factor.
 	MfaConfiguration *string `pulumi:"mfaConfiguration"`
 	// A list of user pool policies. Contains the policy that sets password-complexity requirements.
-	//
-	// This data type is a request and response parameter of `API_CreateUserPool` and `API_UpdateUserPool` , and a response parameter of `API_DescribeUserPool` .
 	Policies *UserPoolPolicies `pulumi:"policies"`
 	// An array of attributes for the new user pool. You can add custom attributes and modify the properties of default attributes. The specifications in this parameter set the required attributes in your user pool. For more information, see [Working with user attributes](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html) .
 	Schema []UserPoolSchemaAttribute `pulumi:"schema"`
@@ -252,8 +244,6 @@ type UserPoolArgs struct {
 	// The available verified method a user can use to recover their password when they call `ForgotPassword` . You can use this setting to define a preferred method when a user has more than one method available. With this setting, SMS doesn't qualify for a valid password recovery mechanism if the user also has SMS multi-factor authentication (MFA) activated. In the absence of this setting, Amazon Cognito uses the legacy behavior to determine the recovery method where SMS is preferred through email.
 	AccountRecoverySetting UserPoolAccountRecoverySettingPtrInput
 	// The settings for administrator creation of users in a user pool. Contains settings for allowing user sign-up, customizing invitation messages to new users, and the amount of time before temporary passwords expire.
-	//
-	// This data type is a request and response parameter of `API_CreateUserPool` and `API_UpdateUserPool` , and a response parameter of `API_DescribeUserPool` .
 	AdminCreateUserConfig UserPoolAdminCreateUserConfigPtrInput
 	// Attributes supported as an alias for this user pool. For more information about alias attributes, see [Customizing sign-in attributes](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#user-pool-settings-aliases) .
 	AliasAttributes pulumi.StringArrayInput
@@ -292,8 +282,6 @@ type UserPoolArgs struct {
 	// When `MfaConfiguration` is `OPTIONAL` , managed login doesn't automatically prompt users to set up MFA. Amazon Cognito generates MFA prompts in API responses and in managed login for users who have chosen and configured a preferred MFA factor.
 	MfaConfiguration pulumi.StringPtrInput
 	// A list of user pool policies. Contains the policy that sets password-complexity requirements.
-	//
-	// This data type is a request and response parameter of `API_CreateUserPool` and `API_UpdateUserPool` , and a response parameter of `API_DescribeUserPool` .
 	Policies UserPoolPoliciesPtrInput
 	// An array of attributes for the new user pool. You can add custom attributes and modify the properties of default attributes. The specifications in this parameter set the required attributes in your user pool. For more information, see [Working with user attributes](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html) .
 	Schema UserPoolSchemaAttributeArrayInput
@@ -384,8 +372,6 @@ func (o UserPoolOutput) AccountRecoverySetting() UserPoolAccountRecoverySettingP
 }
 
 // The settings for administrator creation of users in a user pool. Contains settings for allowing user sign-up, customizing invitation messages to new users, and the amount of time before temporary passwords expire.
-//
-// This data type is a request and response parameter of `API_CreateUserPool` and `API_UpdateUserPool` , and a response parameter of `API_DescribeUserPool` .
 func (o UserPoolOutput) AdminCreateUserConfig() UserPoolAdminCreateUserConfigPtrOutput {
 	return o.ApplyT(func(v *UserPool) UserPoolAdminCreateUserConfigPtrOutput { return v.AdminCreateUserConfig }).(UserPoolAdminCreateUserConfigPtrOutput)
 }
@@ -468,8 +454,6 @@ func (o UserPoolOutput) MfaConfiguration() pulumi.StringPtrOutput {
 }
 
 // A list of user pool policies. Contains the policy that sets password-complexity requirements.
-//
-// This data type is a request and response parameter of `API_CreateUserPool` and `API_UpdateUserPool` , and a response parameter of `API_DescribeUserPool` .
 func (o UserPoolOutput) Policies() UserPoolPoliciesPtrOutput {
 	return o.ApplyT(func(v *UserPool) UserPoolPoliciesPtrOutput { return v.Policies }).(UserPoolPoliciesPtrOutput)
 }

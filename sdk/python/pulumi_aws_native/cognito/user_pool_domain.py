@@ -29,11 +29,9 @@ class UserPoolDomainArgs:
         The set of arguments for constructing a UserPoolDomain resource.
         :param pulumi.Input[str] domain: The name of the domain that you want to update. For custom domains, this is the fully-qualified domain name, for example `auth.example.com` . For prefix domains, this is the prefix alone, such as `myprefix` .
         :param pulumi.Input[str] user_pool_id: The ID of the user pool that is associated with the domain you're updating.
-        :param pulumi.Input['UserPoolDomainCustomDomainConfigTypeArgs'] custom_domain_config: The configuration for a custom domain that hosts managed login for your application. In an `UpdateUserPoolDomain` request, this parameter specifies an SSL certificate for the managed login hosted webserver. The certificate must be an ACM ARN in `us-east-1` .
+        :param pulumi.Input['UserPoolDomainCustomDomainConfigTypeArgs'] custom_domain_config: The configuration for a custom domain that hosts the sign-up and sign-in pages for your application. Use this object to specify an SSL certificate that is managed by ACM.
                
                When you create a custom domain, the passkey RP ID defaults to the custom domain. If you had a prefix domain active, this will cause passkey integration for your prefix domain to stop working due to a mismatch in RP ID. To keep the prefix domain passkey integration working, you can explicitly set RP ID to the prefix domain.
-               
-               Update the RP ID in a `API_SetUserPoolMfaConfig` request.
         :param pulumi.Input[int] managed_login_version: A version number that indicates the state of managed login for your domain. Version `1` is hosted UI (classic). Version `2` is the newer managed login with the branding designer. For more information, see [Managed login](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html) .
         """
         pulumi.set(__self__, "domain", domain)
@@ -71,11 +69,9 @@ class UserPoolDomainArgs:
     @pulumi.getter(name="customDomainConfig")
     def custom_domain_config(self) -> Optional[pulumi.Input['UserPoolDomainCustomDomainConfigTypeArgs']]:
         """
-        The configuration for a custom domain that hosts managed login for your application. In an `UpdateUserPoolDomain` request, this parameter specifies an SSL certificate for the managed login hosted webserver. The certificate must be an ACM ARN in `us-east-1` .
+        The configuration for a custom domain that hosts the sign-up and sign-in pages for your application. Use this object to specify an SSL certificate that is managed by ACM.
 
         When you create a custom domain, the passkey RP ID defaults to the custom domain. If you had a prefix domain active, this will cause passkey integration for your prefix domain to stop working due to a mismatch in RP ID. To keep the prefix domain passkey integration working, you can explicitly set RP ID to the prefix domain.
-
-        Update the RP ID in a `API_SetUserPoolMfaConfig` request.
         """
         return pulumi.get(self, "custom_domain_config")
 
@@ -111,11 +107,9 @@ class UserPoolDomain(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['UserPoolDomainCustomDomainConfigTypeArgs', 'UserPoolDomainCustomDomainConfigTypeArgsDict']] custom_domain_config: The configuration for a custom domain that hosts managed login for your application. In an `UpdateUserPoolDomain` request, this parameter specifies an SSL certificate for the managed login hosted webserver. The certificate must be an ACM ARN in `us-east-1` .
+        :param pulumi.Input[Union['UserPoolDomainCustomDomainConfigTypeArgs', 'UserPoolDomainCustomDomainConfigTypeArgsDict']] custom_domain_config: The configuration for a custom domain that hosts the sign-up and sign-in pages for your application. Use this object to specify an SSL certificate that is managed by ACM.
                
                When you create a custom domain, the passkey RP ID defaults to the custom domain. If you had a prefix domain active, this will cause passkey integration for your prefix domain to stop working due to a mismatch in RP ID. To keep the prefix domain passkey integration working, you can explicitly set RP ID to the prefix domain.
-               
-               Update the RP ID in a `API_SetUserPoolMfaConfig` request.
         :param pulumi.Input[str] domain: The name of the domain that you want to update. For custom domains, this is the fully-qualified domain name, for example `auth.example.com` . For prefix domains, this is the prefix alone, such as `myprefix` .
         :param pulumi.Input[int] managed_login_version: A version number that indicates the state of managed login for your domain. Version `1` is hosted UI (classic). Version `2` is the newer managed login with the branding designer. For more information, see [Managed login](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html) .
         :param pulumi.Input[str] user_pool_id: The ID of the user pool that is associated with the domain you're updating.
@@ -219,11 +213,9 @@ class UserPoolDomain(pulumi.CustomResource):
     @pulumi.getter(name="customDomainConfig")
     def custom_domain_config(self) -> pulumi.Output[Optional['outputs.UserPoolDomainCustomDomainConfigType']]:
         """
-        The configuration for a custom domain that hosts managed login for your application. In an `UpdateUserPoolDomain` request, this parameter specifies an SSL certificate for the managed login hosted webserver. The certificate must be an ACM ARN in `us-east-1` .
+        The configuration for a custom domain that hosts the sign-up and sign-in pages for your application. Use this object to specify an SSL certificate that is managed by ACM.
 
         When you create a custom domain, the passkey RP ID defaults to the custom domain. If you had a prefix domain active, this will cause passkey integration for your prefix domain to stop working due to a mismatch in RP ID. To keep the prefix domain passkey integration working, you can explicitly set RP ID to the prefix domain.
-
-        Update the RP ID in a `API_SetUserPoolMfaConfig` request.
         """
         return pulumi.get(self, "custom_domain_config")
 

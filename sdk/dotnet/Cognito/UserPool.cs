@@ -23,8 +23,6 @@ namespace Pulumi.AwsNative.Cognito
 
         /// <summary>
         /// The settings for administrator creation of users in a user pool. Contains settings for allowing user sign-up, customizing invitation messages to new users, and the amount of time before temporary passwords expire.
-        /// 
-        /// This data type is a request and response parameter of `API_CreateUserPool` and `API_UpdateUserPool` , and a response parameter of `API_DescribeUserPool` .
         /// </summary>
         [Output("adminCreateUserConfig")]
         public Output<Outputs.UserPoolAdminCreateUserConfig?> AdminCreateUserConfig { get; private set; } = null!;
@@ -117,8 +115,6 @@ namespace Pulumi.AwsNative.Cognito
 
         /// <summary>
         /// A list of user pool policies. Contains the policy that sets password-complexity requirements.
-        /// 
-        /// This data type is a request and response parameter of `API_CreateUserPool` and `API_UpdateUserPool` , and a response parameter of `API_DescribeUserPool` .
         /// </summary>
         [Output("policies")]
         public Output<Outputs.UserPoolPolicies?> Policies { get; private set; } = null!;
@@ -294,8 +290,6 @@ namespace Pulumi.AwsNative.Cognito
 
         /// <summary>
         /// The settings for administrator creation of users in a user pool. Contains settings for allowing user sign-up, customizing invitation messages to new users, and the amount of time before temporary passwords expire.
-        /// 
-        /// This data type is a request and response parameter of `API_CreateUserPool` and `API_UpdateUserPool` , and a response parameter of `API_DescribeUserPool` .
         /// </summary>
         [Input("adminCreateUserConfig")]
         public Input<Inputs.UserPoolAdminCreateUserConfigArgs>? AdminCreateUserConfig { get; set; }
@@ -400,8 +394,6 @@ namespace Pulumi.AwsNative.Cognito
 
         /// <summary>
         /// A list of user pool policies. Contains the policy that sets password-complexity requirements.
-        /// 
-        /// This data type is a request and response parameter of `API_CreateUserPool` and `API_UpdateUserPool` , and a response parameter of `API_DescribeUserPool` .
         /// </summary>
         [Input("policies")]
         public Input<Inputs.UserPoolPoliciesArgs>? Policies { get; set; }

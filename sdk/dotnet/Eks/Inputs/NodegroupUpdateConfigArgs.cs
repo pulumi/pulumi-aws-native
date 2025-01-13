@@ -27,6 +27,12 @@ namespace Pulumi.AwsNative.Eks.Inputs
         [Input("maxUnavailablePercentage")]
         public Input<double>? MaxUnavailablePercentage { get; set; }
 
+        /// <summary>
+        /// The configuration for the behavior to follow during an node group version update of this managed node group. You choose between two possible strategies for replacing nodes during an UpdateNodegroupVersion action.
+        /// </summary>
+        [Input("updateStrategy")]
+        public Input<string>? UpdateStrategy { get; set; }
+
         public NodegroupUpdateConfigArgs()
         {
         }

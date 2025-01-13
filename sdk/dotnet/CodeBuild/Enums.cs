@@ -132,6 +132,9 @@ namespace Pulumi.AwsNative.CodeBuild
         public static FleetEnvironmentType LinuxGpuContainer { get; } = new FleetEnvironmentType("LINUX_GPU_CONTAINER");
         public static FleetEnvironmentType ArmContainer { get; } = new FleetEnvironmentType("ARM_CONTAINER");
         public static FleetEnvironmentType MacArm { get; } = new FleetEnvironmentType("MAC_ARM");
+        public static FleetEnvironmentType LinuxEc2 { get; } = new FleetEnvironmentType("LINUX_EC2");
+        public static FleetEnvironmentType ArmEc2 { get; } = new FleetEnvironmentType("ARM_EC2");
+        public static FleetEnvironmentType WindowsEc2 { get; } = new FleetEnvironmentType("WINDOWS_EC2");
 
         public static bool operator ==(FleetEnvironmentType left, FleetEnvironmentType right) => left.Equals(right);
         public static bool operator !=(FleetEnvironmentType left, FleetEnvironmentType right) => !left.Equals(right);

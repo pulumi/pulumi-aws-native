@@ -45,6 +45,8 @@ type LookupClusterResult struct {
 	Endpoint *string `pulumi:"endpoint"`
 	// The unique ID given to your cluster.
 	Id *string `pulumi:"id"`
+	// The Kubernetes network configuration for the cluster.
+	KubernetesNetworkConfig *ClusterKubernetesNetworkConfig `pulumi:"kubernetesNetworkConfig"`
 	// The logging configuration for your cluster.
 	Logging *Logging `pulumi:"logging"`
 	// The issuer URL for the cluster's OIDC identity provider, such as https://oidc.eks.us-west-2.amazonaws.com/id/EXAMPLED539D4633E53DE1B716D3041E. If you need to remove https:// from this output value, you can include the following code in your template.
@@ -135,6 +137,11 @@ func (o LookupClusterResultOutput) Endpoint() pulumi.StringPtrOutput {
 // The unique ID given to your cluster.
 func (o LookupClusterResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupClusterResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The Kubernetes network configuration for the cluster.
+func (o LookupClusterResultOutput) KubernetesNetworkConfig() ClusterKubernetesNetworkConfigPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *ClusterKubernetesNetworkConfig { return v.KubernetesNetworkConfig }).(ClusterKubernetesNetworkConfigPtrOutput)
 }
 
 // The logging configuration for your cluster.

@@ -14,7 +14,7 @@
     },
     "EnvironmentType" : {
       "type" : "string",
-      "enum" : [ "WINDOWS_SERVER_2019_CONTAINER", "WINDOWS_SERVER_2022_CONTAINER", "LINUX_CONTAINER", "LINUX_GPU_CONTAINER", "ARM_CONTAINER", "MAC_ARM" ]
+      "enum" : [ "WINDOWS_SERVER_2019_CONTAINER", "WINDOWS_SERVER_2022_CONTAINER", "LINUX_CONTAINER", "LINUX_GPU_CONTAINER", "ARM_CONTAINER", "MAC_ARM", "LINUX_EC2", "ARM_EC2", "WINDOWS_EC2" ]
     },
     "ComputeType" : {
       "type" : "string",

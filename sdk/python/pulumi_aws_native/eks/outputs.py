@@ -1504,6 +1504,8 @@ class NodegroupUpdateConfig(dict):
             suggest = "max_unavailable"
         elif key == "maxUnavailablePercentage":
             suggest = "max_unavailable_percentage"
+        elif key == "updateStrategy":
+            suggest = "update_strategy"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in NodegroupUpdateConfig. Access the value via the '{suggest}' property getter instead.")
@@ -1518,16 +1520,20 @@ class NodegroupUpdateConfig(dict):
 
     def __init__(__self__, *,
                  max_unavailable: Optional[float] = None,
-                 max_unavailable_percentage: Optional[float] = None):
+                 max_unavailable_percentage: Optional[float] = None,
+                 update_strategy: Optional[str] = None):
         """
         The node group update configuration.
         :param float max_unavailable: The maximum number of nodes unavailable at once during a version update. Nodes will be updated in parallel. This value or maxUnavailablePercentage is required to have a value.The maximum number is 100. 
         :param float max_unavailable_percentage: The maximum percentage of nodes unavailable during a version update. This percentage of nodes will be updated in parallel, up to 100 nodes at once. This value or maxUnavailable is required to have a value.
+        :param str update_strategy: The configuration for the behavior to follow during an node group version update of this managed node group. You choose between two possible strategies for replacing nodes during an UpdateNodegroupVersion action.
         """
         if max_unavailable is not None:
             pulumi.set(__self__, "max_unavailable", max_unavailable)
         if max_unavailable_percentage is not None:
             pulumi.set(__self__, "max_unavailable_percentage", max_unavailable_percentage)
+        if update_strategy is not None:
+            pulumi.set(__self__, "update_strategy", update_strategy)
 
     @property
     @pulumi.getter(name="maxUnavailable")
@@ -1544,5 +1550,13 @@ class NodegroupUpdateConfig(dict):
         The maximum percentage of nodes unavailable during a version update. This percentage of nodes will be updated in parallel, up to 100 nodes at once. This value or maxUnavailable is required to have a value.
         """
         return pulumi.get(self, "max_unavailable_percentage")
+
+    @property
+    @pulumi.getter(name="updateStrategy")
+    def update_strategy(self) -> Optional[str]:
+        """
+        The configuration for the behavior to follow during an node group version update of this managed node group. You choose between two possible strategies for replacing nodes during an UpdateNodegroupVersion action.
+        """
+        return pulumi.get(self, "update_strategy")
 
 

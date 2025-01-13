@@ -19,7 +19,13 @@ export function getEventTrigger(args: GetEventTriggerArgs, opts?: pulumi.InvokeO
 }
 
 export interface GetEventTriggerArgs {
+    /**
+     * The unique name of the domain.
+     */
     domainName: string;
+    /**
+     * The unique name of the event trigger.
+     */
     eventTriggerName: string;
 }
 
@@ -28,15 +34,33 @@ export interface GetEventTriggerResult {
      * The timestamp of when the event trigger was created.
      */
     readonly createdAt?: string;
+    /**
+     * The description of the event trigger.
+     */
     readonly description?: string;
+    /**
+     * A list of conditions that determine when an event should trigger the destination.
+     */
     readonly eventTriggerConditions?: outputs.customerprofiles.EventTriggerCondition[];
+    /**
+     * Defines limits controlling whether an event triggers the destination, based on ingestion latency and the number of invocations per profile over specific time periods.
+     */
     readonly eventTriggerLimits?: outputs.customerprofiles.EventTriggerLimits;
     /**
      * The timestamp of when the event trigger was most recently updated.
      */
     readonly lastUpdatedAt?: string;
+    /**
+     * The unique name of the object type.
+     */
     readonly objectTypeName?: string;
+    /**
+     * The destination is triggered only for profiles that meet the criteria of a segment definition.
+     */
     readonly segmentFilter?: string;
+    /**
+     * An array of key-value pairs to apply to this resource.
+     */
     readonly tags?: outputs.Tag[];
 }
 /**
@@ -51,6 +75,12 @@ export function getEventTriggerOutput(args: GetEventTriggerOutputArgs, opts?: pu
 }
 
 export interface GetEventTriggerOutputArgs {
+    /**
+     * The unique name of the domain.
+     */
     domainName: pulumi.Input<string>;
+    /**
+     * The unique name of the event trigger.
+     */
     eventTriggerName: pulumi.Input<string>;
 }

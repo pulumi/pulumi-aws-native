@@ -15,11 +15,18 @@ namespace Pulumi.AwsNative.CustomerProfiles.Inputs
     /// </summary>
     public sealed class EventTriggerLimitsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies that an event will only trigger the destination if it is processed within a certain latency period.
+        /// </summary>
         [Input("eventExpiration")]
         public Input<int>? EventExpiration { get; set; }
 
         [Input("periods")]
         private InputList<Inputs.EventTriggerPeriodArgs>? _periods;
+
+        /// <summary>
+        /// A list of time periods during which the limits apply.
+        /// </summary>
         public InputList<Inputs.EventTriggerPeriodArgs> Periods
         {
             get => _periods ?? (_periods = new InputList<Inputs.EventTriggerPeriodArgs>());

@@ -91,9 +91,7 @@ class UserPoolClientArgs:
         :param pulumi.Input[str] client_name: A friendly name for the app client that you want to create.
         :param pulumi.Input[str] default_redirect_uri: The default redirect URI. In app clients with one assigned IdP, replaces `redirect_uri` in authentication requests. Must be in the `CallbackURLs` list.
         :param pulumi.Input[bool] enable_propagate_additional_user_context_data: When `true` , your application can include additional `UserContextData` in authentication requests. This data includes the IP address, and contributes to analysis by threat protection features. For more information about propagation of user context data, see [Adding session data to API requests](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-adaptive-authentication.html#user-pool-settings-adaptive-authentication-device-fingerprint) . If you don’t include this parameter, you can't send the source IP address to Amazon Cognito threat protection features. You can only activate `EnablePropagateAdditionalUserContextData` in an app client that has a client secret.
-        :param pulumi.Input[bool] enable_token_revocation: Activates or deactivates [token revocation](https://docs.aws.amazon.com/cognito/latest/developerguide/token-revocation.html) in the target app client.
-               
-               Revoke tokens with `API_RevokeToken` .
+        :param pulumi.Input[bool] enable_token_revocation: Activates or deactivates token revocation.
                
                If you don't include this parameter, token revocation is automatically activated for the new user pool client.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] explicit_auth_flows: The [authentication flows](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-authentication-flow-methods.html) that you want your user pool client to support. For each app client in your user pool, you can sign in your users with any combination of one or more flows, including with a user name and Secure Remote Password (SRP), a user name and password, or a custom authentication process that you define with Lambda functions.
@@ -131,11 +129,9 @@ class UserPoolClientArgs:
                - `LEGACY` - This represents the early behavior of Amazon Cognito where user existence related errors aren't prevented.
                
                Defaults to `LEGACY` when you don't provide a value.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] read_attributes: The list of user attributes that you want your app client to have read access to. After your user authenticates in your app, their access token authorizes them to read their own attribute value for any attribute in this list.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] read_attributes: The list of user attributes that you want your app client to have read access to. After your user authenticates in your app, their access token authorizes them to read their own attribute value for any attribute in this list. An example of this kind of activity is when your user selects a link to view their profile information.
                
-               An example of this kind of activity is when your user selects a link to view their profile information. Your app makes a `API_GetUser` API request to retrieve and display your user's profile data.
-               
-               When you don't specify the `ReadAttributes` for your app client, your app can read the values of `email_verified` , `phone_number_verified` , and the standard attributes of your user pool. When your user pool app client has read access to these default attributes, `ReadAttributes` doesn't return any information. Amazon Cognito only populates `ReadAttributes` in the API response if you have specified your own custom set of read attributes.
+               When you don't specify the `ReadAttributes` for your app client, your app can read the values of `email_verified` , `phone_number_verified` , and the Standard attributes of your user pool. When your user pool app client has read access to these default attributes, `ReadAttributes` doesn't return any information. Amazon Cognito only populates `ReadAttributes` in the API response if you have specified your own custom set of read attributes.
         :param pulumi.Input[int] refresh_token_validity: The refresh token time limit. After this limit expires, your user can't use their refresh token. To specify the time unit for `RefreshTokenValidity` as `seconds` , `minutes` , `hours` , or `days` , set a `TokenValidityUnits` value in your API request.
                
                For example, when you set `RefreshTokenValidity` as `10` and `TokenValidityUnits` as `days` , your user can refresh their session
@@ -150,8 +146,6 @@ class UserPoolClientArgs:
                This parameter sets the IdPs that [managed login](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html) will display on the login page for your app client. The removal of `COGNITO` from this list doesn't prevent authentication operations for local users with the user pools API in an AWS SDK. The only way to prevent SDK-based authentication is to block access with a [AWS WAF rule](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-waf.html) .
         :param pulumi.Input['UserPoolClientTokenValidityUnitsArgs'] token_validity_units: The units that validity times are represented in. The default unit for refresh tokens is days, and the default for ID and access tokens are hours.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] write_attributes: The list of user attributes that you want your app client to have write access to. After your user authenticates in your app, their access token authorizes them to set or modify their own attribute value for any attribute in this list.
-               
-               An example of this kind of activity is when you present your user with a form to update their profile information and they change their last name. Your app then makes an `API_UpdateUserAttributes` API request and sets `family_name` to the new value.
                
                When you don't specify the `WriteAttributes` for your app client, your app can write the values of the Standard attributes of your user pool. When your user pool has write access to these default attributes, `WriteAttributes` doesn't return any information. Amazon Cognito only populates `WriteAttributes` in the API response if you have specified your own custom set of write attributes.
                
@@ -372,9 +366,7 @@ class UserPoolClientArgs:
     @pulumi.getter(name="enableTokenRevocation")
     def enable_token_revocation(self) -> Optional[pulumi.Input[bool]]:
         """
-        Activates or deactivates [token revocation](https://docs.aws.amazon.com/cognito/latest/developerguide/token-revocation.html) in the target app client.
-
-        Revoke tokens with `API_RevokeToken` .
+        Activates or deactivates token revocation.
 
         If you don't include this parameter, token revocation is automatically activated for the new user pool client.
         """
@@ -478,11 +470,9 @@ class UserPoolClientArgs:
     @pulumi.getter(name="readAttributes")
     def read_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The list of user attributes that you want your app client to have read access to. After your user authenticates in your app, their access token authorizes them to read their own attribute value for any attribute in this list.
+        The list of user attributes that you want your app client to have read access to. After your user authenticates in your app, their access token authorizes them to read their own attribute value for any attribute in this list. An example of this kind of activity is when your user selects a link to view their profile information.
 
-        An example of this kind of activity is when your user selects a link to view their profile information. Your app makes a `API_GetUser` API request to retrieve and display your user's profile data.
-
-        When you don't specify the `ReadAttributes` for your app client, your app can read the values of `email_verified` , `phone_number_verified` , and the standard attributes of your user pool. When your user pool app client has read access to these default attributes, `ReadAttributes` doesn't return any information. Amazon Cognito only populates `ReadAttributes` in the API response if you have specified your own custom set of read attributes.
+        When you don't specify the `ReadAttributes` for your app client, your app can read the values of `email_verified` , `phone_number_verified` , and the Standard attributes of your user pool. When your user pool app client has read access to these default attributes, `ReadAttributes` doesn't return any information. Amazon Cognito only populates `ReadAttributes` in the API response if you have specified your own custom set of read attributes.
         """
         return pulumi.get(self, "read_attributes")
 
@@ -541,8 +531,6 @@ class UserPoolClientArgs:
     def write_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The list of user attributes that you want your app client to have write access to. After your user authenticates in your app, their access token authorizes them to set or modify their own attribute value for any attribute in this list.
-
-        An example of this kind of activity is when you present your user with a form to update their profile information and they change their last name. Your app then makes an `API_UpdateUserAttributes` API request and sets `family_name` to the new value.
 
         When you don't specify the `WriteAttributes` for your app client, your app can write the values of the Standard attributes of your user pool. When your user pool has write access to these default attributes, `WriteAttributes` doesn't return any information. Amazon Cognito only populates `WriteAttributes` in the API response if you have specified your own custom set of write attributes.
 
@@ -633,9 +621,7 @@ class UserPoolClient(pulumi.CustomResource):
         :param pulumi.Input[str] client_name: A friendly name for the app client that you want to create.
         :param pulumi.Input[str] default_redirect_uri: The default redirect URI. In app clients with one assigned IdP, replaces `redirect_uri` in authentication requests. Must be in the `CallbackURLs` list.
         :param pulumi.Input[bool] enable_propagate_additional_user_context_data: When `true` , your application can include additional `UserContextData` in authentication requests. This data includes the IP address, and contributes to analysis by threat protection features. For more information about propagation of user context data, see [Adding session data to API requests](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-adaptive-authentication.html#user-pool-settings-adaptive-authentication-device-fingerprint) . If you don’t include this parameter, you can't send the source IP address to Amazon Cognito threat protection features. You can only activate `EnablePropagateAdditionalUserContextData` in an app client that has a client secret.
-        :param pulumi.Input[bool] enable_token_revocation: Activates or deactivates [token revocation](https://docs.aws.amazon.com/cognito/latest/developerguide/token-revocation.html) in the target app client.
-               
-               Revoke tokens with `API_RevokeToken` .
+        :param pulumi.Input[bool] enable_token_revocation: Activates or deactivates token revocation.
                
                If you don't include this parameter, token revocation is automatically activated for the new user pool client.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] explicit_auth_flows: The [authentication flows](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-authentication-flow-methods.html) that you want your user pool client to support. For each app client in your user pool, you can sign in your users with any combination of one or more flows, including with a user name and Secure Remote Password (SRP), a user name and password, or a custom authentication process that you define with Lambda functions.
@@ -673,11 +659,9 @@ class UserPoolClient(pulumi.CustomResource):
                - `LEGACY` - This represents the early behavior of Amazon Cognito where user existence related errors aren't prevented.
                
                Defaults to `LEGACY` when you don't provide a value.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] read_attributes: The list of user attributes that you want your app client to have read access to. After your user authenticates in your app, their access token authorizes them to read their own attribute value for any attribute in this list.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] read_attributes: The list of user attributes that you want your app client to have read access to. After your user authenticates in your app, their access token authorizes them to read their own attribute value for any attribute in this list. An example of this kind of activity is when your user selects a link to view their profile information.
                
-               An example of this kind of activity is when your user selects a link to view their profile information. Your app makes a `API_GetUser` API request to retrieve and display your user's profile data.
-               
-               When you don't specify the `ReadAttributes` for your app client, your app can read the values of `email_verified` , `phone_number_verified` , and the standard attributes of your user pool. When your user pool app client has read access to these default attributes, `ReadAttributes` doesn't return any information. Amazon Cognito only populates `ReadAttributes` in the API response if you have specified your own custom set of read attributes.
+               When you don't specify the `ReadAttributes` for your app client, your app can read the values of `email_verified` , `phone_number_verified` , and the Standard attributes of your user pool. When your user pool app client has read access to these default attributes, `ReadAttributes` doesn't return any information. Amazon Cognito only populates `ReadAttributes` in the API response if you have specified your own custom set of read attributes.
         :param pulumi.Input[int] refresh_token_validity: The refresh token time limit. After this limit expires, your user can't use their refresh token. To specify the time unit for `RefreshTokenValidity` as `seconds` , `minutes` , `hours` , or `days` , set a `TokenValidityUnits` value in your API request.
                
                For example, when you set `RefreshTokenValidity` as `10` and `TokenValidityUnits` as `days` , your user can refresh their session
@@ -693,8 +677,6 @@ class UserPoolClient(pulumi.CustomResource):
         :param pulumi.Input[Union['UserPoolClientTokenValidityUnitsArgs', 'UserPoolClientTokenValidityUnitsArgsDict']] token_validity_units: The units that validity times are represented in. The default unit for refresh tokens is days, and the default for ID and access tokens are hours.
         :param pulumi.Input[str] user_pool_id: The ID of the user pool where you want to create an app client.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] write_attributes: The list of user attributes that you want your app client to have write access to. After your user authenticates in your app, their access token authorizes them to set or modify their own attribute value for any attribute in this list.
-               
-               An example of this kind of activity is when you present your user with a form to update their profile information and they change their last name. Your app then makes an `API_UpdateUserAttributes` API request and sets `family_name` to the new value.
                
                When you don't specify the `WriteAttributes` for your app client, your app can write the values of the Standard attributes of your user pool. When your user pool has write access to these default attributes, `WriteAttributes` doesn't return any information. Amazon Cognito only populates `WriteAttributes` in the API response if you have specified your own custom set of write attributes.
                
@@ -965,9 +947,7 @@ class UserPoolClient(pulumi.CustomResource):
     @pulumi.getter(name="enableTokenRevocation")
     def enable_token_revocation(self) -> pulumi.Output[Optional[bool]]:
         """
-        Activates or deactivates [token revocation](https://docs.aws.amazon.com/cognito/latest/developerguide/token-revocation.html) in the target app client.
-
-        Revoke tokens with `API_RevokeToken` .
+        Activates or deactivates token revocation.
 
         If you don't include this parameter, token revocation is automatically activated for the new user pool client.
         """
@@ -1052,11 +1032,9 @@ class UserPoolClient(pulumi.CustomResource):
     @pulumi.getter(name="readAttributes")
     def read_attributes(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        The list of user attributes that you want your app client to have read access to. After your user authenticates in your app, their access token authorizes them to read their own attribute value for any attribute in this list.
+        The list of user attributes that you want your app client to have read access to. After your user authenticates in your app, their access token authorizes them to read their own attribute value for any attribute in this list. An example of this kind of activity is when your user selects a link to view their profile information.
 
-        An example of this kind of activity is when your user selects a link to view their profile information. Your app makes a `API_GetUser` API request to retrieve and display your user's profile data.
-
-        When you don't specify the `ReadAttributes` for your app client, your app can read the values of `email_verified` , `phone_number_verified` , and the standard attributes of your user pool. When your user pool app client has read access to these default attributes, `ReadAttributes` doesn't return any information. Amazon Cognito only populates `ReadAttributes` in the API response if you have specified your own custom set of read attributes.
+        When you don't specify the `ReadAttributes` for your app client, your app can read the values of `email_verified` , `phone_number_verified` , and the Standard attributes of your user pool. When your user pool app client has read access to these default attributes, `ReadAttributes` doesn't return any information. Amazon Cognito only populates `ReadAttributes` in the API response if you have specified your own custom set of read attributes.
         """
         return pulumi.get(self, "read_attributes")
 
@@ -1107,8 +1085,6 @@ class UserPoolClient(pulumi.CustomResource):
     def write_attributes(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
         The list of user attributes that you want your app client to have write access to. After your user authenticates in your app, their access token authorizes them to set or modify their own attribute value for any attribute in this list.
-
-        An example of this kind of activity is when you present your user with a form to update their profile information and they change their last name. Your app then makes an `API_UpdateUserAttributes` API request and sets `family_name` to the new value.
 
         When you don't specify the `WriteAttributes` for your app client, your app can write the values of the Standard attributes of your user pool. When your user pool has write access to these default attributes, `WriteAttributes` doesn't return any information. Amazon Cognito only populates `WriteAttributes` in the API response if you have specified your own custom set of write attributes.
 

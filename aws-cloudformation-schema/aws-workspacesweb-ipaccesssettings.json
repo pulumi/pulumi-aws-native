@@ -131,7 +131,7 @@
       "permissions" : [ "workspaces-web:GetIpAccessSettings", "workspaces-web:ListIpAccessSettings", "workspaces-web:DeleteIpAccessSettings", "kms:CreateGrant", "kms:DescribeKey", "kms:GenerateDataKey", "kms:Decrypt" ]
     },
     "list" : {
-      "permissions" : [ "workspaces-web:ListIpAccessSettings" ]
+      "permissions" : [ "workspaces-web:ListIpAccessSettings", "kms:Decrypt", "kms:DescribeKey" ]
     }
   },
   "tagging" : {

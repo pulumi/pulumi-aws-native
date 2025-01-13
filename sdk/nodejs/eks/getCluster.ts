@@ -58,6 +58,10 @@ export interface GetClusterResult {
      */
     readonly id?: string;
     /**
+     * The Kubernetes network configuration for the cluster.
+     */
+    readonly kubernetesNetworkConfig?: outputs.eks.ClusterKubernetesNetworkConfig;
+    /**
      * The logging configuration for your cluster.
      */
     readonly logging?: outputs.eks.Logging;

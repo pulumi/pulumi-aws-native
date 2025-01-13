@@ -18,20 +18,10 @@ type AutomationRuleDateFilter struct {
 	// A date range for the date filter.
 	DateRange *AutomationRuleDateRange `pulumi:"dateRange"`
 	// A timestamp that provides the end date for the date filter.
-	//  This field accepts only the specified formats. Timestamps can end with ``Z`` or ``("+" / "-") time-hour [":" time-minute]``. The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
-	//   +   ``YYYY-MM-DDTHH:MM:SSZ`` (for example, ``2019-01-31T23:00:00Z``)
-	//   +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ`` (for example, ``2019-01-31T23:00:00.123456789Z``)
-	//   +   ``YYYY-MM-DDTHH:MM:SS+HH:MM`` (for example, ``2024-01-04T15:25:10+17:59``)
-	//   +   ``YYYY-MM-DDTHH:MM:SS-HHMM`` (for example, ``2024-01-04T15:25:10-1759``)
-	//   +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM`` (for example, ``2024-01-04T15:25:10.123456789+17:59``)
+	//  For more information about the validation and formatting of timestamp fields in ASHlong, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
 	End *string `pulumi:"end"`
 	// A timestamp that provides the start date for the date filter.
-	//  This field accepts only the specified formats. Timestamps can end with ``Z`` or ``("+" / "-") time-hour [":" time-minute]``. The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
-	//   +   ``YYYY-MM-DDTHH:MM:SSZ`` (for example, ``2019-01-31T23:00:00Z``)
-	//   +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ`` (for example, ``2019-01-31T23:00:00.123456789Z``)
-	//   +   ``YYYY-MM-DDTHH:MM:SS+HH:MM`` (for example, ``2024-01-04T15:25:10+17:59``)
-	//   +   ``YYYY-MM-DDTHH:MM:SS-HHMM`` (for example, ``2024-01-04T15:25:10-1759``)
-	//   +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM`` (for example, ``2024-01-04T15:25:10.123456789+17:59``)
+	//  For more information about the validation and formatting of timestamp fields in ASHlong, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
 	Start *string `pulumi:"start"`
 }
 
@@ -51,20 +41,10 @@ type AutomationRuleDateFilterArgs struct {
 	// A date range for the date filter.
 	DateRange AutomationRuleDateRangePtrInput `pulumi:"dateRange"`
 	// A timestamp that provides the end date for the date filter.
-	//  This field accepts only the specified formats. Timestamps can end with ``Z`` or ``("+" / "-") time-hour [":" time-minute]``. The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
-	//   +   ``YYYY-MM-DDTHH:MM:SSZ`` (for example, ``2019-01-31T23:00:00Z``)
-	//   +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ`` (for example, ``2019-01-31T23:00:00.123456789Z``)
-	//   +   ``YYYY-MM-DDTHH:MM:SS+HH:MM`` (for example, ``2024-01-04T15:25:10+17:59``)
-	//   +   ``YYYY-MM-DDTHH:MM:SS-HHMM`` (for example, ``2024-01-04T15:25:10-1759``)
-	//   +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM`` (for example, ``2024-01-04T15:25:10.123456789+17:59``)
+	//  For more information about the validation and formatting of timestamp fields in ASHlong, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
 	End pulumi.StringPtrInput `pulumi:"end"`
 	// A timestamp that provides the start date for the date filter.
-	//  This field accepts only the specified formats. Timestamps can end with ``Z`` or ``("+" / "-") time-hour [":" time-minute]``. The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
-	//   +   ``YYYY-MM-DDTHH:MM:SSZ`` (for example, ``2019-01-31T23:00:00Z``)
-	//   +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ`` (for example, ``2019-01-31T23:00:00.123456789Z``)
-	//   +   ``YYYY-MM-DDTHH:MM:SS+HH:MM`` (for example, ``2024-01-04T15:25:10+17:59``)
-	//   +   ``YYYY-MM-DDTHH:MM:SS-HHMM`` (for example, ``2024-01-04T15:25:10-1759``)
-	//   +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM`` (for example, ``2024-01-04T15:25:10.123456789+17:59``)
+	//  For more information about the validation and formatting of timestamp fields in ASHlong, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
 	Start pulumi.StringPtrInput `pulumi:"start"`
 }
 
@@ -127,24 +107,14 @@ func (o AutomationRuleDateFilterOutput) DateRange() AutomationRuleDateRangePtrOu
 
 // A timestamp that provides the end date for the date filter.
 //
-//	This field accepts only the specified formats. Timestamps can end with ``Z`` or ``("+" / "-") time-hour [":" time-minute]``. The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
-//	 +   ``YYYY-MM-DDTHH:MM:SSZ`` (for example, ``2019-01-31T23:00:00Z``)
-//	 +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ`` (for example, ``2019-01-31T23:00:00.123456789Z``)
-//	 +   ``YYYY-MM-DDTHH:MM:SS+HH:MM`` (for example, ``2024-01-04T15:25:10+17:59``)
-//	 +   ``YYYY-MM-DDTHH:MM:SS-HHMM`` (for example, ``2024-01-04T15:25:10-1759``)
-//	 +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM`` (for example, ``2024-01-04T15:25:10.123456789+17:59``)
+//	For more information about the validation and formatting of timestamp fields in ASHlong, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
 func (o AutomationRuleDateFilterOutput) End() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationRuleDateFilter) *string { return v.End }).(pulumi.StringPtrOutput)
 }
 
 // A timestamp that provides the start date for the date filter.
 //
-//	This field accepts only the specified formats. Timestamps can end with ``Z`` or ``("+" / "-") time-hour [":" time-minute]``. The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
-//	 +   ``YYYY-MM-DDTHH:MM:SSZ`` (for example, ``2019-01-31T23:00:00Z``)
-//	 +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ`` (for example, ``2019-01-31T23:00:00.123456789Z``)
-//	 +   ``YYYY-MM-DDTHH:MM:SS+HH:MM`` (for example, ``2024-01-04T15:25:10+17:59``)
-//	 +   ``YYYY-MM-DDTHH:MM:SS-HHMM`` (for example, ``2024-01-04T15:25:10-1759``)
-//	 +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM`` (for example, ``2024-01-04T15:25:10.123456789+17:59``)
+//	For more information about the validation and formatting of timestamp fields in ASHlong, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
 func (o AutomationRuleDateFilterOutput) Start() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AutomationRuleDateFilter) *string { return v.Start }).(pulumi.StringPtrOutput)
 }
@@ -1710,13 +1680,7 @@ type AutomationRulesFindingFilters struct {
 	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	Confidence []AutomationRuleNumberFilter `pulumi:"confidence"`
 	// A timestamp that indicates when this finding record was created.
-	//  This field accepts only the specified formats. Timestamps can end with ``Z`` or ``("+" / "-") time-hour [":" time-minute]``. The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
-	//   +   ``YYYY-MM-DDTHH:MM:SSZ`` (for example, ``2019-01-31T23:00:00Z``)
-	//   +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ`` (for example, ``2019-01-31T23:00:00.123456789Z``)
-	//   +   ``YYYY-MM-DDTHH:MM:SS+HH:MM`` (for example, ``2024-01-04T15:25:10+17:59``)
-	//   +   ``YYYY-MM-DDTHH:MM:SS-HHMM`` (for example, ``2024-01-04T15:25:10-1759``)
-	//   +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM`` (for example, ``2024-01-04T15:25:10.123456789+17:59``)
-	//
+	//  For more information about the validation and formatting of timestamp fields in ASHlong, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
 	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	CreatedAt []AutomationRuleDateFilter `pulumi:"createdAt"`
 	// The level of importance that is assigned to the resources that are associated with a finding. ``Criticality`` is scored on a 0–100 basis, using a ratio scale that supports only full integers. A score of ``0`` means that the underlying resources have no criticality, and a score of ``100`` is reserved for the most critical resources. For more information, see [Criticality](https://docs.aws.amazon.com/securityhub/latest/userguide/asff-top-level-attributes.html#asff-criticality) in the *User Guide*.
@@ -1726,13 +1690,7 @@ type AutomationRulesFindingFilters struct {
 	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	Description []AutomationRuleStringFilter `pulumi:"description"`
 	// A timestamp that indicates when the potential security issue captured by a finding was first observed by the security findings product.
-	//  This field accepts only the specified formats. Timestamps can end with ``Z`` or ``("+" / "-") time-hour [":" time-minute]``. The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
-	//   +   ``YYYY-MM-DDTHH:MM:SSZ`` (for example, ``2019-01-31T23:00:00Z``)
-	//   +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ`` (for example, ``2019-01-31T23:00:00.123456789Z``)
-	//   +   ``YYYY-MM-DDTHH:MM:SS+HH:MM`` (for example, ``2024-01-04T15:25:10+17:59``)
-	//   +   ``YYYY-MM-DDTHH:MM:SS-HHMM`` (for example, ``2024-01-04T15:25:10-1759``)
-	//   +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM`` (for example, ``2024-01-04T15:25:10.123456789+17:59``)
-	//
+	//  For more information about the validation and formatting of timestamp fields in ASHlong, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
 	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	FirstObservedAt []AutomationRuleDateFilter `pulumi:"firstObservedAt"`
 	// The identifier for the solution-specific component that generated a finding.
@@ -1741,27 +1699,15 @@ type AutomationRulesFindingFilters struct {
 	// The product-specific identifier for a finding.
 	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	Id []AutomationRuleStringFilter `pulumi:"id"`
-	// A timestamp that indicates when the potential security issue captured by a finding was most recently observed by the security findings product.
-	//  This field accepts only the specified formats. Timestamps can end with ``Z`` or ``("+" / "-") time-hour [":" time-minute]``. The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
-	//   +   ``YYYY-MM-DDTHH:MM:SSZ`` (for example, ``2019-01-31T23:00:00Z``)
-	//   +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ`` (for example, ``2019-01-31T23:00:00.123456789Z``)
-	//   +   ``YYYY-MM-DDTHH:MM:SS+HH:MM`` (for example, ``2024-01-04T15:25:10+17:59``)
-	//   +   ``YYYY-MM-DDTHH:MM:SS-HHMM`` (for example, ``2024-01-04T15:25:10-1759``)
-	//   +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM`` (for example, ``2024-01-04T15:25:10.123456789+17:59``)
-	//
+	// A timestamp that indicates when the security findings provider most recently observed a change in the resource that is involved in the finding.
+	//  For more information about the validation and formatting of timestamp fields in ASHlong, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
 	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	LastObservedAt []AutomationRuleDateFilter `pulumi:"lastObservedAt"`
 	// The text of a user-defined note that's added to a finding.
 	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	NoteText []AutomationRuleStringFilter `pulumi:"noteText"`
 	// The timestamp of when the note was updated.
-	//  This field accepts only the specified formats. Timestamps can end with ``Z`` or ``("+" / "-") time-hour [":" time-minute]``. The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
-	//   +   ``YYYY-MM-DDTHH:MM:SSZ`` (for example, ``2019-01-31T23:00:00Z``)
-	//   +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ`` (for example, ``2019-01-31T23:00:00.123456789Z``)
-	//   +   ``YYYY-MM-DDTHH:MM:SS+HH:MM`` (for example, ``2024-01-04T15:25:10+17:59``)
-	//   +   ``YYYY-MM-DDTHH:MM:SS-HHMM`` (for example, ``2024-01-04T15:25:10-1759``)
-	//   +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM`` (for example, ``2024-01-04T15:25:10.123456789+17:59``)
-	//
+	//  For more information about the validation and formatting of timestamp fields in ASHlong, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
 	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	NoteUpdatedAt []AutomationRuleDateFilter `pulumi:"noteUpdatedAt"`
 	// The principal that created a note.
@@ -1813,13 +1759,7 @@ type AutomationRulesFindingFilters struct {
 	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	Type []AutomationRuleStringFilter `pulumi:"type"`
 	// A timestamp that indicates when the finding record was most recently updated.
-	//  This field accepts only the specified formats. Timestamps can end with ``Z`` or ``("+" / "-") time-hour [":" time-minute]``. The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
-	//   +   ``YYYY-MM-DDTHH:MM:SSZ`` (for example, ``2019-01-31T23:00:00Z``)
-	//   +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ`` (for example, ``2019-01-31T23:00:00.123456789Z``)
-	//   +   ``YYYY-MM-DDTHH:MM:SS+HH:MM`` (for example, ``2024-01-04T15:25:10+17:59``)
-	//   +   ``YYYY-MM-DDTHH:MM:SS-HHMM`` (for example, ``2024-01-04T15:25:10-1759``)
-	//   +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM`` (for example, ``2024-01-04T15:25:10.123456789+17:59``)
-	//
+	//  For more information about the validation and formatting of timestamp fields in ASHlong, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
 	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	UpdatedAt []AutomationRuleDateFilter `pulumi:"updatedAt"`
 	// A list of user-defined name and value string pairs added to a finding.
@@ -1865,13 +1805,7 @@ type AutomationRulesFindingFiltersArgs struct {
 	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	Confidence AutomationRuleNumberFilterArrayInput `pulumi:"confidence"`
 	// A timestamp that indicates when this finding record was created.
-	//  This field accepts only the specified formats. Timestamps can end with ``Z`` or ``("+" / "-") time-hour [":" time-minute]``. The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
-	//   +   ``YYYY-MM-DDTHH:MM:SSZ`` (for example, ``2019-01-31T23:00:00Z``)
-	//   +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ`` (for example, ``2019-01-31T23:00:00.123456789Z``)
-	//   +   ``YYYY-MM-DDTHH:MM:SS+HH:MM`` (for example, ``2024-01-04T15:25:10+17:59``)
-	//   +   ``YYYY-MM-DDTHH:MM:SS-HHMM`` (for example, ``2024-01-04T15:25:10-1759``)
-	//   +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM`` (for example, ``2024-01-04T15:25:10.123456789+17:59``)
-	//
+	//  For more information about the validation and formatting of timestamp fields in ASHlong, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
 	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	CreatedAt AutomationRuleDateFilterArrayInput `pulumi:"createdAt"`
 	// The level of importance that is assigned to the resources that are associated with a finding. ``Criticality`` is scored on a 0–100 basis, using a ratio scale that supports only full integers. A score of ``0`` means that the underlying resources have no criticality, and a score of ``100`` is reserved for the most critical resources. For more information, see [Criticality](https://docs.aws.amazon.com/securityhub/latest/userguide/asff-top-level-attributes.html#asff-criticality) in the *User Guide*.
@@ -1881,13 +1815,7 @@ type AutomationRulesFindingFiltersArgs struct {
 	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	Description AutomationRuleStringFilterArrayInput `pulumi:"description"`
 	// A timestamp that indicates when the potential security issue captured by a finding was first observed by the security findings product.
-	//  This field accepts only the specified formats. Timestamps can end with ``Z`` or ``("+" / "-") time-hour [":" time-minute]``. The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
-	//   +   ``YYYY-MM-DDTHH:MM:SSZ`` (for example, ``2019-01-31T23:00:00Z``)
-	//   +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ`` (for example, ``2019-01-31T23:00:00.123456789Z``)
-	//   +   ``YYYY-MM-DDTHH:MM:SS+HH:MM`` (for example, ``2024-01-04T15:25:10+17:59``)
-	//   +   ``YYYY-MM-DDTHH:MM:SS-HHMM`` (for example, ``2024-01-04T15:25:10-1759``)
-	//   +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM`` (for example, ``2024-01-04T15:25:10.123456789+17:59``)
-	//
+	//  For more information about the validation and formatting of timestamp fields in ASHlong, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
 	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	FirstObservedAt AutomationRuleDateFilterArrayInput `pulumi:"firstObservedAt"`
 	// The identifier for the solution-specific component that generated a finding.
@@ -1896,27 +1824,15 @@ type AutomationRulesFindingFiltersArgs struct {
 	// The product-specific identifier for a finding.
 	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	Id AutomationRuleStringFilterArrayInput `pulumi:"id"`
-	// A timestamp that indicates when the potential security issue captured by a finding was most recently observed by the security findings product.
-	//  This field accepts only the specified formats. Timestamps can end with ``Z`` or ``("+" / "-") time-hour [":" time-minute]``. The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
-	//   +   ``YYYY-MM-DDTHH:MM:SSZ`` (for example, ``2019-01-31T23:00:00Z``)
-	//   +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ`` (for example, ``2019-01-31T23:00:00.123456789Z``)
-	//   +   ``YYYY-MM-DDTHH:MM:SS+HH:MM`` (for example, ``2024-01-04T15:25:10+17:59``)
-	//   +   ``YYYY-MM-DDTHH:MM:SS-HHMM`` (for example, ``2024-01-04T15:25:10-1759``)
-	//   +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM`` (for example, ``2024-01-04T15:25:10.123456789+17:59``)
-	//
+	// A timestamp that indicates when the security findings provider most recently observed a change in the resource that is involved in the finding.
+	//  For more information about the validation and formatting of timestamp fields in ASHlong, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
 	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	LastObservedAt AutomationRuleDateFilterArrayInput `pulumi:"lastObservedAt"`
 	// The text of a user-defined note that's added to a finding.
 	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	NoteText AutomationRuleStringFilterArrayInput `pulumi:"noteText"`
 	// The timestamp of when the note was updated.
-	//  This field accepts only the specified formats. Timestamps can end with ``Z`` or ``("+" / "-") time-hour [":" time-minute]``. The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
-	//   +   ``YYYY-MM-DDTHH:MM:SSZ`` (for example, ``2019-01-31T23:00:00Z``)
-	//   +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ`` (for example, ``2019-01-31T23:00:00.123456789Z``)
-	//   +   ``YYYY-MM-DDTHH:MM:SS+HH:MM`` (for example, ``2024-01-04T15:25:10+17:59``)
-	//   +   ``YYYY-MM-DDTHH:MM:SS-HHMM`` (for example, ``2024-01-04T15:25:10-1759``)
-	//   +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM`` (for example, ``2024-01-04T15:25:10.123456789+17:59``)
-	//
+	//  For more information about the validation and formatting of timestamp fields in ASHlong, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
 	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	NoteUpdatedAt AutomationRuleDateFilterArrayInput `pulumi:"noteUpdatedAt"`
 	// The principal that created a note.
@@ -1968,13 +1884,7 @@ type AutomationRulesFindingFiltersArgs struct {
 	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	Type AutomationRuleStringFilterArrayInput `pulumi:"type"`
 	// A timestamp that indicates when the finding record was most recently updated.
-	//  This field accepts only the specified formats. Timestamps can end with ``Z`` or ``("+" / "-") time-hour [":" time-minute]``. The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
-	//   +   ``YYYY-MM-DDTHH:MM:SSZ`` (for example, ``2019-01-31T23:00:00Z``)
-	//   +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ`` (for example, ``2019-01-31T23:00:00.123456789Z``)
-	//   +   ``YYYY-MM-DDTHH:MM:SS+HH:MM`` (for example, ``2024-01-04T15:25:10+17:59``)
-	//   +   ``YYYY-MM-DDTHH:MM:SS-HHMM`` (for example, ``2024-01-04T15:25:10-1759``)
-	//   +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM`` (for example, ``2024-01-04T15:25:10.123456789+17:59``)
-	//
+	//  For more information about the validation and formatting of timestamp fields in ASHlong, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
 	//   Array Members: Minimum number of 1 item. Maximum number of 20 items.
 	UpdatedAt AutomationRuleDateFilterArrayInput `pulumi:"updatedAt"`
 	// A list of user-defined name and value string pairs added to a finding.
@@ -2063,13 +1973,7 @@ func (o AutomationRulesFindingFiltersOutput) Confidence() AutomationRuleNumberFi
 
 // A timestamp that indicates when this finding record was created.
 //
-//	This field accepts only the specified formats. Timestamps can end with ``Z`` or ``("+" / "-") time-hour [":" time-minute]``. The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
-//	 +   ``YYYY-MM-DDTHH:MM:SSZ`` (for example, ``2019-01-31T23:00:00Z``)
-//	 +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ`` (for example, ``2019-01-31T23:00:00.123456789Z``)
-//	 +   ``YYYY-MM-DDTHH:MM:SS+HH:MM`` (for example, ``2024-01-04T15:25:10+17:59``)
-//	 +   ``YYYY-MM-DDTHH:MM:SS-HHMM`` (for example, ``2024-01-04T15:25:10-1759``)
-//	 +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM`` (for example, ``2024-01-04T15:25:10.123456789+17:59``)
-//
+//	For more information about the validation and formatting of timestamp fields in ASHlong, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
 //	 Array Members: Minimum number of 1 item. Maximum number of 20 items.
 func (o AutomationRulesFindingFiltersOutput) CreatedAt() AutomationRuleDateFilterArrayOutput {
 	return o.ApplyT(func(v AutomationRulesFindingFilters) []AutomationRuleDateFilter { return v.CreatedAt }).(AutomationRuleDateFilterArrayOutput)
@@ -2091,13 +1995,7 @@ func (o AutomationRulesFindingFiltersOutput) Description() AutomationRuleStringF
 
 // A timestamp that indicates when the potential security issue captured by a finding was first observed by the security findings product.
 //
-//	This field accepts only the specified formats. Timestamps can end with ``Z`` or ``("+" / "-") time-hour [":" time-minute]``. The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
-//	 +   ``YYYY-MM-DDTHH:MM:SSZ`` (for example, ``2019-01-31T23:00:00Z``)
-//	 +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ`` (for example, ``2019-01-31T23:00:00.123456789Z``)
-//	 +   ``YYYY-MM-DDTHH:MM:SS+HH:MM`` (for example, ``2024-01-04T15:25:10+17:59``)
-//	 +   ``YYYY-MM-DDTHH:MM:SS-HHMM`` (for example, ``2024-01-04T15:25:10-1759``)
-//	 +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM`` (for example, ``2024-01-04T15:25:10.123456789+17:59``)
-//
+//	For more information about the validation and formatting of timestamp fields in ASHlong, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
 //	 Array Members: Minimum number of 1 item. Maximum number of 20 items.
 func (o AutomationRulesFindingFiltersOutput) FirstObservedAt() AutomationRuleDateFilterArrayOutput {
 	return o.ApplyT(func(v AutomationRulesFindingFilters) []AutomationRuleDateFilter { return v.FirstObservedAt }).(AutomationRuleDateFilterArrayOutput)
@@ -2117,15 +2015,9 @@ func (o AutomationRulesFindingFiltersOutput) Id() AutomationRuleStringFilterArra
 	return o.ApplyT(func(v AutomationRulesFindingFilters) []AutomationRuleStringFilter { return v.Id }).(AutomationRuleStringFilterArrayOutput)
 }
 
-// A timestamp that indicates when the potential security issue captured by a finding was most recently observed by the security findings product.
+// A timestamp that indicates when the security findings provider most recently observed a change in the resource that is involved in the finding.
 //
-//	This field accepts only the specified formats. Timestamps can end with ``Z`` or ``("+" / "-") time-hour [":" time-minute]``. The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
-//	 +   ``YYYY-MM-DDTHH:MM:SSZ`` (for example, ``2019-01-31T23:00:00Z``)
-//	 +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ`` (for example, ``2019-01-31T23:00:00.123456789Z``)
-//	 +   ``YYYY-MM-DDTHH:MM:SS+HH:MM`` (for example, ``2024-01-04T15:25:10+17:59``)
-//	 +   ``YYYY-MM-DDTHH:MM:SS-HHMM`` (for example, ``2024-01-04T15:25:10-1759``)
-//	 +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM`` (for example, ``2024-01-04T15:25:10.123456789+17:59``)
-//
+//	For more information about the validation and formatting of timestamp fields in ASHlong, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
 //	 Array Members: Minimum number of 1 item. Maximum number of 20 items.
 func (o AutomationRulesFindingFiltersOutput) LastObservedAt() AutomationRuleDateFilterArrayOutput {
 	return o.ApplyT(func(v AutomationRulesFindingFilters) []AutomationRuleDateFilter { return v.LastObservedAt }).(AutomationRuleDateFilterArrayOutput)
@@ -2140,13 +2032,7 @@ func (o AutomationRulesFindingFiltersOutput) NoteText() AutomationRuleStringFilt
 
 // The timestamp of when the note was updated.
 //
-//	This field accepts only the specified formats. Timestamps can end with ``Z`` or ``("+" / "-") time-hour [":" time-minute]``. The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
-//	 +   ``YYYY-MM-DDTHH:MM:SSZ`` (for example, ``2019-01-31T23:00:00Z``)
-//	 +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ`` (for example, ``2019-01-31T23:00:00.123456789Z``)
-//	 +   ``YYYY-MM-DDTHH:MM:SS+HH:MM`` (for example, ``2024-01-04T15:25:10+17:59``)
-//	 +   ``YYYY-MM-DDTHH:MM:SS-HHMM`` (for example, ``2024-01-04T15:25:10-1759``)
-//	 +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM`` (for example, ``2024-01-04T15:25:10.123456789+17:59``)
-//
+//	For more information about the validation and formatting of timestamp fields in ASHlong, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
 //	 Array Members: Minimum number of 1 item. Maximum number of 20 items.
 func (o AutomationRulesFindingFiltersOutput) NoteUpdatedAt() AutomationRuleDateFilterArrayOutput {
 	return o.ApplyT(func(v AutomationRulesFindingFilters) []AutomationRuleDateFilter { return v.NoteUpdatedAt }).(AutomationRuleDateFilterArrayOutput)
@@ -2266,13 +2152,7 @@ func (o AutomationRulesFindingFiltersOutput) Type() AutomationRuleStringFilterAr
 
 // A timestamp that indicates when the finding record was most recently updated.
 //
-//	This field accepts only the specified formats. Timestamps can end with ``Z`` or ``("+" / "-") time-hour [":" time-minute]``. The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
-//	 +   ``YYYY-MM-DDTHH:MM:SSZ`` (for example, ``2019-01-31T23:00:00Z``)
-//	 +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ`` (for example, ``2019-01-31T23:00:00.123456789Z``)
-//	 +   ``YYYY-MM-DDTHH:MM:SS+HH:MM`` (for example, ``2024-01-04T15:25:10+17:59``)
-//	 +   ``YYYY-MM-DDTHH:MM:SS-HHMM`` (for example, ``2024-01-04T15:25:10-1759``)
-//	 +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM`` (for example, ``2024-01-04T15:25:10.123456789+17:59``)
-//
+//	For more information about the validation and formatting of timestamp fields in ASHlong, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
 //	 Array Members: Minimum number of 1 item. Maximum number of 20 items.
 func (o AutomationRulesFindingFiltersOutput) UpdatedAt() AutomationRuleDateFilterArrayOutput {
 	return o.ApplyT(func(v AutomationRulesFindingFilters) []AutomationRuleDateFilter { return v.UpdatedAt }).(AutomationRuleDateFilterArrayOutput)
@@ -2397,13 +2277,7 @@ func (o AutomationRulesFindingFiltersPtrOutput) Confidence() AutomationRuleNumbe
 
 // A timestamp that indicates when this finding record was created.
 //
-//	This field accepts only the specified formats. Timestamps can end with ``Z`` or ``("+" / "-") time-hour [":" time-minute]``. The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
-//	 +   ``YYYY-MM-DDTHH:MM:SSZ`` (for example, ``2019-01-31T23:00:00Z``)
-//	 +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ`` (for example, ``2019-01-31T23:00:00.123456789Z``)
-//	 +   ``YYYY-MM-DDTHH:MM:SS+HH:MM`` (for example, ``2024-01-04T15:25:10+17:59``)
-//	 +   ``YYYY-MM-DDTHH:MM:SS-HHMM`` (for example, ``2024-01-04T15:25:10-1759``)
-//	 +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM`` (for example, ``2024-01-04T15:25:10.123456789+17:59``)
-//
+//	For more information about the validation and formatting of timestamp fields in ASHlong, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
 //	 Array Members: Minimum number of 1 item. Maximum number of 20 items.
 func (o AutomationRulesFindingFiltersPtrOutput) CreatedAt() AutomationRuleDateFilterArrayOutput {
 	return o.ApplyT(func(v *AutomationRulesFindingFilters) []AutomationRuleDateFilter {
@@ -2440,13 +2314,7 @@ func (o AutomationRulesFindingFiltersPtrOutput) Description() AutomationRuleStri
 
 // A timestamp that indicates when the potential security issue captured by a finding was first observed by the security findings product.
 //
-//	This field accepts only the specified formats. Timestamps can end with ``Z`` or ``("+" / "-") time-hour [":" time-minute]``. The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
-//	 +   ``YYYY-MM-DDTHH:MM:SSZ`` (for example, ``2019-01-31T23:00:00Z``)
-//	 +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ`` (for example, ``2019-01-31T23:00:00.123456789Z``)
-//	 +   ``YYYY-MM-DDTHH:MM:SS+HH:MM`` (for example, ``2024-01-04T15:25:10+17:59``)
-//	 +   ``YYYY-MM-DDTHH:MM:SS-HHMM`` (for example, ``2024-01-04T15:25:10-1759``)
-//	 +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM`` (for example, ``2024-01-04T15:25:10.123456789+17:59``)
-//
+//	For more information about the validation and formatting of timestamp fields in ASHlong, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
 //	 Array Members: Minimum number of 1 item. Maximum number of 20 items.
 func (o AutomationRulesFindingFiltersPtrOutput) FirstObservedAt() AutomationRuleDateFilterArrayOutput {
 	return o.ApplyT(func(v *AutomationRulesFindingFilters) []AutomationRuleDateFilter {
@@ -2481,15 +2349,9 @@ func (o AutomationRulesFindingFiltersPtrOutput) Id() AutomationRuleStringFilterA
 	}).(AutomationRuleStringFilterArrayOutput)
 }
 
-// A timestamp that indicates when the potential security issue captured by a finding was most recently observed by the security findings product.
+// A timestamp that indicates when the security findings provider most recently observed a change in the resource that is involved in the finding.
 //
-//	This field accepts only the specified formats. Timestamps can end with ``Z`` or ``("+" / "-") time-hour [":" time-minute]``. The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
-//	 +   ``YYYY-MM-DDTHH:MM:SSZ`` (for example, ``2019-01-31T23:00:00Z``)
-//	 +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ`` (for example, ``2019-01-31T23:00:00.123456789Z``)
-//	 +   ``YYYY-MM-DDTHH:MM:SS+HH:MM`` (for example, ``2024-01-04T15:25:10+17:59``)
-//	 +   ``YYYY-MM-DDTHH:MM:SS-HHMM`` (for example, ``2024-01-04T15:25:10-1759``)
-//	 +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM`` (for example, ``2024-01-04T15:25:10.123456789+17:59``)
-//
+//	For more information about the validation and formatting of timestamp fields in ASHlong, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
 //	 Array Members: Minimum number of 1 item. Maximum number of 20 items.
 func (o AutomationRulesFindingFiltersPtrOutput) LastObservedAt() AutomationRuleDateFilterArrayOutput {
 	return o.ApplyT(func(v *AutomationRulesFindingFilters) []AutomationRuleDateFilter {
@@ -2514,13 +2376,7 @@ func (o AutomationRulesFindingFiltersPtrOutput) NoteText() AutomationRuleStringF
 
 // The timestamp of when the note was updated.
 //
-//	This field accepts only the specified formats. Timestamps can end with ``Z`` or ``("+" / "-") time-hour [":" time-minute]``. The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
-//	 +   ``YYYY-MM-DDTHH:MM:SSZ`` (for example, ``2019-01-31T23:00:00Z``)
-//	 +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ`` (for example, ``2019-01-31T23:00:00.123456789Z``)
-//	 +   ``YYYY-MM-DDTHH:MM:SS+HH:MM`` (for example, ``2024-01-04T15:25:10+17:59``)
-//	 +   ``YYYY-MM-DDTHH:MM:SS-HHMM`` (for example, ``2024-01-04T15:25:10-1759``)
-//	 +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM`` (for example, ``2024-01-04T15:25:10.123456789+17:59``)
-//
+//	For more information about the validation and formatting of timestamp fields in ASHlong, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
 //	 Array Members: Minimum number of 1 item. Maximum number of 20 items.
 func (o AutomationRulesFindingFiltersPtrOutput) NoteUpdatedAt() AutomationRuleDateFilterArrayOutput {
 	return o.ApplyT(func(v *AutomationRulesFindingFilters) []AutomationRuleDateFilter {
@@ -2725,13 +2581,7 @@ func (o AutomationRulesFindingFiltersPtrOutput) Type() AutomationRuleStringFilte
 
 // A timestamp that indicates when the finding record was most recently updated.
 //
-//	This field accepts only the specified formats. Timestamps can end with ``Z`` or ``("+" / "-") time-hour [":" time-minute]``. The time-secfrac after seconds is limited to a maximum of 9 digits. The offset is bounded by +/-18:00. Here are valid timestamp formats with examples:
-//	 +   ``YYYY-MM-DDTHH:MM:SSZ`` (for example, ``2019-01-31T23:00:00Z``)
-//	 +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmmZ`` (for example, ``2019-01-31T23:00:00.123456789Z``)
-//	 +   ``YYYY-MM-DDTHH:MM:SS+HH:MM`` (for example, ``2024-01-04T15:25:10+17:59``)
-//	 +   ``YYYY-MM-DDTHH:MM:SS-HHMM`` (for example, ``2024-01-04T15:25:10-1759``)
-//	 +   ``YYYY-MM-DDTHH:MM:SS.mmmmmmmmm+HH:MM`` (for example, ``2024-01-04T15:25:10.123456789+17:59``)
-//
+//	For more information about the validation and formatting of timestamp fields in ASHlong, see [Timestamps](https://docs.aws.amazon.com/securityhub/1.0/APIReference/Welcome.html#timestamps).
 //	 Array Members: Minimum number of 1 item. Maximum number of 20 items.
 func (o AutomationRulesFindingFiltersPtrOutput) UpdatedAt() AutomationRuleDateFilterArrayOutput {
 	return o.ApplyT(func(v *AutomationRulesFindingFilters) []AutomationRuleDateFilter {

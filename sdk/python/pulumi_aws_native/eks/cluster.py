@@ -409,7 +409,7 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["encryption_config_key_arn"] = None
             __props__.__dict__["endpoint"] = None
             __props__.__dict__["open_id_connect_issuer_url"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["accessConfig.bootstrapClusterCreatorAdminPermissions", "bootstrapSelfManagedAddons", "encryptionConfig[*]", "kubernetesNetworkConfig", "name", "outpostConfig", "remoteNetworkConfig", "roleArn"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["accessConfig.bootstrapClusterCreatorAdminPermissions", "bootstrapSelfManagedAddons", "encryptionConfig[*]", "kubernetesNetworkConfig.ipFamily", "kubernetesNetworkConfig.serviceIpv4Cidr", "name", "outpostConfig", "remoteNetworkConfig", "roleArn"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Cluster, __self__).__init__(
             'aws-native:eks:Cluster',

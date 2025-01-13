@@ -2854,8 +2854,10 @@ func (o EventTriggerDimensionArrayOutput) Index(i pulumi.IntInput) EventTriggerD
 
 // Defines limits controlling whether an event triggers the destination, based on ingestion latency and the number of invocations per profile over specific time periods.
 type EventTriggerLimits struct {
-	EventExpiration *int                 `pulumi:"eventExpiration"`
-	Periods         []EventTriggerPeriod `pulumi:"periods"`
+	// Specifies that an event will only trigger the destination if it is processed within a certain latency period.
+	EventExpiration *int `pulumi:"eventExpiration"`
+	// A list of time periods during which the limits apply.
+	Periods []EventTriggerPeriod `pulumi:"periods"`
 }
 
 // EventTriggerLimitsInput is an input type that accepts EventTriggerLimitsArgs and EventTriggerLimitsOutput values.
@@ -2871,8 +2873,10 @@ type EventTriggerLimitsInput interface {
 
 // Defines limits controlling whether an event triggers the destination, based on ingestion latency and the number of invocations per profile over specific time periods.
 type EventTriggerLimitsArgs struct {
-	EventExpiration pulumi.IntPtrInput           `pulumi:"eventExpiration"`
-	Periods         EventTriggerPeriodArrayInput `pulumi:"periods"`
+	// Specifies that an event will only trigger the destination if it is processed within a certain latency period.
+	EventExpiration pulumi.IntPtrInput `pulumi:"eventExpiration"`
+	// A list of time periods during which the limits apply.
+	Periods EventTriggerPeriodArrayInput `pulumi:"periods"`
 }
 
 func (EventTriggerLimitsArgs) ElementType() reflect.Type {
@@ -2953,10 +2957,12 @@ func (o EventTriggerLimitsOutput) ToEventTriggerLimitsPtrOutputWithContext(ctx c
 	}).(EventTriggerLimitsPtrOutput)
 }
 
+// Specifies that an event will only trigger the destination if it is processed within a certain latency period.
 func (o EventTriggerLimitsOutput) EventExpiration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v EventTriggerLimits) *int { return v.EventExpiration }).(pulumi.IntPtrOutput)
 }
 
+// A list of time periods during which the limits apply.
 func (o EventTriggerLimitsOutput) Periods() EventTriggerPeriodArrayOutput {
 	return o.ApplyT(func(v EventTriggerLimits) []EventTriggerPeriod { return v.Periods }).(EventTriggerPeriodArrayOutput)
 }
@@ -2985,6 +2991,7 @@ func (o EventTriggerLimitsPtrOutput) Elem() EventTriggerLimitsOutput {
 	}).(EventTriggerLimitsOutput)
 }
 
+// Specifies that an event will only trigger the destination if it is processed within a certain latency period.
 func (o EventTriggerLimitsPtrOutput) EventExpiration() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *EventTriggerLimits) *int {
 		if v == nil {
@@ -2994,6 +3001,7 @@ func (o EventTriggerLimitsPtrOutput) EventExpiration() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+// A list of time periods during which the limits apply.
 func (o EventTriggerLimitsPtrOutput) Periods() EventTriggerPeriodArrayOutput {
 	return o.ApplyT(func(v *EventTriggerLimits) []EventTriggerPeriod {
 		if v == nil {

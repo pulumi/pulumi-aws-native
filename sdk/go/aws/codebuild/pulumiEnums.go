@@ -400,6 +400,9 @@ const (
 	FleetEnvironmentTypeLinuxGpuContainer          = FleetEnvironmentType("LINUX_GPU_CONTAINER")
 	FleetEnvironmentTypeArmContainer               = FleetEnvironmentType("ARM_CONTAINER")
 	FleetEnvironmentTypeMacArm                     = FleetEnvironmentType("MAC_ARM")
+	FleetEnvironmentTypeLinuxEc2                   = FleetEnvironmentType("LINUX_EC2")
+	FleetEnvironmentTypeArmEc2                     = FleetEnvironmentType("ARM_EC2")
+	FleetEnvironmentTypeWindowsEc2                 = FleetEnvironmentType("WINDOWS_EC2")
 )
 
 func (FleetEnvironmentType) ElementType() reflect.Type {
@@ -530,6 +533,9 @@ func (o FleetEnvironmentTypePtrOutput) ToStringPtrOutputWithContext(ctx context.
 //	FleetEnvironmentTypeLinuxGpuContainer
 //	FleetEnvironmentTypeArmContainer
 //	FleetEnvironmentTypeMacArm
+//	FleetEnvironmentTypeLinuxEc2
+//	FleetEnvironmentTypeArmEc2
+//	FleetEnvironmentTypeWindowsEc2
 type FleetEnvironmentTypeInput interface {
 	pulumi.Input
 

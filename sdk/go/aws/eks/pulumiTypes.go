@@ -4444,6 +4444,8 @@ type NodegroupUpdateConfig struct {
 	MaxUnavailable *float64 `pulumi:"maxUnavailable"`
 	// The maximum percentage of nodes unavailable during a version update. This percentage of nodes will be updated in parallel, up to 100 nodes at once. This value or maxUnavailable is required to have a value.
 	MaxUnavailablePercentage *float64 `pulumi:"maxUnavailablePercentage"`
+	// The configuration for the behavior to follow during an node group version update of this managed node group. You choose between two possible strategies for replacing nodes during an UpdateNodegroupVersion action.
+	UpdateStrategy *string `pulumi:"updateStrategy"`
 }
 
 // NodegroupUpdateConfigInput is an input type that accepts NodegroupUpdateConfigArgs and NodegroupUpdateConfigOutput values.
@@ -4463,6 +4465,8 @@ type NodegroupUpdateConfigArgs struct {
 	MaxUnavailable pulumi.Float64PtrInput `pulumi:"maxUnavailable"`
 	// The maximum percentage of nodes unavailable during a version update. This percentage of nodes will be updated in parallel, up to 100 nodes at once. This value or maxUnavailable is required to have a value.
 	MaxUnavailablePercentage pulumi.Float64PtrInput `pulumi:"maxUnavailablePercentage"`
+	// The configuration for the behavior to follow during an node group version update of this managed node group. You choose between two possible strategies for replacing nodes during an UpdateNodegroupVersion action.
+	UpdateStrategy pulumi.StringPtrInput `pulumi:"updateStrategy"`
 }
 
 func (NodegroupUpdateConfigArgs) ElementType() reflect.Type {
@@ -4553,6 +4557,11 @@ func (o NodegroupUpdateConfigOutput) MaxUnavailablePercentage() pulumi.Float64Pt
 	return o.ApplyT(func(v NodegroupUpdateConfig) *float64 { return v.MaxUnavailablePercentage }).(pulumi.Float64PtrOutput)
 }
 
+// The configuration for the behavior to follow during an node group version update of this managed node group. You choose between two possible strategies for replacing nodes during an UpdateNodegroupVersion action.
+func (o NodegroupUpdateConfigOutput) UpdateStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NodegroupUpdateConfig) *string { return v.UpdateStrategy }).(pulumi.StringPtrOutput)
+}
+
 type NodegroupUpdateConfigPtrOutput struct{ *pulumi.OutputState }
 
 func (NodegroupUpdateConfigPtrOutput) ElementType() reflect.Type {
@@ -4595,6 +4604,16 @@ func (o NodegroupUpdateConfigPtrOutput) MaxUnavailablePercentage() pulumi.Float6
 		}
 		return v.MaxUnavailablePercentage
 	}).(pulumi.Float64PtrOutput)
+}
+
+// The configuration for the behavior to follow during an node group version update of this managed node group. You choose between two possible strategies for replacing nodes during an UpdateNodegroupVersion action.
+func (o NodegroupUpdateConfigPtrOutput) UpdateStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NodegroupUpdateConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UpdateStrategy
+	}).(pulumi.StringPtrOutput)
 }
 
 // A key-value pair to associate with a resource.

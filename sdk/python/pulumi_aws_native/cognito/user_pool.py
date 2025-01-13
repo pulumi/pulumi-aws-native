@@ -55,8 +55,6 @@ class UserPoolArgs:
         The set of arguments for constructing a UserPool resource.
         :param pulumi.Input['UserPoolAccountRecoverySettingArgs'] account_recovery_setting: The available verified method a user can use to recover their password when they call `ForgotPassword` . You can use this setting to define a preferred method when a user has more than one method available. With this setting, SMS doesn't qualify for a valid password recovery mechanism if the user also has SMS multi-factor authentication (MFA) activated. In the absence of this setting, Amazon Cognito uses the legacy behavior to determine the recovery method where SMS is preferred through email.
         :param pulumi.Input['UserPoolAdminCreateUserConfigArgs'] admin_create_user_config: The settings for administrator creation of users in a user pool. Contains settings for allowing user sign-up, customizing invitation messages to new users, and the amount of time before temporary passwords expire.
-               
-               This data type is a request and response parameter of `API_CreateUserPool` and `API_UpdateUserPool` , and a response parameter of `API_DescribeUserPool` .
         :param pulumi.Input[Sequence[pulumi.Input[str]]] alias_attributes: Attributes supported as an alias for this user pool. For more information about alias attributes, see [Customizing sign-in attributes](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#user-pool-settings-aliases) .
         :param pulumi.Input[Sequence[pulumi.Input[str]]] auto_verified_attributes: The attributes that you want your user pool to automatically verify. For more information, see [Verifying contact information at sign-up](https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#allowing-users-to-sign-up-and-confirm-themselves) .
         :param pulumi.Input[str] deletion_protection: When active, `DeletionProtection` prevents accidental deletion of your user
@@ -82,8 +80,6 @@ class UserPoolArgs:
                
                When `MfaConfiguration` is `OPTIONAL` , managed login doesn't automatically prompt users to set up MFA. Amazon Cognito generates MFA prompts in API responses and in managed login for users who have chosen and configured a preferred MFA factor.
         :param pulumi.Input['UserPoolPoliciesArgs'] policies: A list of user pool policies. Contains the policy that sets password-complexity requirements.
-               
-               This data type is a request and response parameter of `API_CreateUserPool` and `API_UpdateUserPool` , and a response parameter of `API_DescribeUserPool` .
         :param pulumi.Input[Sequence[pulumi.Input['UserPoolSchemaAttributeArgs']]] schema: An array of attributes for the new user pool. You can add custom attributes and modify the properties of default attributes. The specifications in this parameter set the required attributes in your user pool. For more information, see [Working with user attributes](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html) .
         :param pulumi.Input[str] sms_authentication_message: The contents of the SMS authentication message.
         :param pulumi.Input['UserPoolSmsConfigurationArgs'] sms_configuration: The settings for your Amazon Cognito user pool to send SMS messages with Amazon Simple Notification Service. To send SMS messages with Amazon SNS in the AWS Region that you want, the Amazon Cognito user pool uses an AWS Identity and Access Management (IAM) role in your AWS account . For more information see [SMS message settings](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html) .
@@ -191,8 +187,6 @@ class UserPoolArgs:
     def admin_create_user_config(self) -> Optional[pulumi.Input['UserPoolAdminCreateUserConfigArgs']]:
         """
         The settings for administrator creation of users in a user pool. Contains settings for allowing user sign-up, customizing invitation messages to new users, and the amount of time before temporary passwords expire.
-
-        This data type is a request and response parameter of `API_CreateUserPool` and `API_UpdateUserPool` , and a response parameter of `API_DescribeUserPool` .
         """
         return pulumi.get(self, "admin_create_user_config")
 
@@ -357,8 +351,6 @@ class UserPoolArgs:
     def policies(self) -> Optional[pulumi.Input['UserPoolPoliciesArgs']]:
         """
         A list of user pool policies. Contains the policy that sets password-complexity requirements.
-
-        This data type is a request and response parameter of `API_CreateUserPool` and `API_UpdateUserPool` , and a response parameter of `API_DescribeUserPool` .
         """
         return pulumi.get(self, "policies")
 
@@ -593,8 +585,6 @@ class UserPool(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['UserPoolAccountRecoverySettingArgs', 'UserPoolAccountRecoverySettingArgsDict']] account_recovery_setting: The available verified method a user can use to recover their password when they call `ForgotPassword` . You can use this setting to define a preferred method when a user has more than one method available. With this setting, SMS doesn't qualify for a valid password recovery mechanism if the user also has SMS multi-factor authentication (MFA) activated. In the absence of this setting, Amazon Cognito uses the legacy behavior to determine the recovery method where SMS is preferred through email.
         :param pulumi.Input[Union['UserPoolAdminCreateUserConfigArgs', 'UserPoolAdminCreateUserConfigArgsDict']] admin_create_user_config: The settings for administrator creation of users in a user pool. Contains settings for allowing user sign-up, customizing invitation messages to new users, and the amount of time before temporary passwords expire.
-               
-               This data type is a request and response parameter of `API_CreateUserPool` and `API_UpdateUserPool` , and a response parameter of `API_DescribeUserPool` .
         :param pulumi.Input[Sequence[pulumi.Input[str]]] alias_attributes: Attributes supported as an alias for this user pool. For more information about alias attributes, see [Customizing sign-in attributes](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#user-pool-settings-aliases) .
         :param pulumi.Input[Sequence[pulumi.Input[str]]] auto_verified_attributes: The attributes that you want your user pool to automatically verify. For more information, see [Verifying contact information at sign-up](https://docs.aws.amazon.com/cognito/latest/developerguide/signing-up-users-in-your-app.html#allowing-users-to-sign-up-and-confirm-themselves) .
         :param pulumi.Input[str] deletion_protection: When active, `DeletionProtection` prevents accidental deletion of your user
@@ -620,8 +610,6 @@ class UserPool(pulumi.CustomResource):
                
                When `MfaConfiguration` is `OPTIONAL` , managed login doesn't automatically prompt users to set up MFA. Amazon Cognito generates MFA prompts in API responses and in managed login for users who have chosen and configured a preferred MFA factor.
         :param pulumi.Input[Union['UserPoolPoliciesArgs', 'UserPoolPoliciesArgsDict']] policies: A list of user pool policies. Contains the policy that sets password-complexity requirements.
-               
-               This data type is a request and response parameter of `API_CreateUserPool` and `API_UpdateUserPool` , and a response parameter of `API_DescribeUserPool` .
         :param pulumi.Input[Sequence[pulumi.Input[Union['UserPoolSchemaAttributeArgs', 'UserPoolSchemaAttributeArgsDict']]]] schema: An array of attributes for the new user pool. You can add custom attributes and modify the properties of default attributes. The specifications in this parameter set the required attributes in your user pool. For more information, see [Working with user attributes](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html) .
         :param pulumi.Input[str] sms_authentication_message: The contents of the SMS authentication message.
         :param pulumi.Input[Union['UserPoolSmsConfigurationArgs', 'UserPoolSmsConfigurationArgsDict']] sms_configuration: The settings for your Amazon Cognito user pool to send SMS messages with Amazon Simple Notification Service. To send SMS messages with Amazon SNS in the AWS Region that you want, the Amazon Cognito user pool uses an AWS Identity and Access Management (IAM) role in your AWS account . For more information see [SMS message settings](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html) .
@@ -818,8 +806,6 @@ class UserPool(pulumi.CustomResource):
     def admin_create_user_config(self) -> pulumi.Output[Optional['outputs.UserPoolAdminCreateUserConfig']]:
         """
         The settings for administrator creation of users in a user pool. Contains settings for allowing user sign-up, customizing invitation messages to new users, and the amount of time before temporary passwords expire.
-
-        This data type is a request and response parameter of `API_CreateUserPool` and `API_UpdateUserPool` , and a response parameter of `API_DescribeUserPool` .
         """
         return pulumi.get(self, "admin_create_user_config")
 
@@ -940,8 +926,6 @@ class UserPool(pulumi.CustomResource):
     def policies(self) -> pulumi.Output[Optional['outputs.UserPoolPolicies']]:
         """
         A list of user pool policies. Contains the policy that sets password-complexity requirements.
-
-        This data type is a request and response parameter of `API_CreateUserPool` and `API_UpdateUserPool` , and a response parameter of `API_DescribeUserPool` .
         """
         return pulumi.get(self, "policies")
 

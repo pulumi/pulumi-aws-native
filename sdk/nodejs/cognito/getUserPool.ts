@@ -31,8 +31,6 @@ export interface GetUserPoolResult {
     readonly accountRecoverySetting?: outputs.cognito.UserPoolAccountRecoverySetting;
     /**
      * The settings for administrator creation of users in a user pool. Contains settings for allowing user sign-up, customizing invitation messages to new users, and the amount of time before temporary passwords expire.
-     *
-     * This data type is a request and response parameter of `API_CreateUserPool` and `API_UpdateUserPool` , and a response parameter of `API_DescribeUserPool` .
      */
     readonly adminCreateUserConfig?: outputs.cognito.UserPoolAdminCreateUserConfig;
     /**
@@ -87,8 +85,6 @@ export interface GetUserPoolResult {
     readonly mfaConfiguration?: string;
     /**
      * A list of user pool policies. Contains the policy that sets password-complexity requirements.
-     *
-     * This data type is a request and response parameter of `API_CreateUserPool` and `API_UpdateUserPool` , and a response parameter of `API_DescribeUserPool` .
      */
     readonly policies?: outputs.cognito.UserPoolPolicies;
     /**

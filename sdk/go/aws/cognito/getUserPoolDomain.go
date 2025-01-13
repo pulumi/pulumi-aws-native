@@ -30,11 +30,9 @@ type LookupUserPoolDomainArgs struct {
 type LookupUserPoolDomainResult struct {
 	// The Amazon CloudFront endpoint that you use as the target of the alias that you set up with your Domain Name Service (DNS) provider.
 	CloudFrontDistribution *string `pulumi:"cloudFrontDistribution"`
-	// The configuration for a custom domain that hosts managed login for your application. In an `UpdateUserPoolDomain` request, this parameter specifies an SSL certificate for the managed login hosted webserver. The certificate must be an ACM ARN in `us-east-1` .
+	// The configuration for a custom domain that hosts the sign-up and sign-in pages for your application. Use this object to specify an SSL certificate that is managed by ACM.
 	//
 	// When you create a custom domain, the passkey RP ID defaults to the custom domain. If you had a prefix domain active, this will cause passkey integration for your prefix domain to stop working due to a mismatch in RP ID. To keep the prefix domain passkey integration working, you can explicitly set RP ID to the prefix domain.
-	//
-	// Update the RP ID in a `API_SetUserPoolMfaConfig` request.
 	CustomDomainConfig *UserPoolDomainCustomDomainConfigType `pulumi:"customDomainConfig"`
 	// The resource ID.
 	Id *string `pulumi:"id"`
@@ -79,11 +77,9 @@ func (o LookupUserPoolDomainResultOutput) CloudFrontDistribution() pulumi.String
 	return o.ApplyT(func(v LookupUserPoolDomainResult) *string { return v.CloudFrontDistribution }).(pulumi.StringPtrOutput)
 }
 
-// The configuration for a custom domain that hosts managed login for your application. In an `UpdateUserPoolDomain` request, this parameter specifies an SSL certificate for the managed login hosted webserver. The certificate must be an ACM ARN in `us-east-1` .
+// The configuration for a custom domain that hosts the sign-up and sign-in pages for your application. Use this object to specify an SSL certificate that is managed by ACM.
 //
 // When you create a custom domain, the passkey RP ID defaults to the custom domain. If you had a prefix domain active, this will cause passkey integration for your prefix domain to stop working due to a mismatch in RP ID. To keep the prefix domain passkey integration working, you can explicitly set RP ID to the prefix domain.
-//
-// Update the RP ID in a `API_SetUserPoolMfaConfig` request.
 func (o LookupUserPoolDomainResultOutput) CustomDomainConfig() UserPoolDomainCustomDomainConfigTypePtrOutput {
 	return o.ApplyT(func(v LookupUserPoolDomainResult) *UserPoolDomainCustomDomainConfigType { return v.CustomDomainConfig }).(UserPoolDomainCustomDomainConfigTypePtrOutput)
 }

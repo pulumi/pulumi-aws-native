@@ -1191,7 +1191,13 @@ if not MYPY:
         Defines limits controlling whether an event triggers the destination, based on ingestion latency and the number of invocations per profile over specific time periods.
         """
         event_expiration: NotRequired[pulumi.Input[int]]
+        """
+        Specifies that an event will only trigger the destination if it is processed within a certain latency period.
+        """
         periods: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventTriggerPeriodArgsDict']]]]
+        """
+        A list of time periods during which the limits apply.
+        """
 elif False:
     EventTriggerLimitsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -1202,6 +1208,8 @@ class EventTriggerLimitsArgs:
                  periods: Optional[pulumi.Input[Sequence[pulumi.Input['EventTriggerPeriodArgs']]]] = None):
         """
         Defines limits controlling whether an event triggers the destination, based on ingestion latency and the number of invocations per profile over specific time periods.
+        :param pulumi.Input[int] event_expiration: Specifies that an event will only trigger the destination if it is processed within a certain latency period.
+        :param pulumi.Input[Sequence[pulumi.Input['EventTriggerPeriodArgs']]] periods: A list of time periods during which the limits apply.
         """
         if event_expiration is not None:
             pulumi.set(__self__, "event_expiration", event_expiration)
@@ -1211,6 +1219,9 @@ class EventTriggerLimitsArgs:
     @property
     @pulumi.getter(name="eventExpiration")
     def event_expiration(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies that an event will only trigger the destination if it is processed within a certain latency period.
+        """
         return pulumi.get(self, "event_expiration")
 
     @event_expiration.setter
@@ -1220,6 +1231,9 @@ class EventTriggerLimitsArgs:
     @property
     @pulumi.getter
     def periods(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventTriggerPeriodArgs']]]]:
+        """
+        A list of time periods during which the limits apply.
+        """
         return pulumi.get(self, "periods")
 
     @periods.setter

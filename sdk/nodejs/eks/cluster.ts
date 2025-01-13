@@ -198,7 +198,7 @@ export class Cluster extends pulumi.CustomResource {
             resourceInputs["zonalShiftConfig"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["accessConfig.bootstrapClusterCreatorAdminPermissions", "bootstrapSelfManagedAddons", "encryptionConfig[*]", "kubernetesNetworkConfig", "name", "outpostConfig", "remoteNetworkConfig", "roleArn"] };
+        const replaceOnChanges = { replaceOnChanges: ["accessConfig.bootstrapClusterCreatorAdminPermissions", "bootstrapSelfManagedAddons", "encryptionConfig[*]", "kubernetesNetworkConfig.ipFamily", "kubernetesNetworkConfig.serviceIpv4Cidr", "name", "outpostConfig", "remoteNetworkConfig", "roleArn"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Cluster.__pulumiType, name, resourceInputs, opts);
     }

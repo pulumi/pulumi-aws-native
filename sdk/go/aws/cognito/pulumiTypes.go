@@ -1785,8 +1785,6 @@ type UserPoolAdminCreateUserConfig struct {
 	InviteMessageTemplate *UserPoolInviteMessageTemplate `pulumi:"inviteMessageTemplate"`
 	// This parameter is no longer in use.
 	//
-	// Configure the duration of temporary passwords with the `TemporaryPasswordValidityDays` parameter of `API_PasswordPolicyType` . For older user pools that have a `UnusedAccountValidityDays` configuration, that value is effective until you set a value for `TemporaryPasswordValidityDays` .
-	//
 	// The password expiration limit in days for administrator-created users. When this time expires, the user can't sign in with their temporary password. To reset the account after that time limit, you must call `AdminCreateUser` again, specifying `RESEND` for the `MessageAction` parameter.
 	//
 	// The default value for this parameter is 7.
@@ -1812,8 +1810,6 @@ type UserPoolAdminCreateUserConfigArgs struct {
 	// See also [Customizing User Invitation Messages](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-message-customizations.html#cognito-user-pool-settings-user-invitation-message-customization) .
 	InviteMessageTemplate UserPoolInviteMessageTemplatePtrInput `pulumi:"inviteMessageTemplate"`
 	// This parameter is no longer in use.
-	//
-	// Configure the duration of temporary passwords with the `TemporaryPasswordValidityDays` parameter of `API_PasswordPolicyType` . For older user pools that have a `UnusedAccountValidityDays` configuration, that value is effective until you set a value for `TemporaryPasswordValidityDays` .
 	//
 	// The password expiration limit in days for administrator-created users. When this time expires, the user can't sign in with their temporary password. To reset the account after that time limit, you must call `AdminCreateUser` again, specifying `RESEND` for the `MessageAction` parameter.
 	//
@@ -1912,8 +1908,6 @@ func (o UserPoolAdminCreateUserConfigOutput) InviteMessageTemplate() UserPoolInv
 
 // This parameter is no longer in use.
 //
-// Configure the duration of temporary passwords with the `TemporaryPasswordValidityDays` parameter of `API_PasswordPolicyType` . For older user pools that have a `UnusedAccountValidityDays` configuration, that value is effective until you set a value for `TemporaryPasswordValidityDays` .
-//
 // The password expiration limit in days for administrator-created users. When this time expires, the user can't sign in with their temporary password. To reset the account after that time limit, you must call `AdminCreateUser` again, specifying `RESEND` for the `MessageAction` parameter.
 //
 // The default value for this parameter is 7.
@@ -1968,8 +1962,6 @@ func (o UserPoolAdminCreateUserConfigPtrOutput) InviteMessageTemplate() UserPool
 }
 
 // This parameter is no longer in use.
-//
-// Configure the duration of temporary passwords with the `TemporaryPasswordValidityDays` parameter of `API_PasswordPolicyType` . For older user pools that have a `UnusedAccountValidityDays` configuration, that value is effective until you set a value for `TemporaryPasswordValidityDays` .
 //
 // The password expiration limit in days for administrator-created users. When this time expires, the user can't sign in with their temporary password. To reset the account after that time limit, you must call `AdminCreateUser` again, specifying `RESEND` for the `MessageAction` parameter.
 //
@@ -4161,8 +4153,6 @@ type UserPoolPasswordPolicy struct {
 	// The minimum length of the password in the policy that you have set. This value can't be less than 6.
 	MinimumLength *int `pulumi:"minimumLength"`
 	// The number of previous passwords that you want Amazon Cognito to restrict each user from reusing. Users can't set a password that matches any of `n` previous passwords, where `n` is the value of `PasswordHistorySize` .
-	//
-	// Password history isn't enforced and isn't displayed in `API_DescribeUserPool` responses when you set this value to `0` or don't provide it. To activate this setting, your user pool must be in the [Essentials tier](https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html) or higher.
 	PasswordHistorySize *int `pulumi:"passwordHistorySize"`
 	// The requirement in a password policy that users must include at least one lowercase letter in their password.
 	RequireLowercase *bool `pulumi:"requireLowercase"`
@@ -4193,8 +4183,6 @@ type UserPoolPasswordPolicyArgs struct {
 	// The minimum length of the password in the policy that you have set. This value can't be less than 6.
 	MinimumLength pulumi.IntPtrInput `pulumi:"minimumLength"`
 	// The number of previous passwords that you want Amazon Cognito to restrict each user from reusing. Users can't set a password that matches any of `n` previous passwords, where `n` is the value of `PasswordHistorySize` .
-	//
-	// Password history isn't enforced and isn't displayed in `API_DescribeUserPool` responses when you set this value to `0` or don't provide it. To activate this setting, your user pool must be in the [Essentials tier](https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html) or higher.
 	PasswordHistorySize pulumi.IntPtrInput `pulumi:"passwordHistorySize"`
 	// The requirement in a password policy that users must include at least one lowercase letter in their password.
 	RequireLowercase pulumi.BoolPtrInput `pulumi:"requireLowercase"`
@@ -4293,8 +4281,6 @@ func (o UserPoolPasswordPolicyOutput) MinimumLength() pulumi.IntPtrOutput {
 }
 
 // The number of previous passwords that you want Amazon Cognito to restrict each user from reusing. Users can't set a password that matches any of `n` previous passwords, where `n` is the value of `PasswordHistorySize` .
-//
-// Password history isn't enforced and isn't displayed in `API_DescribeUserPool` responses when you set this value to `0` or don't provide it. To activate this setting, your user pool must be in the [Essentials tier](https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html) or higher.
 func (o UserPoolPasswordPolicyOutput) PasswordHistorySize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v UserPoolPasswordPolicy) *int { return v.PasswordHistorySize }).(pulumi.IntPtrOutput)
 }
@@ -4361,8 +4347,6 @@ func (o UserPoolPasswordPolicyPtrOutput) MinimumLength() pulumi.IntPtrOutput {
 }
 
 // The number of previous passwords that you want Amazon Cognito to restrict each user from reusing. Users can't set a password that matches any of `n` previous passwords, where `n` is the value of `PasswordHistorySize` .
-//
-// Password history isn't enforced and isn't displayed in `API_DescribeUserPool` responses when you set this value to `0` or don't provide it. To activate this setting, your user pool must be in the [Essentials tier](https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html) or higher.
 func (o UserPoolPasswordPolicyPtrOutput) PasswordHistorySize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *UserPoolPasswordPolicy) *int {
 		if v == nil {
@@ -4428,8 +4412,6 @@ type UserPoolPolicies struct {
 	// The password policy settings for a user pool, including complexity, history, and length requirements.
 	PasswordPolicy *UserPoolPasswordPolicy `pulumi:"passwordPolicy"`
 	// The policy for allowed types of authentication in a user pool. To activate this setting, your user pool must be in the [Essentials tier](https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html) or higher.
-	//
-	// This data type is a request and response parameter of `API_CreateUserPool` and `API_UpdateUserPool` , and a response parameter of `API_DescribeUserPool` .
 	SignInPolicy *UserPoolSignInPolicy `pulumi:"signInPolicy"`
 }
 
@@ -4448,8 +4430,6 @@ type UserPoolPoliciesArgs struct {
 	// The password policy settings for a user pool, including complexity, history, and length requirements.
 	PasswordPolicy UserPoolPasswordPolicyPtrInput `pulumi:"passwordPolicy"`
 	// The policy for allowed types of authentication in a user pool. To activate this setting, your user pool must be in the [Essentials tier](https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html) or higher.
-	//
-	// This data type is a request and response parameter of `API_CreateUserPool` and `API_UpdateUserPool` , and a response parameter of `API_DescribeUserPool` .
 	SignInPolicy UserPoolSignInPolicyPtrInput `pulumi:"signInPolicy"`
 }
 
@@ -4536,8 +4516,6 @@ func (o UserPoolPoliciesOutput) PasswordPolicy() UserPoolPasswordPolicyPtrOutput
 }
 
 // The policy for allowed types of authentication in a user pool. To activate this setting, your user pool must be in the [Essentials tier](https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html) or higher.
-//
-// This data type is a request and response parameter of `API_CreateUserPool` and `API_UpdateUserPool` , and a response parameter of `API_DescribeUserPool` .
 func (o UserPoolPoliciesOutput) SignInPolicy() UserPoolSignInPolicyPtrOutput {
 	return o.ApplyT(func(v UserPoolPolicies) *UserPoolSignInPolicy { return v.SignInPolicy }).(UserPoolSignInPolicyPtrOutput)
 }
@@ -4577,8 +4555,6 @@ func (o UserPoolPoliciesPtrOutput) PasswordPolicy() UserPoolPasswordPolicyPtrOut
 }
 
 // The policy for allowed types of authentication in a user pool. To activate this setting, your user pool must be in the [Essentials tier](https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html) or higher.
-//
-// This data type is a request and response parameter of `API_CreateUserPool` and `API_UpdateUserPool` , and a response parameter of `API_DescribeUserPool` .
 func (o UserPoolPoliciesPtrOutput) SignInPolicy() UserPoolSignInPolicyPtrOutput {
 	return o.ApplyT(func(v *UserPoolPolicies) *UserPoolSignInPolicy {
 		if v == nil {
@@ -7121,8 +7097,6 @@ func (o UserPoolUserAttributeTypeArrayOutput) Index(i pulumi.IntInput) UserPoolU
 type UserPoolUserAttributeUpdateSettings struct {
 	// Requires that your user verifies their email address, phone number, or both before Amazon Cognito updates the value of that attribute. When you update a user attribute that has this option activated, Amazon Cognito sends a verification message to the new phone number or email address. Amazon Cognito doesn’t change the value of the attribute until your user responds to the verification message and confirms the new value.
 	//
-	// You can verify an updated email address or phone number with a `API_VerifyUserAttribute` API request. You can also call the `API_AdminUpdateUserAttributes` API and set `email_verified` or `phone_number_verified` to true.
-	//
 	// When `AttributesRequireVerificationBeforeUpdate` is false, your user pool doesn't require that your users verify attribute changes before Amazon Cognito updates them. In a user pool where `AttributesRequireVerificationBeforeUpdate` is false, API operations that change attribute values can immediately update a user’s `email` or `phone_number` attribute.
 	AttributesRequireVerificationBeforeUpdate []string `pulumi:"attributesRequireVerificationBeforeUpdate"`
 }
@@ -7140,8 +7114,6 @@ type UserPoolUserAttributeUpdateSettingsInput interface {
 
 type UserPoolUserAttributeUpdateSettingsArgs struct {
 	// Requires that your user verifies their email address, phone number, or both before Amazon Cognito updates the value of that attribute. When you update a user attribute that has this option activated, Amazon Cognito sends a verification message to the new phone number or email address. Amazon Cognito doesn’t change the value of the attribute until your user responds to the verification message and confirms the new value.
-	//
-	// You can verify an updated email address or phone number with a `API_VerifyUserAttribute` API request. You can also call the `API_AdminUpdateUserAttributes` API and set `email_verified` or `phone_number_verified` to true.
 	//
 	// When `AttributesRequireVerificationBeforeUpdate` is false, your user pool doesn't require that your users verify attribute changes before Amazon Cognito updates them. In a user pool where `AttributesRequireVerificationBeforeUpdate` is false, API operations that change attribute values can immediately update a user’s `email` or `phone_number` attribute.
 	AttributesRequireVerificationBeforeUpdate pulumi.StringArrayInput `pulumi:"attributesRequireVerificationBeforeUpdate"`
@@ -7226,8 +7198,6 @@ func (o UserPoolUserAttributeUpdateSettingsOutput) ToUserPoolUserAttributeUpdate
 
 // Requires that your user verifies their email address, phone number, or both before Amazon Cognito updates the value of that attribute. When you update a user attribute that has this option activated, Amazon Cognito sends a verification message to the new phone number or email address. Amazon Cognito doesn’t change the value of the attribute until your user responds to the verification message and confirms the new value.
 //
-// You can verify an updated email address or phone number with a `API_VerifyUserAttribute` API request. You can also call the `API_AdminUpdateUserAttributes` API and set `email_verified` or `phone_number_verified` to true.
-//
 // When `AttributesRequireVerificationBeforeUpdate` is false, your user pool doesn't require that your users verify attribute changes before Amazon Cognito updates them. In a user pool where `AttributesRequireVerificationBeforeUpdate` is false, API operations that change attribute values can immediately update a user’s `email` or `phone_number` attribute.
 func (o UserPoolUserAttributeUpdateSettingsOutput) AttributesRequireVerificationBeforeUpdate() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v UserPoolUserAttributeUpdateSettings) []string {
@@ -7260,8 +7230,6 @@ func (o UserPoolUserAttributeUpdateSettingsPtrOutput) Elem() UserPoolUserAttribu
 }
 
 // Requires that your user verifies their email address, phone number, or both before Amazon Cognito updates the value of that attribute. When you update a user attribute that has this option activated, Amazon Cognito sends a verification message to the new phone number or email address. Amazon Cognito doesn’t change the value of the attribute until your user responds to the verification message and confirms the new value.
-//
-// You can verify an updated email address or phone number with a `API_VerifyUserAttribute` API request. You can also call the `API_AdminUpdateUserAttributes` API and set `email_verified` or `phone_number_verified` to true.
 //
 // When `AttributesRequireVerificationBeforeUpdate` is false, your user pool doesn't require that your users verify attribute changes before Amazon Cognito updates them. In a user pool where `AttributesRequireVerificationBeforeUpdate` is false, API operations that change attribute values can immediately update a user’s `email` or `phone_number` attribute.
 func (o UserPoolUserAttributeUpdateSettingsPtrOutput) AttributesRequireVerificationBeforeUpdate() pulumi.StringArrayOutput {

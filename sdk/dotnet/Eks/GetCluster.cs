@@ -96,6 +96,10 @@ namespace Pulumi.AwsNative.Eks
         /// </summary>
         public readonly string? Id;
         /// <summary>
+        /// The Kubernetes network configuration for the cluster.
+        /// </summary>
+        public readonly Outputs.ClusterKubernetesNetworkConfig? KubernetesNetworkConfig;
+        /// <summary>
         /// The logging configuration for your cluster.
         /// </summary>
         public readonly Outputs.Logging? Logging;
@@ -148,6 +152,8 @@ namespace Pulumi.AwsNative.Eks
 
             string? id,
 
+            Outputs.ClusterKubernetesNetworkConfig? kubernetesNetworkConfig,
+
             Outputs.Logging? logging,
 
             string? openIdConnectIssuerUrl,
@@ -172,6 +178,7 @@ namespace Pulumi.AwsNative.Eks
             EncryptionConfigKeyArn = encryptionConfigKeyArn;
             Endpoint = endpoint;
             Id = id;
+            KubernetesNetworkConfig = kubernetesNetworkConfig;
             Logging = logging;
             OpenIdConnectIssuerUrl = openIdConnectIssuerUrl;
             ResourcesVpcConfig = resourcesVpcConfig;

@@ -63,7 +63,7 @@
       "required" : [ "DomainName", "IpAddressType" ]
     },
     "ArnResource" : {
-      "pattern" : "^arn:[a-z0-9][-.a-z0-9]{0,62}:vpc-lattice:([a-z0-9][-.a-z0-9]{0,62})?:\\d{12}?:[^/].{0,1023}$",
+      "pattern" : "^arn.*",
       "type" : "string",
       "maxLength" : 1224
     },

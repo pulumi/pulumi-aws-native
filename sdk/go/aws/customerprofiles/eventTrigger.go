@@ -18,17 +18,25 @@ type EventTrigger struct {
 	pulumi.CustomResourceState
 
 	// The timestamp of when the event trigger was created.
-	CreatedAt              pulumi.StringOutput              `pulumi:"createdAt"`
-	Description            pulumi.StringPtrOutput           `pulumi:"description"`
-	DomainName             pulumi.StringOutput              `pulumi:"domainName"`
+	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	// The description of the event trigger.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The unique name of the domain.
+	DomainName pulumi.StringOutput `pulumi:"domainName"`
+	// A list of conditions that determine when an event should trigger the destination.
 	EventTriggerConditions EventTriggerConditionArrayOutput `pulumi:"eventTriggerConditions"`
-	EventTriggerLimits     EventTriggerLimitsPtrOutput      `pulumi:"eventTriggerLimits"`
-	EventTriggerName       pulumi.StringOutput              `pulumi:"eventTriggerName"`
+	// Defines limits controlling whether an event triggers the destination, based on ingestion latency and the number of invocations per profile over specific time periods.
+	EventTriggerLimits EventTriggerLimitsPtrOutput `pulumi:"eventTriggerLimits"`
+	// The unique name of the event trigger.
+	EventTriggerName pulumi.StringOutput `pulumi:"eventTriggerName"`
 	// The timestamp of when the event trigger was most recently updated.
-	LastUpdatedAt  pulumi.StringOutput    `pulumi:"lastUpdatedAt"`
-	ObjectTypeName pulumi.StringOutput    `pulumi:"objectTypeName"`
-	SegmentFilter  pulumi.StringPtrOutput `pulumi:"segmentFilter"`
-	Tags           aws.TagArrayOutput     `pulumi:"tags"`
+	LastUpdatedAt pulumi.StringOutput `pulumi:"lastUpdatedAt"`
+	// The unique name of the object type.
+	ObjectTypeName pulumi.StringOutput `pulumi:"objectTypeName"`
+	// The destination is triggered only for profiles that meet the criteria of a segment definition.
+	SegmentFilter pulumi.StringPtrOutput `pulumi:"segmentFilter"`
+	// An array of key-value pairs to apply to this resource.
+	Tags aws.TagArrayOutput `pulumi:"tags"`
 }
 
 // NewEventTrigger registers a new resource with the given unique name, arguments, and options.
@@ -85,26 +93,42 @@ func (EventTriggerState) ElementType() reflect.Type {
 }
 
 type eventTriggerArgs struct {
-	Description            *string                 `pulumi:"description"`
-	DomainName             string                  `pulumi:"domainName"`
+	// The description of the event trigger.
+	Description *string `pulumi:"description"`
+	// The unique name of the domain.
+	DomainName string `pulumi:"domainName"`
+	// A list of conditions that determine when an event should trigger the destination.
 	EventTriggerConditions []EventTriggerCondition `pulumi:"eventTriggerConditions"`
-	EventTriggerLimits     *EventTriggerLimits     `pulumi:"eventTriggerLimits"`
-	EventTriggerName       *string                 `pulumi:"eventTriggerName"`
-	ObjectTypeName         string                  `pulumi:"objectTypeName"`
-	SegmentFilter          *string                 `pulumi:"segmentFilter"`
-	Tags                   []aws.Tag               `pulumi:"tags"`
+	// Defines limits controlling whether an event triggers the destination, based on ingestion latency and the number of invocations per profile over specific time periods.
+	EventTriggerLimits *EventTriggerLimits `pulumi:"eventTriggerLimits"`
+	// The unique name of the event trigger.
+	EventTriggerName *string `pulumi:"eventTriggerName"`
+	// The unique name of the object type.
+	ObjectTypeName string `pulumi:"objectTypeName"`
+	// The destination is triggered only for profiles that meet the criteria of a segment definition.
+	SegmentFilter *string `pulumi:"segmentFilter"`
+	// An array of key-value pairs to apply to this resource.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a EventTrigger resource.
 type EventTriggerArgs struct {
-	Description            pulumi.StringPtrInput
-	DomainName             pulumi.StringInput
+	// The description of the event trigger.
+	Description pulumi.StringPtrInput
+	// The unique name of the domain.
+	DomainName pulumi.StringInput
+	// A list of conditions that determine when an event should trigger the destination.
 	EventTriggerConditions EventTriggerConditionArrayInput
-	EventTriggerLimits     EventTriggerLimitsPtrInput
-	EventTriggerName       pulumi.StringPtrInput
-	ObjectTypeName         pulumi.StringInput
-	SegmentFilter          pulumi.StringPtrInput
-	Tags                   aws.TagArrayInput
+	// Defines limits controlling whether an event triggers the destination, based on ingestion latency and the number of invocations per profile over specific time periods.
+	EventTriggerLimits EventTriggerLimitsPtrInput
+	// The unique name of the event trigger.
+	EventTriggerName pulumi.StringPtrInput
+	// The unique name of the object type.
+	ObjectTypeName pulumi.StringInput
+	// The destination is triggered only for profiles that meet the criteria of a segment definition.
+	SegmentFilter pulumi.StringPtrInput
+	// An array of key-value pairs to apply to this resource.
+	Tags aws.TagArrayInput
 }
 
 func (EventTriggerArgs) ElementType() reflect.Type {
@@ -149,22 +173,27 @@ func (o EventTriggerOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventTrigger) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
+// The description of the event trigger.
 func (o EventTriggerOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventTrigger) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The unique name of the domain.
 func (o EventTriggerOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventTrigger) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
 }
 
+// A list of conditions that determine when an event should trigger the destination.
 func (o EventTriggerOutput) EventTriggerConditions() EventTriggerConditionArrayOutput {
 	return o.ApplyT(func(v *EventTrigger) EventTriggerConditionArrayOutput { return v.EventTriggerConditions }).(EventTriggerConditionArrayOutput)
 }
 
+// Defines limits controlling whether an event triggers the destination, based on ingestion latency and the number of invocations per profile over specific time periods.
 func (o EventTriggerOutput) EventTriggerLimits() EventTriggerLimitsPtrOutput {
 	return o.ApplyT(func(v *EventTrigger) EventTriggerLimitsPtrOutput { return v.EventTriggerLimits }).(EventTriggerLimitsPtrOutput)
 }
 
+// The unique name of the event trigger.
 func (o EventTriggerOutput) EventTriggerName() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventTrigger) pulumi.StringOutput { return v.EventTriggerName }).(pulumi.StringOutput)
 }
@@ -174,14 +203,17 @@ func (o EventTriggerOutput) LastUpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventTrigger) pulumi.StringOutput { return v.LastUpdatedAt }).(pulumi.StringOutput)
 }
 
+// The unique name of the object type.
 func (o EventTriggerOutput) ObjectTypeName() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventTrigger) pulumi.StringOutput { return v.ObjectTypeName }).(pulumi.StringOutput)
 }
 
+// The destination is triggered only for profiles that meet the criteria of a segment definition.
 func (o EventTriggerOutput) SegmentFilter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventTrigger) pulumi.StringPtrOutput { return v.SegmentFilter }).(pulumi.StringPtrOutput)
 }
 
+// An array of key-value pairs to apply to this resource.
 func (o EventTriggerOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *EventTrigger) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }

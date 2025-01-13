@@ -88,9 +88,7 @@ type LookupUserPoolClientResult struct {
 	DefaultRedirectUri *string `pulumi:"defaultRedirectUri"`
 	// When `true` , your application can include additional `UserContextData` in authentication requests. This data includes the IP address, and contributes to analysis by threat protection features. For more information about propagation of user context data, see [Adding session data to API requests](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-adaptive-authentication.html#user-pool-settings-adaptive-authentication-device-fingerprint) . If you don’t include this parameter, you can't send the source IP address to Amazon Cognito threat protection features. You can only activate `EnablePropagateAdditionalUserContextData` in an app client that has a client secret.
 	EnablePropagateAdditionalUserContextData *bool `pulumi:"enablePropagateAdditionalUserContextData"`
-	// Activates or deactivates [token revocation](https://docs.aws.amazon.com/cognito/latest/developerguide/token-revocation.html) in the target app client.
-	//
-	// Revoke tokens with `API_RevokeToken` .
+	// Activates or deactivates token revocation.
 	//
 	// If you don't include this parameter, token revocation is automatically activated for the new user pool client.
 	EnableTokenRevocation *bool `pulumi:"enableTokenRevocation"`
@@ -133,11 +131,9 @@ type LookupUserPoolClientResult struct {
 	//
 	// Defaults to `LEGACY` when you don't provide a value.
 	PreventUserExistenceErrors *string `pulumi:"preventUserExistenceErrors"`
-	// The list of user attributes that you want your app client to have read access to. After your user authenticates in your app, their access token authorizes them to read their own attribute value for any attribute in this list.
+	// The list of user attributes that you want your app client to have read access to. After your user authenticates in your app, their access token authorizes them to read their own attribute value for any attribute in this list. An example of this kind of activity is when your user selects a link to view their profile information.
 	//
-	// An example of this kind of activity is when your user selects a link to view their profile information. Your app makes a `API_GetUser` API request to retrieve and display your user's profile data.
-	//
-	// When you don't specify the `ReadAttributes` for your app client, your app can read the values of `email_verified` , `phone_number_verified` , and the standard attributes of your user pool. When your user pool app client has read access to these default attributes, `ReadAttributes` doesn't return any information. Amazon Cognito only populates `ReadAttributes` in the API response if you have specified your own custom set of read attributes.
+	// When you don't specify the `ReadAttributes` for your app client, your app can read the values of `email_verified` , `phone_number_verified` , and the Standard attributes of your user pool. When your user pool app client has read access to these default attributes, `ReadAttributes` doesn't return any information. Amazon Cognito only populates `ReadAttributes` in the API response if you have specified your own custom set of read attributes.
 	ReadAttributes []string `pulumi:"readAttributes"`
 	// The refresh token time limit. After this limit expires, your user can't use their refresh token. To specify the time unit for `RefreshTokenValidity` as `seconds` , `minutes` , `hours` , or `days` , set a `TokenValidityUnits` value in your API request.
 	//
@@ -156,8 +152,6 @@ type LookupUserPoolClientResult struct {
 	// The units that validity times are represented in. The default unit for refresh tokens is days, and the default for ID and access tokens are hours.
 	TokenValidityUnits *UserPoolClientTokenValidityUnits `pulumi:"tokenValidityUnits"`
 	// The list of user attributes that you want your app client to have write access to. After your user authenticates in your app, their access token authorizes them to set or modify their own attribute value for any attribute in this list.
-	//
-	// An example of this kind of activity is when you present your user with a form to update their profile information and they change their last name. Your app then makes an `API_UpdateUserAttributes` API request and sets `family_name` to the new value.
 	//
 	// When you don't specify the `WriteAttributes` for your app client, your app can write the values of the Standard attributes of your user pool. When your user pool has write access to these default attributes, `WriteAttributes` doesn't return any information. Amazon Cognito only populates `WriteAttributes` in the API response if you have specified your own custom set of write attributes.
 	//
@@ -295,9 +289,7 @@ func (o LookupUserPoolClientResultOutput) EnablePropagateAdditionalUserContextDa
 	return o.ApplyT(func(v LookupUserPoolClientResult) *bool { return v.EnablePropagateAdditionalUserContextData }).(pulumi.BoolPtrOutput)
 }
 
-// Activates or deactivates [token revocation](https://docs.aws.amazon.com/cognito/latest/developerguide/token-revocation.html) in the target app client.
-//
-// Revoke tokens with `API_RevokeToken` .
+// Activates or deactivates token revocation.
 //
 // If you don't include this parameter, token revocation is automatically activated for the new user pool client.
 func (o LookupUserPoolClientResultOutput) EnableTokenRevocation() pulumi.BoolPtrOutput {
@@ -358,11 +350,9 @@ func (o LookupUserPoolClientResultOutput) PreventUserExistenceErrors() pulumi.St
 	return o.ApplyT(func(v LookupUserPoolClientResult) *string { return v.PreventUserExistenceErrors }).(pulumi.StringPtrOutput)
 }
 
-// The list of user attributes that you want your app client to have read access to. After your user authenticates in your app, their access token authorizes them to read their own attribute value for any attribute in this list.
+// The list of user attributes that you want your app client to have read access to. After your user authenticates in your app, their access token authorizes them to read their own attribute value for any attribute in this list. An example of this kind of activity is when your user selects a link to view their profile information.
 //
-// An example of this kind of activity is when your user selects a link to view their profile information. Your app makes a `API_GetUser` API request to retrieve and display your user's profile data.
-//
-// When you don't specify the `ReadAttributes` for your app client, your app can read the values of `email_verified` , `phone_number_verified` , and the standard attributes of your user pool. When your user pool app client has read access to these default attributes, `ReadAttributes` doesn't return any information. Amazon Cognito only populates `ReadAttributes` in the API response if you have specified your own custom set of read attributes.
+// When you don't specify the `ReadAttributes` for your app client, your app can read the values of `email_verified` , `phone_number_verified` , and the Standard attributes of your user pool. When your user pool app client has read access to these default attributes, `ReadAttributes` doesn't return any information. Amazon Cognito only populates `ReadAttributes` in the API response if you have specified your own custom set of read attributes.
 func (o LookupUserPoolClientResultOutput) ReadAttributes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupUserPoolClientResult) []string { return v.ReadAttributes }).(pulumi.StringArrayOutput)
 }
@@ -393,8 +383,6 @@ func (o LookupUserPoolClientResultOutput) TokenValidityUnits() UserPoolClientTok
 }
 
 // The list of user attributes that you want your app client to have write access to. After your user authenticates in your app, their access token authorizes them to set or modify their own attribute value for any attribute in this list.
-//
-// An example of this kind of activity is when you present your user with a form to update their profile information and they change their last name. Your app then makes an `API_UpdateUserAttributes` API request and sets `family_name` to the new value.
 //
 // When you don't specify the `WriteAttributes` for your app client, your app can write the values of the Standard attributes of your user pool. When your user pool has write access to these default attributes, `WriteAttributes` doesn't return any information. Amazon Cognito only populates `WriteAttributes` in the API response if you have specified your own custom set of write attributes.
 //

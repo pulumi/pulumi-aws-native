@@ -26,8 +26,6 @@ namespace Pulumi.AwsNative.Cognito.Outputs
         /// <summary>
         /// This parameter is no longer in use.
         /// 
-        /// Configure the duration of temporary passwords with the `TemporaryPasswordValidityDays` parameter of `API_PasswordPolicyType` . For older user pools that have a `UnusedAccountValidityDays` configuration, that value is effective until you set a value for `TemporaryPasswordValidityDays` .
-        /// 
         /// The password expiration limit in days for administrator-created users. When this time expires, the user can't sign in with their temporary password. To reset the account after that time limit, you must call `AdminCreateUser` again, specifying `RESEND` for the `MessageAction` parameter.
         /// 
         /// The default value for this parameter is 7.

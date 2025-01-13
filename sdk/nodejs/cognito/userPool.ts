@@ -43,8 +43,6 @@ export class UserPool extends pulumi.CustomResource {
     public readonly accountRecoverySetting!: pulumi.Output<outputs.cognito.UserPoolAccountRecoverySetting | undefined>;
     /**
      * The settings for administrator creation of users in a user pool. Contains settings for allowing user sign-up, customizing invitation messages to new users, and the amount of time before temporary passwords expire.
-     *
-     * This data type is a request and response parameter of `API_CreateUserPool` and `API_UpdateUserPool` , and a response parameter of `API_DescribeUserPool` .
      */
     public readonly adminCreateUserConfig!: pulumi.Output<outputs.cognito.UserPoolAdminCreateUserConfig | undefined>;
     /**
@@ -109,8 +107,6 @@ export class UserPool extends pulumi.CustomResource {
     public readonly mfaConfiguration!: pulumi.Output<string | undefined>;
     /**
      * A list of user pool policies. Contains the policy that sets password-complexity requirements.
-     *
-     * This data type is a request and response parameter of `API_CreateUserPool` and `API_UpdateUserPool` , and a response parameter of `API_DescribeUserPool` .
      */
     public readonly policies!: pulumi.Output<outputs.cognito.UserPoolPolicies | undefined>;
     /**
@@ -292,8 +288,6 @@ export interface UserPoolArgs {
     accountRecoverySetting?: pulumi.Input<inputs.cognito.UserPoolAccountRecoverySettingArgs>;
     /**
      * The settings for administrator creation of users in a user pool. Contains settings for allowing user sign-up, customizing invitation messages to new users, and the amount of time before temporary passwords expire.
-     *
-     * This data type is a request and response parameter of `API_CreateUserPool` and `API_UpdateUserPool` , and a response parameter of `API_DescribeUserPool` .
      */
     adminCreateUserConfig?: pulumi.Input<inputs.cognito.UserPoolAdminCreateUserConfigArgs>;
     /**
@@ -354,8 +348,6 @@ export interface UserPoolArgs {
     mfaConfiguration?: pulumi.Input<string>;
     /**
      * A list of user pool policies. Contains the policy that sets password-complexity requirements.
-     *
-     * This data type is a request and response parameter of `API_CreateUserPool` and `API_UpdateUserPool` , and a response parameter of `API_DescribeUserPool` .
      */
     policies?: pulumi.Input<inputs.cognito.UserPoolPoliciesArgs>;
     /**

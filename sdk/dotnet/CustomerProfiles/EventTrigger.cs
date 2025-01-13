@@ -21,18 +21,33 @@ namespace Pulumi.AwsNative.CustomerProfiles
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// The description of the event trigger.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique name of the domain.
+        /// </summary>
         [Output("domainName")]
         public Output<string> DomainName { get; private set; } = null!;
 
+        /// <summary>
+        /// A list of conditions that determine when an event should trigger the destination.
+        /// </summary>
         [Output("eventTriggerConditions")]
         public Output<ImmutableArray<Outputs.EventTriggerCondition>> EventTriggerConditions { get; private set; } = null!;
 
+        /// <summary>
+        /// Defines limits controlling whether an event triggers the destination, based on ingestion latency and the number of invocations per profile over specific time periods.
+        /// </summary>
         [Output("eventTriggerLimits")]
         public Output<Outputs.EventTriggerLimits?> EventTriggerLimits { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique name of the event trigger.
+        /// </summary>
         [Output("eventTriggerName")]
         public Output<string> EventTriggerName { get; private set; } = null!;
 
@@ -42,12 +57,21 @@ namespace Pulumi.AwsNative.CustomerProfiles
         [Output("lastUpdatedAt")]
         public Output<string> LastUpdatedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique name of the object type.
+        /// </summary>
         [Output("objectTypeName")]
         public Output<string> ObjectTypeName { get; private set; } = null!;
 
+        /// <summary>
+        /// The destination is triggered only for profiles that meet the criteria of a segment definition.
+        /// </summary>
         [Output("segmentFilter")]
         public Output<string?> SegmentFilter { get; private set; } = null!;
 
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
@@ -101,34 +125,60 @@ namespace Pulumi.AwsNative.CustomerProfiles
 
     public sealed class EventTriggerArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The description of the event trigger.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// The unique name of the domain.
+        /// </summary>
         [Input("domainName", required: true)]
         public Input<string> DomainName { get; set; } = null!;
 
         [Input("eventTriggerConditions", required: true)]
         private InputList<Inputs.EventTriggerConditionArgs>? _eventTriggerConditions;
+
+        /// <summary>
+        /// A list of conditions that determine when an event should trigger the destination.
+        /// </summary>
         public InputList<Inputs.EventTriggerConditionArgs> EventTriggerConditions
         {
             get => _eventTriggerConditions ?? (_eventTriggerConditions = new InputList<Inputs.EventTriggerConditionArgs>());
             set => _eventTriggerConditions = value;
         }
 
+        /// <summary>
+        /// Defines limits controlling whether an event triggers the destination, based on ingestion latency and the number of invocations per profile over specific time periods.
+        /// </summary>
         [Input("eventTriggerLimits")]
         public Input<Inputs.EventTriggerLimitsArgs>? EventTriggerLimits { get; set; }
 
+        /// <summary>
+        /// The unique name of the event trigger.
+        /// </summary>
         [Input("eventTriggerName")]
         public Input<string>? EventTriggerName { get; set; }
 
+        /// <summary>
+        /// The unique name of the object type.
+        /// </summary>
         [Input("objectTypeName", required: true)]
         public Input<string> ObjectTypeName { get; set; } = null!;
 
+        /// <summary>
+        /// The destination is triggered only for profiles that meet the criteria of a segment definition.
+        /// </summary>
         [Input("segmentFilter")]
         public Input<string>? SegmentFilter { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {
             get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());

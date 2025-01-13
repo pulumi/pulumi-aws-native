@@ -136,8 +136,6 @@ class GetUserPoolResult:
     def admin_create_user_config(self) -> Optional['outputs.UserPoolAdminCreateUserConfig']:
         """
         The settings for administrator creation of users in a user pool. Contains settings for allowing user sign-up, customizing invitation messages to new users, and the amount of time before temporary passwords expire.
-
-        This data type is a request and response parameter of `API_CreateUserPool` and `API_UpdateUserPool` , and a response parameter of `API_DescribeUserPool` .
         """
         return pulumi.get(self, "admin_create_user_config")
 
@@ -244,8 +242,6 @@ class GetUserPoolResult:
     def policies(self) -> Optional['outputs.UserPoolPolicies']:
         """
         A list of user pool policies. Contains the policy that sets password-complexity requirements.
-
-        This data type is a request and response parameter of `API_CreateUserPool` and `API_UpdateUserPool` , and a response parameter of `API_DescribeUserPool` .
         """
         return pulumi.get(self, "policies")
 

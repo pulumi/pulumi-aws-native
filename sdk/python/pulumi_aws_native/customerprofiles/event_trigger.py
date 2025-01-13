@@ -34,6 +34,14 @@ class EventTriggerArgs:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a EventTrigger resource.
+        :param pulumi.Input[str] domain_name: The unique name of the domain.
+        :param pulumi.Input[Sequence[pulumi.Input['EventTriggerConditionArgs']]] event_trigger_conditions: A list of conditions that determine when an event should trigger the destination.
+        :param pulumi.Input[str] object_type_name: The unique name of the object type.
+        :param pulumi.Input[str] description: The description of the event trigger.
+        :param pulumi.Input['EventTriggerLimitsArgs'] event_trigger_limits: Defines limits controlling whether an event triggers the destination, based on ingestion latency and the number of invocations per profile over specific time periods.
+        :param pulumi.Input[str] event_trigger_name: The unique name of the event trigger.
+        :param pulumi.Input[str] segment_filter: The destination is triggered only for profiles that meet the criteria of a segment definition.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
         """
         pulumi.set(__self__, "domain_name", domain_name)
         pulumi.set(__self__, "event_trigger_conditions", event_trigger_conditions)
@@ -52,6 +60,9 @@ class EventTriggerArgs:
     @property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Input[str]:
+        """
+        The unique name of the domain.
+        """
         return pulumi.get(self, "domain_name")
 
     @domain_name.setter
@@ -61,6 +72,9 @@ class EventTriggerArgs:
     @property
     @pulumi.getter(name="eventTriggerConditions")
     def event_trigger_conditions(self) -> pulumi.Input[Sequence[pulumi.Input['EventTriggerConditionArgs']]]:
+        """
+        A list of conditions that determine when an event should trigger the destination.
+        """
         return pulumi.get(self, "event_trigger_conditions")
 
     @event_trigger_conditions.setter
@@ -70,6 +84,9 @@ class EventTriggerArgs:
     @property
     @pulumi.getter(name="objectTypeName")
     def object_type_name(self) -> pulumi.Input[str]:
+        """
+        The unique name of the object type.
+        """
         return pulumi.get(self, "object_type_name")
 
     @object_type_name.setter
@@ -79,6 +96,9 @@ class EventTriggerArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the event trigger.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -88,6 +108,9 @@ class EventTriggerArgs:
     @property
     @pulumi.getter(name="eventTriggerLimits")
     def event_trigger_limits(self) -> Optional[pulumi.Input['EventTriggerLimitsArgs']]:
+        """
+        Defines limits controlling whether an event triggers the destination, based on ingestion latency and the number of invocations per profile over specific time periods.
+        """
         return pulumi.get(self, "event_trigger_limits")
 
     @event_trigger_limits.setter
@@ -97,6 +120,9 @@ class EventTriggerArgs:
     @property
     @pulumi.getter(name="eventTriggerName")
     def event_trigger_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The unique name of the event trigger.
+        """
         return pulumi.get(self, "event_trigger_name")
 
     @event_trigger_name.setter
@@ -106,6 +132,9 @@ class EventTriggerArgs:
     @property
     @pulumi.getter(name="segmentFilter")
     def segment_filter(self) -> Optional[pulumi.Input[str]]:
+        """
+        The destination is triggered only for profiles that meet the criteria of a segment definition.
+        """
         return pulumi.get(self, "segment_filter")
 
     @segment_filter.setter
@@ -115,6 +144,9 @@ class EventTriggerArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -141,6 +173,14 @@ class EventTrigger(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] description: The description of the event trigger.
+        :param pulumi.Input[str] domain_name: The unique name of the domain.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EventTriggerConditionArgs', 'EventTriggerConditionArgsDict']]]] event_trigger_conditions: A list of conditions that determine when an event should trigger the destination.
+        :param pulumi.Input[Union['EventTriggerLimitsArgs', 'EventTriggerLimitsArgsDict']] event_trigger_limits: Defines limits controlling whether an event triggers the destination, based on ingestion latency and the number of invocations per profile over specific time periods.
+        :param pulumi.Input[str] event_trigger_name: The unique name of the event trigger.
+        :param pulumi.Input[str] object_type_name: The unique name of the object type.
+        :param pulumi.Input[str] segment_filter: The destination is triggered only for profiles that meet the criteria of a segment definition.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -246,26 +286,41 @@ class EventTrigger(pulumi.CustomResource):
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        The description of the event trigger.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="domainName")
     def domain_name(self) -> pulumi.Output[str]:
+        """
+        The unique name of the domain.
+        """
         return pulumi.get(self, "domain_name")
 
     @property
     @pulumi.getter(name="eventTriggerConditions")
     def event_trigger_conditions(self) -> pulumi.Output[Sequence['outputs.EventTriggerCondition']]:
+        """
+        A list of conditions that determine when an event should trigger the destination.
+        """
         return pulumi.get(self, "event_trigger_conditions")
 
     @property
     @pulumi.getter(name="eventTriggerLimits")
     def event_trigger_limits(self) -> pulumi.Output[Optional['outputs.EventTriggerLimits']]:
+        """
+        Defines limits controlling whether an event triggers the destination, based on ingestion latency and the number of invocations per profile over specific time periods.
+        """
         return pulumi.get(self, "event_trigger_limits")
 
     @property
     @pulumi.getter(name="eventTriggerName")
     def event_trigger_name(self) -> pulumi.Output[str]:
+        """
+        The unique name of the event trigger.
+        """
         return pulumi.get(self, "event_trigger_name")
 
     @property
@@ -279,15 +334,24 @@ class EventTrigger(pulumi.CustomResource):
     @property
     @pulumi.getter(name="objectTypeName")
     def object_type_name(self) -> pulumi.Output[str]:
+        """
+        The unique name of the object type.
+        """
         return pulumi.get(self, "object_type_name")
 
     @property
     @pulumi.getter(name="segmentFilter")
     def segment_filter(self) -> pulumi.Output[Optional[str]]:
+        """
+        The destination is triggered only for profiles that meet the criteria of a segment definition.
+        """
         return pulumi.get(self, "segment_filter")
 
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
         return pulumi.get(self, "tags")
 

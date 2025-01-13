@@ -33,9 +33,15 @@ namespace Pulumi.AwsNative.CustomerProfiles
 
     public sealed class GetEventTriggerArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The unique name of the domain.
+        /// </summary>
         [Input("domainName", required: true)]
         public string DomainName { get; set; } = null!;
 
+        /// <summary>
+        /// The unique name of the event trigger.
+        /// </summary>
         [Input("eventTriggerName", required: true)]
         public string EventTriggerName { get; set; } = null!;
 
@@ -47,9 +53,15 @@ namespace Pulumi.AwsNative.CustomerProfiles
 
     public sealed class GetEventTriggerInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The unique name of the domain.
+        /// </summary>
         [Input("domainName", required: true)]
         public Input<string> DomainName { get; set; } = null!;
 
+        /// <summary>
+        /// The unique name of the event trigger.
+        /// </summary>
         [Input("eventTriggerName", required: true)]
         public Input<string> EventTriggerName { get; set; } = null!;
 
@@ -67,15 +79,33 @@ namespace Pulumi.AwsNative.CustomerProfiles
         /// The timestamp of when the event trigger was created.
         /// </summary>
         public readonly string? CreatedAt;
+        /// <summary>
+        /// The description of the event trigger.
+        /// </summary>
         public readonly string? Description;
+        /// <summary>
+        /// A list of conditions that determine when an event should trigger the destination.
+        /// </summary>
         public readonly ImmutableArray<Outputs.EventTriggerCondition> EventTriggerConditions;
+        /// <summary>
+        /// Defines limits controlling whether an event triggers the destination, based on ingestion latency and the number of invocations per profile over specific time periods.
+        /// </summary>
         public readonly Outputs.EventTriggerLimits? EventTriggerLimits;
         /// <summary>
         /// The timestamp of when the event trigger was most recently updated.
         /// </summary>
         public readonly string? LastUpdatedAt;
+        /// <summary>
+        /// The unique name of the object type.
+        /// </summary>
         public readonly string? ObjectTypeName;
+        /// <summary>
+        /// The destination is triggered only for profiles that meet the criteria of a segment definition.
+        /// </summary>
         public readonly string? SegmentFilter;
+        /// <summary>
+        /// An array of key-value pairs to apply to this resource.
+        /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]

@@ -20,8 +20,6 @@ namespace Pulumi.AwsNative.Cognito.Inputs
 
         /// <summary>
         /// The policy for allowed types of authentication in a user pool. To activate this setting, your user pool must be in the [Essentials tier](https://docs.aws.amazon.com/cognito/latest/developerguide/feature-plans-features-essentials.html) or higher.
-        /// 
-        /// This data type is a request and response parameter of `API_CreateUserPool` and `API_UpdateUserPool` , and a response parameter of `API_DescribeUserPool` .
         /// </summary>
         [Input("signInPolicy")]
         public Input<Inputs.UserPoolSignInPolicyArgs>? SignInPolicy { get; set; }

@@ -24,15 +24,22 @@ namespace Pulumi.AwsNative.Eks.Outputs
         /// The maximum percentage of nodes unavailable during a version update. This percentage of nodes will be updated in parallel, up to 100 nodes at once. This value or maxUnavailable is required to have a value.
         /// </summary>
         public readonly double? MaxUnavailablePercentage;
+        /// <summary>
+        /// The configuration for the behavior to follow during an node group version update of this managed node group. You choose between two possible strategies for replacing nodes during an UpdateNodegroupVersion action.
+        /// </summary>
+        public readonly string? UpdateStrategy;
 
         [OutputConstructor]
         private NodegroupUpdateConfig(
             double? maxUnavailable,
 
-            double? maxUnavailablePercentage)
+            double? maxUnavailablePercentage,
+
+            string? updateStrategy)
         {
             MaxUnavailable = maxUnavailable;
             MaxUnavailablePercentage = maxUnavailablePercentage;
+            UpdateStrategy = updateStrategy;
         }
     }
 }

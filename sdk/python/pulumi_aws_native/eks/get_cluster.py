@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetClusterResult:
-    def __init__(__self__, access_config=None, arn=None, certificate_authority_data=None, cluster_security_group_id=None, compute_config=None, encryption_config_key_arn=None, endpoint=None, id=None, logging=None, open_id_connect_issuer_url=None, resources_vpc_config=None, storage_config=None, tags=None, upgrade_policy=None, version=None, zonal_shift_config=None):
+    def __init__(__self__, access_config=None, arn=None, certificate_authority_data=None, cluster_security_group_id=None, compute_config=None, encryption_config_key_arn=None, endpoint=None, id=None, kubernetes_network_config=None, logging=None, open_id_connect_issuer_url=None, resources_vpc_config=None, storage_config=None, tags=None, upgrade_policy=None, version=None, zonal_shift_config=None):
         if access_config and not isinstance(access_config, dict):
             raise TypeError("Expected argument 'access_config' to be a dict")
         pulumi.set(__self__, "access_config", access_config)
@@ -51,6 +51,9 @@ class GetClusterResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if kubernetes_network_config and not isinstance(kubernetes_network_config, dict):
+            raise TypeError("Expected argument 'kubernetes_network_config' to be a dict")
+        pulumi.set(__self__, "kubernetes_network_config", kubernetes_network_config)
         if logging and not isinstance(logging, dict):
             raise TypeError("Expected argument 'logging' to be a dict")
         pulumi.set(__self__, "logging", logging)
@@ -141,6 +144,14 @@ class GetClusterResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter(name="kubernetesNetworkConfig")
+    def kubernetes_network_config(self) -> Optional['outputs.ClusterKubernetesNetworkConfig']:
+        """
+        The Kubernetes network configuration for the cluster.
+        """
+        return pulumi.get(self, "kubernetes_network_config")
+
+    @property
     @pulumi.getter
     def logging(self) -> Optional['outputs.Logging']:
         """
@@ -221,6 +232,7 @@ class AwaitableGetClusterResult(GetClusterResult):
             encryption_config_key_arn=self.encryption_config_key_arn,
             endpoint=self.endpoint,
             id=self.id,
+            kubernetes_network_config=self.kubernetes_network_config,
             logging=self.logging,
             open_id_connect_issuer_url=self.open_id_connect_issuer_url,
             resources_vpc_config=self.resources_vpc_config,
@@ -253,6 +265,7 @@ def get_cluster(name: Optional[str] = None,
         encryption_config_key_arn=pulumi.get(__ret__, 'encryption_config_key_arn'),
         endpoint=pulumi.get(__ret__, 'endpoint'),
         id=pulumi.get(__ret__, 'id'),
+        kubernetes_network_config=pulumi.get(__ret__, 'kubernetes_network_config'),
         logging=pulumi.get(__ret__, 'logging'),
         open_id_connect_issuer_url=pulumi.get(__ret__, 'open_id_connect_issuer_url'),
         resources_vpc_config=pulumi.get(__ret__, 'resources_vpc_config'),
@@ -282,6 +295,7 @@ def get_cluster_output(name: Optional[pulumi.Input[str]] = None,
         encryption_config_key_arn=pulumi.get(__response__, 'encryption_config_key_arn'),
         endpoint=pulumi.get(__response__, 'endpoint'),
         id=pulumi.get(__response__, 'id'),
+        kubernetes_network_config=pulumi.get(__response__, 'kubernetes_network_config'),
         logging=pulumi.get(__response__, 'logging'),
         open_id_connect_issuer_url=pulumi.get(__response__, 'open_id_connect_issuer_url'),
         resources_vpc_config=pulumi.get(__response__, 'resources_vpc_config'),

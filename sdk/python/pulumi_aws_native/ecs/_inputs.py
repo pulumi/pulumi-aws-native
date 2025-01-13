@@ -2317,6 +2317,7 @@ if not MYPY:
         The throughput to provision for a volume, in MiB/s, with a maximum of 1,000 MiB/s. This parameter maps 1:1 with the ``Throughput`` parameter of the [CreateVolume API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html) in the *Amazon EC2 API Reference*.
           This parameter is only supported for the ``gp3`` volume type.
         """
+        volume_initialization_rate: NotRequired[pulumi.Input[int]]
         volume_type: NotRequired[pulumi.Input[str]]
         """
         The volume type. This parameter maps 1:1 with the ``VolumeType`` parameter of the [CreateVolume API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html) in the *Amazon EC2 API Reference*. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volume-types.html) in the *Amazon EC2 User Guide*.
@@ -2343,6 +2344,7 @@ class ServiceManagedEbsVolumeConfigurationArgs:
                  snapshot_id: Optional[pulumi.Input[str]] = None,
                  tag_specifications: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEbsTagSpecificationArgs']]]] = None,
                  throughput: Optional[pulumi.Input[int]] = None,
+                 volume_initialization_rate: Optional[pulumi.Input[int]] = None,
                  volume_type: Optional[pulumi.Input[str]] = None):
         """
         The configuration for the Amazon EBS volume that Amazon ECS creates and manages on your behalf. These settings are used to create each Amazon EBS volume, with one volume created for each task in the service. For information about the supported launch types and operating systems, see [Supported operating systems and launch types](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ebs-volumes.html#ebs-volumes-configuration) in the*Amazon Elastic Container Service Developer Guide*.
@@ -2399,6 +2401,8 @@ class ServiceManagedEbsVolumeConfigurationArgs:
             pulumi.set(__self__, "tag_specifications", tag_specifications)
         if throughput is not None:
             pulumi.set(__self__, "throughput", throughput)
+        if volume_initialization_rate is not None:
+            pulumi.set(__self__, "volume_initialization_rate", volume_initialization_rate)
         if volume_type is not None:
             pulumi.set(__self__, "volume_type", volume_type)
 
@@ -2526,6 +2530,15 @@ class ServiceManagedEbsVolumeConfigurationArgs:
     @throughput.setter
     def throughput(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "throughput", value)
+
+    @property
+    @pulumi.getter(name="volumeInitializationRate")
+    def volume_initialization_rate(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "volume_initialization_rate")
+
+    @volume_initialization_rate.setter
+    def volume_initialization_rate(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "volume_initialization_rate", value)
 
     @property
     @pulumi.getter(name="volumeType")

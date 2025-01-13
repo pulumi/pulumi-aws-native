@@ -63,16 +63,25 @@ class GetEventTriggerResult:
     @property
     @pulumi.getter
     def description(self) -> Optional[str]:
+        """
+        The description of the event trigger.
+        """
         return pulumi.get(self, "description")
 
     @property
     @pulumi.getter(name="eventTriggerConditions")
     def event_trigger_conditions(self) -> Optional[Sequence['outputs.EventTriggerCondition']]:
+        """
+        A list of conditions that determine when an event should trigger the destination.
+        """
         return pulumi.get(self, "event_trigger_conditions")
 
     @property
     @pulumi.getter(name="eventTriggerLimits")
     def event_trigger_limits(self) -> Optional['outputs.EventTriggerLimits']:
+        """
+        Defines limits controlling whether an event triggers the destination, based on ingestion latency and the number of invocations per profile over specific time periods.
+        """
         return pulumi.get(self, "event_trigger_limits")
 
     @property
@@ -86,16 +95,25 @@ class GetEventTriggerResult:
     @property
     @pulumi.getter(name="objectTypeName")
     def object_type_name(self) -> Optional[str]:
+        """
+        The unique name of the object type.
+        """
         return pulumi.get(self, "object_type_name")
 
     @property
     @pulumi.getter(name="segmentFilter")
     def segment_filter(self) -> Optional[str]:
+        """
+        The destination is triggered only for profiles that meet the criteria of a segment definition.
+        """
         return pulumi.get(self, "segment_filter")
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        """
+        An array of key-value pairs to apply to this resource.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -120,6 +138,10 @@ def get_event_trigger(domain_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEventTriggerResult:
     """
     An event trigger resource of Amazon Connect Customer Profiles
+
+
+    :param str domain_name: The unique name of the domain.
+    :param str event_trigger_name: The unique name of the event trigger.
     """
     __args__ = dict()
     __args__['domainName'] = domain_name
@@ -141,6 +163,10 @@ def get_event_trigger_output(domain_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetEventTriggerResult]:
     """
     An event trigger resource of Amazon Connect Customer Profiles
+
+
+    :param str domain_name: The unique name of the domain.
+    :param str event_trigger_name: The unique name of the event trigger.
     """
     __args__ = dict()
     __args__['domainName'] = domain_name

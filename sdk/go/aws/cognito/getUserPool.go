@@ -31,8 +31,6 @@ type LookupUserPoolResult struct {
 	// The available verified method a user can use to recover their password when they call `ForgotPassword` . You can use this setting to define a preferred method when a user has more than one method available. With this setting, SMS doesn't qualify for a valid password recovery mechanism if the user also has SMS multi-factor authentication (MFA) activated. In the absence of this setting, Amazon Cognito uses the legacy behavior to determine the recovery method where SMS is preferred through email.
 	AccountRecoverySetting *UserPoolAccountRecoverySetting `pulumi:"accountRecoverySetting"`
 	// The settings for administrator creation of users in a user pool. Contains settings for allowing user sign-up, customizing invitation messages to new users, and the amount of time before temporary passwords expire.
-	//
-	// This data type is a request and response parameter of `API_CreateUserPool` and `API_UpdateUserPool` , and a response parameter of `API_DescribeUserPool` .
 	AdminCreateUserConfig *UserPoolAdminCreateUserConfig `pulumi:"adminCreateUserConfig"`
 	// Attributes supported as an alias for this user pool. For more information about alias attributes, see [Customizing sign-in attributes](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#user-pool-settings-aliases) .
 	AliasAttributes []string `pulumi:"aliasAttributes"`
@@ -65,8 +63,6 @@ type LookupUserPoolResult struct {
 	// When `MfaConfiguration` is `OPTIONAL` , managed login doesn't automatically prompt users to set up MFA. Amazon Cognito generates MFA prompts in API responses and in managed login for users who have chosen and configured a preferred MFA factor.
 	MfaConfiguration *string `pulumi:"mfaConfiguration"`
 	// A list of user pool policies. Contains the policy that sets password-complexity requirements.
-	//
-	// This data type is a request and response parameter of `API_CreateUserPool` and `API_UpdateUserPool` , and a response parameter of `API_DescribeUserPool` .
 	Policies *UserPoolPolicies `pulumi:"policies"`
 	// A friendly name for the IdP.
 	ProviderName *string `pulumi:"providerName"`
@@ -158,8 +154,6 @@ func (o LookupUserPoolResultOutput) AccountRecoverySetting() UserPoolAccountReco
 }
 
 // The settings for administrator creation of users in a user pool. Contains settings for allowing user sign-up, customizing invitation messages to new users, and the amount of time before temporary passwords expire.
-//
-// This data type is a request and response parameter of `API_CreateUserPool` and `API_UpdateUserPool` , and a response parameter of `API_DescribeUserPool` .
 func (o LookupUserPoolResultOutput) AdminCreateUserConfig() UserPoolAdminCreateUserConfigPtrOutput {
 	return o.ApplyT(func(v LookupUserPoolResult) *UserPoolAdminCreateUserConfig { return v.AdminCreateUserConfig }).(UserPoolAdminCreateUserConfigPtrOutput)
 }
@@ -231,8 +225,6 @@ func (o LookupUserPoolResultOutput) MfaConfiguration() pulumi.StringPtrOutput {
 }
 
 // A list of user pool policies. Contains the policy that sets password-complexity requirements.
-//
-// This data type is a request and response parameter of `API_CreateUserPool` and `API_UpdateUserPool` , and a response parameter of `API_DescribeUserPool` .
 func (o LookupUserPoolResultOutput) Policies() UserPoolPoliciesPtrOutput {
 	return o.ApplyT(func(v LookupUserPoolResult) *UserPoolPolicies { return v.Policies }).(UserPoolPoliciesPtrOutput)
 }

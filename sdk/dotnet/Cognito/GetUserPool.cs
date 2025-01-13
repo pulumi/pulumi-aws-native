@@ -69,8 +69,6 @@ namespace Pulumi.AwsNative.Cognito
         public readonly Outputs.UserPoolAccountRecoverySetting? AccountRecoverySetting;
         /// <summary>
         /// The settings for administrator creation of users in a user pool. Contains settings for allowing user sign-up, customizing invitation messages to new users, and the amount of time before temporary passwords expire.
-        /// 
-        /// This data type is a request and response parameter of `API_CreateUserPool` and `API_UpdateUserPool` , and a response parameter of `API_DescribeUserPool` .
         /// </summary>
         public readonly Outputs.UserPoolAdminCreateUserConfig? AdminCreateUserConfig;
         /// <summary>
@@ -125,8 +123,6 @@ namespace Pulumi.AwsNative.Cognito
         public readonly string? MfaConfiguration;
         /// <summary>
         /// A list of user pool policies. Contains the policy that sets password-complexity requirements.
-        /// 
-        /// This data type is a request and response parameter of `API_CreateUserPool` and `API_UpdateUserPool` , and a response parameter of `API_DescribeUserPool` .
         /// </summary>
         public readonly Outputs.UserPoolPolicies? Policies;
         /// <summary>

@@ -24,21 +24,29 @@ func LookupEventTrigger(ctx *pulumi.Context, args *LookupEventTriggerArgs, opts 
 }
 
 type LookupEventTriggerArgs struct {
-	DomainName       string `pulumi:"domainName"`
+	// The unique name of the domain.
+	DomainName string `pulumi:"domainName"`
+	// The unique name of the event trigger.
 	EventTriggerName string `pulumi:"eventTriggerName"`
 }
 
 type LookupEventTriggerResult struct {
 	// The timestamp of when the event trigger was created.
-	CreatedAt              *string                 `pulumi:"createdAt"`
-	Description            *string                 `pulumi:"description"`
+	CreatedAt *string `pulumi:"createdAt"`
+	// The description of the event trigger.
+	Description *string `pulumi:"description"`
+	// A list of conditions that determine when an event should trigger the destination.
 	EventTriggerConditions []EventTriggerCondition `pulumi:"eventTriggerConditions"`
-	EventTriggerLimits     *EventTriggerLimits     `pulumi:"eventTriggerLimits"`
+	// Defines limits controlling whether an event triggers the destination, based on ingestion latency and the number of invocations per profile over specific time periods.
+	EventTriggerLimits *EventTriggerLimits `pulumi:"eventTriggerLimits"`
 	// The timestamp of when the event trigger was most recently updated.
-	LastUpdatedAt  *string   `pulumi:"lastUpdatedAt"`
-	ObjectTypeName *string   `pulumi:"objectTypeName"`
-	SegmentFilter  *string   `pulumi:"segmentFilter"`
-	Tags           []aws.Tag `pulumi:"tags"`
+	LastUpdatedAt *string `pulumi:"lastUpdatedAt"`
+	// The unique name of the object type.
+	ObjectTypeName *string `pulumi:"objectTypeName"`
+	// The destination is triggered only for profiles that meet the criteria of a segment definition.
+	SegmentFilter *string `pulumi:"segmentFilter"`
+	// An array of key-value pairs to apply to this resource.
+	Tags []aws.Tag `pulumi:"tags"`
 }
 
 func LookupEventTriggerOutput(ctx *pulumi.Context, args LookupEventTriggerOutputArgs, opts ...pulumi.InvokeOption) LookupEventTriggerResultOutput {
@@ -51,7 +59,9 @@ func LookupEventTriggerOutput(ctx *pulumi.Context, args LookupEventTriggerOutput
 }
 
 type LookupEventTriggerOutputArgs struct {
-	DomainName       pulumi.StringInput `pulumi:"domainName"`
+	// The unique name of the domain.
+	DomainName pulumi.StringInput `pulumi:"domainName"`
+	// The unique name of the event trigger.
 	EventTriggerName pulumi.StringInput `pulumi:"eventTriggerName"`
 }
 
@@ -78,14 +88,17 @@ func (o LookupEventTriggerResultOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEventTriggerResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
+// The description of the event trigger.
 func (o LookupEventTriggerResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEventTriggerResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// A list of conditions that determine when an event should trigger the destination.
 func (o LookupEventTriggerResultOutput) EventTriggerConditions() EventTriggerConditionArrayOutput {
 	return o.ApplyT(func(v LookupEventTriggerResult) []EventTriggerCondition { return v.EventTriggerConditions }).(EventTriggerConditionArrayOutput)
 }
 
+// Defines limits controlling whether an event triggers the destination, based on ingestion latency and the number of invocations per profile over specific time periods.
 func (o LookupEventTriggerResultOutput) EventTriggerLimits() EventTriggerLimitsPtrOutput {
 	return o.ApplyT(func(v LookupEventTriggerResult) *EventTriggerLimits { return v.EventTriggerLimits }).(EventTriggerLimitsPtrOutput)
 }
@@ -95,14 +108,17 @@ func (o LookupEventTriggerResultOutput) LastUpdatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEventTriggerResult) *string { return v.LastUpdatedAt }).(pulumi.StringPtrOutput)
 }
 
+// The unique name of the object type.
 func (o LookupEventTriggerResultOutput) ObjectTypeName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEventTriggerResult) *string { return v.ObjectTypeName }).(pulumi.StringPtrOutput)
 }
 
+// The destination is triggered only for profiles that meet the criteria of a segment definition.
 func (o LookupEventTriggerResultOutput) SegmentFilter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEventTriggerResult) *string { return v.SegmentFilter }).(pulumi.StringPtrOutput)
 }
 
+// An array of key-value pairs to apply to this resource.
 func (o LookupEventTriggerResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupEventTriggerResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }

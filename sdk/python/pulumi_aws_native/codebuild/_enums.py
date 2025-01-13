@@ -87,6 +87,9 @@ class FleetEnvironmentType(str, Enum):
     LINUX_GPU_CONTAINER = "LINUX_GPU_CONTAINER"
     ARM_CONTAINER = "ARM_CONTAINER"
     MAC_ARM = "MAC_ARM"
+    LINUX_EC2 = "LINUX_EC2"
+    ARM_EC2 = "ARM_EC2"
+    WINDOWS_EC2 = "WINDOWS_EC2"
 
 
 class FleetOverflowBehavior(str, Enum):

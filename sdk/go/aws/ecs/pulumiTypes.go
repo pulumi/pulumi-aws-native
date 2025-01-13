@@ -4302,7 +4302,8 @@ type ServiceManagedEbsVolumeConfiguration struct {
 	TagSpecifications []ServiceEbsTagSpecification `pulumi:"tagSpecifications"`
 	// The throughput to provision for a volume, in MiB/s, with a maximum of 1,000 MiB/s. This parameter maps 1:1 with the ``Throughput`` parameter of the [CreateVolume API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html) in the *Amazon EC2 API Reference*.
 	//   This parameter is only supported for the ``gp3`` volume type.
-	Throughput *int `pulumi:"throughput"`
+	Throughput               *int `pulumi:"throughput"`
+	VolumeInitializationRate *int `pulumi:"volumeInitializationRate"`
 	// The volume type. This parameter maps 1:1 with the ``VolumeType`` parameter of the [CreateVolume API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html) in the *Amazon EC2 API Reference*. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volume-types.html) in the *Amazon EC2 User Guide*.
 	//  The following are the supported volume types.
 	//   +  General Purpose SSD: ``gp2``|``gp3``
@@ -4363,7 +4364,8 @@ type ServiceManagedEbsVolumeConfigurationArgs struct {
 	TagSpecifications ServiceEbsTagSpecificationArrayInput `pulumi:"tagSpecifications"`
 	// The throughput to provision for a volume, in MiB/s, with a maximum of 1,000 MiB/s. This parameter maps 1:1 with the ``Throughput`` parameter of the [CreateVolume API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html) in the *Amazon EC2 API Reference*.
 	//   This parameter is only supported for the ``gp3`` volume type.
-	Throughput pulumi.IntPtrInput `pulumi:"throughput"`
+	Throughput               pulumi.IntPtrInput `pulumi:"throughput"`
+	VolumeInitializationRate pulumi.IntPtrInput `pulumi:"volumeInitializationRate"`
 	// The volume type. This parameter maps 1:1 with the ``VolumeType`` parameter of the [CreateVolume API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html) in the *Amazon EC2 API Reference*. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volume-types.html) in the *Amazon EC2 User Guide*.
 	//  The following are the supported volume types.
 	//   +  General Purpose SSD: ``gp2``|``gp3``
@@ -4522,6 +4524,10 @@ func (o ServiceManagedEbsVolumeConfigurationOutput) Throughput() pulumi.IntPtrOu
 	return o.ApplyT(func(v ServiceManagedEbsVolumeConfiguration) *int { return v.Throughput }).(pulumi.IntPtrOutput)
 }
 
+func (o ServiceManagedEbsVolumeConfigurationOutput) VolumeInitializationRate() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServiceManagedEbsVolumeConfiguration) *int { return v.VolumeInitializationRate }).(pulumi.IntPtrOutput)
+}
+
 // The volume type. This parameter maps 1:1 with the “VolumeType“ parameter of the [CreateVolume API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateVolume.html) in the *Amazon EC2 API Reference*. For more information, see [Amazon EBS volume types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volume-types.html) in the *Amazon EC2 User Guide*.
 //
 //	The following are the supported volume types.
@@ -4668,6 +4674,15 @@ func (o ServiceManagedEbsVolumeConfigurationPtrOutput) Throughput() pulumi.IntPt
 			return nil
 		}
 		return v.Throughput
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o ServiceManagedEbsVolumeConfigurationPtrOutput) VolumeInitializationRate() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ServiceManagedEbsVolumeConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.VolumeInitializationRate
 	}).(pulumi.IntPtrOutput)
 }
 

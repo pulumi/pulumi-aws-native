@@ -1098,6 +1098,8 @@ class EventTriggerLimits(dict):
                  periods: Optional[Sequence['outputs.EventTriggerPeriod']] = None):
         """
         Defines limits controlling whether an event triggers the destination, based on ingestion latency and the number of invocations per profile over specific time periods.
+        :param int event_expiration: Specifies that an event will only trigger the destination if it is processed within a certain latency period.
+        :param Sequence['EventTriggerPeriod'] periods: A list of time periods during which the limits apply.
         """
         if event_expiration is not None:
             pulumi.set(__self__, "event_expiration", event_expiration)
@@ -1107,11 +1109,17 @@ class EventTriggerLimits(dict):
     @property
     @pulumi.getter(name="eventExpiration")
     def event_expiration(self) -> Optional[int]:
+        """
+        Specifies that an event will only trigger the destination if it is processed within a certain latency period.
+        """
         return pulumi.get(self, "event_expiration")
 
     @property
     @pulumi.getter
     def periods(self) -> Optional[Sequence['outputs.EventTriggerPeriod']]:
+        """
+        A list of time periods during which the limits apply.
+        """
         return pulumi.get(self, "periods")
 
 

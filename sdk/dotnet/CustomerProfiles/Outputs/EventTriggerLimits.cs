@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.CustomerProfiles.Outputs
     [OutputType]
     public sealed class EventTriggerLimits
     {
+        /// <summary>
+        /// Specifies that an event will only trigger the destination if it is processed within a certain latency period.
+        /// </summary>
         public readonly int? EventExpiration;
+        /// <summary>
+        /// A list of time periods during which the limits apply.
+        /// </summary>
         public readonly ImmutableArray<Outputs.EventTriggerPeriod> Periods;
 
         [OutputConstructor]

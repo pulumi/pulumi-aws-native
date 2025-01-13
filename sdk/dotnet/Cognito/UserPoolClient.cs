@@ -120,9 +120,7 @@ namespace Pulumi.AwsNative.Cognito
         public Output<bool?> EnablePropagateAdditionalUserContextData { get; private set; } = null!;
 
         /// <summary>
-        /// Activates or deactivates [token revocation](https://docs.aws.amazon.com/cognito/latest/developerguide/token-revocation.html) in the target app client.
-        /// 
-        /// Revoke tokens with `API_RevokeToken` .
+        /// Activates or deactivates token revocation.
         /// 
         /// If you don't include this parameter, token revocation is automatically activated for the new user pool client.
         /// </summary>
@@ -193,11 +191,9 @@ namespace Pulumi.AwsNative.Cognito
         public Output<string?> PreventUserExistenceErrors { get; private set; } = null!;
 
         /// <summary>
-        /// The list of user attributes that you want your app client to have read access to. After your user authenticates in your app, their access token authorizes them to read their own attribute value for any attribute in this list.
+        /// The list of user attributes that you want your app client to have read access to. After your user authenticates in your app, their access token authorizes them to read their own attribute value for any attribute in this list. An example of this kind of activity is when your user selects a link to view their profile information.
         /// 
-        /// An example of this kind of activity is when your user selects a link to view their profile information. Your app makes a `API_GetUser` API request to retrieve and display your user's profile data.
-        /// 
-        /// When you don't specify the `ReadAttributes` for your app client, your app can read the values of `email_verified` , `phone_number_verified` , and the standard attributes of your user pool. When your user pool app client has read access to these default attributes, `ReadAttributes` doesn't return any information. Amazon Cognito only populates `ReadAttributes` in the API response if you have specified your own custom set of read attributes.
+        /// When you don't specify the `ReadAttributes` for your app client, your app can read the values of `email_verified` , `phone_number_verified` , and the Standard attributes of your user pool. When your user pool app client has read access to these default attributes, `ReadAttributes` doesn't return any information. Amazon Cognito only populates `ReadAttributes` in the API response if you have specified your own custom set of read attributes.
         /// </summary>
         [Output("readAttributes")]
         public Output<ImmutableArray<string>> ReadAttributes { get; private set; } = null!;
@@ -238,8 +234,6 @@ namespace Pulumi.AwsNative.Cognito
 
         /// <summary>
         /// The list of user attributes that you want your app client to have write access to. After your user authenticates in your app, their access token authorizes them to set or modify their own attribute value for any attribute in this list.
-        /// 
-        /// An example of this kind of activity is when you present your user with a form to update their profile information and they change their last name. Your app then makes an `API_UpdateUserAttributes` API request and sets `family_name` to the new value.
         /// 
         /// When you don't specify the `WriteAttributes` for your app client, your app can write the values of the Standard attributes of your user pool. When your user pool has write access to these default attributes, `WriteAttributes` doesn't return any information. Amazon Cognito only populates `WriteAttributes` in the API response if you have specified your own custom set of write attributes.
         /// 
@@ -412,9 +406,7 @@ namespace Pulumi.AwsNative.Cognito
         public Input<bool>? EnablePropagateAdditionalUserContextData { get; set; }
 
         /// <summary>
-        /// Activates or deactivates [token revocation](https://docs.aws.amazon.com/cognito/latest/developerguide/token-revocation.html) in the target app client.
-        /// 
-        /// Revoke tokens with `API_RevokeToken` .
+        /// Activates or deactivates token revocation.
         /// 
         /// If you don't include this parameter, token revocation is automatically activated for the new user pool client.
         /// </summary>
@@ -497,11 +489,9 @@ namespace Pulumi.AwsNative.Cognito
         private InputList<string>? _readAttributes;
 
         /// <summary>
-        /// The list of user attributes that you want your app client to have read access to. After your user authenticates in your app, their access token authorizes them to read their own attribute value for any attribute in this list.
+        /// The list of user attributes that you want your app client to have read access to. After your user authenticates in your app, their access token authorizes them to read their own attribute value for any attribute in this list. An example of this kind of activity is when your user selects a link to view their profile information.
         /// 
-        /// An example of this kind of activity is when your user selects a link to view their profile information. Your app makes a `API_GetUser` API request to retrieve and display your user's profile data.
-        /// 
-        /// When you don't specify the `ReadAttributes` for your app client, your app can read the values of `email_verified` , `phone_number_verified` , and the standard attributes of your user pool. When your user pool app client has read access to these default attributes, `ReadAttributes` doesn't return any information. Amazon Cognito only populates `ReadAttributes` in the API response if you have specified your own custom set of read attributes.
+        /// When you don't specify the `ReadAttributes` for your app client, your app can read the values of `email_verified` , `phone_number_verified` , and the Standard attributes of your user pool. When your user pool app client has read access to these default attributes, `ReadAttributes` doesn't return any information. Amazon Cognito only populates `ReadAttributes` in the API response if you have specified your own custom set of read attributes.
         /// </summary>
         public InputList<string> ReadAttributes
         {
@@ -554,8 +544,6 @@ namespace Pulumi.AwsNative.Cognito
 
         /// <summary>
         /// The list of user attributes that you want your app client to have write access to. After your user authenticates in your app, their access token authorizes them to set or modify their own attribute value for any attribute in this list.
-        /// 
-        /// An example of this kind of activity is when you present your user with a form to update their profile information and they change their last name. Your app then makes an `API_UpdateUserAttributes` API request and sets `family_name` to the new value.
         /// 
         /// When you don't specify the `WriteAttributes` for your app client, your app can write the values of the Standard attributes of your user pool. When your user pool has write access to these default attributes, `WriteAttributes` doesn't return any information. Amazon Cognito only populates `WriteAttributes` in the API response if you have specified your own custom set of write attributes.
         /// 

@@ -61,6 +61,9 @@ export const FleetEnvironmentType = {
     LinuxGpuContainer: "LINUX_GPU_CONTAINER",
     ArmContainer: "ARM_CONTAINER",
     MacArm: "MAC_ARM",
+    LinuxEc2: "LINUX_EC2",
+    ArmEc2: "ARM_EC2",
+    WindowsEc2: "WINDOWS_EC2",
 } as const;
 
 /**
