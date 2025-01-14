@@ -115,6 +115,7 @@ namespace Pulumi.AwsNative.Fms
         /// The unique identifiers of the resource sets used by the policy.
         /// </summary>
         public readonly ImmutableArray<string> ResourceSetIds;
+        public readonly Pulumi.AwsNative.Fms.PolicyResourceTagLogicalOperator? ResourceTagLogicalOperator;
         /// <summary>
         /// An array of `ResourceTag` objects, used to explicitly include resources in the policy scope or explicitly exclude them. If this isn't set, then tags aren't used to modify policy scope. See also `ExcludeResourceTags` .
         /// </summary>
@@ -260,6 +261,8 @@ namespace Pulumi.AwsNative.Fms
 
             ImmutableArray<string> resourceSetIds,
 
+            Pulumi.AwsNative.Fms.PolicyResourceTagLogicalOperator? resourceTagLogicalOperator,
+
             ImmutableArray<Outputs.PolicyResourceTag> resourceTags,
 
             string? resourceType,
@@ -281,6 +284,7 @@ namespace Pulumi.AwsNative.Fms
             PolicyName = policyName;
             RemediationEnabled = remediationEnabled;
             ResourceSetIds = resourceSetIds;
+            ResourceTagLogicalOperator = resourceTagLogicalOperator;
             ResourceTags = resourceTags;
             ResourceType = resourceType;
             ResourceTypeList = resourceTypeList;

@@ -33,6 +33,7 @@ class PolicyArgs:
                  policy_description: Optional[pulumi.Input[str]] = None,
                  policy_name: Optional[pulumi.Input[str]] = None,
                  resource_set_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 resource_tag_logical_operator: Optional[pulumi.Input['PolicyResourceTagLogicalOperator']] = None,
                  resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input['PolicyResourceTagArgs']]]] = None,
                  resource_type: Optional[pulumi.Input[str]] = None,
                  resource_type_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -199,6 +200,8 @@ class PolicyArgs:
             pulumi.set(__self__, "policy_name", policy_name)
         if resource_set_ids is not None:
             pulumi.set(__self__, "resource_set_ids", resource_set_ids)
+        if resource_tag_logical_operator is not None:
+            pulumi.set(__self__, "resource_tag_logical_operator", resource_tag_logical_operator)
         if resource_tags is not None:
             pulumi.set(__self__, "resource_tags", resource_tags)
         if resource_type is not None:
@@ -434,6 +437,15 @@ class PolicyArgs:
         pulumi.set(self, "resource_set_ids", value)
 
     @property
+    @pulumi.getter(name="resourceTagLogicalOperator")
+    def resource_tag_logical_operator(self) -> Optional[pulumi.Input['PolicyResourceTagLogicalOperator']]:
+        return pulumi.get(self, "resource_tag_logical_operator")
+
+    @resource_tag_logical_operator.setter
+    def resource_tag_logical_operator(self, value: Optional[pulumi.Input['PolicyResourceTagLogicalOperator']]):
+        pulumi.set(self, "resource_tag_logical_operator", value)
+
+    @property
     @pulumi.getter(name="resourceTags")
     def resource_tags(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PolicyResourceTagArgs']]]]:
         """
@@ -521,6 +533,7 @@ class Policy(pulumi.CustomResource):
                  policy_name: Optional[pulumi.Input[str]] = None,
                  remediation_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_set_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 resource_tag_logical_operator: Optional[pulumi.Input['PolicyResourceTagLogicalOperator']] = None,
                  resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PolicyResourceTagArgs', 'PolicyResourceTagArgsDict']]]]] = None,
                  resource_type: Optional[pulumi.Input[str]] = None,
                  resource_type_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -709,6 +722,7 @@ class Policy(pulumi.CustomResource):
                  policy_name: Optional[pulumi.Input[str]] = None,
                  remediation_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_set_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 resource_tag_logical_operator: Optional[pulumi.Input['PolicyResourceTagLogicalOperator']] = None,
                  resource_tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['PolicyResourceTagArgs', 'PolicyResourceTagArgsDict']]]]] = None,
                  resource_type: Optional[pulumi.Input[str]] = None,
                  resource_type_list: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -736,6 +750,7 @@ class Policy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'remediation_enabled'")
             __props__.__dict__["remediation_enabled"] = remediation_enabled
             __props__.__dict__["resource_set_ids"] = resource_set_ids
+            __props__.__dict__["resource_tag_logical_operator"] = resource_tag_logical_operator
             __props__.__dict__["resource_tags"] = resource_tags
             __props__.__dict__["resource_type"] = resource_type
             __props__.__dict__["resource_type_list"] = resource_type_list
@@ -778,6 +793,7 @@ class Policy(pulumi.CustomResource):
         __props__.__dict__["policy_name"] = None
         __props__.__dict__["remediation_enabled"] = None
         __props__.__dict__["resource_set_ids"] = None
+        __props__.__dict__["resource_tag_logical_operator"] = None
         __props__.__dict__["resource_tags"] = None
         __props__.__dict__["resource_type"] = None
         __props__.__dict__["resource_type_list"] = None
@@ -894,6 +910,11 @@ class Policy(pulumi.CustomResource):
         The unique identifiers of the resource sets used by the policy.
         """
         return pulumi.get(self, "resource_set_ids")
+
+    @property
+    @pulumi.getter(name="resourceTagLogicalOperator")
+    def resource_tag_logical_operator(self) -> pulumi.Output[Optional['PolicyResourceTagLogicalOperator']]:
+        return pulumi.get(self, "resource_tag_logical_operator")
 
     @property
     @pulumi.getter(name="resourceTags")

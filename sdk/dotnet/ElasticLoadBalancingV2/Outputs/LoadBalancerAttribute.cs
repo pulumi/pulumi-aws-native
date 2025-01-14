@@ -27,6 +27,7 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Outputs
         ///   +   ``access_logs.s3.bucket`` - The name of the S3 bucket for the access logs. This attribute is required if access logs are enabled. The bucket must exist in the same region as the load balancer and have a bucket policy that grants Elastic Load Balancing permissions to write to the bucket.
         ///   +   ``access_logs.s3.prefix`` - The prefix for the location in the S3 bucket for the access logs.
         ///   +   ``ipv6.deny_all_igw_traffic`` - Blocks internet gateway (IGW) access to the load balancer. It is set to ``false`` for internet-facing load balancers and ``true`` for internal load balancers, preventing unintended access to your internal load balancer through an internet gateway.
+        ///   +   ``zonal_shift.config.enabled`` - Indicates whether zonal shift is enabled. The possible values are ``true`` and ``false``. The default is ``false``.
         ///   
         ///  The following attributes are supported by only Application Load Balancers:
         ///   +   ``idle_timeout.timeout_seconds`` - The idle timeout value, in seconds. The valid range is 1-4000 seconds. The default is 60 seconds.
@@ -49,7 +50,6 @@ namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Outputs
         ///   
         ///  The following attributes are supported by only Network Load Balancers:
         ///   +   ``dns_record.client_routing_policy`` - Indicates how traffic is distributed among the load balancer Availability Zones. The possible values are ``availability_zone_affinity`` with 100 percent zonal affinity, ``partial_availability_zone_affinity`` with 85 percent zonal affinity, and ``any_availability_zone`` with 0 percent zonal affinity.
-        ///   +   ``zonal_shift.config.enabled`` - Indicates whether zonal shift is enabled. The possible values are ``true`` and ``false``. The default is ``false``.
         /// </summary>
         public readonly string? Key;
         /// <summary>

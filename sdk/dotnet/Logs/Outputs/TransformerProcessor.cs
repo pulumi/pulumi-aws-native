@@ -21,7 +21,7 @@ namespace Pulumi.AwsNative.Logs.Outputs
         /// </summary>
         public readonly Outputs.TransformerProcessorAddKeysProperties? AddKeys;
         /// <summary>
-        /// Use this parameter to include the [copyValue](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-copyValue) processor in your transformer.
+        /// Use this parameter to include the [copyValue](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-copyValue) processor in your transformer.
         /// </summary>
         public readonly Outputs.TransformerProcessorCopyValueProperties? CopyValue;
         /// <summary>
@@ -29,7 +29,7 @@ namespace Pulumi.AwsNative.Logs.Outputs
         /// </summary>
         public readonly Outputs.TransformerProcessorCsvProperties? Csv;
         /// <summary>
-        /// Use this parameter to include the [datetimeConverter](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-datetimeConverter) processor in your transformer.
+        /// Use this parameter to include the [datetimeConverter](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-datetimeConverter) processor in your transformer.
         /// </summary>
         public readonly Outputs.TransformerProcessorDateTimeConverterProperties? DateTimeConverter;
         /// <summary>
@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.Logs.Outputs
         /// </summary>
         public readonly Outputs.TransformerProcessorDeleteKeysProperties? DeleteKeys;
         /// <summary>
-        /// Use this parameter to include the [grok](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-grok) processor in your transformer.
+        /// Use this parameter to include the [grok](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-grok) processor in your transformer.
         /// </summary>
         public readonly Outputs.TransformerProcessorGrokProperties? Grok;
         /// <summary>
@@ -45,25 +45,25 @@ namespace Pulumi.AwsNative.Logs.Outputs
         /// </summary>
         public readonly Outputs.TransformerProcessorListToMapProperties? ListToMap;
         /// <summary>
-        /// Use this parameter to include the [lowerCaseString](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-lowerCaseString) processor in your transformer.
+        /// Use this parameter to include the [lowerCaseString](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-lowerCaseString) processor in your transformer.
         /// </summary>
         public readonly Outputs.TransformerProcessorLowerCaseStringProperties? LowerCaseString;
         /// <summary>
-        /// Use this parameter to include the [moveKeys](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-moveKeys) processor in your transformer.
+        /// Use this parameter to include the [moveKeys](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-moveKeys) processor in your transformer.
         /// </summary>
         public readonly Outputs.TransformerProcessorMoveKeysProperties? MoveKeys;
         /// <summary>
-        /// Use this parameter to include the [parseCloudfront](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-parseCloudfront) processor in your transformer.
+        /// Use this parameter to include the [parseCloudfront](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-parseCloudfront) processor in your transformer.
         /// 
         /// If you use this processor, it must be the first processor in your transformer.
         /// </summary>
         public readonly Outputs.TransformerParseCloudfront? ParseCloudfront;
         /// <summary>
-        /// Use this parameter to include the [parseJSON](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-parseJSON) processor in your transformer.
+        /// Use this parameter to include the [parseJSON](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-parseJSON) processor in your transformer.
         /// </summary>
         public readonly Outputs.TransformerProcessorParseJsonProperties? ParseJson;
         /// <summary>
-        /// Use this parameter to include the [parseKeyValue](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-parseKeyValue) processor in your transformer.
+        /// Use this parameter to include the [parseKeyValue](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-parseKeyValue) processor in your transformer.
         /// </summary>
         public readonly Outputs.TransformerProcessorParseKeyValueProperties? ParseKeyValue;
         /// <summary>
@@ -73,13 +73,13 @@ namespace Pulumi.AwsNative.Logs.Outputs
         /// </summary>
         public readonly Outputs.TransformerParsePostgres? ParsePostgres;
         /// <summary>
-        /// Use this parameter to include the [parseRoute53](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-parseRoute53) processor in your transformer.
+        /// Use this parameter to include the [parseRoute53](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-parseRoute53) processor in your transformer.
         /// 
         /// If you use this processor, it must be the first processor in your transformer.
         /// </summary>
         public readonly Outputs.TransformerParseRoute53? ParseRoute53;
         /// <summary>
-        /// Use this parameter to include the [parseVPC](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-parseVPC) processor in your transformer.
+        /// Use this parameter to include the [parseVPC](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-parseVPC) processor in your transformer.
         /// 
         /// If you use this processor, it must be the first processor in your transformer.
         /// </summary>
@@ -95,23 +95,23 @@ namespace Pulumi.AwsNative.Logs.Outputs
         /// </summary>
         public readonly Outputs.TransformerProcessorRenameKeysProperties? RenameKeys;
         /// <summary>
-        /// Use this parameter to include the [splitString](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-splitString) processor in your transformer.
+        /// Use this parameter to include the [splitString](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-splitString) processor in your transformer.
         /// </summary>
         public readonly Outputs.TransformerProcessorSplitStringProperties? SplitString;
         /// <summary>
-        /// Use this parameter to include the [substituteString](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-substituteString) processor in your transformer.
+        /// Use this parameter to include the [substituteString](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-substituteString) processor in your transformer.
         /// </summary>
         public readonly Outputs.TransformerProcessorSubstituteStringProperties? SubstituteString;
         /// <summary>
-        /// Use this parameter to include the [trimString](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-trimString) processor in your transformer.
+        /// Use this parameter to include the [trimString](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-trimString) processor in your transformer.
         /// </summary>
         public readonly Outputs.TransformerProcessorTrimStringProperties? TrimString;
         /// <summary>
-        /// Use this parameter to include the [typeConverter](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-typeConverter) processor in your transformer.
+        /// Use this parameter to include the [typeConverter](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-typeConverter) processor in your transformer.
         /// </summary>
         public readonly Outputs.TransformerProcessorTypeConverterProperties? TypeConverter;
         /// <summary>
-        /// Use this parameter to include the [upperCaseString](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-upperCaseString) processor in your transformer.
+        /// Use this parameter to include the [upperCaseString](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-upperCaseString) processor in your transformer.
         /// </summary>
         public readonly Outputs.TransformerProcessorUpperCaseStringProperties? UpperCaseString;
 

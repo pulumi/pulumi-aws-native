@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ElasticLoadBalancingV2.Inputs
 {
 
+    /// <summary>
+    /// The minimum capacity for a load balancer.
+    /// </summary>
     public sealed class LoadBalancerMinimumLoadBalancerCapacityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>

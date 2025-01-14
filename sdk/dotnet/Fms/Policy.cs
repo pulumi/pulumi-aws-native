@@ -104,6 +104,9 @@ namespace Pulumi.AwsNative.Fms
         [Output("resourceSetIds")]
         public Output<ImmutableArray<string>> ResourceSetIds { get; private set; } = null!;
 
+        [Output("resourceTagLogicalOperator")]
+        public Output<Pulumi.AwsNative.Fms.PolicyResourceTagLogicalOperator?> ResourceTagLogicalOperator { get; private set; } = null!;
+
         /// <summary>
         /// An array of `ResourceTag` objects, used to explicitly include resources in the policy scope or explicitly exclude them. If this isn't set, then tags aren't used to modify policy scope. See also `ExcludeResourceTags` .
         /// </summary>
@@ -367,6 +370,9 @@ namespace Pulumi.AwsNative.Fms
             get => _resourceSetIds ?? (_resourceSetIds = new InputList<string>());
             set => _resourceSetIds = value;
         }
+
+        [Input("resourceTagLogicalOperator")]
+        public Input<Pulumi.AwsNative.Fms.PolicyResourceTagLogicalOperator>? ResourceTagLogicalOperator { get; set; }
 
         [Input("resourceTags")]
         private InputList<Inputs.PolicyResourceTagArgs>? _resourceTags;

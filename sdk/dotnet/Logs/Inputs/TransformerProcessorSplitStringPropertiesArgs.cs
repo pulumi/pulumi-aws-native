@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.Logs.Inputs
 {
 
     /// <summary>
-    /// Use this parameter to include the [splitString](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-splitString) processor in your transformer.
+    /// Use this parameter to include the [splitString](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-splitString) processor in your transformer.
     /// </summary>
     public sealed class TransformerProcessorSplitStringPropertiesArgs : global::Pulumi.ResourceArgs
     {

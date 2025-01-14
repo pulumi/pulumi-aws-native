@@ -22,6 +22,13 @@ export const PolicyNetworkAclEntryRuleAction = {
  */
 export type PolicyNetworkAclEntryRuleAction = (typeof PolicyNetworkAclEntryRuleAction)[keyof typeof PolicyNetworkAclEntryRuleAction];
 
+export const PolicyResourceTagLogicalOperator = {
+    And: "AND",
+    Or: "OR",
+} as const;
+
+export type PolicyResourceTagLogicalOperator = (typeof PolicyResourceTagLogicalOperator)[keyof typeof PolicyResourceTagLogicalOperator];
+
 export const PolicyType = {
     Waf: "WAF",
     Wafv2: "WAFV2",

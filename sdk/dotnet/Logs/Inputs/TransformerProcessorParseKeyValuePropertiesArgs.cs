@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.Logs.Inputs
 {
 
     /// <summary>
-    /// Use this parameter to include the [parseKeyValue](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation.html#CloudWatch-Logs-Transformation-parseKeyValue) processor in your transformer.
+    /// Use this parameter to include the [parseKeyValue](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CloudWatch-Logs-Transformation-Processors.html#CloudWatch-Logs-Transformation-parseKeyValue) processor in your transformer.
     /// </summary>
     public sealed class TransformerProcessorParseKeyValuePropertiesArgs : global::Pulumi.ResourceArgs
     {

@@ -77,6 +77,7 @@ export interface GetPolicyResult {
      * The unique identifiers of the resource sets used by the policy.
      */
     readonly resourceSetIds?: string[];
+    readonly resourceTagLogicalOperator?: enums.fms.PolicyResourceTagLogicalOperator;
     /**
      * An array of `ResourceTag` objects, used to explicitly include resources in the policy scope or explicitly exclude them. If this isn't set, then tags aren't used to modify policy scope. See also `ExcludeResourceTags` .
      */

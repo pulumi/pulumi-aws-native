@@ -2956,6 +2956,8 @@ func (o PipelineOutputArtifactArrayOutput) Index(i pulumi.IntInput) PipelineOutp
 
 // Represents information about condition.
 type PipelineRuleDeclaration struct {
+	// The shell commands to run with your compute action in CodePipeline.
+	Commands []string `pulumi:"commands"`
 	// The rule's configuration. These are key-value pairs that specify input values for a rule.
 	Configuration interface{} `pulumi:"configuration"`
 	// The input artifacts fields for the rule, such as specifying an input file for the rule.
@@ -2983,6 +2985,8 @@ type PipelineRuleDeclarationInput interface {
 
 // Represents information about condition.
 type PipelineRuleDeclarationArgs struct {
+	// The shell commands to run with your compute action in CodePipeline.
+	Commands pulumi.StringArrayInput `pulumi:"commands"`
 	// The rule's configuration. These are key-value pairs that specify input values for a rule.
 	Configuration pulumi.Input `pulumi:"configuration"`
 	// The input artifacts fields for the rule, such as specifying an input file for the rule.
@@ -3047,6 +3051,11 @@ func (o PipelineRuleDeclarationOutput) ToPipelineRuleDeclarationOutput() Pipelin
 
 func (o PipelineRuleDeclarationOutput) ToPipelineRuleDeclarationOutputWithContext(ctx context.Context) PipelineRuleDeclarationOutput {
 	return o
+}
+
+// The shell commands to run with your compute action in CodePipeline.
+func (o PipelineRuleDeclarationOutput) Commands() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PipelineRuleDeclaration) []string { return v.Commands }).(pulumi.StringArrayOutput)
 }
 
 // The rule's configuration. These are key-value pairs that specify input values for a rule.

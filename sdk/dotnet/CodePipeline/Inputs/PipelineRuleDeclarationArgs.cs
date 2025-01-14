@@ -15,6 +15,18 @@ namespace Pulumi.AwsNative.CodePipeline.Inputs
     /// </summary>
     public sealed class PipelineRuleDeclarationArgs : global::Pulumi.ResourceArgs
     {
+        [Input("commands")]
+        private InputList<string>? _commands;
+
+        /// <summary>
+        /// The shell commands to run with your compute action in CodePipeline.
+        /// </summary>
+        public InputList<string> Commands
+        {
+            get => _commands ?? (_commands = new InputList<string>());
+            set => _commands = value;
+        }
+
         /// <summary>
         /// The rule's configuration. These are key-value pairs that specify input values for a rule.
         /// </summary>

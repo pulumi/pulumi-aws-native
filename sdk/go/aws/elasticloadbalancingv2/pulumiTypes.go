@@ -181,6 +181,27 @@ type ListenerAttribute struct {
 	// The name of the attribute.
 	//  The following attribute is supported by Network Load Balancers, and Gateway Load Balancers.
 	//   +   ``tcp.idle_timeout.seconds`` - The tcp idle timeout value, in seconds. The valid range is 60-6000 seconds. The default is 350 seconds.
+	//
+	//  The following attributes are only supported by Application Load Balancers.
+	//   +   ``routing.http.request.x_amzn_mtls_clientcert_serial_number.header_name`` - Enables you to modify the header name of the *X-Amzn-Mtls-Clientcert-Serial-Number* HTTP request header.
+	//   +   ``routing.http.request.x_amzn_mtls_clientcert_issuer.header_name`` - Enables you to modify the header name of the *X-Amzn-Mtls-Clientcert-Issuer* HTTP request header.
+	//   +   ``routing.http.request.x_amzn_mtls_clientcert_subject.header_name`` - Enables you to modify the header name of the *X-Amzn-Mtls-Clientcert-Subject* HTTP request header.
+	//   +   ``routing.http.request.x_amzn_mtls_clientcert_validity.header_name`` - Enables you to modify the header name of the *X-Amzn-Mtls-Clientcert-Validity* HTTP request header.
+	//   +   ``routing.http.request.x_amzn_mtls_clientcert_leaf.header_name`` - Enables you to modify the header name of the *X-Amzn-Mtls-Clientcert-Leaf* HTTP request header.
+	//   +   ``routing.http.request.x_amzn_mtls_clientcert.header_name`` - Enables you to modify the header name of the *X-Amzn-Mtls-Clientcert* HTTP request header.
+	//   +   ``routing.http.request.x_amzn_tls_version.header_name`` - Enables you to modify the header name of the *X-Amzn-Tls-Version* HTTP request header.
+	//   +   ``routing.http.request.x_amzn_tls_cipher_suite.header_name`` - Enables you to modify the header name of the *X-Amzn-Tls-Cipher-Suite* HTTP request header.
+	//   +   ``routing.http.response.server.enabled`` - Enables you to allow or remove the HTTP response server header.
+	//   +   ``routing.http.response.strict_transport_security.header_value`` - Informs browsers that the site should only be accessed using HTTPS, and that any future attempts to access it using HTTP should automatically be converted to HTTPS.
+	//   +   ``routing.http.response.access_control_allow_origin.header_value`` - Specifies which origins are allowed to access the server.
+	//   +   ``routing.http.response.access_control_allow_methods.header_value`` - Returns which HTTP methods are allowed when accessing the server from a different origin.
+	//   +   ``routing.http.response.access_control_allow_headers.header_value`` - Specifies which headers can be used during the request.
+	//   +   ``routing.http.response.access_control_allow_credentials.header_value`` - Indicates whether the browser should include credentials such as cookies or authentication when making requests.
+	//   +   ``routing.http.response.access_control_expose_headers.header_value`` - Returns which headers the browser can expose to the requesting client.
+	//   +   ``routing.http.response.access_control_max_age.header_value`` - Specifies how long the results of a preflight request can be cached, in seconds.
+	//   +   ``routing.http.response.content_security_policy.header_value`` - Specifies restrictions enforced by the browser to help minimize the risk of certain types of security threats.
+	//   +   ``routing.http.response.x_content_type_options.header_value`` - Indicates whether the MIME types advertised in the *Content-Type* headers should be followed and not be changed.
+	//   +   ``routing.http.response.x_frame_options.header_value`` - Indicates whether the browser is allowed to render a page in a *frame*, *iframe*, *embed* or *object*.
 	Key *string `pulumi:"key"`
 	// The value of the attribute.
 	Value *string `pulumi:"value"`
@@ -202,6 +223,27 @@ type ListenerAttributeArgs struct {
 	// The name of the attribute.
 	//  The following attribute is supported by Network Load Balancers, and Gateway Load Balancers.
 	//   +   ``tcp.idle_timeout.seconds`` - The tcp idle timeout value, in seconds. The valid range is 60-6000 seconds. The default is 350 seconds.
+	//
+	//  The following attributes are only supported by Application Load Balancers.
+	//   +   ``routing.http.request.x_amzn_mtls_clientcert_serial_number.header_name`` - Enables you to modify the header name of the *X-Amzn-Mtls-Clientcert-Serial-Number* HTTP request header.
+	//   +   ``routing.http.request.x_amzn_mtls_clientcert_issuer.header_name`` - Enables you to modify the header name of the *X-Amzn-Mtls-Clientcert-Issuer* HTTP request header.
+	//   +   ``routing.http.request.x_amzn_mtls_clientcert_subject.header_name`` - Enables you to modify the header name of the *X-Amzn-Mtls-Clientcert-Subject* HTTP request header.
+	//   +   ``routing.http.request.x_amzn_mtls_clientcert_validity.header_name`` - Enables you to modify the header name of the *X-Amzn-Mtls-Clientcert-Validity* HTTP request header.
+	//   +   ``routing.http.request.x_amzn_mtls_clientcert_leaf.header_name`` - Enables you to modify the header name of the *X-Amzn-Mtls-Clientcert-Leaf* HTTP request header.
+	//   +   ``routing.http.request.x_amzn_mtls_clientcert.header_name`` - Enables you to modify the header name of the *X-Amzn-Mtls-Clientcert* HTTP request header.
+	//   +   ``routing.http.request.x_amzn_tls_version.header_name`` - Enables you to modify the header name of the *X-Amzn-Tls-Version* HTTP request header.
+	//   +   ``routing.http.request.x_amzn_tls_cipher_suite.header_name`` - Enables you to modify the header name of the *X-Amzn-Tls-Cipher-Suite* HTTP request header.
+	//   +   ``routing.http.response.server.enabled`` - Enables you to allow or remove the HTTP response server header.
+	//   +   ``routing.http.response.strict_transport_security.header_value`` - Informs browsers that the site should only be accessed using HTTPS, and that any future attempts to access it using HTTP should automatically be converted to HTTPS.
+	//   +   ``routing.http.response.access_control_allow_origin.header_value`` - Specifies which origins are allowed to access the server.
+	//   +   ``routing.http.response.access_control_allow_methods.header_value`` - Returns which HTTP methods are allowed when accessing the server from a different origin.
+	//   +   ``routing.http.response.access_control_allow_headers.header_value`` - Specifies which headers can be used during the request.
+	//   +   ``routing.http.response.access_control_allow_credentials.header_value`` - Indicates whether the browser should include credentials such as cookies or authentication when making requests.
+	//   +   ``routing.http.response.access_control_expose_headers.header_value`` - Returns which headers the browser can expose to the requesting client.
+	//   +   ``routing.http.response.access_control_max_age.header_value`` - Specifies how long the results of a preflight request can be cached, in seconds.
+	//   +   ``routing.http.response.content_security_policy.header_value`` - Specifies restrictions enforced by the browser to help minimize the risk of certain types of security threats.
+	//   +   ``routing.http.response.x_content_type_options.header_value`` - Indicates whether the MIME types advertised in the *Content-Type* headers should be followed and not be changed.
+	//   +   ``routing.http.response.x_frame_options.header_value`` - Indicates whether the browser is allowed to render a page in a *frame*, *iframe*, *embed* or *object*.
 	Key pulumi.StringPtrInput `pulumi:"key"`
 	// The value of the attribute.
 	Value pulumi.StringPtrInput `pulumi:"value"`
@@ -263,6 +305,27 @@ func (o ListenerAttributeOutput) ToListenerAttributeOutputWithContext(ctx contex
 //
 //	The following attribute is supported by Network Load Balancers, and Gateway Load Balancers.
 //	 +   ``tcp.idle_timeout.seconds`` - The tcp idle timeout value, in seconds. The valid range is 60-6000 seconds. The default is 350 seconds.
+//
+//	The following attributes are only supported by Application Load Balancers.
+//	 +   ``routing.http.request.x_amzn_mtls_clientcert_serial_number.header_name`` - Enables you to modify the header name of the *X-Amzn-Mtls-Clientcert-Serial-Number* HTTP request header.
+//	 +   ``routing.http.request.x_amzn_mtls_clientcert_issuer.header_name`` - Enables you to modify the header name of the *X-Amzn-Mtls-Clientcert-Issuer* HTTP request header.
+//	 +   ``routing.http.request.x_amzn_mtls_clientcert_subject.header_name`` - Enables you to modify the header name of the *X-Amzn-Mtls-Clientcert-Subject* HTTP request header.
+//	 +   ``routing.http.request.x_amzn_mtls_clientcert_validity.header_name`` - Enables you to modify the header name of the *X-Amzn-Mtls-Clientcert-Validity* HTTP request header.
+//	 +   ``routing.http.request.x_amzn_mtls_clientcert_leaf.header_name`` - Enables you to modify the header name of the *X-Amzn-Mtls-Clientcert-Leaf* HTTP request header.
+//	 +   ``routing.http.request.x_amzn_mtls_clientcert.header_name`` - Enables you to modify the header name of the *X-Amzn-Mtls-Clientcert* HTTP request header.
+//	 +   ``routing.http.request.x_amzn_tls_version.header_name`` - Enables you to modify the header name of the *X-Amzn-Tls-Version* HTTP request header.
+//	 +   ``routing.http.request.x_amzn_tls_cipher_suite.header_name`` - Enables you to modify the header name of the *X-Amzn-Tls-Cipher-Suite* HTTP request header.
+//	 +   ``routing.http.response.server.enabled`` - Enables you to allow or remove the HTTP response server header.
+//	 +   ``routing.http.response.strict_transport_security.header_value`` - Informs browsers that the site should only be accessed using HTTPS, and that any future attempts to access it using HTTP should automatically be converted to HTTPS.
+//	 +   ``routing.http.response.access_control_allow_origin.header_value`` - Specifies which origins are allowed to access the server.
+//	 +   ``routing.http.response.access_control_allow_methods.header_value`` - Returns which HTTP methods are allowed when accessing the server from a different origin.
+//	 +   ``routing.http.response.access_control_allow_headers.header_value`` - Specifies which headers can be used during the request.
+//	 +   ``routing.http.response.access_control_allow_credentials.header_value`` - Indicates whether the browser should include credentials such as cookies or authentication when making requests.
+//	 +   ``routing.http.response.access_control_expose_headers.header_value`` - Returns which headers the browser can expose to the requesting client.
+//	 +   ``routing.http.response.access_control_max_age.header_value`` - Specifies how long the results of a preflight request can be cached, in seconds.
+//	 +   ``routing.http.response.content_security_policy.header_value`` - Specifies restrictions enforced by the browser to help minimize the risk of certain types of security threats.
+//	 +   ``routing.http.response.x_content_type_options.header_value`` - Indicates whether the MIME types advertised in the *Content-Type* headers should be followed and not be changed.
+//	 +   ``routing.http.response.x_frame_options.header_value`` - Indicates whether the browser is allowed to render a page in a *frame*, *iframe*, *embed* or *object*.
 func (o ListenerAttributeOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerAttribute) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
@@ -5088,6 +5151,7 @@ type LoadBalancerAttribute struct {
 	//   +   ``access_logs.s3.bucket`` - The name of the S3 bucket for the access logs. This attribute is required if access logs are enabled. The bucket must exist in the same region as the load balancer and have a bucket policy that grants Elastic Load Balancing permissions to write to the bucket.
 	//   +   ``access_logs.s3.prefix`` - The prefix for the location in the S3 bucket for the access logs.
 	//   +   ``ipv6.deny_all_igw_traffic`` - Blocks internet gateway (IGW) access to the load balancer. It is set to ``false`` for internet-facing load balancers and ``true`` for internal load balancers, preventing unintended access to your internal load balancer through an internet gateway.
+	//   +   ``zonal_shift.config.enabled`` - Indicates whether zonal shift is enabled. The possible values are ``true`` and ``false``. The default is ``false``.
 	//
 	//  The following attributes are supported by only Application Load Balancers:
 	//   +   ``idle_timeout.timeout_seconds`` - The idle timeout value, in seconds. The valid range is 1-4000 seconds. The default is 60 seconds.
@@ -5110,7 +5174,6 @@ type LoadBalancerAttribute struct {
 	//
 	//  The following attributes are supported by only Network Load Balancers:
 	//   +   ``dns_record.client_routing_policy`` - Indicates how traffic is distributed among the load balancer Availability Zones. The possible values are ``availability_zone_affinity`` with 100 percent zonal affinity, ``partial_availability_zone_affinity`` with 85 percent zonal affinity, and ``any_availability_zone`` with 0 percent zonal affinity.
-	//   +   ``zonal_shift.config.enabled`` - Indicates whether zonal shift is enabled. The possible values are ``true`` and ``false``. The default is ``false``.
 	Key *string `pulumi:"key"`
 	// The value of the attribute.
 	Value *string `pulumi:"value"`
@@ -5139,6 +5202,7 @@ type LoadBalancerAttributeArgs struct {
 	//   +   ``access_logs.s3.bucket`` - The name of the S3 bucket for the access logs. This attribute is required if access logs are enabled. The bucket must exist in the same region as the load balancer and have a bucket policy that grants Elastic Load Balancing permissions to write to the bucket.
 	//   +   ``access_logs.s3.prefix`` - The prefix for the location in the S3 bucket for the access logs.
 	//   +   ``ipv6.deny_all_igw_traffic`` - Blocks internet gateway (IGW) access to the load balancer. It is set to ``false`` for internet-facing load balancers and ``true`` for internal load balancers, preventing unintended access to your internal load balancer through an internet gateway.
+	//   +   ``zonal_shift.config.enabled`` - Indicates whether zonal shift is enabled. The possible values are ``true`` and ``false``. The default is ``false``.
 	//
 	//  The following attributes are supported by only Application Load Balancers:
 	//   +   ``idle_timeout.timeout_seconds`` - The idle timeout value, in seconds. The valid range is 1-4000 seconds. The default is 60 seconds.
@@ -5161,7 +5225,6 @@ type LoadBalancerAttributeArgs struct {
 	//
 	//  The following attributes are supported by only Network Load Balancers:
 	//   +   ``dns_record.client_routing_policy`` - Indicates how traffic is distributed among the load balancer Availability Zones. The possible values are ``availability_zone_affinity`` with 100 percent zonal affinity, ``partial_availability_zone_affinity`` with 85 percent zonal affinity, and ``any_availability_zone`` with 0 percent zonal affinity.
-	//   +   ``zonal_shift.config.enabled`` - Indicates whether zonal shift is enabled. The possible values are ``true`` and ``false``. The default is ``false``.
 	Key pulumi.StringPtrInput `pulumi:"key"`
 	// The value of the attribute.
 	Value pulumi.StringPtrInput `pulumi:"value"`
@@ -5230,6 +5293,7 @@ func (o LoadBalancerAttributeOutput) ToLoadBalancerAttributeOutputWithContext(ct
 //	 +   ``access_logs.s3.bucket`` - The name of the S3 bucket for the access logs. This attribute is required if access logs are enabled. The bucket must exist in the same region as the load balancer and have a bucket policy that grants Elastic Load Balancing permissions to write to the bucket.
 //	 +   ``access_logs.s3.prefix`` - The prefix for the location in the S3 bucket for the access logs.
 //	 +   ``ipv6.deny_all_igw_traffic`` - Blocks internet gateway (IGW) access to the load balancer. It is set to ``false`` for internet-facing load balancers and ``true`` for internal load balancers, preventing unintended access to your internal load balancer through an internet gateway.
+//	 +   ``zonal_shift.config.enabled`` - Indicates whether zonal shift is enabled. The possible values are ``true`` and ``false``. The default is ``false``.
 //
 //	The following attributes are supported by only Application Load Balancers:
 //	 +   ``idle_timeout.timeout_seconds`` - The idle timeout value, in seconds. The valid range is 1-4000 seconds. The default is 60 seconds.
@@ -5252,7 +5316,6 @@ func (o LoadBalancerAttributeOutput) ToLoadBalancerAttributeOutputWithContext(ct
 //
 //	The following attributes are supported by only Network Load Balancers:
 //	 +   ``dns_record.client_routing_policy`` - Indicates how traffic is distributed among the load balancer Availability Zones. The possible values are ``availability_zone_affinity`` with 100 percent zonal affinity, ``partial_availability_zone_affinity`` with 85 percent zonal affinity, and ``any_availability_zone`` with 0 percent zonal affinity.
-//	 +   ``zonal_shift.config.enabled`` - Indicates whether zonal shift is enabled. The possible values are ``true`` and ``false``. The default is ``false``.
 func (o LoadBalancerAttributeOutput) Key() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LoadBalancerAttribute) *string { return v.Key }).(pulumi.StringPtrOutput)
 }
@@ -5282,6 +5345,7 @@ func (o LoadBalancerAttributeArrayOutput) Index(i pulumi.IntInput) LoadBalancerA
 	}).(LoadBalancerAttributeOutput)
 }
 
+// The minimum capacity for a load balancer.
 type LoadBalancerMinimumLoadBalancerCapacity struct {
 	// The number of capacity units.
 	CapacityUnits int `pulumi:"capacityUnits"`
@@ -5298,6 +5362,7 @@ type LoadBalancerMinimumLoadBalancerCapacityInput interface {
 	ToLoadBalancerMinimumLoadBalancerCapacityOutputWithContext(context.Context) LoadBalancerMinimumLoadBalancerCapacityOutput
 }
 
+// The minimum capacity for a load balancer.
 type LoadBalancerMinimumLoadBalancerCapacityArgs struct {
 	// The number of capacity units.
 	CapacityUnits pulumi.IntInput `pulumi:"capacityUnits"`
@@ -5356,6 +5421,7 @@ func (i *loadBalancerMinimumLoadBalancerCapacityPtrType) ToLoadBalancerMinimumLo
 	return pulumi.ToOutputWithContext(ctx, i).(LoadBalancerMinimumLoadBalancerCapacityPtrOutput)
 }
 
+// The minimum capacity for a load balancer.
 type LoadBalancerMinimumLoadBalancerCapacityOutput struct{ *pulumi.OutputState }
 
 func (LoadBalancerMinimumLoadBalancerCapacityOutput) ElementType() reflect.Type {

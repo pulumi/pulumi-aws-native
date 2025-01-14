@@ -7,6 +7,7 @@ from enum import Enum
 __all__ = [
     'PolicyFirewallDeploymentModel',
     'PolicyNetworkAclEntryRuleAction',
+    'PolicyResourceTagLogicalOperator',
     'PolicyType',
 ]
 
@@ -25,6 +26,11 @@ class PolicyNetworkAclEntryRuleAction(str, Enum):
     """
     ALLOW = "allow"
     DENY = "deny"
+
+
+class PolicyResourceTagLogicalOperator(str, Enum):
+    AND_ = "AND"
+    OR_ = "OR"
 
 
 class PolicyType(str, Enum):

@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetPolicyResult:
-    def __init__(__self__, arn=None, exclude_map=None, exclude_resource_tags=None, id=None, include_map=None, policy_description=None, policy_name=None, remediation_enabled=None, resource_set_ids=None, resource_tags=None, resource_type=None, resource_type_list=None, resources_clean_up=None, security_service_policy_data=None, tags=None):
+    def __init__(__self__, arn=None, exclude_map=None, exclude_resource_tags=None, id=None, include_map=None, policy_description=None, policy_name=None, remediation_enabled=None, resource_set_ids=None, resource_tag_logical_operator=None, resource_tags=None, resource_type=None, resource_type_list=None, resources_clean_up=None, security_service_policy_data=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -54,6 +54,9 @@ class GetPolicyResult:
         if resource_set_ids and not isinstance(resource_set_ids, list):
             raise TypeError("Expected argument 'resource_set_ids' to be a list")
         pulumi.set(__self__, "resource_set_ids", resource_set_ids)
+        if resource_tag_logical_operator and not isinstance(resource_tag_logical_operator, str):
+            raise TypeError("Expected argument 'resource_tag_logical_operator' to be a str")
+        pulumi.set(__self__, "resource_tag_logical_operator", resource_tag_logical_operator)
         if resource_tags and not isinstance(resource_tags, list):
             raise TypeError("Expected argument 'resource_tags' to be a list")
         pulumi.set(__self__, "resource_tags", resource_tags)
@@ -160,6 +163,11 @@ class GetPolicyResult:
         The unique identifiers of the resource sets used by the policy.
         """
         return pulumi.get(self, "resource_set_ids")
+
+    @property
+    @pulumi.getter(name="resourceTagLogicalOperator")
+    def resource_tag_logical_operator(self) -> Optional['PolicyResourceTagLogicalOperator']:
+        return pulumi.get(self, "resource_tag_logical_operator")
 
     @property
     @pulumi.getter(name="resourceTags")
@@ -325,6 +333,7 @@ class AwaitableGetPolicyResult(GetPolicyResult):
             policy_name=self.policy_name,
             remediation_enabled=self.remediation_enabled,
             resource_set_ids=self.resource_set_ids,
+            resource_tag_logical_operator=self.resource_tag_logical_operator,
             resource_tags=self.resource_tags,
             resource_type=self.resource_type,
             resource_type_list=self.resource_type_list,
@@ -356,6 +365,7 @@ def get_policy(id: Optional[str] = None,
         policy_name=pulumi.get(__ret__, 'policy_name'),
         remediation_enabled=pulumi.get(__ret__, 'remediation_enabled'),
         resource_set_ids=pulumi.get(__ret__, 'resource_set_ids'),
+        resource_tag_logical_operator=pulumi.get(__ret__, 'resource_tag_logical_operator'),
         resource_tags=pulumi.get(__ret__, 'resource_tags'),
         resource_type=pulumi.get(__ret__, 'resource_type'),
         resource_type_list=pulumi.get(__ret__, 'resource_type_list'),
@@ -384,6 +394,7 @@ def get_policy_output(id: Optional[pulumi.Input[str]] = None,
         policy_name=pulumi.get(__response__, 'policy_name'),
         remediation_enabled=pulumi.get(__response__, 'remediation_enabled'),
         resource_set_ids=pulumi.get(__response__, 'resource_set_ids'),
+        resource_tag_logical_operator=pulumi.get(__response__, 'resource_tag_logical_operator'),
         resource_tags=pulumi.get(__response__, 'resource_tags'),
         resource_type=pulumi.get(__response__, 'resource_type'),
         resource_type_list=pulumi.get(__response__, 'resource_type_list'),

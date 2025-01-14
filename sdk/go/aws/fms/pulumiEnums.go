@@ -342,6 +342,171 @@ func (in *policyNetworkAclEntryRuleActionPtr) ToPolicyNetworkAclEntryRuleActionP
 	return pulumi.ToOutputWithContext(ctx, in).(PolicyNetworkAclEntryRuleActionPtrOutput)
 }
 
+type PolicyResourceTagLogicalOperator string
+
+const (
+	PolicyResourceTagLogicalOperatorAnd = PolicyResourceTagLogicalOperator("AND")
+	PolicyResourceTagLogicalOperatorOr  = PolicyResourceTagLogicalOperator("OR")
+)
+
+func (PolicyResourceTagLogicalOperator) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyResourceTagLogicalOperator)(nil)).Elem()
+}
+
+func (e PolicyResourceTagLogicalOperator) ToPolicyResourceTagLogicalOperatorOutput() PolicyResourceTagLogicalOperatorOutput {
+	return pulumi.ToOutput(e).(PolicyResourceTagLogicalOperatorOutput)
+}
+
+func (e PolicyResourceTagLogicalOperator) ToPolicyResourceTagLogicalOperatorOutputWithContext(ctx context.Context) PolicyResourceTagLogicalOperatorOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PolicyResourceTagLogicalOperatorOutput)
+}
+
+func (e PolicyResourceTagLogicalOperator) ToPolicyResourceTagLogicalOperatorPtrOutput() PolicyResourceTagLogicalOperatorPtrOutput {
+	return e.ToPolicyResourceTagLogicalOperatorPtrOutputWithContext(context.Background())
+}
+
+func (e PolicyResourceTagLogicalOperator) ToPolicyResourceTagLogicalOperatorPtrOutputWithContext(ctx context.Context) PolicyResourceTagLogicalOperatorPtrOutput {
+	return PolicyResourceTagLogicalOperator(e).ToPolicyResourceTagLogicalOperatorOutputWithContext(ctx).ToPolicyResourceTagLogicalOperatorPtrOutputWithContext(ctx)
+}
+
+func (e PolicyResourceTagLogicalOperator) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PolicyResourceTagLogicalOperator) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PolicyResourceTagLogicalOperator) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PolicyResourceTagLogicalOperator) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PolicyResourceTagLogicalOperatorOutput struct{ *pulumi.OutputState }
+
+func (PolicyResourceTagLogicalOperatorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyResourceTagLogicalOperator)(nil)).Elem()
+}
+
+func (o PolicyResourceTagLogicalOperatorOutput) ToPolicyResourceTagLogicalOperatorOutput() PolicyResourceTagLogicalOperatorOutput {
+	return o
+}
+
+func (o PolicyResourceTagLogicalOperatorOutput) ToPolicyResourceTagLogicalOperatorOutputWithContext(ctx context.Context) PolicyResourceTagLogicalOperatorOutput {
+	return o
+}
+
+func (o PolicyResourceTagLogicalOperatorOutput) ToPolicyResourceTagLogicalOperatorPtrOutput() PolicyResourceTagLogicalOperatorPtrOutput {
+	return o.ToPolicyResourceTagLogicalOperatorPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyResourceTagLogicalOperatorOutput) ToPolicyResourceTagLogicalOperatorPtrOutputWithContext(ctx context.Context) PolicyResourceTagLogicalOperatorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyResourceTagLogicalOperator) *PolicyResourceTagLogicalOperator {
+		return &v
+	}).(PolicyResourceTagLogicalOperatorPtrOutput)
+}
+
+func (o PolicyResourceTagLogicalOperatorOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PolicyResourceTagLogicalOperatorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PolicyResourceTagLogicalOperator) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PolicyResourceTagLogicalOperatorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyResourceTagLogicalOperatorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PolicyResourceTagLogicalOperator) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PolicyResourceTagLogicalOperatorPtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyResourceTagLogicalOperatorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyResourceTagLogicalOperator)(nil)).Elem()
+}
+
+func (o PolicyResourceTagLogicalOperatorPtrOutput) ToPolicyResourceTagLogicalOperatorPtrOutput() PolicyResourceTagLogicalOperatorPtrOutput {
+	return o
+}
+
+func (o PolicyResourceTagLogicalOperatorPtrOutput) ToPolicyResourceTagLogicalOperatorPtrOutputWithContext(ctx context.Context) PolicyResourceTagLogicalOperatorPtrOutput {
+	return o
+}
+
+func (o PolicyResourceTagLogicalOperatorPtrOutput) Elem() PolicyResourceTagLogicalOperatorOutput {
+	return o.ApplyT(func(v *PolicyResourceTagLogicalOperator) PolicyResourceTagLogicalOperator {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyResourceTagLogicalOperator
+		return ret
+	}).(PolicyResourceTagLogicalOperatorOutput)
+}
+
+func (o PolicyResourceTagLogicalOperatorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyResourceTagLogicalOperatorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PolicyResourceTagLogicalOperator) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PolicyResourceTagLogicalOperatorInput is an input type that accepts values of the PolicyResourceTagLogicalOperator enum
+// A concrete instance of `PolicyResourceTagLogicalOperatorInput` can be one of the following:
+//
+//	PolicyResourceTagLogicalOperatorAnd
+//	PolicyResourceTagLogicalOperatorOr
+type PolicyResourceTagLogicalOperatorInput interface {
+	pulumi.Input
+
+	ToPolicyResourceTagLogicalOperatorOutput() PolicyResourceTagLogicalOperatorOutput
+	ToPolicyResourceTagLogicalOperatorOutputWithContext(context.Context) PolicyResourceTagLogicalOperatorOutput
+}
+
+var policyResourceTagLogicalOperatorPtrType = reflect.TypeOf((**PolicyResourceTagLogicalOperator)(nil)).Elem()
+
+type PolicyResourceTagLogicalOperatorPtrInput interface {
+	pulumi.Input
+
+	ToPolicyResourceTagLogicalOperatorPtrOutput() PolicyResourceTagLogicalOperatorPtrOutput
+	ToPolicyResourceTagLogicalOperatorPtrOutputWithContext(context.Context) PolicyResourceTagLogicalOperatorPtrOutput
+}
+
+type policyResourceTagLogicalOperatorPtr string
+
+func PolicyResourceTagLogicalOperatorPtr(v string) PolicyResourceTagLogicalOperatorPtrInput {
+	return (*policyResourceTagLogicalOperatorPtr)(&v)
+}
+
+func (*policyResourceTagLogicalOperatorPtr) ElementType() reflect.Type {
+	return policyResourceTagLogicalOperatorPtrType
+}
+
+func (in *policyResourceTagLogicalOperatorPtr) ToPolicyResourceTagLogicalOperatorPtrOutput() PolicyResourceTagLogicalOperatorPtrOutput {
+	return pulumi.ToOutput(in).(PolicyResourceTagLogicalOperatorPtrOutput)
+}
+
+func (in *policyResourceTagLogicalOperatorPtr) ToPolicyResourceTagLogicalOperatorPtrOutputWithContext(ctx context.Context) PolicyResourceTagLogicalOperatorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PolicyResourceTagLogicalOperatorPtrOutput)
+}
+
 // Firewall policy type.
 type PolicyType string
 
@@ -531,12 +696,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyFirewallDeploymentModelPtrInput)(nil)).Elem(), PolicyFirewallDeploymentModel("DISTRIBUTED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyNetworkAclEntryRuleActionInput)(nil)).Elem(), PolicyNetworkAclEntryRuleAction("allow"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyNetworkAclEntryRuleActionPtrInput)(nil)).Elem(), PolicyNetworkAclEntryRuleAction("allow"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyResourceTagLogicalOperatorInput)(nil)).Elem(), PolicyResourceTagLogicalOperator("AND"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyResourceTagLogicalOperatorPtrInput)(nil)).Elem(), PolicyResourceTagLogicalOperator("AND"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyTypeInput)(nil)).Elem(), PolicyType("WAF"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyTypePtrInput)(nil)).Elem(), PolicyType("WAF"))
 	pulumi.RegisterOutputType(PolicyFirewallDeploymentModelOutput{})
 	pulumi.RegisterOutputType(PolicyFirewallDeploymentModelPtrOutput{})
 	pulumi.RegisterOutputType(PolicyNetworkAclEntryRuleActionOutput{})
 	pulumi.RegisterOutputType(PolicyNetworkAclEntryRuleActionPtrOutput{})
+	pulumi.RegisterOutputType(PolicyResourceTagLogicalOperatorOutput{})
+	pulumi.RegisterOutputType(PolicyResourceTagLogicalOperatorPtrOutput{})
 	pulumi.RegisterOutputType(PolicyTypeOutput{})
 	pulumi.RegisterOutputType(PolicyTypePtrOutput{})
 }

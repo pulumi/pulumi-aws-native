@@ -69,6 +69,34 @@ namespace Pulumi.AwsNative.Fms
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct PolicyResourceTagLogicalOperator : IEquatable<PolicyResourceTagLogicalOperator>
+    {
+        private readonly string _value;
+
+        private PolicyResourceTagLogicalOperator(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PolicyResourceTagLogicalOperator And { get; } = new PolicyResourceTagLogicalOperator("AND");
+        public static PolicyResourceTagLogicalOperator Or { get; } = new PolicyResourceTagLogicalOperator("OR");
+
+        public static bool operator ==(PolicyResourceTagLogicalOperator left, PolicyResourceTagLogicalOperator right) => left.Equals(right);
+        public static bool operator !=(PolicyResourceTagLogicalOperator left, PolicyResourceTagLogicalOperator right) => !left.Equals(right);
+
+        public static explicit operator string(PolicyResourceTagLogicalOperator value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PolicyResourceTagLogicalOperator other && Equals(other);
+        public bool Equals(PolicyResourceTagLogicalOperator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// Firewall policy type.
     /// </summary>

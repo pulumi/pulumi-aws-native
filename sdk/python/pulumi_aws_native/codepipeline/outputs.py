@@ -1238,6 +1238,7 @@ class PipelineRuleDeclaration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 commands: Optional[Sequence[str]] = None,
                  configuration: Optional[Any] = None,
                  input_artifacts: Optional[Sequence['outputs.PipelineInputArtifact']] = None,
                  name: Optional[str] = None,
@@ -1246,6 +1247,7 @@ class PipelineRuleDeclaration(dict):
                  rule_type_id: Optional['outputs.PipelineRuleTypeId'] = None):
         """
         Represents information about condition.
+        :param Sequence[str] commands: The shell commands to run with your compute action in CodePipeline.
         :param Any configuration: The rule's configuration. These are key-value pairs that specify input values for a rule.
         :param Sequence['PipelineInputArtifact'] input_artifacts: The input artifacts fields for the rule, such as specifying an input file for the rule.
         :param str name: The rule declaration's name.
@@ -1253,6 +1255,8 @@ class PipelineRuleDeclaration(dict):
         :param str role_arn: The ARN of the IAM service role that performs the declared rule. This is assumed through the roleArn for the pipeline.
         :param 'PipelineRuleTypeId' rule_type_id: The ID for the rule type, which is made up of the combined values for category, owner, provider, and version.
         """
+        if commands is not None:
+            pulumi.set(__self__, "commands", commands)
         if configuration is not None:
             pulumi.set(__self__, "configuration", configuration)
         if input_artifacts is not None:
@@ -1265,6 +1269,14 @@ class PipelineRuleDeclaration(dict):
             pulumi.set(__self__, "role_arn", role_arn)
         if rule_type_id is not None:
             pulumi.set(__self__, "rule_type_id", rule_type_id)
+
+    @property
+    @pulumi.getter
+    def commands(self) -> Optional[Sequence[str]]:
+        """
+        The shell commands to run with your compute action in CodePipeline.
+        """
+        return pulumi.get(self, "commands")
 
     @property
     @pulumi.getter

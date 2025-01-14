@@ -17,6 +17,10 @@ namespace Pulumi.AwsNative.CodePipeline.Outputs
     public sealed class PipelineRuleDeclaration
     {
         /// <summary>
+        /// The shell commands to run with your compute action in CodePipeline.
+        /// </summary>
+        public readonly ImmutableArray<string> Commands;
+        /// <summary>
         /// The rule's configuration. These are key-value pairs that specify input values for a rule.
         /// </summary>
         public readonly object? Configuration;
@@ -43,6 +47,8 @@ namespace Pulumi.AwsNative.CodePipeline.Outputs
 
         [OutputConstructor]
         private PipelineRuleDeclaration(
+            ImmutableArray<string> commands,
+
             object? configuration,
 
             ImmutableArray<Outputs.PipelineInputArtifact> inputArtifacts,
@@ -55,6 +61,7 @@ namespace Pulumi.AwsNative.CodePipeline.Outputs
 
             Outputs.PipelineRuleTypeId? ruleTypeId)
         {
+            Commands = commands;
             Configuration = configuration;
             InputArtifacts = inputArtifacts;
             Name = name;

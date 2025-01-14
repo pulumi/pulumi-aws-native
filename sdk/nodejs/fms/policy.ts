@@ -106,6 +106,7 @@ export class Policy extends pulumi.CustomResource {
      * The unique identifiers of the resource sets used by the policy.
      */
     public readonly resourceSetIds!: pulumi.Output<string[] | undefined>;
+    public readonly resourceTagLogicalOperator!: pulumi.Output<enums.fms.PolicyResourceTagLogicalOperator | undefined>;
     /**
      * An array of `ResourceTag` objects, used to explicitly include resources in the policy scope or explicitly exclude them. If this isn't set, then tags aren't used to modify policy scope. See also `ExcludeResourceTags` .
      */
@@ -259,6 +260,7 @@ export class Policy extends pulumi.CustomResource {
             resourceInputs["policyName"] = args ? args.policyName : undefined;
             resourceInputs["remediationEnabled"] = args ? args.remediationEnabled : undefined;
             resourceInputs["resourceSetIds"] = args ? args.resourceSetIds : undefined;
+            resourceInputs["resourceTagLogicalOperator"] = args ? args.resourceTagLogicalOperator : undefined;
             resourceInputs["resourceTags"] = args ? args.resourceTags : undefined;
             resourceInputs["resourceType"] = args ? args.resourceType : undefined;
             resourceInputs["resourceTypeList"] = args ? args.resourceTypeList : undefined;
@@ -278,6 +280,7 @@ export class Policy extends pulumi.CustomResource {
             resourceInputs["policyName"] = undefined /*out*/;
             resourceInputs["remediationEnabled"] = undefined /*out*/;
             resourceInputs["resourceSetIds"] = undefined /*out*/;
+            resourceInputs["resourceTagLogicalOperator"] = undefined /*out*/;
             resourceInputs["resourceTags"] = undefined /*out*/;
             resourceInputs["resourceType"] = undefined /*out*/;
             resourceInputs["resourceTypeList"] = undefined /*out*/;
@@ -355,6 +358,7 @@ export interface PolicyArgs {
      * The unique identifiers of the resource sets used by the policy.
      */
     resourceSetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    resourceTagLogicalOperator?: pulumi.Input<enums.fms.PolicyResourceTagLogicalOperator>;
     /**
      * An array of `ResourceTag` objects, used to explicitly include resources in the policy scope or explicitly exclude them. If this isn't set, then tags aren't used to modify policy scope. See also `ExcludeResourceTags` .
      */

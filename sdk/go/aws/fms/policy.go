@@ -65,7 +65,8 @@ type Policy struct {
 	// Indicates if the policy should be automatically applied to new resources.
 	RemediationEnabled pulumi.BoolOutput `pulumi:"remediationEnabled"`
 	// The unique identifiers of the resource sets used by the policy.
-	ResourceSetIds pulumi.StringArrayOutput `pulumi:"resourceSetIds"`
+	ResourceSetIds             pulumi.StringArrayOutput                  `pulumi:"resourceSetIds"`
+	ResourceTagLogicalOperator PolicyResourceTagLogicalOperatorPtrOutput `pulumi:"resourceTagLogicalOperator"`
 	// An array of `ResourceTag` objects, used to explicitly include resources in the policy scope or explicitly exclude them. If this isn't set, then tags aren't used to modify policy scope. See also `ExcludeResourceTags` .
 	ResourceTags PolicyResourceTagArrayOutput `pulumi:"resourceTags"`
 	// The type of resource protected by or in scope of the policy. This is in the format shown in the [AWS Resource Types Reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html) . To apply this policy to multiple resource types, specify a resource type of `ResourceTypeList` and then specify the resource types in a `ResourceTypeList` .
@@ -273,7 +274,8 @@ type policyArgs struct {
 	// Indicates if the policy should be automatically applied to new resources.
 	RemediationEnabled bool `pulumi:"remediationEnabled"`
 	// The unique identifiers of the resource sets used by the policy.
-	ResourceSetIds []string `pulumi:"resourceSetIds"`
+	ResourceSetIds             []string                          `pulumi:"resourceSetIds"`
+	ResourceTagLogicalOperator *PolicyResourceTagLogicalOperator `pulumi:"resourceTagLogicalOperator"`
 	// An array of `ResourceTag` objects, used to explicitly include resources in the policy scope or explicitly exclude them. If this isn't set, then tags aren't used to modify policy scope. See also `ExcludeResourceTags` .
 	ResourceTags []PolicyResourceTag `pulumi:"resourceTags"`
 	// The type of resource protected by or in scope of the policy. This is in the format shown in the [AWS Resource Types Reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html) . To apply this policy to multiple resource types, specify a resource type of `ResourceTypeList` and then specify the resource types in a `ResourceTypeList` .
@@ -434,7 +436,8 @@ type PolicyArgs struct {
 	// Indicates if the policy should be automatically applied to new resources.
 	RemediationEnabled pulumi.BoolInput
 	// The unique identifiers of the resource sets used by the policy.
-	ResourceSetIds pulumi.StringArrayInput
+	ResourceSetIds             pulumi.StringArrayInput
+	ResourceTagLogicalOperator PolicyResourceTagLogicalOperatorPtrInput
 	// An array of `ResourceTag` objects, used to explicitly include resources in the policy scope or explicitly exclude them. If this isn't set, then tags aren't used to modify policy scope. See also `ExcludeResourceTags` .
 	ResourceTags PolicyResourceTagArrayInput
 	// The type of resource protected by or in scope of the policy. This is in the format shown in the [AWS Resource Types Reference](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html) . To apply this policy to multiple resource types, specify a resource type of `ResourceTypeList` and then specify the resource types in a `ResourceTypeList` .
@@ -663,6 +666,10 @@ func (o PolicyOutput) RemediationEnabled() pulumi.BoolOutput {
 // The unique identifiers of the resource sets used by the policy.
 func (o PolicyOutput) ResourceSetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Policy) pulumi.StringArrayOutput { return v.ResourceSetIds }).(pulumi.StringArrayOutput)
+}
+
+func (o PolicyOutput) ResourceTagLogicalOperator() PolicyResourceTagLogicalOperatorPtrOutput {
+	return o.ApplyT(func(v *Policy) PolicyResourceTagLogicalOperatorPtrOutput { return v.ResourceTagLogicalOperator }).(PolicyResourceTagLogicalOperatorPtrOutput)
 }
 
 // An array of `ResourceTag` objects, used to explicitly include resources in the policy scope or explicitly exclude them. If this isn't set, then tags aren't used to modify policy scope. See also `ExcludeResourceTags` .
