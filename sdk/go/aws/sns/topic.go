@@ -201,7 +201,8 @@ type Topic struct {
 	//  Once configured, log entries are sent to Amazon CloudWatch Logs.
 	DeliveryStatusLogging TopicLoggingConfigArrayOutput `pulumi:"deliveryStatusLogging"`
 	// The display name to use for an SNS topic with SMS subscriptions. The display name must be maximum 100 characters long, including hyphens (-), underscores (_), spaces, and tabs.
-	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
+	DisplayName         pulumi.StringPtrOutput `pulumi:"displayName"`
+	FifoThroughputScope pulumi.StringPtrOutput `pulumi:"fifoThroughputScope"`
 	// Set to true to create a FIFO topic.
 	FifoTopic pulumi.BoolPtrOutput `pulumi:"fifoTopic"`
 	// The ID of an AWS managed customer master key (CMK) for SNS or a custom CMK. For more information, see [Key terms](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms). For more examples, see ``KeyId`` in the *API Reference*.
@@ -296,7 +297,8 @@ type topicArgs struct {
 	//  Once configured, log entries are sent to Amazon CloudWatch Logs.
 	DeliveryStatusLogging []TopicLoggingConfig `pulumi:"deliveryStatusLogging"`
 	// The display name to use for an SNS topic with SMS subscriptions. The display name must be maximum 100 characters long, including hyphens (-), underscores (_), spaces, and tabs.
-	DisplayName *string `pulumi:"displayName"`
+	DisplayName         *string `pulumi:"displayName"`
+	FifoThroughputScope *string `pulumi:"fifoThroughputScope"`
 	// Set to true to create a FIFO topic.
 	FifoTopic *bool `pulumi:"fifoTopic"`
 	// The ID of an AWS managed customer master key (CMK) for SNS or a custom CMK. For more information, see [Key terms](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms). For more examples, see ``KeyId`` in the *API Reference*.
@@ -346,7 +348,8 @@ type TopicArgs struct {
 	//  Once configured, log entries are sent to Amazon CloudWatch Logs.
 	DeliveryStatusLogging TopicLoggingConfigArrayInput
 	// The display name to use for an SNS topic with SMS subscriptions. The display name must be maximum 100 characters long, including hyphens (-), underscores (_), spaces, and tabs.
-	DisplayName pulumi.StringPtrInput
+	DisplayName         pulumi.StringPtrInput
+	FifoThroughputScope pulumi.StringPtrInput
 	// Set to true to create a FIFO topic.
 	FifoTopic pulumi.BoolPtrInput
 	// The ID of an AWS managed customer master key (CMK) for SNS or a custom CMK. For more information, see [Key terms](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms). For more examples, see ``KeyId`` in the *API Reference*.
@@ -451,6 +454,10 @@ func (o TopicOutput) DeliveryStatusLogging() TopicLoggingConfigArrayOutput {
 // The display name to use for an SNS topic with SMS subscriptions. The display name must be maximum 100 characters long, including hyphens (-), underscores (_), spaces, and tabs.
 func (o TopicOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Topic) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+func (o TopicOutput) FifoThroughputScope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Topic) pulumi.StringPtrOutput { return v.FifoThroughputScope }).(pulumi.StringPtrOutput)
 }
 
 // Set to true to create a FIFO topic.

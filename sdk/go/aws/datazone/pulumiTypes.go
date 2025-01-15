@@ -660,6 +660,8 @@ func (o DataSourceFormInputArrayOutput) Index(i pulumi.IntInput) DataSourceFormI
 type DataSourceGlueRunConfigurationInput struct {
 	// Specifies whether to automatically import data quality metrics as part of the data source run.
 	AutoImportDataQualityResult *bool `pulumi:"autoImportDataQualityResult"`
+	// The catalog name in the AWS Glue run configuration.
+	CatalogName *string `pulumi:"catalogName"`
 	// The data access role included in the configuration details of the AWS Glue data source.
 	DataAccessRole *string `pulumi:"dataAccessRole"`
 	// The relational filter configurations included in the configuration details of the AWS Glue data source.
@@ -680,6 +682,8 @@ type DataSourceGlueRunConfigurationInputInput interface {
 type DataSourceGlueRunConfigurationInputArgs struct {
 	// Specifies whether to automatically import data quality metrics as part of the data source run.
 	AutoImportDataQualityResult pulumi.BoolPtrInput `pulumi:"autoImportDataQualityResult"`
+	// The catalog name in the AWS Glue run configuration.
+	CatalogName pulumi.StringPtrInput `pulumi:"catalogName"`
 	// The data access role included in the configuration details of the AWS Glue data source.
 	DataAccessRole pulumi.StringPtrInput `pulumi:"dataAccessRole"`
 	// The relational filter configurations included in the configuration details of the AWS Glue data source.
@@ -768,6 +772,11 @@ func (o DataSourceGlueRunConfigurationInputOutput) AutoImportDataQualityResult()
 	return o.ApplyT(func(v DataSourceGlueRunConfigurationInput) *bool { return v.AutoImportDataQualityResult }).(pulumi.BoolPtrOutput)
 }
 
+// The catalog name in the AWS Glue run configuration.
+func (o DataSourceGlueRunConfigurationInputOutput) CatalogName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataSourceGlueRunConfigurationInput) *string { return v.CatalogName }).(pulumi.StringPtrOutput)
+}
+
 // The data access role included in the configuration details of the AWS Glue data source.
 func (o DataSourceGlueRunConfigurationInputOutput) DataAccessRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataSourceGlueRunConfigurationInput) *string { return v.DataAccessRole }).(pulumi.StringPtrOutput)
@@ -812,6 +821,16 @@ func (o DataSourceGlueRunConfigurationInputPtrOutput) AutoImportDataQualityResul
 		}
 		return v.AutoImportDataQualityResult
 	}).(pulumi.BoolPtrOutput)
+}
+
+// The catalog name in the AWS Glue run configuration.
+func (o DataSourceGlueRunConfigurationInputPtrOutput) CatalogName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSourceGlueRunConfigurationInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CatalogName
+	}).(pulumi.StringPtrOutput)
 }
 
 // The data access role included in the configuration details of the AWS Glue data source.
@@ -1259,7 +1278,7 @@ type DataSourceRedshiftRunConfigurationInput struct {
 	// The data access role included in the configuration details of the Amazon Redshift data source.
 	DataAccessRole *string `pulumi:"dataAccessRole"`
 	// The details of the credentials required to access an Amazon Redshift cluster.
-	RedshiftCredentialConfiguration DataSourceRedshiftCredentialConfiguration `pulumi:"redshiftCredentialConfiguration"`
+	RedshiftCredentialConfiguration *DataSourceRedshiftCredentialConfiguration `pulumi:"redshiftCredentialConfiguration"`
 	// The details of the Amazon Redshift storage as part of the configuration of an Amazon Redshift data source run.
 	RedshiftStorage                interface{}                               `pulumi:"redshiftStorage"`
 	RelationalFilterConfigurations []DataSourceRelationalFilterConfiguration `pulumi:"relationalFilterConfigurations"`
@@ -1281,7 +1300,7 @@ type DataSourceRedshiftRunConfigurationInputArgs struct {
 	// The data access role included in the configuration details of the Amazon Redshift data source.
 	DataAccessRole pulumi.StringPtrInput `pulumi:"dataAccessRole"`
 	// The details of the credentials required to access an Amazon Redshift cluster.
-	RedshiftCredentialConfiguration DataSourceRedshiftCredentialConfigurationInput `pulumi:"redshiftCredentialConfiguration"`
+	RedshiftCredentialConfiguration DataSourceRedshiftCredentialConfigurationPtrInput `pulumi:"redshiftCredentialConfiguration"`
 	// The details of the Amazon Redshift storage as part of the configuration of an Amazon Redshift data source run.
 	RedshiftStorage                pulumi.Input                                      `pulumi:"redshiftStorage"`
 	RelationalFilterConfigurations DataSourceRelationalFilterConfigurationArrayInput `pulumi:"relationalFilterConfigurations"`
@@ -1371,10 +1390,10 @@ func (o DataSourceRedshiftRunConfigurationInputOutput) DataAccessRole() pulumi.S
 }
 
 // The details of the credentials required to access an Amazon Redshift cluster.
-func (o DataSourceRedshiftRunConfigurationInputOutput) RedshiftCredentialConfiguration() DataSourceRedshiftCredentialConfigurationOutput {
-	return o.ApplyT(func(v DataSourceRedshiftRunConfigurationInput) DataSourceRedshiftCredentialConfiguration {
+func (o DataSourceRedshiftRunConfigurationInputOutput) RedshiftCredentialConfiguration() DataSourceRedshiftCredentialConfigurationPtrOutput {
+	return o.ApplyT(func(v DataSourceRedshiftRunConfigurationInput) *DataSourceRedshiftCredentialConfiguration {
 		return v.RedshiftCredentialConfiguration
-	}).(DataSourceRedshiftCredentialConfigurationOutput)
+	}).(DataSourceRedshiftCredentialConfigurationPtrOutput)
 }
 
 // The details of the Amazon Redshift storage as part of the configuration of an Amazon Redshift data source run.
@@ -1428,7 +1447,7 @@ func (o DataSourceRedshiftRunConfigurationInputPtrOutput) RedshiftCredentialConf
 		if v == nil {
 			return nil
 		}
-		return &v.RedshiftCredentialConfiguration
+		return v.RedshiftCredentialConfiguration
 	}).(DataSourceRedshiftCredentialConfigurationPtrOutput)
 }
 

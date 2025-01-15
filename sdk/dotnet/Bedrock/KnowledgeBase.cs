@@ -115,7 +115,12 @@ namespace Pulumi.AwsNative.Bedrock
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
-                    "knowledgeBaseConfiguration",
+                    "knowledgeBaseConfiguration.kendraKnowledgeBaseConfiguration",
+                    "knowledgeBaseConfiguration.sqlKnowledgeBaseConfiguration.redshiftConfiguration.queryEngineConfiguration",
+                    "knowledgeBaseConfiguration.sqlKnowledgeBaseConfiguration.redshiftConfiguration.storageConfigurations[*]",
+                    "knowledgeBaseConfiguration.sqlKnowledgeBaseConfiguration.type",
+                    "knowledgeBaseConfiguration.type",
+                    "knowledgeBaseConfiguration.vectorKnowledgeBaseConfiguration",
                     "storageConfiguration",
                 },
             };

@@ -470,6 +470,10 @@ export const Region = {
      */
     MeSouth1: "me-south-1",
     /**
+     * Mexico (Central)
+     */
+    MxCentral1: "mx-central-1",
+    /**
      * South America (Sao Paulo)
      */
     SaEast1: "sa-east-1",

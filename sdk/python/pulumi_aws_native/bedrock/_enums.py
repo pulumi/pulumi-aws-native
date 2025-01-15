@@ -50,6 +50,12 @@ __all__ = [
     'GuardrailSensitiveInformationAction',
     'GuardrailStatus',
     'GuardrailTopicType',
+    'KnowledgeBaseInclusionType',
+    'KnowledgeBaseQueryEngineType',
+    'KnowledgeBaseRedshiftProvisionedAuthType',
+    'KnowledgeBaseRedshiftQueryEngineStorageType',
+    'KnowledgeBaseRedshiftQueryEngineType',
+    'KnowledgeBaseRedshiftServerlessAuthType',
     'KnowledgeBaseStatus',
     'KnowledgeBaseStorageType',
     'KnowledgeBaseSupplementalDataStorageLocationType',
@@ -278,6 +284,7 @@ class DataSourceType(str, Enum):
     SHAREPOINT = "SHAREPOINT"
     WEB = "WEB"
     CUSTOM = "CUSTOM"
+    REDSHIFT_METADATA = "REDSHIFT_METADATA"
 
 
 class DataSourceWebScopeType(str, Enum):
@@ -497,6 +504,54 @@ class GuardrailTopicType(str, Enum):
     DENY = "DENY"
 
 
+class KnowledgeBaseInclusionType(str, Enum):
+    """
+    Include or Exclude status for an entity
+    """
+    INCLUDE = "INCLUDE"
+    EXCLUDE = "EXCLUDE"
+
+
+class KnowledgeBaseQueryEngineType(str, Enum):
+    """
+    SQL query engine type
+    """
+    REDSHIFT = "REDSHIFT"
+
+
+class KnowledgeBaseRedshiftProvisionedAuthType(str, Enum):
+    """
+    Provisioned Redshift auth type
+    """
+    IAM = "IAM"
+    USERNAME_PASSWORD = "USERNAME_PASSWORD"
+    USERNAME = "USERNAME"
+
+
+class KnowledgeBaseRedshiftQueryEngineStorageType(str, Enum):
+    """
+    Redshift query engine storage type
+    """
+    REDSHIFT = "REDSHIFT"
+    AWS_DATA_CATALOG = "AWS_DATA_CATALOG"
+
+
+class KnowledgeBaseRedshiftQueryEngineType(str, Enum):
+    """
+    Redshift query engine type
+    """
+    SERVERLESS = "SERVERLESS"
+    PROVISIONED = "PROVISIONED"
+
+
+class KnowledgeBaseRedshiftServerlessAuthType(str, Enum):
+    """
+    Serverless Redshift auth type
+    """
+    IAM = "IAM"
+    USERNAME_PASSWORD = "USERNAME_PASSWORD"
+
+
 class KnowledgeBaseStatus(str, Enum):
     """
     The status of a knowledge base.
@@ -532,6 +587,7 @@ class KnowledgeBaseType(str, Enum):
     """
     VECTOR = "VECTOR"
     KENDRA = "KENDRA"
+    SQL = "SQL"
 
 
 class PromptConversationRole(str, Enum):

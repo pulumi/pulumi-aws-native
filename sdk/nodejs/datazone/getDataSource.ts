@@ -31,6 +31,10 @@ export interface GetDataSourceArgs {
 
 export interface GetDataSourceResult {
     /**
+     * The unique identifier of a connection used to fetch relevant parameters from connection during Datasource run
+     */
+    readonly connectionId?: string;
+    /**
      * The timestamp of when the data source was created.
      */
     readonly createdAt?: string;

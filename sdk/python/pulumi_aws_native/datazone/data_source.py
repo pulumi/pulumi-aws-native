@@ -23,13 +23,14 @@ __all__ = ['DataSourceArgs', 'DataSource']
 class DataSourceArgs:
     def __init__(__self__, *,
                  domain_identifier: pulumi.Input[str],
-                 environment_identifier: pulumi.Input[str],
                  project_identifier: pulumi.Input[str],
                  type: pulumi.Input[str],
                  asset_forms_input: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourceFormInputArgs']]]] = None,
                  configuration: Optional[pulumi.Input[Union['DataSourceConfigurationInput0PropertiesArgs', 'DataSourceConfigurationInput1PropertiesArgs', 'DataSourceConfigurationInput2PropertiesArgs']]] = None,
+                 connection_identifier: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  enable_setting: Optional[pulumi.Input['DataSourceEnableSetting']] = None,
+                 environment_identifier: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  publish_on_import: Optional[pulumi.Input[bool]] = None,
                  recommendation: Optional[pulumi.Input['DataSourceRecommendationConfigurationArgs']] = None,
@@ -37,30 +38,34 @@ class DataSourceArgs:
         """
         The set of arguments for constructing a DataSource resource.
         :param pulumi.Input[str] domain_identifier: The ID of the Amazon DataZone domain where the data source is created.
-        :param pulumi.Input[str] environment_identifier: The unique identifier of the Amazon DataZone environment to which the data source publishes assets.
         :param pulumi.Input[str] project_identifier: The identifier of the Amazon DataZone project in which you want to add the data source.
         :param pulumi.Input[str] type: The type of the data source.
         :param pulumi.Input[Sequence[pulumi.Input['DataSourceFormInputArgs']]] asset_forms_input: The metadata forms that are to be attached to the assets that this data source works with.
         :param pulumi.Input[Union['DataSourceConfigurationInput0PropertiesArgs', 'DataSourceConfigurationInput1PropertiesArgs', 'DataSourceConfigurationInput2PropertiesArgs']] configuration: Configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration.
+        :param pulumi.Input[str] connection_identifier: The unique identifier of a connection used to fetch relevant parameters from connection during Datasource run
         :param pulumi.Input[str] description: The description of the data source.
         :param pulumi.Input['DataSourceEnableSetting'] enable_setting: Specifies whether the data source is enabled.
+        :param pulumi.Input[str] environment_identifier: The unique identifier of the Amazon DataZone environment to which the data source publishes assets.
         :param pulumi.Input[str] name: The name of the data source.
         :param pulumi.Input[bool] publish_on_import: Specifies whether the assets that this data source creates in the inventory are to be also automatically published to the catalog.
         :param pulumi.Input['DataSourceRecommendationConfigurationArgs'] recommendation: Specifies whether the business name generation is to be enabled for this data source.
         :param pulumi.Input['DataSourceScheduleConfigurationArgs'] schedule: The schedule of the data source runs.
         """
         pulumi.set(__self__, "domain_identifier", domain_identifier)
-        pulumi.set(__self__, "environment_identifier", environment_identifier)
         pulumi.set(__self__, "project_identifier", project_identifier)
         pulumi.set(__self__, "type", type)
         if asset_forms_input is not None:
             pulumi.set(__self__, "asset_forms_input", asset_forms_input)
         if configuration is not None:
             pulumi.set(__self__, "configuration", configuration)
+        if connection_identifier is not None:
+            pulumi.set(__self__, "connection_identifier", connection_identifier)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if enable_setting is not None:
             pulumi.set(__self__, "enable_setting", enable_setting)
+        if environment_identifier is not None:
+            pulumi.set(__self__, "environment_identifier", environment_identifier)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if publish_on_import is not None:
@@ -81,18 +86,6 @@ class DataSourceArgs:
     @domain_identifier.setter
     def domain_identifier(self, value: pulumi.Input[str]):
         pulumi.set(self, "domain_identifier", value)
-
-    @property
-    @pulumi.getter(name="environmentIdentifier")
-    def environment_identifier(self) -> pulumi.Input[str]:
-        """
-        The unique identifier of the Amazon DataZone environment to which the data source publishes assets.
-        """
-        return pulumi.get(self, "environment_identifier")
-
-    @environment_identifier.setter
-    def environment_identifier(self, value: pulumi.Input[str]):
-        pulumi.set(self, "environment_identifier", value)
 
     @property
     @pulumi.getter(name="projectIdentifier")
@@ -143,6 +136,18 @@ class DataSourceArgs:
         pulumi.set(self, "configuration", value)
 
     @property
+    @pulumi.getter(name="connectionIdentifier")
+    def connection_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        The unique identifier of a connection used to fetch relevant parameters from connection during Datasource run
+        """
+        return pulumi.get(self, "connection_identifier")
+
+    @connection_identifier.setter
+    def connection_identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "connection_identifier", value)
+
+    @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
@@ -165,6 +170,18 @@ class DataSourceArgs:
     @enable_setting.setter
     def enable_setting(self, value: Optional[pulumi.Input['DataSourceEnableSetting']]):
         pulumi.set(self, "enable_setting", value)
+
+    @property
+    @pulumi.getter(name="environmentIdentifier")
+    def environment_identifier(self) -> Optional[pulumi.Input[str]]:
+        """
+        The unique identifier of the Amazon DataZone environment to which the data source publishes assets.
+        """
+        return pulumi.get(self, "environment_identifier")
+
+    @environment_identifier.setter
+    def environment_identifier(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "environment_identifier", value)
 
     @property
     @pulumi.getter
@@ -222,6 +239,7 @@ class DataSource(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  asset_forms_input: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataSourceFormInputArgs', 'DataSourceFormInputArgsDict']]]]] = None,
                  configuration: Optional[pulumi.Input[Union[Union['DataSourceConfigurationInput0PropertiesArgs', 'DataSourceConfigurationInput0PropertiesArgsDict'], Union['DataSourceConfigurationInput1PropertiesArgs', 'DataSourceConfigurationInput1PropertiesArgsDict'], Union['DataSourceConfigurationInput2PropertiesArgs', 'DataSourceConfigurationInput2PropertiesArgsDict']]]] = None,
+                 connection_identifier: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  domain_identifier: Optional[pulumi.Input[str]] = None,
                  enable_setting: Optional[pulumi.Input['DataSourceEnableSetting']] = None,
@@ -240,6 +258,7 @@ class DataSource(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DataSourceFormInputArgs', 'DataSourceFormInputArgsDict']]]] asset_forms_input: The metadata forms that are to be attached to the assets that this data source works with.
         :param pulumi.Input[Union[Union['DataSourceConfigurationInput0PropertiesArgs', 'DataSourceConfigurationInput0PropertiesArgsDict'], Union['DataSourceConfigurationInput1PropertiesArgs', 'DataSourceConfigurationInput1PropertiesArgsDict'], Union['DataSourceConfigurationInput2PropertiesArgs', 'DataSourceConfigurationInput2PropertiesArgsDict']]] configuration: Configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration.
+        :param pulumi.Input[str] connection_identifier: The unique identifier of a connection used to fetch relevant parameters from connection during Datasource run
         :param pulumi.Input[str] description: The description of the data source.
         :param pulumi.Input[str] domain_identifier: The ID of the Amazon DataZone domain where the data source is created.
         :param pulumi.Input['DataSourceEnableSetting'] enable_setting: Specifies whether the data source is enabled.
@@ -277,6 +296,7 @@ class DataSource(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  asset_forms_input: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DataSourceFormInputArgs', 'DataSourceFormInputArgsDict']]]]] = None,
                  configuration: Optional[pulumi.Input[Union[Union['DataSourceConfigurationInput0PropertiesArgs', 'DataSourceConfigurationInput0PropertiesArgsDict'], Union['DataSourceConfigurationInput1PropertiesArgs', 'DataSourceConfigurationInput1PropertiesArgsDict'], Union['DataSourceConfigurationInput2PropertiesArgs', 'DataSourceConfigurationInput2PropertiesArgsDict']]]] = None,
+                 connection_identifier: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  domain_identifier: Optional[pulumi.Input[str]] = None,
                  enable_setting: Optional[pulumi.Input['DataSourceEnableSetting']] = None,
@@ -298,13 +318,12 @@ class DataSource(pulumi.CustomResource):
 
             __props__.__dict__["asset_forms_input"] = asset_forms_input
             __props__.__dict__["configuration"] = configuration
+            __props__.__dict__["connection_identifier"] = connection_identifier
             __props__.__dict__["description"] = description
             if domain_identifier is None and not opts.urn:
                 raise TypeError("Missing required property 'domain_identifier'")
             __props__.__dict__["domain_identifier"] = domain_identifier
             __props__.__dict__["enable_setting"] = enable_setting
-            if environment_identifier is None and not opts.urn:
-                raise TypeError("Missing required property 'environment_identifier'")
             __props__.__dict__["environment_identifier"] = environment_identifier
             __props__.__dict__["name"] = name
             if project_identifier is None and not opts.urn:
@@ -317,6 +336,7 @@ class DataSource(pulumi.CustomResource):
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
             __props__.__dict__["aws_id"] = None
+            __props__.__dict__["connection_id"] = None
             __props__.__dict__["created_at"] = None
             __props__.__dict__["domain_id"] = None
             __props__.__dict__["environment_id"] = None
@@ -326,7 +346,7 @@ class DataSource(pulumi.CustomResource):
             __props__.__dict__["project_id"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["updated_at"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["domainIdentifier", "environmentIdentifier", "projectIdentifier", "type"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["connectionIdentifier", "domainIdentifier", "environmentIdentifier", "projectIdentifier", "type"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(DataSource, __self__).__init__(
             'aws-native:datazone:DataSource',
@@ -353,6 +373,8 @@ class DataSource(pulumi.CustomResource):
         __props__.__dict__["asset_forms_input"] = None
         __props__.__dict__["aws_id"] = None
         __props__.__dict__["configuration"] = None
+        __props__.__dict__["connection_id"] = None
+        __props__.__dict__["connection_identifier"] = None
         __props__.__dict__["created_at"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["domain_id"] = None
@@ -397,6 +419,22 @@ class DataSource(pulumi.CustomResource):
         Configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration.
         """
         return pulumi.get(self, "configuration")
+
+    @property
+    @pulumi.getter(name="connectionId")
+    def connection_id(self) -> pulumi.Output[str]:
+        """
+        The unique identifier of a connection used to fetch relevant parameters from connection during Datasource run
+        """
+        return pulumi.get(self, "connection_id")
+
+    @property
+    @pulumi.getter(name="connectionIdentifier")
+    def connection_identifier(self) -> pulumi.Output[Optional[str]]:
+        """
+        The unique identifier of a connection used to fetch relevant parameters from connection during Datasource run
+        """
+        return pulumi.get(self, "connection_identifier")
 
     @property
     @pulumi.getter(name="createdAt")
@@ -448,7 +486,7 @@ class DataSource(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="environmentIdentifier")
-    def environment_identifier(self) -> pulumi.Output[str]:
+    def environment_identifier(self) -> pulumi.Output[Optional[str]]:
         """
         The unique identifier of the Amazon DataZone environment to which the data source publishes assets.
         """

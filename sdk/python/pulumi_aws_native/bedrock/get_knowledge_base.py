@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from ._enums import *
 
 __all__ = [
@@ -24,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetKnowledgeBaseResult:
-    def __init__(__self__, created_at=None, description=None, failure_reasons=None, knowledge_base_arn=None, knowledge_base_id=None, name=None, role_arn=None, status=None, tags=None, updated_at=None):
+    def __init__(__self__, created_at=None, description=None, failure_reasons=None, knowledge_base_arn=None, knowledge_base_configuration=None, knowledge_base_id=None, name=None, role_arn=None, status=None, tags=None, updated_at=None):
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
@@ -37,6 +38,9 @@ class GetKnowledgeBaseResult:
         if knowledge_base_arn and not isinstance(knowledge_base_arn, str):
             raise TypeError("Expected argument 'knowledge_base_arn' to be a str")
         pulumi.set(__self__, "knowledge_base_arn", knowledge_base_arn)
+        if knowledge_base_configuration and not isinstance(knowledge_base_configuration, dict):
+            raise TypeError("Expected argument 'knowledge_base_configuration' to be a dict")
+        pulumi.set(__self__, "knowledge_base_configuration", knowledge_base_configuration)
         if knowledge_base_id and not isinstance(knowledge_base_id, str):
             raise TypeError("Expected argument 'knowledge_base_id' to be a str")
         pulumi.set(__self__, "knowledge_base_id", knowledge_base_id)
@@ -87,6 +91,14 @@ class GetKnowledgeBaseResult:
         The ARN of the knowledge base.
         """
         return pulumi.get(self, "knowledge_base_arn")
+
+    @property
+    @pulumi.getter(name="knowledgeBaseConfiguration")
+    def knowledge_base_configuration(self) -> Optional['outputs.KnowledgeBaseConfiguration']:
+        """
+        Contains details about the embeddings configuration of the knowledge base.
+        """
+        return pulumi.get(self, "knowledge_base_configuration")
 
     @property
     @pulumi.getter(name="knowledgeBaseId")
@@ -150,6 +162,7 @@ class AwaitableGetKnowledgeBaseResult(GetKnowledgeBaseResult):
             description=self.description,
             failure_reasons=self.failure_reasons,
             knowledge_base_arn=self.knowledge_base_arn,
+            knowledge_base_configuration=self.knowledge_base_configuration,
             knowledge_base_id=self.knowledge_base_id,
             name=self.name,
             role_arn=self.role_arn,
@@ -176,6 +189,7 @@ def get_knowledge_base(knowledge_base_id: Optional[str] = None,
         description=pulumi.get(__ret__, 'description'),
         failure_reasons=pulumi.get(__ret__, 'failure_reasons'),
         knowledge_base_arn=pulumi.get(__ret__, 'knowledge_base_arn'),
+        knowledge_base_configuration=pulumi.get(__ret__, 'knowledge_base_configuration'),
         knowledge_base_id=pulumi.get(__ret__, 'knowledge_base_id'),
         name=pulumi.get(__ret__, 'name'),
         role_arn=pulumi.get(__ret__, 'role_arn'),
@@ -199,6 +213,7 @@ def get_knowledge_base_output(knowledge_base_id: Optional[pulumi.Input[str]] = N
         description=pulumi.get(__response__, 'description'),
         failure_reasons=pulumi.get(__response__, 'failure_reasons'),
         knowledge_base_arn=pulumi.get(__response__, 'knowledge_base_arn'),
+        knowledge_base_configuration=pulumi.get(__response__, 'knowledge_base_configuration'),
         knowledge_base_id=pulumi.get(__response__, 'knowledge_base_id'),
         name=pulumi.get(__response__, 'name'),
         role_arn=pulumi.get(__response__, 'role_arn'),

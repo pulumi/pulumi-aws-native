@@ -30,6 +30,8 @@ type LookupDataSourceArgs struct {
 }
 
 type LookupDataSourceResult struct {
+	// The unique identifier of a connection used to fetch relevant parameters from connection during Datasource run
+	ConnectionId *string `pulumi:"connectionId"`
 	// The timestamp of when the data source was created.
 	CreatedAt *string `pulumi:"createdAt"`
 	// The description of the data source.
@@ -96,6 +98,11 @@ func (o LookupDataSourceResultOutput) ToLookupDataSourceResultOutput() LookupDat
 
 func (o LookupDataSourceResultOutput) ToLookupDataSourceResultOutputWithContext(ctx context.Context) LookupDataSourceResultOutput {
 	return o
+}
+
+// The unique identifier of a connection used to fetch relevant parameters from connection during Datasource run
+func (o LookupDataSourceResultOutput) ConnectionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDataSourceResult) *string { return v.ConnectionId }).(pulumi.StringPtrOutput)
 }
 
 // The timestamp of when the data source was created.

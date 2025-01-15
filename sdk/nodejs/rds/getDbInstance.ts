@@ -146,11 +146,7 @@ export interface GetDbInstanceResult {
      */
     readonly copyTagsToSnapshot?: boolean;
     /**
-     * The mode of Database Insights to enable for the DB instance.
-     *
-     * This setting only applies to Amazon Aurora DB instances.
-     *
-     * > Currently, this value is inherited from the DB cluster and can't be changed.
+     * The mode of Database Insights that is enabled for the instance.
      */
     readonly databaseInsightsMode?: string;
     /**

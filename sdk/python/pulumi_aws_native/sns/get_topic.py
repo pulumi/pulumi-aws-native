@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetTopicResult:
-    def __init__(__self__, archive_policy=None, content_based_deduplication=None, data_protection_policy=None, delivery_status_logging=None, display_name=None, kms_master_key_id=None, signature_version=None, subscription=None, tags=None, topic_arn=None, tracing_config=None):
+    def __init__(__self__, archive_policy=None, content_based_deduplication=None, data_protection_policy=None, delivery_status_logging=None, display_name=None, fifo_throughput_scope=None, kms_master_key_id=None, signature_version=None, subscription=None, tags=None, topic_arn=None, tracing_config=None):
         if archive_policy and not isinstance(archive_policy, dict):
             raise TypeError("Expected argument 'archive_policy' to be a dict")
         pulumi.set(__self__, "archive_policy", archive_policy)
@@ -42,6 +42,9 @@ class GetTopicResult:
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         pulumi.set(__self__, "display_name", display_name)
+        if fifo_throughput_scope and not isinstance(fifo_throughput_scope, str):
+            raise TypeError("Expected argument 'fifo_throughput_scope' to be a str")
+        pulumi.set(__self__, "fifo_throughput_scope", fifo_throughput_scope)
         if kms_master_key_id and not isinstance(kms_master_key_id, str):
             raise TypeError("Expected argument 'kms_master_key_id' to be a str")
         pulumi.set(__self__, "kms_master_key_id", kms_master_key_id)
@@ -119,6 +122,11 @@ class GetTopicResult:
         return pulumi.get(self, "display_name")
 
     @property
+    @pulumi.getter(name="fifoThroughputScope")
+    def fifo_throughput_scope(self) -> Optional[str]:
+        return pulumi.get(self, "fifo_throughput_scope")
+
+    @property
     @pulumi.getter(name="kmsMasterKeyId")
     def kms_master_key_id(self) -> Optional[str]:
         """
@@ -181,6 +189,7 @@ class AwaitableGetTopicResult(GetTopicResult):
             data_protection_policy=self.data_protection_policy,
             delivery_status_logging=self.delivery_status_logging,
             display_name=self.display_name,
+            fifo_throughput_scope=self.fifo_throughput_scope,
             kms_master_key_id=self.kms_master_key_id,
             signature_version=self.signature_version,
             subscription=self.subscription,
@@ -210,6 +219,7 @@ def get_topic(topic_arn: Optional[str] = None,
         data_protection_policy=pulumi.get(__ret__, 'data_protection_policy'),
         delivery_status_logging=pulumi.get(__ret__, 'delivery_status_logging'),
         display_name=pulumi.get(__ret__, 'display_name'),
+        fifo_throughput_scope=pulumi.get(__ret__, 'fifo_throughput_scope'),
         kms_master_key_id=pulumi.get(__ret__, 'kms_master_key_id'),
         signature_version=pulumi.get(__ret__, 'signature_version'),
         subscription=pulumi.get(__ret__, 'subscription'),
@@ -236,6 +246,7 @@ def get_topic_output(topic_arn: Optional[pulumi.Input[str]] = None,
         data_protection_policy=pulumi.get(__response__, 'data_protection_policy'),
         delivery_status_logging=pulumi.get(__response__, 'delivery_status_logging'),
         display_name=pulumi.get(__response__, 'display_name'),
+        fifo_throughput_scope=pulumi.get(__response__, 'fifo_throughput_scope'),
         kms_master_key_id=pulumi.get(__response__, 'kms_master_key_id'),
         signature_version=pulumi.get(__response__, 'signature_version'),
         subscription=pulumi.get(__response__, 'subscription'),

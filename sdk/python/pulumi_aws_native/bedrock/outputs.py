@@ -185,6 +185,7 @@ __all__ = [
     'GuardrailWordPolicyConfig',
     'KnowledgeBaseBedrockEmbeddingModelConfiguration',
     'KnowledgeBaseConfiguration',
+    'KnowledgeBaseCuratedQuery',
     'KnowledgeBaseEmbeddingModelConfiguration',
     'KnowledgeBaseKendraKnowledgeBaseConfiguration',
     'KnowledgeBaseMongoDbAtlasConfiguration',
@@ -193,9 +194,23 @@ __all__ = [
     'KnowledgeBaseOpenSearchServerlessFieldMapping',
     'KnowledgeBasePineconeConfiguration',
     'KnowledgeBasePineconeFieldMapping',
+    'KnowledgeBaseQueryGenerationColumn',
+    'KnowledgeBaseQueryGenerationConfiguration',
+    'KnowledgeBaseQueryGenerationContext',
+    'KnowledgeBaseQueryGenerationTable',
     'KnowledgeBaseRdsConfiguration',
     'KnowledgeBaseRdsFieldMapping',
+    'KnowledgeBaseRedshiftConfiguration',
+    'KnowledgeBaseRedshiftProvisionedAuthConfiguration',
+    'KnowledgeBaseRedshiftProvisionedConfiguration',
+    'KnowledgeBaseRedshiftQueryEngineAwsDataCatalogStorageConfiguration',
+    'KnowledgeBaseRedshiftQueryEngineConfiguration',
+    'KnowledgeBaseRedshiftQueryEngineRedshiftStorageConfiguration',
+    'KnowledgeBaseRedshiftQueryEngineStorageConfiguration',
+    'KnowledgeBaseRedshiftServerlessAuthConfiguration',
+    'KnowledgeBaseRedshiftServerlessConfiguration',
     'KnowledgeBaseS3Location',
+    'KnowledgeBaseSqlKnowledgeBaseConfiguration',
     'KnowledgeBaseStorageConfiguration',
     'KnowledgeBaseSupplementalDataStorageConfiguration',
     'KnowledgeBaseSupplementalDataStorageLocation',
@@ -7168,6 +7183,8 @@ class KnowledgeBaseConfiguration(dict):
         suggest = None
         if key == "kendraKnowledgeBaseConfiguration":
             suggest = "kendra_knowledge_base_configuration"
+        elif key == "sqlKnowledgeBaseConfiguration":
+            suggest = "sql_knowledge_base_configuration"
         elif key == "vectorKnowledgeBaseConfiguration":
             suggest = "vector_knowledge_base_configuration"
 
@@ -7185,6 +7202,7 @@ class KnowledgeBaseConfiguration(dict):
     def __init__(__self__, *,
                  type: 'KnowledgeBaseType',
                  kendra_knowledge_base_configuration: Optional['outputs.KnowledgeBaseKendraKnowledgeBaseConfiguration'] = None,
+                 sql_knowledge_base_configuration: Optional['outputs.KnowledgeBaseSqlKnowledgeBaseConfiguration'] = None,
                  vector_knowledge_base_configuration: Optional['outputs.KnowledgeBaseVectorKnowledgeBaseConfiguration'] = None):
         """
         Contains details about the embeddings model used for the knowledge base.
@@ -7195,6 +7213,8 @@ class KnowledgeBaseConfiguration(dict):
         pulumi.set(__self__, "type", type)
         if kendra_knowledge_base_configuration is not None:
             pulumi.set(__self__, "kendra_knowledge_base_configuration", kendra_knowledge_base_configuration)
+        if sql_knowledge_base_configuration is not None:
+            pulumi.set(__self__, "sql_knowledge_base_configuration", sql_knowledge_base_configuration)
         if vector_knowledge_base_configuration is not None:
             pulumi.set(__self__, "vector_knowledge_base_configuration", vector_knowledge_base_configuration)
 
@@ -7215,12 +7235,59 @@ class KnowledgeBaseConfiguration(dict):
         return pulumi.get(self, "kendra_knowledge_base_configuration")
 
     @property
+    @pulumi.getter(name="sqlKnowledgeBaseConfiguration")
+    def sql_knowledge_base_configuration(self) -> Optional['outputs.KnowledgeBaseSqlKnowledgeBaseConfiguration']:
+        return pulumi.get(self, "sql_knowledge_base_configuration")
+
+    @property
     @pulumi.getter(name="vectorKnowledgeBaseConfiguration")
     def vector_knowledge_base_configuration(self) -> Optional['outputs.KnowledgeBaseVectorKnowledgeBaseConfiguration']:
         """
         Contains details about the model that's used to convert the data source into vector embeddings.
         """
         return pulumi.get(self, "vector_knowledge_base_configuration")
+
+
+@pulumi.output_type
+class KnowledgeBaseCuratedQuery(dict):
+    """
+    Curated query or question and answer pair
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "naturalLanguage":
+            suggest = "natural_language"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KnowledgeBaseCuratedQuery. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KnowledgeBaseCuratedQuery.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KnowledgeBaseCuratedQuery.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 natural_language: str,
+                 sql: str):
+        """
+        Curated query or question and answer pair
+        """
+        pulumi.set(__self__, "natural_language", natural_language)
+        pulumi.set(__self__, "sql", sql)
+
+    @property
+    @pulumi.getter(name="naturalLanguage")
+    def natural_language(self) -> str:
+        return pulumi.get(self, "natural_language")
+
+    @property
+    @pulumi.getter
+    def sql(self) -> str:
+        return pulumi.get(self, "sql")
 
 
 @pulumi.output_type
@@ -7743,6 +7810,173 @@ class KnowledgeBasePineconeFieldMapping(dict):
 
 
 @pulumi.output_type
+class KnowledgeBaseQueryGenerationColumn(dict):
+    """
+    Redshift query generation column
+    """
+    def __init__(__self__, *,
+                 description: Optional[str] = None,
+                 inclusion: Optional['KnowledgeBaseInclusionType'] = None,
+                 name: Optional[str] = None):
+        """
+        Redshift query generation column
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if inclusion is not None:
+            pulumi.set(__self__, "inclusion", inclusion)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def inclusion(self) -> Optional['KnowledgeBaseInclusionType']:
+        return pulumi.get(self, "inclusion")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class KnowledgeBaseQueryGenerationConfiguration(dict):
+    """
+    Configurations for generating Redshift engine queries
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "executionTimeoutSeconds":
+            suggest = "execution_timeout_seconds"
+        elif key == "generationContext":
+            suggest = "generation_context"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KnowledgeBaseQueryGenerationConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KnowledgeBaseQueryGenerationConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KnowledgeBaseQueryGenerationConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 execution_timeout_seconds: Optional[int] = None,
+                 generation_context: Optional['outputs.KnowledgeBaseQueryGenerationContext'] = None):
+        """
+        Configurations for generating Redshift engine queries
+        """
+        if execution_timeout_seconds is not None:
+            pulumi.set(__self__, "execution_timeout_seconds", execution_timeout_seconds)
+        if generation_context is not None:
+            pulumi.set(__self__, "generation_context", generation_context)
+
+    @property
+    @pulumi.getter(name="executionTimeoutSeconds")
+    def execution_timeout_seconds(self) -> Optional[int]:
+        return pulumi.get(self, "execution_timeout_seconds")
+
+    @property
+    @pulumi.getter(name="generationContext")
+    def generation_context(self) -> Optional['outputs.KnowledgeBaseQueryGenerationContext']:
+        return pulumi.get(self, "generation_context")
+
+
+@pulumi.output_type
+class KnowledgeBaseQueryGenerationContext(dict):
+    """
+    Context used to improve query generation
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "curatedQueries":
+            suggest = "curated_queries"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KnowledgeBaseQueryGenerationContext. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KnowledgeBaseQueryGenerationContext.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KnowledgeBaseQueryGenerationContext.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 curated_queries: Optional[Sequence['outputs.KnowledgeBaseCuratedQuery']] = None,
+                 tables: Optional[Sequence['outputs.KnowledgeBaseQueryGenerationTable']] = None):
+        """
+        Context used to improve query generation
+        """
+        if curated_queries is not None:
+            pulumi.set(__self__, "curated_queries", curated_queries)
+        if tables is not None:
+            pulumi.set(__self__, "tables", tables)
+
+    @property
+    @pulumi.getter(name="curatedQueries")
+    def curated_queries(self) -> Optional[Sequence['outputs.KnowledgeBaseCuratedQuery']]:
+        return pulumi.get(self, "curated_queries")
+
+    @property
+    @pulumi.getter
+    def tables(self) -> Optional[Sequence['outputs.KnowledgeBaseQueryGenerationTable']]:
+        return pulumi.get(self, "tables")
+
+
+@pulumi.output_type
+class KnowledgeBaseQueryGenerationTable(dict):
+    """
+    Tables used for Redshift query generation context
+    """
+    def __init__(__self__, *,
+                 name: str,
+                 columns: Optional[Sequence['outputs.KnowledgeBaseQueryGenerationColumn']] = None,
+                 description: Optional[str] = None,
+                 inclusion: Optional['KnowledgeBaseInclusionType'] = None):
+        """
+        Tables used for Redshift query generation context
+        """
+        pulumi.set(__self__, "name", name)
+        if columns is not None:
+            pulumi.set(__self__, "columns", columns)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if inclusion is not None:
+            pulumi.set(__self__, "inclusion", inclusion)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def columns(self) -> Optional[Sequence['outputs.KnowledgeBaseQueryGenerationColumn']]:
+        return pulumi.get(self, "columns")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def inclusion(self) -> Optional['KnowledgeBaseInclusionType']:
+        return pulumi.get(self, "inclusion")
+
+
+@pulumi.output_type
 class KnowledgeBaseRdsConfiguration(dict):
     """
     Contains details about the storage configuration of the knowledge base in Amazon RDS. For more information, see Create a vector index in Amazon RDS.
@@ -7912,6 +8146,424 @@ class KnowledgeBaseRdsFieldMapping(dict):
 
 
 @pulumi.output_type
+class KnowledgeBaseRedshiftConfiguration(dict):
+    """
+    Configurations for a Redshift knowledge base
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "queryEngineConfiguration":
+            suggest = "query_engine_configuration"
+        elif key == "storageConfigurations":
+            suggest = "storage_configurations"
+        elif key == "queryGenerationConfiguration":
+            suggest = "query_generation_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KnowledgeBaseRedshiftConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KnowledgeBaseRedshiftConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KnowledgeBaseRedshiftConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 query_engine_configuration: 'outputs.KnowledgeBaseRedshiftQueryEngineConfiguration',
+                 storage_configurations: Sequence['outputs.KnowledgeBaseRedshiftQueryEngineStorageConfiguration'],
+                 query_generation_configuration: Optional['outputs.KnowledgeBaseQueryGenerationConfiguration'] = None):
+        """
+        Configurations for a Redshift knowledge base
+        """
+        pulumi.set(__self__, "query_engine_configuration", query_engine_configuration)
+        pulumi.set(__self__, "storage_configurations", storage_configurations)
+        if query_generation_configuration is not None:
+            pulumi.set(__self__, "query_generation_configuration", query_generation_configuration)
+
+    @property
+    @pulumi.getter(name="queryEngineConfiguration")
+    def query_engine_configuration(self) -> 'outputs.KnowledgeBaseRedshiftQueryEngineConfiguration':
+        return pulumi.get(self, "query_engine_configuration")
+
+    @property
+    @pulumi.getter(name="storageConfigurations")
+    def storage_configurations(self) -> Sequence['outputs.KnowledgeBaseRedshiftQueryEngineStorageConfiguration']:
+        return pulumi.get(self, "storage_configurations")
+
+    @property
+    @pulumi.getter(name="queryGenerationConfiguration")
+    def query_generation_configuration(self) -> Optional['outputs.KnowledgeBaseQueryGenerationConfiguration']:
+        return pulumi.get(self, "query_generation_configuration")
+
+
+@pulumi.output_type
+class KnowledgeBaseRedshiftProvisionedAuthConfiguration(dict):
+    """
+    Configurations for Redshift query engine provisioned auth setup
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "databaseUser":
+            suggest = "database_user"
+        elif key == "usernamePasswordSecretArn":
+            suggest = "username_password_secret_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KnowledgeBaseRedshiftProvisionedAuthConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KnowledgeBaseRedshiftProvisionedAuthConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KnowledgeBaseRedshiftProvisionedAuthConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: 'KnowledgeBaseRedshiftProvisionedAuthType',
+                 database_user: Optional[str] = None,
+                 username_password_secret_arn: Optional[str] = None):
+        """
+        Configurations for Redshift query engine provisioned auth setup
+        :param str database_user: Redshift database user
+        """
+        pulumi.set(__self__, "type", type)
+        if database_user is not None:
+            pulumi.set(__self__, "database_user", database_user)
+        if username_password_secret_arn is not None:
+            pulumi.set(__self__, "username_password_secret_arn", username_password_secret_arn)
+
+    @property
+    @pulumi.getter
+    def type(self) -> 'KnowledgeBaseRedshiftProvisionedAuthType':
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="databaseUser")
+    def database_user(self) -> Optional[str]:
+        """
+        Redshift database user
+        """
+        return pulumi.get(self, "database_user")
+
+    @property
+    @pulumi.getter(name="usernamePasswordSecretArn")
+    def username_password_secret_arn(self) -> Optional[str]:
+        return pulumi.get(self, "username_password_secret_arn")
+
+
+@pulumi.output_type
+class KnowledgeBaseRedshiftProvisionedConfiguration(dict):
+    """
+    Configurations for provisioned Redshift query engine
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authConfiguration":
+            suggest = "auth_configuration"
+        elif key == "clusterIdentifier":
+            suggest = "cluster_identifier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KnowledgeBaseRedshiftProvisionedConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KnowledgeBaseRedshiftProvisionedConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KnowledgeBaseRedshiftProvisionedConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auth_configuration: 'outputs.KnowledgeBaseRedshiftProvisionedAuthConfiguration',
+                 cluster_identifier: str):
+        """
+        Configurations for provisioned Redshift query engine
+        """
+        pulumi.set(__self__, "auth_configuration", auth_configuration)
+        pulumi.set(__self__, "cluster_identifier", cluster_identifier)
+
+    @property
+    @pulumi.getter(name="authConfiguration")
+    def auth_configuration(self) -> 'outputs.KnowledgeBaseRedshiftProvisionedAuthConfiguration':
+        return pulumi.get(self, "auth_configuration")
+
+    @property
+    @pulumi.getter(name="clusterIdentifier")
+    def cluster_identifier(self) -> str:
+        return pulumi.get(self, "cluster_identifier")
+
+
+@pulumi.output_type
+class KnowledgeBaseRedshiftQueryEngineAwsDataCatalogStorageConfiguration(dict):
+    """
+    Configurations for Redshift query engine AWS Data Catalog backed storage
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tableNames":
+            suggest = "table_names"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KnowledgeBaseRedshiftQueryEngineAwsDataCatalogStorageConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KnowledgeBaseRedshiftQueryEngineAwsDataCatalogStorageConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KnowledgeBaseRedshiftQueryEngineAwsDataCatalogStorageConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 table_names: Sequence[str]):
+        """
+        Configurations for Redshift query engine AWS Data Catalog backed storage
+        """
+        pulumi.set(__self__, "table_names", table_names)
+
+    @property
+    @pulumi.getter(name="tableNames")
+    def table_names(self) -> Sequence[str]:
+        return pulumi.get(self, "table_names")
+
+
+@pulumi.output_type
+class KnowledgeBaseRedshiftQueryEngineConfiguration(dict):
+    """
+    Configurations for Redshift query engine
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisionedConfiguration":
+            suggest = "provisioned_configuration"
+        elif key == "serverlessConfiguration":
+            suggest = "serverless_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KnowledgeBaseRedshiftQueryEngineConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KnowledgeBaseRedshiftQueryEngineConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KnowledgeBaseRedshiftQueryEngineConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: 'KnowledgeBaseRedshiftQueryEngineType',
+                 provisioned_configuration: Optional['outputs.KnowledgeBaseRedshiftProvisionedConfiguration'] = None,
+                 serverless_configuration: Optional['outputs.KnowledgeBaseRedshiftServerlessConfiguration'] = None):
+        """
+        Configurations for Redshift query engine
+        """
+        pulumi.set(__self__, "type", type)
+        if provisioned_configuration is not None:
+            pulumi.set(__self__, "provisioned_configuration", provisioned_configuration)
+        if serverless_configuration is not None:
+            pulumi.set(__self__, "serverless_configuration", serverless_configuration)
+
+    @property
+    @pulumi.getter
+    def type(self) -> 'KnowledgeBaseRedshiftQueryEngineType':
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="provisionedConfiguration")
+    def provisioned_configuration(self) -> Optional['outputs.KnowledgeBaseRedshiftProvisionedConfiguration']:
+        return pulumi.get(self, "provisioned_configuration")
+
+    @property
+    @pulumi.getter(name="serverlessConfiguration")
+    def serverless_configuration(self) -> Optional['outputs.KnowledgeBaseRedshiftServerlessConfiguration']:
+        return pulumi.get(self, "serverless_configuration")
+
+
+@pulumi.output_type
+class KnowledgeBaseRedshiftQueryEngineRedshiftStorageConfiguration(dict):
+    """
+    Configurations for Redshift query engine Redshift backed storage
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "databaseName":
+            suggest = "database_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KnowledgeBaseRedshiftQueryEngineRedshiftStorageConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KnowledgeBaseRedshiftQueryEngineRedshiftStorageConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KnowledgeBaseRedshiftQueryEngineRedshiftStorageConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 database_name: str):
+        """
+        Configurations for Redshift query engine Redshift backed storage
+        """
+        pulumi.set(__self__, "database_name", database_name)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> str:
+        return pulumi.get(self, "database_name")
+
+
+@pulumi.output_type
+class KnowledgeBaseRedshiftQueryEngineStorageConfiguration(dict):
+    """
+    Configurations for available Redshift query engine storage types
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "awsDataCatalogConfiguration":
+            suggest = "aws_data_catalog_configuration"
+        elif key == "redshiftConfiguration":
+            suggest = "redshift_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KnowledgeBaseRedshiftQueryEngineStorageConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KnowledgeBaseRedshiftQueryEngineStorageConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KnowledgeBaseRedshiftQueryEngineStorageConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: 'KnowledgeBaseRedshiftQueryEngineStorageType',
+                 aws_data_catalog_configuration: Optional['outputs.KnowledgeBaseRedshiftQueryEngineAwsDataCatalogStorageConfiguration'] = None,
+                 redshift_configuration: Optional['outputs.KnowledgeBaseRedshiftQueryEngineRedshiftStorageConfiguration'] = None):
+        """
+        Configurations for available Redshift query engine storage types
+        """
+        pulumi.set(__self__, "type", type)
+        if aws_data_catalog_configuration is not None:
+            pulumi.set(__self__, "aws_data_catalog_configuration", aws_data_catalog_configuration)
+        if redshift_configuration is not None:
+            pulumi.set(__self__, "redshift_configuration", redshift_configuration)
+
+    @property
+    @pulumi.getter
+    def type(self) -> 'KnowledgeBaseRedshiftQueryEngineStorageType':
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="awsDataCatalogConfiguration")
+    def aws_data_catalog_configuration(self) -> Optional['outputs.KnowledgeBaseRedshiftQueryEngineAwsDataCatalogStorageConfiguration']:
+        return pulumi.get(self, "aws_data_catalog_configuration")
+
+    @property
+    @pulumi.getter(name="redshiftConfiguration")
+    def redshift_configuration(self) -> Optional['outputs.KnowledgeBaseRedshiftQueryEngineRedshiftStorageConfiguration']:
+        return pulumi.get(self, "redshift_configuration")
+
+
+@pulumi.output_type
+class KnowledgeBaseRedshiftServerlessAuthConfiguration(dict):
+    """
+    Configurations for Redshift query engine serverless auth setup
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "usernamePasswordSecretArn":
+            suggest = "username_password_secret_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KnowledgeBaseRedshiftServerlessAuthConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KnowledgeBaseRedshiftServerlessAuthConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KnowledgeBaseRedshiftServerlessAuthConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: 'KnowledgeBaseRedshiftServerlessAuthType',
+                 username_password_secret_arn: Optional[str] = None):
+        """
+        Configurations for Redshift query engine serverless auth setup
+        """
+        pulumi.set(__self__, "type", type)
+        if username_password_secret_arn is not None:
+            pulumi.set(__self__, "username_password_secret_arn", username_password_secret_arn)
+
+    @property
+    @pulumi.getter
+    def type(self) -> 'KnowledgeBaseRedshiftServerlessAuthType':
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="usernamePasswordSecretArn")
+    def username_password_secret_arn(self) -> Optional[str]:
+        return pulumi.get(self, "username_password_secret_arn")
+
+
+@pulumi.output_type
+class KnowledgeBaseRedshiftServerlessConfiguration(dict):
+    """
+    Configurations for serverless Redshift query engine
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authConfiguration":
+            suggest = "auth_configuration"
+        elif key == "workgroupArn":
+            suggest = "workgroup_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KnowledgeBaseRedshiftServerlessConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KnowledgeBaseRedshiftServerlessConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KnowledgeBaseRedshiftServerlessConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auth_configuration: 'outputs.KnowledgeBaseRedshiftServerlessAuthConfiguration',
+                 workgroup_arn: str):
+        """
+        Configurations for serverless Redshift query engine
+        """
+        pulumi.set(__self__, "auth_configuration", auth_configuration)
+        pulumi.set(__self__, "workgroup_arn", workgroup_arn)
+
+    @property
+    @pulumi.getter(name="authConfiguration")
+    def auth_configuration(self) -> 'outputs.KnowledgeBaseRedshiftServerlessAuthConfiguration':
+        return pulumi.get(self, "auth_configuration")
+
+    @property
+    @pulumi.getter(name="workgroupArn")
+    def workgroup_arn(self) -> str:
+        return pulumi.get(self, "workgroup_arn")
+
+
+@pulumi.output_type
 class KnowledgeBaseS3Location(dict):
     """
     An Amazon S3 location.
@@ -7931,6 +8583,49 @@ class KnowledgeBaseS3Location(dict):
         The location's URI
         """
         return pulumi.get(self, "uri")
+
+
+@pulumi.output_type
+class KnowledgeBaseSqlKnowledgeBaseConfiguration(dict):
+    """
+    Configurations for a SQL knowledge base
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "redshiftConfiguration":
+            suggest = "redshift_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KnowledgeBaseSqlKnowledgeBaseConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KnowledgeBaseSqlKnowledgeBaseConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KnowledgeBaseSqlKnowledgeBaseConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: 'KnowledgeBaseQueryEngineType',
+                 redshift_configuration: Optional['outputs.KnowledgeBaseRedshiftConfiguration'] = None):
+        """
+        Configurations for a SQL knowledge base
+        """
+        pulumi.set(__self__, "type", type)
+        if redshift_configuration is not None:
+            pulumi.set(__self__, "redshift_configuration", redshift_configuration)
+
+    @property
+    @pulumi.getter
+    def type(self) -> 'KnowledgeBaseQueryEngineType':
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="redshiftConfiguration")
+    def redshift_configuration(self) -> Optional['outputs.KnowledgeBaseRedshiftConfiguration']:
+        return pulumi.get(self, "redshift_configuration")
 
 
 @pulumi.output_type

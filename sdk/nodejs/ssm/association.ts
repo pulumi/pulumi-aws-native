@@ -158,7 +158,7 @@ export class Association extends pulumi.CustomResource {
      */
     public readonly associationName!: pulumi.Output<string | undefined>;
     /**
-     * Choose the parameter that will define how your automation will branch out. This target is required for associations that use an Automation runbook and target resources by using rate controls. Automation is a capability of AWS Systems Manager .
+     * Choose the parameter that will define how your automation will branch out. This target is required for associations that use an Automation runbook and target resources by using rate controls. Automation is a tool in AWS Systems Manager .
      */
     public readonly automationTargetParameterName!: pulumi.Output<string | undefined>;
     /**
@@ -295,7 +295,7 @@ export interface AssociationArgs {
      */
     associationName?: pulumi.Input<string>;
     /**
-     * Choose the parameter that will define how your automation will branch out. This target is required for associations that use an Automation runbook and target resources by using rate controls. Automation is a capability of AWS Systems Manager .
+     * Choose the parameter that will define how your automation will branch out. This target is required for associations that use an Automation runbook and target resources by using rate controls. Automation is a tool in AWS Systems Manager .
      */
     automationTargetParameterName?: pulumi.Input<string>;
     /**

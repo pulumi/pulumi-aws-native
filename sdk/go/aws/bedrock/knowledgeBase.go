@@ -59,7 +59,12 @@ func NewKnowledgeBase(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
-		"knowledgeBaseConfiguration",
+		"knowledgeBaseConfiguration.kendraKnowledgeBaseConfiguration",
+		"knowledgeBaseConfiguration.sqlKnowledgeBaseConfiguration.redshiftConfiguration.queryEngineConfiguration",
+		"knowledgeBaseConfiguration.sqlKnowledgeBaseConfiguration.redshiftConfiguration.storageConfigurations[*]",
+		"knowledgeBaseConfiguration.sqlKnowledgeBaseConfiguration.type",
+		"knowledgeBaseConfiguration.type",
+		"knowledgeBaseConfiguration.vectorKnowledgeBaseConfiguration",
 		"storageConfiguration",
 	})
 	opts = append(opts, replaceOnChanges)

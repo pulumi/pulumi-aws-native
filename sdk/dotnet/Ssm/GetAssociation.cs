@@ -76,7 +76,7 @@ namespace Pulumi.AwsNative.Ssm
         /// </summary>
         public readonly string? AssociationName;
         /// <summary>
-        /// Choose the parameter that will define how your automation will branch out. This target is required for associations that use an Automation runbook and target resources by using rate controls. Automation is a capability of AWS Systems Manager .
+        /// Choose the parameter that will define how your automation will branch out. This target is required for associations that use an Automation runbook and target resources by using rate controls. Automation is a tool in AWS Systems Manager .
         /// </summary>
         public readonly string? AutomationTargetParameterName;
         /// <summary>

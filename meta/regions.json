@@ -104,6 +104,10 @@
     "description": "Middle East (Bahrain)"
   },
   {
+    "name": "mx-central-1",
+    "description": "Mexico (Central)"
+  },
+  {
     "name": "sa-east-1",
     "description": "South America (Sao Paulo)"
   },

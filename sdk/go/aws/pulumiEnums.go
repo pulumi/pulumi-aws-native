@@ -65,6 +65,8 @@ const (
 	RegionMeCentral1 = Region("me-central-1")
 	// Middle East (Bahrain)
 	RegionMeSouth1 = Region("me-south-1")
+	// Mexico (Central)
+	RegionMxCentral1 = Region("mx-central-1")
 	// South America (Sao Paulo)
 	RegionSaEast1 = Region("sa-east-1")
 	// US East (N. Virginia)

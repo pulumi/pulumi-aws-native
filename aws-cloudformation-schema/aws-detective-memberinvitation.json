@@ -35,6 +35,9 @@
   "primaryIdentifier" : [ "/properties/GraphArn", "/properties/MemberId" ],
   "createOnlyProperties" : [ "/properties/GraphArn", "/properties/MemberId" ],
   "writeOnlyProperties" : [ "/properties/Message", "/properties/DisableEmailNotification" ],
+  "tagging" : {
+    "taggable" : false
+  },
   "handlers" : {
     "create" : {
       "permissions" : [ "detective:CreateMembers", "detective:GetMembers" ]

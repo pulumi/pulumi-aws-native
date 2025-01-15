@@ -209,7 +209,7 @@ class KnowledgeBase(pulumi.CustomResource):
             __props__.__dict__["knowledge_base_id"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["updated_at"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["knowledgeBaseConfiguration", "storageConfiguration"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["knowledgeBaseConfiguration.kendraKnowledgeBaseConfiguration", "knowledgeBaseConfiguration.sqlKnowledgeBaseConfiguration.redshiftConfiguration.queryEngineConfiguration", "knowledgeBaseConfiguration.sqlKnowledgeBaseConfiguration.redshiftConfiguration.storageConfigurations[*]", "knowledgeBaseConfiguration.sqlKnowledgeBaseConfiguration.type", "knowledgeBaseConfiguration.type", "knowledgeBaseConfiguration.vectorKnowledgeBaseConfiguration", "storageConfiguration"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(KnowledgeBase, __self__).__init__(
             'aws-native:bedrock:KnowledgeBase',

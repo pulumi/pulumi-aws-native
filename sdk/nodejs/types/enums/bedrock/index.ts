@@ -267,6 +267,7 @@ export const DataSourceType = {
     Sharepoint: "SHAREPOINT",
     Web: "WEB",
     Custom: "CUSTOM",
+    RedshiftMetadata: "REDSHIFT_METADATA",
 } as const;
 
 /**
@@ -529,6 +530,66 @@ export const GuardrailTopicType = {
  */
 export type GuardrailTopicType = (typeof GuardrailTopicType)[keyof typeof GuardrailTopicType];
 
+export const KnowledgeBaseInclusionType = {
+    Include: "INCLUDE",
+    Exclude: "EXCLUDE",
+} as const;
+
+/**
+ * Include or Exclude status for an entity
+ */
+export type KnowledgeBaseInclusionType = (typeof KnowledgeBaseInclusionType)[keyof typeof KnowledgeBaseInclusionType];
+
+export const KnowledgeBaseQueryEngineType = {
+    Redshift: "REDSHIFT",
+} as const;
+
+/**
+ * SQL query engine type
+ */
+export type KnowledgeBaseQueryEngineType = (typeof KnowledgeBaseQueryEngineType)[keyof typeof KnowledgeBaseQueryEngineType];
+
+export const KnowledgeBaseRedshiftProvisionedAuthType = {
+    Iam: "IAM",
+    UsernamePassword: "USERNAME_PASSWORD",
+    Username: "USERNAME",
+} as const;
+
+/**
+ * Provisioned Redshift auth type
+ */
+export type KnowledgeBaseRedshiftProvisionedAuthType = (typeof KnowledgeBaseRedshiftProvisionedAuthType)[keyof typeof KnowledgeBaseRedshiftProvisionedAuthType];
+
+export const KnowledgeBaseRedshiftQueryEngineStorageType = {
+    Redshift: "REDSHIFT",
+    AwsDataCatalog: "AWS_DATA_CATALOG",
+} as const;
+
+/**
+ * Redshift query engine storage type
+ */
+export type KnowledgeBaseRedshiftQueryEngineStorageType = (typeof KnowledgeBaseRedshiftQueryEngineStorageType)[keyof typeof KnowledgeBaseRedshiftQueryEngineStorageType];
+
+export const KnowledgeBaseRedshiftQueryEngineType = {
+    Serverless: "SERVERLESS",
+    Provisioned: "PROVISIONED",
+} as const;
+
+/**
+ * Redshift query engine type
+ */
+export type KnowledgeBaseRedshiftQueryEngineType = (typeof KnowledgeBaseRedshiftQueryEngineType)[keyof typeof KnowledgeBaseRedshiftQueryEngineType];
+
+export const KnowledgeBaseRedshiftServerlessAuthType = {
+    Iam: "IAM",
+    UsernamePassword: "USERNAME_PASSWORD",
+} as const;
+
+/**
+ * Serverless Redshift auth type
+ */
+export type KnowledgeBaseRedshiftServerlessAuthType = (typeof KnowledgeBaseRedshiftServerlessAuthType)[keyof typeof KnowledgeBaseRedshiftServerlessAuthType];
+
 export const KnowledgeBaseStatus = {
     Creating: "CREATING",
     Active: "ACTIVE",
@@ -567,6 +628,7 @@ export type KnowledgeBaseSupplementalDataStorageLocationType = (typeof Knowledge
 export const KnowledgeBaseType = {
     Vector: "VECTOR",
     Kendra: "KENDRA",
+    Sql: "SQL",
 } as const;
 
 /**

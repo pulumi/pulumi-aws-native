@@ -144,11 +144,7 @@ type DbInstance struct {
 	//
 	//  For the list of permissions required for the IAM role, see [Configure IAM and your VPC](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-setup-orcl.html#custom-setup-orcl.iam-vpc) in the *Amazon RDS User Guide*.
 	CustomIamInstanceProfile pulumi.StringPtrOutput `pulumi:"customIamInstanceProfile"`
-	// The mode of Database Insights to enable for the DB instance.
-	//
-	// This setting only applies to Amazon Aurora DB instances.
-	//
-	// > Currently, this value is inherited from the DB cluster and can't be changed.
+	// The mode of Database Insights that is enabled for the instance.
 	DatabaseInsightsMode pulumi.StringOutput `pulumi:"databaseInsightsMode"`
 	// The identifier of the DB cluster that this DB instance will belong to.
 	//  This setting doesn't apply to RDS Custom DB instances.
@@ -2116,11 +2112,7 @@ func (o DbInstanceOutput) CustomIamInstanceProfile() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DbInstance) pulumi.StringPtrOutput { return v.CustomIamInstanceProfile }).(pulumi.StringPtrOutput)
 }
 
-// The mode of Database Insights to enable for the DB instance.
-//
-// This setting only applies to Amazon Aurora DB instances.
-//
-// > Currently, this value is inherited from the DB cluster and can't be changed.
+// The mode of Database Insights that is enabled for the instance.
 func (o DbInstanceOutput) DatabaseInsightsMode() pulumi.StringOutput {
 	return o.ApplyT(func(v *DbInstance) pulumi.StringOutput { return v.DatabaseInsightsMode }).(pulumi.StringOutput)
 }

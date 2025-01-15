@@ -129,6 +129,10 @@ class Region(str, Enum):
     """
     Middle East (Bahrain)
     """
+    MX_CENTRAL1 = "mx-central-1"
+    """
+    Mexico (Central)
+    """
     SA_EAST1 = "sa-east-1"
     """
     South America (Sao Paulo)

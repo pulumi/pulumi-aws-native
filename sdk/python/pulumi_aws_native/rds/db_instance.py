@@ -3331,11 +3331,7 @@ class DbInstance(pulumi.CustomResource):
     @pulumi.getter(name="databaseInsightsMode")
     def database_insights_mode(self) -> pulumi.Output[str]:
         """
-        The mode of Database Insights to enable for the DB instance.
-
-        This setting only applies to Amazon Aurora DB instances.
-
-        > Currently, this value is inherited from the DB cluster and can't be changed.
+        The mode of Database Insights that is enabled for the instance.
         """
         return pulumi.get(self, "database_insights_mode")
 

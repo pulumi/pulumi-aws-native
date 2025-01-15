@@ -18,6 +18,10 @@ namespace Pulumi.AwsNative.DataZone.Outputs
         /// </summary>
         public readonly bool? AutoImportDataQualityResult;
         /// <summary>
+        /// The catalog name in the AWS Glue run configuration.
+        /// </summary>
+        public readonly string? CatalogName;
+        /// <summary>
         /// The data access role included in the configuration details of the AWS Glue data source.
         /// </summary>
         public readonly string? DataAccessRole;
@@ -30,11 +34,14 @@ namespace Pulumi.AwsNative.DataZone.Outputs
         private DataSourceGlueRunConfigurationInput(
             bool? autoImportDataQualityResult,
 
+            string? catalogName,
+
             string? dataAccessRole,
 
             ImmutableArray<Outputs.DataSourceRelationalFilterConfiguration> relationalFilterConfigurations)
         {
             AutoImportDataQualityResult = autoImportDataQualityResult;
+            CatalogName = catalogName;
             DataAccessRole = dataAccessRole;
             RelationalFilterConfigurations = relationalFilterConfigurations;
         }

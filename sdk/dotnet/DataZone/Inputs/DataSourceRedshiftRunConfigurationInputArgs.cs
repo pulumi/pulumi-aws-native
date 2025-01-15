@@ -24,14 +24,14 @@ namespace Pulumi.AwsNative.DataZone.Inputs
         /// <summary>
         /// The details of the credentials required to access an Amazon Redshift cluster.
         /// </summary>
-        [Input("redshiftCredentialConfiguration", required: true)]
-        public Input<Inputs.DataSourceRedshiftCredentialConfigurationArgs> RedshiftCredentialConfiguration { get; set; } = null!;
+        [Input("redshiftCredentialConfiguration")]
+        public Input<Inputs.DataSourceRedshiftCredentialConfigurationArgs>? RedshiftCredentialConfiguration { get; set; }
 
         /// <summary>
         /// The details of the Amazon Redshift storage as part of the configuration of an Amazon Redshift data source run.
         /// </summary>
-        [Input("redshiftStorage", required: true)]
-        public InputUnion<Inputs.DataSourceRedshiftStorage0PropertiesArgs, Inputs.DataSourceRedshiftStorage1PropertiesArgs> RedshiftStorage { get; set; } = null!;
+        [Input("redshiftStorage")]
+        public InputUnion<Inputs.DataSourceRedshiftStorage0PropertiesArgs, Inputs.DataSourceRedshiftStorage1PropertiesArgs>? RedshiftStorage { get; set; }
 
         [Input("relationalFilterConfigurations", required: true)]
         private InputList<Inputs.DataSourceRelationalFilterConfigurationArgs>? _relationalFilterConfigurations;

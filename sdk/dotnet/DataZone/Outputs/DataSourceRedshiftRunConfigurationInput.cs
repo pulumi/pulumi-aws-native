@@ -23,20 +23,20 @@ namespace Pulumi.AwsNative.DataZone.Outputs
         /// <summary>
         /// The details of the credentials required to access an Amazon Redshift cluster.
         /// </summary>
-        public readonly Outputs.DataSourceRedshiftCredentialConfiguration RedshiftCredentialConfiguration;
+        public readonly Outputs.DataSourceRedshiftCredentialConfiguration? RedshiftCredentialConfiguration;
         /// <summary>
         /// The details of the Amazon Redshift storage as part of the configuration of an Amazon Redshift data source run.
         /// </summary>
-        public readonly Union<Outputs.DataSourceRedshiftStorage0Properties, Outputs.DataSourceRedshiftStorage1Properties> RedshiftStorage;
+        public readonly Union<Outputs.DataSourceRedshiftStorage0Properties, Outputs.DataSourceRedshiftStorage1Properties>? RedshiftStorage;
         public readonly ImmutableArray<Outputs.DataSourceRelationalFilterConfiguration> RelationalFilterConfigurations;
 
         [OutputConstructor]
         private DataSourceRedshiftRunConfigurationInput(
             string? dataAccessRole,
 
-            Outputs.DataSourceRedshiftCredentialConfiguration redshiftCredentialConfiguration,
+            Outputs.DataSourceRedshiftCredentialConfiguration? redshiftCredentialConfiguration,
 
-            Union<Outputs.DataSourceRedshiftStorage0Properties, Outputs.DataSourceRedshiftStorage1Properties> redshiftStorage,
+            Union<Outputs.DataSourceRedshiftStorage0Properties, Outputs.DataSourceRedshiftStorage1Properties>? redshiftStorage,
 
             ImmutableArray<Outputs.DataSourceRelationalFilterConfiguration> relationalFilterConfigurations)
         {

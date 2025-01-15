@@ -36,6 +36,8 @@ type LookupKnowledgeBaseResult struct {
 	FailureReasons []string `pulumi:"failureReasons"`
 	// The ARN of the knowledge base.
 	KnowledgeBaseArn *string `pulumi:"knowledgeBaseArn"`
+	// Contains details about the embeddings configuration of the knowledge base.
+	KnowledgeBaseConfiguration *KnowledgeBaseConfiguration `pulumi:"knowledgeBaseConfiguration"`
 	// The unique identifier of the knowledge base.
 	KnowledgeBaseId *string `pulumi:"knowledgeBaseId"`
 	// The name of the knowledge base.
@@ -103,6 +105,11 @@ func (o LookupKnowledgeBaseResultOutput) FailureReasons() pulumi.StringArrayOutp
 // The ARN of the knowledge base.
 func (o LookupKnowledgeBaseResultOutput) KnowledgeBaseArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupKnowledgeBaseResult) *string { return v.KnowledgeBaseArn }).(pulumi.StringPtrOutput)
+}
+
+// Contains details about the embeddings configuration of the knowledge base.
+func (o LookupKnowledgeBaseResultOutput) KnowledgeBaseConfiguration() KnowledgeBaseConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupKnowledgeBaseResult) *KnowledgeBaseConfiguration { return v.KnowledgeBaseConfiguration }).(KnowledgeBaseConfigurationPtrOutput)
 }
 
 // The unique identifier of the knowledge base.

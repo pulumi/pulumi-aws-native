@@ -20,6 +20,7 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
         /// Settings for an Amazon Kendra knowledge base.
         /// </summary>
         public readonly Outputs.KnowledgeBaseKendraKnowledgeBaseConfiguration? KendraKnowledgeBaseConfiguration;
+        public readonly Outputs.KnowledgeBaseSqlKnowledgeBaseConfiguration? SqlKnowledgeBaseConfiguration;
         /// <summary>
         /// The type of data that the data source is converted into for the knowledge base.
         /// </summary>
@@ -33,11 +34,14 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
         private KnowledgeBaseConfiguration(
             Outputs.KnowledgeBaseKendraKnowledgeBaseConfiguration? kendraKnowledgeBaseConfiguration,
 
+            Outputs.KnowledgeBaseSqlKnowledgeBaseConfiguration? sqlKnowledgeBaseConfiguration,
+
             Pulumi.AwsNative.Bedrock.KnowledgeBaseType type,
 
             Outputs.KnowledgeBaseVectorKnowledgeBaseConfiguration? vectorKnowledgeBaseConfiguration)
         {
             KendraKnowledgeBaseConfiguration = kendraKnowledgeBaseConfiguration;
+            SqlKnowledgeBaseConfiguration = sqlKnowledgeBaseConfiguration;
             Type = type;
             VectorKnowledgeBaseConfiguration = vectorKnowledgeBaseConfiguration;
         }

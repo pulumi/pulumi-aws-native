@@ -80,6 +80,10 @@ namespace Pulumi.AwsNative.Bedrock
         /// </summary>
         public readonly string? KnowledgeBaseArn;
         /// <summary>
+        /// Contains details about the embeddings configuration of the knowledge base.
+        /// </summary>
+        public readonly Outputs.KnowledgeBaseConfiguration? KnowledgeBaseConfiguration;
+        /// <summary>
         /// The unique identifier of the knowledge base.
         /// </summary>
         public readonly string? KnowledgeBaseId;
@@ -117,6 +121,8 @@ namespace Pulumi.AwsNative.Bedrock
 
             string? knowledgeBaseArn,
 
+            Outputs.KnowledgeBaseConfiguration? knowledgeBaseConfiguration,
+
             string? knowledgeBaseId,
 
             string? name,
@@ -133,6 +139,7 @@ namespace Pulumi.AwsNative.Bedrock
             Description = description;
             FailureReasons = failureReasons;
             KnowledgeBaseArn = knowledgeBaseArn;
+            KnowledgeBaseConfiguration = knowledgeBaseConfiguration;
             KnowledgeBaseId = knowledgeBaseId;
             Name = name;
             RoleArn = roleArn;

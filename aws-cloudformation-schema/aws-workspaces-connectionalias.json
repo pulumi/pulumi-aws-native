@@ -46,6 +46,7 @@
       "type" : "array",
       "maxLength" : 25,
       "minLength" : 1,
+      "insertionOrder" : false,
       "items" : {
         "$ref" : "#/definitions/ConnectionAliasAssociation"
       }
@@ -69,6 +70,7 @@
     "Tags" : {
       "type" : "array",
       "uniqueItems" : false,
+      "insertionOrder" : false,
       "items" : {
         "$ref" : "#/definitions/Tag"
       }
@@ -81,13 +83,13 @@
   "readOnlyProperties" : [ "/properties/ConnectionAliasState", "/properties/AliasId", "/properties/Associations" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "workspaces:CreateConnectionAlias" ]
+      "permissions" : [ "workspaces:CreateConnectionAlias", "workspaces:CreateTags", "workspaces:DescribeConnectionAliases", "workspaces:DescribeTags" ]
     },
     "read" : {
-      "permissions" : [ "workspaces:DescribeConnectionAliases" ]
+      "permissions" : [ "workspaces:DescribeConnectionAliases", "workspaces:DescribeTags" ]
     },
     "delete" : {
-      "permissions" : [ "workspaces:DeleteConnectionAlias" ]
+      "permissions" : [ "workspaces:DeleteConnectionAlias", "workspaces:DeleteTags", "workspaces:DescribeTags", "workspaces:DescribeConnectionAliases" ]
     }
   }
 }

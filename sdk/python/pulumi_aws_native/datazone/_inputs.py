@@ -300,6 +300,10 @@ if not MYPY:
         """
         Specifies whether to automatically import data quality metrics as part of the data source run.
         """
+        catalog_name: NotRequired[pulumi.Input[str]]
+        """
+        The catalog name in the AWS Glue run configuration.
+        """
         data_access_role: NotRequired[pulumi.Input[str]]
         """
         The data access role included in the configuration details of the AWS Glue data source.
@@ -312,15 +316,19 @@ class DataSourceGlueRunConfigurationInputArgs:
     def __init__(__self__, *,
                  relational_filter_configurations: pulumi.Input[Sequence[pulumi.Input['DataSourceRelationalFilterConfigurationArgs']]],
                  auto_import_data_quality_result: Optional[pulumi.Input[bool]] = None,
+                 catalog_name: Optional[pulumi.Input[str]] = None,
                  data_access_role: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['DataSourceRelationalFilterConfigurationArgs']]] relational_filter_configurations: The relational filter configurations included in the configuration details of the AWS Glue data source.
         :param pulumi.Input[bool] auto_import_data_quality_result: Specifies whether to automatically import data quality metrics as part of the data source run.
+        :param pulumi.Input[str] catalog_name: The catalog name in the AWS Glue run configuration.
         :param pulumi.Input[str] data_access_role: The data access role included in the configuration details of the AWS Glue data source.
         """
         pulumi.set(__self__, "relational_filter_configurations", relational_filter_configurations)
         if auto_import_data_quality_result is not None:
             pulumi.set(__self__, "auto_import_data_quality_result", auto_import_data_quality_result)
+        if catalog_name is not None:
+            pulumi.set(__self__, "catalog_name", catalog_name)
         if data_access_role is not None:
             pulumi.set(__self__, "data_access_role", data_access_role)
 
@@ -347,6 +355,18 @@ class DataSourceGlueRunConfigurationInputArgs:
     @auto_import_data_quality_result.setter
     def auto_import_data_quality_result(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "auto_import_data_quality_result", value)
+
+    @property
+    @pulumi.getter(name="catalogName")
+    def catalog_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The catalog name in the AWS Glue run configuration.
+        """
+        return pulumi.get(self, "catalog_name")
+
+    @catalog_name.setter
+    def catalog_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "catalog_name", value)
 
     @property
     @pulumi.getter(name="dataAccessRole")
@@ -472,18 +492,18 @@ if not MYPY:
         """
         The configuration details of the Amazon Redshift data source.
         """
-        redshift_credential_configuration: pulumi.Input['DataSourceRedshiftCredentialConfigurationArgsDict']
-        """
-        The details of the credentials required to access an Amazon Redshift cluster.
-        """
-        redshift_storage: pulumi.Input[Union['DataSourceRedshiftStorage0PropertiesArgsDict', 'DataSourceRedshiftStorage1PropertiesArgsDict']]
-        """
-        The details of the Amazon Redshift storage as part of the configuration of an Amazon Redshift data source run.
-        """
         relational_filter_configurations: pulumi.Input[Sequence[pulumi.Input['DataSourceRelationalFilterConfigurationArgsDict']]]
         data_access_role: NotRequired[pulumi.Input[str]]
         """
         The data access role included in the configuration details of the Amazon Redshift data source.
+        """
+        redshift_credential_configuration: NotRequired[pulumi.Input['DataSourceRedshiftCredentialConfigurationArgsDict']]
+        """
+        The details of the credentials required to access an Amazon Redshift cluster.
+        """
+        redshift_storage: NotRequired[pulumi.Input[Union['DataSourceRedshiftStorage0PropertiesArgsDict', 'DataSourceRedshiftStorage1PropertiesArgsDict']]]
+        """
+        The details of the Amazon Redshift storage as part of the configuration of an Amazon Redshift data source run.
         """
 elif False:
     DataSourceRedshiftRunConfigurationInputArgsDict: TypeAlias = Mapping[str, Any]
@@ -491,45 +511,23 @@ elif False:
 @pulumi.input_type
 class DataSourceRedshiftRunConfigurationInputArgs:
     def __init__(__self__, *,
-                 redshift_credential_configuration: pulumi.Input['DataSourceRedshiftCredentialConfigurationArgs'],
-                 redshift_storage: pulumi.Input[Union['DataSourceRedshiftStorage0PropertiesArgs', 'DataSourceRedshiftStorage1PropertiesArgs']],
                  relational_filter_configurations: pulumi.Input[Sequence[pulumi.Input['DataSourceRelationalFilterConfigurationArgs']]],
-                 data_access_role: Optional[pulumi.Input[str]] = None):
+                 data_access_role: Optional[pulumi.Input[str]] = None,
+                 redshift_credential_configuration: Optional[pulumi.Input['DataSourceRedshiftCredentialConfigurationArgs']] = None,
+                 redshift_storage: Optional[pulumi.Input[Union['DataSourceRedshiftStorage0PropertiesArgs', 'DataSourceRedshiftStorage1PropertiesArgs']]] = None):
         """
         The configuration details of the Amazon Redshift data source.
+        :param pulumi.Input[str] data_access_role: The data access role included in the configuration details of the Amazon Redshift data source.
         :param pulumi.Input['DataSourceRedshiftCredentialConfigurationArgs'] redshift_credential_configuration: The details of the credentials required to access an Amazon Redshift cluster.
         :param pulumi.Input[Union['DataSourceRedshiftStorage0PropertiesArgs', 'DataSourceRedshiftStorage1PropertiesArgs']] redshift_storage: The details of the Amazon Redshift storage as part of the configuration of an Amazon Redshift data source run.
-        :param pulumi.Input[str] data_access_role: The data access role included in the configuration details of the Amazon Redshift data source.
         """
-        pulumi.set(__self__, "redshift_credential_configuration", redshift_credential_configuration)
-        pulumi.set(__self__, "redshift_storage", redshift_storage)
         pulumi.set(__self__, "relational_filter_configurations", relational_filter_configurations)
         if data_access_role is not None:
             pulumi.set(__self__, "data_access_role", data_access_role)
-
-    @property
-    @pulumi.getter(name="redshiftCredentialConfiguration")
-    def redshift_credential_configuration(self) -> pulumi.Input['DataSourceRedshiftCredentialConfigurationArgs']:
-        """
-        The details of the credentials required to access an Amazon Redshift cluster.
-        """
-        return pulumi.get(self, "redshift_credential_configuration")
-
-    @redshift_credential_configuration.setter
-    def redshift_credential_configuration(self, value: pulumi.Input['DataSourceRedshiftCredentialConfigurationArgs']):
-        pulumi.set(self, "redshift_credential_configuration", value)
-
-    @property
-    @pulumi.getter(name="redshiftStorage")
-    def redshift_storage(self) -> pulumi.Input[Union['DataSourceRedshiftStorage0PropertiesArgs', 'DataSourceRedshiftStorage1PropertiesArgs']]:
-        """
-        The details of the Amazon Redshift storage as part of the configuration of an Amazon Redshift data source run.
-        """
-        return pulumi.get(self, "redshift_storage")
-
-    @redshift_storage.setter
-    def redshift_storage(self, value: pulumi.Input[Union['DataSourceRedshiftStorage0PropertiesArgs', 'DataSourceRedshiftStorage1PropertiesArgs']]):
-        pulumi.set(self, "redshift_storage", value)
+        if redshift_credential_configuration is not None:
+            pulumi.set(__self__, "redshift_credential_configuration", redshift_credential_configuration)
+        if redshift_storage is not None:
+            pulumi.set(__self__, "redshift_storage", redshift_storage)
 
     @property
     @pulumi.getter(name="relationalFilterConfigurations")
@@ -551,6 +549,30 @@ class DataSourceRedshiftRunConfigurationInputArgs:
     @data_access_role.setter
     def data_access_role(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "data_access_role", value)
+
+    @property
+    @pulumi.getter(name="redshiftCredentialConfiguration")
+    def redshift_credential_configuration(self) -> Optional[pulumi.Input['DataSourceRedshiftCredentialConfigurationArgs']]:
+        """
+        The details of the credentials required to access an Amazon Redshift cluster.
+        """
+        return pulumi.get(self, "redshift_credential_configuration")
+
+    @redshift_credential_configuration.setter
+    def redshift_credential_configuration(self, value: Optional[pulumi.Input['DataSourceRedshiftCredentialConfigurationArgs']]):
+        pulumi.set(self, "redshift_credential_configuration", value)
+
+    @property
+    @pulumi.getter(name="redshiftStorage")
+    def redshift_storage(self) -> Optional[pulumi.Input[Union['DataSourceRedshiftStorage0PropertiesArgs', 'DataSourceRedshiftStorage1PropertiesArgs']]]:
+        """
+        The details of the Amazon Redshift storage as part of the configuration of an Amazon Redshift data source run.
+        """
+        return pulumi.get(self, "redshift_storage")
+
+    @redshift_storage.setter
+    def redshift_storage(self, value: Optional[pulumi.Input[Union['DataSourceRedshiftStorage0PropertiesArgs', 'DataSourceRedshiftStorage1PropertiesArgs']]]):
+        pulumi.set(self, "redshift_storage", value)
 
 
 if not MYPY:

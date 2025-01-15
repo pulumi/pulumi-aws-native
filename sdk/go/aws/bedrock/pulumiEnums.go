@@ -3796,12 +3796,13 @@ func (in *dataSourceTransformationStepToApplyPtr) ToDataSourceTransformationStep
 type DataSourceType string
 
 const (
-	DataSourceTypeS3         = DataSourceType("S3")
-	DataSourceTypeConfluence = DataSourceType("CONFLUENCE")
-	DataSourceTypeSalesforce = DataSourceType("SALESFORCE")
-	DataSourceTypeSharepoint = DataSourceType("SHAREPOINT")
-	DataSourceTypeWeb        = DataSourceType("WEB")
-	DataSourceTypeCustom     = DataSourceType("CUSTOM")
+	DataSourceTypeS3               = DataSourceType("S3")
+	DataSourceTypeConfluence       = DataSourceType("CONFLUENCE")
+	DataSourceTypeSalesforce       = DataSourceType("SALESFORCE")
+	DataSourceTypeSharepoint       = DataSourceType("SHAREPOINT")
+	DataSourceTypeWeb              = DataSourceType("WEB")
+	DataSourceTypeCustom           = DataSourceType("CUSTOM")
+	DataSourceTypeRedshiftMetadata = DataSourceType("REDSHIFT_METADATA")
 )
 
 func (DataSourceType) ElementType() reflect.Type {
@@ -3932,6 +3933,7 @@ func (o DataSourceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Contex
 //	DataSourceTypeSharepoint
 //	DataSourceTypeWeb
 //	DataSourceTypeCustom
+//	DataSourceTypeRedshiftMetadata
 type DataSourceTypeInput interface {
 	pulumi.Input
 
@@ -6705,6 +6707,1002 @@ func (in *guardrailTopicTypePtr) ToGuardrailTopicTypePtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(GuardrailTopicTypePtrOutput)
 }
 
+// Include or Exclude status for an entity
+type KnowledgeBaseInclusionType string
+
+const (
+	KnowledgeBaseInclusionTypeInclude = KnowledgeBaseInclusionType("INCLUDE")
+	KnowledgeBaseInclusionTypeExclude = KnowledgeBaseInclusionType("EXCLUDE")
+)
+
+func (KnowledgeBaseInclusionType) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseInclusionType)(nil)).Elem()
+}
+
+func (e KnowledgeBaseInclusionType) ToKnowledgeBaseInclusionTypeOutput() KnowledgeBaseInclusionTypeOutput {
+	return pulumi.ToOutput(e).(KnowledgeBaseInclusionTypeOutput)
+}
+
+func (e KnowledgeBaseInclusionType) ToKnowledgeBaseInclusionTypeOutputWithContext(ctx context.Context) KnowledgeBaseInclusionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(KnowledgeBaseInclusionTypeOutput)
+}
+
+func (e KnowledgeBaseInclusionType) ToKnowledgeBaseInclusionTypePtrOutput() KnowledgeBaseInclusionTypePtrOutput {
+	return e.ToKnowledgeBaseInclusionTypePtrOutputWithContext(context.Background())
+}
+
+func (e KnowledgeBaseInclusionType) ToKnowledgeBaseInclusionTypePtrOutputWithContext(ctx context.Context) KnowledgeBaseInclusionTypePtrOutput {
+	return KnowledgeBaseInclusionType(e).ToKnowledgeBaseInclusionTypeOutputWithContext(ctx).ToKnowledgeBaseInclusionTypePtrOutputWithContext(ctx)
+}
+
+func (e KnowledgeBaseInclusionType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e KnowledgeBaseInclusionType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e KnowledgeBaseInclusionType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e KnowledgeBaseInclusionType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type KnowledgeBaseInclusionTypeOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseInclusionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseInclusionType)(nil)).Elem()
+}
+
+func (o KnowledgeBaseInclusionTypeOutput) ToKnowledgeBaseInclusionTypeOutput() KnowledgeBaseInclusionTypeOutput {
+	return o
+}
+
+func (o KnowledgeBaseInclusionTypeOutput) ToKnowledgeBaseInclusionTypeOutputWithContext(ctx context.Context) KnowledgeBaseInclusionTypeOutput {
+	return o
+}
+
+func (o KnowledgeBaseInclusionTypeOutput) ToKnowledgeBaseInclusionTypePtrOutput() KnowledgeBaseInclusionTypePtrOutput {
+	return o.ToKnowledgeBaseInclusionTypePtrOutputWithContext(context.Background())
+}
+
+func (o KnowledgeBaseInclusionTypeOutput) ToKnowledgeBaseInclusionTypePtrOutputWithContext(ctx context.Context) KnowledgeBaseInclusionTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KnowledgeBaseInclusionType) *KnowledgeBaseInclusionType {
+		return &v
+	}).(KnowledgeBaseInclusionTypePtrOutput)
+}
+
+func (o KnowledgeBaseInclusionTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o KnowledgeBaseInclusionTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e KnowledgeBaseInclusionType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o KnowledgeBaseInclusionTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o KnowledgeBaseInclusionTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e KnowledgeBaseInclusionType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type KnowledgeBaseInclusionTypePtrOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseInclusionTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KnowledgeBaseInclusionType)(nil)).Elem()
+}
+
+func (o KnowledgeBaseInclusionTypePtrOutput) ToKnowledgeBaseInclusionTypePtrOutput() KnowledgeBaseInclusionTypePtrOutput {
+	return o
+}
+
+func (o KnowledgeBaseInclusionTypePtrOutput) ToKnowledgeBaseInclusionTypePtrOutputWithContext(ctx context.Context) KnowledgeBaseInclusionTypePtrOutput {
+	return o
+}
+
+func (o KnowledgeBaseInclusionTypePtrOutput) Elem() KnowledgeBaseInclusionTypeOutput {
+	return o.ApplyT(func(v *KnowledgeBaseInclusionType) KnowledgeBaseInclusionType {
+		if v != nil {
+			return *v
+		}
+		var ret KnowledgeBaseInclusionType
+		return ret
+	}).(KnowledgeBaseInclusionTypeOutput)
+}
+
+func (o KnowledgeBaseInclusionTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o KnowledgeBaseInclusionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *KnowledgeBaseInclusionType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// KnowledgeBaseInclusionTypeInput is an input type that accepts values of the KnowledgeBaseInclusionType enum
+// A concrete instance of `KnowledgeBaseInclusionTypeInput` can be one of the following:
+//
+//	KnowledgeBaseInclusionTypeInclude
+//	KnowledgeBaseInclusionTypeExclude
+type KnowledgeBaseInclusionTypeInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseInclusionTypeOutput() KnowledgeBaseInclusionTypeOutput
+	ToKnowledgeBaseInclusionTypeOutputWithContext(context.Context) KnowledgeBaseInclusionTypeOutput
+}
+
+var knowledgeBaseInclusionTypePtrType = reflect.TypeOf((**KnowledgeBaseInclusionType)(nil)).Elem()
+
+type KnowledgeBaseInclusionTypePtrInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseInclusionTypePtrOutput() KnowledgeBaseInclusionTypePtrOutput
+	ToKnowledgeBaseInclusionTypePtrOutputWithContext(context.Context) KnowledgeBaseInclusionTypePtrOutput
+}
+
+type knowledgeBaseInclusionTypePtr string
+
+func KnowledgeBaseInclusionTypePtr(v string) KnowledgeBaseInclusionTypePtrInput {
+	return (*knowledgeBaseInclusionTypePtr)(&v)
+}
+
+func (*knowledgeBaseInclusionTypePtr) ElementType() reflect.Type {
+	return knowledgeBaseInclusionTypePtrType
+}
+
+func (in *knowledgeBaseInclusionTypePtr) ToKnowledgeBaseInclusionTypePtrOutput() KnowledgeBaseInclusionTypePtrOutput {
+	return pulumi.ToOutput(in).(KnowledgeBaseInclusionTypePtrOutput)
+}
+
+func (in *knowledgeBaseInclusionTypePtr) ToKnowledgeBaseInclusionTypePtrOutputWithContext(ctx context.Context) KnowledgeBaseInclusionTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(KnowledgeBaseInclusionTypePtrOutput)
+}
+
+// SQL query engine type
+type KnowledgeBaseQueryEngineType string
+
+const (
+	KnowledgeBaseQueryEngineTypeRedshift = KnowledgeBaseQueryEngineType("REDSHIFT")
+)
+
+func (KnowledgeBaseQueryEngineType) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseQueryEngineType)(nil)).Elem()
+}
+
+func (e KnowledgeBaseQueryEngineType) ToKnowledgeBaseQueryEngineTypeOutput() KnowledgeBaseQueryEngineTypeOutput {
+	return pulumi.ToOutput(e).(KnowledgeBaseQueryEngineTypeOutput)
+}
+
+func (e KnowledgeBaseQueryEngineType) ToKnowledgeBaseQueryEngineTypeOutputWithContext(ctx context.Context) KnowledgeBaseQueryEngineTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(KnowledgeBaseQueryEngineTypeOutput)
+}
+
+func (e KnowledgeBaseQueryEngineType) ToKnowledgeBaseQueryEngineTypePtrOutput() KnowledgeBaseQueryEngineTypePtrOutput {
+	return e.ToKnowledgeBaseQueryEngineTypePtrOutputWithContext(context.Background())
+}
+
+func (e KnowledgeBaseQueryEngineType) ToKnowledgeBaseQueryEngineTypePtrOutputWithContext(ctx context.Context) KnowledgeBaseQueryEngineTypePtrOutput {
+	return KnowledgeBaseQueryEngineType(e).ToKnowledgeBaseQueryEngineTypeOutputWithContext(ctx).ToKnowledgeBaseQueryEngineTypePtrOutputWithContext(ctx)
+}
+
+func (e KnowledgeBaseQueryEngineType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e KnowledgeBaseQueryEngineType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e KnowledgeBaseQueryEngineType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e KnowledgeBaseQueryEngineType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type KnowledgeBaseQueryEngineTypeOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseQueryEngineTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseQueryEngineType)(nil)).Elem()
+}
+
+func (o KnowledgeBaseQueryEngineTypeOutput) ToKnowledgeBaseQueryEngineTypeOutput() KnowledgeBaseQueryEngineTypeOutput {
+	return o
+}
+
+func (o KnowledgeBaseQueryEngineTypeOutput) ToKnowledgeBaseQueryEngineTypeOutputWithContext(ctx context.Context) KnowledgeBaseQueryEngineTypeOutput {
+	return o
+}
+
+func (o KnowledgeBaseQueryEngineTypeOutput) ToKnowledgeBaseQueryEngineTypePtrOutput() KnowledgeBaseQueryEngineTypePtrOutput {
+	return o.ToKnowledgeBaseQueryEngineTypePtrOutputWithContext(context.Background())
+}
+
+func (o KnowledgeBaseQueryEngineTypeOutput) ToKnowledgeBaseQueryEngineTypePtrOutputWithContext(ctx context.Context) KnowledgeBaseQueryEngineTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KnowledgeBaseQueryEngineType) *KnowledgeBaseQueryEngineType {
+		return &v
+	}).(KnowledgeBaseQueryEngineTypePtrOutput)
+}
+
+func (o KnowledgeBaseQueryEngineTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o KnowledgeBaseQueryEngineTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e KnowledgeBaseQueryEngineType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o KnowledgeBaseQueryEngineTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o KnowledgeBaseQueryEngineTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e KnowledgeBaseQueryEngineType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type KnowledgeBaseQueryEngineTypePtrOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseQueryEngineTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KnowledgeBaseQueryEngineType)(nil)).Elem()
+}
+
+func (o KnowledgeBaseQueryEngineTypePtrOutput) ToKnowledgeBaseQueryEngineTypePtrOutput() KnowledgeBaseQueryEngineTypePtrOutput {
+	return o
+}
+
+func (o KnowledgeBaseQueryEngineTypePtrOutput) ToKnowledgeBaseQueryEngineTypePtrOutputWithContext(ctx context.Context) KnowledgeBaseQueryEngineTypePtrOutput {
+	return o
+}
+
+func (o KnowledgeBaseQueryEngineTypePtrOutput) Elem() KnowledgeBaseQueryEngineTypeOutput {
+	return o.ApplyT(func(v *KnowledgeBaseQueryEngineType) KnowledgeBaseQueryEngineType {
+		if v != nil {
+			return *v
+		}
+		var ret KnowledgeBaseQueryEngineType
+		return ret
+	}).(KnowledgeBaseQueryEngineTypeOutput)
+}
+
+func (o KnowledgeBaseQueryEngineTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o KnowledgeBaseQueryEngineTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *KnowledgeBaseQueryEngineType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// KnowledgeBaseQueryEngineTypeInput is an input type that accepts values of the KnowledgeBaseQueryEngineType enum
+// A concrete instance of `KnowledgeBaseQueryEngineTypeInput` can be one of the following:
+//
+//	KnowledgeBaseQueryEngineTypeRedshift
+type KnowledgeBaseQueryEngineTypeInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseQueryEngineTypeOutput() KnowledgeBaseQueryEngineTypeOutput
+	ToKnowledgeBaseQueryEngineTypeOutputWithContext(context.Context) KnowledgeBaseQueryEngineTypeOutput
+}
+
+var knowledgeBaseQueryEngineTypePtrType = reflect.TypeOf((**KnowledgeBaseQueryEngineType)(nil)).Elem()
+
+type KnowledgeBaseQueryEngineTypePtrInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseQueryEngineTypePtrOutput() KnowledgeBaseQueryEngineTypePtrOutput
+	ToKnowledgeBaseQueryEngineTypePtrOutputWithContext(context.Context) KnowledgeBaseQueryEngineTypePtrOutput
+}
+
+type knowledgeBaseQueryEngineTypePtr string
+
+func KnowledgeBaseQueryEngineTypePtr(v string) KnowledgeBaseQueryEngineTypePtrInput {
+	return (*knowledgeBaseQueryEngineTypePtr)(&v)
+}
+
+func (*knowledgeBaseQueryEngineTypePtr) ElementType() reflect.Type {
+	return knowledgeBaseQueryEngineTypePtrType
+}
+
+func (in *knowledgeBaseQueryEngineTypePtr) ToKnowledgeBaseQueryEngineTypePtrOutput() KnowledgeBaseQueryEngineTypePtrOutput {
+	return pulumi.ToOutput(in).(KnowledgeBaseQueryEngineTypePtrOutput)
+}
+
+func (in *knowledgeBaseQueryEngineTypePtr) ToKnowledgeBaseQueryEngineTypePtrOutputWithContext(ctx context.Context) KnowledgeBaseQueryEngineTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(KnowledgeBaseQueryEngineTypePtrOutput)
+}
+
+// Provisioned Redshift auth type
+type KnowledgeBaseRedshiftProvisionedAuthType string
+
+const (
+	KnowledgeBaseRedshiftProvisionedAuthTypeIam              = KnowledgeBaseRedshiftProvisionedAuthType("IAM")
+	KnowledgeBaseRedshiftProvisionedAuthTypeUsernamePassword = KnowledgeBaseRedshiftProvisionedAuthType("USERNAME_PASSWORD")
+	KnowledgeBaseRedshiftProvisionedAuthTypeUsername         = KnowledgeBaseRedshiftProvisionedAuthType("USERNAME")
+)
+
+func (KnowledgeBaseRedshiftProvisionedAuthType) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseRedshiftProvisionedAuthType)(nil)).Elem()
+}
+
+func (e KnowledgeBaseRedshiftProvisionedAuthType) ToKnowledgeBaseRedshiftProvisionedAuthTypeOutput() KnowledgeBaseRedshiftProvisionedAuthTypeOutput {
+	return pulumi.ToOutput(e).(KnowledgeBaseRedshiftProvisionedAuthTypeOutput)
+}
+
+func (e KnowledgeBaseRedshiftProvisionedAuthType) ToKnowledgeBaseRedshiftProvisionedAuthTypeOutputWithContext(ctx context.Context) KnowledgeBaseRedshiftProvisionedAuthTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(KnowledgeBaseRedshiftProvisionedAuthTypeOutput)
+}
+
+func (e KnowledgeBaseRedshiftProvisionedAuthType) ToKnowledgeBaseRedshiftProvisionedAuthTypePtrOutput() KnowledgeBaseRedshiftProvisionedAuthTypePtrOutput {
+	return e.ToKnowledgeBaseRedshiftProvisionedAuthTypePtrOutputWithContext(context.Background())
+}
+
+func (e KnowledgeBaseRedshiftProvisionedAuthType) ToKnowledgeBaseRedshiftProvisionedAuthTypePtrOutputWithContext(ctx context.Context) KnowledgeBaseRedshiftProvisionedAuthTypePtrOutput {
+	return KnowledgeBaseRedshiftProvisionedAuthType(e).ToKnowledgeBaseRedshiftProvisionedAuthTypeOutputWithContext(ctx).ToKnowledgeBaseRedshiftProvisionedAuthTypePtrOutputWithContext(ctx)
+}
+
+func (e KnowledgeBaseRedshiftProvisionedAuthType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e KnowledgeBaseRedshiftProvisionedAuthType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e KnowledgeBaseRedshiftProvisionedAuthType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e KnowledgeBaseRedshiftProvisionedAuthType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type KnowledgeBaseRedshiftProvisionedAuthTypeOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseRedshiftProvisionedAuthTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseRedshiftProvisionedAuthType)(nil)).Elem()
+}
+
+func (o KnowledgeBaseRedshiftProvisionedAuthTypeOutput) ToKnowledgeBaseRedshiftProvisionedAuthTypeOutput() KnowledgeBaseRedshiftProvisionedAuthTypeOutput {
+	return o
+}
+
+func (o KnowledgeBaseRedshiftProvisionedAuthTypeOutput) ToKnowledgeBaseRedshiftProvisionedAuthTypeOutputWithContext(ctx context.Context) KnowledgeBaseRedshiftProvisionedAuthTypeOutput {
+	return o
+}
+
+func (o KnowledgeBaseRedshiftProvisionedAuthTypeOutput) ToKnowledgeBaseRedshiftProvisionedAuthTypePtrOutput() KnowledgeBaseRedshiftProvisionedAuthTypePtrOutput {
+	return o.ToKnowledgeBaseRedshiftProvisionedAuthTypePtrOutputWithContext(context.Background())
+}
+
+func (o KnowledgeBaseRedshiftProvisionedAuthTypeOutput) ToKnowledgeBaseRedshiftProvisionedAuthTypePtrOutputWithContext(ctx context.Context) KnowledgeBaseRedshiftProvisionedAuthTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KnowledgeBaseRedshiftProvisionedAuthType) *KnowledgeBaseRedshiftProvisionedAuthType {
+		return &v
+	}).(KnowledgeBaseRedshiftProvisionedAuthTypePtrOutput)
+}
+
+func (o KnowledgeBaseRedshiftProvisionedAuthTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o KnowledgeBaseRedshiftProvisionedAuthTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e KnowledgeBaseRedshiftProvisionedAuthType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o KnowledgeBaseRedshiftProvisionedAuthTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o KnowledgeBaseRedshiftProvisionedAuthTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e KnowledgeBaseRedshiftProvisionedAuthType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type KnowledgeBaseRedshiftProvisionedAuthTypePtrOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseRedshiftProvisionedAuthTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KnowledgeBaseRedshiftProvisionedAuthType)(nil)).Elem()
+}
+
+func (o KnowledgeBaseRedshiftProvisionedAuthTypePtrOutput) ToKnowledgeBaseRedshiftProvisionedAuthTypePtrOutput() KnowledgeBaseRedshiftProvisionedAuthTypePtrOutput {
+	return o
+}
+
+func (o KnowledgeBaseRedshiftProvisionedAuthTypePtrOutput) ToKnowledgeBaseRedshiftProvisionedAuthTypePtrOutputWithContext(ctx context.Context) KnowledgeBaseRedshiftProvisionedAuthTypePtrOutput {
+	return o
+}
+
+func (o KnowledgeBaseRedshiftProvisionedAuthTypePtrOutput) Elem() KnowledgeBaseRedshiftProvisionedAuthTypeOutput {
+	return o.ApplyT(func(v *KnowledgeBaseRedshiftProvisionedAuthType) KnowledgeBaseRedshiftProvisionedAuthType {
+		if v != nil {
+			return *v
+		}
+		var ret KnowledgeBaseRedshiftProvisionedAuthType
+		return ret
+	}).(KnowledgeBaseRedshiftProvisionedAuthTypeOutput)
+}
+
+func (o KnowledgeBaseRedshiftProvisionedAuthTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o KnowledgeBaseRedshiftProvisionedAuthTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *KnowledgeBaseRedshiftProvisionedAuthType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// KnowledgeBaseRedshiftProvisionedAuthTypeInput is an input type that accepts values of the KnowledgeBaseRedshiftProvisionedAuthType enum
+// A concrete instance of `KnowledgeBaseRedshiftProvisionedAuthTypeInput` can be one of the following:
+//
+//	KnowledgeBaseRedshiftProvisionedAuthTypeIam
+//	KnowledgeBaseRedshiftProvisionedAuthTypeUsernamePassword
+//	KnowledgeBaseRedshiftProvisionedAuthTypeUsername
+type KnowledgeBaseRedshiftProvisionedAuthTypeInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseRedshiftProvisionedAuthTypeOutput() KnowledgeBaseRedshiftProvisionedAuthTypeOutput
+	ToKnowledgeBaseRedshiftProvisionedAuthTypeOutputWithContext(context.Context) KnowledgeBaseRedshiftProvisionedAuthTypeOutput
+}
+
+var knowledgeBaseRedshiftProvisionedAuthTypePtrType = reflect.TypeOf((**KnowledgeBaseRedshiftProvisionedAuthType)(nil)).Elem()
+
+type KnowledgeBaseRedshiftProvisionedAuthTypePtrInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseRedshiftProvisionedAuthTypePtrOutput() KnowledgeBaseRedshiftProvisionedAuthTypePtrOutput
+	ToKnowledgeBaseRedshiftProvisionedAuthTypePtrOutputWithContext(context.Context) KnowledgeBaseRedshiftProvisionedAuthTypePtrOutput
+}
+
+type knowledgeBaseRedshiftProvisionedAuthTypePtr string
+
+func KnowledgeBaseRedshiftProvisionedAuthTypePtr(v string) KnowledgeBaseRedshiftProvisionedAuthTypePtrInput {
+	return (*knowledgeBaseRedshiftProvisionedAuthTypePtr)(&v)
+}
+
+func (*knowledgeBaseRedshiftProvisionedAuthTypePtr) ElementType() reflect.Type {
+	return knowledgeBaseRedshiftProvisionedAuthTypePtrType
+}
+
+func (in *knowledgeBaseRedshiftProvisionedAuthTypePtr) ToKnowledgeBaseRedshiftProvisionedAuthTypePtrOutput() KnowledgeBaseRedshiftProvisionedAuthTypePtrOutput {
+	return pulumi.ToOutput(in).(KnowledgeBaseRedshiftProvisionedAuthTypePtrOutput)
+}
+
+func (in *knowledgeBaseRedshiftProvisionedAuthTypePtr) ToKnowledgeBaseRedshiftProvisionedAuthTypePtrOutputWithContext(ctx context.Context) KnowledgeBaseRedshiftProvisionedAuthTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(KnowledgeBaseRedshiftProvisionedAuthTypePtrOutput)
+}
+
+// Redshift query engine storage type
+type KnowledgeBaseRedshiftQueryEngineStorageType string
+
+const (
+	KnowledgeBaseRedshiftQueryEngineStorageTypeRedshift       = KnowledgeBaseRedshiftQueryEngineStorageType("REDSHIFT")
+	KnowledgeBaseRedshiftQueryEngineStorageTypeAwsDataCatalog = KnowledgeBaseRedshiftQueryEngineStorageType("AWS_DATA_CATALOG")
+)
+
+func (KnowledgeBaseRedshiftQueryEngineStorageType) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseRedshiftQueryEngineStorageType)(nil)).Elem()
+}
+
+func (e KnowledgeBaseRedshiftQueryEngineStorageType) ToKnowledgeBaseRedshiftQueryEngineStorageTypeOutput() KnowledgeBaseRedshiftQueryEngineStorageTypeOutput {
+	return pulumi.ToOutput(e).(KnowledgeBaseRedshiftQueryEngineStorageTypeOutput)
+}
+
+func (e KnowledgeBaseRedshiftQueryEngineStorageType) ToKnowledgeBaseRedshiftQueryEngineStorageTypeOutputWithContext(ctx context.Context) KnowledgeBaseRedshiftQueryEngineStorageTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(KnowledgeBaseRedshiftQueryEngineStorageTypeOutput)
+}
+
+func (e KnowledgeBaseRedshiftQueryEngineStorageType) ToKnowledgeBaseRedshiftQueryEngineStorageTypePtrOutput() KnowledgeBaseRedshiftQueryEngineStorageTypePtrOutput {
+	return e.ToKnowledgeBaseRedshiftQueryEngineStorageTypePtrOutputWithContext(context.Background())
+}
+
+func (e KnowledgeBaseRedshiftQueryEngineStorageType) ToKnowledgeBaseRedshiftQueryEngineStorageTypePtrOutputWithContext(ctx context.Context) KnowledgeBaseRedshiftQueryEngineStorageTypePtrOutput {
+	return KnowledgeBaseRedshiftQueryEngineStorageType(e).ToKnowledgeBaseRedshiftQueryEngineStorageTypeOutputWithContext(ctx).ToKnowledgeBaseRedshiftQueryEngineStorageTypePtrOutputWithContext(ctx)
+}
+
+func (e KnowledgeBaseRedshiftQueryEngineStorageType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e KnowledgeBaseRedshiftQueryEngineStorageType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e KnowledgeBaseRedshiftQueryEngineStorageType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e KnowledgeBaseRedshiftQueryEngineStorageType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type KnowledgeBaseRedshiftQueryEngineStorageTypeOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseRedshiftQueryEngineStorageTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseRedshiftQueryEngineStorageType)(nil)).Elem()
+}
+
+func (o KnowledgeBaseRedshiftQueryEngineStorageTypeOutput) ToKnowledgeBaseRedshiftQueryEngineStorageTypeOutput() KnowledgeBaseRedshiftQueryEngineStorageTypeOutput {
+	return o
+}
+
+func (o KnowledgeBaseRedshiftQueryEngineStorageTypeOutput) ToKnowledgeBaseRedshiftQueryEngineStorageTypeOutputWithContext(ctx context.Context) KnowledgeBaseRedshiftQueryEngineStorageTypeOutput {
+	return o
+}
+
+func (o KnowledgeBaseRedshiftQueryEngineStorageTypeOutput) ToKnowledgeBaseRedshiftQueryEngineStorageTypePtrOutput() KnowledgeBaseRedshiftQueryEngineStorageTypePtrOutput {
+	return o.ToKnowledgeBaseRedshiftQueryEngineStorageTypePtrOutputWithContext(context.Background())
+}
+
+func (o KnowledgeBaseRedshiftQueryEngineStorageTypeOutput) ToKnowledgeBaseRedshiftQueryEngineStorageTypePtrOutputWithContext(ctx context.Context) KnowledgeBaseRedshiftQueryEngineStorageTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KnowledgeBaseRedshiftQueryEngineStorageType) *KnowledgeBaseRedshiftQueryEngineStorageType {
+		return &v
+	}).(KnowledgeBaseRedshiftQueryEngineStorageTypePtrOutput)
+}
+
+func (o KnowledgeBaseRedshiftQueryEngineStorageTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o KnowledgeBaseRedshiftQueryEngineStorageTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e KnowledgeBaseRedshiftQueryEngineStorageType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o KnowledgeBaseRedshiftQueryEngineStorageTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o KnowledgeBaseRedshiftQueryEngineStorageTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e KnowledgeBaseRedshiftQueryEngineStorageType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type KnowledgeBaseRedshiftQueryEngineStorageTypePtrOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseRedshiftQueryEngineStorageTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KnowledgeBaseRedshiftQueryEngineStorageType)(nil)).Elem()
+}
+
+func (o KnowledgeBaseRedshiftQueryEngineStorageTypePtrOutput) ToKnowledgeBaseRedshiftQueryEngineStorageTypePtrOutput() KnowledgeBaseRedshiftQueryEngineStorageTypePtrOutput {
+	return o
+}
+
+func (o KnowledgeBaseRedshiftQueryEngineStorageTypePtrOutput) ToKnowledgeBaseRedshiftQueryEngineStorageTypePtrOutputWithContext(ctx context.Context) KnowledgeBaseRedshiftQueryEngineStorageTypePtrOutput {
+	return o
+}
+
+func (o KnowledgeBaseRedshiftQueryEngineStorageTypePtrOutput) Elem() KnowledgeBaseRedshiftQueryEngineStorageTypeOutput {
+	return o.ApplyT(func(v *KnowledgeBaseRedshiftQueryEngineStorageType) KnowledgeBaseRedshiftQueryEngineStorageType {
+		if v != nil {
+			return *v
+		}
+		var ret KnowledgeBaseRedshiftQueryEngineStorageType
+		return ret
+	}).(KnowledgeBaseRedshiftQueryEngineStorageTypeOutput)
+}
+
+func (o KnowledgeBaseRedshiftQueryEngineStorageTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o KnowledgeBaseRedshiftQueryEngineStorageTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *KnowledgeBaseRedshiftQueryEngineStorageType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// KnowledgeBaseRedshiftQueryEngineStorageTypeInput is an input type that accepts values of the KnowledgeBaseRedshiftQueryEngineStorageType enum
+// A concrete instance of `KnowledgeBaseRedshiftQueryEngineStorageTypeInput` can be one of the following:
+//
+//	KnowledgeBaseRedshiftQueryEngineStorageTypeRedshift
+//	KnowledgeBaseRedshiftQueryEngineStorageTypeAwsDataCatalog
+type KnowledgeBaseRedshiftQueryEngineStorageTypeInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseRedshiftQueryEngineStorageTypeOutput() KnowledgeBaseRedshiftQueryEngineStorageTypeOutput
+	ToKnowledgeBaseRedshiftQueryEngineStorageTypeOutputWithContext(context.Context) KnowledgeBaseRedshiftQueryEngineStorageTypeOutput
+}
+
+var knowledgeBaseRedshiftQueryEngineStorageTypePtrType = reflect.TypeOf((**KnowledgeBaseRedshiftQueryEngineStorageType)(nil)).Elem()
+
+type KnowledgeBaseRedshiftQueryEngineStorageTypePtrInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseRedshiftQueryEngineStorageTypePtrOutput() KnowledgeBaseRedshiftQueryEngineStorageTypePtrOutput
+	ToKnowledgeBaseRedshiftQueryEngineStorageTypePtrOutputWithContext(context.Context) KnowledgeBaseRedshiftQueryEngineStorageTypePtrOutput
+}
+
+type knowledgeBaseRedshiftQueryEngineStorageTypePtr string
+
+func KnowledgeBaseRedshiftQueryEngineStorageTypePtr(v string) KnowledgeBaseRedshiftQueryEngineStorageTypePtrInput {
+	return (*knowledgeBaseRedshiftQueryEngineStorageTypePtr)(&v)
+}
+
+func (*knowledgeBaseRedshiftQueryEngineStorageTypePtr) ElementType() reflect.Type {
+	return knowledgeBaseRedshiftQueryEngineStorageTypePtrType
+}
+
+func (in *knowledgeBaseRedshiftQueryEngineStorageTypePtr) ToKnowledgeBaseRedshiftQueryEngineStorageTypePtrOutput() KnowledgeBaseRedshiftQueryEngineStorageTypePtrOutput {
+	return pulumi.ToOutput(in).(KnowledgeBaseRedshiftQueryEngineStorageTypePtrOutput)
+}
+
+func (in *knowledgeBaseRedshiftQueryEngineStorageTypePtr) ToKnowledgeBaseRedshiftQueryEngineStorageTypePtrOutputWithContext(ctx context.Context) KnowledgeBaseRedshiftQueryEngineStorageTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(KnowledgeBaseRedshiftQueryEngineStorageTypePtrOutput)
+}
+
+// Redshift query engine type
+type KnowledgeBaseRedshiftQueryEngineType string
+
+const (
+	KnowledgeBaseRedshiftQueryEngineTypeServerless  = KnowledgeBaseRedshiftQueryEngineType("SERVERLESS")
+	KnowledgeBaseRedshiftQueryEngineTypeProvisioned = KnowledgeBaseRedshiftQueryEngineType("PROVISIONED")
+)
+
+func (KnowledgeBaseRedshiftQueryEngineType) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseRedshiftQueryEngineType)(nil)).Elem()
+}
+
+func (e KnowledgeBaseRedshiftQueryEngineType) ToKnowledgeBaseRedshiftQueryEngineTypeOutput() KnowledgeBaseRedshiftQueryEngineTypeOutput {
+	return pulumi.ToOutput(e).(KnowledgeBaseRedshiftQueryEngineTypeOutput)
+}
+
+func (e KnowledgeBaseRedshiftQueryEngineType) ToKnowledgeBaseRedshiftQueryEngineTypeOutputWithContext(ctx context.Context) KnowledgeBaseRedshiftQueryEngineTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(KnowledgeBaseRedshiftQueryEngineTypeOutput)
+}
+
+func (e KnowledgeBaseRedshiftQueryEngineType) ToKnowledgeBaseRedshiftQueryEngineTypePtrOutput() KnowledgeBaseRedshiftQueryEngineTypePtrOutput {
+	return e.ToKnowledgeBaseRedshiftQueryEngineTypePtrOutputWithContext(context.Background())
+}
+
+func (e KnowledgeBaseRedshiftQueryEngineType) ToKnowledgeBaseRedshiftQueryEngineTypePtrOutputWithContext(ctx context.Context) KnowledgeBaseRedshiftQueryEngineTypePtrOutput {
+	return KnowledgeBaseRedshiftQueryEngineType(e).ToKnowledgeBaseRedshiftQueryEngineTypeOutputWithContext(ctx).ToKnowledgeBaseRedshiftQueryEngineTypePtrOutputWithContext(ctx)
+}
+
+func (e KnowledgeBaseRedshiftQueryEngineType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e KnowledgeBaseRedshiftQueryEngineType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e KnowledgeBaseRedshiftQueryEngineType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e KnowledgeBaseRedshiftQueryEngineType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type KnowledgeBaseRedshiftQueryEngineTypeOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseRedshiftQueryEngineTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseRedshiftQueryEngineType)(nil)).Elem()
+}
+
+func (o KnowledgeBaseRedshiftQueryEngineTypeOutput) ToKnowledgeBaseRedshiftQueryEngineTypeOutput() KnowledgeBaseRedshiftQueryEngineTypeOutput {
+	return o
+}
+
+func (o KnowledgeBaseRedshiftQueryEngineTypeOutput) ToKnowledgeBaseRedshiftQueryEngineTypeOutputWithContext(ctx context.Context) KnowledgeBaseRedshiftQueryEngineTypeOutput {
+	return o
+}
+
+func (o KnowledgeBaseRedshiftQueryEngineTypeOutput) ToKnowledgeBaseRedshiftQueryEngineTypePtrOutput() KnowledgeBaseRedshiftQueryEngineTypePtrOutput {
+	return o.ToKnowledgeBaseRedshiftQueryEngineTypePtrOutputWithContext(context.Background())
+}
+
+func (o KnowledgeBaseRedshiftQueryEngineTypeOutput) ToKnowledgeBaseRedshiftQueryEngineTypePtrOutputWithContext(ctx context.Context) KnowledgeBaseRedshiftQueryEngineTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KnowledgeBaseRedshiftQueryEngineType) *KnowledgeBaseRedshiftQueryEngineType {
+		return &v
+	}).(KnowledgeBaseRedshiftQueryEngineTypePtrOutput)
+}
+
+func (o KnowledgeBaseRedshiftQueryEngineTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o KnowledgeBaseRedshiftQueryEngineTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e KnowledgeBaseRedshiftQueryEngineType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o KnowledgeBaseRedshiftQueryEngineTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o KnowledgeBaseRedshiftQueryEngineTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e KnowledgeBaseRedshiftQueryEngineType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type KnowledgeBaseRedshiftQueryEngineTypePtrOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseRedshiftQueryEngineTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KnowledgeBaseRedshiftQueryEngineType)(nil)).Elem()
+}
+
+func (o KnowledgeBaseRedshiftQueryEngineTypePtrOutput) ToKnowledgeBaseRedshiftQueryEngineTypePtrOutput() KnowledgeBaseRedshiftQueryEngineTypePtrOutput {
+	return o
+}
+
+func (o KnowledgeBaseRedshiftQueryEngineTypePtrOutput) ToKnowledgeBaseRedshiftQueryEngineTypePtrOutputWithContext(ctx context.Context) KnowledgeBaseRedshiftQueryEngineTypePtrOutput {
+	return o
+}
+
+func (o KnowledgeBaseRedshiftQueryEngineTypePtrOutput) Elem() KnowledgeBaseRedshiftQueryEngineTypeOutput {
+	return o.ApplyT(func(v *KnowledgeBaseRedshiftQueryEngineType) KnowledgeBaseRedshiftQueryEngineType {
+		if v != nil {
+			return *v
+		}
+		var ret KnowledgeBaseRedshiftQueryEngineType
+		return ret
+	}).(KnowledgeBaseRedshiftQueryEngineTypeOutput)
+}
+
+func (o KnowledgeBaseRedshiftQueryEngineTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o KnowledgeBaseRedshiftQueryEngineTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *KnowledgeBaseRedshiftQueryEngineType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// KnowledgeBaseRedshiftQueryEngineTypeInput is an input type that accepts values of the KnowledgeBaseRedshiftQueryEngineType enum
+// A concrete instance of `KnowledgeBaseRedshiftQueryEngineTypeInput` can be one of the following:
+//
+//	KnowledgeBaseRedshiftQueryEngineTypeServerless
+//	KnowledgeBaseRedshiftQueryEngineTypeProvisioned
+type KnowledgeBaseRedshiftQueryEngineTypeInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseRedshiftQueryEngineTypeOutput() KnowledgeBaseRedshiftQueryEngineTypeOutput
+	ToKnowledgeBaseRedshiftQueryEngineTypeOutputWithContext(context.Context) KnowledgeBaseRedshiftQueryEngineTypeOutput
+}
+
+var knowledgeBaseRedshiftQueryEngineTypePtrType = reflect.TypeOf((**KnowledgeBaseRedshiftQueryEngineType)(nil)).Elem()
+
+type KnowledgeBaseRedshiftQueryEngineTypePtrInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseRedshiftQueryEngineTypePtrOutput() KnowledgeBaseRedshiftQueryEngineTypePtrOutput
+	ToKnowledgeBaseRedshiftQueryEngineTypePtrOutputWithContext(context.Context) KnowledgeBaseRedshiftQueryEngineTypePtrOutput
+}
+
+type knowledgeBaseRedshiftQueryEngineTypePtr string
+
+func KnowledgeBaseRedshiftQueryEngineTypePtr(v string) KnowledgeBaseRedshiftQueryEngineTypePtrInput {
+	return (*knowledgeBaseRedshiftQueryEngineTypePtr)(&v)
+}
+
+func (*knowledgeBaseRedshiftQueryEngineTypePtr) ElementType() reflect.Type {
+	return knowledgeBaseRedshiftQueryEngineTypePtrType
+}
+
+func (in *knowledgeBaseRedshiftQueryEngineTypePtr) ToKnowledgeBaseRedshiftQueryEngineTypePtrOutput() KnowledgeBaseRedshiftQueryEngineTypePtrOutput {
+	return pulumi.ToOutput(in).(KnowledgeBaseRedshiftQueryEngineTypePtrOutput)
+}
+
+func (in *knowledgeBaseRedshiftQueryEngineTypePtr) ToKnowledgeBaseRedshiftQueryEngineTypePtrOutputWithContext(ctx context.Context) KnowledgeBaseRedshiftQueryEngineTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(KnowledgeBaseRedshiftQueryEngineTypePtrOutput)
+}
+
+// Serverless Redshift auth type
+type KnowledgeBaseRedshiftServerlessAuthType string
+
+const (
+	KnowledgeBaseRedshiftServerlessAuthTypeIam              = KnowledgeBaseRedshiftServerlessAuthType("IAM")
+	KnowledgeBaseRedshiftServerlessAuthTypeUsernamePassword = KnowledgeBaseRedshiftServerlessAuthType("USERNAME_PASSWORD")
+)
+
+func (KnowledgeBaseRedshiftServerlessAuthType) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseRedshiftServerlessAuthType)(nil)).Elem()
+}
+
+func (e KnowledgeBaseRedshiftServerlessAuthType) ToKnowledgeBaseRedshiftServerlessAuthTypeOutput() KnowledgeBaseRedshiftServerlessAuthTypeOutput {
+	return pulumi.ToOutput(e).(KnowledgeBaseRedshiftServerlessAuthTypeOutput)
+}
+
+func (e KnowledgeBaseRedshiftServerlessAuthType) ToKnowledgeBaseRedshiftServerlessAuthTypeOutputWithContext(ctx context.Context) KnowledgeBaseRedshiftServerlessAuthTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(KnowledgeBaseRedshiftServerlessAuthTypeOutput)
+}
+
+func (e KnowledgeBaseRedshiftServerlessAuthType) ToKnowledgeBaseRedshiftServerlessAuthTypePtrOutput() KnowledgeBaseRedshiftServerlessAuthTypePtrOutput {
+	return e.ToKnowledgeBaseRedshiftServerlessAuthTypePtrOutputWithContext(context.Background())
+}
+
+func (e KnowledgeBaseRedshiftServerlessAuthType) ToKnowledgeBaseRedshiftServerlessAuthTypePtrOutputWithContext(ctx context.Context) KnowledgeBaseRedshiftServerlessAuthTypePtrOutput {
+	return KnowledgeBaseRedshiftServerlessAuthType(e).ToKnowledgeBaseRedshiftServerlessAuthTypeOutputWithContext(ctx).ToKnowledgeBaseRedshiftServerlessAuthTypePtrOutputWithContext(ctx)
+}
+
+func (e KnowledgeBaseRedshiftServerlessAuthType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e KnowledgeBaseRedshiftServerlessAuthType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e KnowledgeBaseRedshiftServerlessAuthType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e KnowledgeBaseRedshiftServerlessAuthType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type KnowledgeBaseRedshiftServerlessAuthTypeOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseRedshiftServerlessAuthTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KnowledgeBaseRedshiftServerlessAuthType)(nil)).Elem()
+}
+
+func (o KnowledgeBaseRedshiftServerlessAuthTypeOutput) ToKnowledgeBaseRedshiftServerlessAuthTypeOutput() KnowledgeBaseRedshiftServerlessAuthTypeOutput {
+	return o
+}
+
+func (o KnowledgeBaseRedshiftServerlessAuthTypeOutput) ToKnowledgeBaseRedshiftServerlessAuthTypeOutputWithContext(ctx context.Context) KnowledgeBaseRedshiftServerlessAuthTypeOutput {
+	return o
+}
+
+func (o KnowledgeBaseRedshiftServerlessAuthTypeOutput) ToKnowledgeBaseRedshiftServerlessAuthTypePtrOutput() KnowledgeBaseRedshiftServerlessAuthTypePtrOutput {
+	return o.ToKnowledgeBaseRedshiftServerlessAuthTypePtrOutputWithContext(context.Background())
+}
+
+func (o KnowledgeBaseRedshiftServerlessAuthTypeOutput) ToKnowledgeBaseRedshiftServerlessAuthTypePtrOutputWithContext(ctx context.Context) KnowledgeBaseRedshiftServerlessAuthTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KnowledgeBaseRedshiftServerlessAuthType) *KnowledgeBaseRedshiftServerlessAuthType {
+		return &v
+	}).(KnowledgeBaseRedshiftServerlessAuthTypePtrOutput)
+}
+
+func (o KnowledgeBaseRedshiftServerlessAuthTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o KnowledgeBaseRedshiftServerlessAuthTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e KnowledgeBaseRedshiftServerlessAuthType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o KnowledgeBaseRedshiftServerlessAuthTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o KnowledgeBaseRedshiftServerlessAuthTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e KnowledgeBaseRedshiftServerlessAuthType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type KnowledgeBaseRedshiftServerlessAuthTypePtrOutput struct{ *pulumi.OutputState }
+
+func (KnowledgeBaseRedshiftServerlessAuthTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KnowledgeBaseRedshiftServerlessAuthType)(nil)).Elem()
+}
+
+func (o KnowledgeBaseRedshiftServerlessAuthTypePtrOutput) ToKnowledgeBaseRedshiftServerlessAuthTypePtrOutput() KnowledgeBaseRedshiftServerlessAuthTypePtrOutput {
+	return o
+}
+
+func (o KnowledgeBaseRedshiftServerlessAuthTypePtrOutput) ToKnowledgeBaseRedshiftServerlessAuthTypePtrOutputWithContext(ctx context.Context) KnowledgeBaseRedshiftServerlessAuthTypePtrOutput {
+	return o
+}
+
+func (o KnowledgeBaseRedshiftServerlessAuthTypePtrOutput) Elem() KnowledgeBaseRedshiftServerlessAuthTypeOutput {
+	return o.ApplyT(func(v *KnowledgeBaseRedshiftServerlessAuthType) KnowledgeBaseRedshiftServerlessAuthType {
+		if v != nil {
+			return *v
+		}
+		var ret KnowledgeBaseRedshiftServerlessAuthType
+		return ret
+	}).(KnowledgeBaseRedshiftServerlessAuthTypeOutput)
+}
+
+func (o KnowledgeBaseRedshiftServerlessAuthTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o KnowledgeBaseRedshiftServerlessAuthTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *KnowledgeBaseRedshiftServerlessAuthType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// KnowledgeBaseRedshiftServerlessAuthTypeInput is an input type that accepts values of the KnowledgeBaseRedshiftServerlessAuthType enum
+// A concrete instance of `KnowledgeBaseRedshiftServerlessAuthTypeInput` can be one of the following:
+//
+//	KnowledgeBaseRedshiftServerlessAuthTypeIam
+//	KnowledgeBaseRedshiftServerlessAuthTypeUsernamePassword
+type KnowledgeBaseRedshiftServerlessAuthTypeInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseRedshiftServerlessAuthTypeOutput() KnowledgeBaseRedshiftServerlessAuthTypeOutput
+	ToKnowledgeBaseRedshiftServerlessAuthTypeOutputWithContext(context.Context) KnowledgeBaseRedshiftServerlessAuthTypeOutput
+}
+
+var knowledgeBaseRedshiftServerlessAuthTypePtrType = reflect.TypeOf((**KnowledgeBaseRedshiftServerlessAuthType)(nil)).Elem()
+
+type KnowledgeBaseRedshiftServerlessAuthTypePtrInput interface {
+	pulumi.Input
+
+	ToKnowledgeBaseRedshiftServerlessAuthTypePtrOutput() KnowledgeBaseRedshiftServerlessAuthTypePtrOutput
+	ToKnowledgeBaseRedshiftServerlessAuthTypePtrOutputWithContext(context.Context) KnowledgeBaseRedshiftServerlessAuthTypePtrOutput
+}
+
+type knowledgeBaseRedshiftServerlessAuthTypePtr string
+
+func KnowledgeBaseRedshiftServerlessAuthTypePtr(v string) KnowledgeBaseRedshiftServerlessAuthTypePtrInput {
+	return (*knowledgeBaseRedshiftServerlessAuthTypePtr)(&v)
+}
+
+func (*knowledgeBaseRedshiftServerlessAuthTypePtr) ElementType() reflect.Type {
+	return knowledgeBaseRedshiftServerlessAuthTypePtrType
+}
+
+func (in *knowledgeBaseRedshiftServerlessAuthTypePtr) ToKnowledgeBaseRedshiftServerlessAuthTypePtrOutput() KnowledgeBaseRedshiftServerlessAuthTypePtrOutput {
+	return pulumi.ToOutput(in).(KnowledgeBaseRedshiftServerlessAuthTypePtrOutput)
+}
+
+func (in *knowledgeBaseRedshiftServerlessAuthTypePtr) ToKnowledgeBaseRedshiftServerlessAuthTypePtrOutputWithContext(ctx context.Context) KnowledgeBaseRedshiftServerlessAuthTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(KnowledgeBaseRedshiftServerlessAuthTypePtrOutput)
+}
+
 // The status of a knowledge base.
 type KnowledgeBaseStatus string
 
@@ -7140,6 +8138,7 @@ type KnowledgeBaseType string
 const (
 	KnowledgeBaseTypeVector = KnowledgeBaseType("VECTOR")
 	KnowledgeBaseTypeKendra = KnowledgeBaseType("KENDRA")
+	KnowledgeBaseTypeSql    = KnowledgeBaseType("SQL")
 )
 
 func (KnowledgeBaseType) ElementType() reflect.Type {
@@ -7266,6 +8265,7 @@ func (o KnowledgeBaseTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 //
 //	KnowledgeBaseTypeVector
 //	KnowledgeBaseTypeKendra
+//	KnowledgeBaseTypeSql
 type KnowledgeBaseTypeInput interface {
 	pulumi.Input
 
@@ -7789,6 +8789,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailSensitiveInformationActionPtrInput)(nil)).Elem(), GuardrailSensitiveInformationAction("BLOCK"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailTopicTypeInput)(nil)).Elem(), GuardrailTopicType("DENY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GuardrailTopicTypePtrInput)(nil)).Elem(), GuardrailTopicType("DENY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseInclusionTypeInput)(nil)).Elem(), KnowledgeBaseInclusionType("INCLUDE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseInclusionTypePtrInput)(nil)).Elem(), KnowledgeBaseInclusionType("INCLUDE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseQueryEngineTypeInput)(nil)).Elem(), KnowledgeBaseQueryEngineType("REDSHIFT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseQueryEngineTypePtrInput)(nil)).Elem(), KnowledgeBaseQueryEngineType("REDSHIFT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseRedshiftProvisionedAuthTypeInput)(nil)).Elem(), KnowledgeBaseRedshiftProvisionedAuthType("IAM"))
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseRedshiftProvisionedAuthTypePtrInput)(nil)).Elem(), KnowledgeBaseRedshiftProvisionedAuthType("IAM"))
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseRedshiftQueryEngineStorageTypeInput)(nil)).Elem(), KnowledgeBaseRedshiftQueryEngineStorageType("REDSHIFT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseRedshiftQueryEngineStorageTypePtrInput)(nil)).Elem(), KnowledgeBaseRedshiftQueryEngineStorageType("REDSHIFT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseRedshiftQueryEngineTypeInput)(nil)).Elem(), KnowledgeBaseRedshiftQueryEngineType("SERVERLESS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseRedshiftQueryEngineTypePtrInput)(nil)).Elem(), KnowledgeBaseRedshiftQueryEngineType("SERVERLESS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseRedshiftServerlessAuthTypeInput)(nil)).Elem(), KnowledgeBaseRedshiftServerlessAuthType("IAM"))
+	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseRedshiftServerlessAuthTypePtrInput)(nil)).Elem(), KnowledgeBaseRedshiftServerlessAuthType("IAM"))
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseStorageTypeInput)(nil)).Elem(), KnowledgeBaseStorageType("OPENSEARCH_SERVERLESS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseStorageTypePtrInput)(nil)).Elem(), KnowledgeBaseStorageType("OPENSEARCH_SERVERLESS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseSupplementalDataStorageLocationTypeInput)(nil)).Elem(), KnowledgeBaseSupplementalDataStorageLocationType("S3"))
@@ -7889,6 +8901,18 @@ func init() {
 	pulumi.RegisterOutputType(GuardrailStatusPtrOutput{})
 	pulumi.RegisterOutputType(GuardrailTopicTypeOutput{})
 	pulumi.RegisterOutputType(GuardrailTopicTypePtrOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseInclusionTypeOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseInclusionTypePtrOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseQueryEngineTypeOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseQueryEngineTypePtrOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseRedshiftProvisionedAuthTypeOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseRedshiftProvisionedAuthTypePtrOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseRedshiftQueryEngineStorageTypeOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseRedshiftQueryEngineStorageTypePtrOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseRedshiftQueryEngineTypeOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseRedshiftQueryEngineTypePtrOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseRedshiftServerlessAuthTypeOutput{})
+	pulumi.RegisterOutputType(KnowledgeBaseRedshiftServerlessAuthTypePtrOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseStatusOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseStatusPtrOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseStorageTypeOutput{})

@@ -22,6 +22,10 @@ type DataSource struct {
 	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// Configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration.
 	Configuration pulumi.AnyOutput `pulumi:"configuration"`
+	// The unique identifier of a connection used to fetch relevant parameters from connection during Datasource run
+	ConnectionId pulumi.StringOutput `pulumi:"connectionId"`
+	// The unique identifier of a connection used to fetch relevant parameters from connection during Datasource run
+	ConnectionIdentifier pulumi.StringPtrOutput `pulumi:"connectionIdentifier"`
 	// The timestamp of when the data source was created.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// The description of the data source.
@@ -35,7 +39,7 @@ type DataSource struct {
 	// The unique identifier of the Amazon DataZone environment to which the data source publishes assets.
 	EnvironmentId pulumi.StringOutput `pulumi:"environmentId"`
 	// The unique identifier of the Amazon DataZone environment to which the data source publishes assets.
-	EnvironmentIdentifier pulumi.StringOutput `pulumi:"environmentIdentifier"`
+	EnvironmentIdentifier pulumi.StringPtrOutput `pulumi:"environmentIdentifier"`
 	// The number of assets created by the data source during its last run.
 	LastRunAssetCount pulumi.Float64Output `pulumi:"lastRunAssetCount"`
 	// The timestamp that specifies when the data source was last run.
@@ -72,9 +76,6 @@ func NewDataSource(ctx *pulumi.Context,
 	if args.DomainIdentifier == nil {
 		return nil, errors.New("invalid value for required argument 'DomainIdentifier'")
 	}
-	if args.EnvironmentIdentifier == nil {
-		return nil, errors.New("invalid value for required argument 'EnvironmentIdentifier'")
-	}
 	if args.ProjectIdentifier == nil {
 		return nil, errors.New("invalid value for required argument 'ProjectIdentifier'")
 	}
@@ -82,6 +83,7 @@ func NewDataSource(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"connectionIdentifier",
 		"domainIdentifier",
 		"environmentIdentifier",
 		"projectIdentifier",
@@ -125,6 +127,8 @@ type dataSourceArgs struct {
 	AssetFormsInput []DataSourceFormInput `pulumi:"assetFormsInput"`
 	// Configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration.
 	Configuration interface{} `pulumi:"configuration"`
+	// The unique identifier of a connection used to fetch relevant parameters from connection during Datasource run
+	ConnectionIdentifier *string `pulumi:"connectionIdentifier"`
 	// The description of the data source.
 	Description *string `pulumi:"description"`
 	// The ID of the Amazon DataZone domain where the data source is created.
@@ -132,7 +136,7 @@ type dataSourceArgs struct {
 	// Specifies whether the data source is enabled.
 	EnableSetting *DataSourceEnableSetting `pulumi:"enableSetting"`
 	// The unique identifier of the Amazon DataZone environment to which the data source publishes assets.
-	EnvironmentIdentifier string `pulumi:"environmentIdentifier"`
+	EnvironmentIdentifier *string `pulumi:"environmentIdentifier"`
 	// The name of the data source.
 	Name *string `pulumi:"name"`
 	// The identifier of the Amazon DataZone project in which you want to add the data source.
@@ -153,6 +157,8 @@ type DataSourceArgs struct {
 	AssetFormsInput DataSourceFormInputArrayInput
 	// Configuration of the data source. It can be set to either glueRunConfiguration or redshiftRunConfiguration.
 	Configuration pulumi.Input
+	// The unique identifier of a connection used to fetch relevant parameters from connection during Datasource run
+	ConnectionIdentifier pulumi.StringPtrInput
 	// The description of the data source.
 	Description pulumi.StringPtrInput
 	// The ID of the Amazon DataZone domain where the data source is created.
@@ -160,7 +166,7 @@ type DataSourceArgs struct {
 	// Specifies whether the data source is enabled.
 	EnableSetting DataSourceEnableSettingPtrInput
 	// The unique identifier of the Amazon DataZone environment to which the data source publishes assets.
-	EnvironmentIdentifier pulumi.StringInput
+	EnvironmentIdentifier pulumi.StringPtrInput
 	// The name of the data source.
 	Name pulumi.StringPtrInput
 	// The identifier of the Amazon DataZone project in which you want to add the data source.
@@ -227,6 +233,16 @@ func (o DataSourceOutput) Configuration() pulumi.AnyOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.AnyOutput { return v.Configuration }).(pulumi.AnyOutput)
 }
 
+// The unique identifier of a connection used to fetch relevant parameters from connection during Datasource run
+func (o DataSourceOutput) ConnectionId() pulumi.StringOutput {
+	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.ConnectionId }).(pulumi.StringOutput)
+}
+
+// The unique identifier of a connection used to fetch relevant parameters from connection during Datasource run
+func (o DataSourceOutput) ConnectionIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSource) pulumi.StringPtrOutput { return v.ConnectionIdentifier }).(pulumi.StringPtrOutput)
+}
+
 // The timestamp of when the data source was created.
 func (o DataSourceOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
@@ -258,8 +274,8 @@ func (o DataSourceOutput) EnvironmentId() pulumi.StringOutput {
 }
 
 // The unique identifier of the Amazon DataZone environment to which the data source publishes assets.
-func (o DataSourceOutput) EnvironmentIdentifier() pulumi.StringOutput {
-	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.EnvironmentIdentifier }).(pulumi.StringOutput)
+func (o DataSourceOutput) EnvironmentIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DataSource) pulumi.StringPtrOutput { return v.EnvironmentIdentifier }).(pulumi.StringPtrOutput)
 }
 
 // The number of assets created by the data source during its last run.

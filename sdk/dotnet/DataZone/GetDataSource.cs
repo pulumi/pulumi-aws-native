@@ -76,6 +76,10 @@ namespace Pulumi.AwsNative.DataZone
     public sealed class GetDataSourceResult
     {
         /// <summary>
+        /// The unique identifier of a connection used to fetch relevant parameters from connection during Datasource run
+        /// </summary>
+        public readonly string? ConnectionId;
+        /// <summary>
         /// The timestamp of when the data source was created.
         /// </summary>
         public readonly string? CreatedAt;
@@ -142,6 +146,8 @@ namespace Pulumi.AwsNative.DataZone
 
         [OutputConstructor]
         private GetDataSourceResult(
+            string? connectionId,
+
             string? createdAt,
 
             string? description,
@@ -174,6 +180,7 @@ namespace Pulumi.AwsNative.DataZone
 
             string? updatedAt)
         {
+            ConnectionId = connectionId;
             CreatedAt = createdAt;
             Description = description;
             DomainId = domainId;

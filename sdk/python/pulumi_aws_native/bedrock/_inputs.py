@@ -250,6 +250,8 @@ __all__ = [
     'KnowledgeBaseBedrockEmbeddingModelConfigurationArgsDict',
     'KnowledgeBaseConfigurationArgs',
     'KnowledgeBaseConfigurationArgsDict',
+    'KnowledgeBaseCuratedQueryArgs',
+    'KnowledgeBaseCuratedQueryArgsDict',
     'KnowledgeBaseEmbeddingModelConfigurationArgs',
     'KnowledgeBaseEmbeddingModelConfigurationArgsDict',
     'KnowledgeBaseKendraKnowledgeBaseConfigurationArgs',
@@ -266,12 +268,40 @@ __all__ = [
     'KnowledgeBasePineconeConfigurationArgsDict',
     'KnowledgeBasePineconeFieldMappingArgs',
     'KnowledgeBasePineconeFieldMappingArgsDict',
+    'KnowledgeBaseQueryGenerationColumnArgs',
+    'KnowledgeBaseQueryGenerationColumnArgsDict',
+    'KnowledgeBaseQueryGenerationConfigurationArgs',
+    'KnowledgeBaseQueryGenerationConfigurationArgsDict',
+    'KnowledgeBaseQueryGenerationContextArgs',
+    'KnowledgeBaseQueryGenerationContextArgsDict',
+    'KnowledgeBaseQueryGenerationTableArgs',
+    'KnowledgeBaseQueryGenerationTableArgsDict',
     'KnowledgeBaseRdsConfigurationArgs',
     'KnowledgeBaseRdsConfigurationArgsDict',
     'KnowledgeBaseRdsFieldMappingArgs',
     'KnowledgeBaseRdsFieldMappingArgsDict',
+    'KnowledgeBaseRedshiftConfigurationArgs',
+    'KnowledgeBaseRedshiftConfigurationArgsDict',
+    'KnowledgeBaseRedshiftProvisionedAuthConfigurationArgs',
+    'KnowledgeBaseRedshiftProvisionedAuthConfigurationArgsDict',
+    'KnowledgeBaseRedshiftProvisionedConfigurationArgs',
+    'KnowledgeBaseRedshiftProvisionedConfigurationArgsDict',
+    'KnowledgeBaseRedshiftQueryEngineAwsDataCatalogStorageConfigurationArgs',
+    'KnowledgeBaseRedshiftQueryEngineAwsDataCatalogStorageConfigurationArgsDict',
+    'KnowledgeBaseRedshiftQueryEngineConfigurationArgs',
+    'KnowledgeBaseRedshiftQueryEngineConfigurationArgsDict',
+    'KnowledgeBaseRedshiftQueryEngineRedshiftStorageConfigurationArgs',
+    'KnowledgeBaseRedshiftQueryEngineRedshiftStorageConfigurationArgsDict',
+    'KnowledgeBaseRedshiftQueryEngineStorageConfigurationArgs',
+    'KnowledgeBaseRedshiftQueryEngineStorageConfigurationArgsDict',
+    'KnowledgeBaseRedshiftServerlessAuthConfigurationArgs',
+    'KnowledgeBaseRedshiftServerlessAuthConfigurationArgsDict',
+    'KnowledgeBaseRedshiftServerlessConfigurationArgs',
+    'KnowledgeBaseRedshiftServerlessConfigurationArgsDict',
     'KnowledgeBaseS3LocationArgs',
     'KnowledgeBaseS3LocationArgsDict',
+    'KnowledgeBaseSqlKnowledgeBaseConfigurationArgs',
+    'KnowledgeBaseSqlKnowledgeBaseConfigurationArgsDict',
     'KnowledgeBaseStorageConfigurationArgs',
     'KnowledgeBaseStorageConfigurationArgsDict',
     'KnowledgeBaseSupplementalDataStorageConfigurationArgs',
@@ -6679,6 +6709,7 @@ if not MYPY:
         """
         Settings for an Amazon Kendra knowledge base.
         """
+        sql_knowledge_base_configuration: NotRequired[pulumi.Input['KnowledgeBaseSqlKnowledgeBaseConfigurationArgsDict']]
         vector_knowledge_base_configuration: NotRequired[pulumi.Input['KnowledgeBaseVectorKnowledgeBaseConfigurationArgsDict']]
         """
         Contains details about the model that's used to convert the data source into vector embeddings.
@@ -6691,6 +6722,7 @@ class KnowledgeBaseConfigurationArgs:
     def __init__(__self__, *,
                  type: pulumi.Input['KnowledgeBaseType'],
                  kendra_knowledge_base_configuration: Optional[pulumi.Input['KnowledgeBaseKendraKnowledgeBaseConfigurationArgs']] = None,
+                 sql_knowledge_base_configuration: Optional[pulumi.Input['KnowledgeBaseSqlKnowledgeBaseConfigurationArgs']] = None,
                  vector_knowledge_base_configuration: Optional[pulumi.Input['KnowledgeBaseVectorKnowledgeBaseConfigurationArgs']] = None):
         """
         Contains details about the embeddings model used for the knowledge base.
@@ -6701,6 +6733,8 @@ class KnowledgeBaseConfigurationArgs:
         pulumi.set(__self__, "type", type)
         if kendra_knowledge_base_configuration is not None:
             pulumi.set(__self__, "kendra_knowledge_base_configuration", kendra_knowledge_base_configuration)
+        if sql_knowledge_base_configuration is not None:
+            pulumi.set(__self__, "sql_knowledge_base_configuration", sql_knowledge_base_configuration)
         if vector_knowledge_base_configuration is not None:
             pulumi.set(__self__, "vector_knowledge_base_configuration", vector_knowledge_base_configuration)
 
@@ -6729,6 +6763,15 @@ class KnowledgeBaseConfigurationArgs:
         pulumi.set(self, "kendra_knowledge_base_configuration", value)
 
     @property
+    @pulumi.getter(name="sqlKnowledgeBaseConfiguration")
+    def sql_knowledge_base_configuration(self) -> Optional[pulumi.Input['KnowledgeBaseSqlKnowledgeBaseConfigurationArgs']]:
+        return pulumi.get(self, "sql_knowledge_base_configuration")
+
+    @sql_knowledge_base_configuration.setter
+    def sql_knowledge_base_configuration(self, value: Optional[pulumi.Input['KnowledgeBaseSqlKnowledgeBaseConfigurationArgs']]):
+        pulumi.set(self, "sql_knowledge_base_configuration", value)
+
+    @property
     @pulumi.getter(name="vectorKnowledgeBaseConfiguration")
     def vector_knowledge_base_configuration(self) -> Optional[pulumi.Input['KnowledgeBaseVectorKnowledgeBaseConfigurationArgs']]:
         """
@@ -6739,6 +6782,46 @@ class KnowledgeBaseConfigurationArgs:
     @vector_knowledge_base_configuration.setter
     def vector_knowledge_base_configuration(self, value: Optional[pulumi.Input['KnowledgeBaseVectorKnowledgeBaseConfigurationArgs']]):
         pulumi.set(self, "vector_knowledge_base_configuration", value)
+
+
+if not MYPY:
+    class KnowledgeBaseCuratedQueryArgsDict(TypedDict):
+        """
+        Curated query or question and answer pair
+        """
+        natural_language: pulumi.Input[str]
+        sql: pulumi.Input[str]
+elif False:
+    KnowledgeBaseCuratedQueryArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class KnowledgeBaseCuratedQueryArgs:
+    def __init__(__self__, *,
+                 natural_language: pulumi.Input[str],
+                 sql: pulumi.Input[str]):
+        """
+        Curated query or question and answer pair
+        """
+        pulumi.set(__self__, "natural_language", natural_language)
+        pulumi.set(__self__, "sql", sql)
+
+    @property
+    @pulumi.getter(name="naturalLanguage")
+    def natural_language(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "natural_language")
+
+    @natural_language.setter
+    def natural_language(self, value: pulumi.Input[str]):
+        pulumi.set(self, "natural_language", value)
+
+    @property
+    @pulumi.getter
+    def sql(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "sql")
+
+    @sql.setter
+    def sql(self, value: pulumi.Input[str]):
+        pulumi.set(self, "sql", value)
 
 
 if not MYPY:
@@ -7329,6 +7412,212 @@ class KnowledgeBasePineconeFieldMappingArgs:
 
 
 if not MYPY:
+    class KnowledgeBaseQueryGenerationColumnArgsDict(TypedDict):
+        """
+        Redshift query generation column
+        """
+        description: NotRequired[pulumi.Input[str]]
+        inclusion: NotRequired[pulumi.Input['KnowledgeBaseInclusionType']]
+        name: NotRequired[pulumi.Input[str]]
+elif False:
+    KnowledgeBaseQueryGenerationColumnArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class KnowledgeBaseQueryGenerationColumnArgs:
+    def __init__(__self__, *,
+                 description: Optional[pulumi.Input[str]] = None,
+                 inclusion: Optional[pulumi.Input['KnowledgeBaseInclusionType']] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        Redshift query generation column
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if inclusion is not None:
+            pulumi.set(__self__, "inclusion", inclusion)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def inclusion(self) -> Optional[pulumi.Input['KnowledgeBaseInclusionType']]:
+        return pulumi.get(self, "inclusion")
+
+    @inclusion.setter
+    def inclusion(self, value: Optional[pulumi.Input['KnowledgeBaseInclusionType']]):
+        pulumi.set(self, "inclusion", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+
+if not MYPY:
+    class KnowledgeBaseQueryGenerationConfigurationArgsDict(TypedDict):
+        """
+        Configurations for generating Redshift engine queries
+        """
+        execution_timeout_seconds: NotRequired[pulumi.Input[int]]
+        generation_context: NotRequired[pulumi.Input['KnowledgeBaseQueryGenerationContextArgsDict']]
+elif False:
+    KnowledgeBaseQueryGenerationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class KnowledgeBaseQueryGenerationConfigurationArgs:
+    def __init__(__self__, *,
+                 execution_timeout_seconds: Optional[pulumi.Input[int]] = None,
+                 generation_context: Optional[pulumi.Input['KnowledgeBaseQueryGenerationContextArgs']] = None):
+        """
+        Configurations for generating Redshift engine queries
+        """
+        if execution_timeout_seconds is not None:
+            pulumi.set(__self__, "execution_timeout_seconds", execution_timeout_seconds)
+        if generation_context is not None:
+            pulumi.set(__self__, "generation_context", generation_context)
+
+    @property
+    @pulumi.getter(name="executionTimeoutSeconds")
+    def execution_timeout_seconds(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "execution_timeout_seconds")
+
+    @execution_timeout_seconds.setter
+    def execution_timeout_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "execution_timeout_seconds", value)
+
+    @property
+    @pulumi.getter(name="generationContext")
+    def generation_context(self) -> Optional[pulumi.Input['KnowledgeBaseQueryGenerationContextArgs']]:
+        return pulumi.get(self, "generation_context")
+
+    @generation_context.setter
+    def generation_context(self, value: Optional[pulumi.Input['KnowledgeBaseQueryGenerationContextArgs']]):
+        pulumi.set(self, "generation_context", value)
+
+
+if not MYPY:
+    class KnowledgeBaseQueryGenerationContextArgsDict(TypedDict):
+        """
+        Context used to improve query generation
+        """
+        curated_queries: NotRequired[pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseCuratedQueryArgsDict']]]]
+        tables: NotRequired[pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseQueryGenerationTableArgsDict']]]]
+elif False:
+    KnowledgeBaseQueryGenerationContextArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class KnowledgeBaseQueryGenerationContextArgs:
+    def __init__(__self__, *,
+                 curated_queries: Optional[pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseCuratedQueryArgs']]]] = None,
+                 tables: Optional[pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseQueryGenerationTableArgs']]]] = None):
+        """
+        Context used to improve query generation
+        """
+        if curated_queries is not None:
+            pulumi.set(__self__, "curated_queries", curated_queries)
+        if tables is not None:
+            pulumi.set(__self__, "tables", tables)
+
+    @property
+    @pulumi.getter(name="curatedQueries")
+    def curated_queries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseCuratedQueryArgs']]]]:
+        return pulumi.get(self, "curated_queries")
+
+    @curated_queries.setter
+    def curated_queries(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseCuratedQueryArgs']]]]):
+        pulumi.set(self, "curated_queries", value)
+
+    @property
+    @pulumi.getter
+    def tables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseQueryGenerationTableArgs']]]]:
+        return pulumi.get(self, "tables")
+
+    @tables.setter
+    def tables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseQueryGenerationTableArgs']]]]):
+        pulumi.set(self, "tables", value)
+
+
+if not MYPY:
+    class KnowledgeBaseQueryGenerationTableArgsDict(TypedDict):
+        """
+        Tables used for Redshift query generation context
+        """
+        name: pulumi.Input[str]
+        columns: NotRequired[pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseQueryGenerationColumnArgsDict']]]]
+        description: NotRequired[pulumi.Input[str]]
+        inclusion: NotRequired[pulumi.Input['KnowledgeBaseInclusionType']]
+elif False:
+    KnowledgeBaseQueryGenerationTableArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class KnowledgeBaseQueryGenerationTableArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 columns: Optional[pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseQueryGenerationColumnArgs']]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 inclusion: Optional[pulumi.Input['KnowledgeBaseInclusionType']] = None):
+        """
+        Tables used for Redshift query generation context
+        """
+        pulumi.set(__self__, "name", name)
+        if columns is not None:
+            pulumi.set(__self__, "columns", columns)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if inclusion is not None:
+            pulumi.set(__self__, "inclusion", inclusion)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseQueryGenerationColumnArgs']]]]:
+        return pulumi.get(self, "columns")
+
+    @columns.setter
+    def columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseQueryGenerationColumnArgs']]]]):
+        pulumi.set(self, "columns", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def inclusion(self) -> Optional[pulumi.Input['KnowledgeBaseInclusionType']]:
+        return pulumi.get(self, "inclusion")
+
+    @inclusion.setter
+    def inclusion(self, value: Optional[pulumi.Input['KnowledgeBaseInclusionType']]):
+        pulumi.set(self, "inclusion", value)
+
+
+if not MYPY:
     class KnowledgeBaseRdsConfigurationArgsDict(TypedDict):
         """
         Contains details about the storage configuration of the knowledge base in Amazon RDS. For more information, see Create a vector index in Amazon RDS.
@@ -7532,6 +7821,405 @@ class KnowledgeBaseRdsFieldMappingArgs:
 
 
 if not MYPY:
+    class KnowledgeBaseRedshiftConfigurationArgsDict(TypedDict):
+        """
+        Configurations for a Redshift knowledge base
+        """
+        query_engine_configuration: pulumi.Input['KnowledgeBaseRedshiftQueryEngineConfigurationArgsDict']
+        storage_configurations: pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseRedshiftQueryEngineStorageConfigurationArgsDict']]]
+        query_generation_configuration: NotRequired[pulumi.Input['KnowledgeBaseQueryGenerationConfigurationArgsDict']]
+elif False:
+    KnowledgeBaseRedshiftConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class KnowledgeBaseRedshiftConfigurationArgs:
+    def __init__(__self__, *,
+                 query_engine_configuration: pulumi.Input['KnowledgeBaseRedshiftQueryEngineConfigurationArgs'],
+                 storage_configurations: pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseRedshiftQueryEngineStorageConfigurationArgs']]],
+                 query_generation_configuration: Optional[pulumi.Input['KnowledgeBaseQueryGenerationConfigurationArgs']] = None):
+        """
+        Configurations for a Redshift knowledge base
+        """
+        pulumi.set(__self__, "query_engine_configuration", query_engine_configuration)
+        pulumi.set(__self__, "storage_configurations", storage_configurations)
+        if query_generation_configuration is not None:
+            pulumi.set(__self__, "query_generation_configuration", query_generation_configuration)
+
+    @property
+    @pulumi.getter(name="queryEngineConfiguration")
+    def query_engine_configuration(self) -> pulumi.Input['KnowledgeBaseRedshiftQueryEngineConfigurationArgs']:
+        return pulumi.get(self, "query_engine_configuration")
+
+    @query_engine_configuration.setter
+    def query_engine_configuration(self, value: pulumi.Input['KnowledgeBaseRedshiftQueryEngineConfigurationArgs']):
+        pulumi.set(self, "query_engine_configuration", value)
+
+    @property
+    @pulumi.getter(name="storageConfigurations")
+    def storage_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseRedshiftQueryEngineStorageConfigurationArgs']]]:
+        return pulumi.get(self, "storage_configurations")
+
+    @storage_configurations.setter
+    def storage_configurations(self, value: pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseRedshiftQueryEngineStorageConfigurationArgs']]]):
+        pulumi.set(self, "storage_configurations", value)
+
+    @property
+    @pulumi.getter(name="queryGenerationConfiguration")
+    def query_generation_configuration(self) -> Optional[pulumi.Input['KnowledgeBaseQueryGenerationConfigurationArgs']]:
+        return pulumi.get(self, "query_generation_configuration")
+
+    @query_generation_configuration.setter
+    def query_generation_configuration(self, value: Optional[pulumi.Input['KnowledgeBaseQueryGenerationConfigurationArgs']]):
+        pulumi.set(self, "query_generation_configuration", value)
+
+
+if not MYPY:
+    class KnowledgeBaseRedshiftProvisionedAuthConfigurationArgsDict(TypedDict):
+        """
+        Configurations for Redshift query engine provisioned auth setup
+        """
+        type: pulumi.Input['KnowledgeBaseRedshiftProvisionedAuthType']
+        database_user: NotRequired[pulumi.Input[str]]
+        """
+        Redshift database user
+        """
+        username_password_secret_arn: NotRequired[pulumi.Input[str]]
+elif False:
+    KnowledgeBaseRedshiftProvisionedAuthConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class KnowledgeBaseRedshiftProvisionedAuthConfigurationArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input['KnowledgeBaseRedshiftProvisionedAuthType'],
+                 database_user: Optional[pulumi.Input[str]] = None,
+                 username_password_secret_arn: Optional[pulumi.Input[str]] = None):
+        """
+        Configurations for Redshift query engine provisioned auth setup
+        :param pulumi.Input[str] database_user: Redshift database user
+        """
+        pulumi.set(__self__, "type", type)
+        if database_user is not None:
+            pulumi.set(__self__, "database_user", database_user)
+        if username_password_secret_arn is not None:
+            pulumi.set(__self__, "username_password_secret_arn", username_password_secret_arn)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['KnowledgeBaseRedshiftProvisionedAuthType']:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['KnowledgeBaseRedshiftProvisionedAuthType']):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="databaseUser")
+    def database_user(self) -> Optional[pulumi.Input[str]]:
+        """
+        Redshift database user
+        """
+        return pulumi.get(self, "database_user")
+
+    @database_user.setter
+    def database_user(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "database_user", value)
+
+    @property
+    @pulumi.getter(name="usernamePasswordSecretArn")
+    def username_password_secret_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "username_password_secret_arn")
+
+    @username_password_secret_arn.setter
+    def username_password_secret_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "username_password_secret_arn", value)
+
+
+if not MYPY:
+    class KnowledgeBaseRedshiftProvisionedConfigurationArgsDict(TypedDict):
+        """
+        Configurations for provisioned Redshift query engine
+        """
+        auth_configuration: pulumi.Input['KnowledgeBaseRedshiftProvisionedAuthConfigurationArgsDict']
+        cluster_identifier: pulumi.Input[str]
+elif False:
+    KnowledgeBaseRedshiftProvisionedConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class KnowledgeBaseRedshiftProvisionedConfigurationArgs:
+    def __init__(__self__, *,
+                 auth_configuration: pulumi.Input['KnowledgeBaseRedshiftProvisionedAuthConfigurationArgs'],
+                 cluster_identifier: pulumi.Input[str]):
+        """
+        Configurations for provisioned Redshift query engine
+        """
+        pulumi.set(__self__, "auth_configuration", auth_configuration)
+        pulumi.set(__self__, "cluster_identifier", cluster_identifier)
+
+    @property
+    @pulumi.getter(name="authConfiguration")
+    def auth_configuration(self) -> pulumi.Input['KnowledgeBaseRedshiftProvisionedAuthConfigurationArgs']:
+        return pulumi.get(self, "auth_configuration")
+
+    @auth_configuration.setter
+    def auth_configuration(self, value: pulumi.Input['KnowledgeBaseRedshiftProvisionedAuthConfigurationArgs']):
+        pulumi.set(self, "auth_configuration", value)
+
+    @property
+    @pulumi.getter(name="clusterIdentifier")
+    def cluster_identifier(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "cluster_identifier")
+
+    @cluster_identifier.setter
+    def cluster_identifier(self, value: pulumi.Input[str]):
+        pulumi.set(self, "cluster_identifier", value)
+
+
+if not MYPY:
+    class KnowledgeBaseRedshiftQueryEngineAwsDataCatalogStorageConfigurationArgsDict(TypedDict):
+        """
+        Configurations for Redshift query engine AWS Data Catalog backed storage
+        """
+        table_names: pulumi.Input[Sequence[pulumi.Input[str]]]
+elif False:
+    KnowledgeBaseRedshiftQueryEngineAwsDataCatalogStorageConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class KnowledgeBaseRedshiftQueryEngineAwsDataCatalogStorageConfigurationArgs:
+    def __init__(__self__, *,
+                 table_names: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        """
+        Configurations for Redshift query engine AWS Data Catalog backed storage
+        """
+        pulumi.set(__self__, "table_names", table_names)
+
+    @property
+    @pulumi.getter(name="tableNames")
+    def table_names(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        return pulumi.get(self, "table_names")
+
+    @table_names.setter
+    def table_names(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "table_names", value)
+
+
+if not MYPY:
+    class KnowledgeBaseRedshiftQueryEngineConfigurationArgsDict(TypedDict):
+        """
+        Configurations for Redshift query engine
+        """
+        type: pulumi.Input['KnowledgeBaseRedshiftQueryEngineType']
+        provisioned_configuration: NotRequired[pulumi.Input['KnowledgeBaseRedshiftProvisionedConfigurationArgsDict']]
+        serverless_configuration: NotRequired[pulumi.Input['KnowledgeBaseRedshiftServerlessConfigurationArgsDict']]
+elif False:
+    KnowledgeBaseRedshiftQueryEngineConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class KnowledgeBaseRedshiftQueryEngineConfigurationArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input['KnowledgeBaseRedshiftQueryEngineType'],
+                 provisioned_configuration: Optional[pulumi.Input['KnowledgeBaseRedshiftProvisionedConfigurationArgs']] = None,
+                 serverless_configuration: Optional[pulumi.Input['KnowledgeBaseRedshiftServerlessConfigurationArgs']] = None):
+        """
+        Configurations for Redshift query engine
+        """
+        pulumi.set(__self__, "type", type)
+        if provisioned_configuration is not None:
+            pulumi.set(__self__, "provisioned_configuration", provisioned_configuration)
+        if serverless_configuration is not None:
+            pulumi.set(__self__, "serverless_configuration", serverless_configuration)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['KnowledgeBaseRedshiftQueryEngineType']:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['KnowledgeBaseRedshiftQueryEngineType']):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="provisionedConfiguration")
+    def provisioned_configuration(self) -> Optional[pulumi.Input['KnowledgeBaseRedshiftProvisionedConfigurationArgs']]:
+        return pulumi.get(self, "provisioned_configuration")
+
+    @provisioned_configuration.setter
+    def provisioned_configuration(self, value: Optional[pulumi.Input['KnowledgeBaseRedshiftProvisionedConfigurationArgs']]):
+        pulumi.set(self, "provisioned_configuration", value)
+
+    @property
+    @pulumi.getter(name="serverlessConfiguration")
+    def serverless_configuration(self) -> Optional[pulumi.Input['KnowledgeBaseRedshiftServerlessConfigurationArgs']]:
+        return pulumi.get(self, "serverless_configuration")
+
+    @serverless_configuration.setter
+    def serverless_configuration(self, value: Optional[pulumi.Input['KnowledgeBaseRedshiftServerlessConfigurationArgs']]):
+        pulumi.set(self, "serverless_configuration", value)
+
+
+if not MYPY:
+    class KnowledgeBaseRedshiftQueryEngineRedshiftStorageConfigurationArgsDict(TypedDict):
+        """
+        Configurations for Redshift query engine Redshift backed storage
+        """
+        database_name: pulumi.Input[str]
+elif False:
+    KnowledgeBaseRedshiftQueryEngineRedshiftStorageConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class KnowledgeBaseRedshiftQueryEngineRedshiftStorageConfigurationArgs:
+    def __init__(__self__, *,
+                 database_name: pulumi.Input[str]):
+        """
+        Configurations for Redshift query engine Redshift backed storage
+        """
+        pulumi.set(__self__, "database_name", database_name)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "database_name", value)
+
+
+if not MYPY:
+    class KnowledgeBaseRedshiftQueryEngineStorageConfigurationArgsDict(TypedDict):
+        """
+        Configurations for available Redshift query engine storage types
+        """
+        type: pulumi.Input['KnowledgeBaseRedshiftQueryEngineStorageType']
+        aws_data_catalog_configuration: NotRequired[pulumi.Input['KnowledgeBaseRedshiftQueryEngineAwsDataCatalogStorageConfigurationArgsDict']]
+        redshift_configuration: NotRequired[pulumi.Input['KnowledgeBaseRedshiftQueryEngineRedshiftStorageConfigurationArgsDict']]
+elif False:
+    KnowledgeBaseRedshiftQueryEngineStorageConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class KnowledgeBaseRedshiftQueryEngineStorageConfigurationArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input['KnowledgeBaseRedshiftQueryEngineStorageType'],
+                 aws_data_catalog_configuration: Optional[pulumi.Input['KnowledgeBaseRedshiftQueryEngineAwsDataCatalogStorageConfigurationArgs']] = None,
+                 redshift_configuration: Optional[pulumi.Input['KnowledgeBaseRedshiftQueryEngineRedshiftStorageConfigurationArgs']] = None):
+        """
+        Configurations for available Redshift query engine storage types
+        """
+        pulumi.set(__self__, "type", type)
+        if aws_data_catalog_configuration is not None:
+            pulumi.set(__self__, "aws_data_catalog_configuration", aws_data_catalog_configuration)
+        if redshift_configuration is not None:
+            pulumi.set(__self__, "redshift_configuration", redshift_configuration)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['KnowledgeBaseRedshiftQueryEngineStorageType']:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['KnowledgeBaseRedshiftQueryEngineStorageType']):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="awsDataCatalogConfiguration")
+    def aws_data_catalog_configuration(self) -> Optional[pulumi.Input['KnowledgeBaseRedshiftQueryEngineAwsDataCatalogStorageConfigurationArgs']]:
+        return pulumi.get(self, "aws_data_catalog_configuration")
+
+    @aws_data_catalog_configuration.setter
+    def aws_data_catalog_configuration(self, value: Optional[pulumi.Input['KnowledgeBaseRedshiftQueryEngineAwsDataCatalogStorageConfigurationArgs']]):
+        pulumi.set(self, "aws_data_catalog_configuration", value)
+
+    @property
+    @pulumi.getter(name="redshiftConfiguration")
+    def redshift_configuration(self) -> Optional[pulumi.Input['KnowledgeBaseRedshiftQueryEngineRedshiftStorageConfigurationArgs']]:
+        return pulumi.get(self, "redshift_configuration")
+
+    @redshift_configuration.setter
+    def redshift_configuration(self, value: Optional[pulumi.Input['KnowledgeBaseRedshiftQueryEngineRedshiftStorageConfigurationArgs']]):
+        pulumi.set(self, "redshift_configuration", value)
+
+
+if not MYPY:
+    class KnowledgeBaseRedshiftServerlessAuthConfigurationArgsDict(TypedDict):
+        """
+        Configurations for Redshift query engine serverless auth setup
+        """
+        type: pulumi.Input['KnowledgeBaseRedshiftServerlessAuthType']
+        username_password_secret_arn: NotRequired[pulumi.Input[str]]
+elif False:
+    KnowledgeBaseRedshiftServerlessAuthConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class KnowledgeBaseRedshiftServerlessAuthConfigurationArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input['KnowledgeBaseRedshiftServerlessAuthType'],
+                 username_password_secret_arn: Optional[pulumi.Input[str]] = None):
+        """
+        Configurations for Redshift query engine serverless auth setup
+        """
+        pulumi.set(__self__, "type", type)
+        if username_password_secret_arn is not None:
+            pulumi.set(__self__, "username_password_secret_arn", username_password_secret_arn)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['KnowledgeBaseRedshiftServerlessAuthType']:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['KnowledgeBaseRedshiftServerlessAuthType']):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="usernamePasswordSecretArn")
+    def username_password_secret_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "username_password_secret_arn")
+
+    @username_password_secret_arn.setter
+    def username_password_secret_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "username_password_secret_arn", value)
+
+
+if not MYPY:
+    class KnowledgeBaseRedshiftServerlessConfigurationArgsDict(TypedDict):
+        """
+        Configurations for serverless Redshift query engine
+        """
+        auth_configuration: pulumi.Input['KnowledgeBaseRedshiftServerlessAuthConfigurationArgsDict']
+        workgroup_arn: pulumi.Input[str]
+elif False:
+    KnowledgeBaseRedshiftServerlessConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class KnowledgeBaseRedshiftServerlessConfigurationArgs:
+    def __init__(__self__, *,
+                 auth_configuration: pulumi.Input['KnowledgeBaseRedshiftServerlessAuthConfigurationArgs'],
+                 workgroup_arn: pulumi.Input[str]):
+        """
+        Configurations for serverless Redshift query engine
+        """
+        pulumi.set(__self__, "auth_configuration", auth_configuration)
+        pulumi.set(__self__, "workgroup_arn", workgroup_arn)
+
+    @property
+    @pulumi.getter(name="authConfiguration")
+    def auth_configuration(self) -> pulumi.Input['KnowledgeBaseRedshiftServerlessAuthConfigurationArgs']:
+        return pulumi.get(self, "auth_configuration")
+
+    @auth_configuration.setter
+    def auth_configuration(self, value: pulumi.Input['KnowledgeBaseRedshiftServerlessAuthConfigurationArgs']):
+        pulumi.set(self, "auth_configuration", value)
+
+    @property
+    @pulumi.getter(name="workgroupArn")
+    def workgroup_arn(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "workgroup_arn")
+
+    @workgroup_arn.setter
+    def workgroup_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "workgroup_arn", value)
+
+
+if not MYPY:
     class KnowledgeBaseS3LocationArgsDict(TypedDict):
         """
         An Amazon S3 location.
@@ -7564,6 +8252,47 @@ class KnowledgeBaseS3LocationArgs:
     @uri.setter
     def uri(self, value: pulumi.Input[str]):
         pulumi.set(self, "uri", value)
+
+
+if not MYPY:
+    class KnowledgeBaseSqlKnowledgeBaseConfigurationArgsDict(TypedDict):
+        """
+        Configurations for a SQL knowledge base
+        """
+        type: pulumi.Input['KnowledgeBaseQueryEngineType']
+        redshift_configuration: NotRequired[pulumi.Input['KnowledgeBaseRedshiftConfigurationArgsDict']]
+elif False:
+    KnowledgeBaseSqlKnowledgeBaseConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class KnowledgeBaseSqlKnowledgeBaseConfigurationArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input['KnowledgeBaseQueryEngineType'],
+                 redshift_configuration: Optional[pulumi.Input['KnowledgeBaseRedshiftConfigurationArgs']] = None):
+        """
+        Configurations for a SQL knowledge base
+        """
+        pulumi.set(__self__, "type", type)
+        if redshift_configuration is not None:
+            pulumi.set(__self__, "redshift_configuration", redshift_configuration)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['KnowledgeBaseQueryEngineType']:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['KnowledgeBaseQueryEngineType']):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="redshiftConfiguration")
+    def redshift_configuration(self) -> Optional[pulumi.Input['KnowledgeBaseRedshiftConfigurationArgs']]:
+        return pulumi.get(self, "redshift_configuration")
+
+    @redshift_configuration.setter
+    def redshift_configuration(self, value: Optional[pulumi.Input['KnowledgeBaseRedshiftConfigurationArgs']]):
+        pulumi.set(self, "redshift_configuration", value)
 
 
 if not MYPY:

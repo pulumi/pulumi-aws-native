@@ -19,6 +19,12 @@ namespace Pulumi.AwsNative.DataZone.Inputs
         public Input<bool>? AutoImportDataQualityResult { get; set; }
 
         /// <summary>
+        /// The catalog name in the AWS Glue run configuration.
+        /// </summary>
+        [Input("catalogName")]
+        public Input<string>? CatalogName { get; set; }
+
+        /// <summary>
         /// The data access role included in the configuration details of the AWS Glue data source.
         /// </summary>
         [Input("dataAccessRole")]

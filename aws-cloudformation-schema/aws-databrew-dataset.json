@@ -396,7 +396,7 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "databrew:CreateDataset", "databrew:TagResource", "databrew:UntagResource", "glue:GetConnection", "glue:GetTable", "iam:PassRole" ]
+      "permissions" : [ "databrew:CreateDataset", "databrew:DescribeDataset", "databrew:TagResource", "databrew:UntagResource", "glue:GetConnection", "glue:GetTable", "iam:PassRole" ]
     },
     "read" : {
       "permissions" : [ "databrew:DescribeDataset", "databrew:ListTagsForResource", "iam:ListRoles" ]

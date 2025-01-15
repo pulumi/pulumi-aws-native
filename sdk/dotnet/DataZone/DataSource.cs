@@ -34,6 +34,18 @@ namespace Pulumi.AwsNative.DataZone
         public Output<object?> Configuration { get; private set; } = null!;
 
         /// <summary>
+        /// The unique identifier of a connection used to fetch relevant parameters from connection during Datasource run
+        /// </summary>
+        [Output("connectionId")]
+        public Output<string> ConnectionId { get; private set; } = null!;
+
+        /// <summary>
+        /// The unique identifier of a connection used to fetch relevant parameters from connection during Datasource run
+        /// </summary>
+        [Output("connectionIdentifier")]
+        public Output<string?> ConnectionIdentifier { get; private set; } = null!;
+
+        /// <summary>
         /// The timestamp of when the data source was created.
         /// </summary>
         [Output("createdAt")]
@@ -73,7 +85,7 @@ namespace Pulumi.AwsNative.DataZone
         /// The unique identifier of the Amazon DataZone environment to which the data source publishes assets.
         /// </summary>
         [Output("environmentIdentifier")]
-        public Output<string> EnvironmentIdentifier { get; private set; } = null!;
+        public Output<string?> EnvironmentIdentifier { get; private set; } = null!;
 
         /// <summary>
         /// The number of assets created by the data source during its last run.
@@ -172,6 +184,7 @@ namespace Pulumi.AwsNative.DataZone
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
+                    "connectionIdentifier",
                     "domainIdentifier",
                     "environmentIdentifier",
                     "projectIdentifier",
@@ -218,6 +231,12 @@ namespace Pulumi.AwsNative.DataZone
         public object? Configuration { get; set; }
 
         /// <summary>
+        /// The unique identifier of a connection used to fetch relevant parameters from connection during Datasource run
+        /// </summary>
+        [Input("connectionIdentifier")]
+        public Input<string>? ConnectionIdentifier { get; set; }
+
+        /// <summary>
         /// The description of the data source.
         /// </summary>
         [Input("description")]
@@ -238,8 +257,8 @@ namespace Pulumi.AwsNative.DataZone
         /// <summary>
         /// The unique identifier of the Amazon DataZone environment to which the data source publishes assets.
         /// </summary>
-        [Input("environmentIdentifier", required: true)]
-        public Input<string> EnvironmentIdentifier { get; set; } = null!;
+        [Input("environmentIdentifier")]
+        public Input<string>? EnvironmentIdentifier { get; set; }
 
         /// <summary>
         /// The name of the data source.

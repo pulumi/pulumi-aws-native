@@ -193,11 +193,7 @@ export class DbInstance extends pulumi.CustomResource {
      */
     public readonly customIamInstanceProfile!: pulumi.Output<string | undefined>;
     /**
-     * The mode of Database Insights to enable for the DB instance.
-     *
-     * This setting only applies to Amazon Aurora DB instances.
-     *
-     * > Currently, this value is inherited from the DB cluster and can't be changed.
+     * The mode of Database Insights that is enabled for the instance.
      */
     public /*out*/ readonly databaseInsightsMode!: pulumi.Output<string>;
     /**

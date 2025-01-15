@@ -50,6 +50,14 @@ export class DataSource extends pulumi.CustomResource {
      */
     public readonly configuration!: pulumi.Output<outputs.datazone.DataSourceConfigurationInput0Properties | outputs.datazone.DataSourceConfigurationInput1Properties | outputs.datazone.DataSourceConfigurationInput2Properties | undefined>;
     /**
+     * The unique identifier of a connection used to fetch relevant parameters from connection during Datasource run
+     */
+    public /*out*/ readonly connectionId!: pulumi.Output<string>;
+    /**
+     * The unique identifier of a connection used to fetch relevant parameters from connection during Datasource run
+     */
+    public readonly connectionIdentifier!: pulumi.Output<string | undefined>;
+    /**
      * The timestamp of when the data source was created.
      */
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
@@ -76,7 +84,7 @@ export class DataSource extends pulumi.CustomResource {
     /**
      * The unique identifier of the Amazon DataZone environment to which the data source publishes assets.
      */
-    public readonly environmentIdentifier!: pulumi.Output<string>;
+    public readonly environmentIdentifier!: pulumi.Output<string | undefined>;
     /**
      * The number of assets created by the data source during its last run.
      */
@@ -140,9 +148,6 @@ export class DataSource extends pulumi.CustomResource {
             if ((!args || args.domainIdentifier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'domainIdentifier'");
             }
-            if ((!args || args.environmentIdentifier === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'environmentIdentifier'");
-            }
             if ((!args || args.projectIdentifier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'projectIdentifier'");
             }
@@ -151,6 +156,7 @@ export class DataSource extends pulumi.CustomResource {
             }
             resourceInputs["assetFormsInput"] = args ? args.assetFormsInput : undefined;
             resourceInputs["configuration"] = args ? args.configuration : undefined;
+            resourceInputs["connectionIdentifier"] = args ? args.connectionIdentifier : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["domainIdentifier"] = args ? args.domainIdentifier : undefined;
             resourceInputs["enableSetting"] = args ? args.enableSetting : undefined;
@@ -162,6 +168,7 @@ export class DataSource extends pulumi.CustomResource {
             resourceInputs["schedule"] = args ? args.schedule : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["awsId"] = undefined /*out*/;
+            resourceInputs["connectionId"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["domainId"] = undefined /*out*/;
             resourceInputs["environmentId"] = undefined /*out*/;
@@ -175,6 +182,8 @@ export class DataSource extends pulumi.CustomResource {
             resourceInputs["assetFormsInput"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["configuration"] = undefined /*out*/;
+            resourceInputs["connectionId"] = undefined /*out*/;
+            resourceInputs["connectionIdentifier"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["domainId"] = undefined /*out*/;
@@ -196,7 +205,7 @@ export class DataSource extends pulumi.CustomResource {
             resourceInputs["updatedAt"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["domainIdentifier", "environmentIdentifier", "projectIdentifier", "type"] };
+        const replaceOnChanges = { replaceOnChanges: ["connectionIdentifier", "domainIdentifier", "environmentIdentifier", "projectIdentifier", "type"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(DataSource.__pulumiType, name, resourceInputs, opts);
     }
@@ -215,6 +224,10 @@ export interface DataSourceArgs {
      */
     configuration?: pulumi.Input<inputs.datazone.DataSourceConfigurationInput0PropertiesArgs | inputs.datazone.DataSourceConfigurationInput1PropertiesArgs | inputs.datazone.DataSourceConfigurationInput2PropertiesArgs>;
     /**
+     * The unique identifier of a connection used to fetch relevant parameters from connection during Datasource run
+     */
+    connectionIdentifier?: pulumi.Input<string>;
+    /**
      * The description of the data source.
      */
     description?: pulumi.Input<string>;
@@ -229,7 +242,7 @@ export interface DataSourceArgs {
     /**
      * The unique identifier of the Amazon DataZone environment to which the data source publishes assets.
      */
-    environmentIdentifier: pulumi.Input<string>;
+    environmentIdentifier?: pulumi.Input<string>;
     /**
      * The name of the data source.
      */

@@ -166,6 +166,7 @@ export class Topic extends pulumi.CustomResource {
      * The display name to use for an SNS topic with SMS subscriptions. The display name must be maximum 100 characters long, including hyphens (-), underscores (_), spaces, and tabs.
      */
     public readonly displayName!: pulumi.Output<string | undefined>;
+    public readonly fifoThroughputScope!: pulumi.Output<string | undefined>;
     /**
      * Set to true to create a FIFO topic.
      */
@@ -220,6 +221,7 @@ export class Topic extends pulumi.CustomResource {
             resourceInputs["dataProtectionPolicy"] = args ? args.dataProtectionPolicy : undefined;
             resourceInputs["deliveryStatusLogging"] = args ? args.deliveryStatusLogging : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["fifoThroughputScope"] = args ? args.fifoThroughputScope : undefined;
             resourceInputs["fifoTopic"] = args ? args.fifoTopic : undefined;
             resourceInputs["kmsMasterKeyId"] = args ? args.kmsMasterKeyId : undefined;
             resourceInputs["signatureVersion"] = args ? args.signatureVersion : undefined;
@@ -234,6 +236,7 @@ export class Topic extends pulumi.CustomResource {
             resourceInputs["dataProtectionPolicy"] = undefined /*out*/;
             resourceInputs["deliveryStatusLogging"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
+            resourceInputs["fifoThroughputScope"] = undefined /*out*/;
             resourceInputs["fifoTopic"] = undefined /*out*/;
             resourceInputs["kmsMasterKeyId"] = undefined /*out*/;
             resourceInputs["signatureVersion"] = undefined /*out*/;
@@ -291,6 +294,7 @@ export interface TopicArgs {
      * The display name to use for an SNS topic with SMS subscriptions. The display name must be maximum 100 characters long, including hyphens (-), underscores (_), spaces, and tabs.
      */
     displayName?: pulumi.Input<string>;
+    fifoThroughputScope?: pulumi.Input<string>;
     /**
      * Set to true to create a FIFO topic.
      */

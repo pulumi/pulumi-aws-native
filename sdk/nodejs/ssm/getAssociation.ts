@@ -38,7 +38,7 @@ export interface GetAssociationResult {
      */
     readonly associationName?: string;
     /**
-     * Choose the parameter that will define how your automation will branch out. This target is required for associations that use an Automation runbook and target resources by using rate controls. Automation is a capability of AWS Systems Manager .
+     * Choose the parameter that will define how your automation will branch out. This target is required for associations that use an Automation runbook and target resources by using rate controls. Automation is a tool in AWS Systems Manager .
      */
     readonly automationTargetParameterName?: string;
     /**

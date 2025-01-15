@@ -133,7 +133,7 @@ export class KnowledgeBase extends pulumi.CustomResource {
             resourceInputs["updatedAt"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["knowledgeBaseConfiguration", "storageConfiguration"] };
+        const replaceOnChanges = { replaceOnChanges: ["knowledgeBaseConfiguration.kendraKnowledgeBaseConfiguration", "knowledgeBaseConfiguration.sqlKnowledgeBaseConfiguration.redshiftConfiguration.queryEngineConfiguration", "knowledgeBaseConfiguration.sqlKnowledgeBaseConfiguration.redshiftConfiguration.storageConfigurations[*]", "knowledgeBaseConfiguration.sqlKnowledgeBaseConfiguration.type", "knowledgeBaseConfiguration.type", "knowledgeBaseConfiguration.vectorKnowledgeBaseConfiguration", "storageConfiguration"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(KnowledgeBase.__pulumiType, name, resourceInputs, opts);
     }

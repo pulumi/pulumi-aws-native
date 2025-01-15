@@ -29,6 +29,7 @@ class TopicArgs:
                  data_protection_policy: Optional[Any] = None,
                  delivery_status_logging: Optional[pulumi.Input[Sequence[pulumi.Input['TopicLoggingConfigArgs']]]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
+                 fifo_throughput_scope: Optional[pulumi.Input[str]] = None,
                  fifo_topic: Optional[pulumi.Input[bool]] = None,
                  kms_master_key_id: Optional[pulumi.Input[str]] = None,
                  signature_version: Optional[pulumi.Input[str]] = None,
@@ -83,6 +84,8 @@ class TopicArgs:
             pulumi.set(__self__, "delivery_status_logging", delivery_status_logging)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
+        if fifo_throughput_scope is not None:
+            pulumi.set(__self__, "fifo_throughput_scope", fifo_throughput_scope)
         if fifo_topic is not None:
             pulumi.set(__self__, "fifo_topic", fifo_topic)
         if kms_master_key_id is not None:
@@ -174,6 +177,15 @@ class TopicArgs:
     @display_name.setter
     def display_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "display_name", value)
+
+    @property
+    @pulumi.getter(name="fifoThroughputScope")
+    def fifo_throughput_scope(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "fifo_throughput_scope")
+
+    @fifo_throughput_scope.setter
+    def fifo_throughput_scope(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "fifo_throughput_scope", value)
 
     @property
     @pulumi.getter(name="fifoTopic")
@@ -275,6 +287,7 @@ class Topic(pulumi.CustomResource):
                  data_protection_policy: Optional[Any] = None,
                  delivery_status_logging: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicLoggingConfigArgs', 'TopicLoggingConfigArgsDict']]]]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
+                 fifo_throughput_scope: Optional[pulumi.Input[str]] = None,
                  fifo_topic: Optional[pulumi.Input[bool]] = None,
                  kms_master_key_id: Optional[pulumi.Input[str]] = None,
                  signature_version: Optional[pulumi.Input[str]] = None,
@@ -524,6 +537,7 @@ class Topic(pulumi.CustomResource):
                  data_protection_policy: Optional[Any] = None,
                  delivery_status_logging: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicLoggingConfigArgs', 'TopicLoggingConfigArgsDict']]]]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
+                 fifo_throughput_scope: Optional[pulumi.Input[str]] = None,
                  fifo_topic: Optional[pulumi.Input[bool]] = None,
                  kms_master_key_id: Optional[pulumi.Input[str]] = None,
                  signature_version: Optional[pulumi.Input[str]] = None,
@@ -545,6 +559,7 @@ class Topic(pulumi.CustomResource):
             __props__.__dict__["data_protection_policy"] = data_protection_policy
             __props__.__dict__["delivery_status_logging"] = delivery_status_logging
             __props__.__dict__["display_name"] = display_name
+            __props__.__dict__["fifo_throughput_scope"] = fifo_throughput_scope
             __props__.__dict__["fifo_topic"] = fifo_topic
             __props__.__dict__["kms_master_key_id"] = kms_master_key_id
             __props__.__dict__["signature_version"] = signature_version
@@ -582,6 +597,7 @@ class Topic(pulumi.CustomResource):
         __props__.__dict__["data_protection_policy"] = None
         __props__.__dict__["delivery_status_logging"] = None
         __props__.__dict__["display_name"] = None
+        __props__.__dict__["fifo_throughput_scope"] = None
         __props__.__dict__["fifo_topic"] = None
         __props__.__dict__["kms_master_key_id"] = None
         __props__.__dict__["signature_version"] = None
@@ -648,6 +664,11 @@ class Topic(pulumi.CustomResource):
         The display name to use for an SNS topic with SMS subscriptions. The display name must be maximum 100 characters long, including hyphens (-), underscores (_), spaces, and tabs.
         """
         return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter(name="fifoThroughputScope")
+    def fifo_throughput_scope(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "fifo_throughput_scope")
 
     @property
     @pulumi.getter(name="fifoTopic")

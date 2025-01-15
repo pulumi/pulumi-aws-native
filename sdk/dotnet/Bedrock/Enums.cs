@@ -809,6 +809,7 @@ namespace Pulumi.AwsNative.Bedrock
         public static DataSourceType Sharepoint { get; } = new DataSourceType("SHAREPOINT");
         public static DataSourceType Web { get; } = new DataSourceType("WEB");
         public static DataSourceType Custom { get; } = new DataSourceType("CUSTOM");
+        public static DataSourceType RedshiftMetadata { get; } = new DataSourceType("REDSHIFT_METADATA");
 
         public static bool operator ==(DataSourceType left, DataSourceType right) => left.Equals(right);
         public static bool operator !=(DataSourceType left, DataSourceType right) => !left.Equals(right);
@@ -1480,6 +1481,192 @@ namespace Pulumi.AwsNative.Bedrock
     }
 
     /// <summary>
+    /// Include or Exclude status for an entity
+    /// </summary>
+    [EnumType]
+    public readonly struct KnowledgeBaseInclusionType : IEquatable<KnowledgeBaseInclusionType>
+    {
+        private readonly string _value;
+
+        private KnowledgeBaseInclusionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static KnowledgeBaseInclusionType Include { get; } = new KnowledgeBaseInclusionType("INCLUDE");
+        public static KnowledgeBaseInclusionType Exclude { get; } = new KnowledgeBaseInclusionType("EXCLUDE");
+
+        public static bool operator ==(KnowledgeBaseInclusionType left, KnowledgeBaseInclusionType right) => left.Equals(right);
+        public static bool operator !=(KnowledgeBaseInclusionType left, KnowledgeBaseInclusionType right) => !left.Equals(right);
+
+        public static explicit operator string(KnowledgeBaseInclusionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is KnowledgeBaseInclusionType other && Equals(other);
+        public bool Equals(KnowledgeBaseInclusionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// SQL query engine type
+    /// </summary>
+    [EnumType]
+    public readonly struct KnowledgeBaseQueryEngineType : IEquatable<KnowledgeBaseQueryEngineType>
+    {
+        private readonly string _value;
+
+        private KnowledgeBaseQueryEngineType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static KnowledgeBaseQueryEngineType Redshift { get; } = new KnowledgeBaseQueryEngineType("REDSHIFT");
+
+        public static bool operator ==(KnowledgeBaseQueryEngineType left, KnowledgeBaseQueryEngineType right) => left.Equals(right);
+        public static bool operator !=(KnowledgeBaseQueryEngineType left, KnowledgeBaseQueryEngineType right) => !left.Equals(right);
+
+        public static explicit operator string(KnowledgeBaseQueryEngineType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is KnowledgeBaseQueryEngineType other && Equals(other);
+        public bool Equals(KnowledgeBaseQueryEngineType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Provisioned Redshift auth type
+    /// </summary>
+    [EnumType]
+    public readonly struct KnowledgeBaseRedshiftProvisionedAuthType : IEquatable<KnowledgeBaseRedshiftProvisionedAuthType>
+    {
+        private readonly string _value;
+
+        private KnowledgeBaseRedshiftProvisionedAuthType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static KnowledgeBaseRedshiftProvisionedAuthType Iam { get; } = new KnowledgeBaseRedshiftProvisionedAuthType("IAM");
+        public static KnowledgeBaseRedshiftProvisionedAuthType UsernamePassword { get; } = new KnowledgeBaseRedshiftProvisionedAuthType("USERNAME_PASSWORD");
+        public static KnowledgeBaseRedshiftProvisionedAuthType Username { get; } = new KnowledgeBaseRedshiftProvisionedAuthType("USERNAME");
+
+        public static bool operator ==(KnowledgeBaseRedshiftProvisionedAuthType left, KnowledgeBaseRedshiftProvisionedAuthType right) => left.Equals(right);
+        public static bool operator !=(KnowledgeBaseRedshiftProvisionedAuthType left, KnowledgeBaseRedshiftProvisionedAuthType right) => !left.Equals(right);
+
+        public static explicit operator string(KnowledgeBaseRedshiftProvisionedAuthType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is KnowledgeBaseRedshiftProvisionedAuthType other && Equals(other);
+        public bool Equals(KnowledgeBaseRedshiftProvisionedAuthType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Redshift query engine storage type
+    /// </summary>
+    [EnumType]
+    public readonly struct KnowledgeBaseRedshiftQueryEngineStorageType : IEquatable<KnowledgeBaseRedshiftQueryEngineStorageType>
+    {
+        private readonly string _value;
+
+        private KnowledgeBaseRedshiftQueryEngineStorageType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static KnowledgeBaseRedshiftQueryEngineStorageType Redshift { get; } = new KnowledgeBaseRedshiftQueryEngineStorageType("REDSHIFT");
+        public static KnowledgeBaseRedshiftQueryEngineStorageType AwsDataCatalog { get; } = new KnowledgeBaseRedshiftQueryEngineStorageType("AWS_DATA_CATALOG");
+
+        public static bool operator ==(KnowledgeBaseRedshiftQueryEngineStorageType left, KnowledgeBaseRedshiftQueryEngineStorageType right) => left.Equals(right);
+        public static bool operator !=(KnowledgeBaseRedshiftQueryEngineStorageType left, KnowledgeBaseRedshiftQueryEngineStorageType right) => !left.Equals(right);
+
+        public static explicit operator string(KnowledgeBaseRedshiftQueryEngineStorageType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is KnowledgeBaseRedshiftQueryEngineStorageType other && Equals(other);
+        public bool Equals(KnowledgeBaseRedshiftQueryEngineStorageType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Redshift query engine type
+    /// </summary>
+    [EnumType]
+    public readonly struct KnowledgeBaseRedshiftQueryEngineType : IEquatable<KnowledgeBaseRedshiftQueryEngineType>
+    {
+        private readonly string _value;
+
+        private KnowledgeBaseRedshiftQueryEngineType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static KnowledgeBaseRedshiftQueryEngineType Serverless { get; } = new KnowledgeBaseRedshiftQueryEngineType("SERVERLESS");
+        public static KnowledgeBaseRedshiftQueryEngineType Provisioned { get; } = new KnowledgeBaseRedshiftQueryEngineType("PROVISIONED");
+
+        public static bool operator ==(KnowledgeBaseRedshiftQueryEngineType left, KnowledgeBaseRedshiftQueryEngineType right) => left.Equals(right);
+        public static bool operator !=(KnowledgeBaseRedshiftQueryEngineType left, KnowledgeBaseRedshiftQueryEngineType right) => !left.Equals(right);
+
+        public static explicit operator string(KnowledgeBaseRedshiftQueryEngineType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is KnowledgeBaseRedshiftQueryEngineType other && Equals(other);
+        public bool Equals(KnowledgeBaseRedshiftQueryEngineType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Serverless Redshift auth type
+    /// </summary>
+    [EnumType]
+    public readonly struct KnowledgeBaseRedshiftServerlessAuthType : IEquatable<KnowledgeBaseRedshiftServerlessAuthType>
+    {
+        private readonly string _value;
+
+        private KnowledgeBaseRedshiftServerlessAuthType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static KnowledgeBaseRedshiftServerlessAuthType Iam { get; } = new KnowledgeBaseRedshiftServerlessAuthType("IAM");
+        public static KnowledgeBaseRedshiftServerlessAuthType UsernamePassword { get; } = new KnowledgeBaseRedshiftServerlessAuthType("USERNAME_PASSWORD");
+
+        public static bool operator ==(KnowledgeBaseRedshiftServerlessAuthType left, KnowledgeBaseRedshiftServerlessAuthType right) => left.Equals(right);
+        public static bool operator !=(KnowledgeBaseRedshiftServerlessAuthType left, KnowledgeBaseRedshiftServerlessAuthType right) => !left.Equals(right);
+
+        public static explicit operator string(KnowledgeBaseRedshiftServerlessAuthType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is KnowledgeBaseRedshiftServerlessAuthType other && Equals(other);
+        public bool Equals(KnowledgeBaseRedshiftServerlessAuthType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The status of a knowledge base.
     /// </summary>
     [EnumType]
@@ -1592,6 +1779,7 @@ namespace Pulumi.AwsNative.Bedrock
 
         public static KnowledgeBaseType Vector { get; } = new KnowledgeBaseType("VECTOR");
         public static KnowledgeBaseType Kendra { get; } = new KnowledgeBaseType("KENDRA");
+        public static KnowledgeBaseType Sql { get; } = new KnowledgeBaseType("SQL");
 
         public static bool operator ==(KnowledgeBaseType left, KnowledgeBaseType right) => left.Equals(right);
         public static bool operator !=(KnowledgeBaseType left, KnowledgeBaseType right) => !left.Equals(right);

@@ -72,7 +72,7 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "databrew:CreateSchedule", "databrew:TagResource", "databrew:UntagResource", "iam:PassRole" ]
+      "permissions" : [ "databrew:CreateSchedule", "databrew:DescribeSchedule", "databrew:TagResource", "databrew:UntagResource", "iam:PassRole" ]
     },
     "read" : {
       "permissions" : [ "databrew:DescribeSchedule", "databrew:ListTagsForResource", "iam:ListRoles" ]

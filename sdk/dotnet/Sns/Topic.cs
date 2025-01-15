@@ -194,6 +194,9 @@ namespace Pulumi.AwsNative.Sns
         [Output("displayName")]
         public Output<string?> DisplayName { get; private set; } = null!;
 
+        [Output("fifoThroughputScope")]
+        public Output<string?> FifoThroughputScope { get; private set; } = null!;
+
         /// <summary>
         /// Set to true to create a FIFO topic.
         /// </summary>
@@ -349,6 +352,9 @@ namespace Pulumi.AwsNative.Sns
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
+
+        [Input("fifoThroughputScope")]
+        public Input<string>? FifoThroughputScope { get; set; }
 
         /// <summary>
         /// Set to true to create a FIFO topic.

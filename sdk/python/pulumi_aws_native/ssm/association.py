@@ -43,7 +43,7 @@ class AssociationArgs:
         The set of arguments for constructing a Association resource.
         :param pulumi.Input[bool] apply_only_at_cron_interval: By default, when you create a new association, the system runs it immediately after it is created and then according to the schedule you specified. Specify this option if you don't want an association to run immediately after you create it. This parameter is not supported for rate expressions.
         :param pulumi.Input[str] association_name: The name of the association.
-        :param pulumi.Input[str] automation_target_parameter_name: Choose the parameter that will define how your automation will branch out. This target is required for associations that use an Automation runbook and target resources by using rate controls. Automation is a capability of AWS Systems Manager .
+        :param pulumi.Input[str] automation_target_parameter_name: Choose the parameter that will define how your automation will branch out. This target is required for associations that use an Automation runbook and target resources by using rate controls. Automation is a tool in AWS Systems Manager .
         :param pulumi.Input[Sequence[pulumi.Input[str]]] calendar_names: The names or Amazon Resource Names (ARNs) of the Change Calendar type documents your associations are gated under. The associations only run when that Change Calendar is open. For more information, see [AWS Systems Manager Change Calendar](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar) .
         :param pulumi.Input['AssociationComplianceSeverity'] compliance_severity: The severity level that is assigned to the association.
         :param pulumi.Input[str] document_version: The version of the SSM document to associate with the target.
@@ -132,7 +132,7 @@ class AssociationArgs:
     @pulumi.getter(name="automationTargetParameterName")
     def automation_target_parameter_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Choose the parameter that will define how your automation will branch out. This target is required for associations that use an Automation runbook and target resources by using rate controls. Automation is a capability of AWS Systems Manager .
+        Choose the parameter that will define how your automation will branch out. This target is required for associations that use an Automation runbook and target resources by using rate controls. Automation is a tool in AWS Systems Manager .
         """
         return pulumi.get(self, "automation_target_parameter_name")
 
@@ -451,7 +451,7 @@ class Association(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] apply_only_at_cron_interval: By default, when you create a new association, the system runs it immediately after it is created and then according to the schedule you specified. Specify this option if you don't want an association to run immediately after you create it. This parameter is not supported for rate expressions.
         :param pulumi.Input[str] association_name: The name of the association.
-        :param pulumi.Input[str] automation_target_parameter_name: Choose the parameter that will define how your automation will branch out. This target is required for associations that use an Automation runbook and target resources by using rate controls. Automation is a capability of AWS Systems Manager .
+        :param pulumi.Input[str] automation_target_parameter_name: Choose the parameter that will define how your automation will branch out. This target is required for associations that use an Automation runbook and target resources by using rate controls. Automation is a tool in AWS Systems Manager .
         :param pulumi.Input[Sequence[pulumi.Input[str]]] calendar_names: The names or Amazon Resource Names (ARNs) of the Change Calendar type documents your associations are gated under. The associations only run when that Change Calendar is open. For more information, see [AWS Systems Manager Change Calendar](https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar) .
         :param pulumi.Input['AssociationComplianceSeverity'] compliance_severity: The severity level that is assigned to the association.
         :param pulumi.Input[str] document_version: The version of the SSM document to associate with the target.
@@ -717,7 +717,7 @@ class Association(pulumi.CustomResource):
     @pulumi.getter(name="automationTargetParameterName")
     def automation_target_parameter_name(self) -> pulumi.Output[Optional[str]]:
         """
-        Choose the parameter that will define how your automation will branch out. This target is required for associations that use an Automation runbook and target resources by using rate controls. Automation is a capability of AWS Systems Manager .
+        Choose the parameter that will define how your automation will branch out. This target is required for associations that use an Automation runbook and target resources by using rate controls. Automation is a tool in AWS Systems Manager .
         """
         return pulumi.get(self, "automation_target_parameter_name")
 

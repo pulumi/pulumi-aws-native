@@ -42,6 +42,10 @@ export interface GetKnowledgeBaseResult {
      */
     readonly knowledgeBaseArn?: string;
     /**
+     * Contains details about the embeddings configuration of the knowledge base.
+     */
+    readonly knowledgeBaseConfiguration?: outputs.bedrock.KnowledgeBaseConfiguration;
+    /**
      * The unique identifier of the knowledge base.
      */
     readonly knowledgeBaseId?: string;

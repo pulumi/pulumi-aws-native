@@ -25,7 +25,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetDataSourceResult:
-    def __init__(__self__, created_at=None, description=None, domain_id=None, enable_setting=None, environment_id=None, id=None, last_run_asset_count=None, last_run_at=None, last_run_status=None, name=None, project_id=None, publish_on_import=None, recommendation=None, schedule=None, status=None, updated_at=None):
+    def __init__(__self__, connection_id=None, created_at=None, description=None, domain_id=None, enable_setting=None, environment_id=None, id=None, last_run_asset_count=None, last_run_at=None, last_run_status=None, name=None, project_id=None, publish_on_import=None, recommendation=None, schedule=None, status=None, updated_at=None):
+        if connection_id and not isinstance(connection_id, str):
+            raise TypeError("Expected argument 'connection_id' to be a str")
+        pulumi.set(__self__, "connection_id", connection_id)
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
@@ -74,6 +77,14 @@ class GetDataSourceResult:
         if updated_at and not isinstance(updated_at, str):
             raise TypeError("Expected argument 'updated_at' to be a str")
         pulumi.set(__self__, "updated_at", updated_at)
+
+    @property
+    @pulumi.getter(name="connectionId")
+    def connection_id(self) -> Optional[str]:
+        """
+        The unique identifier of a connection used to fetch relevant parameters from connection during Datasource run
+        """
+        return pulumi.get(self, "connection_id")
 
     @property
     @pulumi.getter(name="createdAt")
@@ -210,6 +221,7 @@ class AwaitableGetDataSourceResult(GetDataSourceResult):
         if False:
             yield self
         return GetDataSourceResult(
+            connection_id=self.connection_id,
             created_at=self.created_at,
             description=self.description,
             domain_id=self.domain_id,
@@ -245,6 +257,7 @@ def get_data_source(domain_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:datazone:getDataSource', __args__, opts=opts, typ=GetDataSourceResult).value
 
     return AwaitableGetDataSourceResult(
+        connection_id=pulumi.get(__ret__, 'connection_id'),
         created_at=pulumi.get(__ret__, 'created_at'),
         description=pulumi.get(__ret__, 'description'),
         domain_id=pulumi.get(__ret__, 'domain_id'),
@@ -277,6 +290,7 @@ def get_data_source_output(domain_id: Optional[pulumi.Input[str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:datazone:getDataSource', __args__, opts=opts, typ=GetDataSourceResult)
     return __ret__.apply(lambda __response__: GetDataSourceResult(
+        connection_id=pulumi.get(__response__, 'connection_id'),
         created_at=pulumi.get(__response__, 'created_at'),
         description=pulumi.get(__response__, 'description'),
         domain_id=pulumi.get(__response__, 'domain_id'),

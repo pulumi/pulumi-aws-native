@@ -524,7 +524,7 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "databrew:CreateRecipe", "databrew:TagResource", "databrew:UntagResource", "iam:PassRole" ]
+      "permissions" : [ "databrew:CreateRecipe", "databrew:DescribeRecipe", "databrew:TagResource", "databrew:UntagResource", "iam:PassRole" ]
     },
     "read" : {
       "permissions" : [ "databrew:DescribeRecipe", "databrew:ListTagsForResource", "iam:ListRoles" ]

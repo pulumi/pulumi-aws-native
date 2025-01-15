@@ -137,6 +137,10 @@ namespace Pulumi.AwsNative
         /// </summary>
         public static Region MeSouth1 { get; } = new Region("me-south-1");
         /// <summary>
+        /// Mexico (Central)
+        /// </summary>
+        public static Region MxCentral1 { get; } = new Region("mx-central-1");
+        /// <summary>
         /// South America (Sao Paulo)
         /// </summary>
         public static Region SaEast1 { get; } = new Region("sa-east-1");
