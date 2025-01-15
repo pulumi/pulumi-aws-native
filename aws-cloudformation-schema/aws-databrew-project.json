@@ -89,7 +89,7 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "databrew:CreateProject", "databrew:TagResource", "databrew:UntagResource", "iam:PassRole" ]
+      "permissions" : [ "databrew:CreateProject", "databrew:DescribeProject", "databrew:TagResource", "databrew:UntagResource", "iam:PassRole" ]
     },
     "read" : {
       "permissions" : [ "databrew:DescribeProject", "databrew:ListTagsForResource", "iam:ListRoles" ]

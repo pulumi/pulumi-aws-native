@@ -104,7 +104,7 @@
     "DataSourceType" : {
       "type" : "string",
       "description" : "The type of the data source location.",
-      "enum" : [ "S3", "CONFLUENCE", "SALESFORCE", "SHAREPOINT", "WEB", "CUSTOM" ]
+      "enum" : [ "S3", "CONFLUENCE", "SALESFORCE", "SHAREPOINT", "WEB", "CUSTOM", "REDSHIFT_METADATA" ]
     },
     "DataDeletionPolicy" : {
       "type" : "string",
