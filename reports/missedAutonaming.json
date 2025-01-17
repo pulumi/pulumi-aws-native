@@ -7753,6 +7753,28 @@
       }
     }
   },
+  "aws-native:guardduty:PublishingDestination": {
+    "cfTypeName": "AWS::GuardDuty::PublishingDestination",
+    "properties": {
+      "destinationProperties": {
+        "$ref": "#/types/aws-native:guardduty:PublishingDestinationCfnDestinationProperties"
+      },
+      "destinationType": {
+        "type": "string",
+        "description": "The type of resource for the publishing destination. Currently only Amazon S3 buckets are supported."
+      },
+      "detectorId": {
+        "type": "string",
+        "description": "The ID of the GuardDuty detector associated with the publishing destination."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        }
+      }
+    }
+  },
   "aws-native:iam:OidcProvider": {
     "cfTypeName": "AWS::IAM::OIDCProvider",
     "properties": {
