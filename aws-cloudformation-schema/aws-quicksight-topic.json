@@ -293,7 +293,7 @@
     },
     "NumberScale" : {
       "type" : "string",
-      "enum" : [ "NONE", "AUTO", "THOUSANDS", "MILLIONS", "BILLIONS", "TRILLIONS" ]
+      "enum" : [ "NONE", "AUTO", "THOUSANDS", "MILLIONS", "BILLIONS", "TRILLIONS", "LAKHS", "CRORES" ]
     },
     "PropertyRole" : {
       "type" : "string",
@@ -573,6 +573,16 @@
       "required" : [ "ColumnName" ],
       "additionalProperties" : false
     },
+    "TopicConfigOptions" : {
+      "type" : "object",
+      "description" : "Model for configuration of a Topic",
+      "properties" : {
+        "QBusinessInsightsEnabled" : {
+          "type" : "boolean"
+        }
+      },
+      "additionalProperties" : false
+    },
     "TopicDateRangeFilter" : {
       "type" : "object",
       "properties" : {
@@ -607,6 +617,9 @@
           "items" : {
             "$ref" : "#/definitions/DatasetMetadata"
           }
+        },
+        "ConfigOptions" : {
+          "$ref" : "#/definitions/TopicConfigOptions"
         }
       },
       "additionalProperties" : false
@@ -807,6 +820,9 @@
       "minLength" : 12,
       "pattern" : "^[0-9]{12}$"
     },
+    "ConfigOptions" : {
+      "$ref" : "#/definitions/TopicConfigOptions"
+    },
     "DataSets" : {
       "type" : "array",
       "items" : {
@@ -817,6 +833,14 @@
       "type" : "string",
       "maxLength" : 256,
       "minLength" : 0
+    },
+    "FolderArns" : {
+      "type" : "array",
+      "items" : {
+        "type" : "string"
+      },
+      "maxItems" : 20,
+      "minItems" : 0
     },
     "Name" : {
       "type" : "string",
@@ -834,7 +858,8 @@
     }
   },
   "readOnlyProperties" : [ "/properties/Arn" ],
-  "createOnlyProperties" : [ "/properties/AwsAccountId", "/properties/TopicId" ],
+  "writeOnlyProperties" : [ "/properties/FolderArns" ],
+  "createOnlyProperties" : [ "/properties/AwsAccountId", "/properties/FolderArns", "/properties/TopicId" ],
   "primaryIdentifier" : [ "/properties/AwsAccountId", "/properties/TopicId" ],
   "handlers" : {
     "create" : {

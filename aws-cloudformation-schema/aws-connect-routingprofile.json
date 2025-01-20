@@ -6,7 +6,7 @@
     "Channel" : {
       "description" : "The channels that agents can handle in the Contact Control Panel (CCP).",
       "type" : "string",
-      "enum" : [ "VOICE", "CHAT", "TASK" ]
+      "enum" : [ "VOICE", "CHAT", "TASK", "EMAIL" ]
     },
     "Concurrency" : {
       "description" : "The number of contacts an agent can have on a channel simultaneously.",

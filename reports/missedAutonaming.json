@@ -5778,6 +5778,10 @@
   "aws-native:ec2:VerifiedAccessInstance": {
     "cfTypeName": "AWS::EC2::VerifiedAccessInstance",
     "properties": {
+      "cidrEndpointsCustomSubDomain": {
+        "type": "string",
+        "description": "Introduce CidrEndpointsCustomSubDomain property to represent the domain (say, ava.my-company.com)"
+      },
       "description": {
         "type": "string",
         "description": "A description for the AWS Verified Access instance."
@@ -5827,6 +5831,9 @@
       "deviceTrustProviderType": {
         "type": "string",
         "description": "The type of device-based trust provider. Possible values: jamf|crowdstrike"
+      },
+      "nativeApplicationOidcOptions": {
+        "$ref": "#/types/aws-native:ec2:VerifiedAccessTrustProviderNativeApplicationOidcOptions"
       },
       "oidcOptions": {
         "$ref": "#/types/aws-native:ec2:VerifiedAccessTrustProviderOidcOptions",
@@ -7750,6 +7757,28 @@
       "status": {
         "type": "string",
         "description": "You can use the `Status` property to update the status of the relationship between the member account and its administrator account. Valid values are `Created` and `Invited` when using an `AWS::GuardDuty::Member` resource. If the value for this property is not provided or set to `Created` , a member account is created but not invited. If the value of this property is set to `Invited` , a member account is created and invited."
+      }
+    }
+  },
+  "aws-native:guardduty:PublishingDestination": {
+    "cfTypeName": "AWS::GuardDuty::PublishingDestination",
+    "properties": {
+      "destinationProperties": {
+        "$ref": "#/types/aws-native:guardduty:PublishingDestinationCfnDestinationProperties"
+      },
+      "destinationType": {
+        "type": "string",
+        "description": "The type of resource for the publishing destination. Currently only Amazon S3 buckets are supported."
+      },
+      "detectorId": {
+        "type": "string",
+        "description": "The ID of the GuardDuty detector associated with the publishing destination."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        }
       }
     }
   },
