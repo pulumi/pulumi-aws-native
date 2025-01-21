@@ -1859,6 +1859,37 @@ namespace Pulumi.AwsNative.Bedrock
     }
 
     /// <summary>
+    /// Conversation roles for the chat prompt
+    /// </summary>
+    [EnumType]
+    public readonly struct PromptVersionConversationRole : IEquatable<PromptVersionConversationRole>
+    {
+        private readonly string _value;
+
+        private PromptVersionConversationRole(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PromptVersionConversationRole User { get; } = new PromptVersionConversationRole("user");
+        public static PromptVersionConversationRole Assistant { get; } = new PromptVersionConversationRole("assistant");
+
+        public static bool operator ==(PromptVersionConversationRole left, PromptVersionConversationRole right) => left.Equals(right);
+        public static bool operator !=(PromptVersionConversationRole left, PromptVersionConversationRole right) => !left.Equals(right);
+
+        public static explicit operator string(PromptVersionConversationRole value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PromptVersionConversationRole other && Equals(other);
+        public bool Equals(PromptVersionConversationRole other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Prompt template type
     /// </summary>
     [EnumType]
@@ -1872,6 +1903,7 @@ namespace Pulumi.AwsNative.Bedrock
         }
 
         public static PromptVersionPromptTemplateType Text { get; } = new PromptVersionPromptTemplateType("TEXT");
+        public static PromptVersionPromptTemplateType Chat { get; } = new PromptVersionPromptTemplateType("CHAT");
 
         public static bool operator ==(PromptVersionPromptTemplateType left, PromptVersionPromptTemplateType right) => left.Equals(right);
         public static bool operator !=(PromptVersionPromptTemplateType left, PromptVersionPromptTemplateType right) => !left.Equals(right);

@@ -656,8 +656,19 @@ export const PromptTemplateType = {
  */
 export type PromptTemplateType = (typeof PromptTemplateType)[keyof typeof PromptTemplateType];
 
+export const PromptVersionConversationRole = {
+    User: "user",
+    Assistant: "assistant",
+} as const;
+
+/**
+ * Conversation roles for the chat prompt
+ */
+export type PromptVersionConversationRole = (typeof PromptVersionConversationRole)[keyof typeof PromptVersionConversationRole];
+
 export const PromptVersionPromptTemplateType = {
     Text: "TEXT",
+    Chat: "CHAT",
 } as const;
 
 /**

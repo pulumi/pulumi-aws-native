@@ -9816,7 +9816,9 @@ type SchedulingPolicyFairsharePolicy struct {
 	//
 	// The minimum value is 0 and the maximum value is 99.
 	ComputeReservation *float64 `pulumi:"computeReservation"`
-	// The amount of time (in seconds) to use to calculate a fair share percentage for each fair share identifier in use. A value of zero (0) indicates that only current usage is measured. The decay allows for more recently run jobs to have more weight than jobs that ran earlier. The maximum supported value is 604800 (1 week).
+	// The amount of time (in seconds) to use to calculate a fair share percentage for each fair share identifier in use. A value of zero (0) indicates the default minimum time window (600 seconds). The maximum supported value is 604800 (1 week).
+	//
+	// The decay allows for more recently run jobs to have more weight than jobs that ran earlier. Consider adjusting this number if you have jobs that (on average) run longer than ten minutes, or a large difference in job count or job run times between share identifiers, and the allocation of resources doesn’t meet your needs.
 	ShareDecaySeconds *float64 `pulumi:"shareDecaySeconds"`
 	// List of Share Attributes
 	ShareDistribution []SchedulingPolicyShareAttributes `pulumi:"shareDistribution"`
@@ -9843,7 +9845,9 @@ type SchedulingPolicyFairsharePolicyArgs struct {
 	//
 	// The minimum value is 0 and the maximum value is 99.
 	ComputeReservation pulumi.Float64PtrInput `pulumi:"computeReservation"`
-	// The amount of time (in seconds) to use to calculate a fair share percentage for each fair share identifier in use. A value of zero (0) indicates that only current usage is measured. The decay allows for more recently run jobs to have more weight than jobs that ran earlier. The maximum supported value is 604800 (1 week).
+	// The amount of time (in seconds) to use to calculate a fair share percentage for each fair share identifier in use. A value of zero (0) indicates the default minimum time window (600 seconds). The maximum supported value is 604800 (1 week).
+	//
+	// The decay allows for more recently run jobs to have more weight than jobs that ran earlier. Consider adjusting this number if you have jobs that (on average) run longer than ten minutes, or a large difference in job count or job run times between share identifiers, and the allocation of resources doesn’t meet your needs.
 	ShareDecaySeconds pulumi.Float64PtrInput `pulumi:"shareDecaySeconds"`
 	// List of Share Attributes
 	ShareDistribution SchedulingPolicyShareAttributesArrayInput `pulumi:"shareDistribution"`
@@ -9938,7 +9942,9 @@ func (o SchedulingPolicyFairsharePolicyOutput) ComputeReservation() pulumi.Float
 	return o.ApplyT(func(v SchedulingPolicyFairsharePolicy) *float64 { return v.ComputeReservation }).(pulumi.Float64PtrOutput)
 }
 
-// The amount of time (in seconds) to use to calculate a fair share percentage for each fair share identifier in use. A value of zero (0) indicates that only current usage is measured. The decay allows for more recently run jobs to have more weight than jobs that ran earlier. The maximum supported value is 604800 (1 week).
+// The amount of time (in seconds) to use to calculate a fair share percentage for each fair share identifier in use. A value of zero (0) indicates the default minimum time window (600 seconds). The maximum supported value is 604800 (1 week).
+//
+// The decay allows for more recently run jobs to have more weight than jobs that ran earlier. Consider adjusting this number if you have jobs that (on average) run longer than ten minutes, or a large difference in job count or job run times between share identifiers, and the allocation of resources doesn’t meet your needs.
 func (o SchedulingPolicyFairsharePolicyOutput) ShareDecaySeconds() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v SchedulingPolicyFairsharePolicy) *float64 { return v.ShareDecaySeconds }).(pulumi.Float64PtrOutput)
 }
@@ -9988,7 +9994,9 @@ func (o SchedulingPolicyFairsharePolicyPtrOutput) ComputeReservation() pulumi.Fl
 	}).(pulumi.Float64PtrOutput)
 }
 
-// The amount of time (in seconds) to use to calculate a fair share percentage for each fair share identifier in use. A value of zero (0) indicates that only current usage is measured. The decay allows for more recently run jobs to have more weight than jobs that ran earlier. The maximum supported value is 604800 (1 week).
+// The amount of time (in seconds) to use to calculate a fair share percentage for each fair share identifier in use. A value of zero (0) indicates the default minimum time window (600 seconds). The maximum supported value is 604800 (1 week).
+//
+// The decay allows for more recently run jobs to have more weight than jobs that ran earlier. Consider adjusting this number if you have jobs that (on average) run longer than ten minutes, or a large difference in job count or job run times between share identifiers, and the allocation of resources doesn’t meet your needs.
 func (o SchedulingPolicyFairsharePolicyPtrOutput) ShareDecaySeconds() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *SchedulingPolicyFairsharePolicy) *float64 {
 		if v == nil {

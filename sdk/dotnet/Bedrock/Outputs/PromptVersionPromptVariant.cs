@@ -16,6 +16,7 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
     [OutputType]
     public sealed class PromptVersionPromptVariant
     {
+        public readonly Outputs.PromptVersionPromptGenAiResourceProperties? GenAiResource;
         /// <summary>
         /// Contains inference configurations for the prompt variant.
         /// </summary>
@@ -31,7 +32,7 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
         /// <summary>
         /// Contains configurations for the prompt template.
         /// </summary>
-        public readonly Outputs.PromptVersionPromptTemplateConfigurationProperties TemplateConfiguration;
+        public readonly Union<Outputs.PromptVersionPromptTemplateConfiguration0Properties, Outputs.PromptVersionPromptTemplateConfiguration1Properties> TemplateConfiguration;
         /// <summary>
         /// The type of prompt template to use.
         /// </summary>
@@ -39,16 +40,19 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
 
         [OutputConstructor]
         private PromptVersionPromptVariant(
+            Outputs.PromptVersionPromptGenAiResourceProperties? genAiResource,
+
             Outputs.PromptVersionPromptInferenceConfigurationProperties? inferenceConfiguration,
 
             string? modelId,
 
             string name,
 
-            Outputs.PromptVersionPromptTemplateConfigurationProperties templateConfiguration,
+            Union<Outputs.PromptVersionPromptTemplateConfiguration0Properties, Outputs.PromptVersionPromptTemplateConfiguration1Properties> templateConfiguration,
 
             Pulumi.AwsNative.Bedrock.PromptVersionPromptTemplateType templateType)
         {
+            GenAiResource = genAiResource;
             InferenceConfiguration = inferenceConfiguration;
             ModelId = modelId;
             Name = name;
