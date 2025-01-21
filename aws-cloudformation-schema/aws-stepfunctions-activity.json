@@ -80,7 +80,7 @@
   "createOnlyProperties" : [ "/properties/Name", "/properties/EncryptionConfiguration" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "states:CreateActivity", "states:TagResource", "kms:DescribeKey" ]
+      "permissions" : [ "states:CreateActivity", "states:DescribeActivity", "states:TagResource", "kms:DescribeKey" ]
     },
     "read" : {
       "permissions" : [ "states:DescribeActivity", "states:ListTagsForResource" ]

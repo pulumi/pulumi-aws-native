@@ -91,12 +91,13 @@
     "tagOnCreate" : true,
     "tagUpdatable" : true,
     "cloudFormationSystemTags" : true,
-    "tagProperty" : "/properties/Tags"
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "datasync:TagResource", "datasync:UntagResource", "datasync:ListTagsForResource" ]
   },
   "required" : [ "S3Config" ],
   "readOnlyProperties" : [ "/properties/LocationArn", "/properties/LocationUri" ],
   "primaryIdentifier" : [ "/properties/LocationArn" ],
-  "createOnlyProperties" : [ "/properties/S3Config", "/properties/S3StorageClass", "/properties/Subdirectory", "/properties/S3BucketArn" ],
+  "createOnlyProperties" : [ "/properties/S3BucketArn" ],
   "writeOnlyProperties" : [ "/properties/Subdirectory", "/properties/S3BucketArn" ],
   "handlers" : {
     "create" : {
@@ -106,7 +107,7 @@
       "permissions" : [ "datasync:DescribeLocationS3", "datasync:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "datasync:DescribeLocationS3", "datasync:ListTagsForResource", "datasync:TagResource", "datasync:UntagResource" ]
+      "permissions" : [ "datasync:DescribeLocationS3", "datasync:ListTagsForResource", "datasync:TagResource", "datasync:UntagResource", "datasync:UpdateLocationS3" ]
     },
     "delete" : {
       "permissions" : [ "datasync:DeleteLocation" ]

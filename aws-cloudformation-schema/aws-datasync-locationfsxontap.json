@@ -174,7 +174,7 @@
   "readOnlyProperties" : [ "/properties/LocationArn", "/properties/LocationUri", "/properties/FsxFilesystemArn" ],
   "writeOnlyProperties" : [ "/properties/Protocol", "/properties/Subdirectory" ],
   "primaryIdentifier" : [ "/properties/LocationArn" ],
-  "createOnlyProperties" : [ "/properties/StorageVirtualMachineArn", "/properties/SecurityGroupArns", "/properties/Protocol", "/properties/Subdirectory" ],
+  "createOnlyProperties" : [ "/properties/StorageVirtualMachineArn", "/properties/SecurityGroupArns" ],
   "handlers" : {
     "create" : {
       "permissions" : [ "datasync:CreateLocationFsxOntap", "datasync:DescribeLocationFsxOntap", "datasync:ListTagsForResource", "datasync:TagResource", "fsx:DescribeStorageVirtualMachines", "fsx:DescribeFileSystems", "ec2:DescribeNetworkInterfaces", "ec2:DescribeSubnets", "ec2:DescribeSecurityGroups" ]
@@ -183,7 +183,7 @@
       "permissions" : [ "datasync:DescribeLocationFsxOntap", "datasync:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "datasync:DescribeLocationFsxOntap", "datasync:ListTagsForResource", "datasync:TagResource", "datasync:UntagResource" ]
+      "permissions" : [ "datasync:UpdateLocationFsxOntap", "datasync:DescribeLocationFsxOntap", "datasync:ListTagsForResource", "datasync:TagResource", "datasync:UntagResource", "fsx:DescribeFileSystems", "fsx:DescribeStorageVirtualMachines", "ec2:DescribeNetworkInterfaces" ]
     },
     "delete" : {
       "permissions" : [ "datasync:DeleteLocation" ]
