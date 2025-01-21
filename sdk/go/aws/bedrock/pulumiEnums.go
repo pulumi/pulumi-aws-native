@@ -8632,11 +8632,103 @@ func (in *promptTemplateTypePtr) ToPromptTemplateTypePtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(PromptTemplateTypePtrOutput)
 }
 
+// Conversation roles for the chat prompt
+type PromptVersionConversationRole string
+
+const (
+	PromptVersionConversationRoleUser      = PromptVersionConversationRole("user")
+	PromptVersionConversationRoleAssistant = PromptVersionConversationRole("assistant")
+)
+
+type PromptVersionConversationRoleOutput struct{ *pulumi.OutputState }
+
+func (PromptVersionConversationRoleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PromptVersionConversationRole)(nil)).Elem()
+}
+
+func (o PromptVersionConversationRoleOutput) ToPromptVersionConversationRoleOutput() PromptVersionConversationRoleOutput {
+	return o
+}
+
+func (o PromptVersionConversationRoleOutput) ToPromptVersionConversationRoleOutputWithContext(ctx context.Context) PromptVersionConversationRoleOutput {
+	return o
+}
+
+func (o PromptVersionConversationRoleOutput) ToPromptVersionConversationRolePtrOutput() PromptVersionConversationRolePtrOutput {
+	return o.ToPromptVersionConversationRolePtrOutputWithContext(context.Background())
+}
+
+func (o PromptVersionConversationRoleOutput) ToPromptVersionConversationRolePtrOutputWithContext(ctx context.Context) PromptVersionConversationRolePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PromptVersionConversationRole) *PromptVersionConversationRole {
+		return &v
+	}).(PromptVersionConversationRolePtrOutput)
+}
+
+func (o PromptVersionConversationRoleOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PromptVersionConversationRoleOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PromptVersionConversationRole) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PromptVersionConversationRoleOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PromptVersionConversationRoleOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PromptVersionConversationRole) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PromptVersionConversationRolePtrOutput struct{ *pulumi.OutputState }
+
+func (PromptVersionConversationRolePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PromptVersionConversationRole)(nil)).Elem()
+}
+
+func (o PromptVersionConversationRolePtrOutput) ToPromptVersionConversationRolePtrOutput() PromptVersionConversationRolePtrOutput {
+	return o
+}
+
+func (o PromptVersionConversationRolePtrOutput) ToPromptVersionConversationRolePtrOutputWithContext(ctx context.Context) PromptVersionConversationRolePtrOutput {
+	return o
+}
+
+func (o PromptVersionConversationRolePtrOutput) Elem() PromptVersionConversationRoleOutput {
+	return o.ApplyT(func(v *PromptVersionConversationRole) PromptVersionConversationRole {
+		if v != nil {
+			return *v
+		}
+		var ret PromptVersionConversationRole
+		return ret
+	}).(PromptVersionConversationRoleOutput)
+}
+
+func (o PromptVersionConversationRolePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PromptVersionConversationRolePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PromptVersionConversationRole) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 // Prompt template type
 type PromptVersionPromptTemplateType string
 
 const (
 	PromptVersionPromptTemplateTypeText = PromptVersionPromptTemplateType("TEXT")
+	PromptVersionPromptTemplateTypeChat = PromptVersionPromptTemplateType("CHAT")
 )
 
 type PromptVersionPromptTemplateTypeOutput struct{ *pulumi.OutputState }
@@ -8925,6 +9017,8 @@ func init() {
 	pulumi.RegisterOutputType(PromptConversationRolePtrOutput{})
 	pulumi.RegisterOutputType(PromptTemplateTypeOutput{})
 	pulumi.RegisterOutputType(PromptTemplateTypePtrOutput{})
+	pulumi.RegisterOutputType(PromptVersionConversationRoleOutput{})
+	pulumi.RegisterOutputType(PromptVersionConversationRolePtrOutput{})
 	pulumi.RegisterOutputType(PromptVersionPromptTemplateTypeOutput{})
 	pulumi.RegisterOutputType(PromptVersionPromptTemplateTypePtrOutput{})
 }

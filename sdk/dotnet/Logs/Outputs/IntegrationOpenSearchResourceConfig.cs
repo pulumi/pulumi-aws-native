@@ -20,7 +20,7 @@ namespace Pulumi.AwsNative.Logs.Outputs
         /// <summary>
         /// Specify the ARNs of IAM roles and IAM users who you want to grant permission to for viewing the dashboards.
         /// 
-        /// &gt; In addition to specifying these users here, you must also grant them the *CloudWatchOpenSearchDashboardsAccess* IAM policy. For more information, see [IAM policies for users](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/OpenSearch-Dashboards-UserRoles.html) .
+        /// &gt; In addition to specifying these users here, you must also grant them the *CloudWatchOpenSearchDashboardAccess* IAM policy. For more information, see [IAM policies for users](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/OpenSearch-Dashboards-UserRoles.html) .
         /// </summary>
         public readonly ImmutableArray<string> DashboardViewerPrincipals;
         /// <summary>

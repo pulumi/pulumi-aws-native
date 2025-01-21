@@ -27961,6 +27961,368 @@ func (o PromptVariantArrayOutput) Index(i pulumi.IntInput) PromptVariantOutput {
 	}).(PromptVariantOutput)
 }
 
+// Any Tool choice
+type PromptVersionAnyToolChoice struct {
+}
+
+// Any Tool choice
+type PromptVersionAnyToolChoiceOutput struct{ *pulumi.OutputState }
+
+func (PromptVersionAnyToolChoiceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PromptVersionAnyToolChoice)(nil)).Elem()
+}
+
+func (o PromptVersionAnyToolChoiceOutput) ToPromptVersionAnyToolChoiceOutput() PromptVersionAnyToolChoiceOutput {
+	return o
+}
+
+func (o PromptVersionAnyToolChoiceOutput) ToPromptVersionAnyToolChoiceOutputWithContext(ctx context.Context) PromptVersionAnyToolChoiceOutput {
+	return o
+}
+
+type PromptVersionAnyToolChoicePtrOutput struct{ *pulumi.OutputState }
+
+func (PromptVersionAnyToolChoicePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PromptVersionAnyToolChoice)(nil)).Elem()
+}
+
+func (o PromptVersionAnyToolChoicePtrOutput) ToPromptVersionAnyToolChoicePtrOutput() PromptVersionAnyToolChoicePtrOutput {
+	return o
+}
+
+func (o PromptVersionAnyToolChoicePtrOutput) ToPromptVersionAnyToolChoicePtrOutputWithContext(ctx context.Context) PromptVersionAnyToolChoicePtrOutput {
+	return o
+}
+
+func (o PromptVersionAnyToolChoicePtrOutput) Elem() PromptVersionAnyToolChoiceOutput {
+	return o.ApplyT(func(v *PromptVersionAnyToolChoice) PromptVersionAnyToolChoice {
+		if v != nil {
+			return *v
+		}
+		var ret PromptVersionAnyToolChoice
+		return ret
+	}).(PromptVersionAnyToolChoiceOutput)
+}
+
+// Auto Tool choice
+type PromptVersionAutoToolChoice struct {
+}
+
+// Auto Tool choice
+type PromptVersionAutoToolChoiceOutput struct{ *pulumi.OutputState }
+
+func (PromptVersionAutoToolChoiceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PromptVersionAutoToolChoice)(nil)).Elem()
+}
+
+func (o PromptVersionAutoToolChoiceOutput) ToPromptVersionAutoToolChoiceOutput() PromptVersionAutoToolChoiceOutput {
+	return o
+}
+
+func (o PromptVersionAutoToolChoiceOutput) ToPromptVersionAutoToolChoiceOutputWithContext(ctx context.Context) PromptVersionAutoToolChoiceOutput {
+	return o
+}
+
+type PromptVersionAutoToolChoicePtrOutput struct{ *pulumi.OutputState }
+
+func (PromptVersionAutoToolChoicePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PromptVersionAutoToolChoice)(nil)).Elem()
+}
+
+func (o PromptVersionAutoToolChoicePtrOutput) ToPromptVersionAutoToolChoicePtrOutput() PromptVersionAutoToolChoicePtrOutput {
+	return o
+}
+
+func (o PromptVersionAutoToolChoicePtrOutput) ToPromptVersionAutoToolChoicePtrOutputWithContext(ctx context.Context) PromptVersionAutoToolChoicePtrOutput {
+	return o
+}
+
+func (o PromptVersionAutoToolChoicePtrOutput) Elem() PromptVersionAutoToolChoiceOutput {
+	return o.ApplyT(func(v *PromptVersionAutoToolChoice) PromptVersionAutoToolChoice {
+		if v != nil {
+			return *v
+		}
+		var ret PromptVersionAutoToolChoice
+		return ret
+	}).(PromptVersionAutoToolChoiceOutput)
+}
+
+// Configuration for chat prompt template
+type PromptVersionChatPromptTemplateConfiguration struct {
+	// List of input variables
+	InputVariables []PromptVersionPromptInputVariable `pulumi:"inputVariables"`
+	// List of messages for chat prompt template
+	Messages []PromptVersionMessage `pulumi:"messages"`
+	// Configuration for chat prompt template
+	System            []PromptVersionSystemContentBlockProperties `pulumi:"system"`
+	ToolConfiguration *PromptVersionToolConfiguration             `pulumi:"toolConfiguration"`
+}
+
+// Configuration for chat prompt template
+type PromptVersionChatPromptTemplateConfigurationOutput struct{ *pulumi.OutputState }
+
+func (PromptVersionChatPromptTemplateConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PromptVersionChatPromptTemplateConfiguration)(nil)).Elem()
+}
+
+func (o PromptVersionChatPromptTemplateConfigurationOutput) ToPromptVersionChatPromptTemplateConfigurationOutput() PromptVersionChatPromptTemplateConfigurationOutput {
+	return o
+}
+
+func (o PromptVersionChatPromptTemplateConfigurationOutput) ToPromptVersionChatPromptTemplateConfigurationOutputWithContext(ctx context.Context) PromptVersionChatPromptTemplateConfigurationOutput {
+	return o
+}
+
+// List of input variables
+func (o PromptVersionChatPromptTemplateConfigurationOutput) InputVariables() PromptVersionPromptInputVariableArrayOutput {
+	return o.ApplyT(func(v PromptVersionChatPromptTemplateConfiguration) []PromptVersionPromptInputVariable {
+		return v.InputVariables
+	}).(PromptVersionPromptInputVariableArrayOutput)
+}
+
+// List of messages for chat prompt template
+func (o PromptVersionChatPromptTemplateConfigurationOutput) Messages() PromptVersionMessageArrayOutput {
+	return o.ApplyT(func(v PromptVersionChatPromptTemplateConfiguration) []PromptVersionMessage { return v.Messages }).(PromptVersionMessageArrayOutput)
+}
+
+// Configuration for chat prompt template
+func (o PromptVersionChatPromptTemplateConfigurationOutput) System() PromptVersionSystemContentBlockPropertiesArrayOutput {
+	return o.ApplyT(func(v PromptVersionChatPromptTemplateConfiguration) []PromptVersionSystemContentBlockProperties {
+		return v.System
+	}).(PromptVersionSystemContentBlockPropertiesArrayOutput)
+}
+
+func (o PromptVersionChatPromptTemplateConfigurationOutput) ToolConfiguration() PromptVersionToolConfigurationPtrOutput {
+	return o.ApplyT(func(v PromptVersionChatPromptTemplateConfiguration) *PromptVersionToolConfiguration {
+		return v.ToolConfiguration
+	}).(PromptVersionToolConfigurationPtrOutput)
+}
+
+// Configuration for chat prompt template
+type PromptVersionContentBlock0Properties struct {
+	// Configuration for chat prompt template
+	Text string `pulumi:"text"`
+}
+
+// Configuration for chat prompt template
+type PromptVersionContentBlockProperties struct {
+	// Configuration for chat prompt template
+	Text string `pulumi:"text"`
+}
+
+// Configuration for chat prompt template
+type PromptVersionContentBlockPropertiesOutput struct{ *pulumi.OutputState }
+
+func (PromptVersionContentBlockPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PromptVersionContentBlockProperties)(nil)).Elem()
+}
+
+func (o PromptVersionContentBlockPropertiesOutput) ToPromptVersionContentBlockPropertiesOutput() PromptVersionContentBlockPropertiesOutput {
+	return o
+}
+
+func (o PromptVersionContentBlockPropertiesOutput) ToPromptVersionContentBlockPropertiesOutputWithContext(ctx context.Context) PromptVersionContentBlockPropertiesOutput {
+	return o
+}
+
+// Configuration for chat prompt template
+func (o PromptVersionContentBlockPropertiesOutput) Text() pulumi.StringOutput {
+	return o.ApplyT(func(v PromptVersionContentBlockProperties) string { return v.Text }).(pulumi.StringOutput)
+}
+
+type PromptVersionContentBlockPropertiesArrayOutput struct{ *pulumi.OutputState }
+
+func (PromptVersionContentBlockPropertiesArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PromptVersionContentBlockProperties)(nil)).Elem()
+}
+
+func (o PromptVersionContentBlockPropertiesArrayOutput) ToPromptVersionContentBlockPropertiesArrayOutput() PromptVersionContentBlockPropertiesArrayOutput {
+	return o
+}
+
+func (o PromptVersionContentBlockPropertiesArrayOutput) ToPromptVersionContentBlockPropertiesArrayOutputWithContext(ctx context.Context) PromptVersionContentBlockPropertiesArrayOutput {
+	return o
+}
+
+func (o PromptVersionContentBlockPropertiesArrayOutput) Index(i pulumi.IntInput) PromptVersionContentBlockPropertiesOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PromptVersionContentBlockProperties {
+		return vs[0].([]PromptVersionContentBlockProperties)[vs[1].(int)]
+	}).(PromptVersionContentBlockPropertiesOutput)
+}
+
+// Chat prompt Message
+type PromptVersionMessage struct {
+	// List of Content Blocks
+	Content []PromptVersionContentBlockProperties `pulumi:"content"`
+	Role    PromptVersionConversationRole         `pulumi:"role"`
+}
+
+// Chat prompt Message
+type PromptVersionMessageOutput struct{ *pulumi.OutputState }
+
+func (PromptVersionMessageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PromptVersionMessage)(nil)).Elem()
+}
+
+func (o PromptVersionMessageOutput) ToPromptVersionMessageOutput() PromptVersionMessageOutput {
+	return o
+}
+
+func (o PromptVersionMessageOutput) ToPromptVersionMessageOutputWithContext(ctx context.Context) PromptVersionMessageOutput {
+	return o
+}
+
+// List of Content Blocks
+func (o PromptVersionMessageOutput) Content() PromptVersionContentBlockPropertiesArrayOutput {
+	return o.ApplyT(func(v PromptVersionMessage) []PromptVersionContentBlockProperties { return v.Content }).(PromptVersionContentBlockPropertiesArrayOutput)
+}
+
+func (o PromptVersionMessageOutput) Role() PromptVersionConversationRoleOutput {
+	return o.ApplyT(func(v PromptVersionMessage) PromptVersionConversationRole { return v.Role }).(PromptVersionConversationRoleOutput)
+}
+
+type PromptVersionMessageArrayOutput struct{ *pulumi.OutputState }
+
+func (PromptVersionMessageArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PromptVersionMessage)(nil)).Elem()
+}
+
+func (o PromptVersionMessageArrayOutput) ToPromptVersionMessageArrayOutput() PromptVersionMessageArrayOutput {
+	return o
+}
+
+func (o PromptVersionMessageArrayOutput) ToPromptVersionMessageArrayOutputWithContext(ctx context.Context) PromptVersionMessageArrayOutput {
+	return o
+}
+
+func (o PromptVersionMessageArrayOutput) Index(i pulumi.IntInput) PromptVersionMessageOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PromptVersionMessage {
+		return vs[0].([]PromptVersionMessage)[vs[1].(int)]
+	}).(PromptVersionMessageOutput)
+}
+
+// Target Agent to invoke with Prompt
+type PromptVersionPromptAgentResource struct {
+	// Arn representation of the Agent Alias.
+	AgentIdentifier string `pulumi:"agentIdentifier"`
+}
+
+// Target Agent to invoke with Prompt
+type PromptVersionPromptAgentResourceOutput struct{ *pulumi.OutputState }
+
+func (PromptVersionPromptAgentResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PromptVersionPromptAgentResource)(nil)).Elem()
+}
+
+func (o PromptVersionPromptAgentResourceOutput) ToPromptVersionPromptAgentResourceOutput() PromptVersionPromptAgentResourceOutput {
+	return o
+}
+
+func (o PromptVersionPromptAgentResourceOutput) ToPromptVersionPromptAgentResourceOutputWithContext(ctx context.Context) PromptVersionPromptAgentResourceOutput {
+	return o
+}
+
+// Arn representation of the Agent Alias.
+func (o PromptVersionPromptAgentResourceOutput) AgentIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v PromptVersionPromptAgentResource) string { return v.AgentIdentifier }).(pulumi.StringOutput)
+}
+
+type PromptVersionPromptAgentResourcePtrOutput struct{ *pulumi.OutputState }
+
+func (PromptVersionPromptAgentResourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PromptVersionPromptAgentResource)(nil)).Elem()
+}
+
+func (o PromptVersionPromptAgentResourcePtrOutput) ToPromptVersionPromptAgentResourcePtrOutput() PromptVersionPromptAgentResourcePtrOutput {
+	return o
+}
+
+func (o PromptVersionPromptAgentResourcePtrOutput) ToPromptVersionPromptAgentResourcePtrOutputWithContext(ctx context.Context) PromptVersionPromptAgentResourcePtrOutput {
+	return o
+}
+
+func (o PromptVersionPromptAgentResourcePtrOutput) Elem() PromptVersionPromptAgentResourceOutput {
+	return o.ApplyT(func(v *PromptVersionPromptAgentResource) PromptVersionPromptAgentResource {
+		if v != nil {
+			return *v
+		}
+		var ret PromptVersionPromptAgentResource
+		return ret
+	}).(PromptVersionPromptAgentResourceOutput)
+}
+
+// Arn representation of the Agent Alias.
+func (o PromptVersionPromptAgentResourcePtrOutput) AgentIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PromptVersionPromptAgentResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AgentIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
+// Target resource to invoke with Prompt
+type PromptVersionPromptGenAiResource0Properties struct {
+	Agent PromptVersionPromptAgentResource `pulumi:"agent"`
+}
+
+// Target resource to invoke with Prompt
+type PromptVersionPromptGenAiResourceProperties struct {
+	Agent PromptVersionPromptAgentResource `pulumi:"agent"`
+}
+
+// Target resource to invoke with Prompt
+type PromptVersionPromptGenAiResourcePropertiesOutput struct{ *pulumi.OutputState }
+
+func (PromptVersionPromptGenAiResourcePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PromptVersionPromptGenAiResourceProperties)(nil)).Elem()
+}
+
+func (o PromptVersionPromptGenAiResourcePropertiesOutput) ToPromptVersionPromptGenAiResourcePropertiesOutput() PromptVersionPromptGenAiResourcePropertiesOutput {
+	return o
+}
+
+func (o PromptVersionPromptGenAiResourcePropertiesOutput) ToPromptVersionPromptGenAiResourcePropertiesOutputWithContext(ctx context.Context) PromptVersionPromptGenAiResourcePropertiesOutput {
+	return o
+}
+
+func (o PromptVersionPromptGenAiResourcePropertiesOutput) Agent() PromptVersionPromptAgentResourceOutput {
+	return o.ApplyT(func(v PromptVersionPromptGenAiResourceProperties) PromptVersionPromptAgentResource { return v.Agent }).(PromptVersionPromptAgentResourceOutput)
+}
+
+type PromptVersionPromptGenAiResourcePropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (PromptVersionPromptGenAiResourcePropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PromptVersionPromptGenAiResourceProperties)(nil)).Elem()
+}
+
+func (o PromptVersionPromptGenAiResourcePropertiesPtrOutput) ToPromptVersionPromptGenAiResourcePropertiesPtrOutput() PromptVersionPromptGenAiResourcePropertiesPtrOutput {
+	return o
+}
+
+func (o PromptVersionPromptGenAiResourcePropertiesPtrOutput) ToPromptVersionPromptGenAiResourcePropertiesPtrOutputWithContext(ctx context.Context) PromptVersionPromptGenAiResourcePropertiesPtrOutput {
+	return o
+}
+
+func (o PromptVersionPromptGenAiResourcePropertiesPtrOutput) Elem() PromptVersionPromptGenAiResourcePropertiesOutput {
+	return o.ApplyT(func(v *PromptVersionPromptGenAiResourceProperties) PromptVersionPromptGenAiResourceProperties {
+		if v != nil {
+			return *v
+		}
+		var ret PromptVersionPromptGenAiResourceProperties
+		return ret
+	}).(PromptVersionPromptGenAiResourcePropertiesOutput)
+}
+
+func (o PromptVersionPromptGenAiResourcePropertiesPtrOutput) Agent() PromptVersionPromptAgentResourcePtrOutput {
+	return o.ApplyT(func(v *PromptVersionPromptGenAiResourceProperties) *PromptVersionPromptAgentResource {
+		if v == nil {
+			return nil
+		}
+		return &v.Agent
+	}).(PromptVersionPromptAgentResourcePtrOutput)
+}
+
 // Model inference configuration
 type PromptVersionPromptInferenceConfiguration0Properties struct {
 	Text PromptVersionPromptModelInferenceConfiguration `pulumi:"text"`
@@ -28188,33 +28550,55 @@ type PromptVersionPromptTemplateConfiguration0Properties struct {
 }
 
 // Prompt template configuration
-type PromptVersionPromptTemplateConfigurationProperties struct {
-	Text PromptVersionTextPromptTemplateConfiguration `pulumi:"text"`
+type PromptVersionPromptTemplateConfiguration0PropertiesOutput struct{ *pulumi.OutputState }
+
+func (PromptVersionPromptTemplateConfiguration0PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PromptVersionPromptTemplateConfiguration0Properties)(nil)).Elem()
 }
 
-// Prompt template configuration
-type PromptVersionPromptTemplateConfigurationPropertiesOutput struct{ *pulumi.OutputState }
-
-func (PromptVersionPromptTemplateConfigurationPropertiesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PromptVersionPromptTemplateConfigurationProperties)(nil)).Elem()
-}
-
-func (o PromptVersionPromptTemplateConfigurationPropertiesOutput) ToPromptVersionPromptTemplateConfigurationPropertiesOutput() PromptVersionPromptTemplateConfigurationPropertiesOutput {
+func (o PromptVersionPromptTemplateConfiguration0PropertiesOutput) ToPromptVersionPromptTemplateConfiguration0PropertiesOutput() PromptVersionPromptTemplateConfiguration0PropertiesOutput {
 	return o
 }
 
-func (o PromptVersionPromptTemplateConfigurationPropertiesOutput) ToPromptVersionPromptTemplateConfigurationPropertiesOutputWithContext(ctx context.Context) PromptVersionPromptTemplateConfigurationPropertiesOutput {
+func (o PromptVersionPromptTemplateConfiguration0PropertiesOutput) ToPromptVersionPromptTemplateConfiguration0PropertiesOutputWithContext(ctx context.Context) PromptVersionPromptTemplateConfiguration0PropertiesOutput {
 	return o
 }
 
-func (o PromptVersionPromptTemplateConfigurationPropertiesOutput) Text() PromptVersionTextPromptTemplateConfigurationOutput {
-	return o.ApplyT(func(v PromptVersionPromptTemplateConfigurationProperties) PromptVersionTextPromptTemplateConfiguration {
+func (o PromptVersionPromptTemplateConfiguration0PropertiesOutput) Text() PromptVersionTextPromptTemplateConfigurationOutput {
+	return o.ApplyT(func(v PromptVersionPromptTemplateConfiguration0Properties) PromptVersionTextPromptTemplateConfiguration {
 		return v.Text
 	}).(PromptVersionTextPromptTemplateConfigurationOutput)
 }
 
+// Prompt template configuration
+type PromptVersionPromptTemplateConfiguration1Properties struct {
+	Chat PromptVersionChatPromptTemplateConfiguration `pulumi:"chat"`
+}
+
+// Prompt template configuration
+type PromptVersionPromptTemplateConfiguration1PropertiesOutput struct{ *pulumi.OutputState }
+
+func (PromptVersionPromptTemplateConfiguration1PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PromptVersionPromptTemplateConfiguration1Properties)(nil)).Elem()
+}
+
+func (o PromptVersionPromptTemplateConfiguration1PropertiesOutput) ToPromptVersionPromptTemplateConfiguration1PropertiesOutput() PromptVersionPromptTemplateConfiguration1PropertiesOutput {
+	return o
+}
+
+func (o PromptVersionPromptTemplateConfiguration1PropertiesOutput) ToPromptVersionPromptTemplateConfiguration1PropertiesOutputWithContext(ctx context.Context) PromptVersionPromptTemplateConfiguration1PropertiesOutput {
+	return o
+}
+
+func (o PromptVersionPromptTemplateConfiguration1PropertiesOutput) Chat() PromptVersionChatPromptTemplateConfigurationOutput {
+	return o.ApplyT(func(v PromptVersionPromptTemplateConfiguration1Properties) PromptVersionChatPromptTemplateConfiguration {
+		return v.Chat
+	}).(PromptVersionChatPromptTemplateConfigurationOutput)
+}
+
 // Prompt variant
 type PromptVersionPromptVariant struct {
+	GenAiResource *PromptVersionPromptGenAiResourceProperties `pulumi:"genAiResource"`
 	// Contains inference configurations for the prompt variant.
 	InferenceConfiguration *PromptVersionPromptInferenceConfigurationProperties `pulumi:"inferenceConfiguration"`
 	// ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
@@ -28222,7 +28606,7 @@ type PromptVersionPromptVariant struct {
 	// Name for a variant.
 	Name string `pulumi:"name"`
 	// Contains configurations for the prompt template.
-	TemplateConfiguration PromptVersionPromptTemplateConfigurationProperties `pulumi:"templateConfiguration"`
+	TemplateConfiguration interface{} `pulumi:"templateConfiguration"`
 	// The type of prompt template to use.
 	TemplateType PromptVersionPromptTemplateType `pulumi:"templateType"`
 }
@@ -28240,6 +28624,10 @@ func (o PromptVersionPromptVariantOutput) ToPromptVersionPromptVariantOutput() P
 
 func (o PromptVersionPromptVariantOutput) ToPromptVersionPromptVariantOutputWithContext(ctx context.Context) PromptVersionPromptVariantOutput {
 	return o
+}
+
+func (o PromptVersionPromptVariantOutput) GenAiResource() PromptVersionPromptGenAiResourcePropertiesPtrOutput {
+	return o.ApplyT(func(v PromptVersionPromptVariant) *PromptVersionPromptGenAiResourceProperties { return v.GenAiResource }).(PromptVersionPromptGenAiResourcePropertiesPtrOutput)
 }
 
 // Contains inference configurations for the prompt variant.
@@ -28260,10 +28648,8 @@ func (o PromptVersionPromptVariantOutput) Name() pulumi.StringOutput {
 }
 
 // Contains configurations for the prompt template.
-func (o PromptVersionPromptVariantOutput) TemplateConfiguration() PromptVersionPromptTemplateConfigurationPropertiesOutput {
-	return o.ApplyT(func(v PromptVersionPromptVariant) PromptVersionPromptTemplateConfigurationProperties {
-		return v.TemplateConfiguration
-	}).(PromptVersionPromptTemplateConfigurationPropertiesOutput)
+func (o PromptVersionPromptVariantOutput) TemplateConfiguration() pulumi.AnyOutput {
+	return o.ApplyT(func(v PromptVersionPromptVariant) interface{} { return v.TemplateConfiguration }).(pulumi.AnyOutput)
 }
 
 // The type of prompt template to use.
@@ -28289,6 +28675,118 @@ func (o PromptVersionPromptVariantArrayOutput) Index(i pulumi.IntInput) PromptVe
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PromptVersionPromptVariant {
 		return vs[0].([]PromptVersionPromptVariant)[vs[1].(int)]
 	}).(PromptVersionPromptVariantOutput)
+}
+
+// Specific Tool choice
+type PromptVersionSpecificToolChoice struct {
+	// Tool name
+	Name string `pulumi:"name"`
+}
+
+// Specific Tool choice
+type PromptVersionSpecificToolChoiceOutput struct{ *pulumi.OutputState }
+
+func (PromptVersionSpecificToolChoiceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PromptVersionSpecificToolChoice)(nil)).Elem()
+}
+
+func (o PromptVersionSpecificToolChoiceOutput) ToPromptVersionSpecificToolChoiceOutput() PromptVersionSpecificToolChoiceOutput {
+	return o
+}
+
+func (o PromptVersionSpecificToolChoiceOutput) ToPromptVersionSpecificToolChoiceOutputWithContext(ctx context.Context) PromptVersionSpecificToolChoiceOutput {
+	return o
+}
+
+// Tool name
+func (o PromptVersionSpecificToolChoiceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PromptVersionSpecificToolChoice) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type PromptVersionSpecificToolChoicePtrOutput struct{ *pulumi.OutputState }
+
+func (PromptVersionSpecificToolChoicePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PromptVersionSpecificToolChoice)(nil)).Elem()
+}
+
+func (o PromptVersionSpecificToolChoicePtrOutput) ToPromptVersionSpecificToolChoicePtrOutput() PromptVersionSpecificToolChoicePtrOutput {
+	return o
+}
+
+func (o PromptVersionSpecificToolChoicePtrOutput) ToPromptVersionSpecificToolChoicePtrOutputWithContext(ctx context.Context) PromptVersionSpecificToolChoicePtrOutput {
+	return o
+}
+
+func (o PromptVersionSpecificToolChoicePtrOutput) Elem() PromptVersionSpecificToolChoiceOutput {
+	return o.ApplyT(func(v *PromptVersionSpecificToolChoice) PromptVersionSpecificToolChoice {
+		if v != nil {
+			return *v
+		}
+		var ret PromptVersionSpecificToolChoice
+		return ret
+	}).(PromptVersionSpecificToolChoiceOutput)
+}
+
+// Tool name
+func (o PromptVersionSpecificToolChoicePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PromptVersionSpecificToolChoice) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Configuration for chat prompt template
+type PromptVersionSystemContentBlock0Properties struct {
+	// Configuration for chat prompt template
+	Text string `pulumi:"text"`
+}
+
+// Configuration for chat prompt template
+type PromptVersionSystemContentBlockProperties struct {
+	// Configuration for chat prompt template
+	Text string `pulumi:"text"`
+}
+
+// Configuration for chat prompt template
+type PromptVersionSystemContentBlockPropertiesOutput struct{ *pulumi.OutputState }
+
+func (PromptVersionSystemContentBlockPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PromptVersionSystemContentBlockProperties)(nil)).Elem()
+}
+
+func (o PromptVersionSystemContentBlockPropertiesOutput) ToPromptVersionSystemContentBlockPropertiesOutput() PromptVersionSystemContentBlockPropertiesOutput {
+	return o
+}
+
+func (o PromptVersionSystemContentBlockPropertiesOutput) ToPromptVersionSystemContentBlockPropertiesOutputWithContext(ctx context.Context) PromptVersionSystemContentBlockPropertiesOutput {
+	return o
+}
+
+// Configuration for chat prompt template
+func (o PromptVersionSystemContentBlockPropertiesOutput) Text() pulumi.StringOutput {
+	return o.ApplyT(func(v PromptVersionSystemContentBlockProperties) string { return v.Text }).(pulumi.StringOutput)
+}
+
+type PromptVersionSystemContentBlockPropertiesArrayOutput struct{ *pulumi.OutputState }
+
+func (PromptVersionSystemContentBlockPropertiesArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PromptVersionSystemContentBlockProperties)(nil)).Elem()
+}
+
+func (o PromptVersionSystemContentBlockPropertiesArrayOutput) ToPromptVersionSystemContentBlockPropertiesArrayOutput() PromptVersionSystemContentBlockPropertiesArrayOutput {
+	return o
+}
+
+func (o PromptVersionSystemContentBlockPropertiesArrayOutput) ToPromptVersionSystemContentBlockPropertiesArrayOutputWithContext(ctx context.Context) PromptVersionSystemContentBlockPropertiesArrayOutput {
+	return o
+}
+
+func (o PromptVersionSystemContentBlockPropertiesArrayOutput) Index(i pulumi.IntInput) PromptVersionSystemContentBlockPropertiesOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PromptVersionSystemContentBlockProperties {
+		return vs[0].([]PromptVersionSystemContentBlockProperties)[vs[1].(int)]
+	}).(PromptVersionSystemContentBlockPropertiesOutput)
 }
 
 // Configuration for text prompt template
@@ -28324,6 +28822,365 @@ func (o PromptVersionTextPromptTemplateConfigurationOutput) InputVariables() Pro
 // Prompt content for String prompt template
 func (o PromptVersionTextPromptTemplateConfigurationOutput) Text() pulumi.StringOutput {
 	return o.ApplyT(func(v PromptVersionTextPromptTemplateConfiguration) string { return v.Text }).(pulumi.StringOutput)
+}
+
+// Tool details
+type PromptVersionTool0Properties struct {
+	ToolSpec PromptVersionToolSpecification `pulumi:"toolSpec"`
+}
+
+// Tool choice
+type PromptVersionToolChoice0Properties struct {
+	Auto PromptVersionAutoToolChoice `pulumi:"auto"`
+}
+
+// Tool choice
+type PromptVersionToolChoice0PropertiesOutput struct{ *pulumi.OutputState }
+
+func (PromptVersionToolChoice0PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PromptVersionToolChoice0Properties)(nil)).Elem()
+}
+
+func (o PromptVersionToolChoice0PropertiesOutput) ToPromptVersionToolChoice0PropertiesOutput() PromptVersionToolChoice0PropertiesOutput {
+	return o
+}
+
+func (o PromptVersionToolChoice0PropertiesOutput) ToPromptVersionToolChoice0PropertiesOutputWithContext(ctx context.Context) PromptVersionToolChoice0PropertiesOutput {
+	return o
+}
+
+func (o PromptVersionToolChoice0PropertiesOutput) Auto() PromptVersionAutoToolChoiceOutput {
+	return o.ApplyT(func(v PromptVersionToolChoice0Properties) PromptVersionAutoToolChoice { return v.Auto }).(PromptVersionAutoToolChoiceOutput)
+}
+
+type PromptVersionToolChoice0PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (PromptVersionToolChoice0PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PromptVersionToolChoice0Properties)(nil)).Elem()
+}
+
+func (o PromptVersionToolChoice0PropertiesPtrOutput) ToPromptVersionToolChoice0PropertiesPtrOutput() PromptVersionToolChoice0PropertiesPtrOutput {
+	return o
+}
+
+func (o PromptVersionToolChoice0PropertiesPtrOutput) ToPromptVersionToolChoice0PropertiesPtrOutputWithContext(ctx context.Context) PromptVersionToolChoice0PropertiesPtrOutput {
+	return o
+}
+
+func (o PromptVersionToolChoice0PropertiesPtrOutput) Elem() PromptVersionToolChoice0PropertiesOutput {
+	return o.ApplyT(func(v *PromptVersionToolChoice0Properties) PromptVersionToolChoice0Properties {
+		if v != nil {
+			return *v
+		}
+		var ret PromptVersionToolChoice0Properties
+		return ret
+	}).(PromptVersionToolChoice0PropertiesOutput)
+}
+
+func (o PromptVersionToolChoice0PropertiesPtrOutput) Auto() PromptVersionAutoToolChoicePtrOutput {
+	return o.ApplyT(func(v *PromptVersionToolChoice0Properties) *PromptVersionAutoToolChoice {
+		if v == nil {
+			return nil
+		}
+		return &v.Auto
+	}).(PromptVersionAutoToolChoicePtrOutput)
+}
+
+// Tool choice
+type PromptVersionToolChoice1Properties struct {
+	Any PromptVersionAnyToolChoice `pulumi:"any"`
+}
+
+// Tool choice
+type PromptVersionToolChoice1PropertiesOutput struct{ *pulumi.OutputState }
+
+func (PromptVersionToolChoice1PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PromptVersionToolChoice1Properties)(nil)).Elem()
+}
+
+func (o PromptVersionToolChoice1PropertiesOutput) ToPromptVersionToolChoice1PropertiesOutput() PromptVersionToolChoice1PropertiesOutput {
+	return o
+}
+
+func (o PromptVersionToolChoice1PropertiesOutput) ToPromptVersionToolChoice1PropertiesOutputWithContext(ctx context.Context) PromptVersionToolChoice1PropertiesOutput {
+	return o
+}
+
+func (o PromptVersionToolChoice1PropertiesOutput) Any() PromptVersionAnyToolChoiceOutput {
+	return o.ApplyT(func(v PromptVersionToolChoice1Properties) PromptVersionAnyToolChoice { return v.Any }).(PromptVersionAnyToolChoiceOutput)
+}
+
+type PromptVersionToolChoice1PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (PromptVersionToolChoice1PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PromptVersionToolChoice1Properties)(nil)).Elem()
+}
+
+func (o PromptVersionToolChoice1PropertiesPtrOutput) ToPromptVersionToolChoice1PropertiesPtrOutput() PromptVersionToolChoice1PropertiesPtrOutput {
+	return o
+}
+
+func (o PromptVersionToolChoice1PropertiesPtrOutput) ToPromptVersionToolChoice1PropertiesPtrOutputWithContext(ctx context.Context) PromptVersionToolChoice1PropertiesPtrOutput {
+	return o
+}
+
+func (o PromptVersionToolChoice1PropertiesPtrOutput) Elem() PromptVersionToolChoice1PropertiesOutput {
+	return o.ApplyT(func(v *PromptVersionToolChoice1Properties) PromptVersionToolChoice1Properties {
+		if v != nil {
+			return *v
+		}
+		var ret PromptVersionToolChoice1Properties
+		return ret
+	}).(PromptVersionToolChoice1PropertiesOutput)
+}
+
+func (o PromptVersionToolChoice1PropertiesPtrOutput) Any() PromptVersionAnyToolChoicePtrOutput {
+	return o.ApplyT(func(v *PromptVersionToolChoice1Properties) *PromptVersionAnyToolChoice {
+		if v == nil {
+			return nil
+		}
+		return &v.Any
+	}).(PromptVersionAnyToolChoicePtrOutput)
+}
+
+// Tool choice
+type PromptVersionToolChoice2Properties struct {
+	Tool PromptVersionSpecificToolChoice `pulumi:"tool"`
+}
+
+// Tool choice
+type PromptVersionToolChoice2PropertiesOutput struct{ *pulumi.OutputState }
+
+func (PromptVersionToolChoice2PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PromptVersionToolChoice2Properties)(nil)).Elem()
+}
+
+func (o PromptVersionToolChoice2PropertiesOutput) ToPromptVersionToolChoice2PropertiesOutput() PromptVersionToolChoice2PropertiesOutput {
+	return o
+}
+
+func (o PromptVersionToolChoice2PropertiesOutput) ToPromptVersionToolChoice2PropertiesOutputWithContext(ctx context.Context) PromptVersionToolChoice2PropertiesOutput {
+	return o
+}
+
+func (o PromptVersionToolChoice2PropertiesOutput) Tool() PromptVersionSpecificToolChoiceOutput {
+	return o.ApplyT(func(v PromptVersionToolChoice2Properties) PromptVersionSpecificToolChoice { return v.Tool }).(PromptVersionSpecificToolChoiceOutput)
+}
+
+type PromptVersionToolChoice2PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (PromptVersionToolChoice2PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PromptVersionToolChoice2Properties)(nil)).Elem()
+}
+
+func (o PromptVersionToolChoice2PropertiesPtrOutput) ToPromptVersionToolChoice2PropertiesPtrOutput() PromptVersionToolChoice2PropertiesPtrOutput {
+	return o
+}
+
+func (o PromptVersionToolChoice2PropertiesPtrOutput) ToPromptVersionToolChoice2PropertiesPtrOutputWithContext(ctx context.Context) PromptVersionToolChoice2PropertiesPtrOutput {
+	return o
+}
+
+func (o PromptVersionToolChoice2PropertiesPtrOutput) Elem() PromptVersionToolChoice2PropertiesOutput {
+	return o.ApplyT(func(v *PromptVersionToolChoice2Properties) PromptVersionToolChoice2Properties {
+		if v != nil {
+			return *v
+		}
+		var ret PromptVersionToolChoice2Properties
+		return ret
+	}).(PromptVersionToolChoice2PropertiesOutput)
+}
+
+func (o PromptVersionToolChoice2PropertiesPtrOutput) Tool() PromptVersionSpecificToolChoicePtrOutput {
+	return o.ApplyT(func(v *PromptVersionToolChoice2Properties) *PromptVersionSpecificToolChoice {
+		if v == nil {
+			return nil
+		}
+		return &v.Tool
+	}).(PromptVersionSpecificToolChoicePtrOutput)
+}
+
+// Tool configuration
+type PromptVersionToolConfiguration struct {
+	ToolChoice interface{} `pulumi:"toolChoice"`
+	// List of Tools
+	Tools []PromptVersionToolProperties `pulumi:"tools"`
+}
+
+// Tool configuration
+type PromptVersionToolConfigurationOutput struct{ *pulumi.OutputState }
+
+func (PromptVersionToolConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PromptVersionToolConfiguration)(nil)).Elem()
+}
+
+func (o PromptVersionToolConfigurationOutput) ToPromptVersionToolConfigurationOutput() PromptVersionToolConfigurationOutput {
+	return o
+}
+
+func (o PromptVersionToolConfigurationOutput) ToPromptVersionToolConfigurationOutputWithContext(ctx context.Context) PromptVersionToolConfigurationOutput {
+	return o
+}
+
+func (o PromptVersionToolConfigurationOutput) ToolChoice() pulumi.AnyOutput {
+	return o.ApplyT(func(v PromptVersionToolConfiguration) interface{} { return v.ToolChoice }).(pulumi.AnyOutput)
+}
+
+// List of Tools
+func (o PromptVersionToolConfigurationOutput) Tools() PromptVersionToolPropertiesArrayOutput {
+	return o.ApplyT(func(v PromptVersionToolConfiguration) []PromptVersionToolProperties { return v.Tools }).(PromptVersionToolPropertiesArrayOutput)
+}
+
+type PromptVersionToolConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (PromptVersionToolConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PromptVersionToolConfiguration)(nil)).Elem()
+}
+
+func (o PromptVersionToolConfigurationPtrOutput) ToPromptVersionToolConfigurationPtrOutput() PromptVersionToolConfigurationPtrOutput {
+	return o
+}
+
+func (o PromptVersionToolConfigurationPtrOutput) ToPromptVersionToolConfigurationPtrOutputWithContext(ctx context.Context) PromptVersionToolConfigurationPtrOutput {
+	return o
+}
+
+func (o PromptVersionToolConfigurationPtrOutput) Elem() PromptVersionToolConfigurationOutput {
+	return o.ApplyT(func(v *PromptVersionToolConfiguration) PromptVersionToolConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret PromptVersionToolConfiguration
+		return ret
+	}).(PromptVersionToolConfigurationOutput)
+}
+
+func (o PromptVersionToolConfigurationPtrOutput) ToolChoice() pulumi.AnyOutput {
+	return o.ApplyT(func(v *PromptVersionToolConfiguration) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.ToolChoice
+	}).(pulumi.AnyOutput)
+}
+
+// List of Tools
+func (o PromptVersionToolConfigurationPtrOutput) Tools() PromptVersionToolPropertiesArrayOutput {
+	return o.ApplyT(func(v *PromptVersionToolConfiguration) []PromptVersionToolProperties {
+		if v == nil {
+			return nil
+		}
+		return v.Tools
+	}).(PromptVersionToolPropertiesArrayOutput)
+}
+
+// Tool input schema json
+type PromptVersionToolInputSchema0Properties struct {
+	Json interface{} `pulumi:"json"`
+}
+
+// Tool input schema json
+type PromptVersionToolInputSchemaProperties struct {
+	Json interface{} `pulumi:"json"`
+}
+
+// Tool input schema json
+type PromptVersionToolInputSchemaPropertiesOutput struct{ *pulumi.OutputState }
+
+func (PromptVersionToolInputSchemaPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PromptVersionToolInputSchemaProperties)(nil)).Elem()
+}
+
+func (o PromptVersionToolInputSchemaPropertiesOutput) ToPromptVersionToolInputSchemaPropertiesOutput() PromptVersionToolInputSchemaPropertiesOutput {
+	return o
+}
+
+func (o PromptVersionToolInputSchemaPropertiesOutput) ToPromptVersionToolInputSchemaPropertiesOutputWithContext(ctx context.Context) PromptVersionToolInputSchemaPropertiesOutput {
+	return o
+}
+
+func (o PromptVersionToolInputSchemaPropertiesOutput) Json() pulumi.AnyOutput {
+	return o.ApplyT(func(v PromptVersionToolInputSchemaProperties) interface{} { return v.Json }).(pulumi.AnyOutput)
+}
+
+// Tool details
+type PromptVersionToolProperties struct {
+	ToolSpec PromptVersionToolSpecification `pulumi:"toolSpec"`
+}
+
+// Tool details
+type PromptVersionToolPropertiesOutput struct{ *pulumi.OutputState }
+
+func (PromptVersionToolPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PromptVersionToolProperties)(nil)).Elem()
+}
+
+func (o PromptVersionToolPropertiesOutput) ToPromptVersionToolPropertiesOutput() PromptVersionToolPropertiesOutput {
+	return o
+}
+
+func (o PromptVersionToolPropertiesOutput) ToPromptVersionToolPropertiesOutputWithContext(ctx context.Context) PromptVersionToolPropertiesOutput {
+	return o
+}
+
+func (o PromptVersionToolPropertiesOutput) ToolSpec() PromptVersionToolSpecificationOutput {
+	return o.ApplyT(func(v PromptVersionToolProperties) PromptVersionToolSpecification { return v.ToolSpec }).(PromptVersionToolSpecificationOutput)
+}
+
+type PromptVersionToolPropertiesArrayOutput struct{ *pulumi.OutputState }
+
+func (PromptVersionToolPropertiesArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PromptVersionToolProperties)(nil)).Elem()
+}
+
+func (o PromptVersionToolPropertiesArrayOutput) ToPromptVersionToolPropertiesArrayOutput() PromptVersionToolPropertiesArrayOutput {
+	return o
+}
+
+func (o PromptVersionToolPropertiesArrayOutput) ToPromptVersionToolPropertiesArrayOutputWithContext(ctx context.Context) PromptVersionToolPropertiesArrayOutput {
+	return o
+}
+
+func (o PromptVersionToolPropertiesArrayOutput) Index(i pulumi.IntInput) PromptVersionToolPropertiesOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PromptVersionToolProperties {
+		return vs[0].([]PromptVersionToolProperties)[vs[1].(int)]
+	}).(PromptVersionToolPropertiesOutput)
+}
+
+// Tool specification
+type PromptVersionToolSpecification struct {
+	Description *string                                `pulumi:"description"`
+	InputSchema PromptVersionToolInputSchemaProperties `pulumi:"inputSchema"`
+	// Tool name
+	Name string `pulumi:"name"`
+}
+
+// Tool specification
+type PromptVersionToolSpecificationOutput struct{ *pulumi.OutputState }
+
+func (PromptVersionToolSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PromptVersionToolSpecification)(nil)).Elem()
+}
+
+func (o PromptVersionToolSpecificationOutput) ToPromptVersionToolSpecificationOutput() PromptVersionToolSpecificationOutput {
+	return o
+}
+
+func (o PromptVersionToolSpecificationOutput) ToPromptVersionToolSpecificationOutputWithContext(ctx context.Context) PromptVersionToolSpecificationOutput {
+	return o
+}
+
+func (o PromptVersionToolSpecificationOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PromptVersionToolSpecification) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o PromptVersionToolSpecificationOutput) InputSchema() PromptVersionToolInputSchemaPropertiesOutput {
+	return o.ApplyT(func(v PromptVersionToolSpecification) PromptVersionToolInputSchemaProperties { return v.InputSchema }).(PromptVersionToolInputSchemaPropertiesOutput)
+}
+
+// Tool name
+func (o PromptVersionToolSpecificationOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PromptVersionToolSpecification) string { return v.Name }).(pulumi.StringOutput)
 }
 
 func init() {
@@ -29095,14 +29952,44 @@ func init() {
 	pulumi.RegisterOutputType(PromptToolSpecificationOutput{})
 	pulumi.RegisterOutputType(PromptVariantOutput{})
 	pulumi.RegisterOutputType(PromptVariantArrayOutput{})
+	pulumi.RegisterOutputType(PromptVersionAnyToolChoiceOutput{})
+	pulumi.RegisterOutputType(PromptVersionAnyToolChoicePtrOutput{})
+	pulumi.RegisterOutputType(PromptVersionAutoToolChoiceOutput{})
+	pulumi.RegisterOutputType(PromptVersionAutoToolChoicePtrOutput{})
+	pulumi.RegisterOutputType(PromptVersionChatPromptTemplateConfigurationOutput{})
+	pulumi.RegisterOutputType(PromptVersionContentBlockPropertiesOutput{})
+	pulumi.RegisterOutputType(PromptVersionContentBlockPropertiesArrayOutput{})
+	pulumi.RegisterOutputType(PromptVersionMessageOutput{})
+	pulumi.RegisterOutputType(PromptVersionMessageArrayOutput{})
+	pulumi.RegisterOutputType(PromptVersionPromptAgentResourceOutput{})
+	pulumi.RegisterOutputType(PromptVersionPromptAgentResourcePtrOutput{})
+	pulumi.RegisterOutputType(PromptVersionPromptGenAiResourcePropertiesOutput{})
+	pulumi.RegisterOutputType(PromptVersionPromptGenAiResourcePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(PromptVersionPromptInferenceConfigurationPropertiesOutput{})
 	pulumi.RegisterOutputType(PromptVersionPromptInferenceConfigurationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(PromptVersionPromptInputVariableOutput{})
 	pulumi.RegisterOutputType(PromptVersionPromptInputVariableArrayOutput{})
 	pulumi.RegisterOutputType(PromptVersionPromptModelInferenceConfigurationOutput{})
 	pulumi.RegisterOutputType(PromptVersionPromptModelInferenceConfigurationPtrOutput{})
-	pulumi.RegisterOutputType(PromptVersionPromptTemplateConfigurationPropertiesOutput{})
+	pulumi.RegisterOutputType(PromptVersionPromptTemplateConfiguration0PropertiesOutput{})
+	pulumi.RegisterOutputType(PromptVersionPromptTemplateConfiguration1PropertiesOutput{})
 	pulumi.RegisterOutputType(PromptVersionPromptVariantOutput{})
 	pulumi.RegisterOutputType(PromptVersionPromptVariantArrayOutput{})
+	pulumi.RegisterOutputType(PromptVersionSpecificToolChoiceOutput{})
+	pulumi.RegisterOutputType(PromptVersionSpecificToolChoicePtrOutput{})
+	pulumi.RegisterOutputType(PromptVersionSystemContentBlockPropertiesOutput{})
+	pulumi.RegisterOutputType(PromptVersionSystemContentBlockPropertiesArrayOutput{})
 	pulumi.RegisterOutputType(PromptVersionTextPromptTemplateConfigurationOutput{})
+	pulumi.RegisterOutputType(PromptVersionToolChoice0PropertiesOutput{})
+	pulumi.RegisterOutputType(PromptVersionToolChoice0PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(PromptVersionToolChoice1PropertiesOutput{})
+	pulumi.RegisterOutputType(PromptVersionToolChoice1PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(PromptVersionToolChoice2PropertiesOutput{})
+	pulumi.RegisterOutputType(PromptVersionToolChoice2PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(PromptVersionToolConfigurationOutput{})
+	pulumi.RegisterOutputType(PromptVersionToolConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(PromptVersionToolInputSchemaPropertiesOutput{})
+	pulumi.RegisterOutputType(PromptVersionToolPropertiesOutput{})
+	pulumi.RegisterOutputType(PromptVersionToolPropertiesArrayOutput{})
+	pulumi.RegisterOutputType(PromptVersionToolSpecificationOutput{})
 }

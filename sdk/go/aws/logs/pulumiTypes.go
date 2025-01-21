@@ -148,7 +148,7 @@ type IntegrationOpenSearchResourceConfig struct {
 	ApplicationArn *string `pulumi:"applicationArn"`
 	// Specify the ARNs of IAM roles and IAM users who you want to grant permission to for viewing the dashboards.
 	//
-	// > In addition to specifying these users here, you must also grant them the *CloudWatchOpenSearchDashboardsAccess* IAM policy. For more information, see [IAM policies for users](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/OpenSearch-Dashboards-UserRoles.html) .
+	// > In addition to specifying these users here, you must also grant them the *CloudWatchOpenSearchDashboardAccess* IAM policy. For more information, see [IAM policies for users](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/OpenSearch-Dashboards-UserRoles.html) .
 	DashboardViewerPrincipals []string `pulumi:"dashboardViewerPrincipals"`
 	// Specify the ARN of an IAM role that CloudWatch Logs will use to create the integration. This role must have the permissions necessary to access the OpenSearch Service collection to be able to create the dashboards. For more information about the permissions needed, see [Permissions that the integration needs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/OpenSearch-Dashboards-CreateRole.html) in the CloudWatch Logs User Guide.
 	DataSourceRoleArn string `pulumi:"dataSourceRoleArn"`
@@ -174,7 +174,7 @@ type IntegrationOpenSearchResourceConfigArgs struct {
 	ApplicationArn pulumi.StringPtrInput `pulumi:"applicationArn"`
 	// Specify the ARNs of IAM roles and IAM users who you want to grant permission to for viewing the dashboards.
 	//
-	// > In addition to specifying these users here, you must also grant them the *CloudWatchOpenSearchDashboardsAccess* IAM policy. For more information, see [IAM policies for users](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/OpenSearch-Dashboards-UserRoles.html) .
+	// > In addition to specifying these users here, you must also grant them the *CloudWatchOpenSearchDashboardAccess* IAM policy. For more information, see [IAM policies for users](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/OpenSearch-Dashboards-UserRoles.html) .
 	DashboardViewerPrincipals pulumi.StringArrayInput `pulumi:"dashboardViewerPrincipals"`
 	// Specify the ARN of an IAM role that CloudWatch Logs will use to create the integration. This role must have the permissions necessary to access the OpenSearch Service collection to be able to create the dashboards. For more information about the permissions needed, see [Permissions that the integration needs](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/OpenSearch-Dashboards-CreateRole.html) in the CloudWatch Logs User Guide.
 	DataSourceRoleArn pulumi.StringInput `pulumi:"dataSourceRoleArn"`
@@ -268,7 +268,7 @@ func (o IntegrationOpenSearchResourceConfigOutput) ApplicationArn() pulumi.Strin
 
 // Specify the ARNs of IAM roles and IAM users who you want to grant permission to for viewing the dashboards.
 //
-// > In addition to specifying these users here, you must also grant them the *CloudWatchOpenSearchDashboardsAccess* IAM policy. For more information, see [IAM policies for users](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/OpenSearch-Dashboards-UserRoles.html) .
+// > In addition to specifying these users here, you must also grant them the *CloudWatchOpenSearchDashboardAccess* IAM policy. For more information, see [IAM policies for users](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/OpenSearch-Dashboards-UserRoles.html) .
 func (o IntegrationOpenSearchResourceConfigOutput) DashboardViewerPrincipals() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v IntegrationOpenSearchResourceConfig) []string { return v.DashboardViewerPrincipals }).(pulumi.StringArrayOutput)
 }
@@ -324,7 +324,7 @@ func (o IntegrationOpenSearchResourceConfigPtrOutput) ApplicationArn() pulumi.St
 
 // Specify the ARNs of IAM roles and IAM users who you want to grant permission to for viewing the dashboards.
 //
-// > In addition to specifying these users here, you must also grant them the *CloudWatchOpenSearchDashboardsAccess* IAM policy. For more information, see [IAM policies for users](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/OpenSearch-Dashboards-UserRoles.html) .
+// > In addition to specifying these users here, you must also grant them the *CloudWatchOpenSearchDashboardAccess* IAM policy. For more information, see [IAM policies for users](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/OpenSearch-Dashboards-UserRoles.html) .
 func (o IntegrationOpenSearchResourceConfigPtrOutput) DashboardViewerPrincipals() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *IntegrationOpenSearchResourceConfig) []string {
 		if v == nil {

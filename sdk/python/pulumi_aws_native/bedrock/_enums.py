@@ -62,6 +62,7 @@ __all__ = [
     'KnowledgeBaseType',
     'PromptConversationRole',
     'PromptTemplateType',
+    'PromptVersionConversationRole',
     'PromptVersionPromptTemplateType',
 ]
 
@@ -606,8 +607,17 @@ class PromptTemplateType(str, Enum):
     CHAT = "CHAT"
 
 
+class PromptVersionConversationRole(str, Enum):
+    """
+    Conversation roles for the chat prompt
+    """
+    USER = "user"
+    ASSISTANT = "assistant"
+
+
 class PromptVersionPromptTemplateType(str, Enum):
     """
     Prompt template type
     """
     TEXT = "TEXT"
+    CHAT = "CHAT"
