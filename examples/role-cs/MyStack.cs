@@ -12,19 +12,17 @@ class MyStack : Stack
     {
         var testRole = new Role("role-test", new RoleArgs
         {
-            AssumeRolePolicyDocument = """
-            {
-                "Version": "2012-10-17",
-                "Statement": [{
-                    "Sid": "",
-                    "Effect": "Allow",
-                    "Principal": {
-                        "Service": "ec2.amazonaws.com"
+            AssumeRolePolicyDocument = @"{
+                ""Version"": ""2012-10-17"",
+                ""Statement"": [{
+                    ""Sid"": """",
+                    ""Effect"": ""Allow"",
+                    ""Principal"": {
+                        ""Service"": ""ec2.amazonaws.com""
                     },
-                    "Action": "sts:AssumeRole"
+                    ""Action"": ""sts:AssumeRole""
                 }]
-            }
-            """,
+            }",
             Policies = new[]
             {
                 new IamInputs.RolePolicyArgs
