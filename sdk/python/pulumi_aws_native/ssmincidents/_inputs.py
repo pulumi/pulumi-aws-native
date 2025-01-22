@@ -54,6 +54,9 @@ if not MYPY:
         The ReplicationSet regional configuration.
         """
         sse_kms_key_id: pulumi.Input[str]
+        """
+        The AWS Key Management Service key ID or Key Alias to use to encrypt your replication set.
+        """
 elif False:
     ReplicationSetRegionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -63,12 +66,16 @@ class ReplicationSetRegionConfigurationArgs:
                  sse_kms_key_id: pulumi.Input[str]):
         """
         The ReplicationSet regional configuration.
+        :param pulumi.Input[str] sse_kms_key_id: The AWS Key Management Service key ID or Key Alias to use to encrypt your replication set.
         """
         pulumi.set(__self__, "sse_kms_key_id", sse_kms_key_id)
 
     @property
     @pulumi.getter(name="sseKmsKeyId")
     def sse_kms_key_id(self) -> pulumi.Input[str]:
+        """
+        The AWS Key Management Service key ID or Key Alias to use to encrypt your replication set.
+        """
         return pulumi.get(self, "sse_kms_key_id")
 
     @sse_kms_key_id.setter

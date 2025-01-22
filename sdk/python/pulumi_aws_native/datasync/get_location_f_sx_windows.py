@@ -24,7 +24,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetLocationFSxWindowsResult:
-    def __init__(__self__, location_arn=None, location_uri=None, tags=None):
+    def __init__(__self__, domain=None, location_arn=None, location_uri=None, tags=None, user=None):
+        if domain and not isinstance(domain, str):
+            raise TypeError("Expected argument 'domain' to be a str")
+        pulumi.set(__self__, "domain", domain)
         if location_arn and not isinstance(location_arn, str):
             raise TypeError("Expected argument 'location_arn' to be a str")
         pulumi.set(__self__, "location_arn", location_arn)
@@ -34,6 +37,17 @@ class GetLocationFSxWindowsResult:
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
+        if user and not isinstance(user, str):
+            raise TypeError("Expected argument 'user' to be a str")
+        pulumi.set(__self__, "user", user)
+
+    @property
+    @pulumi.getter
+    def domain(self) -> Optional[str]:
+        """
+        The name of the Windows domain that the FSx for Windows server belongs to.
+        """
+        return pulumi.get(self, "domain")
 
     @property
     @pulumi.getter(name="locationArn")
@@ -59,6 +73,14 @@ class GetLocationFSxWindowsResult:
         """
         return pulumi.get(self, "tags")
 
+    @property
+    @pulumi.getter
+    def user(self) -> Optional[str]:
+        """
+        The user who has the permissions to access files and folders in the FSx for Windows file system.
+        """
+        return pulumi.get(self, "user")
+
 
 class AwaitableGetLocationFSxWindowsResult(GetLocationFSxWindowsResult):
     # pylint: disable=using-constant-test
@@ -66,9 +88,11 @@ class AwaitableGetLocationFSxWindowsResult(GetLocationFSxWindowsResult):
         if False:
             yield self
         return GetLocationFSxWindowsResult(
+            domain=self.domain,
             location_arn=self.location_arn,
             location_uri=self.location_uri,
-            tags=self.tags)
+            tags=self.tags,
+            user=self.user)
 
 
 def get_location_f_sx_windows(location_arn: Optional[str] = None,
@@ -85,9 +109,11 @@ def get_location_f_sx_windows(location_arn: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:datasync:getLocationFSxWindows', __args__, opts=opts, typ=GetLocationFSxWindowsResult).value
 
     return AwaitableGetLocationFSxWindowsResult(
+        domain=pulumi.get(__ret__, 'domain'),
         location_arn=pulumi.get(__ret__, 'location_arn'),
         location_uri=pulumi.get(__ret__, 'location_uri'),
-        tags=pulumi.get(__ret__, 'tags'))
+        tags=pulumi.get(__ret__, 'tags'),
+        user=pulumi.get(__ret__, 'user'))
 def get_location_f_sx_windows_output(location_arn: Optional[pulumi.Input[str]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocationFSxWindowsResult]:
     """
@@ -101,6 +127,8 @@ def get_location_f_sx_windows_output(location_arn: Optional[pulumi.Input[str]] =
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:datasync:getLocationFSxWindows', __args__, opts=opts, typ=GetLocationFSxWindowsResult)
     return __ret__.apply(lambda __response__: GetLocationFSxWindowsResult(
+        domain=pulumi.get(__response__, 'domain'),
         location_arn=pulumi.get(__response__, 'location_arn'),
         location_uri=pulumi.get(__response__, 'location_uri'),
-        tags=pulumi.get(__response__, 'tags')))
+        tags=pulumi.get(__response__, 'tags'),
+        user=pulumi.get(__response__, 'user')))

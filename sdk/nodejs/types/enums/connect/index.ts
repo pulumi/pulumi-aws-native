@@ -288,6 +288,7 @@ export const RoutingProfileChannel = {
     Voice: "VOICE",
     Chat: "CHAT",
     Task: "TASK",
+    Email: "EMAIL",
 } as const;
 
 /**

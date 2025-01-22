@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
     /// </summary>
     public sealed class KnowledgeBaseQueryGenerationConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The time after which query generation will time out.
+        /// </summary>
         [Input("executionTimeoutSeconds")]
         public Input<int>? ExecutionTimeoutSeconds { get; set; }
 
+        /// <summary>
+        /// Specifies configurations for context to use during query generation.
+        /// </summary>
         [Input("generationContext")]
         public Input<Inputs.KnowledgeBaseQueryGenerationContextArgs>? GenerationContext { get; set; }
 

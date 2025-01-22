@@ -206,7 +206,7 @@ class LocationFSxLustre(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["location_arn"] = None
             __props__.__dict__["location_uri"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["fsxFilesystemArn", "securityGroupArns[*]", "subdirectory"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["fsxFilesystemArn", "securityGroupArns[*]"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(LocationFSxLustre, __self__).__init__(
             'aws-native:datasync:LocationFSxLustre',

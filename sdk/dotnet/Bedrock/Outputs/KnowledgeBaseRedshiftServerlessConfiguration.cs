@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
     [OutputType]
     public sealed class KnowledgeBaseRedshiftServerlessConfiguration
     {
+        /// <summary>
+        /// Specifies configurations for authentication to an Amazon Redshift provisioned data warehouse.
+        /// </summary>
         public readonly Outputs.KnowledgeBaseRedshiftServerlessAuthConfiguration AuthConfiguration;
+        /// <summary>
+        /// The ARN of the Amazon Redshift workgroup.
+        /// </summary>
         public readonly string WorkgroupArn;
 
         [OutputConstructor]

@@ -38,6 +38,14 @@ export class VerifiedAccessInstance extends pulumi.CustomResource {
     }
 
     /**
+     * Introduce CidrEndpointsCustomSubDomain property to represent the domain (say, ava.my-company.com)
+     */
+    public readonly cidrEndpointsCustomSubDomain!: pulumi.Output<string | undefined>;
+    /**
+     * Property to represent the name servers assoicated with the domain that AVA manages (say, ['ns1.amazonaws.com', 'ns2.amazonaws.com', 'ns3.amazonaws.com', 'ns4.amazonaws.com']).
+     */
+    public /*out*/ readonly cidrEndpointsCustomSubDomainNameServers!: pulumi.Output<string[]>;
+    /**
      * Time this Verified Access Instance was created.
      */
     public /*out*/ readonly creationTime!: pulumi.Output<string>;
@@ -85,16 +93,20 @@ export class VerifiedAccessInstance extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            resourceInputs["cidrEndpointsCustomSubDomain"] = args ? args.cidrEndpointsCustomSubDomain : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["fipsEnabled"] = args ? args.fipsEnabled : undefined;
             resourceInputs["loggingConfigurations"] = args ? args.loggingConfigurations : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["verifiedAccessTrustProviderIds"] = args ? args.verifiedAccessTrustProviderIds : undefined;
             resourceInputs["verifiedAccessTrustProviders"] = args ? args.verifiedAccessTrustProviders : undefined;
+            resourceInputs["cidrEndpointsCustomSubDomainNameServers"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["lastUpdatedTime"] = undefined /*out*/;
             resourceInputs["verifiedAccessInstanceId"] = undefined /*out*/;
         } else {
+            resourceInputs["cidrEndpointsCustomSubDomain"] = undefined /*out*/;
+            resourceInputs["cidrEndpointsCustomSubDomainNameServers"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["fipsEnabled"] = undefined /*out*/;
@@ -114,6 +126,10 @@ export class VerifiedAccessInstance extends pulumi.CustomResource {
  * The set of arguments for constructing a VerifiedAccessInstance resource.
  */
 export interface VerifiedAccessInstanceArgs {
+    /**
+     * Introduce CidrEndpointsCustomSubDomain property to represent the domain (say, ava.my-company.com)
+     */
+    cidrEndpointsCustomSubDomain?: pulumi.Input<string>;
     /**
      * A description for the AWS Verified Access instance.
      */

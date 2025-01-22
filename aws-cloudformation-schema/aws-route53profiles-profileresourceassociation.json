@@ -32,7 +32,6 @@
   "required" : [ "ProfileId", "Name", "ResourceArn" ],
   "readOnlyProperties" : [ "/properties/Id", "/properties/ResourceType" ],
   "createOnlyProperties" : [ "/properties/ProfileId", "/properties/Name", "/properties/ResourceArn" ],
-  "replacementStrategy" : "delete_then_create",
   "primaryIdentifier" : [ "/properties/Id" ],
   "tagging" : {
     "taggable" : false,

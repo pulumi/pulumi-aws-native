@@ -33,6 +33,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Master{}
 	case "aws-native:guardduty:Member":
 		r = &Member{}
+	case "aws-native:guardduty:PublishingDestination":
+		r = &PublishingDestination{}
 	case "aws-native:guardduty:ThreatIntelSet":
 		r = &ThreatIntelSet{}
 	default:

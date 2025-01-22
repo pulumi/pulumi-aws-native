@@ -1346,7 +1346,7 @@ type ComputeEnvironmentLaunchTemplateSpecificationOverride struct {
 	//
 	// *Note:* If you specify the `launchTemplateName` you can't specify the `launchTemplateId` as well.
 	LaunchTemplateName *string `pulumi:"launchTemplateName"`
-	// The instance type or family that this this override launch template should be applied to.
+	// The instance type or family that this override launch template should be applied to.
 	//
 	// This parameter is required when defining a launch template override.
 	//
@@ -1389,7 +1389,7 @@ type ComputeEnvironmentLaunchTemplateSpecificationOverrideArgs struct {
 	//
 	// *Note:* If you specify the `launchTemplateName` you can't specify the `launchTemplateId` as well.
 	LaunchTemplateName pulumi.StringPtrInput `pulumi:"launchTemplateName"`
-	// The instance type or family that this this override launch template should be applied to.
+	// The instance type or family that this override launch template should be applied to.
 	//
 	// This parameter is required when defining a launch template override.
 	//
@@ -1477,7 +1477,7 @@ func (o ComputeEnvironmentLaunchTemplateSpecificationOverrideOutput) LaunchTempl
 	return o.ApplyT(func(v ComputeEnvironmentLaunchTemplateSpecificationOverride) *string { return v.LaunchTemplateName }).(pulumi.StringPtrOutput)
 }
 
-// The instance type or family that this this override launch template should be applied to.
+// The instance type or family that this override launch template should be applied to.
 //
 // This parameter is required when defining a launch template override.
 //
@@ -8863,7 +8863,7 @@ type JobDefinitionTaskContainerProperties struct {
 	Command []string `pulumi:"command"`
 	// A list of containers that this container depends on.
 	DependsOn []JobDefinitionTaskContainerDependency `pulumi:"dependsOn"`
-	// The environment variables to pass to a container. This parameter maps to Env inthe [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `--env` parameter to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) .
+	// The environment variables to pass to a container. This parameter maps to Env in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `--env` parameter to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) .
 	//
 	// > We don't recommend using plaintext environment variables for sensitive information, such as credential data. > Environment variables cannot start with `AWS_BATCH` . This naming convention is reserved for variables that AWS Batch sets.
 	Environment []JobDefinitionEnvironment `pulumi:"environment"`
@@ -8950,7 +8950,7 @@ type JobDefinitionTaskContainerPropertiesArgs struct {
 	Command pulumi.StringArrayInput `pulumi:"command"`
 	// A list of containers that this container depends on.
 	DependsOn JobDefinitionTaskContainerDependencyArrayInput `pulumi:"dependsOn"`
-	// The environment variables to pass to a container. This parameter maps to Env inthe [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `--env` parameter to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) .
+	// The environment variables to pass to a container. This parameter maps to Env in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `--env` parameter to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) .
 	//
 	// > We don't recommend using plaintext environment variables for sensitive information, such as credential data. > Environment variables cannot start with `AWS_BATCH` . This naming convention is reserved for variables that AWS Batch sets.
 	Environment JobDefinitionEnvironmentArrayInput `pulumi:"environment"`
@@ -9084,7 +9084,7 @@ func (o JobDefinitionTaskContainerPropertiesOutput) DependsOn() JobDefinitionTas
 	}).(JobDefinitionTaskContainerDependencyArrayOutput)
 }
 
-// The environment variables to pass to a container. This parameter maps to Env inthe [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `--env` parameter to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) .
+// The environment variables to pass to a container. This parameter maps to Env in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `--env` parameter to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) .
 //
 // > We don't recommend using plaintext environment variables for sensitive information, such as credential data. > Environment variables cannot start with `AWS_BATCH` . This naming convention is reserved for variables that AWS Batch sets.
 func (o JobDefinitionTaskContainerPropertiesOutput) Environment() JobDefinitionEnvironmentArrayOutput {

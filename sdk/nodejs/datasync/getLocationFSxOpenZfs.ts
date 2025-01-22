@@ -34,6 +34,10 @@ export interface GetLocationFSxOpenZfsResult {
      */
     readonly locationUri?: string;
     /**
+     * The type of protocol that AWS DataSync uses to access your file system.
+     */
+    readonly protocol?: outputs.datasync.LocationFSxOpenZfsProtocol;
+    /**
      * An array of key-value pairs to apply to this resource.
      */
     readonly tags?: outputs.Tag[];

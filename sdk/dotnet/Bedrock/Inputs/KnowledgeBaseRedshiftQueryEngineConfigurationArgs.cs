@@ -15,12 +15,21 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
     /// </summary>
     public sealed class KnowledgeBaseRedshiftQueryEngineConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies configurations for a provisioned Amazon Redshift query engine.
+        /// </summary>
         [Input("provisionedConfiguration")]
         public Input<Inputs.KnowledgeBaseRedshiftProvisionedConfigurationArgs>? ProvisionedConfiguration { get; set; }
 
+        /// <summary>
+        /// Specifies configurations for a serverless Amazon Redshift query engine.
+        /// </summary>
         [Input("serverlessConfiguration")]
         public Input<Inputs.KnowledgeBaseRedshiftServerlessConfigurationArgs>? ServerlessConfiguration { get; set; }
 
+        /// <summary>
+        /// The type of query engine.
+        /// </summary>
         [Input("type", required: true)]
         public Input<Pulumi.AwsNative.Bedrock.KnowledgeBaseRedshiftQueryEngineType> Type { get; set; } = null!;
 

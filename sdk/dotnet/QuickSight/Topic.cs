@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.QuickSight
         [Output("awsAccountId")]
         public Output<string?> AwsAccountId { get; private set; } = null!;
 
+        [Output("configOptions")]
+        public Output<Outputs.TopicConfigOptions?> ConfigOptions { get; private set; } = null!;
+
         /// <summary>
         /// The data sets that the topic is associated with.
         /// </summary>
@@ -38,6 +41,9 @@ namespace Pulumi.AwsNative.QuickSight
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
+
+        [Output("folderArns")]
+        public Output<ImmutableArray<string>> FolderArns { get; private set; } = null!;
 
         /// <summary>
         /// The name of the topic.
@@ -83,6 +89,7 @@ namespace Pulumi.AwsNative.QuickSight
                 ReplaceOnChanges =
                 {
                     "awsAccountId",
+                    "folderArns[*]",
                     "topicId",
                 },
             };
@@ -113,6 +120,9 @@ namespace Pulumi.AwsNative.QuickSight
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }
 
+        [Input("configOptions")]
+        public Input<Inputs.TopicConfigOptionsArgs>? ConfigOptions { get; set; }
+
         [Input("dataSets")]
         private InputList<Inputs.TopicDatasetMetadataArgs>? _dataSets;
 
@@ -130,6 +140,14 @@ namespace Pulumi.AwsNative.QuickSight
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        [Input("folderArns")]
+        private InputList<string>? _folderArns;
+        public InputList<string> FolderArns
+        {
+            get => _folderArns ?? (_folderArns = new InputList<string>());
+            set => _folderArns = value;
+        }
 
         /// <summary>
         /// The name of the topic.

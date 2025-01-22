@@ -64,6 +64,14 @@ namespace Pulumi.AwsNative.Ec2
     public sealed class GetVerifiedAccessInstanceResult
     {
         /// <summary>
+        /// Introduce CidrEndpointsCustomSubDomain property to represent the domain (say, ava.my-company.com)
+        /// </summary>
+        public readonly string? CidrEndpointsCustomSubDomain;
+        /// <summary>
+        /// Property to represent the name servers assoicated with the domain that AVA manages (say, ['ns1.amazonaws.com', 'ns2.amazonaws.com', 'ns3.amazonaws.com', 'ns4.amazonaws.com']).
+        /// </summary>
+        public readonly ImmutableArray<string> CidrEndpointsCustomSubDomainNameServers;
+        /// <summary>
         /// Time this Verified Access Instance was created.
         /// </summary>
         public readonly string? CreationTime;
@@ -102,6 +110,10 @@ namespace Pulumi.AwsNative.Ec2
 
         [OutputConstructor]
         private GetVerifiedAccessInstanceResult(
+            string? cidrEndpointsCustomSubDomain,
+
+            ImmutableArray<string> cidrEndpointsCustomSubDomainNameServers,
+
             string? creationTime,
 
             string? description,
@@ -120,6 +132,8 @@ namespace Pulumi.AwsNative.Ec2
 
             ImmutableArray<Outputs.VerifiedAccessInstanceVerifiedAccessTrustProvider> verifiedAccessTrustProviders)
         {
+            CidrEndpointsCustomSubDomain = cidrEndpointsCustomSubDomain;
+            CidrEndpointsCustomSubDomainNameServers = cidrEndpointsCustomSubDomainNameServers;
             CreationTime = creationTime;
             Description = description;
             FipsEnabled = fipsEnabled;

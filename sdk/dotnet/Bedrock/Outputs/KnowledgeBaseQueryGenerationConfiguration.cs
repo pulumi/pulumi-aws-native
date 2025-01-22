@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
     [OutputType]
     public sealed class KnowledgeBaseQueryGenerationConfiguration
     {
+        /// <summary>
+        /// The time after which query generation will time out.
+        /// </summary>
         public readonly int? ExecutionTimeoutSeconds;
+        /// <summary>
+        /// Specifies configurations for context to use during query generation.
+        /// </summary>
         public readonly Outputs.KnowledgeBaseQueryGenerationContext? GenerationContext;
 
         [OutputConstructor]

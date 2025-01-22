@@ -58,6 +58,10 @@ export class VerifiedAccessTrustProvider extends pulumi.CustomResource {
      */
     public /*out*/ readonly lastUpdatedTime!: pulumi.Output<string>;
     /**
+     * The OpenID Connect (OIDC) options.
+     */
+    public readonly nativeApplicationOidcOptions!: pulumi.Output<outputs.ec2.VerifiedAccessTrustProviderNativeApplicationOidcOptions | undefined>;
+    /**
      * The options for an OpenID Connect-compatible user-identity trust provider.
      */
     public readonly oidcOptions!: pulumi.Output<outputs.ec2.VerifiedAccessTrustProviderOidcOptions | undefined>;
@@ -106,6 +110,7 @@ export class VerifiedAccessTrustProvider extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["deviceOptions"] = args ? args.deviceOptions : undefined;
             resourceInputs["deviceTrustProviderType"] = args ? args.deviceTrustProviderType : undefined;
+            resourceInputs["nativeApplicationOidcOptions"] = args ? args.nativeApplicationOidcOptions : undefined;
             resourceInputs["oidcOptions"] = args ? args.oidcOptions : undefined;
             resourceInputs["policyReferenceName"] = args ? args.policyReferenceName : undefined;
             resourceInputs["sseSpecification"] = args ? args.sseSpecification : undefined;
@@ -121,6 +126,7 @@ export class VerifiedAccessTrustProvider extends pulumi.CustomResource {
             resourceInputs["deviceOptions"] = undefined /*out*/;
             resourceInputs["deviceTrustProviderType"] = undefined /*out*/;
             resourceInputs["lastUpdatedTime"] = undefined /*out*/;
+            resourceInputs["nativeApplicationOidcOptions"] = undefined /*out*/;
             resourceInputs["oidcOptions"] = undefined /*out*/;
             resourceInputs["policyReferenceName"] = undefined /*out*/;
             resourceInputs["sseSpecification"] = undefined /*out*/;
@@ -152,6 +158,10 @@ export interface VerifiedAccessTrustProviderArgs {
      * The type of device-based trust provider. Possible values: jamf|crowdstrike
      */
     deviceTrustProviderType?: pulumi.Input<string>;
+    /**
+     * The OpenID Connect (OIDC) options.
+     */
+    nativeApplicationOidcOptions?: pulumi.Input<inputs.ec2.VerifiedAccessTrustProviderNativeApplicationOidcOptionsArgs>;
     /**
      * The options for an OpenID Connect-compatible user-identity trust provider.
      */

@@ -29,6 +29,10 @@ type LookupVerifiedAccessInstanceArgs struct {
 }
 
 type LookupVerifiedAccessInstanceResult struct {
+	// Introduce CidrEndpointsCustomSubDomain property to represent the domain (say, ava.my-company.com)
+	CidrEndpointsCustomSubDomain *string `pulumi:"cidrEndpointsCustomSubDomain"`
+	// Property to represent the name servers assoicated with the domain that AVA manages (say, ['ns1.amazonaws.com', 'ns2.amazonaws.com', 'ns3.amazonaws.com', 'ns4.amazonaws.com']).
+	CidrEndpointsCustomSubDomainNameServers []string `pulumi:"cidrEndpointsCustomSubDomainNameServers"`
 	// Time this Verified Access Instance was created.
 	CreationTime *string `pulumi:"creationTime"`
 	// A description for the AWS Verified Access instance.
@@ -79,6 +83,16 @@ func (o LookupVerifiedAccessInstanceResultOutput) ToLookupVerifiedAccessInstance
 
 func (o LookupVerifiedAccessInstanceResultOutput) ToLookupVerifiedAccessInstanceResultOutputWithContext(ctx context.Context) LookupVerifiedAccessInstanceResultOutput {
 	return o
+}
+
+// Introduce CidrEndpointsCustomSubDomain property to represent the domain (say, ava.my-company.com)
+func (o LookupVerifiedAccessInstanceResultOutput) CidrEndpointsCustomSubDomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVerifiedAccessInstanceResult) *string { return v.CidrEndpointsCustomSubDomain }).(pulumi.StringPtrOutput)
+}
+
+// Property to represent the name servers assoicated with the domain that AVA manages (say, ['ns1.amazonaws.com', 'ns2.amazonaws.com', 'ns3.amazonaws.com', 'ns4.amazonaws.com']).
+func (o LookupVerifiedAccessInstanceResultOutput) CidrEndpointsCustomSubDomainNameServers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupVerifiedAccessInstanceResult) []string { return v.CidrEndpointsCustomSubDomainNameServers }).(pulumi.StringArrayOutput)
 }
 
 // Time this Verified Access Instance was created.

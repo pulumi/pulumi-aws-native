@@ -64,6 +64,10 @@ namespace Pulumi.AwsNative.DataSync
     public sealed class GetLocationFSxWindowsResult
     {
         /// <summary>
+        /// The name of the Windows domain that the FSx for Windows server belongs to.
+        /// </summary>
+        public readonly string? Domain;
+        /// <summary>
         /// The Amazon Resource Name (ARN) of the Amazon FSx for Windows file system location that is created.
         /// </summary>
         public readonly string? LocationArn;
@@ -75,18 +79,28 @@ namespace Pulumi.AwsNative.DataSync
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
+        /// <summary>
+        /// The user who has the permissions to access files and folders in the FSx for Windows file system.
+        /// </summary>
+        public readonly string? User;
 
         [OutputConstructor]
         private GetLocationFSxWindowsResult(
+            string? domain,
+
             string? locationArn,
 
             string? locationUri,
 
-            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
+
+            string? user)
         {
+            Domain = domain;
             LocationArn = locationArn;
             LocationUri = locationUri;
             Tags = tags;
+            User = user;
         }
     }
 }

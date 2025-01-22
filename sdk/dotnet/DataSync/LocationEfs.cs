@@ -94,12 +94,8 @@ namespace Pulumi.AwsNative.DataSync
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
-                    "accessPointArn",
                     "ec2Config",
                     "efsFilesystemArn",
-                    "fileSystemAccessRoleArn",
-                    "inTransitEncryption",
-                    "subdirectory",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

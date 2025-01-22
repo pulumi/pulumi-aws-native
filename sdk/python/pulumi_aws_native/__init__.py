@@ -1876,6 +1876,7 @@ _utilities.register(
    "aws-native:guardduty:MalwareProtectionPlan": "MalwareProtectionPlan",
    "aws-native:guardduty:Master": "Master",
    "aws-native:guardduty:Member": "Member",
+   "aws-native:guardduty:PublishingDestination": "PublishingDestination",
    "aws-native:guardduty:ThreatIntelSet": "ThreatIntelSet"
   }
  },

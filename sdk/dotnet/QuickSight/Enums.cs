@@ -12190,6 +12190,8 @@ namespace Pulumi.AwsNative.QuickSight
         public static TopicNumberScale Millions { get; } = new TopicNumberScale("MILLIONS");
         public static TopicNumberScale Billions { get; } = new TopicNumberScale("BILLIONS");
         public static TopicNumberScale Trillions { get; } = new TopicNumberScale("TRILLIONS");
+        public static TopicNumberScale Lakhs { get; } = new TopicNumberScale("LAKHS");
+        public static TopicNumberScale Crores { get; } = new TopicNumberScale("CRORES");
 
         public static bool operator ==(TopicNumberScale left, TopicNumberScale right) => left.Equals(right);
         public static bool operator !=(TopicNumberScale left, TopicNumberScale right) => !left.Equals(right);

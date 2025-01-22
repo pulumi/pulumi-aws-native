@@ -67,8 +67,9 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         public readonly Outputs.LaunchTemplateAcceleratorTotalMemoryMiB? AcceleratorTotalMemoryMiB;
         /// <summary>
         /// The accelerator types that must be on the instance type.
-        ///   +  For instance types with GPU accelerators, specify ``gpu``.
         ///   +  For instance types with FPGA accelerators, specify ``fpga``.
+        ///   +  For instance types with GPU accelerators, specify ``gpu``.
+        ///   +  For instance types with Inference accelerators, specify ``inference``.
         ///   
         ///  Default: Any accelerator type
         /// </summary>

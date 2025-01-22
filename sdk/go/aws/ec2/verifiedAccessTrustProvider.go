@@ -27,6 +27,8 @@ type VerifiedAccessTrustProvider struct {
 	DeviceTrustProviderType pulumi.StringPtrOutput `pulumi:"deviceTrustProviderType"`
 	// The last updated time.
 	LastUpdatedTime pulumi.StringOutput `pulumi:"lastUpdatedTime"`
+	// The OpenID Connect (OIDC) options.
+	NativeApplicationOidcOptions VerifiedAccessTrustProviderNativeApplicationOidcOptionsPtrOutput `pulumi:"nativeApplicationOidcOptions"`
 	// The options for an OpenID Connect-compatible user-identity trust provider.
 	OidcOptions VerifiedAccessTrustProviderOidcOptionsPtrOutput `pulumi:"oidcOptions"`
 	// The identifier to be used when working with policy rules.
@@ -103,6 +105,8 @@ type verifiedAccessTrustProviderArgs struct {
 	DeviceOptions *VerifiedAccessTrustProviderDeviceOptions `pulumi:"deviceOptions"`
 	// The type of device-based trust provider. Possible values: jamf|crowdstrike
 	DeviceTrustProviderType *string `pulumi:"deviceTrustProviderType"`
+	// The OpenID Connect (OIDC) options.
+	NativeApplicationOidcOptions *VerifiedAccessTrustProviderNativeApplicationOidcOptions `pulumi:"nativeApplicationOidcOptions"`
 	// The options for an OpenID Connect-compatible user-identity trust provider.
 	OidcOptions *VerifiedAccessTrustProviderOidcOptions `pulumi:"oidcOptions"`
 	// The identifier to be used when working with policy rules.
@@ -125,6 +129,8 @@ type VerifiedAccessTrustProviderArgs struct {
 	DeviceOptions VerifiedAccessTrustProviderDeviceOptionsPtrInput
 	// The type of device-based trust provider. Possible values: jamf|crowdstrike
 	DeviceTrustProviderType pulumi.StringPtrInput
+	// The OpenID Connect (OIDC) options.
+	NativeApplicationOidcOptions VerifiedAccessTrustProviderNativeApplicationOidcOptionsPtrInput
 	// The options for an OpenID Connect-compatible user-identity trust provider.
 	OidcOptions VerifiedAccessTrustProviderOidcOptionsPtrInput
 	// The identifier to be used when working with policy rules.
@@ -201,6 +207,13 @@ func (o VerifiedAccessTrustProviderOutput) DeviceTrustProviderType() pulumi.Stri
 // The last updated time.
 func (o VerifiedAccessTrustProviderOutput) LastUpdatedTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *VerifiedAccessTrustProvider) pulumi.StringOutput { return v.LastUpdatedTime }).(pulumi.StringOutput)
+}
+
+// The OpenID Connect (OIDC) options.
+func (o VerifiedAccessTrustProviderOutput) NativeApplicationOidcOptions() VerifiedAccessTrustProviderNativeApplicationOidcOptionsPtrOutput {
+	return o.ApplyT(func(v *VerifiedAccessTrustProvider) VerifiedAccessTrustProviderNativeApplicationOidcOptionsPtrOutput {
+		return v.NativeApplicationOidcOptions
+	}).(VerifiedAccessTrustProviderNativeApplicationOidcOptionsPtrOutput)
 }
 
 // The options for an OpenID Connect-compatible user-identity trust provider.

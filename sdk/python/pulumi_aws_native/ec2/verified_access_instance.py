@@ -23,6 +23,7 @@ __all__ = ['VerifiedAccessInstanceArgs', 'VerifiedAccessInstance']
 @pulumi.input_type
 class VerifiedAccessInstanceArgs:
     def __init__(__self__, *,
+                 cidr_endpoints_custom_sub_domain: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  fips_enabled: Optional[pulumi.Input[bool]] = None,
                  logging_configurations: Optional[pulumi.Input['VerifiedAccessInstanceVerifiedAccessLogsArgs']] = None,
@@ -31,6 +32,7 @@ class VerifiedAccessInstanceArgs:
                  verified_access_trust_providers: Optional[pulumi.Input[Sequence[pulumi.Input['VerifiedAccessInstanceVerifiedAccessTrustProviderArgs']]]] = None):
         """
         The set of arguments for constructing a VerifiedAccessInstance resource.
+        :param pulumi.Input[str] cidr_endpoints_custom_sub_domain: Introduce CidrEndpointsCustomSubDomain property to represent the domain (say, ava.my-company.com)
         :param pulumi.Input[str] description: A description for the AWS Verified Access instance.
         :param pulumi.Input[bool] fips_enabled: Indicates whether FIPS is enabled
         :param pulumi.Input['VerifiedAccessInstanceVerifiedAccessLogsArgs'] logging_configurations: The configuration options for AWS Verified Access instances.
@@ -38,6 +40,8 @@ class VerifiedAccessInstanceArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] verified_access_trust_provider_ids: The IDs of the AWS Verified Access trust providers.
         :param pulumi.Input[Sequence[pulumi.Input['VerifiedAccessInstanceVerifiedAccessTrustProviderArgs']]] verified_access_trust_providers: AWS Verified Access trust providers.
         """
+        if cidr_endpoints_custom_sub_domain is not None:
+            pulumi.set(__self__, "cidr_endpoints_custom_sub_domain", cidr_endpoints_custom_sub_domain)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if fips_enabled is not None:
@@ -50,6 +54,18 @@ class VerifiedAccessInstanceArgs:
             pulumi.set(__self__, "verified_access_trust_provider_ids", verified_access_trust_provider_ids)
         if verified_access_trust_providers is not None:
             pulumi.set(__self__, "verified_access_trust_providers", verified_access_trust_providers)
+
+    @property
+    @pulumi.getter(name="cidrEndpointsCustomSubDomain")
+    def cidr_endpoints_custom_sub_domain(self) -> Optional[pulumi.Input[str]]:
+        """
+        Introduce CidrEndpointsCustomSubDomain property to represent the domain (say, ava.my-company.com)
+        """
+        return pulumi.get(self, "cidr_endpoints_custom_sub_domain")
+
+    @cidr_endpoints_custom_sub_domain.setter
+    def cidr_endpoints_custom_sub_domain(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cidr_endpoints_custom_sub_domain", value)
 
     @property
     @pulumi.getter
@@ -129,6 +145,7 @@ class VerifiedAccessInstance(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 cidr_endpoints_custom_sub_domain: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  fips_enabled: Optional[pulumi.Input[bool]] = None,
                  logging_configurations: Optional[pulumi.Input[Union['VerifiedAccessInstanceVerifiedAccessLogsArgs', 'VerifiedAccessInstanceVerifiedAccessLogsArgsDict']]] = None,
@@ -141,6 +158,7 @@ class VerifiedAccessInstance(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] cidr_endpoints_custom_sub_domain: Introduce CidrEndpointsCustomSubDomain property to represent the domain (say, ava.my-company.com)
         :param pulumi.Input[str] description: A description for the AWS Verified Access instance.
         :param pulumi.Input[bool] fips_enabled: Indicates whether FIPS is enabled
         :param pulumi.Input[Union['VerifiedAccessInstanceVerifiedAccessLogsArgs', 'VerifiedAccessInstanceVerifiedAccessLogsArgsDict']] logging_configurations: The configuration options for AWS Verified Access instances.
@@ -172,6 +190,7 @@ class VerifiedAccessInstance(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 cidr_endpoints_custom_sub_domain: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  fips_enabled: Optional[pulumi.Input[bool]] = None,
                  logging_configurations: Optional[pulumi.Input[Union['VerifiedAccessInstanceVerifiedAccessLogsArgs', 'VerifiedAccessInstanceVerifiedAccessLogsArgsDict']]] = None,
@@ -187,12 +206,14 @@ class VerifiedAccessInstance(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = VerifiedAccessInstanceArgs.__new__(VerifiedAccessInstanceArgs)
 
+            __props__.__dict__["cidr_endpoints_custom_sub_domain"] = cidr_endpoints_custom_sub_domain
             __props__.__dict__["description"] = description
             __props__.__dict__["fips_enabled"] = fips_enabled
             __props__.__dict__["logging_configurations"] = logging_configurations
             __props__.__dict__["tags"] = tags
             __props__.__dict__["verified_access_trust_provider_ids"] = verified_access_trust_provider_ids
             __props__.__dict__["verified_access_trust_providers"] = verified_access_trust_providers
+            __props__.__dict__["cidr_endpoints_custom_sub_domain_name_servers"] = None
             __props__.__dict__["creation_time"] = None
             __props__.__dict__["last_updated_time"] = None
             __props__.__dict__["verified_access_instance_id"] = None
@@ -218,6 +239,8 @@ class VerifiedAccessInstance(pulumi.CustomResource):
 
         __props__ = VerifiedAccessInstanceArgs.__new__(VerifiedAccessInstanceArgs)
 
+        __props__.__dict__["cidr_endpoints_custom_sub_domain"] = None
+        __props__.__dict__["cidr_endpoints_custom_sub_domain_name_servers"] = None
         __props__.__dict__["creation_time"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["fips_enabled"] = None
@@ -228,6 +251,22 @@ class VerifiedAccessInstance(pulumi.CustomResource):
         __props__.__dict__["verified_access_trust_provider_ids"] = None
         __props__.__dict__["verified_access_trust_providers"] = None
         return VerifiedAccessInstance(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="cidrEndpointsCustomSubDomain")
+    def cidr_endpoints_custom_sub_domain(self) -> pulumi.Output[Optional[str]]:
+        """
+        Introduce CidrEndpointsCustomSubDomain property to represent the domain (say, ava.my-company.com)
+        """
+        return pulumi.get(self, "cidr_endpoints_custom_sub_domain")
+
+    @property
+    @pulumi.getter(name="cidrEndpointsCustomSubDomainNameServers")
+    def cidr_endpoints_custom_sub_domain_name_servers(self) -> pulumi.Output[Sequence[str]]:
+        """
+        Property to represent the name servers assoicated with the domain that AVA manages (say, ['ns1.amazonaws.com', 'ns2.amazonaws.com', 'ns3.amazonaws.com', 'ns4.amazonaws.com']).
+        """
+        return pulumi.get(self, "cidr_endpoints_custom_sub_domain_name_servers")
 
     @property
     @pulumi.getter(name="creationTime")

@@ -20255,7 +20255,8 @@ func (o KnowledgeBaseBedrockEmbeddingModelConfigurationPtrOutput) Dimensions() p
 type KnowledgeBaseConfiguration struct {
 	// Settings for an Amazon Kendra knowledge base.
 	KendraKnowledgeBaseConfiguration *KnowledgeBaseKendraKnowledgeBaseConfiguration `pulumi:"kendraKnowledgeBaseConfiguration"`
-	SqlKnowledgeBaseConfiguration    *KnowledgeBaseSqlKnowledgeBaseConfiguration    `pulumi:"sqlKnowledgeBaseConfiguration"`
+	// Specifies configurations for a knowledge base connected to an SQL database.
+	SqlKnowledgeBaseConfiguration *KnowledgeBaseSqlKnowledgeBaseConfiguration `pulumi:"sqlKnowledgeBaseConfiguration"`
 	// The type of data that the data source is converted into for the knowledge base.
 	Type KnowledgeBaseType `pulumi:"type"`
 	// Contains details about the model that's used to convert the data source into vector embeddings.
@@ -20277,7 +20278,8 @@ type KnowledgeBaseConfigurationInput interface {
 type KnowledgeBaseConfigurationArgs struct {
 	// Settings for an Amazon Kendra knowledge base.
 	KendraKnowledgeBaseConfiguration KnowledgeBaseKendraKnowledgeBaseConfigurationPtrInput `pulumi:"kendraKnowledgeBaseConfiguration"`
-	SqlKnowledgeBaseConfiguration    KnowledgeBaseSqlKnowledgeBaseConfigurationPtrInput    `pulumi:"sqlKnowledgeBaseConfiguration"`
+	// Specifies configurations for a knowledge base connected to an SQL database.
+	SqlKnowledgeBaseConfiguration KnowledgeBaseSqlKnowledgeBaseConfigurationPtrInput `pulumi:"sqlKnowledgeBaseConfiguration"`
 	// The type of data that the data source is converted into for the knowledge base.
 	Type KnowledgeBaseTypeInput `pulumi:"type"`
 	// Contains details about the model that's used to convert the data source into vector embeddings.
@@ -20318,6 +20320,7 @@ func (o KnowledgeBaseConfigurationOutput) KendraKnowledgeBaseConfiguration() Kno
 	}).(KnowledgeBaseKendraKnowledgeBaseConfigurationPtrOutput)
 }
 
+// Specifies configurations for a knowledge base connected to an SQL database.
 func (o KnowledgeBaseConfigurationOutput) SqlKnowledgeBaseConfiguration() KnowledgeBaseSqlKnowledgeBaseConfigurationPtrOutput {
 	return o.ApplyT(func(v KnowledgeBaseConfiguration) *KnowledgeBaseSqlKnowledgeBaseConfiguration {
 		return v.SqlKnowledgeBaseConfiguration
@@ -20370,6 +20373,7 @@ func (o KnowledgeBaseConfigurationPtrOutput) KendraKnowledgeBaseConfiguration() 
 	}).(KnowledgeBaseKendraKnowledgeBaseConfigurationPtrOutput)
 }
 
+// Specifies configurations for a knowledge base connected to an SQL database.
 func (o KnowledgeBaseConfigurationPtrOutput) SqlKnowledgeBaseConfiguration() KnowledgeBaseSqlKnowledgeBaseConfigurationPtrOutput {
 	return o.ApplyT(func(v *KnowledgeBaseConfiguration) *KnowledgeBaseSqlKnowledgeBaseConfiguration {
 		if v == nil {
@@ -22043,8 +22047,10 @@ func (o KnowledgeBaseQueryGenerationColumnArrayOutput) Index(i pulumi.IntInput) 
 
 // Configurations for generating Redshift engine queries
 type KnowledgeBaseQueryGenerationConfiguration struct {
-	ExecutionTimeoutSeconds *int                                 `pulumi:"executionTimeoutSeconds"`
-	GenerationContext       *KnowledgeBaseQueryGenerationContext `pulumi:"generationContext"`
+	// The time after which query generation will time out.
+	ExecutionTimeoutSeconds *int `pulumi:"executionTimeoutSeconds"`
+	// Specifies configurations for context to use during query generation.
+	GenerationContext *KnowledgeBaseQueryGenerationContext `pulumi:"generationContext"`
 }
 
 // KnowledgeBaseQueryGenerationConfigurationInput is an input type that accepts KnowledgeBaseQueryGenerationConfigurationArgs and KnowledgeBaseQueryGenerationConfigurationOutput values.
@@ -22060,8 +22066,10 @@ type KnowledgeBaseQueryGenerationConfigurationInput interface {
 
 // Configurations for generating Redshift engine queries
 type KnowledgeBaseQueryGenerationConfigurationArgs struct {
-	ExecutionTimeoutSeconds pulumi.IntPtrInput                          `pulumi:"executionTimeoutSeconds"`
-	GenerationContext       KnowledgeBaseQueryGenerationContextPtrInput `pulumi:"generationContext"`
+	// The time after which query generation will time out.
+	ExecutionTimeoutSeconds pulumi.IntPtrInput `pulumi:"executionTimeoutSeconds"`
+	// Specifies configurations for context to use during query generation.
+	GenerationContext KnowledgeBaseQueryGenerationContextPtrInput `pulumi:"generationContext"`
 }
 
 func (KnowledgeBaseQueryGenerationConfigurationArgs) ElementType() reflect.Type {
@@ -22142,10 +22150,12 @@ func (o KnowledgeBaseQueryGenerationConfigurationOutput) ToKnowledgeBaseQueryGen
 	}).(KnowledgeBaseQueryGenerationConfigurationPtrOutput)
 }
 
+// The time after which query generation will time out.
 func (o KnowledgeBaseQueryGenerationConfigurationOutput) ExecutionTimeoutSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v KnowledgeBaseQueryGenerationConfiguration) *int { return v.ExecutionTimeoutSeconds }).(pulumi.IntPtrOutput)
 }
 
+// Specifies configurations for context to use during query generation.
 func (o KnowledgeBaseQueryGenerationConfigurationOutput) GenerationContext() KnowledgeBaseQueryGenerationContextPtrOutput {
 	return o.ApplyT(func(v KnowledgeBaseQueryGenerationConfiguration) *KnowledgeBaseQueryGenerationContext {
 		return v.GenerationContext
@@ -22176,6 +22186,7 @@ func (o KnowledgeBaseQueryGenerationConfigurationPtrOutput) Elem() KnowledgeBase
 	}).(KnowledgeBaseQueryGenerationConfigurationOutput)
 }
 
+// The time after which query generation will time out.
 func (o KnowledgeBaseQueryGenerationConfigurationPtrOutput) ExecutionTimeoutSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *KnowledgeBaseQueryGenerationConfiguration) *int {
 		if v == nil {
@@ -22185,6 +22196,7 @@ func (o KnowledgeBaseQueryGenerationConfigurationPtrOutput) ExecutionTimeoutSeco
 	}).(pulumi.IntPtrOutput)
 }
 
+// Specifies configurations for context to use during query generation.
 func (o KnowledgeBaseQueryGenerationConfigurationPtrOutput) GenerationContext() KnowledgeBaseQueryGenerationContextPtrOutput {
 	return o.ApplyT(func(v *KnowledgeBaseQueryGenerationConfiguration) *KnowledgeBaseQueryGenerationContext {
 		if v == nil {
@@ -22196,8 +22208,10 @@ func (o KnowledgeBaseQueryGenerationConfigurationPtrOutput) GenerationContext() 
 
 // Context used to improve query generation
 type KnowledgeBaseQueryGenerationContext struct {
-	CuratedQueries []KnowledgeBaseCuratedQuery         `pulumi:"curatedQueries"`
-	Tables         []KnowledgeBaseQueryGenerationTable `pulumi:"tables"`
+	// An array of objects, each of which defines information about example queries to help the query engine generate appropriate SQL queries.
+	CuratedQueries []KnowledgeBaseCuratedQuery `pulumi:"curatedQueries"`
+	// An array of objects, each of which defines information about a table in the database.
+	Tables []KnowledgeBaseQueryGenerationTable `pulumi:"tables"`
 }
 
 // KnowledgeBaseQueryGenerationContextInput is an input type that accepts KnowledgeBaseQueryGenerationContextArgs and KnowledgeBaseQueryGenerationContextOutput values.
@@ -22213,8 +22227,10 @@ type KnowledgeBaseQueryGenerationContextInput interface {
 
 // Context used to improve query generation
 type KnowledgeBaseQueryGenerationContextArgs struct {
-	CuratedQueries KnowledgeBaseCuratedQueryArrayInput         `pulumi:"curatedQueries"`
-	Tables         KnowledgeBaseQueryGenerationTableArrayInput `pulumi:"tables"`
+	// An array of objects, each of which defines information about example queries to help the query engine generate appropriate SQL queries.
+	CuratedQueries KnowledgeBaseCuratedQueryArrayInput `pulumi:"curatedQueries"`
+	// An array of objects, each of which defines information about a table in the database.
+	Tables KnowledgeBaseQueryGenerationTableArrayInput `pulumi:"tables"`
 }
 
 func (KnowledgeBaseQueryGenerationContextArgs) ElementType() reflect.Type {
@@ -22295,10 +22311,12 @@ func (o KnowledgeBaseQueryGenerationContextOutput) ToKnowledgeBaseQueryGeneratio
 	}).(KnowledgeBaseQueryGenerationContextPtrOutput)
 }
 
+// An array of objects, each of which defines information about example queries to help the query engine generate appropriate SQL queries.
 func (o KnowledgeBaseQueryGenerationContextOutput) CuratedQueries() KnowledgeBaseCuratedQueryArrayOutput {
 	return o.ApplyT(func(v KnowledgeBaseQueryGenerationContext) []KnowledgeBaseCuratedQuery { return v.CuratedQueries }).(KnowledgeBaseCuratedQueryArrayOutput)
 }
 
+// An array of objects, each of which defines information about a table in the database.
 func (o KnowledgeBaseQueryGenerationContextOutput) Tables() KnowledgeBaseQueryGenerationTableArrayOutput {
 	return o.ApplyT(func(v KnowledgeBaseQueryGenerationContext) []KnowledgeBaseQueryGenerationTable { return v.Tables }).(KnowledgeBaseQueryGenerationTableArrayOutput)
 }
@@ -22327,6 +22345,7 @@ func (o KnowledgeBaseQueryGenerationContextPtrOutput) Elem() KnowledgeBaseQueryG
 	}).(KnowledgeBaseQueryGenerationContextOutput)
 }
 
+// An array of objects, each of which defines information about example queries to help the query engine generate appropriate SQL queries.
 func (o KnowledgeBaseQueryGenerationContextPtrOutput) CuratedQueries() KnowledgeBaseCuratedQueryArrayOutput {
 	return o.ApplyT(func(v *KnowledgeBaseQueryGenerationContext) []KnowledgeBaseCuratedQuery {
 		if v == nil {
@@ -22336,6 +22355,7 @@ func (o KnowledgeBaseQueryGenerationContextPtrOutput) CuratedQueries() Knowledge
 	}).(KnowledgeBaseCuratedQueryArrayOutput)
 }
 
+// An array of objects, each of which defines information about a table in the database.
 func (o KnowledgeBaseQueryGenerationContextPtrOutput) Tables() KnowledgeBaseQueryGenerationTableArrayOutput {
 	return o.ApplyT(func(v *KnowledgeBaseQueryGenerationContext) []KnowledgeBaseQueryGenerationTable {
 		if v == nil {
@@ -22875,9 +22895,12 @@ func (o KnowledgeBaseRdsFieldMappingPtrOutput) VectorField() pulumi.StringPtrOut
 
 // Configurations for a Redshift knowledge base
 type KnowledgeBaseRedshiftConfiguration struct {
-	QueryEngineConfiguration     KnowledgeBaseRedshiftQueryEngineConfiguration          `pulumi:"queryEngineConfiguration"`
-	QueryGenerationConfiguration *KnowledgeBaseQueryGenerationConfiguration             `pulumi:"queryGenerationConfiguration"`
-	StorageConfigurations        []KnowledgeBaseRedshiftQueryEngineStorageConfiguration `pulumi:"storageConfigurations"`
+	// Specifies configurations for an Amazon Redshift query engine.
+	QueryEngineConfiguration KnowledgeBaseRedshiftQueryEngineConfiguration `pulumi:"queryEngineConfiguration"`
+	// Specifies configurations for generating queries.
+	QueryGenerationConfiguration *KnowledgeBaseQueryGenerationConfiguration `pulumi:"queryGenerationConfiguration"`
+	// Specifies configurations for Amazon Redshift database storage.
+	StorageConfigurations []KnowledgeBaseRedshiftQueryEngineStorageConfiguration `pulumi:"storageConfigurations"`
 }
 
 // KnowledgeBaseRedshiftConfigurationInput is an input type that accepts KnowledgeBaseRedshiftConfigurationArgs and KnowledgeBaseRedshiftConfigurationOutput values.
@@ -22893,9 +22916,12 @@ type KnowledgeBaseRedshiftConfigurationInput interface {
 
 // Configurations for a Redshift knowledge base
 type KnowledgeBaseRedshiftConfigurationArgs struct {
-	QueryEngineConfiguration     KnowledgeBaseRedshiftQueryEngineConfigurationInput             `pulumi:"queryEngineConfiguration"`
-	QueryGenerationConfiguration KnowledgeBaseQueryGenerationConfigurationPtrInput              `pulumi:"queryGenerationConfiguration"`
-	StorageConfigurations        KnowledgeBaseRedshiftQueryEngineStorageConfigurationArrayInput `pulumi:"storageConfigurations"`
+	// Specifies configurations for an Amazon Redshift query engine.
+	QueryEngineConfiguration KnowledgeBaseRedshiftQueryEngineConfigurationInput `pulumi:"queryEngineConfiguration"`
+	// Specifies configurations for generating queries.
+	QueryGenerationConfiguration KnowledgeBaseQueryGenerationConfigurationPtrInput `pulumi:"queryGenerationConfiguration"`
+	// Specifies configurations for Amazon Redshift database storage.
+	StorageConfigurations KnowledgeBaseRedshiftQueryEngineStorageConfigurationArrayInput `pulumi:"storageConfigurations"`
 }
 
 func (KnowledgeBaseRedshiftConfigurationArgs) ElementType() reflect.Type {
@@ -22976,18 +23002,21 @@ func (o KnowledgeBaseRedshiftConfigurationOutput) ToKnowledgeBaseRedshiftConfigu
 	}).(KnowledgeBaseRedshiftConfigurationPtrOutput)
 }
 
+// Specifies configurations for an Amazon Redshift query engine.
 func (o KnowledgeBaseRedshiftConfigurationOutput) QueryEngineConfiguration() KnowledgeBaseRedshiftQueryEngineConfigurationOutput {
 	return o.ApplyT(func(v KnowledgeBaseRedshiftConfiguration) KnowledgeBaseRedshiftQueryEngineConfiguration {
 		return v.QueryEngineConfiguration
 	}).(KnowledgeBaseRedshiftQueryEngineConfigurationOutput)
 }
 
+// Specifies configurations for generating queries.
 func (o KnowledgeBaseRedshiftConfigurationOutput) QueryGenerationConfiguration() KnowledgeBaseQueryGenerationConfigurationPtrOutput {
 	return o.ApplyT(func(v KnowledgeBaseRedshiftConfiguration) *KnowledgeBaseQueryGenerationConfiguration {
 		return v.QueryGenerationConfiguration
 	}).(KnowledgeBaseQueryGenerationConfigurationPtrOutput)
 }
 
+// Specifies configurations for Amazon Redshift database storage.
 func (o KnowledgeBaseRedshiftConfigurationOutput) StorageConfigurations() KnowledgeBaseRedshiftQueryEngineStorageConfigurationArrayOutput {
 	return o.ApplyT(func(v KnowledgeBaseRedshiftConfiguration) []KnowledgeBaseRedshiftQueryEngineStorageConfiguration {
 		return v.StorageConfigurations
@@ -23018,6 +23047,7 @@ func (o KnowledgeBaseRedshiftConfigurationPtrOutput) Elem() KnowledgeBaseRedshif
 	}).(KnowledgeBaseRedshiftConfigurationOutput)
 }
 
+// Specifies configurations for an Amazon Redshift query engine.
 func (o KnowledgeBaseRedshiftConfigurationPtrOutput) QueryEngineConfiguration() KnowledgeBaseRedshiftQueryEngineConfigurationPtrOutput {
 	return o.ApplyT(func(v *KnowledgeBaseRedshiftConfiguration) *KnowledgeBaseRedshiftQueryEngineConfiguration {
 		if v == nil {
@@ -23027,6 +23057,7 @@ func (o KnowledgeBaseRedshiftConfigurationPtrOutput) QueryEngineConfiguration() 
 	}).(KnowledgeBaseRedshiftQueryEngineConfigurationPtrOutput)
 }
 
+// Specifies configurations for generating queries.
 func (o KnowledgeBaseRedshiftConfigurationPtrOutput) QueryGenerationConfiguration() KnowledgeBaseQueryGenerationConfigurationPtrOutput {
 	return o.ApplyT(func(v *KnowledgeBaseRedshiftConfiguration) *KnowledgeBaseQueryGenerationConfiguration {
 		if v == nil {
@@ -23036,6 +23067,7 @@ func (o KnowledgeBaseRedshiftConfigurationPtrOutput) QueryGenerationConfiguratio
 	}).(KnowledgeBaseQueryGenerationConfigurationPtrOutput)
 }
 
+// Specifies configurations for Amazon Redshift database storage.
 func (o KnowledgeBaseRedshiftConfigurationPtrOutput) StorageConfigurations() KnowledgeBaseRedshiftQueryEngineStorageConfigurationArrayOutput {
 	return o.ApplyT(func(v *KnowledgeBaseRedshiftConfiguration) []KnowledgeBaseRedshiftQueryEngineStorageConfiguration {
 		if v == nil {
@@ -23048,9 +23080,11 @@ func (o KnowledgeBaseRedshiftConfigurationPtrOutput) StorageConfigurations() Kno
 // Configurations for Redshift query engine provisioned auth setup
 type KnowledgeBaseRedshiftProvisionedAuthConfiguration struct {
 	// Redshift database user
-	DatabaseUser              *string                                  `pulumi:"databaseUser"`
-	Type                      KnowledgeBaseRedshiftProvisionedAuthType `pulumi:"type"`
-	UsernamePasswordSecretArn *string                                  `pulumi:"usernamePasswordSecretArn"`
+	DatabaseUser *string `pulumi:"databaseUser"`
+	// The type of authentication to use.
+	Type KnowledgeBaseRedshiftProvisionedAuthType `pulumi:"type"`
+	// The ARN of an Secrets Manager secret for authentication.
+	UsernamePasswordSecretArn *string `pulumi:"usernamePasswordSecretArn"`
 }
 
 // KnowledgeBaseRedshiftProvisionedAuthConfigurationInput is an input type that accepts KnowledgeBaseRedshiftProvisionedAuthConfigurationArgs and KnowledgeBaseRedshiftProvisionedAuthConfigurationOutput values.
@@ -23067,9 +23101,11 @@ type KnowledgeBaseRedshiftProvisionedAuthConfigurationInput interface {
 // Configurations for Redshift query engine provisioned auth setup
 type KnowledgeBaseRedshiftProvisionedAuthConfigurationArgs struct {
 	// Redshift database user
-	DatabaseUser              pulumi.StringPtrInput                         `pulumi:"databaseUser"`
-	Type                      KnowledgeBaseRedshiftProvisionedAuthTypeInput `pulumi:"type"`
-	UsernamePasswordSecretArn pulumi.StringPtrInput                         `pulumi:"usernamePasswordSecretArn"`
+	DatabaseUser pulumi.StringPtrInput `pulumi:"databaseUser"`
+	// The type of authentication to use.
+	Type KnowledgeBaseRedshiftProvisionedAuthTypeInput `pulumi:"type"`
+	// The ARN of an Secrets Manager secret for authentication.
+	UsernamePasswordSecretArn pulumi.StringPtrInput `pulumi:"usernamePasswordSecretArn"`
 }
 
 func (KnowledgeBaseRedshiftProvisionedAuthConfigurationArgs) ElementType() reflect.Type {
@@ -23155,12 +23191,14 @@ func (o KnowledgeBaseRedshiftProvisionedAuthConfigurationOutput) DatabaseUser() 
 	return o.ApplyT(func(v KnowledgeBaseRedshiftProvisionedAuthConfiguration) *string { return v.DatabaseUser }).(pulumi.StringPtrOutput)
 }
 
+// The type of authentication to use.
 func (o KnowledgeBaseRedshiftProvisionedAuthConfigurationOutput) Type() KnowledgeBaseRedshiftProvisionedAuthTypeOutput {
 	return o.ApplyT(func(v KnowledgeBaseRedshiftProvisionedAuthConfiguration) KnowledgeBaseRedshiftProvisionedAuthType {
 		return v.Type
 	}).(KnowledgeBaseRedshiftProvisionedAuthTypeOutput)
 }
 
+// The ARN of an Secrets Manager secret for authentication.
 func (o KnowledgeBaseRedshiftProvisionedAuthConfigurationOutput) UsernamePasswordSecretArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KnowledgeBaseRedshiftProvisionedAuthConfiguration) *string { return v.UsernamePasswordSecretArn }).(pulumi.StringPtrOutput)
 }
@@ -23199,6 +23237,7 @@ func (o KnowledgeBaseRedshiftProvisionedAuthConfigurationPtrOutput) DatabaseUser
 	}).(pulumi.StringPtrOutput)
 }
 
+// The type of authentication to use.
 func (o KnowledgeBaseRedshiftProvisionedAuthConfigurationPtrOutput) Type() KnowledgeBaseRedshiftProvisionedAuthTypePtrOutput {
 	return o.ApplyT(func(v *KnowledgeBaseRedshiftProvisionedAuthConfiguration) *KnowledgeBaseRedshiftProvisionedAuthType {
 		if v == nil {
@@ -23208,6 +23247,7 @@ func (o KnowledgeBaseRedshiftProvisionedAuthConfigurationPtrOutput) Type() Knowl
 	}).(KnowledgeBaseRedshiftProvisionedAuthTypePtrOutput)
 }
 
+// The ARN of an Secrets Manager secret for authentication.
 func (o KnowledgeBaseRedshiftProvisionedAuthConfigurationPtrOutput) UsernamePasswordSecretArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KnowledgeBaseRedshiftProvisionedAuthConfiguration) *string {
 		if v == nil {
@@ -23219,8 +23259,10 @@ func (o KnowledgeBaseRedshiftProvisionedAuthConfigurationPtrOutput) UsernamePass
 
 // Configurations for provisioned Redshift query engine
 type KnowledgeBaseRedshiftProvisionedConfiguration struct {
+	// Specifies configurations for authentication to Amazon Redshift.
 	AuthConfiguration KnowledgeBaseRedshiftProvisionedAuthConfiguration `pulumi:"authConfiguration"`
-	ClusterIdentifier string                                            `pulumi:"clusterIdentifier"`
+	// The ID of the Amazon Redshift cluster.
+	ClusterIdentifier string `pulumi:"clusterIdentifier"`
 }
 
 // KnowledgeBaseRedshiftProvisionedConfigurationInput is an input type that accepts KnowledgeBaseRedshiftProvisionedConfigurationArgs and KnowledgeBaseRedshiftProvisionedConfigurationOutput values.
@@ -23236,8 +23278,10 @@ type KnowledgeBaseRedshiftProvisionedConfigurationInput interface {
 
 // Configurations for provisioned Redshift query engine
 type KnowledgeBaseRedshiftProvisionedConfigurationArgs struct {
+	// Specifies configurations for authentication to Amazon Redshift.
 	AuthConfiguration KnowledgeBaseRedshiftProvisionedAuthConfigurationInput `pulumi:"authConfiguration"`
-	ClusterIdentifier pulumi.StringInput                                     `pulumi:"clusterIdentifier"`
+	// The ID of the Amazon Redshift cluster.
+	ClusterIdentifier pulumi.StringInput `pulumi:"clusterIdentifier"`
 }
 
 func (KnowledgeBaseRedshiftProvisionedConfigurationArgs) ElementType() reflect.Type {
@@ -23318,12 +23362,14 @@ func (o KnowledgeBaseRedshiftProvisionedConfigurationOutput) ToKnowledgeBaseReds
 	}).(KnowledgeBaseRedshiftProvisionedConfigurationPtrOutput)
 }
 
+// Specifies configurations for authentication to Amazon Redshift.
 func (o KnowledgeBaseRedshiftProvisionedConfigurationOutput) AuthConfiguration() KnowledgeBaseRedshiftProvisionedAuthConfigurationOutput {
 	return o.ApplyT(func(v KnowledgeBaseRedshiftProvisionedConfiguration) KnowledgeBaseRedshiftProvisionedAuthConfiguration {
 		return v.AuthConfiguration
 	}).(KnowledgeBaseRedshiftProvisionedAuthConfigurationOutput)
 }
 
+// The ID of the Amazon Redshift cluster.
 func (o KnowledgeBaseRedshiftProvisionedConfigurationOutput) ClusterIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v KnowledgeBaseRedshiftProvisionedConfiguration) string { return v.ClusterIdentifier }).(pulumi.StringOutput)
 }
@@ -23352,6 +23398,7 @@ func (o KnowledgeBaseRedshiftProvisionedConfigurationPtrOutput) Elem() Knowledge
 	}).(KnowledgeBaseRedshiftProvisionedConfigurationOutput)
 }
 
+// Specifies configurations for authentication to Amazon Redshift.
 func (o KnowledgeBaseRedshiftProvisionedConfigurationPtrOutput) AuthConfiguration() KnowledgeBaseRedshiftProvisionedAuthConfigurationPtrOutput {
 	return o.ApplyT(func(v *KnowledgeBaseRedshiftProvisionedConfiguration) *KnowledgeBaseRedshiftProvisionedAuthConfiguration {
 		if v == nil {
@@ -23361,6 +23408,7 @@ func (o KnowledgeBaseRedshiftProvisionedConfigurationPtrOutput) AuthConfiguratio
 	}).(KnowledgeBaseRedshiftProvisionedAuthConfigurationPtrOutput)
 }
 
+// The ID of the Amazon Redshift cluster.
 func (o KnowledgeBaseRedshiftProvisionedConfigurationPtrOutput) ClusterIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KnowledgeBaseRedshiftProvisionedConfiguration) *string {
 		if v == nil {
@@ -23510,9 +23558,12 @@ func (o KnowledgeBaseRedshiftQueryEngineAwsDataCatalogStorageConfigurationPtrOut
 
 // Configurations for Redshift query engine
 type KnowledgeBaseRedshiftQueryEngineConfiguration struct {
+	// Specifies configurations for a provisioned Amazon Redshift query engine.
 	ProvisionedConfiguration *KnowledgeBaseRedshiftProvisionedConfiguration `pulumi:"provisionedConfiguration"`
-	ServerlessConfiguration  *KnowledgeBaseRedshiftServerlessConfiguration  `pulumi:"serverlessConfiguration"`
-	Type                     KnowledgeBaseRedshiftQueryEngineType           `pulumi:"type"`
+	// Specifies configurations for a serverless Amazon Redshift query engine.
+	ServerlessConfiguration *KnowledgeBaseRedshiftServerlessConfiguration `pulumi:"serverlessConfiguration"`
+	// The type of query engine.
+	Type KnowledgeBaseRedshiftQueryEngineType `pulumi:"type"`
 }
 
 // KnowledgeBaseRedshiftQueryEngineConfigurationInput is an input type that accepts KnowledgeBaseRedshiftQueryEngineConfigurationArgs and KnowledgeBaseRedshiftQueryEngineConfigurationOutput values.
@@ -23528,9 +23579,12 @@ type KnowledgeBaseRedshiftQueryEngineConfigurationInput interface {
 
 // Configurations for Redshift query engine
 type KnowledgeBaseRedshiftQueryEngineConfigurationArgs struct {
+	// Specifies configurations for a provisioned Amazon Redshift query engine.
 	ProvisionedConfiguration KnowledgeBaseRedshiftProvisionedConfigurationPtrInput `pulumi:"provisionedConfiguration"`
-	ServerlessConfiguration  KnowledgeBaseRedshiftServerlessConfigurationPtrInput  `pulumi:"serverlessConfiguration"`
-	Type                     KnowledgeBaseRedshiftQueryEngineTypeInput             `pulumi:"type"`
+	// Specifies configurations for a serverless Amazon Redshift query engine.
+	ServerlessConfiguration KnowledgeBaseRedshiftServerlessConfigurationPtrInput `pulumi:"serverlessConfiguration"`
+	// The type of query engine.
+	Type KnowledgeBaseRedshiftQueryEngineTypeInput `pulumi:"type"`
 }
 
 func (KnowledgeBaseRedshiftQueryEngineConfigurationArgs) ElementType() reflect.Type {
@@ -23611,18 +23665,21 @@ func (o KnowledgeBaseRedshiftQueryEngineConfigurationOutput) ToKnowledgeBaseReds
 	}).(KnowledgeBaseRedshiftQueryEngineConfigurationPtrOutput)
 }
 
+// Specifies configurations for a provisioned Amazon Redshift query engine.
 func (o KnowledgeBaseRedshiftQueryEngineConfigurationOutput) ProvisionedConfiguration() KnowledgeBaseRedshiftProvisionedConfigurationPtrOutput {
 	return o.ApplyT(func(v KnowledgeBaseRedshiftQueryEngineConfiguration) *KnowledgeBaseRedshiftProvisionedConfiguration {
 		return v.ProvisionedConfiguration
 	}).(KnowledgeBaseRedshiftProvisionedConfigurationPtrOutput)
 }
 
+// Specifies configurations for a serverless Amazon Redshift query engine.
 func (o KnowledgeBaseRedshiftQueryEngineConfigurationOutput) ServerlessConfiguration() KnowledgeBaseRedshiftServerlessConfigurationPtrOutput {
 	return o.ApplyT(func(v KnowledgeBaseRedshiftQueryEngineConfiguration) *KnowledgeBaseRedshiftServerlessConfiguration {
 		return v.ServerlessConfiguration
 	}).(KnowledgeBaseRedshiftServerlessConfigurationPtrOutput)
 }
 
+// The type of query engine.
 func (o KnowledgeBaseRedshiftQueryEngineConfigurationOutput) Type() KnowledgeBaseRedshiftQueryEngineTypeOutput {
 	return o.ApplyT(func(v KnowledgeBaseRedshiftQueryEngineConfiguration) KnowledgeBaseRedshiftQueryEngineType {
 		return v.Type
@@ -23653,6 +23710,7 @@ func (o KnowledgeBaseRedshiftQueryEngineConfigurationPtrOutput) Elem() Knowledge
 	}).(KnowledgeBaseRedshiftQueryEngineConfigurationOutput)
 }
 
+// Specifies configurations for a provisioned Amazon Redshift query engine.
 func (o KnowledgeBaseRedshiftQueryEngineConfigurationPtrOutput) ProvisionedConfiguration() KnowledgeBaseRedshiftProvisionedConfigurationPtrOutput {
 	return o.ApplyT(func(v *KnowledgeBaseRedshiftQueryEngineConfiguration) *KnowledgeBaseRedshiftProvisionedConfiguration {
 		if v == nil {
@@ -23662,6 +23720,7 @@ func (o KnowledgeBaseRedshiftQueryEngineConfigurationPtrOutput) ProvisionedConfi
 	}).(KnowledgeBaseRedshiftProvisionedConfigurationPtrOutput)
 }
 
+// Specifies configurations for a serverless Amazon Redshift query engine.
 func (o KnowledgeBaseRedshiftQueryEngineConfigurationPtrOutput) ServerlessConfiguration() KnowledgeBaseRedshiftServerlessConfigurationPtrOutput {
 	return o.ApplyT(func(v *KnowledgeBaseRedshiftQueryEngineConfiguration) *KnowledgeBaseRedshiftServerlessConfiguration {
 		if v == nil {
@@ -23671,6 +23730,7 @@ func (o KnowledgeBaseRedshiftQueryEngineConfigurationPtrOutput) ServerlessConfig
 	}).(KnowledgeBaseRedshiftServerlessConfigurationPtrOutput)
 }
 
+// The type of query engine.
 func (o KnowledgeBaseRedshiftQueryEngineConfigurationPtrOutput) Type() KnowledgeBaseRedshiftQueryEngineTypePtrOutput {
 	return o.ApplyT(func(v *KnowledgeBaseRedshiftQueryEngineConfiguration) *KnowledgeBaseRedshiftQueryEngineType {
 		if v == nil {
@@ -23933,8 +23993,10 @@ func (o KnowledgeBaseRedshiftQueryEngineStorageConfigurationArrayOutput) Index(i
 
 // Configurations for Redshift query engine serverless auth setup
 type KnowledgeBaseRedshiftServerlessAuthConfiguration struct {
-	Type                      KnowledgeBaseRedshiftServerlessAuthType `pulumi:"type"`
-	UsernamePasswordSecretArn *string                                 `pulumi:"usernamePasswordSecretArn"`
+	// The type of authentication to use.
+	Type KnowledgeBaseRedshiftServerlessAuthType `pulumi:"type"`
+	// The ARN of an Secrets Manager secret for authentication.
+	UsernamePasswordSecretArn *string `pulumi:"usernamePasswordSecretArn"`
 }
 
 // KnowledgeBaseRedshiftServerlessAuthConfigurationInput is an input type that accepts KnowledgeBaseRedshiftServerlessAuthConfigurationArgs and KnowledgeBaseRedshiftServerlessAuthConfigurationOutput values.
@@ -23950,8 +24012,10 @@ type KnowledgeBaseRedshiftServerlessAuthConfigurationInput interface {
 
 // Configurations for Redshift query engine serverless auth setup
 type KnowledgeBaseRedshiftServerlessAuthConfigurationArgs struct {
-	Type                      KnowledgeBaseRedshiftServerlessAuthTypeInput `pulumi:"type"`
-	UsernamePasswordSecretArn pulumi.StringPtrInput                        `pulumi:"usernamePasswordSecretArn"`
+	// The type of authentication to use.
+	Type KnowledgeBaseRedshiftServerlessAuthTypeInput `pulumi:"type"`
+	// The ARN of an Secrets Manager secret for authentication.
+	UsernamePasswordSecretArn pulumi.StringPtrInput `pulumi:"usernamePasswordSecretArn"`
 }
 
 func (KnowledgeBaseRedshiftServerlessAuthConfigurationArgs) ElementType() reflect.Type {
@@ -24032,12 +24096,14 @@ func (o KnowledgeBaseRedshiftServerlessAuthConfigurationOutput) ToKnowledgeBaseR
 	}).(KnowledgeBaseRedshiftServerlessAuthConfigurationPtrOutput)
 }
 
+// The type of authentication to use.
 func (o KnowledgeBaseRedshiftServerlessAuthConfigurationOutput) Type() KnowledgeBaseRedshiftServerlessAuthTypeOutput {
 	return o.ApplyT(func(v KnowledgeBaseRedshiftServerlessAuthConfiguration) KnowledgeBaseRedshiftServerlessAuthType {
 		return v.Type
 	}).(KnowledgeBaseRedshiftServerlessAuthTypeOutput)
 }
 
+// The ARN of an Secrets Manager secret for authentication.
 func (o KnowledgeBaseRedshiftServerlessAuthConfigurationOutput) UsernamePasswordSecretArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KnowledgeBaseRedshiftServerlessAuthConfiguration) *string { return v.UsernamePasswordSecretArn }).(pulumi.StringPtrOutput)
 }
@@ -24066,6 +24132,7 @@ func (o KnowledgeBaseRedshiftServerlessAuthConfigurationPtrOutput) Elem() Knowle
 	}).(KnowledgeBaseRedshiftServerlessAuthConfigurationOutput)
 }
 
+// The type of authentication to use.
 func (o KnowledgeBaseRedshiftServerlessAuthConfigurationPtrOutput) Type() KnowledgeBaseRedshiftServerlessAuthTypePtrOutput {
 	return o.ApplyT(func(v *KnowledgeBaseRedshiftServerlessAuthConfiguration) *KnowledgeBaseRedshiftServerlessAuthType {
 		if v == nil {
@@ -24075,6 +24142,7 @@ func (o KnowledgeBaseRedshiftServerlessAuthConfigurationPtrOutput) Type() Knowle
 	}).(KnowledgeBaseRedshiftServerlessAuthTypePtrOutput)
 }
 
+// The ARN of an Secrets Manager secret for authentication.
 func (o KnowledgeBaseRedshiftServerlessAuthConfigurationPtrOutput) UsernamePasswordSecretArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KnowledgeBaseRedshiftServerlessAuthConfiguration) *string {
 		if v == nil {
@@ -24086,8 +24154,10 @@ func (o KnowledgeBaseRedshiftServerlessAuthConfigurationPtrOutput) UsernamePassw
 
 // Configurations for serverless Redshift query engine
 type KnowledgeBaseRedshiftServerlessConfiguration struct {
+	// Specifies configurations for authentication to an Amazon Redshift provisioned data warehouse.
 	AuthConfiguration KnowledgeBaseRedshiftServerlessAuthConfiguration `pulumi:"authConfiguration"`
-	WorkgroupArn      string                                           `pulumi:"workgroupArn"`
+	// The ARN of the Amazon Redshift workgroup.
+	WorkgroupArn string `pulumi:"workgroupArn"`
 }
 
 // KnowledgeBaseRedshiftServerlessConfigurationInput is an input type that accepts KnowledgeBaseRedshiftServerlessConfigurationArgs and KnowledgeBaseRedshiftServerlessConfigurationOutput values.
@@ -24103,8 +24173,10 @@ type KnowledgeBaseRedshiftServerlessConfigurationInput interface {
 
 // Configurations for serverless Redshift query engine
 type KnowledgeBaseRedshiftServerlessConfigurationArgs struct {
+	// Specifies configurations for authentication to an Amazon Redshift provisioned data warehouse.
 	AuthConfiguration KnowledgeBaseRedshiftServerlessAuthConfigurationInput `pulumi:"authConfiguration"`
-	WorkgroupArn      pulumi.StringInput                                    `pulumi:"workgroupArn"`
+	// The ARN of the Amazon Redshift workgroup.
+	WorkgroupArn pulumi.StringInput `pulumi:"workgroupArn"`
 }
 
 func (KnowledgeBaseRedshiftServerlessConfigurationArgs) ElementType() reflect.Type {
@@ -24185,12 +24257,14 @@ func (o KnowledgeBaseRedshiftServerlessConfigurationOutput) ToKnowledgeBaseRedsh
 	}).(KnowledgeBaseRedshiftServerlessConfigurationPtrOutput)
 }
 
+// Specifies configurations for authentication to an Amazon Redshift provisioned data warehouse.
 func (o KnowledgeBaseRedshiftServerlessConfigurationOutput) AuthConfiguration() KnowledgeBaseRedshiftServerlessAuthConfigurationOutput {
 	return o.ApplyT(func(v KnowledgeBaseRedshiftServerlessConfiguration) KnowledgeBaseRedshiftServerlessAuthConfiguration {
 		return v.AuthConfiguration
 	}).(KnowledgeBaseRedshiftServerlessAuthConfigurationOutput)
 }
 
+// The ARN of the Amazon Redshift workgroup.
 func (o KnowledgeBaseRedshiftServerlessConfigurationOutput) WorkgroupArn() pulumi.StringOutput {
 	return o.ApplyT(func(v KnowledgeBaseRedshiftServerlessConfiguration) string { return v.WorkgroupArn }).(pulumi.StringOutput)
 }
@@ -24219,6 +24293,7 @@ func (o KnowledgeBaseRedshiftServerlessConfigurationPtrOutput) Elem() KnowledgeB
 	}).(KnowledgeBaseRedshiftServerlessConfigurationOutput)
 }
 
+// Specifies configurations for authentication to an Amazon Redshift provisioned data warehouse.
 func (o KnowledgeBaseRedshiftServerlessConfigurationPtrOutput) AuthConfiguration() KnowledgeBaseRedshiftServerlessAuthConfigurationPtrOutput {
 	return o.ApplyT(func(v *KnowledgeBaseRedshiftServerlessConfiguration) *KnowledgeBaseRedshiftServerlessAuthConfiguration {
 		if v == nil {
@@ -24228,6 +24303,7 @@ func (o KnowledgeBaseRedshiftServerlessConfigurationPtrOutput) AuthConfiguration
 	}).(KnowledgeBaseRedshiftServerlessAuthConfigurationPtrOutput)
 }
 
+// The ARN of the Amazon Redshift workgroup.
 func (o KnowledgeBaseRedshiftServerlessConfigurationPtrOutput) WorkgroupArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KnowledgeBaseRedshiftServerlessConfiguration) *string {
 		if v == nil {
@@ -24379,8 +24455,10 @@ func (o KnowledgeBaseS3LocationPtrOutput) Uri() pulumi.StringPtrOutput {
 
 // Configurations for a SQL knowledge base
 type KnowledgeBaseSqlKnowledgeBaseConfiguration struct {
+	// Specifies configurations for a knowledge base connected to an Amazon Redshift database.
 	RedshiftConfiguration *KnowledgeBaseRedshiftConfiguration `pulumi:"redshiftConfiguration"`
-	Type                  KnowledgeBaseQueryEngineType        `pulumi:"type"`
+	// The type of SQL database to connect to the knowledge base.
+	Type KnowledgeBaseQueryEngineType `pulumi:"type"`
 }
 
 // KnowledgeBaseSqlKnowledgeBaseConfigurationInput is an input type that accepts KnowledgeBaseSqlKnowledgeBaseConfigurationArgs and KnowledgeBaseSqlKnowledgeBaseConfigurationOutput values.
@@ -24396,8 +24474,10 @@ type KnowledgeBaseSqlKnowledgeBaseConfigurationInput interface {
 
 // Configurations for a SQL knowledge base
 type KnowledgeBaseSqlKnowledgeBaseConfigurationArgs struct {
+	// Specifies configurations for a knowledge base connected to an Amazon Redshift database.
 	RedshiftConfiguration KnowledgeBaseRedshiftConfigurationPtrInput `pulumi:"redshiftConfiguration"`
-	Type                  KnowledgeBaseQueryEngineTypeInput          `pulumi:"type"`
+	// The type of SQL database to connect to the knowledge base.
+	Type KnowledgeBaseQueryEngineTypeInput `pulumi:"type"`
 }
 
 func (KnowledgeBaseSqlKnowledgeBaseConfigurationArgs) ElementType() reflect.Type {
@@ -24478,12 +24558,14 @@ func (o KnowledgeBaseSqlKnowledgeBaseConfigurationOutput) ToKnowledgeBaseSqlKnow
 	}).(KnowledgeBaseSqlKnowledgeBaseConfigurationPtrOutput)
 }
 
+// Specifies configurations for a knowledge base connected to an Amazon Redshift database.
 func (o KnowledgeBaseSqlKnowledgeBaseConfigurationOutput) RedshiftConfiguration() KnowledgeBaseRedshiftConfigurationPtrOutput {
 	return o.ApplyT(func(v KnowledgeBaseSqlKnowledgeBaseConfiguration) *KnowledgeBaseRedshiftConfiguration {
 		return v.RedshiftConfiguration
 	}).(KnowledgeBaseRedshiftConfigurationPtrOutput)
 }
 
+// The type of SQL database to connect to the knowledge base.
 func (o KnowledgeBaseSqlKnowledgeBaseConfigurationOutput) Type() KnowledgeBaseQueryEngineTypeOutput {
 	return o.ApplyT(func(v KnowledgeBaseSqlKnowledgeBaseConfiguration) KnowledgeBaseQueryEngineType { return v.Type }).(KnowledgeBaseQueryEngineTypeOutput)
 }
@@ -24512,6 +24594,7 @@ func (o KnowledgeBaseSqlKnowledgeBaseConfigurationPtrOutput) Elem() KnowledgeBas
 	}).(KnowledgeBaseSqlKnowledgeBaseConfigurationOutput)
 }
 
+// Specifies configurations for a knowledge base connected to an Amazon Redshift database.
 func (o KnowledgeBaseSqlKnowledgeBaseConfigurationPtrOutput) RedshiftConfiguration() KnowledgeBaseRedshiftConfigurationPtrOutput {
 	return o.ApplyT(func(v *KnowledgeBaseSqlKnowledgeBaseConfiguration) *KnowledgeBaseRedshiftConfiguration {
 		if v == nil {
@@ -24521,6 +24604,7 @@ func (o KnowledgeBaseSqlKnowledgeBaseConfigurationPtrOutput) RedshiftConfigurati
 	}).(KnowledgeBaseRedshiftConfigurationPtrOutput)
 }
 
+// The type of SQL database to connect to the knowledge base.
 func (o KnowledgeBaseSqlKnowledgeBaseConfigurationPtrOutput) Type() KnowledgeBaseQueryEngineTypePtrOutput {
 	return o.ApplyT(func(v *KnowledgeBaseSqlKnowledgeBaseConfiguration) *KnowledgeBaseQueryEngineType {
 		if v == nil {
@@ -28598,6 +28682,7 @@ func (o PromptVersionPromptTemplateConfiguration1PropertiesOutput) Chat() Prompt
 
 // Prompt variant
 type PromptVersionPromptVariant struct {
+	// Specifies a generative AI resource with which to use the prompt.
 	GenAiResource *PromptVersionPromptGenAiResourceProperties `pulumi:"genAiResource"`
 	// Contains inference configurations for the prompt variant.
 	InferenceConfiguration *PromptVersionPromptInferenceConfigurationProperties `pulumi:"inferenceConfiguration"`
@@ -28626,6 +28711,7 @@ func (o PromptVersionPromptVariantOutput) ToPromptVersionPromptVariantOutputWith
 	return o
 }
 
+// Specifies a generative AI resource with which to use the prompt.
 func (o PromptVersionPromptVariantOutput) GenAiResource() PromptVersionPromptGenAiResourcePropertiesPtrOutput {
 	return o.ApplyT(func(v PromptVersionPromptVariant) *PromptVersionPromptGenAiResourceProperties { return v.GenAiResource }).(PromptVersionPromptGenAiResourcePropertiesPtrOutput)
 }

@@ -6710,6 +6710,9 @@ if not MYPY:
         Settings for an Amazon Kendra knowledge base.
         """
         sql_knowledge_base_configuration: NotRequired[pulumi.Input['KnowledgeBaseSqlKnowledgeBaseConfigurationArgsDict']]
+        """
+        Specifies configurations for a knowledge base connected to an SQL database.
+        """
         vector_knowledge_base_configuration: NotRequired[pulumi.Input['KnowledgeBaseVectorKnowledgeBaseConfigurationArgsDict']]
         """
         Contains details about the model that's used to convert the data source into vector embeddings.
@@ -6728,6 +6731,7 @@ class KnowledgeBaseConfigurationArgs:
         Contains details about the embeddings model used for the knowledge base.
         :param pulumi.Input['KnowledgeBaseType'] type: The type of data that the data source is converted into for the knowledge base.
         :param pulumi.Input['KnowledgeBaseKendraKnowledgeBaseConfigurationArgs'] kendra_knowledge_base_configuration: Settings for an Amazon Kendra knowledge base.
+        :param pulumi.Input['KnowledgeBaseSqlKnowledgeBaseConfigurationArgs'] sql_knowledge_base_configuration: Specifies configurations for a knowledge base connected to an SQL database.
         :param pulumi.Input['KnowledgeBaseVectorKnowledgeBaseConfigurationArgs'] vector_knowledge_base_configuration: Contains details about the model that's used to convert the data source into vector embeddings.
         """
         pulumi.set(__self__, "type", type)
@@ -6765,6 +6769,9 @@ class KnowledgeBaseConfigurationArgs:
     @property
     @pulumi.getter(name="sqlKnowledgeBaseConfiguration")
     def sql_knowledge_base_configuration(self) -> Optional[pulumi.Input['KnowledgeBaseSqlKnowledgeBaseConfigurationArgs']]:
+        """
+        Specifies configurations for a knowledge base connected to an SQL database.
+        """
         return pulumi.get(self, "sql_knowledge_base_configuration")
 
     @sql_knowledge_base_configuration.setter
@@ -7472,7 +7479,13 @@ if not MYPY:
         Configurations for generating Redshift engine queries
         """
         execution_timeout_seconds: NotRequired[pulumi.Input[int]]
+        """
+        The time after which query generation will time out.
+        """
         generation_context: NotRequired[pulumi.Input['KnowledgeBaseQueryGenerationContextArgsDict']]
+        """
+        Specifies configurations for context to use during query generation.
+        """
 elif False:
     KnowledgeBaseQueryGenerationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -7483,6 +7496,8 @@ class KnowledgeBaseQueryGenerationConfigurationArgs:
                  generation_context: Optional[pulumi.Input['KnowledgeBaseQueryGenerationContextArgs']] = None):
         """
         Configurations for generating Redshift engine queries
+        :param pulumi.Input[int] execution_timeout_seconds: The time after which query generation will time out.
+        :param pulumi.Input['KnowledgeBaseQueryGenerationContextArgs'] generation_context: Specifies configurations for context to use during query generation.
         """
         if execution_timeout_seconds is not None:
             pulumi.set(__self__, "execution_timeout_seconds", execution_timeout_seconds)
@@ -7492,6 +7507,9 @@ class KnowledgeBaseQueryGenerationConfigurationArgs:
     @property
     @pulumi.getter(name="executionTimeoutSeconds")
     def execution_timeout_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        The time after which query generation will time out.
+        """
         return pulumi.get(self, "execution_timeout_seconds")
 
     @execution_timeout_seconds.setter
@@ -7501,6 +7519,9 @@ class KnowledgeBaseQueryGenerationConfigurationArgs:
     @property
     @pulumi.getter(name="generationContext")
     def generation_context(self) -> Optional[pulumi.Input['KnowledgeBaseQueryGenerationContextArgs']]:
+        """
+        Specifies configurations for context to use during query generation.
+        """
         return pulumi.get(self, "generation_context")
 
     @generation_context.setter
@@ -7514,7 +7535,13 @@ if not MYPY:
         Context used to improve query generation
         """
         curated_queries: NotRequired[pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseCuratedQueryArgsDict']]]]
+        """
+        An array of objects, each of which defines information about example queries to help the query engine generate appropriate SQL queries.
+        """
         tables: NotRequired[pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseQueryGenerationTableArgsDict']]]]
+        """
+        An array of objects, each of which defines information about a table in the database.
+        """
 elif False:
     KnowledgeBaseQueryGenerationContextArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -7525,6 +7552,8 @@ class KnowledgeBaseQueryGenerationContextArgs:
                  tables: Optional[pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseQueryGenerationTableArgs']]]] = None):
         """
         Context used to improve query generation
+        :param pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseCuratedQueryArgs']]] curated_queries: An array of objects, each of which defines information about example queries to help the query engine generate appropriate SQL queries.
+        :param pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseQueryGenerationTableArgs']]] tables: An array of objects, each of which defines information about a table in the database.
         """
         if curated_queries is not None:
             pulumi.set(__self__, "curated_queries", curated_queries)
@@ -7534,6 +7563,9 @@ class KnowledgeBaseQueryGenerationContextArgs:
     @property
     @pulumi.getter(name="curatedQueries")
     def curated_queries(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseCuratedQueryArgs']]]]:
+        """
+        An array of objects, each of which defines information about example queries to help the query engine generate appropriate SQL queries.
+        """
         return pulumi.get(self, "curated_queries")
 
     @curated_queries.setter
@@ -7543,6 +7575,9 @@ class KnowledgeBaseQueryGenerationContextArgs:
     @property
     @pulumi.getter
     def tables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseQueryGenerationTableArgs']]]]:
+        """
+        An array of objects, each of which defines information about a table in the database.
+        """
         return pulumi.get(self, "tables")
 
     @tables.setter
@@ -7826,8 +7861,17 @@ if not MYPY:
         Configurations for a Redshift knowledge base
         """
         query_engine_configuration: pulumi.Input['KnowledgeBaseRedshiftQueryEngineConfigurationArgsDict']
+        """
+        Specifies configurations for an Amazon Redshift query engine.
+        """
         storage_configurations: pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseRedshiftQueryEngineStorageConfigurationArgsDict']]]
+        """
+        Specifies configurations for Amazon Redshift database storage.
+        """
         query_generation_configuration: NotRequired[pulumi.Input['KnowledgeBaseQueryGenerationConfigurationArgsDict']]
+        """
+        Specifies configurations for generating queries.
+        """
 elif False:
     KnowledgeBaseRedshiftConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -7839,6 +7883,9 @@ class KnowledgeBaseRedshiftConfigurationArgs:
                  query_generation_configuration: Optional[pulumi.Input['KnowledgeBaseQueryGenerationConfigurationArgs']] = None):
         """
         Configurations for a Redshift knowledge base
+        :param pulumi.Input['KnowledgeBaseRedshiftQueryEngineConfigurationArgs'] query_engine_configuration: Specifies configurations for an Amazon Redshift query engine.
+        :param pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseRedshiftQueryEngineStorageConfigurationArgs']]] storage_configurations: Specifies configurations for Amazon Redshift database storage.
+        :param pulumi.Input['KnowledgeBaseQueryGenerationConfigurationArgs'] query_generation_configuration: Specifies configurations for generating queries.
         """
         pulumi.set(__self__, "query_engine_configuration", query_engine_configuration)
         pulumi.set(__self__, "storage_configurations", storage_configurations)
@@ -7848,6 +7895,9 @@ class KnowledgeBaseRedshiftConfigurationArgs:
     @property
     @pulumi.getter(name="queryEngineConfiguration")
     def query_engine_configuration(self) -> pulumi.Input['KnowledgeBaseRedshiftQueryEngineConfigurationArgs']:
+        """
+        Specifies configurations for an Amazon Redshift query engine.
+        """
         return pulumi.get(self, "query_engine_configuration")
 
     @query_engine_configuration.setter
@@ -7857,6 +7907,9 @@ class KnowledgeBaseRedshiftConfigurationArgs:
     @property
     @pulumi.getter(name="storageConfigurations")
     def storage_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseRedshiftQueryEngineStorageConfigurationArgs']]]:
+        """
+        Specifies configurations for Amazon Redshift database storage.
+        """
         return pulumi.get(self, "storage_configurations")
 
     @storage_configurations.setter
@@ -7866,6 +7919,9 @@ class KnowledgeBaseRedshiftConfigurationArgs:
     @property
     @pulumi.getter(name="queryGenerationConfiguration")
     def query_generation_configuration(self) -> Optional[pulumi.Input['KnowledgeBaseQueryGenerationConfigurationArgs']]:
+        """
+        Specifies configurations for generating queries.
+        """
         return pulumi.get(self, "query_generation_configuration")
 
     @query_generation_configuration.setter
@@ -7879,11 +7935,17 @@ if not MYPY:
         Configurations for Redshift query engine provisioned auth setup
         """
         type: pulumi.Input['KnowledgeBaseRedshiftProvisionedAuthType']
+        """
+        The type of authentication to use.
+        """
         database_user: NotRequired[pulumi.Input[str]]
         """
         Redshift database user
         """
         username_password_secret_arn: NotRequired[pulumi.Input[str]]
+        """
+        The ARN of an Secrets Manager secret for authentication.
+        """
 elif False:
     KnowledgeBaseRedshiftProvisionedAuthConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -7895,7 +7957,9 @@ class KnowledgeBaseRedshiftProvisionedAuthConfigurationArgs:
                  username_password_secret_arn: Optional[pulumi.Input[str]] = None):
         """
         Configurations for Redshift query engine provisioned auth setup
+        :param pulumi.Input['KnowledgeBaseRedshiftProvisionedAuthType'] type: The type of authentication to use.
         :param pulumi.Input[str] database_user: Redshift database user
+        :param pulumi.Input[str] username_password_secret_arn: The ARN of an Secrets Manager secret for authentication.
         """
         pulumi.set(__self__, "type", type)
         if database_user is not None:
@@ -7906,6 +7970,9 @@ class KnowledgeBaseRedshiftProvisionedAuthConfigurationArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input['KnowledgeBaseRedshiftProvisionedAuthType']:
+        """
+        The type of authentication to use.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -7927,6 +7994,9 @@ class KnowledgeBaseRedshiftProvisionedAuthConfigurationArgs:
     @property
     @pulumi.getter(name="usernamePasswordSecretArn")
     def username_password_secret_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of an Secrets Manager secret for authentication.
+        """
         return pulumi.get(self, "username_password_secret_arn")
 
     @username_password_secret_arn.setter
@@ -7940,7 +8010,13 @@ if not MYPY:
         Configurations for provisioned Redshift query engine
         """
         auth_configuration: pulumi.Input['KnowledgeBaseRedshiftProvisionedAuthConfigurationArgsDict']
+        """
+        Specifies configurations for authentication to Amazon Redshift.
+        """
         cluster_identifier: pulumi.Input[str]
+        """
+        The ID of the Amazon Redshift cluster.
+        """
 elif False:
     KnowledgeBaseRedshiftProvisionedConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -7951,6 +8027,8 @@ class KnowledgeBaseRedshiftProvisionedConfigurationArgs:
                  cluster_identifier: pulumi.Input[str]):
         """
         Configurations for provisioned Redshift query engine
+        :param pulumi.Input['KnowledgeBaseRedshiftProvisionedAuthConfigurationArgs'] auth_configuration: Specifies configurations for authentication to Amazon Redshift.
+        :param pulumi.Input[str] cluster_identifier: The ID of the Amazon Redshift cluster.
         """
         pulumi.set(__self__, "auth_configuration", auth_configuration)
         pulumi.set(__self__, "cluster_identifier", cluster_identifier)
@@ -7958,6 +8036,9 @@ class KnowledgeBaseRedshiftProvisionedConfigurationArgs:
     @property
     @pulumi.getter(name="authConfiguration")
     def auth_configuration(self) -> pulumi.Input['KnowledgeBaseRedshiftProvisionedAuthConfigurationArgs']:
+        """
+        Specifies configurations for authentication to Amazon Redshift.
+        """
         return pulumi.get(self, "auth_configuration")
 
     @auth_configuration.setter
@@ -7967,6 +8048,9 @@ class KnowledgeBaseRedshiftProvisionedConfigurationArgs:
     @property
     @pulumi.getter(name="clusterIdentifier")
     def cluster_identifier(self) -> pulumi.Input[str]:
+        """
+        The ID of the Amazon Redshift cluster.
+        """
         return pulumi.get(self, "cluster_identifier")
 
     @cluster_identifier.setter
@@ -8008,8 +8092,17 @@ if not MYPY:
         Configurations for Redshift query engine
         """
         type: pulumi.Input['KnowledgeBaseRedshiftQueryEngineType']
+        """
+        The type of query engine.
+        """
         provisioned_configuration: NotRequired[pulumi.Input['KnowledgeBaseRedshiftProvisionedConfigurationArgsDict']]
+        """
+        Specifies configurations for a provisioned Amazon Redshift query engine.
+        """
         serverless_configuration: NotRequired[pulumi.Input['KnowledgeBaseRedshiftServerlessConfigurationArgsDict']]
+        """
+        Specifies configurations for a serverless Amazon Redshift query engine.
+        """
 elif False:
     KnowledgeBaseRedshiftQueryEngineConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -8021,6 +8114,9 @@ class KnowledgeBaseRedshiftQueryEngineConfigurationArgs:
                  serverless_configuration: Optional[pulumi.Input['KnowledgeBaseRedshiftServerlessConfigurationArgs']] = None):
         """
         Configurations for Redshift query engine
+        :param pulumi.Input['KnowledgeBaseRedshiftQueryEngineType'] type: The type of query engine.
+        :param pulumi.Input['KnowledgeBaseRedshiftProvisionedConfigurationArgs'] provisioned_configuration: Specifies configurations for a provisioned Amazon Redshift query engine.
+        :param pulumi.Input['KnowledgeBaseRedshiftServerlessConfigurationArgs'] serverless_configuration: Specifies configurations for a serverless Amazon Redshift query engine.
         """
         pulumi.set(__self__, "type", type)
         if provisioned_configuration is not None:
@@ -8031,6 +8127,9 @@ class KnowledgeBaseRedshiftQueryEngineConfigurationArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input['KnowledgeBaseRedshiftQueryEngineType']:
+        """
+        The type of query engine.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -8040,6 +8139,9 @@ class KnowledgeBaseRedshiftQueryEngineConfigurationArgs:
     @property
     @pulumi.getter(name="provisionedConfiguration")
     def provisioned_configuration(self) -> Optional[pulumi.Input['KnowledgeBaseRedshiftProvisionedConfigurationArgs']]:
+        """
+        Specifies configurations for a provisioned Amazon Redshift query engine.
+        """
         return pulumi.get(self, "provisioned_configuration")
 
     @provisioned_configuration.setter
@@ -8049,6 +8151,9 @@ class KnowledgeBaseRedshiftQueryEngineConfigurationArgs:
     @property
     @pulumi.getter(name="serverlessConfiguration")
     def serverless_configuration(self) -> Optional[pulumi.Input['KnowledgeBaseRedshiftServerlessConfigurationArgs']]:
+        """
+        Specifies configurations for a serverless Amazon Redshift query engine.
+        """
         return pulumi.get(self, "serverless_configuration")
 
     @serverless_configuration.setter
@@ -8144,7 +8249,13 @@ if not MYPY:
         Configurations for Redshift query engine serverless auth setup
         """
         type: pulumi.Input['KnowledgeBaseRedshiftServerlessAuthType']
+        """
+        The type of authentication to use.
+        """
         username_password_secret_arn: NotRequired[pulumi.Input[str]]
+        """
+        The ARN of an Secrets Manager secret for authentication.
+        """
 elif False:
     KnowledgeBaseRedshiftServerlessAuthConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -8155,6 +8266,8 @@ class KnowledgeBaseRedshiftServerlessAuthConfigurationArgs:
                  username_password_secret_arn: Optional[pulumi.Input[str]] = None):
         """
         Configurations for Redshift query engine serverless auth setup
+        :param pulumi.Input['KnowledgeBaseRedshiftServerlessAuthType'] type: The type of authentication to use.
+        :param pulumi.Input[str] username_password_secret_arn: The ARN of an Secrets Manager secret for authentication.
         """
         pulumi.set(__self__, "type", type)
         if username_password_secret_arn is not None:
@@ -8163,6 +8276,9 @@ class KnowledgeBaseRedshiftServerlessAuthConfigurationArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input['KnowledgeBaseRedshiftServerlessAuthType']:
+        """
+        The type of authentication to use.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -8172,6 +8288,9 @@ class KnowledgeBaseRedshiftServerlessAuthConfigurationArgs:
     @property
     @pulumi.getter(name="usernamePasswordSecretArn")
     def username_password_secret_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of an Secrets Manager secret for authentication.
+        """
         return pulumi.get(self, "username_password_secret_arn")
 
     @username_password_secret_arn.setter
@@ -8185,7 +8304,13 @@ if not MYPY:
         Configurations for serverless Redshift query engine
         """
         auth_configuration: pulumi.Input['KnowledgeBaseRedshiftServerlessAuthConfigurationArgsDict']
+        """
+        Specifies configurations for authentication to an Amazon Redshift provisioned data warehouse.
+        """
         workgroup_arn: pulumi.Input[str]
+        """
+        The ARN of the Amazon Redshift workgroup.
+        """
 elif False:
     KnowledgeBaseRedshiftServerlessConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -8196,6 +8321,8 @@ class KnowledgeBaseRedshiftServerlessConfigurationArgs:
                  workgroup_arn: pulumi.Input[str]):
         """
         Configurations for serverless Redshift query engine
+        :param pulumi.Input['KnowledgeBaseRedshiftServerlessAuthConfigurationArgs'] auth_configuration: Specifies configurations for authentication to an Amazon Redshift provisioned data warehouse.
+        :param pulumi.Input[str] workgroup_arn: The ARN of the Amazon Redshift workgroup.
         """
         pulumi.set(__self__, "auth_configuration", auth_configuration)
         pulumi.set(__self__, "workgroup_arn", workgroup_arn)
@@ -8203,6 +8330,9 @@ class KnowledgeBaseRedshiftServerlessConfigurationArgs:
     @property
     @pulumi.getter(name="authConfiguration")
     def auth_configuration(self) -> pulumi.Input['KnowledgeBaseRedshiftServerlessAuthConfigurationArgs']:
+        """
+        Specifies configurations for authentication to an Amazon Redshift provisioned data warehouse.
+        """
         return pulumi.get(self, "auth_configuration")
 
     @auth_configuration.setter
@@ -8212,6 +8342,9 @@ class KnowledgeBaseRedshiftServerlessConfigurationArgs:
     @property
     @pulumi.getter(name="workgroupArn")
     def workgroup_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of the Amazon Redshift workgroup.
+        """
         return pulumi.get(self, "workgroup_arn")
 
     @workgroup_arn.setter
@@ -8260,7 +8393,13 @@ if not MYPY:
         Configurations for a SQL knowledge base
         """
         type: pulumi.Input['KnowledgeBaseQueryEngineType']
+        """
+        The type of SQL database to connect to the knowledge base.
+        """
         redshift_configuration: NotRequired[pulumi.Input['KnowledgeBaseRedshiftConfigurationArgsDict']]
+        """
+        Specifies configurations for a knowledge base connected to an Amazon Redshift database.
+        """
 elif False:
     KnowledgeBaseSqlKnowledgeBaseConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -8271,6 +8410,8 @@ class KnowledgeBaseSqlKnowledgeBaseConfigurationArgs:
                  redshift_configuration: Optional[pulumi.Input['KnowledgeBaseRedshiftConfigurationArgs']] = None):
         """
         Configurations for a SQL knowledge base
+        :param pulumi.Input['KnowledgeBaseQueryEngineType'] type: The type of SQL database to connect to the knowledge base.
+        :param pulumi.Input['KnowledgeBaseRedshiftConfigurationArgs'] redshift_configuration: Specifies configurations for a knowledge base connected to an Amazon Redshift database.
         """
         pulumi.set(__self__, "type", type)
         if redshift_configuration is not None:
@@ -8279,6 +8420,9 @@ class KnowledgeBaseSqlKnowledgeBaseConfigurationArgs:
     @property
     @pulumi.getter
     def type(self) -> pulumi.Input['KnowledgeBaseQueryEngineType']:
+        """
+        The type of SQL database to connect to the knowledge base.
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -8288,6 +8432,9 @@ class KnowledgeBaseSqlKnowledgeBaseConfigurationArgs:
     @property
     @pulumi.getter(name="redshiftConfiguration")
     def redshift_configuration(self) -> Optional[pulumi.Input['KnowledgeBaseRedshiftConfigurationArgs']]:
+        """
+        Specifies configurations for a knowledge base connected to an Amazon Redshift database.
+        """
         return pulumi.get(self, "redshift_configuration")
 
     @redshift_configuration.setter

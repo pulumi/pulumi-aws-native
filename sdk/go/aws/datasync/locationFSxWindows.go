@@ -51,12 +51,8 @@ func NewLocationFSxWindows(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'User'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
-		"domain",
 		"fsxFilesystemArn",
-		"password",
 		"securityGroupArns[*]",
-		"subdirectory",
-		"user",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)

@@ -25,6 +25,10 @@ namespace Pulumi.AwsNative.EmrServerless.Outputs
         /// </summary>
         public readonly Outputs.ApplicationManagedPersistenceMonitoringConfiguration? ManagedPersistenceMonitoringConfiguration;
         /// <summary>
+        /// Prometheus monitoring configurations for a JobRun.
+        /// </summary>
+        public readonly Outputs.ApplicationPrometheusMonitoringConfiguration? PrometheusMonitoringConfiguration;
+        /// <summary>
         /// S3 monitoring configurations for a JobRun.
         /// </summary>
         public readonly Outputs.ApplicationS3MonitoringConfiguration? S3MonitoringConfiguration;
@@ -35,10 +39,13 @@ namespace Pulumi.AwsNative.EmrServerless.Outputs
 
             Outputs.ApplicationManagedPersistenceMonitoringConfiguration? managedPersistenceMonitoringConfiguration,
 
+            Outputs.ApplicationPrometheusMonitoringConfiguration? prometheusMonitoringConfiguration,
+
             Outputs.ApplicationS3MonitoringConfiguration? s3MonitoringConfiguration)
         {
             CloudWatchLoggingConfiguration = cloudWatchLoggingConfiguration;
             ManagedPersistenceMonitoringConfiguration = managedPersistenceMonitoringConfiguration;
+            PrometheusMonitoringConfiguration = prometheusMonitoringConfiguration;
             S3MonitoringConfiguration = s3MonitoringConfiguration;
         }
     }

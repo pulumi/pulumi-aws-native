@@ -34,7 +34,7 @@ namespace Pulumi.AwsNative.CustomerProfiles.Outputs
         /// </summary>
         public readonly int? ScheduleOffset;
         /// <summary>
-        /// Specifies the scheduled start time for a scheduled-trigger flow.
+        /// Specifies the scheduled start time for a scheduled-trigger flow. The value must be a date/time value in EPOCH format.
         /// </summary>
         public readonly double? ScheduleStartTime;
         /// <summary>

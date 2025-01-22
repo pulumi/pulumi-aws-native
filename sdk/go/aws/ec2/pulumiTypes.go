@@ -13070,8 +13070,9 @@ type LaunchTemplateInstanceRequirements struct {
 	//  Default: No minimum or maximum limits
 	AcceleratorTotalMemoryMiB *LaunchTemplateAcceleratorTotalMemoryMiB `pulumi:"acceleratorTotalMemoryMiB"`
 	// The accelerator types that must be on the instance type.
-	//   +  For instance types with GPU accelerators, specify ``gpu``.
 	//   +  For instance types with FPGA accelerators, specify ``fpga``.
+	//   +  For instance types with GPU accelerators, specify ``gpu``.
+	//   +  For instance types with Inference accelerators, specify ``inference``.
 	//
 	//  Default: Any accelerator type
 	AcceleratorTypes []string `pulumi:"acceleratorTypes"`
@@ -13230,8 +13231,9 @@ type LaunchTemplateInstanceRequirementsArgs struct {
 	//  Default: No minimum or maximum limits
 	AcceleratorTotalMemoryMiB LaunchTemplateAcceleratorTotalMemoryMiBPtrInput `pulumi:"acceleratorTotalMemoryMiB"`
 	// The accelerator types that must be on the instance type.
-	//   +  For instance types with GPU accelerators, specify ``gpu``.
 	//   +  For instance types with FPGA accelerators, specify ``fpga``.
+	//   +  For instance types with GPU accelerators, specify ``gpu``.
+	//   +  For instance types with Inference accelerators, specify ``inference``.
 	//
 	//  Default: Any accelerator type
 	AcceleratorTypes pulumi.StringArrayInput `pulumi:"acceleratorTypes"`
@@ -13489,9 +13491,11 @@ func (o LaunchTemplateInstanceRequirementsOutput) AcceleratorTotalMemoryMiB() La
 
 // The accelerator types that must be on the instance type.
 //
+//   - For instance types with FPGA accelerators, specify “fpga“.
+//
 //   - For instance types with GPU accelerators, specify “gpu“.
 //
-//   - For instance types with FPGA accelerators, specify “fpga“.
+//   - For instance types with Inference accelerators, specify “inference“.
 //
 //     Default: Any accelerator type
 func (o LaunchTemplateInstanceRequirementsOutput) AcceleratorTypes() pulumi.StringArrayOutput {
@@ -13803,9 +13807,11 @@ func (o LaunchTemplateInstanceRequirementsPtrOutput) AcceleratorTotalMemoryMiB()
 
 // The accelerator types that must be on the instance type.
 //
+//   - For instance types with FPGA accelerators, specify “fpga“.
+//
 //   - For instance types with GPU accelerators, specify “gpu“.
 //
-//   - For instance types with FPGA accelerators, specify “fpga“.
+//   - For instance types with Inference accelerators, specify “inference“.
 //
 //     Default: Any accelerator type
 func (o LaunchTemplateInstanceRequirementsPtrOutput) AcceleratorTypes() pulumi.StringArrayOutput {
@@ -15580,7 +15586,8 @@ type LaunchTemplateNetworkInterface struct {
 	DeleteOnTermination *bool `pulumi:"deleteOnTermination"`
 	// A description for the network interface.
 	Description *string `pulumi:"description"`
-	// The device index for the network interface attachment. Each network interface requires a device index. If you create a launch template that includes secondary network interfaces but not a primary network interface, then you must add a primary network interface as a launch parameter when you launch an instance from the template.
+	// The device index for the network interface attachment. If the network interface is of type ``interface``, you must specify a device index.
+	//  If you create a launch template that includes secondary network interfaces but no primary network interface, and you specify it using the ``LaunchTemplate`` property of ``AWS::EC2::Instance``, then you must include a primary network interface using the ``NetworkInterfaces`` property of ``AWS::EC2::Instance``.
 	DeviceIndex *int `pulumi:"deviceIndex"`
 	// The ENA Express configuration for the network interface.
 	EnaSrdSpecification *LaunchTemplateEnaSrdSpecification `pulumi:"enaSrdSpecification"`
@@ -15646,7 +15653,8 @@ type LaunchTemplateNetworkInterfaceArgs struct {
 	DeleteOnTermination pulumi.BoolPtrInput `pulumi:"deleteOnTermination"`
 	// A description for the network interface.
 	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The device index for the network interface attachment. Each network interface requires a device index. If you create a launch template that includes secondary network interfaces but not a primary network interface, then you must add a primary network interface as a launch parameter when you launch an instance from the template.
+	// The device index for the network interface attachment. If the network interface is of type ``interface``, you must specify a device index.
+	//  If you create a launch template that includes secondary network interfaces but no primary network interface, and you specify it using the ``LaunchTemplate`` property of ``AWS::EC2::Instance``, then you must include a primary network interface using the ``NetworkInterfaces`` property of ``AWS::EC2::Instance``.
 	DeviceIndex pulumi.IntPtrInput `pulumi:"deviceIndex"`
 	// The ENA Express configuration for the network interface.
 	EnaSrdSpecification LaunchTemplateEnaSrdSpecificationPtrInput `pulumi:"enaSrdSpecification"`
@@ -15770,7 +15778,9 @@ func (o LaunchTemplateNetworkInterfaceOutput) Description() pulumi.StringPtrOutp
 	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The device index for the network interface attachment. Each network interface requires a device index. If you create a launch template that includes secondary network interfaces but not a primary network interface, then you must add a primary network interface as a launch parameter when you launch an instance from the template.
+// The device index for the network interface attachment. If the network interface is of type “interface“, you must specify a device index.
+//
+//	If you create a launch template that includes secondary network interfaces but no primary network interface, and you specify it using the ``LaunchTemplate`` property of ``AWS::EC2::Instance``, then you must include a primary network interface using the ``NetworkInterfaces`` property of ``AWS::EC2::Instance``.
 func (o LaunchTemplateNetworkInterfaceOutput) DeviceIndex() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *int { return v.DeviceIndex }).(pulumi.IntPtrOutput)
 }
@@ -31817,6 +31827,283 @@ func (o VerifiedAccessTrustProviderDeviceOptionsPtrOutput) TenantId() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
+// The OpenID Connect details for an oidc -type, user-identity based trust provider for L4.
+type VerifiedAccessTrustProviderNativeApplicationOidcOptions struct {
+	// The OIDC authorization endpoint.
+	AuthorizationEndpoint *string `pulumi:"authorizationEndpoint"`
+	// The client identifier.
+	ClientId *string `pulumi:"clientId"`
+	// The client secret.
+	ClientSecret *string `pulumi:"clientSecret"`
+	// The OIDC issuer.
+	Issuer *string `pulumi:"issuer"`
+	// The public signing key for endpoint
+	PublicSigningKeyEndpoint *string `pulumi:"publicSigningKeyEndpoint"`
+	// OpenID Connect (OIDC) scopes are used by an application during authentication to authorize access to details of a user. Each scope returns a specific set of user attributes.
+	Scope *string `pulumi:"scope"`
+	// The OIDC token endpoint.
+	TokenEndpoint *string `pulumi:"tokenEndpoint"`
+	// The OIDC user info endpoint.
+	UserInfoEndpoint *string `pulumi:"userInfoEndpoint"`
+}
+
+// VerifiedAccessTrustProviderNativeApplicationOidcOptionsInput is an input type that accepts VerifiedAccessTrustProviderNativeApplicationOidcOptionsArgs and VerifiedAccessTrustProviderNativeApplicationOidcOptionsOutput values.
+// You can construct a concrete instance of `VerifiedAccessTrustProviderNativeApplicationOidcOptionsInput` via:
+//
+//	VerifiedAccessTrustProviderNativeApplicationOidcOptionsArgs{...}
+type VerifiedAccessTrustProviderNativeApplicationOidcOptionsInput interface {
+	pulumi.Input
+
+	ToVerifiedAccessTrustProviderNativeApplicationOidcOptionsOutput() VerifiedAccessTrustProviderNativeApplicationOidcOptionsOutput
+	ToVerifiedAccessTrustProviderNativeApplicationOidcOptionsOutputWithContext(context.Context) VerifiedAccessTrustProviderNativeApplicationOidcOptionsOutput
+}
+
+// The OpenID Connect details for an oidc -type, user-identity based trust provider for L4.
+type VerifiedAccessTrustProviderNativeApplicationOidcOptionsArgs struct {
+	// The OIDC authorization endpoint.
+	AuthorizationEndpoint pulumi.StringPtrInput `pulumi:"authorizationEndpoint"`
+	// The client identifier.
+	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
+	// The client secret.
+	ClientSecret pulumi.StringPtrInput `pulumi:"clientSecret"`
+	// The OIDC issuer.
+	Issuer pulumi.StringPtrInput `pulumi:"issuer"`
+	// The public signing key for endpoint
+	PublicSigningKeyEndpoint pulumi.StringPtrInput `pulumi:"publicSigningKeyEndpoint"`
+	// OpenID Connect (OIDC) scopes are used by an application during authentication to authorize access to details of a user. Each scope returns a specific set of user attributes.
+	Scope pulumi.StringPtrInput `pulumi:"scope"`
+	// The OIDC token endpoint.
+	TokenEndpoint pulumi.StringPtrInput `pulumi:"tokenEndpoint"`
+	// The OIDC user info endpoint.
+	UserInfoEndpoint pulumi.StringPtrInput `pulumi:"userInfoEndpoint"`
+}
+
+func (VerifiedAccessTrustProviderNativeApplicationOidcOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VerifiedAccessTrustProviderNativeApplicationOidcOptions)(nil)).Elem()
+}
+
+func (i VerifiedAccessTrustProviderNativeApplicationOidcOptionsArgs) ToVerifiedAccessTrustProviderNativeApplicationOidcOptionsOutput() VerifiedAccessTrustProviderNativeApplicationOidcOptionsOutput {
+	return i.ToVerifiedAccessTrustProviderNativeApplicationOidcOptionsOutputWithContext(context.Background())
+}
+
+func (i VerifiedAccessTrustProviderNativeApplicationOidcOptionsArgs) ToVerifiedAccessTrustProviderNativeApplicationOidcOptionsOutputWithContext(ctx context.Context) VerifiedAccessTrustProviderNativeApplicationOidcOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VerifiedAccessTrustProviderNativeApplicationOidcOptionsOutput)
+}
+
+func (i VerifiedAccessTrustProviderNativeApplicationOidcOptionsArgs) ToVerifiedAccessTrustProviderNativeApplicationOidcOptionsPtrOutput() VerifiedAccessTrustProviderNativeApplicationOidcOptionsPtrOutput {
+	return i.ToVerifiedAccessTrustProviderNativeApplicationOidcOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i VerifiedAccessTrustProviderNativeApplicationOidcOptionsArgs) ToVerifiedAccessTrustProviderNativeApplicationOidcOptionsPtrOutputWithContext(ctx context.Context) VerifiedAccessTrustProviderNativeApplicationOidcOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VerifiedAccessTrustProviderNativeApplicationOidcOptionsOutput).ToVerifiedAccessTrustProviderNativeApplicationOidcOptionsPtrOutputWithContext(ctx)
+}
+
+// VerifiedAccessTrustProviderNativeApplicationOidcOptionsPtrInput is an input type that accepts VerifiedAccessTrustProviderNativeApplicationOidcOptionsArgs, VerifiedAccessTrustProviderNativeApplicationOidcOptionsPtr and VerifiedAccessTrustProviderNativeApplicationOidcOptionsPtrOutput values.
+// You can construct a concrete instance of `VerifiedAccessTrustProviderNativeApplicationOidcOptionsPtrInput` via:
+//
+//	        VerifiedAccessTrustProviderNativeApplicationOidcOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type VerifiedAccessTrustProviderNativeApplicationOidcOptionsPtrInput interface {
+	pulumi.Input
+
+	ToVerifiedAccessTrustProviderNativeApplicationOidcOptionsPtrOutput() VerifiedAccessTrustProviderNativeApplicationOidcOptionsPtrOutput
+	ToVerifiedAccessTrustProviderNativeApplicationOidcOptionsPtrOutputWithContext(context.Context) VerifiedAccessTrustProviderNativeApplicationOidcOptionsPtrOutput
+}
+
+type verifiedAccessTrustProviderNativeApplicationOidcOptionsPtrType VerifiedAccessTrustProviderNativeApplicationOidcOptionsArgs
+
+func VerifiedAccessTrustProviderNativeApplicationOidcOptionsPtr(v *VerifiedAccessTrustProviderNativeApplicationOidcOptionsArgs) VerifiedAccessTrustProviderNativeApplicationOidcOptionsPtrInput {
+	return (*verifiedAccessTrustProviderNativeApplicationOidcOptionsPtrType)(v)
+}
+
+func (*verifiedAccessTrustProviderNativeApplicationOidcOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VerifiedAccessTrustProviderNativeApplicationOidcOptions)(nil)).Elem()
+}
+
+func (i *verifiedAccessTrustProviderNativeApplicationOidcOptionsPtrType) ToVerifiedAccessTrustProviderNativeApplicationOidcOptionsPtrOutput() VerifiedAccessTrustProviderNativeApplicationOidcOptionsPtrOutput {
+	return i.ToVerifiedAccessTrustProviderNativeApplicationOidcOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *verifiedAccessTrustProviderNativeApplicationOidcOptionsPtrType) ToVerifiedAccessTrustProviderNativeApplicationOidcOptionsPtrOutputWithContext(ctx context.Context) VerifiedAccessTrustProviderNativeApplicationOidcOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VerifiedAccessTrustProviderNativeApplicationOidcOptionsPtrOutput)
+}
+
+// The OpenID Connect details for an oidc -type, user-identity based trust provider for L4.
+type VerifiedAccessTrustProviderNativeApplicationOidcOptionsOutput struct{ *pulumi.OutputState }
+
+func (VerifiedAccessTrustProviderNativeApplicationOidcOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VerifiedAccessTrustProviderNativeApplicationOidcOptions)(nil)).Elem()
+}
+
+func (o VerifiedAccessTrustProviderNativeApplicationOidcOptionsOutput) ToVerifiedAccessTrustProviderNativeApplicationOidcOptionsOutput() VerifiedAccessTrustProviderNativeApplicationOidcOptionsOutput {
+	return o
+}
+
+func (o VerifiedAccessTrustProviderNativeApplicationOidcOptionsOutput) ToVerifiedAccessTrustProviderNativeApplicationOidcOptionsOutputWithContext(ctx context.Context) VerifiedAccessTrustProviderNativeApplicationOidcOptionsOutput {
+	return o
+}
+
+func (o VerifiedAccessTrustProviderNativeApplicationOidcOptionsOutput) ToVerifiedAccessTrustProviderNativeApplicationOidcOptionsPtrOutput() VerifiedAccessTrustProviderNativeApplicationOidcOptionsPtrOutput {
+	return o.ToVerifiedAccessTrustProviderNativeApplicationOidcOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o VerifiedAccessTrustProviderNativeApplicationOidcOptionsOutput) ToVerifiedAccessTrustProviderNativeApplicationOidcOptionsPtrOutputWithContext(ctx context.Context) VerifiedAccessTrustProviderNativeApplicationOidcOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VerifiedAccessTrustProviderNativeApplicationOidcOptions) *VerifiedAccessTrustProviderNativeApplicationOidcOptions {
+		return &v
+	}).(VerifiedAccessTrustProviderNativeApplicationOidcOptionsPtrOutput)
+}
+
+// The OIDC authorization endpoint.
+func (o VerifiedAccessTrustProviderNativeApplicationOidcOptionsOutput) AuthorizationEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VerifiedAccessTrustProviderNativeApplicationOidcOptions) *string {
+		return v.AuthorizationEndpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// The client identifier.
+func (o VerifiedAccessTrustProviderNativeApplicationOidcOptionsOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VerifiedAccessTrustProviderNativeApplicationOidcOptions) *string { return v.ClientId }).(pulumi.StringPtrOutput)
+}
+
+// The client secret.
+func (o VerifiedAccessTrustProviderNativeApplicationOidcOptionsOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VerifiedAccessTrustProviderNativeApplicationOidcOptions) *string { return v.ClientSecret }).(pulumi.StringPtrOutput)
+}
+
+// The OIDC issuer.
+func (o VerifiedAccessTrustProviderNativeApplicationOidcOptionsOutput) Issuer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VerifiedAccessTrustProviderNativeApplicationOidcOptions) *string { return v.Issuer }).(pulumi.StringPtrOutput)
+}
+
+// The public signing key for endpoint
+func (o VerifiedAccessTrustProviderNativeApplicationOidcOptionsOutput) PublicSigningKeyEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VerifiedAccessTrustProviderNativeApplicationOidcOptions) *string {
+		return v.PublicSigningKeyEndpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// OpenID Connect (OIDC) scopes are used by an application during authentication to authorize access to details of a user. Each scope returns a specific set of user attributes.
+func (o VerifiedAccessTrustProviderNativeApplicationOidcOptionsOutput) Scope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VerifiedAccessTrustProviderNativeApplicationOidcOptions) *string { return v.Scope }).(pulumi.StringPtrOutput)
+}
+
+// The OIDC token endpoint.
+func (o VerifiedAccessTrustProviderNativeApplicationOidcOptionsOutput) TokenEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VerifiedAccessTrustProviderNativeApplicationOidcOptions) *string { return v.TokenEndpoint }).(pulumi.StringPtrOutput)
+}
+
+// The OIDC user info endpoint.
+func (o VerifiedAccessTrustProviderNativeApplicationOidcOptionsOutput) UserInfoEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VerifiedAccessTrustProviderNativeApplicationOidcOptions) *string { return v.UserInfoEndpoint }).(pulumi.StringPtrOutput)
+}
+
+type VerifiedAccessTrustProviderNativeApplicationOidcOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (VerifiedAccessTrustProviderNativeApplicationOidcOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VerifiedAccessTrustProviderNativeApplicationOidcOptions)(nil)).Elem()
+}
+
+func (o VerifiedAccessTrustProviderNativeApplicationOidcOptionsPtrOutput) ToVerifiedAccessTrustProviderNativeApplicationOidcOptionsPtrOutput() VerifiedAccessTrustProviderNativeApplicationOidcOptionsPtrOutput {
+	return o
+}
+
+func (o VerifiedAccessTrustProviderNativeApplicationOidcOptionsPtrOutput) ToVerifiedAccessTrustProviderNativeApplicationOidcOptionsPtrOutputWithContext(ctx context.Context) VerifiedAccessTrustProviderNativeApplicationOidcOptionsPtrOutput {
+	return o
+}
+
+func (o VerifiedAccessTrustProviderNativeApplicationOidcOptionsPtrOutput) Elem() VerifiedAccessTrustProviderNativeApplicationOidcOptionsOutput {
+	return o.ApplyT(func(v *VerifiedAccessTrustProviderNativeApplicationOidcOptions) VerifiedAccessTrustProviderNativeApplicationOidcOptions {
+		if v != nil {
+			return *v
+		}
+		var ret VerifiedAccessTrustProviderNativeApplicationOidcOptions
+		return ret
+	}).(VerifiedAccessTrustProviderNativeApplicationOidcOptionsOutput)
+}
+
+// The OIDC authorization endpoint.
+func (o VerifiedAccessTrustProviderNativeApplicationOidcOptionsPtrOutput) AuthorizationEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VerifiedAccessTrustProviderNativeApplicationOidcOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AuthorizationEndpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// The client identifier.
+func (o VerifiedAccessTrustProviderNativeApplicationOidcOptionsPtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VerifiedAccessTrustProviderNativeApplicationOidcOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The client secret.
+func (o VerifiedAccessTrustProviderNativeApplicationOidcOptionsPtrOutput) ClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VerifiedAccessTrustProviderNativeApplicationOidcOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientSecret
+	}).(pulumi.StringPtrOutput)
+}
+
+// The OIDC issuer.
+func (o VerifiedAccessTrustProviderNativeApplicationOidcOptionsPtrOutput) Issuer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VerifiedAccessTrustProviderNativeApplicationOidcOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Issuer
+	}).(pulumi.StringPtrOutput)
+}
+
+// The public signing key for endpoint
+func (o VerifiedAccessTrustProviderNativeApplicationOidcOptionsPtrOutput) PublicSigningKeyEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VerifiedAccessTrustProviderNativeApplicationOidcOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PublicSigningKeyEndpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// OpenID Connect (OIDC) scopes are used by an application during authentication to authorize access to details of a user. Each scope returns a specific set of user attributes.
+func (o VerifiedAccessTrustProviderNativeApplicationOidcOptionsPtrOutput) Scope() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VerifiedAccessTrustProviderNativeApplicationOidcOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Scope
+	}).(pulumi.StringPtrOutput)
+}
+
+// The OIDC token endpoint.
+func (o VerifiedAccessTrustProviderNativeApplicationOidcOptionsPtrOutput) TokenEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VerifiedAccessTrustProviderNativeApplicationOidcOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TokenEndpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// The OIDC user info endpoint.
+func (o VerifiedAccessTrustProviderNativeApplicationOidcOptionsPtrOutput) UserInfoEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VerifiedAccessTrustProviderNativeApplicationOidcOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserInfoEndpoint
+	}).(pulumi.StringPtrOutput)
+}
+
 // The OpenID Connect details for an oidc -type, user-identity based trust provider.
 type VerifiedAccessTrustProviderOidcOptions struct {
 	// The OIDC authorization endpoint.
@@ -34086,6 +34373,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VerifiedAccessInstanceVerifiedAccessTrustProviderArrayInput)(nil)).Elem(), VerifiedAccessInstanceVerifiedAccessTrustProviderArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VerifiedAccessTrustProviderDeviceOptionsInput)(nil)).Elem(), VerifiedAccessTrustProviderDeviceOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VerifiedAccessTrustProviderDeviceOptionsPtrInput)(nil)).Elem(), VerifiedAccessTrustProviderDeviceOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VerifiedAccessTrustProviderNativeApplicationOidcOptionsInput)(nil)).Elem(), VerifiedAccessTrustProviderNativeApplicationOidcOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VerifiedAccessTrustProviderNativeApplicationOidcOptionsPtrInput)(nil)).Elem(), VerifiedAccessTrustProviderNativeApplicationOidcOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VerifiedAccessTrustProviderOidcOptionsInput)(nil)).Elem(), VerifiedAccessTrustProviderOidcOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VerifiedAccessTrustProviderOidcOptionsPtrInput)(nil)).Elem(), VerifiedAccessTrustProviderOidcOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointDnsOptionsSpecificationInput)(nil)).Elem(), VpcEndpointDnsOptionsSpecificationArgs{})
@@ -34468,6 +34757,8 @@ func init() {
 	pulumi.RegisterOutputType(VerifiedAccessInstanceVerifiedAccessTrustProviderArrayOutput{})
 	pulumi.RegisterOutputType(VerifiedAccessTrustProviderDeviceOptionsOutput{})
 	pulumi.RegisterOutputType(VerifiedAccessTrustProviderDeviceOptionsPtrOutput{})
+	pulumi.RegisterOutputType(VerifiedAccessTrustProviderNativeApplicationOidcOptionsOutput{})
+	pulumi.RegisterOutputType(VerifiedAccessTrustProviderNativeApplicationOidcOptionsPtrOutput{})
 	pulumi.RegisterOutputType(VerifiedAccessTrustProviderOidcOptionsOutput{})
 	pulumi.RegisterOutputType(VerifiedAccessTrustProviderOidcOptionsPtrOutput{})
 	pulumi.RegisterOutputType(VpcEndpointDnsOptionsSpecificationOutput{})

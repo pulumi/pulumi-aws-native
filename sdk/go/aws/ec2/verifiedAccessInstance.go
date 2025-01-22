@@ -16,6 +16,10 @@ import (
 type VerifiedAccessInstance struct {
 	pulumi.CustomResourceState
 
+	// Introduce CidrEndpointsCustomSubDomain property to represent the domain (say, ava.my-company.com)
+	CidrEndpointsCustomSubDomain pulumi.StringPtrOutput `pulumi:"cidrEndpointsCustomSubDomain"`
+	// Property to represent the name servers assoicated with the domain that AVA manages (say, ['ns1.amazonaws.com', 'ns2.amazonaws.com', 'ns3.amazonaws.com', 'ns4.amazonaws.com']).
+	CidrEndpointsCustomSubDomainNameServers pulumi.StringArrayOutput `pulumi:"cidrEndpointsCustomSubDomainNameServers"`
 	// Time this Verified Access Instance was created.
 	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
 	// A description for the AWS Verified Access instance.
@@ -76,6 +80,8 @@ func (VerifiedAccessInstanceState) ElementType() reflect.Type {
 }
 
 type verifiedAccessInstanceArgs struct {
+	// Introduce CidrEndpointsCustomSubDomain property to represent the domain (say, ava.my-company.com)
+	CidrEndpointsCustomSubDomain *string `pulumi:"cidrEndpointsCustomSubDomain"`
 	// A description for the AWS Verified Access instance.
 	Description *string `pulumi:"description"`
 	// Indicates whether FIPS is enabled
@@ -92,6 +98,8 @@ type verifiedAccessInstanceArgs struct {
 
 // The set of arguments for constructing a VerifiedAccessInstance resource.
 type VerifiedAccessInstanceArgs struct {
+	// Introduce CidrEndpointsCustomSubDomain property to represent the domain (say, ava.my-company.com)
+	CidrEndpointsCustomSubDomain pulumi.StringPtrInput
 	// A description for the AWS Verified Access instance.
 	Description pulumi.StringPtrInput
 	// Indicates whether FIPS is enabled
@@ -141,6 +149,18 @@ func (o VerifiedAccessInstanceOutput) ToVerifiedAccessInstanceOutput() VerifiedA
 
 func (o VerifiedAccessInstanceOutput) ToVerifiedAccessInstanceOutputWithContext(ctx context.Context) VerifiedAccessInstanceOutput {
 	return o
+}
+
+// Introduce CidrEndpointsCustomSubDomain property to represent the domain (say, ava.my-company.com)
+func (o VerifiedAccessInstanceOutput) CidrEndpointsCustomSubDomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VerifiedAccessInstance) pulumi.StringPtrOutput { return v.CidrEndpointsCustomSubDomain }).(pulumi.StringPtrOutput)
+}
+
+// Property to represent the name servers assoicated with the domain that AVA manages (say, ['ns1.amazonaws.com', 'ns2.amazonaws.com', 'ns3.amazonaws.com', 'ns4.amazonaws.com']).
+func (o VerifiedAccessInstanceOutput) CidrEndpointsCustomSubDomainNameServers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *VerifiedAccessInstance) pulumi.StringArrayOutput {
+		return v.CidrEndpointsCustomSubDomainNameServers
+	}).(pulumi.StringArrayOutput)
 }
 
 // Time this Verified Access Instance was created.

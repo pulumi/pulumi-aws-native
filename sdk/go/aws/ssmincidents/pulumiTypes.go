@@ -15,6 +15,7 @@ var _ = internal.GetEnvOrDefault
 
 // The ReplicationSet regional configuration.
 type ReplicationSetRegionConfiguration struct {
+	// The AWS Key Management Service key ID or Key Alias to use to encrypt your replication set.
 	SseKmsKeyId string `pulumi:"sseKmsKeyId"`
 }
 
@@ -31,6 +32,7 @@ type ReplicationSetRegionConfigurationInput interface {
 
 // The ReplicationSet regional configuration.
 type ReplicationSetRegionConfigurationArgs struct {
+	// The AWS Key Management Service key ID or Key Alias to use to encrypt your replication set.
 	SseKmsKeyId pulumi.StringInput `pulumi:"sseKmsKeyId"`
 }
 
@@ -112,6 +114,7 @@ func (o ReplicationSetRegionConfigurationOutput) ToReplicationSetRegionConfigura
 	}).(ReplicationSetRegionConfigurationPtrOutput)
 }
 
+// The AWS Key Management Service key ID or Key Alias to use to encrypt your replication set.
 func (o ReplicationSetRegionConfigurationOutput) SseKmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v ReplicationSetRegionConfiguration) string { return v.SseKmsKeyId }).(pulumi.StringOutput)
 }
@@ -140,6 +143,7 @@ func (o ReplicationSetRegionConfigurationPtrOutput) Elem() ReplicationSetRegionC
 	}).(ReplicationSetRegionConfigurationOutput)
 }
 
+// The AWS Key Management Service key ID or Key Alias to use to encrypt your replication set.
 func (o ReplicationSetRegionConfigurationPtrOutput) SseKmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicationSetRegionConfiguration) *string {
 		if v == nil {

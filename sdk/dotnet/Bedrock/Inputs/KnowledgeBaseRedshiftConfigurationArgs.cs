@@ -15,14 +15,24 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
     /// </summary>
     public sealed class KnowledgeBaseRedshiftConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies configurations for an Amazon Redshift query engine.
+        /// </summary>
         [Input("queryEngineConfiguration", required: true)]
         public Input<Inputs.KnowledgeBaseRedshiftQueryEngineConfigurationArgs> QueryEngineConfiguration { get; set; } = null!;
 
+        /// <summary>
+        /// Specifies configurations for generating queries.
+        /// </summary>
         [Input("queryGenerationConfiguration")]
         public Input<Inputs.KnowledgeBaseQueryGenerationConfigurationArgs>? QueryGenerationConfiguration { get; set; }
 
         [Input("storageConfigurations", required: true)]
         private InputList<Inputs.KnowledgeBaseRedshiftQueryEngineStorageConfigurationArgs>? _storageConfigurations;
+
+        /// <summary>
+        /// Specifies configurations for Amazon Redshift database storage.
+        /// </summary>
         public InputList<Inputs.KnowledgeBaseRedshiftQueryEngineStorageConfigurationArgs> StorageConfigurations
         {
             get => _storageConfigurations ?? (_storageConfigurations = new InputList<Inputs.KnowledgeBaseRedshiftQueryEngineStorageConfigurationArgs>());

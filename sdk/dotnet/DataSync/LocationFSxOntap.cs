@@ -88,10 +88,8 @@ namespace Pulumi.AwsNative.DataSync
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
-                    "protocol",
                     "securityGroupArns[*]",
                     "storageVirtualMachineArn",
-                    "subdirectory",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

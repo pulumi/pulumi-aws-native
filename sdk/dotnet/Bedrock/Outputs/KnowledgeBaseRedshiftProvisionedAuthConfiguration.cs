@@ -20,7 +20,13 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
         /// Redshift database user
         /// </summary>
         public readonly string? DatabaseUser;
+        /// <summary>
+        /// The type of authentication to use.
+        /// </summary>
         public readonly Pulumi.AwsNative.Bedrock.KnowledgeBaseRedshiftProvisionedAuthType Type;
+        /// <summary>
+        /// The ARN of an Secrets Manager secret for authentication.
+        /// </summary>
         public readonly string? UsernamePasswordSecretArn;
 
         [OutputConstructor]

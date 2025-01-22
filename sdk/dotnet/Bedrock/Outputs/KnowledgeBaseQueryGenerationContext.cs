@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
     [OutputType]
     public sealed class KnowledgeBaseQueryGenerationContext
     {
+        /// <summary>
+        /// An array of objects, each of which defines information about example queries to help the query engine generate appropriate SQL queries.
+        /// </summary>
         public readonly ImmutableArray<Outputs.KnowledgeBaseCuratedQuery> CuratedQueries;
+        /// <summary>
+        /// An array of objects, each of which defines information about a table in the database.
+        /// </summary>
         public readonly ImmutableArray<Outputs.KnowledgeBaseQueryGenerationTable> Tables;
 
         [OutputConstructor]

@@ -34,6 +34,16 @@ export interface GetLocationS3Result {
      */
     readonly locationUri?: string;
     /**
+     * The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that is used to access an Amazon S3 bucket.
+     *
+     * For detailed information about using such a role, see [Creating a Location for Amazon S3](https://docs.aws.amazon.com/datasync/latest/userguide/working-with-locations.html#create-s3-location) in the *AWS DataSync User Guide* .
+     */
+    readonly s3Config?: outputs.datasync.LocationS3s3Config;
+    /**
+     * The Amazon S3 storage class you want to store your files in when this location is used as a task destination.
+     */
+    readonly s3StorageClass?: enums.datasync.LocationS3S3StorageClass;
+    /**
      * An array of key-value pairs to apply to this resource.
      */
     readonly tags?: outputs.Tag[];

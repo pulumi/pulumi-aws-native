@@ -49,10 +49,8 @@ func NewLocationFSxOntap(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'StorageVirtualMachineArn'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
-		"protocol",
 		"securityGroupArns[*]",
 		"storageVirtualMachineArn",
-		"subdirectory",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)

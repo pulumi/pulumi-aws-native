@@ -603,6 +603,7 @@ namespace Pulumi.AwsNative.SageMaker
         public static DomainMlTools DeepchecksLlmEvaluation { get; } = new DomainMlTools("DeepchecksLLMEvaluation");
         public static DomainMlTools Fiddler { get; } = new DomainMlTools("Fiddler");
         public static DomainMlTools LakeraGuard { get; } = new DomainMlTools("LakeraGuard");
+        public static DomainMlTools PerformanceEvaluation { get; } = new DomainMlTools("PerformanceEvaluation");
 
         public static bool operator ==(DomainMlTools left, DomainMlTools right) => left.Equals(right);
         public static bool operator !=(DomainMlTools left, DomainMlTools right) => !left.Equals(right);
@@ -3237,6 +3238,7 @@ namespace Pulumi.AwsNative.SageMaker
         public static UserProfileMlTools DeepchecksLlmEvaluation { get; } = new UserProfileMlTools("DeepchecksLLMEvaluation");
         public static UserProfileMlTools Fiddler { get; } = new UserProfileMlTools("Fiddler");
         public static UserProfileMlTools LakeraGuard { get; } = new UserProfileMlTools("LakeraGuard");
+        public static UserProfileMlTools PerformanceEvaluation { get; } = new UserProfileMlTools("PerformanceEvaluation");
 
         public static bool operator ==(UserProfileMlTools left, UserProfileMlTools right) => left.Equals(right);
         public static bool operator !=(UserProfileMlTools left, UserProfileMlTools right) => !left.Equals(right);

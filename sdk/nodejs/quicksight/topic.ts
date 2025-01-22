@@ -45,6 +45,7 @@ export class Topic extends pulumi.CustomResource {
      * The ID of the AWS account that you want to create a topic in.
      */
     public readonly awsAccountId!: pulumi.Output<string | undefined>;
+    public readonly configOptions!: pulumi.Output<outputs.quicksight.TopicConfigOptions | undefined>;
     /**
      * The data sets that the topic is associated with.
      */
@@ -53,6 +54,7 @@ export class Topic extends pulumi.CustomResource {
      * The description of the topic.
      */
     public readonly description!: pulumi.Output<string | undefined>;
+    public readonly folderArns!: pulumi.Output<string[] | undefined>;
     /**
      * The name of the topic.
      */
@@ -78,8 +80,10 @@ export class Topic extends pulumi.CustomResource {
         opts = opts || {};
         if (!opts.id) {
             resourceInputs["awsAccountId"] = args ? args.awsAccountId : undefined;
+            resourceInputs["configOptions"] = args ? args.configOptions : undefined;
             resourceInputs["dataSets"] = args ? args.dataSets : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["folderArns"] = args ? args.folderArns : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["topicId"] = args ? args.topicId : undefined;
             resourceInputs["userExperienceVersion"] = args ? args.userExperienceVersion : undefined;
@@ -87,14 +91,16 @@ export class Topic extends pulumi.CustomResource {
         } else {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsAccountId"] = undefined /*out*/;
+            resourceInputs["configOptions"] = undefined /*out*/;
             resourceInputs["dataSets"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["folderArns"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["topicId"] = undefined /*out*/;
             resourceInputs["userExperienceVersion"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["awsAccountId", "topicId"] };
+        const replaceOnChanges = { replaceOnChanges: ["awsAccountId", "folderArns[*]", "topicId"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Topic.__pulumiType, name, resourceInputs, opts);
     }
@@ -108,6 +114,7 @@ export interface TopicArgs {
      * The ID of the AWS account that you want to create a topic in.
      */
     awsAccountId?: pulumi.Input<string>;
+    configOptions?: pulumi.Input<inputs.quicksight.TopicConfigOptionsArgs>;
     /**
      * The data sets that the topic is associated with.
      */
@@ -116,6 +123,7 @@ export interface TopicArgs {
      * The description of the topic.
      */
     description?: pulumi.Input<string>;
+    folderArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The name of the topic.
      */

@@ -253,6 +253,7 @@ export const DomainMlTools = {
     DeepchecksLlmEvaluation: "DeepchecksLLMEvaluation",
     Fiddler: "Fiddler",
     LakeraGuard: "LakeraGuard",
+    PerformanceEvaluation: "PerformanceEvaluation",
 } as const;
 
 export type DomainMlTools = (typeof DomainMlTools)[keyof typeof DomainMlTools];
@@ -1228,6 +1229,7 @@ export const UserProfileMlTools = {
     DeepchecksLlmEvaluation: "DeepchecksLLMEvaluation",
     Fiddler: "Fiddler",
     LakeraGuard: "LakeraGuard",
+    PerformanceEvaluation: "PerformanceEvaluation",
 } as const;
 
 export type UserProfileMlTools = (typeof UserProfileMlTools)[keyof typeof UserProfileMlTools];

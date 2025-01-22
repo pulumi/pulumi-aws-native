@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
     [OutputType]
     public sealed class PromptVersionPromptVariant
     {
+        /// <summary>
+        /// Specifies a generative AI resource with which to use the prompt.
+        /// </summary>
         public readonly Outputs.PromptVersionPromptGenAiResourceProperties? GenAiResource;
         /// <summary>
         /// Contains inference configurations for the prompt variant.

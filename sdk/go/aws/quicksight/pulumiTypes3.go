@@ -39343,6 +39343,142 @@ func (o TopicComparativeOrderPtrOutput) UseOrdering() TopicColumnOrderingTypePtr
 	}).(TopicColumnOrderingTypePtrOutput)
 }
 
+// Model for configuration of a Topic
+type TopicConfigOptions struct {
+	QBusinessInsightsEnabled *bool `pulumi:"qBusinessInsightsEnabled"`
+}
+
+// TopicConfigOptionsInput is an input type that accepts TopicConfigOptionsArgs and TopicConfigOptionsOutput values.
+// You can construct a concrete instance of `TopicConfigOptionsInput` via:
+//
+//	TopicConfigOptionsArgs{...}
+type TopicConfigOptionsInput interface {
+	pulumi.Input
+
+	ToTopicConfigOptionsOutput() TopicConfigOptionsOutput
+	ToTopicConfigOptionsOutputWithContext(context.Context) TopicConfigOptionsOutput
+}
+
+// Model for configuration of a Topic
+type TopicConfigOptionsArgs struct {
+	QBusinessInsightsEnabled pulumi.BoolPtrInput `pulumi:"qBusinessInsightsEnabled"`
+}
+
+func (TopicConfigOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicConfigOptions)(nil)).Elem()
+}
+
+func (i TopicConfigOptionsArgs) ToTopicConfigOptionsOutput() TopicConfigOptionsOutput {
+	return i.ToTopicConfigOptionsOutputWithContext(context.Background())
+}
+
+func (i TopicConfigOptionsArgs) ToTopicConfigOptionsOutputWithContext(ctx context.Context) TopicConfigOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicConfigOptionsOutput)
+}
+
+func (i TopicConfigOptionsArgs) ToTopicConfigOptionsPtrOutput() TopicConfigOptionsPtrOutput {
+	return i.ToTopicConfigOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i TopicConfigOptionsArgs) ToTopicConfigOptionsPtrOutputWithContext(ctx context.Context) TopicConfigOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicConfigOptionsOutput).ToTopicConfigOptionsPtrOutputWithContext(ctx)
+}
+
+// TopicConfigOptionsPtrInput is an input type that accepts TopicConfigOptionsArgs, TopicConfigOptionsPtr and TopicConfigOptionsPtrOutput values.
+// You can construct a concrete instance of `TopicConfigOptionsPtrInput` via:
+//
+//	        TopicConfigOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type TopicConfigOptionsPtrInput interface {
+	pulumi.Input
+
+	ToTopicConfigOptionsPtrOutput() TopicConfigOptionsPtrOutput
+	ToTopicConfigOptionsPtrOutputWithContext(context.Context) TopicConfigOptionsPtrOutput
+}
+
+type topicConfigOptionsPtrType TopicConfigOptionsArgs
+
+func TopicConfigOptionsPtr(v *TopicConfigOptionsArgs) TopicConfigOptionsPtrInput {
+	return (*topicConfigOptionsPtrType)(v)
+}
+
+func (*topicConfigOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TopicConfigOptions)(nil)).Elem()
+}
+
+func (i *topicConfigOptionsPtrType) ToTopicConfigOptionsPtrOutput() TopicConfigOptionsPtrOutput {
+	return i.ToTopicConfigOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *topicConfigOptionsPtrType) ToTopicConfigOptionsPtrOutputWithContext(ctx context.Context) TopicConfigOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicConfigOptionsPtrOutput)
+}
+
+// Model for configuration of a Topic
+type TopicConfigOptionsOutput struct{ *pulumi.OutputState }
+
+func (TopicConfigOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicConfigOptions)(nil)).Elem()
+}
+
+func (o TopicConfigOptionsOutput) ToTopicConfigOptionsOutput() TopicConfigOptionsOutput {
+	return o
+}
+
+func (o TopicConfigOptionsOutput) ToTopicConfigOptionsOutputWithContext(ctx context.Context) TopicConfigOptionsOutput {
+	return o
+}
+
+func (o TopicConfigOptionsOutput) ToTopicConfigOptionsPtrOutput() TopicConfigOptionsPtrOutput {
+	return o.ToTopicConfigOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o TopicConfigOptionsOutput) ToTopicConfigOptionsPtrOutputWithContext(ctx context.Context) TopicConfigOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicConfigOptions) *TopicConfigOptions {
+		return &v
+	}).(TopicConfigOptionsPtrOutput)
+}
+
+func (o TopicConfigOptionsOutput) QBusinessInsightsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TopicConfigOptions) *bool { return v.QBusinessInsightsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type TopicConfigOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (TopicConfigOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TopicConfigOptions)(nil)).Elem()
+}
+
+func (o TopicConfigOptionsPtrOutput) ToTopicConfigOptionsPtrOutput() TopicConfigOptionsPtrOutput {
+	return o
+}
+
+func (o TopicConfigOptionsPtrOutput) ToTopicConfigOptionsPtrOutputWithContext(ctx context.Context) TopicConfigOptionsPtrOutput {
+	return o
+}
+
+func (o TopicConfigOptionsPtrOutput) Elem() TopicConfigOptionsOutput {
+	return o.ApplyT(func(v *TopicConfigOptions) TopicConfigOptions {
+		if v != nil {
+			return *v
+		}
+		var ret TopicConfigOptions
+		return ret
+	}).(TopicConfigOptionsOutput)
+}
+
+func (o TopicConfigOptionsPtrOutput) QBusinessInsightsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TopicConfigOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.QBusinessInsightsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 type TopicDataAggregation struct {
 	// The level of time precision that is used to aggregate `DateTime` values.
 	DatasetRowDateGranularity *TopicTimeGranularity `pulumi:"datasetRowDateGranularity"`
@@ -43004,6 +43140,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicColumnArrayInput)(nil)).Elem(), TopicColumnArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicComparativeOrderInput)(nil)).Elem(), TopicComparativeOrderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicComparativeOrderPtrInput)(nil)).Elem(), TopicComparativeOrderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicConfigOptionsInput)(nil)).Elem(), TopicConfigOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicConfigOptionsPtrInput)(nil)).Elem(), TopicConfigOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicDataAggregationInput)(nil)).Elem(), TopicDataAggregationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicDataAggregationPtrInput)(nil)).Elem(), TopicDataAggregationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicDatasetMetadataInput)(nil)).Elem(), TopicDatasetMetadataArgs{})
@@ -43486,6 +43624,8 @@ func init() {
 	pulumi.RegisterOutputType(TopicColumnArrayOutput{})
 	pulumi.RegisterOutputType(TopicComparativeOrderOutput{})
 	pulumi.RegisterOutputType(TopicComparativeOrderPtrOutput{})
+	pulumi.RegisterOutputType(TopicConfigOptionsOutput{})
+	pulumi.RegisterOutputType(TopicConfigOptionsPtrOutput{})
 	pulumi.RegisterOutputType(TopicDataAggregationOutput{})
 	pulumi.RegisterOutputType(TopicDataAggregationPtrOutput{})
 	pulumi.RegisterOutputType(TopicDatasetMetadataOutput{})

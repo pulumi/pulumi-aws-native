@@ -1107,7 +1107,7 @@ if not MYPY:
         """
         conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['PipelineConditionArgsDict']]]]
         """
-        The conditions that are configured as failure conditions.
+        The conditions that are configured as failure conditions. For more information about conditions, see [Stage conditions](https://docs.aws.amazon.com/codepipeline/latest/userguide/stage-conditions.html) and [How do stage conditions work?](https://docs.aws.amazon.com/codepipeline/latest/userguide/concepts-how-it-works-conditions.html) .
         """
         result: NotRequired[pulumi.Input['PipelineFailureConditionsResult']]
         """
@@ -1128,7 +1128,7 @@ class PipelineFailureConditionsArgs:
                  retry_configuration: Optional[pulumi.Input['PipelineFailureConditionsRetryConfigurationPropertiesArgs']] = None):
         """
         The configuration that specifies the result, such as rollback, to occur upon stage failure
-        :param pulumi.Input[Sequence[pulumi.Input['PipelineConditionArgs']]] conditions: The conditions that are configured as failure conditions.
+        :param pulumi.Input[Sequence[pulumi.Input['PipelineConditionArgs']]] conditions: The conditions that are configured as failure conditions. For more information about conditions, see [Stage conditions](https://docs.aws.amazon.com/codepipeline/latest/userguide/stage-conditions.html) and [How do stage conditions work?](https://docs.aws.amazon.com/codepipeline/latest/userguide/concepts-how-it-works-conditions.html) .
         :param pulumi.Input['PipelineFailureConditionsResult'] result: The specified result for when the failure conditions are met, such as rolling back the stage
         :param pulumi.Input['PipelineFailureConditionsRetryConfigurationPropertiesArgs'] retry_configuration: The configuration that specifies the retry configuration for a stage
         """
@@ -1143,7 +1143,7 @@ class PipelineFailureConditionsArgs:
     @pulumi.getter
     def conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PipelineConditionArgs']]]]:
         """
-        The conditions that are configured as failure conditions.
+        The conditions that are configured as failure conditions. For more information about conditions, see [Stage conditions](https://docs.aws.amazon.com/codepipeline/latest/userguide/stage-conditions.html) and [How do stage conditions work?](https://docs.aws.amazon.com/codepipeline/latest/userguide/concepts-how-it-works-conditions.html) .
         """
         return pulumi.get(self, "conditions")
 

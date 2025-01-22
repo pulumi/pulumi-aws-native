@@ -109,9 +109,6 @@ func NewLocationS3(ctx *pulumi.Context,
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"s3BucketArn",
-		"s3Config",
-		"s3StorageClass",
-		"subdirectory",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)

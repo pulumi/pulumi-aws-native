@@ -809,6 +809,7 @@ namespace Pulumi.AwsNative.Connect
         public static RoutingProfileChannel Voice { get; } = new RoutingProfileChannel("VOICE");
         public static RoutingProfileChannel Chat { get; } = new RoutingProfileChannel("CHAT");
         public static RoutingProfileChannel Task { get; } = new RoutingProfileChannel("TASK");
+        public static RoutingProfileChannel Email { get; } = new RoutingProfileChannel("EMAIL");
 
         public static bool operator ==(RoutingProfileChannel left, RoutingProfileChannel right) => left.Equals(right);
         public static bool operator !=(RoutingProfileChannel left, RoutingProfileChannel right) => !left.Equals(right);

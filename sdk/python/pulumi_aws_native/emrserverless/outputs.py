@@ -30,6 +30,7 @@ __all__ = [
     'ApplicationMaximumAllowedResources',
     'ApplicationMonitoringConfiguration',
     'ApplicationNetworkConfiguration',
+    'ApplicationPrometheusMonitoringConfiguration',
     'ApplicationS3MonitoringConfiguration',
     'ApplicationSchedulerConfiguration',
     'ApplicationWorkerConfiguration',
@@ -518,6 +519,8 @@ class ApplicationMonitoringConfiguration(dict):
             suggest = "cloud_watch_logging_configuration"
         elif key == "managedPersistenceMonitoringConfiguration":
             suggest = "managed_persistence_monitoring_configuration"
+        elif key == "prometheusMonitoringConfiguration":
+            suggest = "prometheus_monitoring_configuration"
         elif key == "s3MonitoringConfiguration":
             suggest = "s3_monitoring_configuration"
 
@@ -535,17 +538,21 @@ class ApplicationMonitoringConfiguration(dict):
     def __init__(__self__, *,
                  cloud_watch_logging_configuration: Optional['outputs.ApplicationCloudWatchLoggingConfiguration'] = None,
                  managed_persistence_monitoring_configuration: Optional['outputs.ApplicationManagedPersistenceMonitoringConfiguration'] = None,
+                 prometheus_monitoring_configuration: Optional['outputs.ApplicationPrometheusMonitoringConfiguration'] = None,
                  s3_monitoring_configuration: Optional['outputs.ApplicationS3MonitoringConfiguration'] = None):
         """
         Monitoring configuration for batch and interactive JobRun.
         :param 'ApplicationCloudWatchLoggingConfiguration' cloud_watch_logging_configuration: CloudWatch logging configurations for a JobRun.
         :param 'ApplicationManagedPersistenceMonitoringConfiguration' managed_persistence_monitoring_configuration: Managed log persistence configurations for a JobRun.
+        :param 'ApplicationPrometheusMonitoringConfiguration' prometheus_monitoring_configuration: Prometheus monitoring configurations for a JobRun.
         :param 'ApplicationS3MonitoringConfiguration' s3_monitoring_configuration: S3 monitoring configurations for a JobRun.
         """
         if cloud_watch_logging_configuration is not None:
             pulumi.set(__self__, "cloud_watch_logging_configuration", cloud_watch_logging_configuration)
         if managed_persistence_monitoring_configuration is not None:
             pulumi.set(__self__, "managed_persistence_monitoring_configuration", managed_persistence_monitoring_configuration)
+        if prometheus_monitoring_configuration is not None:
+            pulumi.set(__self__, "prometheus_monitoring_configuration", prometheus_monitoring_configuration)
         if s3_monitoring_configuration is not None:
             pulumi.set(__self__, "s3_monitoring_configuration", s3_monitoring_configuration)
 
@@ -564,6 +571,14 @@ class ApplicationMonitoringConfiguration(dict):
         Managed log persistence configurations for a JobRun.
         """
         return pulumi.get(self, "managed_persistence_monitoring_configuration")
+
+    @property
+    @pulumi.getter(name="prometheusMonitoringConfiguration")
+    def prometheus_monitoring_configuration(self) -> Optional['outputs.ApplicationPrometheusMonitoringConfiguration']:
+        """
+        Prometheus monitoring configurations for a JobRun.
+        """
+        return pulumi.get(self, "prometheus_monitoring_configuration")
 
     @property
     @pulumi.getter(name="s3MonitoringConfiguration")
@@ -622,6 +637,42 @@ class ApplicationNetworkConfiguration(dict):
         The ID of the subnets in the VPC to which you want to connect your job or application.
         """
         return pulumi.get(self, "subnet_ids")
+
+
+@pulumi.output_type
+class ApplicationPrometheusMonitoringConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "remoteWriteUrl":
+            suggest = "remote_write_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationPrometheusMonitoringConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationPrometheusMonitoringConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationPrometheusMonitoringConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 remote_write_url: Optional[str] = None):
+        """
+        :param str remote_write_url: The remote write URL in the Amazon Managed Service for Prometheus workspace to send metrics to.
+        """
+        if remote_write_url is not None:
+            pulumi.set(__self__, "remote_write_url", remote_write_url)
+
+    @property
+    @pulumi.getter(name="remoteWriteUrl")
+    def remote_write_url(self) -> Optional[str]:
+        """
+        The remote write URL in the Amazon Managed Service for Prometheus workspace to send metrics to.
+        """
+        return pulumi.get(self, "remote_write_url")
 
 
 @pulumi.output_type

@@ -2333,6 +2333,116 @@ type MalwareProtectionPlanTagItem struct {
 	Value string `pulumi:"value"`
 }
 
+type PublishingDestinationCfnDestinationProperties struct {
+	// The ARN of the resource to publish to.
+	DestinationArn *string `pulumi:"destinationArn"`
+	// The ARN of the KMS key to use for encryption.
+	KmsKeyArn *string `pulumi:"kmsKeyArn"`
+}
+
+// PublishingDestinationCfnDestinationPropertiesInput is an input type that accepts PublishingDestinationCfnDestinationPropertiesArgs and PublishingDestinationCfnDestinationPropertiesOutput values.
+// You can construct a concrete instance of `PublishingDestinationCfnDestinationPropertiesInput` via:
+//
+//	PublishingDestinationCfnDestinationPropertiesArgs{...}
+type PublishingDestinationCfnDestinationPropertiesInput interface {
+	pulumi.Input
+
+	ToPublishingDestinationCfnDestinationPropertiesOutput() PublishingDestinationCfnDestinationPropertiesOutput
+	ToPublishingDestinationCfnDestinationPropertiesOutputWithContext(context.Context) PublishingDestinationCfnDestinationPropertiesOutput
+}
+
+type PublishingDestinationCfnDestinationPropertiesArgs struct {
+	// The ARN of the resource to publish to.
+	DestinationArn pulumi.StringPtrInput `pulumi:"destinationArn"`
+	// The ARN of the KMS key to use for encryption.
+	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
+}
+
+func (PublishingDestinationCfnDestinationPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PublishingDestinationCfnDestinationProperties)(nil)).Elem()
+}
+
+func (i PublishingDestinationCfnDestinationPropertiesArgs) ToPublishingDestinationCfnDestinationPropertiesOutput() PublishingDestinationCfnDestinationPropertiesOutput {
+	return i.ToPublishingDestinationCfnDestinationPropertiesOutputWithContext(context.Background())
+}
+
+func (i PublishingDestinationCfnDestinationPropertiesArgs) ToPublishingDestinationCfnDestinationPropertiesOutputWithContext(ctx context.Context) PublishingDestinationCfnDestinationPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PublishingDestinationCfnDestinationPropertiesOutput)
+}
+
+type PublishingDestinationCfnDestinationPropertiesOutput struct{ *pulumi.OutputState }
+
+func (PublishingDestinationCfnDestinationPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PublishingDestinationCfnDestinationProperties)(nil)).Elem()
+}
+
+func (o PublishingDestinationCfnDestinationPropertiesOutput) ToPublishingDestinationCfnDestinationPropertiesOutput() PublishingDestinationCfnDestinationPropertiesOutput {
+	return o
+}
+
+func (o PublishingDestinationCfnDestinationPropertiesOutput) ToPublishingDestinationCfnDestinationPropertiesOutputWithContext(ctx context.Context) PublishingDestinationCfnDestinationPropertiesOutput {
+	return o
+}
+
+// The ARN of the resource to publish to.
+func (o PublishingDestinationCfnDestinationPropertiesOutput) DestinationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PublishingDestinationCfnDestinationProperties) *string { return v.DestinationArn }).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the KMS key to use for encryption.
+func (o PublishingDestinationCfnDestinationPropertiesOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PublishingDestinationCfnDestinationProperties) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
+}
+
+type PublishingDestinationCfnDestinationPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (PublishingDestinationCfnDestinationPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PublishingDestinationCfnDestinationProperties)(nil)).Elem()
+}
+
+func (o PublishingDestinationCfnDestinationPropertiesPtrOutput) ToPublishingDestinationCfnDestinationPropertiesPtrOutput() PublishingDestinationCfnDestinationPropertiesPtrOutput {
+	return o
+}
+
+func (o PublishingDestinationCfnDestinationPropertiesPtrOutput) ToPublishingDestinationCfnDestinationPropertiesPtrOutputWithContext(ctx context.Context) PublishingDestinationCfnDestinationPropertiesPtrOutput {
+	return o
+}
+
+func (o PublishingDestinationCfnDestinationPropertiesPtrOutput) Elem() PublishingDestinationCfnDestinationPropertiesOutput {
+	return o.ApplyT(func(v *PublishingDestinationCfnDestinationProperties) PublishingDestinationCfnDestinationProperties {
+		if v != nil {
+			return *v
+		}
+		var ret PublishingDestinationCfnDestinationProperties
+		return ret
+	}).(PublishingDestinationCfnDestinationPropertiesOutput)
+}
+
+// The ARN of the resource to publish to.
+func (o PublishingDestinationCfnDestinationPropertiesPtrOutput) DestinationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PublishingDestinationCfnDestinationProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DestinationArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the KMS key to use for encryption.
+func (o PublishingDestinationCfnDestinationPropertiesPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PublishingDestinationCfnDestinationProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type PublishingDestinationTagItem struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
 type ThreatIntelSetTagItem struct {
 	// The tag key.
 	Key string `pulumi:"key"`
@@ -2366,6 +2476,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MalwareProtectionPlanCfnProtectedResourceS3BucketPropertiesInput)(nil)).Elem(), MalwareProtectionPlanCfnProtectedResourceS3BucketPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MalwareProtectionPlanCfnTaggingInput)(nil)).Elem(), MalwareProtectionPlanCfnTaggingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MalwareProtectionPlanCfnTaggingPtrInput)(nil)).Elem(), MalwareProtectionPlanCfnTaggingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PublishingDestinationCfnDestinationPropertiesInput)(nil)).Elem(), PublishingDestinationCfnDestinationPropertiesArgs{})
 	pulumi.RegisterOutputType(DetectorCfnDataSourceConfigurationsOutput{})
 	pulumi.RegisterOutputType(DetectorCfnDataSourceConfigurationsPtrOutput{})
 	pulumi.RegisterOutputType(DetectorCfnFeatureAdditionalConfigurationOutput{})
@@ -2396,4 +2507,6 @@ func init() {
 	pulumi.RegisterOutputType(MalwareProtectionPlanCfnStatusReasonsArrayOutput{})
 	pulumi.RegisterOutputType(MalwareProtectionPlanCfnTaggingOutput{})
 	pulumi.RegisterOutputType(MalwareProtectionPlanCfnTaggingPtrOutput{})
+	pulumi.RegisterOutputType(PublishingDestinationCfnDestinationPropertiesOutput{})
+	pulumi.RegisterOutputType(PublishingDestinationCfnDestinationPropertiesPtrOutput{})
 }

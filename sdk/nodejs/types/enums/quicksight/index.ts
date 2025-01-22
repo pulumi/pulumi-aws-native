@@ -3482,6 +3482,8 @@ export const TopicNumberScale = {
     Millions: "MILLIONS",
     Billions: "BILLIONS",
     Trillions: "TRILLIONS",
+    Lakhs: "LAKHS",
+    Crores: "CRORES",
 } as const;
 
 export type TopicNumberScale = (typeof TopicNumberScale)[keyof typeof TopicNumberScale];

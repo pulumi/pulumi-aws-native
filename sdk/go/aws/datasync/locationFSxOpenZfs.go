@@ -48,9 +48,7 @@ func NewLocationFSxOpenZfs(ctx *pulumi.Context,
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"fsxFilesystemArn",
-		"protocol",
 		"securityGroupArns[*]",
-		"subdirectory",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)

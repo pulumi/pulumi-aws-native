@@ -1927,7 +1927,7 @@ if not MYPY:
         """
         schedule_start_time: NotRequired[pulumi.Input[float]]
         """
-        Specifies the scheduled start time for a scheduled-trigger flow.
+        Specifies the scheduled start time for a scheduled-trigger flow. The value must be a date/time value in EPOCH format.
         """
         timezone: NotRequired[pulumi.Input[str]]
         """
@@ -1952,7 +1952,7 @@ class IntegrationScheduledTriggerPropertiesArgs:
         :param pulumi.Input[float] first_execution_from: Specifies the date range for the records to import from the connector in the first flow run.
         :param pulumi.Input[float] schedule_end_time: Specifies the scheduled end time for a scheduled-trigger flow.
         :param pulumi.Input[int] schedule_offset: Specifies the optional offset that is added to the time interval for a schedule-triggered flow.
-        :param pulumi.Input[float] schedule_start_time: Specifies the scheduled start time for a scheduled-trigger flow.
+        :param pulumi.Input[float] schedule_start_time: Specifies the scheduled start time for a scheduled-trigger flow. The value must be a date/time value in EPOCH format.
         :param pulumi.Input[str] timezone: Specifies the time zone used when referring to the date and time of a scheduled-triggered flow, such as America/New_York.
         """
         pulumi.set(__self__, "schedule_expression", schedule_expression)
@@ -2033,7 +2033,7 @@ class IntegrationScheduledTriggerPropertiesArgs:
     @pulumi.getter(name="scheduleStartTime")
     def schedule_start_time(self) -> Optional[pulumi.Input[float]]:
         """
-        Specifies the scheduled start time for a scheduled-trigger flow.
+        Specifies the scheduled start time for a scheduled-trigger flow. The value must be a date/time value in EPOCH format.
         """
         return pulumi.get(self, "schedule_start_time")
 

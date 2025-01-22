@@ -32,6 +32,7 @@ __all__ = [
     'MalwareProtectionPlanCfnProtectedResourceS3BucketProperties',
     'MalwareProtectionPlanCfnStatusReasons',
     'MalwareProtectionPlanCfnTagging',
+    'PublishingDestinationCfnDestinationProperties',
 ]
 
 @pulumi.output_type
@@ -847,5 +848,55 @@ class MalwareProtectionPlanCfnTagging(dict):
         Indicates whether or not you chose GuardDuty to add a predefined tag to the scanned S3 object.
         """
         return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class PublishingDestinationCfnDestinationProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationArn":
+            suggest = "destination_arn"
+        elif key == "kmsKeyArn":
+            suggest = "kms_key_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PublishingDestinationCfnDestinationProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PublishingDestinationCfnDestinationProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PublishingDestinationCfnDestinationProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination_arn: Optional[str] = None,
+                 kms_key_arn: Optional[str] = None):
+        """
+        :param str destination_arn: The ARN of the resource to publish to.
+        :param str kms_key_arn: The ARN of the KMS key to use for encryption.
+        """
+        if destination_arn is not None:
+            pulumi.set(__self__, "destination_arn", destination_arn)
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+
+    @property
+    @pulumi.getter(name="destinationArn")
+    def destination_arn(self) -> Optional[str]:
+        """
+        The ARN of the resource to publish to.
+        """
+        return pulumi.get(self, "destination_arn")
+
+    @property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> Optional[str]:
+        """
+        The ARN of the KMS key to use for encryption.
+        """
+        return pulumi.get(self, "kms_key_arn")
 
 

@@ -20,6 +20,9 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
         /// Settings for an Amazon Kendra knowledge base.
         /// </summary>
         public readonly Outputs.KnowledgeBaseKendraKnowledgeBaseConfiguration? KendraKnowledgeBaseConfiguration;
+        /// <summary>
+        /// Specifies configurations for a knowledge base connected to an SQL database.
+        /// </summary>
         public readonly Outputs.KnowledgeBaseSqlKnowledgeBaseConfiguration? SqlKnowledgeBaseConfiguration;
         /// <summary>
         /// The type of data that the data source is converted into for the knowledge base.

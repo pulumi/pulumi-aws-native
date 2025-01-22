@@ -21,9 +21,15 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
         [Input("databaseUser")]
         public Input<string>? DatabaseUser { get; set; }
 
+        /// <summary>
+        /// The type of authentication to use.
+        /// </summary>
         [Input("type", required: true)]
         public Input<Pulumi.AwsNative.Bedrock.KnowledgeBaseRedshiftProvisionedAuthType> Type { get; set; } = null!;
 
+        /// <summary>
+        /// The ARN of an Secrets Manager secret for authentication.
+        /// </summary>
         [Input("usernamePasswordSecretArn")]
         public Input<string>? UsernamePasswordSecretArn { get; set; }
 

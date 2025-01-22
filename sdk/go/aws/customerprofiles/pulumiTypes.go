@@ -4442,7 +4442,7 @@ type IntegrationScheduledTriggerProperties struct {
 	ScheduleExpression string `pulumi:"scheduleExpression"`
 	// Specifies the optional offset that is added to the time interval for a schedule-triggered flow.
 	ScheduleOffset *int `pulumi:"scheduleOffset"`
-	// Specifies the scheduled start time for a scheduled-trigger flow.
+	// Specifies the scheduled start time for a scheduled-trigger flow. The value must be a date/time value in EPOCH format.
 	ScheduleStartTime *float64 `pulumi:"scheduleStartTime"`
 	// Specifies the time zone used when referring to the date and time of a scheduled-triggered flow, such as America/New_York.
 	Timezone *string `pulumi:"timezone"`
@@ -4470,7 +4470,7 @@ type IntegrationScheduledTriggerPropertiesArgs struct {
 	ScheduleExpression pulumi.StringInput `pulumi:"scheduleExpression"`
 	// Specifies the optional offset that is added to the time interval for a schedule-triggered flow.
 	ScheduleOffset pulumi.IntPtrInput `pulumi:"scheduleOffset"`
-	// Specifies the scheduled start time for a scheduled-trigger flow.
+	// Specifies the scheduled start time for a scheduled-trigger flow. The value must be a date/time value in EPOCH format.
 	ScheduleStartTime pulumi.Float64PtrInput `pulumi:"scheduleStartTime"`
 	// Specifies the time zone used when referring to the date and time of a scheduled-triggered flow, such as America/New_York.
 	Timezone pulumi.StringPtrInput `pulumi:"timezone"`
@@ -4580,7 +4580,7 @@ func (o IntegrationScheduledTriggerPropertiesOutput) ScheduleOffset() pulumi.Int
 	return o.ApplyT(func(v IntegrationScheduledTriggerProperties) *int { return v.ScheduleOffset }).(pulumi.IntPtrOutput)
 }
 
-// Specifies the scheduled start time for a scheduled-trigger flow.
+// Specifies the scheduled start time for a scheduled-trigger flow. The value must be a date/time value in EPOCH format.
 func (o IntegrationScheduledTriggerPropertiesOutput) ScheduleStartTime() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v IntegrationScheduledTriggerProperties) *float64 { return v.ScheduleStartTime }).(pulumi.Float64PtrOutput)
 }
@@ -4664,7 +4664,7 @@ func (o IntegrationScheduledTriggerPropertiesPtrOutput) ScheduleOffset() pulumi.
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specifies the scheduled start time for a scheduled-trigger flow.
+// Specifies the scheduled start time for a scheduled-trigger flow. The value must be a date/time value in EPOCH format.
 func (o IntegrationScheduledTriggerPropertiesPtrOutput) ScheduleStartTime() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *IntegrationScheduledTriggerProperties) *float64 {
 		if v == nil {

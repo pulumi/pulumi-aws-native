@@ -904,7 +904,7 @@ if not MYPY:
         """
         target_instance_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
-        The instance type or family that this this override launch template should be applied to.
+        The instance type or family that this override launch template should be applied to.
 
         This parameter is required when defining a launch template override.
 
@@ -944,7 +944,7 @@ class ComputeEnvironmentLaunchTemplateSpecificationOverrideArgs:
         :param pulumi.Input[str] launch_template_name: The name of the launch template.
                
                *Note:* If you specify the `launchTemplateName` you can't specify the `launchTemplateId` as well.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] target_instance_types: The instance type or family that this this override launch template should be applied to.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] target_instance_types: The instance type or family that this override launch template should be applied to.
                
                This parameter is required when defining a launch template override.
                
@@ -1005,7 +1005,7 @@ class ComputeEnvironmentLaunchTemplateSpecificationOverrideArgs:
     @pulumi.getter(name="targetInstanceTypes")
     def target_instance_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The instance type or family that this this override launch template should be applied to.
+        The instance type or family that this override launch template should be applied to.
 
         This parameter is required when defining a launch template override.
 
@@ -5117,7 +5117,7 @@ if not MYPY:
         """
         environment: NotRequired[pulumi.Input[Sequence[pulumi.Input['JobDefinitionEnvironmentArgsDict']]]]
         """
-        The environment variables to pass to a container. This parameter maps to Env inthe [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `--env` parameter to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) .
+        The environment variables to pass to a container. This parameter maps to Env in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `--env` parameter to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) .
 
         > We don't recommend using plaintext environment variables for sensitive information, such as credential data. > Environment variables cannot start with `AWS_BATCH` . This naming convention is reserved for variables that AWS Batch sets.
         """
@@ -5234,7 +5234,7 @@ class JobDefinitionTaskContainerPropertiesArgs:
         :param pulumi.Input[str] image: The image used to start a container. This string is passed directly to the Docker daemon. By default, images in the Docker Hub registry are available. Other repositories are specified with either `repository-url/image:tag` or `repository-url/image@digest` . Up to 255 letters (uppercase and lowercase), numbers, hyphens, underscores, colons, periods, forward slashes, and number signs are allowed. This parameter maps to `Image` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.35/) and the `IMAGE` parameter of the [*docker run*](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/#security-configuration) .
         :param pulumi.Input[Sequence[pulumi.Input[str]]] command: The command that's passed to the container. This parameter maps to `Cmd` in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `COMMAND` parameter to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) . For more information, see [Dockerfile reference: CMD](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/builder/#cmd) .
         :param pulumi.Input[Sequence[pulumi.Input['JobDefinitionTaskContainerDependencyArgs']]] depends_on: A list of containers that this container depends on.
-        :param pulumi.Input[Sequence[pulumi.Input['JobDefinitionEnvironmentArgs']]] environment: The environment variables to pass to a container. This parameter maps to Env inthe [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `--env` parameter to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) .
+        :param pulumi.Input[Sequence[pulumi.Input['JobDefinitionEnvironmentArgs']]] environment: The environment variables to pass to a container. This parameter maps to Env in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `--env` parameter to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) .
                
                > We don't recommend using plaintext environment variables for sensitive information, such as credential data. > Environment variables cannot start with `AWS_BATCH` . This naming convention is reserved for variables that AWS Batch sets.
         :param pulumi.Input[bool] essential: If the essential parameter of a container is marked as `true` , and that container fails or stops for any reason, all other containers that are part of the task are stopped. If the `essential` parameter of a container is marked as false, its failure doesn't affect the rest of the containers in a task. If this parameter is omitted, a container is assumed to be essential.
@@ -5361,7 +5361,7 @@ class JobDefinitionTaskContainerPropertiesArgs:
     @pulumi.getter
     def environment(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JobDefinitionEnvironmentArgs']]]]:
         """
-        The environment variables to pass to a container. This parameter maps to Env inthe [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `--env` parameter to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) .
+        The environment variables to pass to a container. This parameter maps to Env in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `--env` parameter to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) .
 
         > We don't recommend using plaintext environment variables for sensitive information, such as credential data. > Environment variables cannot start with `AWS_BATCH` . This naming convention is reserved for variables that AWS Batch sets.
         """

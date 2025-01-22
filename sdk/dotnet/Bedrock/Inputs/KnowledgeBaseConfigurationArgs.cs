@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
         [Input("kendraKnowledgeBaseConfiguration")]
         public Input<Inputs.KnowledgeBaseKendraKnowledgeBaseConfigurationArgs>? KendraKnowledgeBaseConfiguration { get; set; }
 
+        /// <summary>
+        /// Specifies configurations for a knowledge base connected to an SQL database.
+        /// </summary>
         [Input("sqlKnowledgeBaseConfiguration")]
         public Input<Inputs.KnowledgeBaseSqlKnowledgeBaseConfigurationArgs>? SqlKnowledgeBaseConfiguration { get; set; }
 

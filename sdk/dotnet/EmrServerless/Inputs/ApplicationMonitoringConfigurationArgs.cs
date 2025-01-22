@@ -28,6 +28,12 @@ namespace Pulumi.AwsNative.EmrServerless.Inputs
         public Input<Inputs.ApplicationManagedPersistenceMonitoringConfigurationArgs>? ManagedPersistenceMonitoringConfiguration { get; set; }
 
         /// <summary>
+        /// Prometheus monitoring configurations for a JobRun.
+        /// </summary>
+        [Input("prometheusMonitoringConfiguration")]
+        public Input<Inputs.ApplicationPrometheusMonitoringConfigurationArgs>? PrometheusMonitoringConfiguration { get; set; }
+
+        /// <summary>
         /// S3 monitoring configurations for a JobRun.
         /// </summary>
         [Input("s3MonitoringConfiguration")]

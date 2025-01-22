@@ -26,6 +26,14 @@ export interface GetVerifiedAccessInstanceArgs {
 
 export interface GetVerifiedAccessInstanceResult {
     /**
+     * Introduce CidrEndpointsCustomSubDomain property to represent the domain (say, ava.my-company.com)
+     */
+    readonly cidrEndpointsCustomSubDomain?: string;
+    /**
+     * Property to represent the name servers assoicated with the domain that AVA manages (say, ['ns1.amazonaws.com', 'ns2.amazonaws.com', 'ns3.amazonaws.com', 'ns4.amazonaws.com']).
+     */
+    readonly cidrEndpointsCustomSubDomainNameServers?: string[];
+    /**
      * Time this Verified Access Instance was created.
      */
     readonly creationTime?: string;

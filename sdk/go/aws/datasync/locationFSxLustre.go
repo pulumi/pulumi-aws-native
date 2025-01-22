@@ -104,7 +104,6 @@ func NewLocationFSxLustre(ctx *pulumi.Context,
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"fsxFilesystemArn",
 		"securityGroupArns[*]",
-		"subdirectory",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)

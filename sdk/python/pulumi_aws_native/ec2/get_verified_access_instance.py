@@ -25,7 +25,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetVerifiedAccessInstanceResult:
-    def __init__(__self__, creation_time=None, description=None, fips_enabled=None, last_updated_time=None, logging_configurations=None, tags=None, verified_access_instance_id=None, verified_access_trust_provider_ids=None, verified_access_trust_providers=None):
+    def __init__(__self__, cidr_endpoints_custom_sub_domain=None, cidr_endpoints_custom_sub_domain_name_servers=None, creation_time=None, description=None, fips_enabled=None, last_updated_time=None, logging_configurations=None, tags=None, verified_access_instance_id=None, verified_access_trust_provider_ids=None, verified_access_trust_providers=None):
+        if cidr_endpoints_custom_sub_domain and not isinstance(cidr_endpoints_custom_sub_domain, str):
+            raise TypeError("Expected argument 'cidr_endpoints_custom_sub_domain' to be a str")
+        pulumi.set(__self__, "cidr_endpoints_custom_sub_domain", cidr_endpoints_custom_sub_domain)
+        if cidr_endpoints_custom_sub_domain_name_servers and not isinstance(cidr_endpoints_custom_sub_domain_name_servers, list):
+            raise TypeError("Expected argument 'cidr_endpoints_custom_sub_domain_name_servers' to be a list")
+        pulumi.set(__self__, "cidr_endpoints_custom_sub_domain_name_servers", cidr_endpoints_custom_sub_domain_name_servers)
         if creation_time and not isinstance(creation_time, str):
             raise TypeError("Expected argument 'creation_time' to be a str")
         pulumi.set(__self__, "creation_time", creation_time)
@@ -53,6 +59,22 @@ class GetVerifiedAccessInstanceResult:
         if verified_access_trust_providers and not isinstance(verified_access_trust_providers, list):
             raise TypeError("Expected argument 'verified_access_trust_providers' to be a list")
         pulumi.set(__self__, "verified_access_trust_providers", verified_access_trust_providers)
+
+    @property
+    @pulumi.getter(name="cidrEndpointsCustomSubDomain")
+    def cidr_endpoints_custom_sub_domain(self) -> Optional[str]:
+        """
+        Introduce CidrEndpointsCustomSubDomain property to represent the domain (say, ava.my-company.com)
+        """
+        return pulumi.get(self, "cidr_endpoints_custom_sub_domain")
+
+    @property
+    @pulumi.getter(name="cidrEndpointsCustomSubDomainNameServers")
+    def cidr_endpoints_custom_sub_domain_name_servers(self) -> Optional[Sequence[str]]:
+        """
+        Property to represent the name servers assoicated with the domain that AVA manages (say, ['ns1.amazonaws.com', 'ns2.amazonaws.com', 'ns3.amazonaws.com', 'ns4.amazonaws.com']).
+        """
+        return pulumi.get(self, "cidr_endpoints_custom_sub_domain_name_servers")
 
     @property
     @pulumi.getter(name="creationTime")
@@ -133,6 +155,8 @@ class AwaitableGetVerifiedAccessInstanceResult(GetVerifiedAccessInstanceResult):
         if False:
             yield self
         return GetVerifiedAccessInstanceResult(
+            cidr_endpoints_custom_sub_domain=self.cidr_endpoints_custom_sub_domain,
+            cidr_endpoints_custom_sub_domain_name_servers=self.cidr_endpoints_custom_sub_domain_name_servers,
             creation_time=self.creation_time,
             description=self.description,
             fips_enabled=self.fips_enabled,
@@ -158,6 +182,8 @@ def get_verified_access_instance(verified_access_instance_id: Optional[str] = No
     __ret__ = pulumi.runtime.invoke('aws-native:ec2:getVerifiedAccessInstance', __args__, opts=opts, typ=GetVerifiedAccessInstanceResult).value
 
     return AwaitableGetVerifiedAccessInstanceResult(
+        cidr_endpoints_custom_sub_domain=pulumi.get(__ret__, 'cidr_endpoints_custom_sub_domain'),
+        cidr_endpoints_custom_sub_domain_name_servers=pulumi.get(__ret__, 'cidr_endpoints_custom_sub_domain_name_servers'),
         creation_time=pulumi.get(__ret__, 'creation_time'),
         description=pulumi.get(__ret__, 'description'),
         fips_enabled=pulumi.get(__ret__, 'fips_enabled'),
@@ -180,6 +206,8 @@ def get_verified_access_instance_output(verified_access_instance_id: Optional[pu
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:ec2:getVerifiedAccessInstance', __args__, opts=opts, typ=GetVerifiedAccessInstanceResult)
     return __ret__.apply(lambda __response__: GetVerifiedAccessInstanceResult(
+        cidr_endpoints_custom_sub_domain=pulumi.get(__response__, 'cidr_endpoints_custom_sub_domain'),
+        cidr_endpoints_custom_sub_domain_name_servers=pulumi.get(__response__, 'cidr_endpoints_custom_sub_domain_name_servers'),
         creation_time=pulumi.get(__response__, 'creation_time'),
         description=pulumi.get(__response__, 'description'),
         fips_enabled=pulumi.get(__response__, 'fips_enabled'),

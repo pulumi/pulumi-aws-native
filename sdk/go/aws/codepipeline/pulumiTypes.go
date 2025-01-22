@@ -1534,7 +1534,7 @@ func (o PipelineEncryptionKeyPtrOutput) Type() pulumi.StringPtrOutput {
 
 // The configuration that specifies the result, such as rollback, to occur upon stage failure
 type PipelineFailureConditions struct {
-	// The conditions that are configured as failure conditions.
+	// The conditions that are configured as failure conditions. For more information about conditions, see [Stage conditions](https://docs.aws.amazon.com/codepipeline/latest/userguide/stage-conditions.html) and [How do stage conditions work?](https://docs.aws.amazon.com/codepipeline/latest/userguide/concepts-how-it-works-conditions.html) .
 	Conditions []PipelineCondition `pulumi:"conditions"`
 	// The specified result for when the failure conditions are met, such as rolling back the stage
 	Result *PipelineFailureConditionsResult `pulumi:"result"`
@@ -1555,7 +1555,7 @@ type PipelineFailureConditionsInput interface {
 
 // The configuration that specifies the result, such as rollback, to occur upon stage failure
 type PipelineFailureConditionsArgs struct {
-	// The conditions that are configured as failure conditions.
+	// The conditions that are configured as failure conditions. For more information about conditions, see [Stage conditions](https://docs.aws.amazon.com/codepipeline/latest/userguide/stage-conditions.html) and [How do stage conditions work?](https://docs.aws.amazon.com/codepipeline/latest/userguide/concepts-how-it-works-conditions.html) .
 	Conditions PipelineConditionArrayInput `pulumi:"conditions"`
 	// The specified result for when the failure conditions are met, such as rolling back the stage
 	Result PipelineFailureConditionsResultPtrInput `pulumi:"result"`
@@ -1641,7 +1641,7 @@ func (o PipelineFailureConditionsOutput) ToPipelineFailureConditionsPtrOutputWit
 	}).(PipelineFailureConditionsPtrOutput)
 }
 
-// The conditions that are configured as failure conditions.
+// The conditions that are configured as failure conditions. For more information about conditions, see [Stage conditions](https://docs.aws.amazon.com/codepipeline/latest/userguide/stage-conditions.html) and [How do stage conditions work?](https://docs.aws.amazon.com/codepipeline/latest/userguide/concepts-how-it-works-conditions.html) .
 func (o PipelineFailureConditionsOutput) Conditions() PipelineConditionArrayOutput {
 	return o.ApplyT(func(v PipelineFailureConditions) []PipelineCondition { return v.Conditions }).(PipelineConditionArrayOutput)
 }
@@ -1682,7 +1682,7 @@ func (o PipelineFailureConditionsPtrOutput) Elem() PipelineFailureConditionsOutp
 	}).(PipelineFailureConditionsOutput)
 }
 
-// The conditions that are configured as failure conditions.
+// The conditions that are configured as failure conditions. For more information about conditions, see [Stage conditions](https://docs.aws.amazon.com/codepipeline/latest/userguide/stage-conditions.html) and [How do stage conditions work?](https://docs.aws.amazon.com/codepipeline/latest/userguide/concepts-how-it-works-conditions.html) .
 func (o PipelineFailureConditionsPtrOutput) Conditions() PipelineConditionArrayOutput {
 	return o.ApplyT(func(v *PipelineFailureConditions) []PipelineCondition {
 		if v == nil {

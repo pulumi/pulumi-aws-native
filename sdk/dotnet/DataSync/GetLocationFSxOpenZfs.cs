@@ -72,6 +72,10 @@ namespace Pulumi.AwsNative.DataSync
         /// </summary>
         public readonly string? LocationUri;
         /// <summary>
+        /// The type of protocol that AWS DataSync uses to access your file system.
+        /// </summary>
+        public readonly Outputs.LocationFSxOpenZfsProtocol? Protocol;
+        /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
@@ -82,10 +86,13 @@ namespace Pulumi.AwsNative.DataSync
 
             string? locationUri,
 
+            Outputs.LocationFSxOpenZfsProtocol? protocol,
+
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             LocationArn = locationArn;
             LocationUri = locationUri;
+            Protocol = protocol;
             Tags = tags;
         }
     }

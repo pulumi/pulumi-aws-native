@@ -16,6 +16,18 @@ namespace Pulumi.AwsNative.Ec2
     public partial class VerifiedAccessInstance : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Introduce CidrEndpointsCustomSubDomain property to represent the domain (say, ava.my-company.com)
+        /// </summary>
+        [Output("cidrEndpointsCustomSubDomain")]
+        public Output<string?> CidrEndpointsCustomSubDomain { get; private set; } = null!;
+
+        /// <summary>
+        /// Property to represent the name servers assoicated with the domain that AVA manages (say, ['ns1.amazonaws.com', 'ns2.amazonaws.com', 'ns3.amazonaws.com', 'ns4.amazonaws.com']).
+        /// </summary>
+        [Output("cidrEndpointsCustomSubDomainNameServers")]
+        public Output<ImmutableArray<string>> CidrEndpointsCustomSubDomainNameServers { get; private set; } = null!;
+
+        /// <summary>
         /// Time this Verified Access Instance was created.
         /// </summary>
         [Output("creationTime")]
@@ -114,6 +126,12 @@ namespace Pulumi.AwsNative.Ec2
 
     public sealed class VerifiedAccessInstanceArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Introduce CidrEndpointsCustomSubDomain property to represent the domain (say, ava.my-company.com)
+        /// </summary>
+        [Input("cidrEndpointsCustomSubDomain")]
+        public Input<string>? CidrEndpointsCustomSubDomain { get; set; }
+
         /// <summary>
         /// A description for the AWS Verified Access instance.
         /// </summary>

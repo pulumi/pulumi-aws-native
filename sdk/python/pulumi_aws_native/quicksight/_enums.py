@@ -3085,6 +3085,8 @@ class TopicNumberScale(str, Enum):
     MILLIONS = "MILLIONS"
     BILLIONS = "BILLIONS"
     TRILLIONS = "TRILLIONS"
+    LAKHS = "LAKHS"
+    CRORES = "CRORES"
 
 
 class TopicNumericSeparatorSymbol(str, Enum):

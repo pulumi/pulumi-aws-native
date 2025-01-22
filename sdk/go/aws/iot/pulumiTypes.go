@@ -1165,9 +1165,9 @@ func (o BillingGroupPropertiesPropertiesPtrOutput) BillingGroupDescription() pul
 
 // A key-value pair to associate with a resource.
 type BillingGroupTag struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	// Tag key (1-128 chars). No 'aws:' prefix. Allows: [A-Za-z0-9 _.:/=+-]
 	Key string `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	// Tag value (1-256 chars). No 'aws:' prefix. Allows: [A-Za-z0-9 _.:/=+-]
 	Value string `pulumi:"value"`
 }
 
@@ -7091,9 +7091,9 @@ func (o ThingGroupPropertiesPropertiesPtrOutput) ThingGroupDescription() pulumi.
 
 // A key-value pair to associate with a resource.
 type ThingGroupTag struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	// Tag key (1-128 chars). No 'aws:' prefix. Allows: [A-Za-z0-9 _.:/=+-]
 	Key string `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 1 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	// Tag value (1-256 chars). No 'aws:' prefix. Allows: [A-Za-z0-9 _.:/=+-]
 	Value string `pulumi:"value"`
 }
 

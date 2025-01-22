@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
     [OutputType]
     public sealed class KnowledgeBaseRedshiftServerlessAuthConfiguration
     {
+        /// <summary>
+        /// The type of authentication to use.
+        /// </summary>
         public readonly Pulumi.AwsNative.Bedrock.KnowledgeBaseRedshiftServerlessAuthType Type;
+        /// <summary>
+        /// The ARN of an Secrets Manager secret for authentication.
+        /// </summary>
         public readonly string? UsernamePasswordSecretArn;
 
         [OutputConstructor]

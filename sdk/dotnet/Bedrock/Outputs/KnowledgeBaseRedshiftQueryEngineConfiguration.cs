@@ -16,8 +16,17 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
     [OutputType]
     public sealed class KnowledgeBaseRedshiftQueryEngineConfiguration
     {
+        /// <summary>
+        /// Specifies configurations for a provisioned Amazon Redshift query engine.
+        /// </summary>
         public readonly Outputs.KnowledgeBaseRedshiftProvisionedConfiguration? ProvisionedConfiguration;
+        /// <summary>
+        /// Specifies configurations for a serverless Amazon Redshift query engine.
+        /// </summary>
         public readonly Outputs.KnowledgeBaseRedshiftServerlessConfiguration? ServerlessConfiguration;
+        /// <summary>
+        /// The type of query engine.
+        /// </summary>
         public readonly Pulumi.AwsNative.Bedrock.KnowledgeBaseRedshiftQueryEngineType Type;
 
         [OutputConstructor]

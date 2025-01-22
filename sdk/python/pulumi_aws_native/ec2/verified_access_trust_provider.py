@@ -28,6 +28,7 @@ class VerifiedAccessTrustProviderArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  device_options: Optional[pulumi.Input['VerifiedAccessTrustProviderDeviceOptionsArgs']] = None,
                  device_trust_provider_type: Optional[pulumi.Input[str]] = None,
+                 native_application_oidc_options: Optional[pulumi.Input['VerifiedAccessTrustProviderNativeApplicationOidcOptionsArgs']] = None,
                  oidc_options: Optional[pulumi.Input['VerifiedAccessTrustProviderOidcOptionsArgs']] = None,
                  sse_specification: Optional[pulumi.Input['SseSpecificationPropertiesArgs']] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
@@ -39,6 +40,7 @@ class VerifiedAccessTrustProviderArgs:
         :param pulumi.Input[str] description: A description for the Amazon Web Services Verified Access trust provider.
         :param pulumi.Input['VerifiedAccessTrustProviderDeviceOptionsArgs'] device_options: The options for device-identity trust provider.
         :param pulumi.Input[str] device_trust_provider_type: The type of device-based trust provider. Possible values: jamf|crowdstrike
+        :param pulumi.Input['VerifiedAccessTrustProviderNativeApplicationOidcOptionsArgs'] native_application_oidc_options: The OpenID Connect (OIDC) options.
         :param pulumi.Input['VerifiedAccessTrustProviderOidcOptionsArgs'] oidc_options: The options for an OpenID Connect-compatible user-identity trust provider.
         :param pulumi.Input['SseSpecificationPropertiesArgs'] sse_specification: The configuration options for customer provided KMS encryption.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
@@ -52,6 +54,8 @@ class VerifiedAccessTrustProviderArgs:
             pulumi.set(__self__, "device_options", device_options)
         if device_trust_provider_type is not None:
             pulumi.set(__self__, "device_trust_provider_type", device_trust_provider_type)
+        if native_application_oidc_options is not None:
+            pulumi.set(__self__, "native_application_oidc_options", native_application_oidc_options)
         if oidc_options is not None:
             pulumi.set(__self__, "oidc_options", oidc_options)
         if sse_specification is not None:
@@ -122,6 +126,18 @@ class VerifiedAccessTrustProviderArgs:
         pulumi.set(self, "device_trust_provider_type", value)
 
     @property
+    @pulumi.getter(name="nativeApplicationOidcOptions")
+    def native_application_oidc_options(self) -> Optional[pulumi.Input['VerifiedAccessTrustProviderNativeApplicationOidcOptionsArgs']]:
+        """
+        The OpenID Connect (OIDC) options.
+        """
+        return pulumi.get(self, "native_application_oidc_options")
+
+    @native_application_oidc_options.setter
+    def native_application_oidc_options(self, value: Optional[pulumi.Input['VerifiedAccessTrustProviderNativeApplicationOidcOptionsArgs']]):
+        pulumi.set(self, "native_application_oidc_options", value)
+
+    @property
     @pulumi.getter(name="oidcOptions")
     def oidc_options(self) -> Optional[pulumi.Input['VerifiedAccessTrustProviderOidcOptionsArgs']]:
         """
@@ -178,6 +194,7 @@ class VerifiedAccessTrustProvider(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  device_options: Optional[pulumi.Input[Union['VerifiedAccessTrustProviderDeviceOptionsArgs', 'VerifiedAccessTrustProviderDeviceOptionsArgsDict']]] = None,
                  device_trust_provider_type: Optional[pulumi.Input[str]] = None,
+                 native_application_oidc_options: Optional[pulumi.Input[Union['VerifiedAccessTrustProviderNativeApplicationOidcOptionsArgs', 'VerifiedAccessTrustProviderNativeApplicationOidcOptionsArgsDict']]] = None,
                  oidc_options: Optional[pulumi.Input[Union['VerifiedAccessTrustProviderOidcOptionsArgs', 'VerifiedAccessTrustProviderOidcOptionsArgsDict']]] = None,
                  policy_reference_name: Optional[pulumi.Input[str]] = None,
                  sse_specification: Optional[pulumi.Input[Union['SseSpecificationPropertiesArgs', 'SseSpecificationPropertiesArgsDict']]] = None,
@@ -193,6 +210,7 @@ class VerifiedAccessTrustProvider(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description for the Amazon Web Services Verified Access trust provider.
         :param pulumi.Input[Union['VerifiedAccessTrustProviderDeviceOptionsArgs', 'VerifiedAccessTrustProviderDeviceOptionsArgsDict']] device_options: The options for device-identity trust provider.
         :param pulumi.Input[str] device_trust_provider_type: The type of device-based trust provider. Possible values: jamf|crowdstrike
+        :param pulumi.Input[Union['VerifiedAccessTrustProviderNativeApplicationOidcOptionsArgs', 'VerifiedAccessTrustProviderNativeApplicationOidcOptionsArgsDict']] native_application_oidc_options: The OpenID Connect (OIDC) options.
         :param pulumi.Input[Union['VerifiedAccessTrustProviderOidcOptionsArgs', 'VerifiedAccessTrustProviderOidcOptionsArgsDict']] oidc_options: The options for an OpenID Connect-compatible user-identity trust provider.
         :param pulumi.Input[str] policy_reference_name: The identifier to be used when working with policy rules.
         :param pulumi.Input[Union['SseSpecificationPropertiesArgs', 'SseSpecificationPropertiesArgsDict']] sse_specification: The configuration options for customer provided KMS encryption.
@@ -227,6 +245,7 @@ class VerifiedAccessTrustProvider(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  device_options: Optional[pulumi.Input[Union['VerifiedAccessTrustProviderDeviceOptionsArgs', 'VerifiedAccessTrustProviderDeviceOptionsArgsDict']]] = None,
                  device_trust_provider_type: Optional[pulumi.Input[str]] = None,
+                 native_application_oidc_options: Optional[pulumi.Input[Union['VerifiedAccessTrustProviderNativeApplicationOidcOptionsArgs', 'VerifiedAccessTrustProviderNativeApplicationOidcOptionsArgsDict']]] = None,
                  oidc_options: Optional[pulumi.Input[Union['VerifiedAccessTrustProviderOidcOptionsArgs', 'VerifiedAccessTrustProviderOidcOptionsArgsDict']]] = None,
                  policy_reference_name: Optional[pulumi.Input[str]] = None,
                  sse_specification: Optional[pulumi.Input[Union['SseSpecificationPropertiesArgs', 'SseSpecificationPropertiesArgsDict']]] = None,
@@ -245,6 +264,7 @@ class VerifiedAccessTrustProvider(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["device_options"] = device_options
             __props__.__dict__["device_trust_provider_type"] = device_trust_provider_type
+            __props__.__dict__["native_application_oidc_options"] = native_application_oidc_options
             __props__.__dict__["oidc_options"] = oidc_options
             if policy_reference_name is None and not opts.urn:
                 raise TypeError("Missing required property 'policy_reference_name'")
@@ -287,6 +307,7 @@ class VerifiedAccessTrustProvider(pulumi.CustomResource):
         __props__.__dict__["device_options"] = None
         __props__.__dict__["device_trust_provider_type"] = None
         __props__.__dict__["last_updated_time"] = None
+        __props__.__dict__["native_application_oidc_options"] = None
         __props__.__dict__["oidc_options"] = None
         __props__.__dict__["policy_reference_name"] = None
         __props__.__dict__["sse_specification"] = None
@@ -335,6 +356,14 @@ class VerifiedAccessTrustProvider(pulumi.CustomResource):
         The last updated time.
         """
         return pulumi.get(self, "last_updated_time")
+
+    @property
+    @pulumi.getter(name="nativeApplicationOidcOptions")
+    def native_application_oidc_options(self) -> pulumi.Output[Optional['outputs.VerifiedAccessTrustProviderNativeApplicationOidcOptions']]:
+        """
+        The OpenID Connect (OIDC) options.
+        """
+        return pulumi.get(self, "native_application_oidc_options")
 
     @property
     @pulumi.getter(name="oidcOptions")

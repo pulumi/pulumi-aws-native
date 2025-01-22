@@ -344,6 +344,8 @@ __all__ = [
     'VerifiedAccessInstanceVerifiedAccessTrustProviderArgsDict',
     'VerifiedAccessTrustProviderDeviceOptionsArgs',
     'VerifiedAccessTrustProviderDeviceOptionsArgsDict',
+    'VerifiedAccessTrustProviderNativeApplicationOidcOptionsArgs',
+    'VerifiedAccessTrustProviderNativeApplicationOidcOptionsArgsDict',
     'VerifiedAccessTrustProviderOidcOptionsArgs',
     'VerifiedAccessTrustProviderOidcOptionsArgsDict',
     'VpcEndpointDnsOptionsSpecificationArgs',
@@ -7252,8 +7254,9 @@ if not MYPY:
         accelerator_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[str]]]]
         """
         The accelerator types that must be on the instance type.
-          +  For instance types with GPU accelerators, specify ``gpu``.
           +  For instance types with FPGA accelerators, specify ``fpga``.
+          +  For instance types with GPU accelerators, specify ``gpu``.
+          +  For instance types with Inference accelerators, specify ``inference``.
           
          Default: Any accelerator type
         """
@@ -7465,8 +7468,9 @@ class LaunchTemplateInstanceRequirementsArgs:
         :param pulumi.Input['LaunchTemplateAcceleratorTotalMemoryMiBArgs'] accelerator_total_memory_mi_b: The minimum and maximum amount of total accelerator memory, in MiB.
                 Default: No minimum or maximum limits
         :param pulumi.Input[Sequence[pulumi.Input[str]]] accelerator_types: The accelerator types that must be on the instance type.
-                 +  For instance types with GPU accelerators, specify ``gpu``.
                  +  For instance types with FPGA accelerators, specify ``fpga``.
+                 +  For instance types with GPU accelerators, specify ``gpu``.
+                 +  For instance types with Inference accelerators, specify ``inference``.
                  
                 Default: Any accelerator type
         :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_instance_types: The instance types to apply your specified attributes against. All other instance types are ignored, even if they match your specified attributes.
@@ -7675,8 +7679,9 @@ class LaunchTemplateInstanceRequirementsArgs:
     def accelerator_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The accelerator types that must be on the instance type.
-          +  For instance types with GPU accelerators, specify ``gpu``.
           +  For instance types with FPGA accelerators, specify ``fpga``.
+          +  For instance types with GPU accelerators, specify ``gpu``.
+          +  For instance types with Inference accelerators, specify ``inference``.
           
          Default: Any accelerator type
         """
@@ -8611,7 +8616,8 @@ if not MYPY:
         """
         device_index: NotRequired[pulumi.Input[int]]
         """
-        The device index for the network interface attachment. Each network interface requires a device index. If you create a launch template that includes secondary network interfaces but not a primary network interface, then you must add a primary network interface as a launch parameter when you launch an instance from the template.
+        The device index for the network interface attachment. If the network interface is of type ``interface``, you must specify a device index.
+         If you create a launch template that includes secondary network interfaces but no primary network interface, and you specify it using the ``LaunchTemplate`` property of ``AWS::EC2::Instance``, then you must include a primary network interface using the ``NetworkInterfaces`` property of ``AWS::EC2::Instance``.
         """
         ena_srd_specification: NotRequired[pulumi.Input['LaunchTemplateEnaSrdSpecificationArgsDict']]
         """
@@ -8718,7 +8724,8 @@ class LaunchTemplateNetworkInterfaceArgs:
         :param pulumi.Input['LaunchTemplateConnectionTrackingSpecificationArgs'] connection_tracking_specification: A connection tracking specification for the network interface.
         :param pulumi.Input[bool] delete_on_termination: Indicates whether the network interface is deleted when the instance is terminated.
         :param pulumi.Input[str] description: A description for the network interface.
-        :param pulumi.Input[int] device_index: The device index for the network interface attachment. Each network interface requires a device index. If you create a launch template that includes secondary network interfaces but not a primary network interface, then you must add a primary network interface as a launch parameter when you launch an instance from the template.
+        :param pulumi.Input[int] device_index: The device index for the network interface attachment. If the network interface is of type ``interface``, you must specify a device index.
+                If you create a launch template that includes secondary network interfaces but no primary network interface, and you specify it using the ``LaunchTemplate`` property of ``AWS::EC2::Instance``, then you must include a primary network interface using the ``NetworkInterfaces`` property of ``AWS::EC2::Instance``.
         :param pulumi.Input['LaunchTemplateEnaSrdSpecificationArgs'] ena_srd_specification: The ENA Express configuration for the network interface.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] groups: The IDs of one or more security groups.
         :param pulumi.Input[str] interface_type: The type of network interface. To create an Elastic Fabric Adapter (EFA), specify ``efa`` or ``efa``. For more information, see [Elastic Fabric Adapter](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html) in the *Amazon EC2 User Guide*.
@@ -8850,7 +8857,8 @@ class LaunchTemplateNetworkInterfaceArgs:
     @pulumi.getter(name="deviceIndex")
     def device_index(self) -> Optional[pulumi.Input[int]]:
         """
-        The device index for the network interface attachment. Each network interface requires a device index. If you create a launch template that includes secondary network interfaces but not a primary network interface, then you must add a primary network interface as a launch parameter when you launch an instance from the template.
+        The device index for the network interface attachment. If the network interface is of type ``interface``, you must specify a device index.
+         If you create a launch template that includes secondary network interfaces but no primary network interface, and you specify it using the ``LaunchTemplate`` property of ``AWS::EC2::Instance``, then you must include a primary network interface using the ``NetworkInterfaces`` property of ``AWS::EC2::Instance``.
         """
         return pulumi.get(self, "device_index")
 
@@ -16285,6 +16293,182 @@ class VerifiedAccessTrustProviderDeviceOptionsArgs:
     @tenant_id.setter
     def tenant_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tenant_id", value)
+
+
+if not MYPY:
+    class VerifiedAccessTrustProviderNativeApplicationOidcOptionsArgsDict(TypedDict):
+        """
+        The OpenID Connect details for an oidc -type, user-identity based trust provider for L4.
+        """
+        authorization_endpoint: NotRequired[pulumi.Input[str]]
+        """
+        The OIDC authorization endpoint.
+        """
+        client_id: NotRequired[pulumi.Input[str]]
+        """
+        The client identifier.
+        """
+        client_secret: NotRequired[pulumi.Input[str]]
+        """
+        The client secret.
+        """
+        issuer: NotRequired[pulumi.Input[str]]
+        """
+        The OIDC issuer.
+        """
+        public_signing_key_endpoint: NotRequired[pulumi.Input[str]]
+        """
+        The public signing key for endpoint
+        """
+        scope: NotRequired[pulumi.Input[str]]
+        """
+        OpenID Connect (OIDC) scopes are used by an application during authentication to authorize access to details of a user. Each scope returns a specific set of user attributes.
+        """
+        token_endpoint: NotRequired[pulumi.Input[str]]
+        """
+        The OIDC token endpoint.
+        """
+        user_info_endpoint: NotRequired[pulumi.Input[str]]
+        """
+        The OIDC user info endpoint.
+        """
+elif False:
+    VerifiedAccessTrustProviderNativeApplicationOidcOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class VerifiedAccessTrustProviderNativeApplicationOidcOptionsArgs:
+    def __init__(__self__, *,
+                 authorization_endpoint: Optional[pulumi.Input[str]] = None,
+                 client_id: Optional[pulumi.Input[str]] = None,
+                 client_secret: Optional[pulumi.Input[str]] = None,
+                 issuer: Optional[pulumi.Input[str]] = None,
+                 public_signing_key_endpoint: Optional[pulumi.Input[str]] = None,
+                 scope: Optional[pulumi.Input[str]] = None,
+                 token_endpoint: Optional[pulumi.Input[str]] = None,
+                 user_info_endpoint: Optional[pulumi.Input[str]] = None):
+        """
+        The OpenID Connect details for an oidc -type, user-identity based trust provider for L4.
+        :param pulumi.Input[str] authorization_endpoint: The OIDC authorization endpoint.
+        :param pulumi.Input[str] client_id: The client identifier.
+        :param pulumi.Input[str] client_secret: The client secret.
+        :param pulumi.Input[str] issuer: The OIDC issuer.
+        :param pulumi.Input[str] public_signing_key_endpoint: The public signing key for endpoint
+        :param pulumi.Input[str] scope: OpenID Connect (OIDC) scopes are used by an application during authentication to authorize access to details of a user. Each scope returns a specific set of user attributes.
+        :param pulumi.Input[str] token_endpoint: The OIDC token endpoint.
+        :param pulumi.Input[str] user_info_endpoint: The OIDC user info endpoint.
+        """
+        if authorization_endpoint is not None:
+            pulumi.set(__self__, "authorization_endpoint", authorization_endpoint)
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if issuer is not None:
+            pulumi.set(__self__, "issuer", issuer)
+        if public_signing_key_endpoint is not None:
+            pulumi.set(__self__, "public_signing_key_endpoint", public_signing_key_endpoint)
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
+        if token_endpoint is not None:
+            pulumi.set(__self__, "token_endpoint", token_endpoint)
+        if user_info_endpoint is not None:
+            pulumi.set(__self__, "user_info_endpoint", user_info_endpoint)
+
+    @property
+    @pulumi.getter(name="authorizationEndpoint")
+    def authorization_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The OIDC authorization endpoint.
+        """
+        return pulumi.get(self, "authorization_endpoint")
+
+    @authorization_endpoint.setter
+    def authorization_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "authorization_endpoint", value)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The client identifier.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[pulumi.Input[str]]:
+        """
+        The client secret.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "client_secret", value)
+
+    @property
+    @pulumi.getter
+    def issuer(self) -> Optional[pulumi.Input[str]]:
+        """
+        The OIDC issuer.
+        """
+        return pulumi.get(self, "issuer")
+
+    @issuer.setter
+    def issuer(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "issuer", value)
+
+    @property
+    @pulumi.getter(name="publicSigningKeyEndpoint")
+    def public_signing_key_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The public signing key for endpoint
+        """
+        return pulumi.get(self, "public_signing_key_endpoint")
+
+    @public_signing_key_endpoint.setter
+    def public_signing_key_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "public_signing_key_endpoint", value)
+
+    @property
+    @pulumi.getter
+    def scope(self) -> Optional[pulumi.Input[str]]:
+        """
+        OpenID Connect (OIDC) scopes are used by an application during authentication to authorize access to details of a user. Each scope returns a specific set of user attributes.
+        """
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "scope", value)
+
+    @property
+    @pulumi.getter(name="tokenEndpoint")
+    def token_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The OIDC token endpoint.
+        """
+        return pulumi.get(self, "token_endpoint")
+
+    @token_endpoint.setter
+    def token_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "token_endpoint", value)
+
+    @property
+    @pulumi.getter(name="userInfoEndpoint")
+    def user_info_endpoint(self) -> Optional[pulumi.Input[str]]:
+        """
+        The OIDC user info endpoint.
+        """
+        return pulumi.get(self, "user_info_endpoint")
+
+    @user_info_endpoint.setter
+    def user_info_endpoint(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "user_info_endpoint", value)
 
 
 if not MYPY:

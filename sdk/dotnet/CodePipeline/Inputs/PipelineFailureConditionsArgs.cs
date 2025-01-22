@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.CodePipeline.Inputs
         private InputList<Inputs.PipelineConditionArgs>? _conditions;
 
         /// <summary>
-        /// The conditions that are configured as failure conditions.
+        /// The conditions that are configured as failure conditions. For more information about conditions, see [Stage conditions](https://docs.aws.amazon.com/codepipeline/latest/userguide/stage-conditions.html) and [How do stage conditions work?](https://docs.aws.amazon.com/codepipeline/latest/userguide/concepts-how-it-works-conditions.html) .
         /// </summary>
         public InputList<Inputs.PipelineConditionArgs> Conditions
         {

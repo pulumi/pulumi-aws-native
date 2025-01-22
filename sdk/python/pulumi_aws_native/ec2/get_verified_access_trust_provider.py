@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetVerifiedAccessTrustProviderResult:
-    def __init__(__self__, creation_time=None, description=None, last_updated_time=None, oidc_options=None, sse_specification=None, tags=None, verified_access_trust_provider_id=None):
+    def __init__(__self__, creation_time=None, description=None, last_updated_time=None, native_application_oidc_options=None, oidc_options=None, sse_specification=None, tags=None, verified_access_trust_provider_id=None):
         if creation_time and not isinstance(creation_time, str):
             raise TypeError("Expected argument 'creation_time' to be a str")
         pulumi.set(__self__, "creation_time", creation_time)
@@ -35,6 +35,9 @@ class GetVerifiedAccessTrustProviderResult:
         if last_updated_time and not isinstance(last_updated_time, str):
             raise TypeError("Expected argument 'last_updated_time' to be a str")
         pulumi.set(__self__, "last_updated_time", last_updated_time)
+        if native_application_oidc_options and not isinstance(native_application_oidc_options, dict):
+            raise TypeError("Expected argument 'native_application_oidc_options' to be a dict")
+        pulumi.set(__self__, "native_application_oidc_options", native_application_oidc_options)
         if oidc_options and not isinstance(oidc_options, dict):
             raise TypeError("Expected argument 'oidc_options' to be a dict")
         pulumi.set(__self__, "oidc_options", oidc_options)
@@ -71,6 +74,14 @@ class GetVerifiedAccessTrustProviderResult:
         The last updated time.
         """
         return pulumi.get(self, "last_updated_time")
+
+    @property
+    @pulumi.getter(name="nativeApplicationOidcOptions")
+    def native_application_oidc_options(self) -> Optional['outputs.VerifiedAccessTrustProviderNativeApplicationOidcOptions']:
+        """
+        The OpenID Connect (OIDC) options.
+        """
+        return pulumi.get(self, "native_application_oidc_options")
 
     @property
     @pulumi.getter(name="oidcOptions")
@@ -114,6 +125,7 @@ class AwaitableGetVerifiedAccessTrustProviderResult(GetVerifiedAccessTrustProvid
             creation_time=self.creation_time,
             description=self.description,
             last_updated_time=self.last_updated_time,
+            native_application_oidc_options=self.native_application_oidc_options,
             oidc_options=self.oidc_options,
             sse_specification=self.sse_specification,
             tags=self.tags,
@@ -137,6 +149,7 @@ def get_verified_access_trust_provider(verified_access_trust_provider_id: Option
         creation_time=pulumi.get(__ret__, 'creation_time'),
         description=pulumi.get(__ret__, 'description'),
         last_updated_time=pulumi.get(__ret__, 'last_updated_time'),
+        native_application_oidc_options=pulumi.get(__ret__, 'native_application_oidc_options'),
         oidc_options=pulumi.get(__ret__, 'oidc_options'),
         sse_specification=pulumi.get(__ret__, 'sse_specification'),
         tags=pulumi.get(__ret__, 'tags'),
@@ -157,6 +170,7 @@ def get_verified_access_trust_provider_output(verified_access_trust_provider_id:
         creation_time=pulumi.get(__response__, 'creation_time'),
         description=pulumi.get(__response__, 'description'),
         last_updated_time=pulumi.get(__response__, 'last_updated_time'),
+        native_application_oidc_options=pulumi.get(__response__, 'native_application_oidc_options'),
         oidc_options=pulumi.get(__response__, 'oidc_options'),
         sse_specification=pulumi.get(__response__, 'sse_specification'),
         tags=pulumi.get(__response__, 'tags'),

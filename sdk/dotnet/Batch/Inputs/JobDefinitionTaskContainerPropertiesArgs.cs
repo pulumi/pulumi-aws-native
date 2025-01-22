@@ -40,7 +40,7 @@ namespace Pulumi.AwsNative.Batch.Inputs
         private InputList<Inputs.JobDefinitionEnvironmentArgs>? _environment;
 
         /// <summary>
-        /// The environment variables to pass to a container. This parameter maps to Env inthe [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `--env` parameter to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) .
+        /// The environment variables to pass to a container. This parameter maps to Env in the [Create a container](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/#create-a-container) section of the [Docker Remote API](https://docs.aws.amazon.com/https://docs.docker.com/engine/api/v1.23/) and the `--env` parameter to [docker run](https://docs.aws.amazon.com/https://docs.docker.com/engine/reference/run/) .
         /// 
         /// &gt; We don't recommend using plaintext environment variables for sensitive information, such as credential data. &gt; Environment variables cannot start with `AWS_BATCH` . This naming convention is reserved for variables that AWS Batch sets.
         /// </summary>

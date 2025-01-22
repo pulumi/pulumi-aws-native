@@ -16,7 +16,13 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
     [OutputType]
     public sealed class KnowledgeBaseRedshiftProvisionedConfiguration
     {
+        /// <summary>
+        /// Specifies configurations for authentication to Amazon Redshift.
+        /// </summary>
         public readonly Outputs.KnowledgeBaseRedshiftProvisionedAuthConfiguration AuthConfiguration;
+        /// <summary>
+        /// The ID of the Amazon Redshift cluster.
+        /// </summary>
         public readonly string ClusterIdentifier;
 
         [OutputConstructor]

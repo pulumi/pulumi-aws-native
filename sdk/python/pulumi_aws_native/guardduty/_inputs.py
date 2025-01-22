@@ -44,6 +44,8 @@ __all__ = [
     'MalwareProtectionPlanCfnProtectedResourceArgsDict',
     'MalwareProtectionPlanCfnTaggingArgs',
     'MalwareProtectionPlanCfnTaggingArgsDict',
+    'PublishingDestinationCfnDestinationPropertiesArgs',
+    'PublishingDestinationCfnDestinationPropertiesArgsDict',
 ]
 
 MYPY = False
@@ -1073,5 +1075,57 @@ class MalwareProtectionPlanCfnTaggingArgs:
     @status.setter
     def status(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "status", value)
+
+
+if not MYPY:
+    class PublishingDestinationCfnDestinationPropertiesArgsDict(TypedDict):
+        destination_arn: NotRequired[pulumi.Input[str]]
+        """
+        The ARN of the resource to publish to.
+        """
+        kms_key_arn: NotRequired[pulumi.Input[str]]
+        """
+        The ARN of the KMS key to use for encryption.
+        """
+elif False:
+    PublishingDestinationCfnDestinationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PublishingDestinationCfnDestinationPropertiesArgs:
+    def __init__(__self__, *,
+                 destination_arn: Optional[pulumi.Input[str]] = None,
+                 kms_key_arn: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] destination_arn: The ARN of the resource to publish to.
+        :param pulumi.Input[str] kms_key_arn: The ARN of the KMS key to use for encryption.
+        """
+        if destination_arn is not None:
+            pulumi.set(__self__, "destination_arn", destination_arn)
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+
+    @property
+    @pulumi.getter(name="destinationArn")
+    def destination_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the resource to publish to.
+        """
+        return pulumi.get(self, "destination_arn")
+
+    @destination_arn.setter
+    def destination_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "destination_arn", value)
+
+    @property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the KMS key to use for encryption.
+        """
+        return pulumi.get(self, "kms_key_arn")
+
+    @kms_key_arn.setter
+    def kms_key_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_arn", value)
 
 

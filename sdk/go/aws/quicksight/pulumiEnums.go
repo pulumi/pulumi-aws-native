@@ -68919,6 +68919,8 @@ const (
 	TopicNumberScaleMillions  = TopicNumberScale("MILLIONS")
 	TopicNumberScaleBillions  = TopicNumberScale("BILLIONS")
 	TopicNumberScaleTrillions = TopicNumberScale("TRILLIONS")
+	TopicNumberScaleLakhs     = TopicNumberScale("LAKHS")
+	TopicNumberScaleCrores    = TopicNumberScale("CRORES")
 )
 
 func (TopicNumberScale) ElementType() reflect.Type {
@@ -69049,6 +69051,8 @@ func (o TopicNumberScalePtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 //	TopicNumberScaleMillions
 //	TopicNumberScaleBillions
 //	TopicNumberScaleTrillions
+//	TopicNumberScaleLakhs
+//	TopicNumberScaleCrores
 type TopicNumberScaleInput interface {
 	pulumi.Input
 

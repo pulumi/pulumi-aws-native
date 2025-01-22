@@ -42,6 +42,8 @@ __all__ = [
     'ApplicationMonitoringConfigurationArgsDict',
     'ApplicationNetworkConfigurationArgs',
     'ApplicationNetworkConfigurationArgsDict',
+    'ApplicationPrometheusMonitoringConfigurationArgs',
+    'ApplicationPrometheusMonitoringConfigurationArgsDict',
     'ApplicationS3MonitoringConfigurationArgs',
     'ApplicationS3MonitoringConfigurationArgsDict',
     'ApplicationSchedulerConfigurationArgs',
@@ -662,6 +664,10 @@ if not MYPY:
         """
         Managed log persistence configurations for a JobRun.
         """
+        prometheus_monitoring_configuration: NotRequired[pulumi.Input['ApplicationPrometheusMonitoringConfigurationArgsDict']]
+        """
+        Prometheus monitoring configurations for a JobRun.
+        """
         s3_monitoring_configuration: NotRequired[pulumi.Input['ApplicationS3MonitoringConfigurationArgsDict']]
         """
         S3 monitoring configurations for a JobRun.
@@ -674,17 +680,21 @@ class ApplicationMonitoringConfigurationArgs:
     def __init__(__self__, *,
                  cloud_watch_logging_configuration: Optional[pulumi.Input['ApplicationCloudWatchLoggingConfigurationArgs']] = None,
                  managed_persistence_monitoring_configuration: Optional[pulumi.Input['ApplicationManagedPersistenceMonitoringConfigurationArgs']] = None,
+                 prometheus_monitoring_configuration: Optional[pulumi.Input['ApplicationPrometheusMonitoringConfigurationArgs']] = None,
                  s3_monitoring_configuration: Optional[pulumi.Input['ApplicationS3MonitoringConfigurationArgs']] = None):
         """
         Monitoring configuration for batch and interactive JobRun.
         :param pulumi.Input['ApplicationCloudWatchLoggingConfigurationArgs'] cloud_watch_logging_configuration: CloudWatch logging configurations for a JobRun.
         :param pulumi.Input['ApplicationManagedPersistenceMonitoringConfigurationArgs'] managed_persistence_monitoring_configuration: Managed log persistence configurations for a JobRun.
+        :param pulumi.Input['ApplicationPrometheusMonitoringConfigurationArgs'] prometheus_monitoring_configuration: Prometheus monitoring configurations for a JobRun.
         :param pulumi.Input['ApplicationS3MonitoringConfigurationArgs'] s3_monitoring_configuration: S3 monitoring configurations for a JobRun.
         """
         if cloud_watch_logging_configuration is not None:
             pulumi.set(__self__, "cloud_watch_logging_configuration", cloud_watch_logging_configuration)
         if managed_persistence_monitoring_configuration is not None:
             pulumi.set(__self__, "managed_persistence_monitoring_configuration", managed_persistence_monitoring_configuration)
+        if prometheus_monitoring_configuration is not None:
+            pulumi.set(__self__, "prometheus_monitoring_configuration", prometheus_monitoring_configuration)
         if s3_monitoring_configuration is not None:
             pulumi.set(__self__, "s3_monitoring_configuration", s3_monitoring_configuration)
 
@@ -711,6 +721,18 @@ class ApplicationMonitoringConfigurationArgs:
     @managed_persistence_monitoring_configuration.setter
     def managed_persistence_monitoring_configuration(self, value: Optional[pulumi.Input['ApplicationManagedPersistenceMonitoringConfigurationArgs']]):
         pulumi.set(self, "managed_persistence_monitoring_configuration", value)
+
+    @property
+    @pulumi.getter(name="prometheusMonitoringConfiguration")
+    def prometheus_monitoring_configuration(self) -> Optional[pulumi.Input['ApplicationPrometheusMonitoringConfigurationArgs']]:
+        """
+        Prometheus monitoring configurations for a JobRun.
+        """
+        return pulumi.get(self, "prometheus_monitoring_configuration")
+
+    @prometheus_monitoring_configuration.setter
+    def prometheus_monitoring_configuration(self, value: Optional[pulumi.Input['ApplicationPrometheusMonitoringConfigurationArgs']]):
+        pulumi.set(self, "prometheus_monitoring_configuration", value)
 
     @property
     @pulumi.getter(name="s3MonitoringConfiguration")
@@ -775,6 +797,38 @@ class ApplicationNetworkConfigurationArgs:
     @subnet_ids.setter
     def subnet_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "subnet_ids", value)
+
+
+if not MYPY:
+    class ApplicationPrometheusMonitoringConfigurationArgsDict(TypedDict):
+        remote_write_url: NotRequired[pulumi.Input[str]]
+        """
+        The remote write URL in the Amazon Managed Service for Prometheus workspace to send metrics to.
+        """
+elif False:
+    ApplicationPrometheusMonitoringConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ApplicationPrometheusMonitoringConfigurationArgs:
+    def __init__(__self__, *,
+                 remote_write_url: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] remote_write_url: The remote write URL in the Amazon Managed Service for Prometheus workspace to send metrics to.
+        """
+        if remote_write_url is not None:
+            pulumi.set(__self__, "remote_write_url", remote_write_url)
+
+    @property
+    @pulumi.getter(name="remoteWriteUrl")
+    def remote_write_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The remote write URL in the Amazon Managed Service for Prometheus workspace to send metrics to.
+        """
+        return pulumi.get(self, "remote_write_url")
+
+    @remote_write_url.setter
+    def remote_write_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "remote_write_url", value)
 
 
 if not MYPY:

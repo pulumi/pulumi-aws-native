@@ -33,6 +33,12 @@ type LookupLocationS3Result struct {
 	LocationArn *string `pulumi:"locationArn"`
 	// The URL of the S3 location that was described.
 	LocationUri *string `pulumi:"locationUri"`
+	// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that is used to access an Amazon S3 bucket.
+	//
+	// For detailed information about using such a role, see [Creating a Location for Amazon S3](https://docs.aws.amazon.com/datasync/latest/userguide/working-with-locations.html#create-s3-location) in the *AWS DataSync User Guide* .
+	S3Config *LocationS3s3Config `pulumi:"s3Config"`
+	// The Amazon S3 storage class you want to store your files in when this location is used as a task destination.
+	S3StorageClass *LocationS3S3StorageClass `pulumi:"s3StorageClass"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -77,6 +83,18 @@ func (o LookupLocationS3ResultOutput) LocationArn() pulumi.StringPtrOutput {
 // The URL of the S3 location that was described.
 func (o LookupLocationS3ResultOutput) LocationUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLocationS3Result) *string { return v.LocationUri }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that is used to access an Amazon S3 bucket.
+//
+// For detailed information about using such a role, see [Creating a Location for Amazon S3](https://docs.aws.amazon.com/datasync/latest/userguide/working-with-locations.html#create-s3-location) in the *AWS DataSync User Guide* .
+func (o LookupLocationS3ResultOutput) S3Config() LocationS3s3ConfigPtrOutput {
+	return o.ApplyT(func(v LookupLocationS3Result) *LocationS3s3Config { return v.S3Config }).(LocationS3s3ConfigPtrOutput)
+}
+
+// The Amazon S3 storage class you want to store your files in when this location is used as a task destination.
+func (o LookupLocationS3ResultOutput) S3StorageClass() LocationS3S3StorageClassPtrOutput {
+	return o.ApplyT(func(v LookupLocationS3Result) *LocationS3S3StorageClass { return v.S3StorageClass }).(LocationS3S3StorageClassPtrOutput)
 }
 
 // An array of key-value pairs to apply to this resource.

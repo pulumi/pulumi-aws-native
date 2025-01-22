@@ -26,6 +26,10 @@ export interface GetLocationFSxWindowsArgs {
 
 export interface GetLocationFSxWindowsResult {
     /**
+     * The name of the Windows domain that the FSx for Windows server belongs to.
+     */
+    readonly domain?: string;
+    /**
      * The Amazon Resource Name (ARN) of the Amazon FSx for Windows file system location that is created.
      */
     readonly locationArn?: string;
@@ -37,6 +41,10 @@ export interface GetLocationFSxWindowsResult {
      * An array of key-value pairs to apply to this resource.
      */
     readonly tags?: outputs.Tag[];
+    /**
+     * The user who has the permissions to access files and folders in the FSx for Windows file system.
+     */
+    readonly user?: string;
 }
 /**
  * Resource schema for AWS::DataSync::LocationFSxWindows.

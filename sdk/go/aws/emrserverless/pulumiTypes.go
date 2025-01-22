@@ -1533,6 +1533,8 @@ type ApplicationMonitoringConfiguration struct {
 	CloudWatchLoggingConfiguration *ApplicationCloudWatchLoggingConfiguration `pulumi:"cloudWatchLoggingConfiguration"`
 	// Managed log persistence configurations for a JobRun.
 	ManagedPersistenceMonitoringConfiguration *ApplicationManagedPersistenceMonitoringConfiguration `pulumi:"managedPersistenceMonitoringConfiguration"`
+	// Prometheus monitoring configurations for a JobRun.
+	PrometheusMonitoringConfiguration *ApplicationPrometheusMonitoringConfiguration `pulumi:"prometheusMonitoringConfiguration"`
 	// S3 monitoring configurations for a JobRun.
 	S3MonitoringConfiguration *ApplicationS3MonitoringConfiguration `pulumi:"s3MonitoringConfiguration"`
 }
@@ -1554,6 +1556,8 @@ type ApplicationMonitoringConfigurationArgs struct {
 	CloudWatchLoggingConfiguration ApplicationCloudWatchLoggingConfigurationPtrInput `pulumi:"cloudWatchLoggingConfiguration"`
 	// Managed log persistence configurations for a JobRun.
 	ManagedPersistenceMonitoringConfiguration ApplicationManagedPersistenceMonitoringConfigurationPtrInput `pulumi:"managedPersistenceMonitoringConfiguration"`
+	// Prometheus monitoring configurations for a JobRun.
+	PrometheusMonitoringConfiguration ApplicationPrometheusMonitoringConfigurationPtrInput `pulumi:"prometheusMonitoringConfiguration"`
 	// S3 monitoring configurations for a JobRun.
 	S3MonitoringConfiguration ApplicationS3MonitoringConfigurationPtrInput `pulumi:"s3MonitoringConfiguration"`
 }
@@ -1650,6 +1654,13 @@ func (o ApplicationMonitoringConfigurationOutput) ManagedPersistenceMonitoringCo
 	}).(ApplicationManagedPersistenceMonitoringConfigurationPtrOutput)
 }
 
+// Prometheus monitoring configurations for a JobRun.
+func (o ApplicationMonitoringConfigurationOutput) PrometheusMonitoringConfiguration() ApplicationPrometheusMonitoringConfigurationPtrOutput {
+	return o.ApplyT(func(v ApplicationMonitoringConfiguration) *ApplicationPrometheusMonitoringConfiguration {
+		return v.PrometheusMonitoringConfiguration
+	}).(ApplicationPrometheusMonitoringConfigurationPtrOutput)
+}
+
 // S3 monitoring configurations for a JobRun.
 func (o ApplicationMonitoringConfigurationOutput) S3MonitoringConfiguration() ApplicationS3MonitoringConfigurationPtrOutput {
 	return o.ApplyT(func(v ApplicationMonitoringConfiguration) *ApplicationS3MonitoringConfiguration {
@@ -1699,6 +1710,16 @@ func (o ApplicationMonitoringConfigurationPtrOutput) ManagedPersistenceMonitorin
 		}
 		return v.ManagedPersistenceMonitoringConfiguration
 	}).(ApplicationManagedPersistenceMonitoringConfigurationPtrOutput)
+}
+
+// Prometheus monitoring configurations for a JobRun.
+func (o ApplicationMonitoringConfigurationPtrOutput) PrometheusMonitoringConfiguration() ApplicationPrometheusMonitoringConfigurationPtrOutput {
+	return o.ApplyT(func(v *ApplicationMonitoringConfiguration) *ApplicationPrometheusMonitoringConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.PrometheusMonitoringConfiguration
+	}).(ApplicationPrometheusMonitoringConfigurationPtrOutput)
 }
 
 // S3 monitoring configurations for a JobRun.
@@ -1865,6 +1886,143 @@ func (o ApplicationNetworkConfigurationPtrOutput) SubnetIds() pulumi.StringArray
 		}
 		return v.SubnetIds
 	}).(pulumi.StringArrayOutput)
+}
+
+type ApplicationPrometheusMonitoringConfiguration struct {
+	// The remote write URL in the Amazon Managed Service for Prometheus workspace to send metrics to.
+	RemoteWriteUrl *string `pulumi:"remoteWriteUrl"`
+}
+
+// ApplicationPrometheusMonitoringConfigurationInput is an input type that accepts ApplicationPrometheusMonitoringConfigurationArgs and ApplicationPrometheusMonitoringConfigurationOutput values.
+// You can construct a concrete instance of `ApplicationPrometheusMonitoringConfigurationInput` via:
+//
+//	ApplicationPrometheusMonitoringConfigurationArgs{...}
+type ApplicationPrometheusMonitoringConfigurationInput interface {
+	pulumi.Input
+
+	ToApplicationPrometheusMonitoringConfigurationOutput() ApplicationPrometheusMonitoringConfigurationOutput
+	ToApplicationPrometheusMonitoringConfigurationOutputWithContext(context.Context) ApplicationPrometheusMonitoringConfigurationOutput
+}
+
+type ApplicationPrometheusMonitoringConfigurationArgs struct {
+	// The remote write URL in the Amazon Managed Service for Prometheus workspace to send metrics to.
+	RemoteWriteUrl pulumi.StringPtrInput `pulumi:"remoteWriteUrl"`
+}
+
+func (ApplicationPrometheusMonitoringConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationPrometheusMonitoringConfiguration)(nil)).Elem()
+}
+
+func (i ApplicationPrometheusMonitoringConfigurationArgs) ToApplicationPrometheusMonitoringConfigurationOutput() ApplicationPrometheusMonitoringConfigurationOutput {
+	return i.ToApplicationPrometheusMonitoringConfigurationOutputWithContext(context.Background())
+}
+
+func (i ApplicationPrometheusMonitoringConfigurationArgs) ToApplicationPrometheusMonitoringConfigurationOutputWithContext(ctx context.Context) ApplicationPrometheusMonitoringConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationPrometheusMonitoringConfigurationOutput)
+}
+
+func (i ApplicationPrometheusMonitoringConfigurationArgs) ToApplicationPrometheusMonitoringConfigurationPtrOutput() ApplicationPrometheusMonitoringConfigurationPtrOutput {
+	return i.ToApplicationPrometheusMonitoringConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationPrometheusMonitoringConfigurationArgs) ToApplicationPrometheusMonitoringConfigurationPtrOutputWithContext(ctx context.Context) ApplicationPrometheusMonitoringConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationPrometheusMonitoringConfigurationOutput).ToApplicationPrometheusMonitoringConfigurationPtrOutputWithContext(ctx)
+}
+
+// ApplicationPrometheusMonitoringConfigurationPtrInput is an input type that accepts ApplicationPrometheusMonitoringConfigurationArgs, ApplicationPrometheusMonitoringConfigurationPtr and ApplicationPrometheusMonitoringConfigurationPtrOutput values.
+// You can construct a concrete instance of `ApplicationPrometheusMonitoringConfigurationPtrInput` via:
+//
+//	        ApplicationPrometheusMonitoringConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApplicationPrometheusMonitoringConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToApplicationPrometheusMonitoringConfigurationPtrOutput() ApplicationPrometheusMonitoringConfigurationPtrOutput
+	ToApplicationPrometheusMonitoringConfigurationPtrOutputWithContext(context.Context) ApplicationPrometheusMonitoringConfigurationPtrOutput
+}
+
+type applicationPrometheusMonitoringConfigurationPtrType ApplicationPrometheusMonitoringConfigurationArgs
+
+func ApplicationPrometheusMonitoringConfigurationPtr(v *ApplicationPrometheusMonitoringConfigurationArgs) ApplicationPrometheusMonitoringConfigurationPtrInput {
+	return (*applicationPrometheusMonitoringConfigurationPtrType)(v)
+}
+
+func (*applicationPrometheusMonitoringConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationPrometheusMonitoringConfiguration)(nil)).Elem()
+}
+
+func (i *applicationPrometheusMonitoringConfigurationPtrType) ToApplicationPrometheusMonitoringConfigurationPtrOutput() ApplicationPrometheusMonitoringConfigurationPtrOutput {
+	return i.ToApplicationPrometheusMonitoringConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *applicationPrometheusMonitoringConfigurationPtrType) ToApplicationPrometheusMonitoringConfigurationPtrOutputWithContext(ctx context.Context) ApplicationPrometheusMonitoringConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationPrometheusMonitoringConfigurationPtrOutput)
+}
+
+type ApplicationPrometheusMonitoringConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ApplicationPrometheusMonitoringConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationPrometheusMonitoringConfiguration)(nil)).Elem()
+}
+
+func (o ApplicationPrometheusMonitoringConfigurationOutput) ToApplicationPrometheusMonitoringConfigurationOutput() ApplicationPrometheusMonitoringConfigurationOutput {
+	return o
+}
+
+func (o ApplicationPrometheusMonitoringConfigurationOutput) ToApplicationPrometheusMonitoringConfigurationOutputWithContext(ctx context.Context) ApplicationPrometheusMonitoringConfigurationOutput {
+	return o
+}
+
+func (o ApplicationPrometheusMonitoringConfigurationOutput) ToApplicationPrometheusMonitoringConfigurationPtrOutput() ApplicationPrometheusMonitoringConfigurationPtrOutput {
+	return o.ToApplicationPrometheusMonitoringConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationPrometheusMonitoringConfigurationOutput) ToApplicationPrometheusMonitoringConfigurationPtrOutputWithContext(ctx context.Context) ApplicationPrometheusMonitoringConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationPrometheusMonitoringConfiguration) *ApplicationPrometheusMonitoringConfiguration {
+		return &v
+	}).(ApplicationPrometheusMonitoringConfigurationPtrOutput)
+}
+
+// The remote write URL in the Amazon Managed Service for Prometheus workspace to send metrics to.
+func (o ApplicationPrometheusMonitoringConfigurationOutput) RemoteWriteUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationPrometheusMonitoringConfiguration) *string { return v.RemoteWriteUrl }).(pulumi.StringPtrOutput)
+}
+
+type ApplicationPrometheusMonitoringConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationPrometheusMonitoringConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationPrometheusMonitoringConfiguration)(nil)).Elem()
+}
+
+func (o ApplicationPrometheusMonitoringConfigurationPtrOutput) ToApplicationPrometheusMonitoringConfigurationPtrOutput() ApplicationPrometheusMonitoringConfigurationPtrOutput {
+	return o
+}
+
+func (o ApplicationPrometheusMonitoringConfigurationPtrOutput) ToApplicationPrometheusMonitoringConfigurationPtrOutputWithContext(ctx context.Context) ApplicationPrometheusMonitoringConfigurationPtrOutput {
+	return o
+}
+
+func (o ApplicationPrometheusMonitoringConfigurationPtrOutput) Elem() ApplicationPrometheusMonitoringConfigurationOutput {
+	return o.ApplyT(func(v *ApplicationPrometheusMonitoringConfiguration) ApplicationPrometheusMonitoringConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationPrometheusMonitoringConfiguration
+		return ret
+	}).(ApplicationPrometheusMonitoringConfigurationOutput)
+}
+
+// The remote write URL in the Amazon Managed Service for Prometheus workspace to send metrics to.
+func (o ApplicationPrometheusMonitoringConfigurationPtrOutput) RemoteWriteUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationPrometheusMonitoringConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RemoteWriteUrl
+	}).(pulumi.StringPtrOutput)
 }
 
 type ApplicationS3MonitoringConfiguration struct {
@@ -2393,6 +2551,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationMonitoringConfigurationPtrInput)(nil)).Elem(), ApplicationMonitoringConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationNetworkConfigurationInput)(nil)).Elem(), ApplicationNetworkConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationNetworkConfigurationPtrInput)(nil)).Elem(), ApplicationNetworkConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationPrometheusMonitoringConfigurationInput)(nil)).Elem(), ApplicationPrometheusMonitoringConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationPrometheusMonitoringConfigurationPtrInput)(nil)).Elem(), ApplicationPrometheusMonitoringConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationS3MonitoringConfigurationInput)(nil)).Elem(), ApplicationS3MonitoringConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationS3MonitoringConfigurationPtrInput)(nil)).Elem(), ApplicationS3MonitoringConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationSchedulerConfigurationInput)(nil)).Elem(), ApplicationSchedulerConfigurationArgs{})
@@ -2425,6 +2585,8 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationMonitoringConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationNetworkConfigurationOutput{})
 	pulumi.RegisterOutputType(ApplicationNetworkConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationPrometheusMonitoringConfigurationOutput{})
+	pulumi.RegisterOutputType(ApplicationPrometheusMonitoringConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationS3MonitoringConfigurationOutput{})
 	pulumi.RegisterOutputType(ApplicationS3MonitoringConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationSchedulerConfigurationOutput{})

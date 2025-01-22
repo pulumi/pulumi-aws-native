@@ -72,6 +72,16 @@ namespace Pulumi.AwsNative.DataSync
         /// </summary>
         public readonly string? LocationUri;
         /// <summary>
+        /// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that is used to access an Amazon S3 bucket.
+        /// 
+        /// For detailed information about using such a role, see [Creating a Location for Amazon S3](https://docs.aws.amazon.com/datasync/latest/userguide/working-with-locations.html#create-s3-location) in the *AWS DataSync User Guide* .
+        /// </summary>
+        public readonly Outputs.LocationS3s3Config? S3Config;
+        /// <summary>
+        /// The Amazon S3 storage class you want to store your files in when this location is used as a task destination.
+        /// </summary>
+        public readonly Pulumi.AwsNative.DataSync.LocationS3S3StorageClass? S3StorageClass;
+        /// <summary>
         /// An array of key-value pairs to apply to this resource.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
@@ -82,10 +92,16 @@ namespace Pulumi.AwsNative.DataSync
 
             string? locationUri,
 
+            Outputs.LocationS3s3Config? s3Config,
+
+            Pulumi.AwsNative.DataSync.LocationS3S3StorageClass? s3StorageClass,
+
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             LocationArn = locationArn;
             LocationUri = locationUri;
+            S3Config = s3Config;
+            S3StorageClass = s3StorageClass;
             Tags = tags;
         }
     }

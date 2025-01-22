@@ -283,6 +283,7 @@ class RoutingProfileChannel(str, Enum):
     VOICE = "VOICE"
     CHAT = "CHAT"
     TASK = "TASK"
+    EMAIL = "EMAIL"
 
 
 class RulePublishStatus(str, Enum):

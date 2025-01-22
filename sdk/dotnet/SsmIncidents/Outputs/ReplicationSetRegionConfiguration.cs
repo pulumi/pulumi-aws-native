@@ -16,6 +16,9 @@ namespace Pulumi.AwsNative.SsmIncidents.Outputs
     [OutputType]
     public sealed class ReplicationSetRegionConfiguration
     {
+        /// <summary>
+        /// The AWS Key Management Service key ID or Key Alias to use to encrypt your replication set.
+        /// </summary>
         public readonly string SseKmsKeyId;
 
         [OutputConstructor]

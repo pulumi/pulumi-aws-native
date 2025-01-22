@@ -34,6 +34,7 @@ export interface GetTopicResult {
      * The Amazon Resource Name (ARN) of the topic.
      */
     readonly arn?: string;
+    readonly configOptions?: outputs.quicksight.TopicConfigOptions;
     /**
      * The data sets that the topic is associated with.
      */

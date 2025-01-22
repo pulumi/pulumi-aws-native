@@ -17,6 +17,10 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
     {
         [Input("curatedQueries")]
         private InputList<Inputs.KnowledgeBaseCuratedQueryArgs>? _curatedQueries;
+
+        /// <summary>
+        /// An array of objects, each of which defines information about example queries to help the query engine generate appropriate SQL queries.
+        /// </summary>
         public InputList<Inputs.KnowledgeBaseCuratedQueryArgs> CuratedQueries
         {
             get => _curatedQueries ?? (_curatedQueries = new InputList<Inputs.KnowledgeBaseCuratedQueryArgs>());
@@ -25,6 +29,10 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
 
         [Input("tables")]
         private InputList<Inputs.KnowledgeBaseQueryGenerationTableArgs>? _tables;
+
+        /// <summary>
+        /// An array of objects, each of which defines information about a table in the database.
+        /// </summary>
         public InputList<Inputs.KnowledgeBaseQueryGenerationTableArgs> Tables
         {
             get => _tables ?? (_tables = new InputList<Inputs.KnowledgeBaseQueryGenerationTableArgs>());

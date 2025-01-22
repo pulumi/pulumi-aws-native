@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.SsmIncidents.Inputs
     /// </summary>
     public sealed class ReplicationSetRegionConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The AWS Key Management Service key ID or Key Alias to use to encrypt your replication set.
+        /// </summary>
         [Input("sseKmsKeyId", required: true)]
         public Input<string> SseKmsKeyId { get; set; } = null!;
 

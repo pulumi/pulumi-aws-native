@@ -83,9 +83,7 @@ namespace Pulumi.AwsNative.DataSync
                 ReplaceOnChanges =
                 {
                     "fsxFilesystemArn",
-                    "protocol",
                     "securityGroupArns[*]",
-                    "subdirectory",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

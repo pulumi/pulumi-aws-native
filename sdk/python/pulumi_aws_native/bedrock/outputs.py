@@ -7225,6 +7225,7 @@ class KnowledgeBaseConfiguration(dict):
         Contains details about the embeddings model used for the knowledge base.
         :param 'KnowledgeBaseType' type: The type of data that the data source is converted into for the knowledge base.
         :param 'KnowledgeBaseKendraKnowledgeBaseConfiguration' kendra_knowledge_base_configuration: Settings for an Amazon Kendra knowledge base.
+        :param 'KnowledgeBaseSqlKnowledgeBaseConfiguration' sql_knowledge_base_configuration: Specifies configurations for a knowledge base connected to an SQL database.
         :param 'KnowledgeBaseVectorKnowledgeBaseConfiguration' vector_knowledge_base_configuration: Contains details about the model that's used to convert the data source into vector embeddings.
         """
         pulumi.set(__self__, "type", type)
@@ -7254,6 +7255,9 @@ class KnowledgeBaseConfiguration(dict):
     @property
     @pulumi.getter(name="sqlKnowledgeBaseConfiguration")
     def sql_knowledge_base_configuration(self) -> Optional['outputs.KnowledgeBaseSqlKnowledgeBaseConfiguration']:
+        """
+        Specifies configurations for a knowledge base connected to an SQL database.
+        """
         return pulumi.get(self, "sql_knowledge_base_configuration")
 
     @property
@@ -7890,6 +7894,8 @@ class KnowledgeBaseQueryGenerationConfiguration(dict):
                  generation_context: Optional['outputs.KnowledgeBaseQueryGenerationContext'] = None):
         """
         Configurations for generating Redshift engine queries
+        :param int execution_timeout_seconds: The time after which query generation will time out.
+        :param 'KnowledgeBaseQueryGenerationContext' generation_context: Specifies configurations for context to use during query generation.
         """
         if execution_timeout_seconds is not None:
             pulumi.set(__self__, "execution_timeout_seconds", execution_timeout_seconds)
@@ -7899,11 +7905,17 @@ class KnowledgeBaseQueryGenerationConfiguration(dict):
     @property
     @pulumi.getter(name="executionTimeoutSeconds")
     def execution_timeout_seconds(self) -> Optional[int]:
+        """
+        The time after which query generation will time out.
+        """
         return pulumi.get(self, "execution_timeout_seconds")
 
     @property
     @pulumi.getter(name="generationContext")
     def generation_context(self) -> Optional['outputs.KnowledgeBaseQueryGenerationContext']:
+        """
+        Specifies configurations for context to use during query generation.
+        """
         return pulumi.get(self, "generation_context")
 
 
@@ -7934,6 +7946,8 @@ class KnowledgeBaseQueryGenerationContext(dict):
                  tables: Optional[Sequence['outputs.KnowledgeBaseQueryGenerationTable']] = None):
         """
         Context used to improve query generation
+        :param Sequence['KnowledgeBaseCuratedQuery'] curated_queries: An array of objects, each of which defines information about example queries to help the query engine generate appropriate SQL queries.
+        :param Sequence['KnowledgeBaseQueryGenerationTable'] tables: An array of objects, each of which defines information about a table in the database.
         """
         if curated_queries is not None:
             pulumi.set(__self__, "curated_queries", curated_queries)
@@ -7943,11 +7957,17 @@ class KnowledgeBaseQueryGenerationContext(dict):
     @property
     @pulumi.getter(name="curatedQueries")
     def curated_queries(self) -> Optional[Sequence['outputs.KnowledgeBaseCuratedQuery']]:
+        """
+        An array of objects, each of which defines information about example queries to help the query engine generate appropriate SQL queries.
+        """
         return pulumi.get(self, "curated_queries")
 
     @property
     @pulumi.getter
     def tables(self) -> Optional[Sequence['outputs.KnowledgeBaseQueryGenerationTable']]:
+        """
+        An array of objects, each of which defines information about a table in the database.
+        """
         return pulumi.get(self, "tables")
 
 
@@ -8194,6 +8214,9 @@ class KnowledgeBaseRedshiftConfiguration(dict):
                  query_generation_configuration: Optional['outputs.KnowledgeBaseQueryGenerationConfiguration'] = None):
         """
         Configurations for a Redshift knowledge base
+        :param 'KnowledgeBaseRedshiftQueryEngineConfiguration' query_engine_configuration: Specifies configurations for an Amazon Redshift query engine.
+        :param Sequence['KnowledgeBaseRedshiftQueryEngineStorageConfiguration'] storage_configurations: Specifies configurations for Amazon Redshift database storage.
+        :param 'KnowledgeBaseQueryGenerationConfiguration' query_generation_configuration: Specifies configurations for generating queries.
         """
         pulumi.set(__self__, "query_engine_configuration", query_engine_configuration)
         pulumi.set(__self__, "storage_configurations", storage_configurations)
@@ -8203,16 +8226,25 @@ class KnowledgeBaseRedshiftConfiguration(dict):
     @property
     @pulumi.getter(name="queryEngineConfiguration")
     def query_engine_configuration(self) -> 'outputs.KnowledgeBaseRedshiftQueryEngineConfiguration':
+        """
+        Specifies configurations for an Amazon Redshift query engine.
+        """
         return pulumi.get(self, "query_engine_configuration")
 
     @property
     @pulumi.getter(name="storageConfigurations")
     def storage_configurations(self) -> Sequence['outputs.KnowledgeBaseRedshiftQueryEngineStorageConfiguration']:
+        """
+        Specifies configurations for Amazon Redshift database storage.
+        """
         return pulumi.get(self, "storage_configurations")
 
     @property
     @pulumi.getter(name="queryGenerationConfiguration")
     def query_generation_configuration(self) -> Optional['outputs.KnowledgeBaseQueryGenerationConfiguration']:
+        """
+        Specifies configurations for generating queries.
+        """
         return pulumi.get(self, "query_generation_configuration")
 
 
@@ -8246,7 +8278,9 @@ class KnowledgeBaseRedshiftProvisionedAuthConfiguration(dict):
                  username_password_secret_arn: Optional[str] = None):
         """
         Configurations for Redshift query engine provisioned auth setup
+        :param 'KnowledgeBaseRedshiftProvisionedAuthType' type: The type of authentication to use.
         :param str database_user: Redshift database user
+        :param str username_password_secret_arn: The ARN of an Secrets Manager secret for authentication.
         """
         pulumi.set(__self__, "type", type)
         if database_user is not None:
@@ -8257,6 +8291,9 @@ class KnowledgeBaseRedshiftProvisionedAuthConfiguration(dict):
     @property
     @pulumi.getter
     def type(self) -> 'KnowledgeBaseRedshiftProvisionedAuthType':
+        """
+        The type of authentication to use.
+        """
         return pulumi.get(self, "type")
 
     @property
@@ -8270,6 +8307,9 @@ class KnowledgeBaseRedshiftProvisionedAuthConfiguration(dict):
     @property
     @pulumi.getter(name="usernamePasswordSecretArn")
     def username_password_secret_arn(self) -> Optional[str]:
+        """
+        The ARN of an Secrets Manager secret for authentication.
+        """
         return pulumi.get(self, "username_password_secret_arn")
 
 
@@ -8302,6 +8342,8 @@ class KnowledgeBaseRedshiftProvisionedConfiguration(dict):
                  cluster_identifier: str):
         """
         Configurations for provisioned Redshift query engine
+        :param 'KnowledgeBaseRedshiftProvisionedAuthConfiguration' auth_configuration: Specifies configurations for authentication to Amazon Redshift.
+        :param str cluster_identifier: The ID of the Amazon Redshift cluster.
         """
         pulumi.set(__self__, "auth_configuration", auth_configuration)
         pulumi.set(__self__, "cluster_identifier", cluster_identifier)
@@ -8309,11 +8351,17 @@ class KnowledgeBaseRedshiftProvisionedConfiguration(dict):
     @property
     @pulumi.getter(name="authConfiguration")
     def auth_configuration(self) -> 'outputs.KnowledgeBaseRedshiftProvisionedAuthConfiguration':
+        """
+        Specifies configurations for authentication to Amazon Redshift.
+        """
         return pulumi.get(self, "auth_configuration")
 
     @property
     @pulumi.getter(name="clusterIdentifier")
     def cluster_identifier(self) -> str:
+        """
+        The ID of the Amazon Redshift cluster.
+        """
         return pulumi.get(self, "cluster_identifier")
 
 
@@ -8382,6 +8430,9 @@ class KnowledgeBaseRedshiftQueryEngineConfiguration(dict):
                  serverless_configuration: Optional['outputs.KnowledgeBaseRedshiftServerlessConfiguration'] = None):
         """
         Configurations for Redshift query engine
+        :param 'KnowledgeBaseRedshiftQueryEngineType' type: The type of query engine.
+        :param 'KnowledgeBaseRedshiftProvisionedConfiguration' provisioned_configuration: Specifies configurations for a provisioned Amazon Redshift query engine.
+        :param 'KnowledgeBaseRedshiftServerlessConfiguration' serverless_configuration: Specifies configurations for a serverless Amazon Redshift query engine.
         """
         pulumi.set(__self__, "type", type)
         if provisioned_configuration is not None:
@@ -8392,16 +8443,25 @@ class KnowledgeBaseRedshiftQueryEngineConfiguration(dict):
     @property
     @pulumi.getter
     def type(self) -> 'KnowledgeBaseRedshiftQueryEngineType':
+        """
+        The type of query engine.
+        """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter(name="provisionedConfiguration")
     def provisioned_configuration(self) -> Optional['outputs.KnowledgeBaseRedshiftProvisionedConfiguration']:
+        """
+        Specifies configurations for a provisioned Amazon Redshift query engine.
+        """
         return pulumi.get(self, "provisioned_configuration")
 
     @property
     @pulumi.getter(name="serverlessConfiguration")
     def serverless_configuration(self) -> Optional['outputs.KnowledgeBaseRedshiftServerlessConfiguration']:
+        """
+        Specifies configurations for a serverless Amazon Redshift query engine.
+        """
         return pulumi.get(self, "serverless_configuration")
 
 
@@ -8520,6 +8580,8 @@ class KnowledgeBaseRedshiftServerlessAuthConfiguration(dict):
                  username_password_secret_arn: Optional[str] = None):
         """
         Configurations for Redshift query engine serverless auth setup
+        :param 'KnowledgeBaseRedshiftServerlessAuthType' type: The type of authentication to use.
+        :param str username_password_secret_arn: The ARN of an Secrets Manager secret for authentication.
         """
         pulumi.set(__self__, "type", type)
         if username_password_secret_arn is not None:
@@ -8528,11 +8590,17 @@ class KnowledgeBaseRedshiftServerlessAuthConfiguration(dict):
     @property
     @pulumi.getter
     def type(self) -> 'KnowledgeBaseRedshiftServerlessAuthType':
+        """
+        The type of authentication to use.
+        """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter(name="usernamePasswordSecretArn")
     def username_password_secret_arn(self) -> Optional[str]:
+        """
+        The ARN of an Secrets Manager secret for authentication.
+        """
         return pulumi.get(self, "username_password_secret_arn")
 
 
@@ -8565,6 +8633,8 @@ class KnowledgeBaseRedshiftServerlessConfiguration(dict):
                  workgroup_arn: str):
         """
         Configurations for serverless Redshift query engine
+        :param 'KnowledgeBaseRedshiftServerlessAuthConfiguration' auth_configuration: Specifies configurations for authentication to an Amazon Redshift provisioned data warehouse.
+        :param str workgroup_arn: The ARN of the Amazon Redshift workgroup.
         """
         pulumi.set(__self__, "auth_configuration", auth_configuration)
         pulumi.set(__self__, "workgroup_arn", workgroup_arn)
@@ -8572,11 +8642,17 @@ class KnowledgeBaseRedshiftServerlessConfiguration(dict):
     @property
     @pulumi.getter(name="authConfiguration")
     def auth_configuration(self) -> 'outputs.KnowledgeBaseRedshiftServerlessAuthConfiguration':
+        """
+        Specifies configurations for authentication to an Amazon Redshift provisioned data warehouse.
+        """
         return pulumi.get(self, "auth_configuration")
 
     @property
     @pulumi.getter(name="workgroupArn")
     def workgroup_arn(self) -> str:
+        """
+        The ARN of the Amazon Redshift workgroup.
+        """
         return pulumi.get(self, "workgroup_arn")
 
 
@@ -8629,6 +8705,8 @@ class KnowledgeBaseSqlKnowledgeBaseConfiguration(dict):
                  redshift_configuration: Optional['outputs.KnowledgeBaseRedshiftConfiguration'] = None):
         """
         Configurations for a SQL knowledge base
+        :param 'KnowledgeBaseQueryEngineType' type: The type of SQL database to connect to the knowledge base.
+        :param 'KnowledgeBaseRedshiftConfiguration' redshift_configuration: Specifies configurations for a knowledge base connected to an Amazon Redshift database.
         """
         pulumi.set(__self__, "type", type)
         if redshift_configuration is not None:
@@ -8637,11 +8715,17 @@ class KnowledgeBaseSqlKnowledgeBaseConfiguration(dict):
     @property
     @pulumi.getter
     def type(self) -> 'KnowledgeBaseQueryEngineType':
+        """
+        The type of SQL database to connect to the knowledge base.
+        """
         return pulumi.get(self, "type")
 
     @property
     @pulumi.getter(name="redshiftConfiguration")
     def redshift_configuration(self) -> Optional['outputs.KnowledgeBaseRedshiftConfiguration']:
+        """
+        Specifies configurations for a knowledge base connected to an Amazon Redshift database.
+        """
         return pulumi.get(self, "redshift_configuration")
 
 
@@ -10115,6 +10199,7 @@ class PromptVersionPromptVariant(dict):
         :param str name: Name for a variant.
         :param Union['PromptVersionPromptTemplateConfiguration0Properties', 'PromptVersionPromptTemplateConfiguration1Properties'] template_configuration: Contains configurations for the prompt template.
         :param 'PromptVersionPromptTemplateType' template_type: The type of prompt template to use.
+        :param 'PromptVersionPromptGenAiResourceProperties' gen_ai_resource: Specifies a generative AI resource with which to use the prompt.
         :param 'PromptVersionPromptInferenceConfigurationProperties' inference_configuration: Contains inference configurations for the prompt variant.
         :param str model_id: ARN or Id of a Bedrock Foundational Model or Inference Profile, or the ARN of a imported model, or a provisioned throughput ARN for custom models.
         """
@@ -10155,6 +10240,9 @@ class PromptVersionPromptVariant(dict):
     @property
     @pulumi.getter(name="genAiResource")
     def gen_ai_resource(self) -> Optional['outputs.PromptVersionPromptGenAiResourceProperties']:
+        """
+        Specifies a generative AI resource with which to use the prompt.
+        """
         return pulumi.get(self, "gen_ai_resource")
 
     @property

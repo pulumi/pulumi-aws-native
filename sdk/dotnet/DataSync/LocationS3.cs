@@ -135,9 +135,6 @@ namespace Pulumi.AwsNative.DataSync
                 ReplaceOnChanges =
                 {
                     "s3BucketArn",
-                    "s3Config",
-                    "s3StorageClass",
-                    "subdirectory",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

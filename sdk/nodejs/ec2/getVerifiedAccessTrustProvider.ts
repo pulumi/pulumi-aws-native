@@ -38,6 +38,10 @@ export interface GetVerifiedAccessTrustProviderResult {
      */
     readonly lastUpdatedTime?: string;
     /**
+     * The OpenID Connect (OIDC) options.
+     */
+    readonly nativeApplicationOidcOptions?: outputs.ec2.VerifiedAccessTrustProviderNativeApplicationOidcOptions;
+    /**
      * The options for an OpenID Connect-compatible user-identity trust provider.
      */
     readonly oidcOptions?: outputs.ec2.VerifiedAccessTrustProviderOidcOptions;

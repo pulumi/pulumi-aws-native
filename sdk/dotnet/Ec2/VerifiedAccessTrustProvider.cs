@@ -46,6 +46,12 @@ namespace Pulumi.AwsNative.Ec2
         public Output<string> LastUpdatedTime { get; private set; } = null!;
 
         /// <summary>
+        /// The OpenID Connect (OIDC) options.
+        /// </summary>
+        [Output("nativeApplicationOidcOptions")]
+        public Output<Outputs.VerifiedAccessTrustProviderNativeApplicationOidcOptions?> NativeApplicationOidcOptions { get; private set; } = null!;
+
+        /// <summary>
         /// The options for an OpenID Connect-compatible user-identity trust provider.
         /// </summary>
         [Output("oidcOptions")]
@@ -157,6 +163,12 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         [Input("deviceTrustProviderType")]
         public Input<string>? DeviceTrustProviderType { get; set; }
+
+        /// <summary>
+        /// The OpenID Connect (OIDC) options.
+        /// </summary>
+        [Input("nativeApplicationOidcOptions")]
+        public Input<Inputs.VerifiedAccessTrustProviderNativeApplicationOidcOptionsArgs>? NativeApplicationOidcOptions { get; set; }
 
         /// <summary>
         /// The options for an OpenID Connect-compatible user-identity trust provider.

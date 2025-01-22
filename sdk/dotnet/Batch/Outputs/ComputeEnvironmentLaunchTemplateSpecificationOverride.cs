@@ -26,7 +26,7 @@ namespace Pulumi.AwsNative.Batch.Outputs
         /// </summary>
         public readonly string? LaunchTemplateName;
         /// <summary>
-        /// The instance type or family that this this override launch template should be applied to.
+        /// The instance type or family that this override launch template should be applied to.
         /// 
         /// This parameter is required when defining a launch template override.
         /// 

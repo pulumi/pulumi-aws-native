@@ -40,6 +40,11 @@ export const getMember: typeof import("./getMember").getMember = null as any;
 export const getMemberOutput: typeof import("./getMember").getMemberOutput = null as any;
 utilities.lazyLoad(exports, ["getMember","getMemberOutput"], () => require("./getMember"));
 
+export { GetPublishingDestinationArgs, GetPublishingDestinationResult, GetPublishingDestinationOutputArgs } from "./getPublishingDestination";
+export const getPublishingDestination: typeof import("./getPublishingDestination").getPublishingDestination = null as any;
+export const getPublishingDestinationOutput: typeof import("./getPublishingDestination").getPublishingDestinationOutput = null as any;
+utilities.lazyLoad(exports, ["getPublishingDestination","getPublishingDestinationOutput"], () => require("./getPublishingDestination"));
+
 export { GetThreatIntelSetArgs, GetThreatIntelSetResult, GetThreatIntelSetOutputArgs } from "./getThreatIntelSet";
 export const getThreatIntelSet: typeof import("./getThreatIntelSet").getThreatIntelSet = null as any;
 export const getThreatIntelSetOutput: typeof import("./getThreatIntelSet").getThreatIntelSetOutput = null as any;
@@ -64,6 +69,11 @@ export { MemberArgs } from "./member";
 export type Member = import("./member").Member;
 export const Member: typeof import("./member").Member = null as any;
 utilities.lazyLoad(exports, ["Member"], () => require("./member"));
+
+export { PublishingDestinationArgs } from "./publishingDestination";
+export type PublishingDestination = import("./publishingDestination").PublishingDestination;
+export const PublishingDestination: typeof import("./publishingDestination").PublishingDestination = null as any;
+utilities.lazyLoad(exports, ["PublishingDestination"], () => require("./publishingDestination"));
 
 export { ThreatIntelSetArgs } from "./threatIntelSet";
 export type ThreatIntelSet = import("./threatIntelSet").ThreatIntelSet;
@@ -90,6 +100,8 @@ const _module = {
                 return new Master(name, <any>undefined, { urn })
             case "aws-native:guardduty:Member":
                 return new Member(name, <any>undefined, { urn })
+            case "aws-native:guardduty:PublishingDestination":
+                return new PublishingDestination(name, <any>undefined, { urn })
             case "aws-native:guardduty:ThreatIntelSet":
                 return new ThreatIntelSet(name, <any>undefined, { urn })
             default:

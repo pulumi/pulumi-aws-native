@@ -3143,7 +3143,15 @@ func (o BucketLambdaConfigurationArrayOutput) Index(i pulumi.IntInput) BucketLam
 // Specifies the lifecycle configuration for objects in an Amazon S3 bucket. For more information, see [Object Lifecycle Management](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html) in the *Amazon S3 User Guide*.
 type BucketLifecycleConfiguration struct {
 	// A lifecycle rule for individual objects in an Amazon S3 bucket.
-	Rules                              []BucketRule                                                    `pulumi:"rules"`
+	Rules []BucketRule `pulumi:"rules"`
+	// Indicates which default minimum object size behavior is applied to the lifecycle configuration.
+	//
+	// > This parameter applies to general purpose buckets only. It isn't supported for directory bucket lifecycle configurations.
+	//
+	// - `all_storage_classes_128K` - Objects smaller than 128 KB will not transition to any storage class by default.
+	// - `varies_by_storage_class` - Objects smaller than 128 KB will transition to Glacier Flexible Retrieval or Glacier Deep Archive storage classes. By default, all other storage classes will prevent transitions smaller than 128 KB.
+	//
+	// To customize the minimum object size for any transition you can add a filter that specifies a custom `ObjectSizeGreaterThan` or `ObjectSizeLessThan` in the body of your transition rule. Custom filters always take precedence over the default transition behavior.
 	TransitionDefaultMinimumObjectSize *BucketLifecycleConfigurationTransitionDefaultMinimumObjectSize `pulumi:"transitionDefaultMinimumObjectSize"`
 }
 
@@ -3161,7 +3169,15 @@ type BucketLifecycleConfigurationInput interface {
 // Specifies the lifecycle configuration for objects in an Amazon S3 bucket. For more information, see [Object Lifecycle Management](https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html) in the *Amazon S3 User Guide*.
 type BucketLifecycleConfigurationArgs struct {
 	// A lifecycle rule for individual objects in an Amazon S3 bucket.
-	Rules                              BucketRuleArrayInput                                                   `pulumi:"rules"`
+	Rules BucketRuleArrayInput `pulumi:"rules"`
+	// Indicates which default minimum object size behavior is applied to the lifecycle configuration.
+	//
+	// > This parameter applies to general purpose buckets only. It isn't supported for directory bucket lifecycle configurations.
+	//
+	// - `all_storage_classes_128K` - Objects smaller than 128 KB will not transition to any storage class by default.
+	// - `varies_by_storage_class` - Objects smaller than 128 KB will transition to Glacier Flexible Retrieval or Glacier Deep Archive storage classes. By default, all other storage classes will prevent transitions smaller than 128 KB.
+	//
+	// To customize the minimum object size for any transition you can add a filter that specifies a custom `ObjectSizeGreaterThan` or `ObjectSizeLessThan` in the body of your transition rule. Custom filters always take precedence over the default transition behavior.
 	TransitionDefaultMinimumObjectSize BucketLifecycleConfigurationTransitionDefaultMinimumObjectSizePtrInput `pulumi:"transitionDefaultMinimumObjectSize"`
 }
 
@@ -3248,6 +3264,14 @@ func (o BucketLifecycleConfigurationOutput) Rules() BucketRuleArrayOutput {
 	return o.ApplyT(func(v BucketLifecycleConfiguration) []BucketRule { return v.Rules }).(BucketRuleArrayOutput)
 }
 
+// Indicates which default minimum object size behavior is applied to the lifecycle configuration.
+//
+// > This parameter applies to general purpose buckets only. It isn't supported for directory bucket lifecycle configurations.
+//
+// - `all_storage_classes_128K` - Objects smaller than 128 KB will not transition to any storage class by default.
+// - `varies_by_storage_class` - Objects smaller than 128 KB will transition to Glacier Flexible Retrieval or Glacier Deep Archive storage classes. By default, all other storage classes will prevent transitions smaller than 128 KB.
+//
+// To customize the minimum object size for any transition you can add a filter that specifies a custom `ObjectSizeGreaterThan` or `ObjectSizeLessThan` in the body of your transition rule. Custom filters always take precedence over the default transition behavior.
 func (o BucketLifecycleConfigurationOutput) TransitionDefaultMinimumObjectSize() BucketLifecycleConfigurationTransitionDefaultMinimumObjectSizePtrOutput {
 	return o.ApplyT(func(v BucketLifecycleConfiguration) *BucketLifecycleConfigurationTransitionDefaultMinimumObjectSize {
 		return v.TransitionDefaultMinimumObjectSize
@@ -3288,6 +3312,14 @@ func (o BucketLifecycleConfigurationPtrOutput) Rules() BucketRuleArrayOutput {
 	}).(BucketRuleArrayOutput)
 }
 
+// Indicates which default minimum object size behavior is applied to the lifecycle configuration.
+//
+// > This parameter applies to general purpose buckets only. It isn't supported for directory bucket lifecycle configurations.
+//
+// - `all_storage_classes_128K` - Objects smaller than 128 KB will not transition to any storage class by default.
+// - `varies_by_storage_class` - Objects smaller than 128 KB will transition to Glacier Flexible Retrieval or Glacier Deep Archive storage classes. By default, all other storage classes will prevent transitions smaller than 128 KB.
+//
+// To customize the minimum object size for any transition you can add a filter that specifies a custom `ObjectSizeGreaterThan` or `ObjectSizeLessThan` in the body of your transition rule. Custom filters always take precedence over the default transition behavior.
 func (o BucketLifecycleConfigurationPtrOutput) TransitionDefaultMinimumObjectSize() BucketLifecycleConfigurationTransitionDefaultMinimumObjectSizePtrOutput {
 	return o.ApplyT(func(v *BucketLifecycleConfiguration) *BucketLifecycleConfigurationTransitionDefaultMinimumObjectSize {
 		if v == nil {

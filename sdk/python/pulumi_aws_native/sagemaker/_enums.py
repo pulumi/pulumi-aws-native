@@ -328,6 +328,7 @@ class DomainMlTools(str, Enum):
     DEEPCHECKS_LLM_EVALUATION = "DeepchecksLLMEvaluation"
     FIDDLER = "Fiddler"
     LAKERA_GUARD = "LakeraGuard"
+    PERFORMANCE_EVALUATION = "PerformanceEvaluation"
 
 
 class DomainRStudioServerProAppSettingsAccessStatus(str, Enum):
@@ -1145,6 +1146,7 @@ class UserProfileMlTools(str, Enum):
     DEEPCHECKS_LLM_EVALUATION = "DeepchecksLLMEvaluation"
     FIDDLER = "Fiddler"
     LAKERA_GUARD = "LakeraGuard"
+    PERFORMANCE_EVALUATION = "PerformanceEvaluation"
 
 
 class UserProfileRStudioServerProAppSettingsAccessStatus(str, Enum):

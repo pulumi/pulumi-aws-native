@@ -23,8 +23,10 @@ __all__ = ['TopicArgs', 'Topic']
 class TopicArgs:
     def __init__(__self__, *,
                  aws_account_id: Optional[pulumi.Input[str]] = None,
+                 config_options: Optional[pulumi.Input['TopicConfigOptionsArgs']] = None,
                  data_sets: Optional[pulumi.Input[Sequence[pulumi.Input['TopicDatasetMetadataArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 folder_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  topic_id: Optional[pulumi.Input[str]] = None,
                  user_experience_version: Optional[pulumi.Input['TopicUserExperienceVersion']] = None):
@@ -39,10 +41,14 @@ class TopicArgs:
         """
         if aws_account_id is not None:
             pulumi.set(__self__, "aws_account_id", aws_account_id)
+        if config_options is not None:
+            pulumi.set(__self__, "config_options", config_options)
         if data_sets is not None:
             pulumi.set(__self__, "data_sets", data_sets)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if folder_arns is not None:
+            pulumi.set(__self__, "folder_arns", folder_arns)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if topic_id is not None:
@@ -61,6 +67,15 @@ class TopicArgs:
     @aws_account_id.setter
     def aws_account_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "aws_account_id", value)
+
+    @property
+    @pulumi.getter(name="configOptions")
+    def config_options(self) -> Optional[pulumi.Input['TopicConfigOptionsArgs']]:
+        return pulumi.get(self, "config_options")
+
+    @config_options.setter
+    def config_options(self, value: Optional[pulumi.Input['TopicConfigOptionsArgs']]):
+        pulumi.set(self, "config_options", value)
 
     @property
     @pulumi.getter(name="dataSets")
@@ -85,6 +100,15 @@ class TopicArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="folderArns")
+    def folder_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "folder_arns")
+
+    @folder_arns.setter
+    def folder_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "folder_arns", value)
 
     @property
     @pulumi.getter
@@ -129,8 +153,10 @@ class Topic(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aws_account_id: Optional[pulumi.Input[str]] = None,
+                 config_options: Optional[pulumi.Input[Union['TopicConfigOptionsArgs', 'TopicConfigOptionsArgsDict']]] = None,
                  data_sets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicDatasetMetadataArgs', 'TopicDatasetMetadataArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 folder_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  topic_id: Optional[pulumi.Input[str]] = None,
                  user_experience_version: Optional[pulumi.Input['TopicUserExperienceVersion']] = None,
@@ -172,8 +198,10 @@ class Topic(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aws_account_id: Optional[pulumi.Input[str]] = None,
+                 config_options: Optional[pulumi.Input[Union['TopicConfigOptionsArgs', 'TopicConfigOptionsArgsDict']]] = None,
                  data_sets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TopicDatasetMetadataArgs', 'TopicDatasetMetadataArgsDict']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 folder_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  topic_id: Optional[pulumi.Input[str]] = None,
                  user_experience_version: Optional[pulumi.Input['TopicUserExperienceVersion']] = None,
@@ -187,13 +215,15 @@ class Topic(pulumi.CustomResource):
             __props__ = TopicArgs.__new__(TopicArgs)
 
             __props__.__dict__["aws_account_id"] = aws_account_id
+            __props__.__dict__["config_options"] = config_options
             __props__.__dict__["data_sets"] = data_sets
             __props__.__dict__["description"] = description
+            __props__.__dict__["folder_arns"] = folder_arns
             __props__.__dict__["name"] = name
             __props__.__dict__["topic_id"] = topic_id
             __props__.__dict__["user_experience_version"] = user_experience_version
             __props__.__dict__["arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["awsAccountId", "topicId"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["awsAccountId", "folderArns[*]", "topicId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Topic, __self__).__init__(
             'aws-native:quicksight:Topic',
@@ -219,8 +249,10 @@ class Topic(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = None
         __props__.__dict__["aws_account_id"] = None
+        __props__.__dict__["config_options"] = None
         __props__.__dict__["data_sets"] = None
         __props__.__dict__["description"] = None
+        __props__.__dict__["folder_arns"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["topic_id"] = None
         __props__.__dict__["user_experience_version"] = None
@@ -243,6 +275,11 @@ class Topic(pulumi.CustomResource):
         return pulumi.get(self, "aws_account_id")
 
     @property
+    @pulumi.getter(name="configOptions")
+    def config_options(self) -> pulumi.Output[Optional['outputs.TopicConfigOptions']]:
+        return pulumi.get(self, "config_options")
+
+    @property
     @pulumi.getter(name="dataSets")
     def data_sets(self) -> pulumi.Output[Optional[Sequence['outputs.TopicDatasetMetadata']]]:
         """
@@ -257,6 +294,11 @@ class Topic(pulumi.CustomResource):
         The description of the topic.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="folderArns")
+    def folder_arns(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        return pulumi.get(self, "folder_arns")
 
     @property
     @pulumi.getter

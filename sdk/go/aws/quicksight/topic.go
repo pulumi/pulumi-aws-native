@@ -18,11 +18,13 @@ type Topic struct {
 	// The Amazon Resource Name (ARN) of the topic.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The ID of the AWS account that you want to create a topic in.
-	AwsAccountId pulumi.StringPtrOutput `pulumi:"awsAccountId"`
+	AwsAccountId  pulumi.StringPtrOutput      `pulumi:"awsAccountId"`
+	ConfigOptions TopicConfigOptionsPtrOutput `pulumi:"configOptions"`
 	// The data sets that the topic is associated with.
 	DataSets TopicDatasetMetadataArrayOutput `pulumi:"dataSets"`
 	// The description of the topic.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
+	Description pulumi.StringPtrOutput   `pulumi:"description"`
+	FolderArns  pulumi.StringArrayOutput `pulumi:"folderArns"`
 	// The name of the topic.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// The ID for the topic. This ID is unique per AWS Region for each AWS account.
@@ -40,6 +42,7 @@ func NewTopic(ctx *pulumi.Context,
 
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"awsAccountId",
+		"folderArns[*]",
 		"topicId",
 	})
 	opts = append(opts, replaceOnChanges)
@@ -77,11 +80,13 @@ func (TopicState) ElementType() reflect.Type {
 
 type topicArgs struct {
 	// The ID of the AWS account that you want to create a topic in.
-	AwsAccountId *string `pulumi:"awsAccountId"`
+	AwsAccountId  *string             `pulumi:"awsAccountId"`
+	ConfigOptions *TopicConfigOptions `pulumi:"configOptions"`
 	// The data sets that the topic is associated with.
 	DataSets []TopicDatasetMetadata `pulumi:"dataSets"`
 	// The description of the topic.
-	Description *string `pulumi:"description"`
+	Description *string  `pulumi:"description"`
+	FolderArns  []string `pulumi:"folderArns"`
 	// The name of the topic.
 	Name *string `pulumi:"name"`
 	// The ID for the topic. This ID is unique per AWS Region for each AWS account.
@@ -93,11 +98,13 @@ type topicArgs struct {
 // The set of arguments for constructing a Topic resource.
 type TopicArgs struct {
 	// The ID of the AWS account that you want to create a topic in.
-	AwsAccountId pulumi.StringPtrInput
+	AwsAccountId  pulumi.StringPtrInput
+	ConfigOptions TopicConfigOptionsPtrInput
 	// The data sets that the topic is associated with.
 	DataSets TopicDatasetMetadataArrayInput
 	// The description of the topic.
 	Description pulumi.StringPtrInput
+	FolderArns  pulumi.StringArrayInput
 	// The name of the topic.
 	Name pulumi.StringPtrInput
 	// The ID for the topic. This ID is unique per AWS Region for each AWS account.
@@ -153,6 +160,10 @@ func (o TopicOutput) AwsAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Topic) pulumi.StringPtrOutput { return v.AwsAccountId }).(pulumi.StringPtrOutput)
 }
 
+func (o TopicOutput) ConfigOptions() TopicConfigOptionsPtrOutput {
+	return o.ApplyT(func(v *Topic) TopicConfigOptionsPtrOutput { return v.ConfigOptions }).(TopicConfigOptionsPtrOutput)
+}
+
 // The data sets that the topic is associated with.
 func (o TopicOutput) DataSets() TopicDatasetMetadataArrayOutput {
 	return o.ApplyT(func(v *Topic) TopicDatasetMetadataArrayOutput { return v.DataSets }).(TopicDatasetMetadataArrayOutput)
@@ -161,6 +172,10 @@ func (o TopicOutput) DataSets() TopicDatasetMetadataArrayOutput {
 // The description of the topic.
 func (o TopicOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Topic) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o TopicOutput) FolderArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Topic) pulumi.StringArrayOutput { return v.FolderArns }).(pulumi.StringArrayOutput)
 }
 
 // The name of the topic.

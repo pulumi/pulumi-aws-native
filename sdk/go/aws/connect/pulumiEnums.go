@@ -3933,6 +3933,7 @@ const (
 	RoutingProfileChannelVoice = RoutingProfileChannel("VOICE")
 	RoutingProfileChannelChat  = RoutingProfileChannel("CHAT")
 	RoutingProfileChannelTask  = RoutingProfileChannel("TASK")
+	RoutingProfileChannelEmail = RoutingProfileChannel("EMAIL")
 )
 
 func (RoutingProfileChannel) ElementType() reflect.Type {
@@ -4060,6 +4061,7 @@ func (o RoutingProfileChannelPtrOutput) ToStringPtrOutputWithContext(ctx context
 //	RoutingProfileChannelVoice
 //	RoutingProfileChannelChat
 //	RoutingProfileChannelTask
+//	RoutingProfileChannelEmail
 type RoutingProfileChannelInput interface {
 	pulumi.Input
 

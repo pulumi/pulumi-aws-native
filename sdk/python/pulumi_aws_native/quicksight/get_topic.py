@@ -25,10 +25,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetTopicResult:
-    def __init__(__self__, arn=None, data_sets=None, description=None, name=None, user_experience_version=None):
+    def __init__(__self__, arn=None, config_options=None, data_sets=None, description=None, name=None, user_experience_version=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if config_options and not isinstance(config_options, dict):
+            raise TypeError("Expected argument 'config_options' to be a dict")
+        pulumi.set(__self__, "config_options", config_options)
         if data_sets and not isinstance(data_sets, list):
             raise TypeError("Expected argument 'data_sets' to be a list")
         pulumi.set(__self__, "data_sets", data_sets)
@@ -49,6 +52,11 @@ class GetTopicResult:
         The Amazon Resource Name (ARN) of the topic.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="configOptions")
+    def config_options(self) -> Optional['outputs.TopicConfigOptions']:
+        return pulumi.get(self, "config_options")
 
     @property
     @pulumi.getter(name="dataSets")
@@ -90,6 +98,7 @@ class AwaitableGetTopicResult(GetTopicResult):
             yield self
         return GetTopicResult(
             arn=self.arn,
+            config_options=self.config_options,
             data_sets=self.data_sets,
             description=self.description,
             name=self.name,
@@ -114,6 +123,7 @@ def get_topic(aws_account_id: Optional[str] = None,
 
     return AwaitableGetTopicResult(
         arn=pulumi.get(__ret__, 'arn'),
+        config_options=pulumi.get(__ret__, 'config_options'),
         data_sets=pulumi.get(__ret__, 'data_sets'),
         description=pulumi.get(__ret__, 'description'),
         name=pulumi.get(__ret__, 'name'),
@@ -135,6 +145,7 @@ def get_topic_output(aws_account_id: Optional[pulumi.Input[str]] = None,
     __ret__ = pulumi.runtime.invoke_output('aws-native:quicksight:getTopic', __args__, opts=opts, typ=GetTopicResult)
     return __ret__.apply(lambda __response__: GetTopicResult(
         arn=pulumi.get(__response__, 'arn'),
+        config_options=pulumi.get(__response__, 'config_options'),
         data_sets=pulumi.get(__response__, 'data_sets'),
         description=pulumi.get(__response__, 'description'),
         name=pulumi.get(__response__, 'name'),

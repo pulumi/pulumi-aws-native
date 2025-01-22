@@ -79,6 +79,7 @@ namespace Pulumi.AwsNative.QuickSight
         /// The Amazon Resource Name (ARN) of the topic.
         /// </summary>
         public readonly string? Arn;
+        public readonly Outputs.TopicConfigOptions? ConfigOptions;
         /// <summary>
         /// The data sets that the topic is associated with.
         /// </summary>
@@ -100,6 +101,8 @@ namespace Pulumi.AwsNative.QuickSight
         private GetTopicResult(
             string? arn,
 
+            Outputs.TopicConfigOptions? configOptions,
+
             ImmutableArray<Outputs.TopicDatasetMetadata> dataSets,
 
             string? description,
@@ -109,6 +112,7 @@ namespace Pulumi.AwsNative.QuickSight
             Pulumi.AwsNative.QuickSight.TopicUserExperienceVersion? userExperienceVersion)
         {
             Arn = arn;
+            ConfigOptions = configOptions;
             DataSets = dataSets;
             Description = description;
             Name = name;

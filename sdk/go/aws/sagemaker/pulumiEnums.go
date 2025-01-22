@@ -2845,6 +2845,7 @@ const (
 	DomainMlToolsDeepchecksLlmEvaluation = DomainMlTools("DeepchecksLLMEvaluation")
 	DomainMlToolsFiddler                 = DomainMlTools("Fiddler")
 	DomainMlToolsLakeraGuard             = DomainMlTools("LakeraGuard")
+	DomainMlToolsPerformanceEvaluation   = DomainMlTools("PerformanceEvaluation")
 )
 
 func (DomainMlTools) ElementType() reflect.Type {
@@ -2988,6 +2989,7 @@ func (o DomainMlToolsPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 //	DomainMlToolsDeepchecksLlmEvaluation
 //	DomainMlToolsFiddler
 //	DomainMlToolsLakeraGuard
+//	DomainMlToolsPerformanceEvaluation
 type DomainMlToolsInput interface {
 	pulumi.Input
 
@@ -15912,6 +15914,7 @@ const (
 	UserProfileMlToolsDeepchecksLlmEvaluation = UserProfileMlTools("DeepchecksLLMEvaluation")
 	UserProfileMlToolsFiddler                 = UserProfileMlTools("Fiddler")
 	UserProfileMlToolsLakeraGuard             = UserProfileMlTools("LakeraGuard")
+	UserProfileMlToolsPerformanceEvaluation   = UserProfileMlTools("PerformanceEvaluation")
 )
 
 func (UserProfileMlTools) ElementType() reflect.Type {
@@ -16055,6 +16058,7 @@ func (o UserProfileMlToolsPtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 //	UserProfileMlToolsDeepchecksLlmEvaluation
 //	UserProfileMlToolsFiddler
 //	UserProfileMlToolsLakeraGuard
+//	UserProfileMlToolsPerformanceEvaluation
 type UserProfileMlToolsInput interface {
 	pulumi.Input
 

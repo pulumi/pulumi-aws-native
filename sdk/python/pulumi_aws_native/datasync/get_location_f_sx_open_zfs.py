@@ -13,7 +13,9 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from .. import outputs as _root_outputs
+from ._enums import *
 
 __all__ = [
     'GetLocationFSxOpenZfsResult',
@@ -24,13 +26,16 @@ __all__ = [
 
 @pulumi.output_type
 class GetLocationFSxOpenZfsResult:
-    def __init__(__self__, location_arn=None, location_uri=None, tags=None):
+    def __init__(__self__, location_arn=None, location_uri=None, protocol=None, tags=None):
         if location_arn and not isinstance(location_arn, str):
             raise TypeError("Expected argument 'location_arn' to be a str")
         pulumi.set(__self__, "location_arn", location_arn)
         if location_uri and not isinstance(location_uri, str):
             raise TypeError("Expected argument 'location_uri' to be a str")
         pulumi.set(__self__, "location_uri", location_uri)
+        if protocol and not isinstance(protocol, dict):
+            raise TypeError("Expected argument 'protocol' to be a dict")
+        pulumi.set(__self__, "protocol", protocol)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -53,6 +58,14 @@ class GetLocationFSxOpenZfsResult:
 
     @property
     @pulumi.getter
+    def protocol(self) -> Optional['outputs.LocationFSxOpenZfsProtocol']:
+        """
+        The type of protocol that AWS DataSync uses to access your file system.
+        """
+        return pulumi.get(self, "protocol")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
         An array of key-value pairs to apply to this resource.
@@ -68,6 +81,7 @@ class AwaitableGetLocationFSxOpenZfsResult(GetLocationFSxOpenZfsResult):
         return GetLocationFSxOpenZfsResult(
             location_arn=self.location_arn,
             location_uri=self.location_uri,
+            protocol=self.protocol,
             tags=self.tags)
 
 
@@ -87,6 +101,7 @@ def get_location_f_sx_open_zfs(location_arn: Optional[str] = None,
     return AwaitableGetLocationFSxOpenZfsResult(
         location_arn=pulumi.get(__ret__, 'location_arn'),
         location_uri=pulumi.get(__ret__, 'location_uri'),
+        protocol=pulumi.get(__ret__, 'protocol'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_location_f_sx_open_zfs_output(location_arn: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLocationFSxOpenZfsResult]:
@@ -103,4 +118,5 @@ def get_location_f_sx_open_zfs_output(location_arn: Optional[pulumi.Input[str]] 
     return __ret__.apply(lambda __response__: GetLocationFSxOpenZfsResult(
         location_arn=pulumi.get(__response__, 'location_arn'),
         location_uri=pulumi.get(__response__, 'location_uri'),
+        protocol=pulumi.get(__response__, 'protocol'),
         tags=pulumi.get(__response__, 'tags')))

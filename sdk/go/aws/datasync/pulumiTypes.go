@@ -1368,6 +1368,40 @@ func (o LocationFSxOpenZfsProtocolOutput) Nfs() LocationFSxOpenZfsNfsPtrOutput {
 	return o.ApplyT(func(v LocationFSxOpenZfsProtocol) *LocationFSxOpenZfsNfs { return v.Nfs }).(LocationFSxOpenZfsNfsPtrOutput)
 }
 
+type LocationFSxOpenZfsProtocolPtrOutput struct{ *pulumi.OutputState }
+
+func (LocationFSxOpenZfsProtocolPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocationFSxOpenZfsProtocol)(nil)).Elem()
+}
+
+func (o LocationFSxOpenZfsProtocolPtrOutput) ToLocationFSxOpenZfsProtocolPtrOutput() LocationFSxOpenZfsProtocolPtrOutput {
+	return o
+}
+
+func (o LocationFSxOpenZfsProtocolPtrOutput) ToLocationFSxOpenZfsProtocolPtrOutputWithContext(ctx context.Context) LocationFSxOpenZfsProtocolPtrOutput {
+	return o
+}
+
+func (o LocationFSxOpenZfsProtocolPtrOutput) Elem() LocationFSxOpenZfsProtocolOutput {
+	return o.ApplyT(func(v *LocationFSxOpenZfsProtocol) LocationFSxOpenZfsProtocol {
+		if v != nil {
+			return *v
+		}
+		var ret LocationFSxOpenZfsProtocol
+		return ret
+	}).(LocationFSxOpenZfsProtocolOutput)
+}
+
+// Represents the Network File System (NFS) protocol that DataSync uses to access your FSx for OpenZFS file system.
+func (o LocationFSxOpenZfsProtocolPtrOutput) Nfs() LocationFSxOpenZfsNfsPtrOutput {
+	return o.ApplyT(func(v *LocationFSxOpenZfsProtocol) *LocationFSxOpenZfsNfs {
+		if v == nil {
+			return nil
+		}
+		return v.Nfs
+	}).(LocationFSxOpenZfsNfsPtrOutput)
+}
+
 // A key-value pair to associate with a resource.
 type LocationFSxOpenZfsTag struct {
 	// The key for an AWS resource tag.
@@ -1970,6 +2004,40 @@ func (o LocationS3s3ConfigOutput) ToLocationS3s3ConfigOutputWithContext(ctx cont
 // The ARN of the IAM role of the Amazon S3 bucket.
 func (o LocationS3s3ConfigOutput) BucketAccessRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LocationS3s3Config) string { return v.BucketAccessRoleArn }).(pulumi.StringOutput)
+}
+
+type LocationS3s3ConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (LocationS3s3ConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocationS3s3Config)(nil)).Elem()
+}
+
+func (o LocationS3s3ConfigPtrOutput) ToLocationS3s3ConfigPtrOutput() LocationS3s3ConfigPtrOutput {
+	return o
+}
+
+func (o LocationS3s3ConfigPtrOutput) ToLocationS3s3ConfigPtrOutputWithContext(ctx context.Context) LocationS3s3ConfigPtrOutput {
+	return o
+}
+
+func (o LocationS3s3ConfigPtrOutput) Elem() LocationS3s3ConfigOutput {
+	return o.ApplyT(func(v *LocationS3s3Config) LocationS3s3Config {
+		if v != nil {
+			return *v
+		}
+		var ret LocationS3s3Config
+		return ret
+	}).(LocationS3s3ConfigOutput)
+}
+
+// The ARN of the IAM role of the Amazon S3 bucket.
+func (o LocationS3s3ConfigPtrOutput) BucketAccessRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationS3s3Config) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.BucketAccessRoleArn
+	}).(pulumi.StringPtrOutput)
 }
 
 // The mount options used by DataSync to access the SMB server.
@@ -4969,6 +5037,7 @@ func init() {
 	pulumi.RegisterOutputType(LocationFSxOpenZfsNfsOutput{})
 	pulumi.RegisterOutputType(LocationFSxOpenZfsNfsPtrOutput{})
 	pulumi.RegisterOutputType(LocationFSxOpenZfsProtocolOutput{})
+	pulumi.RegisterOutputType(LocationFSxOpenZfsProtocolPtrOutput{})
 	pulumi.RegisterOutputType(LocationHdfsNameNodeOutput{})
 	pulumi.RegisterOutputType(LocationHdfsNameNodeArrayOutput{})
 	pulumi.RegisterOutputType(LocationHdfsQopConfigurationOutput{})
@@ -4978,6 +5047,7 @@ func init() {
 	pulumi.RegisterOutputType(LocationNfsOnPremConfigOutput{})
 	pulumi.RegisterOutputType(LocationNfsOnPremConfigPtrOutput{})
 	pulumi.RegisterOutputType(LocationS3s3ConfigOutput{})
+	pulumi.RegisterOutputType(LocationS3s3ConfigPtrOutput{})
 	pulumi.RegisterOutputType(LocationSmbMountOptionsOutput{})
 	pulumi.RegisterOutputType(LocationSmbMountOptionsPtrOutput{})
 	pulumi.RegisterOutputType(StorageSystemServerConfigurationOutput{})

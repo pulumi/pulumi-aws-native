@@ -29,12 +29,16 @@ type LookupLocationFSxWindowsArgs struct {
 }
 
 type LookupLocationFSxWindowsResult struct {
+	// The name of the Windows domain that the FSx for Windows server belongs to.
+	Domain *string `pulumi:"domain"`
 	// The Amazon Resource Name (ARN) of the Amazon FSx for Windows file system location that is created.
 	LocationArn *string `pulumi:"locationArn"`
 	// The URL of the FSx for Windows location that was described.
 	LocationUri *string `pulumi:"locationUri"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
+	// The user who has the permissions to access files and folders in the FSx for Windows file system.
+	User *string `pulumi:"user"`
 }
 
 func LookupLocationFSxWindowsOutput(ctx *pulumi.Context, args LookupLocationFSxWindowsOutputArgs, opts ...pulumi.InvokeOption) LookupLocationFSxWindowsResultOutput {
@@ -69,6 +73,11 @@ func (o LookupLocationFSxWindowsResultOutput) ToLookupLocationFSxWindowsResultOu
 	return o
 }
 
+// The name of the Windows domain that the FSx for Windows server belongs to.
+func (o LookupLocationFSxWindowsResultOutput) Domain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLocationFSxWindowsResult) *string { return v.Domain }).(pulumi.StringPtrOutput)
+}
+
 // The Amazon Resource Name (ARN) of the Amazon FSx for Windows file system location that is created.
 func (o LookupLocationFSxWindowsResultOutput) LocationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLocationFSxWindowsResult) *string { return v.LocationArn }).(pulumi.StringPtrOutput)
@@ -82,6 +91,11 @@ func (o LookupLocationFSxWindowsResultOutput) LocationUri() pulumi.StringPtrOutp
 // An array of key-value pairs to apply to this resource.
 func (o LookupLocationFSxWindowsResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupLocationFSxWindowsResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
+}
+
+// The user who has the permissions to access files and folders in the FSx for Windows file system.
+func (o LookupLocationFSxWindowsResultOutput) User() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLocationFSxWindowsResult) *string { return v.User }).(pulumi.StringPtrOutput)
 }
 
 func init() {

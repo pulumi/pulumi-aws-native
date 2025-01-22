@@ -33,6 +33,8 @@ type LookupLocationFSxOpenZfsResult struct {
 	LocationArn *string `pulumi:"locationArn"`
 	// The URL of the FSx OpenZFS that was described.
 	LocationUri *string `pulumi:"locationUri"`
+	// The type of protocol that AWS DataSync uses to access your file system.
+	Protocol *LocationFSxOpenZfsProtocol `pulumi:"protocol"`
 	// An array of key-value pairs to apply to this resource.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -77,6 +79,11 @@ func (o LookupLocationFSxOpenZfsResultOutput) LocationArn() pulumi.StringPtrOutp
 // The URL of the FSx OpenZFS that was described.
 func (o LookupLocationFSxOpenZfsResultOutput) LocationUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLocationFSxOpenZfsResult) *string { return v.LocationUri }).(pulumi.StringPtrOutput)
+}
+
+// The type of protocol that AWS DataSync uses to access your file system.
+func (o LookupLocationFSxOpenZfsResultOutput) Protocol() LocationFSxOpenZfsProtocolPtrOutput {
+	return o.ApplyT(func(v LookupLocationFSxOpenZfsResult) *LocationFSxOpenZfsProtocol { return v.Protocol }).(LocationFSxOpenZfsProtocolPtrOutput)
 }
 
 // An array of key-value pairs to apply to this resource.

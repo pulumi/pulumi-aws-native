@@ -15,9 +15,15 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
     /// </summary>
     public sealed class KnowledgeBaseRedshiftServerlessAuthConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The type of authentication to use.
+        /// </summary>
         [Input("type", required: true)]
         public Input<Pulumi.AwsNative.Bedrock.KnowledgeBaseRedshiftServerlessAuthType> Type { get; set; } = null!;
 
+        /// <summary>
+        /// The ARN of an Secrets Manager secret for authentication.
+        /// </summary>
         [Input("usernamePasswordSecretArn")]
         public Input<string>? UsernamePasswordSecretArn { get; set; }
 
