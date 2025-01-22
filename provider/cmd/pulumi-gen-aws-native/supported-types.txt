@@ -526,6 +526,7 @@ AWS::GuardDuty::IPSet
 AWS::GuardDuty::MalwareProtectionPlan
 AWS::GuardDuty::Master
 AWS::GuardDuty::Member
+AWS::GuardDuty::PublishingDestination
 AWS::GuardDuty::ThreatIntelSet
 AWS::HealthImaging::Datastore
 AWS::HealthLake::FHIRDatastore

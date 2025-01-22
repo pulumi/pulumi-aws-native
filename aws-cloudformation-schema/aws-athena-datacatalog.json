@@ -77,7 +77,7 @@
       "permissions" : [ "athena:DeleteDataCatalog" ]
     },
     "list" : {
-      "permissions" : [ "athena:ListDataCatalog" ]
+      "permissions" : [ "athena:ListDataCatalogs" ]
     }
   },
   "primaryIdentifier" : [ "/properties/Name" ],
