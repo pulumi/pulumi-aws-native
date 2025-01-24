@@ -61,7 +61,7 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "organizations:CreateOrganizationalUnit", "organizations:DescribeOrganizationalUnit", "organizations:ListParents", "organizations:ListTagsForResource", "organizations:TagResource" ]
+      "permissions" : [ "organizations:CreateOrganizationalUnit", "organizations:DescribeOrganizationalUnit", "organizations:ListParents", "organizations:ListOrganizationalUnitsForParent", "organizations:ListTagsForResource", "organizations:TagResource" ]
     },
     "read" : {
       "permissions" : [ "organizations:DescribeOrganizationalUnit", "organizations:ListParents", "organizations:ListTagsForResource" ]

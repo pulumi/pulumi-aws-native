@@ -58,6 +58,9 @@
     },
     "UnusedReservationBillingOwnerId" : {
       "type" : "string"
+    },
+    "AvailabilityZoneId" : {
+      "type" : "string"
     }
   },
   "definitions" : {
@@ -92,11 +95,19 @@
       }
     }
   },
-  "required" : [ "InstanceCount", "AvailabilityZone", "InstancePlatform", "InstanceType" ],
-  "createOnlyProperties" : [ "/properties/Tenancy", "/properties/InstancePlatform", "/properties/InstanceType", "/properties/AvailabilityZone", "/properties/TagSpecifications", "/properties/OutPostArn", "/properties/EphemeralStorage", "/properties/EbsOptimized", "/properties/PlacementGroupArn" ],
+  "required" : [ "InstanceCount", "InstancePlatform", "InstanceType" ],
+  "createOnlyProperties" : [ "/properties/Tenancy", "/properties/InstancePlatform", "/properties/InstanceType", "/properties/AvailabilityZone", "/properties/TagSpecifications", "/properties/OutPostArn", "/properties/EphemeralStorage", "/properties/EbsOptimized", "/properties/PlacementGroupArn", "/properties/AvailabilityZoneId" ],
   "primaryIdentifier" : [ "/properties/Id" ],
   "readOnlyProperties" : [ "/properties/Id", "/properties/AvailableInstanceCount", "/properties/TotalInstanceCount" ],
   "writeOnlyProperties" : [ "/properties/UnusedReservationBillingOwnerId" ],
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : true,
+    "tagProperty" : "/properties/TagSpecifications",
+    "permissions" : [ "ec2:CreateTags", "ec2:DeleteTags" ]
+  },
   "handlers" : {
     "create" : {
       "permissions" : [ "ec2:CreateCapacityReservation", "ec2:DescribeCapacityReservations", "ec2:CancelCapacityReservation", "ec2:CreateTags" ]

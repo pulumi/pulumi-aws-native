@@ -3671,6 +3671,9 @@
         "type": "string",
         "description": "The Availability Zone in which to create the Capacity Reservation."
       },
+      "availabilityZoneId": {
+        "type": "string"
+      },
       "ebsOptimized": {
         "type": "boolean",
         "description": "Indicates whether the Capacity Reservation supports EBS-optimized instances. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS- optimized instance."
@@ -10730,6 +10733,9 @@
       "applicationId": {
         "type": "string",
         "description": "The identifier of the Amazon Q Business web experience."
+      },
+      "browserExtensionConfiguration": {
+        "$ref": "#/types/aws-native:qbusiness:WebExperienceBrowserExtensionConfiguration"
       },
       "customizationConfiguration": {
         "$ref": "#/types/aws-native:qbusiness:WebExperienceCustomizationConfiguration",
