@@ -1,1 +1,11 @@
-{}
+{
+  "aws-native:ec2:CapacityReservation": {
+    "description": "The tags to apply to the Capacity Reservation during launch.",
+    "insertionOrder": false,
+    "items": {
+      "$ref": "#/definitions/TagSpecification"
+    },
+    "type": "array",
+    "uniqueItems": false
+  }
+}

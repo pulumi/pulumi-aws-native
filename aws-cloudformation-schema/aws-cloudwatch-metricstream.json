@@ -3,7 +3,14 @@
   "description" : "Resource Type definition for Metric Stream",
   "additionalProperties" : false,
   "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-cloudwatch.git",
-  "taggable" : true,
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : false,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "cloudwatch:TagResource", "cloudwatch:UntagResource", "cloudwatch:ListTagsForResource" ]
+  },
   "properties" : {
     "Arn" : {
       "description" : "Amazon Resource Name of the metric stream.",
@@ -206,7 +213,7 @@
       "permissions" : [ "cloudwatch:ListMetricStreams" ]
     },
     "read" : {
-      "permissions" : [ "cloudwatch:GetMetricStream" ]
+      "permissions" : [ "cloudwatch:GetMetricStream", "cloudwatch:ListTagsForResource" ]
     }
   },
   "allOf" : [ {
@@ -218,6 +225,5 @@
   } ],
   "createOnlyProperties" : [ "/properties/Name" ],
   "primaryIdentifier" : [ "/properties/Name" ],
-  "readOnlyProperties" : [ "/properties/Arn", "/properties/CreationDate", "/properties/LastUpdateDate", "/properties/State" ],
-  "writeOnlyProperties" : [ "/properties/Tags" ]
+  "readOnlyProperties" : [ "/properties/Arn", "/properties/CreationDate", "/properties/LastUpdateDate", "/properties/State" ]
 }

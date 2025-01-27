@@ -433,6 +433,14 @@
   "primaryIdentifier" : [ "/properties/Arn" ],
   "createOnlyProperties" : [ "/properties/ScheduledQueryName", "/properties/QueryString", "/properties/ScheduleConfiguration", "/properties/NotificationConfiguration", "/properties/ClientToken", "/properties/ScheduledQueryExecutionRoleArn", "/properties/TargetConfiguration", "/properties/ErrorReportConfiguration", "/properties/KmsKeyId" ],
   "readOnlyProperties" : [ "/properties/Arn", "/properties/SQName", "/properties/SQQueryString", "/properties/SQScheduleConfiguration", "/properties/SQNotificationConfiguration", "/properties/SQScheduledQueryExecutionRoleArn", "/properties/SQTargetConfiguration", "/properties/SQErrorReportConfiguration", "/properties/SQKmsKeyId" ],
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : true,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "timestream:TagResource", "timestream:ListTagsForResource", "timestream:UntagResource" ]
+  },
   "handlers" : {
     "create" : {
       "permissions" : [ "timestream:CreateScheduledQuery", "timestream:DescribeEndpoints" ]
