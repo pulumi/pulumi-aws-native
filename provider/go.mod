@@ -21,7 +21,7 @@ require (
 	github.com/aws/smithy-go v1.22.1
 	github.com/blang/semver v3.5.1+incompatible
 	github.com/goccy/go-yaml v1.9.5
-	github.com/golang/glog v1.2.2
+	github.com/golang/glog v1.2.4
 	github.com/golang/protobuf v1.5.4
 	github.com/google/uuid v1.6.0
 	github.com/hashicorp/hcl/v2 v2.22.0
