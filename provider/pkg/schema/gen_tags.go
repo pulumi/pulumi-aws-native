@@ -25,6 +25,8 @@ func (ctx *cfSchemaContext) ApplyTagsTransformation(propName string, propertySpe
 		// Keep custom type
 	case default_tags.TagsStyleKeyValueArrayWithAlternateType:
 		// Keep custom type
+	case default_tags.TagsStyleNestedKeyValueArrayWithResourceType:
+		// Keep custom type.
 	default: // Unknown
 		ctx.reports.UnexpectedTagsShapes[ctx.resourceToken] = spec
 	}
@@ -104,6 +106,9 @@ func (ctx *cfSchemaContext) tagStyleIsKeyValueArray(propName string, typeSpec *p
 				}
 				return true, default_tags.TagsStyleKeyValueArray
 			}
+			if hasNestedTagsPropertyAndResourceType := hasNestedTagsPropertyAndResourceTypeProperty(&refType); hasNestedTagsPropertyAndResourceType {
+				return true, default_tags.TagsStyleNestedKeyValueArrayWithResourceType
+			}
 		}
 	}
 
@@ -126,6 +131,20 @@ func (ctx *cfSchemaContext) tagStyleIsKeyValueArray(propName string, typeSpec *p
 func (ctx *cfSchemaContext) isPropCreateOnly(propName string) bool {
 	createOnlyProps := readPropSdkNames(ctx.resourceSpec, "createOnlyProperties")
 	return createOnlyProps.Has(naming.ToSdkName(propName))
+}
+
+// hasNestedTagsPropertyAndResourceTypeProperty checks if the type has a "Tags" property that is an array, and a "ResourceType" property that is a string.
+// These type of tags cannot be part of the "defaultTags" functionality because you have to specify the specific "ResourceType"
+// that you want to apply tags to. If you specify an invalid type it will error. An example of this is things like LaunchTemplates which might end
+// up creating multiple resources of different types. It will create an EC2 Instance and that instance will have Volumes, etc. The tag
+// specification can control the tag values per resource type
+func hasNestedTagsPropertyAndResourceTypeProperty(typeSpec *pschema.ComplexTypeSpec) bool {
+	if typeSpec == nil || typeSpec.Properties == nil {
+		return false
+	}
+	tagsProp, tagsPropExists := typeSpec.Properties["tags"]
+	resourceTypeProp, resourceTypePropExists := typeSpec.Properties["resourceType"]
+	return tagsPropExists && resourceTypePropExists && tagsProp.Type == "array" && resourceTypeProp.Type == "string"
 }
 
 func hasKeyValueStringPropertiesAndAdditions(typeSpec *pschema.ComplexTypeSpec) (hasKeyValueStringProperties bool, hasExtraProperties bool) {

@@ -29,6 +29,9 @@ const (
 	TagsStyleKeyValueArrayWithAlternateType TagsStyle = tagStyleKeyValueArrayPrefix + "WithAlternateType"
 	// TagsStyleKeyValueArrayUpperCase is a style where the tags are represented as an array of key-value pairs but the "Key" and "Value" properties are uppercase.
 	TagsStyleKeyValueArrayUpperCase TagsStyle = tagStyleKeyValueArrayPrefix + "UpperCase"
+	// TagsStyleObjectArrayWithResourceType is a style where the tags are represented as an array of objects with a "resourceType" property
+	// for example { tagSpecification: [ { resourceType: 'capacity-reservation' }, tags: [ { key: 'Key', value: 'Value' }]]}
+	TagsStyleNestedKeyValueArrayWithResourceType TagsStyle = "nestedKeyValueArrayWithResourceType"
 )
 
 func (ts TagsStyle) IsStringMap() bool {
