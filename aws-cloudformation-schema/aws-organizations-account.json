@@ -109,7 +109,7 @@
   "primaryIdentifier" : [ "/properties/AccountId" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "organizations:CreateAccount", "organizations:DescribeCreateAccountStatus", "organizations:MoveAccount", "organizations:ListParents", "organizations:TagResource", "organizations:DescribeAccount", "organizations:ListTagsForResource" ]
+      "permissions" : [ "organizations:CreateAccount", "organizations:DescribeCreateAccountStatus", "organizations:MoveAccount", "organizations:ListAccounts", "organizations:ListParents", "organizations:TagResource", "organizations:DescribeAccount", "organizations:ListTagsForResource" ]
     },
     "read" : {
       "permissions" : [ "organizations:DescribeAccount", "organizations:ListParents", "organizations:ListTagsForResource" ]
