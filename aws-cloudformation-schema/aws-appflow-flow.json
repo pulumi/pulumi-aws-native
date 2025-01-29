@@ -1230,7 +1230,7 @@
       "permissions" : [ "appflow:DescribeFlow", "appflow:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "appflow:UpdateFlow", "appflow:StartFlow", "appflow:StopFlow", "appflow:TagResource", "appflow:UntagResource", "appflow:ListTagsForResource", "appflow:UseConnectorProfile", "iam:PassRole", "s3:ListAllMyBuckets", "s3:GetBucketLocation", "s3:GetBucketPolicy", "kms:ListGrants", "secretsmanager:CreateSecret", "secretsmanager:PutResourcePolicy" ]
+      "permissions" : [ "appflow:DescribeFlow", "appflow:UpdateFlow", "appflow:StartFlow", "appflow:StopFlow", "appflow:TagResource", "appflow:UntagResource", "appflow:ListTagsForResource", "appflow:UseConnectorProfile", "iam:PassRole", "s3:ListAllMyBuckets", "s3:GetBucketLocation", "s3:GetBucketPolicy", "kms:ListGrants", "secretsmanager:CreateSecret", "secretsmanager:PutResourcePolicy" ]
     },
     "delete" : {
       "permissions" : [ "appflow:DeleteFlow" ]
@@ -1243,6 +1243,8 @@
     "taggable" : true,
     "tagOnCreate" : true,
     "tagUpdatable" : false,
-    "cloudFormationSystemTags" : false
+    "cloudFormationSystemTags" : false,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "appflow:TagResource", "appflow:UntagResource", "appflow:ListTagsForResource" ]
   }
 }

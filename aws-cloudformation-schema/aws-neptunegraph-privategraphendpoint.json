@@ -70,7 +70,7 @@
       "timeoutInMinutes" : 2160
     },
     "list" : {
-      "permissions" : [ "neptune-graph:GetPrivateGraphEndpoint", "neptune-graph:ListPrivateGraphEndpoints" ],
+      "permissions" : [ "neptune-graph:GetPrivateGraphEndpoint", "neptune-graph:ListPrivateGraphEndpoints", "neptune-graph:ListGraphs" ],
       "timeoutInMinutes" : 2160
     }
   }

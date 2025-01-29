@@ -164,6 +164,14 @@
   "primaryIdentifier" : [ "/properties/DatabaseName", "/properties/TableName" ],
   "createOnlyProperties" : [ "/properties/DatabaseName", "/properties/TableName" ],
   "readOnlyProperties" : [ "/properties/Arn", "/properties/Name" ],
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : true,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "timestream:TagResource", "timestream:ListTagsForResource", "timestream:UntagResource" ]
+  },
   "handlers" : {
     "create" : {
       "permissions" : [ "timestream:CreateTable", "timestream:DescribeEndpoints", "timestream:TagResource", "s3:PutObject", "s3:GetObject", "s3:GetBucketAcl", "kms:GenerateDataKey*", "kms:DescribeKey", "kms:Encrypt" ]

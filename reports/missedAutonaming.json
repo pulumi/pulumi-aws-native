@@ -2004,6 +2004,22 @@
       }
     }
   },
+  "aws-native:cloudfront:VpcOrigin": {
+    "cfTypeName": "AWS::CloudFront::VpcOrigin",
+    "properties": {
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "A complex type that contains zero or more `Tag` elements."
+      },
+      "vpcOriginEndpointConfig": {
+        "$ref": "#/types/aws-native:cloudfront:VpcOriginEndpointConfig",
+        "description": "The VPC origin endpoint configuration."
+      }
+    }
+  },
   "aws-native:cloudtrail:ResourcePolicy": {
     "cfTypeName": "AWS::CloudTrail::ResourcePolicy",
     "properties": {
@@ -3671,6 +3687,10 @@
         "type": "string",
         "description": "The Availability Zone in which to create the Capacity Reservation."
       },
+      "availabilityZoneId": {
+        "type": "string",
+        "description": "The Availability Zone ID of the Capacity Reservation."
+      },
       "ebsOptimized": {
         "type": "boolean",
         "description": "Indicates whether the Capacity Reservation supports EBS-optimized instances. This optimization provides dedicated throughput to Amazon EBS and an optimized configuration stack to provide optimal I/O performance. This optimization isn't available with all instance types. Additional usage charges apply when using an EBS- optimized instance."
@@ -3689,7 +3709,7 @@
       },
       "instanceCount": {
         "type": "integer",
-        "description": "The number of instances for which to reserve capacity.\n\n\u003e You can request future-dated Capacity Reservations for an instance count with a minimum of 100 VPUs. For example, if you request a future-dated Capacity Reservation for `m5.xlarge` instances, you must request at least 25 instances ( *25 * m5.xlarge = 100 vCPUs* ). \n\nValid range: 1 - 1000"
+        "description": "The number of instances for which to reserve capacity.\n\n\u003e You can request future-dated Capacity Reservations for an instance count with a minimum of 100 vCPUs. For example, if you request a future-dated Capacity Reservation for `m5.xlarge` instances, you must request at least 25 instances ( *25 * m5.xlarge = 100 vCPUs* ). \n\nValid range: 1 - 1000"
       },
       "instanceMatchCriteria": {
         "type": "string",
@@ -5687,6 +5707,10 @@
         "type": "string",
         "description": "The type of attachment used to provide connectivity between the AWS Verified Access endpoint and the application."
       },
+      "cidrOptions": {
+        "$ref": "#/types/aws-native:ec2:VerifiedAccessEndpointCidrOptions",
+        "description": "The options for cidr type endpoint."
+      },
       "description": {
         "type": "string",
         "description": "A description for the AWS Verified Access endpoint."
@@ -5718,6 +5742,10 @@
       "policyEnabled": {
         "type": "boolean",
         "description": "The status of the Verified Access policy."
+      },
+      "rdsOptions": {
+        "$ref": "#/types/aws-native:ec2:VerifiedAccessEndpointRdsOptions",
+        "description": "The options for rds type endpoint."
       },
       "securityGroupIds": {
         "type": "array",
@@ -10731,6 +10759,10 @@
         "type": "string",
         "description": "The identifier of the Amazon Q Business web experience."
       },
+      "browserExtensionConfiguration": {
+        "$ref": "#/types/aws-native:qbusiness:WebExperienceBrowserExtensionConfiguration",
+        "description": "The container for browser extension configuration for an Amazon Q Business web experience."
+      },
       "customizationConfiguration": {
         "$ref": "#/types/aws-native:qbusiness:WebExperienceCustomizationConfiguration",
         "description": "Contains the configuration information to customize the logo, font, and color of an Amazon Q Business web experience with individual files for each property or a CSS file for them all."
@@ -11533,7 +11565,7 @@
     "properties": {
       "computeRedundancy": {
         "type": "integer",
-        "description": "Specifies whether to create standby instances for the DB shard group."
+        "description": "Specifies whether to create standby DB shard groups for the DB shard group. Valid values are the following:\n  +  0 - Creates a DB shard group without a standby DB shard group. This is the default value.\n  +  1 - Creates a DB shard group with a standby DB shard group in a different Availability Zone (AZ).\n  +  2 - Creates a DB shard group with two standby DB shard groups in two different AZs."
       },
       "dbClusterIdentifier": {
         "type": "string",
@@ -11553,14 +11585,14 @@
       },
       "publiclyAccessible": {
         "type": "boolean",
-        "description": "Indicates whether the DB shard group is publicly accessible."
+        "description": "Specifies whether the DB shard group is publicly accessible.\n When the DB shard group is publicly accessible, its Domain Name System (DNS) endpoint resolves to the private IP address from within the DB shard group's virtual private cloud (VPC). It resolves to the public IP address from outside of the DB shard group's VPC. Access to the DB shard group is ultimately controlled by the security group it uses. That public access is not permitted if the security group assigned to the DB shard group doesn't permit it.\n When the DB shard group isn't publicly accessible, it is an internal DB shard group with a DNS name that resolves to a private IP address.\n Default: The default behavior varies depending on whether ``DBSubnetGroupName`` is specified.\n If ``DBSubnetGroupName`` isn't specified, and ``PubliclyAccessible`` isn't specified, the following applies:\n  +  If the default VPC in the target Region doesn’t have an internet gateway attached to it, the DB shard group is private.\n  +  If the default VPC in the target Region has an internet gateway attached to it, the DB shard group is public.\n  \n If ``DBSubnetGroupName`` is specified, and ``PubliclyAccessible`` isn't specified, the following applies:\n  +  If the subnets are part of a VPC that doesn’t have an internet gateway attached to it, the DB shard group is private.\n  +  If the subnets are part of a VPC that has an internet gateway attached to it, the DB shard group is public."
       },
       "tags": {
         "type": "array",
         "items": {
           "$ref": "#/types/aws-native:index:Tag"
         },
-        "description": "An array of key-value pairs to apply to this resource."
+        "description": "An optional set of key-value pairs to associate arbitrary data of your choosing with the DB shard group."
       }
     }
   },

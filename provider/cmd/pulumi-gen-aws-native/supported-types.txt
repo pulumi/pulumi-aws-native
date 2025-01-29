@@ -176,6 +176,7 @@ AWS::CloudFront::OriginRequestPolicy
 AWS::CloudFront::PublicKey
 AWS::CloudFront::RealtimeLogConfig
 AWS::CloudFront::ResponseHeadersPolicy
+AWS::CloudFront::VpcOrigin
 AWS::CloudTrail::Channel
 AWS::CloudTrail::Dashboard
 AWS::CloudTrail::EventDataStore

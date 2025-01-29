@@ -99,6 +99,17 @@
       "pattern" : "^[a-zA-Z0-9]+$",
       "description" : "The name of an existing InfluxDB parameter group."
     },
+    "Port" : {
+      "type" : "integer",
+      "minimum" : 1024,
+      "maximum" : 65535,
+      "description" : "The port number on which InfluxDB accepts connections."
+    },
+    "NetworkType" : {
+      "type" : "string",
+      "description" : "Network type of the InfluxDB Instance.",
+      "enum" : [ "IPV4", "DUAL" ]
+    },
     "LogDeliveryConfiguration" : {
       "type" : "object",
       "description" : "Configuration for sending logs to customer account from the InfluxDB instance.",
@@ -129,7 +140,7 @@
     "Status" : {
       "type" : "string",
       "description" : "Status of the InfluxDB Instance.",
-      "enum" : [ "CREATING", "AVAILABLE", "DELETING", "MODIFYING", "UPDATING", "DELETED", "FAILED" ]
+      "enum" : [ "CREATING", "AVAILABLE", "DELETING", "MODIFYING", "UPDATING", "UPDATING_DEPLOYMENT_TYPE", "UPDATING_INSTANCE_TYPE", "DELETED", "FAILED" ]
     },
     "Arn" : {
       "type" : "string",
@@ -142,7 +153,7 @@
       "type" : "string",
       "minLength" : 3,
       "maxLength" : 40,
-      "pattern" : "^[a-zA-z][a-zA-Z0-9]*(-[a-zA-Z0-9]+)*$",
+      "pattern" : "^[a-zA-Z][a-zA-Z0-9]*(-[a-zA-Z0-9]+)*$",
       "description" : "The unique name that is associated with the InfluxDB instance."
     },
     "AvailabilityZone" : {
@@ -193,9 +204,10 @@
     "tagOnCreate" : true,
     "tagUpdatable" : true,
     "cloudFormationSystemTags" : true,
-    "tagProperty" : "/properties/Tags"
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "timestream-influxdb:TagResource", "timestream-influxdb:ListTagsForResource", "timestream-influxdb:UntagResource" ]
   },
-  "createOnlyProperties" : [ "/properties/Name", "/properties/Username", "/properties/Password", "/properties/Organization", "/properties/Bucket", "/properties/DbInstanceType", "/properties/VpcSubnetIds", "/properties/VpcSecurityGroupIds", "/properties/PubliclyAccessible", "/properties/DbStorageType", "/properties/AllocatedStorage", "/properties/DeploymentType" ],
+  "createOnlyProperties" : [ "/properties/Name", "/properties/Username", "/properties/Password", "/properties/Organization", "/properties/Bucket", "/properties/VpcSubnetIds", "/properties/VpcSecurityGroupIds", "/properties/PubliclyAccessible", "/properties/DbStorageType", "/properties/AllocatedStorage", "/properties/NetworkType" ],
   "writeOnlyProperties" : [ "/properties/Username", "/properties/Password", "/properties/Organization", "/properties/Bucket" ],
   "readOnlyProperties" : [ "/properties/Status", "/properties/Arn", "/properties/Id", "/properties/AvailabilityZone", "/properties/Endpoint", "/properties/SecondaryAvailabilityZone", "/properties/InfluxAuthParametersSecretArn" ],
   "handlers" : {
@@ -208,7 +220,7 @@
       "timeoutInMinutes" : 2160
     },
     "update" : {
-      "permissions" : [ "s3:ListBucket", "s3:GetBucketPolicy", "timestream-influxdb:GetDbInstance", "timestream-influxdb:ListDbInstances", "timestream-influxdb:UpdateDbInstance", "timestream-influxdb:TagResource", "timestream-influxdb:UntagResource", "timestream-influxdb:ListTagsForResource" ],
+      "permissions" : [ "s3:ListBucket", "s3:GetBucketPolicy", "timestream-influxdb:GetDbInstance", "timestream-influxdb:ListDbInstances", "timestream-influxdb:UpdateDbInstance", "timestream-influxdb:TagResource", "timestream-influxdb:UntagResource", "timestream-influxdb:ListTagsForResource", "ec2:DescribeSubnets", "ec2:DescribeVpcs" ],
       "timeoutInMinutes" : 2160
     },
     "delete" : {
